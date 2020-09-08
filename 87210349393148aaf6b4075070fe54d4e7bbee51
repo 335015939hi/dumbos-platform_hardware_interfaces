@@ -418,6 +418,873 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11db6b2b_97bdc587",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Then why test for this property? This has nothing to do with the behavior of the implementation under test. Callers may not rely on the state of the out parameters if the call failed for any reason, period.",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 71
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e13f10e_28c7e1e1",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Nit: Maybe this should be made a vector\u003cuint8_t\u003e. Does not have to be now, but we could file a bug for it.",
+      "range": {
+        "startLine": 107,
+        "startChar": 47,
+        "endLine": 107,
+        "endChar": 53
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee5328ca_4eb2aeab",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "I am writing this here because I noticed just now, but it is true for all other functions that evaluate serviceSepcificErrorCode().\n\nserviceSepcificErrorCode returns the service specific error code only if the exception code is SERVICE_SPECIFIC. In all other cases it returns 0. This means if you just cast this to ErrorCode, this function will return OK (0) even if another exception situation occurred.\n\nSo if .isOk() returns false, you should first evaluate the .exceptionCode(). If that is EX_SERVICE_SPECIFIC you may use result.serviceSpecificErrorCode(). If it is EX_TRANSACTION_FAILED you may use result.transactionError() in any other case the exception code is all you get.\n\nSo I would map\n * .isOk() \u003d\u003d true on ErrorCode::OK.\n * .exceptionCode() \u003d\u003d EX_SERVICE_SPECIFIC on static_cast\u003cErrorCode\u003e(result.serviceSpecificErrorCode())\n * every other case on ErrorCode::UNKNOWN_ERROR",
+      "range": {
+        "startLine": 179,
+        "startChar": 34,
+        "endLine": 179,
+        "endChar": 67
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caa97816_80733852",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "DeleteKey returns ErrorCode. No need to cast here.",
+      "range": {
+        "startLine": 183,
+        "startChar": 10,
+        "endLine": 183,
+        "endChar": 34
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "124bfcb4_caf58923",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Not needed, Finish already clears op_.",
+      "range": {
+        "startLine": 330,
+        "startChar": 4,
+        "endLine": 330,
+        "endChar": 16
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5b8a5e5_d1bb41c9",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "IIRC mutable lvalue references are not allowed by the C++ style guide. Since Abort always consumes the operation I would strongly suggest making this an rvalue reference and use std::move at the call site.",
+      "range": {
+        "startLine": 340,
+        "startChar": 37,
+        "endLine": 340,
+        "endChar": 60
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18883879_2a9e1de5",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "You probably want to call op.clear() here.",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1563600_43eb9c42",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "I think you also want to call op_.clear() here.",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d56ae8b_d94c528b",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Not needed, Finish clears op_.",
+      "range": {
+        "startLine": 392,
+        "startChar": 4,
+        "endLine": 392,
+        "endChar": 16
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9002ae8_d66b4397",
+        "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "this variable is unused.\n\nNit: Since token is only valid if error is OK. You could use std::variant\u003cErrorCode, VerificationToken\u003e Instead of VerifyAuthorizationResult.\n\nAt the call site you can use it like this:\n\n auto result \u003d verifyAuthorization(...);\n if (auto token_ptr \u003d result.get_if\u003cVerificationToken\u003e()) {\n \n } else if (auto error_ptr \u003d result.get_if\u003cErrorCode\u003e()) {\n \n }",
+      "range": {
+        "startLine": 35,
+        "startChar": 26,
+        "endLine": 35,
+        "endChar": 37
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9379ea8_da6a366b",
+        "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "err.serviceSpecificErrorCode() \u003d\u003d 0 does not imply success. You have to check err.exceptionCode() first.\n\nSee comment on serviceSpecificErrorCode in KeyMintAidlTestBase.cpp\n\nUsing std::variant this could look like this:\n\n VerificationToken verifyToken;\n\n Status err \u003d keyMint().verifyAuthorization(operationHandle,               //\n                                            paramsToVerify.vector_data(),  //\n                                            authToken,                     //\n                                            \u0026verifyToken);\n\n if (err.isOk()) return {verifyToken};\n if (err.exceptionCode() \u003d\u003d EX_SERVICE_SPECIFIC) {\n     return {static_cast\u003cErrorCode\u003e(err.serviceSpecificErrorCode())};\n }\n return {ErrorCode::UNKNOWN_ERROR};",
+      "range": {
+        "startLine": 43,
+        "startChar": 23,
+        "endLine": 43,
+        "endChar": 78
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1a40718_81d4a2e4",
+        "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Note that EXPECT_* macros do not perform control flow. Which means that the content of result.token will be checked even if the call failed, i.e., result.error !\u003d OK.\n\nWe use EXPECT in test helper functions, because ASSERT_* macros return void, so they cannot convey failures to the caller. But this also means that control flow needs to be done explicitly. This here, however, is an actual test function, so you should use ASSERT_* macros throughout, in order to abort on the first error.\n\nWith std::variant this could look like this:\n\n if (auto token_ptr \u003d result1.get_if\u003cVerificationToken\u003e()) {\n     ASSERT_EQ(1U, token_ptr-\u003echallenge);\n     ASSERT_EQ(SecLevel(), token_ptr-\u003esecurityLevel);\n     ASSERT_GT(token_ptr-\u003etimestamp.milliSeconds, 0U);\n } else if (auto error_ptr \u003d result1.get_if\u003cErrorCode\u003e()) {\n     // if we reach this part *error_ptr must not be OK,\n     // so if we fail here we must fail on the second ASSERT.\n     ASSERT_NE(ErrorCode::OK, *error_ptr);\n     ASSERT_EQ(ErrorCode::OK, *error_ptr);\n } else {\n     // This can never happen.\n     FAIL;\n }",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65d7f6fe_841a100f",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Nit: \"equivalent\" may be more fitting. I won\u0027t block this CL on it though.",
+      "range": {
+        "startLine": 57,
+        "startChar": 24,
+        "endLine": 57,
+        "endChar": 30
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "976ea7dd_4ebe1dd0",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "To check true equivalence you could use Deduplicate here. It leaves the set sorted but also removes duplicate parameters. Then again we may want to call out implementations that duplicate parameters for no good reason. Never mind.",
+      "range": {
+        "startLine": 64,
+        "startChar": 9,
+        "endLine": 64,
+        "endChar": 13
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f097a0c_add38cd7",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "You could use find_if to terminate early. It would also have the same semantic as AuthorizationSet.Contains, which returns true even if there are more matching parameters.",
+      "range": {
+        "startLine": 77,
+        "startChar": 24,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7556ce9_9aae2bbc",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Nit: Technically, \"contains\" should be true even if count is greater 1. If you want to make a point that the tag can only be in the set once, it would help debugging if the function returned count. Then ASSERT_EQ(1, contains(...)) would still fail, but the error message would report why. Where a boolean is expected it would still have the same semantic.",
+      "range": {
+        "startLine": 80,
+        "startChar": 11,
+        "endLine": 80,
+        "endChar": 21
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5339be7f_e43db3cf",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "I think AuthorizationSet.Subtract does what you want here. You can use this instead.",
+      "range": {
+        "startLine": 232,
+        "startChar": 1,
+        "endLine": 237,
+        "endChar": 0
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92b54655_d9962a9d",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "This can be replaced with \"cert\". cert is a UniquePtr which has operator bool.",
+      "range": {
+        "startLine": 289,
+        "startChar": 16,
+        "endLine": 289,
+        "endChar": 28
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51574055_e0129965",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "if (!cert) return false;",
+      "range": {
+        "startLine": 290,
+        "startChar": 8,
+        "endLine": 290,
+        "endChar": 19
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59754485_9dcbdb36",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "It this is correct? This will be confusing.",
+      "range": {
+        "startLine": 324,
+        "startChar": 35,
+        "endLine": 324,
+        "endChar": 36
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e78d65d_0549a875",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "How useful are these tests? Shouldn\u0027t we check exhaustively if all Authorizations that should be there are, and those that shouldn\u0027t are not?",
+      "range": {
+        "startLine": 365,
+        "startChar": 5,
+        "endLine": 376,
+        "endChar": 79
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43ca93ca_a665dc2a",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Nit: One must be specified. Can both? If not, replace || with !\u003d.",
+      "range": {
+        "startLine": 380,
+        "startChar": 20,
+        "endLine": 381,
+        "endChar": 58
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7df9a93_bdc9eef5",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "I think we can be locked with any build. But we cannot be in VERIFIED state if this is not a \"user\" build. Also the device may be unlocked despite having a user build installed.",
+      "range": {
+        "startLine": 409,
+        "startChar": 8,
+        "endLine": 413,
+        "endChar": 9
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8eee7b64_ee48e1d0",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "I would check here that ro.build.type is \"user\". We cannot be green and not user.",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "850c1061_1ce3d9be",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "I am looking at the diff between keymaster_hidl_hal_test.cpp and keyMint1test.cpp now. Why did you add the challenge and AAID to this test?",
+      "range": {
+        "startLine": 501,
+        "startChar": 39,
+        "endLine": 502,
+        "endChar": 91
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ece7eaf1_ed49cad0",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "And here?",
+      "range": {
+        "startLine": 570,
+        "startChar": 39,
+        "endLine": 571,
+        "endChar": 92
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb7cafa5_a5b6f54b",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "And here?",
+      "range": {
+        "startLine": 651,
+        "startChar": 38,
+        "endLine": 652,
+        "endChar": 93
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cb627f8_5b8bc112",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "And here?",
+      "range": {
+        "startLine": 675,
+        "startChar": 39,
+        "endLine": 676,
+        "endChar": 93
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41ea4bd5_30d09c5a",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "The old test would call CheckKeyCharactersitics here. Is that not a thing any more?\n\nAh right GetKeyCharacteristics is not a thing any more.",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66a8e938_0c75e9a9",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "duplication? Rebase/merge artifact?",
+      "range": {
+        "startLine": 1074,
+        "startChar": 4,
+        "endLine": 1074,
+        "endChar": 15
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfbbe8d1_688ceebd",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Since we intend to remove public key operations from KeyMint, I would suggest moving this to VerifyMessage, because VerifyMessage will not be able to use the Keymint device anyway.",
+      "range": {
+        "startLine": 1497,
+        "startChar": 13,
+        "endLine": 1497,
+        "endChar": 83
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "674ba350_abee02cb",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 4240,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "This test is inherently flaky because we don\u0027t have a good handle on how many operation slots are used by Keystore  while this test is running.\n\nAlso I think we wanted to drop the strict slot count requirements in KeyMint.\n\nMaybe this should test whether we get TOO_MANY_OPERATIONS eventually.",
+      "range": {
+        "startLine": 4230,
+        "startChar": 28,
+        "endLine": 4240,
+        "endChar": 72
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46258ff0_efdece28",
+        "filename": "keymint/support/authorization_set.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "keymint_tags.h provides overloads of std::less and std::equal_to with the same semantic. So if you include keymint_tags.h here you should be able to call\n\n sort(data_.begin(), data_.end())\n\nwithout explicitly specifying the `less` function. And you can drop these here.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 0
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e8d55ca_523025e5",
+        "filename": "keymint/support/include/keymintSupport/attestation_record.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "This overload is not implemented here in the support library. There is a similar implementation but with mismatching types in system/keymaster. This function is then used in keyMint1Test.cpp with the argument types as specified here. Not sure how this can actually build successfully, but here is my guess: The compiler accepts this as an external symbol. Then it looks like the linker satisfies this symbol with the implementation from libkeymaster_portable, which has the same return value and number of argument, however, some of the types are not compatible. Specifically attestation_challenge and unique_id point to std::vector\u003cuint8_t\u003e here but they use keymaster_blob_t there. This will blow up.\n\nPlease remove this function prototype here and use the overload below in keyMint1Test.cpp instead.\n\nOr we should remove one of the implementations entirely. I wonder if we could drop the implementation from keymaster_portable, because no keymint implementation should need to parse an attestation record, they should only generate it, right?",
+      "range": {
+        "startLine": 79,
+        "startChar": 10,
+        "endLine": 79,
+        "endChar": 34
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f7c2441_31d42548",
+        "filename": "keymint/support/include/keymintSupport/attestation_record.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Same with this function. You can remove this entirely because the function below already returns the root of trust in the AttestationRecord.",
+      "range": {
+        "startLine": 88,
+        "startChar": 10,
+        "endLine": 88,
+        "endChar": 29
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcaf8bc7_cc64dd69",
+        "filename": "keymint/support/include/keymintSupport/attestation_record.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Nit: Consider using std::variant\u003cErrorCode, AttestationRecord\u003e",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 40
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7491c188_b3194531",
+        "filename": "keymint/support/include/keymintSupport/authorization_set.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Nit: If you replace NullOr with std::optional this can be written as:\n\n if (auto v \u003d authorizationValue(ttag, param)) {\n     if (*v \u003d\u003d value) return true;\n }",
+      "range": {
+        "startLine": 182,
+        "startChar": 12,
+        "endLine": 183,
+        "endChar": 89
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31fd33f6_6e0340ed",
+        "filename": "keymint/support/include/keymintSupport/keymint_tags.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Please consider doing this in this patch.",
+      "range": {
+        "startLine": 261,
+        "startChar": 3,
+        "endLine": 261,
+        "endChar": 49
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20617ba2_759dd757",
+        "filename": "keymint/support/keymint_utils.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-08T17:27:07Z",
+      "side": 1,
+      "message": "Nit: Can this be replaced with {0,1,2} or {0-2}? Probably won\u0027t work with the capturing below, does it?\n\nAlso do we want a $ in the end?",
+      "range": {
+        "startLine": 30,
+        "startChar": 72,
+        "endLine": 30,
+        "endChar": 91
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
