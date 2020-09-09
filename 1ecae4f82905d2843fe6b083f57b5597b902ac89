@@ -426,6 +426,24 @@
     },
     {
       "key": {
+        "uuid": "4dcd8655_a02e6aa2",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1258594
+      },
+      "writtenOn": "2020-09-09T00:36:35Z",
+      "side": 1,
+      "message": "There is only one counter for warning and quota. There is no point counting the same information with 2 different counters. Also we really have memory constrains on IPA and and its not possible to have 2 different counters. you can create a google doc if we want to discuss on this further. \n\nWith one counter we cannot handle separate set limit api\u0027s.",
+      "parentUuid": "32b492a9_2d1b705a",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4cae3acd_95f358c7",
         "filename": "tetheroffload/control/1.1/ITetheringOffloadCallback.hal",
         "patchSetId": 7
