@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21a5e2b5_47d55499",
+        "filename": "bluetooth/audio/2.1/default/LeAudioAudioProvider.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-09-10T21:27:51Z",
+      "side": 1,
+      "message": "Do we also need to check validity of mDataMQ here?",
+      "range": {
+        "startLine": 64,
+        "startChar": 39,
+        "endLine": 64,
+        "endChar": 40
+      },
+      "revId": "cb77d41c58fe1aa3f6c679543a07edabc0cd9828",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

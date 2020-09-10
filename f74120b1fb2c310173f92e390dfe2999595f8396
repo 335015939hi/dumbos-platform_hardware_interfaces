@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c149d7d7_3908b7d3",
+        "filename": "audio/common/all-versions/default/service/service.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-09-10T21:27:51Z",
+      "side": 0,
+      "message": "This line needs to remain below the line you are adding. This is to preserve compatibility when a newer version of the framework runs against an older version of the vendor image. See the Soundtrigger example above.",
+      "range": {
+        "startLine": 89,
+        "startChar": 12,
+        "endLine": 89,
+        "endChar": 83
+      },
+      "revId": "f74120b1fb2c310173f92e390dfe2999595f8396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
