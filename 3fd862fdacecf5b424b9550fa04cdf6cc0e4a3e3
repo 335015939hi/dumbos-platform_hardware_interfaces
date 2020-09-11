@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b17fa16_8149aeb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-09-11T01:14:08Z",
+      "side": 1,
+      "message": "I think this should be add to the Q XML because TV CEC 2.0 is a Q HAL, but I am not sure.",
+      "revId": "3fd862fdacecf5b424b9550fa04cdf6cc0e4a3e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
