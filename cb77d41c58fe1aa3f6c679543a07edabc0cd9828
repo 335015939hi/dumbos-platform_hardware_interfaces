@@ -22,6 +22,30 @@
       "revId": "cb77d41c58fe1aa3f6c679543a07edabc0cd9828",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78122cb9_db3bd38c",
+        "filename": "bluetooth/audio/2.1/default/LeAudioAudioProvider.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-09-11T11:05:26Z",
+      "side": 1,
+      "message": "mDataMQ isn\u0027t initialized in providers constructor. mDataMQ size is known on startSession_2_1. isValid is used in ProvidersFactory (openProvider_2_1).\n\nIn 2.0 queue was kind of static size and initialized in session constructor.",
+      "parentUuid": "21a5e2b5_47d55499",
+      "range": {
+        "startLine": 64,
+        "startChar": 39,
+        "endLine": 64,
+        "endChar": 40
+      },
+      "revId": "cb77d41c58fe1aa3f6c679543a07edabc0cd9828",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
