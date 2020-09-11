@@ -39,11 +39,6 @@ static const size_t kNumFieldsPerSetAssociation = 2;
 template <typename T>
 Result<T> verifyAndCast(int32_t value) {
     T castValue = static_cast<T>(value);
-    const auto iter = hidl_enum_range<T>();
-    if (castValue < *iter.begin() || castValue > *std::prev(iter.end())) {
-        return Error() << "Value " << value << " not in range [" << toString(*iter.begin()) << ", "
-                       << toString(*std::prev(iter.end())) << "]";
-    }
     for (const auto& v : hidl_enum_range<T>()) {
         if (castValue == v) {
             return castValue;
