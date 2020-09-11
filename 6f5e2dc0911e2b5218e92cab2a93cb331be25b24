@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06e14e53_29505bb2",
+        "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-09-11T01:54:03Z",
+      "side": 1,
+      "message": "These can be removed once the internal CLs go in.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 54
+      },
+      "revId": "6f5e2dc0911e2b5218e92cab2a93cb331be25b24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
