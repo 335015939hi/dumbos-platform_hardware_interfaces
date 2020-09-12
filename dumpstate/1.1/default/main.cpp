@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <android-base/file.h>
 #include <android-base/properties.h>
 #include <android/hardware/dumpstate/1.1/IDumpstateDevice.h>
 #include <android/hardware/dumpstate/1.1/types.h>
@@ -104,6 +105,16 @@ struct DumpstateDevice : public IDumpstateDevice {
 
     static bool getVerboseLoggingEnabledImpl() {
         return ::android::base::GetBoolProperty(kVerboseLoggingProperty, false);
+    }
+
+    DumpstateDevice() {
+        /**
+         * Debugfs file initializations that need to happen during boot time
+         * can be done here. The following line shows an example(please note
+         * that tracefs no longer depends on debugfs and can be accessed from
+         * /sys/kernel/tracing).
+         */
+        android::base::WriteStringToFile("1", "/sys/kernel/debug/tracing/tracing_on");
     }
 };
 }  // namespace
