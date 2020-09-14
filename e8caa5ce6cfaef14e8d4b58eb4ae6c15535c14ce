@@ -1,0 +1,92 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004920017",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1426729?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "da664294_8b8df3e0",
+          "description": "Change to \"wifi/hostapd/1.0/vts/functional/hostapd_hidl_call_util.h\"",
+          "replacements": [
+            {
+              "path": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_call_util.h",
+              "range": {
+                "startLine": 101,
+                "startChar": 28,
+                "endLine": 101,
+                "endChar": 37
+              },
+              "replacement": "Arguments"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "a26da969_0837b63f",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_call_util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-14T11:57:13Z",
+      "side": 1,
+      "message": "Common typo found: \"Arugments\" -- should it be \"Arguments\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 101,
+        "startChar": 28,
+        "endLine": 101,
+        "endChar": 37
+      },
+      "revId": "e8caa5ce6cfaef14e8d4b58eb4ae6c15535c14ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004920017",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1426729?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "c536bb76_9ac6848e",
+          "description": "Change to \"wifi/hostapd/1.0/vts/functional/hostapd_hidl_call_util.h\"",
+          "replacements": [
+            {
+              "path": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_call_util.h",
+              "range": {
+                "startLine": 137,
+                "startChar": 36,
+                "endLine": 137,
+                "endChar": 45
+              },
+              "replacement": "Arguments"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "23c73ae6_d1bc13b7",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_call_util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-14T11:57:13Z",
+      "side": 1,
+      "message": "Common typo found: \"Arugments\" -- should it be \"Arguments\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 137,
+        "startChar": 36,
+        "endLine": 137,
+        "endChar": 45
+      },
+      "revId": "e8caa5ce6cfaef14e8d4b58eb4ae6c15535c14ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
