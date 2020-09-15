@@ -62,6 +62,30 @@
       "revId": "6f5e2dc0911e2b5218e92cab2a93cb331be25b24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de80f323_8a8f0f18",
+        "filename": "compatibility_matrices/exclude/include/vintf/fcm_exclude.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-09-15T20:01:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ae667e2_e4e0754a",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 50
+      },
+      "revId": "6f5e2dc0911e2b5218e92cab2a93cb331be25b24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
