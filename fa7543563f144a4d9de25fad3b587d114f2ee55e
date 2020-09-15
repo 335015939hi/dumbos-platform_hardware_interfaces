@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af141127_2c1a7b60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1322948
+      },
+      "writtenOn": "2020-09-15T07:27:40Z",
+      "side": 1,
+      "message": "per ag/12583187 comments, cherry-pick the fix to android11 tests to fix R vts tests",
+      "revId": "fa7543563f144a4d9de25fad3b587d114f2ee55e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
