@@ -16,6 +16,213 @@
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ac743cc_873b071a",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T17:13:36Z",
+      "side": 1,
+      "message": "out array not supported by Java backend.",
+      "range": {
+        "startLine": 371,
+        "startChar": 49,
+        "endLine": 371,
+        "endChar": 60
+      },
+      "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03b6d8c9_6b4e50f7",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T17:13:36Z",
+      "side": 1,
+      "message": "out array not supported by Java backend.",
+      "range": {
+        "startLine": 373,
+        "startChar": 21,
+        "endLine": 373,
+        "endChar": 38
+      },
+      "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "558834e6_19bf99f2",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T17:13:36Z",
+      "side": 1,
+      "message": "Out arrays not supported by Java backends. Please wrap in a parcelable or make return value.",
+      "range": {
+        "startLine": 421,
+        "startChar": 40,
+        "endLine": 421,
+        "endChar": 69
+      },
+      "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96b825f9_d8b76302",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T17:13:36Z",
+      "side": 1,
+      "message": "same here.",
+      "range": {
+        "startLine": 423,
+        "startChar": 19,
+        "endLine": 423,
+        "endChar": 36
+      },
+      "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1df8b4af_463559ac",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T17:13:36Z",
+      "side": 1,
+      "message": "What error is that? Be specific.",
+      "range": {
+        "startLine": 468,
+        "startChar": 14,
+        "endLine": 468,
+        "endChar": 31
+      },
+      "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9af9507f_cf05471c",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T17:13:36Z",
+      "side": 1,
+      "message": "Not supported by Java backend.",
+      "range": {
+        "startLine": 515,
+        "startChar": 26,
+        "endLine": 515,
+        "endChar": 36
+      },
+      "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64d57b4c_88811f79",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T17:13:36Z",
+      "side": 1,
+      "message": "This is also optional if AAD is provided through inParams. Since AAD is the only data that we pass through inParams on update, we may want to replace inParams with `in @nullable byte[] aad`. But I would want Shawn\u0027s opinion on this.",
+      "range": {
+        "startLine": 137,
+        "startChar": 18,
+        "endLine": 137,
+        "endChar": 30
+      },
+      "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "857b894a_199de508",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T17:13:36Z",
+      "side": 1,
+      "message": "Not documented.",
+      "range": {
+        "startLine": 138,
+        "startChar": 28,
+        "endLine": 138,
+        "endChar": 46
+      },
+      "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ec5647a_2418f45c",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T17:13:36Z",
+      "side": 1,
+      "message": "Output arrays are not compatible with the Java back end. Please wrap in a type. E.g.:\n\n parcelable ByteArray {\n     byte[] data;\n }",
+      "range": {
+        "startLine": 140,
+        "startChar": 29,
+        "endLine": 140,
+        "endChar": 35
+      },
+      "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
