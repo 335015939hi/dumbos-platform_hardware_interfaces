@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80615cb1_30e3356a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T15:33:31Z",
+      "side": 1,
+      "message": "the issue with this CL is that some of the code is ported but used in other CLs higher in the stack, so a lot of the issues were actually fixed in those CL that uses the function calls.  problem with keeping these CLs unsubmitted for a log time is, I don\u0027t even remember theses things myself and end up fixing some problems in the lower cl again after seeing comment.",
+      "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
