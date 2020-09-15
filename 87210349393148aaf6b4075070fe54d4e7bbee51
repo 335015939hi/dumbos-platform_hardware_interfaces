@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "90227d4b_624f5ad0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "please read reply comments.",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65f662dd_45a43ef5",
         "filename": "keymint/aidl/android/hardware/keymint/Algorithm.aidl",
         "patchSetId": 27
@@ -22,6 +39,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc83c45f_942ee62a",
+        "filename": "keymint/aidl/android/hardware/keymint/Algorithm.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65f662dd_45a43ef5",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -48,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "4e0b2ea3_0786c8c2",
+        "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "755cb923_13b238ac",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 68
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84afddf6_d6d83c10",
         "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
         "patchSetId": 27
@@ -68,6 +133,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2eda5baa_c7733a1a",
+        "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "the final aidl version should just return a single @nullable Certificate in generateKey().  There is no point to make this nullable as well. double nested nullable doesn\u0027t achieve anything additional. And this is the same format Identity Credential already published.",
+      "parentUuid": "84afddf6_d6d83c10",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 55
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +183,30 @@
     },
     {
       "key": {
+        "uuid": "55e4b08a_6d950482",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4541d60_8c4936cd",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 14
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c60ab3cf_dd18313d",
         "filename": "keymint/aidl/android/hardware/keymint/HmacSharingParameters.aidl",
         "patchSetId": 27
@@ -108,6 +221,24 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a18216d8_6684b545",
+        "filename": "keymint/aidl/android/hardware/keymint/HmacSharingParameters.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "In the end we are not getting rid of hmac just yet. We need to keep this. I have added hmac interfaces back in a different cl. https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1412193",
+      "parentUuid": "c60ab3cf_dd18313d",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -157,6 +288,30 @@
     },
     {
       "key": {
+        "uuid": "d92ba70e_7a963960",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "this is really bizarre.  I double it was like it before.  wonder if some tools caused it.",
+      "parentUuid": "d208a596_13ff7afd",
+      "range": {
+        "startLine": 36,
+        "startChar": 100,
+        "endLine": 36,
+        "endChar": 101
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b68bc2e_49e5708f",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
         "patchSetId": 27
@@ -174,6 +329,24 @@
     },
     {
       "key": {
+        "uuid": "9af28b1c_19527763",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b68bc2e_49e5708f",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93e09f9d_cb7a84d9",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
         "patchSetId": 27
@@ -188,6 +361,24 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "549a7bbb_7965833a",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "shawn deleted it.",
+      "parentUuid": "93e09f9d_cb7a84d9",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -214,6 +405,30 @@
     },
     {
       "key": {
+        "uuid": "731a7c69_70d3f25d",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fb2b8f1_2e1595a4",
+      "range": {
+        "startLine": 135,
+        "startChar": 18,
+        "endLine": 135,
+        "endChar": 35
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e88a814_2a4ef434",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
         "patchSetId": 27
@@ -234,6 +449,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5943948a_9e813e47",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e88a814_2a4ef434",
+      "range": {
+        "startLine": 222,
+        "startChar": 7,
+        "endLine": 223,
+        "endChar": 36
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -260,6 +499,30 @@
     },
     {
       "key": {
+        "uuid": "864d8804_1d614b14",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50596329_006d515b",
+      "range": {
+        "startLine": 234,
+        "startChar": 47,
+        "endLine": 235,
+        "endChar": 64
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1cd8597_c9cf29d6",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
         "patchSetId": 27
@@ -280,6 +543,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cec16bd0_66486a50",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1cd8597_c9cf29d6",
+      "range": {
+        "startLine": 247,
+        "startChar": 46,
+        "endLine": 247,
+        "endChar": 63
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -306,6 +593,30 @@
     },
     {
       "key": {
+        "uuid": "a015e6b1_e673a418",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyCharacteristics.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "there is no point for keymint to say what the security are for those that it doesn\u0027t enforce.  Because it doesn\u0027t know if they were true.",
+      "parentUuid": "037960c7_166177d4",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 43
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5043707f_de9a71ed",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
         "patchSetId": 27
@@ -326,6 +637,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8656d1dd_05930d89",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5043707f_de9a71ed",
+      "range": {
+        "startLine": 350,
+        "startChar": 103,
+        "endLine": 350,
+        "endChar": 108
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -352,6 +687,30 @@
     },
     {
       "key": {
+        "uuid": "780d1e6f_9b6402da",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d083fc5_23b13966",
+      "range": {
+        "startLine": 359,
+        "startChar": 100,
+        "endLine": 359,
+        "endChar": 101
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6751843_4b56e0da",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
         "patchSetId": 27
@@ -372,6 +731,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3bc8c8f_a35d52b6",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6751843_4b56e0da",
+      "range": {
+        "startLine": 622,
+        "startChar": 103,
+        "endLine": 622,
+        "endChar": 105
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -398,6 +781,30 @@
     },
     {
       "key": {
+        "uuid": "ac2f0e96_404cd4c2",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03fbd7fa_bf928e5a",
+      "range": {
+        "startLine": 711,
+        "startChar": 108,
+        "endLine": 711,
+        "endChar": 110
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8b3b9b3_46d1667f",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
         "patchSetId": 27
@@ -421,6 +828,30 @@
     },
     {
       "key": {
+        "uuid": "11d25a98_c4d0844f",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8b3b9b3_46d1667f",
+      "range": {
+        "startLine": 724,
+        "startChar": 106,
+        "endLine": 724,
+        "endChar": 108
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e061766_b04078d8",
         "filename": "keymint/aidl/default/service.cpp",
         "patchSetId": 27
@@ -435,6 +866,24 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24ba30be_0dc6fc49",
+        "filename": "keymint/aidl/default/service.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e061766_b04078d8",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -461,6 +910,30 @@
     },
     {
       "key": {
+        "uuid": "b4396a57_a2597575",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "I made this comment to clarify why I am clearing these variables, because they can be left uncleared from previous test, and I want the test to start clean.\n\nWhen aidl we know the variables are not suppose to be set when test failed, so I don\u0027t see why we can\u0027t check the output to be 0.",
+      "parentUuid": "11db6b2b_97bdc587",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 71
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e13f10e_28c7e1e1",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 27
@@ -481,6 +954,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e43f1a87_30fc4bc2",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "it doesn\u0027t matter for the purpose of these vts tests.  It works.",
+      "parentUuid": "5e13f10e_28c7e1e1",
+      "range": {
+        "startLine": 107,
+        "startChar": 47,
+        "endLine": 107,
+        "endChar": 53
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -507,6 +1004,30 @@
     },
     {
       "key": {
+        "uuid": "7186d7e5_46e3f244",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done.  but we actually always return just service specific errors or OK.  We don\u0027t return anything else.",
+      "parentUuid": "ee5328ca_4eb2aeab",
+      "range": {
+        "startLine": 179,
+        "startChar": 34,
+        "endLine": 179,
+        "endChar": 67
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caa97816_80733852",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 27
@@ -527,6 +1048,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81b333c2_8994bca2",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caa97816_80733852",
+      "range": {
+        "startLine": 183,
+        "startChar": 10,
+        "endLine": 183,
+        "endChar": 34
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -553,6 +1098,30 @@
     },
     {
       "key": {
+        "uuid": "5b1f8e55_12318294",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "124bfcb4_caf58923",
+      "range": {
+        "startLine": 330,
+        "startChar": 4,
+        "endLine": 330,
+        "endChar": 16
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5b8a5e5_d1bb41c9",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 27
@@ -576,6 +1145,30 @@
     },
     {
       "key": {
+        "uuid": "0bb8a136_8780f6fc",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "what if one of the functions forget?  It\u0027s much cleaner to just use auto destroy from share pointers?",
+      "parentUuid": "e5b8a5e5_d1bb41c9",
+      "range": {
+        "startLine": 340,
+        "startChar": 37,
+        "endLine": 340,
+        "endChar": 60
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18883879_2a9e1de5",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 27
@@ -593,6 +1186,24 @@
     },
     {
       "key": {
+        "uuid": "e018f0eb_c1076c8f",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Abort() is designed such that you can call it twice to see if abort() works correctly and doesn\u0027t crash, just return invalid pointer.",
+      "parentUuid": "18883879_2a9e1de5",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1563600_43eb9c42",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 27
@@ -607,6 +1218,24 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a5bf917_69e9cc8f",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "ditto.",
+      "parentUuid": "f1563600_43eb9c42",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -633,6 +1262,30 @@
     },
     {
       "key": {
+        "uuid": "62dc0353_d164404c",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d56ae8b_d94c528b",
+      "range": {
+        "startLine": 392,
+        "startChar": 4,
+        "endLine": 392,
+        "endChar": 16
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9002ae8_d66b4397",
         "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
         "patchSetId": 27
@@ -653,6 +1306,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26cae439_cd9103a7",
+        "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done remove unused variable.  The VerifyAuthorizationResult is already defined and works.  No need to use variant.",
+      "parentUuid": "c9002ae8_d66b4397",
+      "range": {
+        "startLine": 35,
+        "startChar": 26,
+        "endLine": 35,
+        "endChar": 37
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -679,6 +1356,30 @@
     },
     {
       "key": {
+        "uuid": "4a5c7caa_497fd198",
+        "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9379ea8_da6a366b",
+      "range": {
+        "startLine": 43,
+        "startChar": 23,
+        "endLine": 43,
+        "endChar": 78
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1a40718_81d4a2e4",
         "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
         "patchSetId": 27
@@ -693,6 +1394,24 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34ea38c7_4e5ab2a1",
+        "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1a40718_81d4a2e4",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -716,6 +1435,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54de50ba_8f5747d6",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "equal is used more frequently.",
+      "parentUuid": "65d7f6fe_841a100f",
+      "range": {
+        "startLine": 57,
+        "startChar": 24,
+        "endLine": 57,
+        "endChar": 30
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -765,6 +1508,30 @@
     },
     {
       "key": {
+        "uuid": "136c30e6_806c2c57",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f097a0c_add38cd7",
+      "range": {
+        "startLine": 77,
+        "startChar": 24,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7556ce9_9aae2bbc",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
         "patchSetId": 27
@@ -785,6 +1552,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3529d6d7_b5cd6783",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "fix.  this is just copy and paste from 4.0",
+      "parentUuid": "e7556ce9_9aae2bbc",
+      "range": {
+        "startLine": 80,
+        "startChar": 11,
+        "endLine": 80,
+        "endChar": 21
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -811,6 +1602,30 @@
     },
     {
       "key": {
+        "uuid": "3edb9ae2_a90f9542",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "No it does not do the same job. Subtract look at the tag data value, this one does not.",
+      "parentUuid": "5339be7f_e43db3cf",
+      "range": {
+        "startLine": 232,
+        "startChar": 1,
+        "endLine": 237,
+        "endChar": 0
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92b54655_d9962a9d",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
         "patchSetId": 27
@@ -831,6 +1646,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33be87c8_dd8a6044",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92b54655_d9962a9d",
+      "range": {
+        "startLine": 289,
+        "startChar": 16,
+        "endLine": 289,
+        "endChar": 28
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -857,6 +1696,30 @@
     },
     {
       "key": {
+        "uuid": "bbdc317d_7f0d9b37",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51574055_e0129965",
+      "range": {
+        "startLine": 290,
+        "startChar": 8,
+        "endLine": 290,
+        "endChar": 19
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59754485_9dcbdb36",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
         "patchSetId": 27
@@ -877,6 +1740,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24f0546b_41f4a7c5",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "good catch, it should be 50 as corresponding to keymaster 5.0.  Ideally it would be better as 10 for keymint 1.0.  But that would make all previous keymaster tests with older versions true.\n\nAny how I moved this function to https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1412192",
+      "parentUuid": "59754485_9dcbdb36",
+      "range": {
+        "startLine": 324,
+        "startChar": 35,
+        "endLine": 324,
+        "endChar": 36
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -903,6 +1790,30 @@
     },
     {
       "key": {
+        "uuid": "63823dc8_50603e25",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "those are checked at end of the function.",
+      "parentUuid": "6e78d65d_0549a875",
+      "range": {
+        "startLine": 365,
+        "startChar": 5,
+        "endLine": 376,
+        "endChar": 79
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43ca93ca_a665dc2a",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
         "patchSetId": 27
@@ -923,6 +1834,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff9fba36_53300c45",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "both can be specified.",
+      "parentUuid": "43ca93ca_a665dc2a",
+      "range": {
+        "startLine": 380,
+        "startChar": 20,
+        "endLine": 381,
+        "endChar": 58
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -949,6 +1884,30 @@
     },
     {
       "key": {
+        "uuid": "b6815996_5a03fd6e",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "This and below had always been the logic since old test code in KM 4.0.  Please confirm what you said is new or error in old code?  Also what you stated is messy to understand, I think what you said is that device is unlocked if it is not a user build, all other assumption can\u0027t be made?\n\nI have moved the code to the attestation CL.  Please comment in that CL.",
+      "parentUuid": "b7df9a93_bdc9eef5",
+      "range": {
+        "startLine": 409,
+        "startChar": 8,
+        "endLine": 413,
+        "endChar": 9
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8eee7b64_ee48e1d0",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
         "patchSetId": 27
@@ -963,6 +1922,24 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0659948_1fbc3e69",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8eee7b64_ee48e1d0",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -989,6 +1966,30 @@
     },
     {
       "key": {
+        "uuid": "beedb41f_e912392b",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "this is the result of some previous attestation code that got moved to another CL and changed.  This current code does not help or hurt stuff.",
+      "parentUuid": "850c1061_1ce3d9be",
+      "range": {
+        "startLine": 501,
+        "startChar": 39,
+        "endLine": 502,
+        "endChar": 91
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ece7eaf1_ed49cad0",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
         "patchSetId": 27
@@ -1009,6 +2010,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28d01f0d_19f38b30",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ece7eaf1_ed49cad0",
+      "range": {
+        "startLine": 570,
+        "startChar": 39,
+        "endLine": 571,
+        "endChar": 92
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1035,6 +2060,30 @@
     },
     {
       "key": {
+        "uuid": "c774cb02_e4614357",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb7cafa5_a5b6f54b",
+      "range": {
+        "startLine": 651,
+        "startChar": 38,
+        "endLine": 652,
+        "endChar": 93
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0cb627f8_5b8bc112",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
         "patchSetId": 27
@@ -1055,6 +2104,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36417b19_63e7c23b",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cb627f8_5b8bc112",
+      "range": {
+        "startLine": 675,
+        "startChar": 39,
+        "endLine": 676,
+        "endChar": 93
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1098,6 +2171,30 @@
     },
     {
       "key": {
+        "uuid": "c7d58772_87356fc6",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66a8e938_0c75e9a9",
+      "range": {
+        "startLine": 1074,
+        "startChar": 4,
+        "endLine": 1074,
+        "endChar": 15
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfbbe8d1_688ceebd",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
         "patchSetId": 27
@@ -1109,6 +2206,30 @@
       "writtenOn": "2020-09-08T17:27:07Z",
       "side": 1,
       "message": "Since we intend to remove public key operations from KeyMint, I would suggest moving this to VerifyMessage, because VerifyMessage will not be able to use the Keymint device anyway.",
+      "range": {
+        "startLine": 1497,
+        "startChar": 13,
+        "endLine": 1497,
+        "endChar": 83
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51847854_29f6c8c3",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "not sure your point?",
+      "parentUuid": "dfbbe8d1_688ceebd",
       "range": {
         "startLine": 1497,
         "startChar": 13,
@@ -1144,6 +2265,30 @@
     },
     {
       "key": {
+        "uuid": "bebe5e7b_ea891086",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 4240,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "674ba350_abee02cb",
+      "range": {
+        "startLine": 4230,
+        "startChar": 28,
+        "endLine": 4240,
+        "endChar": 72
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46258ff0_efdece28",
         "filename": "keymint/support/authorization_set.cpp",
         "patchSetId": 27
@@ -1164,6 +2309,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d98515ad_04c0839c",
+        "filename": "keymint/support/authorization_set.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46258ff0_efdece28",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 0
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1190,6 +2359,30 @@
     },
     {
       "key": {
+        "uuid": "59174e2d_2a30f21c",
+        "filename": "keymint/support/include/keymintSupport/attestation_record.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e8d55ca_523025e5",
+      "range": {
+        "startLine": 79,
+        "startChar": 10,
+        "endLine": 79,
+        "endChar": 34
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f7c2441_31d42548",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
         "patchSetId": 27
@@ -1210,6 +2403,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba6b672b_fd3430e9",
+        "filename": "keymint/support/include/keymintSupport/attestation_record.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "keep this will add more tests that use this in another CL.",
+      "parentUuid": "0f7c2441_31d42548",
+      "range": {
+        "startLine": 88,
+        "startChar": 10,
+        "endLine": 88,
+        "endChar": 29
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1236,6 +2453,30 @@
     },
     {
       "key": {
+        "uuid": "ecea5a67_3b7bbac9",
+        "filename": "keymint/support/include/keymintSupport/attestation_record.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "this is how KM 4 code is.  Not point in fixing things that\u0027s not broken.",
+      "parentUuid": "fcaf8bc7_cc64dd69",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 40
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7491c188_b3194531",
         "filename": "keymint/support/include/keymintSupport/authorization_set.h",
         "patchSetId": 27
@@ -1256,6 +2497,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f0f5e60_f14ab45a",
+        "filename": "keymint/support/include/keymintSupport/authorization_set.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "No point in fixing pre existing code that aren\u0027t broken.  and I don\u0027t want to change GetTagValue calls everywhere, doesn\u0027t really achieve anything new.",
+      "parentUuid": "7491c188_b3194531",
+      "range": {
+        "startLine": 182,
+        "startChar": 12,
+        "endLine": 183,
+        "endChar": 89
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1282,6 +2547,30 @@
     },
     {
       "key": {
+        "uuid": "bb4f5bf4_052d7edf",
+        "filename": "keymint/support/include/keymintSupport/keymint_tags.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "I rather not.  This CL is taking forever and getting new changes every time.  Let\u0027s do this later.",
+      "parentUuid": "31fd33f6_6e0340ed",
+      "range": {
+        "startLine": 261,
+        "startChar": 3,
+        "endLine": 261,
+        "endChar": 49
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20617ba2_759dd757",
         "filename": "keymint/support/keymint_utils.cpp",
         "patchSetId": 27
@@ -1302,6 +2591,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b4cff20_b523280b",
+        "filename": "keymint/support/keymint_utils.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "This is pre-existing code that works.  I don\u0027t know reg expr so I\u0027m not excited about changing something that\u0027s not broken.  Is there an error?",
+      "parentUuid": "20617ba2_759dd757",
+      "range": {
+        "startLine": 30,
+        "startChar": 72,
+        "endLine": 30,
+        "endChar": 91
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

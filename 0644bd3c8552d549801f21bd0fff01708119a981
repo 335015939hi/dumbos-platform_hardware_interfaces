@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "0328a0b9_b545505c",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "I will change this to return a single certificate in another CL.  You can sync to that CL to avoid Java implementation issues.  There is no need to change this here.",
+      "parentUuid": "951bf6b1_b6b19ee0",
+      "range": {
+        "startLine": 369,
+        "startChar": 25,
+        "endLine": 369,
+        "endChar": 51
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b84b793f_d4fcddd3",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 25
@@ -282,6 +306,30 @@
       "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ec6c665_8e93d7ba",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-15T14:57:48Z",
+      "side": 1,
+      "message": "this is not necessary.  We will be returning just one certificate in the final changes per our discussion.",
+      "parentUuid": "7fedf8a0_5d301a13",
+      "range": {
+        "startLine": 412,
+        "startChar": 9,
+        "endLine": 412,
+        "endChar": 35
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
