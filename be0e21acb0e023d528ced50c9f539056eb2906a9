@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "89b34da5_c54d3df2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-09-15T17:42:38Z",
+      "side": 1,
+      "message": "Not addressed.",
+      "parentUuid": "0cdfa28a_f5b51f75",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "891de9fb_dde1745c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 12
