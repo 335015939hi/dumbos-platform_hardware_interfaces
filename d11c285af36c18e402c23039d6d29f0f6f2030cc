@@ -16,6 +16,24 @@
       "revId": "d11c285af36c18e402c23039d6d29f0f6f2030cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f7f10a_99439d79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-09-15T17:43:25Z",
+      "side": 1,
+      "message": "OK, removed the tuner change.",
+      "parentUuid": "dbeef17c_78342507",
+      "revId": "d11c285af36c18e402c23039d6d29f0f6f2030cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
