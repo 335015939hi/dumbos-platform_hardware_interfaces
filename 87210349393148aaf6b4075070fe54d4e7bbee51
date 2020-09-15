@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "cc6d00bb_042b5a56",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "Please remove the extra blank line here.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 0
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65f662dd_45a43ef5",
         "filename": "keymint/aidl/android/hardware/keymint/Algorithm.aidl",
         "patchSetId": 27
@@ -66,6 +89,75 @@
     },
     {
       "key": {
+        "uuid": "793e424e_babd244b",
+        "filename": "keymint/aidl/android/hardware/keymint/BeginResult.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "Please make the formatting of the block comment consistent with the others. It should look like:\n\n/**\n * Text goes here.\n */\n\nAlso, please add proper capitalization and punctuation.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 3
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fd37934_319943e7",
+        "filename": "keymint/aidl/android/hardware/keymint/BeginResult.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "I don\u0027t think this comment adds anything. The names of the type and the variable make it clear.  The two previous variables aren\u0027t so clear.  The challenge, in particular, needs documentation somewhere (this is a good place, though if it\u0027s documented elsewhere that\u0027s fine) that specifies the security requirements for the challenge.",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 7
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f98dc91_d249a512",
+        "filename": "keymint/aidl/android/hardware/keymint/BlockMode.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "IKeyMintDevice (for consistency and to avoid confusion).",
+      "range": {
+        "startLine": 21,
+        "startChar": 44,
+        "endLine": 21,
+        "endChar": 51
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "755cb923_13b238ac",
         "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
         "patchSetId": 27
@@ -110,6 +202,29 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe0c7fa5_eed48c4c",
+        "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "Formatting, capitalization, punctuation.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 3
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -184,6 +299,29 @@
     },
     {
       "key": {
+        "uuid": "7fb4723e_164ee15d",
+        "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "Why add this?  If there are error codes that are no longer useful or appropriate they should be removed, and the resulting list should be the error codes that make sense for KeyMint.",
+      "range": {
+        "startLine": 21,
+        "startChar": 23,
+        "endLine": 21,
+        "endChar": 53
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4541d60_8c4936cd",
         "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
         "patchSetId": 27
@@ -228,6 +366,29 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fba6cc1e_e04e1460",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "This is no longer true.",
+      "range": {
+        "startLine": 83,
+        "startChar": 7,
+        "endLine": 83,
+        "endChar": 50
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -278,6 +439,144 @@
       "side": 1,
       "message": "Okay but it will not be part of the package android.hardware.keymit, so please remove it from this CL.",
       "parentUuid": "a18216d8_6684b545",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e8cdf0b_f597e482",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "Grammar is a bit weird.  Perhaps \"Note that software-enforced authorization list entries are not returned because they are not enforced by KeyMint\".",
+      "range": {
+        "startLine": 138,
+        "startChar": 70,
+        "endLine": 139,
+        "endChar": 84
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be14f68f_849934b0",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "TEE-enforced? Some of these could be either TEE or StrongBox.  I think it probably makes sense just to remove the \"must be hardware-enforced\" statement from each.",
+      "range": {
+        "startLine": 142,
+        "startChar": 33,
+        "endLine": 142,
+        "endChar": 50
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c61dc056_f16a2e8c",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "Would be good to specify the tag.",
+      "range": {
+        "startLine": 150,
+        "startChar": 3,
+        "endLine": 150,
+        "endChar": 81
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41aa407c_567f2cdc",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "This paragraph needs to be re-wrapped.",
+      "range": {
+        "startLine": 152,
+        "startChar": 2,
+        "endLine": 159,
+        "endChar": 30
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f0d151b_2c57fe80",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "There is no softwareEnforced list.",
+      "range": {
+        "startLine": 161,
+        "startChar": 3,
+        "endLine": 162,
+        "endChar": 30
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44a748d8_891f9daa",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-15T21:40:31Z",
+      "side": 1,
+      "message": "Make a note to remove this in a future CL.",
+      "range": {
+        "startLine": 247,
+        "startChar": 42,
+        "endLine": 247,
+        "endChar": 79
+      },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
