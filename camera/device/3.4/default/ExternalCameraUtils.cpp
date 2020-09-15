@@ -166,7 +166,8 @@ namespace {
                                        // For phone devices 270 is better
 } // anonymous namespace
 
-const char* ExternalCameraConfig::kDefaultCfgPath = "/vendor/etc/external_camera_config.xml";
+//const char* ExternalCameraConfig::kDefaultCfgPath = "/vendor/etc/external_camera_config.xml";
+const char* ExternalCameraConfig::kDefaultCfgPath = "/system/etc/external_camera_config.xml";
 
 ExternalCameraConfig ExternalCameraConfig::loadFromCfg(const char* cfgPath) {
     using namespace tinyxml2;

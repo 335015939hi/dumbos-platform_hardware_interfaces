@@ -83,6 +83,33 @@ bool tryLock(std::mutex& mutex)
 
 buffer_handle_t sEmptyBuffer = nullptr;
 
+bool convertFromHidl(const CameraMetadata &src, const camera_metadata_t** dst) {
+    if (src.size() == 0) {
+        // Special case for null metadata
+        *dst = nullptr;
+        return true;
+    }
+
+    const uint8_t* data = src.data();
+    // sanity check the size of CameraMetadata match underlying camera_metadata_t
+    if (get_camera_metadata_size((camera_metadata_t*)data) != src.size()) {
+        ALOGE("%s: input CameraMetadata is corrupt!", __FUNCTION__);
+        return false;
+    }
+    *dst = (camera_metadata_t*) data;
+    return true;
+}
+
+// Note: existing data in dst will be gone. Caller still owns the memory of src
+void convertToHidl(const camera_metadata_t *src, CameraMetadata* dst) {
+    if (src == nullptr) {
+        return;
+    }
+    size_t size = get_camera_metadata_size(src);
+    dst->setToExternal((uint8_t *) src, size);
+    return;
+}
+
 } // Anonymous namespace
 
 // Static instances
@@ -649,13 +676,13 @@ Status ExternalCameraDeviceSession::processOneCaptureRequest(const CaptureReques
         settingsFmq.resize(request.fmqSettingsSize);
         bool read = mRequestMetadataQueue->read(settingsFmq.data(), request.fmqSettingsSize);
         if (read) {
-            converted = V3_2::implementation::convertFromHidl(settingsFmq, &rawSettings);
+            converted = convertFromHidl(settingsFmq, &rawSettings);
         } else {
             ALOGE("%s: capture request settings metadata couldn't be read from fmq!", __FUNCTION__);
             converted = false;
         }
     } else {
-        converted = V3_2::implementation::convertFromHidl(request.settings, &rawSettings);
+        converted = convertFromHidl(request.settings, &rawSettings);
     }
 
     if (converted && rawSettings != nullptr) {
@@ -873,7 +900,7 @@ Status ExternalCameraDeviceSession::processCaptureResult(std::shared_ptr<HalRequ
     // Fill capture result metadata
     fillCaptureResult(req->setting, req->shutterTs);
     const camera_metadata_t *rawResult = req->setting.getAndLock();
-    V3_2::implementation::convertToHidl(rawResult, &result.result);
+    convertToHidl(rawResult, &result.result);
     req->setting.unlock(rawResult);
 
     // update inflight records

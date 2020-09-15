@@ -14,21 +14,32 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.camera.provider@2.4-external-service"
+#define LOG_TAG "ExtCamServ24"
 
 #include <android/hardware/camera/provider/2.4/ICameraProvider.h>
-#include <hidl/LegacySupport.h>
-
 #include <binder/ProcessState.h>
+#include <hidl/HidlTransportSupport.h>
 
+#include "CameraProvider_2_4.h"
+#include "ExternalCameraProviderImpl_2_4.h"
+
+using android::status_t;
 using android::hardware::camera::provider::V2_4::ICameraProvider;
-using android::hardware::defaultPassthroughServiceImplementation;
 
 int main()
 {
-    ALOGI("External camera provider service is starting.");
-    // The camera HAL may communicate to other vendor components via
-    // /dev/vndbinder
-    android::ProcessState::initWithDriver("/dev/vndbinder");
-    return defaultPassthroughServiceImplementation<ICameraProvider>("external/0", /*maxThreads*/ 6);
+    using namespace android::hardware::camera::provider::V2_4::implementation;
+
+    ALOGI("YCYEH: External camera provider service (2.4) is starting.");
+    ::android::hardware::configureRpcThreadpool(/*threads*/ 6, /*willJoin*/ true);
+
+    ::android::sp<ICameraProvider> provider = new CameraProvider<ExternalCameraProviderImpl_2_4>();
+
+    status_t status = provider->registerAsService("external/0");
+    LOG_ALWAYS_FATAL_IF(status != android::OK, "YCYEH: Error while registering provider service: %d",
+            status);
+
+    ::android::hardware::joinRpcThreadpool();
+
+    return 0;
 }

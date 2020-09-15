@@ -25,6 +25,7 @@
 #include "CameraMetadata.h"
 #include "../../3.2/default/include/convert.h"
 #include "ExternalCameraDevice_3_4.h"
+#include "ExternalCameraDeviceSession.h"
 
 namespace android {
 namespace hardware {
@@ -43,6 +44,16 @@ const std::array<uint32_t, /*size*/ 2> kSupportedFourCCs{
 
 constexpr int MAX_RETRY = 5; // Allow retry v4l2 open failures a few times.
 constexpr int OPEN_RETRY_SLEEP_US = 100000; // 100ms * MAX_RETRY = 0.5 seconds
+
+// Note: existing data in dst will be gone. Caller still owns the memory of src
+void convertToHidl(const camera_metadata_t *src, CameraMetadata* dst) {
+    if (src == nullptr) {
+        return;
+    }
+    size_t size = get_camera_metadata_size(src);
+    dst->setToExternal((uint8_t *) src, size);
+    return;
+}
 
 } // anonymous namespace
 
@@ -89,7 +100,7 @@ Return<void> ExternalCameraDevice::getCameraCharacteristics(
     }
 
     const camera_metadata_t* rawMetadata = mCameraCharacteristics.getAndLock();
-    V3_2::implementation::convertToHidl(rawMetadata, &hidlChars);
+    convertToHidl(rawMetadata, &hidlChars);
     _hidl_cb(Status::OK, hidlChars);
     mCameraCharacteristics.unlock(rawMetadata);
     return Void();

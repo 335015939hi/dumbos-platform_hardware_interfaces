@@ -19,6 +19,8 @@
 #include <log/log.h>
 
 #include "ExternalCameraDevice_3_5.h"
+#include "ExternalCameraDeviceSession.h"
+
 
 namespace android {
 namespace hardware {

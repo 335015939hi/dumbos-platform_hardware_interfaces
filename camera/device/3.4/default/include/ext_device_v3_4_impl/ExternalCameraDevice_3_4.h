@@ -19,13 +19,13 @@
 
 #include "utils/Mutex.h"
 #include "CameraMetadata.h"
-
+#include "android-base/unique_fd.h"
 #include <android/hardware/camera/device/3.2/ICameraDevice.h>
 #include <hidl/Status.h>
 #include <hidl/MQDescriptor.h>
-#include "ExternalCameraDeviceSession.h"
-
 #include <vector>
+#include "ExternalCameraUtils.h"
+
 
 namespace android {
 namespace hardware {
@@ -35,6 +35,7 @@ namespace V3_4 {
 namespace implementation {
 
 using namespace ::android::hardware::camera::device;
+using ::android::base::unique_fd;
 using ::android::hardware::camera::device::V3_2::ICameraDevice;
 using ::android::hardware::camera::device::V3_2::ICameraDeviceCallback;
 using ::android::hardware::camera::common::V1_0::CameraResourceCost;
@@ -47,6 +48,9 @@ using ::android::hardware::Void;
 using ::android::hardware::hidl_vec;
 using ::android::hardware::hidl_string;
 using ::android::sp;
+
+
+struct ExternalCameraDeviceSession;
 
 /*
  * The camera device HAL implementation is opened lazily (via the open call)
@@ -153,7 +157,7 @@ protected:
     std::vector<SupportedV4L2Format> mSupportedFormats;
     CroppingType mCroppingType;
 
-    wp<ExternalCameraDeviceSession> mSession = nullptr;
+    wp<ExternalCameraDeviceSession> mSession;
 
     ::android::hardware::camera::common::V1_0::helper::CameraMetadata mCameraCharacteristics;
 

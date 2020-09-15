@@ -22,7 +22,7 @@ cc_library_headers {
 
 cc_library_headers {
     name: "camera.device@3.5-external-impl_headers",
-    vendor: true,
+    //vendor: true,
     export_include_dirs: ["include/ext_device_v3_5_impl"]
 }
 
@@ -63,8 +63,8 @@ cc_library_shared {
 cc_library_shared {
     name: "camera.device@3.5-external-impl",
     defaults: ["hidl_defaults"],
-    proprietary: true,
-    vendor: true,
+    //proprietary: true,
+    //vendor: true,
     srcs: [
         "ExternalCameraDevice.cpp",
         "ExternalCameraDeviceSession.cpp",
@@ -74,8 +74,8 @@ cc_library_shared {
         "libhidltransport",
         "libutils",
         "libcutils",
-        "camera.device@3.2-impl",
-        "camera.device@3.3-impl",
+        //"camera.device@3.2-impl",
+        //"camera.device@3.3-impl",
         "camera.device@3.4-external-impl",
         "android.hardware.camera.device@3.2",
         "android.hardware.camera.device@3.3",
@@ -83,7 +83,7 @@ cc_library_shared {
         "android.hardware.camera.device@3.5",
         "android.hardware.camera.provider@2.4",
         "android.hardware.graphics.mapper@2.0",
-	"android.hardware.graphics.mapper@3.0",
+        "android.hardware.graphics.mapper@3.0",
         "liblog",
         "libhardware",
         "libcamera_metadata",

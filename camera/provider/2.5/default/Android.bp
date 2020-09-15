@@ -40,7 +40,7 @@ cc_library_shared {
 
 cc_library_shared {
     name: "android.hardware.camera.provider@2.5-external",
-    proprietary: true,
+    //proprietary: true,
     srcs: ["ExternalCameraProviderImpl_2_5.cpp"],
     shared_libs: [
         "android.hardware.camera.common@1.0",
@@ -55,11 +55,11 @@ cc_library_shared {
         "android.hardware.graphics.mapper@2.0",
         "android.hidl.allocator@1.0",
         "android.hidl.memory@1.0",
-        "camera.device@3.3-impl",
+        //"camera.device@3.3-impl",
         "camera.device@3.4-external-impl",
-        "camera.device@3.4-impl",
+        //"camera.device@3.4-impl",
         "camera.device@3.5-external-impl",
-        "camera.device@3.5-impl",
+        //"camera.device@3.5-impl",
         "libcamera_metadata",
         "libcutils",
         "libhardware",
@@ -151,7 +151,7 @@ cc_binary {
 cc_binary {
     name: "android.hardware.camera.provider@2.5-external-service",
     defaults: ["hidl_defaults"],
-    proprietary: true,
+    //proprietary: true,
     relative_install_path: "hw",
     srcs: ["external-service.cpp"],
     compile_multilib: "32",
@@ -180,8 +180,9 @@ cc_binary {
     ],
     header_libs: [
         "camera.device@3.4-external-impl_headers",
-        "camera.device@3.4-impl_headers",
+        //"camera.device@3.4-impl_headers",
         "camera.device@3.5-external-impl_headers",
-        "camera.device@3.5-impl_headers",
+        //"camera.device@3.5-impl_headers",
     ],
+    vintf_fragments: ["manifest_ext_camera_2_5.xml"],
 }

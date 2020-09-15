@@ -1,4 +1,4 @@
-service vendor.camera-provider-2-5-ext /vendor/bin/hw/android.hardware.camera.provider@2.5-external-service
+service system.camera-provider-2-5-ext /system/bin/hw/android.hardware.camera.provider@2.5-external-service
     interface android.hardware.camera.provider@2.5::ICameraProvider external/0
     interface android.hardware.camera.provider@2.4::ICameraProvider external/0
     class hal
