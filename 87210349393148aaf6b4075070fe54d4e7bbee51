@@ -2595,6 +2595,30 @@
     },
     {
       "key": {
+        "uuid": "75936807_dc9130f1",
+        "filename": "keymint/support/include/keymintSupport/attestation_record.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T19:03:53Z",
+      "side": 1,
+      "message": "Not done.",
+      "parentUuid": "59174e2d_2a30f21c",
+      "range": {
+        "startLine": 79,
+        "startChar": 10,
+        "endLine": 79,
+        "endChar": 34
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f7c2441_31d42548",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
         "patchSetId": 27
@@ -2642,6 +2666,30 @@
     },
     {
       "key": {
+        "uuid": "9411a3c0_9de90ea3",
+        "filename": "keymint/support/include/keymintSupport/attestation_record.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T19:03:53Z",
+      "side": 1,
+      "message": "No you cannot use this function. There is no implementation for this. It is broken. Please remove. Use the function below instead.",
+      "parentUuid": "ba6b672b_fd3430e9",
+      "range": {
+        "startLine": 88,
+        "startChar": 10,
+        "endLine": 88,
+        "endChar": 29
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fcaf8bc7_cc64dd69",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
         "patchSetId": 27
@@ -2686,6 +2734,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5e2a875_8df8821c",
+        "filename": "keymint/support/include/keymintSupport/attestation_record.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T19:03:53Z",
+      "side": 1,
+      "message": "There is always a point in making the code more idomatic. Especially when adding a new code base such as this.",
+      "parentUuid": "ecea5a67_3b7bbac9",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 40
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
