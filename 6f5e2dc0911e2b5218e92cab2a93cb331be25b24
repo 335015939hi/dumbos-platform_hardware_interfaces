@@ -39,6 +39,29 @@
       "revId": "6f5e2dc0911e2b5218e92cab2a93cb331be25b24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ae667e2_e4e0754a",
+        "filename": "compatibility_matrices/exclude/include/vintf/fcm_exclude.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-09-15T19:26:00Z",
+      "side": 1,
+      "message": "would it be better to have \u0027bool ShouldExclude\u0027 here instead to give more control to this code and avoid global statics?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 50
+      },
+      "revId": "6f5e2dc0911e2b5218e92cab2a93cb331be25b24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
