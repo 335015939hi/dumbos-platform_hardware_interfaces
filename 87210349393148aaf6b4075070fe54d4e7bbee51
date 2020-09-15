@@ -266,6 +266,24 @@
     },
     {
       "key": {
+        "uuid": "a1e9e461_64a40470",
+        "filename": "keymint/aidl/android/hardware/keymint/HmacSharingParameters.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T20:35:40Z",
+      "side": 1,
+      "message": "Okay but it will not be part of the package android.hardware.keymit, so please remove it from this CL.",
+      "parentUuid": "a18216d8_6684b545",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6dbf4bd_c66a173d",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 27
