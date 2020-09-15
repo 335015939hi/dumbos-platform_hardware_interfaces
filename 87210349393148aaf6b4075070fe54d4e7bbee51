@@ -160,6 +160,30 @@
     },
     {
       "key": {
+        "uuid": "a8a50d62_c1f6f192",
+        "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-15T17:56:56Z",
+      "side": 1,
+      "message": "I agree. I am just saying that the comment is obsolete. The byte array is never empty. Either there is a Certificate object and the array is not empty, or the there is no Certificate object at all.",
+      "parentUuid": "2eda5baa_c7733a1a",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 55
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e4541d60_8c4936cd",
         "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
         "patchSetId": 27
