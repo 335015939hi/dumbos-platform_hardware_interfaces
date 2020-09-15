@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34f3e3f4_b09d3343",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013984
+      },
+      "writtenOn": "2020-09-15T06:48:38Z",
+      "side": 1,
+      "message": "Unrelated failure:\nhardware/interfaces/tv/input/1.0/vts/functional/VtsHalTvInputV1_0TargetTest.cpp:194: Failure\nParameterized test suite TvInputHidlTest is defined via TEST_P, but never instantiated. None of the test cases will run. Either no INSTANTIATE_TEST_SUITE_P is provided or the only ones provided expand to nothing.\n\nIdeally, TEST_P definitions should only ever be included as part of binaries that intend to use them. (As opposed to, for example, being placed in a library that may be linked in to get other utilities.)\n\nTo suppress this error for this test suite, insert the following line (in a non-header) in the namespace it is defined in:\n\nGTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(TvInputHidlTest);",
+      "revId": "8eb03223e9ecc3ef4591c8278dee5ce2977b409d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
