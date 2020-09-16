@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d28f4d1f_eeebeaa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-09-16T00:00:33Z",
+      "side": 1,
+      "message": "No framework code calls IClientManager.getService, but there are tests/VTS tests doing it: \n\nhttps://android.googlesource.com/platform/frameworks/av/+/c9643eeae501ab813934c9d03fb33430be48732c/media/bufferpool/1.0/vts/multi.cpp#183\n\nhttps://android.googlesource.com/platform/frameworks/av/+/c9643eeae501ab813934c9d03fb33430be48732c/media/bufferpool/2.0/tests/multi.cpp#183\n\nI want to double check before actually exempting it.",
+      "revId": "a69e84661243c9e4a3f8a7bab9a85db8dc63abb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
