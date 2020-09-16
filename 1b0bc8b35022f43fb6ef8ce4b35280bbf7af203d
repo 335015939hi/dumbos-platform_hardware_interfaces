@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44641575_dd45f2d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1756515
+      },
+      "writtenOn": "2020-09-16T21:07:14Z",
+      "side": 1,
+      "message": "modify the commit message bellow.\nBug: 168676352\nTest: run commandAndExit vts -m VtsHalCameraProviderV2_5Target",
+      "revId": "1b0bc8b35022f43fb6ef8ce4b35280bbf7af203d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
