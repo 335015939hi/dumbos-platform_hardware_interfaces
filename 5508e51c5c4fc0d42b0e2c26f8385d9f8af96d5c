@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6a9d760_1362a6d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1756515
+      },
+      "writtenOn": "2020-09-16T21:05:15Z",
+      "side": 1,
+      "message": "@Jayant\n\u003e Thank you. Could you add a test clause and Bug: 168676352 to the commit message as well ? \n\nyes. i modify the commit message bellow.\nBug: 168676352\nTest: run commandAndExit vts -m VtsHalCameraProviderV2_5Target",
+      "revId": "5508e51c5c4fc0d42b0e2c26f8385d9f8af96d5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
