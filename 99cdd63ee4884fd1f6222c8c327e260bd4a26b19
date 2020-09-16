@@ -16,6 +16,23 @@
       "revId": "99cdd63ee4884fd1f6222c8c327e260bd4a26b19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fdc2a3b_0fae2a70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121338
+      },
+      "writtenOn": "2020-09-16T17:33:06Z",
+      "side": 1,
+      "message": "Thank you for the CL, could we add a \u0027Test\u0027 clause ?",
+      "revId": "99cdd63ee4884fd1f6222c8c327e260bd4a26b19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
