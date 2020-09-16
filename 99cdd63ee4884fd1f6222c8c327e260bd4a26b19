@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2411e9b3_6c8124a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1141048
+      },
+      "writtenOn": "2020-09-16T16:54:18Z",
+      "side": 1,
+      "message": "nit, could you also add this line:\nBug: 168676352",
+      "revId": "99cdd63ee4884fd1f6222c8c327e260bd4a26b19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
