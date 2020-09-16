@@ -22,6 +22,30 @@
       "revId": "ffdee86815378e89b02e7ed1f20c4afb6cd5b52a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17bd5262_d4b9cbbb",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1519,
+      "author": {
+        "id": 1121338
+      },
+      "writtenOn": "2020-09-16T16:29:44Z",
+      "side": 1,
+      "message": "Yes, apologies, thanks for spotting the error.",
+      "parentUuid": "cad8c6f7_abb8783a",
+      "range": {
+        "startLine": 1519,
+        "startChar": 8,
+        "endLine": 1519,
+        "endChar": 30
+      },
+      "revId": "ffdee86815378e89b02e7ed1f20c4afb6cd5b52a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
