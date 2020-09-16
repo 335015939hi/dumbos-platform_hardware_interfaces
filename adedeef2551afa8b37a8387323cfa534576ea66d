@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c968f6e8_566d7df4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1244622
+      },
+      "writtenOn": "2020-09-16T16:46:02Z",
+      "side": 1,
+      "message": "Pls make sure to merge this CL in aosp/master. Or it will be missing in the S and future releases.",
+      "revId": "adedeef2551afa8b37a8387323cfa534576ea66d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
