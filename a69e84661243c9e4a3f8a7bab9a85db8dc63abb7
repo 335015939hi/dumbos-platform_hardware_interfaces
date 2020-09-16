@@ -16,6 +16,24 @@
       "revId": "a69e84661243c9e4a3f8a7bab9a85db8dc63abb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26aec07c_49c01c8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-09-16T23:45:24Z",
+      "side": 1,
+      "message": "Sungtak, could you please check if the code linked above are doing the correct thing? It appears that those tests will never run because the IClientManager will never be registered.",
+      "parentUuid": "d28f4d1f_eeebeaa2",
+      "revId": "a69e84661243c9e4a3f8a7bab9a85db8dc63abb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
