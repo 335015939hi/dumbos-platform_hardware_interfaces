@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cad8c6f7_abb8783a",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1519,
+      "author": {
+        "id": 1756515
+      },
+      "writtenOn": "2020-09-16T07:57:45Z",
+      "side": 1,
+      "message": "@Jayant Chowdhary\nCan you help to check getCameraDeviceVersion function?\nIt should change to (getCameraDeviceVersion(name, mProviderType)\n\nRefer to Line 196.\n    int getCameraDeviceVersion(const hidl_string\u0026 deviceName,\n            const hidl_string \u0026providerType) {",
+      "range": {
+        "startLine": 1519,
+        "startChar": 8,
+        "endLine": 1519,
+        "endChar": 30
+      },
+      "revId": "ffdee86815378e89b02e7ed1f20c4afb6cd5b52a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
