@@ -16,6 +16,23 @@
       "revId": "fa7543563f144a4d9de25fad3b587d114f2ee55e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43eda057_3a313f70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1244622
+      },
+      "writtenOn": "2020-09-17T18:23:50Z",
+      "side": 1,
+      "message": "Pls also cp the change to aosp/master.",
+      "revId": "fa7543563f144a4d9de25fad3b587d114f2ee55e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
