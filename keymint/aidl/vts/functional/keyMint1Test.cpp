@@ -825,7 +825,10 @@ TEST_P(NewKeyGenerationTest, EcdsaAllValidCurves) {
     } else {
         digest = Digest::SHA_2_512;
     }
+
     for (auto curve : ValidCurves()) {
+        if (curve == EcCurve::CURVE_25519) digest = Digest::NONE;
+
         EXPECT_EQ(ErrorCode::OK,
                   GenerateKey(AuthorizationSetBuilder().EcdsaSigningKey(curve).Digest(digest)))
                 << "Failed to generate key on curve: " << curve;
@@ -1376,15 +1379,26 @@ TEST_P(SigningOperationsTest, EcdsaAllSizesAndHashes) {
  */
 TEST_P(SigningOperationsTest, EcdsaAllCurves) {
     for (auto curve : ValidCurves()) {
+        // for (auto curve : {EcCurve::CURVE_25519}) {
+        Digest digest;
+        if (curve != EcCurve::CURVE_25519) {
+            digest = Digest::SHA_2_256;
+        } else {
+            // reviewer: please confirm if we really should specify digest all the
+            // time even if it means digest::none?  We have GetAndValidateDigest()
+            // that always checks for some digest.
+            digest = Digest::NONE;
+        }
+
         ErrorCode error = GenerateKey(AuthorizationSetBuilder()
                                               .Authorization(TAG_NO_AUTH_REQUIRED)
                                               .EcdsaSigningKey(curve)
-                                              .Digest(Digest::SHA_2_256));
+                                              .Digest(digest));
         EXPECT_EQ(ErrorCode::OK, error) << "Failed to generate ECDSA key with curve " << curve;
         if (error != ErrorCode::OK) continue;
 
         string message(1024, 'a');
-        SignMessage(message, AuthorizationSetBuilder().Digest(Digest::SHA_2_256));
+        SignMessage(message, AuthorizationSetBuilder().Digest(digest));
         CheckedDeleteKey();
     }
 }
@@ -1723,6 +1737,10 @@ TEST_P(VerificationOperationsTest, EcdsaAllDigestsAndCurves) {
     string message = "1234567890";
     string corrupt_message = "2234567890";
     for (auto curve : ValidCurves()) {
+        if (curve == EcCurve::P_224) {
+            digests = {Digest::NONE};
+        }
+
         ErrorCode error = GenerateKey(AuthorizationSetBuilder()
                                               .Authorization(TAG_NO_AUTH_REQUIRED)
                                               .EcdsaSigningKey(curve)
