@@ -16,6 +16,23 @@
       "revId": "1c50a59eae395bdd4c08b72a0edefbb83dbb194b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1e0791c_cbd40393",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1244622
+      },
+      "writtenOn": "2020-09-17T00:13:59Z",
+      "side": 1,
+      "message": "CL needs test owner code-review. Pls also cp it aosp/master.",
+      "revId": "1c50a59eae395bdd4c08b72a0edefbb83dbb194b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
