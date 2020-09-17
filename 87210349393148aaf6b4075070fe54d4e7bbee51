@@ -3530,6 +3530,30 @@
     },
     {
       "key": {
+        "uuid": "6b198dac_c65a8b77",
+        "filename": "keymint/support/include/keymintSupport/attestation_record.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-17T18:03:40Z",
+      "side": 1,
+      "message": "Keeping this means more work for anyone who will have to maintain this in the future, because changes to the attestation parser will have to be done in multiple locations.\n\nIf you don\u0027t want to change the tests that calls this function you could still use just one implementation and write a shim around it to convert the parameters. I\u0027d rather you go the extra mile and throw out this function in favor of the one below, because it will make the code more consistent.\n\nWe have enough duplication of this code throughout different repositories. We really should not have this amount of duplicated code in the same file even. Unless you can give me a really really good reason why we need this and the version below, I am not going to +2 this.",
+      "parentUuid": "44a818ec_fde13546",
+      "range": {
+        "startLine": 79,
+        "startChar": 10,
+        "endLine": 79,
+        "endChar": 34
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f7c2441_31d42548",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
         "patchSetId": 27
