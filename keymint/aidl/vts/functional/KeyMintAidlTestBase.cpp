@@ -761,14 +761,15 @@ vector<EcCurve> KeyMintAidlTestBase::ValidCurves() {
     if (securityLevel_ == SecurityLevel::STRONGBOX) {
         return {EcCurve::P_256};
     } else {
-        return {EcCurve::P_224, EcCurve::P_256, EcCurve::P_384, EcCurve::P_521};
+        return {EcCurve::P_224, EcCurve::P_256, EcCurve::P_384, EcCurve::P_521,
+                EcCurve::CURVE_25519};
     }
 }
 
 vector<EcCurve> KeyMintAidlTestBase::InvalidCurves() {
     if (SecLevel() == SecurityLevel::TRUSTED_ENVIRONMENT) return {};
     CHECK(SecLevel() == SecurityLevel::STRONGBOX);
-    return {EcCurve::P_224, EcCurve::P_384, EcCurve::P_521};
+    return {EcCurve::P_224, EcCurve::P_384, EcCurve::P_521, EcCurve::CURVE_25519};
 }
 
 vector<Digest> KeyMintAidlTestBase::ValidDigests(bool withNone, bool withMD5) {
