@@ -16,6 +16,23 @@
       "revId": "0076dae6084a07742856bc4c5aa87dc18fba3b41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3882d39f_4f612dbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2020-09-17T17:14:46Z",
+      "side": 1,
+      "message": "smoreland@: Need owner\u0027s +1 on this CL, thanks!",
+      "revId": "0076dae6084a07742856bc4c5aa87dc18fba3b41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
