@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbe0f07a_2e508a0a",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-09-18T17:17:31Z",
+      "side": 1,
+      "message": "nit: F or Flavor or some other name relating to type (T is commong for data structures)",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 4
+      },
+      "revId": "8b1f2b83ba2796b5c8418ef9b14f53d3c9ff1ed6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26276770_a40df51f",
+        "filename": "common/aidl/android/hardware/common/SynchronizedReadWrite.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-09-18T17:17:31Z",
+      "side": 1,
+      "message": "should be spaced in 4 like I* files\n\nShould we remove the restriction on empty enums instead?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 5
+      },
+      "revId": "8b1f2b83ba2796b5c8418ef9b14f53d3c9ff1ed6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
