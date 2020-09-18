@@ -3554,6 +3554,30 @@
     },
     {
       "key": {
+        "uuid": "bfe1eb63_850a36f6",
+        "filename": "keymint/support/include/keymintSupport/attestation_record.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-18T06:53:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b198dac_c65a8b77",
+      "range": {
+        "startLine": 79,
+        "startChar": 10,
+        "endLine": 79,
+        "endChar": 34
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f7c2441_31d42548",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
         "patchSetId": 27
