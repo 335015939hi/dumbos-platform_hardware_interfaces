@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77236054_4c35341f",
+        "filename": "keymint/aidl/android/hardware/keymint/BeginResult.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "uses",
+      "range": {
+        "startLine": 32,
+        "startChar": 15,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69f0d098_13773690",
+        "filename": "keymint/aidl/android/hardware/keymint/BeginResult.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "Since this isn\u0027t a Javadoc-style comment, move trailing */ to the end of the last line. Alternatively, make it a Javadoc-style comment like the one on the parcelable.",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 7
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f86e28a_cb994da9",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "IKeyMintDevice implementations ignore any tags they cannot enforce and do not return them in KeyCharacteristics.",
+      "range": {
+        "startLine": 159,
+        "startChar": 3,
+        "endLine": 159,
+        "endChar": 76
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dd66fda_979d7d9a",
+        "filename": "keymint/aidl/vts/functional/Android.bp",
+        "patchSetId": 30
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "We need the Keymaster4.1 VTS tests ported over as well.  From hardware/interfaces/keymaster/4.1/vts/functional.\n \nOh, and also the Keymaster4.0 performance tests. From hardware/interfaces/keymaster/4.0/vts/performance.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b50e66a6_1b8bcbbb",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "Multi-line ifs need curly braces.",
+      "range": {
+        "startLine": 50,
+        "startChar": 3,
+        "endLine": 51,
+        "endChar": 73
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45fa2434_ec21829e",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 3999,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "constexpr size_t",
+      "range": {
+        "startLine": 3999,
+        "startChar": 4,
+        "endLine": 3999,
+        "endChar": 7
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6724674_26cfc925",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 4003,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "Nit: size_t (yes, I know the previous code used int, but size_t is better).",
+      "range": {
+        "startLine": 4003,
+        "startChar": 4,
+        "endLine": 4003,
+        "endChar": 7
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdb749d9_23955721",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 4015,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 4015,
+        "startChar": 9,
+        "endLine": 4015,
+        "endChar": 12
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

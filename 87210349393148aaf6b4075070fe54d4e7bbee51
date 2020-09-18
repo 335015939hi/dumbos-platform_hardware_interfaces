@@ -443,6 +443,30 @@
     },
     {
       "key": {
+        "uuid": "8ac241c2_36aa29fd",
+        "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "We should add appropriate VTS tests to validate that any returned Certificate has a non-empty encodedCertificate.  If you don\u0027t want to do that now, add a TODO in the VTS tests.",
+      "parentUuid": "1fa279ae_28ccc2e6",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 55
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7fb4723e_164ee15d",
         "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
         "patchSetId": 27
@@ -784,6 +808,30 @@
       "side": 1,
       "message": "I deleted this line.  It is not clear to me which function and which parameter it is referring to.  We have many time tags, I don\u0027t think any must be provided to generate a key?",
       "parentUuid": "c61dc056_f16a2e8c",
+      "range": {
+        "startLine": 150,
+        "startChar": 3,
+        "endLine": 150,
+        "endChar": 81
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3402d687_6fd2e67d",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "Tag::CREATION_DATETIME, and yes we want this to be mandatory (it wasn\u0027t in the past which was the source of much confusion).",
+      "parentUuid": "2a82acc3_d11f6cc2",
       "range": {
         "startLine": 150,
         "startChar": 3,
@@ -1524,6 +1572,30 @@
     },
     {
       "key": {
+        "uuid": "1d6f12ef_0c5363f0",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyCharacteristics.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "But there are two security levels that it does enforce. I think two lists is better (more compact) than adding a separate security level to every entry, though.",
+      "parentUuid": "a015e6b1_e673a418",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 43
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5043707f_de9a71ed",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
         "patchSetId": 27
@@ -1889,6 +1961,30 @@
     },
     {
       "key": {
+        "uuid": "bc4b584e_338e5969",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "Not done",
+      "parentUuid": "669c063e_fdc0c755",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 71
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5e13f10e_28c7e1e1",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 27
@@ -2217,6 +2313,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9f6adf6_45ae1614",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "Why did you revert it back?  Janis is right.  It would also be acceptable to simply pass the sp by value (copying it) if making it const doesn\u0027t work.",
+      "parentUuid": "1021339f_9e45c3e8",
+      "range": {
+        "startLine": 340,
+        "startChar": 37,
+        "endLine": 340,
+        "endChar": 60
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -2558,6 +2678,30 @@
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af19492a_2e755dc8",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "It would be nicer to overload std::equals.\n\nMore importantly, it seems like this function is never actually used! I don\u0027t think that\u0027s because it\u0027s not needed, I think that\u0027s because the VTS tests below are actually calling operator\u003d\u003d, which means if they\u0027re working they\u0027re doing so accidentally.",
+      "parentUuid": "54de50ba_8f5747d6",
+      "range": {
+        "startLine": 57,
+        "startChar": 24,
+        "endLine": 57,
+        "endChar": 30
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -3247,6 +3391,24 @@
     },
     {
       "key": {
+        "uuid": "2c24ea99_7bb8b055",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "Good question. Not sure why this was marked as resolved, unresolving.",
+      "parentUuid": "41ea4bd5_30d09c5a",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "66a8e938_0c75e9a9",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
         "patchSetId": 27
@@ -3329,6 +3491,30 @@
       "side": 1,
       "message": "not sure your point?",
       "parentUuid": "dfbbe8d1_688ceebd",
+      "range": {
+        "startLine": 1497,
+        "startChar": 13,
+        "endLine": 1497,
+        "endChar": 83
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "363658e8_7bd3987a",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "Right now, VerifyMessage uses KeyMint to do the public key operation to verify the signature. But that actually shouldn\u0027t work, because KeyMint shouldn\u0027t do public key operations.  So what Janis is saying is that you should modify VerifyMessage do use BoringSSL to do the verification... exactly what this commented-out code does.",
+      "parentUuid": "51847854_29f6c8c3",
       "range": {
         "startLine": 1497,
         "startChar": 13,

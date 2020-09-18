@@ -3254,6 +3254,30 @@
     },
     {
       "key": {
+        "uuid": "525947b8_ea0dfcd2",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "Because it was a bad idea that was never actually used.",
+      "parentUuid": "d1d8b1ec_74ba120b",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 43
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16f1bce8_e01466c9",
         "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl.orig",
         "patchSetId": 11
@@ -3477,6 +3501,30 @@
       "side": 1,
       "message": "Done. but not sure why auto or string makes a difference.  this code is just straight copied from elsewhere.",
       "parentUuid": "27515044_31faeb32",
+      "range": {
+        "startLine": 36,
+        "startChar": 33,
+        "endLine": 36,
+        "endChar": 46
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13c38a0b_4f16631f",
+        "filename": "keymaster/aidl/default/service.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "My point was that it\u0027s just extra code and work at run-time to create an empty string then append two things to it, rather than creating a string and then appending one thing. It\u0027s trivial, but looks cleaner. Using auto removes a bit of clutter.",
+      "parentUuid": "fac4bed9_e0890f68",
       "range": {
         "startLine": 36,
         "startChar": 33,

@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "122fc9e5_5b08d9a9",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 20
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-18T21:46:04Z",
+      "side": 1,
+      "message": "Lines 41 and 42 are both blank :-)",
+      "parentUuid": "d839eb1a_d4131a10",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 0
+      },
+      "revId": "711182641ffc24fdc6da6ab728aaa1727adb2832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "02327604_ae2f2f54",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 20
