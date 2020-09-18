@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3ddb21bd_91f4ae1f",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-09-18T18:05:05Z",
+      "side": 1,
+      "message": "Flavor sounds good!",
+      "parentUuid": "fbe0f07a_2e508a0a",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 4
+      },
+      "revId": "8b1f2b83ba2796b5c8418ef9b14f53d3c9ff1ed6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26276770_a40df51f",
         "filename": "common/aidl/android/hardware/common/SynchronizedReadWrite.aidl",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-09-18T17:17:31Z",
       "side": 1,
       "message": "should be spaced in 4 like I* files\n\nShould we remove the restriction on empty enums instead?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 5
+      },
+      "revId": "8b1f2b83ba2796b5c8418ef9b14f53d3c9ff1ed6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e304dcf7_8ad9aa20",
+        "filename": "common/aidl/android/hardware/common/SynchronizedReadWrite.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-09-18T18:05:05Z",
+      "side": 1,
+      "message": "Done.\n\nI did try to leave this one empty at first, so it would have been kind of nice here. But it\u0027s not too bad leaving one enumerator that gets the point across.\nI think I\u0027d rather have that over empty enums, but I\u0027d be fine either way.",
+      "parentUuid": "26276770_a40df51f",
       "range": {
         "startLine": 26,
         "startChar": 0,
