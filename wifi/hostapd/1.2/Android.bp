@@ -14,4 +14,8 @@ hidl_interface {
         "android.hidl.base@1.0",
     ],
     gen_java: true,
+    apex_available: [
+        "com.android.wifi",
+        "//apex_available:platform",
+    ],
 }

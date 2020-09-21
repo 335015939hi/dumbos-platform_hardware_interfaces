@@ -27,4 +27,8 @@ hidl_interface {
         "android.hidl.safe_union@1.0",
     ],
     gen_java: false,
+    apex_available: [
+        "com.android.media.swcodec",
+        "//apex_available:platform",
+    ],
 }

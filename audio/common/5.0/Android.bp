@@ -11,4 +11,8 @@ hidl_interface {
     ],
     gen_java: true,
     gen_java_constants: true,
+    apex_available: [
+        "com.android.bluetooth.updatable",
+        "//apex_available:platform",
+    ],
 }

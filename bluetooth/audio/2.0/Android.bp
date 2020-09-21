@@ -15,4 +15,8 @@ hidl_interface {
         "android.hidl.safe_union@1.0",
     ],
     gen_java: false,
+    apex_available: [
+        "com.android.bluetooth.updatable",
+        "//apex_available:platform",
+    ],
 }

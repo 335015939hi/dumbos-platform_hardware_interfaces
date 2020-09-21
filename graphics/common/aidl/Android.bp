@@ -24,6 +24,8 @@ aidl_interface {
             apex_available: [
                 "//apex_available:platform",
                 "com.android.media.swcodec",
+                "com.android.media",
+                "com.android.bluetooth.updatable",
             ],
             min_sdk_version: "29",
         },
