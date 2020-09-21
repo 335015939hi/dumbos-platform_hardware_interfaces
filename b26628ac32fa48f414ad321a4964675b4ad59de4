@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1081af31_031e334e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124149
+      },
+      "writtenOn": "2020-09-21T19:42:53Z",
+      "side": 1,
+      "message": "Bypassing presubmit as per build cop policies on build breaking changes https://g3doc.corp.google.com/company/teams/android/teampages/droidcop-v2/howto/revert.md?cl\u003dhead",
+      "revId": "b26628ac32fa48f414ad321a4964675b4ad59de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
