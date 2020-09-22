@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d39c08c_e96c3b18",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-09-22T21:17:37Z",
+      "side": 1,
+      "message": "It\u0027s not an optional field, there is no such \"not specified\".\n\nPlease also include the frameworks change all the way up to telephony manager.",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 42
+      },
+      "revId": "68370bf1f2086b623f32169a61fb6a7040f97caf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
