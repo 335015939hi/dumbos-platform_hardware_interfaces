@@ -69,4 +69,15 @@ interface IFastboot {
      *     FAILURE_UNKNOWN otherwise.
      */
     getBatteryVoltageFlashingThreshold() generates (int32_t batteryVoltage, Result result);
+
+    /**
+     * Executes an OEM specific erase after fastboot erase.
+     *
+     * @param oemCmd The oem command that is passed to the fastboot HAL.
+     * @return result Returns the status SUCCESS if the operation is successful,
+     *     NOT_SUPPORTED for unsupported command.
+     *     INVALID_ARGUMENT for bad arguments,
+     *     FAILURE_UNKNOWN for unknown error in the oem specific command.
+     */
+    doOemSpecificErase(string oemCmd) generates (Result result);
 };

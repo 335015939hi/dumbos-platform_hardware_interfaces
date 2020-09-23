@@ -50,6 +50,12 @@ Return<void> Fastboot::getBatteryVoltageFlashingThreshold(
     return Void();
 }
 
+Return<void> Fastboot::doOemSpecificErase(const hidl_string& /* oemCmd */,
+        doOemSpecificErase_cb _hidl_cb) {
+    _hidl_cb({Status::NOT_SUPPORTED, "Command not supported in default implementation"});
+    return Void();
+}
+
 extern "C" IFastboot* HIDL_FETCH_IFastboot(const char* /* name */) {
     return new Fastboot();
 }

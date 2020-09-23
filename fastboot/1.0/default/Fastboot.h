@@ -37,6 +37,8 @@ struct Fastboot : public IFastboot {
     Return<void> getOffModeChargeState(getOffModeChargeState_cb _hidl_cb) override;
     Return<void> getBatteryVoltageFlashingThreshold(
             getBatteryVoltageFlashingThreshold_cb _hidl_cb) override;
+    Return<void> doOemSpecificErase(const hidl_string& oemCmd,
+            doOemSpecificErase_cb _hidl_cb) override;
 };
 
 extern "C" IFastboot* HIDL_FETCH_IFastboot(const char* name);
