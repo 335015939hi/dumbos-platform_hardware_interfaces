@@ -55,6 +55,17 @@ void initilializeDriverAndFirmware(const std::string& wifi_instance_name) {
     // Skip if wifi instance is not set.
     if (wifi_instance_name == "") {
         return;
+<<<<<<< HEAD   (77c3b5 Merge "vts: Use global hostapd_ since teardown will call ter)
+=======
+    }
+    if (getWifi(wifi_instance_name) != nullptr) {
+        sp<IWifiChip> wifi_chip = getWifiChip(wifi_instance_name);
+        ChipModeId mode_id;
+        EXPECT_TRUE(configureChipToSupportIfaceType(
+            wifi_chip, ::android::hardware::wifi::V1_0::IfaceType::STA, &mode_id));
+    } else {
+        LOG(WARNING) << __func__ << ": Vendor HAL not supported";
+>>>>>>> CHANGE (533a44 Revert "wifi: remove wifi instance name string check")
     }
 
     sp<IWifiChip> wifi_chip = getWifiChip(wifi_instance_name);
@@ -69,6 +80,14 @@ void deInitilializeDriverAndFirmware(const std::string& wifi_instance_name) {
     // Skip if wifi instance is not set.
     if (wifi_instance_name == "") {
         return;
+<<<<<<< HEAD   (77c3b5 Merge "vts: Use global hostapd_ since teardown will call ter)
+=======
+    }
+    if (getWifi(wifi_instance_name) != nullptr) {
+        stopWifi(wifi_instance_name);
+    } else {
+        LOG(WARNING) << __func__ << ": Vendor HAL not supported";
+>>>>>>> CHANGE (533a44 Revert "wifi: remove wifi instance name string check")
     }
 
     stopWifi(wifi_instance_name);
