@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "334fe62f_df6dff45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-09-23T19:52:21Z",
+      "side": 1,
+      "message": "Thanks Joseph, I think you would need to add a new version of the HAL to avoid breaking build for older devices(whose fastboot HAL implementations wouldn\u0027t know about the new API).\n\nSteven, please do CMIIW(also please not that framework does not depend on fastboot HAL and it is only used in recovery so it would always get updated along with its client fastbootd). ",
+      "revId": "24e23a063e6f4d211502b454f6c5d94e0e038705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
