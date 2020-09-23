@@ -174,7 +174,7 @@ func (g *vintfCompatibilityMatrixRule) GenerateAndroidBuildActions(ctx android.M
 	ctx.InstallFile(android.PathForModuleInstall(ctx, "etc", relpath), outputFilename, g.genFile)
 }
 
-func (g *vintfCompatibilityMatrixRule) AndroidMk() android.AndroidMkData {
+func (g *vintfCompatibilityMatrixRule) AndroidMk(config android.Config) android.AndroidMkData {
 	return android.AndroidMkData{
 		Class:      "ETC",
 		OutputFile: android.OptionalPathForPath(g.genFile),
