@@ -139,20 +139,11 @@ TEST_P(SupplicantHidlTest, RemoveP2pInterface) {
  */
 TEST_P(SupplicantHidlTest, Terminate) { supplicant_->terminate(); }
 
-static std::vector<std::string> get_wifi_instances() {
-    std::vector<std::string> instances =
-        android::hardware::getAllHalInstanceNames(
-            android::hardware::wifi::V1_0::IWifi::descriptor);
-    // Also test when wifi instance is not set.
-    instances.push_back("");
-
-    return instances;
-}
-
 INSTANTIATE_TEST_CASE_P(
     PerInstance, SupplicantHidlTest,
     testing::Combine(
-        testing::ValuesIn(get_wifi_instances()),
+        testing::ValuesIn(
+            android::hardware::getAllHalInstanceNames(IWifi::descriptor)),
         testing::ValuesIn(android::hardware::getAllHalInstanceNames(
             android::hardware::wifi::supplicant::V1_1::ISupplicant::
                 descriptor))),
