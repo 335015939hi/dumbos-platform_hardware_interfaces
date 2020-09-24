@@ -22,6 +22,30 @@
       "revId": "68370bf1f2086b623f32169a61fb6a7040f97caf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd1b558b_f9680d24",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1173768
+      },
+      "writtenOn": "2020-09-24T19:45:16Z",
+      "side": 1,
+      "message": "Removed the comment. Will provide framework changes once it is ready.",
+      "parentUuid": "8d39c08c_e96c3b18",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 42
+      },
+      "revId": "68370bf1f2086b623f32169a61fb6a7040f97caf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
