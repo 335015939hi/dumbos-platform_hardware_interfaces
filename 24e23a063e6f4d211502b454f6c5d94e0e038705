@@ -16,6 +16,24 @@
       "revId": "24e23a063e6f4d211502b454f6c5d94e0e038705",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fa43e59_4b093a87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-09-24T08:17:01Z",
+      "side": 1,
+      "message": "Hi Hridya,\n\nI try to extend fastboot hal from 1.0 to 1.1.\nPlease feel free to review it.\n\nThank you,\nJoseph.",
+      "parentUuid": "334fe62f_df6dff45",
+      "revId": "24e23a063e6f4d211502b454f6c5d94e0e038705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
