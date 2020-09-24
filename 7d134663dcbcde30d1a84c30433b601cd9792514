@@ -71,6 +71,52 @@
     },
     {
       "key": {
+        "uuid": "978d1e3d_e8e01219",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyParameter.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-24T15:20:41Z",
+      "side": 1,
+      "message": "smoreland suggested we should consolidate these two fields into one. Technically we could also coerce the integer field into the long field and we could drop the boolValue, because it is implicitly true.",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 18
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ea5e945_716a48bc",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyParameter.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-24T15:20:41Z",
+      "side": 1,
+      "message": "please make this field nullable.",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 10
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2dd66fda_979d7d9a",
         "filename": "keymint/aidl/vts/functional/Android.bp",
         "patchSetId": 30
