@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b61b477b_c218f7d3",
+        "filename": "health/2.1/vts/functional/VtsHalHealthV2_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-09-24T22:40:11Z",
+      "side": 1,
+      "message": "what about a plugged-in device w/ a battery which is actually at 0%?",
+      "range": {
+        "startLine": 240,
+        "startChar": 23,
+        "endLine": 241,
+        "endChar": 33
+      },
+      "revId": "6bed2f3207b756b90dae7d72d91313d377f0d048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
