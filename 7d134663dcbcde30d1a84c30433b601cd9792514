@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "61bce5d1_eaaf2cb3",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Timestamp.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Nit: Remove blank line.",
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "77236054_4c35341f",
         "filename": "keymint/aidl/android/hardware/keymint/BeginResult.aidl",
         "patchSetId": 30
@@ -48,6 +65,23 @@
     },
     {
       "key": {
+        "uuid": "9b3b78c6_d1a3915e",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Nit: Delete extra blank lines.",
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5f86e28a_cb994da9",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 30
@@ -64,6 +98,29 @@
         "startChar": 3,
         "endLine": 159,
         "endChar": 76
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b998034_4b390814",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Let\u0027s remove this.  If you don\u0027t want to do it in this CL, add a TODO or file a bug.",
+      "range": {
+        "startLine": 245,
+        "startChar": 42,
+        "endLine": 245,
+        "endChar": 79
       },
       "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -117,6 +174,132 @@
     },
     {
       "key": {
+        "uuid": "8f55e710_ca894446",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Add documentation.",
+      "range": {
+        "startLine": 27,
+        "startChar": 5,
+        "endLine": 27,
+        "endChar": 8
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d12d51b_c5de1b4a",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Add TagType::INVALID comment",
+      "range": {
+        "startLine": 28,
+        "startChar": 14,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f2f6ced_f27114e5",
+        "filename": "keymint/aidl/android/hardware/keymint/TagType.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Remove extra empty line.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7008c35_32a19e6c",
+        "filename": "keymint/aidl/android/hardware/keymint/TagType.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Add documentation.",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 12
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c2b64b2_1bd401ea",
+        "filename": "keymint/aidl/android/hardware/keymint/Timestamp.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Nit: Delete extra blank line.",
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0acc0c3e_92d70d10",
+        "filename": "keymint/aidl/android/hardware/keymint/Timestamp.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Nit: Delete blank line.",
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2dd66fda_979d7d9a",
         "filename": "keymint/aidl/vts/functional/Android.bp",
         "patchSetId": 30
@@ -156,6 +339,190 @@
         "startChar": 3,
         "endLine": 51,
         "endChar": 73
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5f0058_bb482ecb",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Same as above.",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 0
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "773b3f7e_deba2ec9",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Also.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 50
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c801c35c_2f8f5b04",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "If this is empty, do we need it?",
+      "range": {
+        "startLine": 748,
+        "startChar": 0,
+        "endLine": 751,
+        "endChar": 1
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af7287fe_8095713e",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "This appears to be unused.",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 29
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c0fc2a9_03ca6349",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "There\u0027s no need to have exportKey to do this test. The public key is returned by generateKey.",
+      "range": {
+        "startLine": 1251,
+        "startChar": 12,
+        "endLine": 1252,
+        "endChar": 27
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cf137f2_1accde85",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 1449,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "generateKey now returns keys, right? Should be able to do this.",
+      "range": {
+        "startLine": 1448,
+        "startChar": 0,
+        "endLine": 1449,
+        "endChar": 15
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d825bb69_3970a7c6",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 1735,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "Nit: It would be good to clean up the formatting on these.",
+      "range": {
+        "startLine": 1718,
+        "startChar": 0,
+        "endLine": 1735,
+        "endChar": 30
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f9ea1ad_9b666064",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 1961,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-09-24T18:14:02Z",
+      "side": 1,
+      "message": "generateKey now returns keys, right? Should be able to implement this.",
+      "range": {
+        "startLine": 1959,
+        "startChar": 0,
+        "endLine": 1961,
+        "endChar": 0
       },
       "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
