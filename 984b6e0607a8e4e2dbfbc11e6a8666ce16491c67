@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e5c6751_ed8e3140",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2020-09-24T03:04:42Z",
+      "side": 1,
+      "message": "The fix has been verified by mediatek. PTAL, Thanks!",
+      "revId": "984b6e0607a8e4e2dbfbc11e6a8666ce16491c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
