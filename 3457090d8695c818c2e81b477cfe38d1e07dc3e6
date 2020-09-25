@@ -16,6 +16,24 @@
       "revId": "3457090d8695c818c2e81b477cfe38d1e07dc3e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ad4df67_2eb239a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-09-25T20:55:17Z",
+      "side": 1,
+      "message": "Yeah ~ I am also thinking about the VTS testing for fastboot hal, but I take a look at fastboot hal version 1.0, we didn\u0027t provide any VTS test case for that before ...\n\nhttps://source.corp.google.com/android/hardware/interfaces/fastboot/1.0/default/Fastboot.cpp\n\n\nI am not for sure if the reason was the default fastboot hal implementations is too simple and just return \"FAILURE_UNKNOWN\" or \"SUCCESS\" to caller without doing other things.\n\nIf we want to implement VTS for fastboot Hal default solution, I don\u0027t know what need to verify from that. For example, Fastboot::doOemCommand() can return \"FAILURE_UNKNOWN\" or \"SUCCESS\" and both of that are expected return value right ?\n\nThank you,\nJoseph.",
+      "parentUuid": "3f6574b9_535a4d31",
+      "revId": "3457090d8695c818c2e81b477cfe38d1e07dc3e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

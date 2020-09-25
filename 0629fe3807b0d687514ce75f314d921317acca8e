@@ -94,6 +94,30 @@
       "revId": "0629fe3807b0d687514ce75f314d921317acca8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f0fab51_8072bd75",
+        "filename": "fastboot/1.1/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-09-25T20:55:17Z",
+      "side": 1,
+      "message": "Regard to \"they can still write `fb-\u003eoemCmd(\"myCustomErase\")`, right?\",\n\nI think maybe you are thinking about a similar case right ? I share it by following patch.\n\nhttps://googleplex-android-review.git.corp.google.com/c/platform/system/core/+/12626459/8/fastboot/device/commands.cpp#223\n\nSince we don\u0027t have precisely defined APIs for userdata partition erased handler, we just can reuse fastboot_hal-\u003edoOemCommand(\"postwipedata\") to notify Titan M after userdata has been erased. So oems need to hack system fastbootd code to do that special erase.\n\nIn order to prevent oem do that in Android S, so we try to define a new API doOemSpecialErase() for post wipe userdata. Then oems don\u0027t need to hack system/framework code for that special case. right ?\n\n\nThanknk you,\nJoseph.",
+      "parentUuid": "4d78f547_03d115ff",
+      "range": {
+        "startLine": 32,
+        "startChar": 23,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "0629fe3807b0d687514ce75f314d921317acca8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
