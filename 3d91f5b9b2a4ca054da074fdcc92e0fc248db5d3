@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "beec13f2_a8de93e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2020-09-25T21:38:54Z",
+      "side": 1,
+      "message": "lgtm given the escape clean up.",
+      "revId": "3d91f5b9b2a4ca054da074fdcc92e0fc248db5d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdada8d6_7fd55487",
         "filename": "graphics/composer/2.2/vts/functional/AndroidTest.xml",
         "patchSetId": 1
