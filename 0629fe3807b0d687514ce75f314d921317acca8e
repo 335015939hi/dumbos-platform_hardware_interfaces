@@ -70,6 +70,30 @@
       "revId": "0629fe3807b0d687514ce75f314d921317acca8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d78f547_03d115ff",
+        "filename": "fastboot/1.1/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-09-25T19:07:51Z",
+      "side": 1,
+      "message": "\u003e But if other oems would like to do special erase after other particular partition has been erase by fastbootd, we may need to add new Special API again.\n\nIn this case, from vendor code, they can still write `fb-\u003eoemCmd(\"myCustomErase\")`, right? The reason this API is needed, presumably, is because it is called from framework code, and framework code shouldn\u0027t know cmd strings for oemCmd. Framework code needs precisely defined APIs.",
+      "parentUuid": "194207be_8a67baf7",
+      "range": {
+        "startLine": 32,
+        "startChar": 23,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "0629fe3807b0d687514ce75f314d921317acca8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
