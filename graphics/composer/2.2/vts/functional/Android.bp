@@ -58,9 +58,8 @@ cc_test {
         "android.hardware.graphics.composer@2.1-command-buffer",
         "android.hardware.graphics.composer@2.2-command-buffer",
     ],
-    disable_framework: true,
     test_suites: [
         "general-tests",
-        "vts-core",
+        "vts",
     ],
 }
