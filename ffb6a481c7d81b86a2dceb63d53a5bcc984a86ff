@@ -22,6 +22,30 @@
       "revId": "ffb6a481c7d81b86a2dceb63d53a5bcc984a86ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e4a2371_aa23eff1",
+        "filename": "tests/baz/1.0/default/Baz.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-09-25T18:15:55Z",
+      "side": 1,
+      "message": "Because Java clients used to expect \u0027useAnEnum takes an enum and always returns goober\u0027 and C++ clients used to expect \u0027useAnEnum takes an enum and always returns quux\u0027. And now, since Java\u003c-\u003eJava is tested and C++\u003c-\u003eC++ is tested, I had to pick one.\n\nThis CL gives us better HIDL coverage. Obviously the tests should be completely redesigned (or HIDL Java or HIDL should never have existed in the first place), but I\u0027m more focused on trying to deprecate HIDL in the long run than making its tests maintainable.",
+      "parentUuid": "27d1fe8c_e176543c",
+      "range": {
+        "startLine": 340,
+        "startChar": 21,
+        "endLine": 340,
+        "endChar": 25
+      },
+      "revId": "ffb6a481c7d81b86a2dceb63d53a5bcc984a86ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
