@@ -46,6 +46,30 @@
       "revId": "0629fe3807b0d687514ce75f314d921317acca8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "194207be_8a67baf7",
+        "filename": "fastboot/1.1/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-09-25T02:42:40Z",
+      "side": 1,
+      "message": "Thank you Steven and Hridya for code review,\n\nYes ~ this API doOemSpecificErase() can work without any input argument.\n\nSince currently we just want to notify Titan M after \"userdata\" has been erased, it is fine to remove the \u0027oemCmd\u0027 argument here. But if other oems would like to do special erase after other particular partition has been erase by fastbootd, we may need to add new Special API again.\n\nI am okay to remove this \u0027oemCmd\u0027 argument at fastboot_hal 1.1 version. \n\nThank you,\nJoseph.",
+      "parentUuid": "62356831_e889ed36",
+      "range": {
+        "startLine": 32,
+        "startChar": 23,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "0629fe3807b0d687514ce75f314d921317acca8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
