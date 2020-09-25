@@ -46,6 +46,30 @@
       "revId": "ffb6a481c7d81b86a2dceb63d53a5bcc984a86ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5d2ed77_fccd1e20",
+        "filename": "tests/baz/1.0/default/Baz.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-09-25T19:40:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0e4a2371_aa23eff1",
+      "range": {
+        "startLine": 340,
+        "startChar": 21,
+        "endLine": 340,
+        "endChar": 25
+      },
+      "revId": "ffb6a481c7d81b86a2dceb63d53a5bcc984a86ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
