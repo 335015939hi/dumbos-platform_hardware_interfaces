@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27d1fe8c_e176543c",
+        "filename": "tests/baz/1.0/default/Baz.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-09-25T18:02:37Z",
+      "side": 1,
+      "message": "Why does this need to be changed?",
+      "range": {
+        "startLine": 340,
+        "startChar": 21,
+        "endLine": 340,
+        "endChar": 25
+      },
+      "revId": "ffb6a481c7d81b86a2dceb63d53a5bcc984a86ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
