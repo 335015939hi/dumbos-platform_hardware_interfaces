@@ -30,18 +30,10 @@ void RadioHidlTest_v1_6::SetUp() {
 
     radio_v1_6->setResponseFunctions(radioRsp_v1_6, radioInd_v1_6);
 
-    getDataCallList();
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_6->rspInfo.type);
-    EXPECT_EQ(serial, radioRsp_v1_6->rspInfo.serial);
-    EXPECT_EQ(RadioError::NONE, radioRsp_v1_6->rspInfo.error);
-
     sp<::android::hardware::radio::config::V1_1::IRadioConfig> radioConfig =
             ::android::hardware::radio::config::V1_1::IRadioConfig::getService();
     /* Enforce Vts testing with RadioConfig is existed. */
     ASSERT_NE(nullptr, radioConfig.get());
-
-    /* Enforce Vts Testing with Sim Status Present only. */
-    EXPECT_EQ(CardState::PRESENT, cardStatus.base.base.base.cardState);
 }
 
 /*
