@@ -738,6 +738,9 @@ class RadioResponse_v1_6 : public ::android::hardware::radio::V1_6::IRadioRespon
             const ::android::hardware::radio::V1_5::CardStatus& card_status);
 
     /* 1.6 Api */
+    Return<void> setRadioPowerResponse_1_6(
+            const ::android::hardware::radio::V1_6::RadioResponseInfo& info);
+
     Return<void> setupDataCallResponse_1_6(
             const ::android::hardware::radio::V1_6::RadioResponseInfo& info,
             const android::hardware::radio::V1_6::SetupDataCallResult& dcResponse);
