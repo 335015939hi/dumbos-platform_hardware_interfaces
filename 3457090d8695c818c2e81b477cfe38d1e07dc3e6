@@ -52,6 +52,24 @@
       "revId": "3457090d8695c818c2e81b477cfe38d1e07dc3e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fa2457b_08e0b0a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-09-27T21:36:13Z",
+      "side": 1,
+      "message": "We decided against adding VTS tests for the fastboot 1.0 HAL in Q since it is only present in recovery/fastbootd mode and VTS did not have the capability to test the HAL in recovery mode(b/115460844). Instead the FastbootVerifyUserspace VTS test tests fastbootd.",
+      "parentUuid": "c65fd253_9b79cc88",
+      "revId": "3457090d8695c818c2e81b477cfe38d1e07dc3e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

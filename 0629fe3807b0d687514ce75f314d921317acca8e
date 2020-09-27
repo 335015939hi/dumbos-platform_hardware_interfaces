@@ -142,6 +142,30 @@
       "revId": "0629fe3807b0d687514ce75f314d921317acca8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c7256ed_f37e2c8e",
+        "filename": "fastboot/1.1/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2020-09-27T21:36:13Z",
+      "side": 1,
+      "message": "Thanks Steven, yes the oemCmd workaround is in a release branch and not part of AOSP. For AOSP, we will only use the new doOemSpecificErase() API so that we don\u0027t have to rely on specific OEM commands in fastbootd as you mentioned.",
+      "parentUuid": "f543ce79_b34021c7",
+      "range": {
+        "startLine": 32,
+        "startChar": 23,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "0629fe3807b0d687514ce75f314d921317acca8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
