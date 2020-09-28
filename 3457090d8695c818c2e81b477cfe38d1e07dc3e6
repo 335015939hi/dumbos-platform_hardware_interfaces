@@ -88,6 +88,23 @@
       "revId": "3457090d8695c818c2e81b477cfe38d1e07dc3e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "735d5a8f_bca3e845",
+        "filename": "fastboot/1.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-09-28T21:48:39Z",
+      "side": 1,
+      "message": "since nothing is defined here, this file can be deleted",
+      "revId": "3457090d8695c818c2e81b477cfe38d1e07dc3e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
