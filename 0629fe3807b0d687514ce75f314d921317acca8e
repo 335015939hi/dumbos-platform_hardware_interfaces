@@ -166,6 +166,30 @@
       "revId": "0629fe3807b0d687514ce75f314d921317acca8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "404326ae_198d61e0",
+        "filename": "fastboot/1.1/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-09-28T02:02:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c7256ed_f37e2c8e",
+      "range": {
+        "startLine": 32,
+        "startChar": 23,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "0629fe3807b0d687514ce75f314d921317acca8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
