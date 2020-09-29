@@ -16,6 +16,23 @@
       "revId": "43848da58de83ef9a8f857c66d029c4baec89a17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c08f27c1_7a7d4697",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-09-29T22:54:38Z",
+      "side": 1,
+      "message": "Do we need one of these for 2.4 as well?",
+      "revId": "43848da58de83ef9a8f857c66d029c4baec89a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
