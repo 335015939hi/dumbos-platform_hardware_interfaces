@@ -72,6 +72,8 @@ using ::android::hardware::automotive::evs::V1_1::BufferDesc;
 using ::android::hardware::automotive::evs::V1_0::DisplayDesc;
 using ::android::hardware::automotive::evs::V1_0::DisplayState;
 using ::android::hardware::graphics::common::V1_0::PixelFormat;
+using ::android::frameworks::automotive::display::V1_0::HwDisplayConfig;
+using ::android::frameworks::automotive::display::V1_0::HwDisplayState;
 using IEvsCamera_1_0 = ::android::hardware::automotive::evs::V1_0::IEvsCamera;
 using IEvsCamera_1_1 = ::android::hardware::automotive::evs::V1_1::IEvsCamera;
 using IEvsDisplay_1_0 = ::android::hardware::automotive::evs::V1_0::IEvsDisplay;
@@ -605,7 +607,10 @@ TEST_P(EvsHidlTest, CameraToDisplayRoundTrip) {
     LOG(INFO) << "Display " << targetDisplayId << " is alreay in use.";
 
     // Get the display descriptor
-    pDisplay->getDisplayInfo_1_1([](const auto& config, const auto& state) {
+    pDisplay->getDisplayInfo_1_1([](const HwDisplayConfig& config, const HwDisplayState& state) {
+        if (config.size() == 0 || state.size() == 0)
+            return;
+
         android::DisplayConfig* pConfig = (android::DisplayConfig*)config.data();
         const auto width = pConfig->resolution.getWidth();
         const auto height = pConfig->resolution.getHeight();
@@ -616,7 +621,6 @@ TEST_P(EvsHidlTest, CameraToDisplayRoundTrip) {
         android::ui::DisplayState* pState = (android::ui::DisplayState*)state.data();
         ASSERT_NE(pState->layerStack, -1);
     });
-
     // Test each reported camera
     for (auto&& cam: cameraInfo) {
         bool isLogicalCam = false;
