@@ -63,6 +63,13 @@ TEST_P(GnssHalTest, TestGnssMeasurementExtension) {
     auto gnssMeasurement_1_0 = gnss_hal_->getExtensionGnssMeasurement();
     ASSERT_TRUE(gnssMeasurement_2_1.isOk() && gnssMeasurement_2_0.isOk() &&
                 gnssMeasurement_1_1.isOk() && gnssMeasurement_1_0.isOk());
+
+    // CDD does not require Android Automotive OS devices to support
+    // GnssMeasurements.
+    if (Utils::isAutomotiveDevice()) {
+        return;
+    }
+
     sp<IGnssMeasurement_2_1> iGnssMeas_2_1 = gnssMeasurement_2_1;
     sp<IGnssMeasurement_2_0> iGnssMeas_2_0 = gnssMeasurement_2_0;
     sp<IGnssMeasurement_1_1> iGnssMeas_1_1 = gnssMeasurement_1_1;
@@ -363,12 +370,6 @@ IGnssConfiguration::BlacklistedSource FindStrongFrequentNonGpsSource(
  * formerly strongest satellite
  */
 TEST_P(GnssHalTest, BlacklistIndividualSatellites) {
-    if (!(gnss_cb_->last_capabilities_ & IGnssCallback_2_1::Capabilities::SATELLITE_BLACKLIST)) {
-        ALOGI("Test BlacklistIndividualSatellites skipped. SATELLITE_BLACKLIST capability not "
-              "supported.");
-        return;
-    }
-
     const int kLocationsToAwait = 3;
     const int kRetriesToUnBlacklist = 10;
 
@@ -510,12 +511,6 @@ TEST_P(GnssHalTest, BlacklistIndividualSatellites) {
  * 4a & b) Clean up by turning off location, and send in empty blacklist.
  */
 TEST_P(GnssHalTest, BlacklistConstellationLocationOff) {
-    if (!(gnss_cb_->last_capabilities_ & IGnssCallback_2_1::Capabilities::SATELLITE_BLACKLIST)) {
-        ALOGI("Test BlacklistConstellationLocationOff skipped. SATELLITE_BLACKLIST capability not "
-              "supported.");
-        return;
-    }
-
     const int kLocationsToAwait = 3;
     const int kGnssSvInfoListTimeout = 2;
 
@@ -592,12 +587,6 @@ TEST_P(GnssHalTest, BlacklistConstellationLocationOff) {
  * 4a & b) Clean up by turning off location, and send in empty blacklist.
  */
 TEST_P(GnssHalTest, BlacklistConstellationLocationOn) {
-    if (!(gnss_cb_->last_capabilities_ & IGnssCallback_2_1::Capabilities::SATELLITE_BLACKLIST)) {
-        ALOGI("Test BlacklistConstellationLocationOn skipped. SATELLITE_BLACKLIST capability not "
-              "supported.");
-        return;
-    }
-
     const int kLocationsToAwait = 3;
     const int kGnssSvInfoListTimeout = 2;
 
