@@ -1,0 +1,58 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000005227899",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1441773?revision\u003d2",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "33094a34_1e980e6e",
+        "filename": "gnss/2.1/vts/functional/gnss_hal_test_cases.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-29T05:12:31Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027deny list\u0027 or \u0027allow list\u0027; see https://developers.google.com/style/word-list#blacklist for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 521,
+        "startChar": 20,
+        "endLine": 521,
+        "endChar": 29
+      },
+      "revId": "700ba4d3cb94532a5382e7d5571a8d104eef57b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000005227899",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1441773?revision\u003d2",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "b6e0f890_04932edd",
+        "filename": "gnss/2.1/vts/functional/gnss_hal_test_cases.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-29T05:12:31Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027deny list\u0027 or \u0027allow list\u0027; see https://developers.google.com/style/word-list#blacklist for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 603,
+        "startChar": 20,
+        "endLine": 603,
+        "endChar": 29
+      },
+      "revId": "700ba4d3cb94532a5382e7d5571a8d104eef57b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
