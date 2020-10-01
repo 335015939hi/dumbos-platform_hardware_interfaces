@@ -62,6 +62,35 @@ cc_test_library {
     static_libs: [
         "android.hardware.security.keymint-V1-ndk_platform",
         "android.hardware.security.secureclock-V1-ndk_platform",
-        "libcppbor",
+        "libcppbor_external",
+    ],
+}
+
+cc_test {
+    name: "VtsHalRemotelyProvisionedComponentTargetTest",
+    defaults: [
+        "VtsHalTargetTestDefaults",
+        "use_libaidlvintf_gtest_helper_static",
+    ],
+    srcs: [
+        "VtsRemotelyProvisionedComponentTests.cpp",
+    ],
+    shared_libs: [
+        "libkeymint_remote_prov_support",
+        "libbinder_ndk",
+        "libcppbor_external",
+        "libcppcose",
+        "libcrypto",
+        "libkeymaster_portable",
+        "libpuresoftkeymasterdevice",
+    ],
+    static_libs: [
+        "android.hardware.security.keymint-unstable-ndk_platform",
+        "libgmock_ndk",
+        "libremote_provisioner",
+    ],
+    test_suites: [
+        "general-tests",
+        "vts",
     ],
 }
