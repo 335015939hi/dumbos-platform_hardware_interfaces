@@ -24,3 +24,49 @@ cc_binary {
         "service.cpp",
     ],
 }
+
+cc_binary {
+    name: "android.hardware.security.keymint-provisioner-service",
+    relative_install_path: "hw",
+    vintf_fragments: ["remotely_provisioned_component.xml"],
+    vendor: true,
+    static_libs: [
+        "android.hardware.security.keymint-ndk_platform",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "libcppbor",
+        "libcrypto",
+        "liblog",
+        "libremote_provisioner",
+    ],
+    srcs: [
+        "service.cpp",
+    ],
+}
+
+cc_library {
+    name: "libremote_provisioner",
+    vendor_available: true,
+    static_libs: [
+        "android.hardware.security.keymint-ndk_platform",
+        "libkeymint_remote_prov_support",
+    ],
+    shared_libs: [
+        "libbinder_ndk",
+        "libcppbor",
+        "libcppcose",
+        "libcrypto",
+        "liblog",
+    ],
+    export_include_dirs: [
+        ".",
+    ],
+    export_static_lib_headers: [
+        "android.hardware.security.keymint-ndk_platform",
+    ],
+    srcs: [
+        "RemotelyProvisionedComponent.cpp",
+    ],
+}
