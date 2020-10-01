@@ -668,6 +668,48 @@ TEST(ConvertTest, Array) {
     EXPECT_EQ(0U, item->asArray()->size());
 }
 
+TEST(MapCanonicalizationTest, CanonicalizationTest) {
+    Map map;
+    map.add("hello", 1)
+            .add("h", 1)
+            .add(1, 1)
+            .add(-4, 1)
+            .add(-5, 1)
+            .add(2, 1)
+            .add("hellp", 1)
+            .add(254, 1)
+            .add(27, 1);
+
+    EXPECT_EQ(prettyPrint(&map),
+              "{\n"
+              "  'hello' : 1,\n"
+              "  'h' : 1,\n"
+              "  1 : 1,\n"
+              "  -4 : 1,\n"
+              "  -5 : 1,\n"
+              "  2 : 1,\n"
+              "  'hellp' : 1,\n"
+              "  254 : 1,\n"
+              "  27 : 1,\n"
+              "}");
+
+    map.canonicalize();
+
+    // Canonically ordered by key encoding.
+    EXPECT_EQ(prettyPrint(&map),
+              "{\n"
+              "  1 : 1,\n"
+              "  2 : 1,\n"
+              "  -4 : 1,\n"
+              "  -5 : 1,\n"
+              "  27 : 1,\n"
+              "  254 : 1,\n"
+              "  'h' : 1,\n"
+              "  'hello' : 1,\n"
+              "  'hellp' : 1,\n"
+              "}");
+}
+
 class MockParseClient : public ParseClient {
   public:
     MOCK_METHOD4(item, ParseClient*(std::unique_ptr<Item>& item, const uint8_t* hdrBegin,
@@ -870,9 +912,8 @@ TEST(StreamParseTest, Semantic) {
     encodeHeader(SEMANTIC, 0, iter);
     Uint(999).encode(iter);
 
-    EXPECT_CALL(mpc, item(_, _, _, _)).Times(0);
+    EXPECT_CALL(mpc, item(_, _, _, _)).Times(1);
     EXPECT_CALL(mpc, itemEnd(_, _, _, _)).Times(0);
-    EXPECT_CALL(mpc, error(encoded.data(), "Semantic tags not supported"));
 
     parse(encoded.data(), encoded.data() + encoded.size(), &mpc);
 }
