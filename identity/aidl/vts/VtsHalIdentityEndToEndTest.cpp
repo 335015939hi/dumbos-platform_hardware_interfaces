@@ -217,7 +217,7 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
     optional<vector<uint8_t>> proofOfProvisioning =
             support::coseSignGetPayload(proofOfProvisioningSignature);
     ASSERT_TRUE(proofOfProvisioning);
-    cborPretty = support::cborPrettyPrint(proofOfProvisioning.value(), 32, {"readerCertificate"});
+    cborPretty = cppbor::prettyPrint(proofOfProvisioning.value(), 32, {"readerCertificate"});
     EXPECT_EQ(
             "[\n"
             "  'ProofOfProvisioning',\n"
@@ -331,7 +331,7 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
                                                              .add("Home address", true))
                                 .add("Image", cppbor::Map().add("Portrait image", false)))
                     .encode();
-    cborPretty = support::cborPrettyPrint(itemsRequestBytes, 32, {"EphemeralPublicKey"});
+    cborPretty = cppbor::prettyPrint(itemsRequestBytes, 32, {"EphemeralPublicKey"});
     EXPECT_EQ(
             "{\n"
             "  'nameSpaces' : {\n"
@@ -420,7 +420,7 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
     vector<uint8_t> mac;
     vector<uint8_t> deviceNameSpacesBytes;
     ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesBytes).isOk());
-    cborPretty = support::cborPrettyPrint(deviceNameSpacesBytes, 32, {});
+    cborPretty = cppbor::prettyPrint(deviceNameSpacesBytes, 32, {});
     ASSERT_EQ(
             "{\n"
             "  'PersonalData' : {\n"
@@ -481,7 +481,7 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
                                 testEntriesEntryCounts)
                         .isOk());
     ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesBytes).isOk());
-    cborPretty = support::cborPrettyPrint(deviceNameSpacesBytes, 32, {});
+    cborPretty = cppbor::prettyPrint(deviceNameSpacesBytes, 32, {});
     ASSERT_EQ("{}", cborPretty);
     // Calculate DeviceAuthentication and MAC (MACing key hasn't changed)
     deviceAuthentication = cppbor::Array();
@@ -507,7 +507,7 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
                                 testEntriesEntryCounts)
                         .isOk());
     ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesBytes).isOk());
-    cborPretty = support::cborPrettyPrint(deviceNameSpacesBytes, 32, {});
+    cborPretty = cppbor::prettyPrint(deviceNameSpacesBytes, 32, {});
     ASSERT_EQ("{}", cborPretty);
     // Calculate DeviceAuthentication and MAC (MACing key hasn't changed)
     deviceAuthentication = cppbor::Array();
