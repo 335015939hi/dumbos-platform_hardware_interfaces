@@ -18,9 +18,57 @@ cc_binary {
         "libkeymint",
         "liblog",
         "libpuresoftkeymasterdevice",
+        "libremote_provisioner",
         "libutils",
     ],
     srcs: [
         "service.cpp",
+    ],
+}
+
+cc_binary {
+    name: "android.hardware.security.keymint-provisioner-service",
+    relative_install_path: "hw",
+    vintf_fragments: ["remotely_provisioned_component.xml"],
+    vendor: true,
+    shared_libs: [
+        "android.hardware.security.keymint-unstable-ndk_platform",
+        "libbase",
+        "libbinder_ndk",
+        "libcppbor",
+        "libcrypto",
+        "libkeymaster_portable",
+        "libkeymint",
+        "liblog",
+        "libpuresoftkeymasterdevice",
+        "libremote_provisioner",
+    ],
+    srcs: [
+        "rem_service.cpp",
+    ],
+}
+
+cc_library {
+    name: "libremote_provisioner",
+    vendor_available: true,
+    static_libs: [
+        "libkeymint_remote_prov_support",
+    ],
+    shared_libs: [
+        "android.hardware.security.keymint-unstable-ndk_platform",
+        "libbinder_ndk",
+        "libcppbor",
+        "libcppcose",
+        "libcrypto",
+        "libkeymaster_portable",
+        "libkeymint",
+        "liblog",
+        "libpuresoftkeymasterdevice",
+    ],
+    export_include_dirs: [
+        ".",
+    ],
+    srcs: [
+        "RemotelyProvisionedComponent.cpp",
     ],
 }
