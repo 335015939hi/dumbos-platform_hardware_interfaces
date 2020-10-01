@@ -24,6 +24,8 @@
 #include <android-base/stringprintf.h>
 #include <string.h>
 
+#include <cppbor/cppbor.h>
+
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
 
 #include <openssl/sha.h>
@@ -507,8 +509,7 @@ void eicHexdump(const char* message, const uint8_t* data, size_t dataSize) {
 void eicCborPrettyPrint(const uint8_t* cborData, size_t cborDataSize, size_t maxBStrSize) {
     vector<uint8_t> cborDataVec(cborDataSize);
     memcpy(cborDataVec.data(), cborData, cborDataSize);
-    string str =
-            android::hardware::identity::support::cborPrettyPrint(cborDataVec, maxBStrSize, {});
+    string str = cppbor::prettyPrint(cborDataVec, maxBStrSize, {});
     fprintf(stderr, "%s\n", str.c_str());
 }
 

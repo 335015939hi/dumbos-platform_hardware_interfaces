@@ -231,7 +231,7 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
     optional<vector<uint8_t>> proofOfProvisioning =
             support::coseSignGetPayload(proofOfProvisioningSignature);
     ASSERT_TRUE(proofOfProvisioning);
-    cborPretty = support::cborPrettyPrint(proofOfProvisioning.value(), 32, {"readerCertificate"});
+    cborPretty = cppbor::prettyPrint(proofOfProvisioning.value(), 32, {"readerCertificate"});
     EXPECT_EQ(
             "[\n"
             "  'ProofOfProvisioning',\n"
@@ -353,7 +353,7 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
                                                              .add("Home address", true))
                                 .add("Image", cppbor::Map().add("Portrait image", false)))
                     .encode();
-    cborPretty = support::cborPrettyPrint(itemsRequestBytes, 32, {"EphemeralPublicKey"});
+    cborPretty = cppbor::prettyPrint(itemsRequestBytes, 32, {"EphemeralPublicKey"});
     EXPECT_EQ(
             "{\n"
             "  'nameSpaces' : {\n"
@@ -443,7 +443,7 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
     vector<uint8_t> mac;
     vector<uint8_t> deviceNameSpacesEncoded;
     ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesEncoded).isOk());
-    cborPretty = support::cborPrettyPrint(deviceNameSpacesEncoded, 32, {});
+    cborPretty = cppbor::prettyPrint(deviceNameSpacesEncoded, 32, {});
     ASSERT_EQ(
             "{\n"
             "  'PersonalData' : {\n"
@@ -486,7 +486,7 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
                                 testEntriesEntryCounts)
                         .isOk());
     ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesEncoded).isOk());
-    cborPretty = support::cborPrettyPrint(deviceNameSpacesEncoded, 32, {});
+    cborPretty = cppbor::prettyPrint(deviceNameSpacesEncoded, 32, {});
     ASSERT_EQ("{}", cborPretty);
     // Calculate DeviceAuthentication and MAC (MACing key hasn't changed)
     calculatedMac = support::calcMac(sessionTranscript.encode(),  // SessionTranscript
@@ -508,7 +508,7 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
                                 testEntriesEntryCounts)
                         .isOk());
     ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesEncoded).isOk());
-    cborPretty = support::cborPrettyPrint(deviceNameSpacesEncoded, 32, {});
+    cborPretty = cppbor::prettyPrint(deviceNameSpacesEncoded, 32, {});
     ASSERT_EQ("{}", cborPretty);
     // Calculate DeviceAuthentication and MAC (MACing key hasn't changed)
     calculatedMac = support::calcMac(sessionTranscript.encode(),  // SessionTranscript

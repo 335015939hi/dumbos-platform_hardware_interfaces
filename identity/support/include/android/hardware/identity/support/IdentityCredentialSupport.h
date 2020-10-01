@@ -66,24 +66,6 @@ string encodeHex(const uint8_t* data, size_t dataLen);
 optional<vector<uint8_t>> decodeHex(const string& hexEncoded);
 
 // ---------------------------------------------------------------------------
-// CBOR utilities.
-// ---------------------------------------------------------------------------
-
-// Returns pretty-printed CBOR for |value|.
-//
-// Only valid CBOR should be passed to this function.
-//
-// If a byte-string is larger than |maxBStrSize| its contents will not be
-// printed, instead the value of the form "<bstr size=1099016
-// sha1=ef549cca331f73dfae2090e6a37c04c23f84b07b>" will be printed. Pass zero
-// for |maxBStrSize| to disable this.
-//
-// The |mapKeysToNotPrint| parameter specifies the name of map values
-// to not print. This is useful for unit tests.
-string cborPrettyPrint(const vector<uint8_t>& encodedCbor, size_t maxBStrSize = 32,
-                       const vector<string>& mapKeysToNotPrint = {});
-
-// ---------------------------------------------------------------------------
 // Crypto functionality / abstraction.
 // ---------------------------------------------------------------------------
 

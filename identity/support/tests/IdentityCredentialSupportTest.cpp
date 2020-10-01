@@ -56,34 +56,33 @@ TEST(IdentityCredentialSupport, decodeHex) {
 }
 
 TEST(IdentityCredentialSupport, CborPrettyPrint) {
-    EXPECT_EQ("'Some text'", support::cborPrettyPrint(cppbor::Tstr("Some text").encode()));
+    EXPECT_EQ("'Some text'", cppbor::prettyPrint(cppbor::Tstr("Some text").encode()));
 
-    EXPECT_EQ("''", support::cborPrettyPrint(cppbor::Tstr("").encode()));
+    EXPECT_EQ("''", cppbor::prettyPrint(cppbor::Tstr("").encode()));
 
     EXPECT_EQ("{0x01, 0x00, 0x02, 0xf0, 0xff, 0x40}",
-              support::cborPrettyPrint(
-                      cppbor::Bstr(vector<uint8_t>({1, 0, 2, 240, 255, 64})).encode()));
+              cppbor::prettyPrint(cppbor::Bstr(vector<uint8_t>({1, 0, 2, 240, 255, 64})).encode()));
 
-    EXPECT_EQ("{}", support::cborPrettyPrint(cppbor::Bstr(vector<uint8_t>()).encode()));
+    EXPECT_EQ("{}", cppbor::prettyPrint(cppbor::Bstr(vector<uint8_t>()).encode()));
 
-    EXPECT_EQ("true", support::cborPrettyPrint(cppbor::Bool(true).encode()));
+    EXPECT_EQ("true", cppbor::prettyPrint(cppbor::Bool(true).encode()));
 
-    EXPECT_EQ("false", support::cborPrettyPrint(cppbor::Bool(false).encode()));
+    EXPECT_EQ("false", cppbor::prettyPrint(cppbor::Bool(false).encode()));
 
-    EXPECT_EQ("42", support::cborPrettyPrint(cppbor::Uint(42).encode()));
+    EXPECT_EQ("42", cppbor::prettyPrint(cppbor::Uint(42).encode()));
 
     EXPECT_EQ("9223372036854775807",  // 0x7fff ffff ffff ffff
-              support::cborPrettyPrint(cppbor::Uint(std::numeric_limits<int64_t>::max()).encode()));
+              cppbor::prettyPrint(cppbor::Uint(std::numeric_limits<int64_t>::max()).encode()));
 
-    EXPECT_EQ("-42", support::cborPrettyPrint(cppbor::Nint(-42).encode()));
+    EXPECT_EQ("-42", cppbor::prettyPrint(cppbor::Nint(-42).encode()));
 
     EXPECT_EQ("-9223372036854775808",  // -0x8000 0000 0000 0000
-              support::cborPrettyPrint(cppbor::Nint(std::numeric_limits<int64_t>::min()).encode()));
+              cppbor::prettyPrint(cppbor::Nint(std::numeric_limits<int64_t>::min()).encode()));
 }
 
 TEST(IdentityCredentialSupport, CborPrettyPrintCompound) {
     cppbor::Array array = cppbor::Array("foo", "bar", "baz");
-    EXPECT_EQ("['foo', 'bar', 'baz', ]", support::cborPrettyPrint(array.encode()));
+    EXPECT_EQ("['foo', 'bar', 'baz', ]", cppbor::prettyPrint(array.encode()));
 
     cppbor::Map map = cppbor::Map().add("foo", 42).add("bar", 43).add("baz", 44);
     EXPECT_EQ(
@@ -92,10 +91,10 @@ TEST(IdentityCredentialSupport, CborPrettyPrintCompound) {
             "  'bar' : 43,\n"
             "  'baz' : 44,\n"
             "}",
-            support::cborPrettyPrint(map.encode()));
+            cppbor::prettyPrint(map.encode()));
 
     cppbor::Array array2 = cppbor::Array(cppbor::Tstr("Some text"), cppbor::Nint(-42));
-    EXPECT_EQ("['Some text', -42, ]", support::cborPrettyPrint(array2.encode()));
+    EXPECT_EQ("['Some text', -42, ]", cppbor::prettyPrint(array2.encode()));
 
     cppbor::Map map2 = cppbor::Map().add(42, "foo").add(43, "bar").add(44, "baz");
     EXPECT_EQ(
@@ -104,7 +103,7 @@ TEST(IdentityCredentialSupport, CborPrettyPrintCompound) {
             "  43 : 'bar',\n"
             "  44 : 'baz',\n"
             "}",
-            support::cborPrettyPrint(map2.encode()));
+            cppbor::prettyPrint(map2.encode()));
 
     cppbor::Array deeplyNestedArrays =
             cppbor::Array(cppbor::Array(cppbor::Array("a", "b", "c")),
@@ -117,7 +116,7 @@ TEST(IdentityCredentialSupport, CborPrettyPrintCompound) {
             "    ['f', 'g', ],\n"
             "  ],\n"
             "]",
-            support::cborPrettyPrint(deeplyNestedArrays.encode()));
+            cppbor::prettyPrint(deeplyNestedArrays.encode()));
 
     EXPECT_EQ(
             "[\n"
@@ -139,13 +138,13 @@ TEST(IdentityCredentialSupport, CborPrettyPrintCompound) {
             "    },\n"
             "  },\n"
             "]",
-            support::cborPrettyPrint(cppbor::Array(cppbor::Bstr(vector<uint8_t>{10, 11}),
-                                                   cppbor::Tstr("foo"), cppbor::Uint(42),
-                                                   std::move(array), std::move(map),
-                                                   (cppbor::Map()
-                                                            .add("deep1", std::move(array2))
-                                                            .add("deep2", std::move(map2))))
-                                             .encode()));
+            cppbor::prettyPrint(cppbor::Array(cppbor::Bstr(vector<uint8_t>{10, 11}),
+                                              cppbor::Tstr("foo"), cppbor::Uint(42),
+                                              std::move(array), std::move(map),
+                                              (cppbor::Map()
+                                                       .add("deep1", std::move(array2))
+                                                       .add("deep2", std::move(map2))))
+                                        .encode()));
 }
 
 TEST(IdentityCredentialSupport, Signatures) {
@@ -219,7 +218,7 @@ TEST(IdentityCredentialSupport, CoseSignatures) {
     ASSERT_EQ(data, payload.value());
 
     // Finally, check that |coseSign1| are the bytes of a valid COSE_Sign1 message
-    string out = support::cborPrettyPrint(coseSign1.value());
+    string out = cppbor::prettyPrint(coseSign1.value());
     out = replaceLine(out, -2, "  [] // Signature Removed");
     EXPECT_EQ(
             "[\n"
@@ -250,7 +249,7 @@ TEST(IdentityCredentialSupport, CoseSignaturesAdditionalData) {
     ASSERT_EQ(0, payload.value().size());
 
     // Finally, check that |coseSign1| are the bytes of a valid COSE_Sign1 message
-    string out = support::cborPrettyPrint(coseSign1.value());
+    string out = cppbor::prettyPrint(coseSign1.value());
     out = replaceLine(out, -2, "  [] // Signature Removed");
     EXPECT_EQ(
             "[\n"
@@ -411,7 +410,7 @@ TEST(IdentityCredentialSupport, CoseMac0) {
             "0x86, 0x5c, 0x28, 0x2c, 0xd5, 0xa5, 0x13, 0xff, 0x3b, 0xd1, 0xde, 0x70, 0x5e, 0xbb, "
             "0xe2, 0x2d, 0x42, 0xbe, 0x53},\n"
             "]",
-            support::cborPrettyPrint(mac.value()));
+            cppbor::prettyPrint(mac.value()));
 }
 
 TEST(IdentityCredentialSupport, CoseMac0DetachedContent) {
@@ -433,7 +432,7 @@ TEST(IdentityCredentialSupport, CoseMac0DetachedContent) {
             "0x86, 0x5c, 0x28, 0x2c, 0xd5, 0xa5, 0x13, 0xff, 0x3b, 0xd1, 0xde, 0x70, 0x5e, 0xbb, "
             "0xe2, 0x2d, 0x42, 0xbe, 0x53},\n"
             "]",
-            support::cborPrettyPrint(mac.value()));
+            cppbor::prettyPrint(mac.value()));
 }
 
 // Generates a private key in DER format for a small value of 'd'.
@@ -459,9 +458,8 @@ std::pair<vector<uint8_t>, vector<uint8_t>> p256PrivateKeyGetXandY(
 }
 
 const cppbor::Item* findValueForTstr(const cppbor::Map* map, const string& keyValue) {
-    // TODO: Need cast until libcppbor's Map::get() is marked as const
-    auto [item, found] = ((cppbor::Map*)map)->get(keyValue);
-    if (!found) {
+    auto& item = map->get(keyValue);
+    if (!item) {
         return nullptr;
     }
     return item.get();

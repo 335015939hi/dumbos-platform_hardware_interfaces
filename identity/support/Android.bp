@@ -71,6 +71,7 @@ cc_library {
     ],
     shared_libs: [
         "libbase",
+        "libcrypto",
     ],
 }
 
@@ -82,6 +83,7 @@ cc_test {
     shared_libs: [
         "libcppbor",
         "libbase",
+        "libcrypto",
     ],
     static_libs: [
         "libgmock",
@@ -97,6 +99,7 @@ cc_test_host {
     shared_libs: [
         "libcppbor",
         "libbase",
+        "libcrypto",
     ],
     static_libs: [
         "libgmock",
