@@ -16,6 +16,70 @@
       "revId": "445b2b6b4a3d095dae5df5eee58d8e6ea7b2967b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b0440dd_bd4c9536",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1225025
+      },
+      "writtenOn": "2020-10-02T04:27:47Z",
+      "side": 1,
+      "message": "Test can be check the property via kitchSink",
+      "parentUuid": "278a5c3a_69cc8d24",
+      "revId": "445b2b6b4a3d095dae5df5eee58d8e6ea7b2967b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e806f850_06ff733a",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/DefaultConfig.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1225025
+      },
+      "writtenOn": "2020-10-02T04:27:47Z",
+      "side": 1,
+      "message": "nit",
+      "range": {
+        "startLine": 226,
+        "startChar": 7,
+        "endLine": 226,
+        "endChar": 8
+      },
+      "revId": "445b2b6b4a3d095dae5df5eee58d8e6ea7b2967b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0943ae3_20cf3d57",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/DefaultConfig.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1225025
+      },
+      "writtenOn": "2020-10-02T04:27:47Z",
+      "side": 1,
+      "message": "this is a integer type property. please use int32Values instead of String value.",
+      "range": {
+        "startLine": 248,
+        "startChar": 42,
+        "endLine": 248,
+        "endChar": 46
+      },
+      "revId": "445b2b6b4a3d095dae5df5eee58d8e6ea7b2967b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
