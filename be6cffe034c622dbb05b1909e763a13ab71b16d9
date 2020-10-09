@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "166238ab_55927bd9",
+        "filename": "common/fmq/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-09T18:02:06Z",
+      "side": 1,
+      "message": "this will cause the full build to fail (w/o some changes to vndk lists in build/make + build/soong)\n\nWe do want it, but maybe add in CLs on top of this (to unblock faster) or add build changes as well",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 6
+      },
+      "revId": "be6cffe034c622dbb05b1909e763a13ab71b16d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
