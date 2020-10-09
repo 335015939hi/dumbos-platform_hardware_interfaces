@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05c847d4_e8a000fd",
+        "filename": "current.txt",
+        "patchSetId": 17
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-09T01:07:09Z",
+      "side": 1,
+      "message": "these should be in this section, but it\u0027ll actually conflict downstream. Please avoid changing this file for now (it\u0027s not needed now anyway, and it will be done as part of the release process)",
+      "range": {
+        "startLine": 782,
+        "startChar": 0,
+        "endLine": 782,
+        "endChar": 28
+      },
+      "revId": "ae970c6d70f40e937f75a3e898cb8c74c0efca2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
