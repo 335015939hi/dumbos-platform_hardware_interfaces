@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "21a5e2b5_47d55499",
         "filename": "bluetooth/audio/2.1/default/LeAudioAudioProvider.cpp",
@@ -20,10 +21,10 @@
         "endChar": 40
       },
       "revId": "cb77d41c58fe1aa3f6c679543a07edabc0cd9828",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "78122cb9_db3bd38c",
         "filename": "bluetooth/audio/2.1/default/LeAudioAudioProvider.cpp",
@@ -44,8 +45,31 @@
         "endChar": 40
       },
       "revId": "cb77d41c58fe1aa3f6c679543a07edabc0cd9828",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f41c738_bebd52fe",
+        "filename": "bluetooth/audio/2.1/default/LeAudioAudioProvider.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1640349
+      },
+      "writtenOn": "2020-10-10T23:01:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78122cb9_db3bd38c",
+      "range": {
+        "startLine": 64,
+        "startChar": 39,
+        "endLine": 64,
+        "endChar": 40
+      },
+      "revId": "cb77d41c58fe1aa3f6c679543a07edabc0cd9828",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

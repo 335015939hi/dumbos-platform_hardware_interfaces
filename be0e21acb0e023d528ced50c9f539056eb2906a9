@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "86ba5b84_f42ca63f",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,10 @@
         "endChar": 12
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "0cdfa28a_f5b51f75",
         "filename": "/COMMIT_MSG",
@@ -44,10 +45,10 @@
         "endChar": 12
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "89b34da5_c54d3df2",
         "filename": "/COMMIT_MSG",
@@ -68,10 +69,10 @@
         "endChar": 12
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3d862630_6d3405af",
         "filename": "/COMMIT_MSG",
@@ -92,10 +93,34 @@
         "endChar": 12
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "353e9593_389facc5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1640349
+      },
+      "writtenOn": "2020-10-10T23:01:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d862630_6d3405af",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "891de9fb_dde1745c",
         "filename": "/PATCHSET_LEVEL",
@@ -109,10 +134,10 @@
       "side": 1,
       "message": "Mostly looks good.",
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "14864dcb_2abe33c9",
         "filename": "audio/common/all-versions/default/service/service.cpp",
@@ -132,10 +157,10 @@
         "endChar": 84
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "f0366680_0203358d",
         "filename": "audio/common/all-versions/default/service/service.cpp",
@@ -156,10 +181,10 @@
         "endChar": 84
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2aa105bd_5a6cc6e9",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession.cpp",
@@ -179,10 +204,10 @@
         "endChar": 70
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "dd58b1b5_7fdf3dd4",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession.cpp",
@@ -203,10 +228,10 @@
         "endChar": 70
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "64dd62a5_0906d560",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession.h",
@@ -226,10 +251,10 @@
         "endChar": 24
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "3c07e922_fc4c38f4",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession.h",
@@ -250,10 +275,10 @@
         "endChar": 24
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "068eb14f_f8d7bd90",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSupportedCodecsDB.cpp",
@@ -273,10 +298,10 @@
         "endChar": 34
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "3f4bc003_b5ed6ba9",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSupportedCodecsDB.cpp",
@@ -297,10 +322,10 @@
         "endChar": 34
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8a4451e3_0442cf81",
         "filename": "bluetooth/audio/2.1/types.hal",
@@ -320,10 +345,10 @@
         "endChar": 64
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "8e046afa_57b1b054",
         "filename": "bluetooth/audio/2.1/types.hal",
@@ -344,10 +369,10 @@
         "endChar": 64
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d6b9f64c_f3d8a570",
         "filename": "bluetooth/audio/2.1/types.hal",
@@ -367,10 +392,10 @@
         "endChar": 68
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "33d2d4d8_8a81104d",
         "filename": "bluetooth/audio/2.1/types.hal",
@@ -391,10 +416,10 @@
         "endChar": 68
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "7bbecf12_8fb7d51b",
         "filename": "bluetooth/audio/2.1/vts/functional/VtsHalBluetoothAudioV2_1TargetTest.cpp",
@@ -414,10 +439,10 @@
         "endChar": 24
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "262de470_a8941710",
         "filename": "bluetooth/audio/2.1/vts/functional/VtsHalBluetoothAudioV2_1TargetTest.cpp",
@@ -438,10 +463,10 @@
         "endChar": 24
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "dee8cce9_61a20f73",
         "filename": "bluetooth/audio/2.1/vts/functional/VtsHalBluetoothAudioV2_1TargetTest.cpp",
@@ -462,10 +487,10 @@
         "endChar": 24
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "6a6872c0_b8b05671",
         "filename": "compatibility_matrices/compatibility_matrix.current.xml",
@@ -485,10 +510,10 @@
         "endChar": 20
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "af2095d7_72af9077",
         "filename": "compatibility_matrices/compatibility_matrix.current.xml",
@@ -509,8 +534,7 @@
         "endChar": 20
       },
       "revId": "be0e21acb0e023d528ced50c9f539056eb2906a9",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
