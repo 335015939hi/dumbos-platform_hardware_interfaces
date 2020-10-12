@@ -732,6 +732,16 @@ TEST_P(BluetoothHidlTest, LoopbackModeBandwidth) {
     sendAndCheckACL(NUM_ACL_PACKETS_BANDWIDTH, max_acl_data_packet_length,
                     acl_connection_handles[0]);
     int acl_packets_sent = NUM_ACL_PACKETS_BANDWIDTH;
+    //When we try to read the event kCallbackNameHciEventReceived, it has wait_count_ = 999
+    //((WaitForCallbackResult Wait(milliseconds timeout, bool no_wait_blocking)) due to the previous events that were received.
+    //And it does not wait for the 1000th event to be read.
+    //For each HCI Event: Number of Completed Packets received, kCallbackNameHciEventReceived has to be called
+    for(int n = 0; n < NUM_ACL_PACKETS_BANDWIDTH - 1 ; n++)
+    {
+        EXPECT_TRUE(bluetooth_cb->WaitForCallback(kCallbackNameHciEventReceived)
+                    .no_timeout);
+    }
+
     int completed_packets =
         wait_for_completed_packets_event(acl_connection_handles[0]);
     if (acl_packets_sent != completed_packets) {
