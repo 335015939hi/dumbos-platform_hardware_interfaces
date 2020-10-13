@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "e01797f9_d38f719d",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
@@ -20,10 +21,34 @@
         "endChar": 20
       },
       "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41f3f26d_0bc5a8d8",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-10-13T07:26:43Z",
+      "side": 1,
+      "message": "Resolve obsolete comments.",
+      "parentUuid": "e01797f9_d38f719d",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 20
+      },
+      "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "48912f1b_fe28bc30",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
@@ -43,10 +68,10 @@
         "endChar": 51
       },
       "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b79d6832_ed271c81",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
@@ -67,10 +92,10 @@
         "endChar": 51
       },
       "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "adf49601_e8f050e8",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
@@ -90,10 +115,10 @@
         "endChar": 51
       },
       "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "aaa24376_c4778bcf",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
@@ -114,10 +139,10 @@
         "endChar": 51
       },
       "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "66b6d72d_ed063375",
         "filename": "tetheroffload/control/1.1/types.hal",
@@ -137,10 +162,10 @@
         "endChar": 54
       },
       "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "8d6186d8_43c03396",
         "filename": "tetheroffload/control/1.1/types.hal",
@@ -161,8 +186,7 @@
         "endChar": 54
       },
       "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

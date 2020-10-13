@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "325d4ec0_db8e159f",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Is it not possible for a user to set the alert without setting the quota. We should pass the upstream interface in it.",
       "revId": "8c11ee2e75071c4e8b9ea3536df2bab777bcc889",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0beef9a0_119984f9",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
@@ -32,10 +33,10 @@
       "message": "For now the global alert works exactly in this way.\nhttps://source.corp.google.com/android/frameworks/base/services/core/java/com/android/server/net/NetworkStatsService.java;l\u003d526;cl\u003dmaster?q\u003dNetworkStatsService\n\nIt is global across all places who need to set it.\nSo currently it is designed in that way where there\nis no specific value for specific interface.\n\nany thought?",
       "parentUuid": "325d4ec0_db8e159f",
       "revId": "8c11ee2e75071c4e8b9ea3536df2bab777bcc889",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "521b8b3f_d83d74d2",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
@@ -50,10 +51,10 @@
       "message": "For IPA any limit is applied per upstream.  For the HAL interface we will need the interface to be added to the limit. Although on framework your are using Global alert (is the global alert set to the value that user selects on the UI or its 2MB?) but when you enable offload and pass the limit, we will need the upstream interface with it.",
       "parentUuid": "0beef9a0_119984f9",
       "revId": "8c11ee2e75071c4e8b9ea3536df2bab777bcc889",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "87a8a808_b4dbaf92",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
@@ -68,8 +69,25 @@
       "message": "1. IIRC global alert is MAX(2MB, MIN(warning, limit)/1000).\nso it does somehow reflect user setting.\n\n2.Ack\nI think it is afforded to apply alart bytes to current upstreams.\nUpdated accordingly.\nquestion: will we have multiple upstream case in future?\nIf so these interfaces might not be good.",
       "parentUuid": "521b8b3f_d83d74d2",
       "revId": "8c11ee2e75071c4e8b9ea3536df2bab777bcc889",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bd5f35a_03fef06c",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-10-13T07:26:43Z",
+      "side": 1,
+      "message": "Resolve obsolete comments.",
+      "parentUuid": "87a8a808_b4dbaf92",
+      "revId": "8c11ee2e75071c4e8b9ea3536df2bab777bcc889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
