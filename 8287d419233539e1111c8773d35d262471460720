@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e60a7c5d_2db6f186",
+        "filename": "tetheroffload/control/1.1/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-14T22:38:23Z",
+      "side": 1,
+      "message": "my first comment should also have asked if this interface could be converted to AIDL instead, but I can\u0027t remember if we discussed this back in August. Did we?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 14
+      },
+      "revId": "8287d419233539e1111c8773d35d262471460720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7f1ad34_4835061f",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-14T22:38:23Z",
+      "side": 1,
+      "message": "did you mean to define this in types.hal as well?",
+      "range": {
+        "startLine": 54,
+        "startChar": 34,
+        "endLine": 54,
+        "endChar": 55
+      },
+      "revId": "8287d419233539e1111c8773d35d262471460720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
