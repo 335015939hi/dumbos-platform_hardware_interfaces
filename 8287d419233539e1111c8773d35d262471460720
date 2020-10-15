@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fa5192d_fec37295",
+        "filename": "tetheroffload/control/1.1/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-15T22:17:31Z",
+      "side": 1,
+      "message": "added you to thread w/ links for how. It wouldn\u0027t be compatible with the 1.0 HAL.",
+      "parentUuid": "d6395555_ae76f95b",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 14
+      },
+      "revId": "8287d419233539e1111c8773d35d262471460720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7f1ad34_4835061f",
