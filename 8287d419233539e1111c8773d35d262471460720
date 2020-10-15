@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6395555_ae76f95b",
+        "filename": "tetheroffload/control/1.1/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-10-15T08:16:26Z",
+      "side": 1,
+      "message": "No we didn\u0027t discuss about that.\nWe don\u0027t know anything about it.\nIs there any doc or sample code that can demonstrate how to do it?\nAre they compatible with 1.0 HAL once converted?",
+      "parentUuid": "e60a7c5d_2db6f186",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 14
+      },
+      "revId": "8287d419233539e1111c8773d35d262471460720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a7f1ad34_4835061f",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
         "patchSetId": 9
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-14T22:38:23Z",
       "side": 1,
       "message": "did you mean to define this in types.hal as well?",
+      "range": {
+        "startLine": 54,
+        "startChar": 34,
+        "endLine": 54,
+        "endChar": 55
+      },
+      "revId": "8287d419233539e1111c8773d35d262471460720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28c01299_569ba47d",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-10-15T08:16:26Z",
+      "side": 1,
+      "message": "Revised.\nIt is OFFLOAD_STOPPED_LIMIT_REACHED defined in 1.0",
+      "parentUuid": "a7f1ad34_4835061f",
       "range": {
         "startLine": 54,
         "startChar": 34,
