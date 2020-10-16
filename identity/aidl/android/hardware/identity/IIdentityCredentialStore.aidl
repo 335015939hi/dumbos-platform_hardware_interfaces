@@ -180,6 +180,16 @@ interface IIdentityCredentialStore {
     const int STATUS_SESSION_TRANSCRIPT_MISMATCH = 12;
 
     /**
+     * TODO: docs
+     */
+    const int FEATURE_LEVEL_ANDROID_11 = 11;
+
+    /**
+     * TODO: docs
+     */
+    const int FEATURE_LEVEL_ANDROID_12 = 12;
+
+    /**
      * Returns information about hardware.
      *
      * @return a HardwareInformation with information about the hardware.
@@ -229,6 +239,9 @@ interface IIdentityCredentialStore {
      *     and an encrypted byte array that contains data used to secure the credential.  See the
      *     return argument of the same name in finishAddingEntries(), in
      *     IWritableIdentityCredential.
+     *
+     *     Note that the format of credentialData may depend on the feature level. Implementations
+     *     must support credentialData created by an earlier feature level.
      *
      * @return an IIdentityCredential interface that provides operations on the Credential.
      */
