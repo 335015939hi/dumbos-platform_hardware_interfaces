@@ -26,11 +26,57 @@ bool eicProvisioningInit(EicProvisioning* ctx, bool testCredential) {
     return true;
 }
 
+bool eicProvisioningInitForUpdate(EicProvisioning* ctx,
+                                  bool testCredential,
+                                  const char* docType,
+                                  const uint8_t encryptedCredentialKeys[80]) {
+    uint8_t credentialKeys[52];
+
+    eicMemSet(ctx, '\0', sizeof(EicProvisioning));
+    ctx->testCredential = testCredential;
+
+    if (!eicOpsDecryptAes128Gcm(eicOpsGetHardwareBoundKey(testCredential), encryptedCredentialKeys,
+                                80,
+                                // DocType is the additionalAuthenticatedData
+                                (const uint8_t*)docType, eicStrLen(docType), credentialKeys)) {
+        eicDebug("Error decrypting CredentialKeys");
+        return false;
+    }
+
+    // It's supposed to look like this;
+    //
+    //         CredentialKeys = [
+    //              bstr,   ; storageKey, a 128-bit AES key
+    //              bstr    ; credentialPrivKey, the private key for credentialKey
+    //         ]
+    //
+    // where storageKey is 16 bytes and credentialPrivateKey is 32 bytes.
+    //
+    // So the first two bytes will be 0x82 0x50 indicating resp. an array of two elements
+    // and a bstr of 16 elements. Sixteen bytes later (offset 18 and 19) there will be
+    // a bstr of 32 bytes. It's encoded as two bytes 0x58 and 0x20.
+    //
+    if (credentialKeys[0] != 0x82 || credentialKeys[1] != 0x50 || credentialKeys[18] != 0x58 ||
+        credentialKeys[19] != 0x20) {
+        eicDebug("Invalid CBOR for CredentialKeys");
+        return false;
+    }
+    eicMemCpy(ctx->storageKey, credentialKeys + 2, EIC_AES_128_KEY_SIZE);
+    eicMemCpy(ctx->credentialPrivateKey, credentialKeys + 20, EIC_P256_PRIV_KEY_SIZE);
+    ctx->isUpdate = true;
+    return true;
+}
+
 bool eicProvisioningCreateCredentialKey(EicProvisioning* ctx, const uint8_t* challenge,
                                         size_t challengeSize, const uint8_t* applicationId,
                                         size_t applicationIdSize, uint8_t* publicKeyCert,
                                         size_t* publicKeyCertSize) {
     uint8_t publicKey[EIC_P256_PUB_KEY_SIZE];
+
+    if (ctx->isUpdate) {
+        eicDebug("Cannot create CredentialKey on update");
+        return false;
+    }
 
     if (!eicOpsCreateEcKey(ctx->credentialPrivateKey, publicKey)) {
         return false;

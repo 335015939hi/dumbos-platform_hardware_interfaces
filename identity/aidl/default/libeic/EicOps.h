@@ -33,6 +33,9 @@
 extern "C" {
 #endif
 
+#define EIC_FEATURE_LEVEL_ANDROID_11 11
+#define EIC_FEATURE_LEVEL_ANDROID_12 12
+
 // The following defines must be set to something appropriate
 //
 //   EIC_SHA256_CONTEXT_SIZE - the size of EicSha256Ctx

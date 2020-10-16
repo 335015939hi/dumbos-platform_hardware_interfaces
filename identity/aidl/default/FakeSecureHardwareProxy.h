@@ -32,6 +32,9 @@ class FakeSecureHardwareProvisioningProxy : public SecureHardwareProvisioningPro
 
     bool initialize(bool testCredential) override;
 
+    bool initializeForUpdate(bool testCredential, string docType,
+                             vector<uint8_t> encryptedCredentialKeys) override;
+
     bool shutdown() override;
 
     // Returns public key certificate.
@@ -78,6 +81,8 @@ class FakeSecureHardwarePresentationProxy : public SecureHardwarePresentationPro
     bool initialize(bool testCredential, string docType,
                     vector<uint8_t> encryptedCredentialKeys) override;
 
+    bool setFeatureLevel(int featureLevel) override;
+
     // Returns publicKeyCert (1st component) and signingKeyBlob (2nd component)
     optional<pair<vector<uint8_t>, vector<uint8_t>>> generateSigningKeyPair(string docType,
                                                                             time_t now) override;
@@ -123,7 +128,12 @@ class FakeSecureHardwarePresentationProxy : public SecureHardwarePresentationPro
     optional<vector<uint8_t>> finishRetrieval() override;
 
     optional<vector<uint8_t>> deleteCredential(const string& docType, bool testCredential,
+                                               const vector<uint8_t>& challenge,
                                                size_t proofOfDeletionCborSize) override;
+
+    optional<vector<uint8_t>> proveOwnership(const string& docType, bool testCredential,
+                                             const vector<uint8_t>& challenge,
+                                             size_t proofOfOwnershipCborSize) override;
 
     bool shutdown() override;
 

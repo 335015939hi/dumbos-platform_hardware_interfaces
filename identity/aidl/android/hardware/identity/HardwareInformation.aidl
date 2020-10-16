@@ -51,4 +51,9 @@ parcelable HardwareInformation {
      *
      */
     @utf8InCpp String[] supportedDocTypes;
+
+    /**
+     * The maximum feature level supported by the HAL.
+     */
+    int maxFeatureLevel = 11;  // Default to FEATURE_LEVEL_ANDROID_11
 }

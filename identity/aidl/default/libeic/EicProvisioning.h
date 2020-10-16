@@ -31,7 +31,7 @@ extern "C" {
 #define EIC_MAX_NUM_ACCESS_CONTROL_PROFILE_IDS 32
 
 typedef struct {
-    // Set by eicCreateCredentialKey.
+    // Set by eicCreateCredentialKey() OR eicProvisioningInitForUpdate()
     uint8_t credentialPrivateKey[EIC_P256_PRIV_KEY_SIZE];
 
     int numEntryCounts;
@@ -43,6 +43,7 @@ typedef struct {
     size_t curEntrySize;
     size_t curEntryNumBytesReceived;
 
+    // Set by eicProvisioningInit() OR eicProvisioningInitForUpdate()
     uint8_t storageKey[EIC_AES_128_KEY_SIZE];
 
     size_t expectedCborSizeAtEnd;
@@ -53,9 +54,17 @@ typedef struct {
     EicCbor cbor;
 
     bool testCredential;
+
+    // Set to true if this is an update.
+    bool isUpdate;
 } EicProvisioning;
 
 bool eicProvisioningInit(EicProvisioning* ctx, bool testCredential);
+
+bool eicProvisioningInitForUpdate(EicProvisioning* ctx,
+                                  bool testCredential,
+                                  const char* docType,
+                                  const uint8_t encryptedCredentialKeys[80]);
 
 bool eicProvisioningCreateCredentialKey(EicProvisioning* ctx, const uint8_t* challenge,
                                         size_t challengeSize, const uint8_t* applicationId,

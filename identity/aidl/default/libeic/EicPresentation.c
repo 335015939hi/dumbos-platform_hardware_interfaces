@@ -55,6 +55,16 @@ bool eicPresentationInit(EicPresentation* ctx, bool testCredential, const char* 
     return true;
 }
 
+bool eicPresentationSetFeatureLevel(EicPresentation* ctx, int featureLevel) {
+    if (featureLevel < EIC_FEATURE_LEVEL_ANDROID_11 ||
+        featureLevel > EIC_FEATURE_LEVEL_ANDROID_12) {
+        eicDebug("Invalid feature level");
+        return false;
+    }
+    ctx->featureLevel = featureLevel;
+    return true;
+}
+
 bool eicPresentationGenerateSigningKeyPair(EicPresentation* ctx, const char* docType, time_t now,
                                            uint8_t* publicKeyCert, size_t* publicKeyCertSize,
                                            uint8_t signingKeyBlob[60]) {
@@ -692,6 +702,7 @@ bool eicPresentationFinishRetrieval(EicPresentation* ctx, uint8_t* digestToBeMac
 }
 
 bool eicPresentationDeleteCredential(EicPresentation* ctx, const char* docType, bool testCredential,
+                                     const uint8_t* challenge, size_t challengeSize,
                                      size_t proofOfDeletionCborSize,
                                      uint8_t signatureOfToBeSigned[EIC_ECDSA_P256_SIGNATURE_SIZE]) {
     EicCbor cbor;
@@ -730,9 +741,69 @@ bool eicPresentationDeleteCredential(EicPresentation* ctx, const char* docType, 
     eicCborBegin(&cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, proofOfDeletionCborSize);
 
     // Finally, the CBOR that we're actually signing.
-    eicCborAppendArray(&cbor, 3);
+    bool includeChallenge = (ctx->featureLevel >= EIC_FEATURE_LEVEL_ANDROID_12);
+    eicCborAppendArray(&cbor, includeChallenge ? 4 : 3);
     eicCborAppendString(&cbor, "ProofOfDeletion");
     eicCborAppendString(&cbor, docType);
+    if (includeChallenge) {
+        eicCborAppendByteString(&cbor, challenge, challengeSize);
+    }
+    eicCborAppendBool(&cbor, testCredential);
+
+    uint8_t cborSha256[EIC_SHA256_DIGEST_SIZE];
+    eicCborFinal(&cbor, cborSha256);
+    if (!eicOpsEcDsa(ctx->credentialPrivateKey, cborSha256, signatureOfToBeSigned)) {
+        eicDebug("Error signing proofOfDeletion");
+        return false;
+    }
+
+    return true;
+}
+
+bool eicPresentationProveOwnership(EicPresentation* ctx, const char* docType, bool testCredential,
+                                   const uint8_t* challenge, size_t challengeSize,
+                                   size_t proofOfOwnershipCborSize,
+                                   uint8_t signatureOfToBeSigned[EIC_ECDSA_P256_SIGNATURE_SIZE]) {
+    EicCbor cbor;
+
+    eicCborInit(&cbor, NULL, 0);
+
+    // What we're going to sign is the COSE ToBeSigned structure which
+    // looks like the following:
+    //
+    // Sig_structure = [
+    //   context : "Signature" / "Signature1" / "CounterSignature",
+    //   body_protected : empty_or_serialized_map,
+    //   ? sign_protected : empty_or_serialized_map,
+    //   external_aad : bstr,
+    //   payload : bstr
+    //  ]
+    //
+    eicCborAppendArray(&cbor, 4);
+    eicCborAppendString(&cbor, "Signature1");
+
+    // The COSE Encoded protected headers is just a single field with
+    // COSE_LABEL_ALG (1) -> COSE_ALG_ECSDA_256 (-7). For simplicitly we just
+    // hard-code the CBOR encoding:
+    static const uint8_t coseEncodedProtectedHeaders[] = {0xa1, 0x01, 0x26};
+    eicCborAppendByteString(&cbor, coseEncodedProtectedHeaders,
+                            sizeof(coseEncodedProtectedHeaders));
+
+    // We currently don't support Externally Supplied Data (RFC 8152 section 4.3)
+    // so external_aad is the empty bstr
+    static const uint8_t externalAad[0] = {};
+    eicCborAppendByteString(&cbor, externalAad, sizeof(externalAad));
+
+    // For the payload, the _encoded_ form follows here. We handle this by simply
+    // opening a bstr, and then writing the CBOR. This requires us to know the
+    // size of said bstr, ahead of time.
+    eicCborBegin(&cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, proofOfOwnershipCborSize);
+
+    // Finally, the CBOR that we're actually signing.
+    eicCborAppendArray(&cbor, 4);
+    eicCborAppendString(&cbor, "ProofOfOwnership");
+    eicCborAppendString(&cbor, docType);
+    eicCborAppendByteString(&cbor, challenge, challengeSize);
     eicCborAppendBool(&cbor, testCredential);
 
     uint8_t cborSha256[EIC_SHA256_DIGEST_SIZE];

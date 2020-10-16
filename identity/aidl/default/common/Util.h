@@ -34,9 +34,6 @@ using ::std::optional;
 using ::std::string;
 using ::std::vector;
 
-// Returns the hardware-bound AES-128 key.
-const vector<uint8_t>& getHardwareBoundKey();
-
 // Calculates the MAC for |profile| using |storageKey|.
 optional<vector<uint8_t>> secureAccessControlProfileCalcMac(
         const SecureAccessControlProfile& profile, const vector<uint8_t>& storageKey);
