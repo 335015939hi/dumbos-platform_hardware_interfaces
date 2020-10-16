@@ -634,6 +634,24 @@ struct ASN1_TIME_Deleter {
 };
 using ASN1_TIME_Ptr = unique_ptr<ASN1_TIME, ASN1_TIME_Deleter>;
 
+struct ASN1_OCTET_STRING_Deleter {
+    void operator()(ASN1_OCTET_STRING* value) const {
+        if (value != nullptr) {
+            ASN1_OCTET_STRING_free(value);
+        }
+    }
+};
+using ASN1_OCTET_STRING_Ptr = unique_ptr<ASN1_OCTET_STRING, ASN1_OCTET_STRING_Deleter>;
+
+struct ASN1_OBJECT_Deleter {
+    void operator()(ASN1_OBJECT* value) const {
+        if (value != nullptr) {
+            ASN1_OBJECT_free(value);
+        }
+    }
+};
+using ASN1_OBJECT_Ptr = unique_ptr<ASN1_OBJECT, ASN1_OBJECT_Deleter>;
+
 struct X509_NAME_Deleter {
     void operator()(X509_NAME* value) const {
         if (value != nullptr) {
@@ -642,6 +660,15 @@ struct X509_NAME_Deleter {
     }
 };
 using X509_NAME_Ptr = unique_ptr<X509_NAME, X509_NAME_Deleter>;
+
+struct X509_EXTENSION_Deleter {
+    void operator()(X509_EXTENSION* value) const {
+        if (value != nullptr) {
+            X509_EXTENSION_free(value);
+        }
+    }
+};
+using X509_EXTENSION_Ptr = unique_ptr<X509_EXTENSION, X509_EXTENSION_Deleter>;
 
 vector<uint8_t> certificateChainJoin(const vector<vector<uint8_t>>& certificateChain) {
     vector<uint8_t> ret;
@@ -1221,8 +1248,19 @@ optional<vector<uint8_t>> ecKeyPairGetPrivateKey(const vector<uint8_t>& keyPair)
         return {};
     }
     vector<uint8_t> privateKey;
-    privateKey.resize(BN_num_bytes(bignum));
-    BN_bn2bin(bignum, privateKey.data());
+
+    // Note that this may return fewer than 32 bytes so pad with zeroes since we
+    // want to always return 32 bytes.
+    size_t numBytes = BN_num_bytes(bignum);
+    if (numBytes > 32) {
+        LOG(ERROR) << "Size is " << numBytes << ", expected this to be 32 or less";
+        return {};
+    }
+    privateKey.resize(32);
+    for (size_t n = 0; n < 32 - numBytes; n++) {
+        privateKey[n] = 0x00;
+    }
+    BN_bn2bin(bignum, privateKey.data() + 32 - numBytes);
     return privateKey;
 }
 
@@ -1379,7 +1417,8 @@ optional<vector<uint8_t>> ecKeyPairGetPkcs12(const vector<uint8_t>& keyPair, con
 optional<vector<uint8_t>> ecPublicKeyGenerateCertificate(
         const vector<uint8_t>& publicKey, const vector<uint8_t>& signingKey,
         const string& serialDecimal, const string& issuer, const string& subject,
-        time_t validityNotBefore, time_t validityNotAfter) {
+        time_t validityNotBefore, time_t validityNotAfter,
+        const map<string, vector<uint8_t>>& extensions) {
     auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1));
     auto point = EC_POINT_Ptr(EC_POINT_new(group.get()));
     if (EC_POINT_oct2point(group.get(), point.get(), publicKey.data(), publicKey.size(), nullptr) !=
@@ -1480,6 +1519,32 @@ optional<vector<uint8_t>> ecPublicKeyGenerateCertificate(
     if (asnNotAfter.get() == nullptr || X509_set_notAfter(x509.get(), asnNotAfter.get()) != 1) {
         LOG(ERROR) << "Error setting notAfter";
         return {};
+    }
+
+    for (auto const& [oidStr, blob] : extensions) {
+        ASN1_OBJECT_Ptr oid(
+                OBJ_txt2obj(oidStr.c_str(), 1));  // accept numerical dotted string form only
+        if (!oid.get()) {
+            LOG(ERROR) << "Error setting OID";
+            return {};
+        }
+        ASN1_OCTET_STRING_Ptr octetString(ASN1_OCTET_STRING_new());
+        if (!ASN1_OCTET_STRING_set(octetString.get(), blob.data(), blob.size())) {
+            LOG(ERROR) << "Error setting octet string for extension";
+            return {};
+        }
+
+        X509_EXTENSION_Ptr extension = X509_EXTENSION_Ptr(X509_EXTENSION_new());
+        extension.reset(X509_EXTENSION_create_by_OBJ(nullptr, oid.get(), 0 /* not critical */,
+                                                     octetString.get()));
+        if (!extension.get()) {
+            LOG(ERROR) << "Error setting extension";
+            return {};
+        }
+        if (!X509_add_ext(x509.get(), extension.get(), -1)) {
+            LOG(ERROR) << "Error adding extension";
+            return {};
+        }
     }
 
     if (X509_sign(x509.get(), privPkey.get(), EVP_sha256()) == 0) {
@@ -1648,6 +1713,44 @@ optional<vector<uint8_t>> certificateChainGetTopMostKey(const vector<uint8_t>& c
     EC_POINT_point2oct(ecGroup, ecPoint, POINT_CONVERSION_UNCOMPRESSED, publicKey.data(),
                        publicKey.size(), nullptr);
     return publicKey;
+}
+
+optional<vector<uint8_t>> certificateGetExtension(const vector<uint8_t>& x509Certificate,
+                                                  const string& oidStr) {
+    vector<X509_Ptr> certs;
+    if (!parseX509Certificates(x509Certificate, certs)) {
+        return {};
+    }
+    if (certs.size() < 1) {
+        LOG(ERROR) << "No certificates in chain";
+        return {};
+    }
+
+    ASN1_OBJECT_Ptr oid(
+            OBJ_txt2obj(oidStr.c_str(), 1));  // accept numerical dotted string form only
+    if (!oid.get()) {
+        LOG(ERROR) << "Error setting OID";
+        return {};
+    }
+
+    int location = X509_get_ext_by_OBJ(certs[0].get(), oid.get(), -1 /* search from beginning */);
+    if (location == -1) {
+        return {};
+    }
+
+    X509_EXTENSION* ext = X509_get_ext(certs[0].get(), location);
+    if (ext == nullptr) {
+        return {};
+    }
+
+    ASN1_OCTET_STRING* octetString = X509_EXTENSION_get_data(ext);
+    if (octetString == nullptr) {
+        return {};
+    }
+    vector<uint8_t> result;
+    result.resize(octetString->length);
+    memcpy(result.data(), octetString->data, octetString->length);
+    return result;
 }
 
 optional<pair<size_t, size_t>> certificateFindPublicKey(const vector<uint8_t>& x509Certificate) {
