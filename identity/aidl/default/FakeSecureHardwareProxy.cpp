@@ -166,6 +166,10 @@ bool FakeSecureHardwarePresentationProxy::initialize(bool testCredential, string
                                encryptedCredentialKeys.data());
 }
 
+bool FakeSecureHardwarePresentationProxy::setFeatureLevel(int featureLevel) {
+    return eicPresentationSetFeatureLevel(&ctx_, featureLevel);
+}
+
 // Returns publicKeyCert (1st component) and signingKeyBlob (2nd component)
 optional<pair<vector<uint8_t>, vector<uint8_t>>>
 FakeSecureHardwarePresentationProxy::generateSigningKeyPair(string docType, time_t now) {
@@ -315,10 +319,26 @@ optional<vector<uint8_t>> FakeSecureHardwarePresentationProxy::finishRetrieval()
 }
 
 optional<vector<uint8_t>> FakeSecureHardwarePresentationProxy::deleteCredential(
-        const string& docType, bool testCredential, size_t proofOfDeletionCborSize) {
+        const string& docType, bool testCredential,
+        const vector<uint8_t>& challenge,
+        size_t proofOfDeletionCborSize) {
     vector<uint8_t> signatureOfToBeSigned(EIC_ECDSA_P256_SIGNATURE_SIZE);
     if (!eicPresentationDeleteCredential(&ctx_, docType.c_str(), testCredential,
+                                         challenge.data(), challenge.size(),
                                          proofOfDeletionCborSize, signatureOfToBeSigned.data())) {
+        return {};
+    }
+    return signatureOfToBeSigned;
+}
+
+optional<vector<uint8_t>> FakeSecureHardwarePresentationProxy::proveOwnership(
+        const string& docType, bool testCredential,
+        const vector<uint8_t>& challenge,
+        size_t proofOfOwnershipCborSize) {
+    vector<uint8_t> signatureOfToBeSigned(EIC_ECDSA_P256_SIGNATURE_SIZE);
+    if (!eicPresentationProveOwnership(&ctx_, docType.c_str(), testCredential,
+                                       challenge.data(), challenge.size(),
+                                       proofOfOwnershipCborSize, signatureOfToBeSigned.data())) {
         return {};
     }
     return signatureOfToBeSigned;
