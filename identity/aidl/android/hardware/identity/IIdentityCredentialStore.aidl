@@ -230,6 +230,9 @@ interface IIdentityCredentialStore {
      *     return argument of the same name in finishAddingEntries(), in
      *     IWritableIdentityCredential.
      *
+     *     Note that the format of credentialData may depend on the feature version.
+     *     Implementations must support credentialData created by an earlier feature version.
+     *
      * @return an IIdentityCredential interface that provides operations on the Credential.
      */
     IIdentityCredential getCredential(in CipherSuite cipherSuite, in byte[] credentialData);

@@ -51,4 +51,21 @@ parcelable HardwareInformation {
      *
      */
     @utf8InCpp String[] supportedDocTypes;
+
+    /**
+     * The feature version implemented by the HAL. This is encoded as four-digit year * 100 +
+     * two-digit month number.
+     *
+     * Known feature versions include
+     *
+     *  202009: Corresponds to HAL shipped with Android 11 (API level 2)
+     *  202101: Corresponds to HAL shipped with Android 12 (API level 3)
+     *
+     * HALs must implement the feature versions corresponding to their API level as per the table
+     * above. They should also make sure to also ship the appropriate XML files to declare the
+     * feature name and version. The feature name android.hardware.identity_credential must be used
+     * for the normal HAL and the feature name android.hardware.identity_credential_direct_access
+     * must be used for the direct access HAL.
+     */
+    int featureVersion = 202009;
 }
