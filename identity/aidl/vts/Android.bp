@@ -12,6 +12,7 @@ cc_test {
         "VtsAttestationParserSupport.cpp",
         "UserAuthTests.cpp",
         "ReaderAuthTests.cpp",
+        "DeleteCredentialTests.cpp"
     ],
     shared_libs: [
         "libbinder",
@@ -24,9 +25,9 @@ cc_test {
         "libpuresoftkeymasterdevice",
         "android.hardware.keymaster@4.0",
         "android.hardware.identity-support-lib",
-        "android.hardware.identity-cpp",
-        "android.hardware.keymaster-cpp",
-        "android.hardware.keymaster-ndk_platform",
+        "android.hardware.identity-unstable-cpp",
+        "android.hardware.keymaster-unstable-cpp",
+        "android.hardware.keymaster-unstable-ndk_platform",
     ],
     test_suites: [
         "general-tests",

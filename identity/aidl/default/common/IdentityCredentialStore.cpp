@@ -32,6 +32,7 @@ ndk::ScopedAStatus IdentityCredentialStore::getHardwareInformation(
     hw.dataChunkSize = kGcmChunkSize;
     hw.isDirectAccess = false;
     hw.supportedDocTypes = {};
+    hw.maxFeatureLevel = FEATURE_LEVEL_ANDROID_12;
     *hardwareInformation = hw;
     return ndk::ScopedAStatus::ok();
 }
@@ -71,10 +72,10 @@ ndk::ScopedAStatus IdentityCredentialStore::getCredential(
 #ifdef EIC_USE_INT8_IN_HAL
     vector<uint8_t> data = vector<uint8_t>(credentialData.begin(), credentialData.end());
     shared_ptr<IdentityCredential> credential =
-            ndk::SharedRefBase::make<IdentityCredential>(hwProxy, data);
+          ndk::SharedRefBase::make<IdentityCredential>(hwProxy, data);
 #else
     shared_ptr<IdentityCredential> credential =
-            ndk::SharedRefBase::make<IdentityCredential>(hwProxy, credentialData);
+          ndk::SharedRefBase::make<IdentityCredential>(hwProxy, credentialData);
 #endif
     auto ret = credential->initialize();
     if (ret != IIdentityCredentialStore::STATUS_OK) {

@@ -34,4 +34,6 @@ interface IIdentityCredentialStore {
   const int STATUS_NO_ACCESS_CONTROL_PROFILES = 10;
   const int STATUS_NOT_IN_REQUEST_MESSAGE = 11;
   const int STATUS_SESSION_TRANSCRIPT_MISMATCH = 12;
+  const int FEATURE_LEVEL_ANDROID_11 = 11;
+  const int FEATURE_LEVEL_ANDROID_12 = 12;
 }

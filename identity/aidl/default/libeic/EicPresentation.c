@@ -55,6 +55,16 @@ bool eicPresentationInit(EicPresentation* ctx, bool testCredential, const char* 
     return true;
 }
 
+bool eicPresentationSetFeatureLevel(EicPresentation* ctx, int featureLevel) {
+    if (featureLevel < EIC_FEATURE_LEVEL_ANDROID_11 ||
+        featureLevel > EIC_FEATURE_LEVEL_ANDROID_12) {
+        eicDebug("Invalid feature level");
+        return false;
+    }
+    ctx->featureLevel = featureLevel;
+    return true;
+}
+
 bool eicPresentationGenerateSigningKeyPair(EicPresentation* ctx, const char* docType, time_t now,
                                            uint8_t* publicKeyCert, size_t* publicKeyCertSize,
                                            uint8_t signingKeyBlob[60]) {
@@ -692,6 +702,7 @@ bool eicPresentationFinishRetrieval(EicPresentation* ctx, uint8_t* digestToBeMac
 }
 
 bool eicPresentationDeleteCredential(EicPresentation* ctx, const char* docType, bool testCredential,
+                                     const uint8_t* challenge, size_t challengeSize,
                                      size_t proofOfDeletionCborSize,
                                      uint8_t signatureOfToBeSigned[EIC_ECDSA_P256_SIGNATURE_SIZE]) {
     EicCbor cbor;
@@ -730,9 +741,13 @@ bool eicPresentationDeleteCredential(EicPresentation* ctx, const char* docType, 
     eicCborBegin(&cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, proofOfDeletionCborSize);
 
     // Finally, the CBOR that we're actually signing.
-    eicCborAppendArray(&cbor, 3);
+    bool includeChallenge = (ctx->featureLevel >= EIC_FEATURE_LEVEL_ANDROID_12);
+    eicCborAppendArray(&cbor, includeChallenge ? 4 : 3);
     eicCborAppendString(&cbor, "ProofOfDeletion");
     eicCborAppendString(&cbor, docType);
+    if (includeChallenge) {
+        eicCborAppendByteString(&cbor, challenge, challengeSize);
+    }
     eicCborAppendBool(&cbor, testCredential);
 
     uint8_t cborSha256[EIC_SHA256_DIGEST_SIZE];
