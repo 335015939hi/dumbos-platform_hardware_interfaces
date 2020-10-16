@@ -16,6 +16,24 @@
       "message": "ag/12693568 has already been merged. Let\u0027s submit that on aosp first and then rebase on top of that.",
       "revId": "b97c5fa49cebffcd43ba2308c4de5a6bd8e4081d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d6bab09_e30f5cac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434543
+      },
+      "writtenOn": "2020-10-16T06:53:11Z",
+      "side": 1,
+      "message": "ag/12693568 is merged accidentally. I am talking with Allen and will resolve the conflict.\n\nBy the way, my CL also fix VTS failure in radio/1.6/vts/functional/radio_hidl_hal_test.cpp which is not available in ag/12693568. My CL is verified by running VTS on Cuttlefish.",
+      "parentUuid": "11f6168d_985a84a1",
+      "revId": "b97c5fa49cebffcd43ba2308c4de5a6bd8e4081d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
