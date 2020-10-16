@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a91ed49d_40c8672f",
+        "filename": "tetheroffload/control/1.1/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-10-16T03:23:37Z",
+      "side": 1,
+      "message": "Thanks.\nWe\u0027ll have internal discuss about this.",
+      "parentUuid": "9fa5192d_fec37295",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 14
+      },
+      "revId": "8287d419233539e1111c8773d35d262471460720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7f1ad34_4835061f",
