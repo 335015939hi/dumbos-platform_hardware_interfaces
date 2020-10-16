@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11f6168d_985a84a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-10-16T06:19:40Z",
+      "side": 1,
+      "message": "ag/12693568 has already been merged. Let\u0027s submit that on aosp first and then rebase on top of that.",
+      "revId": "b97c5fa49cebffcd43ba2308c4de5a6bd8e4081d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
