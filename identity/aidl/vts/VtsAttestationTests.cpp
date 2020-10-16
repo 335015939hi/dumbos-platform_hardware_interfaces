@@ -30,7 +30,7 @@
 #include <map>
 
 #include "VtsAttestationParserSupport.h"
-#include "VtsIdentityTestUtils.h"
+#include "Util.h"
 
 namespace android::hardware::identity {
 

@@ -31,6 +31,8 @@ extern "C" {
 #define EIC_PRESENTATION_MAX_READER_PUBLIC_KEY_SIZE 65
 
 typedef struct {
+    int featureLevel;
+
     uint8_t storageKey[EIC_AES_128_KEY_SIZE];
     uint8_t credentialPrivateKey[EIC_P256_PRIV_KEY_SIZE];
 
@@ -76,12 +78,19 @@ typedef struct {
     // SHA-256 for AdditionalData, updated for each entry.
     uint8_t additionalDataSha256[EIC_SHA256_DIGEST_SIZE];
 
+    // SHA-256 of ProofOfProvisioning. Set to NUL-bytes of initialized with a
+    // CredentialKeys from before Feature Level 12.
+    uint8_t proofOfProvisioningSha256[EIC_SHA256_DIGEST_SIZE];
+
     size_t expectedCborSizeAtEnd;
     EicCbor cbor;
 } EicPresentation;
 
 bool eicPresentationInit(EicPresentation* ctx, bool testCredential, const char* docType,
-                         const uint8_t encryptedCredentialKeys[80]);
+                         const uint8_t* encryptedCredentialKeys,
+                         size_t encryptedCredentialKeysSize);
+
+bool eicPresentationSetFeatureLevel(EicPresentation* ctx, int featureLevel);
 
 bool eicPresentationGenerateSigningKeyPair(EicPresentation* ctx, const char* docType, time_t now,
                                            uint8_t* publicKeyCert, size_t* publicKeyCertSize,
@@ -221,8 +230,18 @@ bool eicPresentationFinishRetrieval(EicPresentation* ctx, uint8_t* digestToBeMac
 // where content is set to the ProofOfDeletion CBOR.
 //
 bool eicPresentationDeleteCredential(EicPresentation* ctx, const char* docType, bool testCredential,
+                                     const uint8_t* challenge, size_t challengeSize,
                                      size_t proofOfDeletionCborSize,
                                      uint8_t signatureOfToBeSigned[EIC_ECDSA_P256_SIGNATURE_SIZE]);
+
+// The data returned in |signatureOfToBeSigned| contains the ECDSA signature of
+// the ToBeSigned CBOR from RFC 8051 "4.4. Signing and Verification Process"
+// where content is set to the ProofOfOwnership CBOR.
+//
+bool eicPresentationProveOwnership(EicPresentation* ctx, const char* docType, bool testCredential,
+                                   const uint8_t* challenge, size_t challengeSize,
+                                   size_t proofOfOwnershipCborSize,
+                                   uint8_t signatureOfToBeSigned[EIC_ECDSA_P256_SIGNATURE_SIZE]);
 
 #ifdef __cplusplus
 }

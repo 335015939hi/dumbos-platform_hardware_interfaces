@@ -264,12 +264,24 @@ interface IWritableIdentityCredential {
      *
      *     where HBK is a unique hardware-bound key that has never existed outside of the secure
      *     environment (except it's all zeroes if testCredential is True) and CredentialKeys is
-     *     the CBOR-encoded structure (in CDDL notation):
+     *     the CBOR-encoded structure (in CDDL notation) given below, depending on the selected
+     *     feature level.
+     *
+     *     FEATURE_LEVEL_ANDROID_11:
      *
      *         CredentialKeys = [
      *              bstr,   ; storageKey, a 128-bit AES key
      *              bstr    ; credentialPrivKey, the private key for credentialKey
      *                      ; in uncompressed form
+     *         ]
+     *
+     *     FEATURE_LEVEL_ANDROID_12:
+     *
+     *         CredentialKeys = [
+     *              bstr,   ; storageKey, a 128-bit AES key
+     *              bstr    ; credentialPrivKey, the private key for credentialKey
+     *                      ; in uncompressed form
+     *              bstr    ; SHA-256(ProofOfProvisioning)
      *         ]
      *
      * @param out proofOfProvisioningSignature proves to the IA that the credential was imported
@@ -322,4 +334,22 @@ interface IWritableIdentityCredential {
      * @param expectedProofOfProvisioningSize the expected size of ProofOfProvisioning.
      */
     void setExpectedProofOfProvisioningSize(in int expectedProofOfProvisioningSize);
+
+
+    /**
+     * Used by the application to configure the behavior of the IWritableIdentityCredential
+     * instance.
+     *
+     * By default FEATURE_LEVEL_ANDROID_11 is used.
+     *
+     * The HAL conveys the maximum feature level it supports in the maxFeatureLevel field
+     * in HardwareInformation returned by getHardwareInformation(). A HAL is required to
+     * support all feature levels up until the declared maximum feature level.
+     *
+     * If the HAL doesn't support the passed in feature level, this method fails
+     * with STATUS_FAILED.
+     *
+     * @param featureLevel the feature level to select.
+     */
+    void setFeatureLevel(in int featureLevel);
 }

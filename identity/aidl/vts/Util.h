@@ -21,6 +21,7 @@
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
 #include <cppbor.h>
 #include <cppbor_parse.h>
+#include <gtest/gtest.h>
 
 namespace android::hardware::identity::test_utils {
 
@@ -117,6 +118,9 @@ bool validateAttestationCertificate(const vector<Certificate>& inputCertificates
                                     const HardwareInformation& hwInfo);
 
 vector<RequestNamespace> buildRequestNamespaces(const vector<TestEntryData> entries);
+
+string printInstanceNameAndFeatureLevel(
+    testing::TestParamInfo<testing::tuple<string, int>> paramInfo);
 
 }  // namespace android::hardware::identity::test_utils
 

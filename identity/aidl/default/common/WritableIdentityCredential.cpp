@@ -41,7 +41,7 @@ using namespace ::android::hardware::identity;
 
 bool WritableIdentityCredential::initialize() {
     if (!hwProxy_->initialize(testCredential_)) {
-        LOG(ERROR) << "hwProxy->initialize failed";
+        LOG(ERROR) << "hwProxy->initialize() failed";
         return false;
     }
     startPersonalizationCalled_ = false;
@@ -49,6 +49,19 @@ bool WritableIdentityCredential::initialize() {
 
     return true;
 }
+
+// Used when updating a credential. Returns false on failure.
+bool WritableIdentityCredential::initializeForUpdate(const vector<uint8_t>& encryptedCredentialKeys) {
+    if (!hwProxy_->initializeForUpdate(testCredential_, docType_, encryptedCredentialKeys)) {
+        LOG(ERROR) << "hwProxy->initializeForUpdate() failed";
+        return false;
+    }
+    startPersonalizationCalled_ = false;
+    firstEntry_ = true;
+
+    return true;
+}
+
 
 WritableIdentityCredential::~WritableIdentityCredential() {}
 
@@ -436,5 +449,23 @@ ndk::ScopedAStatus WritableIdentityCredential::finishAddingEntries(
 
     return ndk::ScopedAStatus::ok();
 }
+
+ndk::ScopedAStatus WritableIdentityCredential::setFeatureLevel(int featureLevel) {
+  if (featureLevel < IIdentityCredentialStore::FEATURE_LEVEL_ANDROID_11 ||
+      featureLevel > IIdentityCredentialStore::FEATURE_LEVEL_ANDROID_12) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED,
+                "Unsupported feature level"));
+    }
+    featureLevel_ = featureLevel;
+    if (!hwProxy_->setFeatureLevel(featureLevel)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED,
+                "Error setting feature level on Secure HW"));
+    }
+
+    return ndk::ScopedAStatus::ok();
+}
+
 
 }  // namespace aidl::android::hardware::identity

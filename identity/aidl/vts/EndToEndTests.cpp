@@ -29,7 +29,7 @@
 #include <map>
 #include <tuple>
 
-#include "VtsIdentityTestUtils.h"
+#include "Util.h"
 
 namespace android::hardware::identity {
 
@@ -50,7 +50,7 @@ using ::android::hardware::keymaster::VerificationToken;
 
 using test_utils::validateAttestationCertificate;
 
-class IdentityAidl : public testing::TestWithParam<std::string> {
+class EndToEndTests : public testing::TestWithParam<std::string> {
   public:
     virtual void SetUp() override {
         credentialStore_ = android::waitForDeclaredService<IIdentityCredentialStore>(
@@ -61,7 +61,7 @@ class IdentityAidl : public testing::TestWithParam<std::string> {
     sp<IIdentityCredentialStore> credentialStore_;
 };
 
-TEST_P(IdentityAidl, hardwareInformation) {
+TEST_P(EndToEndTests, hardwareInformation) {
     HardwareInformation info;
     ASSERT_TRUE(credentialStore_->getHardwareInformation(&info).isOk());
     ASSERT_GT(info.credentialStoreName.size(), 0);
@@ -124,7 +124,7 @@ tuple<bool, string, vector<uint8_t>, vector<uint8_t>> extractFromTestCredentialD
     return make_tuple(true, docType, storageKey, credentialPrivKey);
 }
 
-TEST_P(IdentityAidl, createAndRetrieveCredential) {
+TEST_P(EndToEndTests, createAndRetrieveCredential) {
     // First, generate a key-pair for the reader since its public key will be
     // part of the request data.
     vector<uint8_t> readerKey;
@@ -522,13 +522,11 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
     EXPECT_EQ(mac, calculatedMac);
 }
 
-GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(IdentityAidl);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(EndToEndTests);
 INSTANTIATE_TEST_SUITE_P(
-        Identity, IdentityAidl,
+        Identity, EndToEndTests,
         testing::ValuesIn(android::getAidlHalInstanceNames(IIdentityCredentialStore::descriptor)),
         android::PrintInstanceNameToString);
-// INSTANTIATE_TEST_SUITE_P(Identity, IdentityAidl,
-// testing::Values("android.hardware.identity.IIdentityCredentialStore/default"));
 
 }  // namespace android::hardware::identity
 

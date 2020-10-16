@@ -23,6 +23,7 @@
 #include <tuple>
 #include <utility>
 #include <vector>
+#include <map>
 
 namespace android {
 namespace hardware {
@@ -34,6 +35,7 @@ using ::std::string;
 using ::std::tuple;
 using ::std::vector;
 using ::std::pair;
+using ::std::map;
 
 // ---------------------------------------------------------------------------
 // Miscellaneous utilities.
@@ -209,6 +211,11 @@ optional<pair<size_t, size_t>> certificateTbsCertificate(const vector<uint8_t>& 
 //
 optional<pair<size_t, size_t>> certificateFindSignature(const vector<uint8_t>& x509Certificate);
 
+// Looks for an extension with OID in |oidStr| which must be an stored as an OCTET STRING.
+//
+optional<vector<uint8_t>> certificateGetExtension(const vector<uint8_t>& x509Certificate,
+                                                  const string& oidStr);
+
 // Generates a X.509 certificate for |publicKey| (which must be in the format
 // returned by ecKeyPairGetPublicKey()).
 //
@@ -218,7 +225,8 @@ optional<pair<size_t, size_t>> certificateFindSignature(const vector<uint8_t>& x
 optional<vector<uint8_t>> ecPublicKeyGenerateCertificate(
         const vector<uint8_t>& publicKey, const vector<uint8_t>& signingKey,
         const string& serialDecimal, const string& issuer, const string& subject,
-        time_t validityNotBefore, time_t validityNotAfter);
+        time_t validityNotBefore, time_t validityNotAfter,
+        const map<string, vector<uint8_t>>& extensions);
 
 // Performs Elliptic-curve Diffie-Helman using |publicKey| (which must be in the
 // format returned by ecKeyPairGetPublicKey()) and |privateKey| (which must be

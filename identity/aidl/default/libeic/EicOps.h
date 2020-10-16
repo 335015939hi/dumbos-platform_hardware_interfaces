@@ -33,6 +33,9 @@
 extern "C" {
 #endif
 
+#define EIC_FEATURE_LEVEL_ANDROID_11 11
+#define EIC_FEATURE_LEVEL_ANDROID_12 12
+
 // The following defines must be set to something appropriate
 //
 //   EIC_SHA256_CONTEXT_SIZE - the size of EicSha256Ctx
@@ -215,6 +218,9 @@ const char* eicOpsGetIssuerName(void);
 // Generate an attestation certificate for the key identified by |publicKey|
 // which must be of the form returned by eicOpsCreateEcKey().
 //
+// If proofOfBinding is not NULL, it will be included as an OCTET_STRING
+// X.509 extension at OID 1.3.6.1.4.1.11129.2.1.25.
+//
 // The certificate will be signed by the key identified by |signingKey| which
 // must be of the form returned by eicOpsCreateEcKey().
 //
@@ -224,8 +230,9 @@ const char* eicOpsGetIssuerName(void);
 bool eicOpsSignEcKey(const uint8_t publicKey[EIC_P256_PUB_KEY_SIZE],
                      const uint8_t signingKey[EIC_P256_PRIV_KEY_SIZE], unsigned int serial,
                      const char* issuerName, const char* subjectName, time_t validityNotBefore,
-                     time_t validityNotAfter, uint8_t* cert,
-                     size_t* certSize);  // inout
+                     time_t validityNotAfter,
+                     const uint8_t* proofOfBinding, size_t proofOfBindingSize,
+                     uint8_t* cert, size_t* certSize);  // inout
 
 // Uses |privateKey| to create an ECDSA signature of some data (the SHA-256 must
 // be given by |digestOfData|). Returns the signature in |signature|.

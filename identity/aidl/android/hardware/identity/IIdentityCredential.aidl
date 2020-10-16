@@ -19,28 +19,17 @@ package android.hardware.identity;
 import android.hardware.identity.Certificate;
 import android.hardware.identity.RequestNamespace;
 import android.hardware.identity.SecureAccessControlProfile;
+import android.hardware.identity.IWritableIdentityCredential;
 import android.hardware.keymaster.HardwareAuthToken;
 import android.hardware.keymaster.VerificationToken;
 
 @VintfStability
 interface IIdentityCredential {
     /**
-     * Delete a credential.
+     * Deprecated.
      *
-     * This method returns a COSE_Sign1 data structure signed by CredentialKey
-     * with payload set to the ProofOfDeletion CBOR below:
-     *
-     *     ProofOfDeletion = [
-     *          "ProofOfDeletion",            ; tstr
-     *          tstr,                         ; DocType
-     *          bool                          ; true if this is a test credential, should
-     *                                        ; always be false.
-     *     ]
-     *
-     * After this method has been called, the persistent storage used for credentialData should
-     * be deleted.
-     *
-     * @return a COSE_Sign1 signature described above.
+     * This call should be implemented so it's functionally equivalent to
+     * deleteCredentialWithChallenge() with challenge set to an empty bstr.
      */
     byte[] deleteCredential();
 
@@ -352,6 +341,18 @@ interface IIdentityCredential {
      *
      *  - subjectPublicKeyInfo: must contain attested public key.
      *
+     * If Feature Level 12 is selected, the certificate shall also have an X.509 extension
+     * at OID 1.3.6.1.4.1.11129.2.1.25 which shall contain OCTET STRING with the bytes of
+     * the CBOR with the following CDDL:
+     *
+     *   ProofOfBinding = [
+     *     "ProofOfBinding",
+     *     bstr,              // Contains SHA-256(ProofOfProvisioning)
+     *   ]
+     *
+     * This CBOR enables an issuer to determine the exact state of the credential it
+     * returns issuer-signed data for.
+     *
      * @param out signingKeyBlob contains an AES-GCM-ENC(storageKey, R, signingKey, docType)
      *     where signingKey is an EC private key in uncompressed form. That is, the returned
      *     blob is an encrypted copy of the newly-generated private signing key.
@@ -380,4 +381,84 @@ interface IIdentityCredential {
     *   The verification token. This token is only valid if the timestamp field is non-zero.
     */
     void setVerificationToken(in VerificationToken verificationToken);
+
+    /**
+     * Used by the application to configure the behavior of the IIdentityCredential instance.
+     *
+     * By default FEATURE_LEVEL_ANDROID_11 is used.
+     *
+     * The HAL conveys the maximum feature level it supports in the maxFeatureLevel field
+     * in HardwareInformation returned by getHardwareInformation(). A HAL is required to
+     * support all feature levels up until the declared maximum feature level.
+     *
+     * If the HAL doesn't support the passed in feature level, this method fails
+     * with STATUS_FAILED.
+     *
+     * @param featureLevel the feature level to select.
+     */
+    void setFeatureLevel(in int featureLevel);
+
+    /**
+     * Delete a credential.
+     *
+     * This method returns a COSE_Sign1 data structure signed by CredentialKey
+     * with payload set to the ProofOfDeletion CBOR below depending on the
+     * selected feature level:
+     *
+     *   FEATURE_LEVEL_ANDROID_11:
+     *
+     *     ProofOfDeletion = [
+     *          "ProofOfDeletion",            ; tstr
+     *          tstr,                         ; DocType
+     *          bool                          ; true if this is a test credential, should
+     *                                        ; always be false.
+     *     ]
+     *
+     *   FEATURE_LEVEL_ANDROID_12:
+     *
+     *     ProofOfDeletion = [
+     *          "ProofOfDeletion",            ; tstr
+     *          tstr,                         ; DocType
+     *          bstr,                         ; Challenge
+     *          bool                          ; true if this is a test credential, should
+     *                                        ; always be false.
+     *     ]
+     *
+     * After this method has been called, the persistent storage used for credentialData should
+     * be deleted.
+     *
+     * @param challenge a challenge set by the issuer to ensure freshness. Maximum size is 32 bytes
+     *     and it may be empty. Fails with STATUS_INVALID_DATA if bigger than 32 bytes.
+     * @return a COSE_Sign1 signature described above.
+     */
+    byte[] deleteCredentialWithChallenge(in byte[] challenge);
+
+    /**
+     * Prove ownership of credential.
+     *
+     * If feature level 11 is selected, this fails with STATUS_FAILED. Otherwise this method
+     * returns a COSE_Sign1 data structure signed by CredentialKey with payload set to the
+     * ProofOfOwnership CBOR below.
+     *
+     *     ProofOfOwnership = [
+     *          "ProofOfOwnership",           ; tstr
+     *          tstr,                         ; DocType
+     *          bstr,                         ; Challenge
+     *          bool                          ; true if this is a test credential, should
+     *                                        ; always be false.
+     *     ]
+     *
+     * @param challenge a challenge set by the issuer to ensure freshness. Maximum size is 32 bytes
+     *     and it may be empty. Fails with STATUS_INVALID_DATA if bigger than 32 bytes.
+     * @return a COSE_Sign1 signature described above.
+     */
+    byte[] proveOwnership(in byte[] challenge);
+
+    /**
+     * Called to start updating the credential with new data items.
+     *
+     * If the getAttestationCertificate() method is called on the returned object
+     * it fails with the error STATUS_FAILED.
+     */
+    IWritableIdentityCredential updateCredential();
 }

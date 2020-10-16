@@ -25,4 +25,5 @@ interface IWritableIdentityCredential {
   byte[] addEntryValue(in byte[] content);
   void finishAddingEntries(out byte[] credentialData, out byte[] proofOfProvisioningSignature);
   void setExpectedProofOfProvisioningSize(in int expectedProofOfProvisioningSize);
+  void setFeatureLevel(in int featureLevel);
 }

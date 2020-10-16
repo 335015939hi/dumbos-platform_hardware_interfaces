@@ -33,14 +33,6 @@ namespace aidl::android::hardware::identity {
 
 using namespace ::android::hardware::identity;
 
-// This is not a very random HBK but that's OK because this is the SW
-// implementation where it can't be kept secret.
-vector<uint8_t> hardwareBoundKey = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-
-const vector<uint8_t>& getHardwareBoundKey() {
-    return hardwareBoundKey;
-}
-
 vector<uint8_t> byteStringToUnsigned(const vector<int8_t>& value) {
     return vector<uint8_t>(value.begin(), value.end());
 }

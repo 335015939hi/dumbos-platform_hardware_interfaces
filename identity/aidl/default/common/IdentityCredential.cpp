@@ -31,6 +31,7 @@
 #include <cppbor_parse.h>
 
 #include "FakeSecureHardwareProxy.h"
+#include "WritableIdentityCredential.h"
 
 namespace aidl::android::hardware::identity {
 
@@ -71,26 +72,31 @@ int IdentityCredential::initialize() {
     docType_ = docTypeItem->value();
     testCredential_ = testCredentialItem->value();
 
-    vector<uint8_t> hardwareBoundKey;
-    if (testCredential_) {
-        hardwareBoundKey = support::getTestHardwareBoundKey();
-    } else {
-        hardwareBoundKey = getHardwareBoundKey();
-    }
-
-    const vector<uint8_t>& encryptedCredentialKeys = encryptedCredentialKeysItem->value();
-
-    if (encryptedCredentialKeys.size() != 80) {
-        LOG(ERROR) << "Unexpected size for encrypted CredentialKeys";
-        return IIdentityCredentialStore::STATUS_INVALID_DATA;
-    }
-
-    if (!hwProxy_->initialize(testCredential_, docType_, encryptedCredentialKeys)) {
+    encryptedCredentialKeys_ = encryptedCredentialKeysItem->value();
+    if (!hwProxy_->initialize(testCredential_, docType_, encryptedCredentialKeys_)) {
         LOG(ERROR) << "hwProxy->initialize failed";
         return false;
     }
 
     return IIdentityCredentialStore::STATUS_OK;
+}
+
+
+ndk::ScopedAStatus IdentityCredential::setFeatureLevel(int featureLevel) {
+  if (featureLevel < IIdentityCredentialStore::FEATURE_LEVEL_ANDROID_11 ||
+      featureLevel > IIdentityCredentialStore::FEATURE_LEVEL_ANDROID_12) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED,
+                "Unsupported feature level"));
+    }
+    featureLevel_ = featureLevel;
+    if (!hwProxy_->setFeatureLevel(featureLevel)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED,
+                "Error setting feature level on Secure HW"));
+    }
+
+    return ndk::ScopedAStatus::ok();
 }
 
 #ifdef EIC_USE_INT8_IN_HAL
@@ -100,13 +106,35 @@ ndk::ScopedAStatus IdentityCredential::deleteCredential(
 ndk::ScopedAStatus IdentityCredential::deleteCredential(
         vector<uint8_t>* outProofOfDeletionSignature) {
 #endif
+    return deleteCredentialWithChallenge({}, outProofOfDeletionSignature);
+}
 
-    cppbor::Array array = {"ProofOfDeletion", docType_, testCredential_};
+
+#ifdef EIC_USE_INT8_IN_HAL
+ndk::ScopedAStatus IdentityCredential::deleteCredentialWithChallenge(
+        const vector<uint8_t>& challenge,
+        vector<int8_t>* outProofOfDeletionSignature) {
+#else
+ndk::ScopedAStatus IdentityCredential::deleteCredentialWithChallenge(
+        const vector<uint8_t>& challenge,
+        vector<uint8_t>* outProofOfDeletionSignature) {
+#endif
+    if (challenge.size() > 32) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+              IIdentityCredentialStore::STATUS_INVALID_DATA, "Challenge too big"));
+    }
+
+    cppbor::Array array;
+    if (featureLevel_ >= IIdentityCredentialStore::FEATURE_LEVEL_ANDROID_12) {
+        array = {"ProofOfDeletion", docType_, challenge, testCredential_};
+    } else {
+        array = {"ProofOfDeletion", docType_, testCredential_};
+    }
     vector<uint8_t> proofOfDeletionCbor = array.encode();
     vector<uint8_t> podDigest = support::sha256(proofOfDeletionCbor);
 
     optional<vector<uint8_t>> signatureOfToBeSigned =
-            hwProxy_->deleteCredential(docType_, testCredential_, proofOfDeletionCbor.size());
+          hwProxy_->deleteCredential(docType_, testCredential_, challenge, proofOfDeletionCbor.size());
     if (!signatureOfToBeSigned) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_FAILED, "Error signing ProofOfDeletion"));
@@ -128,6 +156,57 @@ ndk::ScopedAStatus IdentityCredential::deleteCredential(
 #endif
     return ndk::ScopedAStatus::ok();
 }
+
+
+#ifdef EIC_USE_INT8_IN_HAL
+ndk::ScopedAStatus IdentityCredential::proveOwnership(
+        const vector<uint8_t>& challenge,
+        vector<int8_t>* outProofOfOwnershipSignature) {
+#else
+ndk::ScopedAStatus IdentityCredential::proveOwnership(
+        const vector<uint8_t>& challenge,
+        vector<uint8_t>* outProofOfOwnershipSignature) {
+#endif
+    if (featureLevel_ < IIdentityCredentialStore::FEATURE_LEVEL_ANDROID_12) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+              IIdentityCredentialStore::STATUS_FAILED, "Not supported on feature level 11"));
+    }
+
+    if (challenge.size() > 32) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+              IIdentityCredentialStore::STATUS_INVALID_DATA, "Challenge too big"));
+    }
+
+    cppbor::Array array;
+    array = {"ProofOfOwnership", docType_, challenge, testCredential_};
+    vector<uint8_t> proofOfOwnershipCbor = array.encode();
+    vector<uint8_t> podDigest = support::sha256(proofOfOwnershipCbor);
+
+    optional<vector<uint8_t>> signatureOfToBeSigned =
+          hwProxy_->proveOwnership(docType_, testCredential_, challenge, proofOfOwnershipCbor.size());
+    if (!signatureOfToBeSigned) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error signing ProofOfOwnership"));
+    }
+
+    optional<vector<uint8_t>> signature =
+            support::coseSignEcDsaWithSignature(signatureOfToBeSigned.value(),
+                                                proofOfOwnershipCbor,  // data
+                                                {});                  // certificateChain
+    if (!signature) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error signing data"));
+    }
+
+#ifdef EIC_USE_INT8_IN_HAL
+    *outProofOfOwnershipSignature = byteStringToSigned(signature.value());
+#else
+    *outProofOfOwnershipSignature = signature.value();
+#endif
+    return ndk::ScopedAStatus::ok();
+}
+
+
 
 #ifdef EIC_USE_INT8_IN_HAL
 ndk::ScopedAStatus IdentityCredential::createEphemeralKeyPair(vector<int8_t>* outKeyPair) {
@@ -935,5 +1014,20 @@ ndk::ScopedAStatus IdentityCredential::generateSigningKeyPair(
 #endif
     return ndk::ScopedAStatus::ok();
 }
+
+ndk::ScopedAStatus IdentityCredential::updateCredential(
+    shared_ptr<IWritableIdentityCredential>* outWritableCredential) {
+    sp<SecureHardwareProvisioningProxy> hwProxy = hwProxyFactory_->createProvisioningProxy();
+    shared_ptr<WritableIdentityCredential> wc =
+            ndk::SharedRefBase::make<WritableIdentityCredential>(hwProxy, docType_, testCredential_);
+    if (!wc->initializeForUpdate(encryptedCredentialKeys_)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED,
+                "Error initializing WritableIdentityCredential for update"));
+    }
+    *outWritableCredential = wc;
+    return ndk::ScopedAStatus::ok();
+}
+
 
 }  // namespace aidl::android::hardware::identity

@@ -64,6 +64,11 @@ class SecureHardwareProvisioningProxy : public RefBase {
 
     virtual bool initialize(bool testCredential) = 0;
 
+    virtual bool initializeForUpdate(bool testCredential, string docType,
+                                     vector<uint8_t> encryptedCredentialKeys) = 0;
+
+    virtual bool setFeatureLevel(int featureLevel) = 0;
+
     // Returns public key certificate chain with attestation.
     virtual optional<vector<uint8_t>> createCredentialKey(const vector<uint8_t>& challenge,
                                                           const vector<uint8_t>& applicationId) = 0;
@@ -88,7 +93,7 @@ class SecureHardwareProvisioningProxy : public RefBase {
     // Returns signatureOfToBeSigned (EIC_ECDSA_P256_SIGNATURE_SIZE bytes).
     virtual optional<vector<uint8_t>> finishAddingEntries(bool testCredential) = 0;
 
-    // Returns encryptedCredentialKeys (80 bytes).
+    // Returns encryptedCredentialKeys.
     virtual optional<vector<uint8_t>> finishGetCredentialData(bool testCredential,
                                                               const string& docType) = 0;
 
@@ -112,6 +117,8 @@ class SecureHardwarePresentationProxy : public RefBase {
 
     virtual bool initialize(bool testCredential, string docType,
                             vector<uint8_t> encryptedCredentialKeys) = 0;
+
+    virtual bool setFeatureLevel(int featureLevel) = 0;
 
     // Returns publicKeyCert (1st component) and signingKeyBlob (2nd component)
     virtual optional<pair<vector<uint8_t>, vector<uint8_t>>> generateSigningKeyPair(string docType,
@@ -160,7 +167,12 @@ class SecureHardwarePresentationProxy : public RefBase {
     virtual optional<vector<uint8_t>> finishRetrieval();
 
     virtual optional<vector<uint8_t>> deleteCredential(const string& docType, bool testCredential,
+                                                       const vector<uint8_t>& challenge,
                                                        size_t proofOfDeletionCborSize) = 0;
+
+    virtual optional<vector<uint8_t>> proveOwnership(const string& docType, bool testCredential,
+                                                     const vector<uint8_t>& challenge,
+                                                     size_t proofOfOwnershipCborSize) = 0;
 
     virtual bool shutdown() = 0;
 };

@@ -36,15 +36,21 @@ using ::std::vector;
 
 class WritableIdentityCredential : public BnWritableIdentityCredential {
   public:
+    // For a new credential, call initialize() right after construction.
+    //
+    // For an updated credential, call initializeForUpdate() right after construction.
+    //
     WritableIdentityCredential(sp<SecureHardwareProvisioningProxy> hwProxy, const string& docType,
                                bool testCredential)
         : hwProxy_(hwProxy), docType_(docType), testCredential_(testCredential) {}
 
     ~WritableIdentityCredential();
 
-    // Creates the Credential Key. Returns false on failure. Must be called
-    // right after construction.
+    // Creates the Credential Key. Returns false on failure.
     bool initialize();
+
+    // Used when updating a credential. Returns false on failure.
+    bool initializeForUpdate(const vector<uint8_t>& encryptedCredentialKeys);
 
     // Methods from IWritableIdentityCredential follow.
 #ifdef EIC_USE_INT8_IN_HAL
@@ -88,6 +94,9 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
             vector<uint8_t>* outCredentialData,
             vector<uint8_t>* outProofOfProvisioningSignature) override;
 #endif
+
+    ndk::ScopedAStatus setFeatureLevel(int featureLevel);
+
   private:
     // Set by constructor.
     sp<SecureHardwareProvisioningProxy> hwProxy_;
@@ -97,6 +106,9 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
     // This is set in initialize().
     bool startPersonalizationCalled_;
     bool firstEntry_;
+
+    // Set by setFeatureLevel()
+    int featureLevel_ = IIdentityCredentialStore::FEATURE_LEVEL_ANDROID_11;
 
     // This is set in getAttestationCertificate().
     bool getAttestationCertificateAlreadyCalled_ = false;

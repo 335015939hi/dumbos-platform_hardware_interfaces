@@ -26,11 +26,97 @@ bool eicProvisioningInit(EicProvisioning* ctx, bool testCredential) {
     return true;
 }
 
+bool eicProvisioningInitForUpdate(EicProvisioning* ctx,
+                                  bool testCredential,
+                                  const char* docType,
+                                  const uint8_t* encryptedCredentialKeys,
+                                  size_t encryptedCredentialKeysSize) {
+    uint8_t credentialKeys[86];
+
+    // For feature level 11 it's 52 bytes long and for feature level 12 it's 86
+    // bytes (the additional data is the ProofOfProvisioning SHA-256). We need
+    // to support loading all feature levels.
+    //
+    bool expectPopSha256 = false;
+    if (encryptedCredentialKeysSize == 52 + 28) {
+        /* do nothing */
+    } else if (encryptedCredentialKeysSize == 86 + 28) {
+        expectPopSha256 = true;
+    } else {
+        eicDebug("Unexpected size %zd for encryptedCredentialKeys", encryptedCredentialKeysSize);
+        return false;
+    }
+
+    eicMemSet(ctx, '\0', sizeof(EicProvisioning));
+    ctx->testCredential = testCredential;
+
+    if (!eicOpsDecryptAes128Gcm(eicOpsGetHardwareBoundKey(testCredential), encryptedCredentialKeys,
+                                encryptedCredentialKeysSize,
+                                // DocType is the additionalAuthenticatedData
+                                (const uint8_t*)docType, eicStrLen(docType), credentialKeys)) {
+        eicDebug("Error decrypting CredentialKeys");
+        return false;
+    }
+
+    // It's supposed to look like this;
+    //
+    // FEATURE_LEVEL_11:
+    //
+    //         CredentialKeys = [
+    //              bstr,   ; storageKey, a 128-bit AES key
+    //              bstr,   ; credentialPrivKey, the private key for credentialKey
+    //         ]
+    //
+    // FEATURE_LEVEL_12:
+    //
+    //         CredentialKeys = [
+    //              bstr,   ; storageKey, a 128-bit AES key
+    //              bstr,   ; credentialPrivKey, the private key for credentialKey
+    //              bstr    ; proofOfProvisioning SHA-256
+    //         ]
+    //
+    // where storageKey is 16 bytes, credentialPrivateKey is 32 bytes, and proofOfProvisioning
+    // SHA-256 is 32 bytes.
+    //
+    if (credentialKeys[0] != (expectPopSha256 ? 0x83 : 0x82) ||      // array of two or three elements
+        credentialKeys[1] != 0x50 ||                                 // 16-byte bstr
+        credentialKeys[18] != 0x58 || credentialKeys[19] != 0x20) {  // 32-byte bstr
+        eicDebug("Invalid CBOR for CredentialKeys");
+        return false;
+    }
+    if (expectPopSha256) {
+        if (credentialKeys[52] != 0x58 || credentialKeys[53] != 0x20) {  // 32-byte bstr
+            eicDebug("Invalid CBOR for CredentialKeys");
+            return false;
+        }
+    }
+    eicMemCpy(ctx->storageKey, credentialKeys + 2, EIC_AES_128_KEY_SIZE);
+    eicMemCpy(ctx->credentialPrivateKey, credentialKeys + 20, EIC_P256_PRIV_KEY_SIZE);
+    // Note: We don't care about the previous ProofOfProvisioning SHA-256
+    ctx->isUpdate = true;
+    return true;
+}
+
+bool eicProvisioningSetFeatureLevel(EicProvisioning* ctx, int featureLevel) {
+    if (featureLevel < EIC_FEATURE_LEVEL_ANDROID_11 ||
+        featureLevel > EIC_FEATURE_LEVEL_ANDROID_12) {
+        eicDebug("Invalid feature level");
+        return false;
+    }
+    ctx->featureLevel = featureLevel;
+    return true;
+}
+
 bool eicProvisioningCreateCredentialKey(EicProvisioning* ctx, const uint8_t* challenge,
                                         size_t challengeSize, const uint8_t* applicationId,
                                         size_t applicationIdSize, uint8_t* publicKeyCert,
                                         size_t* publicKeyCertSize) {
     uint8_t publicKey[EIC_P256_PUB_KEY_SIZE];
+
+    if (ctx->isUpdate) {
+        eicDebug("Cannot create CredentialKey on update");
+        return false;
+    }
 
     if (!eicOpsCreateEcKey(ctx->credentialPrivateKey, publicKey)) {
         return false;
@@ -103,6 +189,9 @@ bool eicProvisioningStartPersonalization(EicProvisioning* ctx, int accessControl
     // size of said bstr, ahead of time.
     eicCborBegin(&ctx->cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, expectedProofOfProvisioningSize);
     ctx->expectedCborSizeAtEnd = expectedProofOfProvisioningSize + ctx->cbor.size;
+
+    eicOpsSha256Init(&ctx->proofOfProvisioningDigester);
+    eicCborEnableSecondaryDigesterSha256(&ctx->cbor, &ctx->proofOfProvisioningDigester);
 
     eicCborAppendArray(&ctx->cbor, 5);
     eicCborAppendString(&ctx->cbor, "ProofOfProvisioning");
@@ -270,14 +359,27 @@ bool eicProvisioningFinishAddingEntries(
 
 bool eicProvisioningFinishGetCredentialData(EicProvisioning* ctx, bool testCredential,
                                             const char* docType,
-                                            uint8_t encryptedCredentialKeys[80]) {
+                                            uint8_t* encryptedCredentialKeys,
+                                            size_t* encryptedCredentialKeysSize) {
     EicCbor cbor;
-    uint8_t cborBuf[52];
+    uint8_t cborBuf[86];
+
+    if (*encryptedCredentialKeysSize < 86 + 28) {
+        eicDebug("encryptedCredentialKeysSize is %zd which is insufficient");
+        return false;
+    }
+
+    bool includePoPSha256 = (ctx->featureLevel >= EIC_FEATURE_LEVEL_ANDROID_12);
 
     eicCborInit(&cbor, cborBuf, sizeof(cborBuf));
-    eicCborAppendArray(&cbor, 2);
+    eicCborAppendArray(&cbor, includePoPSha256 ? 3 : 2);
     eicCborAppendByteString(&cbor, ctx->storageKey, EIC_AES_128_KEY_SIZE);
     eicCborAppendByteString(&cbor, ctx->credentialPrivateKey, EIC_P256_PRIV_KEY_SIZE);
+    if (includePoPSha256) {
+        uint8_t popSha256[EIC_SHA256_DIGEST_SIZE];
+        eicOpsSha256Final(&ctx->proofOfProvisioningDigester, popSha256);
+        eicCborAppendByteString(&cbor, popSha256, EIC_SHA256_DIGEST_SIZE);
+    }
     if (cbor.size > sizeof(cborBuf)) {
         eicDebug("Exceeded buffer size");
         return false;
@@ -295,6 +397,7 @@ bool eicProvisioningFinishGetCredentialData(EicProvisioning* ctx, bool testCrede
         eicDebug("Error encrypting CredentialKeys");
         return false;
     }
+    *encryptedCredentialKeysSize = cbor.size + 28;
 
     return true;
 }

@@ -49,6 +49,7 @@ using ::std::optional;
 using ::std::string;
 using ::std::tuple;
 using ::std::vector;
+using ::std::map;
 
 void* eicMemSet(void* s, int c, size_t n) {
     return memset(s, c, n);
@@ -296,8 +297,9 @@ bool eicOpsAttestToEcKey(const uint8_t publicKey[EIC_P256_PUB_KEY_SIZE], const u
 bool eicOpsSignEcKey(const uint8_t publicKey[EIC_P256_PUB_KEY_SIZE],
                      const uint8_t signingKey[EIC_P256_PRIV_KEY_SIZE], unsigned int serial,
                      const char* issuerName, const char* subjectName, time_t validityNotBefore,
-                     time_t validityNotAfter, uint8_t* cert,
-                     size_t* certSize) {  // inout
+                     time_t validityNotAfter,
+                     const uint8_t* proofOfBinding, size_t proofOfBindingSize,
+                     uint8_t* cert, size_t* certSize) {  // inout
     vector<uint8_t> signingKeyVec(EIC_P256_PRIV_KEY_SIZE);
     memcpy(signingKeyVec.data(), signingKey, EIC_P256_PRIV_KEY_SIZE);
 
@@ -305,12 +307,19 @@ bool eicOpsSignEcKey(const uint8_t publicKey[EIC_P256_PUB_KEY_SIZE],
     pubKeyVec[0] = 0x04;
     memcpy(pubKeyVec.data() + 1, publicKey, EIC_P256_PUB_KEY_SIZE);
 
-    std::string serialDecimal = android::base::StringPrintf("%d", serial);
+    string serialDecimal = android::base::StringPrintf("%d", serial);
+
+    map<string, vector<uint8_t>> extensions;
+    if (proofOfBinding != nullptr) {
+        vector<uint8_t> proofOfBindingVec(proofOfBindingSize);
+        memcpy(proofOfBindingVec.data(), proofOfBinding, proofOfBindingSize);
+        extensions["1.3.6.1.4.1.11129.2.1.25"] = proofOfBindingVec;
+    }
 
     optional<vector<uint8_t>> certVec =
             android::hardware::identity::support::ecPublicKeyGenerateCertificate(
                     pubKeyVec, signingKeyVec, serialDecimal, issuerName, subjectName,
-                    validityNotBefore, validityNotAfter);
+                    validityNotBefore, validityNotAfter, extensions);
     if (!certVec) {
         eicDebug("Error generating certificate");
         return false;
