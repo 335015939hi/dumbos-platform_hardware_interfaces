@@ -180,6 +180,16 @@ interface IIdentityCredentialStore {
     const int STATUS_SESSION_TRANSCRIPT_MISMATCH = 12;
 
     /**
+     * TODO: docs
+     */
+    const int FEATURE_LEVEL_ANDROID_11 = 11;
+
+    /**
+     * TODO: docs
+     */
+    const int FEATURE_LEVEL_ANDROID_12 = 12;
+
+    /**
      * Returns information about hardware.
      *
      * @return a HardwareInformation with information about the hardware.

@@ -59,10 +59,18 @@ class IdentityCredential : public BnIdentityCredential {
     // Methods from IIdentityCredential follow.
 #ifdef EIC_USE_INT8_IN_HAL
     ndk::ScopedAStatus deleteCredential(vector<int8_t>* outProofOfDeletionSignature) override;
+    ndk::ScopedAStatus deleteCredentialWithChallenge(const vector<int8_t>& challenge,
+                                                     vector<int8_t>* outProofOfDeletionSignature) override;
+    ndk::ScopedAStatus proveOwnership(const vector<int8_t>& challenge,
+                                      vector<int8_t>* outProofOfOwnershipSignature) override;
     ndk::ScopedAStatus createEphemeralKeyPair(vector<int8_t>* outKeyPair) override;
     ndk::ScopedAStatus setReaderEphemeralPublicKey(const vector<int8_t>& publicKey) override;
 #else
     ndk::ScopedAStatus deleteCredential(vector<uint8_t>* outProofOfDeletionSignature) override;
+    ndk::ScopedAStatus deleteCredentialWithChallenge(const vector<uint8_t>& challenge,
+                                                     vector<uint8_t>* outProofOfDeletionSignature) override;
+    ndk::ScopedAStatus proveOwnership(const vector<uint8_t>& challenge,
+                                      vector<uint8_t>* outProofOfOwnershipSignature) override;
     ndk::ScopedAStatus createEphemeralKeyPair(vector<uint8_t>* outKeyPair) override;
     ndk::ScopedAStatus setReaderEphemeralPublicKey(const vector<uint8_t>& publicKey) override;
 #endif
@@ -102,6 +110,8 @@ class IdentityCredential : public BnIdentityCredential {
                                               Certificate* outSigningKeyCertificate) override;
 #endif
 
+    ndk::ScopedAStatus setFeatureLevel(int featureLevel);
+
   private:
     // Set by constructor
     sp<SecureHardwarePresentationProxy> hwProxy_;
@@ -111,6 +121,9 @@ class IdentityCredential : public BnIdentityCredential {
     // Set by initialize()
     string docType_;
     bool testCredential_;
+
+    // Set by setFeatureLevel()
+    int featureLevel_ = IIdentityCredentialStore::FEATURE_LEVEL_ANDROID_11;
 
     // Set by createEphemeralKeyPair()
     vector<uint8_t> ephemeralPublicKey_;
