@@ -32,7 +32,7 @@
 #include <map>
 #include <utility>
 
-#include "VtsIdentityTestUtils.h"
+#include "Util.h"
 
 namespace android::hardware::identity {
 
@@ -125,7 +125,7 @@ vector<uint8_t> generateReaderCert(const vector<uint8_t>& publicKey,
     time_t validityNotAfter = 0xffffffff;
     optional<vector<uint8_t>> cert =
             support::ecPublicKeyGenerateCertificate(publicKey, signingKey, "24601", "Issuer",
-                                                    "Subject", validityNotBefore, validityNotAfter);
+                                                    "Subject", validityNotBefore, validityNotAfter, {});
     return cert.value();
 }
 
