@@ -32,6 +32,7 @@ ndk::ScopedAStatus IdentityCredentialStore::getHardwareInformation(
     hw.dataChunkSize = kGcmChunkSize;
     hw.isDirectAccess = false;
     hw.supportedDocTypes = {};
+    hw.maxFeatureLevel = FEATURE_LEVEL_ANDROID_12;
     *hardwareInformation = hw;
     return ndk::ScopedAStatus::ok();
 }
@@ -41,7 +42,9 @@ ndk::ScopedAStatus IdentityCredentialStore::createCredential(
         shared_ptr<IWritableIdentityCredential>* outWritableCredential) {
     sp<SecureHardwareProvisioningProxy> hwProxy = hwProxyFactory_->createProvisioningProxy();
     shared_ptr<WritableIdentityCredential> wc =
-            ndk::SharedRefBase::make<WritableIdentityCredential>(hwProxy, docType, testCredential);
+          ndk::SharedRefBase::make<WritableIdentityCredential>(hwProxy,
+                                                               docType,
+                                                               testCredential);
     if (!wc->initialize()) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_FAILED,
@@ -63,7 +66,7 @@ ndk::ScopedAStatus IdentityCredentialStore::getCredential(
 
     sp<SecureHardwarePresentationProxy> hwProxy = hwProxyFactory_->createPresentationProxy();
     shared_ptr<IdentityCredential> credential =
-            ndk::SharedRefBase::make<IdentityCredential>(hwProxy, credentialData);
+          ndk::SharedRefBase::make<IdentityCredential>(hwProxyFactory_, hwProxy, credentialData);
     auto ret = credential->initialize();
     if (ret != IIdentityCredentialStore::STATUS_OK) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(

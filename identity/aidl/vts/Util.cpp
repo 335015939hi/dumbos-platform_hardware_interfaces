@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "VtsIdentityTestUtils"
+#define LOG_TAG "Util"
 
-#include "VtsIdentityTestUtils.h"
+#include "Util.h"
+
+#include <android-base/logging.h>
 
 #include <aidl/Gtest.h>
-#include <android-base/logging.h>
+#include <android-base/stringprintf.h>
 #include <keymaster/km_openssl/openssl_utils.h>
 #include <keymasterV4_1/attestation_record.h>
 #include <charconv>
+
 #include <map>
 
 namespace android::hardware::identity::test_utils {
@@ -35,6 +38,7 @@ using std::vector;
 
 using ::android::sp;
 using ::android::String16;
+using ::android::base::StringPrintf;
 using ::android::binder::Status;
 using ::keymaster::X509_Ptr;
 
@@ -86,7 +90,7 @@ optional<vector<uint8_t>> generateReaderCertificate(string serialDecimal,
 
     return support::ecPublicKeyGenerateCertificate(readerPublicKey.value(), readerKey.value(),
                                                    serialDecimal, issuer, subject,
-                                                   validityNotBefore, validityNotAfter);
+                                                   validityNotBefore, validityNotAfter, {});
 }
 
 optional<vector<SecureAccessControlProfile>> addAccessControlProfiles(
@@ -467,6 +471,19 @@ vector<RequestNamespace> buildRequestNamespaces(const vector<TestEntryData> entr
         ret.push_back(curNs);
     }
     return ret;
+}
+
+string printInstanceNameAndFeatureLevel(
+    testing::TestParamInfo<testing::tuple<string, int>> paramInfo) {
+  const string halInstanceName = std::get<0>(paramInfo.param);
+  int featureLevel = std::get<1>(paramInfo.param);
+  string name = std::to_string(paramInfo.index) + "/" + halInstanceName;
+  for (size_t n = 0; n < name.size(); n++) {
+      if (!std::isalnum(name[n])) {
+          name[n] = '_';
+      }
+  }
+  return name + StringPrintf("_FeatureLevel%02d", featureLevel);
 }
 
 }  // namespace android::hardware::identity::test_utils
