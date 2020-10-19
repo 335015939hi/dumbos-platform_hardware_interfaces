@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97db42a0_268eb2b2",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4978,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-10-19T20:02:07Z",
+      "side": 1,
+      "message": "Add comments to say what the value arguments are.  Just the argument name should be sufficient. e.g.\n\nverify_cert_body(certChain_[0], 1 /* expectedLength */, \"\" /* foo1 */, true /* foo2 */);",
+      "range": {
+        "startLine": 4978,
+        "startChar": 3,
+        "endLine": 4978,
+        "endChar": 49
+      },
+      "revId": "1d0a543b4b460132d5303927efbffd02fd71b28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
