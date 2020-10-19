@@ -42,18 +42,20 @@ using android::hardware::hidl_vec;
 using android::hardware::Return;
 using android::hardware::Void;
 using android::hardware::tetheroffload::config::V1_0::IOffloadConfig;
-using android::hardware::tetheroffload::control::V1_0::IOffloadControl;
 using android::hardware::tetheroffload::control::V1_0::IPv4AddrPortPair;
 using android::hardware::tetheroffload::control::V1_0::ITetheringOffloadCallback;
 using android::hardware::tetheroffload::control::V1_0::NatTimeoutUpdate;
 using android::hardware::tetheroffload::control::V1_0::NetworkProtocol;
 using android::hardware::tetheroffload::control::V1_0::OffloadCallbackEvent;
+using android::hardware::tetheroffload::control::V1_1::IOffloadControl;
 
 enum class ExpectBoolean {
     Ignored = -1,
     False = 0,
     True = 1,
 };
+
+constexpr const char* TEST_IFACE = "rmnet_data0";
 
 // We use #defines here so as to get local lamba captures and error message line numbers
 #define ASSERT_TRUE_CALLBACK                                                    \
@@ -227,6 +229,15 @@ class OffloadControlHidlTestBase
     sp<TetheringOffloadCallback> control_cb;
 };
 
+// Check that calling setDataWarningAndLimit() without first having called initOffload() returns
+// false.
+TEST_P(OffloadControlHidlTestBase, SetDataWarningAndLimitWithoutInitReturnsFalse) {
+    const hidl_string upstream(TEST_IFACE);
+    const Return<void> ret =
+            control->setDataWarningAndLimit(upstream, 5000ULL, 5000ULL, ASSERT_FALSE_CALLBACK);
+    EXPECT_TRUE(ret.isOk());
+}
+
 class OffloadControlHidlTest : public OffloadControlHidlTestBase {
   public:
     virtual void SetUp() override {
@@ -242,9 +253,39 @@ class OffloadControlHidlTest : public OffloadControlHidlTestBase {
     }
 };
 
-// TODO: Remove these lines and replace with real tests.
-GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(OffloadControlHidlTest);
-GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(OffloadControlHidlTestBase);
+/*
+ * Tests for IOffloadControl::setDataWarningAndLimit().
+ */
+
+// Test that setDataWarningAndLimit() for an empty interface name fails.
+TEST_P(OffloadControlHidlTest, SetDataWarningAndLimitEmptyUpstreamIfaceFails) {
+    const hidl_string upstream("");
+    const Return<void> ret =
+            control->setDataWarningAndLimit(upstream, 12345ULL, 67890ULL, ASSERT_FALSE_CALLBACK);
+    EXPECT_TRUE(ret.isOk());
+}
+
+// TEST_IFACE is presumed to exist on the device and be up. No packets
+// are ever actually caused to be forwarded.
+TEST_P(OffloadControlHidlTest, SetDataWarningAndLimitNonZeroOk) {
+    const hidl_string upstream(TEST_IFACE);
+    const Return<void> ret1 =
+            control->setDataWarningAndLimit(upstream, 4000ULL, 5000ULL, ASSERT_TRUE_CALLBACK);
+    EXPECT_TRUE(ret1.isOk());
+    // Verify warning greater than limit is also accepted by hardware.
+    const Return<void> ret2 =
+            control->setDataWarningAndLimit(upstream, 5000ULL, 4000ULL, ASSERT_TRUE_CALLBACK);
+    EXPECT_TRUE(ret2.isOk());
+}
+
+// TEST_IFACE is presumed to exist on the device and be up. No packets
+// are ever actually caused to be forwarded.
+TEST_P(OffloadControlHidlTest, SetDataWarningAndLimitZeroOk) {
+    const hidl_string upstream(TEST_IFACE);
+    const Return<void> ret =
+            control->setDataWarningAndLimit(upstream, 0ULL, 0ULL, ASSERT_TRUE_CALLBACK);
+    EXPECT_TRUE(ret.isOk());
+}
 
 INSTANTIATE_TEST_CASE_P(
         PerInstance, OffloadControlHidlTestBase,
