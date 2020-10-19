@@ -34,6 +34,24 @@
       "parentUuid": "11f6168d_985a84a1",
       "revId": "b97c5fa49cebffcd43ba2308c4de5a6bd8e4081d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af100dbf_7b063a3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434543
+      },
+      "writtenOn": "2020-10-19T02:24:28Z",
+      "side": 1,
+      "message": "Allen will merge aosp/1463523 first and I will rebase my CL on top of it.",
+      "parentUuid": "9d6bab09_e30f5cac",
+      "revId": "b97c5fa49cebffcd43ba2308c4de5a6bd8e4081d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
