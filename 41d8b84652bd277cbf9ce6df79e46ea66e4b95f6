@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "201f379d_28183687",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-10-19T19:59:15Z",
+      "side": 1,
+      "message": "Please fix all linter comments.",
+      "revId": "41d8b84652bd277cbf9ce6df79e46ea66e4b95f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "222a0de1_6966a361",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-10-19T19:59:15Z",
+      "side": 1,
+      "message": "Why is this not const?",
+      "range": {
+        "startLine": 878,
+        "startChar": 52,
+        "endLine": 878,
+        "endChar": 66
+      },
+      "revId": "41d8b84652bd277cbf9ce6df79e46ea66e4b95f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2c3402c_93f3d750",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-10-19T19:59:15Z",
+      "side": 1,
+      "message": "Remind me why we want the caller to be able to set this and the subject?",
+      "range": {
+        "startLine": 892,
+        "startChar": 4,
+        "endLine": 892,
+        "endChar": 34
+      },
+      "revId": "41d8b84652bd277cbf9ce6df79e46ea66e4b95f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
