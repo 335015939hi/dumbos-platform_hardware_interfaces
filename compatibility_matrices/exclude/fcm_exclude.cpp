@@ -60,6 +60,15 @@ bool ShouldCheckMissingHalsInFcm(const std::string& package) {
             // does not depend on this HAL, hence it is not declared in any manifests or matrices.
             "android.hardware.fastboot@1.0",
             "android.hardware.fastboot@1.1",
+
+            // Deprecated HALs. Remove from this list once the corresponding hidl_interface
+            // / aidl_interface are removed.
+            // HIDL
+            "android.hardware.audio.effect@2.0",
+            "android.hardware.audio@2.0",
+            "android.hardware.health@1.0",
+            "android.hardware.nfc@1.0",
+            "android.hardware.radio.deprecated@1.0",
     };
 
     auto package_has_prefix = [&](const std::string& prefix) {
