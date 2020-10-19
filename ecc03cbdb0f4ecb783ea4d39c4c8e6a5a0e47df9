@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ac983f4_3d387908",
+        "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-19T22:50:38Z",
+      "side": 1,
+      "message": "can you file bugs for each of these, which need cleanup and comment them here?\n\n(e.g. health@1.0 cleanup might be to remove V1_0::getService code, but keep types. You also might consider removing parts of it, for instance, removing the interface, but not the types it uses)",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 52
+      },
+      "revId": "ecc03cbdb0f4ecb783ea4d39c4c8e6a5a0e47df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
