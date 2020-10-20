@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f93d4678_7377123c",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-10-20T14:28:36Z",
+      "side": 1,
+      "message": "This doesn\u0027t make sense, seems like it\u0027s part of two different things that got run together maybe?",
+      "range": {
+        "startLine": 505,
+        "startChar": 29,
+        "endLine": 506,
+        "endChar": 90
+      },
+      "revId": "06c8001216103d6c82cea7379d6b08a58ff9bf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "909977a3_e7358bb1",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-10-20T14:28:36Z",
+      "side": 1,
+      "message": "Remove the \"in\" and \"out\" argument name prefixes.",
+      "range": {
+        "startLine": 600,
+        "startChar": 7,
+        "endLine": 606,
+        "endChar": 51
+      },
+      "revId": "06c8001216103d6c82cea7379d6b08a58ff9bf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
