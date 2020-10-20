@@ -105,8 +105,16 @@ TEST_P(AudioHidlDeviceTest, GetMicrophonesTest) {
                 ASSERT_OK(res);
                 ASSERT_NE(0U, activeMicrophones.size());
             }
+<<<<<<< HEAD   (c556f1 Modify VTS NoStaleEvents test to omit on-change sensors)
             helper.close(true /*clear*/, &res);
             ASSERT_OK(res);
+=======
+            stream->close();
+            // Workaround for b/139329877. Ensures the stream gets closed on the audio hal side.
+            stream.clear();
+            IPCThreadState::self()->flushCommands();
+            usleep(1000);
+>>>>>>> BRANCH (26f868 Audio: Ensure input stream gets closed on the audio HAL serv)
             if (efGroup) {
                 EventFlag::deleteEventFlag(&efGroup);
             }
