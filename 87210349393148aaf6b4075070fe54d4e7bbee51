@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "90227d4b_624f5ad0",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "please read reply comments.",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "cc6d00bb_042b5a56",
         "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
@@ -37,10 +38,10 @@
         "endChar": 0
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "a1d7542e_cbf7c90a",
         "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
@@ -61,10 +62,10 @@
         "endChar": 0
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "65f662dd_45a43ef5",
         "filename": "keymint/aidl/android/hardware/keymint/Algorithm.aidl",
@@ -84,10 +85,10 @@
         "endChar": 6
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "fc83c45f_942ee62a",
         "filename": "keymint/aidl/android/hardware/keymint/Algorithm.aidl",
@@ -108,10 +109,10 @@
         "endChar": 6
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "793e424e_babd244b",
         "filename": "keymint/aidl/android/hardware/keymint/BeginResult.aidl",
@@ -131,10 +132,10 @@
         "endChar": 3
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "dfb7631b_adedf328",
         "filename": "keymint/aidl/android/hardware/keymint/BeginResult.aidl",
@@ -155,10 +156,10 @@
         "endChar": 3
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3fd37934_319943e7",
         "filename": "keymint/aidl/android/hardware/keymint/BeginResult.aidl",
@@ -178,10 +179,10 @@
         "endChar": 7
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "90123d29_91ee8822",
         "filename": "keymint/aidl/android/hardware/keymint/BeginResult.aidl",
@@ -202,10 +203,10 @@
         "endChar": 7
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1f98dc91_d249a512",
         "filename": "keymint/aidl/android/hardware/keymint/BlockMode.aidl",
@@ -225,10 +226,10 @@
         "endChar": 51
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bf425fb8_9804d716",
         "filename": "keymint/aidl/android/hardware/keymint/BlockMode.aidl",
@@ -249,10 +250,10 @@
         "endChar": 51
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "755cb923_13b238ac",
         "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
@@ -272,10 +273,10 @@
         "endChar": 68
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "4e0b2ea3_0786c8c2",
         "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
@@ -296,10 +297,10 @@
         "endChar": 68
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "fe0c7fa5_eed48c4c",
         "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
@@ -319,10 +320,10 @@
         "endChar": 3
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "616799f3_668dd1fb",
         "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
@@ -343,10 +344,10 @@
         "endChar": 3
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "84afddf6_d6d83c10",
         "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
@@ -366,10 +367,10 @@
         "endChar": 55
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "2eda5baa_c7733a1a",
         "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
@@ -390,10 +391,10 @@
         "endChar": 55
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a8a50d62_c1f6f192",
         "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
@@ -414,10 +415,10 @@
         "endChar": 55
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1fa279ae_28ccc2e6",
         "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
@@ -438,10 +439,10 @@
         "endChar": 55
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8ac241c2_36aa29fd",
         "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
@@ -462,10 +463,34 @@
         "endChar": 55
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e29a784_f5d9f967",
+        "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-20T11:51:03Z",
+      "side": 1,
+      "message": "todo added in vts test GenerateKey() helper.",
+      "parentUuid": "8ac241c2_36aa29fd",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 55
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "7fb4723e_164ee15d",
         "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
@@ -485,10 +510,10 @@
         "endChar": 53
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "85fd5882_ff1ef801",
         "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
@@ -509,10 +534,10 @@
         "endChar": 53
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e4541d60_8c4936cd",
         "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
@@ -532,10 +557,10 @@
         "endChar": 14
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "55e4b08a_6d950482",
         "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
@@ -556,10 +581,10 @@
         "endChar": 14
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "fba6cc1e_e04e1460",
         "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
@@ -579,10 +604,10 @@
         "endChar": 50
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1e6a48d0_872b5db1",
         "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
@@ -603,10 +628,10 @@
         "endChar": 50
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c60ab3cf_dd18313d",
         "filename": "keymint/aidl/android/hardware/keymint/HmacSharingParameters.aidl",
@@ -620,10 +645,10 @@
       "side": 1,
       "message": "This file is obsolete. AFAIK, the hmac sharing interface is no longer part of the KeyMint spec.",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "a18216d8_6684b545",
         "filename": "keymint/aidl/android/hardware/keymint/HmacSharingParameters.aidl",
@@ -638,10 +663,10 @@
       "message": "In the end we are not getting rid of hmac just yet. We need to keep this. I have added hmac interfaces back in a different cl. https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1412193",
       "parentUuid": "c60ab3cf_dd18313d",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a1e9e461_64a40470",
         "filename": "keymint/aidl/android/hardware/keymint/HmacSharingParameters.aidl",
@@ -656,10 +681,10 @@
       "message": "Okay but it will not be part of the package android.hardware.keymit, so please remove it from this CL.",
       "parentUuid": "a18216d8_6684b545",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "c75ede4d_a1d6ecf3",
         "filename": "keymint/aidl/android/hardware/keymint/HmacSharingParameters.aidl",
@@ -674,10 +699,10 @@
       "message": "Done",
       "parentUuid": "a1e9e461_64a40470",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1e8cdf0b_f597e482",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -697,10 +722,10 @@
         "endChar": 84
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "79e679ea_d477e1bb",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -721,10 +746,10 @@
         "endChar": 84
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "be14f68f_849934b0",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -744,10 +769,10 @@
         "endChar": 50
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "7cf9c609_2ae9cf98",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -768,10 +793,10 @@
         "endChar": 50
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c61dc056_f16a2e8c",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -791,10 +816,10 @@
         "endChar": 81
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2a82acc3_d11f6cc2",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -815,10 +840,10 @@
         "endChar": 81
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3402d687_6fd2e67d",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -839,10 +864,34 @@
         "endChar": 81
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8914200_1079292b",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-20T11:51:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3402d687_6fd2e67d",
+      "range": {
+        "startLine": 150,
+        "startChar": 3,
+        "endLine": 150,
+        "endChar": 81
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "41aa407c_567f2cdc",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -862,10 +911,10 @@
         "endChar": 30
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "3f2a4840_6dbb59ca",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -886,10 +935,10 @@
         "endChar": 30
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2f0d151b_2c57fe80",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -909,10 +958,10 @@
         "endChar": 30
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e8ba40b9_2b31b47a",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -933,10 +982,10 @@
         "endChar": 30
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "44a748d8_891f9daa",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -956,10 +1005,10 @@
         "endChar": 79
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "c267bd30_e7386208",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -980,10 +1029,10 @@
         "endChar": 79
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c6dbf4bd_c66a173d",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -1003,10 +1052,10 @@
         "endChar": 2
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "6c04f2c9_833efb08",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -1027,10 +1076,10 @@
         "endChar": 2
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d208a596_13ff7afd",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1050,10 +1099,10 @@
         "endChar": 101
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "d92ba70e_7a963960",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1074,10 +1123,10 @@
         "endChar": 101
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8b68bc2e_49e5708f",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1091,10 +1140,10 @@
       "side": 1,
       "message": "Nit: There is a * missing.",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "9af28b1c_19527763",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1109,10 +1158,10 @@
       "message": "Done",
       "parentUuid": "8b68bc2e_49e5708f",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "29a18e4c_f3507956",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1132,10 +1181,10 @@
         "endChar": 42
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "a84305cb_caa21f99",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1156,10 +1205,10 @@
         "endChar": 42
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "eba547c3_dd12e710",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1179,10 +1228,10 @@
         "endChar": 57
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "8b91ad02_33481755",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1203,10 +1252,10 @@
         "endChar": 57
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "697de2ae_c830b6de",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1226,10 +1275,10 @@
         "endChar": 17
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "89763ffa_1c759234",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1250,10 +1299,10 @@
         "endChar": 17
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "93e09f9d_cb7a84d9",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1267,10 +1316,10 @@
       "side": 1,
       "message": "HardwareAuthtoken parameter missing.",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "549a7bbb_7965833a",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1285,10 +1334,10 @@
       "message": "shawn deleted it.",
       "parentUuid": "93e09f9d_cb7a84d9",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9fb2b8f1_2e1595a4",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1308,10 +1357,10 @@
         "endChar": 35
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "731a7c69_70d3f25d",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1332,10 +1381,10 @@
         "endChar": 35
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3e88a814_2a4ef434",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1355,10 +1404,10 @@
         "endChar": 36
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "5943948a_9e813e47",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1379,10 +1428,10 @@
         "endChar": 36
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "50596329_006d515b",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1402,10 +1451,10 @@
         "endChar": 64
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "864d8804_1d614b14",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1426,10 +1475,10 @@
         "endChar": 64
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c1cd8597_c9cf29d6",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1449,10 +1498,10 @@
         "endChar": 63
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "cec16bd0_66486a50",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1473,10 +1522,10 @@
         "endChar": 63
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "894b6a2b_5c4c3ce6",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1496,10 +1545,10 @@
         "endChar": 35
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "68cdeac5_d91a2016",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -1520,10 +1569,10 @@
         "endChar": 35
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "037960c7_166177d4",
         "filename": "keymint/aidl/android/hardware/keymint/KeyCharacteristics.aidl",
@@ -1543,10 +1592,10 @@
         "endChar": 43
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "a015e6b1_e673a418",
         "filename": "keymint/aidl/android/hardware/keymint/KeyCharacteristics.aidl",
@@ -1567,10 +1616,10 @@
         "endChar": 43
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1d6f12ef_0c5363f0",
         "filename": "keymint/aidl/android/hardware/keymint/KeyCharacteristics.aidl",
@@ -1591,10 +1640,10 @@
         "endChar": 43
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5043707f_de9a71ed",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
@@ -1614,10 +1663,10 @@
         "endChar": 108
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "8656d1dd_05930d89",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
@@ -1638,10 +1687,10 @@
         "endChar": 108
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "6d083fc5_23b13966",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
@@ -1661,10 +1710,10 @@
         "endChar": 101
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "780d1e6f_9b6402da",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
@@ -1685,10 +1734,10 @@
         "endChar": 101
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c6751843_4b56e0da",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
@@ -1708,10 +1757,10 @@
         "endChar": 105
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b3bc8c8f_a35d52b6",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
@@ -1732,10 +1781,10 @@
         "endChar": 105
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "03fbd7fa_bf928e5a",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
@@ -1755,10 +1804,10 @@
         "endChar": 110
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "ac2f0e96_404cd4c2",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
@@ -1779,10 +1828,10 @@
         "endChar": 110
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c8b3b9b3_46d1667f",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
@@ -1802,10 +1851,10 @@
         "endChar": 108
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "11d25a98_c4d0844f",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
@@ -1826,10 +1875,10 @@
         "endChar": 108
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2e061766_b04078d8",
         "filename": "keymint/aidl/default/service.cpp",
@@ -1843,10 +1892,10 @@
       "side": 1,
       "message": "Nit: You could put the SoftKeymasterLogger on the stack right here. This would redirect all of the portable keymaster logging to logcat.",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "24ba30be_0dc6fc49",
         "filename": "keymint/aidl/default/service.cpp",
@@ -1861,10 +1910,10 @@
       "message": "Done",
       "parentUuid": "2e061766_b04078d8",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "11db6b2b_97bdc587",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -1884,10 +1933,10 @@
         "endChar": 71
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b4396a57_a2597575",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -1908,10 +1957,10 @@
         "endChar": 71
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4e3269ac_dcf93a48",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -1932,10 +1981,10 @@
         "endChar": 71
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "669c063e_fdc0c755",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -1956,10 +2005,10 @@
         "endChar": 71
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "bc4b584e_338e5969",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -1980,10 +2029,10 @@
         "endChar": 71
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5e13f10e_28c7e1e1",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2003,10 +2052,10 @@
         "endChar": 53
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e43f1a87_30fc4bc2",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2027,10 +2076,10 @@
         "endChar": 53
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "ee5328ca_4eb2aeab",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2050,10 +2099,10 @@
         "endChar": 67
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "7186d7e5_46e3f244",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2074,10 +2123,10 @@
         "endChar": 67
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "dac98f0d_6fdd2388",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2098,10 +2147,10 @@
         "endChar": 67
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1862fe32_597829eb",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2122,10 +2171,10 @@
         "endChar": 67
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "caa97816_80733852",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2145,10 +2194,10 @@
         "endChar": 34
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "81b333c2_8994bca2",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2169,10 +2218,10 @@
         "endChar": 34
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "124bfcb4_caf58923",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2192,10 +2241,10 @@
         "endChar": 16
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "5b1f8e55_12318294",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2216,10 +2265,10 @@
         "endChar": 16
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e5b8a5e5_d1bb41c9",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2239,10 +2288,10 @@
         "endChar": 60
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "0bb8a136_8780f6fc",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2263,10 +2312,10 @@
         "endChar": 60
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b3a8dd21_073ec59c",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2287,10 +2336,10 @@
         "endChar": 60
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1021339f_9e45c3e8",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2311,10 +2360,10 @@
         "endChar": 60
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d9f6adf6_45ae1614",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2335,10 +2384,10 @@
         "endChar": 60
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "18883879_2a9e1de5",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2352,10 +2401,10 @@
       "side": 1,
       "message": "You probably want to call op.clear() here.",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e018f0eb_c1076c8f",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2370,10 +2419,10 @@
       "message": "Abort() is designed such that you can call it twice to see if abort() works correctly and doesn\u0027t crash, just return invalid pointer.",
       "parentUuid": "18883879_2a9e1de5",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f1563600_43eb9c42",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2387,10 +2436,10 @@
       "side": 1,
       "message": "I think you also want to call op_.clear() here.",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "3a5bf917_69e9cc8f",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2405,10 +2454,10 @@
       "message": "ditto.",
       "parentUuid": "f1563600_43eb9c42",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0d56ae8b_d94c528b",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2428,10 +2477,10 @@
         "endChar": 16
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "62dc0353_d164404c",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2452,10 +2501,10 @@
         "endChar": 16
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "55b8ec3a_eeea7a5e",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2476,10 +2525,10 @@
         "endChar": 16
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "3355b1e9_47f1e7e9",
         "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
@@ -2500,10 +2549,10 @@
         "endChar": 16
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c9002ae8_d66b4397",
         "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
@@ -2523,10 +2572,10 @@
         "endChar": 37
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "26cae439_cd9103a7",
         "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
@@ -2547,10 +2596,10 @@
         "endChar": 37
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e9379ea8_da6a366b",
         "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
@@ -2570,10 +2619,10 @@
         "endChar": 78
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "4a5c7caa_497fd198",
         "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
@@ -2594,10 +2643,10 @@
         "endChar": 78
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f1a40718_81d4a2e4",
         "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
@@ -2611,10 +2660,10 @@
       "side": 1,
       "message": "Note that EXPECT_* macros do not perform control flow. Which means that the content of result.token will be checked even if the call failed, i.e., result.error !\u003d OK.\n\nWe use EXPECT in test helper functions, because ASSERT_* macros return void, so they cannot convey failures to the caller. But this also means that control flow needs to be done explicitly. This here, however, is an actual test function, so you should use ASSERT_* macros throughout, in order to abort on the first error.\n\nWith std::variant this could look like this:\n\n if (auto token_ptr \u003d result1.get_if\u003cVerificationToken\u003e()) {\n     ASSERT_EQ(1U, token_ptr-\u003echallenge);\n     ASSERT_EQ(SecLevel(), token_ptr-\u003esecurityLevel);\n     ASSERT_GT(token_ptr-\u003etimestamp.milliSeconds, 0U);\n } else if (auto error_ptr \u003d result1.get_if\u003cErrorCode\u003e()) {\n     // if we reach this part *error_ptr must not be OK,\n     // so if we fail here we must fail on the second ASSERT.\n     ASSERT_NE(ErrorCode::OK, *error_ptr);\n     ASSERT_EQ(ErrorCode::OK, *error_ptr);\n } else {\n     // This can never happen.\n     FAIL;\n }",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "34ea38c7_4e5ab2a1",
         "filename": "keymint/aidl/vts/functional/VerificationTokenTest.cpp",
@@ -2629,10 +2678,10 @@
       "message": "Done",
       "parentUuid": "f1a40718_81d4a2e4",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "65d7f6fe_841a100f",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2652,10 +2701,10 @@
         "endChar": 30
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "54de50ba_8f5747d6",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2676,10 +2725,10 @@
         "endChar": 30
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "af19492a_2e755dc8",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2700,10 +2749,10 @@
         "endChar": 30
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "976ea7dd_4ebe1dd0",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2723,10 +2772,10 @@
         "endChar": 13
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "6f097a0c_add38cd7",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2746,10 +2795,10 @@
         "endChar": 32
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "136c30e6_806c2c57",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2770,10 +2819,10 @@
         "endChar": 32
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e7556ce9_9aae2bbc",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2793,10 +2842,10 @@
         "endChar": 21
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "3529d6d7_b5cd6783",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2817,10 +2866,10 @@
         "endChar": 21
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5339be7f_e43db3cf",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2840,10 +2889,10 @@
         "endChar": 0
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "3edb9ae2_a90f9542",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2864,10 +2913,10 @@
         "endChar": 0
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "92b54655_d9962a9d",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2887,10 +2936,10 @@
         "endChar": 28
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "33be87c8_dd8a6044",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2911,10 +2960,10 @@
         "endChar": 28
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "51574055_e0129965",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2934,10 +2983,10 @@
         "endChar": 19
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bbdc317d_7f0d9b37",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2958,10 +3007,10 @@
         "endChar": 19
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "59754485_9dcbdb36",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -2981,10 +3030,10 @@
         "endChar": 36
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "24f0546b_41f4a7c5",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3005,10 +3054,10 @@
         "endChar": 36
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "6e78d65d_0549a875",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3028,10 +3077,10 @@
         "endChar": 79
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "63823dc8_50603e25",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3052,10 +3101,10 @@
         "endChar": 79
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "43ca93ca_a665dc2a",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3075,10 +3124,10 @@
         "endChar": 58
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "ff9fba36_53300c45",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3099,10 +3148,10 @@
         "endChar": 58
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b7df9a93_bdc9eef5",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3122,10 +3171,10 @@
         "endChar": 9
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b6815996_5a03fd6e",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3146,10 +3195,10 @@
         "endChar": 9
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8eee7b64_ee48e1d0",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3163,10 +3212,10 @@
       "side": 1,
       "message": "I would check here that ro.build.type is \"user\". We cannot be green and not user.",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e0659948_1fbc3e69",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3181,10 +3230,10 @@
       "message": "Done",
       "parentUuid": "8eee7b64_ee48e1d0",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "850c1061_1ce3d9be",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3204,10 +3253,10 @@
         "endChar": 91
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "beedb41f_e912392b",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3228,10 +3277,10 @@
         "endChar": 91
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "ece7eaf1_ed49cad0",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3251,10 +3300,10 @@
         "endChar": 92
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "28d01f0d_19f38b30",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3275,10 +3324,10 @@
         "endChar": 92
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "bb7cafa5_a5b6f54b",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3298,10 +3347,10 @@
         "endChar": 93
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "c774cb02_e4614357",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3322,10 +3371,10 @@
         "endChar": 93
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0cb627f8_5b8bc112",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3345,10 +3394,10 @@
         "endChar": 93
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "36417b19_63e7c23b",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3369,10 +3418,10 @@
         "endChar": 93
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "41ea4bd5_30d09c5a",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3386,10 +3435,10 @@
       "side": 1,
       "message": "The old test would call CheckKeyCharactersitics here. Is that not a thing any more?\n\nAh right GetKeyCharacteristics is not a thing any more.",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2c24ea99_7bb8b055",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3404,10 +3453,28 @@
       "message": "Good question. Not sure why this was marked as resolved, unresolving.",
       "parentUuid": "41ea4bd5_30d09c5a",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4afb336d_6c89d732",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-20T11:51:03Z",
+      "side": 1,
+      "message": "I don\u0027t remember exactly but I found it to be not applicable when traced though the changes and calls.",
+      "parentUuid": "2c24ea99_7bb8b055",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "66a8e938_0c75e9a9",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3427,10 +3494,10 @@
         "endChar": 15
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "c7d58772_87356fc6",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3451,10 +3518,10 @@
         "endChar": 15
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "dfbbe8d1_688ceebd",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3474,10 +3541,10 @@
         "endChar": 83
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "51847854_29f6c8c3",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3498,10 +3565,10 @@
         "endChar": 83
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "363658e8_7bd3987a",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3522,10 +3589,34 @@
         "endChar": 83
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16f2335a_540c2266",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-20T11:51:03Z",
+      "side": 1,
+      "message": "let\u0027s do this in another CL",
+      "parentUuid": "363658e8_7bd3987a",
+      "range": {
+        "startLine": 1497,
+        "startChar": 13,
+        "endLine": 1497,
+        "endChar": 83
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "674ba350_abee02cb",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3545,10 +3636,10 @@
         "endChar": 72
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bebe5e7b_ea891086",
         "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
@@ -3569,10 +3660,10 @@
         "endChar": 72
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "46258ff0_efdece28",
         "filename": "keymint/support/authorization_set.cpp",
@@ -3592,10 +3683,10 @@
         "endChar": 0
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "d98515ad_04c0839c",
         "filename": "keymint/support/authorization_set.cpp",
@@ -3616,10 +3707,10 @@
         "endChar": 0
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5e8d55ca_523025e5",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3639,10 +3730,10 @@
         "endChar": 34
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "59174e2d_2a30f21c",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3663,10 +3754,10 @@
         "endChar": 34
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "75936807_dc9130f1",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3687,10 +3778,10 @@
         "endChar": 34
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "44a818ec_fde13546",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3711,10 +3802,10 @@
         "endChar": 34
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "6b198dac_c65a8b77",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3735,10 +3826,10 @@
         "endChar": 34
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bfe1eb63_850a36f6",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3759,10 +3850,10 @@
         "endChar": 34
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0f7c2441_31d42548",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3782,10 +3873,10 @@
         "endChar": 29
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "ba6b672b_fd3430e9",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3806,10 +3897,10 @@
         "endChar": 29
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9411a3c0_9de90ea3",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3830,10 +3921,10 @@
         "endChar": 29
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "be701a35_76edb1e4",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3854,10 +3945,10 @@
         "endChar": 29
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "fcaf8bc7_cc64dd69",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3877,10 +3968,10 @@
         "endChar": 40
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "ecea5a67_3b7bbac9",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3901,10 +3992,10 @@
         "endChar": 40
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a5e2a875_8df8821c",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3925,10 +4016,10 @@
         "endChar": 40
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "da46d264_3e91fe1a",
         "filename": "keymint/support/include/keymintSupport/attestation_record.h",
@@ -3949,10 +4040,10 @@
         "endChar": 40
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "7491c188_b3194531",
         "filename": "keymint/support/include/keymintSupport/authorization_set.h",
@@ -3972,10 +4063,10 @@
         "endChar": 89
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "3f0f5e60_f14ab45a",
         "filename": "keymint/support/include/keymintSupport/authorization_set.h",
@@ -3996,10 +4087,10 @@
         "endChar": 89
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "31fd33f6_6e0340ed",
         "filename": "keymint/support/include/keymintSupport/keymint_tags.h",
@@ -4019,10 +4110,10 @@
         "endChar": 49
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bb4f5bf4_052d7edf",
         "filename": "keymint/support/include/keymintSupport/keymint_tags.h",
@@ -4043,10 +4134,10 @@
         "endChar": 49
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "20617ba2_759dd757",
         "filename": "keymint/support/keymint_utils.cpp",
@@ -4066,10 +4157,10 @@
         "endChar": 91
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "8b4cff20_b523280b",
         "filename": "keymint/support/keymint_utils.cpp",
@@ -4090,8 +4181,7 @@
         "endChar": 91
       },
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

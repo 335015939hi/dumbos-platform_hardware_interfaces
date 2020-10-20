@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "80615cb1_30e3356a",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "the issue with this CL is that some of the code is ported but used in other CLs higher in the stack, so a lot of the issues were actually fixed in those CL that uses the function calls.  problem with keeping these CLs unsubmitted for a log time is, I don\u0027t even remember theses things myself and end up fixing some problems in the lower cl again after seeing comment.",
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0ac743cc_873b071a",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -37,10 +38,10 @@
         "endChar": 60
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "a5b42a24_da2cbe49",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -61,10 +62,10 @@
         "endChar": 60
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "03b6d8c9_6b4e50f7",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -84,10 +85,10 @@
         "endChar": 38
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "ed0d5583_be02bc57",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -108,10 +109,10 @@
         "endChar": 38
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "558834e6_19bf99f2",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -131,10 +132,10 @@
         "endChar": 69
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "28bd0836_d9547503",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -155,10 +156,10 @@
         "endChar": 69
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "96b825f9_d8b76302",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -178,10 +179,10 @@
         "endChar": 36
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "376223f8_8eeb30f8",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -202,10 +203,10 @@
         "endChar": 36
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1df8b4af_463559ac",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -225,10 +226,10 @@
         "endChar": 31
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "fa455545_433e76cf",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -249,10 +250,10 @@
         "endChar": 31
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "96ee5043_04c914be",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -273,10 +274,34 @@
         "endChar": 31
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3f3b107_0b1cb4ed",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-20T11:51:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96ee5043_04c914be",
+      "range": {
+        "startLine": 468,
+        "startChar": 14,
+        "endLine": 468,
+        "endChar": 31
+      },
+      "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "9af9507f_cf05471c",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -296,10 +321,10 @@
         "endChar": 36
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "4d9272c7_df59d5d3",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -320,10 +345,10 @@
         "endChar": 36
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "64d57b4c_88811f79",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -343,10 +368,10 @@
         "endChar": 30
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "8e5154e2_8ef1ec97",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -367,10 +392,10 @@
         "endChar": 30
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "857b894a_199de508",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -390,10 +415,10 @@
         "endChar": 46
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b2a1fa7e_3af128ec",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -414,10 +439,10 @@
         "endChar": 46
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4ec5647a_2418f45c",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -437,10 +462,10 @@
         "endChar": 35
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "acf4de82_3e0ab4a4",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
@@ -461,8 +486,7 @@
         "endChar": 35
       },
       "revId": "a398fde3b418183cd5e16ff79cd394c24062851b",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
