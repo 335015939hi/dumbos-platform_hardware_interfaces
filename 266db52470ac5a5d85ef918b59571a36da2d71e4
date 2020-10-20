@@ -45,6 +45,30 @@
       },
       "revId": "266db52470ac5a5d85ef918b59571a36da2d71e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f1fdcc9_afe9877e",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-10-20T08:28:23Z",
+      "side": 1,
+      "message": "Yes this is explicitly copied from 1.0.\nFrom other VTS, it looks like they can\u0027t be shared, can they?",
+      "parentUuid": "ca647136_466accee",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 2
+      },
+      "revId": "266db52470ac5a5d85ef918b59571a36da2d71e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
