@@ -51,6 +51,7 @@ TEST_P(GnssHalTest, SetupTeardownCreateCleanup) {}
  * TestGnssMeasurementCallback:
  * Gets the GnssMeasurementExtension and verify that it returns an actual extension.
  */
+
 TEST_P(GnssHalTest, TestGnssMeasurementCallback) {
     auto gnssMeasurement_1_1 = gnss_hal_->getExtensionGnssMeasurement_1_1();
     ASSERT_TRUE(gnssMeasurement_1_1.isOk());
