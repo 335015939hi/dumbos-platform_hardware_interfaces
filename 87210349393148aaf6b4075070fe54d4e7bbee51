@@ -2032,6 +2032,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b67595_e2499b04",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-21T03:34:36Z",
+      "side": 1,
+      "message": "Shawn you are not looking at it correctly.  The checks for return variables on error has been deleted.  the clearing of the variables at the start I want to keep just to have a clean start in case the previous test didn\u0027t clear it.\n\nThere is nothing else to do.",
+      "parentUuid": "bc4b584e_338e5969",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 71
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e13f10e_28c7e1e1",
@@ -2377,6 +2401,30 @@
       "side": 1,
       "message": "Why did you revert it back?  Janis is right.  It would also be acceptable to simply pass the sp by value (copying it) if making it const doesn\u0027t work.",
       "parentUuid": "1021339f_9e45c3e8",
+      "range": {
+        "startLine": 340,
+        "startChar": 37,
+        "endLine": 340,
+        "endChar": 60
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26e123e8_b2a0a978",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-21T03:34:36Z",
+      "side": 1,
+      "message": "it\u0027s at const sp\u003cIKeyMintOperation\u003e\u0026 op.  I interepeted janis\u0027s initial request as remove reference and use move, and that\u0027s what I did, and reverted.  because I also forgot the non-consumption of op handle til looking at something else.",
+      "parentUuid": "d9f6adf6_45ae1614",
       "range": {
         "startLine": 340,
         "startChar": 37,
@@ -2742,6 +2790,30 @@
       "side": 1,
       "message": "It would be nicer to overload std::equals.\n\nMore importantly, it seems like this function is never actually used! I don\u0027t think that\u0027s because it\u0027s not needed, I think that\u0027s because the VTS tests below are actually calling operator\u003d\u003d, which means if they\u0027re working they\u0027re doing so accidentally.",
       "parentUuid": "54de50ba_8f5747d6",
+      "range": {
+        "startLine": 57,
+        "startChar": 24,
+        "endLine": 57,
+        "endChar": 30
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "610dc40b_c2b10c6c",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-21T03:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af19492a_2e755dc8",
       "range": {
         "startLine": 57,
         "startChar": 24,

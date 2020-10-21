@@ -681,6 +681,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f79bc8d_e1f37523",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-21T03:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b50e66a6_1b8bcbbb",
+      "range": {
+        "startLine": 50,
+        "startChar": 3,
+        "endLine": 51,
+        "endChar": 73
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d5f0058_bb482ecb",
@@ -694,6 +718,30 @@
       "writtenOn": "2020-09-24T18:14:02Z",
       "side": 1,
       "message": "Same as above.",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 0
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d8d1b67_141910e8",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-21T03:34:36Z",
+      "side": 1,
+      "message": "this needs to stay to give tests a clean start.",
+      "parentUuid": "0d5f0058_bb482ecb",
       "range": {
         "startLine": 116,
         "startChar": 0,
@@ -727,6 +775,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cc8c5ae_ddc839bc",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-21T03:34:36Z",
+      "side": 1,
+      "message": "this needs to stay to give tests a clean start.",
+      "parentUuid": "773b3f7e_deba2ec9",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 50
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c801c35c_2f8f5b04",
@@ -740,6 +812,30 @@
       "writtenOn": "2020-09-24T18:14:02Z",
       "side": 1,
       "message": "If this is empty, do we need it?",
+      "range": {
+        "startLine": 748,
+        "startChar": 0,
+        "endLine": 751,
+        "endChar": 1
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf12466d_0d49c31a",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-21T03:34:36Z",
+      "side": 1,
+      "message": "deleted",
+      "parentUuid": "c801c35c_2f8f5b04",
       "range": {
         "startLine": 748,
         "startChar": 0,
@@ -1008,6 +1104,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38caf7d3_f5a0a8fb",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 3999,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-21T03:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45fa2434_ec21829e",
+      "range": {
+        "startLine": 3999,
+        "startChar": 4,
+        "endLine": 3999,
+        "endChar": 7
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6724674_26cfc925",
@@ -1031,6 +1151,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddfe2357_60631db6",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 4003,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-21T03:34:36Z",
+      "side": 1,
+      "message": "done.  but what\u0027s the big deal?",
+      "parentUuid": "f6724674_26cfc925",
+      "range": {
+        "startLine": 4003,
+        "startChar": 4,
+        "endLine": 4003,
+        "endChar": 7
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdb749d9_23955721",
@@ -1044,6 +1188,30 @@
       "writtenOn": "2020-09-18T21:46:04Z",
       "side": 1,
       "message": "size_t",
+      "range": {
+        "startLine": 4015,
+        "startChar": 9,
+        "endLine": 4015,
+        "endChar": 12
+      },
+      "revId": "7d134663dcbcde30d1a84c30433b601cd9792514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e3c186a_9f83502b",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 4015,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-21T03:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdb749d9_23955721",
       "range": {
         "startLine": 4015,
         "startChar": 9,
