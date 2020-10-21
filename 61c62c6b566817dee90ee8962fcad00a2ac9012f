@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cd3d946_b76083d4",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-10-21T07:13:07Z",
+      "side": 0,
+      "message": "Do you know why this was added? Why is it being removed?",
+      "revId": "61c62c6b566817dee90ee8962fcad00a2ac9012f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ced1fa9_33374ba2",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-10-21T07:13:07Z",
+      "side": 0,
+      "message": "Why is this being removed? I think this is still needed.",
+      "revId": "61c62c6b566817dee90ee8962fcad00a2ac9012f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
