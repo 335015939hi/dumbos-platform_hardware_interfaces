@@ -51,12 +51,12 @@ TEST_P(GnssHalTest, SetupTeardownCreateCleanup) {}
  * TestGnssMeasurementCallback:
  * Gets the GnssMeasurementExtension and verify that it returns an actual extension.
  */
-TEST_P(GnssHalTest, TestGnssMeasurementCallback) {
+TEST_F(GnssHalTest, TestGnssMeasurementCallback) {
     auto gnssMeasurement_1_1 = gnss_hal_->getExtensionGnssMeasurement_1_1();
     ASSERT_TRUE(gnssMeasurement_1_1.isOk());
     auto gnssMeasurement_1_0 = gnss_hal_->getExtensionGnssMeasurement();
     ASSERT_TRUE(gnssMeasurement_1_0.isOk());
-    if (gnss_cb_->last_capabilities_ & IGnssCallback::Capabilities::MEASUREMENTS) {
+    if (last_capabilities_ & IGnssCallback::Capabilities::MEASUREMENTS) {
         sp<IGnssMeasurement_1_1> iGnssMeas_1_1 = gnssMeasurement_1_1;
         sp<IGnssMeasurement_1_0> iGnssMeas_1_0 = gnssMeasurement_1_0;
         // At least one interface must be non-null.
