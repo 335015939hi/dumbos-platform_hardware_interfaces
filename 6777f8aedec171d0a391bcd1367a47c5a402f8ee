@@ -16,6 +16,24 @@
       "message": "This is blocked on b/171317032 and a few other changes to bump target level to 3.",
       "revId": "6777f8aedec171d0a391bcd1367a47c5a402f8ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccd610f7_629fc1b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-10-21T00:43:23Z",
+      "side": 1,
+      "message": "This is blocked on b/171323217.",
+      "parentUuid": "3514be53_eaaee2d8",
+      "revId": "6777f8aedec171d0a391bcd1367a47c5a402f8ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
