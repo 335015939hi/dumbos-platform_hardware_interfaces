@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06f3689f_115f0813",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_utils_v1_6.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2020-10-21T19:09:29Z",
+      "side": 1,
+      "message": "This should also be updateSimCardStatus()",
+      "range": {
+        "startLine": 1001,
+        "startChar": 0,
+        "endLine": 1002,
+        "endChar": 27
+      },
+      "revId": "9a24f905f5a2e704e494ea1a6a9b17be625ea9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

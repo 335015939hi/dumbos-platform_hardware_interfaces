@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aedcf8f1_295cb5f0",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2020-10-21T19:09:29Z",
+      "side": 0,
+      "message": "This shouldn\u0027t be removed, but it should be getSimCardStatus() instead of getDataCallList().\nThe main reason it\u0027s timing out is probably because the cuttlefish implementation wasn\u0027t updated for IRadio 1.6 (similar to aosp/1152223).",
+      "parentUuid": "d8d6548b_a46f1d26",
+      "revId": "61c62c6b566817dee90ee8962fcad00a2ac9012f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ced1fa9_33374ba2",
         "filename": "radio/1.6/vts/functional/radio_hidl_hal_test.cpp",
         "patchSetId": 2
@@ -67,6 +85,24 @@
       "side": 0,
       "message": "None calls getIccCardStatus() to update CardState. So VTS for IRadio 1.6 will always get failed on any device.",
       "parentUuid": "0ced1fa9_33374ba2",
+      "revId": "61c62c6b566817dee90ee8962fcad00a2ac9012f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69797e48_1e5536cf",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2020-10-21T19:09:29Z",
+      "side": 0,
+      "message": "Same here. This shouldn\u0027t be removed.",
+      "parentUuid": "4036b5c0_556582ae",
       "revId": "61c62c6b566817dee90ee8962fcad00a2ac9012f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
