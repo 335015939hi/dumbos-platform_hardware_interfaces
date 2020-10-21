@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75eacc5c_3c23f153",
+        "filename": "keymint/aidl/default/android.hardware.keymint@1.0-service.xml",
+        "patchSetId": 32
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1386891
+      },
+      "writtenOn": "2020-10-21T06:14:05Z",
+      "side": 1,
+      "message": "https://source.android.com/devices/architecture/aidl/aidl-hals?hl\u003den#writing-server\n\u003cfqname\u003eIKeyMintDevice/default\u003c/fqname\u003e?",
+      "range": {
+        "startLine": 4,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "5ac13998ac08e37bd35430263e1f66337377fc75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
