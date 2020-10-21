@@ -211,7 +211,11 @@ TEST_P(RadioHidlTest_v1_4, startNetworkScan) {
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
             .type = ScanType::ONE_SHOT,
             .interval = 60,
+<<<<<<< TARGET BRANCH (ae69e9 [automerger skipped] Merge "VTS 1.1 TestGnssMeasurementCallb)
             .specifiers = {::GERAN_SPECIFIER_P900, ::GERAN_SPECIFIER_850},
+=======
+            .specifiers = {specifier},
+>>>>>>> SOURCE BRANCH (d5adb5 Fix RadioHidlTest_v1_2.startNetworkScan maxSearchTime)
             .maxSearchTime = 60,
             .incrementalResults = false,
             .incrementalResultsPeriodicity = 1};
