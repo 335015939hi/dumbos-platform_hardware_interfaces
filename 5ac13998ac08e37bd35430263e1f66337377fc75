@@ -22,6 +22,30 @@
       },
       "revId": "5ac13998ac08e37bd35430263e1f66337377fc75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d94c54c_6814c7d3",
+        "filename": "keymint/aidl/default/android.hardware.keymint@1.0-service.xml",
+        "patchSetId": 32
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-21T06:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75eacc5c_3c23f153",
+      "range": {
+        "startLine": 4,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "5ac13998ac08e37bd35430263e1f66337377fc75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
