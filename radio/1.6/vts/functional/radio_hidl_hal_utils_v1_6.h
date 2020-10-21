@@ -771,6 +771,9 @@ class RadioResponse_v1_6 : public ::android::hardware::radio::V1_6::IRadioRespon
             const ::android::hardware::radio::V1_6::RadioResponseInfo& info);
     Return<void> isNrDualConnectivityEnabledResponse(
             const ::android::hardware::radio::V1_6::RadioResponseInfo& info, bool isEnabled);
+
+    Return<void> setSimCardPowerResponse_1_6(
+            const ::android::hardware::radio::V1_6::RadioResponseInfo& info);
 };
 
 /* Callback class for radio indication */
