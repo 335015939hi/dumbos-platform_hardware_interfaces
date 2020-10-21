@@ -16,6 +16,24 @@
       "message": "Is this for markVintfStability?",
       "revId": "d9a93ca476c72aaee0c3b8e1d1d1b900765ea149",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6f321d3_87673aa0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-21T23:32:11Z",
+      "side": 1,
+      "message": "yeah - I have been using that as the default, also note:\nhttps://android-review.googlesource.com/c/platform/system/tools/hidl/+/1464822\n\nwe could change them in the future though. It\u0027s really not important what is used here, as long as it can be used by clients.",
+      "parentUuid": "41005001_65c329a5",
+      "revId": "d9a93ca476c72aaee0c3b8e1d1d1b900765ea149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
