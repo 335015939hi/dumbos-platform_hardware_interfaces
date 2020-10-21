@@ -224,7 +224,11 @@ IGnssConfiguration::BlacklistedSource FindStrongFrequentNonGpsSource(
  * 5b) Retry a few times, in case GNSS search strategy takes a while to reacquire even the
  * formerly strongest satellite
  */
+<<<<<<< HEAD   (af3850 Use IncrementalResults in InvalidPeriodicity am: dbe46aa94e)
 TEST_P(GnssHalTest, BlacklistIndividualSatellites) {
+=======
+TEST_F(GnssHalTest, BlacklistIndividualSatellites) {
+>>>>>>> BRANCH (931a0e Add GNSS satellite blacklist VTS 2.0 test)
     if (!IsGnssHalVersion_1_1()) {
         ALOGI("Test BlacklistIndividualSatellites skipped. GNSS HAL version is greater than 1.1.");
         return;
@@ -368,7 +372,11 @@ TEST_P(GnssHalTest, BlacklistIndividualSatellites) {
  * GnssStatus does not use any constellation but GPS.
  * 4a & b) Clean up by turning off location, and send in empty blacklist.
  */
+<<<<<<< HEAD   (af3850 Use IncrementalResults in InvalidPeriodicity am: dbe46aa94e)
 TEST_P(GnssHalTest, BlacklistConstellationWithLocationOff) {
+=======
+TEST_F(GnssHalTest, BlacklistConstellation) {
+>>>>>>> BRANCH (931a0e Add GNSS satellite blacklist VTS 2.0 test)
     if (!IsGnssHalVersion_1_1()) {
         ALOGI("Test BlacklistConstellation skipped. GNSS HAL version is greater than 1.1.");
         return;

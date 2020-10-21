@@ -17,8 +17,11 @@
 #define LOG_TAG "GnssHalTest"
 
 #include <android/hidl/manager/1.2/IServiceManager.h>
+<<<<<<< HEAD   (af3850 Use IncrementalResults in InvalidPeriodicity am: dbe46aa94e)
 #include <gtest/gtest.h>
 #include <hidl/GtestPrinter.h>
+=======
+>>>>>>> BRANCH (931a0e Add GNSS satellite blacklist VTS 2.0 test)
 #include <hidl/ServiceManagement.h>
 
 #include <gnss_hal_test.h>
@@ -175,6 +178,7 @@ bool GnssHalTest::IsGnssHalVersion_1_1() const {
                 hasGnssHalVersion_2_0 = registered.size() != 0;
             });
 
+<<<<<<< HEAD   (af3850 Use IncrementalResults in InvalidPeriodicity am: dbe46aa94e)
     bool hasGnssHalVersion_2_1 = false;
     manager->listManifestByInterface(
             "android.hardware.gnss@2.1::IGnss",
@@ -183,6 +187,15 @@ bool GnssHalTest::IsGnssHalVersion_1_1() const {
             });
 
     return hasGnssHalVersion_1_1 && !hasGnssHalVersion_2_0 && !hasGnssHalVersion_2_1;
+=======
+    return hasGnssHalVersion_1_1 && !hasGnssHalVersion_2_0;
+}
+
+void GnssHalTest::notify() {
+    std::unique_lock<std::mutex> lock(mtx_);
+    notify_count_++;
+    cv_.notify_one();
+>>>>>>> BRANCH (931a0e Add GNSS satellite blacklist VTS 2.0 test)
 }
 
 GnssConstellationType GnssHalTest::startLocationAndGetNonGpsConstellation(

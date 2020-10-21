@@ -21,9 +21,20 @@
 
 #include "gnss_hal_test.h"
 
+<<<<<<< HEAD   (af3850 Use IncrementalResults in InvalidPeriodicity am: dbe46aa94e)
 using android::hardware::gnss::V2_0::IGnss;
 
 INSTANTIATE_TEST_SUITE_P(
         PerInstance, GnssHalTest,
         testing::ValuesIn(android::hardware::getAllHalInstanceNames(IGnss::descriptor)),
         android::hardware::PrintInstanceNameToString);
+=======
+int main(int argc, char** argv) {
+    ::testing::AddGlobalTestEnvironment(GnssHidlEnvironment::Instance());
+    ::testing::InitGoogleTest(&argc, argv);
+    GnssHidlEnvironment::Instance()->init(&argc, argv);
+    int status = RUN_ALL_TESTS();
+    ALOGI("Test result = %d", status);
+    return status;
+}
+>>>>>>> BRANCH (931a0e Add GNSS satellite blacklist VTS 2.0 test)

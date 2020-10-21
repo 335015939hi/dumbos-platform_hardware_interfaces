@@ -139,6 +139,17 @@ class GnssHalTest : public testing::TestWithParam<std::string> {
     /*
      * IsGnssHalVersion_1_1:
      * returns  true if the GNSS HAL version is exactly 1.1.
+<<<<<<< HEAD   (af3850 Use IncrementalResults in InvalidPeriodicity am: dbe46aa94e)
+=======
+     */
+    bool IsGnssHalVersion_1_1() const;
+
+    sp<IGnss> gnss_hal_;         // GNSS HAL to call into
+    sp<IGnssCallback> gnss_cb_;  // Primary callback interface
+
+    /* Count of calls to set the following items, and the latest item (used by
+     * test.)
+>>>>>>> BRANCH (931a0e Add GNSS satellite blacklist VTS 2.0 test)
      */
     bool IsGnssHalVersion_1_1() const;
 
