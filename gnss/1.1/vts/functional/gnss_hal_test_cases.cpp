@@ -51,12 +51,21 @@ TEST_P(GnssHalTest, SetupTeardownCreateCleanup) {}
  * TestGnssMeasurementCallback:
  * Gets the GnssMeasurementExtension and verify that it returns an actual extension.
  */
+<<<<<<< HEAD   (2bd5df [automerger skipped] Add GNSS satellite blacklist VTS 2.0 te)
 TEST_P(GnssHalTest, TestGnssMeasurementCallback) {
     auto gnssMeasurement_1_1 = gnss_hal_->getExtensionGnssMeasurement_1_1();
     ASSERT_TRUE(gnssMeasurement_1_1.isOk());
     auto gnssMeasurement_1_0 = gnss_hal_->getExtensionGnssMeasurement();
     ASSERT_TRUE(gnssMeasurement_1_0.isOk());
     if (gnss_cb_->last_capabilities_ & IGnssCallback::Capabilities::MEASUREMENTS) {
+=======
+TEST_F(GnssHalTest, TestGnssMeasurementCallback) {
+    auto gnssMeasurement_1_1 = gnss_hal_->getExtensionGnssMeasurement_1_1();
+    ASSERT_TRUE(gnssMeasurement_1_1.isOk());
+    auto gnssMeasurement_1_0 = gnss_hal_->getExtensionGnssMeasurement();
+    ASSERT_TRUE(gnssMeasurement_1_0.isOk());
+    if (last_capabilities_ & IGnssCallback::Capabilities::MEASUREMENTS) {
+>>>>>>> BRANCH (56f1c0 Merge "VTS 1.1 TestGnssMeasurementCallback test must allow 1)
         sp<IGnssMeasurement_1_1> iGnssMeas_1_1 = gnssMeasurement_1_1;
         sp<IGnssMeasurement_1_0> iGnssMeas_1_0 = gnssMeasurement_1_0;
         // At least one interface must be non-null.
