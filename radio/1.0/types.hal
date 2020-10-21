@@ -166,8 +166,9 @@ enum RestrictedState : int32_t {
 };
 
 enum CardState : int32_t {
-    ABSENT,
-    PRESENT,
+    ABSENT,                               // card is physically absent from device, not just
+                                          // powered off.
+    PRESENT,                              // card is inserted in the device
     ERROR,
     RESTRICTED,                           // card is present but not usable due to carrier
                                           // restrictions
