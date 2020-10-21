@@ -34,6 +34,23 @@
       "parentUuid": "3514be53_eaaee2d8",
       "revId": "6777f8aedec171d0a391bcd1367a47c5a402f8ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf0e924a_9d94374a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-21T01:20:26Z",
+      "side": 1,
+      "message": "you could consider removing V1 now and remove V2 after that bug is fixed?",
+      "revId": "6777f8aedec171d0a391bcd1367a47c5a402f8ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
