@@ -4232,7 +4232,7 @@ TEST_P(AddEntropyTest, AddLargeEntropy) {
 
 INSTANTIATE_KEYMINT_AIDL_TEST(AddEntropyTest);
 
-class AttestKeyTest : public KeyMintAidlTestBase {
+class AgreeKeyTest : public KeyMintAidlTestBase {
   protected:
     void verify_attest_key_charastics(const KeyCharacteristics& key_characteristics) {
         AuthorizationSet auths(key_characteristics.hardwareEnforced);
@@ -4241,6 +4241,7 @@ class AttestKeyTest : public KeyMintAidlTestBase {
         EXPECT_TRUE(auths.Contains(TAG_ORIGIN, KeyOrigin::GENERATED));
         EXPECT_TRUE(auths.Contains(TAG_PURPOSE, KeyPurpose::ATTEST_KEY));
 
+        EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::AGREE_KEY));
         EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::SIGN));
         EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::VERIFY));
         EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::ENCRYPT));
@@ -4251,6 +4252,46 @@ class AttestKeyTest : public KeyMintAidlTestBase {
         EXPECT_FALSE(auths.Contains(TAG_APPLICATION_ID));
         EXPECT_FALSE(auths.Contains(TAG_APPLICATION_DATA));
 
+        EXPECT_TRUE(auths.Contains(TAG_OS_VERSION, os_version()))
+                << "OS version is " << os_version() << " key reported "
+                << auths.GetTagValue(TAG_OS_VERSION);
+        EXPECT_TRUE(auths.Contains(TAG_OS_PATCHLEVEL, os_patch_level()))
+                << "OS patch level is " << os_patch_level() << " key reported "
+                << auths.GetTagValue(TAG_OS_PATCHLEVEL);
+    }
+};
+
+/*
+ * AgreeKeyTest.
+ *
+ *
+ */
+TEST_P(AgreeKeyTest, GenerateSharedKey) {}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(AgreeKeyTest);
+
+class AttestKeyTest : public KeyMintAidlTestBase {
+  protected:
+    void verify_agree_key_characteristics(const KeyCharacteristics& key_characteristics) {
+        AuthorizationSet auths(key_characteristics.hardwareEnforced);
+        auths.push_back(AuthorizationSet(key_characteristics.softwareEnforced));
+
+        EXPECT_TRUE(auths.Contains(TAG_ORIGIN, KeyOrigin::GENERATED));
+        EXPECT_TRUE(auths.Contains(TAG_PURPOSE, KeyPurpose::AGREE_KEY));
+
+        EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::SIGN));
+        EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::VERIFY));
+        EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::ENCRYPT));
+        EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::DECRYPT));
+        EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::ATTEST_KEY));
+
+        // Verify that App ID, App data and ROT are NOT included.
+        EXPECT_FALSE(auths.Contains(TAG_ROOT_OF_TRUST));
+        EXPECT_FALSE(auths.Contains(TAG_APPLICATION_ID));
+        EXPECT_FALSE(auths.Contains(TAG_APPLICATION_DATA));
+        EXPECT_FALSE(auths.Contains(TAG_AUTH_TIMEOUT, 301U));
+
+        // TODO(seleneh) verify creation time tag is set if passed in
         EXPECT_TRUE(auths.Contains(TAG_OS_VERSION, os_version()))
                 << "OS version is " << os_version() << " key reported "
                 << auths.GetTagValue(TAG_OS_VERSION);
