@@ -22,6 +22,30 @@
       },
       "revId": "9a24f905f5a2e704e494ea1a6a9b17be625ea9e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a5818eb_4e40d4dc",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_utils_v1_6.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 1434543
+      },
+      "writtenOn": "2020-10-22T06:11:50Z",
+      "side": 1,
+      "message": "Added getSimCardStatus().\n\nBut I don\u0027t remove getDataCallList() as the author may use it and fix it in the future.",
+      "parentUuid": "06f3689f_115f0813",
+      "range": {
+        "startLine": 1001,
+        "startChar": 0,
+        "endLine": 1002,
+        "endChar": 27
+      },
+      "revId": "9a24f905f5a2e704e494ea1a6a9b17be625ea9e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
