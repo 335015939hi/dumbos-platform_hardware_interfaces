@@ -18,11 +18,17 @@
 
 #include <android/hardware/graphics/allocator/2.0/IAllocator.h>
 #include <android/hardware/graphics/allocator/3.0/IAllocator.h>
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
 #include <android/hardware/graphics/allocator/4.0/IAllocator.h>
 #include <android/hardware/graphics/mapper/2.0/IMapper.h>
 #include <android/hardware/graphics/mapper/2.1/IMapper.h>
 #include <android/hardware/graphics/mapper/3.0/IMapper.h>
 #include <android/hardware/graphics/mapper/4.0/IMapper.h>
+=======
+#include <android/hardware/graphics/mapper/2.0/IMapper.h>
+#include <android/hardware/graphics/mapper/2.1/IMapper.h>
+#include <android/hardware/graphics/mapper/3.0/IMapper.h>
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
 
 #include <utils/Log.h>
 
@@ -31,6 +37,7 @@
 
 using IAllocator2 = ::android::hardware::graphics::allocator::V2_0::IAllocator;
 using IAllocator3 = ::android::hardware::graphics::allocator::V3_0::IAllocator;
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
 using IAllocator4 = ::android::hardware::graphics::allocator::V4_0::IAllocator;
 using IMapper2 = ::android::hardware::graphics::mapper::V2_0::IMapper;
 using IMapper2_1 = ::android::hardware::graphics::mapper::V2_1::IMapper;
@@ -43,6 +50,20 @@ using Error4 = ::android::hardware::graphics::mapper::V4_0::Error;
 
 using ::android::hardware::graphics::common::V1_0::BufferUsage;
 using ::android::hardware::graphics::common::V1_0::PixelFormat;
+=======
+using IMapper2 = ::android::hardware::graphics::mapper::V2_0::IMapper;
+using IMapper2_1 = ::android::hardware::graphics::mapper::V2_1::IMapper;
+using IMapper3 = ::android::hardware::graphics::mapper::V3_0::IMapper;
+
+using Error2 = ::android::hardware::graphics::mapper::V2_0::Error;
+using Error3 = ::android::hardware::graphics::mapper::V3_0::Error;
+
+using ::android::hardware::graphics::common::V1_0::BufferUsage;
+using ::android::hardware::graphics::common::V1_0::PixelFormat;
+
+// This is a typedef to the same underlying type across v2.0 and v3.0
+using ::android::hardware::graphics::mapper::V2_0::BufferDescriptor;
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
 
 using ::android::hardware::hidl_handle;
 using ::android::hardware::hidl_string;
@@ -60,6 +81,7 @@ class IGrallocHalWrapper {
     virtual ~IGrallocHalWrapper() = default;
 
     // IAllocator
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
     virtual native_handle_t* allocate(uint32_t size) = 0;
     virtual void freeBuffer(native_handle_t* bufferHandle) = 0;
 
@@ -78,8 +100,27 @@ bool failed(Error3 error) {
 }
 bool failed(Error4 error) {
     return (error != Error4::NONE);
+=======
+    virtual std::string dumpDebugInfo() = 0;
+    virtual native_handle_t* allocate(uint32_t size) = 0;
+    virtual void freeBuffer(native_handle_t* bufferHandle) = 0;
+
+    // IMapper
+    virtual void* lock(native_handle_t* bufferHandle) = 0;
+    virtual void unlock(native_handle_t* bufferHandle) = 0;
+};
+
+namespace {
+
+bool failed(Error2 error) {
+    return (error != Error2::NONE);
+}
+bool failed(Error3 error) {
+    return (error != Error3::NONE);
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
 }
 
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
 template <typename>
 struct FirstArg;
 
@@ -95,6 +136,8 @@ template <typename T>
 using BaseTypeOfFirstArg = typename std::remove_const<
         typename std::remove_reference<typename FirstArg<T>::type>::type>::type;
 
+=======
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
 // Since all the type and function names are the same for the things we use across the major HAL
 // versions, we use template magic to avoid repeating ourselves.
 template <typename AllocatorT, typename MapperT>
@@ -107,6 +150,10 @@ class GrallocHalWrapper : public IGrallocHalWrapper {
         }
     }
 
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
+=======
+    virtual std::string dumpDebugInfo() override;
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
     virtual native_handle_t* allocate(uint32_t size) override;
     virtual void freeBuffer(native_handle_t* bufferHandle) override;
 
@@ -118,12 +165,35 @@ class GrallocHalWrapper : public IGrallocHalWrapper {
             static_cast<uint64_t>(BufferUsage::SENSOR_DIRECT_DATA | BufferUsage::CPU_READ_OFTEN);
     sp<AllocatorT> mAllocator;
     sp<MapperT> mMapper;
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
+=======
 
+    BufferDescriptor getDescriptor(uint32_t size);
+    native_handle_t* importBuffer(const hidl_handle& rawHandle);
+};
+
+template <typename AllocatorT, typename MapperT>
+std::string GrallocHalWrapper<AllocatorT, MapperT>::dumpDebugInfo() {
+    std::string debugInfo;
+    mAllocator->dumpDebugInfo([&](const hidl_string& tmpDebugInfo) { debugInfo = tmpDebugInfo; });
+    return debugInfo;
+}
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
+
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
     // v2.0 and v3.0 use vec<uint32_t> for BufferDescriptor, but v4.0 uses vec<uint8_t>, so use
     // some template magic to deduce the right type based off of the first argument to allocate(),
     // which is always the version-specific BufferDescriptor type
     typedef BaseTypeOfFirstArg<decltype(&AllocatorT::allocate)> BufferDescriptorT;
+=======
+template <typename AllocatorT, typename MapperT>
+native_handle_t* GrallocHalWrapper<AllocatorT, MapperT>::allocate(uint32_t size) {
+    constexpr uint32_t kBufferCount = 1;
+    BufferDescriptor descriptor = getDescriptor(size);
+    native_handle_t* bufferHandle = nullptr;
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
 
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
     BufferDescriptorT getDescriptor(uint32_t size);
     native_handle_t* importBuffer(const hidl_handle& rawHandle);
 };
@@ -134,6 +204,8 @@ native_handle_t* GrallocHalWrapper<AllocatorT, MapperT>::allocate(uint32_t size)
     BufferDescriptorT descriptor = getDescriptor(size);
     native_handle_t* bufferHandle = nullptr;
 
+=======
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
     auto callback = [&](auto error, uint32_t /*stride*/, const hidl_vec<hidl_handle>& buffers) {
         if (failed(error)) {
             ALOGE("Failed to allocate buffer: %" PRId32, static_cast<int32_t>(error));
@@ -158,6 +230,7 @@ void GrallocHalWrapper<AllocatorT, MapperT>::freeBuffer(native_handle_t* bufferH
 }
 
 template <typename AllocatorT, typename MapperT>
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
 typename GrallocHalWrapper<AllocatorT, MapperT>::BufferDescriptorT
 GrallocHalWrapper<AllocatorT, MapperT>::getDescriptor(uint32_t size) {
     typename MapperT::BufferDescriptorInfo descriptorInfo = {
@@ -166,10 +239,24 @@ GrallocHalWrapper<AllocatorT, MapperT>::getDescriptor(uint32_t size) {
             .layerCount = 1,
             .format = static_cast<decltype(descriptorInfo.format)>(PixelFormat::BLOB),
             .usage = kBufferUsage,
+=======
+BufferDescriptor GrallocHalWrapper<AllocatorT, MapperT>::getDescriptor(uint32_t size) {
+    typename MapperT::BufferDescriptorInfo descriptorInfo = {
+            .width = size,
+            .height = 1,
+            .layerCount = 1,
+            .usage = kBufferUsage,
+            .format = static_cast<decltype(descriptorInfo.format)>(PixelFormat::BLOB),
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
     };
 
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
     BufferDescriptorT descriptor;
     auto callback = [&](auto error, const BufferDescriptorT& tmpDescriptor) {
+=======
+    BufferDescriptor descriptor;
+    auto callback = [&](auto error, const BufferDescriptor& tmpDescriptor) {
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
         if (failed(error)) {
             ALOGE("Failed to create descriptor: %" PRId32, static_cast<int32_t>(error));
         } else {
@@ -206,7 +293,11 @@ void* GrallocHalWrapper<AllocatorT, MapperT>::lock(native_handle_t* bufferHandle
 
     void* data = nullptr;
     mMapper->lock(bufferHandle, kBufferUsage, accessRegion, acquireFenceHandle,
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
                   [&](auto error, void* tmpData, ...) {  // V3/4 pass extra args we don't use
+=======
+                  [&](auto error, void* tmpData, ...) {  // V3_0 passes extra args we don't use
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
                       if (failed(error)) {
                           ALOGE("Failed to lock buffer %p: %" PRId32, bufferHandle,
                                 static_cast<int32_t>(error));
@@ -231,6 +322,7 @@ void GrallocHalWrapper<AllocatorT, MapperT>::unlock(native_handle_t* bufferHandl
 }  // anonymous namespace
 
 GrallocWrapper::GrallocWrapper() {
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
     sp<IAllocator4> allocator4 = IAllocator4::getService();
     sp<IMapper4> mapper4 = IMapper4::getService();
 
@@ -275,6 +367,44 @@ GrallocWrapper::~GrallocWrapper() {
         mGrallocHal->freeBuffer(bufferHandle);
     }
     mAllocatedBuffers.clear();
+=======
+    sp<IAllocator3> allocator3 = IAllocator3::getService();
+    sp<IMapper3> mapper3 = IMapper3::getService();
+
+    if (allocator3 != nullptr && mapper3 != nullptr) {
+        mGrallocHal = std::unique_ptr<IGrallocHalWrapper>(
+                new GrallocHalWrapper<IAllocator3, IMapper3>(allocator3, mapper3));
+    } else {
+        ALOGD("Graphics HALs 3.0 not found (allocator %d mapper %d), falling back to 2.x",
+              (allocator3 != nullptr), (mapper3 != nullptr));
+
+        sp<IAllocator2> allocator2 = IAllocator2::getService();
+        sp<IMapper2> mapper2 = IMapper2_1::getService();
+        if (mapper2 == nullptr) {
+            mapper2 = IMapper2::getService();
+        }
+
+        if (allocator2 != nullptr && mapper2 != nullptr) {
+            mGrallocHal = std::unique_ptr<IGrallocHalWrapper>(
+                    new GrallocHalWrapper<IAllocator2, IMapper2>(allocator2, mapper2));
+        } else {
+            ALOGE("Couldn't open 2.x/3.0 graphics HALs (2.x allocator %d mapper %d)",
+                  (allocator2 != nullptr), (mapper2 != nullptr));
+        }
+    }
+}
+
+GrallocWrapper::~GrallocWrapper() {
+    for (auto bufferHandle : mAllocatedBuffers) {
+        mGrallocHal->unlock(bufferHandle);
+        mGrallocHal->freeBuffer(bufferHandle);
+    }
+    mAllocatedBuffers.clear();
+}
+
+std::string GrallocWrapper::dumpDebugInfo() {
+    return mGrallocHal->dumpDebugInfo();
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
 }
 
 std::pair<native_handle_t*, void*> GrallocWrapper::allocate(uint32_t size) {

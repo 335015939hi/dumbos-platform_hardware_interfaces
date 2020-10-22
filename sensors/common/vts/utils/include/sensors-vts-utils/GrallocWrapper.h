@@ -44,9 +44,24 @@ class GrallocWrapper {
     // will be set to nullptr.
     std::pair<native_handle_t*, void*> allocate(uint32_t size);
 
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
+    // Releases a gralloc buffer previously returned by allocate()
+    void freeBuffer(native_handle_t* bufferHandle);
+=======
+    // Allocates a gralloc buffer suitable for direct channel sensors usage with the given size.
+    // The buffer should be freed using freeBuffer when it's not needed anymore; otherwise it'll
+    // be freed when this object is destroyed.
+    // Returns a handle to the buffer, and a CPU-accessible pointer for reading. On failure, both
+    // will be set to nullptr.
+    std::pair<native_handle_t*, void*> allocate(uint32_t size);
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
+
+<<<<<<< HEAD   (7c5419 Merge "VtsHalRadioV1_4Target.setPreferredNetworkTypeBitmap" )
+=======
     // Releases a gralloc buffer previously returned by allocate()
     void freeBuffer(native_handle_t* bufferHandle);
 
+>>>>>>> BRANCH (d3ce7b Merge changes from topic "sensors_vts" into android10-tests-)
   private:
     std::unique_ptr<IGrallocHalWrapper> mGrallocHal;
 
