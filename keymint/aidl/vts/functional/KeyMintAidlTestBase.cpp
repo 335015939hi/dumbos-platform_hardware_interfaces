@@ -23,6 +23,8 @@
 
 #include <keymintSupport/key_param_output.h>
 #include <keymintSupport/keymint_utils.h>
+#include <openssl/curve25519.h>
+#include <openssl/ecdh.h>
 
 namespace android {
 namespace hardware {
@@ -255,6 +257,55 @@ void KeyMintAidlTestBase::CheckedDeleteKey(vector<uint8_t>* key_blob, bool keep_
 
 void KeyMintAidlTestBase::CheckedDeleteKey() {
     CheckedDeleteKey(&key_blob_);
+}
+
+void KeyMintAidlTestBase::VerifyEcdhKeyExchange(EcCurve curve, const vector<uint8_t>& key_blob,
+                                                const AuthorizationSet& in_params) {
+    uint8_t otherSidePublicKey[32];
+    uint8_t otherSidePrivateKey[32];
+    // use the longer of the different key types
+    uint8_t otherSideGeneratedSharedKey[64];
+
+    // TODO(seleneh) get the raw public key out of the x509 certificate returned by generateKey.
+    //
+    // Generate a public private key pair for the other side, then generate the
+    // shared secret as computed by the other side.
+    if (curve == EcCurve::CURVE_25519) {
+        X25519_keypair(otherSidePublicKey, otherSidePrivateKey);
+        int ret = X25519(otherSideGeneratedSharedKey, otherSidePrivateKey,
+                         /* TODO get test public key */);
+        EXPECT_EQ(1U, ret) << "test failed to generate shared secret";
+        if (ret == 0) {
+            return;
+        }
+    } else {
+        // other ecdh NIST curves
+        // TODO fill in other curve computations
+        const EC_GROUP* group = EC_KEY_get0_group(private_key_.get());
+        UniquePtr<EC_POINT, EC_POINT_Delete> point(EC_POINT_new(group));
+        if (!point.get() ||
+            !EC_POINT_oct2point(/* also test if point is on curve */
+                                group, point.get(), peer_public_value, peer_public_value_len,
+                                nullptr /* ctx */) ||
+            !EC_POINT_is_on_curve(group, point.get(), nullptr /* ctx */)) {
+            LOG_E("Can't convert peer public value to point: %d", TranslateLastOpenSslError());
+            return false;
+        }
+
+        ECDH_compute_key(&otherSideGeneratedSharedKey, sizeof(otherSideGeneratedSharedKey),
+                         point.get(), private_key_.get(), nullptr /* kdf */);
+    }
+
+    AuthorizationSet out_params;
+    string ourGeneratedSecret;
+    EXPECT_EQ(ErrorCode::OK,
+              Begin(KeyPurpose::AGREE_KEY, key_blob, AuthorizationSet(), &out_params));
+    EXPECT_EQ(ErrorCode::OK, Finish(string(otherSidePublicKey), ourGeneratedSecret));
+
+    // compare the 2 shared secret generated
+    EXPECT_EQ(ourGeneratedSecret.size(), 32U);
+    EXPECT_TRUE(memcmp(ourGeneratedSecret.data(), otherSideGeneratedSharedKey, 32U));
+    return;
 }
 
 ErrorCode KeyMintAidlTestBase::Begin(KeyPurpose purpose, const vector<uint8_t>& key_blob,

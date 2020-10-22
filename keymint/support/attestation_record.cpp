@@ -392,6 +392,115 @@ ErrorCode parse_root_of_trust(const uint8_t* asn1_key_desc, size_t asn1_key_desc
     return ErrorCode::OK;  // KM_ERROR_OK;
 }
 
+EVP_PKEY* get_public_key(const Certificate& cert) {
+    X509_Ptr key_cert(parse_cert_blob(cert.encodedCertificate));
+    if (!key_cert.get()) {
+        return nullptr;
+    }
+
+    return X509_get_pubkey(signing_cert.get());
+}
+
+int get_evp_algorithm(const EcCurve ec_curve) {
+    switch (ec_curve) {
+        case CURVE_X25519:
+            return EVP_PKEY_X25519;
+        case CURVE_ED25519:
+            return EVP_PKEY_ED25519;
+        default:
+            return EVP_PKEY_EC;
+    }
+}
+
+EVP_PKEY* generate_25519_key(const EcCurve ec_curve) {
+    EVP_PKEY_CTX* pctx = EVP_PKEY_CTX_new_id(get_evp_algorithm(ec_curve), NULL);
+    if (pctx == nullptr) {
+        return nullptr;
+    }
+
+    if (1 != EVP_PKEY_keygen_init(pctx)) {
+        return nullptr;
+    }
+
+    EVP_PKEY* key = nullptr;
+    if (1 != EVP_PKEY_keygen(pctx, &key)) {
+        return nullptr;
+    }
+
+    return key;
+}
+
+EVP_PKEY* generate_ec_key(const EcCurve ec_curve) {
+    int evp_algorithm = get_evp_algorithm(ec_curve);
+
+    if (ec_curve != EVP_PKEY_EC) {
+        return generate_25519_key(ec_curve);
+    } else {
+        generate_nist_key(ec_curve);
+    }
+}
+
+int get_nist_nid(const EcCurve ec_curve) {
+    switch (ec_curve) {
+        case P_224:
+            return NID_secp224r1;
+            break;
+        case P_256:
+            return NID_X9_62_prime256v1;
+            break;
+        case P_384:
+            return NID_secp384r1;
+            break;
+        case P_521:
+            return NID_secp521r1;
+            break;
+        default:
+            return -1;
+            break;
+    }
+}
+
+EVP_PKEY* generate_nist_key(const EcCurve ec_curve) {
+    int nid = get_nist_nid(ec_curve);
+    if (nid == -1) return nullptr;
+
+    bssl::UniquePtr<EVP_PKEY_CTX> ctx(EVP_PKEY_CTX_new_id(EVP_PKEY_EC, nullptr));
+    if (!EVP_PKEY_paramgen_init(ctx.get())) return nullptr;
+
+    if (!EVP_PKEY_CTX_set_ec_paramgen_curve_nid(ctx.get(), NID_X9_62_prime256v1)) {
+        return nullptr;
+    }
+
+    EVP_PKEY* raw = nullptr;
+    ASSERT_TRUE(EVP_PKEY_paramgen(ctx.get(), &raw));
+    bssl::UniquePtr<EVP_PKEY> pkey(raw);
+    raw = nullptr;
+    ExpectECGroupOnly(pkey.get(), nid);
+
+    // That resulting |EVP_PKEY| may be used as a template for key generation.
+    ctx.reset(EVP_PKEY_CTX_new(pkey.get(), nullptr));
+    ASSERT_TRUE(ctx);
+    ASSERT_TRUE(EVP_PKEY_keygen_init(ctx.get()));
+    raw = nullptr;
+    ASSERT_TRUE(EVP_PKEY_keygen(ctx.get(), &raw));
+    pkey.reset(raw);
+    raw = nullptr;
+    ExpectECGroupAndKey(pkey.get(), NID_X9_62_prime256v1);
+
+    // |EVP_PKEY_paramgen| may also be skipped.
+    ctx.reset(EVP_PKEY_CTX_new_id(EVP_PKEY_EC, nullptr));
+    ASSERT_TRUE(ctx);
+    ASSERT_TRUE(EVP_PKEY_keygen_init(ctx.get()));
+    ASSERT_TRUE(EVP_PKEY_CTX_set_ec_paramgen_curve_nid(ctx.get(), NID_X9_62_prime256v1));
+    raw = nullptr;
+    ASSERT_TRUE(EVP_PKEY_keygen(ctx.get(), &raw));
+    pkey.reset(raw);
+    raw = nullptr;
+    ExpectECGroupAndKey(pkey.get(), NID_X9_62_prime256v1);
+}
+
+}  // namespace keymint
+
 }  // namespace keymint
 }  // namespace hardware
 }  // namespace android
