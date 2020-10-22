@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dfd113e_67b3dbf1",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2020-10-22T22:16:19Z",
+      "side": 1,
+      "message": "is there a specific reason to use this? \nit seems: \"is equivalent to powering off and powering on the card\" would be more appropriate?",
+      "range": {
+        "startLine": 158,
+        "startChar": 15,
+        "endLine": 158,
+        "endChar": 62
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c152d58_c1788e19",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2020-10-22T22:16:19Z",
+      "side": 1,
+      "message": "not adding a reset API, remove?",
+      "range": {
+        "startLine": 177,
+        "startChar": 55,
+        "endLine": 177,
+        "endChar": 73
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e26da14_eef7a8ee",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2020-10-22T22:16:19Z",
+      "side": 1,
+      "message": "should we add more error states returned?\nlet\u0027s say the request failed because the SIM is not responding.\nRadioError:INTERNAL_ERR might be generic enough failure to cover this or there may be a more appropriate one from the list.",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 24
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b9ded2c_8bda659b",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2020-10-22T22:16:19Z",
+      "side": 1,
+      "message": "change: device-\u003ecard or device-\u003esim (I would prefer the latter just because not all SIMs are in a card form factor, but I know the states are labeled CARDSTATE+PASSTHRU etc so maybe that is better to keep the naming aligned)",
+      "range": {
+        "startLine": 202,
+        "startChar": 24,
+        "endLine": 202,
+        "endChar": 30
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
