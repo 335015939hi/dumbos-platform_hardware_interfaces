@@ -881,8 +881,26 @@ class OpenStreamTest : public AudioHidlTestWithDeviceConfigParameter {
 
     Result closeStream(bool clear = true) {
         open = false;
+<<<<<<< HEAD   (d543a0 [automerger skipped] Merge "DO NOT MERGE: Audio HAL: Add mis)
         helper.close(clear, &res);
         return res;
+=======
+        auto res = stream->close();
+        stream.clear();
+        waitForStreamDestruction();
+        return res;
+    }
+
+    void waitForStreamDestruction() {
+        // FIXME: there is no way to know when the remote IStream is being destroyed
+        //        Binder does not support testing if an object is alive, thus
+        //        wait for 100ms to let the binder destruction propagates and
+        //        the remote device has the time to be destroyed.
+        //        flushCommand makes sure all local command are sent, thus should reduce
+        //        the latency between local and remote destruction.
+        IPCThreadState::self()->flushCommands();
+        usleep(100 * 1000);
+>>>>>>> BRANCH (877041 Audio VTS: Wait after stream close)
     }
 
   private:
@@ -1199,8 +1217,16 @@ TEST_IO_STREAM(getMmapPositionNoMmap, "Get a stream Mmap position before mapping
 TEST_IO_STREAM(close, "Make sure a stream can be closed", ASSERT_OK(closeStream()))
 // clang-format off
 TEST_IO_STREAM(closeTwice, "Make sure a stream can not be closed twice",
+<<<<<<< HEAD   (d543a0 [automerger skipped] Merge "DO NOT MERGE: Audio HAL: Add mis)
         ASSERT_OK(closeStream(false /*clear*/));
         ASSERT_EQ(Result::INVALID_STATE, closeStream()))
+=======
+        auto streamCopy = stream;
+        ASSERT_OK(closeStream());
+        ASSERT_RESULT(Result::INVALID_STATE, streamCopy->close());
+        streamCopy.clear();
+        waitForStreamDestruction())
+>>>>>>> BRANCH (877041 Audio VTS: Wait after stream close)
 // clang-format on
 
 static void testMmapBufferOfInvalidSize(IStream* stream) {
