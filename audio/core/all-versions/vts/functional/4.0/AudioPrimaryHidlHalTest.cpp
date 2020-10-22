@@ -16,7 +16,22 @@
 
 #include "AudioPrimaryHidlHalTest.h"
 
+<<<<<<< HEAD   (d543a0 [automerger skipped] Merge "DO NOT MERGE: Audio HAL: Add mis)
 TEST_P(AudioHidlTest, OpenPrimaryDeviceUsingGetDevice) {
+=======
+static void waitForDeviceDestruction() {
+    // FIXME: there is no way to know when the remote IDevice is being destroyed
+    //        Binder does not support testing if an object is alive, thus
+    //        wait for 100ms to let the binder destruction propagates and
+    //        the remote device has the time to be destroyed.
+    //        flushCommand makes sure all local command are sent, thus should reduce
+    //        the latency between local and remote destruction.
+    IPCThreadState::self()->flushCommands();
+    usleep(100 * 1000);
+}
+
+TEST_F(AudioHidlTest, OpenPrimaryDeviceUsingGetDevice) {
+>>>>>>> BRANCH (877041 Audio VTS: Wait after stream close)
     doc::test("Calling openDevice(\"primary\") should return the primary device.");
     if (getDeviceName() != DeviceManager::kPrimaryDevice) {
         GTEST_SKIP() << "No primary device on this factory";  // returns
