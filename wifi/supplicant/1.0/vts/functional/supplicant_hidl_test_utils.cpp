@@ -137,8 +137,12 @@ void startSupplicantAndWaitForHidlService(
     ASSERT_TRUE(supplicant_manager.StartSupplicant());
     ASSERT_TRUE(supplicant_manager.IsSupplicantRunning());
 
+<<<<<<< TARGET BRANCH (2fa108 [automerger skipped] Merge changes from topic "sensors_vts" )
     // Wait for supplicant service to come up.
     ISupplicant::getService(supplicant_instance_name);
+=======
+    ASSERT_TRUE(notification_listener->waitForHidlService(500, service_name));
+>>>>>>> SOURCE BRANCH (0b8f38 Fix the failed case for the VtsHalWifiSupplicantV1_2Host#Sup)
 }
 
 bool is_1_1(const sp<ISupplicant>& supplicant) {

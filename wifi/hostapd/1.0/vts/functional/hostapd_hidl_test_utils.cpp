@@ -91,8 +91,12 @@ void startHostapdAndWaitForHidlService(
     HostapdManager hostapd_manager;
     ASSERT_TRUE(hostapd_manager.StartHostapd());
 
+<<<<<<< TARGET BRANCH (2fa108 [automerger skipped] Merge changes from topic "sensors_vts" )
     // Wait for hostapd service to come up.
     IHostapd::getService(hostapd_instance_name);
+=======
+    ASSERT_TRUE(notification_listener->waitForHidlService(500, service_name));
+>>>>>>> SOURCE BRANCH (0b8f38 Fix the failed case for the VtsHalWifiSupplicantV1_2Host#Sup)
 }
 
 bool is_1_1(const sp<IHostapd>& hostapd) {
