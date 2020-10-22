@@ -238,11 +238,14 @@ TEST_P(RadioHidlTest_v1_4, startNetworkScan) {
           CheckAnyOfErrors(radioRsp_v1_4->rspInfo.error,
                            {RadioError::NONE, RadioError::OPERATION_NOT_ALLOWED,
                             RadioError::REQUEST_NOT_SUPPORTED}));
+<<<<<<< HEAD   (e6f573 Merge "Revert "Audio HAL: Add missing device to XSD"" into p)
     }
 
     if (radioRsp_v1_4->rspInfo.error == RadioError::NONE) {
         ALOGI("Stop Network Scan");
         stopNetworkScan();
+=======
+>>>>>>> BRANCH (326a89 Add REQUEST_NOT_SUPPORTED to startNetworkScan)
     }
 }
 
@@ -499,11 +502,14 @@ TEST_P(RadioHidlTest_v1_4, startNetworkScan_GoodRequest1) {
           CheckAnyOfErrors(radioRsp_v1_4->rspInfo.error,
                            {RadioError::NONE, RadioError::INVALID_ARGUMENTS,
                             RadioError::REQUEST_NOT_SUPPORTED}));
+<<<<<<< HEAD   (e6f573 Merge "Revert "Audio HAL: Add missing device to XSD"" into p)
     }
 
     if (radioRsp_v1_4->rspInfo.error == RadioError::NONE) {
         ALOGI("Stop Network Scan");
         stopNetworkScan();
+=======
+>>>>>>> BRANCH (326a89 Add REQUEST_NOT_SUPPORTED to startNetworkScan)
     }
 }
 
@@ -541,11 +547,14 @@ TEST_P(RadioHidlTest_v1_4, startNetworkScan_GoodRequest2) {
           CheckAnyOfErrors(radioRsp_v1_4->rspInfo.error,
                            {RadioError::NONE, RadioError::INVALID_ARGUMENTS,
                             RadioError::REQUEST_NOT_SUPPORTED}));
+<<<<<<< HEAD   (e6f573 Merge "Revert "Audio HAL: Add missing device to XSD"" into p)
     }
 
     if (radioRsp_v1_4->rspInfo.error == RadioError::NONE) {
         ALOGI("Stop Network Scan");
         stopNetworkScan();
+=======
+>>>>>>> BRANCH (326a89 Add REQUEST_NOT_SUPPORTED to startNetworkScan)
     }
 }
 
