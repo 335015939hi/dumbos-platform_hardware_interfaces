@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6449d974_93f073af",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2020-10-23T22:43:58Z",
+      "side": 1,
+      "message": "oh ok, can we change it to: \"is equivalent to powering off and powering on the card, and\" --\u003e it is much more appropriate. Or will that cause any issue to change this wording here?",
+      "parentUuid": "4d75b11f_9808b25b",
+      "range": {
+        "startLine": 158,
+        "startChar": 15,
+        "endLine": 158,
+        "endChar": 62
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c152d58_c1788e19",
