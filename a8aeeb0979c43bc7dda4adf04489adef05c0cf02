@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a83e4264_cba45de1",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-10-23T22:24:14Z",
+      "side": 1,
+      "message": "Why non-const?",
+      "range": {
+        "startLine": 878,
+        "startChar": 52,
+        "endLine": 878,
+        "endChar": 66
+      },
+      "revId": "a8aeeb0979c43bc7dda4adf04489adef05c0cf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bef5238_63510135",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-10-23T22:24:14Z",
+      "side": 1,
+      "message": "Remind me why we decided to allow users to set this and the subject.",
+      "range": {
+        "startLine": 899,
+        "startChar": 4,
+        "endLine": 899,
+        "endChar": 34
+      },
+      "revId": "a8aeeb0979c43bc7dda4adf04489adef05c0cf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26da98e5_4392e8dd",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-10-23T22:24:14Z",
+      "side": 1,
+      "message": "Need blank line above.",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 9
+      },
+      "revId": "a8aeeb0979c43bc7dda4adf04489adef05c0cf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
