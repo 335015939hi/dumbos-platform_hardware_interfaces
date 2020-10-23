@@ -49,6 +49,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c74629d_e1b6c65d",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-10-23T18:26:02Z",
+      "side": 1,
+      "message": "Can you explicitly mention the difference from earlier version?",
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e26da14_eef7a8ee",
         "filename": "radio/1.6/IRadioResponse.hal",
         "patchSetId": 4
