@@ -26,7 +26,11 @@ cc_test {
         "android.hardware.wifi@1.1",
         "android.hardware.wifi@1.2",
         "android.hardware.wifi@1.3",
+<<<<<<< HEAD   (b86ae0 [automerger skipped] Fix the failed case for the VtsHalWifiS)
         "libwifi-system-iface",
+=======
+        "libwifi-system-iface"
+>>>>>>> BRANCH (f4077b wifi(vts): Set the iface up as a part of setup)
     ],
     disable_framework: true,
     test_suites: [

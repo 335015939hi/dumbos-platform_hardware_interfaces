@@ -18,6 +18,8 @@
 
 #include <wifi_system/interface_tool.h>
 
+#include <wifi_system/interface_tool.h>
+
 #include "wifi_hidl_call_util.h"
 #include "wifi_hidl_test_utils.h"
 
@@ -38,6 +40,11 @@ using ::android::sp;
 using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
 using ::android::wifi_system::InterfaceTool;
+<<<<<<< HEAD   (b86ae0 [automerger skipped] Fix the failed case for the VtsHalWifiS)
+=======
+
+extern WifiHidlEnvironment* gEnv;
+>>>>>>> BRANCH (f4077b wifi(vts): Set the iface up as a part of setup)
 
 namespace {
 constexpr uint32_t kHalStartRetryMaxCount = 5;
@@ -132,8 +139,13 @@ void setIfaceUp(const sp<IWifiIface>& iface) {
     }
 }
 
+<<<<<<< HEAD   (b86ae0 [automerger skipped] Fix the failed case for the VtsHalWifiS)
 sp<IWifiApIface> getWifiApIface(const std::string& instance_name) {
     sp<IWifiChip> wifi_chip = getWifiChip(instance_name);
+=======
+sp<IWifiApIface> getWifiApIface() {
+    sp<IWifiChip> wifi_chip = getWifiChip();
+>>>>>>> BRANCH (f4077b wifi(vts): Set the iface up as a part of setup)
     if (!wifi_chip.get()) {
         return nullptr;
     }
