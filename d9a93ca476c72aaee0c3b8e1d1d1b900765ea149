@@ -34,6 +34,23 @@
       "parentUuid": "41005001_65c329a5",
       "revId": "d9a93ca476c72aaee0c3b8e1d1d1b900765ea149",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "597534a6_cecc2b09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-23T22:42:20Z",
+      "side": 1,
+      "message": "\u003e out/soong/.intermediates/hardware/interfaces/common/aidl/android.hardware.common-unstable-java-source/gen/android/hardware/common/NativeHandle.java:59: error: cannot find symbol\n    if (fds !\u003d null) for (ParcelFileDescriptor _v0: fds) if (_v0 !\u003d null) _mask |\u003d _v0.describeContents();\n                          ^\n  symbol:   class ParcelFileDescriptor\n  location: class NativeHandle\n\n\nThis was a temporary breakage, during the introduction of describeContents, which is now fixed.",
+      "revId": "d9a93ca476c72aaee0c3b8e1d1d1b900765ea149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
