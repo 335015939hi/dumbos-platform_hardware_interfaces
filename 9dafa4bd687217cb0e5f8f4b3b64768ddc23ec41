@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d75b11f_9808b25b",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2020-10-23T22:38:00Z",
+      "side": 1,
+      "message": "This is based on the existing doc for the 1.1 version\n\nhttps://source.corp.google.com/android/hardware/interfaces/radio/1.1/IRadio.hal;l\u003d47?q\u003dsetsimcardpower%20file:hal\u0026sq\u003dpackage:android%5Cb\n\nwith the added clarification that it should not generate an ABSENT.",
+      "parentUuid": "9dfd113e_67b3dbf1",
+      "range": {
+        "startLine": 158,
+        "startChar": 15,
+        "endLine": 158,
+        "endChar": 62
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c152d58_c1788e19",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a8ada53_bcc34a40",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2020-10-23T22:38:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c152d58_c1788e19",
+      "range": {
+        "startLine": 177,
+        "startChar": 55,
+        "endLine": 177,
+        "endChar": 73
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c74629d_e1b6c65d",
@@ -60,6 +108,24 @@
       "writtenOn": "2020-10-23T18:26:02Z",
       "side": 1,
       "message": "Can you explicitly mention the difference from earlier version?",
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d918715_7fe472c8",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2020-10-23T22:38:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c74629d_e1b6c65d",
       "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -89,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b5618b0_f067cfb0",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2020-10-23T22:38:00Z",
+      "side": 1,
+      "message": "sure -- what about something like RadioError:TIMEOUT, or maybe we could use the existing SIM_BUSY error\nhttps://source.corp.google.com/android/hardware/interfaces/radio/1.0/types.hal;l\u003d104?q\u003d%22enum%20RadioError%22%20file:types\u0026sq\u003dpackage:android%5Cb",
+      "parentUuid": "0e26da14_eef7a8ee",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 24
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b9ded2c_8bda659b",
         "filename": "radio/1.6/IRadioResponse.hal",
         "patchSetId": 4
@@ -100,6 +190,30 @@
       "writtenOn": "2020-10-22T22:16:19Z",
       "side": 1,
       "message": "change: device-\u003ecard or device-\u003esim (I would prefer the latter just because not all SIMs are in a card form factor, but I know the states are labeled CARDSTATE+PASSTHRU etc so maybe that is better to keep the naming aligned)",
+      "range": {
+        "startLine": 202,
+        "startChar": 24,
+        "endLine": 202,
+        "endChar": 30
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97e06c75_237950e0",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2020-10-23T22:38:00Z",
+      "side": 1,
+      "message": "Lets use SIM.",
+      "parentUuid": "0b9ded2c_8bda659b",
       "range": {
         "startLine": 202,
         "startChar": 24,
