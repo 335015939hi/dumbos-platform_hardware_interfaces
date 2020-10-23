@@ -18,10 +18,25 @@
 
 TEST_P(AudioHidlTest, OpenPrimaryDeviceUsingGetDevice) {
     doc::test("Calling openDevice(\"primary\") should return the primary device.");
+<<<<<<< TARGET BRANCH (a03fdc [automerger skipped] RESTRICT AUTOMERGE : VTS : fix vts fail)
     if (getDeviceName() != DeviceManager::kPrimaryDevice) {
         GTEST_SKIP() << "No primary device on this factory";  // returns
     }
+=======
+    struct WaitExecutor {
+        ~WaitExecutor() { waitForDeviceDestruction(); }
+    } waitExecutor;  // Make sure we wait for the device destruction on exiting from the test.
+    Result result;
+    sp<IDevice> baseDevice;
+    ASSERT_OK(devicesFactory->openDevice("primary", returnIn(result, baseDevice)));
+    if (result != Result::OK && isPrimaryDeviceOptional()) {
+        GTEST_SKIP() << "No primary device on this factory";  // returns
+    }
+    ASSERT_OK(result);
+    ASSERT_TRUE(baseDevice != nullptr);
+>>>>>>> SOURCE BRANCH (2e8b9c Merge "audio: Skip tests if audio HAL service lacks "primary)
 
+<<<<<<< TARGET BRANCH (a03fdc [automerger skipped] RESTRICT AUTOMERGE : VTS : fix vts fail)
     {  // Scope for device SPs
         sp<IDevice> baseDevice =
                 DeviceManager::getInstance().get(getFactoryName(), DeviceManager::kPrimaryDevice);
@@ -32,6 +47,11 @@ TEST_P(AudioHidlTest, OpenPrimaryDeviceUsingGetDevice) {
     }
     EXPECT_TRUE(
             DeviceManager::getInstance().reset(getFactoryName(), DeviceManager::kPrimaryDevice));
+=======
+    Return<sp<IPrimaryDevice>> primaryDevice = IPrimaryDevice::castFrom(baseDevice);
+    ASSERT_TRUE(primaryDevice.isOk());
+    ASSERT_TRUE(sp<IPrimaryDevice>(primaryDevice) != nullptr);
+>>>>>>> SOURCE BRANCH (2e8b9c Merge "audio: Skip tests if audio HAL service lacks "primary)
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -136,7 +156,13 @@ TEST_P(AudioHidlDeviceTest, SetConnectedState) {
     // Because there is no way of knowing if the devices were connected before
     // calling setConnectedState, there is no way to restore the HAL to its
     // initial state. To workaround this, destroy the HAL at the end of this test.
+<<<<<<< TARGET BRANCH (a03fdc [automerger skipped] RESTRICT AUTOMERGE : VTS : fix vts fail)
     ASSERT_TRUE(resetDevice());
+=======
+    device.clear();
+    waitForDeviceDestruction();
+    ASSERT_NO_FATAL_FAILURE(initPrimaryDevice());
+>>>>>>> SOURCE BRANCH (2e8b9c Merge "audio: Skip tests if audio HAL service lacks "primary)
 }
 
 static void testGetDevices(IStream* stream, AudioDevice expectedDevice) {
