@@ -20,10 +20,14 @@
 #include <composer-vts/2.1/ComposerVts.h>
 #include <composer-vts/2.1/GraphicsComposerCallback.h>
 #include <composer-vts/2.1/TestCommandReader.h>
+<<<<<<< HEAD   (ca7275 Merge "audio: add 'useForVolume' field to 'gain'." into andr)
 #include <gtest/gtest.h>
 #include <hardware/hwcomposer2.h>
 #include <hidl/GtestPrinter.h>
 #include <hidl/ServiceManagement.h>
+=======
+#include <hardware/hwcomposer2.h>
+>>>>>>> BRANCH (24ddd8 RESTRICT AUTOMERGE : Returning HWC2_CAPABILITY_SKIP_VALIDATE)
 #include <mapper-vts/2.0/MapperVts.h>
 #include <mapper-vts/3.0/MapperVts.h>
 #include <mapper-vts/4.0/MapperVts.h>
@@ -770,7 +774,11 @@ TEST_P(GraphicsComposerHidlCommandTest, PRESENT_DISPLAY) {
  * additional call to validateDisplay when only the layer buffer handle and
  * surface damage have been set
  */
+<<<<<<< HEAD   (ca7275 Merge "audio: add 'useForVolume' field to 'gain'." into andr)
 TEST_P(GraphicsComposerHidlCommandTest, PRESENT_DISPLAY_NO_LAYER_STATE_CHANGES) {
+=======
+TEST_F(GraphicsComposerHidlCommandTest, PRESENT_DISPLAY_NO_LAYER_STATE_CHANGES) {
+>>>>>>> BRANCH (24ddd8 RESTRICT AUTOMERGE : Returning HWC2_CAPABILITY_SKIP_VALIDATE)
     if (!mComposer->hasCapability(
                 static_cast<IComposer::Capability>(HWC2_CAPABILITY_SKIP_VALIDATE))) {
         std::cout << "Device does not have skip validate capability, skipping" << std::endl;
