@@ -336,16 +336,51 @@ INSTANTIATE_TEST_CASE_P(AudioHidl, AudioPolicyConfigTest,
 ////////////////////// getService audio_devices_factory //////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD   (a03fdc [automerger skipped] RESTRICT AUTOMERGE : VTS : fix vts fail)
 // Test audio devices factory
 class AudioHidlTest : public AudioHidlTestWithDeviceParameter {
   public:
     void SetUp() override {
         ASSERT_NO_FATAL_FAILURE(AudioHidlTestWithDeviceParameter::SetUp());  // setup base
         ASSERT_TRUE(getDevicesFactory() != nullptr);
+=======
+// Test all audio devices
+class AudioHidlTest : public AudioPolicyConfigTest {
+   public:
+    static void SetUpTestSuite() {
+        devicesFactory = ::testing::VtsHalHidlTargetTestBase::getService<IDevicesFactory>(
+                environment->getServiceName<IDevicesFactory>());
     }
+
+    static void TearDownTestSuite() {
+        devicesFactory.clear();
+    }
+
+    void SetUp() override {
+        ASSERT_NO_FATAL_FAILURE(AudioPolicyConfigTest::SetUp());  // setup base
+        // Failures during SetUpTestSuite do not cause test termination.
+        ASSERT_TRUE(devicesFactory != nullptr);
+>>>>>>> BRANCH (2e8b9c Merge "audio: Skip tests if audio HAL service lacks "primary)
+    }
+<<<<<<< HEAD   (a03fdc [automerger skipped] RESTRICT AUTOMERGE : VTS : fix vts fail)
+=======
+
+   protected:
+    // Cache the devicesFactory retrieval to speed up each test by ~0.5s
+    static sp<IDevicesFactory> devicesFactory;
+
+    static bool isPrimaryDeviceOptional() {
+        // It's OK not to have "primary" device on non-default audio HAL service.
+        return environment->getServiceName<IDevicesFactory>() != kDefaultServiceName;
+    }
+>>>>>>> BRANCH (2e8b9c Merge "audio: Skip tests if audio HAL service lacks "primary)
 };
 
+<<<<<<< HEAD   (a03fdc [automerger skipped] RESTRICT AUTOMERGE : VTS : fix vts fail)
 TEST_P(AudioHidlTest, GetAudioDevicesFactoryService) {
+=======
+TEST_F(AudioHidlTest, GetAudioDevicesFactoryService) {
+>>>>>>> BRANCH (2e8b9c Merge "audio: Skip tests if audio HAL service lacks "primary)
     doc::test("Test the getService");
 }
 
@@ -397,22 +432,73 @@ INSTANTIATE_TEST_CASE_P(AudioHidlDevice, AudioHidlDeviceTest,
 //////////////////////////////////////////////////////////////////////////////
 
 // Test the primary device
+<<<<<<< HEAD   (a03fdc [automerger skipped] RESTRICT AUTOMERGE : VTS : fix vts fail)
 class AudioPrimaryHidlTest : public AudioHidlDeviceTest {
   public:
-    void SetUp() override {
-        ASSERT_NO_FATAL_FAILURE(AudioHidlDeviceTest::SetUp());  // setup base
-        ASSERT_TRUE(getDevice() != nullptr);
+=======
+class AudioPrimaryHidlTest : public AudioHidlTest {
+   public:
+    static void SetUpTestSuite() {
+        ASSERT_NO_FATAL_FAILURE(AudioHidlTest::SetUpTestSuite());
+        ASSERT_NO_FATAL_FAILURE(initPrimaryDevice());
     }
 
+    static void TearDownTestSuite() {
+        device.clear();
+        AudioHidlTest::TearDownTestSuite();
+    }
+
+>>>>>>> BRANCH (2e8b9c Merge "audio: Skip tests if audio HAL service lacks "primary)
+    void SetUp() override {
+<<<<<<< HEAD   (a03fdc [automerger skipped] RESTRICT AUTOMERGE : VTS : fix vts fail)
+        ASSERT_NO_FATAL_FAILURE(AudioHidlDeviceTest::SetUp());  // setup base
+        ASSERT_TRUE(getDevice() != nullptr);
+=======
+        ASSERT_NO_FATAL_FAILURE(AudioHidlTest::SetUp());  // setup base
+        if (!device && isPrimaryDeviceOptional()) {
+            GTEST_SKIP() << "No primary device on this factory";
+        }
+        ASSERT_TRUE(device != nullptr);
+>>>>>>> BRANCH (2e8b9c Merge "audio: Skip tests if audio HAL service lacks "primary)
+    }
+
+<<<<<<< HEAD   (a03fdc [automerger skipped] RESTRICT AUTOMERGE : VTS : fix vts fail)
     // public access to avoid annoyances when using this method in template classes
     // derived from test classes
     sp<IPrimaryDevice> getDevice() const {
         return DeviceManager::getInstance().getPrimary(getFactoryName());
+=======
+   protected:
+    // Cache the device opening to speed up each test by ~0.5s
+    static sp<IPrimaryDevice> device;
+
+    static void initPrimaryDevice() {
+        // Failures during test suite set up do not cause test termination.
+        ASSERT_TRUE(devicesFactory != nullptr);
+        Result result;
+#if MAJOR_VERSION == 2
+        sp<IDevice> baseDevice;
+        ASSERT_OK(devicesFactory->openDevice(IDevicesFactory::Device::PRIMARY,
+                                             returnIn(result, baseDevice)));
+        ASSERT_OK(result);
+        ASSERT_TRUE(baseDevice != nullptr);
+
+        device = IPrimaryDevice::castFrom(baseDevice);
+#elif MAJOR_VERSION >= 4
+        ASSERT_OK(devicesFactory->openPrimaryDevice(returnIn(result, device)));
+        ASSERT_OK(result);
+#endif
+>>>>>>> BRANCH (2e8b9c Merge "audio: Skip tests if audio HAL service lacks "primary)
     }
 };
 
+<<<<<<< HEAD   (a03fdc [automerger skipped] RESTRICT AUTOMERGE : VTS : fix vts fail)
 TEST_P(AudioPrimaryHidlTest, OpenPrimaryDevice) {
     doc::test("Test openPrimaryDevice (called during setup)");
+=======
+TEST_F(AudioPrimaryHidlTest, OpenPrimaryDevice) {
+    doc::test("Test the openDevice (called during setup)");
+>>>>>>> BRANCH (2e8b9c Merge "audio: Skip tests if audio HAL service lacks "primary)
 }
 
 INSTANTIATE_TEST_CASE_P(AudioPrimaryHidl, AudioPrimaryHidlTest,
@@ -890,7 +976,11 @@ class OpenStreamTest : public AudioHidlTestWithDeviceConfigParameter {
         if (open) {
             ASSERT_OK(closeStream());
         }
+<<<<<<< HEAD   (a03fdc [automerger skipped] RESTRICT AUTOMERGE : VTS : fix vts fail)
         AudioHidlTestWithDeviceConfigParameter::TearDown();
+=======
+        AudioConfigPrimaryTest::TearDown();
+>>>>>>> BRANCH (2e8b9c Merge "audio: Skip tests if audio HAL service lacks "primary)
     }
 
    protected:
@@ -906,6 +996,7 @@ class OpenStreamTest : public AudioHidlTestWithDeviceConfigParameter {
 class OutputStreamTest : public OpenStreamTest<IStreamOut> {
     void SetUp() override {
         ASSERT_NO_FATAL_FAILURE(OpenStreamTest::SetUp());  // setup base
+        if (IsSkipped()) return;  // do not attempt to use 'device'
         address.device = AudioDevice::OUT_DEFAULT;
         const AudioConfig& config = getConfig();
         auto flags = getOutputFlags();
@@ -966,6 +1057,7 @@ INSTANTIATE_TEST_CASE_P(DeclaredOutputStreamConfigSupport, OutputStreamTest,
 class InputStreamTest : public OpenStreamTest<IStreamIn> {
     void SetUp() override {
         ASSERT_NO_FATAL_FAILURE(OpenStreamTest::SetUp());  // setup base
+        if (IsSkipped()) return;  // do not attempt to use 'device'
         address.device = AudioDevice::IN_DEFAULT;
         const AudioConfig& config = getConfig();
         auto flags = getInputFlags();
