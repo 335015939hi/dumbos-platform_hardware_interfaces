@@ -131,6 +131,7 @@ struct Libxml2Global {
 
 template <bool atLeastOneRequired>
 ::testing::AssertionResult validateXmlMultipleLocations(
+<<<<<<< HEAD   (9ac782 [automerger skipped] DO NOT MERGE: audio: Skip tests if audi)
         const char* xmlFileNameExpr, const char* xmlFileLocationsExpr, const char* xsdFilePathExpr,
         const char* xmlFileName, const std::vector<std::string>& xmlFileLocations,
         const char* xsdFilePath) {
@@ -140,6 +141,16 @@ template <bool atLeastOneRequired>
     std::vector<std::string> foundFiles;
 
     for (const auto& location : xmlFileLocations) {
+=======
+    const char* xmlFileNameExpr, const char* xmlFileLocationsExpr, const char* xsdFilePathExpr,
+    const char* xmlFileName, std::vector<const char*> xmlFileLocations, const char* xsdFilePath) {
+    using namespace std::string_literals;
+
+    std::vector<std::string> errors;
+    std::vector<std::string> foundFiles;
+
+    for (const char* location : xmlFileLocations) {
+>>>>>>> BRANCH (467d83 [automerger skipped] Merge "DO NOT MERGE: Audio HAL: do not )
         std::string xmlFilePath = location + "/"s + xmlFileName;
         if (access(xmlFilePath.c_str(), F_OK) != 0) {
             // If the file does not exist ignore this location and fallback on the next one
@@ -167,12 +178,23 @@ template <bool atLeastOneRequired>
                                   : "\nWhere no file might exist.");
 }
 
+<<<<<<< HEAD   (9ac782 [automerger skipped] DO NOT MERGE: audio: Skip tests if audi)
 template ::testing::AssertionResult validateXmlMultipleLocations<true>(
         const char*, const char*, const char*, const char*, const std::vector<std::string>&,
         const char*);
 template ::testing::AssertionResult validateXmlMultipleLocations<false>(
         const char*, const char*, const char*, const char*, const std::vector<std::string>&,
         const char*);
+=======
+template ::testing::AssertionResult validateXmlMultipleLocations<true>(const char*, const char*,
+                                                                       const char*, const char*,
+                                                                       std::vector<const char*>,
+                                                                       const char*);
+template ::testing::AssertionResult validateXmlMultipleLocations<false>(const char*, const char*,
+                                                                        const char*, const char*,
+                                                                        std::vector<const char*>,
+                                                                        const char*);
+>>>>>>> BRANCH (467d83 [automerger skipped] Merge "DO NOT MERGE: Audio HAL: do not )
 
 }  // namespace utility
 }  // namespace test
