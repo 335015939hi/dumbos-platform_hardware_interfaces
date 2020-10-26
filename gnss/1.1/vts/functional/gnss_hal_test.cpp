@@ -225,12 +225,50 @@ GnssConstellationType GnssHalTest::startLocationAndGetNonGpsConstellation(
     return constellation_to_blacklist;
 }
 
+<<<<<<< HEAD   (1c0b32 [automerger skipped] Merge "DO NOT MERGE: Audio HAL: do not )
 GnssHalTest::GnssCallback::GnssCallback()
     : info_cbq_("system_info"),
       name_cbq_("name"),
       capabilities_cbq_("capabilities"),
       location_cbq_("location"),
       sv_status_cbq_("sv_status") {}
+=======
+GnssConstellationType GnssHalTest::startLocationAndGetNonGpsConstellation() {
+    const int kLocationsToAwait = 3;
+
+    StartAndCheckLocations(kLocationsToAwait);
+
+    // Tolerate 1 less sv status to handle edge cases in reporting.
+    EXPECT_GE((int)list_gnss_sv_status_.size() + 1, kLocationsToAwait);
+    ALOGD("Observed %d GnssSvStatus, while awaiting %d Locations (%d received)",
+          (int)list_gnss_sv_status_.size(), kLocationsToAwait, location_called_count_);
+
+    // Find first non-GPS constellation to blacklist
+    GnssConstellationType constellation_to_blacklist = GnssConstellationType::UNKNOWN;
+    for (const auto& gnss_sv_status : list_gnss_sv_status_) {
+        for (uint32_t iSv = 0; iSv < gnss_sv_status.numSvs; iSv++) {
+            const auto& gnss_sv = gnss_sv_status.gnssSvList[iSv];
+            if ((gnss_sv.svFlag & IGnssCallback::GnssSvFlags::USED_IN_FIX) &&
+                (gnss_sv.constellation != GnssConstellationType::UNKNOWN) &&
+                (gnss_sv.constellation != GnssConstellationType::GPS)) {
+                // found a non-GPS constellation
+                constellation_to_blacklist = gnss_sv.constellation;
+                break;
+            }
+        }
+        if (constellation_to_blacklist != GnssConstellationType::UNKNOWN) {
+            break;
+        }
+    }
+
+    if (constellation_to_blacklist == GnssConstellationType::UNKNOWN) {
+        ALOGI("No non-GPS constellations found, constellation blacklist test less effective.");
+        // Proceed functionally to blacklist something.
+        constellation_to_blacklist = GnssConstellationType::GLONASS;
+    }
+    return constellation_to_blacklist;
+}
+>>>>>>> BRANCH (ae13ef Merge "Stop location to avoid timing issue" into android10-t)
 
 Return<void> GnssHalTest::GnssCallback::gnssSetSystemInfoCb(
     const IGnssCallback::GnssSystemInfo& info) {

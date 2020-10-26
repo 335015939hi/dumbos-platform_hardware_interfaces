@@ -25,10 +25,14 @@
 using android::hardware::Return;
 using android::hardware::Void;
 
+using android::hardware::gnss::V1_0::GnssConstellationType;
 using android::hardware::gnss::V1_0::GnssLocation;
+<<<<<<< HEAD   (1c0b32 [automerger skipped] Merge "DO NOT MERGE: Audio HAL: do not )
 
 using android::hardware::gnss::common::GnssCallbackEventQueue;
 using android::hardware::gnss::V1_0::GnssConstellationType;
+=======
+>>>>>>> BRANCH (ae13ef Merge "Stop location to avoid timing issue" into android10-t)
 using android::hardware::gnss::V1_0::GnssLocationFlags;
 using android::hardware::gnss::V1_1::IGnss;
 using android::hardware::gnss::V1_1::IGnssCallback;
@@ -149,6 +153,17 @@ class GnssHalTest : public testing::TestWithParam<std::string> {
      *
      * Note that location is not stopped in this method. The client should call
      * StopAndClearLocations() after the call.
+<<<<<<< HEAD   (1c0b32 [automerger skipped] Merge "DO NOT MERGE: Audio HAL: do not )
+=======
+     */
+    GnssConstellationType startLocationAndGetNonGpsConstellation();
+
+    sp<IGnss> gnss_hal_;         // GNSS HAL to call into
+    sp<IGnssCallback> gnss_cb_;  // Primary callback interface
+
+    /* Count of calls to set the following items, and the latest item (used by
+     * test.)
+>>>>>>> BRANCH (ae13ef Merge "Stop location to avoid timing issue" into android10-t)
      */
     GnssConstellationType startLocationAndGetNonGpsConstellation(
             const int locations_to_await, const int gnss_sv_info_list_timeout);
