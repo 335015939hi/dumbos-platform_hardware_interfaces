@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a02044d1_e0fa4d57",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-10-26T20:25:10Z",
+      "side": 1,
+      "message": "I think the API name should be changed to match the TM APIs. Technically this is a set state call, and not really an \u0027enable\u0027 one.",
+      "range": {
+        "startLine": 198,
+        "startChar": 11,
+        "endLine": 198,
+        "endChar": 17
+      },
+      "revId": "a9d461b93168715bd1fad74e659a21dac1b216a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
