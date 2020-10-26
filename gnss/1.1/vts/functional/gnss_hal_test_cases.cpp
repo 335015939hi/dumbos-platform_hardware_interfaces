@@ -71,7 +71,11 @@ TEST_P(GnssHalTest, TestGnssMeasurementCallback) {
  * NO_LOCATION_PERIOD_SEC and verfiy that no location is received. Also perform validity checks on
  * each received location.
  */
+<<<<<<< HEAD   (f4d00e [automerger skipped] Merge "Stop location to avoid timing is)
 TEST_P(GnssHalTest, GetLocationLowPower) {
+=======
+TEST_F(GnssHalTest, GetLocationLowPower) {
+>>>>>>> BRANCH (d4ba1d Merge "Add GetLocationLowPower VTS 2.0 test" into android10-)
     if (!IsGnssHalVersion_1_1()) {
         ALOGI("Test GetLocationLowPower skipped. GNSS HAL version is greater than 1.1.");
         return;
