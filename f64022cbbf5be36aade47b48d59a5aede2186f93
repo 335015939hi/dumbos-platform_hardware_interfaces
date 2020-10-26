@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daa63c59_42da1b20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121193
+      },
+      "writtenOn": "2020-10-26T21:13:07Z",
+      "side": 1,
+      "message": "bug number?",
+      "revId": "f64022cbbf5be36aade47b48d59a5aede2186f93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae5fabf8_b88e72b6",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1121193
+      },
+      "writtenOn": "2020-10-26T21:13:07Z",
+      "side": 1,
+      "message": "nit: 32-bit bearer bitmap",
+      "range": {
+        "startLine": 193,
+        "startChar": 35,
+        "endLine": 193,
+        "endChar": 47
+      },
+      "revId": "f64022cbbf5be36aade47b48d59a5aede2186f93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
