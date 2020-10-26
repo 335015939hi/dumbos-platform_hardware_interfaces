@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5f309b5_03a275dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-10-26T09:40:24Z",
+      "side": 1,
+      "message": "-1 due to code duplication.",
+      "revId": "266db52470ac5a5d85ef918b59571a36da2d71e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fe8b77c_11bc483e",
@@ -85,6 +102,30 @@
       "side": 1,
       "message": "I am not familiar with VTS, so don\u0027t know the answer. Just think it is strange. If this is tradition of VTS, I am fine with it.",
       "parentUuid": "7f1fdcc9_afe9877e",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 2
+      },
+      "revId": "266db52470ac5a5d85ef918b59571a36da2d71e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85d3a570_f0887499",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-10-26T09:40:24Z",
+      "side": 1,
+      "message": "+1, we should not duplicate ~200 lines of code like this.\n\nMaybe we could turn the existing test into a base class, then make both the 1.0 test and the 1.1 test inherit from that base class?\n\nSomeone like Nucca should be able to provide good suggestions for doing that quickly and easily.",
+      "parentUuid": "60b88efc_a7510266",
       "range": {
         "startLine": 52,
         "startChar": 0,
