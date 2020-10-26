@@ -22,10 +22,15 @@ namespace fastboot {
 namespace V1_0 {
 namespace implementation {
 
+Fastboot::Fastboot(fastboot_module_t *module) : mModule(module){
+}
+
 // Methods from ::android::hardware::fastboot::V1_0::IFastboot follow.
-Return<void> Fastboot::getPartitionType(const hidl_string& /* partitionName */,
+Return<void> Fastboot::getPartitionType(const hidl_string& partitionName,
                                         getPartitionType_cb _hidl_cb) {
-    _hidl_cb(FileSystemType::RAW, {Status::SUCCESS, ""});
+    int ret = mModule->getPartitionType(mModule, partitionName.c_str());
+    FileSystemType fs = static_cast<FileSystemType>(ret);
+    _hidl_cb(fs, { Status::SUCCESS, "" });
     return Void();
 }
 
@@ -50,8 +55,15 @@ Return<void> Fastboot::getBatteryVoltageFlashingThreshold(
     return Void();
 }
 
-extern "C" IFastboot* HIDL_FETCH_IFastboot(const char* /* name */) {
-    return new Fastboot();
+extern "C" IFastboot* HIDL_FETCH_IFastboot(const char* /* name */ ) {
+    int ret = 0;
+    fastboot_module_t* module = NULL;
+    hw_module_t **hwm = reinterpret_cast<hw_module_t**>(&module);
+    ret = hw_get_module("fastboot", const_cast<const hw_module_t**>(hwm));
+    if (ret) {
+        return nullptr;
+    }
+    return new Fastboot(module);
 }
 
 }  // namespace implementation

@@ -22,6 +22,7 @@ cc_library {
     relative_install_path: "hw",
     shared_libs: [
         "libbase",
+        "libhardware", // hw_get_module
         "libhidlbase",
         "libutils",
         "libcutils",

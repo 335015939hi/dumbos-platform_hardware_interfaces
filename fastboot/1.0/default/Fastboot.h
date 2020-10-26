@@ -17,6 +17,7 @@
 
 #include <android/hardware/fastboot/1.0/IFastboot.h>
 #include <hidl/Status.h>
+#include <hardware/fastboot.h>
 
 namespace android {
 namespace hardware {
@@ -29,6 +30,7 @@ using ::android::hardware::Return;
 using ::android::hardware::Void;
 
 struct Fastboot : public IFastboot {
+    Fastboot(fastboot_module_t* module);
     // Methods from ::android::hardware::fastboot::V1_0::IFastboot follow.
     Return<void> getPartitionType(const hidl_string& partitionName,
                                   getPartitionType_cb _hidl_cb) override;
@@ -37,6 +39,8 @@ struct Fastboot : public IFastboot {
     Return<void> getOffModeChargeState(getOffModeChargeState_cb _hidl_cb) override;
     Return<void> getBatteryVoltageFlashingThreshold(
             getBatteryVoltageFlashingThreshold_cb _hidl_cb) override;
+private:
+    fastboot_module_t* mModule;
 };
 
 extern "C" IFastboot* HIDL_FETCH_IFastboot(const char* name);
