@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e2a861b_fe5fcdd8",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-10-26T09:43:05Z",
+      "side": 1,
+      "message": "Should it also replace any previous quotas set by setDataLimit? How do the two methods interact? Are callers that support 1.0 forbidden from calling setDataLimit?",
+      "range": {
+        "startLine": 44,
+        "startChar": 56,
+        "endLine": 44,
+        "endChar": 58
+      },
+      "revId": "8cc73f7936246902dd499963d640e3eb8bb7328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
