@@ -440,6 +440,72 @@ TEST_P(GnssHalTest, TestGnssBatchingExtension) {
  * between one location and the next. Also ensure that MIN_INTERVAL_MSEC is respected by waiting
  * NO_LOCATION_PERIOD_SEC and verfiy that no location is received. Also perform validity checks on
  * each received location.
+<<<<<<< TARGET BRANCH (f4d00e [automerger skipped] Merge "Stop location to avoid timing is)
+=======
+ */
+TEST_F(GnssHalTest, GetLocationLowPower) {
+    if (!(gnss_cb_->last_capabilities_ & IGnssCallback::Capabilities::LOW_POWER_MODE)) {
+        ALOGI("Test GetLocationLowPower skipped. LOW_POWER_MODE capability not supported.");
+        return;
+    }
+
+    const int kMinIntervalMsec = 5000;
+    const int kLocationTimeoutSubsequentSec = (kMinIntervalMsec / 1000) * 2;
+    const int kNoLocationPeriodSec = (kMinIntervalMsec / 1000) / 2;
+    const int kLocationsToCheck = 5;
+    const bool kLowPowerMode = true;
+
+    // Warmup period - VTS doesn't have AGPS access via GnssLocationProvider
+    gnss_cb_->location_cbq_.reset();
+    StartAndCheckLocations(kLocationsToCheck);
+    StopAndClearLocations();
+    gnss_cb_->location_cbq_.reset();
+
+    // Start of Low Power Mode test
+    SetPositionMode(kMinIntervalMsec, kLowPowerMode);
+
+    // Don't expect true - as without AGPS access
+    if (!StartAndCheckFirstLocation()) {
+        ALOGW("GetLocationLowPower test - no first low power location received.");
+    }
+
+    for (int i = 1; i < kLocationsToCheck; i++) {
+        // Verify that kMinIntervalMsec is respected by waiting kNoLocationPeriodSec and
+        // ensure that no location is received yet
+
+        gnss_cb_->location_cbq_.retrieve(gnss_cb_->last_location_, kNoLocationPeriodSec);
+        const int locationCalledCount = gnss_cb_->location_cbq_.calledCount();
+
+        // Tolerate (ignore) one extra location right after the first one
+        // to handle startup edge case scheduling limitations in some implementations
+        if ((i == 1) && (locationCalledCount == 2)) {
+            CheckLocation(gnss_cb_->last_location_, true);
+            continue;  // restart the quiet wait period after this too-fast location
+        }
+        EXPECT_LE(locationCalledCount, i);
+        if (locationCalledCount != i) {
+            ALOGW("GetLocationLowPower test - not enough locations received. %d vs. %d expected ",
+                  locationCalledCount, i);
+        }
+
+        if (!gnss_cb_->location_cbq_.retrieve(
+                    gnss_cb_->last_location_,
+                    kLocationTimeoutSubsequentSec - kNoLocationPeriodSec)) {
+            ALOGW("GetLocationLowPower test - timeout awaiting location %d", i);
+        } else {
+            CheckLocation(gnss_cb_->last_location_, true);
+        }
+    }
+
+    StopAndClearLocations();
+}
+
+/*
+ * MapConstellationType:
+ * Given a GnssConstellationType_2_0 type constellation, maps to its equivalent
+ * GnssConstellationType_1_0 type constellation. For constellations that do not have
+ * an equivalent value, maps to GnssConstellationType_1_0::UNKNOWN
+>>>>>>> SOURCE BRANCH (d4ba1d Merge "Add GetLocationLowPower VTS 2.0 test" into android10-)
  */
 TEST_P(GnssHalTest, GetLocationLowPower) {
     if (!(gnss_cb_->last_capabilities_ & IGnssCallback::Capabilities::LOW_POWER_MODE)) {
