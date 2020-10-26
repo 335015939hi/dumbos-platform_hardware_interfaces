@@ -16,6 +16,22 @@
 
 #define LOG_TAG "drm_hal_clearkey_test@1.1"
 
+<<<<<<< TARGET BRANCH (f1f83f Merge "health VTS: Status::UNKNOWN is OK if not present" int)
+=======
+#include <android/hardware/drm/1.1/ICryptoFactory.h>
+#include <android/hardware/drm/1.0/ICryptoPlugin.h>
+#include <android/hardware/drm/1.1/IDrmFactory.h>
+#include <android/hardware/drm/1.0/IDrmPlugin.h>
+#include <android/hardware/drm/1.1/IDrmPlugin.h>
+#include <android/hardware/drm/1.0/types.h>
+#include <android/hardware/drm/1.1/types.h>
+#include <android/hidl/allocator/1.0/IAllocator.h>
+#include <android/hidl/manager/1.2/IServiceManager.h>
+#include <gtest/gtest.h>
+#include <hidl/HidlSupport.h>
+#include <hidl/ServiceManagement.h>
+#include <hidlmemory/mapping.h>
+>>>>>>> SOURCE BRANCH (997812 Adapt change clearkey to Lazy hal)
 #include <log/log.h>
 #include <vector>
 
@@ -32,6 +48,156 @@ const uint8_t kClearKeyUUID[16] = {
     0x78, 0x1A, 0xB0, 0x30, 0xAF, 0x78, 0xD3, 0x0E
 };
 
+<<<<<<< TARGET BRANCH (f1f83f Merge "health VTS: Status::UNKNOWN is OK if not present" int)
+=======
+
+class DrmHalClearkeyTest : public ::testing::VtsHalHidlTargetTestBase {
+public:
+    virtual void SetUp() override {
+        const ::testing::TestInfo* const test_info =
+                ::testing::UnitTest::GetInstance()->current_test_info();
+
+        ALOGD("DrmHalClearkeyTest: Running test %s.%s", test_info->test_case_name(),
+                test_info->name());
+
+        auto manager = android::hardware::defaultServiceManager1_2();
+        ASSERT_NE(nullptr, manager.get());
+        manager->listManifestByInterface(IDrmFactory::descriptor,
+                [&](const hidl_vec<hidl_string> &registered) {
+                    for (const auto &instance : registered) {
+                        sp<IDrmFactory> drmFactory =
+                                ::testing::VtsHalHidlTargetTestBase::getService<IDrmFactory>(instance);
+                        drmPlugin = createDrmPlugin(drmFactory);
+                        if (drmPlugin != nullptr) {
+                            break;
+                        }
+                    }
+                }
+            );
+
+        manager->listManifestByInterface(ICryptoFactory::descriptor,
+                [&](const hidl_vec<hidl_string> &registered) {
+                    for (const auto &instance : registered) {
+                        sp<ICryptoFactory> cryptoFactory =
+                                ::testing::VtsHalHidlTargetTestBase::getService<ICryptoFactory>(instance);
+                        cryptoPlugin = createCryptoPlugin(cryptoFactory);
+                        if (cryptoPlugin != nullptr) {
+                            break;
+                        }
+                    }
+                }
+            );
+
+        ASSERT_NE(nullptr, drmPlugin.get()) << "Can't find clearkey drm@1.1 plugin";
+        ASSERT_NE(nullptr, cryptoPlugin.get()) << "Can't find clearkey crypto@1.1 plugin";
+    }
+
+
+    virtual void TearDown() override {}
+
+    SessionId openSession();
+    SessionId openSession(SecurityLevel level);
+    void closeSession(const SessionId& sessionId);
+    hidl_vec<uint8_t> loadKeys(const SessionId& sessionId, const KeyType& type);
+
+  private:
+    sp<IDrmPlugin> createDrmPlugin(sp<IDrmFactory> drmFactory) {
+        if (drmFactory == nullptr) {
+            return nullptr;
+        }
+        sp<IDrmPlugin> plugin = nullptr;
+        auto res = drmFactory->createPlugin(
+                kClearKeyUUID, "",
+                        [&](Status status, const sp<drm::V1_0::IDrmPlugin>& pluginV1_0) {
+                    EXPECT_EQ(Status::OK, status);
+                    plugin = IDrmPlugin::castFrom(pluginV1_0);
+                });
+
+        if (!res.isOk()) {
+            ALOGE("createDrmPlugin remote call failed");
+        }
+        return plugin;
+    }
+
+    sp<ICryptoPlugin> createCryptoPlugin(sp<ICryptoFactory> cryptoFactory) {
+        if (cryptoFactory == nullptr) {
+            return nullptr;
+        }
+        sp<ICryptoPlugin> plugin = nullptr;
+        hidl_vec<uint8_t> initVec;
+        auto res = cryptoFactory->createPlugin(
+                kClearKeyUUID, initVec,
+                        [&](Status status, const sp<drm::V1_0::ICryptoPlugin>& pluginV1_0) {
+                    EXPECT_EQ(Status::OK, status);
+                    plugin = pluginV1_0;
+                });
+        if (!res.isOk()) {
+            ALOGE("createCryptoPlugin remote call failed");
+        }
+        return plugin;
+    }
+
+protected:
+ template <typename CT>
+ bool ValueEquals(DrmMetricGroup::ValueType type, const std::string& expected, const CT& actual) {
+     return type == DrmMetricGroup::ValueType::STRING_TYPE && expected == actual.stringValue;
+ }
+
+ template <typename CT>
+ bool ValueEquals(DrmMetricGroup::ValueType type, const int64_t expected, const CT& actual) {
+     return type == DrmMetricGroup::ValueType::INT64_TYPE && expected == actual.int64Value;
+ }
+
+ template <typename CT>
+ bool ValueEquals(DrmMetricGroup::ValueType type, const double expected, const CT& actual) {
+     return type == DrmMetricGroup::ValueType::DOUBLE_TYPE && expected == actual.doubleValue;
+ }
+
+ template <typename AT, typename VT>
+ bool ValidateMetricAttributeAndValue(const DrmMetricGroup::Metric& metric,
+                                      const std::string& attributeName, const AT& attributeValue,
+                                      const std::string& componentName, const VT& componentValue) {
+     bool validAttribute = false;
+     bool validComponent = false;
+     for (const DrmMetricGroup::Attribute& attribute : metric.attributes) {
+         if (attribute.name == attributeName &&
+             ValueEquals(attribute.type, attributeValue, attribute)) {
+             validAttribute = true;
+         }
+     }
+     for (const DrmMetricGroup::Value& value : metric.values) {
+         if (value.componentName == componentName &&
+             ValueEquals(value.type, componentValue, value)) {
+             validComponent = true;
+         }
+     }
+     return validAttribute && validComponent;
+ }
+
+ template <typename AT, typename VT>
+ bool ValidateMetricAttributeAndValue(const hidl_vec<DrmMetricGroup>& metricGroups,
+                                      const std::string& metricName,
+                                      const std::string& attributeName, const AT& attributeValue,
+                                      const std::string& componentName, const VT& componentValue) {
+     bool foundMetric = false;
+     for (const auto& group : metricGroups) {
+         for (const auto& metric : group.metrics) {
+             if (metric.name == metricName) {
+                 foundMetric = foundMetric || ValidateMetricAttributeAndValue(
+                                                  metric, attributeName, attributeValue,
+                                                  componentName, componentValue);
+             }
+         }
+     }
+     return foundMetric;
+ }
+
+ sp<IDrmPlugin> drmPlugin;
+ sp<ICryptoPlugin> cryptoPlugin;
+};
+
+
+>>>>>>> SOURCE BRANCH (997812 Adapt change clearkey to Lazy hal)
 /**
  * Helper method to open a session and verify that a non-empty
  * session ID is returned
