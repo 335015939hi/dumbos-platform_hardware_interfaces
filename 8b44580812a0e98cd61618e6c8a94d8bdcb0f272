@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19fdbd72_c6d0e270",
+        "filename": "keymint/aidl/Android.bp",
+        "patchSetId": 35
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-26T18:33:12Z",
+      "side": 1,
+      "message": "please replace this with\n sdk_version: \"module_current\",\n\nOtherwise we run into circular dependencies later.",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "8b44580812a0e98cd61618e6c8a94d8bdcb0f272",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e6f7842_88724d1a",
+        "filename": "keymint/aidl/Android.bp",
+        "patchSetId": 35
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-26T18:33:12Z",
+      "side": 1,
+      "message": "Please add\n\n rust: {\n     enabled: true,\n },\n\nto the backend list.",
+      "revId": "8b44580812a0e98cd61618e6c8a94d8bdcb0f272",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
