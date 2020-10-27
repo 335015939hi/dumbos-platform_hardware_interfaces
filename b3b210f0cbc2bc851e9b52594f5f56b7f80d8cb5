@@ -1,0 +1,51 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70c3a6ea_6ed69341",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-27T18:01:08Z",
+      "side": 1,
+      "message": "This also looks like you undid a bunch of more changes here.",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 51
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b230355f_0f5040da",
+        "filename": "keymint/support/authorization_set.cpp",
+        "patchSetId": 37
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-27T18:01:08Z",
+      "side": 1,
+      "message": "\u003e Common typo found: \"Paramaters\" -- should it be \"Parameters\"?\n\u003e Note: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.\n\nPlease fix.",
+      "parentUuid": "cde262fb_96a25e4d",
+      "range": {
+        "startLine": 302,
+        "startChar": 37,
+        "endLine": 302,
+        "endChar": 47
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
