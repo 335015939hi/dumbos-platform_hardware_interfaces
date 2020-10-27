@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08d83dc6_c6de06d4",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2020-10-27T00:08:06Z",
+      "side": 1,
+      "message": "good point, change to or?  \"is equivalent to power off or powering on the card, and it should not generate a CardState.CARDSTATE_ABSENT\"",
+      "parentUuid": "2d3e5a2a_3c2777d1",
+      "range": {
+        "startLine": 158,
+        "startChar": 15,
+        "endLine": 158,
+        "endChar": 62
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c152d58_c1788e19",
         "filename": "radio/1.6/IRadio.hal",
         "patchSetId": 4
