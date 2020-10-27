@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000005756246",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d37",
+      "fixSuggestions": [
+        {
+          "fixId": "4cead6e6_cae38d30",
+          "description": "Change to \"keymint/support/authorization_set.cpp\"",
+          "replacements": [
+            {
+              "path": "keymint/support/authorization_set.cpp",
+              "range": {
+                "startLine": 302,
+                "startChar": 37,
+                "endLine": 302,
+                "endChar": 47
+              },
+              "replacement": "Parameters"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "cde262fb_96a25e4d",
+        "filename": "keymint/support/authorization_set.cpp",
+        "patchSetId": 37
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-10-27T10:37:30Z",
+      "side": 1,
+      "message": "Common typo found: \"Paramaters\" -- should it be \"Parameters\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 302,
+        "startChar": 37,
+        "endLine": 302,
+        "endChar": 47
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
