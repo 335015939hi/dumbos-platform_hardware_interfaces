@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa3fcbcd_91fbf9e9",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-27T06:07:53Z",
+      "side": 1,
+      "message": "one of the EVP functions called in attestation (x509_sign), requires a non-const to be passed in, hence everything up the chain needs to be modified.",
+      "parentUuid": "a83e4264_cba45de1",
+      "range": {
+        "startLine": 878,
+        "startChar": 52,
+        "endLine": 878,
+        "endChar": 66
+      },
+      "revId": "a8aeeb0979c43bc7dda4adf04489adef05c0cf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bef5238_63510135",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0368145_a1abf44c",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-27T06:07:53Z",
+      "side": 1,
+      "message": "because it is settable from keystore.",
+      "parentUuid": "5bef5238_63510135",
+      "range": {
+        "startLine": 899,
+        "startChar": 4,
+        "endLine": 899,
+        "endChar": 34
+      },
+      "revId": "a8aeeb0979c43bc7dda4adf04489adef05c0cf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26da98e5_4392e8dd",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-10-23T22:24:14Z",
       "side": 1,
       "message": "Need blank line above.",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 9
+      },
+      "revId": "a8aeeb0979c43bc7dda4adf04489adef05c0cf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9319ac2e_a4aec29b",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-10-27T06:07:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26da98e5_4392e8dd",
       "range": {
         "startLine": 113,
         "startChar": 0,
