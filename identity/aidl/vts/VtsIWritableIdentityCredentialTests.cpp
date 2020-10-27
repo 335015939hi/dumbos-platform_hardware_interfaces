@@ -294,7 +294,7 @@ TEST_P(IdentityCredentialTests, verifyOneProfileAndEntryPass) {
     ASSERT_TRUE(readerCertificate1);
 
     const vector<int32_t> entryCounts = {1u};
-    size_t expectedPoPSize = 186 + readerCertificate1.value().size();
+    size_t expectedPoPSize = 185 + readerCertificate1.value().size();
     // OK to fail, not available in v1 HAL
     writableCredential->setExpectedProofOfProvisioningSize(expectedPoPSize);
     result = writableCredential->startPersonalization(1, entryCounts);
@@ -308,7 +308,7 @@ TEST_P(IdentityCredentialTests, verifyOneProfileAndEntryPass) {
     ASSERT_TRUE(secureProfiles);
 
     const vector<test_utils::TestEntryData> testEntries1 = {
-            {"Name Space", "Last name", string("Turing"), vector<int32_t>{0, 1}},
+            {"Name Space", "Last name", string("Turing"), vector<int32_t>{1}},
     };
 
     map<const test_utils::TestEntryData*, vector<vector<uint8_t>>> encryptedBlobs;
@@ -347,7 +347,7 @@ TEST_P(IdentityCredentialTests, verifyOneProfileAndEntryPass) {
             "      {\n"
             "        'name' : 'Last name',\n"
             "        'value' : 'Turing',\n"
-            "        'accessControlProfiles' : [0, 1, ],\n"
+            "        'accessControlProfiles' : [1, ],\n"
             "      },\n"
             "    ],\n"
             "  },\n"

@@ -109,7 +109,7 @@ optional<vector<uint8_t>> encryptAes128Gcm(const vector<uint8_t>& key, const vec
 // EC crypto functionality / abstraction (only supports P-256).
 // ---------------------------------------------------------------------------
 // Creates an 256-bit EC key using the NID_X9_62_prime256v1 curve, returns the
-// PKCS#8 encoded key-pair.  Also generates an attestation
+// DER encoded private key.  Also generates an attestation
 // certificate using the |challenge| and |applicationId|, and returns the generated
 // certificate in X.509 certificate chain format.
 //
@@ -127,26 +127,26 @@ optional<vector<vector<uint8_t>>> createAttestationForEcPublicKey(
         const vector<uint8_t>& applicationId);
 
 // Creates an 256-bit EC key using the NID_X9_62_prime256v1 curve, returns the
-// PKCS#8 encoded key-pair.
+// private key in DER format (as specified in RFC 5915).
 //
 optional<vector<uint8_t>> createEcKeyPair();
 
-// For an EC key |keyPair| encoded in PKCS#8 format, extracts the public key in
+// For an EC key |keyPair| encoded in DER format, extracts the public key in
 // uncompressed point form.
 //
 optional<vector<uint8_t>> ecKeyPairGetPublicKey(const vector<uint8_t>& keyPair);
 
-// For an EC key |keyPair| encoded in PKCS#8 format, extracts the private key as
+// For an EC key |keyPair| encoded in DER format, extracts the private key as
 // an EC uncompressed key.
 //
 optional<vector<uint8_t>> ecKeyPairGetPrivateKey(const vector<uint8_t>& keyPair);
 
-// Creates a PKCS#8 encoded key-pair from a private key (which must be uncompressed,
-// e.g. 32 bytes). The public key is derived from the given private key..
+// Creates a DER encoded representation from a private key (which must be uncompressed,
+// e.g. 32 bytes).
 //
 optional<vector<uint8_t>> ecPrivateKeyToKeyPair(const vector<uint8_t>& privateKey);
 
-// For an EC key |keyPair| encoded in PKCS#8 format, creates a PKCS#12 structure
+// For an EC key |keyPair| encoded in DER format, creates a PKCS#12 structure
 // with the key-pair (not using a password to encrypt the data). The public key
 // in the created structure is included as a certificate, using the given fields
 // |serialDecimal|, |issuer|, |subject|, |validityNotBefore|, and
