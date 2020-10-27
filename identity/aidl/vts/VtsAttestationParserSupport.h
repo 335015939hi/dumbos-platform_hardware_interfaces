@@ -38,6 +38,7 @@ using ::std::string;
 using ::std::vector;
 
 using ::keymaster::AuthorizationSet;
+using ::keymaster::TypedEnumTag;
 using ::keymaster::TypedTag;
 
 class AttestationCertificateParser {
@@ -47,37 +48,88 @@ class AttestationCertificateParser {
 
     bool parse();
 
-    uint32_t getKeymasterVersion();
-    uint32_t getAttestationVersion();
-    vector<uint8_t> getAttestationChallenge();
-    keymaster_security_level_t getKeymasterSecurityLevel();
-    keymaster_security_level_t getAttestationSecurityLevel();
+    int getVersion() { return x509_version_; }
+
+    int getSerialNumber() { return x509_serial_number_; }
+
+    int getSignatureNid() { return x509_signature_nid_; }
+
+    time_t getNotBefore() { return x509_not_before_; }
+
+    time_t getNotAfter() { return x509_not_after_; }
+
+    time_t getBatchNotAfter() { return x509_batch_not_after_; }
+
+    uint32_t getKeymasterVersion() { return att_keymaster_version_; }
+
+    uint32_t getAttestationVersion() { return att_attestation_version_; }
+
+    vector<uint8_t> getAttestationUniqueId() { return att_unique_id_; }
+
+    vector<uint8_t> getAttestationChallenge() { return att_challenge_; }
+
+    keymaster_security_level_t getKeymasterSecurityLevel() { return att_keymaster_security_level_; }
+
+    keymaster_security_level_t getAttestationSecurityLevel() {
+        return att_attestation_security_level_;
+    }
+
+    // Returns subject name output in a manner comptible with RFC 2253.
+    string getSubjectName() { return subjectName_; }
+
+    // Returns issuer name output in a manner comptible with RFC 2253.
+    string getIssuerName() { return issuerName_; }
+
+    // Returns subject name for batch attestation key cert, output in a manner
+    // comptible with RFC 2253.
+    string getBatchCertSubjectName() { return batchCertSubjectName_; }
+
+    // Note that Tag::ROOT_OF_TRUST is not included in the list of authorizations
+    // returned by keymaster::parse_attestation_record()... instead we use
+    // keymaster::parse_root_of_trust() which checks if it's in the hw-enforced
+    // list and has the correct structure.
+    //
+    // This method returns true if this is satisfied, false otherwise.
+    //
+    bool hasHwEnforcedRootOfTrust() { return hasHwEnforcedRootOfTrust_; }
 
     template <keymaster_tag_t Tag>
-    bool getSwEnforcedBool(TypedTag<KM_BOOL, Tag> tag) {
-        if (att_sw_enforced_.GetTagValue(tag)) {
-            return true;
+    optional<uint32_t> getHwEnforcedUint(TypedTag<KM_UINT, Tag> tag) {
+        uint32_t value;
+        if (!att_hw_enforced_.GetTagValue(tag, &value)) {
+            return {};
         }
+        return value;
+    }
 
-        return false;
+    template <keymaster_tag_t Tag, typename T>
+    optional<T> getHwEnforcedEnum(TypedEnumTag<KM_ENUM, Tag, T> tag) {
+        T value;
+        if (!att_hw_enforced_.GetTagValue(tag, &value)) {
+            return {};
+        }
+        return value;
+    }
+
+    template <keymaster_tag_t Tag, typename T>
+    bool containsHwEnforcedEnumRep(TypedEnumTag<KM_ENUM_REP, Tag, T> tag, T value) {
+        return att_hw_enforced_.Contains(tag, value);
     }
 
     template <keymaster_tag_t Tag>
-    bool getHwEnforcedBool(TypedTag<KM_BOOL, Tag> tag) {
+    bool containsHwEnforcedBool(TypedTag<KM_BOOL, Tag> tag) {
         if (att_hw_enforced_.GetTagValue(tag)) {
             return true;
         }
-
         return false;
     }
 
     template <keymaster_tag_t Tag>
     optional<vector<uint8_t>> getHwEnforcedBlob(TypedTag<KM_BYTES, Tag> tag) {
         keymaster_blob_t blob;
-        if (att_hw_enforced_.GetTagValue(tag, &blob)) {
+        if (!att_hw_enforced_.GetTagValue(tag, &blob)) {
             return {};
         }
-
         vector<uint8_t> ret(blob.data, blob.data + blob.data_length);
         return ret;
     }
@@ -88,25 +140,24 @@ class AttestationCertificateParser {
         if (!att_sw_enforced_.GetTagValue(tag, &blob)) {
             return {};
         }
-
         vector<uint8_t> ret(blob.data, blob.data + blob.data_length);
         return ret;
     }
 
   private:
-    // Helper functions.
     bool verifyChain(const keymaster_cert_chain_t& chain);
 
     ASN1_OCTET_STRING* getAttestationRecord(X509* certificate);
 
     X509* parseCertBlob(const keymaster_blob_t& blob);
 
-    bool verifyAttestationRecord(const keymaster_blob_t& attestation_cert);
+    bool extractFromTopCert(const keymaster_blob_t& attestation_cert);
+
+    bool extractFromBatchCert(const keymaster_blob_t& attestation_cert);
 
     optional<keymaster_cert_chain_t> certificateChainToKeymasterChain(
             const vector<Certificate>& certificates);
 
-    // Private variables.
     vector<Certificate> origCertChain_;
     AuthorizationSet att_sw_enforced_;
     AuthorizationSet att_hw_enforced_;
@@ -115,6 +166,18 @@ class AttestationCertificateParser {
     keymaster_security_level_t att_attestation_security_level_;
     keymaster_security_level_t att_keymaster_security_level_;
     vector<uint8_t> att_challenge_;
+    vector<uint8_t> att_unique_id_;
+    int x509_version_;
+    int x509_serial_number_;
+    int x509_signature_nid_;
+    time_t x509_not_before_;
+    time_t x509_not_after_;
+    time_t x509_batch_not_after_;
+
+    bool hasHwEnforcedRootOfTrust_ = false;
+    string subjectName_;
+    string issuerName_;
+    string batchCertSubjectName_;
 };
 
 }  // namespace android::hardware::identity::test_utils

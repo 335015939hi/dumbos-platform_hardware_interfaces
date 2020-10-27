@@ -94,7 +94,7 @@ struct TestProfile {
 };
 
 bool setupWritableCredential(sp<IWritableIdentityCredential>& writableCredential,
-                             sp<IIdentityCredentialStore>& credentialStore);
+                             sp<IIdentityCredentialStore>& credentialStore, bool testCredential);
 
 optional<vector<uint8_t>> generateReaderCertificate(string serialDecimal);
 
@@ -114,9 +114,15 @@ void setImageData(vector<uint8_t>& image);
 bool validateAttestationCertificate(const vector<Certificate>& inputCertificates,
                                     const vector<uint8_t>& expectedChallenge,
                                     const vector<uint8_t>& expectedAppId,
-                                    const HardwareInformation& hwInfo);
+                                    const HardwareInformation& hwInfo, bool isTestCredential);
 
 vector<RequestNamespace> buildRequestNamespaces(const vector<TestEntryData> entries);
+
+// Verifies that the X.509 certificate for a just created authentication key
+// is valid.
+//
+bool verifyAuthKeyCertificate(const vector<uint8_t>& authKeyCertificate,
+                              const vector<uint8_t>& credentialPubKey);
 
 }  // namespace android::hardware::identity::test_utils
 

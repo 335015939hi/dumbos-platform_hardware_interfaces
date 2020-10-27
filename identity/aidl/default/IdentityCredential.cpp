@@ -830,9 +830,9 @@ ndk::ScopedAStatus IdentityCredential::finishRetrieval(vector<uint8_t>* outMac,
 
 ndk::ScopedAStatus IdentityCredential::generateSigningKeyPair(
         vector<uint8_t>* outSigningKeyBlob, Certificate* outSigningKeyCertificate) {
-    string serialDecimal = "0";  // TODO: set serial to something unique
-    string issuer = "Android Open Source Project";
-    string subject = "Android IdentityCredential Reference Implementation";
+    string serialDecimal = "1";  // TODO: set serial to something unique
+    string issuer = "Android Identity Credential Key";
+    string subject = "Android Identity Credential Authentication Key";
     time_t validityNotBefore = time(nullptr);
     time_t validityNotAfter = validityNotBefore + 365 * 24 * 3600;
 
