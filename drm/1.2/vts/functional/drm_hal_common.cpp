@@ -124,12 +124,18 @@ void DrmHalTest::SetUp() {
     contentConfigurations = vendorModule->getContentConfigurations();
 
     // If drm scheme not installed skip subsequent tests
+<<<<<<< TARGET BRANCH (1c5156 [automerger skipped] Adapt change clearkey to Lazy hal am: 9)
     if (!drmFactory->isCryptoSchemeSupported(getUUID())) {
         if (GetParamUUID() == hidl_array<uint8_t, 16>()) {
             GTEST_SKIP() << "vendor module drm scheme not supported";
         } else {
             FAIL() << "param scheme must be supported: " << android::hardware::toString(GetParamUUID());
         }
+=======
+    if (drmFactory.get() == nullptr || !drmFactory->isCryptoSchemeSupported(getVendorUUID())) {
+        vendorModule->setInstalled(false);
+        return;
+>>>>>>> SOURCE BRANCH (27ea8c Fix tests for devices that don't have drm@1.2 services)
     }
 
     ASSERT_NE(nullptr, drmPlugin.get()) << "Can't find " << vendorModule->getServiceName() <<  " drm@1.2 plugin";
