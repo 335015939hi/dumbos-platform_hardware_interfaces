@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "774bd8cd_535461f0",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-10-27T22:54:26Z",
+      "side": 1,
+      "message": "Does x509_sign actually modify it, or is that a bug in the x509_sign interface?  If the latter, if it doesn\u0027t actually get modified, you should leave it as const all the way up the stack and just const_cast it at the x509_sign call site.",
+      "parentUuid": "aa3fcbcd_91fbf9e9",
+      "range": {
+        "startLine": 878,
+        "startChar": 52,
+        "endLine": 878,
+        "endChar": 66
+      },
+      "revId": "a8aeeb0979c43bc7dda4adf04489adef05c0cf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5bef5238_63510135",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
         "patchSetId": 10

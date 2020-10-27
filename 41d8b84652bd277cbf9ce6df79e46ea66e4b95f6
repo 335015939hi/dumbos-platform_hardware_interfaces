@@ -110,6 +110,30 @@
       },
       "revId": "41d8b84652bd277cbf9ce6df79e46ea66e4b95f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6445de6_c6e5bee8",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-10-27T22:54:26Z",
+      "side": 1,
+      "message": "But why?  They\u0027ve been unsettable through many keymaster versions. Was there some specific reason we needed this?",
+      "parentUuid": "17a9863d_1cd5d80b",
+      "range": {
+        "startLine": 892,
+        "startChar": 4,
+        "endLine": 892,
+        "endChar": 34
+      },
+      "revId": "41d8b84652bd277cbf9ce6df79e46ea66e4b95f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
