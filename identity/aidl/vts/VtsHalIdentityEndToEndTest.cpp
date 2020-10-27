@@ -174,7 +174,7 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
 
     string cborPretty;
     sp<IWritableIdentityCredential> writableCredential;
-    ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_));
+    ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_, true));
 
     string challenge = "attestationChallenge";
     test_utils::AttestationData attData(writableCredential, challenge, {});
@@ -183,7 +183,7 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
 
     EXPECT_TRUE(validateAttestationCertificate(attData.attestationCertificate,
                                                attData.attestationChallenge,
-                                               attData.attestationApplicationId, hwInfo));
+                                               attData.attestationApplicationId, hwInfo, true));
 
     // This is kinda of a hack but we need to give the size of
     // ProofOfProvisioning that we'll expect to receive.

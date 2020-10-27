@@ -14,9 +14,13 @@
  * limitations under the License.
  */
 
+#define LOG_TAG "VtsAttestationParserSupport"
+
 #include "VtsAttestationParserSupport.h"
 
 #include <aidl/Gtest.h>
+#include <android-base/logging.h>
+#include <openssl/x509.h>
 #include <map>
 
 namespace android::hardware::identity::test_utils {
@@ -80,7 +84,11 @@ bool AttestationCertificateParser::parse() {
         return false;
     }
 
-    if (!verifyAttestationRecord(cert_chain.value().entries[0])) {
+    if (!extractFromTopCert(cert_chain.value().entries[0])) {
+        return false;
+    }
+
+    if (!extractFromBatchCert(cert_chain.value().entries[1])) {
         return false;
     }
 
@@ -107,10 +115,94 @@ X509* AttestationCertificateParser::parseCertBlob(const keymaster_blob_t& blob) 
     return d2i_X509(nullptr, &p, blob.data_length);
 }
 
-bool AttestationCertificateParser::verifyAttestationRecord(
-        const keymaster_blob_t& attestation_cert) {
+string x509NameToRfc2253String(X509_NAME* name) {
+    char* buf;
+    size_t bufSize;
+    BIO* bio;
+
+    bio = BIO_new(BIO_s_mem());
+    X509_NAME_print_ex(bio, name, 0, XN_FLAG_RFC2253);
+    bufSize = BIO_get_mem_data(bio, &buf);
+    string ret = string(buf, bufSize);
+    BIO_free(bio);
+
+    return ret;
+}
+
+int parseDigits(const char** s, int numDigits) {
+    int ret = 0;
+    for (int n = 0; n < numDigits; n++) {
+        ret *= 10;
+        ret += (**s) - '0';
+        *s += 1;
+    }
+    return ret;
+}
+
+bool parseAsn1Time(ASN1_TIME* asn1Time, time_t* outTime) {
+    struct tm tm;
+
+    memset(&tm, '\0', sizeof(tm));
+    const char* timeStr = (const char*)asn1Time->data;
+    const char* s = timeStr;
+    if (asn1Time->type == V_ASN1_UTCTIME) {
+        tm.tm_year = parseDigits(&s, 2);
+        if (tm.tm_year < 70) {
+            tm.tm_year += 100;
+        }
+    } else if (asn1Time->type == V_ASN1_GENERALIZEDTIME) {
+        tm.tm_year = parseDigits(&s, 4) - 1900;
+        tm.tm_year -= 1900;
+    } else {
+        LOG(ERROR) << "Unsupported ASN1_TIME type " << asn1Time->type;
+        return false;
+    }
+    tm.tm_mon = parseDigits(&s, 2) - 1;
+    tm.tm_mday = parseDigits(&s, 2);
+    tm.tm_hour = parseDigits(&s, 2);
+    tm.tm_min = parseDigits(&s, 2);
+    tm.tm_sec = parseDigits(&s, 2);
+    // This may need to be updated if someone create certificates using +/- instead of Z.
+    //
+    if (*s != 'Z') {
+        LOG(ERROR) << "Expected Z in string '" << timeStr << "' at offset " << (s - timeStr);
+        return false;
+    }
+
+    time_t t = timegm(&tm);
+    if (t == -1) {
+        LOG(ERROR) << "Error converting broken-down time to time_t";
+        return false;
+    }
+    *outTime = t;
+    return true;
+}
+
+bool AttestationCertificateParser::extractFromTopCert(const keymaster_blob_t& attestation_cert) {
     X509_Ptr cert(parseCertBlob(attestation_cert));
     if (!cert.get()) {
+        return false;
+    }
+
+    X509_NAME* subject = X509_get_subject_name(cert.get());
+    if (subject == nullptr) {
+        return false;
+    }
+    subjectName_ = x509NameToRfc2253String(subject);
+
+    X509_NAME* issuer = X509_get_issuer_name(cert.get());
+    if (issuer == nullptr) {
+        return false;
+    }
+    issuerName_ = x509NameToRfc2253String(issuer);
+
+    x509_version_ = X509_get_version(cert.get());
+    x509_serial_number_ = ASN1_INTEGER_get(X509_get_serialNumber(cert.get()));
+    x509_signature_nid_ = X509_get_signature_nid(cert.get());
+    if (!parseAsn1Time(X509_getm_notAfter(cert.get()), &x509_not_after_)) {
+        return false;
+    }
+    if (!parseAsn1Time(X509_getm_notBefore(cert.get()), &x509_not_before_)) {
         return false;
     }
 
@@ -130,28 +222,40 @@ bool AttestationCertificateParser::verifyAttestationRecord(
         return false;
     }
 
+    keymaster_blob_t verified_boot_key;
+    keymaster_verified_boot_t verified_boot_state;
+    bool device_locked;
+    ret = ::keymaster::parse_root_of_trust(attest_rec->data, attest_rec->length, &verified_boot_key,
+                                           &verified_boot_state, &device_locked);
+    if (ret != 0) {
+        hasHwEnforcedRootOfTrust_ = false;
+    } else {
+        hasHwEnforcedRootOfTrust_ = true;
+    }
+
     att_challenge_.assign(att_challenge.data, att_challenge.data + att_challenge.data_length);
+    att_unique_id_.assign(att_unique_id.data, att_unique_id.data + att_unique_id.data_length);
+
     return true;
 }
 
-uint32_t AttestationCertificateParser::getKeymasterVersion() {
-    return att_keymaster_version_;
-}
+bool AttestationCertificateParser::extractFromBatchCert(const keymaster_blob_t& attestation_cert) {
+    X509_Ptr cert(parseCertBlob(attestation_cert));
+    if (!cert.get()) {
+        return false;
+    }
 
-uint32_t AttestationCertificateParser::getAttestationVersion() {
-    return att_attestation_version_;
-}
+    X509_NAME* subject = X509_get_subject_name(cert.get());
+    if (subject == nullptr) {
+        return false;
+    }
+    batchCertSubjectName_ = x509NameToRfc2253String(subject);
 
-vector<uint8_t> AttestationCertificateParser::getAttestationChallenge() {
-    return att_challenge_;
-}
+    if (!parseAsn1Time(X509_getm_notAfter(cert.get()), &x509_batch_not_after_)) {
+        return false;
+    }
 
-keymaster_security_level_t AttestationCertificateParser::getKeymasterSecurityLevel() {
-    return att_keymaster_security_level_;
-}
-
-keymaster_security_level_t AttestationCertificateParser::getAttestationSecurityLevel() {
-    return att_attestation_security_level_;
+    return true;
 }
 
 // Verify the Attestation certificates are correctly chained.
