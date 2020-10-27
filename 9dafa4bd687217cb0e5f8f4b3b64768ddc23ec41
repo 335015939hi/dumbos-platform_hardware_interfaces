@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d3e5a2a_3c2777d1",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2020-10-27T00:05:32Z",
+      "side": 1,
+      "message": "sure we can alter this -- but this isn\u0027t a reset API, so it\u0027s not equivalent to powering off and on the card, right?",
+      "parentUuid": "6449d974_93f073af",
+      "range": {
+        "startLine": 158,
+        "startChar": 15,
+        "endLine": 158,
+        "endChar": 62
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c152d58_c1788e19",
         "filename": "radio/1.6/IRadio.hal",
         "patchSetId": 4
