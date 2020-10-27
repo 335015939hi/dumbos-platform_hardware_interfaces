@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "befd114d_c3834e0b",
+        "filename": "keymint/aidl/Android.bp",
+        "patchSetId": 35
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-27T17:54:32Z",
+      "side": 1,
+      "message": "You did it in Patchset 36, and then you undid it in Patchset 37 again.",
+      "parentUuid": "e7d858a7_1dfaf5cf",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "8b44580812a0e98cd61618e6c8a94d8bdcb0f272",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e6f7842_88724d1a",
         "filename": "keymint/aidl/Android.bp",
         "patchSetId": 35
@@ -79,6 +103,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "2e6f7842_88724d1a",
+      "revId": "8b44580812a0e98cd61618e6c8a94d8bdcb0f272",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef85e5d8_023cfd70",
+        "filename": "keymint/aidl/Android.bp",
+        "patchSetId": 35
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-27T17:54:32Z",
+      "side": 1,
+      "message": "Same here",
+      "parentUuid": "01f8227d_18945827",
       "revId": "8b44580812a0e98cd61618e6c8a94d8bdcb0f272",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
