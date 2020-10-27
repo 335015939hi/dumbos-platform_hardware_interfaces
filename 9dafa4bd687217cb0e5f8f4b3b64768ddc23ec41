@@ -227,6 +227,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ecb396d7_897f813e",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2020-10-27T00:06:33Z",
+      "side": 1,
+      "message": "SIM_BUSY sounds like the SIM is doing something (but maybe it\u0027s just not responding, like, won\u0027t power on)\n\nSIM_ERR  ? Should be general enough to cover timeout issues or sim dead",
+      "parentUuid": "4b5618b0_f067cfb0",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 24
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b9ded2c_8bda659b",
         "filename": "radio/1.6/IRadioResponse.hal",
         "patchSetId": 4
