@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9afafbcd_1c8a3ac1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-10-27T11:11:18Z",
+      "side": 1,
+      "message": "checkvintf E 10-27 10:17:52 29106 29106 check_vintf.cpp:454] The following HIDL packages are not found in any compatibility matrix fragments:\t\ncheckvintf E 10-27 10:17:52 29106 29106 check_vintf.cpp:454] android.hardware.audio.effect@7.0\t\ncheckvintf E 10-27 10:17:52 29106 29106 check_vintf.cpp:454] android.hardware.audio@7.0\ncheckvintf E 10-27 10:17:52 29106 29106 check_vintf.cpp:454] - If this is a new package, add it to the latest framework compatibility matrix.\ncheckvintf E 10-27 10:17:52 29106 29106 check_vintf.cpp:454] - If no interface should be added to the framework compatibility matrix (e.g. types-only package), add it to the exempt list in libvintf_fcm_exclude.\n",
+      "revId": "a7bafba3aed379d97b2492a570467ad0e97419b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
