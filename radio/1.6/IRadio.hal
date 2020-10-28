@@ -160,13 +160,15 @@ interface IRadio extends @1.5::IRadio {
      *
      * @param serial Serial number of request.
      * @param sms Cdma Sms to be sent described by CdmaSmsMessage in types.hal
+     * @param isRetry Flag to indicate if this is a retry. This is the only
+     * difference compared to the 1.0 version of the API.
      *
      * Response callback is IRadioResponse.sendCdmaSmsResponse_1_6()
      *
      * Note this API is the same as the 1.0
      *
      */
-    oneway sendCdmaSms_1_6(int32_t serial, CdmaSmsMessage sms);
+    oneway sendCdmaSms_1_6(int32_t serial, CdmaSmsMessage sms, bool isRetry);
 
     /**
      * Send an SMS message. Identical to sendCdmaSms_1_6,
@@ -174,13 +176,16 @@ interface IRadio extends @1.5::IRadio {
      *
      * @param serial Serial number of request.
      * @param sms Cdma Sms to be sent described by CdmaSmsMessage in types.hal
+     * @param isRetry Flag to indicate if this is a retry. This is the only
+     * difference compared to the 1.5 version of the API.
      *
      * Response callback is IRadioResponse.sendCdmaSMSExpectMoreResponse_1_6()
      *
      * Note this API is the same as the 1.5
      *
      */
-    oneway sendCdmaSmsExpectMore_1_6(int32_t serial, CdmaSmsMessage sms);
+    oneway sendCdmaSmsExpectMore_1_6(int32_t serial, CdmaSmsMessage sms, bool
+            isRetry);
 
     /**
      * Enable or disable E-UTRA-NR dual connectivity. If disabled then UE will not connect
