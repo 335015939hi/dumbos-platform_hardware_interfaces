@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b166e4d_1e164b2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-10-28T23:18:50Z",
+      "side": 1,
+      "message": "Please update the corresponding java code as well. I have also requested Allen to do the same for the HAL API changes he has made.",
+      "revId": "08be996f5e5d10871aee4e57ea09a97de96f83a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
