@@ -1,6 +1,30 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "34a53913_b9ca0d6e",
+        "filename": "keymint/aidl/android/hardware/keymint/IHmacSharing.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-28T03:26:36Z",
+      "side": 1,
+      "message": "This should be an interface in its own right. So it should go to hardware/interfaces/security/auth_key_agreement with the package name android.hardware.security.auth_key_agreement. The name auth_key_agreement is up for discussion, and this is just my first suggestion, but it should move to android.hardware.security.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "9b01fd9b7791bc1c8ed2591c7ed10cfd87840eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "9cdcb4b9_114d2291",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
@@ -20,8 +44,7 @@
         "endChar": 2
       },
       "revId": "9b01fd9b7791bc1c8ed2591c7ed10cfd87840eaa",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
