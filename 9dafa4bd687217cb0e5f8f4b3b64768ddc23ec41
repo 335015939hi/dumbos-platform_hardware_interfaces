@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73e7750e_bddaa183",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2020-10-28T18:15:46Z",
+      "side": 1,
+      "message": "but why are we saying it\u0027s equivalent to powering on/off when it itself is the API to power on/off? I understand the motivation behind the original documentation, that it\u0027s \"equivalent to removing or inserting\" as in we\u0027re trying to explain what it means to power on/off a card, but it seems less helpful this way.",
+      "parentUuid": "6388410f_54c496d1",
+      "range": {
+        "startLine": 158,
+        "startChar": 15,
+        "endLine": 158,
+        "endChar": 62
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c152d58_c1788e19",
         "filename": "radio/1.6/IRadio.hal",
         "patchSetId": 4
