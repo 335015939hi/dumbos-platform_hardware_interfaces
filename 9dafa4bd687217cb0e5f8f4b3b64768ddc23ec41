@@ -192,6 +192,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b93b8c4_a1131627",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2020-10-28T20:05:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "757567a3_2ce3ebbe",
+      "range": {
+        "startLine": 158,
+        "startChar": 15,
+        "endLine": 158,
+        "endChar": 62
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c152d58_c1788e19",
@@ -335,6 +359,30 @@
       "side": 1,
       "message": "SIM_BUSY sounds like the SIM is doing something (but maybe it\u0027s just not responding, like, won\u0027t power on)\n\nSIM_ERR  ? Should be general enough to cover timeout issues or sim dead",
       "parentUuid": "4b5618b0_f067cfb0",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 24
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a97b4aa1_0427aeee",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2020-10-28T20:05:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecb396d7_897f813e",
       "range": {
         "startLine": 196,
         "startChar": 0,
