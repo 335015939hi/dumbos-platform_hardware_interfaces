@@ -206,3 +206,29 @@ interface IRadio extends @1.5::IRadio {
      */
     oneway isNrDualConnectivityEnabled(int32_t serial);
 };
+
+/**
+ * Send a CDMA SMS message
+ *
+ * @param serial Serial number of request.
+ * @param sms Cdma Sms to be sent described by CdmaSmsMessage in types.hal
+ * @param isRetry Flag to indicate if this is a retry. This is the only
+ * difference compared to the 1.0 version of the API.
+ *
+ * Response callback is IRadioResponse.sendCdmaSmsResponse()
+ */
+oneway sendCdmaSms_1_6(int32_t serial, CdmaSmsMessage sms, bool isRetry);
+
+/**
+ * Send an SMS message. Identical to sendCdmaSms,
+ * except that more messages are expected to be sent soon.
+ *
+ * @param serial Serial number of request.
+ * @param sms Cdma Sms to be sent described by CdmaSmsMessage in types.hal
+ * @param isRetry Flag to indicate if this is a retry. This is the only
+ * difference compared to the 1.5 version of the API.
+ *
+ * Response callback is IRadioResponse.sendCdmaSMSExpectMoreResponse()
+ */
+oneway sendCdmaSmsExpectMore_1_6(int32_t serial, CdmaSmsMessage sms, bool
+        isRetry);
