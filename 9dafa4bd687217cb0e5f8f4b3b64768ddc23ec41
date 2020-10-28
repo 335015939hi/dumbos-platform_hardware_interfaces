@@ -170,6 +170,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "757567a3_2ce3ebbe",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2020-10-28T19:47:41Z",
+      "side": 1,
+      "message": "I agree adding \"equivalent\" is unnecessary.\n\nHow about:\"Request is used to power down or power off the card. It should not generate a CardState.CARDSTATE_ABSENT indication when powering off the card, since the SIM is still physically inserted.\n\nI don\u0027t feel the \"is equivalent to removing or inserting\" is even applicable description in this case and might cause confusion since later we\u0027re saying \"SIM is still physically inserted\"",
+      "parentUuid": "73e7750e_bddaa183",
+      "range": {
+        "startLine": 158,
+        "startChar": 15,
+        "endLine": 158,
+        "endChar": 62
+      },
+      "revId": "9dafa4bd687217cb0e5f8f4b3b64768ddc23ec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c152d58_c1788e19",
         "filename": "radio/1.6/IRadio.hal",
         "patchSetId": 4
