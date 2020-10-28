@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3313a92_c89b7981",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-28T17:28:24Z",
+      "side": 0,
+      "message": "This error code can probably also be retired. and replaced with RESERVEDX",
+      "range": {
+        "startLine": 281,
+        "startChar": 12,
+        "endLine": 281,
+        "endChar": 47
+      },
+      "revId": "d58ba457eec5eddb4f07c04963f37d783d9888bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
