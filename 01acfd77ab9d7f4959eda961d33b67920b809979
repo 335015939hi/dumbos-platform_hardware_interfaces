@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000005790463",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1475343?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "6af9260b_fc671640",
+          "description": "Change to \"identity/aidl/vts/VtsAttestationParserSupport.h\"",
+          "replacements": [
+            {
+              "path": "identity/aidl/vts/VtsAttestationParserSupport.h",
+              "range": {
+                "startLine": 92,
+                "startChar": 43,
+                "endLine": 92,
+                "endChar": 52
+              },
+              "replacement": "satisfied"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "8b312328_71cd83f7",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-10-28T17:11:14Z",
+      "side": 1,
+      "message": "Common typo found: \"satisifed\" -- should it be \"satisfied\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 92,
+        "startChar": 43,
+        "endLine": 92,
+        "endChar": 52
+      },
+      "revId": "01acfd77ab9d7f4959eda961d33b67920b809979",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
