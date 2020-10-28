@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ebd0caf_9db7785d",
+        "filename": "keymint/aidl/android/hardware/keymint/IHmacSharing.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-28T04:07:54Z",
+      "side": 1,
+      "message": "Also untangle the key auth_key_agreement interface from the other changes and put it into a separate CL.",
+      "parentUuid": "34a53913_b9ca0d6e",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "9b01fd9b7791bc1c8ed2591c7ed10cfd87840eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9cdcb4b9_114d2291",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 3
