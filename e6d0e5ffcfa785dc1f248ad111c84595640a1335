@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3bcaf88_9ecb64c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-28T15:27:44Z",
+      "side": 1,
+      "message": "blank line between heading and body",
+      "revId": "e6d0e5ffcfa785dc1f248ad111c84595640a1335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6d8be25_a2c8211e",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-10-28T15:27:44Z",
+      "side": 1,
+      "message": "You used the same documentation as for keyParams. If you really need a second set of parameters please describe why. However, I don\u0027t think there should be any overlap between the key and attestation parameter, so it should be okay to put them all into one set of parameters.\n\nSame with `import` below.",
+      "range": {
+        "startLine": 491,
+        "startChar": 14,
+        "endLine": 493,
+        "endChar": 38
+      },
+      "revId": "e6d0e5ffcfa785dc1f248ad111c84595640a1335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
