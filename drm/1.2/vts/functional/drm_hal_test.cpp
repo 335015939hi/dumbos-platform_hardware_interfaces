@@ -99,6 +99,10 @@ TEST_P(DrmHalTest, BadMimeNotSupported) {
  * that is delivered back to the HAL.
  */
 TEST_P(DrmHalTest, DoProvisioning) {
+<<<<<<< HEAD   (d973ce [automerger skipped] Fix tests for devices that don't have d)
+=======
+    RETURN_IF_SKIPPED;
+>>>>>>> BRANCH (8a006c drm@1.2 vts: force provision multiple security levels)
     for (auto level : {kHwSecureAll, kSwSecureCrypto}) {
         StatusV1_0 err = StatusV1_0::OK;
         auto sid = openSession(level, &err);
@@ -399,8 +403,14 @@ TEST_P(DrmHalTest, EncryptedAesCtrSegmentTestNoKeys) {
 /**
  * Ensure clearkey drm factory doesn't support security level higher than supported
  */
+<<<<<<< HEAD   (d973ce [automerger skipped] Fix tests for devices that don't have d)
 TEST_P(DrmHalClearkeyTestV1_2, BadLevelNotSupported) {
     EXPECT_FALSE(drmFactory->isCryptoSchemeSupported_1_2(getUUID(), kVideoMp4, kHwSecureAll));
+=======
+TEST_P(DrmHalClearkeyTest, BadLevelNotSupported) {
+    RETURN_IF_SKIPPED;
+    EXPECT_FALSE(drmFactory->isCryptoSchemeSupported_1_2(getVendorUUID(), kVideoMp4, kHwSecureAll));
+>>>>>>> BRANCH (8a006c drm@1.2 vts: force provision multiple security levels)
 }
 
 /**
