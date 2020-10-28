@@ -40,4 +40,11 @@ interface IRadioIndication extends @1.5::IRadioIndication {
      *        3. Unsolicited disconnect from either modem or network side.
      */
     oneway dataCallListChanged_1_6(RadioIndicationType type, vec<SetupDataCallResult> dcList);
+
+    /**
+     * An APN will be blocked from using the cell transport when the result of a data call
+     * failure has a retry time explicitly set.  unthrottleApn indicates that the block
+     * should be removed and data calls to that apn can resume normally.
+     */
+    oneway unthrottleApn(string apn);
 };
