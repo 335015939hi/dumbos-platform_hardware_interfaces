@@ -164,7 +164,7 @@ TEST_P(RadioHidlTest_v1_6, sendCdmaSms_1_6) {
     cdmaSmsMessage.bearerData =
         (std::vector<uint8_t>){15, 0, 3, 32, 3, 16, 1, 8, 16, 53, 76, 68, 6, 51, 106, 0};
 
-    radio_v1_6->sendCdmaSms(serial, cdmaSmsMessage);
+    radio_v1_6->sendCdmaSms_1_6(serial, cdmaSmsMessage, false);
 
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_6->rspInfo.type);
@@ -211,7 +211,7 @@ TEST_P(RadioHidlTest_v1_6, sendCdmaSmsExpectMore_1_6) {
     cdmaSmsMessage.bearerData =
             (std::vector<uint8_t>){15, 0, 3, 32, 3, 16, 1, 8, 16, 53, 76, 68, 6, 51, 106, 0};
 
-    radio_v1_6->sendCdmaSmsExpectMore(serial, cdmaSmsMessage);
+    radio_v1_6->sendCdmaSmsExpectMore_1_6(serial, cdmaSmsMessage, false);
 
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_6->rspInfo.type);
