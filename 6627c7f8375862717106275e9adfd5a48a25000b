@@ -47,6 +47,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e63aaf5_8863f5e8",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-10-29T21:02:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39221d51_bed6a63f",
+      "range": {
+        "startLine": 45,
+        "startChar": 79,
+        "endLine": 46,
+        "endChar": 14
+      },
+      "revId": "6627c7f8375862717106275e9adfd5a48a25000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d53c406b_80922889",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-10-29T21:02:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32233a9b_168cc251",
+      "range": {
+        "startLine": 46,
+        "startChar": 21,
+        "endLine": 46,
+        "endChar": 46
+      },
+      "revId": "6627c7f8375862717106275e9adfd5a48a25000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d1d4593_d6ae5c69",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-10-29T19:05:09Z",
       "side": 1,
       "message": "device is allowed to setup a data connection with that APN",
+      "range": {
+        "startLine": 47,
+        "startChar": 29,
+        "endLine": 47,
+        "endChar": 62
+      },
+      "revId": "6627c7f8375862717106275e9adfd5a48a25000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c0b7667_92bec486",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-10-29T21:02:27Z",
+      "side": 1,
+      "message": "I\u0027m not sure if I\u0027m misunderstanding this concept or if it\u0027s rewording issue.\n\nI updated the comments.  If that doesn\u0027t make sense, then I may have a misunderstanding of the functionality.",
+      "parentUuid": "0d1d4593_d6ae5c69",
       "range": {
         "startLine": 47,
         "startChar": 29,
