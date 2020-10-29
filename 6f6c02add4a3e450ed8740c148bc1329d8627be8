@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d7278fc_b95bb2ca",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-29T22:43:29Z",
+      "side": 1,
+      "message": "double space - consistency",
+      "range": {
+        "startLine": 46,
+        "startChar": 30,
+        "endLine": 46,
+        "endChar": 31
+      },
+      "revId": "6f6c02add4a3e450ed8740c148bc1329d8627be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a38d89d2_6209b107",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-29T22:43:29Z",
+      "side": 1,
+      "message": "nit: s/are/must be/",
+      "range": {
+        "startLine": 49,
+        "startChar": 83,
+        "endLine": 49,
+        "endChar": 86
+      },
+      "revId": "6f6c02add4a3e450ed8740c148bc1329d8627be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4b275c6_74d7c7d9",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-29T22:43:29Z",
+      "side": 1,
+      "message": "setupDataCall*? (since it should be any version?)",
+      "range": {
+        "startLine": 49,
+        "startChar": 53,
+        "endLine": 49,
+        "endChar": 66
+      },
+      "revId": "6f6c02add4a3e450ed8740c148bc1329d8627be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9b90dc1_caf426f5",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-10-29T22:43:29Z",
+      "side": 1,
+      "message": "any response/indication for this if it is successfully accepted?",
+      "range": {
+        "startLine": 55,
+        "startChar": 11,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "6f6c02add4a3e450ed8740c148bc1329d8627be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
