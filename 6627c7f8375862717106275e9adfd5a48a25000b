@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39221d51_bed6a63f",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-10-29T19:05:09Z",
+      "side": 1,
+      "message": "IRadio::setupDataCall",
+      "range": {
+        "startLine": 45,
+        "startChar": 79,
+        "endLine": 46,
+        "endChar": 14
+      },
+      "revId": "6627c7f8375862717106275e9adfd5a48a25000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32233a9b_168cc251",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-10-29T19:05:09Z",
+      "side": 1,
+      "message": "setupdataresult::retryXxxxx",
+      "range": {
+        "startLine": 46,
+        "startChar": 21,
+        "endLine": 46,
+        "endChar": 46
+      },
+      "revId": "6627c7f8375862717106275e9adfd5a48a25000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d1d4593_d6ae5c69",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-10-29T19:05:09Z",
+      "side": 1,
+      "message": "device is allowed to setup a data connection with that APN",
+      "range": {
+        "startLine": 47,
+        "startChar": 29,
+        "endLine": 47,
+        "endChar": 62
+      },
+      "revId": "6627c7f8375862717106275e9adfd5a48a25000b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
