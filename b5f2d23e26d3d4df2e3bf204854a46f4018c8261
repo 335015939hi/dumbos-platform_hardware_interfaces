@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b736b35d_3afa6fbc",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1458526
+      },
+      "writtenOn": "2020-10-29T13:25:59Z",
+      "side": 1,
+      "message": "Is Offload mode specific LC3 codec structure planned in a separate gerrit?\n\nIf yes, then please see if we can have below LC3 based params incorporated in that:\n\n1) Standard params like: Bit rate, Sample rate, channel mode, bits per sample.\n2) LC3 specific params like frame duration, SDU size, num blocks per SDU etc.\n3) Provision for passing vendor specific meta data.\n4) Provision for passing a BLOB for additional vendor data.\n5) Also as I see recording session is planned over HIDL, above is needed for both Tx and Rx paths.\n\nThanks,\nAyan",
+      "revId": "b5f2d23e26d3d4df2e3bf204854a46f4018c8261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
