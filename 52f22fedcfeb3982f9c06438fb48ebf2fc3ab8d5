@@ -16,6 +16,24 @@
       "message": "Add a test for this in radio_hidl_hal_api.cpp?",
       "revId": "52f22fedcfeb3982f9c06438fb48ebf2fc3ab8d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad88610a_77df16c9",
+        "filename": "radio/1.6/vts/functional/radio_response.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-10-30T20:27:43Z",
+      "side": 1,
+      "message": "Oh looks like this CL is already merged in internal. Is there a plan to add a vts for it?",
+      "parentUuid": "4c941039_45738177",
+      "revId": "52f22fedcfeb3982f9c06438fb48ebf2fc3ab8d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
