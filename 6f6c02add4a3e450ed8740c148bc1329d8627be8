@@ -142,6 +142,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b000c4e7_0615162d",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-10-30T19:38:40Z",
+      "side": 1,
+      "message": "Updated to be 1.6",
+      "parentUuid": "c554748e_d3b7b0fb",
+      "range": {
+        "startLine": 49,
+        "startChar": 53,
+        "endLine": 49,
+        "endChar": 66
+      },
+      "revId": "6f6c02add4a3e450ed8740c148bc1329d8627be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a4c3d2c_ee93732e",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-10-30T19:38:40Z",
+      "side": 1,
+      "message": "Ignore that last comment... I took another look after reviewing the guidelines you sent over on the other CL.\n\n\"must be\" isn\u0027t the appropriate term in this case.  I reworded the comments which (hopefully) makes this evident.",
+      "parentUuid": "2fd248b3_f89749e8",
+      "range": {
+        "startLine": 49,
+        "startChar": 83,
+        "endLine": 49,
+        "endChar": 86
+      },
+      "revId": "6f6c02add4a3e450ed8740c148bc1329d8627be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9b90dc1_caf426f5",
