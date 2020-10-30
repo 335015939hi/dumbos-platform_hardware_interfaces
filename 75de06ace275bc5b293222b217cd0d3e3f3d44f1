@@ -1,0 +1,56 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000005837542",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1481236?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "cc419150_0391149c",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-10-30T09:45:11Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 31,
+        "startChar": 62,
+        "endLine": 31,
+        "endChar": 66
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000005837542",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1481236?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "1765f612_25a58c97",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTestBase.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-10-30T09:45:11Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 65,
+        "startChar": 66,
+        "endLine": 65,
+        "endChar": 70
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
