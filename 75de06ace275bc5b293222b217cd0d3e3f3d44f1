@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98c4143e_9c69399a",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-10-30T14:53:32Z",
+      "side": 1,
+      "message": "#pragma once\n\nex:\nhttps://source.corp.google.com/aosp-master/hardware/interfaces/contexthub/common/vts/VtsHalContexthubUtils.h;l\u003d16",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7107578a_d6b2e780",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-10-30T14:53:32Z",
+      "side": 1,
+      "message": "please fix it",
+      "range": {
+        "startLine": 31,
+        "startChar": 63,
+        "endLine": 31,
+        "endChar": 65
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4093276_68e7ef7d",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTestBase.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-10-30T14:53:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 37
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9e669ee_9d5aa4d3",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTestBase.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-10-30T14:53:32Z",
+      "side": 1,
+      "message": "please fix",
+      "range": {
+        "startLine": 65,
+        "startChar": 67,
+        "endLine": 65,
+        "endChar": 69
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2a225a8_4644e44f",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTestUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-10-30T14:53:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 38
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3acfe8c_711117e6",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTestUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-10-30T14:53:32Z",
+      "side": 1,
+      "message": "probably move to be closer where uses it (OffloadControlHidlTestUtils.cpp). unique_fd is not used in this header file and the caller who includes this header file doesn\u0027t care about the unique_fd which is the internal implementation. The unique_fd is only used in conntrackSocket()\n\nThis could avoid who includes this file but it doesn\u0027t need this actually. \nReduce the unnecessary code dependency.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "384ec1c3_88316511",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTestUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-10-30T14:53:32Z",
+      "side": 1,
+      "message": "as L.20.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 31
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f23733a_55808d4f",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-10-30T14:53:32Z",
+      "side": 1,
+      "message": "Please review if any header file is not required anymore and remove unused header definition \n\nex: probably netlink.h, nfnetlink.h\nit looks like that \"NETLINK_NETFILTER\", \"NF_NETLINK_CONNTRACK_*\" has been removed from L.84, L.136",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 14
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6149e18c_9ecf3d46",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-10-30T14:53:32Z",
+      "side": 1,
+      "message": "Please review if any namespace is not required anymore and remove unused namespace definition\n\nex: probably sp\nit looks like that \"sp\" has been removed from L.221, L.222, L.224",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7e67b44_ce03a8df",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-10-30T14:53:32Z",
+      "side": 1,
+      "message": "I know it is an existing code. It is hard to know what the different from these two test classes.\n\nTEST_P(OffloadControlHidlTest ..\nTEST_P(OffloadControlHidlTestBase ..",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 29
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
