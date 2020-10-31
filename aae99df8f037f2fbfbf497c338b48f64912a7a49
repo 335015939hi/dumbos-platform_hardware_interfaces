@@ -45,6 +45,30 @@
       },
       "revId": "aae99df8f037f2fbfbf497c338b48f64912a7a49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5269149b_22e5d1ab",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-10-31T02:16:17Z",
+      "side": 1,
+      "message": "From an \"API elegance\" perspective I completely agree and did that at first.\n\nBut, since the data call isn\u0027t active at all, I thought it may not make sense in this context.  For example, would info like maxConns and maxConnsTime be valid for an unthrottle?\n\nI don\u0027t know the domain well enough to make a good decision here, if it makes sense to you still, let me know and I\u0027m happy to change.",
+      "parentUuid": "9ff32fae_b78cc4c7",
+      "range": {
+        "startLine": 55,
+        "startChar": 51,
+        "endLine": 55,
+        "endChar": 61
+      },
+      "revId": "aae99df8f037f2fbfbf497c338b48f64912a7a49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
