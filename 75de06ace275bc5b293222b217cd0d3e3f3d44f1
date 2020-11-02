@@ -469,6 +469,30 @@
       },
       "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6efc057f_6bccf239",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-02T10:06:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09c90cc6_05ecc29c",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 29
+      },
+      "revId": "75de06ace275bc5b293222b217cd0d3e3f3d44f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
