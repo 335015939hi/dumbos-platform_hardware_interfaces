@@ -46,6 +46,23 @@
       },
       "revId": "b5c7e1813debbd3129ee57e893343fe84ba2f391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5144105a_071e91de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-11-02T16:52:00Z",
+      "side": 1,
+      "message": "Hi All, could you help review this ag/12771766 cherry-pick? We want to submit it into android11-tests-dev branch.",
+      "revId": "b5c7e1813debbd3129ee57e893343fe84ba2f391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
