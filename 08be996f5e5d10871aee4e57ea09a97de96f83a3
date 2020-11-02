@@ -51,6 +51,24 @@
       "parentUuid": "b888ac4e_51a1d7b0",
       "revId": "08be996f5e5d10871aee4e57ea09a97de96f83a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16c3b85a_1839ecf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121603
+      },
+      "writtenOn": "2020-11-02T04:08:02Z",
+      "side": 1,
+      "message": "For CDMA MO, AP F/W sets message Id now.\nIn case of retrying, vendor(RIL or modem) should be set it? Not by AP F/W?",
+      "parentUuid": "e6d00a41_e3639e26",
+      "revId": "08be996f5e5d10871aee4e57ea09a97de96f83a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
