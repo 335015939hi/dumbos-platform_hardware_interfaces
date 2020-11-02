@@ -69,6 +69,29 @@
       "parentUuid": "e6d00a41_e3639e26",
       "revId": "08be996f5e5d10871aee4e57ea09a97de96f83a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f54a3f3_d7884470",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-02T17:35:32Z",
+      "side": 1,
+      "message": "what should the implementation do differently if it is a retry?",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 57
+      },
+      "revId": "08be996f5e5d10871aee4e57ea09a97de96f83a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
