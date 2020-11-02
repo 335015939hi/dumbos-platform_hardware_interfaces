@@ -33,6 +33,24 @@
       "message": "@Hongbo Zeng,\nCould you explain more what vendor should do for the retry flag?",
       "revId": "08be996f5e5d10871aee4e57ea09a97de96f83a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6d00a41_e3639e26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1385399
+      },
+      "writtenOn": "2020-11-02T03:02:43Z",
+      "side": 1,
+      "message": "Vendor should send the SMS with the same message id(not generate a new one) and contents from the original SMS when the retry flag is true,\nand MT side will concider they are the same SMS and show one SMS only on UI if receiving both original SMS and retry SMS.",
+      "parentUuid": "b888ac4e_51a1d7b0",
+      "revId": "08be996f5e5d10871aee4e57ea09a97de96f83a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
