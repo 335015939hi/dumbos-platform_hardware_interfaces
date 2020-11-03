@@ -69,6 +69,30 @@
       },
       "revId": "aae99df8f037f2fbfbf497c338b48f64912a7a49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39ada749_c4b07c96",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-11-03T18:30:16Z",
+      "side": 1,
+      "message": "I think it\u0027s okay to use string.",
+      "parentUuid": "5269149b_22e5d1ab",
+      "range": {
+        "startLine": 55,
+        "startChar": 51,
+        "endLine": 55,
+        "endChar": 61
+      },
+      "revId": "aae99df8f037f2fbfbf497c338b48f64912a7a49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
