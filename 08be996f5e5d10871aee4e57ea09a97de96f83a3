@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bae162ce_636a7efc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-11-03T00:04:40Z",
+      "side": 1,
+      "message": "I believe the message id is set by modem. We can include message id as a parameter which will be populated if isRetry is true. Does that answer your question?",
+      "parentUuid": "16c3b85a_1839ecf8",
+      "revId": "08be996f5e5d10871aee4e57ea09a97de96f83a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f54a3f3_d7884470",
         "filename": "radio/1.6/IRadio.hal",
         "patchSetId": 6
