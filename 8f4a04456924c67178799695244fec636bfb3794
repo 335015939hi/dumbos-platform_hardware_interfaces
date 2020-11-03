@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85f4ecb5_9920ad88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2020-11-03T06:41:18Z",
+      "side": 1,
+      "message": "Actually, I realized that the tests were failing locally due to incorrect setup on my end. I tested again without this change, and the tests are working fine. The failure in the bug is due to another reason, so abandoning this change.",
+      "revId": "8f4a04456924c67178799695244fec636bfb3794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
