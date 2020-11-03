@@ -33,6 +33,24 @@
       "message": "you were able to repro failure and verify this works (no typos?) - otherwise, maybe consider letting partner use patch first to fix bug",
       "revId": "0b9feb155ac9e2933e6a3ff609444e49e7b1996e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efd3a8f4_5d7182e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-11-03T19:13:10Z",
+      "side": 1,
+      "message": "yeah, I did some manual hack (remove disable_framework setting in bp, and the test failed to run completely).",
+      "parentUuid": "1da9b0b8_d9276ce4",
+      "revId": "0b9feb155ac9e2933e6a3ff609444e49e7b1996e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
