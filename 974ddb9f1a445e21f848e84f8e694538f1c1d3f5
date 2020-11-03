@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3ae2ce6_025c425e",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-11-03T06:13:00Z",
+      "side": 0,
+      "message": "getIccCardStatus() still uses response info from 1.0. This should not change, right?",
+      "revId": "974ddb9f1a445e21f848e84f8e694538f1c1d3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148e045f_3180c58f",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-11-03T06:13:00Z",
+      "side": 0,
+      "message": "Shouldn\u0027t this be testing the 1.6 version? What\u0027s the reason for this change?",
+      "range": {
+        "startLine": 85,
+        "startChar": 16,
+        "endLine": 85,
+        "endChar": 35
+      },
+      "revId": "974ddb9f1a445e21f848e84f8e694538f1c1d3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
