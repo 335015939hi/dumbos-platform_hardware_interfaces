@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ffe5bd23_8e862988",
+        "filename": "keymint/aidl/android/hardware/keymint/Constants.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-03T00:19:20Z",
+      "side": 1,
+      "message": "This should be a const int, yes. It\u0027s not dynamic.",
+      "parentUuid": "6de69d21_ea0fd1d6",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 0
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cee0a244_2e2f5206",
         "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
         "patchSetId": 37
@@ -169,6 +193,30 @@
       "writtenOn": "2020-10-30T15:41:14Z",
       "side": 1,
       "message": "what are the implications of this? It\u0027s just invalid? not filled out yet?",
+      "range": {
+        "startLine": 85,
+        "startChar": 31,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c20fc1e_a61765db",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-03T00:19:20Z",
+      "side": 1,
+      "message": "Not used.  Given that AIDL supports @Nullable on arguments, we should use that and eliminate this language about empty tokens.",
+      "parentUuid": "ac6f2658_3461b833",
       "range": {
         "startLine": 85,
         "startChar": 31,
@@ -317,6 +365,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ec2ffbf_3d343cbd",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyCharacteristics.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-03T00:19:20Z",
+      "side": 1,
+      "message": "We don\u0027t support SW KeyMint (or Keymaster) implementations except in test environments. Cuttlefish is even acquiring TEE-like implementation (running KeyMint in a separate process outside of CrosVM, using virtual TPM for key storage).",
+      "parentUuid": "47af75b9_febc0f50",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 7
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bedbef1_11e522e8",
@@ -336,6 +408,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ec3cf1e_497556a0",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-03T00:19:20Z",
+      "side": 1,
+      "message": "Version numbering is implementation-defined.  The goal is to be able to distinguish between different versions of a given implementation, not to have globally-meaningful values. (Not resolving because this should be clarified in the doc comment.)",
+      "parentUuid": "4bedbef1_11e522e8",
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d459a2b_b047fd8e",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-03T00:19:20Z",
+      "side": 1,
+      "message": "These comments should all follow the format:\n\n/**\n * This is a documentation string comment.\n */",
+      "range": {
+        "startLine": 28,
+        "startChar": 5,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12fa1c3e_8cf859a3",
         "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
         "patchSetId": 37
@@ -347,6 +460,30 @@
       "writtenOn": "2020-10-30T15:41:14Z",
       "side": 1,
       "message": "can you put details of how this should be used?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 34
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef3fcdad_5caf3484",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-03T00:19:20Z",
+      "side": 1,
+      "message": "Like version numbers, keyMintNames are implementation-defined. The goal is to be able to distinguish between different implementations from the same author.",
+      "parentUuid": "12fa1c3e_8cf859a3",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -382,6 +519,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d820cc60_94b2afd3",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-03T00:19:20Z",
+      "side": 1,
+      "message": "This should be the name of the organization that implemented KeyMint.",
+      "parentUuid": "173c74c5_4a08853c",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 40
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a765e47_318a246e",
         "filename": "keymint/aidl/android/hardware/keymint/KeyParameter.aidl",
         "patchSetId": 37
@@ -393,6 +554,30 @@
       "writtenOn": "2020-10-30T15:41:14Z",
       "side": 1,
       "message": "fyi - union is supported now",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 68
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07dbdde4_685f7953",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyParameter.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-03T00:19:20Z",
+      "side": 1,
+      "message": "Woohoo!",
+      "parentUuid": "3a765e47_318a246e",
       "range": {
         "startLine": 37,
         "startChar": 0,
