@@ -70,6 +70,30 @@
       },
       "revId": "02035cdd326c3f4ec379ee7872fee0543a40aed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f3982c8_60f05894",
+        "filename": "graphics/composer/2.1/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-11-03T19:06:01Z",
+      "side": 1,
+      "message": "PTAL aosp/1486339",
+      "parentUuid": "51b60ba3_21a619b1",
+      "range": {
+        "startLine": 25,
+        "startChar": 48,
+        "endLine": 25,
+        "endChar": 87
+      },
+      "revId": "02035cdd326c3f4ec379ee7872fee0543a40aed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
