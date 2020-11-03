@@ -46,6 +46,30 @@
       },
       "revId": "02035cdd326c3f4ec379ee7872fee0543a40aed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51b60ba3_21a619b1",
+        "filename": "graphics/composer/2.1/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-03T17:39:00Z",
+      "side": 1,
+      "message": "I thought we were trying to move away from auto-generated configs.\n\nIt could look like this:\n\n    int main(int argc, char **argv) {\n        ::testing::InitGoogleTest(\u0026argc, argv);\n\n        using namespace std::chrono_literals;\n        android::base::WaitForProperty(\"init.svc.surfaceflinger\", \"stopped\", 10s);\n\n        return RUN_ALL_TESTS();\n    }",
+      "parentUuid": "93ff9f77_dac8fe60",
+      "range": {
+        "startLine": 25,
+        "startChar": 48,
+        "endLine": 25,
+        "endChar": 87
+      },
+      "revId": "02035cdd326c3f4ec379ee7872fee0543a40aed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
