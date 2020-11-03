@@ -22,6 +22,30 @@
       },
       "revId": "02035cdd326c3f4ec379ee7872fee0543a40aed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93ff9f77_dac8fe60",
+        "filename": "graphics/composer/2.1/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-11-03T17:36:16Z",
+      "side": 1,
+      "message": "Done\n\nUse WaitForProperty in SetUp might be cleaner. I will leave that to stoza@ to decide.",
+      "parentUuid": "d610d6f2_bed62453",
+      "range": {
+        "startLine": 25,
+        "startChar": 48,
+        "endLine": 25,
+        "endChar": 87
+      },
+      "revId": "02035cdd326c3f4ec379ee7872fee0543a40aed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
