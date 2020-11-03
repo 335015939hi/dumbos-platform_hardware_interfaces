@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a1bb1c6_68764f27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121603
+      },
+      "writtenOn": "2020-11-03T00:50:05Z",
+      "side": 1,
+      "message": "Could you check it?\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/base/telephony/java/com/android/internal/telephony/cdma/SmsMessage.java;l\u003d968?q\u003dgetNextMessageId\u0026ss\u003dandroid",
+      "parentUuid": "bae162ce_636a7efc",
+      "revId": "08be996f5e5d10871aee4e57ea09a97de96f83a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f54a3f3_d7884470",
         "filename": "radio/1.6/IRadio.hal",
         "patchSetId": 6
