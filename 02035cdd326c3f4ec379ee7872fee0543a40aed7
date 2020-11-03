@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d610d6f2_bed62453",
+        "filename": "graphics/composer/2.1/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-03T17:26:33Z",
+      "side": 1,
+      "message": "getprop takes an argument to avoid having to read and print _all_ properties. Although, I would recommend using libbase\u0027s WaitForProperty in C++.\n\nAny thought to continue using bp-generated file and move the wait into `main`?",
+      "range": {
+        "startLine": 25,
+        "startChar": 48,
+        "endLine": 25,
+        "endChar": 87
+      },
+      "revId": "02035cdd326c3f4ec379ee7872fee0543a40aed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
