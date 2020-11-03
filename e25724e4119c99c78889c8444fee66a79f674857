@@ -16,6 +16,23 @@
       "message": "I don\u0027t have a physical device to run the tests, can someone double check this cl on physical device?",
       "revId": "e25724e4119c99c78889c8444fee66a79f674857",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b99188f8_7591d3f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-11-03T21:03:23Z",
+      "side": 1,
+      "message": "LGTM. I pinged on the bug to see if we can get confirmation from the vendor.",
+      "revId": "e25724e4119c99c78889c8444fee66a79f674857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
