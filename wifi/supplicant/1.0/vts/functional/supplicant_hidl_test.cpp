@@ -38,8 +38,18 @@ class SupplicantHidlTest
     : public ::testing::TestWithParam<std::tuple<std::string, std::string>> {
    public:
     virtual void SetUp() override {
+        // Stop Wi-Fi
+        ASSERT_TRUE(stopWifiFramework());  // stop & wait for wifi to shutdown.
+
         wifi_instance_name_ = std::get<0>(GetParam());
         supplicant_instance_name_ = std::get<1>(GetParam());
+<<<<<<< HEAD   (7bfe31 Merge "Allows APN to be unthrottled through an indication")
+=======
+        std::system("/system/bin/start");
+        ASSERT_TRUE(waitForFrameworkReady());
+        isP2pOn_ =
+            testing::deviceSupportsFeature("android.hardware.wifi.direct");
+>>>>>>> CHANGE (894739 vts(wifi): Stop wifi fully instead of stopping framework)
         stopSupplicant(wifi_instance_name_);
         startSupplicantAndWaitForHidlService(wifi_instance_name_,
                                              supplicant_instance_name_);
@@ -49,7 +59,15 @@ class SupplicantHidlTest
         ASSERT_NE(supplicant_.get(), nullptr);
     }
 
+<<<<<<< HEAD   (7bfe31 Merge "Allows APN to be unthrottled through an indication")
     virtual void TearDown() override { stopSupplicant(wifi_instance_name_); }
+=======
+    virtual void TearDown() override {
+        stopSupplicant(wifi_instance_name_);
+        // Start Wi-Fi
+        startWifiFramework();
+    }
+>>>>>>> CHANGE (894739 vts(wifi): Stop wifi fully instead of stopping framework)
 
    protected:
     // ISupplicant object used for all tests in this fixture.
