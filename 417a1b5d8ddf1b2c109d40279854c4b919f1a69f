@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27b02884_7a1eb9f4",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTestV1_0.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-04T07:27:10Z",
+      "side": 1,
+      "message": "Choose OffloadControlTestV1_0_NotInitedHal given that:\n 1. this is the test subject to offloadControl\n 2. the suffix make it more clear as you mentioned.",
+      "parentUuid": "d32ada03_38db1347",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 44
+      },
+      "revId": "417a1b5d8ddf1b2c109d40279854c4b919f1a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef83631_a5f829d0",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "190edf53_496fabc8",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTestV1_0.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-04T07:27:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ef83631_a5f829d0",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 5
+      },
+      "revId": "417a1b5d8ddf1b2c109d40279854c4b919f1a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b3c91bf_cb12ed61",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-11-03T13:45:40Z",
       "side": 1,
       "message": "optional: probably rename the \"Hal\". make the naming more specific\n\nBecause there are three hals (IOffloadConfig.hal, IOffloadControl.hal, ITetheringOffloadCallback.hal), the \"Hal\" can\u0027t tell exactly which hal is initialed or not initialed. In the other words, the \"Hal\" of the class naming means IOffloadControl.hal actually. Please review the follows.\n\nclsse OffloadControlHidlTestNotInitedHalV1_0  // Initialize 2 Hals \n    virtual void SetUp() override {\n        setupConfigHal();     // -\u003e init sp\u003cIOffloadConfig\u003e \n        prepareControlHal();  // -\u003e init sp\u003cTetheringOffloadCallback\u003e \n    }\n\nclass OffloadControlHidlTestInitedHalV1_0  // Initialize 3 Hals\n    virtual void SetUp() override {\n        setupConfigHal();     // -\u003e init sp\u003cIOffloadConfig\u003e \n        setupControlHal();    // -\u003e init sp\u003cTetheringOffloadCallback\u003e, sp\u003cIOffloadControl\u003e \n    }",
+      "range": {
+        "startLine": 29,
+        "startChar": 34,
+        "endLine": 29,
+        "endChar": 37
+      },
+      "revId": "417a1b5d8ddf1b2c109d40279854c4b919f1a69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd82a0fc_e787ba46",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlHidlTestV1_0.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-04T07:27:10Z",
+      "side": 1,
+      "message": "This test is subject to OffloadControl so I think the naming is clear enough but the code is not.\nHence comment added.",
+      "parentUuid": "4b3c91bf_cb12ed61",
       "range": {
         "startLine": 29,
         "startChar": 34,
