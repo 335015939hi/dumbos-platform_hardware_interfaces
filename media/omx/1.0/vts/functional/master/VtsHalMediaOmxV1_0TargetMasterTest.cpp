@@ -257,6 +257,7 @@ TEST_P(MasterHidlTest, ListRoles) {
     std::set<const std::string> roleKeys;
     std::map<const std::string, std::set<const std::string>> nodeToRoles;
     std::map<const std::string, std::set<const std::string>> ownerToNodes;
+
     for (const IOmxStore::RoleInfo& role : roleList) {
         // Make sure there are no duplicates
         const auto [roleIter, inserted] = roleKeys.insert(role.role);
@@ -264,11 +265,13 @@ TEST_P(MasterHidlTest, ListRoles) {
 
         // Make sure role name follows expected format based on type and
         // isEncoder
-        const std::string role_name(
-                ::android::GetComponentRole(role.isEncoder, role.type.c_str()));
-        EXPECT_EQ(role_name, role.role) << "Role \"" << role.role << "\" does not match "
+        const char *role_name =
+            ::android::GetComponentRole(role.isEncoder, role.type.c_str());
+        if (role_name != nullptr) {
+            EXPECT_EQ(std::string(role_name), role.role) << "Role \"" << role.role << "\" does not match "
                                         << (role.isEncoder ? "an encoder " : "a decoder ")
-                                        << "for mime type \"" << role.type << ".";
+                                        << "for media type \"" << role.type << ".";
+        }
 
         // Check the nodes for this role
         std::set<const std::string> nodeKeys;
