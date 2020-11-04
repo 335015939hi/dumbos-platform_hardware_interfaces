@@ -70,16 +70,18 @@ class SupplicantHidlTestBase
     : public ::testing::TestWithParam<std::tuple<std::string, std::string>> {
    public:
     virtual void SetUp() override {
+        // Stop Wi-Fi
+        std::system("svc wifi disable");
+        std::system("cmd wifi set-scan-always-available disabled");
+        sleep(2);  // wait for wifi to shutdown.
+
         // should always be v1.0 wifi
         wifi_v1_0_instance_name_ = std::get<0>(GetParam());
         supplicant_instance_name_ = std::get<1>(GetParam());
         std::system("/system/bin/start");
         ASSERT_TRUE(waitForFrameworkReady());
-
         isP2pOn_ =
             testing::deviceSupportsFeature("android.hardware.wifi.direct");
-        // Stop Framework
-        std::system("/system/bin/stop");
         stopSupplicant(wifi_v1_0_instance_name_);
         startSupplicantAndWaitForHidlService(wifi_v1_0_instance_name_,
                                              supplicant_instance_name_);
@@ -88,8 +90,9 @@ class SupplicantHidlTestBase
 
     virtual void TearDown() override {
         stopSupplicant(wifi_v1_0_instance_name_);
-        // Start Framework
-        std::system("/system/bin/start");
+        // Start Wi-Fi
+        std::system("svc wifi enable");
+        std::system("cmd wifi set-scan-always-available enabled");
     }
 
    protected:
