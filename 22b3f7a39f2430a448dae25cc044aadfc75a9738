@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cc0d70d_a1561278",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlTestBase.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-11-04T08:04:27Z",
+      "side": 1,
+      "message": "Please review if you really want to set it as a pure virtual function. \n\nIt depends on which class (Base, V1) does your V2 class want to inherit.\nIf you want all new classes V2(..) to inherit Base class, they may need to implementing the SetUp again. Or they have to inherit V1 class which has implemented SetUp to avoid duplicated SetUp implementation.",
+      "range": {
+        "startLine": 61,
+        "startChar": 25,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "22b3f7a39f2430a448dae25cc044aadfc75a9738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
