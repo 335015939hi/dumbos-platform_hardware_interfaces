@@ -22,6 +22,30 @@
       },
       "revId": "22b3f7a39f2430a448dae25cc044aadfc75a9738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd681d89_8a55d024",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlTestBase.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-05T10:20:18Z",
+      "side": 1,
+      "message": "In the plan, V1.1 will only uses classed that inherented base, but not use base directly. But things might change, and we can modify them any time.",
+      "parentUuid": "0cc0d70d_a1561278",
+      "range": {
+        "startLine": 61,
+        "startChar": 25,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "22b3f7a39f2430a448dae25cc044aadfc75a9738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
