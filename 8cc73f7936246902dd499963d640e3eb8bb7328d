@@ -22,6 +22,30 @@
       },
       "revId": "8cc73f7936246902dd499963d640e3eb8bb7328d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14b8c405_b06fa35e",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-05T07:31:21Z",
+      "side": 1,
+      "message": "Thanks for asking.\nRevised, see if it works for you.\n\nThe callee should support both of them in case the caller is different.\ne.g. the same hardware that is shipped to run on different framework.\nBut should not need to worry about the caller calling different API in the same framework,\nsince the caller should always call one of them.",
+      "parentUuid": "6e2a861b_fe5fcdd8",
+      "range": {
+        "startLine": 44,
+        "startChar": 56,
+        "endLine": 44,
+        "endChar": 58
+      },
+      "revId": "8cc73f7936246902dd499963d640e3eb8bb7328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
