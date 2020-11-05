@@ -108,6 +108,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ad1ca0c8_3daebcaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2020-11-05T02:42:53Z",
+      "side": 1,
+      "message": "Hi Etan and Steven, could you help +2 to this CL? It\u0027s ported from https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/12771766/.",
+      "revId": "b5c7e1813debbd3129ee57e893343fe84ba2f391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "77788b62_73af9cff",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
         "patchSetId": 2
