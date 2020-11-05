@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "443c207d_3186d5a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2020-11-05T17:06:08Z",
+      "side": 1,
+      "message": "Addressed the comment. PTAL, thanks!",
+      "revId": "197a544c7cf9ee883bf4908b0ae8c3fb6f161fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44747320_e2c83ee0",
@@ -14,6 +31,30 @@
       "writtenOn": "2020-11-04T23:43:26Z",
       "side": 1,
       "message": "will this be enough? Do we need to confirm if wifi is disabled?",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 19
+      },
+      "revId": "197a544c7cf9ee883bf4908b0ae8c3fb6f161fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "525bb67f_38291e9a",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2020-11-05T17:06:08Z",
+      "side": 1,
+      "message": "Added a helper to confirm that we have stopped.",
+      "parentUuid": "44747320_e2c83ee0",
       "range": {
         "startLine": 44,
         "startChar": 8,
