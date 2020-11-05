@@ -134,6 +134,30 @@
       },
       "revId": "266db52470ac5a5d85ef918b59571a36da2d71e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "093b5c13_7514a4bd",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-05T10:19:34Z",
+      "side": 1,
+      "message": "Done, thanks for Nucca\u0027s guidances.\nI believe this looks better now.",
+      "parentUuid": "85d3a570_f0887499",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 2
+      },
+      "revId": "266db52470ac5a5d85ef918b59571a36da2d71e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
