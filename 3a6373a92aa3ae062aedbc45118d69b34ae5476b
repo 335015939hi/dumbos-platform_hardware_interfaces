@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8f556f9_14d1226d",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-11-05T15:56:39Z",
+      "side": 1,
+      "message": "HalNotStarted?",
+      "range": {
+        "startLine": 25,
+        "startChar": 29,
+        "endLine": 25,
+        "endChar": 41
+      },
+      "revId": "3a6373a92aa3ae062aedbc45118d69b34ae5476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa8f6931_48b7c4ec",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-11-05T15:56:39Z",
+      "side": 1,
+      "message": "Can we also have a test that checks that setting a warning and limit succeeds? There are a number of SetDataLimit test cases in the 1.0 tests, maybe we can have the same here.\n\nOr are those changes in another CL in the stack? (If so, why put some testcases in this CL and others in another CL?)",
+      "range": {
+        "startLine": 37,
+        "startChar": 44,
+        "endLine": 37,
+        "endChar": 89
+      },
+      "revId": "3a6373a92aa3ae062aedbc45118d69b34ae5476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be30d6d2_3a27786e",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-11-05T15:56:39Z",
+      "side": 1,
+      "message": "HalStarted?",
+      "range": {
+        "startLine": 37,
+        "startChar": 30,
+        "endLine": 37,
+        "endChar": 42
+      },
+      "revId": "3a6373a92aa3ae062aedbc45118d69b34ae5476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
