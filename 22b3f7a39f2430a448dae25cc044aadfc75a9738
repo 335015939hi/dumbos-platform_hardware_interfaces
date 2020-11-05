@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8baf0a8b_0db0d18e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-11-05T15:32:23Z",
+      "side": 1,
+      "message": "Looks like a major readability improvement, thanks!\n\nLGTM assuming Nucca has no other concerns. We\u0027ll still need approval from one of the OWNERS (perhaps smoreland@).",
+      "revId": "22b3f7a39f2430a448dae25cc044aadfc75a9738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cc0d70d_a1561278",
@@ -43,6 +60,52 @@
         "startChar": 25,
         "endLine": 61,
         "endChar": 28
+      },
+      "revId": "22b3f7a39f2430a448dae25cc044aadfc75a9738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "508602c5_1070526b",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlTestV1_0.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-11-05T15:32:23Z",
+      "side": 1,
+      "message": "Suggest maybe \"HalNotStarted\"",
+      "range": {
+        "startLine": 21,
+        "startChar": 29,
+        "endLine": 21,
+        "endChar": 41
+      },
+      "revId": "22b3f7a39f2430a448dae25cc044aadfc75a9738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f029c88a_17b9227f",
+        "filename": "tetheroffload/control/1.0/vts/functional/OffloadControlTestV1_0.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-11-05T15:32:23Z",
+      "side": 1,
+      "message": "HalStarted?",
+      "range": {
+        "startLine": 30,
+        "startChar": 29,
+        "endLine": 30,
+        "endChar": 38
       },
       "revId": "22b3f7a39f2430a448dae25cc044aadfc75a9738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
