@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b7f959d_1d8e3de8",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-06T07:12:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8f556f9_14d1226d",
+      "range": {
+        "startLine": 25,
+        "startChar": 29,
+        "endLine": 25,
+        "endChar": 41
+      },
+      "revId": "3a6373a92aa3ae062aedbc45118d69b34ae5476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa8f6931_48b7c4ec",
@@ -65,6 +89,54 @@
         "startChar": 30,
         "endLine": 37,
         "endChar": 42
+      },
+      "revId": "3a6373a92aa3ae062aedbc45118d69b34ae5476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b79ec3a_071bd133",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-06T07:12:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be30d6d2_3a27786e",
+      "range": {
+        "startLine": 37,
+        "startChar": 30,
+        "endLine": 37,
+        "endChar": 42
+      },
+      "revId": "3a6373a92aa3ae062aedbc45118d69b34ae5476b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93ffeb50_84fc4236",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-06T07:12:44Z",
+      "side": 1,
+      "message": "Done\nThe test here is to reduce systematic changes in next patch. It also make the systematic changes in this patch reasonable, such as include, sub-classes and make files.\n\nIn second thought, I\u0027ll put it in next patch.\nBut it will leave some unused classes/includes in this patch.\nMight be a bit of strange.",
+      "parentUuid": "aa8f6931_48b7c4ec",
+      "range": {
+        "startLine": 37,
+        "startChar": 44,
+        "endLine": 37,
+        "endChar": 89
       },
       "revId": "3a6373a92aa3ae062aedbc45118d69b34ae5476b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
