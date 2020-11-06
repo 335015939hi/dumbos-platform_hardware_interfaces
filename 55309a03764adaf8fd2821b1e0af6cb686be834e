@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32336166_99efd15f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-11-06T07:53:39Z",
+      "side": 1,
+      "message": "You can\u0027t change 1.0 and 1.4 anymore. You should add that to 1.6. Import 1.4 as the base.",
+      "revId": "55309a03764adaf8fd2821b1e0af6cb686be834e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
