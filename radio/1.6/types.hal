@@ -284,3 +284,45 @@ enum NrDualConnectivityState: int32_t {
      */
     DISABLE_IMMEDIATE= 3,
 };
+
+struct LteSignalStrength {
+    @1.0::LteSignalStrength base;
+
+    /**
+     * CSI channel quality indicator (CQI) table index. There are multiple CQI tables.
+     * The definition of CQI in each table is different.
+     *
+     * Reference: 3GPP TS 136.213 section 7.2.3.
+     *
+     * Range [1, 6], INT_MAX means invalid/unreported.
+     */
+    uint32_t csiCqiTableIndex;
+};
+
+struct NrSignalStrength {
+    @1.4::NrSignalStrength base;
+
+    /**
+     * CSI channel quality indicator (CQI) table index. There are multiple CQI tables.
+     * The definition of CQI in each table is different.
+     *
+     * Reference: 3GPP TS 138.214 section 5.2.2.1.
+     *
+     * Range [1, 3], INT_MAX means invalid/unreported.
+     */
+    int32_t csiCqiTableIndex;
+
+    /**
+     * CSI channel quality indicator (CQI) for all subbands.
+     *
+     * If the CQI report is for the entire wideband, a single CQI index is provided.
+     * If the CQI report is for all subbands, one CQI index is provided for each subband,
+     * in ascending order of subband index.
+     * If CQI is not available, the CQI report is empty.
+     *
+     * Reference: 3GPP TS 138.214 section 5.2.2.1.
+     *
+     * Range [0, 15], INT_MAX means invalid/unreported.
+     */
+    vec<int32_t> csiCqiReport;
+};
