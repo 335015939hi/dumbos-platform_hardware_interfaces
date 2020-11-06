@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcba854e_3ba92cdb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-06T17:38:51Z",
+      "side": 1,
+      "message": "There needs to be a blank line between the first line and the body of the comment",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 3
+      },
+      "revId": "9d5fd65d432d4abef1cd424f0afccc4dbc7c9e64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
