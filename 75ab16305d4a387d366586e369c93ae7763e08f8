@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "991b638c_ec37a104",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-06T07:14:21Z",
+      "side": 1,
+      "message": "Note to reviewers: the tests are not run in local since we don\u0027t have hardware to verify.\nWe\u0027ll cowork with chip vendor to have it verified before merging.",
+      "revId": "75ab16305d4a387d366586e369c93ae7763e08f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
