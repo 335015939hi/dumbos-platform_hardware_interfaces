@@ -190,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac32085b_95e8e8d0",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-11-06T05:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4c3d2c_ee93732e",
+      "range": {
+        "startLine": 49,
+        "startChar": 83,
+        "endLine": 49,
+        "endChar": 86
+      },
+      "revId": "6f6c02add4a3e450ed8740c148bc1329d8627be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9b90dc1_caf426f5",
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "No, there is never a reason why this wouldn\u0027t be accepted.\n\n(Unless you\u0027re saying that this is standard for all indications which in that case I would need more info.)",
       "parentUuid": "e9b90dc1_caf426f5",
+      "range": {
+        "startLine": 55,
+        "startChar": 11,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "6f6c02add4a3e450ed8740c148bc1329d8627be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5820c4e2_397447f3",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-11-06T05:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb6dc3f3_439d8081",
       "range": {
         "startLine": 55,
         "startChar": 11,
