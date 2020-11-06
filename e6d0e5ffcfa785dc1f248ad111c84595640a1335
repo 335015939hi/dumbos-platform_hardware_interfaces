@@ -39,6 +39,69 @@
       },
       "revId": "e6d0e5ffcfa785dc1f248ad111c84595640a1335",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b2d1510_7fd946ad",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-06T18:00:47Z",
+      "side": 1,
+      "message": "ATTESTATION_CERTIFICATE_SERIAL and ATTESTATION_CERTIFICATE_SUBJECT should be called\nCERTIFICATE_SERIAL and CERTIFICATE_SUBJECT, because they shall be used for both self-signed/dummy certificates and attestation certificates.",
+      "range": {
+        "startLine": 896,
+        "startChar": 4,
+        "endLine": 896,
+        "endChar": 16
+      },
+      "revId": "e6d0e5ffcfa785dc1f248ad111c84595640a1335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1253ec7_66298c93",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-06T18:00:47Z",
+      "side": 1,
+      "message": "This documentation needs to specify what the format of the blob looks like. It could be a ASN1 DER encoded subject string, or a simple list of the form \"(\u003ckey\u003e\u003d\u003cvalue\u003e;)*\".",
+      "range": {
+        "startLine": 899,
+        "startChar": 36,
+        "endLine": 899,
+        "endChar": 43
+      },
+      "revId": "e6d0e5ffcfa785dc1f248ad111c84595640a1335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "930c4871_dbb66d9c",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-06T18:00:47Z",
+      "side": 1,
+      "message": "The public facing API makes a distinction between the key validity dates and the not befor/after dates of the certificate. So we need two more tags with date type CERTIFICATE_NOT_BEFORE and CERTIFICATE_NOT_AFTER.",
+      "revId": "e6d0e5ffcfa785dc1f248ad111c84595640a1335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
