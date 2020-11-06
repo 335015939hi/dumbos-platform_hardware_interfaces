@@ -63,6 +63,30 @@
       },
       "revId": "197a544c7cf9ee883bf4908b0ae8c3fb6f161fc4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5422a72a_e752919b",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1153368
+      },
+      "writtenOn": "2020-11-06T18:10:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "525bb67f_38291e9a",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 19
+      },
+      "revId": "197a544c7cf9ee883bf4908b0ae8c3fb6f161fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
