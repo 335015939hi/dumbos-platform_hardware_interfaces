@@ -1291,6 +1291,12 @@ struct LteSignalStrength {
                                           // Range: -200 to +300 (-200 = -20.0 dB, +300 = 30dB).
                                           // INT_MAX: 0x7FFFFFFF denotes invalid/unreported value.
                                           // Reference: 3GPP TS 36.101 8.1.1
+    uint32_t csiCqiTableIndex;            // CSI channel quality indicator (CQI) table index. There
+                                          // are multiple CQI tables, and the definition of CQI in
+                                          // each table is different.
+                                          // Reference: 3GPP TS 136.213 section 7.2.3.
+                                          // Range 1 to 6.
+                                          // INT_MAX: 0x7FFFFFFF denotes invalid/unreported value.
     uint32_t cqi;                         // The current Channel Quality Indicator.
                                           // Range: 0 to 15.
                                           // INT_MAX: 0x7FFFFFFF denotes invalid/unreported value.
