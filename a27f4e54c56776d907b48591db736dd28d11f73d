@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f64530da_d79bc05d",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1612418
+      },
+      "writtenOn": "2020-11-07T01:30:54Z",
+      "side": 1,
+      "message": "As discussed offline, integer max as legacy.",
+      "parentUuid": "1a9e0bff_2676d35d",
+      "range": {
+        "startLine": 297,
+        "startChar": 21,
+        "endLine": 297,
+        "endChar": 28
+      },
+      "revId": "a27f4e54c56776d907b48591db736dd28d11f73d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea61bf7e_e635d183",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-06T22:47:37Z",
       "side": 1,
       "message": "be consistent with LTE to use uint32_t.",
+      "range": {
+        "startLine": 313,
+        "startChar": 4,
+        "endLine": 313,
+        "endChar": 11
+      },
+      "revId": "a27f4e54c56776d907b48591db736dd28d11f73d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fa49379_b6a528a5",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1612418
+      },
+      "writtenOn": "2020-11-07T01:30:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea61bf7e_e635d183",
       "range": {
         "startLine": 313,
         "startChar": 4,
