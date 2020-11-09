@@ -93,6 +93,30 @@
       },
       "revId": "a1c0776f965e0bbe1a7182052f2a8f2f29b7b98f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2162f65d_41f5e09c",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-09T21:23:32Z",
+      "side": 1,
+      "message": "castFrom calls are checked, and they will return nullptr if the cast is invalid.\n\nThe 1.1 test should probably use \"V1_1::IOffloadControl::getService\" though directly",
+      "parentUuid": "63e7cc89_fe7c9c85",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "a1c0776f965e0bbe1a7182052f2a8f2f29b7b98f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
