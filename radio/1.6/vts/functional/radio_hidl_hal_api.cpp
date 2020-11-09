@@ -295,3 +295,53 @@ TEST_P(RadioHidlTest_v1_6, isNrDualConnectivityEnabled) {
                                   ::android::hardware::radio::V1_6::RadioError::INTERNAL_ERR,
                                   ::android::hardware::radio::V1_6::RadioError::NONE}));
 }
+
+/*
+ * Test IRadio.setSimCardPower_1_6() for the response returned.
+ */
+TEST_P(RadioHidlTest_v1_6, setSimCardPower_1_6) {
+    /* Record the sim card state for the testing environment */
+    CardState cardStateForTest = cardStatus.base.base.base.cardState;
+
+    /* Test setSimCardPower power down */
+    serial = GetRandomSerialNumber();
+    radio_v1_6->setSimCardPower_1_6(serial, CardPowerState::POWER_DOWN);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_6->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_6->rspInfo.serial);
+    ASSERT_TRUE(
+            CheckAnyOfErrors(radioRsp_v1_6->rspInfo.error,
+                             {::android::hardware::radio::V1_6::RadioError::NONE,
+                              ::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED,
+                              ::android::hardware::radio::V1_6::RadioError::INVALID_ARGUMENTS,
+                              ::android::hardware::radio::V1_6::RadioError::RADIO_NOT_AVAILABLE}));
+
+    // setSimCardPower_1_6 does not return  until the request is handled, and should not trigger
+    // CardState::ABSENT when turning off power
+    if (radioRsp_v1_6->rspInfo.error == ::android::hardware::radio::V1_6::RadioError::NONE) {
+        /* Wait some time for setting sim power down and then verify it */
+        updateSimCardStatus();
+        EXPECT_EQ(CardState::PRESENT, cardStatus.base.base.base.cardState);
+    }
+
+    /* Test setSimCardPower power up */
+    serial = GetRandomSerialNumber();
+    radio_v1_6->setSimCardPower_1_6(serial, CardPowerState::POWER_UP);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_6->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_6->rspInfo.serial);
+    ASSERT_TRUE(
+            CheckAnyOfErrors(radioRsp_v1_6->rspInfo.error,
+                             {::android::hardware::radio::V1_6::RadioError::NONE,
+                              ::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED,
+                              ::android::hardware::radio::V1_6::RadioError::INVALID_ARGUMENTS,
+                              ::android::hardware::radio::V1_6::RadioError::RADIO_NOT_AVAILABLE}));
+
+    // setSimCardPower_1_6 does not return  until the request is handled. Just verify that we still
+    // have CardState::PRESENT after turning the power back on
+    if (cardStateForTest == CardState::PRESENT &&
+        radioRsp_v1_6->rspInfo.error == ::android::hardware::radio::V1_6::RadioError::NONE) {
+        updateSimCardStatus();
+        EXPECT_EQ(CardState::PRESENT, cardStatus.base.base.base.cardState);
+    }
+}
