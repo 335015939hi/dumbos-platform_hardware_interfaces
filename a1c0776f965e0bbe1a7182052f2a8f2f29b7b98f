@@ -69,6 +69,30 @@
       },
       "revId": "a1c0776f965e0bbe1a7182052f2a8f2f29b7b98f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63e7cc89_fe7c9c85",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-09T09:51:38Z",
+      "side": 1,
+      "message": "Hi Steven,\n  the control is retrieved in base class with parameterized argument:\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1481236/6/tetheroffload/control/1.0/vts/functional/OffloadControlTestBase.cpp#57\nvoid OffloadControlTestBase::prepareControlHal() {\n    control \u003d V1_0::IOffloadControl::getService(std::get\u003c1\u003e(GetParam()));\n\nBut we don\u0027t know how getService is implemented. \nIn my expection, if 1.1 is passed into getService, it should create an V1_1 object, and we store it into a sp\u003cV1_0::IOffloadControl\u003e control. If so it should be safe to cast with V1_1::castFrom(control). Is it correct?\n\nCould you kindly give us some hints about the behavior or how to trace into it?",
+      "parentUuid": "7c5f1a8d_2519f45f",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "a1c0776f965e0bbe1a7182052f2a8f2f29b7b98f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
