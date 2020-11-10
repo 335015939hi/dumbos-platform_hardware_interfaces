@@ -50,7 +50,9 @@ class HingeAngleSensor : public OnChangeSensor {
 };
 
 SensorsV2_1::SensorsV2_1() {
+#ifdef SENSORS_HAL_2_1
     AddSensor<HingeAngleSensor>();
+#endif
 }
 
 // Methods from ::android::hardware::sensors::V2_1::ISensors follow.
