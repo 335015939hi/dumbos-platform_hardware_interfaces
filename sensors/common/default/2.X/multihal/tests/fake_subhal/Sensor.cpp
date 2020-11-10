@@ -71,9 +71,10 @@ const SensorInfo& Sensor::getSensorInfo() const {
     return mSensorInfo;
 }
 
-void Sensor::batch(int32_t samplingPeriodNs) {
+void Sensor::batch(int64_t samplingPeriodNs) {
     samplingPeriodNs =
-            std::clamp(samplingPeriodNs, mSensorInfo.minDelay * 1000, mSensorInfo.maxDelay * 1000);
+            std::clamp(samplingPeriodNs, mSensorInfo.minDelay * 1000ll,
+                       mSensorInfo.maxDelay * 1000ll);
 
     if (mSamplingPeriodNs != samplingPeriodNs) {
         mSamplingPeriodNs = samplingPeriodNs;
