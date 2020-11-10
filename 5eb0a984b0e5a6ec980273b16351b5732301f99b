@@ -1,0 +1,52 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "677b484b_03eb60f0",
+        "filename": "sensors/common/default/2.X/Sensor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1576299
+      },
+      "writtenOn": "2020-11-10T04:19:12Z",
+      "side": 1,
+      "message": "\u003e Please remove the trailing whitespace.\n\nPlease fix.",
+      "parentUuid": "f38af969_1a097a4e",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 4
+      },
+      "revId": "5eb0a984b0e5a6ec980273b16351b5732301f99b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6244352_df922ba5",
+        "filename": "sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1576299
+      },
+      "writtenOn": "2020-11-10T04:19:12Z",
+      "side": 1,
+      "message": "\u003e Please remove the trailing whitespace.\n\nPlease fix.",
+      "parentUuid": "e81836cf_a192bd6c",
+      "range": {
+        "startLine": 849,
+        "startChar": 0,
+        "endLine": 849,
+        "endChar": 4
+      },
+      "revId": "5eb0a984b0e5a6ec980273b16351b5732301f99b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
