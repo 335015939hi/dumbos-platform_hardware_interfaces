@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e2bcdd2_a3b6183c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-11-10T20:26:12Z",
+      "side": 1,
+      "message": "In the future, I\u0027d recommend splitting something like this into 3+ CLs to make review faster / easier since these are all distinct changes.",
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c686aa6f_07eb7c4b",
+        "filename": "sensors/2.1/default/SensorsV2_1.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-11-10T20:26:12Z",
+      "side": 1,
+      "message": "This is guaranteed to be HAL 2.1 since we\u0027re in the HAL 2.1 folder. I don\u0027t think this is necesary.",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "044a28c8_4f73d399",
+        "filename": "sensors/common/default/2.X/Sensor.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-11-10T20:26:12Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be listed in the changelist description. Is it necessary?",
+      "range": {
+        "startLine": 60,
+        "startChar": 19,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d76437af_195f2e47",
+        "filename": "sensors/common/default/2.X/multihal/tests/fake_subhal/Sensor.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-11-10T20:26:12Z",
+      "side": 1,
+      "message": "I think Brian also asked that this be removed.",
+      "range": {
+        "startLine": 117,
+        "startChar": 6,
+        "endLine": 117,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
