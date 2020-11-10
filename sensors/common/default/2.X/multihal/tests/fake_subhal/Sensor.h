@@ -49,7 +49,7 @@ class Sensor {
     virtual ~Sensor();
 
     const SensorInfo& getSensorInfo() const;
-    void batch(int32_t samplingPeriodNs);
+    void batch(int64_t samplingPeriodNs);
     virtual void activate(bool enable);
     Result flush();
 

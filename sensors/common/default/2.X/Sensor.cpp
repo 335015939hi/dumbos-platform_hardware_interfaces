@@ -57,11 +57,11 @@ const SensorInfo& Sensor::getSensorInfo() const {
     return mSensorInfo;
 }
 
-void Sensor::batch(int32_t samplingPeriodNs) {
-    if (samplingPeriodNs < mSensorInfo.minDelay * 1000) {
-        samplingPeriodNs = mSensorInfo.minDelay * 1000;
-    } else if (samplingPeriodNs > mSensorInfo.maxDelay * 1000) {
-        samplingPeriodNs = mSensorInfo.maxDelay * 1000;
+void Sensor::batch(int64_t samplingPeriodNs) {
+    if (samplingPeriodNs < mSensorInfo.minDelay * 1000ll) {
+        samplingPeriodNs = mSensorInfo.minDelay * 1000ll;
+    } else if (samplingPeriodNs > mSensorInfo.maxDelay * 1000ll) {
+        samplingPeriodNs = mSensorInfo.maxDelay * 1000ll;
     }
 
     if (mSamplingPeriodNs != samplingPeriodNs) {
@@ -133,6 +133,11 @@ bool Sensor::isWakeUpSensor() {
 }
 
 std::vector<Event> Sensor::readEvents() {
+    // For an accelerometer sensor type, default the z-direction
+    // value to -9.8
+    float zValue = (mSensorInfo.type == SensorType::ACCELEROMETER)
+        ? -9.8 : 0.0;
+
     std::vector<Event> events;
     Event event;
     event.sensorHandle = mSensorInfo.sensorHandle;
@@ -140,7 +145,7 @@ std::vector<Event> Sensor::readEvents() {
     event.timestamp = ::android::elapsedRealtimeNano();
     event.u.vec3.x = 0;
     event.u.vec3.y = 0;
-    event.u.vec3.z = 0;
+    event.u.vec3.z = zValue;
     event.u.vec3.status = SensorStatus::ACCURACY_HIGH;
     events.push_back(event);
     return events;
