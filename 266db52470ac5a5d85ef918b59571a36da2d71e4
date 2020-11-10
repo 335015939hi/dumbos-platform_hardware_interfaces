@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "910cc75d_1eb78137",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-10T09:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fe8b77c_11bc483e",
+      "range": {
+        "startLine": 134,
+        "startChar": 67,
+        "endLine": 134,
+        "endChar": 72
+      },
+      "revId": "266db52470ac5a5d85ef918b59571a36da2d71e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca647136_466accee",
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "Done, thanks for Nucca\u0027s guidances.\nI believe this looks better now.",
       "parentUuid": "85d3a570_f0887499",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 2
+      },
+      "revId": "266db52470ac5a5d85ef918b59571a36da2d71e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19f866d1_4275fe04",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-10T09:36:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "093b5c13_7514a4bd",
       "range": {
         "startLine": 52,
         "startChar": 0,
