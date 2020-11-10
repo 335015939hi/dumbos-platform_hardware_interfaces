@@ -133,6 +133,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "78c83b1e_dc1b2feb",
+        "filename": "sensors/2.1/default/SensorsV2_1.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-11-10T22:49:51Z",
+      "side": 1,
+      "message": "The issue is that 2.1 HALs also run 2.0 VTS and we don\u0027t have a way to tell them not to expose the hinge angle sensor. This means that they will always fail that test on VTS 2.0.",
+      "parentUuid": "d986cf9b_7131e9f4",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "044a28c8_4f73d399",
         "filename": "sensors/common/default/2.X/Sensor.cpp",
         "patchSetId": 5
