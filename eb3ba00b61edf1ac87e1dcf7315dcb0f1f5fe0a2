@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28cc0dd5_aa9c0eb0",
+        "filename": "sensors/2.1/default/SensorsV2_1.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-11-10T20:44:32Z",
+      "side": 1,
+      "message": "This is only defined by VTS so that means you\u0027re never actually exposing the hinge angle sensor. I think this may mean we need to modify VTS for HAL 2.0 to remove the check that looks for the hinge angle sensor. Originally, this was meant to prevent 2.0 HALs from exposing the hinge angle sensor, but unfortunately, 2.1 HALs also run 2.0 VTS so we can\u0027t assert that. \n\nSo I think we need to remove this addition and fix VTS 2.0",
+      "parentUuid": "b290a9e1_7de997db",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "044a28c8_4f73d399",
         "filename": "sensors/common/default/2.X/Sensor.cpp",
         "patchSetId": 5
