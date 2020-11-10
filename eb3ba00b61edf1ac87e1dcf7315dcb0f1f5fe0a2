@@ -157,6 +157,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80b146f6_abd656d0",
+        "filename": "sensors/2.1/default/SensorsV2_1.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-11-10T22:52:08Z",
+      "side": 1,
+      "message": "The only way to export that info would be to have the wrapper have a method to know if it was initialized as a 2.0 HAL or a 2.1 HAL. But we\u0027d also need to modify Multi-HAL to handle this too because currently it just passes up the sensor list from the sub-hals without pruning it of the hinge angle sensor when it\u0027s loaded as a 2.0 HAL.",
+      "parentUuid": "78c83b1e_dc1b2feb",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "044a28c8_4f73d399",
         "filename": "sensors/common/default/2.X/Sensor.cpp",
         "patchSetId": 5
