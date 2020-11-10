@@ -206,7 +206,6 @@ class ContinuousSensorsSubHal : public SubHalVersion {
         ISensorsSubHalBase::AddSensor<GyroSensor>();
         ISensorsSubHalBase::AddSensor<MagnetometerSensor>();
         ISensorsSubHalBase::AddSensor<PressureSensor>();
-        ISensorsSubHalBase::AddSensor<DeviceTempSensor>();
     }
 };
 
