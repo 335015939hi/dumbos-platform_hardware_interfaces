@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88070557_11c2d17e",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-10T21:16:58Z",
+      "side": 1,
+      "message": "should this assert that the error message is non-empty?",
+      "range": {
+        "startLine": 30,
+        "startChar": 70,
+        "endLine": 30,
+        "endChar": 91
+      },
+      "revId": "432088842f0c577e3ad614ce42a0c6c4c008ec50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31c31d1f_89dae526",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-10T21:16:58Z",
+      "side": 1,
+      "message": "should these assert that the error message is empty?",
+      "revId": "432088842f0c577e3ad614ce42a0c6c4c008ec50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
