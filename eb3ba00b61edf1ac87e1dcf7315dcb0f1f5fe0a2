@@ -109,6 +109,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d986cf9b_7131e9f4",
+        "filename": "sensors/2.1/default/SensorsV2_1.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2020-11-10T22:39:11Z",
+      "side": 1,
+      "message": "We do need to keep the check that 2.0 HALs do not expose sensor types which aren\u0027t defined. Purely at the HAL level, the hinge angle sensor should only show up in getSensorsList_2_1() and not getSensorsList() (the 2.0 version). Not sure if this is an issue in our default HAL implementation, or if we need to do something different with the usage of our wrapper class (https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/sensors/common/utils/ISensorsWrapper.h) is in VTS.",
+      "parentUuid": "28cc0dd5_aa9c0eb0",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "044a28c8_4f73d399",
         "filename": "sensors/common/default/2.X/Sensor.cpp",
         "patchSetId": 5
@@ -191,6 +215,30 @@
       "side": 1,
       "message": "Oh, I assumed that it was deprecated (not fully unsupported) and must be ignored by tests.. can remove it if that\u0027s the consensus in a follow up CL",
       "parentUuid": "d76437af_195f2e47",
+      "range": {
+        "startLine": 117,
+        "startChar": 6,
+        "endLine": 117,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a6de451_a1c20e29",
+        "filename": "sensors/common/default/2.X/multihal/tests/fake_subhal/Sensor.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2020-11-10T22:39:11Z",
+      "side": 1,
+      "message": "Yeah, I think it should be removed - it\u0027s been deprecated for several years, and having it in our reference code just invites others to use it.",
+      "parentUuid": "53819739_71dbbf1a",
       "range": {
         "startLine": 117,
         "startChar": 6,
