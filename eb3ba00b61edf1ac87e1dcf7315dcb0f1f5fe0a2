@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f72cd38d_2479027e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1576299
+      },
+      "writtenOn": "2020-11-10T20:37:48Z",
+      "side": 1,
+      "message": "ACK!",
+      "parentUuid": "1e2bcdd2_a3b6183c",
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c686aa6f_07eb7c4b",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-11-10T20:26:12Z",
       "side": 1,
       "message": "This is guaranteed to be HAL 2.1 since we\u0027re in the HAL 2.1 folder. I don\u0027t think this is necesary.",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b290a9e1_7de997db",
+        "filename": "sensors/2.1/default/SensorsV2_1.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1576299
+      },
+      "writtenOn": "2020-11-10T20:37:48Z",
+      "side": 1,
+      "message": "I thought so too - but the VTS test fails without this, and also saw a 2.1 interface dependency in the 2_0 test..",
+      "parentUuid": "c686aa6f_07eb7c4b",
       "range": {
         "startLine": 53,
         "startChar": 7,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f945153_4e29ffe3",
+        "filename": "sensors/common/default/2.X/Sensor.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1576299
+      },
+      "writtenOn": "2020-11-10T20:37:48Z",
+      "side": 1,
+      "message": "Necessary (and abides by the interface) - the Sensor max delay is 10 seconds, and an int32 clips that to 1.42 seconds.. But good catch on the CL desc - will update!",
+      "parentUuid": "044a28c8_4f73d399",
+      "range": {
+        "startLine": 60,
+        "startChar": 19,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d76437af_195f2e47",
@@ -77,6 +143,30 @@
       "writtenOn": "2020-11-10T20:26:12Z",
       "side": 1,
       "message": "I think Brian also asked that this be removed.",
+      "range": {
+        "startLine": 117,
+        "startChar": 6,
+        "endLine": 117,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53819739_71dbbf1a",
+        "filename": "sensors/common/default/2.X/multihal/tests/fake_subhal/Sensor.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1576299
+      },
+      "writtenOn": "2020-11-10T20:37:48Z",
+      "side": 1,
+      "message": "Oh, I assumed that it was deprecated (not fully unsupported) and must be ignored by tests.. can remove it if that\u0027s the consensus in a follow up CL",
+      "parentUuid": "d76437af_195f2e47",
       "range": {
         "startLine": 117,
         "startChar": 6,
