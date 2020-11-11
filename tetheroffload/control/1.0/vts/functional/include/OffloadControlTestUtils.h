@@ -19,14 +19,20 @@
 #include <linux/netlink.h>
 #include <sys/socket.h>
 
-// We use #defines here so as to get local lamba captures and error message line numbers
+// Use #defines here so as to get local lamba captures and error message line numbers.
 #define ASSERT_TRUE_CALLBACK                                    \
     [&](bool success, std::string errMsg) {                     \
         ASSERT_TRUE(success) << "unexpected error: " << errMsg; \
     }
 
-#define ASSERT_FALSE_CALLBACK \
-    [&](bool success, std::string errMsg) { ASSERT_FALSE(success) << "expected error: " << errMsg; }
+#define ASSERT_FALSE_CALLBACK                                         \
+    [&](bool success, std::string errMsg) {                           \
+        if (success) {                                                \
+            FAIL() << "unexpected success with error: " << errMsg;    \
+        } else {                                                      \
+            ASSERT_FALSE(errMsg.empty()) << "unexpected empty error"; \
+        }                                                             \
+    }
 
 #define ASSERT_ZERO_BYTES_CALLBACK            \
     [&](uint64_t rxBytes, uint64_t txBytes) { \
