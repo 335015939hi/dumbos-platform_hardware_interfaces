@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58acb44b_bb5ac444",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-11-11T16:46:23Z",
+      "side": 1,
+      "message": "You\u0027ll need getCellInfoList_1_6 in IRadio. Even though it has no difference in the previous version, we\u0027d like to make them in a pair. getCellInfoList_1_6 has the response getCellInfoListResponse_1_6.",
+      "range": {
+        "startLine": 322,
+        "startChar": 11,
+        "endLine": 322,
+        "endChar": 38
+      },
+      "revId": "66eeb8aca2bf72eeea542dc716b1e6b25ecc3e81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
