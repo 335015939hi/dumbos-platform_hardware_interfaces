@@ -16,6 +16,24 @@
       "message": "also VTS tests?",
       "revId": "bc5ab8cc699edbcc81b5a14e6f77a520069fad4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96bc7c34_5d91af68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1236374
+      },
+      "writtenOn": "2020-11-11T06:43:38Z",
+      "side": 1,
+      "message": "Sorry, I\u0027ve updated in patchset 17.\nBut as I mentioned in b/29063067(comment#64), it causes VTS error. I\u0027d appreciated if you support to try VTS and check how to resolve error.",
+      "parentUuid": "4eb75e6f_39f9a9c6",
+      "revId": "bc5ab8cc699edbcc81b5a14e6f77a520069fad4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
