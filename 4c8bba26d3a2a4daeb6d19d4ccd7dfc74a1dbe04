@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "036d5d1d_0a1e2548",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2020-11-11T23:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3f45d7a_716a08e3",
+      "range": {
+        "startLine": 304,
+        "startChar": 33,
+        "endLine": 304,
+        "endChar": 68
+      },
+      "revId": "4c8bba26d3a2a4daeb6d19d4ccd7dfc74a1dbe04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b2e41ec_4421fd16",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-10T21:43:52Z",
       "side": 1,
       "message": "are we allowing not_supported?",
+      "range": {
+        "startLine": 315,
+        "startChar": 76,
+        "endLine": 315,
+        "endChar": 97
+      },
+      "revId": "4c8bba26d3a2a4daeb6d19d4ccd7dfc74a1dbe04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "069f77e0_a102ede1",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2020-11-11T23:52:12Z",
+      "side": 1,
+      "message": "We allowed it in 1_1 so I figured we might as well leave it.\n (https://source.corp.google.com/android/hardware/interfaces/radio/1.1/vts/functional/radio_hidl_hal_api.cpp;l\u003d37?q\u003dsetSimCardPower_1_1%20file:vts\u0026sq\u003dpackage:android%5Cb)",
+      "parentUuid": "2b2e41ec_4421fd16",
       "range": {
         "startLine": 315,
         "startChar": 76,
