@@ -1,6 +1,7 @@
 aidl_interface {
     name: "android.hardware.keymaster",
     vendor_available: true,
+    product_available: true,
     srcs: [
         "android/hardware/keymaster/*.aidl",
     ],
@@ -26,6 +27,7 @@ aidl_interface {
 cc_library {
     name: "android.hardware.keymaster-V3-java",
 }
+
 cc_library {
     name: "android.hardware.keymaster-V4-java",
 }

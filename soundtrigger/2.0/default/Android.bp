@@ -17,6 +17,7 @@ cc_library_shared {
     name: "android.hardware.soundtrigger@2.0-core",
     defaults: ["hidl_defaults"],
     vendor_available: true,
+    product_available: true,
     vndk: {
         enabled: true,
     },

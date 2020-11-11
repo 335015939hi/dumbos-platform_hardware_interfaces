@@ -15,6 +15,7 @@
 aidl_interface {
     name: "android.hardware.power",
     vendor_available: true,
+    product_available: true,
     srcs: [
         "android/hardware/power/*.aidl",
     ],

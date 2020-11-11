@@ -1,6 +1,7 @@
 aidl_interface {
     name: "android.hardware.light",
     vendor_available: true,
+    product_available: true,
     srcs: [
         "android/hardware/light/*.aidl",
     ],
