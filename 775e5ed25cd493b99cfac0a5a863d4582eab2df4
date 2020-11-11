@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98f85035_d8dfdcb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-11T16:42:07Z",
+      "side": 1,
+      "message": "For these AIDL interfaces, product users should access the APIs via stable SDK/NDK APIs, right? Do all of these need to be exposed?",
+      "revId": "775e5ed25cd493b99cfac0a5a863d4582eab2df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d24336bc_b6ef5274",
+        "filename": "configstore/utils/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-11T16:42:07Z",
+      "side": 1,
+      "message": "configstore is deprecated, what on product is using it?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 28
+      },
+      "revId": "775e5ed25cd493b99cfac0a5a863d4582eab2df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
