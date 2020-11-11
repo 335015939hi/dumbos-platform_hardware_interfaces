@@ -16,6 +16,7 @@ hidl_interface {
 cc_library {
     name: "android.hardware.audio.common@7.0-enums",
     vendor_available: true,
+    product_available: true,
     generated_headers: ["audio_policy_configuration_V7_0"],
     generated_sources: ["audio_policy_configuration_V7_0"],
     header_libs: ["libxsdc-utils"],

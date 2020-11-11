@@ -17,6 +17,7 @@ cc_library_shared {
     name: "android.hardware.audio.common-util",
     defaults: ["hidl_defaults"],
     vendor_available: true,
+    product_available: true,
     srcs: [
         "EffectMap.cpp",
     ],
@@ -44,6 +45,7 @@ cc_defaults {
     defaults: ["hidl_defaults"],
 
     vendor_available: true,
+    product_available: true,
     srcs: [
         "HidlUtils.cpp",
     ],
