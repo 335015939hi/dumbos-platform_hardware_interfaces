@@ -181,6 +181,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e3f267e_2bf66792",
+        "filename": "sensors/2.1/default/SensorsV2_1.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2020-11-12T17:59:29Z",
+      "side": 1,
+      "message": "2.1 HALs should not expose a hinge angle sensor type in the 2.0 getSensorsList() (https://source.corp.google.com/android/hardware/interfaces/sensors/2.0/ISensors.hal;l\u003d38) - they can only expose it in getSensorsList_2_1(), which has an updated struct with the new definition included.\n\nSo either our default implementation isn\u0027t following this, or something\u0027s up with the wrapper or its usage in VTS.",
+      "parentUuid": "80b146f6_abd656d0",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "044a28c8_4f73d399",
         "filename": "sensors/common/default/2.X/Sensor.cpp",
         "patchSetId": 5
