@@ -1017,6 +1017,7 @@ optional<vector<vector<uint8_t>>> createAttestation(
 
     keymaster_error_t error;
     ::keymaster::CertChainPtr cert_chain_out;
+    ::keymaster::PureSoftKeymasterContext context;
 
     // Pretend to be implemented in a trusted environment just so we can pass
     // the VTS tests. Of course, this is a pretend-only game since hopefully no
