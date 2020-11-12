@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2a9e3b7_432d4bc8",
+        "filename": "sensors/2.1/default/SensorsV2_1.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-11-12T23:35:12Z",
+      "side": 1,
+      "message": "Per our chat, let\u0027s remove this and address in another bug / CL",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 22
+      },
+      "revId": "d3acfb41eaacafb2b5c298ebfeb69effa191c7b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
