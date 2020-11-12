@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d19e807_13f388b8",
+        "filename": "tetheroffload/control/1.0/vts/functional/include/OffloadControlTestV1_0.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-11-12T13:03:51Z",
+      "side": 1,
+      "message": "optional: review the class inheritance relationship if required.\n\n\u003e\u003e\u003e *Started* class inherits *NotStarted* class  \u003c\u003c\u003c\n\nA class inherits its mutually exclusive class (started \u003c-\u003e not started). It is hard to understand for me. The inheritance relationship makes me confused and thinking what is difference between the Started class (derived) and NotStarted class (base).\n\nI prefer that old style. Base class has most common things for its derived class. We just need to focus on the difference between base class and derived class\nNotStarted::Base \nStarted::Base\n\nNot a strong advice. Just a thought. Maybe there is a reason to do so.",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 86
+      },
+      "revId": "6f2cd06e03aba777ac9251cab2eb7a28d29fbadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
