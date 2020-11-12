@@ -319,6 +319,30 @@
       },
       "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c27f0454_cd2c1e80",
+        "filename": "sensors/common/default/2.X/multihal/tests/fake_subhal/Sensor.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1576299
+      },
+      "writtenOn": "2020-11-12T22:23:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a6de451_a1c20e29",
+      "range": {
+        "startLine": 117,
+        "startChar": 6,
+        "endLine": 117,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
