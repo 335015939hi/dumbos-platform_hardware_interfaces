@@ -147,6 +147,30 @@
       },
       "revId": "775e5ed25cd493b99cfac0a5a863d4582eab2df4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9fdd6c9_91c1adc9",
+        "filename": "configstore/utils/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-12T00:44:59Z",
+      "side": 1,
+      "message": "I think everything should be excluded from the product partition unless we have a reason to move it/access it there. Some of these might make sense to access, but I would want to understand why (or have specific teams sign off).",
+      "parentUuid": "385c1d90_f470ba51",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 28
+      },
+      "revId": "775e5ed25cd493b99cfac0a5a863d4582eab2df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
