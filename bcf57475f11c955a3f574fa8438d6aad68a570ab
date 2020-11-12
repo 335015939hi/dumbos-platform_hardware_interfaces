@@ -33,6 +33,23 @@
       "message": "rossyeh@: Need dr-no approval. ",
       "revId": "bcf57475f11c955a3f574fa8438d6aad68a570ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5ba5921_dd87bd61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1222074
+      },
+      "writtenOn": "2020-11-12T23:53:03Z",
+      "side": 1,
+      "message": "Please CP this fix to aosp/master.",
+      "revId": "bcf57475f11c955a3f574fa8438d6aad68a570ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
