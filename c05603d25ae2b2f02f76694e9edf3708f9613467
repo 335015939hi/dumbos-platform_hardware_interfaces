@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "806d54a1_f8249b84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-12T03:31:43Z",
+      "side": 1,
+      "message": "Verified -1 since failed 1 test on pixel device.\n\nLog:\n[4/40] PerInstance/OffloadControlTestV1_0_HalNotStarted#SetLocalPrefixesWithoutInitReturnsFalse/default_default_0: FAILED (3ms)\n\nSTACKTRACE:\nhardware/interfaces/tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp:87: Failure\nValue of: errMsg.empty()\nActual: true\nExpected: false\nunexpected empty error",
+      "revId": "c05603d25ae2b2f02f76694e9edf3708f9613467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
