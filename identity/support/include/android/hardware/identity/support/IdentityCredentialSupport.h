@@ -35,6 +35,9 @@ using ::std::tuple;
 using ::std::vector;
 using ::std::pair;
 
+// Version of initialized keymaster context.
+constexpr uint32_t kKeymasterVersion = 41;
+
 // ---------------------------------------------------------------------------
 // Miscellaneous utilities.
 // ---------------------------------------------------------------------------

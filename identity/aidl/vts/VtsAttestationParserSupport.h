@@ -97,7 +97,7 @@ class AttestationCertificateParser {
     // Helper functions.
     bool verifyChain(const keymaster_cert_chain_t& chain);
 
-    ASN1_OCTET_STRING* getAttestationRecord(X509* certificate);
+    ASN1_OCTET_STRING* getAttestationRecord(X509* certificate, const char* oid_string);
 
     X509* parseCertBlob(const keymaster_blob_t& blob);
 

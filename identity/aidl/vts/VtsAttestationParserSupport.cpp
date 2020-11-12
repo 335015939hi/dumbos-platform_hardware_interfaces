@@ -34,7 +34,8 @@ using ::android::binder::Status;
 using ::keymaster::ASN1_OBJECT_Ptr;
 using ::keymaster::AuthorizationSet;
 using ::keymaster::EVP_PKEY_Ptr;
-using ::keymaster::kAttestionRecordOid;
+using ::keymaster::kAsn1TokenOid;
+using ::keymaster::kEatTokenOid;
 using ::keymaster::TAG_ATTESTATION_APPLICATION_ID;
 using ::keymaster::TAG_IDENTITY_CREDENTIAL_KEY;
 using ::keymaster::TAG_INCLUDE_UNIQUE_ID;
@@ -88,8 +89,9 @@ bool AttestationCertificateParser::parse() {
     return true;
 }
 
-ASN1_OCTET_STRING* AttestationCertificateParser::getAttestationRecord(X509* certificate) {
-    ASN1_OBJECT_Ptr oid(OBJ_txt2obj(kAttestionRecordOid, 1));
+ASN1_OCTET_STRING* AttestationCertificateParser::getAttestationRecord(X509* certificate,
+                                                                      const char* oid_name) {
+    ASN1_OBJECT_Ptr oid(OBJ_txt2obj(oid_name, 1));
     if (!oid.get()) return nullptr;
 
     int location = X509_get_ext_by_OBJ(certificate, oid.get(), -1);
@@ -114,20 +116,37 @@ bool AttestationCertificateParser::verifyAttestationRecord(
         return false;
     }
 
-    ASN1_OCTET_STRING* attest_rec = getAttestationRecord(cert.get());
-    if (!attest_rec) {
+    ASN1_OCTET_STRING* asn1_ext = getAttestationRecord(cert.get(), kAsn1TokenOid);
+    ASN1_OCTET_STRING* eat_ext = getAttestationRecord(cert.get(), kEatTokenOid);
+    // Ensure that exactly one attestation extension is present.
+    if ((asn1_ext == nullptr) ^ (eat_ext == nullptr)) {
         return false;
     }
 
     keymaster_blob_t att_unique_id = {};
     keymaster_blob_t att_challenge;
-    keymaster_error_t ret = parse_attestation_record(
-            attest_rec->data, attest_rec->length, &att_attestation_version_,
-            &att_attestation_security_level_, &att_keymaster_version_,
-            &att_keymaster_security_level_, &att_challenge, &att_sw_enforced_, &att_hw_enforced_,
-            &att_unique_id);
-    if (ret) {
-        return false;
+    if (asn1_ext) {
+        if (parse_attestation_record(asn1_ext->data, asn1_ext->length, &att_attestation_version_,
+                                     &att_attestation_security_level_, &att_keymaster_version_,
+                                     &att_keymaster_security_level_, &att_challenge,
+                                     &att_sw_enforced_, &att_hw_enforced_, &att_unique_id)) {
+            return false;
+        }
+    } else {
+        keymaster_blob_t verified_boot_key = {};
+        keymaster_verified_boot_t verified_boot_state;
+        bool device_locked;
+        std::vector<int64_t> unexpected_claims;
+        if (parse_eat_record(eat_ext->data, eat_ext->length, &att_attestation_version_,
+                             &att_attestation_security_level_, &att_keymaster_version_,
+                             &att_keymaster_security_level_, &att_challenge, &att_sw_enforced_,
+                             &att_hw_enforced_, &att_unique_id, &verified_boot_key,
+                             &verified_boot_state, &device_locked, &unexpected_claims)) {
+            return false;
+        }
+        if (unexpected_claims.size() > 0) {
+            return false;
+        }
     }
 
     att_challenge_.assign(att_challenge.data, att_challenge.data + att_challenge.data_length);

@@ -928,7 +928,7 @@ optional<vector<vector<uint8_t>>> createAttestation(const EVP_PKEY* key,
 
     keymaster_error_t error;
     ::keymaster::CertChainPtr cert_chain_out;
-    ::keymaster::PureSoftKeymasterContext context;
+    ::keymaster::PureSoftKeymasterContext context(kKeymasterVersion);
 
     // set identity version to 10 per hal requirements specified in IWriteableCredential.hal
     // For now, the identity version in the attestation is set in the keymaster
