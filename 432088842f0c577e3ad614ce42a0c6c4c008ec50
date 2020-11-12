@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "76dfc912_c536f6e3",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-12T03:30:16Z",
+      "side": 1,
+      "message": "It seems the additional assert will fail below test.\nThus I think we should do that in a separate CL.\nBut since it fails the 1.0 test which chip vendors might already passed.\nIs it ok to do this modification?\nanyway the aosp/1496122 is provided, please kindly also have a look.\n\nLog:\n[4/40] PerInstance/OffloadControlTestV1_0_HalNotStarted#SetLocalPrefixesWithoutInitReturnsFalse/default_default_0: FAILED (3ms)\n\nSTACKTRACE:\nhardware/interfaces/tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp:87: Failure\nValue of: errMsg.empty()\nActual: true\nExpected: false\nunexpected empty error",
+      "parentUuid": "88070557_11c2d17e",
+      "range": {
+        "startLine": 30,
+        "startChar": 70,
+        "endLine": 30,
+        "endChar": 91
+      },
+      "revId": "432088842f0c577e3ad614ce42a0c6c4c008ec50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "31c31d1f_89dae526",
         "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
         "patchSetId": 3
@@ -37,6 +61,24 @@
       "writtenOn": "2020-11-10T21:16:58Z",
       "side": 1,
       "message": "should these assert that the error message is empty?",
+      "revId": "432088842f0c577e3ad614ce42a0c6c4c008ec50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "299aa3a6_5a09ca4b",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-12T03:30:16Z",
+      "side": 1,
+      "message": "It would fail ALL 1.0 tests like below since the errMsg is \"Successful\" instead of empty on pixel devices.\nIt seems we did not clearly define the errMsg when the result is success, so the chip vendor already implemented like this.\nI\u0027ll prefer we leave it as is since we don\u0027t really care about errMsg when success.\n\nLog: \nhardware/interfaces/tetheroffload/control/1.0/vts/functional/OffloadControlTestBase.cpp:52: Failure\nValue of: errMsg.empty()\nActual: false\nExpected: true\nunexpected error: Successful\n[37/40] PerInstance/OffloadControlTestV1_0_HalStarted#RemoveDownstreamIPv6/default_default_0: FAILED (3ms)",
+      "parentUuid": "31c31d1f_89dae526",
       "revId": "432088842f0c577e3ad614ce42a0c6c4c008ec50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
