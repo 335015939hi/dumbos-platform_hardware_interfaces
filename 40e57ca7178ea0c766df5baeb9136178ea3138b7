@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f172487a_ef24135f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380617
+      },
+      "writtenOn": "2020-11-12T14:16:37Z",
+      "side": 1,
+      "message": "LGTM. Note that VTS WifiStaIfaceHidlTest::GetFactoryMacAddress already tests for this (https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/wifi/1.3/vts/functional/wifi_sta_iface_hidl_test.cpp;l\u003d77;drc\u003ddcfab61c9b458912991ac333947db2540864eb51)",
+      "revId": "40e57ca7178ea0c766df5baeb9136178ea3138b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
