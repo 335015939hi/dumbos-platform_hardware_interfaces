@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2003a2b_548ed0b5",
+        "filename": "tetheroffload/control/1.0/vts/functional/include/OffloadControlTestUtils.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-12T03:28:06Z",
+      "side": 1,
+      "message": "To me that looks like a functional change that should not be in this patch.\nI\u0027ll address this in next patch, if you don\u0027t mind.",
+      "parentUuid": "f5fe08e7_8a9d6c4d",
+      "range": {
+        "startLine": 24,
+        "startChar": 34,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "3ebf613ccd98b806add6b8b013260413a48f6b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5775c08a_24ee5248",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-10T21:18:18Z",
       "side": 1,
       "message": "nit: \u003c\u003c \"unexpected error: \" \u003c\u003c errMsg;",
+      "range": {
+        "startLine": 26,
+        "startChar": 31,
+        "endLine": 26,
+        "endChar": 37
+      },
+      "revId": "3ebf613ccd98b806add6b8b013260413a48f6b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30414caf_0bdc52e5",
+        "filename": "tetheroffload/control/1.0/vts/functional/include/OffloadControlTestUtils.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-12T03:28:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5775c08a_24ee5248",
       "range": {
         "startLine": 26,
         "startChar": 31,
