@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cc712cc_071e26b2",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-11-12T20:32:12Z",
+      "side": 1,
+      "message": "nit",
+      "range": {
+        "startLine": 312,
+        "startChar": 15,
+        "endLine": 312,
+        "endChar": 25
+      },
+      "revId": "d93f40579e7de19c44764b88510992be4ae7e121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
