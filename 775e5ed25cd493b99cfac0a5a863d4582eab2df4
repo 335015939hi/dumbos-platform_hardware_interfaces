@@ -99,6 +99,30 @@
       },
       "revId": "775e5ed25cd493b99cfac0a5a863d4582eab2df4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6672e977_481c1488",
+        "filename": "configstore/utils/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-12T00:32:25Z",
+      "side": 1,
+      "message": "(same question on other CL, if we can remove this restriction)",
+      "parentUuid": "bb50eea4_300d1c51",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 28
+      },
+      "revId": "775e5ed25cd493b99cfac0a5a863d4582eab2df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
