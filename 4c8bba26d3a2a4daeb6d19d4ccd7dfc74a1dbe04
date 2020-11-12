@@ -188,6 +188,30 @@
       },
       "revId": "4c8bba26d3a2a4daeb6d19d4ccd7dfc74a1dbe04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adfd0b1b_87baa633",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2020-11-12T07:38:53Z",
+      "side": 1,
+      "message": "Hmm so I\u0027m just concerned about OEMs that do actually want to leave the SIM powered off, but then upper layer didn\u0027t get a SIM state change and still thinks the USIM/CSIM are in READY state and are trying to use it. In that case I think it\u0027s better to force a num_apps\u003d0 state with ICC_STATUS_CHANGED / NOT_READY broadcast when we power it off. But still have the other identifying info like ATR/EID/ICCID so we know what SIM is there. As far as documentation...we might want to enforce it, so we can prevent the SIM\u0027s use during this power-off state. I guess this change will then become very similar to what we see when we disable the pSIM through the , enableUiccApplications() HAL (i believe the num_apps also becomes 0), but in our case we want that additional step of the SIM power actually being turned off.",
+      "parentUuid": "16cbc6cf_579b89c4",
+      "range": {
+        "startLine": 324,
+        "startChar": 18,
+        "endLine": 324,
+        "endChar": 36
+      },
+      "revId": "4c8bba26d3a2a4daeb6d19d4ccd7dfc74a1dbe04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
