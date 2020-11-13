@@ -43,6 +43,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "76f71e99_bf82a650",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 38
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-13T16:49:12Z",
+      "side": 1,
+      "message": "this is a nit",
+      "parentUuid": "68e3f9a8_6bc724dc",
+      "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f68b7012_a8e7377d",
         "filename": "keymint/aidl/android/hardware/keymint/Constants.aidl",
         "patchSetId": 38
