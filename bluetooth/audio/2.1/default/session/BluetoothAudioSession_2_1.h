@@ -16,18 +16,19 @@
 
 #pragma once
 
-#include <mutex>
-#include <unordered_map>
-
 #include <android/hardware/bluetooth/audio/2.0/IBluetoothAudioPort.h>
 #include <android/hardware/bluetooth/audio/2.1/types.h>
 #include <fmq/MessageQueue.h>
 #include <hardware/audio.h>
 #include <hidl/MQDescriptor.h>
 
+#include <mutex>
+#include <unordered_map>
+
 namespace android {
 namespace bluetooth {
 namespace audio {
+namespace V2_1 {
 
 using ::android::sp;
 using ::android::hardware::kSynchronizedReadWrite;
@@ -185,6 +186,7 @@ class BluetoothAudioSessionInstance {
       sessions_map_;
 };
 
+}  // namespace V2_1
 }  // namespace audio
 }  // namespace bluetooth
 }  // namespace android
