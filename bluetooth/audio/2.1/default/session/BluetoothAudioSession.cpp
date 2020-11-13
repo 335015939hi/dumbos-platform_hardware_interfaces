@@ -16,7 +16,7 @@
 
 #define LOG_TAG "BTAudioProviderSession"
 
-#include "BluetoothAudioSession.h"
+#include "BluetoothAudioSession_2_1.h"
 
 #include <android-base/logging.h>
 #include <android-base/stringprintf.h>
@@ -24,6 +24,7 @@
 namespace android {
 namespace bluetooth {
 namespace audio {
+namespace V2_1 {
 
 using ::android::hardware::audio::common::V5_0::AudioContentType;
 using ::android::hardware::audio::common::V5_0::AudioUsage;
@@ -462,6 +463,7 @@ BluetoothAudioSessionInstance::GetSessionInstance(
   return session_ptr;
 }
 
+}  // namespace V2_1
 }  // namespace audio
 }  // namespace bluetooth
 }  // namespace android

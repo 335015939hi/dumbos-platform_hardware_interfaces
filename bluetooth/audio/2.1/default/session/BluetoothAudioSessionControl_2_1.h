@@ -16,17 +16,21 @@
 
 #pragma once
 
-#include "BluetoothAudioSession.h"
+#include "BluetoothAudioSession_2_1.h"
 
 namespace android {
 namespace bluetooth {
 namespace audio {
+namespace V2_1 {
+using SessionType_2_0 =
+    ::android::hardware::bluetooth::audio::V2_0::SessionType;
 
 class BluetoothAudioSessionControl {
  public:
   // The control API helps to check if session is ready or not
   // @return: true if the Bluetooth stack has started th specified session
-  static bool IsSessionReady(const SessionType& session_type) {
+  static bool IsSessionReady(const SessionType_2_0& session_type_2_0) {
+    const SessionType session_type = SessionType(session_type_2_0);
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -39,7 +43,9 @@ class BluetoothAudioSessionControl {
   // PortStatusCallbacks
   // @return: cookie - the assigned number to this bluetooth_audio output
   static uint16_t RegisterControlResultCback(
-      const SessionType& session_type, const PortStatusCallbacks& cbacks) {
+      const SessionType_2_0& session_type_2_0,
+      const PortStatusCallbacks& cbacks) {
+    const SessionType session_type = SessionType(session_type_2_0);
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -51,8 +57,9 @@ class BluetoothAudioSessionControl {
   // The control API helps the bluetooth_audio module to unregister
   // PortStatusCallbacks
   // @param: cookie - indicates which bluetooth_audio output is
-  static void UnregisterControlResultCback(const SessionType& session_type,
-                                           uint16_t cookie) {
+  static void UnregisterControlResultCback(
+      const SessionType_2_0& session_type_2_0, uint16_t cookie) {
+    const SessionType session_type = SessionType(session_type_2_0);
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -63,7 +70,8 @@ class BluetoothAudioSessionControl {
   // The control API for the bluetooth_audio module to get current
   // AudioConfiguration
   static const AudioConfiguration& GetAudioConfig(
-      const SessionType& session_type) {
+      const SessionType_2_0& session_type_2_0) {
+    const SessionType session_type = SessionType(session_type_2_0);
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -77,7 +85,8 @@ class BluetoothAudioSessionControl {
 
   // Those control APIs for the bluetooth_audio module to start / suspend / stop
   // stream, to check position, and to update metadata.
-  static bool StartStream(const SessionType& session_type) {
+  static bool StartStream(const SessionType_2_0& session_type_2_0) {
+    const SessionType session_type = SessionType(session_type_2_0);
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -86,7 +95,8 @@ class BluetoothAudioSessionControl {
     return false;
   }
 
-  static bool SuspendStream(const SessionType& session_type) {
+  static bool SuspendStream(const SessionType_2_0& session_type_2_0) {
+    const SessionType session_type = SessionType(session_type_2_0);
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -95,7 +105,8 @@ class BluetoothAudioSessionControl {
     return false;
   }
 
-  static void StopStream(const SessionType& session_type) {
+  static void StopStream(const SessionType_2_0& session_type_2_0) {
+    const SessionType session_type = SessionType(session_type_2_0);
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -103,10 +114,11 @@ class BluetoothAudioSessionControl {
     }
   }
 
-  static bool GetPresentationPosition(const SessionType& session_type,
+  static bool GetPresentationPosition(const SessionType_2_0& session_type_2_0,
                                       uint64_t* remote_delay_report_ns,
                                       uint64_t* total_bytes_readed,
                                       timespec* data_position) {
+    const SessionType session_type = SessionType(session_type_2_0);
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -117,8 +129,9 @@ class BluetoothAudioSessionControl {
   }
 
   static void UpdateTracksMetadata(
-      const SessionType& session_type,
+      const SessionType_2_0& session_type_2_0,
       const struct source_metadata* source_metadata) {
+    const SessionType session_type = SessionType(session_type_2_0);
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -127,8 +140,9 @@ class BluetoothAudioSessionControl {
   }
 
   // The control API writes stream to FMQ
-  static size_t OutWritePcmData(const SessionType& session_type,
+  static size_t OutWritePcmData(const SessionType_2_0& session_type_2_0,
                                 const void* buffer, size_t bytes) {
+    const SessionType session_type = SessionType(session_type_2_0);
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -138,8 +152,9 @@ class BluetoothAudioSessionControl {
   }
 
   // The control API reads stream from FMQ
-  static size_t InReadPcmData(const SessionType& session_type, void* buffer,
-                              size_t bytes) {
+  static size_t InReadPcmData(const SessionType_2_0& session_type_2_0,
+                              void* buffer, size_t bytes) {
+    const SessionType session_type = SessionType(session_type_2_0);
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -149,6 +164,7 @@ class BluetoothAudioSessionControl {
   }
 };
 
+}  // namespace V2_1
 }  // namespace audio
 }  // namespace bluetooth
 }  // namespace android
