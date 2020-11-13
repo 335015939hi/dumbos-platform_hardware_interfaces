@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e378e2e_9facd598",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 38
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-13T16:45:45Z",
+      "side": 1,
+      "message": "nit: can you put two instance tags next to each other here? I think L298 is separate from L290 because they are different versions",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 305,
+        "endChar": 40
+      },
+      "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68e3f9a8_6bc724dc",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 38
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-13T16:45:45Z",
+      "side": 1,
+      "message": "extra newline",
+      "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f68b7012_a8e7377d",
+        "filename": "keymint/aidl/android/hardware/keymint/Constants.aidl",
+        "patchSetId": 38
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-13T16:45:45Z",
+      "side": 1,
+      "message": "you can have \u0027const int AUTH_TOKEN_MAC_LENGTH \u003d 32;\u0027 in IDevice.aidl or any other interface (will save you extra file, + static_casts)",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d92d94f7_1809db0a",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyParameter.aidl",
+        "patchSetId": 38
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-13T16:45:45Z",
+      "side": 1,
+      "message": "fyi - \u0027union { boolean boolValue; int integer; long longInteger; byte[] blob; }\u0027 should work now - might follow-up",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a3d2a78_dd0847e4",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyPurpose.aidl",
+        "patchSetId": 38
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-13T16:45:45Z",
+      "side": 1,
+      "message": "nit: fyi - it doesn\u0027t really matter right now, but you should put comments preceding the element they are commenting, since this is how they are processed",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 56
+      },
+      "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee4beb25_965121db",
+        "filename": "keymint/aidl/default/OWNERS",
+        "patchSetId": 38
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-13T16:45:45Z",
+      "side": 1,
+      "message": "FYI - for AIDL, if you want, you can move this up to keymint/aidl",
+      "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
