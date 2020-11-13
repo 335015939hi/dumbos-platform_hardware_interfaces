@@ -16,6 +16,23 @@
       "message": "merge conflict",
       "revId": "386db7a3e123045951d05553cf6a0cb901b832f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f455386a_dc25bc76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-11-13T17:37:29Z",
+      "side": 1,
+      "message": "You can\u0027t just modify types.hal. Every place that use this struct needs to be modified as well. It\u0027s like a chain. IRadio.hal and IRadioResponse.hal both need to be modified.",
+      "revId": "386db7a3e123045951d05553cf6a0cb901b832f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
