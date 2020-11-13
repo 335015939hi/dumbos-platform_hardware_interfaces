@@ -508,6 +508,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d308866_8c52b0a9",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2020-11-13T05:13:49Z",
+      "side": 1,
+      "message": "And maximum records was 10",
+      "parentUuid": "f62b491f_6c74a957",
+      "range": {
+        "startLine": 118,
+        "startChar": 48,
+        "endLine": 118,
+        "endChar": 82
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70636b7a_e95b519c",
