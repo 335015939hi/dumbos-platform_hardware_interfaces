@@ -80,7 +80,14 @@ TEST_P(RadioHidlTest, getFacilityLockForApp) {
 /*
  * Test IRadio.setFacilityLockForApp() for the response returned.
  */
+<<<<<<< HEAD   (f61e8e Merge "Fix issues for Japan model." into android10-tests-dev)
 TEST_P(RadioHidlTest, setFacilityLockForApp) {
+=======
+/*
+ * TODO(b/145710242) this is commented out because it breaks on TSTS devices on Q. The test
+ * can be safely enabled for future devices).
+TEST_F(RadioHidlTest, setFacilityLockForApp) {
+>>>>>>> BRANCH (8cdbb7 Disable tests for TSTS issue)
     serial = GetRandomSerialNumber();
     std::string facility = "";
     bool lockState = false;
@@ -100,6 +107,7 @@ TEST_P(RadioHidlTest, setFacilityLockForApp) {
                                      CHECK_GENERAL_ERROR));
     }
 }
+*/
 
 /*
  * Test IRadio.setBarringPassword() for the response returned.
@@ -127,7 +135,14 @@ TEST_P(RadioHidlTest, setBarringPassword) {
 /*
  * Test IRadio.getClip() for the response returned.
  */
+<<<<<<< HEAD   (f61e8e Merge "Fix issues for Japan model." into android10-tests-dev)
 TEST_P(RadioHidlTest, getClip) {
+=======
+/*
+ * TODO(b/145710242) this is commented out because it breaks on TSTS devices on Q. The test
+ * can be safely enabled for future devices).
+TEST_F(RadioHidlTest, getClip) {
+>>>>>>> BRANCH (8cdbb7 Disable tests for TSTS issue)
     serial = GetRandomSerialNumber();
 
     radio->getClip(serial);
@@ -141,6 +156,7 @@ TEST_P(RadioHidlTest, getClip) {
                                      CHECK_GENERAL_ERROR));
     }
 }
+*/
 
 /*
  * Test IRadio.setSuppServiceNotifications() for the response returned.
