@@ -22,6 +22,30 @@
       },
       "revId": "97322b2f6700c97e9f8ee3d435f75b376ba9ce22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa21550_aa8072f5",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-11-13T14:57:48Z",
+      "side": 1,
+      "message": "pcmConfig in V2_0::AudioConfiguration (passed as argument to this function) has only V2_0::PcmConfig.",
+      "parentUuid": "88849767_681dc08e",
+      "range": {
+        "startLine": 59,
+        "startChar": 52,
+        "endLine": 59,
+        "endChar": 61
+      },
+      "revId": "97322b2f6700c97e9f8ee3d435f75b376ba9ce22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
