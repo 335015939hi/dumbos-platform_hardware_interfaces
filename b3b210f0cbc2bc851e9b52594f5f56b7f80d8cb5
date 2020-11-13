@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a47a768f_1786fae4",
+        "filename": "keymint/aidl/android/hardware/keymint/ByteArray.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Please change the language of the comment. As Steven says, it\u0027s not \"improper\", it\u0027s a limitation in Java.\n\nI suggest:\n\n\"This is used to make out parameters of byte arrays more convenient.\"",
+      "parentUuid": "9b361d77_dbcc6707",
+      "range": {
+        "startLine": 21,
+        "startChar": 53,
+        "endLine": 21,
+        "endChar": 61
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6de69d21_ea0fd1d6",
         "filename": "keymint/aidl/android/hardware/keymint/Constants.aidl",
         "patchSetId": 37
@@ -185,6 +209,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e44b089_c3c16f12",
+        "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Not done.",
+      "parentUuid": "474a00d4_42741677",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5e8522d3_d8ca4bd1",
         "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
         "patchSetId": 37
@@ -220,6 +268,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "5e8522d3_d8ca4bd1",
+      "range": {
+        "startLine": 52,
+        "startChar": 25,
+        "endLine": 52,
+        "endChar": 54
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f24e052_05b438f8",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Steven was asking you to remove the comment.",
+      "parentUuid": "1789f9fa_120e8392",
       "range": {
         "startLine": 52,
         "startChar": 25,
@@ -326,6 +398,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b11dbc77_6b3d94ed",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Gerrit shows me that this is still a comma.  To be sure I downloaded the latest patchset, and it\u0027s still a comma.",
+      "parentUuid": "799aad8b_96af343d",
+      "range": {
+        "startLine": 81,
+        "startChar": 16,
+        "endLine": 81,
+        "endChar": 17
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac6f2658_3461b833",
         "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
         "patchSetId": 37
@@ -385,6 +481,30 @@
       "side": 1,
       "message": "I added a TODO.  Let\u0027s land this and change it to nullable in a seperate cl.  I sometimes get bizzar crashes in some of these nested nullable structures.  Rather deal with it seperately.",
       "parentUuid": "3c20fc1e_a61765db",
+      "range": {
+        "startLine": 85,
+        "startChar": 31,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "694445a6_5182f6f5",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "The TODO is not added.",
+      "parentUuid": "77d89d10_d736b1a3",
       "range": {
         "startLine": 85,
         "startChar": 31,
@@ -538,6 +658,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc42e441_b95e9fcc",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Not done.",
+      "parentUuid": "3ac1363e_76df9796",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 1
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b3c8287_b30a1dc5",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
         "patchSetId": 37
@@ -585,6 +729,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2eb4cadf_84c70f5d",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Not done.",
+      "parentUuid": "a6fbac10_1ff9d4e6",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 2
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "64326d42_4bf2ebf7",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
         "patchSetId": 37
@@ -620,6 +788,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "64326d42_4bf2ebf7",
+      "range": {
+        "startLine": 263,
+        "startChar": 47,
+        "endLine": 263,
+        "endChar": 56
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c8f6aa2_71e76640",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Not done.",
+      "parentUuid": "5bb48dce_37eee140",
       "range": {
         "startLine": 263,
         "startChar": 47,
@@ -779,6 +971,48 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7b48350_7633f29f",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Not done.",
+      "parentUuid": "76423a5d_297e09e7",
+      "range": {
+        "startLine": 28,
+        "startChar": 5,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba9a49bc_c07229a0",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Not done.",
+      "parentUuid": "a74ec977_a49598d5",
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12fa1c3e_8cf859a3",
         "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
         "patchSetId": 37
@@ -838,6 +1072,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "ef3fcdad_5caf3484",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 34
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5466bc4_f9d32d22",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Not done.",
+      "parentUuid": "6f6cddac_2ef4ac12",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -921,6 +1179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9808fbbd_bfd268c4",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Not done.",
+      "parentUuid": "423697ef_38e4aafe",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 40
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a765e47_318a246e",
         "filename": "keymint/aidl/android/hardware/keymint/KeyParameter.aidl",
         "patchSetId": 37
@@ -979,6 +1261,30 @@
       "writtenOn": "2020-11-13T12:14:04Z",
       "side": 1,
       "message": "Will make this change in a later cl.  Let\u0027s land this cl first, as there are too many cl waiting on top of it.  A bug has already been filed for the todo.",
+      "parentUuid": "07dbdde4_685f7953",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 68
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "621376be_ca80c65a",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyParameter.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-13T13:06:47Z",
+      "side": 1,
+      "message": "Add a bug# here.",
       "parentUuid": "07dbdde4_685f7953",
       "range": {
         "startLine": 37,
