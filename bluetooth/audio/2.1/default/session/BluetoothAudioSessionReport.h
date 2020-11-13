@@ -21,6 +21,7 @@
 namespace android {
 namespace bluetooth {
 namespace audio {
+namespace V2_1 {
 
 class BluetoothAudioSessionReport {
  public:
@@ -58,6 +59,7 @@ class BluetoothAudioSessionReport {
   }
 };
 
+}  // namespace V2_1
 }  // namespace audio
 }  // namespace bluetooth
 }  // namespace android

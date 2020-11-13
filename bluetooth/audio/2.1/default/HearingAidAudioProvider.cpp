@@ -30,7 +30,7 @@ namespace audio {
 namespace V2_1 {
 namespace implementation {
 
-using ::android::bluetooth::audio::BluetoothAudioSessionReport;
+using ::android::bluetooth::audio::V2_1::BluetoothAudioSessionReport;
 using ::android::hardware::Void;
 using ::android::hardware::bluetooth::audio::V2_0::AudioConfiguration;
 
