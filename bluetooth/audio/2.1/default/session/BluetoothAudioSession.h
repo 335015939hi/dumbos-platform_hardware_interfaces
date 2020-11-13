@@ -28,6 +28,7 @@
 namespace android {
 namespace bluetooth {
 namespace audio {
+namespace V2_1 {
 
 using ::android::sp;
 using ::android::hardware::kSynchronizedReadWrite;
@@ -185,6 +186,7 @@ class BluetoothAudioSessionInstance {
       sessions_map_;
 };
 
+}  // namespace V2_1
 }  // namespace audio
 }  // namespace bluetooth
 }  // namespace android
