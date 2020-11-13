@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88849767_681dc08e",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-11-13T14:53:11Z",
+      "side": 1,
+      "message": "You re-define pcmConfig in v2.1 . Don\u0027t you have to handle  V2_1::AudioConfiguration::hidl_discriminator::pcmConfig here in separate \u0027if\u0027 ?",
+      "range": {
+        "startLine": 59,
+        "startChar": 52,
+        "endLine": 59,
+        "endChar": 61
+      },
+      "revId": "97322b2f6700c97e9f8ee3d435f75b376ba9ce22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
