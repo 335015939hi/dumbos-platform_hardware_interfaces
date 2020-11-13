@@ -50,6 +50,24 @@
       "message": "Please CP this fix to aosp/master.",
       "revId": "bcf57475f11c955a3f574fa8438d6aad68a570ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1c62c97_c1948343",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1721886
+      },
+      "writtenOn": "2020-11-13T03:16:36Z",
+      "side": 1,
+      "message": "Hi Google,\nSince this issue is caused by https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1487251 and this patch has not merged in aosp/master.\n\nBoth of the CL should be CP to aosp/master simultaneously.",
+      "parentUuid": "b5ba5921_dd87bd61",
+      "revId": "bcf57475f11c955a3f574fa8438d6aad68a570ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
