@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ce71672_6f404b94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1612418
+      },
+      "writtenOn": "2020-11-13T19:53:38Z",
+      "side": 1,
+      "message": "Done. Thanks.",
+      "parentUuid": "ae158e70_e24e100b",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 10
+      },
+      "revId": "a9df2bdb7025b0a6f327eb3c4f06cc4bb3dc3ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb7ab1ae_43f85771",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-11-13T18:47:29Z",
       "side": 1,
       "message": "implementation detail. Can you document the contract?",
+      "range": {
+        "startLine": 407,
+        "startChar": 36,
+        "endLine": 407,
+        "endChar": 49
+      },
+      "revId": "a9df2bdb7025b0a6f327eb3c4f06cc4bb3dc3ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5fa7195_db1e87f5",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1612418
+      },
+      "writtenOn": "2020-11-13T19:53:38Z",
+      "side": 1,
+      "message": "The same comment has been used in Hal 1.0, 1.2 and 1.5. Implementer can leverage the legacy Hal.",
+      "parentUuid": "bb7ab1ae_43f85771",
       "range": {
         "startLine": 407,
         "startChar": 36,
