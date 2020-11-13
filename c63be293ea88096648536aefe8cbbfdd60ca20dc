@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdfbbaee_f301f0bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2020-11-13T13:22:15Z",
+      "side": 1,
+      "message": "how it was tested?",
+      "revId": "c63be293ea88096648536aefe8cbbfdd60ca20dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a8d7ff6_570b28ce",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2020-11-13T13:22:15Z",
+      "side": 1,
+      "message": "don\u0027t move around if not necessary",
+      "revId": "c63be293ea88096648536aefe8cbbfdd60ca20dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ecf664e_c9fa5306",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession_2_1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2020-11-13T13:22:15Z",
+      "side": 1,
+      "message": "Probably clang-format move that includes - but I believe we should not change it.",
+      "revId": "c63be293ea88096648536aefe8cbbfdd60ca20dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
