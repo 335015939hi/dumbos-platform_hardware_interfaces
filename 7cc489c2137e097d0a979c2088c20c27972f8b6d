@@ -16,6 +16,24 @@
       "message": "Using \n\nif (audioConfig.getDiscriminator() \u003d\u003d V2_0::AudioConfiguration::hidl_discriminator::pcmConfig) {\n} else {\n}\n\nwould make it easier to read. Maybe also addin some comment for V2.0 case would make sense.",
       "revId": "7cc489c2137e097d0a979c2088c20c27972f8b6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "394e4d73_0a3f5397",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-11-13T14:36:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ab8702c_39419a8b",
+      "revId": "7cc489c2137e097d0a979c2088c20c27972f8b6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
