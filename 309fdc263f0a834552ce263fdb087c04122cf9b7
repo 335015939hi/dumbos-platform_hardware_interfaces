@@ -89,6 +89,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9e8ac45_30f519ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2020-11-13T04:35:31Z",
+      "side": 1,
+      "message": "And I could not update or abandon this change after the account transfered.\nI have already listed the new changes in the Bug 23044962.\nPlease help to commet in the new change https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1441011.",
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb9b1a53_9b879bb1",
@@ -457,6 +474,30 @@
       "writtenOn": "2020-11-12T19:51:23Z",
       "side": 1,
       "message": "What is the maximum # records in one indication?",
+      "range": {
+        "startLine": 118,
+        "startChar": 48,
+        "endLine": 118,
+        "endChar": 82
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f62b491f_6c74a957",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2020-11-13T04:35:31Z",
+      "side": 1,
+      "message": "It is related to modem capability.",
+      "parentUuid": "b8bbaca8_199a3669",
       "range": {
         "startLine": 118,
         "startChar": 48,
