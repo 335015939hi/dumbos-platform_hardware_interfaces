@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b361d77_dbcc6707",
+        "filename": "keymint/aidl/android/hardware/keymint/ByteArray.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "memory might have fainted by now, but I thought the problem is that aidl requires caller to allocate the right amount of array for the return, which caller won\u0027t know how much to allocate ahead of time?  \n\nAnyway, reworded.",
+      "parentUuid": "337ce3a6_d07fb9f3",
+      "range": {
+        "startLine": 21,
+        "startChar": 53,
+        "endLine": 21,
+        "endChar": 61
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6de69d21_ea0fd1d6",
@@ -88,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11111e23_1ff84cec",
+        "filename": "keymint/aidl/android/hardware/keymint/Constants.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "The original thought is that const list might grow, so it\u0027s good to have it in a separate list, as did KM4.  But since it\u0027s just one here for now, I have moved it to IKeyMintDevice.aidl.",
+      "parentUuid": "ffe5bd23_8e862988",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 0
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cee0a244_2e2f5206",
@@ -101,6 +149,30 @@
       "writtenOn": "2020-10-30T15:41:14Z",
       "side": 1,
       "message": "can you specify these are used with EX_SERVICE_EXCEPTION?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "474a00d4_42741677",
+        "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cee0a244_2e2f5206",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -134,6 +206,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1789f9fa_120e8392",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e8522d3_d8ca4bd1",
+      "range": {
+        "startLine": 52,
+        "startChar": 25,
+        "endLine": 52,
+        "endChar": 54
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72a83a72_866c3506",
@@ -157,6 +253,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1af8fa27_b234c217",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "these fields are defined in this same file, so their length are pretty obvious we don\u0027t need to re state them.",
+      "parentUuid": "72a83a72_866c3506",
+      "range": {
+        "startLine": 75,
+        "startChar": 22,
+        "endLine": 75,
+        "endChar": 98
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fa38b28_563d07ce",
@@ -170,6 +290,30 @@
       "writtenOn": "2020-10-30T15:41:14Z",
       "side": 1,
       "message": ".",
+      "range": {
+        "startLine": 81,
+        "startChar": 16,
+        "endLine": 81,
+        "endChar": 17
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "799aad8b_96af343d",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fa38b28_563d07ce",
       "range": {
         "startLine": 81,
         "startChar": 16,
@@ -227,6 +371,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77d89d10_d736b1a3",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "I added a TODO.  Let\u0027s land this and change it to nullable in a seperate cl.  I sometimes get bizzar crashes in some of these nested nullable structures.  Rather deal with it seperately.",
+      "parentUuid": "3c20fc1e_a61765db",
+      "range": {
+        "startLine": 85,
+        "startChar": 31,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5b5d904_1829e112",
@@ -240,6 +408,30 @@
       "writtenOn": "2020-10-30T15:41:14Z",
       "side": 1,
       "message": "in Java, the client would have to allocate an array of the proper size and pass it into generateKey. Is that acceptable?\n\nYou could do:\n\nCertificate[] generateKey(in KeyParameter[] keyParams, out ByteArray generatedKeyBlob, out KeyCharacteristics generatedKeyCharacteristics)\n\nto get around that limitation, and it wouldn\u0027t change any C++ code.",
+      "range": {
+        "startLine": 367,
+        "startChar": 21,
+        "endLine": 367,
+        "endChar": 51
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99aaf8b6_65262486",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Certificate[] is a fixed size currently.  We will be removing the array and change it to a single certificate later as the final version.  Just need to land this first.",
+      "parentUuid": "a5b5d904_1829e112",
       "range": {
         "startLine": 367,
         "startChar": 21,
@@ -273,6 +465,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c97de1d_a9f0322f",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "same answer",
+      "parentUuid": "51f9211f_48ccc6f9",
+      "range": {
+        "startLine": 417,
+        "startChar": 19,
+        "endLine": 417,
+        "endChar": 49
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "381005c7_d2e3130f",
@@ -286,6 +502,30 @@
       "writtenOn": "2020-10-30T15:41:14Z",
       "side": 1,
       "message": "tab",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 1
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ac1363e_76df9796",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "381005c7_d2e3130f",
       "range": {
         "startLine": 141,
         "startChar": 0,
@@ -319,6 +559,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6fbac10_1ff9d4e6",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b3c8287_b30a1dc5",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 2
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64326d42_4bf2ebf7",
@@ -332,6 +596,30 @@
       "writtenOn": "2020-10-30T15:41:14Z",
       "side": 1,
       "message": "out of date - maybe grep for \u0027\\.hal\u0027",
+      "range": {
+        "startLine": 263,
+        "startChar": 47,
+        "endLine": 263,
+        "endChar": 56
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bb48dce_37eee140",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64326d42_4bf2ebf7",
       "range": {
         "startLine": 263,
         "startChar": 47,
@@ -447,6 +735,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a74ec977_a49598d5",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ec3cf1e_497556a0",
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76423a5d_297e09e7",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d459a2b_b047fd8e",
+      "range": {
+        "startLine": 28,
+        "startChar": 5,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12fa1c3e_8cf859a3",
@@ -484,6 +814,30 @@
       "side": 1,
       "message": "Like version numbers, keyMintNames are implementation-defined. The goal is to be able to distinguish between different implementations from the same author.",
       "parentUuid": "12fa1c3e_8cf859a3",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 34
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f6cddac_2ef4ac12",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef3fcdad_5caf3484",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -541,6 +895,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "423697ef_38e4aafe",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d820cc60_94b2afd3",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 40
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a765e47_318a246e",
@@ -578,6 +956,30 @@
       "side": 1,
       "message": "Woohoo!",
       "parentUuid": "3a765e47_318a246e",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 68
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7377788a_07637853",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyParameter.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "Will make this change in a later cl.  Let\u0027s land this cl first, as there are too many cl waiting on top of it.  A bug has already been filed for the todo.",
+      "parentUuid": "07dbdde4_685f7953",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -672,6 +1074,24 @@
       "writtenOn": "2020-10-30T15:41:14Z",
       "side": 1,
       "message": "how is this different from hardware auth token",
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf65e3ce_ad2a02c7",
+        "filename": "keymint/aidl/android/hardware/keymint/VerificationToken.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-13T12:14:04Z",
+      "side": 1,
+      "message": "They are used for different purpose, and have different fields with some overlap.",
+      "parentUuid": "23a3a56b_22eafac7",
       "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
