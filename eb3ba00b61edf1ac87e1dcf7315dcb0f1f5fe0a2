@@ -203,6 +203,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31dd8d39_edeae27d",
+        "filename": "sensors/2.1/default/SensorsV2_1.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1576299
+      },
+      "writtenOn": "2020-11-13T00:27:44Z",
+      "side": 1,
+      "message": "reverted, b/173135479 to track",
+      "parentUuid": "4e3f267e_2bf66792",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 22
+      },
+      "revId": "eb3ba00b61edf1ac87e1dcf7315dcb0f1f5fe0a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "044a28c8_4f73d399",
