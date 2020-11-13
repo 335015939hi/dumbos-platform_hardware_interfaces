@@ -320,4 +320,22 @@ interface IRadio extends @1.5::IRadio {
      */
     oneway setAllowedNetworkTypeBitmap(
             uint32_t serial, bitfield<RadioAccessFamily> networkTypeBitmap);
+
+    /**
+     * Request current voice registration state.
+     *
+     * @param serial Serial number of request.
+     *
+     * Response function is IRadioResponse.getVoiceRegistrationStateResponse_1_6()
+     */
+    oneway getVoiceRegistrationState_1_6(int32_t serial);
+
+    /**
+     * Request current data registration state.
+     *
+     * @param serial Serial number of request.
+     *
+     * Response function is IRadioResponse.getDataRegistrationStateResponse_1_6()
+     */
+    oneway getDataRegistrationState_1_6(int32_t serial);
 };
