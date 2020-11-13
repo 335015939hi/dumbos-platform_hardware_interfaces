@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9966cd0_ec448189",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-11-13T14:40:37Z",
+      "side": 1,
+      "message": "manually",
+      "parentUuid": "cdfbbaee_f301f0bb",
+      "revId": "c63be293ea88096648536aefe8cbbfdd60ca20dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a8d7ff6_570b28ce",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d55c1e2_08d3ac10",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-11-13T14:40:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9a8d7ff6_570b28ce",
+      "revId": "c63be293ea88096648536aefe8cbbfdd60ca20dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ecf664e_c9fa5306",
@@ -48,6 +84,24 @@
       "writtenOn": "2020-11-13T13:22:15Z",
       "side": 1,
       "message": "Probably clang-format move that includes - but I believe we should not change it.",
+      "revId": "c63be293ea88096648536aefe8cbbfdd60ca20dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32beada5_dccd1db1",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession_2_1.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-11-13T14:40:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9ecf664e_c9fa5306",
       "revId": "c63be293ea88096648536aefe8cbbfdd60ca20dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
