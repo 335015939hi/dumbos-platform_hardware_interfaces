@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d2eebff_e11e3b7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1056478
+      },
+      "writtenOn": "2020-11-13T22:01:49Z",
+      "side": 1,
+      "message": "I\u0027m not actually very familiar with HAL\u0027s and HIDLs; you might want to get someone like Amit to take a look.",
+      "revId": "5c862cd053056fa971736917fdf87a46e477d953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12a37fbd_2a8780e3",
+        "filename": "radio/config/1.3/IRadioConfig.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1056478
+      },
+      "writtenOn": "2020-11-13T22:01:49Z",
+      "side": 1,
+      "message": "2020?  OR are you a time traveller?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5c862cd053056fa971736917fdf87a46e477d953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23617014_3e2695b5",
+        "filename": "radio/config/1.3/IRadioConfigResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1056478
+      },
+      "writtenOn": "2020-11-13T22:01:49Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5c862cd053056fa971736917fdf87a46e477d953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "749e81ff_35e2043e",
+        "filename": "radio/config/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1056478
+      },
+      "writtenOn": "2020-11-13T22:01:49Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5c862cd053056fa971736917fdf87a46e477d953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "808524fb_932cabd0",
+        "filename": "radio/config/1.3/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1056478
+      },
+      "writtenOn": "2020-11-13T22:01:49Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5c862cd053056fa971736917fdf87a46e477d953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
