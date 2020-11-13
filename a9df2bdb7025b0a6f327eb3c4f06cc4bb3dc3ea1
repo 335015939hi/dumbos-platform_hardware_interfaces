@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae158e70_e24e100b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-13T18:47:29Z",
+      "side": 1,
+      "message": "run test",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 10
+      },
+      "revId": "a9df2bdb7025b0a6f327eb3c4f06cc4bb3dc3ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb7ab1ae_43f85771",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-13T18:47:29Z",
+      "side": 1,
+      "message": "implementation detail. Can you document the contract?",
+      "range": {
+        "startLine": 407,
+        "startChar": 36,
+        "endLine": 407,
+        "endChar": 49
+      },
+      "revId": "a9df2bdb7025b0a6f327eb3c4f06cc4bb3dc3ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
