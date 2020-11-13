@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1d63931_50550b38",
+        "filename": "keymint/aidl/android/hardware/keymint/ByteArray.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-13T15:56:37Z",
+      "side": 1,
+      "message": "Also the issue is not in return values but in output parameters.",
+      "parentUuid": "a47a768f_1786fae4",
+      "range": {
+        "startLine": 21,
+        "startChar": 53,
+        "endLine": 21,
+        "endChar": 61
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6de69d21_ea0fd1d6",
         "filename": "keymint/aidl/android/hardware/keymint/Constants.aidl",
         "patchSetId": 37
