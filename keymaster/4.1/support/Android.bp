@@ -27,6 +27,7 @@ cc_library {
         "Keymaster.cpp",
         "Keymaster3.cpp",
         "Keymaster4.cpp",
+        "authorization_set.cpp",
     ],
     export_include_dirs: ["include"],
     shared_libs: [

@@ -56,4 +56,11 @@ auto Keymaster4_1HidlTest::ProcessMessage(const HidlBuf& key_blob, KeyPurpose op
     return {convert(result), output, out_params};
 }
 
+ErrorCode Keymaster4_1HidlTest::BeginMessage(KeyPurpose operation,
+                                             const AuthorizationSet& in_params) {
+    SCOPED_TRACE("BeginMessage");
+    V4_0::ErrorCode result = Begin(operation, in_params);
+    return convert(result);
+}
+
 }  // namespace android::hardware::keymaster::V4_1::test

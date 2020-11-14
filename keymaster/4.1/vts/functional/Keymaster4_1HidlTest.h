@@ -141,6 +141,8 @@ class Keymaster4_1HidlTest : public V4_0::test::KeymasterHidlTest {
         return params;
     }
 
+    ErrorCode BeginMessage(KeyPurpose operation, const AuthorizationSet& in_params);
+
   private:
     sp<IKeymasterDevice> keymaster41_;
 };

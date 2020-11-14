@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,22 @@
  * limitations under the License.
  */
 
-#pragma once
+#include <keymasterV4_1/authorization_set.h>
 
-#include <keymasterV4_0/authorization_set.h>
+namespace android {
+namespace hardware {
+namespace keymaster {
+namespace V4_1 {
 
-#include <keymasterV4_1/keymaster_tags.h>
+AuthorizationSetBuilder& AuthorizationSet4_1Builder::OaepMGFDigest(
+        std::vector<V4_0::Digest> digests) {
+    for (auto digest : digests) {
+        push_back(TAG_RSA_OAEP_MGF_DIGEST, digest);
+    }
+    return *this;
+}
 
-namespace android::hardware::keymaster::V4_1 {
-
-using V4_0::AuthorizationSet;
-using V4_0::AuthorizationSetBuilder;
-using V4_0::KeyParameter;
-
-class AuthorizationSet4_1Builder : public V4_0::AuthorizationSetBuilder {
-  public:
-    AuthorizationSetBuilder& OaepMGFDigest(std::vector<V4_0::Digest> digests);
-};
-
-}  // namespace android::hardware::keymaster::V4_1
+}  // namespace V4_1
+}  // namespace keymaster
+}  // namespace hardware
+}  // namespace android

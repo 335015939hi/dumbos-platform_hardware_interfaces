@@ -22,6 +22,7 @@ cc_test {
         "DeviceUniqueAttestationTest.cpp",
         "Keymaster4_1HidlTest.cpp",
         "UnlockedDeviceRequiredTest.cpp",
+        "OaepMgfDigestTest.cpp",
     ],
     static_libs: [
         "android.hardware.keymaster@4.0",
