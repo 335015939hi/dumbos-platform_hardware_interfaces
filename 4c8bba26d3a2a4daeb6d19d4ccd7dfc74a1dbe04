@@ -236,6 +236,30 @@
       },
       "revId": "4c8bba26d3a2a4daeb6d19d4ccd7dfc74a1dbe04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3281efc5_00d55b9e",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2020-11-14T14:37:03Z",
+      "side": 1,
+      "message": "Yes, saying the former (Modem should broadcast num_apps\u003d0 in order to trigger a SIM_STATE_CHANGED, otherwise others may try to access the SIM when it\u0027s in ABSENT state)",
+      "parentUuid": "b13c4868_d69691ef",
+      "range": {
+        "startLine": 324,
+        "startChar": 18,
+        "endLine": 324,
+        "endChar": 36
+      },
+      "revId": "4c8bba26d3a2a4daeb6d19d4ccd7dfc74a1dbe04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
