@@ -85,6 +85,145 @@
       },
       "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd6a1173_27e54695",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T03:47:50Z",
+      "side": 1,
+      "message": "This does not apply any more. All provided data must be consumed by implementations.",
+      "range": {
+        "startLine": 34,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 70
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff027488_5eb7fa1c",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T03:47:50Z",
+      "side": 1,
+      "message": "This can go in favor of void updateAad(bytes[])",
+      "range": {
+        "startLine": 113,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 77
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80d04610_d7b6d4bc",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T03:47:50Z",
+      "side": 1,
+      "message": "This can go, we never use it.",
+      "range": {
+        "startLine": 134,
+        "startChar": 7,
+        "endLine": 135,
+        "endChar": 17
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98bfe461_daec3057",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T03:47:50Z",
+      "side": 1,
+      "message": "Not needed. Add updateAad. If you don\u0027t make this change now, please add a TODO and bug number to follow up.",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 95
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aa31767_f6fe2260",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T03:47:50Z",
+      "side": 1,
+      "message": "Not needed.",
+      "range": {
+        "startLine": 244,
+        "startChar": 7,
+        "endLine": 244,
+        "endChar": 69
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d2cbf75_87ef52ef",
+        "filename": "keymint/support/authorization_set.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T03:47:50Z",
+      "side": 1,
+      "message": "\u003e Common typo found: \"Paramaters\" -- should it be \"Parameters\"?\n\u003e Note: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.\n\nPlease fix.",
+      "parentUuid": "84f5f18e_7c619c91",
+      "range": {
+        "startLine": 302,
+        "startChar": 37,
+        "endLine": 302,
+        "endChar": 47
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
