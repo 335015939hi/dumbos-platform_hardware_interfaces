@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5be80799_67103be1",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 42
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T06:09:58Z",
+      "side": 1,
+      "message": "Why not just make it nullable? Add a bug number otherwise.",
+      "range": {
+        "startLine": 778,
+        "startChar": 66,
+        "endLine": 778,
+        "endChar": 98
+      },
+      "revId": "319624553962e5f60bef2035b217bc802951f792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

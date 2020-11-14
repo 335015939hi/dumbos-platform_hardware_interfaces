@@ -208,6 +208,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6bd1fd99_69793911",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T06:09:58Z",
+      "side": 1,
+      "message": "Then add a bug number.",
+      "parentUuid": "bd6a1173_27e54695",
+      "range": {
+        "startLine": 34,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 70
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff027488_5eb7fa1c",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
         "patchSetId": 40
@@ -337,6 +361,30 @@
       "side": 1,
       "message": "We have agreed to refactor update() and finish(), let\u0027s do it in another cl.  If you keep asking for all new changes in this cl then it will never land.",
       "parentUuid": "98bfe461_daec3057",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 95
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90c562fb_6664bec3",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T06:09:58Z",
+      "side": 1,
+      "message": "Add a TODO and a bug number.",
+      "parentUuid": "c221319c_5a49c8c1",
       "range": {
         "startLine": 229,
         "startChar": 4,
