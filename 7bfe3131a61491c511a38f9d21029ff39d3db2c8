@@ -16,6 +16,24 @@
       "message": "nit: in the future, you might consider splitting cleanup like this in a separate CL, since it would always be accepted, and it only risks potential merge conflicts",
       "revId": "7bfe3131a61491c511a38f9d21029ff39d3db2c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "846b7ff4_e5591677",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 38
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T00:28:59Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "500d933a_ce0d0da2",
+      "revId": "7bfe3131a61491c511a38f9d21029ff39d3db2c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
