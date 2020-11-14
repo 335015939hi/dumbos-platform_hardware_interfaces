@@ -119,6 +119,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05092790_2830c3d8",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 38
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "I had exactly the same problem many times already in different files.  I\u0027m sure I\u0027m not looking at the wrong file.",
+      "parentUuid": "01a24876_109ad0ea",
+      "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f68b7012_a8e7377d",
@@ -309,6 +327,24 @@
       "side": 1,
       "message": "note - this was removed, not moved",
       "parentUuid": "1897330f_b56045ef",
+      "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56b57cda_45f4327c",
+        "filename": "keymint/aidl/default/OWNERS",
+        "patchSetId": 38
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "I guess git add -u didn\u0027t add it.  Now added.",
+      "parentUuid": "353b439a_ce48b59e",
       "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

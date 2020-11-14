@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdfd89e4_4b9b8a44",
+        "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83aa2416_45333fc9",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 43
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58224ec1_f101f90c",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-14T03:34:21Z",
       "side": 1,
       "message": "This comment is misleading. The authtoken parameter in begin, update, and finish should be nullable, not the mac. We never use the Authtoken without mac.",
+      "range": {
+        "startLine": 85,
+        "startChar": 38,
+        "endLine": 85,
+        "endChar": 63
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bccaf72f_498bbd48",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "just deleted this comment and added a todo in begin() to make it nullable.",
+      "parentUuid": "58224ec1_f101f90c",
       "range": {
         "startLine": 85,
         "startChar": 38,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4225d902_0c62f877",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "Fixed.  I think Clang Format did that.  Clang Format do this for me every time I run it. I can file a bug but I don\u0027t know which component to file under.",
+      "parentUuid": "a3fa1d5c_622101a7",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 16
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd6a1173_27e54695",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-11-14T03:47:50Z",
       "side": 1,
       "message": "This does not apply any more. All provided data must be consumed by implementations.",
+      "range": {
+        "startLine": 34,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 70
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00975a06_1237a620",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "this requires implementation change.  I\u0027ve updated the todo.",
+      "parentUuid": "bd6a1173_27e54695",
       "range": {
         "startLine": 34,
         "startChar": 7,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a704e79_af98fd25",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "We have agreed to refactor update(), let\u0027s do it in another cl.  If you keep asking for all new changes in this cl then it will never land.",
+      "parentUuid": "ff027488_5eb7fa1c",
+      "range": {
+        "startLine": 113,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 77
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80d04610_d7b6d4bc",
@@ -146,6 +266,30 @@
       "writtenOn": "2020-11-14T03:47:50Z",
       "side": 1,
       "message": "This can go, we never use it.",
+      "range": {
+        "startLine": 134,
+        "startChar": 7,
+        "endLine": 135,
+        "endChar": 17
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5b65099_6a978fcf",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "We have agreed to refactor update(), let\u0027s do it in another cl.  If you keep asking for all new changes in this cl then it will never land.",
+      "parentUuid": "80d04610_d7b6d4bc",
       "range": {
         "startLine": 134,
         "startChar": 7,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c221319c_5a49c8c1",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "We have agreed to refactor update() and finish(), let\u0027s do it in another cl.  If you keep asking for all new changes in this cl then it will never land.",
+      "parentUuid": "98bfe461_daec3057",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 95
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3aa31767_f6fe2260",
@@ -192,6 +360,30 @@
       "writtenOn": "2020-11-14T03:47:50Z",
       "side": 1,
       "message": "Not needed.",
+      "range": {
+        "startLine": 244,
+        "startChar": 7,
+        "endLine": 244,
+        "endChar": 69
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56e7f8ca_56a27c4a",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "We have agreed to refactor update() and finish(), let\u0027s do it in another cl.  If you keep asking for all new changes in this cl then it will never land.",
+      "parentUuid": "3aa31767_f6fe2260",
       "range": {
         "startLine": 244,
         "startChar": 7,
@@ -216,6 +408,30 @@
       "side": 1,
       "message": "\u003e Common typo found: \"Paramaters\" -- should it be \"Parameters\"?\n\u003e Note: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.\n\nPlease fix.",
       "parentUuid": "84f5f18e_7c619c91",
+      "range": {
+        "startLine": 302,
+        "startChar": 37,
+        "endLine": 302,
+        "endChar": 47
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "554a9758_559f5317",
+        "filename": "keymint/support/authorization_set.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d2cbf75_87ef52ef",
       "range": {
         "startLine": 302,
         "startChar": 37,

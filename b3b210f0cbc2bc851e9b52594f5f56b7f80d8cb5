@@ -754,6 +754,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdc2b607_3cfa3b10",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-14T05:55:52Z",
+      "side": 1,
+      "message": "let\u0027s do it in another cl.  I had way too many headache debugging vts crashes with nullable in the past, that I rather land this first and change things in seperate cl.",
+      "parentUuid": "c83abeb1_a2e0d1de",
+      "range": {
+        "startLine": 367,
+        "startChar": 21,
+        "endLine": 367,
+        "endChar": 51
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51f9211f_48ccc6f9",
