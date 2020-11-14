@@ -103,6 +103,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01a24876_109ad0ea",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 38
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-14T01:51:09Z",
+      "side": 1,
+      "message": "It also shows up in gitiles:\nhttps://android.googlesource.com/platform/hardware/interfaces/+/refs/changes/15/1298415/38/keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl\n\nIf you don\u0027t have the extra line locally, can you file a bug on gerrit? Are you sure you\u0027re not looking at a different VerificationToken file?",
+      "parentUuid": "b5364e28_c7f4f2cd",
+      "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f68b7012_a8e7377d",
         "filename": "keymint/aidl/android/hardware/keymint/Constants.aidl",
         "patchSetId": 38
@@ -273,6 +291,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "ee4beb25_965121db",
+      "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "353b439a_ce48b59e",
+        "filename": "keymint/aidl/default/OWNERS",
+        "patchSetId": 38
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-14T01:51:09Z",
+      "side": 1,
+      "message": "note - this was removed, not moved",
+      "parentUuid": "1897330f_b56045ef",
       "revId": "0f66bb78969fba8e8e607da14fb3131f5a849dc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
