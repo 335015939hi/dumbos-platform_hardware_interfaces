@@ -212,6 +212,30 @@
       },
       "revId": "4c8bba26d3a2a4daeb6d19d4ccd7dfc74a1dbe04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b13c4868_d69691ef",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-11-14T01:20:02Z",
+      "side": 1,
+      "message": "But in that case are we saying that on power off there has to be a SIM_STATE_CHANGED, but now instead of ABSENT it should be PRESENT with num_apps 0? If yes the comment in hal needs to be updated for that. Or are you suggesting modem silently changing num_apps to 0 (for when it is queried) but otherwise not send the indication up to us? This latter option does not seem good to me.",
+      "parentUuid": "adfd0b1b_87baa633",
+      "range": {
+        "startLine": 324,
+        "startChar": 18,
+        "endLine": 324,
+        "endChar": 36
+      },
+      "revId": "4c8bba26d3a2a4daeb6d19d4ccd7dfc74a1dbe04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
