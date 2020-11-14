@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "58224ec1_f101f90c",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T03:34:21Z",
+      "side": 1,
+      "message": "This comment is misleading. The authtoken parameter in begin, update, and finish should be nullable, not the mac. We never use the Authtoken without mac.",
+      "range": {
+        "startLine": 85,
+        "startChar": 38,
+        "endLine": 85,
+        "endChar": 63
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3fa1d5c_622101a7",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 40

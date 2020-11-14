@@ -732,6 +732,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c83abeb1_a2e0d1de",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T03:34:21Z",
+      "side": 1,
+      "message": "You should really fix this now. Also make this nullable, because symmetric keys don\u0027t have certificates.",
+      "parentUuid": "99aaf8b6_65262486",
+      "range": {
+        "startLine": 367,
+        "startChar": 21,
+        "endLine": 367,
+        "endChar": 51
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51f9211f_48ccc6f9",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 37
@@ -1099,6 +1123,30 @@
       "side": 1,
       "message": "We don\u0027t support SW KeyMint (or Keymaster) implementations except in test environments. Cuttlefish is even acquiring TEE-like implementation (running KeyMint in a separate process outside of CrosVM, using virtual TPM for key storage).",
       "parentUuid": "47af75b9_febc0f50",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 7
+      },
+      "revId": "b3b210f0cbc2bc851e9b52594f5f56b7f80d8cb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0364722a_ae75e77d",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyCharacteristics.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-11-14T03:34:21Z",
+      "side": 1,
+      "message": "Regarding this comment though, we should not add another list here. IMHO we should have key parameters with a security level field instead.",
+      "parentUuid": "6ec2ffbf_3d343cbd",
       "range": {
         "startLine": 36,
         "startChar": 0,
