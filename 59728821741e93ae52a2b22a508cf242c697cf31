@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4832cd34_720c73dd",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-11-16T10:27:58Z",
+      "side": 1,
+      "message": "Same here, why modify file name ?",
+      "revId": "59728821741e93ae52a2b22a508cf242c697cf31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26ada9a3_077d9144",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
         "patchSetId": 2
