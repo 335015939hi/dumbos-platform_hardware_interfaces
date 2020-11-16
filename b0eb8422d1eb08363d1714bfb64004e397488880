@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8fe6651_d7523d28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-16T21:03:55Z",
+      "side": 1,
+      "message": "\u003e Patch Set 14:\n\u003e \n\u003e What\u0027s weird is that there were other things that showed up as part of the rebase (in a different color). That part of the change didn\u0027t, but whoever added that change should probably revert it. It doesn\u0027t make sense.\n\nYeah - I feel like there must have been a regression here, because I feel like I\u0027ve been seeing it a lot lately. Perhaps it could be related to if a rebase + change is done in the same PS, vs separately.",
+      "revId": "b0eb8422d1eb08363d1714bfb64004e397488880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3900a864_ea0d8070",
