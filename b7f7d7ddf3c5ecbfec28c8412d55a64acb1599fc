@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e4facce_61fc1f72",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2020-11-16T23:55:04Z",
+      "side": 1,
+      "message": "How is a list of locations encoded in a uint32_t ?\n\nIs there a spec somewhere for LC3 that we should be looking at to understand the parameters?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 28
+      },
+      "revId": "b7f7d7ddf3c5ecbfec28c8412d55a64acb1599fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
