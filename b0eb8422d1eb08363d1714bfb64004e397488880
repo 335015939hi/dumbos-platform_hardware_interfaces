@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3900a864_ea0d8070",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-11-16T20:46:43Z",
+      "side": 1,
+      "message": "This doesn\u0027t make sense in the context of the API or the existing bug. Please remove the LCE stuff from this CL?",
+      "range": {
+        "startLine": 312,
+        "startChar": 12,
+        "endLine": 312,
+        "endChar": 32
+      },
+      "revId": "b0eb8422d1eb08363d1714bfb64004e397488880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
