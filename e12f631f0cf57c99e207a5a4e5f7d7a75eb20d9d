@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25a80c80_ca24d34e",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "So IC uses whatever the current KM version is?",
+      "range": {
+        "startLine": 60,
+        "startChar": 81,
+        "endLine": 61,
+        "endChar": 55
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eac2a32a_bbb0d5ba",
+        "filename": "identity/aidl/default/IdentityCredential.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "Nit: These comments just restate the variable names.",
+      "range": {
+        "startLine": 796,
+        "startChar": 57,
+        "endLine": 796,
+        "endChar": 77
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46bbcea7_4e1524b8",
+        "filename": "identity/aidl/default/IdentityCredential.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "What is your plan for this?",
+      "range": {
+        "startLine": 813,
+        "startChar": 33,
+        "endLine": 813,
+        "endChar": 72
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01f6613f_c2433db8",
+        "filename": "identity/aidl/vts/VtsAttestationTests.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "It\u0027d be good to add a comment to explain what this boolean means. Just \"/* testCredential */\" should do it.",
+      "range": {
+        "startLine": 66,
+        "startChar": 78,
+        "endLine": 66,
+        "endChar": 83
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53e558bd_e8713c82",
+        "filename": "identity/aidl/vts/VtsHalIdentityEndToEndTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "Arg comment would be good here, too.",
+      "range": {
+        "startLine": 180,
+        "startChar": 72,
+        "endLine": 180,
+        "endChar": 73
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f9fa670_0938128b",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "std::from_chars",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 1
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb28c607_59cbc73d",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "There\u0027s no BoringSSL function for this?",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 64
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5e6a0d2_b1c596cc",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "It just occurred to me that we should make sure that KM will never attest to this key. The obvious way to meet the KM tag-handling requirements is to selectively place enforced tags in hw-enforced and put everything else in sw-enforced. It\u0027s actually a requirement that KM not strip sw-enforced tags it doesn\u0027t know. The reason for this is so that we can add new features and implement SW-enforcement in keystore when the KM is old and doesn\u0027t understand it.\n\nAnyway, the point is that this flow will make it easy for KM implementations to treat Tag::IDENTITY_CREDENTIAL_KEY as an unknown tag and drop it in the SW-enforced list. Although IAs should be looking for it in the hw-enforced list, they could be fooled if they\u0027re not paying attention to which list they found it in.\n\nTo prevent this we can (1) have a KeyMint VTS test that checks/specifies the correct behavior (which in this case is either to return an error or just silently strip it) and (2) have keystore filter it out of any incoming requests -- or return an error.  I\u0027m not sure which makes more sense, filter or error (in case KM is old). It\u0027d be nice if we could write a CTS test to validate (2), but I don\u0027t see a way to do that.",
+      "range": {
+        "startLine": 357,
+        "startChar": 42,
+        "endLine": 357,
+        "endChar": 65
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba6020e7_ba25b683",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "Duplicated?",
+      "range": {
+        "startLine": 873,
+        "startChar": 4,
+        "endLine": 873,
+        "endChar": 15
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9318560e_bfd3cc7d",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "Duplicated?",
+      "range": {
+        "startLine": 883,
+        "startChar": 5,
+        "endLine": 883,
+        "endChar": 18
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bcaeac5_ce3fac05",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "Nit: You may prefer this more explicit version, but in case you didn\u0027t know, you can also write \"return {notBefore, notAfter};\".  In general this works whenever there\u0027s a non-explicit ctor and the arguments match with no conversions (or only trivial conversions).",
+      "range": {
+        "startLine": 1744,
+        "startChar": 4,
+        "endLine": 1744,
+        "endChar": 47
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e30ef5f_d421db72",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 2352,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "A comment or a constant name to clarify the meaning of \"24\" would be helpful.",
+      "range": {
+        "startLine": 2352,
+        "startChar": 46,
+        "endLine": 2352,
+        "endChar": 48
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff5c6cbb_d437b40a",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 2352,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "Nit:  I think the fluent style is easier to read.  e.g.\n\nauto deviceAuthentication \u003d cppbor::Array()\n         .add(\"DeviceAuthentication)\n         .add(std::move(sessionTranscriptItem))\n         .add(docType)\n         .add(cppbor::Semantic(24, deviceNameSpacesEncoded);",
+      "range": {
+        "startLine": 2348,
+        "startChar": 0,
+        "endLine": 2352,
+        "endChar": 76
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24024623_2a0e8209",
+        "filename": "identity/support/tests/IdentityCredentialSupportTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T02:51:20Z",
+      "side": 1,
+      "message": "Why not use Map::get? http://cs/android/external/libcppbor/include/cppbor/cppbor.h?l\u003d810\u0026rcl\u003d30e4c94263ab4f1590aebad1413da05499e3d088",
+      "range": {
+        "startLine": 463,
+        "startChar": 3,
+        "endLine": 470,
+        "endChar": 5
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
