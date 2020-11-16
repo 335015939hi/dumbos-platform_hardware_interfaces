@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "147d4db0_a83e0e6d",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-16T19:40:42Z",
+      "side": 1,
+      "message": "I don\u0027t think this is very portable? Can we avoid specializing the test for the GSI case?",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 81
+      },
+      "revId": "da8392997286c7d54adbf48f59f15819481e7006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
