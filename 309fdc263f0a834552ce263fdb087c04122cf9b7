@@ -108,6 +108,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "790dddee_a14162be",
+        "filename": "current.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-16T20:46:11Z",
+      "side": 1,
+      "message": "do not modify Android R HALs, modify Android S HALs instead (radio@1.6)",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 28
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb9b1a53_9b879bb1",
         "filename": "radio/1.5/IRadio.hal",
         "patchSetId": 6
