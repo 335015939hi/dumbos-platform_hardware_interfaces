@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "913c3e24_65d5c69c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-11-16T16:10:58Z",
+      "side": 1,
+      "message": "Thanks Karthik!",
+      "revId": "c8fd7b31e018633db2508d8b7775baa34a1675d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b11f45f6_6b40f4f3",
+        "filename": "sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-11-16T16:10:58Z",
+      "side": 1,
+      "message": "Can this be left as 1?",
+      "range": {
+        "startLine": 369,
+        "startChar": 23,
+        "endLine": 369,
+        "endChar": 25
+      },
+      "revId": "c8fd7b31e018633db2508d8b7775baa34a1675d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
