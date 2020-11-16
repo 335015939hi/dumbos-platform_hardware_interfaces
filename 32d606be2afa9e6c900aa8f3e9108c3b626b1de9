@@ -159,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a7f552c_fa3e6ad1",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-16T20:42:32Z",
+      "side": 1,
+      "message": "If you\u0027re running clang format manually, you can just try to upload the CL instead, and it should only run clang format on the CPP/java files.",
+      "parentUuid": "4225d902_0c62f877",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 16
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd6a1173_27e54695",
