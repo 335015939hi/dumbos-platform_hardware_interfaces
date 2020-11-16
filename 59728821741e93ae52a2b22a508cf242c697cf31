@@ -22,6 +22,23 @@
       },
       "revId": "59728821741e93ae52a2b22a508cf242c697cf31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fae688ec_42cbcb32",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession_2_1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-11-16T10:27:23Z",
+      "side": 1,
+      "message": "Do you need to change this file name ?\nYou are already in 2.1 folder, there should be no conflict.\n\nI\u0027m looking through other projects doing hal version changes, and don\u0027t see version added at end of file name.",
+      "revId": "59728821741e93ae52a2b22a508cf242c697cf31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
