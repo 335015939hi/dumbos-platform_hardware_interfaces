@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a9dd379_8ece5d85",
+        "filename": "radio/config/1.3/IRadioConfig.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-11-16T18:52:04Z",
+      "side": 1,
+      "message": "I\u0027m definitely going with Option B.",
+      "parentUuid": "12a37fbd_2a8780e3",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5c862cd053056fa971736917fdf87a46e477d953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23617014_3e2695b5",
@@ -54,6 +78,30 @@
       "writtenOn": "2020-11-13T22:01:49Z",
       "side": 1,
       "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5c862cd053056fa971736917fdf87a46e477d953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "718e2ed6_e066c2f3",
+        "filename": "radio/config/1.3/IRadioConfigResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-11-16T18:52:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23617014_3e2695b5",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "866f8fc9_969a9916",
+        "filename": "radio/config/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-11-16T18:52:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "749e81ff_35e2043e",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5c862cd053056fa971736917fdf87a46e477d953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "808524fb_932cabd0",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-11-13T22:01:49Z",
       "side": 1,
       "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5c862cd053056fa971736917fdf87a46e477d953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d8a6bbb_acb36f7a",
+        "filename": "radio/config/1.3/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-11-16T18:52:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "808524fb_932cabd0",
       "range": {
         "startLine": 2,
         "startChar": 17,
