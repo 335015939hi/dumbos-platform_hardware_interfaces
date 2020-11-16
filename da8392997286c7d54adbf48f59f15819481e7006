@@ -22,6 +22,30 @@
       },
       "revId": "da8392997286c7d54adbf48f59f15819481e7006",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d7cdae_80de5681",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-11-16T23:35:22Z",
+      "side": 1,
+      "message": "szuweilin@ should know better about detecting GSI.",
+      "parentUuid": "147d4db0_a83e0e6d",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 81
+      },
+      "revId": "da8392997286c7d54adbf48f59f15819481e7006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
