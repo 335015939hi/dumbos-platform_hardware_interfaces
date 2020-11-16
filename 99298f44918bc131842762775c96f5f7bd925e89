@@ -1,0 +1,235 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "658913e6_5e9af92a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T03:11:14Z",
+      "side": 1,
+      "message": "Looking good.  Note that you can\u0027t actually land this.  It needs to go into KeyMint, not KM4.1.  I\u0027ll mark it -2 just so everyone is clear.",
+      "revId": "99298f44918bc131842762775c96f5f7bd925e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2350fb69_530cfe91",
+        "filename": "keymaster/4.1/support/include/keymasterV4_1/keymaster_tags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T03:11:14Z",
+      "side": 1,
+      "message": "Add blank lines around the namespace contents.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 9
+      },
+      "revId": "99298f44918bc131842762775c96f5f7bd925e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68eb42ca_8ff88cd0",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T03:11:14Z",
+      "side": 1,
+      "message": "\u003e Please remove the trailing whitespace.\n\nPlease fix.",
+      "parentUuid": "4bee2282_d16ca3f3",
+      "range": {
+        "startLine": 25,
+        "startChar": 90,
+        "endLine": 25,
+        "endChar": 91
+      },
+      "revId": "99298f44918bc131842762775c96f5f7bd925e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63f5d0ca_084aab82",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T03:11:14Z",
+      "side": 1,
+      "message": "\u003e Please remove the trailing whitespace.\n\nPlease fix.",
+      "parentUuid": "c7780b4e_332bfc09",
+      "range": {
+        "startLine": 26,
+        "startChar": 92,
+        "endLine": 26,
+        "endChar": 93
+      },
+      "revId": "99298f44918bc131842762775c96f5f7bd925e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eedfd553_86029609",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T03:11:14Z",
+      "side": 1,
+      "message": "\u003e Please remove the trailing whitespace.\n\nPlease fix.",
+      "parentUuid": "e8b63b67_df056ba9",
+      "range": {
+        "startLine": 29,
+        "startChar": 91,
+        "endLine": 29,
+        "endChar": 92
+      },
+      "revId": "99298f44918bc131842762775c96f5f7bd925e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f641d521_80b59cbf",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T03:11:14Z",
+      "side": 1,
+      "message": "\u003e Please remove the trailing whitespace.\n\nPlease fix.",
+      "parentUuid": "920a2898_0c50968e",
+      "range": {
+        "startLine": 30,
+        "startChar": 85,
+        "endLine": 30,
+        "endChar": 86
+      },
+      "revId": "99298f44918bc131842762775c96f5f7bd925e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7c1aba7_0277b200",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T03:11:14Z",
+      "side": 1,
+      "message": "\u003e Please remove the trailing whitespace.\n\nPlease fix.",
+      "parentUuid": "f3e9499e_ec0ee579",
+      "range": {
+        "startLine": 31,
+        "startChar": 93,
+        "endLine": 31,
+        "endChar": 94
+      },
+      "revId": "99298f44918bc131842762775c96f5f7bd925e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2605c7c4_d87a095c",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T03:11:14Z",
+      "side": 1,
+      "message": "\u003e Please remove the trailing whitespace.\n\nPlease fix.",
+      "parentUuid": "3ff65443_f6c9711f",
+      "range": {
+        "startLine": 32,
+        "startChar": 92,
+        "endLine": 32,
+        "endChar": 93
+      },
+      "revId": "99298f44918bc131842762775c96f5f7bd925e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2dec219_a142a5ba",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T03:11:14Z",
+      "side": 1,
+      "message": "\u003e Please remove the trailing whitespace.\n\nPlease fix.",
+      "parentUuid": "a44a7798_afdf1a85",
+      "range": {
+        "startLine": 33,
+        "startChar": 78,
+        "endLine": 33,
+        "endChar": 79
+      },
+      "revId": "99298f44918bc131842762775c96f5f7bd925e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91e07213_462ee888",
+        "filename": "keymaster/4.1/vts/functional/OaepMgfDigestTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-16T03:11:14Z",
+      "side": 1,
+      "message": "Heh. Yeah, this is what I was suggesting you do in the unit tests :-)",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 34
+      },
+      "revId": "99298f44918bc131842762775c96f5f7bd925e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
