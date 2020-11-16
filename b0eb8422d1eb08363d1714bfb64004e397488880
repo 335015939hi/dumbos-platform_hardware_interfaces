@@ -22,6 +22,30 @@
       },
       "revId": "b0eb8422d1eb08363d1714bfb64004e397488880",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb7073c5_f41bd28d",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-16T21:00:23Z",
+      "side": 1,
+      "message": "I think you were looking at a diff including a rebase. 😊 Whatever was highlighting these differently has been broken recently, so filed b/173436598 now :)",
+      "parentUuid": "3900a864_ea0d8070",
+      "range": {
+        "startLine": 312,
+        "startChar": 12,
+        "endLine": 312,
+        "endChar": 32
+      },
+      "revId": "b0eb8422d1eb08363d1714bfb64004e397488880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
