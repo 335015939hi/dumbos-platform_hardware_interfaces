@@ -16,6 +16,23 @@
       "message": "Hi Steven, can you take another look? Thanks.",
       "revId": "326ce578680d6b1b93df67799398c8da9040236f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f37c326c_f5f49c9b",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-16T20:27:22Z",
+      "side": 1,
+      "message": "accidental NL?",
+      "revId": "326ce578680d6b1b93df67799398c8da9040236f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
