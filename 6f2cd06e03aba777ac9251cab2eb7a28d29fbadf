@@ -22,6 +22,30 @@
       },
       "revId": "6f2cd06e03aba777ac9251cab2eb7a28d29fbadf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bb9c7f1_d00fef37",
+        "filename": "tetheroffload/control/1.0/vts/functional/include/OffloadControlTestV1_0.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-11-16T03:53:13Z",
+      "side": 1,
+      "message": "To derive from base will lead to copy 2 functions in 1.1.\n\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1465907/6/tetheroffload/control/1.1/vts/functional/include/OffloadControlTestV1_1.h\n\ncreateControl and getControlV1_1.\nBut derive from NotStarted would only need to re-implement Setup().\n\nTo take the lesser of two evils, I\u0027ve choose Setup().\nAny idea?",
+      "parentUuid": "2d19e807_13f388b8",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 86
+      },
+      "revId": "6f2cd06e03aba777ac9251cab2eb7a28d29fbadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
