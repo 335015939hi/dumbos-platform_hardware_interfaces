@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdbeac43_9ffda0a3",
+        "filename": "automotive/audiocontrol/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1463284
+      },
+      "writtenOn": "2020-11-17T19:50:48Z",
+      "side": 1,
+      "message": "The component Id should probably be 533764",
+      "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5493a410_06d8014e",
+        "filename": "automotive/audiocontrol/1.0/default/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1463284
+      },
+      "writtenOn": "2020-11-17T19:50:48Z",
+      "side": 1,
+      "message": "I think we can omit this README as https://source.android.com/devices/tech/debug/libfuzzer covers how to run fuzzers in general for Android. If you want you could reference this as part of the Test: line of the commit message.",
+      "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ac1d9da_ab8d270d",
+        "filename": "automotive/audiocontrol/1.0/default/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1463284
+      },
+      "writtenOn": "2020-11-17T19:50:48Z",
+      "side": 1,
+      "message": "\"some files\" is a little confusing of an instruction. If the goal is to make a directory on the device, then perhaps it\u0027s easier to suggest they use `adb shell mkdir`",
+      "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b462c8bb_ec8b3457",
+        "filename": "automotive/audiocontrol/1.0/default/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1463284
+      },
+      "writtenOn": "2020-11-17T19:50:48Z",
+      "side": 1,
+      "message": "arm64 here depends on the target\u0027s architecture. Might be best to clarify that, as a lot of people will want to be able to copy/paste commands unless there\u0027s clearly something to modify",
+      "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
