@@ -22,6 +22,30 @@
       },
       "revId": "b7f7d7ddf3c5ecbfec28c8412d55a64acb1599fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea72ce46_e2b171f0",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-11-17T13:31:58Z",
+      "side": 1,
+      "message": "\"B.3 Audio Locations – to be moved to Bluetooth Assigned Numbers\" In BAP d09r07 specification.",
+      "parentUuid": "3e4facce_61fc1f72",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 28
+      },
+      "revId": "b7f7d7ddf3c5ecbfec28c8412d55a64acb1599fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
