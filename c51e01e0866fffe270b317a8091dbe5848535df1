@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdc0d3a9_95cb9d60",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-11-17T06:44:15Z",
+      "side": 1,
+      "message": "Naming is not consistent. If you use Eutran previously, you should use Ngran here",
+      "range": {
+        "startLine": 464,
+        "startChar": 15,
+        "endLine": 464,
+        "endChar": 17
+      },
+      "revId": "c51e01e0866fffe270b317a8091dbe5848535df1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c5b3e78_429b3cfa",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-11-17T06:44:15Z",
+      "side": 1,
+      "message": "n",
+      "range": {
+        "startLine": 470,
+        "startChar": 23,
+        "endLine": 470,
+        "endChar": 24
+      },
+      "revId": "c51e01e0866fffe270b317a8091dbe5848535df1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
