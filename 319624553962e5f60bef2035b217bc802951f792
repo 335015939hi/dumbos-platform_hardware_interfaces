@@ -22,6 +22,30 @@
       },
       "revId": "319624553962e5f60bef2035b217bc802951f792",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15c4f9b5_37c26007",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 42
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-17T09:12:51Z",
+      "side": 1,
+      "message": "As mentioned let\u0027s do the change to nullable in another cl, as sometimes doing nullable changes trigger weird to debug crashes in vts tests that takes time to debug.",
+      "parentUuid": "5be80799_67103be1",
+      "range": {
+        "startLine": 778,
+        "startChar": 66,
+        "endLine": 778,
+        "endChar": 98
+      },
+      "revId": "319624553962e5f60bef2035b217bc802951f792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

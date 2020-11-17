@@ -254,6 +254,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbe9a6bf_bc41620a",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-17T09:12:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bd1fd99_69793911",
+      "range": {
+        "startLine": 34,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 70
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff027488_5eb7fa1c",
@@ -409,6 +433,30 @@
       "side": 1,
       "message": "Add a TODO and a bug number.",
       "parentUuid": "c221319c_5a49c8c1",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 95
+      },
+      "revId": "32d606be2afa9e6c900aa8f3e9108c3b626b1de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77f1e384_cc49dfe7",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-17T09:12:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90c562fb_6664bec3",
       "range": {
         "startLine": 229,
         "startChar": 4,
