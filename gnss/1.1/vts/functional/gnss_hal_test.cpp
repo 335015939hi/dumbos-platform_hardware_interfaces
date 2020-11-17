@@ -112,11 +112,17 @@ bool GnssHalTest::StartAndCheckFirstLocation(bool strict) {
     const int kFirstGnssLocationTimeoutSeconds = 75;
     int locationCalledCount = 0;
 
+<<<<<<< TARGET BRANCH (b45948 [automerger skipped] Disable tests for TSTS issue am: 8cdbb7)
     if (strict) {
         EXPECT_TRUE(gnss_cb_->location_cbq_.retrieve(gnss_cb_->last_location_,
                                                      kFirstGnssLocationTimeoutSeconds));
         locationCalledCount = gnss_cb_->location_cbq_.calledCount();
         EXPECT_EQ(locationCalledCount, 1);
+=======
+    wait(kFirstGnssLocationTimeoutSeconds);
+    if (strict) {
+        EXPECT_EQ(location_called_count_, 1);
+>>>>>>> SOURCE BRANCH (40b07e Merge "Make GetLocationLowPower test warning instead of fail)
     }
 
     if (locationCalledCount > 0) {
