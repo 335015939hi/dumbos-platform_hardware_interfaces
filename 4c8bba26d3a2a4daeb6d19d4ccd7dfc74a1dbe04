@@ -260,6 +260,30 @@
       },
       "revId": "4c8bba26d3a2a4daeb6d19d4ccd7dfc74a1dbe04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "668ec860_2aa511dd",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-11-17T07:26:47Z",
+      "side": 1,
+      "message": "Okay, if we go with that then I guess this test looks ok, except we can add asserts for num_apps. Jordan, are you going to update the HAL API comments for that?",
+      "parentUuid": "3281efc5_00d55b9e",
+      "range": {
+        "startLine": 324,
+        "startChar": 18,
+        "endLine": 324,
+        "endChar": 36
+      },
+      "revId": "4c8bba26d3a2a4daeb6d19d4ccd7dfc74a1dbe04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
