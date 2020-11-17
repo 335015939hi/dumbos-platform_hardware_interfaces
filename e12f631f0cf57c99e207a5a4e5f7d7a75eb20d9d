@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e610d70a_3a5a1fa4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Thanks for looking. New CL coming right up!",
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25a80c80_ca24d34e",
@@ -14,6 +31,30 @@
       "writtenOn": "2020-11-16T02:51:20Z",
       "side": 1,
       "message": "So IC uses whatever the current KM version is?",
+      "range": {
+        "startLine": 60,
+        "startChar": 81,
+        "endLine": 61,
+        "endChar": 55
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "471fd81e_65a859a7",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Yes. I don\u0027t think this value is useful. Do you think we should set it to something else? The only meaningful value I can think of would be the Feature Level which will be introduced in Android 12. Maybe just set it to 1 for now which happens to coincide with Feature Level 1.\n\nI chose current KM version because I guess that\u0027s the smallest amount of change.",
+      "parentUuid": "25a80c80_ca24d34e",
       "range": {
         "startLine": 60,
         "startChar": 81,
@@ -47,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a77e2b7b_3f8bf745",
+        "filename": "identity/aidl/default/IdentityCredential.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "eac2a32a_bbb0d5ba",
+      "range": {
+        "startLine": 796,
+        "startChar": 57,
+        "endLine": 796,
+        "endChar": 77
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46bbcea7_4e1524b8",
@@ -60,6 +125,30 @@
       "writtenOn": "2020-11-16T02:51:20Z",
       "side": 1,
       "message": "What is your plan for this?",
+      "range": {
+        "startLine": 813,
+        "startChar": 33,
+        "endLine": 813,
+        "endChar": 72
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c47dd4a_d5e55fda",
+        "filename": "identity/aidl/default/IdentityCredential.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Comment is now obsolete (serial is now forced to always be 1). Removed.",
+      "parentUuid": "46bbcea7_4e1524b8",
       "range": {
         "startLine": 813,
         "startChar": 33,
@@ -93,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7f480ec_e9319d21",
+        "filename": "identity/aidl/vts/VtsAttestationTests.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Done (here and elsewhere).",
+      "parentUuid": "01f6613f_c2433db8",
+      "range": {
+        "startLine": 66,
+        "startChar": 78,
+        "endLine": 66,
+        "endChar": 83
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53e558bd_e8713c82",
@@ -106,6 +219,30 @@
       "writtenOn": "2020-11-16T02:51:20Z",
       "side": 1,
       "message": "Arg comment would be good here, too.",
+      "range": {
+        "startLine": 180,
+        "startChar": 72,
+        "endLine": 180,
+        "endChar": 73
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8f5d0ac_4bf04cce",
+        "filename": "identity/aidl/vts/VtsHalIdentityEndToEndTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Done (here and elsewhere).",
+      "parentUuid": "53e558bd_e8713c82",
       "range": {
         "startLine": 180,
         "startChar": 72,
@@ -139,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74d87be5_319e692a",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f9fa670_0938128b",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 1
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb28c607_59cbc73d",
@@ -152,6 +313,30 @@
       "writtenOn": "2020-11-16T02:51:20Z",
       "side": 1,
       "message": "There\u0027s no BoringSSL function for this?",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 64
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8ea8762_7d1a170e",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Nope.",
+      "parentUuid": "fb28c607_59cbc73d",
       "range": {
         "startLine": 208,
         "startChar": 0,
@@ -185,6 +370,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70d5eea6_787c6746",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "OK. I don\u0027t think there\u0027s anything to do here so resolving this comment.",
+      "parentUuid": "e5e6a0d2_b1c596cc",
+      "range": {
+        "startLine": 357,
+        "startChar": 42,
+        "endLine": 357,
+        "endChar": 65
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba6020e7_ba25b683",
@@ -198,6 +407,30 @@
       "writtenOn": "2020-11-16T02:51:20Z",
       "side": 1,
       "message": "Duplicated?",
+      "range": {
+        "startLine": 873,
+        "startChar": 4,
+        "endLine": 873,
+        "endChar": 15
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f37f838d_034c9525",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "ba6020e7_ba25b683",
       "range": {
         "startLine": 873,
         "startChar": 4,
@@ -231,6 +464,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e05a493_ec9a4b44",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Yes. IdentityCredentialSupport library doesn\u0027t expose BoringSSL types so if we\u0027d need to share that we\u0027d need a new library which is overkill (and complicates back-porting to R) compared to just duplicating it.",
+      "parentUuid": "9318560e_bfd3cc7d",
+      "range": {
+        "startLine": 883,
+        "startChar": 5,
+        "endLine": 883,
+        "endChar": 18
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bcaeac5_ce3fac05",
@@ -244,6 +501,30 @@
       "writtenOn": "2020-11-16T02:51:20Z",
       "side": 1,
       "message": "Nit: You may prefer this more explicit version, but in case you didn\u0027t know, you can also write \"return {notBefore, notAfter};\".  In general this works whenever there\u0027s a non-explicit ctor and the arguments match with no conversions (or only trivial conversions).",
+      "range": {
+        "startLine": 1744,
+        "startChar": 4,
+        "endLine": 1744,
+        "endChar": 47
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9da38d0e_06bcee96",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem to work, maybe because it returns optional\u003c\u003e?\n\n  hardware/interfaces/identity/support/src/IdentityCredentialSupport.cpp:1746:12: error: no matching constructor for initialization of \u0027optional\u003cpair\u003ctime_t, time_t\u003e\u003e\u0027 (aka \u0027optional\u003cpair\u003clong, long\u003e\u003e\u0027)\n      return {notBefore, notAfter};\n             ^~~~~~~~~~~~~~~~~~~~~",
+      "parentUuid": "9bcaeac5_ce3fac05",
       "range": {
         "startLine": 1744,
         "startChar": 4,
@@ -300,6 +581,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "070de98b_4596a04a",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 2352,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "A constant for this in libcppbor would be helpful 😄 ... adding kSemanticTagEncodedCbor constant here for now.",
+      "parentUuid": "1e30ef5f_d421db72",
+      "range": {
+        "startLine": 2352,
+        "startChar": 46,
+        "endLine": 2352,
+        "endChar": 48
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db51a13e_3bdebbad",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 2352,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "ff5c6cbb_d437b40a",
+      "range": {
+        "startLine": 2348,
+        "startChar": 0,
+        "endLine": 2352,
+        "endChar": 76
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24024623_2a0e8209",
@@ -313,6 +642,30 @@
       "writtenOn": "2020-11-16T02:51:20Z",
       "side": 1,
       "message": "Why not use Map::get? http://cs/android/external/libcppbor/include/cppbor/cppbor.h?l\u003d810\u0026rcl\u003d30e4c94263ab4f1590aebad1413da05499e3d088",
+      "range": {
+        "startLine": 463,
+        "startChar": 3,
+        "endLine": 470,
+        "endChar": 5
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83b83400_609d56c2",
+        "filename": "identity/support/tests/IdentityCredentialSupportTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-17T18:43:06Z",
+      "side": 1,
+      "message": "That method is not marked as const (but I think that\u0027s just a bug). I\u0027ll cast the constness away for now.",
+      "parentUuid": "24024623_2a0e8209",
       "range": {
         "startLine": 463,
         "startChar": 3,
