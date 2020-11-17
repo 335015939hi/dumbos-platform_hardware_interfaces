@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4e985f0_fa7f7eaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1463284
+      },
+      "writtenOn": "2020-11-17T19:58:41Z",
+      "side": 1,
+      "message": "Also, can we move the fuzzer code into a test directory under the default implementation\u0027s directory. ",
+      "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdbeac43_9ffda0a3",
