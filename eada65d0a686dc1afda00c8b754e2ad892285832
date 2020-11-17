@@ -46,6 +46,30 @@
       },
       "revId": "eada65d0a686dc1afda00c8b754e2ad892285832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b9177c6_ddce69e2",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-11-17T07:24:53Z",
+      "side": 1,
+      "message": "How will modem indicate the limits? I don\u0027t see anything for that in the hal unless I am missing something.",
+      "parentUuid": "8ee1e7ea_f411bb55",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 347,
+        "endChar": 7
+      },
+      "revId": "eada65d0a686dc1afda00c8b754e2ad892285832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
