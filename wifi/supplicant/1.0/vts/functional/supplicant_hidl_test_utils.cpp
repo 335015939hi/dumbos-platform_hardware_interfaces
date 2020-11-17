@@ -71,6 +71,7 @@ bool waitForSupplicantStop() { return waitForSupplicantState(false); }
 
 // Helper function to initialize the driver and firmware to STA mode
 // using the vendor HAL HIDL interface.
+<<<<<<< TARGET BRANCH (1f237f [automerger skipped] RESTRICT AUTOMERGE Relax timeout for al)
 void initilializeDriverAndFirmware(const std::string& wifi_instance_name) {
     // Skip if wifi instance is not set.
     if (wifi_instance_name == "") {
@@ -78,6 +79,11 @@ void initilializeDriverAndFirmware(const std::string& wifi_instance_name) {
     }
     if (getWifi(wifi_instance_name) != nullptr) {
         sp<IWifiChip> wifi_chip = getWifiChip(wifi_instance_name);
+=======
+void initilializeDriverAndFirmware() {
+    if (getWifi() != nullptr) {
+        sp<IWifiChip> wifi_chip = getWifiChip();
+>>>>>>> SOURCE BRANCH (dd3fa3 Merge "vts: supplicant: Remove optional service registration)
         ChipModeId mode_id;
         EXPECT_TRUE(configureChipToSupportIfaceType(
             wifi_chip, ::android::hardware::wifi::V1_0::IfaceType::STA, &mode_id));
@@ -88,6 +94,7 @@ void initilializeDriverAndFirmware(const std::string& wifi_instance_name) {
 
 // Helper function to deinitialize the driver and firmware
 // using the vendor HAL HIDL interface.
+<<<<<<< TARGET BRANCH (1f237f [automerger skipped] RESTRICT AUTOMERGE Relax timeout for al)
 void deInitilializeDriverAndFirmware(const std::string& wifi_instance_name) {
     // Skip if wifi instance is not set.
     if (wifi_instance_name == "") {
@@ -95,6 +102,11 @@ void deInitilializeDriverAndFirmware(const std::string& wifi_instance_name) {
     }
     if (getWifi(wifi_instance_name) != nullptr) {
         stopWifi(wifi_instance_name);
+=======
+void deInitilializeDriverAndFirmware() {
+    if (getWifi() != nullptr) {
+        stopWifi();
+>>>>>>> SOURCE BRANCH (dd3fa3 Merge "vts: supplicant: Remove optional service registration)
     } else {
         LOG(WARNING) << __func__ << ": Vendor HAL not supported";
     }
