@@ -51,6 +51,24 @@
       "parentUuid": "38715961_758c388f",
       "revId": "4a4cd96700bb72b9eea8c69cbd3316d320752e49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09ac108f_f3668647",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1302092
+      },
+      "writtenOn": "2020-11-17T01:19:29Z",
+      "side": 1,
+      "message": "This patch is already in android11-tests-dev branch.\nI add the ref bug from master.",
+      "parentUuid": "c40f8d32_94a9cc70",
+      "revId": "4a4cd96700bb72b9eea8c69cbd3316d320752e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
