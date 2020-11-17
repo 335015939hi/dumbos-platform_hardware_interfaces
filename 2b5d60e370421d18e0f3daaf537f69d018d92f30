@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6af5a7b_b13f4988",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-11-17T00:27:51Z",
+      "side": 1,
+      "message": "You\u0027ll need getVoiceRegistrationState_1_6 as well, even though there is no function signature change. Same for getDataRegistrationState_1_6.",
+      "range": {
+        "startLine": 321,
+        "startChar": 11,
+        "endLine": 321,
+        "endChar": 48
+      },
+      "revId": "2b5d60e370421d18e0f3daaf537f69d018d92f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba35d247_0598cd68",
+        "filename": "radio/1.6/vts/functional/radio_response.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-11-17T00:27:51Z",
+      "side": 1,
+      "message": "rspInfo \u003d info;\n    parent_v1_6.notify(info.serial);",
+      "range": {
+        "startLine": 1163,
+        "startChar": 0,
+        "endLine": 1163,
+        "endChar": 18
+      },
+      "revId": "2b5d60e370421d18e0f3daaf537f69d018d92f30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

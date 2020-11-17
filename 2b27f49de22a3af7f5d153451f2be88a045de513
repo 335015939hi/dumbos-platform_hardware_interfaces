@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32cda907_7274825c",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-11-17T00:27:51Z",
+      "side": 1,
+      "message": "Refer to spec",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 3
+      },
+      "revId": "2b27f49de22a3af7f5d153451f2be88a045de513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cb5aa43_ee6ac944",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-11-17T00:27:51Z",
+      "side": 1,
+      "message": "no need",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 21
+      },
+      "revId": "2b27f49de22a3af7f5d153451f2be88a045de513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b1e7a17_ff49129b",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-11-17T00:27:51Z",
+      "side": 1,
+      "message": "refer to spec",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 3
+      },
+      "revId": "2b27f49de22a3af7f5d153451f2be88a045de513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
