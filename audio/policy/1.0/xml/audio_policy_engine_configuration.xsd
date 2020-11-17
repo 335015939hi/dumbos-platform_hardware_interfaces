@@ -74,6 +74,10 @@
             <xs:selector xpath="ProductStrategies/ProductStrategy/AttributesGroup"/>
             <xs:field xpath="@volumeGroup"/>
         </xs:keyref>
+        <xs:keyref name="aliasVolumeGroupRef" refer="volumeGroupKey">
+            <xs:selector xpath="ProductStrategies/ProductStrategy/AttributesGroup"/>
+            <xs:field xpath="@aliasVolumeGroup"/>
+        </xs:keyref>
 
         <xs:unique name="volumeTargetUniqueness">
             <xs:selector xpath="volumeGroups/volumeGroup"/>
@@ -125,6 +129,7 @@
         </xs:sequence>
         <xs:attribute name="streamType" type="stream" use="optional"/>
         <xs:attribute name="volumeGroup" type="xs:string" use="optional"/>
+        <xs:attribute name="aliasVolumeGroup" type="xs:string" use="optional"/>
     </xs:complexType>
 
     <xs:complexType name="volumeGroupsType">
