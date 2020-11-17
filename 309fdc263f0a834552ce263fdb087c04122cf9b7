@@ -129,6 +129,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4965da0a_6dba18be",
+        "filename": "current.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2020-11-17T03:05:41Z",
+      "side": 1,
+      "message": "This is alrady fixed in the new change https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1441011.\nI could not update or abandon this change after the account transfered and I have already listed the new changes in the Bug 23044962.\nPlease help to check the new change https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1441011",
+      "parentUuid": "790dddee_a14162be",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 28
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb9b1a53_9b879bb1",
