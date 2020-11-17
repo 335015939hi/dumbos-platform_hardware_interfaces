@@ -118,6 +118,30 @@
       },
       "revId": "eada65d0a686dc1afda00c8b754e2ad892285832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbaae5d1_aa74e669",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2020-11-17T08:05:51Z",
+      "side": 1,
+      "message": "The email addresses，additionnal numbers was stored in different files in SIM card. \nThe maximum emails and additionnal numbers for one record was determined by UI design.\nATEL/RIL/Modem did not care about it.\nPlease double check with the orginal icc phonebook code which implemented by SIM_IO as well.",
+      "parentUuid": "304b5c3b_3ef69b15",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 347,
+        "endChar": 7
+      },
+      "revId": "eada65d0a686dc1afda00c8b754e2ad892285832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
