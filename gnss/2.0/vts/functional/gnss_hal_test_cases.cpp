@@ -402,7 +402,11 @@ TEST_P(GnssHalTest, TestGnssDataElapsedRealtimeFlags) {
     iGnssMeasurement->close();
 }
 
+<<<<<<< HEAD   (b45948 [automerger skipped] Disable tests for TSTS issue am: 8cdbb7)
 TEST_P(GnssHalTest, TestGnssLocationElapsedRealtime) {
+=======
+TEST_F(GnssHalTest, TestGnssLocationElapsedRealtime) {
+>>>>>>> BRANCH (40b07e Merge "Make GetLocationLowPower test warning instead of fail)
     StartAndCheckFirstLocation(/* strict= */ true);
 
     ASSERT_TRUE((int)gnss_cb_->last_location_.elapsedRealtime.flags <=
@@ -418,7 +422,11 @@ TEST_P(GnssHalTest, TestGnssLocationElapsedRealtime) {
 }
 
 // This test only verify that injectBestLocation_2_0 does not crash.
+<<<<<<< HEAD   (b45948 [automerger skipped] Disable tests for TSTS issue am: 8cdbb7)
 TEST_P(GnssHalTest, TestInjectBestLocation_2_0) {
+=======
+TEST_F(GnssHalTest, TestInjectBestLocation_2_0) {
+>>>>>>> BRANCH (40b07e Merge "Make GetLocationLowPower test warning instead of fail)
     StartAndCheckFirstLocation(/* strict= */ true);
     gnss_hal_->injectBestLocation_2_0(gnss_cb_->last_location_);
     StopAndClearLocations();
