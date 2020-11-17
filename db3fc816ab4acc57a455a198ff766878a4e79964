@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80348806_9b276362",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-17T23:21:48Z",
+      "side": 1,
+      "message": "nit: must",
+      "range": {
+        "startLine": 75,
+        "startChar": 23,
+        "endLine": 75,
+        "endChar": 27
+      },
+      "revId": "db3fc816ab4acc57a455a198ff766878a4e79964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "892694b0_2246a8b4",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-17T23:21:48Z",
+      "side": 1,
+      "message": "can you specify format (or if these are opaque?)",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 34
+      },
+      "revId": "db3fc816ab4acc57a455a198ff766878a4e79964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
