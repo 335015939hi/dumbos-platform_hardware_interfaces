@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e494e789_1b8fd42f",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2020-11-18T09:49:55Z",
+      "side": 1,
+      "message": "I think we don\u0027t need DataPathParameters as those are vendor specific. I believe provider of the offloader driver will be able to do any PCM interface configuration based on PcmParameters using, as you pointed out, HCI Configure Data Path\n\nSystem/bt does codec configuration per each CIS using LE setup Iso data path - so the encoder/decoder will be configured properly.",
+      "revId": "72670aeba7b3ce9d39fbeca4a26e40947fdad2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
