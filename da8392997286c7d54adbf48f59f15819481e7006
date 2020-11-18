@@ -46,6 +46,30 @@
       },
       "revId": "da8392997286c7d54adbf48f59f15819481e7006",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d41797f_7f64c160",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1021605
+      },
+      "writtenOn": "2020-11-18T19:12:40Z",
+      "side": 1,
+      "message": "The only way we can avoid specializing is to remove this check for all devices. The benefit of keeping it for non-GSI systems is that we can verify that vendor customized ::android::GetComponentRole resolves the android \u003d\u003e OMX roles the same way as their HAL.",
+      "parentUuid": "e9d7cdae_80de5681",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 81
+      },
+      "revId": "da8392997286c7d54adbf48f59f15819481e7006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
