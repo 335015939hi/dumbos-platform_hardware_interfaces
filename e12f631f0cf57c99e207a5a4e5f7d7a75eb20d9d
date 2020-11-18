@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "360d5c61_541abc4d",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-18T13:36:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "471fd81e_65a859a7",
+      "range": {
+        "startLine": 60,
+        "startChar": 81,
+        "endLine": 61,
+        "endChar": 55
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eac2a32a_bbb0d5ba",
@@ -535,6 +559,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cd42fe1_41c658e1",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-18T13:36:38Z",
+      "side": 1,
+      "message": "Ah, yeah, that\u0027s why. I didn\u0027t notice that.",
+      "parentUuid": "9da38d0e_06bcee96",
+      "range": {
+        "startLine": 1744,
+        "startChar": 4,
+        "endLine": 1744,
+        "endChar": 47
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e30ef5f_d421db72",
@@ -629,6 +677,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "398fad2a_dfc450d2",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 2352,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-18T13:36:38Z",
+      "side": 1,
+      "message": "I really want to change how semantic tagging is done entirely.",
+      "parentUuid": "070de98b_4596a04a",
+      "range": {
+        "startLine": 2352,
+        "startChar": 46,
+        "endLine": 2352,
+        "endChar": 48
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24024623_2a0e8209",
@@ -666,6 +738,30 @@
       "side": 1,
       "message": "That method is not marked as const (but I think that\u0027s just a bug). I\u0027ll cast the constness away for now.",
       "parentUuid": "24024623_2a0e8209",
+      "range": {
+        "startLine": 463,
+        "startChar": 3,
+        "endLine": 470,
+        "endChar": 5
+      },
+      "revId": "e12f631f0cf57c99e207a5a4e5f7d7a75eb20d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c013e4a7_5c233fea",
+        "filename": "identity/support/tests/IdentityCredentialSupportTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-18T13:36:38Z",
+      "side": 1,
+      "message": "Yeah, there should be a const version of get.  I think I actually have that in my CL that updates cppbor.",
+      "parentUuid": "83b83400_609d56c2",
       "range": {
         "startLine": 463,
         "startChar": 3,
