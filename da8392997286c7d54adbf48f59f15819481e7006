@@ -70,6 +70,30 @@
       },
       "revId": "da8392997286c7d54adbf48f59f15819481e7006",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be506f57_5a1d5e6e",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-19T02:54:34Z",
+      "side": 1,
+      "message": "I think the best way to do this would be to have a separate unit or integration test that guarantees our HAL, without modifying the compliance test. I really don\u0027t even want there to even be a way to say \"isGsi\" - things are designed so that you shouldn\u0027t ever need to do this. Having to worry about \u0027isGsi\u0027 or \u0027isn\u0027t Gsi\u0027 in random code is very complicated and error prone if over used.\n\nThat being said, if there is a nice way, I wouldn\u0027t be completely opposed.",
+      "parentUuid": "2d41797f_7f64c160",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 81
+      },
+      "revId": "da8392997286c7d54adbf48f59f15819481e7006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
