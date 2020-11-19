@@ -34,6 +34,24 @@
       "parentUuid": "806d54a1_f8249b84",
       "revId": "c05603d25ae2b2f02f76694e9edf3708f9613467",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c786285e_73cde146",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-11-19T12:25:17Z",
+      "side": 1,
+      "message": "Original code doesn\u0027t care zero error message length but yours do.\n\nprobably this failure is caused by a local variable is used for HAL uninitialized error. \n\"success \u003d 0 and errMsg \u003d null\" are set by memset(0) actually.\n\naosp/1505172\nReturn\u003cvoid\u003e HAL::setLocalPrefixes\n..\n    memset(\u0026res,0,sizeof(BoolResult)); \u003c-- res#1\n\n    if (!isInitialized()) {\n        BoolResult res \u003d makeInputCheckFailure(\"Not initialized\"); \u003c-- res#2\n    } ..\n\n    hidl_cb(res.success, res.errMsg); \u003c-- res#1\n\n\nJust guess. I didn\u0027t verify. I don\u0027t know what device is used by your test. Maybe you could check your HAL code",
+      "parentUuid": "8e8d8c52_834ac9ee",
+      "revId": "c05603d25ae2b2f02f76694e9edf3708f9613467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
