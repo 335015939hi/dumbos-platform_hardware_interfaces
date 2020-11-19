@@ -22,6 +22,30 @@
       },
       "revId": "3a5ece2fab7dd22e5240022012fda9fbefd5730b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a448950_97780886",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-11-19T03:49:17Z",
+      "side": 1,
+      "message": "Or you could go this approach if it can be done for your case (need review)\n\nUse a wrapper to get and check the pointer validation before using\n\nhttps://android.googlesource.com/platform/hardware/interfaces/+/master/graphics/mapper/2.1/utils/vts/MapperVts.cpp#65\nvoid Gralloc::init(bool errOnFailure) {\n    mMapperV2_1 \u003d IMapper::castFrom(V2_0::vts::Gralloc::getMapper());\n    if (errOnFailure) ASSERT_NE(nullptr, mMapperV2_1.get()) \u003c\u003c \"failed to get mapper 2.1 service\";\n}\n\nsp\u003cIMapper\u003e Gralloc::getMapper() const {\n    return mMapperV2_1;\n}\n\nhttps://android.googlesource.com/platform/hardware/interfaces/+/master/graphics/mapper/2.1/vts/functional/VtsHalGraphicsMapperV2_1TargetTest.cpp#78\nTEST_P(GraphicsMapperHidlTest, ValidateBufferSizeBadBuffer) {\n    Error ret \u003d mGralloc-\u003egetMapper()-\u003evalidateBufferSize(invalidHandle, mDummyDescriptorInfo,",
+      "parentUuid": "4462bfcf_be5448f1",
+      "range": {
+        "startLine": 29,
+        "startChar": 29,
+        "endLine": 29,
+        "endChar": 47
+      },
+      "revId": "3a5ece2fab7dd22e5240022012fda9fbefd5730b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
