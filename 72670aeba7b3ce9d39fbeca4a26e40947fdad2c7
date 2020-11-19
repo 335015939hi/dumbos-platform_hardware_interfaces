@@ -16,6 +16,29 @@
       "message": "I think we don\u0027t need DataPathParameters as those are vendor specific. I believe provider of the offloader driver will be able to do any PCM interface configuration based on PcmParameters using, as you pointed out, HCI Configure Data Path\n\nSystem/bt does codec configuration per each CIS using LE setup Iso data path - so the encoder/decoder will be configured properly.",
       "revId": "72670aeba7b3ce9d39fbeca4a26e40947fdad2c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e062b736_5c1716f7",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1458526
+      },
+      "writtenOn": "2020-11-19T16:10:34Z",
+      "side": 1,
+      "message": "Is LC3 config structure to follow in next PS or gerrit? I do not see LC3 params being passed in this PS which MM can use to configure LC3 encoder sitting in ADSP in offload mode.",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 23
+      },
+      "revId": "72670aeba7b3ce9d39fbeca4a26e40947fdad2c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
