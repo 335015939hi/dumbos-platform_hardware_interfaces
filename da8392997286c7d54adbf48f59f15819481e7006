@@ -94,6 +94,30 @@
       },
       "revId": "da8392997286c7d54adbf48f59f15819481e7006",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "821dbc68_4dc574cc",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1128729
+      },
+      "writtenOn": "2020-11-19T03:20:26Z",
+      "side": 1,
+      "message": "GSI is a part of VTS. The system image of an Android device is replaced with the GSI and the VTS and CTS to ensure that the device implements vendor interfaces correctly with the latest version of Android. It is always GSI when running the test case.\n\nGSI is pure AOSP without modification. The vendor implementation should not depend on the system modification. Maybe we need to think a solution to let the vendor customize without modifying system.",
+      "parentUuid": "be506f57_5a1d5e6e",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 81
+      },
+      "revId": "da8392997286c7d54adbf48f59f15819481e7006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
