@@ -19,6 +19,7 @@ package android.hardware.tests.baz@1.0;
 import IBase;
 import IBazCallback;
 
+@SensitiveData  // for testing
 interface IBaz extends IBase {
 
     enum BitField : uint8_t {
