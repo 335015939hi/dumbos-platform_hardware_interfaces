@@ -1008,10 +1008,14 @@ optional<vector<vector<uint8_t>>> createAttestation(
     // relying party is ever going to trust our batch key and those keys above
     // it.
     //
-    ::keymaster::PureSoftKeymasterContext context(KM_SECURITY_LEVEL_TRUSTED_ENVIRONMENT);
+    ::keymaster::PureSoftKeymasterContext context(
+            ::keymaster::KeymasterContext::Version::KEYMASTER_4_1,
+            KM_SECURITY_LEVEL_TRUSTED_ENVIRONMENT);
 
     error = generate_attestation_from_EVP_with_subject_name(
-            key, swEnforced, hwEnforced, auth_set, context, ::keymaster::kCurrentKeymasterVersion,
+            key, swEnforced, hwEnforced, auth_set, context,
+            ::keymaster::version_to_attestation_version(
+                    ::keymaster::KeymasterContext::Version::KEYMASTER_4_1),
             *attestation_chain, *attestation_signing_key, "Android Identity Credential Key",
             &cert_chain_out);
 
@@ -2387,7 +2391,6 @@ vector<vector<uint8_t>> chunkVector(const vector<uint8_t>& content, size_t maxCh
 
     return ret;
 }
-
 
 vector<uint8_t> testHardwareBoundKey = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
