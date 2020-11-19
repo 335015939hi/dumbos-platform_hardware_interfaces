@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05313c21_d57d2860",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-19T02:34:42Z",
+      "side": 1,
+      "message": "No, let\u0027s keep it const.",
+      "range": {
+        "startLine": 878,
+        "startChar": 52,
+        "endLine": 878,
+        "endChar": 60
+      },
+      "revId": "1c0eea7a6600b9e4c4dc907c29a6c8b4c187f2ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
