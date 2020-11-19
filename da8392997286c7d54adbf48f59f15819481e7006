@@ -118,6 +118,30 @@
       },
       "revId": "da8392997286c7d54adbf48f59f15819481e7006",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21f8a7be_632d6317",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1021605
+      },
+      "writtenOn": "2020-11-19T18:15:35Z",
+      "side": 1,
+      "message": "Okay, I will then remove this check that was meant for non-GSI.",
+      "parentUuid": "821dbc68_4dc574cc",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 81
+      },
+      "revId": "da8392997286c7d54adbf48f59f15819481e7006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
