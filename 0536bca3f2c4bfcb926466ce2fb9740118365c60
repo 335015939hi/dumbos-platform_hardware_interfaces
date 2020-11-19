@@ -22,6 +22,30 @@
       },
       "revId": "0536bca3f2c4bfcb926466ce2fb9740118365c60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e743541_7886a6f0",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestV1_1.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-19T19:03:30Z",
+      "side": 1,
+      "message": "oh yeah, !ret.isOk() should be a test error, indicating a problem talking to the HAL. It will return a value or nullptr when it is able to successfully communicate with the HAL and determine the appropriate version",
+      "parentUuid": "85dd9046_fab3c4df",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 37
+      },
+      "revId": "0536bca3f2c4bfcb926466ce2fb9740118365c60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
