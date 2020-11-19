@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85dd9046_fab3c4df",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestV1_1.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2020-11-19T03:32:49Z",
+      "side": 1,
+      "message": "Probably review the null pointer using if castFrom can\u0027t return a valid pointer\n\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1465908/4/tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp#29\nconst Return\u003cvoid\u003e ret \u003d getControlV1_1()-\u003esetDataWarningAndLimit(..",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 37
+      },
+      "revId": "0536bca3f2c4bfcb926466ce2fb9740118365c60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
