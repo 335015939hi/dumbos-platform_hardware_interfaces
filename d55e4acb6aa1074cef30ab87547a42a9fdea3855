@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "197359ea_b9574274",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2020-11-20T05:47:12Z",
+      "side": 1,
+      "message": "Created test/fuzzer folder inside default folder",
+      "parentUuid": "d4e985f0_fa7f7eaa",
+      "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdbeac43_9ffda0a3",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a6222ea_4e0dfccf",
+        "filename": "automotive/audiocontrol/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2020-11-20T05:47:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdbeac43_9ffda0a3",
+      "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5493a410_06d8014e",
@@ -48,6 +84,24 @@
       "writtenOn": "2020-11-17T19:50:48Z",
       "side": 1,
       "message": "I think we can omit this README as https://source.android.com/devices/tech/debug/libfuzzer covers how to run fuzzers in general for Android. If you want you could reference this as part of the Test: line of the commit message.",
+      "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcaa7943_b99164c8",
+        "filename": "automotive/audiocontrol/1.0/default/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2020-11-20T05:47:12Z",
+      "side": 1,
+      "message": "Done. We have removed README.md file and added the command to run the fuzzer in the \u0027Test:\u0027 line of commit message.",
+      "parentUuid": "5493a410_06d8014e",
       "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -71,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "efd6d8e2_b10b314d",
+        "filename": "automotive/audiocontrol/1.0/default/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2020-11-20T05:47:12Z",
+      "side": 1,
+      "message": "We have removed README.md file and added the command to run the fuzzer in the \u0027Test:\u0027 line of commit message. Hope it is fine.",
+      "parentUuid": "4ac1d9da_ab8d270d",
+      "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b462c8bb_ec8b3457",
         "filename": "automotive/audiocontrol/1.0/default/README.md",
         "patchSetId": 1
@@ -82,6 +154,24 @@
       "writtenOn": "2020-11-17T19:50:48Z",
       "side": 1,
       "message": "arm64 here depends on the target\u0027s architecture. Might be best to clarify that, as a lot of people will want to be able to copy/paste commands unless there\u0027s clearly something to modify",
+      "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "695aacb6_5a4f3b16",
+        "filename": "automotive/audiocontrol/1.0/default/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2020-11-20T05:47:12Z",
+      "side": 1,
+      "message": "Done. Updated the text to contain $(TARGET_ARCH) instead of hardcoded arm64",
+      "parentUuid": "b462c8bb_ec8b3457",
       "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
