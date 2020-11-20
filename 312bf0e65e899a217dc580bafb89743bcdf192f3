@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65b81590_785b4cf4",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-11-20T21:34:03Z",
+      "side": 1,
+      "message": "there\u0027 no way to actually reliably test this right? I think I remember you mentioning that somewhere.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 26
+      },
+      "revId": "312bf0e65e899a217dc580bafb89743bcdf192f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
