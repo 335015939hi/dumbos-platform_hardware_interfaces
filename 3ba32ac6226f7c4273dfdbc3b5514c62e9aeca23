@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e0c7682_3694125d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-20T13:38:00Z",
+      "side": 1,
+      "message": "First line should be \u003c\u003d 70 characters. Also, prefix with \"identity: \" like most of the other commits to hardware/identity.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 56
+      },
+      "revId": "3ba32ac6226f7c4273dfdbc3b5514c62e9aeca23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1386c374_92ccbe90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-20T13:38:00Z",
+      "side": 1,
+      "message": "Thanks, sounds good to me. Nits inline, should be easy to address.",
+      "revId": "3ba32ac6226f7c4273dfdbc3b5514c62e9aeca23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1349461b_303bd7de",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-20T13:38:00Z",
+      "side": 1,
+      "message": "Looks like we\u0027re not using \"error\" variable at all. Either remove or use it in the log message (and if you keep it, please use the full type, not auto).",
+      "range": {
+        "startLine": 967,
+        "startChar": 8,
+        "endLine": 967,
+        "endChar": 20
+      },
+      "revId": "3ba32ac6226f7c4273dfdbc3b5514c62e9aeca23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b1fe4f6_748ef93e",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-20T13:38:00Z",
+      "side": 1,
+      "message": "Replace with \"i2d_X509_NAME(subjectName.get(), NULL)\" so you can avoid the len variable.",
+      "range": {
+        "startLine": 975,
+        "startChar": 28,
+        "endLine": 975,
+        "endChar": 31
+      },
+      "revId": "3ba32ac6226f7c4273dfdbc3b5514c62e9aeca23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5cb7487_280828bf",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-20T13:38:00Z",
+      "side": 1,
+      "message": "Use \"subjectNamePtr\" or something more specific than just \"p\".",
+      "range": {
+        "startLine": 976,
+        "startChar": 19,
+        "endLine": 976,
+        "endChar": 20
+      },
+      "revId": "3ba32ac6226f7c4273dfdbc3b5514c62e9aeca23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
