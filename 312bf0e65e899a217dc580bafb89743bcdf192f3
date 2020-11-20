@@ -22,6 +22,30 @@
       },
       "revId": "312bf0e65e899a217dc580bafb89743bcdf192f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74e80884_1c236588",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-20T22:35:21Z",
+      "side": 1,
+      "message": "I mean, you can be pretty certain by having a single-threaded process.\n\nI have it tested here:\nhttps://android-review.googlesource.com/c/platform/system/tools/hidl/+/1506838\n\nby copying the auto-generated source and inspecting some internal values there.\n\nOnce we have an updated cuttlefish kernel I can actually get tests in continuous integration, but it can\u0027t be hidl_test (which is vts, since we have no discovery mechanism for the kernel patches from userspace)\n\nFor the real heapdump test - a separate team is responsible for getting that in continuous integration.\n\nBy \u0027// for test\u0027 here, I mostly mean testing that various memsets don\u0027t break functionality.",
+      "parentUuid": "65b81590_785b4cf4",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 26
+      },
+      "revId": "312bf0e65e899a217dc580bafb89743bcdf192f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
