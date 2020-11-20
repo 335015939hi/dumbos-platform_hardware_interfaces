@@ -44,9 +44,15 @@ using ::android::wifi_system::SupplicantManager;
 namespace {
 // Helper function to initialize the driver and firmware to AP mode
 // using the vendor HAL HIDL interface.
+<<<<<<< HEAD   (fbc735 [automerger skipped] Merge "vts: supplicant: Remove optional)
 void initilializeDriverAndFirmware(const std::string& wifi_instance_name) {
     if (getWifi(wifi_instance_name) != nullptr) {
         sp<IWifiChip> wifi_chip = getWifiChip(wifi_instance_name);
+=======
+void initilializeDriverAndFirmware() {
+    if (getWifi() != nullptr) {
+        sp<IWifiChip> wifi_chip = getWifiChip();
+>>>>>>> BRANCH (522a6b Merge "vts: hostapd: Remove optional service registration" i)
         ChipModeId mode_id;
         EXPECT_TRUE(configureChipToSupportIfaceType(
             wifi_chip, ::android::hardware::wifi::V1_0::IfaceType::AP, &mode_id));
@@ -57,9 +63,15 @@ void initilializeDriverAndFirmware(const std::string& wifi_instance_name) {
 
 // Helper function to deinitialize the driver and firmware
 // using the vendor HAL HIDL interface.
+<<<<<<< HEAD   (fbc735 [automerger skipped] Merge "vts: supplicant: Remove optional)
 void deInitilializeDriverAndFirmware(const std::string& wifi_instance_name) {
     if (getWifi(wifi_instance_name) != nullptr) {
         stopWifi(wifi_instance_name);
+=======
+void deInitilializeDriverAndFirmware() {
+    if (getWifi() != nullptr) {
+        stopWifi();
+>>>>>>> BRANCH (522a6b Merge "vts: hostapd: Remove optional service registration" i)
     } else {
         LOG(WARNING) << __func__ << ": Vendor HAL not supported";
     }
