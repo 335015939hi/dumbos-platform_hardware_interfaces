@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b979a3fa_3412c28a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-11-20T19:39:43Z",
+      "side": 1,
+      "message": "NP. Thanks for making another pass! I will address the comment about comments, all other seems to be WAI. Please let me know if you are disagree.",
+      "parentUuid": "34476509_332f9d42",
+      "revId": "fda20429b40bcdb8eba6cfa8a1d150c5d3025fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c706f53_bce2eb45",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-11-20T02:35:37Z",
       "side": 1,
       "message": "should this say callee?\n\nIf so - how does it avoid a race, if something else starts using that TID?",
+      "range": {
+        "startLine": 118,
+        "startChar": 73,
+        "endLine": 118,
+        "endChar": 79
+      },
+      "revId": "fda20429b40bcdb8eba6cfa8a1d150c5d3025fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39ef014f_6dac3c9e",
+        "filename": "audio/7.0/IStreamIn.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-11-20T19:39:43Z",
+      "side": 1,
+      "message": "It\u0027s the caller (a framework service). HAL doesn\u0027t have enough privileges to adjust the priority.\n\nI think races are unlikely here. The thread that the HAL starts does not exit by itself until the framework service tells it so, via a call to \u0027close\u0027 method. A call to \u0027prepareForReading\u0027 will not be successful if the thread couldn\u0027t be started. So there is a guarantee that the TID isn\u0027t get reused until the call to \u0027close\u0027. The only possibility to create a race is to make calls to \u0027prepareForReading\u0027 and \u0027close\u0027 from different threads on the caller side, but that would lead to other problems, so the audio service doesn\u0027t do that.",
+      "parentUuid": "9c706f53_bce2eb45",
       "range": {
         "startLine": 118,
         "startChar": 73,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2648a6d_c4d6d294",
+        "filename": "audio/7.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-11-20T19:39:43Z",
+      "side": 1,
+      "message": "Sure, fill fix.",
+      "parentUuid": "9495fbf9_f39fe6c9",
+      "range": {
+        "startLine": 370,
+        "startChar": 20,
+        "endLine": 370,
+        "endChar": 35
+      },
+      "revId": "fda20429b40bcdb8eba6cfa8a1d150c5d3025fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "699de638_78d886a2",
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da7a4e83_00fade1e",
+        "filename": "audio/common/7.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-11-20T19:39:43Z",
+      "side": 1,
+      "message": "Yes, you\u0027ve seen part of them in the \"fix-b-142480271-default-wrapper\" topic, and the other part will be in VTS.",
+      "parentUuid": "699de638_78d886a2",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 26
+      },
+      "revId": "fda20429b40bcdb8eba6cfa8a1d150c5d3025fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f9534b7_8c3695cc",
@@ -100,6 +190,30 @@
       "writtenOn": "2020-11-20T02:35:37Z",
       "side": 1,
       "message": "nit: these typedefs won\u0027t be visible in generated code - please be aware of that when you are writing the interface, since it may look clear what goes where here, but it won\u0027t in client/server code",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "fda20429b40bcdb8eba6cfa8a1d150c5d3025fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed20f6e3_29e34c31",
+        "filename": "audio/common/7.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-11-20T19:39:43Z",
+      "side": 1,
+      "message": "WDYM? Here is an excerpt from the generated code (out/soong/.intermediates/hardware/interfaces/audio/common/7.0/android.hardware.audio.common@7.0_genc++_headers/gen/android/hardware/audio/common/7.0/types.h):\n\n  typedef ::android::hardware::hidl_string AudioStreamType;\n\nThey are all aliased to hidl_string of course, but you can still use type names for clarity.",
+      "parentUuid": "7f9534b7_8c3695cc",
       "range": {
         "startLine": 65,
         "startChar": 0,
