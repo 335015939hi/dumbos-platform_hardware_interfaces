@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ffeb92f_e169f6de",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-11-20T11:57:39Z",
+      "side": 1,
+      "message": "BluetoothAudioSessionControl is used by device_port_proxy in audio_bluetooth_hw. It should be somehow distinguishable if it should use 2.0 or 2.1. Both are static and should be compile-able - selected in manifest. There is pragma once and only one BluetoothAudioSessionContro.h would be included. Both headers seems to be in the header space.",
+      "parentUuid": "4832cd34_720c73dd",
+      "revId": "59728821741e93ae52a2b22a508cf242c697cf31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26ada9a3_077d9144",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
         "patchSetId": 2
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f1c7f9f4_dcca426c",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-11-20T11:57:39Z",
+      "side": 1,
+      "message": "Unfortunately it doesn\u0027t work.\nbtw. BluetoothAudioSession.h and other header files also uses \"using\".\nShould then be avoided \"using\" here and in every SessionType use full scope to V2_0 ?",
+      "parentUuid": "26ada9a3_077d9144",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 5
+      },
+      "revId": "59728821741e93ae52a2b22a508cf242c697cf31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fae688ec_42cbcb32",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession_2_1.h",
         "patchSetId": 2
@@ -54,6 +96,24 @@
       "writtenOn": "2020-11-16T10:27:23Z",
       "side": 1,
       "message": "Do you need to change this file name ?\nYou are already in 2.1 folder, there should be no conflict.\n\nI\u0027m looking through other projects doing hal version changes, and don\u0027t see version added at end of file name.",
+      "revId": "59728821741e93ae52a2b22a508cf242c697cf31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e83ab7df_ef8d0318",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession_2_1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-11-20T11:57:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fae688ec_42cbcb32",
       "revId": "59728821741e93ae52a2b22a508cf242c697cf31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
