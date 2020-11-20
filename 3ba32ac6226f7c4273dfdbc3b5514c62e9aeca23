@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e255c9f4_fce15e09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-20T16:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e0c7682_3694125d",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 56
+      },
+      "revId": "3ba32ac6226f7c4273dfdbc3b5514c62e9aeca23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1386c374_92ccbe90",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0b118d1_a2cac9fc",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-20T16:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1349461b_303bd7de",
+      "range": {
+        "startLine": 967,
+        "startChar": 8,
+        "endLine": 967,
+        "endChar": 20
+      },
+      "revId": "3ba32ac6226f7c4273dfdbc3b5514c62e9aeca23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b1fe4f6_748ef93e",
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d53e2b88_4a7c157f",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-20T16:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b1fe4f6_748ef93e",
+      "range": {
+        "startLine": 975,
+        "startChar": 28,
+        "endLine": 975,
+        "endChar": 31
+      },
+      "revId": "3ba32ac6226f7c4273dfdbc3b5514c62e9aeca23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5cb7487_280828bf",
@@ -100,6 +172,30 @@
       "writtenOn": "2020-11-20T13:38:00Z",
       "side": 1,
       "message": "Use \"subjectNamePtr\" or something more specific than just \"p\".",
+      "range": {
+        "startLine": 976,
+        "startChar": 19,
+        "endLine": 976,
+        "endChar": 20
+      },
+      "revId": "3ba32ac6226f7c4273dfdbc3b5514c62e9aeca23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec48d014_34d5e358",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-20T16:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5cb7487_280828bf",
       "range": {
         "startLine": 976,
         "startChar": 19,
