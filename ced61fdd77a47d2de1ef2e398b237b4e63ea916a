@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af9e47dc_db073767",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1468489
+      },
+      "writtenOn": "2020-11-20T19:44:44Z",
+      "side": 1,
+      "message": "can we assign value instead of depending on RadioTechnology??",
+      "revId": "ced61fdd77a47d2de1ef2e398b237b4e63ea916a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
