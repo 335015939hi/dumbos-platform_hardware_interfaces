@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c4041f8_a6497fae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-20T11:47:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3bcaf88_9ecb64c0",
+      "revId": "e6d0e5ffcfa785dc1f248ad111c84595640a1335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6d8be25_a2c8211e",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b70499f_97044f16",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-20T11:47:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6d8be25_a2c8211e",
+      "range": {
+        "startLine": 491,
+        "startChar": 14,
+        "endLine": 493,
+        "endChar": 38
+      },
+      "revId": "e6d0e5ffcfa785dc1f248ad111c84595640a1335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b2d1510_7fd946ad",
@@ -54,6 +96,30 @@
       "writtenOn": "2020-11-06T18:00:47Z",
       "side": 1,
       "message": "ATTESTATION_CERTIFICATE_SERIAL and ATTESTATION_CERTIFICATE_SUBJECT should be called\nCERTIFICATE_SERIAL and CERTIFICATE_SUBJECT, because they shall be used for both self-signed/dummy certificates and attestation certificates.",
+      "range": {
+        "startLine": 896,
+        "startChar": 4,
+        "endLine": 896,
+        "endChar": 16
+      },
+      "revId": "e6d0e5ffcfa785dc1f248ad111c84595640a1335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d5e4c84_70934fcc",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-20T11:47:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b2d1510_7fd946ad",
       "range": {
         "startLine": 896,
         "startChar": 4,

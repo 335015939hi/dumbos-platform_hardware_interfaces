@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccf93799_4416edb7",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-20T11:47:46Z",
+      "side": 1,
+      "message": "Yes, if you trace thought all the nested calls, it eventually changes the pkey context and does some up reference counter.  So IC needs to change the parameter.",
+      "parentUuid": "774bd8cd_535461f0",
+      "range": {
+        "startLine": 878,
+        "startChar": 52,
+        "endLine": 878,
+        "endChar": 66
+      },
+      "revId": "a8aeeb0979c43bc7dda4adf04489adef05c0cf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bef5238_63510135",

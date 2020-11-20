@@ -134,6 +134,30 @@
       },
       "revId": "41d8b84652bd277cbf9ce6df79e46ea66e4b95f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73df7694_f09ac31a",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-11-20T11:47:46Z",
+      "side": 1,
+      "message": "I thought we discussed and agreed on this long ago?  Keystore get these params, it wants to pass it down and getting set so things are consistant.",
+      "parentUuid": "a6445de6_c6e5bee8",
+      "range": {
+        "startLine": 892,
+        "startChar": 4,
+        "endLine": 892,
+        "endChar": 34
+      },
+      "revId": "41d8b84652bd277cbf9ce6df79e46ea66e4b95f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
