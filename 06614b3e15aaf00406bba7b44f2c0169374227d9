@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8799ca26_e47b1133",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-20T17:15:37Z",
+      "side": 1,
+      "message": "Optional: you don\u0027t need to say \"Change Identity Credential\" - the fact it\u0027s prefix with \"identity: \" gives it away... also, the way commit messages work is that the first line should stand on it\u0027s own (in less than 70 characters) then line 2 is usually empty and line 3 is where you can put multi-line paragraphs with more information. It\u0027s done this way so the reader can easily scan the first line and if they want to know more they can drill down.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 75
+      },
+      "revId": "06614b3e15aaf00406bba7b44f2c0169374227d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e1f167f_0f4a55fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-11-20T17:15:37Z",
+      "side": 1,
+      "message": "Thanks for making all those changes!",
+      "revId": "06614b3e15aaf00406bba7b44f2c0169374227d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
