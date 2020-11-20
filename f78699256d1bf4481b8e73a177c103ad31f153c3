@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c601d55f_a20b62b7",
+        "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2020-11-20T17:57:47Z",
+      "side": 1,
+      "message": "Please do an explicit comparison here so the intent is clear.\naudioControl !\u003d nullptr",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "f78699256d1bf4481b8e73a177c103ad31f153c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
