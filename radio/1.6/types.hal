@@ -18,6 +18,10 @@ package android.hardware.radio@1.6;
 
 import @1.0::RadioError;
 import @1.0::RadioResponseType;
+import @1.0::RadioCapabilityPhase;
+import @1.0::RadioCapabilityStatus;
+import @1.4:RadioAccessFamily;
+import @1.4::RadioTechnology;
 import @1.5::SetupDataCallResult;
 
 import android.hidl.safe_union@1.0::Monostate;
@@ -327,4 +331,33 @@ struct LinkCapacityEstimate {
     * mode.This must be filled with -1 if secondary is not connected.
     */
    uint32_t secondaryUplinkCapacityKbps;
+};
+
+enum RadioTechnology : @1.4::RadioTechnology {
+    /** 5G NSA. This is only use in 5G Non Standalone mode. */
+    NR_NSA = 21,
+};
+
+enum RadioAccessFamily : @1.4::RadioAccessFamily {
+    /** 5G NSA. This is only use in 5G Non Standalone mode. */
+    NR_NSA = 1 << RadioTechnology:NR_NSA,
+};
+
+/** Overwritten from @1.4::RadioCapability in order to use the latest RadioAccessFamily. */
+struct RadioCapability {
+    /** Unique session value defined by fr amework returned in all "responses/unslo". */
+    int32_t session;
+
+    RadioCapabilityPhase phase;
+
+    /** 32-bit bitmap of RadioAccessFamily. */
+    bitfield<RadioAccessFamily> raf;
+
+    /**
+     * A UUID typically "com.xxxx.lmX" where X is the logical modem.
+     * RadioConst:MAX_UUID_LENGTH is the max length.
+     */
+    string logicalModemUuid;
+
+    RadioCapabilityStatus status;
 };

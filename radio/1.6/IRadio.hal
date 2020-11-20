@@ -320,4 +320,13 @@ interface IRadio extends @1.5::IRadio {
      */
     oneway setAllowedNetworkTypeBitmap(
             uint32_t serial, bitfield<RadioAccessFamily> networkTypeBitmap);
+
+    /**
+     * Used to get phone radio capability.
+     *
+     * @param serial Serial number of request.
+     *
+     * Response callback is IRadioResponse.getRadioCapabilityResponse_1_6()
+     */
+    oneway getRadioCapability_1_6(int32_t serial);
 };
