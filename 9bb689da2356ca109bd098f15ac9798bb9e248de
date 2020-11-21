@@ -16,6 +16,24 @@
       "message": "nit: line too long?",
       "revId": "9bb689da2356ca109bd098f15ac9798bb9e248de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cb26d44_ef7ee7c2",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1021605
+      },
+      "writtenOn": "2020-11-21T02:09:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "75c0cc41_001c0716",
+      "revId": "9bb689da2356ca109bd098f15ac9798bb9e248de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
