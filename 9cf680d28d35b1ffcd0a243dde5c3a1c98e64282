@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d801c960_b5f052d8",
+        "filename": "bluetooth/1.0/default/hci_packetizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2020-11-23T16:29:45Z",
+      "side": 1,
+      "message": "0x3f ?",
+      "range": {
+        "startLine": 47,
+        "startChar": 41,
+        "endLine": 47,
+        "endChar": 43
+      },
+      "revId": "9cf680d28d35b1ffcd0a243dde5c3a1c98e64282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
