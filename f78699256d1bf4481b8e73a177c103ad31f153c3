@@ -22,6 +22,30 @@
       },
       "revId": "f78699256d1bf4481b8e73a177c103ad31f153c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bc10521_26e4e74b",
+        "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2020-11-23T13:39:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c601d55f_a20b62b7",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "f78699256d1bf4481b8e73a177c103ad31f153c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
