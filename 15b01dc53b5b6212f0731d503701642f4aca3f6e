@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3745d342_1fa1eb5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-23T19:36:32Z",
+      "side": 1,
+      "message": "Harpreet, can you check this? It makes sense to me",
+      "revId": "15b01dc53b5b6212f0731d503701642f4aca3f6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78fd50de_c050c6ee",
@@ -31,6 +48,30 @@
       "writtenOn": "2020-11-23T19:35:05Z",
       "side": 1,
       "message": "also prefer GTEST_SKIP here, since the fact that it is skipped will show up in test reports. This sometimes makes it easier to debug things when waivers are being requested/etc..",
+      "range": {
+        "startLine": 99,
+        "startChar": 54,
+        "endLine": 99,
+        "endChar": 60
+      },
+      "revId": "15b01dc53b5b6212f0731d503701642f4aca3f6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99c0e684_4df9d0b2",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-23T19:36:32Z",
+      "side": 1,
+      "message": "err - this comment shouldn\u0027t apply to this test fix though.",
+      "parentUuid": "78fd50de_c050c6ee",
       "range": {
         "startLine": 99,
         "startChar": 54,
