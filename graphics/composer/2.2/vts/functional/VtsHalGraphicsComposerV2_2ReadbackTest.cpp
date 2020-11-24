@@ -76,7 +76,7 @@ class GraphicsCompositionTestBase : public ::testing::Test {
 
         // explicitly disable vsync
         ASSERT_NO_FATAL_FAILURE(mComposerClient->setVsyncEnabled(mPrimaryDisplay, false));
-        mComposerCallback->setVsyncAllowed(false);
+        mComposerCallback->setVsyncAllowed(mPrimaryDisplay, false);
 
         // set up command writer/reader and gralloc
         mWriter = std::make_shared<CommandWriterBase>(1024);
