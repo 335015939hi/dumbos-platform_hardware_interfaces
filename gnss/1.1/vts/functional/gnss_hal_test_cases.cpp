@@ -467,7 +467,11 @@ TEST_P(GnssHalTest, BlacklistConstellationWithLocationOn) {
     sources.resize(1);
     sources[0] = source_to_blacklist;
 
+<<<<<<< TARGET BRANCH (3df2ac [automerger skipped] Merge "vts: hostapd: Remove optional se)
     // setBlacklist when location is still on
+=======
+    // setBlacklist when location is on.
+>>>>>>> SOURCE BRANCH (45e3ff Stop location to avoid timing issue (VTS 2.0))
     auto result = gnss_configuration_hal->setBlacklist(sources);
     ASSERT_TRUE(result.isOk());
     EXPECT_TRUE(result);
