@@ -30,7 +30,11 @@ const RadioAccessSpecifier GERAN_SPECIFIER_850 = {.radioAccessNetwork = RadioAcc
 /*
  * Test IRadio.emergencyDial() for the response returned.
  */
+<<<<<<< HEAD   (02db02 Merge "Fix GnssMeasurement state range check" into android10)
 TEST_P(RadioHidlTest_v1_4, emergencyDial) {
+=======
+TEST_F(RadioHidlTest_v1_4, emergencyDial) {
+>>>>>>> BRANCH (3cc5d9 Skip voice call VTS for devices that don't support voice cal)
     if (!deviceSupportsFeature(FEATURE_VOICE_CALL)) {
         ALOGI("Skipping emergencyDial because voice call is not supported in device");
         return;
@@ -68,7 +72,11 @@ TEST_P(RadioHidlTest_v1_4, emergencyDial) {
 /*
  * Test IRadio.emergencyDial() with specified service and its response returned.
  */
+<<<<<<< HEAD   (02db02 Merge "Fix GnssMeasurement state range check" into android10)
 TEST_P(RadioHidlTest_v1_4, emergencyDial_withServices) {
+=======
+TEST_F(RadioHidlTest_v1_4, emergencyDial_withServices) {
+>>>>>>> BRANCH (3cc5d9 Skip voice call VTS for devices that don't support voice cal)
     if (!deviceSupportsFeature(FEATURE_VOICE_CALL)) {
         ALOGI("Skipping emergencyDial because voice call is not supported in device");
         return;
@@ -107,7 +115,11 @@ TEST_P(RadioHidlTest_v1_4, emergencyDial_withServices) {
 /*
  * Test IRadio.emergencyDial() with known emergency call routing and its response returned.
  */
+<<<<<<< HEAD   (02db02 Merge "Fix GnssMeasurement state range check" into android10)
 TEST_P(RadioHidlTest_v1_4, emergencyDial_withEmergencyRouting) {
+=======
+TEST_F(RadioHidlTest_v1_4, emergencyDial_withEmergencyRouting) {
+>>>>>>> BRANCH (3cc5d9 Skip voice call VTS for devices that don't support voice cal)
     if (!deviceSupportsFeature(FEATURE_VOICE_CALL)) {
         ALOGI("Skipping emergencyDial because voice call is not supported in device");
         return;
