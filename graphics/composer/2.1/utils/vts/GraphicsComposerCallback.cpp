@@ -23,9 +23,9 @@ namespace composer {
 namespace V2_1 {
 namespace vts {
 
-void GraphicsComposerCallback::setVsyncAllowed(bool allowed) {
+void GraphicsComposerCallback::setVsyncAllowed(Display display, bool allowed) {
     std::lock_guard<std::mutex> lock(mMutex);
-    mVsyncAllowed = allowed;
+    mVsyncAllowedForDisplay[display] = allowed;
 }
 
 std::vector<Display> GraphicsComposerCallback::getDisplays() const {
@@ -77,7 +77,7 @@ Return<void> GraphicsComposerCallback::onRefresh(Display display) {
 Return<void> GraphicsComposerCallback::onVsync(Display display, int64_t) {
     std::lock_guard<std::mutex> lock(mMutex);
 
-    if (!mVsyncAllowed || mDisplays.count(display) == 0) {
+    if (!mVsyncAllowedForDisplay[display] || mDisplays.count(display) == 0) {
         mInvalidVsyncCount++;
     }
 

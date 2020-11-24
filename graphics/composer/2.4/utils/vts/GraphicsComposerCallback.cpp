@@ -18,9 +18,9 @@
 
 namespace android::hardware::graphics::composer::V2_4::vts {
 
-void GraphicsComposerCallback::setVsyncAllowed(bool allowed) {
+void GraphicsComposerCallback::setVsyncAllowed(Display display, bool allowed) {
     std::lock_guard<std::mutex> lock(mMutex);
-    mVsyncAllowed = allowed;
+    mVsyncAllowedForDisplay[display] = allowed;
 }
 
 std::vector<Display> GraphicsComposerCallback::getDisplays() const {
@@ -106,7 +106,7 @@ Return<void> GraphicsComposerCallback::onVsync(Display, int64_t) {
 Return<void> GraphicsComposerCallback::onVsync_2_4(Display display, int64_t, VsyncPeriodNanos) {
     std::lock_guard<std::mutex> lock(mMutex);
 
-    if (!mVsyncAllowed || mDisplays.count(display) == 0) {
+    if (!mVsyncAllowedForDisplay[display] || mDisplays.count(display) == 0) {
         mInvalidVsync_2_4Count++;
     }
 
