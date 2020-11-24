@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf9d54e4_3fc6f7e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1241863
+      },
+      "writtenOn": "2020-11-24T00:24:26Z",
+      "side": 1,
+      "message": "Note: change was made in googleplex/master http://ag/3684889 March 2018 so this is simply backporting to P",
+      "revId": "c476ff3857857cc1c62bc93b59846f480f87b547",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
