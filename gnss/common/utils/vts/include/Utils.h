@@ -45,12 +45,18 @@ namespace common {
 struct Utils {
     static void checkLocation(const GnssLocation& location, bool check_speed,
                               bool check_more_accuracies);
+<<<<<<< HEAD   (3df2ac [automerger skipped] Merge "vts: hostapd: Remove optional se)
     static const MeasurementCorrections_1_0 getMockMeasurementCorrections();
     static const MeasurementCorrections_1_1 getMockMeasurementCorrections_1_1();
 
     static GnssConstellationType_1_0 mapConstellationType(GnssConstellationType_2_0 constellation);
 
     static bool isAutomotiveDevice();
+=======
+    static const MeasurementCorrections getMockMeasurementCorrections();
+
+    static GnssConstellationType_1_0 mapConstellationType(GnssConstellationType_2_0 constellation);
+>>>>>>> BRANCH (45e3ff Stop location to avoid timing issue (VTS 2.0))
 };
 
 }  // namespace common
