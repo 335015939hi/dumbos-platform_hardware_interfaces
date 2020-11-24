@@ -97,8 +97,8 @@ class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
         // explicitly disable vsync
         for (const auto& display : mDisplays) {
             mComposerClient->setVsyncEnabled(display.get(), false);
+            mComposerCallback->setVsyncAllowed(display.get(), false);
         }
-        mComposerCallback->setVsyncAllowed(false);
 
         ASSERT_NO_FATAL_FAILURE(mGralloc = std::make_unique<Gralloc>());
 

@@ -65,7 +65,7 @@ class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
 
         // explicitly disable vsync
         mComposerClient->setVsyncEnabled(mPrimaryDisplay, false);
-        mComposerCallback->setVsyncAllowed(false);
+        mComposerCallback->setVsyncAllowed(mPrimaryDisplay, false);
 
         mComposerClient->getRaw()->getReadbackBufferAttributes(
             mPrimaryDisplay,
