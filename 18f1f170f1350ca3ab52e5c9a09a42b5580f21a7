@@ -22,6 +22,30 @@
       },
       "revId": "18f1f170f1350ca3ab52e5c9a09a42b5580f21a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d780d58a_dccf53b2",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2020-11-24T00:24:19Z",
+      "side": 1,
+      "message": "Yes pasting the reasoning based on inquiry from: b/172484781\n\n1) when sim card power off, if SIM card remove, What are the required values in the framework?\n\u003e\u003e CARDSTATE_ABSENT (nothing else populated)\n2) and If same sim card or other sim card inserted again, what are the required values in the framework?\n\u003e\u003e if sim card is re-inserted by user, or a new sim card is inserted, then this is a signal that they want to use it, and we should at least pop-up a UX asking if they want to use it (or automatically enable it). Hence in this scenario, we can power the sim card up normally. it does not have to stay in a power-off state, and we would expect the typical sim data population.\n\nWDYT? We kind of consider it a \u0027wipe\u0027 of power mode setting if the SIM card is physically removed and re-inserted.",
+      "parentUuid": "96eda318_dc719403",
+      "range": {
+        "startLine": 221,
+        "startChar": 45,
+        "endLine": 223,
+        "endChar": 23
+      },
+      "revId": "18f1f170f1350ca3ab52e5c9a09a42b5580f21a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
