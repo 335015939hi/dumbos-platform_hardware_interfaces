@@ -691,7 +691,7 @@ enum VehicleProperty : int32_t {
         | VehicleArea:GLOBAL),
 
     /**
-     * Auto-apply parking brake.
+     * Auto-apply parking brake for the electric parking brake.
      *
      * @change_mode VehiclePropertyChangeMode:ON_CHANGE
      * @access VehiclePropertyAccess:READ_WRITE
