@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96eda318_dc719403",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-11-24T00:01:41Z",
+      "side": 1,
+      "message": "Is this correct? Do we want SIM change to power up the SIM slot?",
+      "range": {
+        "startLine": 221,
+        "startChar": 45,
+        "endLine": 223,
+        "endChar": 23
+      },
+      "revId": "18f1f170f1350ca3ab52e5c9a09a42b5580f21a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
