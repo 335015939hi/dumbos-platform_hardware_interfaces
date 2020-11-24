@@ -69,7 +69,7 @@ class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
 
         // explicitly disable vsync
         mComposerClient->setVsyncEnabled(mPrimaryDisplay, false);
-        mComposerCallback->setVsyncAllowed(false);
+        mComposerCallback->setVsyncAllowed(mPrimaryDisplay, false);
 
         mInvalidDisplayId = GetInvalidDisplayId();
 
@@ -636,13 +636,13 @@ TEST_P(GraphicsComposerHidlTest, SetPowerModeBadParameter) {
  * spurious vsync events.
  */
 TEST_P(GraphicsComposerHidlTest, SetVsyncEnabled) {
-    mComposerCallback->setVsyncAllowed(true);
+    mComposerCallback->setVsyncAllowed(mPrimaryDisplay, true);
 
     mComposerClient->setVsyncEnabled(mPrimaryDisplay, true);
     usleep(60 * 1000);
     mComposerClient->setVsyncEnabled(mPrimaryDisplay, false);
 
-    mComposerCallback->setVsyncAllowed(false);
+    mComposerCallback->setVsyncAllowed(mPrimaryDisplay, false);
 }
 
 // Tests for IComposerClient::Command.
