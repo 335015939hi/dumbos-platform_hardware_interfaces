@@ -19,6 +19,7 @@
 #include <android/hardware/graphics/composer/2.1/IComposerCallback.h>
 
 #include <mutex>
+#include <unordered_map>
 #include <unordered_set>
 
 namespace android {
@@ -31,15 +32,15 @@ namespace vts {
 // IComposerCallback to be installed with IComposerClient::registerCallback.
 class GraphicsComposerCallback : public IComposerCallback {
    public:
-    void setVsyncAllowed(bool allowed);
+     void setVsyncAllowed(Display display, bool allowed);
 
-    std::vector<Display> getDisplays() const;
+     std::vector<Display> getDisplays() const;
 
-    int getInvalidHotplugCount() const;
+     int getInvalidHotplugCount() const;
 
-    int getInvalidRefreshCount() const;
+     int getInvalidRefreshCount() const;
 
-    int getInvalidVsyncCount() const;
+     int getInvalidVsyncCount() const;
 
    private:
     Return<void> onHotplug(Display display, Connection connection) override;
@@ -49,8 +50,8 @@ class GraphicsComposerCallback : public IComposerCallback {
     mutable std::mutex mMutex;
     // the set of all currently connected displays
     std::unordered_set<Display> mDisplays;
-    // true only when vsync is enabled
-    bool mVsyncAllowed = true;
+    // true only when vsync is enabled on a given display
+    std::unordered_map<Display, bool> mVsyncAllowedForDisplay;
 
     // track invalid callbacks
     int mInvalidHotplugCount = 0;
