@@ -22,6 +22,30 @@
       },
       "revId": "09e7d097bc0850171e39af90cea78d3f9e1be263",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "164e8196_37b4fe3e",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-11-25T20:05:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ab64aa7b_8ae2b74c",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "09e7d097bc0850171e39af90cea78d3f9e1be263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
