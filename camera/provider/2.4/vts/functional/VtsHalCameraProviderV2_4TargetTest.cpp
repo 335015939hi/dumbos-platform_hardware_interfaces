@@ -580,11 +580,14 @@ public:
 
  bool isSecureOnly(sp<ICameraProvider> provider, const hidl_string& name);
 
+<<<<<<< HEAD   (73515d Fix issues for Japan model. am: c1e9656422 am: 8445cfc1f8)
  std::map<hidl_string, hidl_string> getCameraDeviceIdToNameMap(sp<ICameraProvider> provider);
 
  hidl_vec<hidl_vec<hidl_string>> getConcurrentDeviceCombinations(
          sp<::android::hardware::camera::provider::V2_6::ICameraProvider>&);
 
+=======
+>>>>>>> BRANCH (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
  struct EmptyDeviceCb : public V3_5::ICameraDeviceCallback {
      virtual Return<void> processCaptureResult(
          const hidl_vec<CaptureResult>& /*results*/) override {
@@ -1657,8 +1660,13 @@ hidl_vec<hidl_string> CameraHidlTest::getCameraDeviceNames(sp<ICameraProvider> p
         }
     }
 
+<<<<<<< HEAD   (73515d Fix issues for Japan model. am: c1e9656422 am: 8445cfc1f8)
     std::vector<hidl_string> retList;
+=======
+    std::vector<hidl_string> nonSecureCameraDeviceNames;
+>>>>>>> BRANCH (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
     for (size_t i = 0; i < cameraDeviceNames.size(); i++) {
+<<<<<<< HEAD   (73515d Fix issues for Japan model. am: c1e9656422 am: 8445cfc1f8)
         bool isSecureOnlyCamera = isSecureOnly(mProvider, cameraDeviceNames[i]);
         if (addSecureOnly) {
             if (isSecureOnlyCamera) {
@@ -1666,8 +1674,15 @@ hidl_vec<hidl_string> CameraHidlTest::getCameraDeviceNames(sp<ICameraProvider> p
             }
         } else if (!isSecureOnlyCamera) {
             retList.emplace_back(cameraDeviceNames[i]);
+=======
+        // Skip adding secure only cameras, since we don't know their exact
+        // capabilities.
+        if (!isSecureOnly(mProvider, cameraDeviceNames[i])) {
+            nonSecureCameraDeviceNames.emplace_back(cameraDeviceNames[i]);
+>>>>>>> BRANCH (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
         }
     }
+<<<<<<< HEAD   (73515d Fix issues for Japan model. am: c1e9656422 am: 8445cfc1f8)
     hidl_vec<hidl_string> finalRetList = std::move(retList);
     return finalRetList;
 }
@@ -1717,6 +1732,46 @@ hidl_vec<hidl_vec<hidl_string>> CameraHidlTest::getConcurrentDeviceCombinations(
         ADD_FAILURE();
     }
     return combinations;
+=======
+    hidl_vec<hidl_string> retList(std::move(nonSecureCameraDeviceNames));
+    return retList;
+>>>>>>> BRANCH (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
+}
+
+bool CameraHidlTest::isSecureOnly(sp<ICameraProvider> provider, const hidl_string& name) {
+    Return<void> ret;
+    ::android::sp<ICameraDevice> device3_x;
+    bool retVal = false;
+    if (getCameraDeviceVersion(mProviderType, name) == CAMERA_DEVICE_API_VERSION_1_0) {
+        return false;
+    }
+    ret = provider->getCameraDeviceInterface_V3_x(name, [&](auto status, const auto& device) {
+        ALOGI("getCameraDeviceInterface_V3_x returns status:%d", (int)status);
+        ASSERT_EQ(Status::OK, status);
+        ASSERT_NE(device, nullptr);
+        device3_x = device;
+    });
+    if (!ret.isOk()) {
+        ADD_FAILURE() << "Failed to get camera device interface for " << name;
+    }
+    ret = device3_x->getCameraCharacteristics([&](Status s, CameraMetadata metadata) {
+        ASSERT_EQ(Status::OK, s);
+        camera_metadata_ro_entry scalarEntry;
+        camera_metadata_t* chars = (camera_metadata_t*)metadata.data();
+        int rc = find_camera_metadata_ro_entry(chars, ANDROID_REQUEST_AVAILABLE_CAPABILITIES,
+                                               &scalarEntry);
+        if (rc) {
+            ADD_FAILURE();
+        }
+        if (scalarEntry.count == 1 &&
+            scalarEntry.data.u8[0] == ANDROID_REQUEST_AVAILABLE_CAPABILITIES_SECURE_IMAGE_DATA) {
+            retVal = true;
+        }
+    });
+    if (!ret.isOk()) {
+        ADD_FAILURE() << "Failed to get camera characteristics for device " << name;
+    }
+    return retVal;
 }
 
 // Test devices with first_api_level >= P does not advertise device@1.0
