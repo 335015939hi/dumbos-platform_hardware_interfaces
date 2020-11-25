@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45aebed_4cb07035",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2020-11-25T09:31:16Z",
+      "side": 1,
+      "message": "Should we check ISO in 1.0?",
+      "revId": "db779b41a36b35460b215488a546fa27d68b3f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
