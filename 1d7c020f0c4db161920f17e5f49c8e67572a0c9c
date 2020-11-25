@@ -16,6 +16,24 @@
       "message": "and what requires the audio modules? Ideally product things should use the sdk/ndk API, I thought, and avoid relying on something like this. If audio is using version 7, that\u0027s a hardware specific detail I feel only audioserver should have to worry about?",
       "revId": "1d7c020f0c4db161920f17e5f49c8e67572a0c9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "604759b1_d2e75393",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-11-25T18:27:01Z",
+      "side": 1,
+      "message": "Normally it\u0027s other vendor modules and modules from system_ext. Vendor\u0027s \"value add\" subsystems might also need access to the latest hardware features exposed by a newer version of HAL.",
+      "parentUuid": "1201308f_b8ddf285",
+      "revId": "1d7c020f0c4db161920f17e5f49c8e67572a0c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
