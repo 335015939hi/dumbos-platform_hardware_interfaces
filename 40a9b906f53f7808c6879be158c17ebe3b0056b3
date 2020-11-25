@@ -16,6 +16,23 @@
       "message": "Midas, does this change make sense to you?",
       "revId": "40a9b906f53f7808c6879be158c17ebe3b0056b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2f51cba_dedcebe7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359706
+      },
+      "writtenOn": "2020-11-25T14:50:22Z",
+      "side": 1,
+      "message": "Sound good to me, add Yichi to review.",
+      "revId": "40a9b906f53f7808c6879be158c17ebe3b0056b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
