@@ -53,7 +53,7 @@ BluetoothAudioProvider::BluetoothAudioProvider()
 Return<void> BluetoothAudioProvider::startSession(
     const sp<IBluetoothAudioPort>& hostIf,
     const V2_0::AudioConfiguration& audioConfig, startSession_cb _hidl_cb) {
-  AudioConfiguration audioConfig_2_1;
+  AudioConfiguration audioConfig_2_1 = {};
 
   if (audioConfig.getDiscriminator() ==
       V2_0::AudioConfiguration::hidl_discriminator::pcmConfig) {
@@ -64,7 +64,7 @@ Return<void> BluetoothAudioProvider::startSession(
         .bitsPerSample = audioConfig.pcmConfig().bitsPerSample,
         .dataIntervalUs = 0};
   } else {
-    audioConfig_2_1.codecConfig() = audioConfig.codecConfig();
+    audioConfig_2_1.codecConfig(audioConfig.codecConfig());
   }
 
   return startSession_2_1(hostIf, audioConfig_2_1, _hidl_cb);
