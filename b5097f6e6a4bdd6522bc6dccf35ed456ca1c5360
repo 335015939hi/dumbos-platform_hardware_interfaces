@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cc5256f_3830bbdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1005592
+      },
+      "writtenOn": "2020-11-25T02:27:16Z",
+      "side": 1,
+      "message": "This is a cherry pick from master to android11-tests-dev. Please approve the patch. ",
+      "revId": "b5097f6e6a4bdd6522bc6dccf35ed456ca1c5360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
