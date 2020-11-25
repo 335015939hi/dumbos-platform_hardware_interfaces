@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1201308f_b8ddf285",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-25T17:42:50Z",
+      "side": 1,
+      "message": "and what requires the audio modules? Ideally product things should use the sdk/ndk API, I thought, and avoid relying on something like this. If audio is using version 7, that\u0027s a hardware specific detail I feel only audioserver should have to worry about?",
+      "revId": "1d7c020f0c4db161920f17e5f49c8e67572a0c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
