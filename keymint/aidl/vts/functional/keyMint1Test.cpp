@@ -580,6 +580,46 @@ TEST_P(NewKeyGenerationTest, HmacDigestNone) {
                                   .Authorization(TAG_MIN_MAC_LENGTH, 128)));
 }
 
+/*
+ * NewKeyGenerationTest.LimitedUsageKey
+ *
+ * Verifies that keymint can generate all required RSA key sizes with limited usage, and that the
+ * resulting keys have correct characteristics.
+ */
+TEST_P(NewKeyGenerationTest, LimitedUsageKey) {
+    for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        vector<uint8_t> key_blob;
+        KeyCharacteristics key_characteristics;
+        ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                     .RsaSigningKey(key_size, 65537)
+                                                     .Digest(Digest::NONE)
+                                                     .Padding(PaddingMode::NONE)
+                                                     .Authorization(TAG_USAGE_COUNT_LIMIT, 3),
+                                             &key_blob, &key_characteristics));
+
+        ASSERT_GT(key_blob.size(), 0U);
+        CheckBaseParams(key_characteristics);
+
+        AuthorizationSet crypto_params;
+        if (IsSecure()) {
+            crypto_params = key_characteristics.hardwareEnforced;
+        } else {
+            crypto_params = key_characteristics.softwareEnforced;
+        }
+
+        EXPECT_TRUE(crypto_params.Contains(TAG_ALGORITHM, Algorithm::RSA));
+        EXPECT_TRUE(crypto_params.Contains(TAG_KEY_SIZE, key_size))
+                << "Key size " << key_size << "missing";
+        EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
+
+        AuthorizationSet software_auths(key_characteristics.softwareEnforced);
+        EXPECT_TRUE(software_auths.Contains(TAG_USAGE_COUNT_LIMIT, 3U))
+                << "key usage count limit " << 3U << " missing";
+
+        CheckedDeleteKey(&key_blob);
+    }
+}
+
 INSTANTIATE_KEYMINT_AIDL_TEST(NewKeyGenerationTest);
 
 typedef KeyMintAidlTestBase SigningOperationsTest;
