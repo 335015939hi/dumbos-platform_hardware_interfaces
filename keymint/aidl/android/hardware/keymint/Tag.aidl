@@ -318,6 +318,30 @@ enum Tag {
     MAX_USES_PER_BOOT = (3 << 28) | 404, /* TagType:UINT */
 
     /**
+     * Tag::USAGE_COUNT_LIMIT specifies the number of attempts left for a limited use key.  This
+     * can be used to limit the use of key.
+     *
+     * The value is a 32-bit integer representing the current number of attempts left.
+     *
+     * When initializing a limited use key, the number represents the maximum usage of the key.
+     * When the tag appears in the attestation certificate it expresses the limit at time of
+     * creation. When the tag is used in Keystore/KeyMint it would express the current number of
+     * attempts left. In KeyInfo, it would be the number of remaining usages at the time the key
+     * was loaded.
+     *
+     * The number of the counter is maintained by Keystore yet, and every time after using the key,
+     * the counter will be decreased. Once the counter is decreased to zero, the key will be
+     * deleted asynchronously later. All subsequent attempts to use the key would throw
+     * KEY_NOT_FOUND exception. Notice that there may be multiple operations in flight for the same
+     * key. when max usage is exhausted but key is not yet deleted while another operation is
+     * started, any result from the operation should be discard and ErrorCode::USAGE_LIMIT_EXHAUSTED
+     * should be returned.
+     *
+     * Must be in the software-enforced list, if provided.
+     */
+    USAGE_COUNT_LIMIT = (3 << 28) | 405, /* TagType:UINT */
+
+    /**
      * Tag::USER_ID specifies the ID of the Android user that is permitted to use the key.
      *
      * Must not be hardware-enforced.
