@@ -297,6 +297,50 @@ TEST_P(NewKeyGenerationTest, Rsa) {
 }
 
 /*
+ * NewKeyGenerationTest.LimitedUsageRsa
+ *
+ * Verifies that KeyMint can generate all required RSA key sizes with limited usage, and that the
+ * resulting keys have correct characteristics.
+ */
+TEST_P(NewKeyGenerationTest, LimitedUsageRsa) {
+    for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        vector<uint8_t> key_blob;
+        KeyCharacteristics key_characteristics;
+        ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                     .RsaSigningKey(key_size, 65537)
+                                                     .Digest(Digest::NONE)
+                                                     .Padding(PaddingMode::NONE)
+                                                     .Authorization(TAG_USAGE_COUNT_LIMIT, 1),
+                                             &key_blob, &key_characteristics));
+
+        ASSERT_GT(key_blob.size(), 0U);
+        CheckBaseParams(key_characteristics);
+
+        AuthorizationSet crypto_params;
+        if (IsSecure()) {
+            crypto_params = key_characteristics.hardwareEnforced;
+        } else {
+            crypto_params = key_characteristics.softwareEnforced;
+        }
+
+        EXPECT_TRUE(crypto_params.Contains(TAG_ALGORITHM, Algorithm::RSA));
+        EXPECT_TRUE(crypto_params.Contains(TAG_KEY_SIZE, key_size))
+                << "Key size " << key_size << "missing";
+        EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
+
+        // The usage count limit tag may appear in the hardware enforced list if IKeyMintDevice
+        // implement this feature.
+        AuthorizationSet software_auths(key_characteristics.softwareEnforced);
+        AuthorizationSet hardware_auths(key_characteristics.hardwareEnforced);
+        EXPECT_TRUE(software_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U) ||
+                    hardware_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U))
+                << "key usage count limit " << 1U << " missing";
+
+        CheckedDeleteKey(&key_blob);
+    }
+}
+
+/*
  * NewKeyGenerationTest.NoInvalidRsaSizes
  *
  * Verifies that keymint cannot generate any RSA key sizes that are designated as invalid.
@@ -355,6 +399,48 @@ TEST_P(NewKeyGenerationTest, Ecdsa) {
         EXPECT_TRUE(crypto_params.Contains(TAG_ALGORITHM, Algorithm::EC));
         EXPECT_TRUE(crypto_params.Contains(TAG_KEY_SIZE, key_size))
                 << "Key size " << key_size << "missing";
+
+        CheckedDeleteKey(&key_blob);
+    }
+}
+
+/*
+ * NewKeyGenerationTest.LimitedUsageEcdsa
+ *
+ * Verifies that KeyMint can generate all required EC key sizes with limited usage, and that the
+ * resulting keys have correct characteristics.
+ */
+TEST_P(NewKeyGenerationTest, LimitedUsageEcdsa) {
+    for (auto key_size : ValidKeySizes(Algorithm::EC)) {
+        vector<uint8_t> key_blob;
+        KeyCharacteristics key_characteristics;
+        ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                     .EcdsaSigningKey(key_size)
+                                                     .Digest(Digest::NONE)
+                                                     .Authorization(TAG_USAGE_COUNT_LIMIT, 1),
+                                             &key_blob, &key_characteristics));
+
+        ASSERT_GT(key_blob.size(), 0U);
+        CheckBaseParams(key_characteristics);
+
+        AuthorizationSet crypto_params;
+        if (IsSecure()) {
+            crypto_params = key_characteristics.hardwareEnforced;
+        } else {
+            crypto_params = key_characteristics.softwareEnforced;
+        }
+
+        EXPECT_TRUE(crypto_params.Contains(TAG_ALGORITHM, Algorithm::EC));
+        EXPECT_TRUE(crypto_params.Contains(TAG_KEY_SIZE, key_size))
+                << "Key size " << key_size << "missing";
+
+        // The usage count limit tag may appear in the hardware enforced list if IKeyMintDevice
+        // implement this feature.
+        AuthorizationSet software_auths(key_characteristics.softwareEnforced);
+        AuthorizationSet hardware_auths(key_characteristics.hardwareEnforced);
+        EXPECT_TRUE(software_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U) ||
+                    hardware_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U))
+                << "key usage count limit " << 1U << " missing";
 
         CheckedDeleteKey(&key_blob);
     }
@@ -476,6 +562,49 @@ TEST_P(NewKeyGenerationTest, Hmac) {
             EXPECT_TRUE(softwareEnforced.Contains(TAG_KEY_SIZE, key_size))
                     << "Key size " << key_size << "missing";
         }
+
+        CheckedDeleteKey(&key_blob);
+    }
+}
+
+/*
+ * NewKeyGenerationTest.LimitedUsageHmac
+ *
+ * Verifies that KeyMint supports all required digests with limited usage Hmac, and that the
+ * resulting keys have correct characteristics.
+ */
+TEST_P(NewKeyGenerationTest, LimitedUsageHmac) {
+    for (auto digest : ValidDigests(false /* withNone */, true /* withMD5 */)) {
+        vector<uint8_t> key_blob;
+        KeyCharacteristics key_characteristics;
+        constexpr size_t key_size = 128;
+        ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                     .HmacKey(key_size)
+                                                     .Digest(digest)
+                                                     .Authorization(TAG_MIN_MAC_LENGTH, 128)
+                                                     .Authorization(TAG_USAGE_COUNT_LIMIT, 1),
+                                             &key_blob, &key_characteristics));
+
+        ASSERT_GT(key_blob.size(), 0U);
+        CheckBaseParams(key_characteristics);
+
+        AuthorizationSet hardwareEnforced = key_characteristics.hardwareEnforced;
+        AuthorizationSet softwareEnforced = key_characteristics.softwareEnforced;
+        if (IsSecure()) {
+            EXPECT_TRUE(hardwareEnforced.Contains(TAG_ALGORITHM, Algorithm::HMAC));
+            EXPECT_TRUE(hardwareEnforced.Contains(TAG_KEY_SIZE, key_size))
+                    << "Key size " << key_size << "missing";
+        } else {
+            EXPECT_TRUE(softwareEnforced.Contains(TAG_ALGORITHM, Algorithm::HMAC));
+            EXPECT_TRUE(softwareEnforced.Contains(TAG_KEY_SIZE, key_size))
+                    << "Key size " << key_size << "missing";
+        }
+
+        // The usage count limit tag may appear in the hardware enforced list if IKeyMintDevice
+        // implement this feature.
+        EXPECT_TRUE(hardwareEnforced.Contains(TAG_USAGE_COUNT_LIMIT, 1U) ||
+                    softwareEnforced.Contains(TAG_USAGE_COUNT_LIMIT, 1U))
+                << "key usage count limit " << 1U << " missing";
 
         CheckedDeleteKey(&key_blob);
     }
@@ -3861,7 +3990,7 @@ TEST_P(MaxOperationsTest, TestLimitAes) {
 }
 
 /*
- * MaxOperationsTest.TestLimitAes
+ * MaxOperationsTest.TestLimitRsa
  *
  * Verifies that the max uses per boot tag works correctly with RSA keys.
  */
@@ -3887,6 +4016,83 @@ TEST_P(MaxOperationsTest, TestLimitRsa) {
 }
 
 INSTANTIATE_KEYMINT_AIDL_TEST(MaxOperationsTest);
+
+typedef KeyMintAidlTestBase UsageCountLimitTest;
+
+/*
+ * UsageCountLimitTest.TestLimitAes
+ *
+ * Verifies that the usage count limit tag works correctly with AES keys.
+ */
+TEST_P(UsageCountLimitTest, TestLimitAes) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) return;
+
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .AesEncryptionKey(128)
+                                                 .EcbMode()
+                                                 .Padding(PaddingMode::NONE)
+                                                 .Authorization(TAG_USAGE_COUNT_LIMIT, 1)));
+
+    AuthorizationSet software_auths(key_characteristics_.softwareEnforced);
+    AuthorizationSet hardware_auths(key_characteristics_.hardwareEnforced);
+    EXPECT_TRUE(software_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U) ||
+                hardware_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U))
+            << "key usage count limit " << 1U << " missing";
+
+    string message = "1234567890123456";
+    auto params = AuthorizationSetBuilder().EcbMode().Padding(PaddingMode::NONE);
+
+    // First usage of AES key should work.
+    EncryptMessage(message, params);
+
+    if (hardware_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U)) {
+        // Usage count limit tag is enforced by hardware. After using the key, the key blob
+        // must be invalidated from secure storage (such as RPMB partition).
+        EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB, Begin(KeyPurpose::ENCRYPT, params));
+    } else {
+        // Usage count limit tag is enforced by software, keymint does nothing.
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
+    }
+}
+
+/*
+ * UsageCountLimitTest.TestLimitRsa
+ *
+ * Verifies that the usage count limit tag works correctly with RSA keys.
+ */
+TEST_P(UsageCountLimitTest, TestLimitRsa) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) return;
+
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .RsaSigningKey(1024, 65537)
+                                                 .NoDigestOrPadding()
+                                                 .Authorization(TAG_USAGE_COUNT_LIMIT, 1)));
+
+    AuthorizationSet software_auths(key_characteristics_.softwareEnforced);
+    AuthorizationSet hardware_auths(key_characteristics_.hardwareEnforced);
+    EXPECT_TRUE(software_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U) ||
+                hardware_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U))
+            << "key usage count limit " << 1U << " missing";
+
+    string message = "1234567890123456";
+    auto params = AuthorizationSetBuilder().NoDigestOrPadding();
+
+    // First usage of RSA key should work.
+    SignMessage(message, params);
+
+    if (hardware_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U)) {
+        // Usage count limit tag is enforced by hardware. After using the key, the key blob
+        // must be invalidated from secure storage (such as RPMB partition).
+        EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB, Begin(KeyPurpose::SIGN, params));
+    } else {
+        // Usage count limit tag is enforced by software, keymint does nothing.
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
+    }
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(UsageCountLimitTest);
 
 typedef KeyMintAidlTestBase AddEntropyTest;
 
