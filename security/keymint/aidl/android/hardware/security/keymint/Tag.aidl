@@ -333,6 +333,30 @@ enum Tag {
     MAX_USES_PER_BOOT = (3 << 28) /* TagType:UINT */ | 404,
 
     /**
+     * Tag::USAGE_COUNT_LIMIT specifies the number of times that a key may be used. This can be
+     * used to limit the use of a key.
+     *
+     * The value is a 32-bit integer representing the current number of attempts left.
+     *
+     * When initializing a limited use key, the value of this tag represents the maximum usage
+     * limit for that key. After the key usage is exhausted, the key blob should be deleted by
+     * finish() call. Any subsequent attempts to use the key must result in a failure with
+     * ErrorCode::INVALID_KEY_BLOB returned by IKeyMintDevice.
+     *
+     * At this point, due to the limited resources of secure storage, it is not expected that any
+     * TEE will be able to enforce this feature in the hardware when the maximum usage count is
+     * greater than 1. Which means it should be a purely software-enforced feature in this case.
+     *
+     * On the other hand, some TEEs may have the ability to enforce this feature into hardware with
+     * rollback protection when the maximum usage count is equal to 1. In that case, IKeyMintDevice
+     * implementation should enforce this feature into hardware.
+     *
+     * This tag must not be hardware-enforced if the IkeyMintDevice implementation does not support
+     * this feature.
+     */
+    USAGE_COUNT_LIMIT = (3 << 28) | 405, /* TagType:UINT */
+
+    /**
      * Tag::USER_ID specifies the ID of the Android user that is permitted to use the key.
      *
      * Must not be hardware-enforced.
