@@ -407,6 +407,7 @@
             <xs:enumeration value="AUDIO_FORMAT_LHDC_LL"/>
             <xs:enumeration value="AUDIO_FORMAT_APTX_TWSP"/>
             <xs:enumeration value="AUDIO_FORMAT_LC3"/>
+            <xs:enumeration value="AUDIO_FORMAT_IEC60958"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="extendableAudioFormat">
