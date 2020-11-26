@@ -318,6 +318,26 @@ enum Tag {
     MAX_USES_PER_BOOT = (3 << 28) | 404, /* TagType:UINT */
 
     /**
+     * Tag::USAGE_COUNT_LIMIT specifies the number of times that a key may be used.  This
+     * can be used to limit the use of a key.
+     *
+     * The value is a 32-bit integer representing the current number of attempts left.
+     *
+     * When initializing a limited use key, the value of this tag represents the maximum usage
+     * limit for that key. When a key with this tag is used in an operation, the value of this tag
+     * must be decreased after the finish() call. Once the value is decreased to zero, the key
+     * should be deleted which would result in all subsequent attempts to use this key to fail with
+     * ErrorCode::USAGE_LIMIT_EXHAUSTED.  The key deletion may not happen synchronously in KeyMint,
+     * so the implementation must not allow further operations to finish successfully if the value
+     * of this tag is zero and the IkeyMintDevice should also return
+     * ErrorCode::USAGE_LIMIT_EXHAUSTED.
+     *
+     * This tag must not appear in the hardware-enforced list if the implementation does not support
+     * this feature.
+     */
+    USAGE_COUNT_LIMIT = (3 << 28) | 405, /* TagType:UINT */
+
+    /**
      * Tag::USER_ID specifies the ID of the Android user that is permitted to use the key.
      *
      * Must not be hardware-enforced.
