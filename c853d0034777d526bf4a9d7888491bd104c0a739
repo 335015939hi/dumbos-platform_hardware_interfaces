@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b5c9ae5_98d921d5",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-30T22:33:12Z",
+      "side": 1,
+      "message": "INT_MAX or UINT_MAX? (should the exact value be in a constant?)",
+      "range": {
+        "startLine": 470,
+        "startChar": 22,
+        "endLine": 470,
+        "endChar": 29
+      },
+      "revId": "c853d0034777d526bf4a9d7888491bd104c0a739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "736f7338_891aa79c",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-30T22:33:12Z",
+      "side": 1,
+      "message": "can you specify how this should be implemented (this is implementation specific)",
+      "range": {
+        "startLine": 498,
+        "startChar": 36,
+        "endLine": 498,
+        "endChar": 49
+      },
+      "revId": "c853d0034777d526bf4a9d7888491bd104c0a739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "525b9d17_12707c52",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-30T22:33:12Z",
+      "side": 1,
+      "message": "nit: timestamp is usually one word (although we can\u0027t fix the @1.0 type)",
+      "range": {
+        "startLine": 500,
+        "startChar": 13,
+        "endLine": 500,
+        "endChar": 22
+      },
+      "revId": "c853d0034777d526bf4a9d7888491bd104c0a739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
