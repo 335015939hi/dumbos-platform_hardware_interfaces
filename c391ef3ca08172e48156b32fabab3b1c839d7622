@@ -16,6 +16,24 @@
       "message": "Hi Amy, \n\nThis PS fixes an issue when running against my mock binderized TV input HAL. In OpenAnOpenedStreamsTest, the second openStream should fail with INVALID_STATE, but the stream remains open until CloseStreamBeforeOpenTest, and my mock implementation fails the next CloseStreamBeforeOpenTest because it succeeds on closeStream (rather than returning INVALID_STATE).",
       "revId": "c391ef3ca08172e48156b32fabab3b1c839d7622",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9be0e1bb_d60b663f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2020-11-30T19:06:43Z",
+      "side": 1,
+      "message": "Hi Dean, thanks for the information.\n\nAny open bug on this change? If not, could you please open a bug with details and add the bug into the commit message?",
+      "parentUuid": "0e651ce2_825aa8e6",
+      "revId": "c391ef3ca08172e48156b32fabab3b1c839d7622",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
