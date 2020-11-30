@@ -70,7 +70,7 @@ static uint32_t CRC32(const uint8_t* buf, size_t size) {
   return ~ret;
 }
 
-// Return the little-endian representation of the CRC-32 of the first fields
+// Return the little-endian representation of the RC-32 of the first fields
 // in |boot_ctrl| up to the crc32_le field.
 uint32_t BootloaderControlLECRC(const bootloader_control* boot_ctrl) {
   return htole32(
@@ -259,6 +259,23 @@ bool BootControl::MarkBootSuccessful() {
   // attempt.
   bootctrl.slot_info[current_slot_].tries_remaining = 1;
   return UpdateAndSaveBootloaderControl(misc_device_, &bootctrl);
+}
+
+unsigned int BootControl::GetActiveBootSlot() {
+  bootloader_control bootctrl;
+  if (!LoadBootloaderControl(misc_device_, &bootctrl)) return false;
+
+  unsigned int active_boot_slot = current_slot_;
+  unsigned int max_priority = bootctrl.slot_info[current_slot_].priority;
+  // Find the slot with the highest priority.
+  for (unsigned int i = 0; i < num_slots_; ++i) {
+    if (bootctrl.slot_info[i].priority > max_priority) {
+      max_priority = bootctrl.slot_info[i].priority;
+      active_boot_slot = i;
+    }
+  }
+
+  return active_boot_slot;
 }
 
 bool BootControl::SetActiveBootSlot(unsigned int slot) {
