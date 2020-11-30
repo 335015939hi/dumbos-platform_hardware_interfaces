@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f86e8ce_29f808c0",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-11-30T19:40:49Z",
+      "side": 1,
+      "message": "Why did you move these comments to the end?  Their previous position made it clearer they were documenting the tag type portion (e.g. 3 \u003c\u003c 28).",
+      "range": {
+        "startLine": 898,
+        "startChar": 43,
+        "endLine": 898,
+        "endChar": 61
+      },
+      "revId": "e284b0c82477d0cf2767bbf160cd15e53a758f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
