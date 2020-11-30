@@ -34,6 +34,24 @@
       "parentUuid": "1201308f_b8ddf285",
       "revId": "1d7c020f0c4db161920f17e5f49c8e67572a0c9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b1e3271_2eb093d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-11-30T22:58:24Z",
+      "side": 1,
+      "message": "I guess my question is, can those stay in system_ext instead of also being on product now?\n\n\u003e https://source.android.com/devices/bootloader/partitions/product-partitions#product-partitions\n\n\u003e Using a separate product partition to contain customizations makes it possible to use a single system image for multiple software SKUs.\n\nThis has been the goal of the product partition for a long time. Do we really want these hardware details there? From a technical/stability perspective it is OK, but since placement on system_ext/product affects how we may test in the future, I\u0027m very hesitant. For instance, if swapping out product changes how audio works significantly, then we would want to ensure that all versions of product images are vetted with audio CTS. If we include arbitrarily many hardware details here, we limit the ability to reduce CTS burden. I\u0027ve largely been away from product discussions/don\u0027t really know what is going on here. Should we have some sync or is there some doc I can reference for POR?",
+      "parentUuid": "604759b1_d2e75393",
+      "revId": "1d7c020f0c4db161920f17e5f49c8e67572a0c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
