@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cc34a6c_feb85c0a",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1612418
+      },
+      "writtenOn": "2020-11-30T23:57:47Z",
+      "side": 1,
+      "message": "INT_MAX",
+      "parentUuid": "3b5c9ae5_98d921d5",
+      "range": {
+        "startLine": 470,
+        "startChar": 22,
+        "endLine": 470,
+        "endChar": 29
+      },
+      "revId": "c853d0034777d526bf4a9d7888491bd104c0a739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "736f7338_891aa79c",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2b6f1b1_396003bf",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1612418
+      },
+      "writtenOn": "2020-11-30T23:57:47Z",
+      "side": 1,
+      "message": "The implementation is per vendor, and they can select the source of timestamp, and specify it in timeStampType.",
+      "parentUuid": "736f7338_891aa79c",
+      "range": {
+        "startLine": 498,
+        "startChar": 36,
+        "endLine": 498,
+        "endChar": 49
+      },
+      "revId": "c853d0034777d526bf4a9d7888491bd104c0a739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "525b9d17_12707c52",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-11-30T22:33:12Z",
       "side": 1,
       "message": "nit: timestamp is usually one word (although we can\u0027t fix the @1.0 type)",
+      "range": {
+        "startLine": 500,
+        "startChar": 13,
+        "endLine": 500,
+        "endChar": 22
+      },
+      "revId": "c853d0034777d526bf4a9d7888491bd104c0a739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "655963f9_24adca2c",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1612418
+      },
+      "writtenOn": "2020-11-30T23:57:47Z",
+      "side": 1,
+      "message": "Ack. This is a legacy issue, and we are trying to be consistent.",
+      "parentUuid": "525b9d17_12707c52",
       "range": {
         "startLine": 500,
         "startChar": 13,
