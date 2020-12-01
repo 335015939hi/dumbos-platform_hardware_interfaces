@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f10051f_ee084b15",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_call_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2020-12-01T02:26:25Z",
+      "side": 1,
+      "message": "What does \"void method\" mean here - does it return void or a result status?",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 21
+      },
+      "revId": "08ab488c16a6d801ca875542268b6e3a69ae2f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
