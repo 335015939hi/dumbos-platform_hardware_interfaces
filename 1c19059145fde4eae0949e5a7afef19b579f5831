@@ -3,6 +3,29 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c5f98e09_1bbb18a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-12-01T18:58:41Z",
+      "side": 1,
+      "message": "nit: displays",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "1c19059145fde4eae0949e5a7afef19b579f5831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c4f08dbb_cfa694b3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
