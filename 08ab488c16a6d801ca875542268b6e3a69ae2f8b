@@ -46,6 +46,30 @@
       },
       "revId": "08ab488c16a6d801ca875542268b6e3a69ae2f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "354302c5_6991f482",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_call_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2020-12-01T05:42:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "70d8797d_b078a363",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 21
+      },
+      "revId": "08ab488c16a6d801ca875542268b6e3a69ae2f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
