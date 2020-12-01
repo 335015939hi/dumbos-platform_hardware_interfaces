@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "227b95f6_ce290824",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1612418
+      },
+      "writtenOn": "2020-12-01T19:47:16Z",
+      "side": 1,
+      "message": "- Removed timeStamp and timeStampType in CellInfo.\n- Add SignalStrength to to update LteSignalStrength and NrSignalStrength",
+      "revId": "19c01fc8d04fe857f4b99a5a9396547ac392284b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

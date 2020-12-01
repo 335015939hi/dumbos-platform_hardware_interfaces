@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82d08ae5_0ab51659",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1612418
+      },
+      "writtenOn": "2020-12-01T19:47:16Z",
+      "side": 1,
+      "message": "Thanks. timeStamp and timeStampType have been removed.",
+      "parentUuid": "f39c9c05_9ada1d04",
+      "range": {
+        "startLine": 498,
+        "startChar": 36,
+        "endLine": 498,
+        "endChar": 49
+      },
+      "revId": "c853d0034777d526bf4a9d7888491bd104c0a739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "525b9d17_12707c52",
