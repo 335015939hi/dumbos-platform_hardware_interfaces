@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2f618fc_d6f47b64",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1798566
+      },
+      "writtenOn": "2020-12-01T16:32:12Z",
+      "side": 1,
+      "message": "I think this comment should focus more on the usage specifications rather than the implementation details. It may have a suggestion on how to implement this in KeyMint but I think it shouldn\u0027t include anything related to how this is implemented in Keystore (mainly because this is part of the KeyMint specification).\n\nHow about something like the folowing?\n\nTag::USAGE_COUNT_LIMIT specifies the number of times that a key may be used.\n\nThe value is a 32-bit integer representing the current number of attempts left.\n\nWhen initializing a limited use key, the value of this tag represents the maximum usage limit for that key.\nAfter the key usage reaches this number, the key should be deleted which would result in all subsequent attempts to use this key to fail with the KEY_NOT_FOUND exception.\nThere is one exception to this where max usage is exhausted but key is not yet deleted while another operation was started. In this case, this new operation should be discard with ErrorCode::USAGE_LIMIT_EXHAUSTED.",
+      "range": {
+        "startLine": 332,
+        "startChar": 7,
+        "endLine": 332,
+        "endChar": 62
+      },
+      "revId": "041faf50e6964963fa7440703625762c2659d2c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
