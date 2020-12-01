@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "209b230a_46a1a7fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1209463
+      },
+      "writtenOn": "2020-12-01T20:46:33Z",
+      "side": 1,
+      "message": "Please enable autosubmit vote +1 to merge the CL. Thanks",
+      "revId": "08ab488c16a6d801ca875542268b6e3a69ae2f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f10051f_ee084b15",
