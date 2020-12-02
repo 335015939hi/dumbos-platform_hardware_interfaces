@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e2f0f29_28d9d702",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-02T22:17:43Z",
+      "side": 1,
+      "message": "As these changes are moved to keymint which have different vts framework. Many of the comments do not apply anymore.",
+      "revId": "99298f44918bc131842762775c96f5f7bd925e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2350fb69_530cfe91",
