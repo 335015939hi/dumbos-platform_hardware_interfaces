@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f19ab817_2f4495ee",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-12-02T00:08:17Z",
+      "side": 0,
+      "message": "Steven, for this code to compile, I assume the getter is returning a non-const reference to the internal object? (T\u0026)\n\nWhat\u0027s the design rationale to expose a non-const reference to the internal object?",
+      "range": {
+        "startLine": 60,
+        "startChar": 29,
+        "endLine": 60,
+        "endChar": 33
+      },
+      "revId": "4cdcadf70cd85a937dfe0cf5f1def1c21db897e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
