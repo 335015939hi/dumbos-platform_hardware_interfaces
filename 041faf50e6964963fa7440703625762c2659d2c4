@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2a57a4d_47725773",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-02T15:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c2b50a9_6681ca42",
+      "range": {
+        "startLine": 322,
+        "startChar": 38,
+        "endLine": 322,
+        "endChar": 39
+      },
+      "revId": "041faf50e6964963fa7440703625762c2659d2c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f218cb91_edf92f3d",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-01T19:13:24Z",
       "side": 1,
       "message": "KeyInfo is used here without context. Please limit this documentation to how a correct implementation of KeyMint should behave.",
+      "range": {
+        "startLine": 329,
+        "startChar": 22,
+        "endLine": 329,
+        "endChar": 33
+      },
+      "revId": "041faf50e6964963fa7440703625762c2659d2c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8e5284f_b31346eb",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-02T15:12:19Z",
+      "side": 1,
+      "message": "Thanks for pointing out this, removed this now.",
+      "parentUuid": "f218cb91_edf92f3d",
       "range": {
         "startLine": 329,
         "startChar": 22,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91f09c30_bc98dd27",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-02T15:12:19Z",
+      "side": 1,
+      "message": "Thanks, updated now.",
+      "parentUuid": "e2f618fc_d6f47b64",
+      "range": {
+        "startLine": 332,
+        "startChar": 7,
+        "endLine": 332,
+        "endChar": 62
+      },
+      "revId": "041faf50e6964963fa7440703625762c2659d2c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c874c76_f8e33083",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ddd3ecf_72b8ed5c",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-02T15:12:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c874c76_f8e33083",
+      "range": {
+        "startLine": 334,
+        "startChar": 37,
+        "endLine": 335,
+        "endChar": 30
+      },
+      "revId": "041faf50e6964963fa7440703625762c2659d2c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "611b52c9_b537459b",
@@ -106,6 +202,30 @@
       "writtenOn": "2020-12-01T19:13:24Z",
       "side": 1,
       "message": "This should explain exactly how a correct KeyMint implementation should behave. Use affirmative language, e.g.: The implementation MUST NOT allow further operations to finish successfully if the value of this tag is 0. This tag MUST NOT appear in the hardware enforced list if this implementation does not implement this feature.",
+      "range": {
+        "startLine": 332,
+        "startChar": 7,
+        "endLine": 338,
+        "endChar": 26
+      },
+      "revId": "041faf50e6964963fa7440703625762c2659d2c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9bc4daa_4a312d5d",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-02T15:12:19Z",
+      "side": 1,
+      "message": "Thanks for the explanation. I\u0027ve updated the documentation now.",
+      "parentUuid": "611b52c9_b537459b",
       "range": {
         "startLine": 332,
         "startChar": 7,
