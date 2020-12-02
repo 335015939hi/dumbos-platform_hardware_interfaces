@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "719e4cca_29cd64b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2020-12-02T17:44:40Z",
+      "side": 1,
+      "message": "Note: We have already changed this value to 1000ms in internal master branch for Android 12. ",
+      "revId": "3aab2df3e596f2cf67d205cba7421956896e773b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
