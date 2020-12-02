@@ -516,6 +516,14 @@ AuthorizationSetBuilder& AuthorizationSetBuilder::Digest(
     return *this;
 }
 
+AuthorizationSetBuilder& AuthorizationSetBuilder::OaepMGFDigest(
+        std::vector<android::hardware::keymint::Digest> digests) {
+    for (auto digest : digests) {
+        push_back(TAG_RSA_OAEP_MGF_DIGEST, digest);
+    }
+    return *this;
+}
+
 AuthorizationSetBuilder& AuthorizationSetBuilder::Padding(
         std::initializer_list<PaddingMode> paddingModes) {
     for (auto paddingMode : paddingModes) {

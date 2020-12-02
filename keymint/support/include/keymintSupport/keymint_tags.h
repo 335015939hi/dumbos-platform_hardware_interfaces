@@ -129,6 +129,7 @@ DECLARE_TYPED_TAG(USER_AUTH_TYPE);
 DECLARE_TYPED_TAG(USER_ID);
 DECLARE_TYPED_TAG(USER_SECURE_ID);
 DECLARE_TYPED_TAG(VENDOR_PATCHLEVEL);
+DECLARE_TYPED_TAG(RSA_OAEP_MGF_DIGEST);
 
 template <typename... Elems>
 struct MetaList {};
@@ -202,6 +203,7 @@ MAKE_TAG_ENUM_VALUE_ACCESSOR(TAG_PADDING, integer, PaddingMode)
 MAKE_TAG_ENUM_VALUE_ACCESSOR(TAG_PURPOSE, integer, KeyPurpose)
 MAKE_TAG_ENUM_VALUE_ACCESSOR(TAG_USER_AUTH_TYPE, integer, HardwareAuthenticatorType)
 MAKE_TAG_ENUM_VALUE_ACCESSOR(TAG_HARDWARE_TYPE, integer, SecurityLevel)
+MAKE_TAG_ENUM_VALUE_ACCESSOR(TAG_RSA_OAEP_MGF_DIGEST, integer, Digest)
 
 template <TagType tag_type, Tag tag, typename ValueT>
 inline KeyParameter makeKeyParameter(TypedTag<tag_type, tag> ttag, ValueT&& value) {
