@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f12b082a_d36a2b2e",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1798566
+      },
+      "writtenOn": "2020-12-02T15:46:00Z",
+      "side": 1,
+      "message": "Nit. remove extra space.",
+      "range": {
+        "startLine": 321,
+        "startChar": 83,
+        "endLine": 321,
+        "endChar": 84
+      },
+      "revId": "2d33ac9f1bbd0ffc624a919eaf96b35566638419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74fdf7ee_f4858771",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1798566
+      },
+      "writtenOn": "2020-12-02T15:46:00Z",
+      "side": 1,
+      "message": "Use decremented instead?",
+      "range": {
+        "startLine": 328,
+        "startChar": 15,
+        "endLine": 328,
+        "endChar": 24
+      },
+      "revId": "2d33ac9f1bbd0ffc624a919eaf96b35566638419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c561364b_7458a5a9",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1798566
+      },
+      "writtenOn": "2020-12-02T15:46:00Z",
+      "side": 1,
+      "message": "should -\u003e must?",
+      "range": {
+        "startLine": 329,
+        "startChar": 7,
+        "endLine": 329,
+        "endChar": 13
+      },
+      "revId": "2d33ac9f1bbd0ffc624a919eaf96b35566638419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56f4839c_b56bb4eb",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1798566
+      },
+      "writtenOn": "2020-12-02T15:46:00Z",
+      "side": 1,
+      "message": "Remove extra space?",
+      "range": {
+        "startLine": 330,
+        "startChar": 40,
+        "endLine": 330,
+        "endChar": 41
+      },
+      "revId": "2d33ac9f1bbd0ffc624a919eaf96b35566638419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c941104_fd77ddac",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1798566
+      },
+      "writtenOn": "2020-12-02T15:46:00Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this result in a key not found errocode?\nIf we want the implementation to explicitly return a ErrorCode::USAGE_LIMIT_EXHAUSTED even after the key is deleted, I think, we should specify that explicitly in the comment.",
+      "range": {
+        "startLine": 330,
+        "startChar": 18,
+        "endLine": 330,
+        "endChar": 39
+      },
+      "revId": "2d33ac9f1bbd0ffc624a919eaf96b35566638419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
