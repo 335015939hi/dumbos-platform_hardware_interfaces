@@ -33,6 +33,24 @@
       "message": "also - VTS tests? just realized most of these radio CLs are updating classes there without adding tests",
       "revId": "ed1ebd6eea4fdb8a430bd8eb859ec7dce28ce52f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "898abd3f_79da5013",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1612418
+      },
+      "writtenOn": "2020-12-03T09:58:36Z",
+      "side": 1,
+      "message": "VTS tested, and unit tests added to the radio CLs.",
+      "parentUuid": "779f2e35_739a8254",
+      "revId": "ed1ebd6eea4fdb8a430bd8eb859ec7dce28ce52f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
