@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddfa5e51_5ad3b2d3",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-03T22:43:00Z",
+      "side": 1,
+      "message": "Document that the only allowed value is 1 at present.",
+      "range": {
+        "startLine": 324,
+        "startChar": 7,
+        "endLine": 324,
+        "endChar": 86
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4ef946b_9e8e0274",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-03T22:43:00Z",
+      "side": 1,
+      "message": "I don\u0027t think this makes sense.  When the value is decreased to zero we should not return a new blob. When the value is decreased to a non-zero value (when that\u0027s allowed, in the future) the prior blob will be disabled by finish(), so if anyone attempts to use it again it will be just be an invalid blob and ErrorCode::INVALID_KEY_BLOB should be returned.",
+      "range": {
+        "startLine": 328,
+        "startChar": 52,
+        "endLine": 330,
+        "endChar": 42
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c14fd6b4_20d29788",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-03T22:43:00Z",
+      "side": 1,
+      "message": "As above, we should just never return a blob in that case.\n\nHowever, in KeyMint1 we\u0027re not going to update the signature of finish() to return the blob, so maybe we just shouldn\u0027t even talk about how this will work. Attempting to use a deleted key blob just returns INVALID_KEY_BLOB.",
+      "range": {
+        "startLine": 331,
+        "startChar": 86,
+        "endLine": 332,
+        "endChar": 96
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f8deaa6_9cde03b5",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-03T22:43:00Z",
+      "side": 1,
+      "message": "Please test all the other key types, too :-)",
+      "range": {
+        "startLine": 586,
+        "startChar": 38,
+        "endLine": 586,
+        "endChar": 83
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8266d5a5_ff76d211",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-03T22:43:00Z",
+      "side": 1,
+      "message": "KeyMint",
+      "range": {
+        "startLine": 586,
+        "startChar": 17,
+        "endLine": 586,
+        "endChar": 24
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39891c12_cfb79cc3",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-03T22:43:00Z",
+      "side": 1,
+      "message": "We\u0027re only going to support 1 in KeyMint1.",
+      "range": {
+        "startLine": 597,
+        "startChar": 90,
+        "endLine": 597,
+        "endChar": 93
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
