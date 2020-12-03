@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bfce849a_8fa20c70",
+        "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-03T22:44:06Z",
+      "side": 1,
+      "message": "As I said in the other comments, I don\u0027t think we need either of these.",
+      "range": {
+        "startLine": 103,
+        "startChar": 5,
+        "endLine": 104,
+        "endChar": 34
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ddfa5e51_5ad3b2d3",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
         "patchSetId": 8
