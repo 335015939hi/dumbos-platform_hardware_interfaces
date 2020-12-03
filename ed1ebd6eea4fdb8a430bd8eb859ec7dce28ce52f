@@ -16,6 +16,23 @@
       "message": "Hi Nathan, Steven, Jack,\n\nCan you take another look? Thanks",
       "revId": "ed1ebd6eea4fdb8a430bd8eb859ec7dce28ce52f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "779f2e35_739a8254",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-03T00:31:49Z",
+      "side": 1,
+      "message": "also - VTS tests? just realized most of these radio CLs are updating classes there without adding tests",
+      "revId": "ed1ebd6eea4fdb8a430bd8eb859ec7dce28ce52f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
