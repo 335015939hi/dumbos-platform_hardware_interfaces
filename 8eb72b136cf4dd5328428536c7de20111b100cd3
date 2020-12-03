@@ -16,6 +16,23 @@
       "message": "Adding Michele who had reviewed the earlier version of this CL (aosp/1216835)",
       "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f58e56c3_464d06d3",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-12-03T05:59:03Z",
+      "side": 1,
+      "message": "Is additionalNumbers matched with EFANR? The first byte of EFANR is additional number record identifier which describes the type of the additional number defined in the file EFAAS.\nDoes additionalNumbers include the additional number record identifier? If not, does it have risk for update?",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -142,6 +142,30 @@
       },
       "revId": "eada65d0a686dc1afda00c8b754e2ad892285832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c094b22_40121f1d",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-12-03T05:59:03Z",
+      "side": 1,
+      "message": "In the original code we do have separate handling for type 1 and type 2. In type 1, there\u0027s 1-to-1 mapping between EFADR and EFEMAIL. In this HAL API, how does the platform know if the current SIM card supports multiple emails or ANRs before calling update?\n\nIn PhoneBookCapacity should these fields be added as well:\n// number of supported EMAIL for a ADN entry\nint32_t numEmailsForADN;\n//   number of supported ANR for a ADN entry\nint32_t numAnrsForADN;",
+      "parentUuid": "dbaae5d1_aa74e669",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 347,
+        "endChar": 7
+      },
+      "revId": "eada65d0a686dc1afda00c8b754e2ad892285832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
