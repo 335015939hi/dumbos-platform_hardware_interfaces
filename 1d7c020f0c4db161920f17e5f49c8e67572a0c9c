@@ -52,6 +52,29 @@
       "parentUuid": "604759b1_d2e75393",
       "revId": "1d7c020f0c4db161920f17e5f49c8e67572a0c9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a1fad7e_a60c12f9",
+        "filename": "audio/common/all-versions/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2020-12-03T01:26:46Z",
+      "side": 1,
+      "message": "As we don\u0027t allow libhardware in product partition since product may not describe the hardware behavior, I think we don\u0027t need this for product partition.\n\nThe only blocker for this is aosp/1510952. Let\u0027s move the audio_proxy.google to system_ext and abandon this CL.",
+      "range": {
+        "startLine": 36,
+        "startChar": 9,
+        "endLine": 36,
+        "endChar": 28
+      },
+      "revId": "1d7c020f0c4db161920f17e5f49c8e67572a0c9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
