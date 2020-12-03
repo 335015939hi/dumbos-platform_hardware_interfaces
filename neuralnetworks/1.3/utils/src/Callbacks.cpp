@@ -142,8 +142,11 @@ Return<void> ExecutionCallback::notify_1_2(V1_0::ErrorStatus status,
                                            const hidl_vec<V1_2::OutputShape>& outputShapes,
                                            const V1_2::Timing& timing) {
     if (status != V1_0::ErrorStatus::NONE) {
-        const auto canonical = nn::convert(status).value_or(nn::ErrorStatus::GENERAL_FAILURE);
-        notifyInternal(NN_ERROR(canonical) << "execute failed with " << toString(status));
+        const auto canonicalStatus = nn::convert(status).value_or(nn::ErrorStatus::GENERAL_FAILURE);
+        const auto canonicalOutputShapes =
+                nn::convert(outputShapes).value_or(std::vector<nn::OutputShape>());
+        notifyInternal(NN_ERROR(canonicalStatus, canonicalOutputShapes)
+                       << "execute failed with " << toString(status));
     } else {
         notifyInternal(convertExecutionGeneralResults(outputShapes, timing));
     }
@@ -154,8 +157,11 @@ Return<void> ExecutionCallback::notify_1_3(ErrorStatus status,
                                            const hidl_vec<V1_2::OutputShape>& outputShapes,
                                            const V1_2::Timing& timing) {
     if (status != ErrorStatus::NONE) {
-        const auto canonical = nn::convert(status).value_or(nn::ErrorStatus::GENERAL_FAILURE);
-        notifyInternal(NN_ERROR(canonical) << "execute failed with " << toString(status));
+        const auto canonicalStatus = nn::convert(status).value_or(nn::ErrorStatus::GENERAL_FAILURE);
+        const auto canonicalOutputShapes =
+                nn::convert(outputShapes).value_or(std::vector<nn::OutputShape>());
+        notifyInternal(NN_ERROR(canonicalStatus, canonicalOutputShapes)
+                       << "execute failed with " << toString(status));
     } else {
         notifyInternal(convertExecutionGeneralResults(outputShapes, timing));
     }
