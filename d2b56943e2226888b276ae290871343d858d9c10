@@ -22,6 +22,30 @@
       },
       "revId": "d2b56943e2226888b276ae290871343d858d9c10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb336d89_0bfb2bfb",
+        "filename": "camera/common/1.0/default/CameraModule.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2020-12-03T19:23:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7e86481_109f4165",
+      "range": {
+        "startLine": 532,
+        "startChar": 7,
+        "endLine": 532,
+        "endChar": 11
+      },
+      "revId": "d2b56943e2226888b276ae290871343d858d9c10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
