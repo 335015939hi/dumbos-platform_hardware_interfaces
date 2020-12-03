@@ -16,6 +16,24 @@
       "message": "Is there any documentation where I can read more about presubmit-large?",
       "revId": "8d643a458fb992854d8f4af0acafb3b9126cf27b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b07ec72d_f81c7927",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-12-03T20:28:29Z",
+      "side": 1,
+      "message": "Some more context is in b/174495337\nThe group will work exactly the same as presubmit for now.\nFor the long run, we might consider to sample the group (only run every hour during postsubmit runs, v.s., currently the whole presubmit group runs for every build (around every 5min).",
+      "parentUuid": "f4cac39d_de83e5b0",
+      "revId": "8d643a458fb992854d8f4af0acafb3b9126cf27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
