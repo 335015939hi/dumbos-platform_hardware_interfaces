@@ -33,6 +33,24 @@
       "message": "@Etan/Roshan - you need to merge this manually",
       "revId": "40e57ca7178ea0c766df5baeb9136178ea3138b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c819288f_f9cea4f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-03T00:45:07Z",
+      "side": 1,
+      "message": "(friendly fyi)",
+      "parentUuid": "834801a2_242ed19e",
+      "revId": "40e57ca7178ea0c766df5baeb9136178ea3138b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
