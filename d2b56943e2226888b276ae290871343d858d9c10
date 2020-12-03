@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7e86481_109f4165",
+        "filename": "camera/common/1.0/default/CameraModule.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2020-12-03T17:42:02Z",
+      "side": 1,
+      "message": "nit: Skip",
+      "range": {
+        "startLine": 532,
+        "startChar": 7,
+        "endLine": 532,
+        "endChar": 11
+      },
+      "revId": "d2b56943e2226888b276ae290871343d858d9c10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
