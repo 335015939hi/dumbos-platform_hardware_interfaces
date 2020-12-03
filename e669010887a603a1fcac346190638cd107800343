@@ -22,6 +22,30 @@
       },
       "revId": "e669010887a603a1fcac346190638cd107800343",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4b10120_1585e50c",
+        "filename": "boot/1.2/IBootControl.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2020-12-03T23:19:38Z",
+      "side": 1,
+      "message": "done.",
+      "parentUuid": "23866031_849c81b2",
+      "range": {
+        "startLine": 28,
+        "startChar": 18,
+        "endLine": 28,
+        "endChar": 30
+      },
+      "revId": "e669010887a603a1fcac346190638cd107800343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
