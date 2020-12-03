@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5da56e8_8ab47ce1",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-03T05:48:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f12b082a_d36a2b2e",
+      "range": {
+        "startLine": 321,
+        "startChar": 83,
+        "endLine": 321,
+        "endChar": 84
+      },
+      "revId": "2d33ac9f1bbd0ffc624a919eaf96b35566638419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74fdf7ee_f4858771",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb635eba_123484f3",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-03T05:48:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74fdf7ee_f4858771",
+      "range": {
+        "startLine": 328,
+        "startChar": 15,
+        "endLine": 328,
+        "endChar": 24
+      },
+      "revId": "2d33ac9f1bbd0ffc624a919eaf96b35566638419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c561364b_7458a5a9",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-12-02T15:46:00Z",
       "side": 1,
       "message": "should -\u003e must?",
+      "range": {
+        "startLine": 329,
+        "startChar": 7,
+        "endLine": 329,
+        "endChar": 13
+      },
+      "revId": "2d33ac9f1bbd0ffc624a919eaf96b35566638419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98cc3331_1417d1a4",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-03T05:48:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c561364b_7458a5a9",
       "range": {
         "startLine": 329,
         "startChar": 7,
@@ -111,6 +183,54 @@
         "startChar": 18,
         "endLine": 330,
         "endChar": 39
+      },
+      "revId": "2d33ac9f1bbd0ffc624a919eaf96b35566638419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20edc36e_4c10e8b1",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-03T05:48:12Z",
+      "side": 1,
+      "message": "Added another ErrorCode::LIMITED_USE_KEY_DELETED for this case.",
+      "parentUuid": "7c941104_fd77ddac",
+      "range": {
+        "startLine": 330,
+        "startChar": 18,
+        "endLine": 330,
+        "endChar": 39
+      },
+      "revId": "2d33ac9f1bbd0ffc624a919eaf96b35566638419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6e5fdf8_fadf345a",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-03T05:48:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56f4839c_b56bb4eb",
+      "range": {
+        "startLine": 330,
+        "startChar": 40,
+        "endLine": 330,
+        "endChar": 41
       },
       "revId": "2d33ac9f1bbd0ffc624a919eaf96b35566638419",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
