@@ -33,6 +33,24 @@
       "message": "Is additionalNumbers matched with EFANR? The first byte of EFANR is additional number record identifier which describes the type of the additional number defined in the file EFAAS.\nDoes additionalNumbers include the additional number record identifier? If not, does it have risk for update?",
       "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dd938ec_4d919f0a",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2020-12-03T08:31:45Z",
+      "side": 1,
+      "message": "In this new API, the sim file details was handled by modem. \nRIL will receive the decoding adn/email/anr string from modem.",
+      "parentUuid": "f58e56c3_464d06d3",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
