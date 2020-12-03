@@ -50,6 +50,23 @@
       "message": "Can someone help review this CL? ",
       "revId": "c476ff3857857cc1c62bc93b59846f480f87b547",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "354093a7_9c58948f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-03T23:34:33Z",
+      "side": 1,
+      "message": "Lajos (media) should review, but otherwise lgtm.",
+      "revId": "c476ff3857857cc1c62bc93b59846f480f87b547",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
