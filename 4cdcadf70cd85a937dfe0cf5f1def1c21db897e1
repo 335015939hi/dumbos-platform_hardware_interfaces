@@ -22,6 +22,30 @@
       },
       "revId": "4cdcadf70cd85a937dfe0cf5f1def1c21db897e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5017de45_8062f9ee",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-03T00:43:27Z",
+      "side": 0,
+      "message": "I mean - there needs to be some way to do that, in order to make many small changes to the object\n\ne.g.:\n\n    audioConfig_2_1.pcmConfig({});\n    audioConfig_2_1.pcmConfig().foo +\u003d ...\n\netc...\n\nPerhaps it should be named differently, but that ship has more or less sailed.",
+      "parentUuid": "f19ab817_2f4495ee",
+      "range": {
+        "startLine": 60,
+        "startChar": 29,
+        "endLine": 60,
+        "endChar": 33
+      },
+      "revId": "4cdcadf70cd85a937dfe0cf5f1def1c21db897e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
