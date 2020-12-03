@@ -16,6 +16,24 @@
       "message": "VTS tests?",
       "revId": "fb202506bbd874eb349a253548b62c75f90bc052",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee724577_7bf28b45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1733820
+      },
+      "writtenOn": "2020-12-03T00:24:27Z",
+      "side": 1,
+      "message": "will submit other cls including vts and telephony changes. thanks.",
+      "parentUuid": "714c97b5_5fdfcc95",
+      "revId": "fb202506bbd874eb349a253548b62c75f90bc052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
