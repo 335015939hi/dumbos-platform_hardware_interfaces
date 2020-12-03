@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23866031_849c81b2",
+        "filename": "boot/1.2/IBootControl.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-12-03T19:27:32Z",
+      "side": 1,
+      "message": "the one provided in the **last** setActiveBootSlot() call",
+      "range": {
+        "startLine": 28,
+        "startChar": 18,
+        "endLine": 28,
+        "endChar": 30
+      },
+      "revId": "e669010887a603a1fcac346190638cd107800343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
