@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b414b7b_de708e30",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1733820
+      },
+      "writtenOn": "2020-12-03T00:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32cda907_7274825c",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 3
+      },
+      "revId": "2b27f49de22a3af7f5d153451f2be88a045de513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cb5aa43_ee6ac944",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a00b2db_0760f27a",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1733820
+      },
+      "writtenOn": "2020-12-03T00:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cb5aa43_ee6ac944",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 21
+      },
+      "revId": "2b27f49de22a3af7f5d153451f2be88a045de513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b1e7a17_ff49129b",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-11-17T00:27:51Z",
       "side": 1,
       "message": "refer to spec",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 3
+      },
+      "revId": "2b27f49de22a3af7f5d153451f2be88a045de513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6dde8a6_782dcdf3",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1733820
+      },
+      "writtenOn": "2020-12-03T00:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b1e7a17_ff49129b",
       "range": {
         "startLine": 351,
         "startChar": 0,
