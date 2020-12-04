@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e35a1ea_780ccd68",
+        "filename": "boot/1.2/default/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-12-04T01:12:44Z",
+      "side": 1,
+      "message": "I like what it is now",
+      "parentUuid": "4b0c96ed_81bd9e3e",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 43
+      },
+      "revId": "01d460b408b9b771d58e5e53ef1229bdd57649e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e2a0654_eda08198",
         "filename": "boot/1.2/default/android.hardware.boot@1.2-service.rc",
         "patchSetId": 6
