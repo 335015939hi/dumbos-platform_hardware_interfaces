@@ -69,6 +69,30 @@
       },
       "revId": "01d460b408b9b771d58e5e53ef1229bdd57649e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3006f34e_9c3268e2",
+        "filename": "boot/1.2/default/android.hardware.boot@1.2-service.rc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2020-12-04T00:15:57Z",
+      "side": 1,
+      "message": "will look into it in follow ups.",
+      "parentUuid": "2e2a0654_eda08198",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "01d460b408b9b771d58e5e53ef1229bdd57649e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
