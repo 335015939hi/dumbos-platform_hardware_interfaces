@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6593de48_ac7ea50e",
+        "filename": "boot/1.2/default/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2020-12-04T00:13:43Z",
+      "side": 1,
+      "message": "Seems so based on my test. We start the service as defaultPassthroughServiceImplementation\u003cIBootControl_V1_0, IBootControl_V1_2\u003e();\n\nAnd the service cannot find the shared library if we don\u0027t name it that way.",
+      "parentUuid": "8a5d70ee_03b46a68",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 43
+      },
+      "revId": "01d460b408b9b771d58e5e53ef1229bdd57649e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e2a0654_eda08198",
         "filename": "boot/1.2/default/android.hardware.boot@1.2-service.rc",
         "patchSetId": 6
