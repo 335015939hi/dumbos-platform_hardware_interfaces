@@ -16,6 +16,24 @@
       "message": "add merged-in",
       "revId": "468ed9977b52a0d92601328d606544bff07938d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a668fe62_c63f23d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1707895
+      },
+      "writtenOn": "2020-12-04T20:14:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25ccaa48_c90c3cea",
+      "revId": "468ed9977b52a0d92601328d606544bff07938d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
