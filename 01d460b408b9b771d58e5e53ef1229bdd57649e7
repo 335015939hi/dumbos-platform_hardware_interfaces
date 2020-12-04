@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2627fcfa_1f54b55b",
+        "filename": "boot/1.2/default/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-04T00:58:23Z",
+      "side": 1,
+      "message": "I mean, just give it name \u0027android.hardware.boot@1.0-impl-1.2\u0027 to avoid having this build/install difference (and avoid specifying stem), but I understand why it\u0027s done.",
+      "parentUuid": "6593de48_ac7ea50e",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 43
+      },
+      "revId": "01d460b408b9b771d58e5e53ef1229bdd57649e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e2a0654_eda08198",
         "filename": "boot/1.2/default/android.hardware.boot@1.2-service.rc",
         "patchSetId": 6
