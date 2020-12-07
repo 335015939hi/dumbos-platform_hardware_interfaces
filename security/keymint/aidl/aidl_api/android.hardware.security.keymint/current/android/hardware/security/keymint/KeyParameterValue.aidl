@@ -16,12 +16,20 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.keymint;
-@Backing(type="int") @VintfStability
-enum KeyDerivationFunction {
-  NONE = 0,
-  RFC5869_SHA256 = 1,
-  ISO18033_2_KDF1_SHA1 = 2,
-  ISO18033_2_KDF1_SHA256 = 3,
-  ISO18033_2_KDF2_SHA1 = 4,
-  ISO18033_2_KDF2_SHA256 = 5,
+@VintfStability
+union KeyParameterValue {
+  android.hardware.security.keymint.Algorithm algorithm;
+  android.hardware.security.keymint.BlockMode blockMode;
+  android.hardware.security.keymint.PaddingMode paddingMode;
+  android.hardware.security.keymint.Digest digest;
+  android.hardware.security.keymint.EcCurve ecCurve;
+  android.hardware.security.keymint.KeyOrigin origin;
+  android.hardware.security.keymint.KeyPurpose purpose;
+  android.hardware.security.keymint.HardwareAuthenticatorType hardwareAuthenticatorType;
+  android.hardware.security.keymint.SecurityLevel securityLevel;
+  boolean boolValue;
+  int integer_;
+  long longInteger_;
+  long dateTime;
+  @nullable byte[] blob;
 }

@@ -2333,8 +2333,8 @@ TEST_P(EncryptionOperationsTest, AesEcbPkcs7PaddingCorrupted) {
 
 vector<uint8_t> CopyIv(const AuthorizationSet& set) {
     auto iv = set.GetTagValue(TAG_NONCE);
-    EXPECT_TRUE(iv.isOk());
-    return iv.value();
+    EXPECT_TRUE(iv.isOk() && iv.value());
+    return *iv.value();
 }
 
 /*
@@ -2459,9 +2459,9 @@ TEST_P(EncryptionOperationsTest, AesIncremental) {
                 case BlockMode::CBC:
                 case BlockMode::GCM:
                 case BlockMode::CTR:
-                    ASSERT_TRUE(iv.isOk()) << "No IV for block mode " << block_mode;
-                    EXPECT_EQ(block_mode == BlockMode::GCM ? 12U : 16U, iv.value().size());
-                    params.push_back(TAG_NONCE, iv.value());
+                    ASSERT_TRUE(iv.isOk() && iv.value()) << "No IV for block mode " << block_mode;
+                    EXPECT_EQ(block_mode == BlockMode::GCM ? 12U : 16U, iv.value()->size());
+                    params.push_back(TAG_NONCE, *iv.value());
                     break;
 
                 case BlockMode::ECB:
@@ -2649,7 +2649,7 @@ TEST_P(EncryptionOperationsTest, AesCallerNonce) {
     AuthorizationSet out_params;
     string ciphertext = EncryptMessage(message, params, &out_params);
     EXPECT_EQ(message.size(), ciphertext.size());
-    EXPECT_EQ(16U, out_params.GetTagValue(TAG_NONCE).value().size());
+    EXPECT_EQ(16U, out_params.GetTagValue(TAG_NONCE).value()->size());
 
     params.push_back(TAG_NONCE, out_params.GetTagValue(TAG_NONCE).value());
     string plaintext = DecryptMessage(ciphertext, params);
@@ -2697,7 +2697,7 @@ TEST_P(EncryptionOperationsTest, AesCallerNonceProhibited) {
     AuthorizationSet out_params;
     string ciphertext = EncryptMessage(message, params, &out_params);
     EXPECT_EQ(message.size(), ciphertext.size());
-    EXPECT_EQ(16U, out_params.GetTagValue(TAG_NONCE).value().size());
+    EXPECT_EQ(16U, out_params.GetTagValue(TAG_NONCE).value()->size());
 
     params.push_back(TAG_NONCE, out_params.GetTagValue(TAG_NONCE).value());
     string plaintext = DecryptMessage(ciphertext, params);
