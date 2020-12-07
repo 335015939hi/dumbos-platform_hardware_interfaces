@@ -299,7 +299,17 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <!-- android.hardware.keymint is being moved to android.hardware.security.keymint.  This
+             interface will be removed when the transition is complete. -->
         <name>android.hardware.keymint</name>
+        <interface>
+            <name>IKeyMintDevice</name>
+            <instance>default</instance>
+            <instance>strongbox</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.security.keymint</name>
         <interface>
             <name>IKeyMintDevice</name>
             <instance>default</instance>
