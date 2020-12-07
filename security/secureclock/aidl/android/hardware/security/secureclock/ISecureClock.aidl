@@ -20,25 +20,23 @@ import android.hardware.security.secureclock.TimeStampToken;
  * Secure Clock definition.
  *
  * An ISecureClock provides a keymint service to generate secure timestamp using a secure platform.
- * The secure time stamp contains time in milliseconds i.e. keymint Timestamp aidl. This time stamp also
- * contains a 256 bit MAC which provides integrity protection. The MAC is generated using 256 bit
- * HMAC using shared secret key. The shared secret key must be available to secure clock service by
- * implementing ISharedSecret aidl. Note: ISecureClock depends on shared secret, without which the secure
+ * The secure time stamp contains time in milliseconds. This time stamp also contains a 256-bit MAC
+ * which provides integrity protection. The MAC is generated using HMAC-SHA-256 and a shared
+ * secret. The shared secret must be available to secure clock service by implementing
+ * ISharedSecret aidl. Note: ISecureClock depends on the shared secret, without which the secure
  * time stamp token cannot be generated.
  */
 
 @VintfStability
 interface ISecureClock {
-
-/**
- * Generate Time Stamp.
- *
- * Client of this interface, e.g. Keystore, is required to call this method with the challenge
- * returned by StrongBox begin(). Challenge is a nonce that prevents replay of the timestamp.
- *
- * @param the challenge sent by the client.
- *
- * @return token is the time stamp token.  See TimeStampToken for details.
- */
+    /**
+     * Generates an authenticated timestamp.
+     *
+     * @param A challenge value provided by the service that will receive and use the generated
+     * TimeStampToken.  The relying service must ensure that the challenge cannot be specified or
+     * predicted by an attacker.
+     *
+     * @return the TimeStampToken, see the definition for details.
+     */
     TimeStampToken generateTimeStamp(in long challenge);
 }
