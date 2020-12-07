@@ -1,0 +1,99 @@
+/*
+ * Copyright (C) 2020 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * limitations under the License.
+ */
+
+package android.hardware.security.sharedsecret;
+import android.hardware.security.sharedsecret.SharedSecretParameters;
+
+/**
+ * Shared Secret definition.
+ *
+ * An ISharedSecret enables a keymint service to establish a shared secret with one or more other
+ * keymint services such as ISecureClock, TEE IKeymintDevice, StringBox IKeymintDevice, etc. The
+ * shared secret is a 256-bit HMAC key and it is further used to generate secure tokens with
+ * integrity protection. There are two steps to establish a shared secret between collaborating
+ * keymint services:
+ * Step 1: During Android Startup the system calls each keymint service to get
+ * shared secret parameters. This is done using getSharedSecretParameters method defined below.
+ * Step 2: The system lexicographically sorts the shared secret parameters received from each keymint
+ * service and then sends these sorted parameter list to each keymint service in a
+ * computeSharedSecret method defined below.
+ */
+
+@VintfStability
+interface ISharedSecret {
+
+/**
+ * This method is the first step in the process for agreeing on a shared key.  It is called by
+ * Android during startup.  The system calls it on each of the HAL instances and collects the
+ * results in preparation for the second step.
+ *
+ * @return The SharedSecretParameters to use.  As specified in the SharedSecretParameters
+ *         documentation, the seed must contain the same value in every invocation
+ *         of the method on a given device, and the nonce must return the same value for every
+ *         invocation during a boot session.
+ */
+
+    SharedSecretParameters getSharedSecretParameters();
+
+
+/**
+ * This method is the second and final step in the process for agreeing on a shared key.  It is
+ * called by Android during startup.  The system calls it on each of the keymint services, and sends
+ * to it all of the SharedSecretParameters returned by all keymint services.
+ *
+ * This method computes the shared 32-byte HMAC ``H'' as follows (all keymint services instances
+ * perform the same computation to arrive at the same result):
+ *
+ *     H = CKDF(key = K,
+ *              context = P1 || P2 || ... || Pn,
+ *              label = "KeymintSharedMac")
+ *
+ * where:
+ *
+ *     ``CKDF'' is the standard AES-CMAC KDF from NIST SP 800-108 in counter mode (see Section
+ *           5.1 of the referenced publication).  ``key'', ``context'', and ``label'' are
+ *           defined in the standard.  The counter is prefixed and length L appended, as shown
+ *           in the construction on page 12 of the standard.  The label string is UTF-8 encoded.
+ *
+ *     ``K'' is a pre-established shared secret, set up during factory reset.  The mechanism for
+ *           establishing this shared secret is implementation-defined.Any method of securely
+ *           establishing K that ensures that an attacker cannot obtain or derive its value is
+ *           acceptable.
+ *
+ *           CRITICAL SECURITY REQUIREMENT: All keys created by a IKeymintDevice instance must
+ *           be cryptographically bound to the value of K, such that establishing a new K
+ *           permanently destroys them.
+ *
+ *     ``||'' represents concatenation.
+ *
+ *     ``Pi'' is the i'th SharedSecretParameters value in the params vector. Encoding of an
+ *           SharedSecretParameters is the concatenation of its two fields, i.e. seed || nonce.
+ *
+ * Note that the label "KeymintSharedMac" is the 16-byte UTF-8 encoding of the string.
+ *
+ * @param params is an array of SharedSecretParameters The lexicographically sorted SharedSecretParameters
+ *        data returned by all keymint services when getSharedSecretParameters was called.
+ *
+ * @return sharingCheck A 32-byte value used to verify that all the keymint services have
+ *         computed the same shared HMAC key.  The sharingCheck value is computed as follows:
+ *
+ *             sharingCheck = HMAC(H, "Keymint HMAC Verification")
+ *
+ *         The string is UTF-8 encoded, 25 bytes in length.  If the returned values of all
+ *         keymint services don't match, clients must assume that HMAC agreement
+ *         failed.
+ */
+    byte[] computeSharedSecret(in SharedSecretParameters[] params);
+}
