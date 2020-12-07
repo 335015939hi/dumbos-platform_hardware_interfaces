@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "def48701_4d784f77",
+        "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-07T13:41:41Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "bfce849a_8fa20c70",
+      "range": {
+        "startLine": 103,
+        "startChar": 5,
+        "endLine": 104,
+        "endChar": 34
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddfa5e51_5ad3b2d3",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-03T22:43:00Z",
       "side": 1,
       "message": "Document that the only allowed value is 1 at present.",
+      "range": {
+        "startLine": 324,
+        "startChar": 7,
+        "endLine": 324,
+        "endChar": 86
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20ee232a_5e6c0ee3",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-07T13:41:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddfa5e51_5ad3b2d3",
       "range": {
         "startLine": 324,
         "startChar": 7,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "924a3a9c_ae99b717",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-07T13:41:41Z",
+      "side": 1,
+      "message": "Updated the documentation now. KeyMint1 will only support SUK at present, and key blob must be deleted by finish() call.",
+      "parentUuid": "a4ef946b_9e8e0274",
+      "range": {
+        "startLine": 328,
+        "startChar": 52,
+        "endLine": 330,
+        "endChar": 42
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c14fd6b4_20d29788",
@@ -83,6 +155,30 @@
       "writtenOn": "2020-12-03T22:43:00Z",
       "side": 1,
       "message": "As above, we should just never return a blob in that case.\n\nHowever, in KeyMint1 we\u0027re not going to update the signature of finish() to return the blob, so maybe we just shouldn\u0027t even talk about how this will work. Attempting to use a deleted key blob just returns INVALID_KEY_BLOB.",
+      "range": {
+        "startLine": 331,
+        "startChar": 86,
+        "endLine": 332,
+        "endChar": 96
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d53e226_54146eaa",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-07T13:41:41Z",
+      "side": 1,
+      "message": "Got it, thanks for the explanation!",
+      "parentUuid": "c14fd6b4_20d29788",
       "range": {
         "startLine": 331,
         "startChar": 86,
@@ -139,6 +235,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a6ea191_042827c5",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-07T13:41:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8266d5a5_ff76d211",
+      "range": {
+        "startLine": 586,
+        "startChar": 17,
+        "endLine": 586,
+        "endChar": 24
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1b2714f_9be660a8",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-07T13:41:41Z",
+      "side": 1,
+      "message": "Updated now, and moved these tests under different key types.",
+      "parentUuid": "2f8deaa6_9cde03b5",
+      "range": {
+        "startLine": 586,
+        "startChar": 38,
+        "endLine": 586,
+        "endChar": 83
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39891c12_cfb79cc3",
@@ -152,6 +296,30 @@
       "writtenOn": "2020-12-03T22:43:00Z",
       "side": 1,
       "message": "We\u0027re only going to support 1 in KeyMint1.",
+      "range": {
+        "startLine": 597,
+        "startChar": 90,
+        "endLine": 597,
+        "endChar": 93
+      },
+      "revId": "e0a1f6bbbc690270fda7172d1f3c9c6668b05aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9489160c_235c4f87",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-07T13:41:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39891c12_cfb79cc3",
       "range": {
         "startLine": 597,
         "startChar": 90,
