@@ -1,13 +1,10 @@
 aidl_interface {
-    name: "android.hardware.security.secureclock",
+    name: "android.hardware.security.sharedsecret",
     vendor_available: true,
     srcs: [
-        "android/hardware/security/secureclock/*.aidl",
+        "android/hardware/security/sharedsecret/*.aidl",
     ],
     stability: "vintf",
-    imports: [
-        "android.hardware.security.keymint",
-    ],
     backend: {
         java: {
             platform_apis: true,
