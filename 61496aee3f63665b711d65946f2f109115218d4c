@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "478814ef_ac30bae6",
+        "filename": "memtrack/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-07T21:50:12Z",
+      "side": 1,
+      "message": "should you disable cpp (cpp: {enabled: false}), if you\u0027re not using it?",
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a048ea77_95c2f4c6",
+        "filename": "memtrack/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-07T21:50:12Z",
+      "side": 1,
+      "message": "are you using both of these? could you delete one?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 4
+      },
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6300506_01184975",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-07T21:50:12Z",
+      "side": 1,
+      "message": "this is kind of up to the threading model of the implementation, right? is this a holdover from the libhardware days?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 32
+      },
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36b20d39_95d995f4",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-07T21:50:12Z",
+      "side": 1,
+      "message": "what is the format, how are these expected to be used?",
+      "range": {
+        "startLine": 76,
+        "startChar": 33,
+        "endLine": 76,
+        "endChar": 68
+      },
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8734b21c_cbc25cfa",
+        "filename": "memtrack/aidl/android/hardware/memtrack/MemtrackRecord.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-07T21:50:12Z",
+      "side": 1,
+      "message": "consider having these like:\n\n   const int FLAG_SMAPS_ACCOUNTED \u003d 1 \u003c\u003c ...;\n\nin this file (for locality + saving one file)",
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8011a3a_b6e9566c",
+        "filename": "memtrack/aidl/vts/VtsHalMemtrackTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-07T21:50:12Z",
+      "side": 1,
+      "message": "will need GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST",
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
