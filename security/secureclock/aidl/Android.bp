@@ -1,0 +1,21 @@
+aidl_interface {
+    name: "android.hardware.security.secureclock",
+    vendor_available: true,
+    srcs: [
+        "android/hardware/security/secureclock/*.aidl",
+    ],
+    stability: "vintf",
+    imports: [
+        "android.hardware.keymint",
+    ],
+    backend: {
+        java: {
+            platform_apis: true,
+        },
+        ndk: {
+            vndk: {
+                enabled: true,
+            },
+        },
+    },
+}
