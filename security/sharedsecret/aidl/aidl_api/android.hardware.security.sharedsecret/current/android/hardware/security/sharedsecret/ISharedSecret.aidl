@@ -15,11 +15,9 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.security.secureclock;
+package android.hardware.security.sharedsecret;
 @VintfStability
-parcelable TimeStampToken {
-  long challenge;
-  android.hardware.security.keymint.Timestamp timestamp;
-  android.hardware.security.keymint.SecurityLevel securityLevel;
-  byte[] mac;
+interface ISharedSecret {
+  android.hardware.security.sharedsecret.SharedSecretParameters getSharedSecretParameters();
+  byte[] computeSharedSecret(in android.hardware.security.sharedsecret.SharedSecretParameters[] params);
 }

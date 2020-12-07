@@ -16,8 +16,8 @@
 
 package android.hardware.security.secureclock;
 
-import android.hardware.keymint.SecurityLevel;
-import android.hardware.keymint.Timestamp;
+import android.hardware.security.keymint.SecurityLevel;
+import android.hardware.security.keymint.Timestamp;
 
 /**
  * TimeStampToken instances are used for secure environments that requires secure time information.
