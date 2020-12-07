@@ -19,8 +19,5 @@ package android.hardware.security.keymint;
 @VintfStability
 parcelable KeyParameter {
   android.hardware.security.keymint.Tag tag;
-  boolean boolValue;
-  int integer;
-  long longInteger;
-  byte[] blob;
+  android.hardware.security.keymint.KeyParameterValue value;
 }
