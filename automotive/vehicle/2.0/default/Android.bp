@@ -88,7 +88,7 @@ cc_library_static {
     whole_static_libs: [
         "android.hardware.automotive.vehicle@2.0-emulated-user-hal-lib",
         "android.hardware.automotive.vehicle@2.0-manager-lib",
-        "libqemu_pipe",
+        "//device/generic/goldfish:libqemud.ranchu",
     ],
     shared_libs: [
         "libbase",
