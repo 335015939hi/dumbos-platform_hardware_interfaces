@@ -138,6 +138,14 @@ nn::GeneralResult<std::pair<uint32_t, uint32_t>> initNumberOfCacheFilesNeeded(
             const auto canonical = nn::convert(status).value_or(nn::ErrorStatus::GENERAL_FAILURE);
             result = NN_ERROR(canonical)
                      << "getNumberOfCacheFilesNeeded failed with " << toString(status);
+        } else if (numModelCache > nn::kMaxNumberOfCacheFiles) {
+            result = NN_ERROR(nn::ErrorStatus::GENERAL_FAILURE)
+                     << "getNumberOfCacheFilesNeeded returned invalid number of model cache files: "
+                     << numModelCache << " > " << nn::kMaxNumberOfCacheFiles;
+        } else if (numDataCache > nn::kMaxNumberOfCacheFiles) {
+            result = NN_ERROR(nn::ErrorStatus::GENERAL_FAILURE)
+                     << "getNumberOfCacheFilesNeeded returned invalid number of data cache files: "
+                     << numDataCache << " > " << nn::kMaxNumberOfCacheFiles;
         } else {
             result = std::make_pair(numModelCache, numDataCache);
         }
