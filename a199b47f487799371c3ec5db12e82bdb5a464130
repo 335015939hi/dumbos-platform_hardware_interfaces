@@ -16,6 +16,24 @@
       "message": "assuming the merge conflict will be resolved",
       "revId": "a199b47f487799371c3ec5db12e82bdb5a464130",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1473c57d_5713ca5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-07T18:57:35Z",
+      "side": 1,
+      "message": "yeah, sent an email to internal team to address. The issue is that someone skipped certain changes in internal branches, so that goog/master+aosp/master have changes, but intermediate branches do not.",
+      "parentUuid": "cecf5004_61ea0a19",
+      "revId": "a199b47f487799371c3ec5db12e82bdb5a464130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
