@@ -16,6 +16,24 @@
       "message": "There\u0027s a merge conflict, can you please rebase again?",
       "revId": "083f43ae46a1ed307ea80adac64d9ffcf967df03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94c39055_a8117c56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1236374
+      },
+      "writtenOn": "2020-12-07T02:48:37Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "f0ebc664_a7f1dc56",
+      "revId": "083f43ae46a1ed307ea80adac64d9ffcf967df03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
