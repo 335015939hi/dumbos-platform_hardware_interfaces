@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15a9f9a3_dc133960",
+        "filename": "memtrack/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-08T17:29:43Z",
+      "side": 1,
+      "message": "Disabled cpp and java backends",
+      "parentUuid": "478814ef_ac30bae6",
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a048ea77_95c2f4c6",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-12-07T21:50:12Z",
       "side": 1,
       "message": "are you using both of these? could you delete one?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 4
+      },
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db0a09bb_9b1656b2",
+        "filename": "memtrack/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-08T17:29:43Z",
+      "side": 1,
+      "message": "Removed translate-cpp",
+      "parentUuid": "a048ea77_95c2f4c6",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7a33a73_51393a1f",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-08T17:29:43Z",
+      "side": 1,
+      "message": "You are right. I guess it depends on the pool size of the node they implement. Removed.",
+      "parentUuid": "b6300506_01184975",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 32
+      },
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36b20d39_95d995f4",
@@ -77,6 +143,30 @@
       "writtenOn": "2020-12-07T21:50:12Z",
       "side": 1,
       "message": "what is the format, how are these expected to be used?",
+      "range": {
+        "startLine": 76,
+        "startChar": 33,
+        "endLine": 76,
+        "endChar": 68
+      },
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c138eeb_c8319bf7",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-08T17:29:43Z",
+      "side": 1,
+      "message": "Updated function description",
+      "parentUuid": "36b20d39_95d995f4",
       "range": {
         "startLine": 76,
         "startChar": 33,
@@ -106,6 +196,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff7e9887_8eb85dda",
+        "filename": "memtrack/aidl/android/hardware/memtrack/MemtrackRecord.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-08T17:29:43Z",
+      "side": 1,
+      "message": "I would prefer to keep separate if ok, wouldn\u0027t this increase our parcelable size?",
+      "parentUuid": "8734b21c_cbc25cfa",
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b8011a3a_b6e9566c",
         "filename": "memtrack/aidl/vts/VtsHalMemtrackTargetTest.cpp",
         "patchSetId": 3
@@ -117,6 +225,24 @@
       "writtenOn": "2020-12-07T21:50:12Z",
       "side": 1,
       "message": "will need GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST",
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c01237b6_4c700306",
+        "filename": "memtrack/aidl/vts/VtsHalMemtrackTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-08T17:29:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8011a3a_b6e9566c",
       "revId": "61496aee3f63665b711d65946f2f109115218d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
