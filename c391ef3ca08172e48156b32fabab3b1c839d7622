@@ -34,6 +34,24 @@
       "parentUuid": "0e651ce2_825aa8e6",
       "revId": "c391ef3ca08172e48156b32fabab3b1c839d7622",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b5557e0_8bb25540",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2020-12-08T23:32:50Z",
+      "side": 1,
+      "message": "Hi Amy, I\u0027ve added Bug http://b/issue?id\u003d174686912\u0026query\u003d174686912 to the commit. Thanks.",
+      "parentUuid": "9be0e1bb_d60b663f",
+      "revId": "c391ef3ca08172e48156b32fabab3b1c839d7622",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
