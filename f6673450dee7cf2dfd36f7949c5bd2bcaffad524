@@ -123,6 +123,24 @@
       "parentUuid": "1c1ccce4_826889df",
       "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a441f1f_8deba982",
+        "filename": "automotive/vehicle/2.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2020-12-08T22:56:07Z",
+      "side": 1,
+      "message": "It\u0027s Android-written code, it doesn\u0027t need to be in external, but if it is used outside the goldfish device it should be moved somewhere more generic under system/ or hardware/.",
+      "parentUuid": "676bb070_86ee38c9",
+      "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
