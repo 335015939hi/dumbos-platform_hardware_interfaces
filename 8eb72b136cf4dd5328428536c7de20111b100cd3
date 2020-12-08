@@ -69,6 +69,24 @@
       "parentUuid": "4dd938ec_4d919f0a",
       "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0d6469a_178b25c7",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2020-12-08T04:08:04Z",
+      "side": 1,
+      "message": "The maxEmailRecords and maxAdditionalNumberRecords could indicate wether the card is supported the multi Emails or ANRs. \nNo need to add these fileds. In this new feature, ATEL no need to use these data to do anything.Please check https://android-review.googlesource.com/c/platform/frameworks/opt/telephony/+/1440475.\nAnd Google also has not API in iccprovide for UI to get numEmailsForADN and numAnrsForADN.\nHence numEmailsForADN and numAnrsForADN was unused in AP.\nUI will use maxEmailRecords/maxAdditionalNumberRecords/maxAdnRecords to distribution the how many email/anr records when user edit one adn record. \nEven without this new feature, UI also use this solution for the Google orginal SIM_IO contact feature.\nFor example, maxEmailRecords is 50 and maxAdnRecords is 500 for most of commercial card, UI will distribution the 1 email record when user edit one adn record if the EmailRecords is not usedup.",
+      "parentUuid": "e92bdc68_95aff935",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
