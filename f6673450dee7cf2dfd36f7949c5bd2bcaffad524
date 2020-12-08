@@ -159,6 +159,24 @@
       "parentUuid": "676bb070_86ee38c9",
       "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "472729b8_17df70ed",
+        "filename": "automotive/vehicle/2.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-12-08T23:18:16Z",
+      "side": 1,
+      "message": "Is it ok to move more goldfish implementation details into system/core?",
+      "parentUuid": "03fa6c6a_4ef487db",
+      "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
