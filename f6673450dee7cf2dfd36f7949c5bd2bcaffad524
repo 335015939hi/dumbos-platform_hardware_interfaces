@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b95fe2e_d089235a",
+        "filename": "automotive/vehicle/2.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1463284
+      },
+      "writtenOn": "2020-12-08T16:33:37Z",
+      "side": 1,
+      "message": "It seems strange to me to have a default HAL implementation that could be used on any device to reference a library from goldfish specifically",
+      "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
