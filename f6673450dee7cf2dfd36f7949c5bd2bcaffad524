@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b23ce480_19e1f854",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2020-12-08T19:09:09Z",
+      "side": 1,
+      "message": "Looking all other changes, it was bad idea for default hal to depend on goldfish. Default HAL should not depend on it at all while there should be additional HAL impl for emulator which has dependency on it. Someone from auto team should work on it. Roman, how urgent is this change?",
+      "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b95fe2e_d089235a",
