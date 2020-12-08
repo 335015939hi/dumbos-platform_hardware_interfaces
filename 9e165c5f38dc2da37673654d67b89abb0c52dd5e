@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c66c725b_ee780a45",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/SharedSecretParameters.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2020-12-08T22:59:10Z",
+      "side": 1,
+      "message": "You\u0027re missing the */ close comment here, which causes the AIDL generator not to generate this field (see the other SharedSecretParameters.aidl file).",
+      "revId": "9e165c5f38dc2da37673654d67b89abb0c52dd5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
