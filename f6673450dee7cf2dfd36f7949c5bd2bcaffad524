@@ -105,6 +105,24 @@
       "parentUuid": "64b85cbc_ef2a3abe",
       "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "676bb070_86ee38c9",
+        "filename": "automotive/vehicle/2.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-12-08T22:53:24Z",
+      "side": 1,
+      "message": "It is in aosp, do we still need /external for that?",
+      "parentUuid": "1c1ccce4_826889df",
+      "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
