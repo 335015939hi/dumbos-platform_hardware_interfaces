@@ -34,6 +34,24 @@
       "parentUuid": "2b95fe2e_d089235a",
       "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64b85cbc_ef2a3abe",
+        "filename": "automotive/vehicle/2.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-12-08T18:27:16Z",
+      "side": 1,
+      "message": "BTW, I am retiring /dev/goldfish_pipe.",
+      "parentUuid": "2bab5440_61c2d965",
+      "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
