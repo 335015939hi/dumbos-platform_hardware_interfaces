@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42851d26_4cb9bf65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-12-08T19:12:12Z",
+      "side": 1,
+      "message": "This is somewhat urgent. This change does not change much except it adds \"goldfish\" explicitly. Once the new HAL is introduced, this should be easy to fix.",
+      "parentUuid": "b23ce480_19e1f854",
+      "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b95fe2e_d089235a",
         "filename": "automotive/vehicle/2.0/default/Android.bp",
         "patchSetId": 1
