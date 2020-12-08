@@ -51,6 +51,24 @@
       "parentUuid": "f58e56c3_464d06d3",
       "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e92bdc68_95aff935",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1435598
+      },
+      "writtenOn": "2020-12-08T03:37:50Z",
+      "side": 1,
+      "message": "How does Android know if SIM cards support multi Emails or ANRs before update multi Emails or ANRs? From spec, seems not all sim cards support multi Emails or ANRs.\n\nIs there a need to add 2 new items to mark how many Email/Anr supported of the SIM card?\ne.g.:\n\nstruct PhonebookCapacity {\n  // number of supported EMAIL for a ADN entry\n  int32_t numEmailsForADN;\n  //   number of supported ANR for a ADN entry\n  int32_t numAnrsForADN;",
+      "parentUuid": "4dd938ec_4d919f0a",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
