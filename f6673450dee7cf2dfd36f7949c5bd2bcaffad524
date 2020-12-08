@@ -87,6 +87,24 @@
       "parentUuid": "2bab5440_61c2d965",
       "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c1ccce4_826889df",
+        "filename": "automotive/vehicle/2.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2020-12-08T22:45:18Z",
+      "side": 1,
+      "message": "Yeah, I noticed this as well. I think to make it clear you should move libqemud project to /external first. Looks like you have a valid reason to request for that.",
+      "parentUuid": "64b85cbc_ef2a3abe",
+      "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
