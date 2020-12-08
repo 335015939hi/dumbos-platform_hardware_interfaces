@@ -141,6 +141,24 @@
       "parentUuid": "676bb070_86ee38c9",
       "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03fa6c6a_4ef487db",
+        "filename": "automotive/vehicle/2.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2020-12-08T22:58:06Z",
+      "side": 1,
+      "message": "It doesn\u0027t have to be /external. Just not a device-specific (*other* device) project.",
+      "parentUuid": "676bb070_86ee38c9",
+      "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
