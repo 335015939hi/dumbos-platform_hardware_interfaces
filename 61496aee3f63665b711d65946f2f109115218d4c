@@ -230,6 +230,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c501417c_461cef44",
+        "filename": "memtrack/aidl/android/hardware/memtrack/MemtrackRecord.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-09T21:09:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6f861afe_cb5ae651",
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8011a3a_b6e9566c",
