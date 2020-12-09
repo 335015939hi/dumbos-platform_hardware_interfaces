@@ -177,6 +177,24 @@
       "parentUuid": "03fa6c6a_4ef487db",
       "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16cc4dcb_daf0c426",
+        "filename": "automotive/vehicle/2.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2020-12-09T00:01:13Z",
+      "side": 1,
+      "message": "If it\u0027s goldfish implementation detail, then why are you including it with all car products?",
+      "parentUuid": "472729b8_17df70ed",
+      "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
