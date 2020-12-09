@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85320200_6d672030",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-09T00:28:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e222939_0bcaa20f",
+      "range": {
+        "startLine": 199,
+        "startChar": 73,
+        "endLine": 199,
+        "endChar": 95
+      },
+      "revId": "0b5190e9cbbe9ffa227731ba76f5173a23b4cb05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c960ec19_6f26a836",
@@ -87,6 +111,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdcd29a3_995bf9e6",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2064,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-09T00:28:49Z",
+      "side": 1,
+      "message": "Changed the test to test all types of oaep digests with all types of mgf1 digests.",
+      "parentUuid": "c960ec19_6f26a836",
+      "range": {
+        "startLine": 2064,
+        "startChar": 54,
+        "endLine": 2064,
+        "endChar": 78
+      },
+      "revId": "0b5190e9cbbe9ffa227731ba76f5173a23b4cb05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cb04fe3_51f76e0a",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2064,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-09T00:28:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06b57e94_1f13deeb",
+      "range": {
+        "startLine": 2064,
+        "startChar": 52,
+        "endLine": 2064,
+        "endChar": 53
+      },
+      "revId": "0b5190e9cbbe9ffa227731ba76f5173a23b4cb05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da5c2c4c_5fb1bc5f",
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4279d7e0_1192e192",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2122,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-09T00:28:49Z",
+      "side": 1,
+      "message": "There are two cases with SHA1:\nIf key characteristics does not have TAG_RSA_OAEP_MGF_DIGEST tag then implementations must always allow SHA1 by default - backward compatibility. This is already being tested by Oaep tests.\n\nAlternatively, if key characteristics have TAG_RSA_OAEP_MGF_DIGEST tag then begin must have compatible values. This test case tests this case with SHA256 MGF1 digest i.e. SHA1 is not specified in key characteristics. \n\nI have changed the test case a little and provide SHA1 as MGF1 digest in Begin. This will ensure that implementations accidentally does not support SHA1 if not specified in key characteristics.",
+      "parentUuid": "da5c2c4c_5fb1bc5f",
+      "range": {
+        "startLine": 2122,
+        "startChar": 33,
+        "endLine": 2122,
+        "endChar": 65
+      },
+      "revId": "0b5190e9cbbe9ffa227731ba76f5173a23b4cb05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbdd1fbb_e0eceb4c",
@@ -123,6 +219,30 @@
       "writtenOn": "2020-12-04T23:07:23Z",
       "side": 1,
       "message": "This should be a const\u0026.",
+      "range": {
+        "startLine": 520,
+        "startChar": 8,
+        "endLine": 520,
+        "endChar": 55
+      },
+      "revId": "0b5190e9cbbe9ffa227731ba76f5173a23b4cb05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3936b595_9841cdfa",
+        "filename": "keymint/support/authorization_set.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-09T00:28:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbdd1fbb_e0eceb4c",
       "range": {
         "startLine": 520,
         "startChar": 8,
