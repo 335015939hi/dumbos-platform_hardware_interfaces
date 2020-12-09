@@ -73,6 +73,12 @@ interface IBluetoothAudioProvider {
     streamSuspended(Status status);
 
     /**
+     * Call to update Sesion Parameters in runtime
+     *
+     */
+    updateSessionParams(SessionParams sessionParams);
+
+    /**
      * Ends the current session and unregisters the IBluetoothAudioPort
      * interface.
      */

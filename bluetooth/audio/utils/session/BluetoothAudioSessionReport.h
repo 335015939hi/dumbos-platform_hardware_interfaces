@@ -56,6 +56,16 @@ class BluetoothAudioSessionReport {
       session_ptr->ReportControlStatus(start_resp, status);
     }
   }
+
+  static void OnSessionParamUpdate(const SessionType& session_type,
+                                   const SessionParamType& paramType,
+                                   const SessionParams& sessionParams) {
+    std::shared_ptr<BluetoothAudioSession> session_ptr =
+        BluetoothAudioSessionInstance::GetSessionInstance(session_type);
+    if (session_ptr != nullptr) {
+      session_ptr->OnSessionParamUpdate(paramType, sessionParams);
+    }
+  }
 };
 
 }  // namespace audio

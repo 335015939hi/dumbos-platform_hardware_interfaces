@@ -17,6 +17,7 @@
 #define LOG_TAG "BTAudioProviderSession"
 
 #include "BluetoothAudioSession.h"
+#include "BluetoothA2dpControl.h"
 
 #include <android-base/logging.h>
 #include <android-base/stringprintf.h>
@@ -144,6 +145,27 @@ void BluetoothAudioSession::ReportControlStatus(
               << (start_resp ? " started" : " suspended");
     cb->control_result_cb_(cookie, start_resp, status);
   }
+}
+
+void BluetoothAudioSession::OnSessionParamUpdate(const SessionParamType& paramType,
+                      const SessionParams& sessionParams) {
+  if (paramType == SessionParamType::SINK_LATENCY) {
+    BluetoothA2dpControl *a2dpControl = BluetoothA2dpControl::getA2DPControl();
+    if (a2dpControl) {
+      a2dpControl->updateSinkLatency(sessionParams.param.sinkLatency.
+                                     remoteDeviceAudioDelay);
+      LOG(INFO) << __func__ << " Update Sink Latency: "
+             << sessionParams.param.sinkLatency.remoteDeviceAudioDelay;
+    }
+  } /*else if (paramType == SessionParamType::MTU) {
+    LOG(INFO) << __func__ << " Update MTU: " << sessionParams.param.mtu;
+    audio_config_.codecConfig.peerMtu = sessionParams.param.mtu;
+    for (auto& observer : observers_) {
+      uint16_t cookie = observer.first;
+      std::shared_ptr<struct PortStatusCallbacks> cb = observer.second;
+      cb->session_params_cb_(cookie, sessionParams);
+    }
+  }*/
 }
 
 // The function helps to check if this session is ready or not

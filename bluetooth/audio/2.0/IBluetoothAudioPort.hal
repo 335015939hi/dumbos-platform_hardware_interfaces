@@ -82,4 +82,11 @@ interface IBluetoothAudioPort {
      *    clients.
      */
     updateMetadata(SourceMetadata sourceMetadata);
+
+    /**
+     * Called when Audio remorts Aptx Adaptive operating mode has changes
+     *
+     * @param aptxMode: Value of the current Aptx Adaptive Mode
+     */
+    updateAptxMode(uint16_t aptxMode);
 };
