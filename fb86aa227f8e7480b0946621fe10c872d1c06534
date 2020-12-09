@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f340f65_f68b70ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:49:31Z",
+      "side": 1,
+      "message": "Note that all of this needs to move to hardware/interfaces/security.  I\u0027ll try to get the keymint copy landed today, so you can move this.",
+      "revId": "fb86aa227f8e7480b0946621fe10c872d1c06534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
