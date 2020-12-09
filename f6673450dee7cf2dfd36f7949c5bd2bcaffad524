@@ -195,6 +195,24 @@
       "parentUuid": "472729b8_17df70ed",
       "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1344c8ec_4da2227d",
+        "filename": "automotive/vehicle/2.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-12-09T00:14:29Z",
+      "side": 1,
+      "message": "I am not the right person here to answer this question.",
+      "parentUuid": "16cc4dcb_daf0c426",
+      "revId": "f6673450dee7cf2dfd36f7949c5bd2bcaffad524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
