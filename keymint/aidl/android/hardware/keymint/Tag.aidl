@@ -196,7 +196,8 @@ enum Tag {
      * characteristics with one or more values from @4.0::Digest, then for RSA cipher
      * operations with OAEP Padding, the caller must specify a digest in the additionalParams
      * argument of begin operation. If this tag is missing or the specified digest is not in
-     * the digests associated with the key then begin operation must fail wit     * ErrorCode::INCOMPATIBLE_MGF_DIGEST.
+     * the digests associated with the key then begin operation must fail with
+     * ErrorCode::INCOMPATIBLE_MGF_DIGEST.
      *
      * Must be hardware-enforced.
      */

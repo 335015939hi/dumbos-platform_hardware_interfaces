@@ -2061,55 +2061,60 @@ TEST_P(EncryptionOperationsTest, RsaOaepTooLarge) {
 /*
  * EncryptionOperationsTest.RsaOaepWithMGFDigestSuccess
  *
- * Verifies that RSA-OAEP encryption operations work, with all SHA 256 digests and all type of MGF1
+ * Verifies that RSA-OAEP encryption operations work with all SHA 256 digests and all type of MGF1
  * digests.
  */
 TEST_P(EncryptionOperationsTest, RsaOaepWithMGFDigestSuccess) {
-    auto digests = ValidDigests(false /* withNone */, true /* withMD5 */);
+    auto oaep_digests = ValidDigests(false /* withNone */, true /* withMD5 */);
+    auto mgf_digests = oaep_digests;
 
     size_t key_size = 2048;  // Need largish key for SHA-512 test.
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
-                                                 .OaepMGFDigest(digests)
+                                                 .OaepMGFDigest(mgf_digests)
                                                  .Authorization(TAG_NO_AUTH_REQUIRED)
                                                  .RsaEncryptionKey(key_size, 65537)
                                                  .Padding(PaddingMode::RSA_OAEP)
-                                                 .Digest(Digest::SHA_2_256)));
+                                                 .Digest(oaep_digests)));
 
     string message = "Hello";
 
-    for (auto digest : digests) {
-        auto params = AuthorizationSetBuilder()
-                              .Authorization(TAG_RSA_OAEP_MGF_DIGEST, digest)
-                              .Digest(Digest::SHA_2_256)
-                              .Padding(PaddingMode::RSA_OAEP);
-        string ciphertext1 = EncryptMessage(message, params);
-        if (HasNonfatalFailure()) std::cout << "-->" << digest << std::endl;
-        EXPECT_EQ(key_size / 8, ciphertext1.size());
+    for (auto oaep_digest : oaep_digests) {
+        for (auto mgf_digest : mgf_digests) {
+            auto params = AuthorizationSetBuilder()
+                                  .Authorization(TAG_RSA_OAEP_MGF_DIGEST, mgf_digest)
+                                  .Digest(oaep_digest)
+                                  .Padding(PaddingMode::RSA_OAEP);
+            string ciphertext1 = EncryptMessage(message, params);
+            if (HasNonfatalFailure()) std::cout << "-->" << mgf_digest << std::endl;
+            EXPECT_EQ(key_size / 8, ciphertext1.size());
 
-        string ciphertext2 = EncryptMessage(message, params);
-        EXPECT_EQ(key_size / 8, ciphertext2.size());
+            string ciphertext2 = EncryptMessage(message, params);
+            EXPECT_EQ(key_size / 8, ciphertext2.size());
 
-        // OAEP randomizes padding so every result should be different (with astronomically high
-        // probability).
-        EXPECT_NE(ciphertext1, ciphertext2);
+            // OAEP randomizes padding so every result should be different (with astronomically high
+            // probability).
+            EXPECT_NE(ciphertext1, ciphertext2);
 
-        string plaintext1 = DecryptMessage(ciphertext1, params);
-        EXPECT_EQ(message, plaintext1) << "RSA-OAEP failed with digest " << digest;
-        string plaintext2 = DecryptMessage(ciphertext2, params);
-        EXPECT_EQ(message, plaintext2) << "RSA-OAEP failed with digest " << digest;
+            string plaintext1 = DecryptMessage(ciphertext1, params);
+            EXPECT_EQ(message, plaintext1) << "RSA-OAEP failed with MGF digest " << mgf_digest
+                                           << " and OAEP digest" << oaep_digest;
+            string plaintext2 = DecryptMessage(ciphertext2, params);
+            EXPECT_EQ(message, plaintext2) << "RSA-OAEP failed with MGF digest " << mgf_digest
+                                           << " and OAEP digest" << oaep_digest;
 
-        // Decrypting corrupted ciphertext should fail.
-        size_t offset_to_corrupt = random() % ciphertext1.size();
-        char corrupt_byte;
-        do {
-            corrupt_byte = static_cast<char>(random() % 256);
-        } while (corrupt_byte == ciphertext1[offset_to_corrupt]);
-        ciphertext1[offset_to_corrupt] = corrupt_byte;
+            // Decrypting corrupted ciphertext should fail.
+            size_t offset_to_corrupt = random() % ciphertext1.size();
+            char corrupt_byte;
+            do {
+                corrupt_byte = static_cast<char>(random() % 256);
+            } while (corrupt_byte == ciphertext1[offset_to_corrupt]);
+            ciphertext1[offset_to_corrupt] = corrupt_byte;
 
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
-        string result;
-        EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
-        EXPECT_EQ(0U, result.size());
+            EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
+            string result;
+            EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
+            EXPECT_EQ(0U, result.size());
+        }
     }
 }
 
@@ -2132,7 +2137,7 @@ TEST_P(EncryptionOperationsTest, RsaOaepWithMGFIncompatibleDigest) {
     auto params = AuthorizationSetBuilder()
                           .Padding(PaddingMode::RSA_OAEP)
                           .Digest(Digest::SHA_2_256)
-                          .Authorization(TAG_RSA_OAEP_MGF_DIGEST, Digest::SHA_2_224);
+                          .Authorization(TAG_RSA_OAEP_MGF_DIGEST, Digest::SHA1);
     EXPECT_EQ(ErrorCode::INCOMPATIBLE_MGF_DIGEST, Begin(KeyPurpose::ENCRYPT, params));
 }
 
