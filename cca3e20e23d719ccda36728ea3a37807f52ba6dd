@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58d3e2c5_640a2458",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-09T17:51:04Z",
+      "side": 0,
+      "message": "err",
+      "range": {
+        "startLine": 161,
+        "startChar": 40,
+        "endLine": 163,
+        "endChar": 59
+      },
+      "revId": "cca3e20e23d719ccda36728ea3a37807f52ba6dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
