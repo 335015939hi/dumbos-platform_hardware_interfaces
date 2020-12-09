@@ -37,6 +37,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8530bd18_3463e8d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2020-12-09T17:33:54Z",
+      "side": 1,
+      "message": "These comments probably apply to the parent CL as well.",
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26889f1c_9b139928",
+        "filename": "security/sharedsecret/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2020-12-09T17:33:54Z",
+      "side": 1,
+      "message": "To get this to compile with my code I needed to change this to sdk_version: \"module_current\".  I don\u0027t know what that means, though, so we should check with someone to see which is right.",
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe1a7928_5ad9dfc4",
+        "filename": "security/sharedsecret/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1208973
+      },
+      "writtenOn": "2020-12-09T17:33:54Z",
+      "side": 1,
+      "message": "I think we\u0027re going to want to use this in Rust, so you can add a\nrust: {\n            enabled: true,\n        },\nblock here.",
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1fab9284_5a22956a",
         "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
         "patchSetId": 2
