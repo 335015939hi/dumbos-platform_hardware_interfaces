@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfb6193c_befd9ed9",
+        "filename": "security/keymint/aidl/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T21:03:35Z",
+      "side": 1,
+      "message": "Done.\n\nI\u0027m confused as to how this linked before. It did. The tests even passed.",
+      "parentUuid": "c39c15e4_245298f4",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 20
+      },
+      "revId": "b7cd2bb65a0f1c8af389d6a82f2588c0ec40c0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0414b140_4b623033",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-09T20:50:52Z",
       "side": 1,
       "message": "libkeymint1 should be libkeymint",
+      "range": {
+        "startLine": 59,
+        "startChar": 9,
+        "endLine": 59,
+        "endChar": 20
+      },
+      "revId": "b7cd2bb65a0f1c8af389d6a82f2588c0ec40c0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f13fc873_7cfc9598",
+        "filename": "security/keymint/aidl/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0414b140_4b623033",
       "range": {
         "startLine": 59,
         "startChar": 9,
