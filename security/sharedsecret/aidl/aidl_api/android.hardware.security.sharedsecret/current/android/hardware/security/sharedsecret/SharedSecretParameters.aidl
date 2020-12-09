@@ -18,5 +18,6 @@
 package android.hardware.security.sharedsecret;
 @VintfStability
 parcelable SharedSecretParameters {
+  byte[] seed;
   byte[] nonce;
 }

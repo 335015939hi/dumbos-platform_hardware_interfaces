@@ -28,6 +28,7 @@ parcelable SharedSecretParameters {
     /**
      * Either empty or contains a non zero persistent value that is associated with the pre-shared HMAC
      * agreement key.  It is either empty or 32 bytes in length.
+     */
     byte[] seed;
 
     /**
