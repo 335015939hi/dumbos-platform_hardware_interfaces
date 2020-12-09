@@ -214,6 +214,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f861afe_cb5ae651",
+        "filename": "memtrack/aidl/android/hardware/memtrack/MemtrackRecord.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-09T02:30:01Z",
+      "side": 1,
+      "message": "The constants don\u0027t increase the parcelable size",
+      "parentUuid": "ff7e9887_8eb85dda",
+      "revId": "61496aee3f63665b711d65946f2f109115218d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b8011a3a_b6e9566c",
         "filename": "memtrack/aidl/vts/VtsHalMemtrackTargetTest.cpp",
         "patchSetId": 3
