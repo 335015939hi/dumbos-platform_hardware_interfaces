@@ -16,6 +16,276 @@
       "message": "Joel found a bug in SharedSecretParameters.aidl. I have fixed that and uploaded a new commit.",
       "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a03017_a44ad896",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "Generally looks good.  Note that you generally cannot land AIDL without the accompanying default implementation and VTS tests.",
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fab9284_5a22956a",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "Not only for KeyMint.  There could be other services that implement this interface.  That\u0027s why we make it a separate interface, rather than just part of KeyMint.",
+      "range": {
+        "startLine": 22,
+        "startChar": 27,
+        "endLine": 22,
+        "endChar": 39
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eb69897_65aaac17",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "Nit, I don\u0027t think \"Startup\" is the sort of thing that needs to be capitalized.",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "872a8b99_53008cec",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "Nit, add blank line above to separate from previous paragraph.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 7
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39381a3f_0bd43ca7",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "You should add step 3: the system evaluates the sharing check values.",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 29,
+        "endChar": 9
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a64e9199_f9bd27b7",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "Not necessarily keymint... also word wrap at 100 cols.",
+      "range": {
+        "startLine": 29,
+        "startChar": 94,
+        "endLine": 29,
+        "endChar": 101
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74d636d6_eae762f2",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "Remove extra blank line above and below (should be none between doc comment and declaration and only one between declaration and next doc comment).",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 17
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e133c071_c96b2ca3",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "We should use the string from KM4, in case we need to include KM4 instances.",
+      "range": {
+        "startLine": 61,
+        "startChar": 25,
+        "endLine": 61,
+        "endChar": 41
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90879d6c_334ba16f",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "wrap at 100 cols",
+      "range": {
+        "startLine": 86,
+        "startChar": 84,
+        "endLine": 86,
+        "endChar": 106
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9476cc6e_e1b3f369",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "Again, let\u0027s use the KM4 value.",
+      "range": {
+        "startLine": 92,
+        "startChar": 39,
+        "endLine": 92,
+        "endChar": 64
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90ed332e_41b8c501",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/SharedSecretParameters.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "Wrap at 100 cols",
+      "range": {
+        "startLine": 29,
+        "startChar": 99,
+        "endLine": 29,
+        "endChar": 103
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db346464_786fcd39",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/Stuff.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-09T17:33:26Z",
+      "side": 1,
+      "message": "Why is this file here?",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 2
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
