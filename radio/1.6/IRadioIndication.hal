@@ -18,17 +18,16 @@ package android.hardware.radio@1.6;
 
 import @1.0::RadioIndicationType;
 import @1.5::IRadioIndication;
-import @1.6::CellInfo;
-import @1.6::LinkCapacityEstimate;
-import @1.6::NetworkScanResult;
-import @1.6::SignalStrength;
-import @1.6::SetupDataCallResult;
+import CellInfo;
+import LinkCapacityEstimate;
+import NetworkScanResult;
+import SignalStrength;
+import SetupDataCallResult;
 
 /**
  * Interface declaring unsolicited radio indications.
  */
 interface IRadioIndication extends @1.5::IRadioIndication {
-
     /**
      * Indicates data call contexts have changed.
      *
@@ -70,7 +69,6 @@ interface IRadioIndication extends @1.5::IRadioIndication {
      * @param lce LinkCapacityEstimate
      */
     oneway currentLinkCapacityEstimate_1_6(RadioIndicationType type, LinkCapacityEstimate lce);
-
 
     /**
      * Indicates current signal strength of the radio.
