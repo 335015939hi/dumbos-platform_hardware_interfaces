@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0414b140_4b623033",
+        "filename": "security/keymint/aidl/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-12-09T20:50:52Z",
+      "side": 1,
+      "message": "libkeymint1 should be libkeymint",
+      "range": {
+        "startLine": 59,
+        "startChar": 9,
+        "endLine": 59,
+        "endChar": 20
+      },
+      "revId": "b7cd2bb65a0f1c8af389d6a82f2588c0ec40c0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
