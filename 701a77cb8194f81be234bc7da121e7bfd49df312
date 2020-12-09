@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b77828f_8b77e012",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2020-12-09T17:49:58Z",
+      "side": 1,
+      "message": "Ran hidl-gen on the radio hal\n",
+      "revId": "701a77cb8194f81be234bc7da121e7bfd49df312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
