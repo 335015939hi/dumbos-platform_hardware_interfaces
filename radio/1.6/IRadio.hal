@@ -16,7 +16,6 @@
 
 package android.hardware.radio@1.6;
 
-
 import @1.0::CdmaSmsMessage;
 import @1.0::GsmSmsMessage;
 import @1.1::CardPowerState;
@@ -60,11 +59,11 @@ interface IRadio extends @1.5::IRadio {
      *      on this modem or not. No effect if forEmergencyCall is false, or powerOn is false.
      *
      * Response callback is IRadioConfigResponse. setRadioPowerResponse_1_6.
-
+     *
      * Note this API is the same as the 1.5
      */
     oneway setRadioPower_1_6(int32_t serial, bool powerOn, bool forEmergencyCall,
-            bool preferredForEmergencyCall);
+        bool preferredForEmergencyCall);
 
     /**
      * Returns the data call list. An entry is added when a setupDataCall() is issued and removed
@@ -123,9 +122,8 @@ interface IRadio extends @1.5::IRadio {
      * Note this API is the same as the 1.5
      */
     oneway setupDataCall_1_6(int32_t serial, AccessNetwork accessNetwork,
-            DataProfileInfo dataProfileInfo, bool roamingAllowed,
-            DataRequestReason reason, vec<LinkAddress> addresses, vec<string> dnses,
-            int32_t pduSessionId);
+        DataProfileInfo dataProfileInfo, bool roamingAllowed, DataRequestReason reason,
+        vec<LinkAddress> addresses, vec<string> dnses, int32_t pduSessionId);
 
     /**
      * Send an SMS message
@@ -241,11 +239,11 @@ interface IRadio extends @1.5::IRadio {
      * 2. Disable NR dual connectivity {NrDualConnectivityState:DISABLE}
      * 3. Disable NR dual connectivity and force secondary cell to be released
      * {NrDualConnectivityState:DISABLE_IMMEDIATE}
-
+     *
      * Response callback is IRadioResponse.setNRDualConnectivityStateResponse()
      */
     oneway setNrDualConnectivityState(int32_t serial,
-            NrDualConnectivityState nrDualConnectivityState);
+        NrDualConnectivityState nrDualConnectivityState);
 
     /**
      * Is E-UTRA-NR Dual Connectivity enabled
@@ -329,8 +327,8 @@ interface IRadio extends @1.5::IRadio {
      *
      * Response callbask is IRadioResponse.setNetworkTypeBitmapResponse()
      */
-    oneway setAllowedNetworkTypeBitmap(
-            uint32_t serial, bitfield<RadioAccessFamily> networkTypeBitmap);
+    oneway setAllowedNetworkTypeBitmap(uint32_t serial,
+        bitfield<RadioAccessFamily> networkTypeBitmap);
 
     /**
      * Control data throttling at modem.
@@ -353,9 +351,8 @@ interface IRadio extends @1.5::IRadio {
      *
      * Response function is IRadioResponse.setDataThrottlingResponse()
      */
-    oneway setDataThrottling(int32_t serial,
-            DataThrottlingAction dataThrottlingAction,
-            int64_t completionDurationMillis);
+    oneway setDataThrottling(int32_t serial, DataThrottlingAction dataThrottlingAction,
+        int64_t completionDurationMillis);
 
     /**
      * Get which bands the modem's background scan is acting on.
@@ -366,7 +363,7 @@ interface IRadio extends @1.5::IRadio {
      */
     oneway getSystemSelectionChannels(int32_t serial);
 
-   /**
+    /**
      * Request all of the current cell information known to the radio. The radio
      * must return list of all current cells, including the neighboring cells. If for a particular
      * cell information isn't known then the appropriate unknown value will be returned.

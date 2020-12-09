@@ -44,17 +44,23 @@ import @1.5::RegStateResult.AccessTechnologySpecificInfo.Cdma2000RegistrationInf
 import @1.5::RegStateResult.AccessTechnologySpecificInfo.EutranRegistrationInfo;
 import @1.5::RegistrationFailCause;
 import @1.5::SetupDataCallResult;
-
 import android.hidl.safe_union@1.0::Monostate;
 
 struct QosBandwidth {
-    /** Maximum bit rate possible on the bearer */
+    /**
+     * Maximum bit rate possible on the bearer
+     */
     int32_t maxBitrateKbps;
-    /** Minimum bit rate that is guaranteed to be provided by the network */
+
+    /**
+     * Minimum bit rate that is guaranteed to be provided by the network
+     */
     int32_t guaranteedBitrateKbps;
 };
 
-/** LTE/EPS Quality of Service parameters as per 3gpp spec 24.301 sec 9.9.4.3. */
+/**
+ * LTE/EPS Quality of Service parameters as per 3gpp spec 24.301 sec 9.9.4.3.
+ */
 struct EpsQos {
     /**
      * Quality of Service Class Identifier (QCI), see 3GPP TS 23.203 and 29.212.
@@ -62,11 +68,15 @@ struct EpsQos {
      * defined in the spec and operator specific values in the range 128-254.
      */
     uint16_t qci;
+
     QosBandwidth downlink;
+
     QosBandwidth uplink;
 };
 
-/** 5G Quality of Service parameters as per 3gpp spec 24.501 sec 9.11.4.12 */
+/**
+ * 5G Quality of Service parameters as per 3gpp spec 24.501 sec 9.11.4.12
+ */
 struct NrQos {
     /**
      * 5G QOS Identifier (5QI), see 3GPP TS 24.501 and 23.501.
@@ -74,26 +84,36 @@ struct NrQos {
      * defined in the spec and operator specific values in the range 128-254.
      */
     uint16_t fiveQi;
+
     QosBandwidth downlink;
+
     QosBandwidth uplink;
+
     /**
      * QOS flow identifier of the QOS flow description in the
      * range of QosFlowIdRange::MIN to QosFlowIdRange::MAX
      */
     uint8_t qfi;
+
     uint16_t averagingWindowMs;
 };
 
-/** Allowed values for 5G QOS flow identifier */
+/**
+ * Allowed values for 5G QOS flow identifier
+ */
 enum QosFlowIdRange : uint8_t {
     MIN = 1,
-    MAX = 63
+    MAX = 63,
 };
 
-/** EPS or NR QOS parameters */
+/**
+ * EPS or NR QOS parameters
+ */
 safe_union Qos {
     Monostate noinit;
+
     EpsQos eps;
+
     NrQos nr;
 };
 
@@ -101,15 +121,25 @@ safe_union Qos {
  * Next header protocol numbers defined by IANA, RFC 5237
  */
 enum QosProtocol : int32_t {
-    /** No protocol specified */
+    /**
+     * No protocol specified
+     */
     UNSPECIFIED = -1,
-    /** Transmission Control Protocol */
+    /**
+     * Transmission Control Protocol
+     */
     TCP = 6,
-    /** User Datagram Protocol */
+    /**
+     * User Datagram Protocol
+     */
     UDP = 17,
-    /** Encapsulating Security Payload Protocol */
+    /**
+     * Encapsulating Security Payload Protocol
+     */
     ESP = 50,
-    /** Authentication Header */
+    /**
+     * Authentication Header
+     */
     AH = 51,
 };
 
@@ -119,25 +149,28 @@ enum QosFilterDirection : int32_t {
     BIDIRECTIONAL = 2,
 };
 
-/** Allowed port numbers */
+/**
+ * Allowed port numbers
+ */
 enum QosPortRange : int32_t {
     MIN = 20,
-    MAX = 65535
+    MAX = 65535,
 };
 
 enum RadioError : @1.0::RadioError {
-    /** 1X voice and SMS are not allowed simulteneously. */
+    /**
+     * 1X voice and SMS are not allowed simulteneously.
+     */
     SIMULTANEOUS_SMS_AND_CALL_NOT_ALLOWED = 67,
-
-    /** Access is barred. */
+    /**
+     * Access is barred.
+     */
     ACCESS_BARRED = 68,
-
     /**
      * SMS is blocked due to call control, e.g., resource unavailable
      * in the SMR entity.
      */
     BLOCKED_DUE_TO_CALL = 69,
-
     /**
      * Returned from setRadioPowerResponse when detecting RF HW issues. Some RF
      * Front-End(RFFE) components like antenna are considered critical for modem
@@ -145,7 +178,6 @@ enum RadioError : @1.0::RadioError {
      * such RFFE problem.
      */
     RF_HARDWARE_ISSUE = 70,
-
     /**
      * Returned from setRadioPowerResponse when detecting no RF calibration
      * issue. Unlike RF_HARDWARE_ISSUE, this is a SW problem and no HW repair is
@@ -158,9 +190,20 @@ enum RadioError : @1.0::RadioError {
  * Overwritten from @1.0::RadioResponseInfo in order to update the RadioError to 1.6 version.
  */
 struct RadioResponseInfo {
-    RadioResponseType type;               // Response type
-    int32_t serial;                       // Serial number of the request
-    RadioError error;                     // Response error
+    /**
+     * Response type
+     */
+    RadioResponseType type;
+
+    /**
+     * Serial number of the request
+     */
+    int32_t serial;
+
+    /**
+     * Response error
+     */
+    RadioError error;
 };
 
 /**
@@ -171,16 +214,22 @@ struct RadioResponseInfo {
  */
 struct PortRange {
     int32_t start;
+
     int32_t end;
 };
 
-/** Port is optional, contains either single port or range of ports */
+/**
+ * Port is optional, contains either single port or range of ports
+ */
 safe_union MaybePort {
     Monostate noinit;
+
     PortRange range;
 };
 
-/** See 3gpp 24.008 10.5.6.12 and 3gpp 24.501 9.11.4.13 */
+/**
+ * See 3gpp 24.008 10.5.6.12 and 3gpp 24.501 9.11.4.13
+ */
 struct QosFilter {
     /**
      * Local and remote IP addresses, typically one IPv4 or one IPv6
@@ -191,34 +240,51 @@ struct QosFilter {
      * IPv6 128.
      */
     vec<string> localAddresses;
+
     vec<string> remoteAddresses;
 
-    /** Local and remote port/ranges */
+    /**
+     * Local and remote port/ranges
+     */
     MaybePort localPort;
+
     MaybePort remotePort;
 
-    /** QoS protocol */
+    /**
+     * QoS protocol
+     */
     QosProtocol protocol;
 
-    /** Type of service value or mask as defined in RFC 1349 */
+    /**
+     * Type of service value or mask as defined in RFC 1349
+     */
     safe_union TypeOfService {
-         Monostate noinit;
-         uint8_t value;
+        Monostate noinit;
+
+        uint8_t value;
     } tos;
 
-    /** IPv6 flow label as defined in RFC 6437 */
+    /**
+     * IPv6 flow label as defined in RFC 6437
+     */
     safe_union Ipv6FlowLabel {
-         Monostate noinit;
-         uint32_t value;
+        Monostate noinit;
+
+        uint32_t value;
     } flowLabel;
 
-    /** IPSec security parameter index */
+    /**
+     * IPSec security parameter index
+     */
     safe_union IpsecSpi {
-         Monostate noinit;
-         uint32_t value;
+        Monostate noinit;
+
+        uint32_t value;
     } spi;
 
-    /** Filter direction */
+    /**
+     * Filter direction
+     */
     QosFilterDirection direction;
 
     /**
@@ -229,40 +295,49 @@ struct QosFilter {
     int32_t precedence;
 };
 
-/** QOS session associated with a dedicated bearer */
+/**
+ * QOS session associated with a dedicated bearer
+ */
 struct QosSession {
-    /** Unique ID of the QoS session within the data call */
+    /**
+     * Unique ID of the QoS session within the data call
+     */
     int32_t qosSessionId;
 
-    /** QOS attributes */
+    /**
+     * QOS attributes
+     */
     Qos qos;
 
-    /** List of QOS filters associated with this session */
+    /**
+     * List of QOS filters associated with this session
+     */
     vec<QosFilter> qosFilters;
 };
 
-/** The allowed failure modes on an IWLAN handover failure. */
+/**
+ * The allowed failure modes on an IWLAN handover failure.
+ */
 enum HandoverFailureMode : int32_t {
     /**
      * On data handover failure, fallback to the source data transport when the
      * fail cause is due to a hand off preference change.
      */
     LEGACY = 0,
-
-    /** On data handover failure, fallback to the source data transport. */
+    /**
+     * On data handover failure, fallback to the source data transport.
+     */
     DO_FALLBACK = 1,
-
     /**
      * On data handover failure, retry the handover instead of falling back to
      * the source data transport.
      */
     NO_FALLBACK_RETRY_HANDOVER = 2,
-
     /**
      * On data handover failure, setup a new data connection by sending a normal
      * request to the underlying data service.
      */
-    NO_FALLBACK_RETRY_SETUP_NORMAL = 3
+    NO_FALLBACK_RETRY_SETUP_NORMAL = 3,
 };
 
 /**
@@ -271,7 +346,9 @@ enum HandoverFailureMode : int32_t {
  * Also added defaultQos, qosSessions, and handoverFailureMode in this version.
  */
 struct SetupDataCallResult {
-    /** Data call fail cause. DataCallFailCause.NONE if no error. */
+    /**
+     * Data call fail cause. DataCallFailCause.NONE if no error.
+     */
     DataCallFailCause cause;
 
     /**
@@ -282,10 +359,14 @@ struct SetupDataCallResult {
      */
     uint64_t suggestedRetryTime;
 
-    /** Context ID, uniquely identifies this data connection. */
+    /**
+     * Context ID, uniquely identifies this data connection.
+     */
     int32_t cid;
 
-    /** Data connection active status. */
+    /**
+     * Data connection active status.
+     */
     DataConnActiveStatus active;
 
     /**
@@ -294,7 +375,9 @@ struct SetupDataCallResult {
      */
     PdpProtocolType type;
 
-    /** The network interface name. */
+    /**
+     * The network interface name.
+     */
     string ifname;
 
     /**
@@ -332,7 +415,9 @@ struct SetupDataCallResult {
      */
     int32_t mtuV6;
 
-    /** Default bearer QoS. Applicable to LTE and NR */
+    /**
+     * Default bearer QoS. Applicable to LTE and NR
+     */
     Qos defaultQos;
 
     /**
@@ -341,7 +426,9 @@ struct SetupDataCallResult {
      */
     vec<QosSession> qosSessions;
 
-    /** Specifies the fallback mode on an IWLAN handover failure. */
+    /**
+     * Specifies the fallback mode on an IWLAN handover failure.
+     */
     HandoverFailureMode handoverFailureMode;
 
     /**
@@ -356,7 +443,7 @@ struct SetupDataCallResult {
 /**
  * NR Dual connectivity state
  */
-enum NrDualConnectivityState: int32_t {
+enum NrDualConnectivityState : int32_t {
     /**
      * Enable NR dual connectivity. Enabled state does not mean dual connectivity
      * is active. It means device is allowed to connect to both primary and secondary.
@@ -371,84 +458,88 @@ enum NrDualConnectivityState: int32_t {
      * Disable NR dual connectivity and force secondary cell to be released if dual connectivity
      * was active. This may result in radio link failure.
      */
-    DISABLE_IMMEDIATE= 3,
+    DISABLE_IMMEDIATE = 3,
 };
 
 /**
  * Overwritten from @1.2::LinkCapacityEstimate to update LinkCapacityEstimate to 1.6 version.
  */
 struct LinkCapacityEstimate {
+    /**
+     * Estimated downlink capacity in kbps. In case of a dual connected network,
+     * this includes capacity of both primary and secondary. This bandwidth estimate shall be
+     * the estimated maximum sustainable link bandwidth (as would be measured
+     * at the Upper PDCP or SNDCP SAP). If the DL Aggregate Maximum Bit Rate is known,
+     * this value shall not exceed the DL-AMBR for the Internet PDN connection.
+     * This must be filled with -1 if network is not connected.
+     */
+    uint32_t downlinkCapacityKbps;
 
-   /**
-    * Estimated downlink capacity in kbps. In case of a dual connected network,
-    * this includes capacity of both primary and secondary. This bandwidth estimate shall be
-    * the estimated maximum sustainable link bandwidth (as would be measured
-    * at the Upper PDCP or SNDCP SAP). If the DL Aggregate Maximum Bit Rate is known,
-    * this value shall not exceed the DL-AMBR for the Internet PDN connection.
-    * This must be filled with -1 if network is not connected.
-    */
-   uint32_t downlinkCapacityKbps;
+    /**
+     * Estimated uplink capacity in kbps. In case of a dual connected network,
+     * this includes capacity of both primary and secondary. This bandwidth estimate shall be the
+     * estimated maximum sustainable link bandwidth (as would be measured at the
+     * Upper PDCP or SNDCP SAP). If the UL Aggregate Maximum Bit Rate is known,
+     * this value shall not exceed the UL-AMBR for the Internet PDN connection.
+     * This must be filled with -1 if network is not connected.
+     */
+    uint32_t uplinkCapacityKbps;
 
-   /**
-    * Estimated uplink capacity in kbps. In case of a dual connected network,
-    * this includes capacity of both primary and secondary. This bandwidth estimate shall be the
-    * estimated maximum sustainable link bandwidth (as would be measured at the
-    * Upper PDCP or SNDCP SAP). If the UL Aggregate Maximum Bit Rate is known,
-    * this value shall not exceed the UL-AMBR for the Internet PDN connection.
-    * This must be filled with -1 if network is not connected.
-    */
-   uint32_t uplinkCapacityKbps;
+    /**
+     * Estimated downlink capacity of secondary carrier in a dual connected NR mode in kbps.
+     * This bandwidth estimate shall be the estimated maximum sustainable link bandwidth
+     * (as would be measured at the Upper PDCP or SNDCP SAP). This is valid only
+     * in if device is connected to both primary and secodary in dual connected
+     * mode. This must be filled with -1 if secondary is not connected.
+     */
+    uint32_t secondaryDownlinkCapacityKbps;
 
-   /**
-    * Estimated downlink capacity of secondary carrier in a dual connected NR mode in kbps.
-    * This bandwidth estimate shall be the estimated maximum sustainable link bandwidth
-    * (as would be measured at the Upper PDCP or SNDCP SAP). This is valid only
-    * in if device is connected to both primary and secodary in dual connected
-    * mode. This must be filled with -1 if secondary is not connected.
-    */
-   uint32_t secondaryDownlinkCapacityKbps;
-
-   /**
-    * Estimated uplink capacity secondary carrier in a dual connected NR mode in kbps.
-    * This bandwidth estimate shall be the estimated
-    * maximum sustainable link bandwidth (as would be measured at the Upper PDCP or SNDCP SAP).
-    * This is valid only in if device is connected to both primary and secodary in dual connected
-    * mode.This must be filled with -1 if secondary is not connected.
-    */
-   uint32_t secondaryUplinkCapacityKbps;
+    /**
+     * Estimated uplink capacity secondary carrier in a dual connected NR mode in kbps.
+     * This bandwidth estimate shall be the estimated
+     * maximum sustainable link bandwidth (as would be measured at the Upper PDCP or SNDCP SAP).
+     * This is valid only in if device is connected to both primary and secodary in dual connected
+     * mode.This must be filled with -1 if secondary is not connected.
+     */
+    uint32_t secondaryUplinkCapacityKbps;
 };
 
 enum DataThrottlingAction : int32_t {
-    /* Clear all existing data throttling. */
+    /*
+     * Clear all existing data throttling.
+     */
     NO_DATA_THROTTLING = 0,
-
     /**
      * Enact secondary carrier data throttling and remove any existing data
      * throttling on anchor carrier.
      */
     THROTTLE_SECONDARY_CARRIER = 1,
-
     /**
      * Enact anchor carrier data throttling and disable data on secondary
      * carrier if currently enabled.
      */
     THROTTLE_ANCHOR_CARRIER = 2,
-
     /**
      * Immediately hold on to current level of throttling.
      */
-    HOLD = 3
+    HOLD = 3,
 };
 
 /**
  * Defines the values for VoPS indicator of NR as per 3gpp spec 24.501 sec 9.10.3.5
  */
 enum VopsIndicator : uint8_t {
-    /** IMS voice over PS session not supported */
+    /**
+     * IMS voice over PS session not supported
+     */
     VOPS_NOT_SUPPORTED = 0,
-    /** IMS voice over PS session supported over 3GPP access */
+    /**
+     * IMS voice over PS session supported over 3GPP access
+     */
     VOPS_OVER_3GPP = 1,
-    /** IMS voice over PS session supported over non-3GPP access */
+    /**
+     * IMS voice over PS session supported over non-3GPP access
+     */
     VOPS_OVER_NON_3GPP = 2,
 };
 
@@ -457,14 +548,22 @@ enum VopsIndicator : uint8_t {
  * as per 3gpp spec 24.501 sec 9.10.3.5
  */
 enum EmcIndicator : uint8_t {
-    /** Emergency services not supported */
+    /**
+     * Emergency services not supported
+     */
     EMC_NOT_SUPPORTED = 0,
-    /** Emergency services supported in NR connected to 5GCN only */
+    /**
+     * Emergency services supported in NR connected to 5GCN only
+     */
     EMC_NR_CONNECTED_TO_5GCN = 1,
-    /** Emergency services supported in E-UTRA connected to 5GCN only */
+    /**
+     * Emergency services supported in E-UTRA connected to 5GCN only
+     */
     EMC_EUTRA_CONNECTED_TO_5GCN = 2,
-    /** Emergency services supported in NR connected to 5GCN and E-UTRA connected to 5GCN */
-    EMC_BOTH_NR_EUTRA_CONNECTED_TO_5GCN = 3
+    /**
+     * Emergency services supported in NR connected to 5GCN and E-UTRA connected to 5GCN
+     */
+    EMC_BOTH_NR_EUTRA_CONNECTED_TO_5GCN = 3,
 };
 
 /**
@@ -472,17 +571,23 @@ enum EmcIndicator : uint8_t {
  * as per 3gpp spec 24.501 sec 9.10.3.5
  */
 enum EmfIndicator : uint8_t {
-    /** Emergency services fallback not supported */
+    /**
+     * Emergency services fallback not supported
+     */
     EMF_NOT_SUPPORTED = 0,
-    /** Emergency services fallback supported in NR connected to 5GCN only */
+    /**
+     * Emergency services fallback supported in NR connected to 5GCN only
+     */
     EMF_NR_CONNECTED_TO_5GCN = 1,
-    /** Emergency services fallback supported in E-UTRA connected to 5GCN only */
+    /**
+     * Emergency services fallback supported in E-UTRA connected to 5GCN only
+     */
     EMF_EUTRA_CONNECTED_TO_5GCN = 2,
     /**
      * Emergency services fallback supported in NR connected to 5GCN and E-UTRA
      * connected to 5GCN.
      */
-    EMF_BOTH_NR_EUTRA_CONNECTED_TO_5GCN = 3
+    EMF_BOTH_NR_EUTRA_CONNECTED_TO_5GCN = 3,
 };
 
 /**
@@ -608,24 +713,33 @@ struct SignalStrength {
     NrSignalStrength nr;
 };
 
-/** Overwritten from @1.5::CellInfoLte in order to update LteSignalStrength. */
+/**
+ * Overwritten from @1.5::CellInfoLte in order to update LteSignalStrength.
+ */
 struct CellInfoLte {
     CellIdentityLte cellIdentityLte;
+
     LteSignalStrength signalStrengthLte;
 };
 
-/** Overwritten from @1.5::CellInfoNr in order to update NrSignalStrength. */
+/**
+ * Overwritten from @1.5::CellInfoNr in order to update NrSignalStrength.
+ */
 struct CellInfoNr {
     CellIdentityNr cellIdentityNr;
+
     NrSignalStrength signalStrengthNr;
 };
 
-/** Overwritten from @1.5::CellInfo in order to update LteSignalStrength and NrSignalStrength. */
+/**
+ * Overwritten from @1.5::CellInfo in order to update LteSignalStrength and NrSignalStrength.
+ */
 struct CellInfo {
     /**
      * True if this cell is registered false if not registered.
      */
     bool registered;
+
     /**
      * Connection status for the cell.
      */
@@ -636,9 +750,13 @@ struct CellInfo {
          * 3gpp CellInfo types.
          */
         CellInfoGsm gsm;
+
         CellInfoWcdma wcdma;
+
         CellInfoTdscdma tdscdma;
+
         CellInfoLte lte;
+
         CellInfoNr nr;
 
         /**
@@ -648,7 +766,9 @@ struct CellInfo {
     } ratSpecificInfo;
 };
 
-/** Overwritten from @1.5::NetworkScanResult in order to update the CellInfo to 1.6 version. */
+/**
+ * Overwritten from @1.5::NetworkScanResult in order to update the CellInfo to 1.6 version.
+ */
 struct NetworkScanResult {
     /**
      * The status of the scan.
@@ -693,7 +813,9 @@ struct RegStateResult {
      */
     RegistrationFailCause reasonForDenial;
 
-    /** CellIdentity */
+    /**
+     * CellIdentity
+     */
     CellIdentity cellIdentity;
 
     /**
