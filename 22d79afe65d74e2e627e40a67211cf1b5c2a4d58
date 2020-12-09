@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e83d7e_93ce5e2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-09T06:32:44Z",
+      "side": 1,
+      "message": "Joel found a bug in SharedSecretParameters.aidl. I have fixed that and uploaded a new commit.",
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
