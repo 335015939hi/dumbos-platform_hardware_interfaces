@@ -517,7 +517,7 @@ AuthorizationSetBuilder& AuthorizationSetBuilder::Digest(
 }
 
 AuthorizationSetBuilder& AuthorizationSetBuilder::OaepMGFDigest(
-        std::vector<android::hardware::keymint::Digest> digests) {
+        const std::vector<android::hardware::keymint::Digest>& digests) {
     for (auto digest : digests) {
         push_back(TAG_RSA_OAEP_MGF_DIGEST, digest);
     }
