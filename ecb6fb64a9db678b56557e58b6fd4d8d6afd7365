@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75cb8e1a_94cf6b51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1466604
+      },
+      "writtenOn": "2020-12-10T04:14:52Z",
+      "side": 1,
+      "message": "Test is failing on already broken change.",
+      "revId": "ecb6fb64a9db678b56557e58b6fd4d8d6afd7365",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
