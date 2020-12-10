@@ -91,11 +91,17 @@ Return<void> LeAudioAudioProvider::startSession_2_1(
 
   uint32_t kDataMqSize = 0;
   switch (audioConfig.pcmConfig().sampleRate) {
+    case SampleRate::RATE_8000:
+      kDataMqSize = 8000;
+      break;
     case SampleRate::RATE_16000:
       kDataMqSize = 16000;
       break;
     case SampleRate::RATE_24000:
       kDataMqSize = 24000;
+      break;
+    case SampleRate::RATE_32000:
+      kDataMqSize = 32000;
       break;
     case SampleRate::RATE_44100:
       kDataMqSize = 44100;

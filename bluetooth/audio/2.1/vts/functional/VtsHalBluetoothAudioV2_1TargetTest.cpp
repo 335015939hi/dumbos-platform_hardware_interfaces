@@ -1005,8 +1005,11 @@ class BluetoothAudioProviderLeAudioOutputSoftwareHidlTest
     BluetoothAudioProvidersFactoryHidlTest::TearDown();
   }
 
-  static constexpr SampleRate le_audio_output_sample_rates_[3] = {
-      SampleRate::RATE_UNKNOWN, SampleRate::RATE_16000, SampleRate::RATE_24000};
+  static constexpr SampleRate le_audio_output_sample_rates_[11] = {
+      SampleRate::RATE_UNKNOWN, SampleRate::RATE_8000,  SampleRate::RATE_16000,
+      SampleRate::RATE_24000,   SampleRate::RATE_32000, SampleRate::RATE_44100,
+      SampleRate::RATE_48000,   SampleRate::RATE_88200, SampleRate::RATE_96000,
+      SampleRate::RATE_176400,  SampleRate::RATE_192000};
   static constexpr BitsPerSample le_audio_output_bits_per_samples_[3] = {
       BitsPerSample::BITS_UNKNOWN, BitsPerSample::BITS_16,
       BitsPerSample::BITS_24};
@@ -1097,8 +1100,11 @@ class BluetoothAudioProviderLeAudioInputSoftwareHidlTest
     BluetoothAudioProvidersFactoryHidlTest::TearDown();
   }
 
-  static constexpr SampleRate le_audio_output_sample_rates_[3] = {
-      SampleRate::RATE_UNKNOWN, SampleRate::RATE_16000, SampleRate::RATE_24000};
+  static constexpr SampleRate le_audio_output_sample_rates_[11] = {
+      SampleRate::RATE_UNKNOWN, SampleRate::RATE_8000,  SampleRate::RATE_16000,
+      SampleRate::RATE_24000,   SampleRate::RATE_32000, SampleRate::RATE_44100,
+      SampleRate::RATE_48000,   SampleRate::RATE_88200, SampleRate::RATE_96000,
+      SampleRate::RATE_176400,  SampleRate::RATE_192000};
   static constexpr BitsPerSample le_audio_output_bits_per_samples_[3] = {
       BitsPerSample::BITS_UNKNOWN, BitsPerSample::BITS_16,
       BitsPerSample::BITS_24};
