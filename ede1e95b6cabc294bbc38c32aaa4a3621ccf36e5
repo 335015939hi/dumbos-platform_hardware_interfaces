@@ -16,6 +16,24 @@
       "message": "Can you please update cuttlefish ril for it:\n\ndevice/google/cuttlefish/guest/hals/ril/reference-libril/ril_service.cpp:12245:31: error: allocating an object of abstract class type \u0027RadioImpl_1_6\u0027\n        radioService[i] \u003d new RadioImpl_1_6;\n                              ^\nout/soong/.intermediates/hardware/interfaces/radio/1.6/android.hardware.radio@1.6_genc++_headers/gen/android/hardware/radio/1.6/IRadio.h:2686:47: note: unimplemented pure virtual method \u0027getCurrentCalls_1_6\u0027 in \u0027RadioImpl_1_6\u0027\n    virtual ::android::hardware::Return\u003cvoid\u003e getCurrentCalls_1_6(int32_t serial) \u003d 0;\n                                              ^\n1 error generated.\n",
       "revId": "ede1e95b6cabc294bbc38c32aaa4a3621ccf36e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52aeb633_f0561116",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1236374
+      },
+      "writtenOn": "2020-12-10T13:03:08Z",
+      "side": 1,
+      "message": "Sure, here is update for cuttlefish. Please check it.\nhttps://android-review.googlesource.com/c/device/google/cuttlefish/+/1523218",
+      "parentUuid": "3a618c97_d5a64a8d",
+      "revId": "ede1e95b6cabc294bbc38c32aaa4a3621ccf36e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
