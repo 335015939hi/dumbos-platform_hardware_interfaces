@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b35b7b7_21461e71",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/VerificationToken.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-10T18:43:34Z",
+      "side": 0,
+      "message": "is this change intentional? Move really should be w/o any other changes ideally, but doesn\u0027t make sense wasting another TH run on that",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 41
+      },
+      "revId": "8523de7588208ab10c605c7d783885c5b0c56fc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
