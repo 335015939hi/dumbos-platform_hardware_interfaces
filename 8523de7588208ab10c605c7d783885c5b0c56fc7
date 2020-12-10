@@ -22,6 +22,30 @@
       },
       "revId": "8523de7588208ab10c605c7d783885c5b0c56fc7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84161ff4_efed2636",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/VerificationToken.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-10T18:47:57Z",
+      "side": 0,
+      "message": "I probably should have put that in another CL. It should never have been in KeyMint at all -- it was carried over unintentionally from Keymaster -- which is why I removed it, but I should have backed it out of this move-only CL. In any case, the change is needed, so if TH passes we\u0027ll go with it.",
+      "parentUuid": "3b35b7b7_21461e71",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 41
+      },
+      "revId": "8523de7588208ab10c605c7d783885c5b0c56fc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
