@@ -46,6 +46,30 @@
       },
       "revId": "8ad0a0c08dee6a61f66e4ff5ed907e3299ed2def",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aba501e4_24fdf271",
+        "filename": "memtrack/aidl/android/hardware/memtrack/translate-ndk.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-10T00:21:16Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "2d080c4d_796e1d2c",
+      "range": {
+        "startLine": 25,
+        "startChar": 25,
+        "endLine": 25,
+        "endChar": 45
+      },
+      "revId": "8ad0a0c08dee6a61f66e4ff5ed907e3299ed2def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
