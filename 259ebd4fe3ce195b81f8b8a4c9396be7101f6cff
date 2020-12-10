@@ -16,6 +16,24 @@
       "message": "This is not related to that change, please remove",
       "revId": "259ebd4fe3ce195b81f8b8a4c9396be7101f6cff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7bfaa55_1ad90df2",
+        "filename": "graphics/composer/2.4/vts/functional/VtsHalGraphicsComposerV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1005592
+      },
+      "writtenOn": "2020-12-10T03:49:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff6772fc_77703cb3",
+      "revId": "259ebd4fe3ce195b81f8b8a4c9396be7101f6cff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
