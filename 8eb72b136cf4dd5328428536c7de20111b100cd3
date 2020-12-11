@@ -87,6 +87,24 @@
       "parentUuid": "e92bdc68_95aff935",
       "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2050500a_8d40b28d",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1435598
+      },
+      "writtenOn": "2020-12-11T02:10:35Z",
+      "side": 1,
+      "message": "Got it, thanks",
+      "parentUuid": "d0d6469a_178b25c7",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
