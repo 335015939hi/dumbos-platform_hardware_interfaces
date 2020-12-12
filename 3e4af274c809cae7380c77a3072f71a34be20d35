@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85b010d2_c429987e",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/ISecureClock.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1f2a6a8_0ac374a0",
+      "range": {
+        "startLine": 23,
+        "startChar": 94,
+        "endLine": 23,
+        "endChar": 99
+      },
+      "revId": "3e4af274c809cae7380c77a3072f71a34be20d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e956b91d_42195cbc",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-09T17:44:15Z",
       "side": 1,
       "message": "Nit: 256-bit",
+      "range": {
+        "startLine": 24,
+        "startChar": 14,
+        "endLine": 24,
+        "endChar": 21
+      },
+      "revId": "3e4af274c809cae7380c77a3072f71a34be20d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd69babf_38b964bc",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/ISecureClock.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e956b91d_42195cbc",
       "range": {
         "startLine": 24,
         "startChar": 14,
@@ -93,6 +141,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aa445e5_4e377d5d",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/ISecureClock.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a149220_4b0fdc2c",
+      "range": {
+        "startLine": 25,
+        "startChar": 51,
+        "endLine": 25,
+        "endChar": 54
+      },
+      "revId": "3e4af274c809cae7380c77a3072f71a34be20d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bde7e5d_53ff933b",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/ISecureClock.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe4a7e88_2fd884d5",
+      "range": {
+        "startLine": 24,
+        "startChar": 90,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "3e4af274c809cae7380c77a3072f71a34be20d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6f420f7_a85ae435",
@@ -106,6 +202,30 @@
       "writtenOn": "2020-12-09T17:44:15Z",
       "side": 1,
       "message": "on the shared",
+      "range": {
+        "startLine": 26,
+        "startChar": 63,
+        "endLine": 26,
+        "endChar": 72
+      },
+      "revId": "3e4af274c809cae7380c77a3072f71a34be20d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e024e3aa_d220497e",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/ISecureClock.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6f420f7_a85ae435",
       "range": {
         "startLine": 26,
         "startChar": 63,
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcaaa4e6_1c3c4d0b",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/ISecureClock.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b261de2_4987e758",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 93
+      },
+      "revId": "3e4af274c809cae7380c77a3072f71a34be20d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95892362_988c395c",
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b77c5d55_b34e9873",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/ISecureClock.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95892362_988c395c",
+      "range": {
+        "startLine": 39,
+        "startChar": 10,
+        "endLine": 39,
+        "endChar": 42
+      },
+      "revId": "3e4af274c809cae7380c77a3072f71a34be20d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c10bb490_f233a66c",
@@ -175,6 +343,30 @@
       "writtenOn": "2020-12-09T17:44:15Z",
       "side": 1,
       "message": "This phrasing is odd, since there is nothing named \"token\".  How about just \"@return the TimeStampToken, see the definition for details.",
+      "range": {
+        "startLine": 41,
+        "startChar": 11,
+        "endLine": 41,
+        "endChar": 41
+      },
+      "revId": "3e4af274c809cae7380c77a3072f71a34be20d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "036fc726_f066e86a",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/ISecureClock.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c10bb490_f233a66c",
       "range": {
         "startLine": 41,
         "startChar": 11,
