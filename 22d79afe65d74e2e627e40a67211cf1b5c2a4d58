@@ -69,6 +69,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "374a62bb_5d9a4000",
+        "filename": "security/sharedsecret/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "26889f1c_9b139928",
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe1a7928_5ad9dfc4",
@@ -86,6 +104,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32d2739b_3d555364",
+        "filename": "security/sharedsecret/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe1a7928_5ad9dfc4",
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fab9284_5a22956a",
@@ -99,6 +135,30 @@
       "writtenOn": "2020-12-09T17:33:26Z",
       "side": 1,
       "message": "Not only for KeyMint.  There could be other services that implement this interface.  That\u0027s why we make it a separate interface, rather than just part of KeyMint.",
+      "range": {
+        "startLine": 22,
+        "startChar": 27,
+        "endLine": 22,
+        "endChar": 39
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a29f705_ff2f20ad",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "I changed this to \"any service that implements this interface\".",
+      "parentUuid": "1fab9284_5a22956a",
       "range": {
         "startLine": 22,
         "startChar": 27,
@@ -155,6 +215,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7ed6164_14a53d6b",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "872a8b99_53008cec",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 7
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68c5044a_d3d21684",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eb69897_65aaac17",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39381a3f_0bd43ca7",
@@ -201,6 +309,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e00588_06d11c84",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a64e9199_f9bd27b7",
+      "range": {
+        "startLine": 29,
+        "startChar": 94,
+        "endLine": 29,
+        "endChar": 101
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "033c3a53_630420d8",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39381a3f_0bd43ca7",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 29,
+        "endChar": 9
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74d636d6_eae762f2",
@@ -214,6 +370,30 @@
       "writtenOn": "2020-12-09T17:33:26Z",
       "side": 1,
       "message": "Remove extra blank line above and below (should be none between doc comment and declaration and only one between declaration and next doc comment).",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 17
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f1def0a_e51d5496",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d636d6_eae762f2",
       "range": {
         "startLine": 48,
         "startChar": 6,
@@ -247,6 +427,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "081e7b79_e7fbb107",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e133c071_c96b2ca3",
+      "range": {
+        "startLine": 61,
+        "startChar": 25,
+        "endLine": 61,
+        "endChar": 41
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90879d6c_334ba16f",
@@ -260,6 +464,30 @@
       "writtenOn": "2020-12-09T17:33:26Z",
       "side": 1,
       "message": "wrap at 100 cols",
+      "range": {
+        "startLine": 86,
+        "startChar": 84,
+        "endLine": 86,
+        "endChar": 106
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "046a14cf_ffc2a606",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90879d6c_334ba16f",
       "range": {
         "startLine": 86,
         "startChar": 84,
@@ -293,6 +521,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ae6e572_bfb5a61d",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9476cc6e_e1b3f369",
+      "range": {
+        "startLine": 92,
+        "startChar": 39,
+        "endLine": 92,
+        "endChar": 64
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90ed332e_41b8c501",
@@ -316,6 +568,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a928c93_92afe4c1",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/SharedSecretParameters.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90ed332e_41b8c501",
+      "range": {
+        "startLine": 29,
+        "startChar": 99,
+        "endLine": 29,
+        "endChar": 103
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db346464_786fcd39",
@@ -329,6 +605,30 @@
       "writtenOn": "2020-12-09T17:33:26Z",
       "side": 1,
       "message": "Why is this file here?",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 2
+      },
+      "revId": "22d79afe65d74e2e627e40a67211cf1b5c2a4d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ed8c8a5_9e9ad0c6",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/Stuff.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2020-12-12T08:17:08Z",
+      "side": 1,
+      "message": "Removed it - it was just a temp file that I used to align the comments. My clang formatter does not work with non cpp file. I had forgot to remove it.",
+      "parentUuid": "db346464_786fcd39",
       "range": {
         "startLine": 1,
         "startChar": 1,
