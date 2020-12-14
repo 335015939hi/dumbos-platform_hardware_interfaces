@@ -70,6 +70,24 @@
       "parentUuid": "e4cbc5e4_300e41a3",
       "revId": "b695e7aed4e0d5ee5311adcfcd81d94c1d46fd93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30147819_d47fd02c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2020-12-14T06:28:06Z",
+      "side": 1,
+      "message": "My patch was unfortunately missed in qpr1 but will be in qpr2, which will be pushed to AOSP in early March.",
+      "parentUuid": "e4357cda_bacdaa8f",
+      "revId": "b695e7aed4e0d5ee5311adcfcd81d94c1d46fd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
