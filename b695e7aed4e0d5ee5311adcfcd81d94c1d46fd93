@@ -34,6 +34,24 @@
       "parentUuid": "adb1ea52_d0c57bdd",
       "revId": "b695e7aed4e0d5ee5311adcfcd81d94c1d46fd93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4cbc5e4_300e41a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2020-12-14T05:01:55Z",
+      "side": 1,
+      "message": "Which AOSP branch are you using?",
+      "parentUuid": "37f634c0_60f16a2a",
+      "revId": "b695e7aed4e0d5ee5311adcfcd81d94c1d46fd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
