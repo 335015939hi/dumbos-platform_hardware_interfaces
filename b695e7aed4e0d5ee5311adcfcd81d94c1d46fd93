@@ -16,6 +16,24 @@
       "message": "Hi Changyeon,\nI do not see you integrate this patch into aosp. please help to review it.\nother it have segment fault when run vts.",
       "revId": "b695e7aed4e0d5ee5311adcfcd81d94c1d46fd93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37f634c0_60f16a2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2020-12-14T04:55:09Z",
+      "side": 1,
+      "message": "A corresponding patch was released w/ our QPR release but let me check.",
+      "parentUuid": "adb1ea52_d0c57bdd",
+      "revId": "b695e7aed4e0d5ee5311adcfcd81d94c1d46fd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
