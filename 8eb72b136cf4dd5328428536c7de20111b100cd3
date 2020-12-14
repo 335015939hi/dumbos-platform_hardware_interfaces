@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "555ef9e8_7a003969",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1501806
+      },
+      "writtenOn": "2020-12-14T02:42:47Z",
+      "side": 1,
+      "message": "Dear Yujing Gu, could plz check my questions?",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f58e56c3_464d06d3",
@@ -103,6 +120,24 @@
       "side": 1,
       "message": "Got it, thanks",
       "parentUuid": "d0d6469a_178b25c7",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbe82aa1_8468878d",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1501806
+      },
+      "writtenOn": "2020-12-14T02:42:47Z",
+      "side": 1,
+      "message": "Dear Yujing Gu,I have 2 question for above conversations.\n\n1. I think you and Nan Zhao have a different understanding of multiple Email/Anr. Could you plz see the table G.1: Structure of EFs inside DF phonebook in spec doc. - ts 131.102 Annex G: Phonebook Example?  If one SIM supports 2 Phonebook sets for EFEMAIL, EFEMAILA (0x4f50) and EFEMAILB (0x4f51), then how does Android decide the length of vec\u003cstring\u003e emails using PhonebookCapacity?\nI agree with Nan Zhao\u0027s idea. PhonebookCapacity needs 2 new items to mark how many email/anr supported by the SIM card.\n\n2. For your RIL interface, how can Android know EFAAS info for each additionalNumber?\nIf not, I think PhonebookRecordInfo needs new item which indicates EFAAS.\n\nstruct PhonebookRecordInfo {\n\n    /** Additional numbers */\n    vec\u003cstring\u003e additionalNumbers;\n\n    /** Additional number Alpha Strings */\n    vec\u003cstring\u003e additionalNumberAlphaStrings;",
+      "parentUuid": "2050500a_8d40b28d",
       "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
