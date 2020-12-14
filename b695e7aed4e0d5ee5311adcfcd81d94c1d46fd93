@@ -52,6 +52,24 @@
       "parentUuid": "37f634c0_60f16a2a",
       "revId": "b695e7aed4e0d5ee5311adcfcd81d94c1d46fd93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4357cda_bacdaa8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1407350
+      },
+      "writtenOn": "2020-12-14T05:07:14Z",
+      "side": 1,
+      "message": "we are using tag android-11.0.0_r17 which is based on aosp/android11-release.",
+      "parentUuid": "e4cbc5e4_300e41a3",
+      "revId": "b695e7aed4e0d5ee5311adcfcd81d94c1d46fd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
