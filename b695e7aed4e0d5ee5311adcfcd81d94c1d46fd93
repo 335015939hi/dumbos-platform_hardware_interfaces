@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb1ea52_d0c57bdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1407350
+      },
+      "writtenOn": "2020-12-14T01:29:23Z",
+      "side": 1,
+      "message": "Hi Changyeon,\nI do not see you integrate this patch into aosp. please help to review it.\nother it have segment fault when run vts.",
+      "revId": "b695e7aed4e0d5ee5311adcfcd81d94c1d46fd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
