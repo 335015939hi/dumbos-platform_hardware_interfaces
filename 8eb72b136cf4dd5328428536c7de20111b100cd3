@@ -140,6 +140,24 @@
       "parentUuid": "2050500a_8d40b28d",
       "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88384dd6_d8acf861",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2020-12-14T09:13:33Z",
+      "side": 1,
+      "message": "Even without this feature, Google already support the email TLV in SIM contact，but I did not see there is one api to mark how many emails supported for a ADN entry in iccprovider.\nThis feature is just to speed up the USIM contacts loading duaration since the SIM_IO solution is too slowly.\nCurrently，most of the Android customer use the maxEmails/maxADN and maxAnrs/maxADN solution to  decide the emails count supported for a ADN entry.\nAnd as I known，no comercial card has the Email count double of the ADN count due to the limited sim card space.\nAnd if the ANR count was more than double of the ADN count, the card should be supported the one to n-mapping type file between EFADN and EFANR instead of the 1-to-1 mapping type file. \nIf the result of maxAnrs/maxADN is n（n\u003e1），the type2 file should be supported in this card.\nif the card was just supported the type1 file， the result of maxAnrs/maxADN will be 1 or less than 1.\nAnd we currently did not support additional number alpha strings for the EFAAS, because no customer has this requirement.\nSince these enhancement functions was also not supported by original SIM_IO contact solution and currently no android customer required them，I think we\u0027d better to merge this basic feature at first.",
+      "parentUuid": "cbe82aa1_8468878d",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
