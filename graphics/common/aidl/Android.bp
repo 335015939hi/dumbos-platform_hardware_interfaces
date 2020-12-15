@@ -26,6 +26,7 @@ aidl_interface {
                 "//apex_available:platform",
                 "com.android.media.swcodec",
             ],
+            gen_trace: false,
             min_sdk_version: "29",
         },
     },
