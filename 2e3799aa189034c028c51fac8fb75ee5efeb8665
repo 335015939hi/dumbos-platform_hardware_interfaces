@@ -16,6 +16,24 @@
       "message": "Woah Josh hijacked the CL :)\n\nThanks for the CL, Steven!",
       "revId": "2e3799aa189034c028c51fac8fb75ee5efeb8665",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61994a27_4c805f27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1432799
+      },
+      "writtenOn": "2020-12-15T01:17:22Z",
+      "side": 1,
+      "message": "Ya I tried to cherry-pick to internal master so I could work off of it, but it looks like it just gave me owners lol.\n\nI think if you repeat the steps and cherry-pick to master you might get ownership back.",
+      "parentUuid": "e95ffde0_dcca42ec",
+      "revId": "2e3799aa189034c028c51fac8fb75ee5efeb8665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
