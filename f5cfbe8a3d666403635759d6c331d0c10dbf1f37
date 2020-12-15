@@ -93,6 +93,29 @@
       },
       "revId": "f5cfbe8a3d666403635759d6c331d0c10dbf1f37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "763222d3_1694e75b",
+        "filename": "bluetooth/audio/2.1/vts/functional/VtsHalBluetoothAudioV2_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-12-15T17:55:33Z",
+      "side": 1,
+      "message": "and here.",
+      "range": {
+        "startLine": 1106,
+        "startChar": 32,
+        "endLine": 1107,
+        "endChar": 55
+      },
+      "revId": "f5cfbe8a3d666403635759d6c331d0c10dbf1f37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
