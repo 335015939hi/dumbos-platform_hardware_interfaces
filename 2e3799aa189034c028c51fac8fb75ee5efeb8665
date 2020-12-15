@@ -51,6 +51,24 @@
       "message": "Steven is still the owner.",
       "revId": "2e3799aa189034c028c51fac8fb75ee5efeb8665",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1c05836_84770b85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-15T16:47:22Z",
+      "side": 1,
+      "message": "It looks like you reuploaded to AOSP, np anyway though, b/c author vs committer.",
+      "parentUuid": "61994a27_4c805f27",
+      "revId": "2e3799aa189034c028c51fac8fb75ee5efeb8665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
