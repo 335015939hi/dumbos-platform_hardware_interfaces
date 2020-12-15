@@ -176,6 +176,24 @@
       "parentUuid": "cbe82aa1_8468878d",
       "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5f0fb36_a4035944",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1501806
+      },
+      "writtenOn": "2020-12-15T02:16:12Z",
+      "side": 1,
+      "message": "We have various SIMs which supports type 1 multiple ANRs (CTS/GTS/Chatr...etc). Although there is no comercial card which supports multiple Emails, I still think PhonebookCapacity needs new item for multiple ANR.\n\n//   number of supported ANR for a ADN entry\nint32_t numAnrsForADN;",
+      "parentUuid": "88384dd6_d8acf861",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
