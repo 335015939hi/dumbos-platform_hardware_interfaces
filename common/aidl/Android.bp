@@ -19,6 +19,7 @@ aidl_interface {
             enabled: false,
         },
         ndk: {
+            gen_trace: false,
             apex_available: [
                 "//apex_available:platform",
                 "com.android.media.swcodec",
