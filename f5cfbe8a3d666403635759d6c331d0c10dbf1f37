@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d144c35_d881d277",
+        "filename": "bluetooth/audio/2.1/default/LeAudioAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-12-15T13:47:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fe62f8d7_8438b882",
+      "range": {
+        "startLine": 112,
+        "startChar": 3,
+        "endLine": 123,
+        "endChar": 12
+      },
+      "revId": "f5cfbe8a3d666403635759d6c331d0c10dbf1f37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57ae297a_f5e7612b",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-15T13:44:47Z",
       "side": 1,
       "message": "same here, these are not supported",
+      "range": {
+        "startLine": 1011,
+        "startChar": 31,
+        "endLine": 1012,
+        "endChar": 55
+      },
+      "revId": "f5cfbe8a3d666403635759d6c331d0c10dbf1f37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8549ed06_4170f32b",
+        "filename": "bluetooth/audio/2.1/vts/functional/VtsHalBluetoothAudioV2_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-12-15T13:47:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "57ae297a_f5e7612b",
       "range": {
         "startLine": 1011,
         "startChar": 31,
