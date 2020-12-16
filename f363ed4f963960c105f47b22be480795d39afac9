@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69c63875_489a5f6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-12-16T01:44:57Z",
+      "side": 1,
+      "message": "We\u0027ve caught up with the downstream changes, thus after these CLs it will be possible to develop mostly upstream. Thanks for your help in upstreaming!",
+      "revId": "f363ed4f963960c105f47b22be480795d39afac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
