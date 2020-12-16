@@ -26,6 +26,7 @@ cc_binary {
         "libbinder",
         "libhidlbase",
         "libutils",
+        "libcutils",
     ],
     static_libs: [
         "android.hardware.light-cpp",
