@@ -214,6 +214,30 @@
       },
       "revId": "eada65d0a686dc1afda00c8b754e2ad892285832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c778122f_b1e15f75",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-12-16T19:35:06Z",
+      "side": 1,
+      "message": "Does that mean UI assumes that a given record can have multiple emails? How is it handled in the modem if SIM does not support multiple emails in EFADR?",
+      "parentUuid": "810442bc_aefd75ad",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 347,
+        "endChar": 7
+      },
+      "revId": "eada65d0a686dc1afda00c8b754e2ad892285832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
