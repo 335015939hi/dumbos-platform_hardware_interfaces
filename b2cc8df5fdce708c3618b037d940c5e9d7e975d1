@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90730f53_2eec5f96",
+        "filename": "security/keymint/aidl/aidl_api/android.hardware.security.keymint/current/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-12-16T22:58:20Z",
+      "side": 1,
+      "message": "How about adding a `void invalid`? Otherwise Algorithm becomes the default.",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 56
+      },
+      "revId": "b2cc8df5fdce708c3618b037d940c5e9d7e975d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
