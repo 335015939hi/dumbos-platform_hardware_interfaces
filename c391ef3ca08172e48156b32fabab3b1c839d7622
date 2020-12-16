@@ -70,6 +70,24 @@
       "parentUuid": "3b5557e0_8bb25540",
       "revId": "c391ef3ca08172e48156b32fabab3b1c839d7622",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d86721d_86f8f9eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2020-12-16T07:13:26Z",
+      "side": 1,
+      "message": "The Gerrit auto link is not resolving for me. The https://issuetracker.google.com/issues/174686912 is accessible to all though.",
+      "parentUuid": "0b3a18bd_e31c26dd",
+      "revId": "c391ef3ca08172e48156b32fabab3b1c839d7622",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
