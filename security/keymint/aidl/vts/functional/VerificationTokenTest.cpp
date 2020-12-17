@@ -16,7 +16,7 @@
 
 #include "KeyMintAidlTestBase.h"
 
-namespace android::hardware::security::keymint::test {
+namespace aidl::android::hardware::security::keymint::test {
 
 class VerificationTokenTest : public KeyMintAidlTestBase {
   protected:

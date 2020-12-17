@@ -16,9 +16,9 @@
 
 #pragma once
 
-#include <android/hardware/security/keymint/HardwareAuthToken.h>
+#include <aidl/android/hardware/security/keymint/HardwareAuthToken.h>
 
-namespace android::hardware::security::keymint {
+namespace aidl::android::hardware::security::keymint {
 
 using std::vector;
 

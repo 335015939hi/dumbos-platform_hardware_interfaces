@@ -16,14 +16,14 @@
 
 #pragma once
 
-#include <android/hardware/security/keymint/ErrorCode.h>
-#include <android/hardware/security/keymint/IKeyMintDevice.h>
+#include <aidl/android/hardware/security/keymint/ErrorCode.h>
+#include <aidl/android/hardware/security/keymint/IKeyMintDevice.h>
 
 #include <keymint_support/attestation_record.h>
 #include <keymint_support/authorization_set.h>
 #include <keymint_support/openssl_utils.h>
 
-namespace android::hardware::security::keymint {
+namespace aidl::android::hardware::security::keymint {
 
 class AuthorizationSet;
 

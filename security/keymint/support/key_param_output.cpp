@@ -20,7 +20,7 @@
 
 #include <keymint_support/keymint_tags.h>
 
-namespace android::hardware::security::keymint {
+namespace aidl::android::hardware::security::keymint {
 
 using ::std::endl;
 using ::std::ostream;

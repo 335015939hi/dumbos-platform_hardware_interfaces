@@ -18,8 +18,8 @@
 
 #include <assert.h>
 
-#include <android/hardware/security/keymint/Tag.h>
-#include <android/hardware/security/keymint/TagType.h>
+#include <aidl/android/hardware/security/keymint/Tag.h>
+#include <aidl/android/hardware/security/keymint/TagType.h>
 
 #include <android-base/logging.h>
 
@@ -33,7 +33,7 @@
 
 #define AT __FILE__ ":" << __LINE__
 
-namespace android::hardware::security::keymint {
+namespace aidl::android::hardware::security::keymint {
 
 struct stack_st_ASN1_TYPE_Delete {
     void operator()(stack_st_ASN1_TYPE* p) { sk_ASN1_TYPE_free(p); }
