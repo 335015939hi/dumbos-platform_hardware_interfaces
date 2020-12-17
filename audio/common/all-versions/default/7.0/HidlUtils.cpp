@@ -306,7 +306,12 @@ status_t HidlUtils::audioConfigFromHal(const audio_config_t& halConfig, bool isI
     audio_config_base_t halConfigBase = {halConfig.sample_rate, halConfig.channel_mask,
                                          halConfig.format};
     CONVERT_CHECKED(audioConfigBaseFromHal(halConfigBase, isInput, &config->base), result);
-    CONVERT_CHECKED(audioOffloadInfoFromHal(halConfig.offload_info, &config->offloadInfo), result);
+    if (halConfig.offload_info.sample_rate != 0) {
+        config->offloadInfo.info({});
+        CONVERT_CHECKED(
+                audioOffloadInfoFromHal(halConfig.offload_info, &config->offloadInfo.info()),
+                result);
+    }
     config->frameCount = halConfig.frame_count;
     return result;
 }
@@ -319,7 +324,11 @@ status_t HidlUtils::audioConfigToHal(const AudioConfig& config, audio_config_t* 
     halConfig->sample_rate = halConfigBase.sample_rate;
     halConfig->channel_mask = halConfigBase.channel_mask;
     halConfig->format = halConfigBase.format;
-    CONVERT_CHECKED(audioOffloadInfoToHal(config.offloadInfo, &halConfig->offload_info), result);
+    if (config.offloadInfo.getDiscriminator() ==
+        AudioConfig::OffloadInfo::hidl_discriminator::info) {
+        CONVERT_CHECKED(audioOffloadInfoToHal(config.offloadInfo.info(), &halConfig->offload_info),
+                        result);
+    }
     halConfig->frame_count = config.frameCount;
     return result;
 }

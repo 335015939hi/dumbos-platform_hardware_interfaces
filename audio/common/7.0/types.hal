@@ -270,7 +270,10 @@ struct AudioOffloadInfo {
  */
 struct AudioConfig {
     AudioConfigBase base;
-    AudioOffloadInfo offloadInfo;
+    safe_union OffloadInfo {
+        Monostate unspecified;
+        AudioOffloadInfo info;
+    } offloadInfo;
     uint64_t frameCount;
 };
 

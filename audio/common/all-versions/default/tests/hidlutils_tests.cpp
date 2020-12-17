@@ -589,16 +589,29 @@ TEST(HidlUtils, ConvertConfig) {
     config.base.sampleRateHz = 44100;
     config.base.channelMask = toString(xsd::AudioChannelMask::AUDIO_CHANNEL_OUT_STEREO);
     config.base.format = toString(xsd::AudioFormat::AUDIO_FORMAT_PCM_16_BIT);
-    config.offloadInfo.base = config.base;
-    config.offloadInfo.streamType = toString(xsd::AudioStreamType::AUDIO_STREAM_MUSIC);
-    config.offloadInfo.bitRatePerSecond = 320;
-    config.offloadInfo.durationMicroseconds = -1;
-    config.offloadInfo.bitWidth = 16;
-    config.offloadInfo.bufferSize = 1024;
-    config.offloadInfo.usage = toString(xsd::AudioUsage::AUDIO_USAGE_MEDIA);
-    config.offloadInfo.encapsulationMode = AudioEncapsulationMode::ELEMENTARY_STREAM;
-    config.offloadInfo.contentId = 42;
-    config.offloadInfo.syncId = 13;
+    audio_config_t halConfig;
+    EXPECT_EQ(NO_ERROR, HidlUtils::audioConfigToHal(config, &halConfig));
+    AudioConfig configBack;
+    EXPECT_EQ(NO_ERROR, HidlUtils::audioConfigFromHal(halConfig, false /*isInput*/, &configBack));
+    EXPECT_EQ(config, configBack);
+}
+
+TEST(HidlUtils, ConvertConfigWithOffloadInfo) {
+    AudioConfig config = {};
+    config.base.sampleRateHz = 44100;
+    config.base.channelMask = toString(xsd::AudioChannelMask::AUDIO_CHANNEL_OUT_STEREO);
+    config.base.format = toString(xsd::AudioFormat::AUDIO_FORMAT_PCM_16_BIT);
+    config.offloadInfo.info(
+            AudioOffloadInfo{.base = config.base,
+                             .streamType = toString(xsd::AudioStreamType::AUDIO_STREAM_MUSIC),
+                             .bitRatePerSecond = 320,
+                             .durationMicroseconds = -1,
+                             .bitWidth = 16,
+                             .bufferSize = 1024,
+                             .usage = toString(xsd::AudioUsage::AUDIO_USAGE_MEDIA),
+                             .encapsulationMode = AudioEncapsulationMode::ELEMENTARY_STREAM,
+                             .contentId = 42,
+                             .syncId = 13});
     audio_config_t halConfig;
     EXPECT_EQ(NO_ERROR, HidlUtils::audioConfigToHal(config, &halConfig));
     AudioConfig configBack;

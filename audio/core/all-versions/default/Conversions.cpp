@@ -32,14 +32,10 @@ namespace implementation {
 
 using ::android::hardware::audio::common::CPP_VERSION::implementation::HidlUtils;
 
-#if MAJOR_VERSION <= 6
-std::string deviceAddressToHal(const DeviceAddress& address) {
-    audio_devices_t halDevice;
-    char halAddress[AUDIO_DEVICE_MAX_ADDRESS_LEN];
-    (void)deviceAddressToHal(address, &halDevice, halAddress);
-    return halAddress;
-}
-#endif
+#define CONVERT_CHECKED(expr, result)                   \
+    if (status_t status = (expr); status != NO_ERROR) { \
+        result = status;                                \
+    }
 
 status_t deviceAddressToHal(const DeviceAddress& device, audio_devices_t* halDeviceType,
                             char* halDeviceAddress) {
@@ -96,6 +92,52 @@ bool halToMicrophoneCharacteristics(MicrophoneInfo* pDst,
         status = true;
     }
     return status;
+}
+
+status_t sinkMetadataToHal(const SinkMetadata& sinkMetadata,
+                           std::vector<record_track_metadata>* halTracks) {
+    status_t result = NO_ERROR;
+    if (halTracks != nullptr) {
+        halTracks->reserve(sinkMetadata.tracks.size());
+    }
+    for (auto& metadata : sinkMetadata.tracks) {
+        record_track_metadata halTrackMetadata = {.gain = metadata.gain};
+        CONVERT_CHECKED(HidlUtils::audioSourceToHal(metadata.source, &halTrackMetadata.source),
+                        result);
+#if MAJOR_VERSION >= 5
+        if (metadata.destination.getDiscriminator() ==
+            RecordTrackMetadata::Destination::hidl_discriminator::device) {
+            CONVERT_CHECKED(
+                    deviceAddressToHal(metadata.destination.device(), &halTrackMetadata.dest_device,
+                                       halTrackMetadata.dest_device_address),
+                    result);
+        }
+#endif
+        if (halTracks != nullptr) {
+            halTracks->push_back(halTrackMetadata);
+        }
+    }
+    return result;
+}
+
+status_t sourceMetadataToHal(const SourceMetadata& sourceMetadata,
+                             std::vector<playback_track_metadata_t>* halTracks) {
+    status_t result = NO_ERROR;
+    if (halTracks != nullptr) {
+        halTracks->reserve(sourceMetadata.tracks.size());
+    }
+    for (auto& metadata : sourceMetadata.tracks) {
+        playback_track_metadata_t halTrackMetadata = {.gain = metadata.gain};
+        CONVERT_CHECKED(HidlUtils::audioUsageToHal(metadata.usage, &halTrackMetadata.usage),
+                        result);
+        CONVERT_CHECKED(HidlUtils::audioContentTypeToHal(metadata.contentType,
+                                                         &halTrackMetadata.content_type),
+                        result);
+        if (halTracks != nullptr) {
+            halTracks->push_back(std::move(halTrackMetadata));
+        }
+    }
+    return result;
 }
 #endif  // MAJOR_VERSION >= 4
 
