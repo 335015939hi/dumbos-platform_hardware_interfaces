@@ -17,6 +17,6 @@
 
 package android.hardware.security.keymint;
 @VintfStability
-parcelable Certificate {
-  byte[] certificate;
+parcelable CertificateChain {
+  android.hardware.security.keymint.Certificate[] chain;
 }

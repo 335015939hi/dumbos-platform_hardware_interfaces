@@ -18,7 +18,7 @@ package android.hardware.security.keymint;
 
 import android.hardware.security.keymint.BeginResult;
 import android.hardware.security.keymint.ByteArray;
-import android.hardware.security.keymint.Certificate;
+import android.hardware.security.keymint.CertificateChain;
 import android.hardware.security.keymint.HardwareAuthToken;
 import android.hardware.security.keymint.IKeyMintOperation;
 import android.hardware.security.keymint.KeyCharacteristics;
@@ -352,23 +352,18 @@ interface IKeyMintDevice {
      *         the meaning of the tag is fully assured by secure hardware, it is hardware
      *         enforced.  Otherwise, it's software enforced.
      *
-     * @return outCertChain If the key is an asymmetric key, and proper keyparameters for
-     *         attestation (such as challenge) is provided, then this parameter will return the
-     *         attestation certificate.  If the signing of the attestation certificate is from a
-     *         factory key, additional certificates back to the root attestation certificate will
-     *         also be provided. Clients will need to check root certificate against a known-good
-     *         value. The certificates must be DER-encoded.  Caller needs to provide
-     *         CREATION_DATETIME as one of the attestation parameters, otherwise the attestation
-     *         certificate will not contain the creation datetime.  The first certificate in the
-     *         vector is the attestation for the generated key itself, the next certificate is
-     *         the key that signs the first certificate, and so forth.  The last certificate in
-     *         the chain is the root certificate.  If the key is a symmetric key, then no
-     *         certificate will be returned and this variable will return empty. TODO: change
-     *         certificate return to a single certificate and make it nullable b/163604282.
+     * @return If the key is an asymmetric key, generateKey will return a chain of one or more
+     *         certificates.  If `keyParams` contains Tag::ATTESTATION_CHALLENGE the first
+     *         certificate will contain an attestation extension, and will be signed by a
+     *         factory-installed attestation key and followed by a chain of certificates leading to
+     *         an authoritative root.  If there is no attestation challenge, only one certificate
+     *         will be returned, and it will be self-signed or signed by a dummy key, depending on
+     *         whether the key has KeyPurpose::SIGN.  If the generated key is symmetric, the return
+     *         will be null.
      */
-    void generateKey(in KeyParameter[] keyParams, out ByteArray generatedKeyBlob,
-                     out KeyCharacteristics generatedKeyCharacteristics,
-                     out Certificate[] outCertChain);
+    @nullable CertificateChain generateKey(in KeyParameter[] keyParams,
+                                           out ByteArray generatedKeyBlob,
+                                           out KeyCharacteristics generatedKeyCharacteristics);
 
     /**
      * Imports key material into an IKeyMintDevice.  Key definition parameters and return values
@@ -388,43 +383,38 @@ interface IKeyMintDevice {
      *
      * o Tag::ORIGIN (returned in keyCharacteristics) must have the value KeyOrigin::IMPORTED.
      *
-     * @param inKeyParams Key generation parameters are defined as KeyMintDevice tag/value pairs,
+     * @param keyParams Key generation parameters are defined as KeyMintDevice tag/value pairs,
      *        provided in params.
      *
-     * @param inKeyFormat The format of the key material to import.  See KeyFormat in
+     * @param keyFormat The format of the key material to import.  See KeyFormat in
      *        keyformat.aidl.
      *
-     * @param inKeyData The key material to import, in the format specified in keyFormat.
+     * @param keyData The key material to import, in the format specified in keyFormat.
      *
-     * @return outImportedKeyBlob descriptor of the imported key.  The format of the keyblob will
+     * @return importedKeyBlob descriptor of the imported key.  The format of the keyblob will
      *         be the google specified keyblob format.
      *
-     * @return outImportedKeyCharacteristics Description of the generated key.  See the
+     * @return importedKeyCharacteristics Description of the generated key.  See the
      *         keyCharacteristics description in generateKey.
      *
-     * @return outCertChain If the key is an asymmetric key, and proper keyparameters for
-     *         attestation (such as challenge) is provided, then this parameter will return the
-     *         attestation certificate.  If the signing of the attestation certificate is from a
-     *         factory key, additional certificates back to the root attestation certificate will
-     *         also be provided. Clients will need to check root certificate against a known-good
-     *         value. The certificates must be DER-encoded.  Caller needs to provide
-     *         CREATION_DATETIME as one of the attestation parameters, otherwise the attestation
-     *         certificate will not contain the creation datetime.  The first certificate in the
-     *         vector is the attestation for the generated key itself, the next certificate is
-     *         the key that signs the first certificate, and so forth.  The last certificate in
-     *         the chain is the root certificate.  If the key is a symmetric key, then no
-     *         certificate will be returned and this variable will return empty.
+     * @return If the key is an asymmetric key, importKey will return a chain of one or more
+     *         certificates.  If `keyParams` contains Tag::ATTESTATION_CHALLENGE the first
+     *         certificate will contain an attestation extension, and will be signed by a
+     *         factory-installed attestation key and followed by a chain of certificates leading to
+     *         an authoritative root.  If there is no attestation challenge, only one certificate
+     *         will be returned, and it will be self-signed or signed by a dummy key, depending on
+     *         whether the key has KeyPurpose::SIGN.  If the importted key is symmetric, the return
+     *         will be null.
      */
-    void importKey(in KeyParameter[] inKeyParams, in KeyFormat inKeyFormat,
-                   in byte[] inKeyData, out ByteArray outImportedKeyBlob,
-                   out KeyCharacteristics outImportedKeyCharacteristics,
-                   out Certificate[] outCertChain);
+    @nullable CertificateChain importKey(in KeyParameter[] keyParams, in KeyFormat keyFormat,
+                                         in byte[] keyData, out ByteArray importedKeyBlob,
+                                         out KeyCharacteristics keyCharacteristics);
 
     /**
      * Securely imports a key, or key pair, returning a key blob and a description of the imported
      * key.
      *
-     * @param inWrappedKeyData The wrapped key material to import.
+     * @param wrappedKeyData The wrapped key material to import.
      *     TODO(seleneh) Decide if we want the wrapped key in DER-encoded ASN.1 format or CBOR
      *     format or both.  And specify the standarized format.
      *
@@ -474,45 +464,54 @@ interface IKeyMintDevice {
      *     5. Perform the equivalent of calling importKey(keyParams, keyFormat, keyData), except
      *        that the origin tag should be set to SECURELY_IMPORTED.
      *
-     * @param inWrappingKeyBlob The opaque key descriptor returned by generateKey() or importKey().
+     * @param wrappingKeyBlob The opaque key descriptor returned by generateKey() or importKey().
      *        This key must have been created with Purpose::WRAP_KEY.
      *
-     * @param inMaskingKey The 32-byte value XOR'd with the transport key in the SecureWrappedKey
+     * @param maskingKey The 32-byte value XOR'd with the transport key in the SecureWrappedKey
      *        structure.
      *
-     * @param inUnwrappingParams must contain any parameters needed to perform the unwrapping
+     * @param unwrappingParams must contain any parameters needed to perform the unwrapping
      *        operation.  For example, if the wrapping key is an AES key the block and padding
      *        modes must be specified in this argument.
      *
-     * @param inPasswordSid specifies the password secure ID (SID) of the user that owns the key
-     *        being installed.  If the authorization list in wrappedKeyData contains a
-     *        Tag::USER_SECURE_IDwith a value that has the HardwareAuthenticatorType::PASSWORD
-     *        bit set, the constructed key must be bound to the SID value provided by this
-     *        argument.  If the wrappedKeyData does not contain such a tag and value, this argument
-     *        must be ignored.
+     * @param passwordSid specifies the password secure ID (SID) of the user that owns the key being
+     *        installed.  If the authorization list in wrappedKeyData contains a
+     *        Tag::USER_SECURE_IDwith a value that has the HardwareAuthenticatorType::PASSWORD bit
+     *        set, the constructed key must be bound to the SID value provided by this argument.  If
+     *        the wrappedKeyData does not contain such a tag and value, this argument must be
+     *        ignored.
      *
-     * @param inBiometricSid specifies the biometric secure ID (SID) of the user that owns the key
+     * @param biometricSid specifies the biometric secure ID (SID) of the user that owns the key
      *        being installed.  If the authorization list in wrappedKeyData contains a
      *        Tag::USER_SECURE_ID with a value that has the HardwareAuthenticatorType::FINGERPRINT
      *        bit set, the constructed key must be bound to the SID value provided by this argument.
      *        If the wrappedKeyData does not contain such a tag and value, this argument must be
      *        ignored.
      *
-     * @return outImportedKeyBlob Opaque descriptor of the imported key.  It is recommended that
-     *         the keyBlob contain a copy of the key material, wrapped in a key unavailable outside
+     * @return importedKeyBlob Opaque descriptor of the imported key.  It is recommended that the
+     *         keyBlob contain a copy of the key material, wrapped in a key unavailable outside
      *         secure hardware.
      *
-     * @return outImportedKeyCharacteristics Description of the generated key.  See the description
-     *         of keyCharacteristics parameter in generateKey.
+     * @return importedKeyCharacteristics Description of the generated key.  See the description of
+     *         keyCharacteristics parameter in generateKey.
+     *
+     * @return If the key is an asymmetric key, importWrappedKey will return a chain of one or more
+     *         certificates.  If the key parameters in wrappedKeyData contain
+     *         Tag::ATTESTATION_CHALLENGE the first certificate will contain an attestation
+     *         extension, and will be signed by a factory-installed attestation key and followed by
+     *         a chain of certificates leading to an authoritative root.  If there is no attestation
+     *         challenge, only one certificate will be returned, and it will be self-signed or
+     *         signed by a dummy key, depending on whether the securely-imported key has
+     *         KeyPurpose::SIGN.  If the imported key is symmetric, the return will be null.
      */
-    void importWrappedKey(in byte[] inWrappedKeyData,
-                          in byte[] inWrappingKeyBlob,
-                          in byte[] inMaskingKey,
-                          in KeyParameter[] inUnwrappingParams,
-                          in long inPasswordSid,
-                          in long inBiometricSid,
-                          out ByteArray outImportedKeyBlob,
-                          out KeyCharacteristics outImportedKeyCharacteristics);
+    @nullable CertificateChain importWrappedKey(in byte[] wrappedKeyData,
+                                                in byte[] wrappingKeyBlob,
+                                                in byte[] maskingKey,
+                                                in KeyParameter[] unwrappingParams,
+                                                in long passwordSid,
+                                                in long biometricSid,
+                                                out ByteArray importedKeyBlob,
+                                                out KeyCharacteristics keyCharacteristics);
 
     /**
      * Upgrades an old key blob.  Keys can become "old" in two ways: IKeyMintDevice can be
