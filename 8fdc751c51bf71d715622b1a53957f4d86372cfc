@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0658ca1_280fc113",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-17T23:09:57Z",
+      "side": 1,
+      "message": "should document",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "8fdc751c51bf71d715622b1a53957f4d86372cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6bef9a5_762072ac",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-17T23:09:57Z",
+      "side": 1,
+      "message": "why is this \u0027Value\u0027 but others are \u0027_\u0027 suffixes?",
+      "range": {
+        "startLine": 45,
+        "startChar": 16,
+        "endLine": 45,
+        "endChar": 21
+      },
+      "revId": "8fdc751c51bf71d715622b1a53957f4d86372cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebbb0a9c_f513d350",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-17T23:09:57Z",
+      "side": 1,
+      "message": "dated comment?",
+      "range": {
+        "startLine": 45,
+        "startChar": 27,
+        "endLine": 45,
+        "endChar": 68
+      },
+      "revId": "8fdc751c51bf71d715622b1a53957f4d86372cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e91c61b_a0d1f9aa",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-12-17T23:09:57Z",
+      "side": 1,
+      "message": "There is no \u0027@nullable\u0027 annotation (dated comment?)",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 55
+      },
+      "revId": "8fdc751c51bf71d715622b1a53957f4d86372cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
