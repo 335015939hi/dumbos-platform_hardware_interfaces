@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bb20976_efb88c6f",
+        "filename": "tetheroffload/control/1.1/ITetheringOffloadCallback.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2020-12-17T23:38:13Z",
+      "side": 1,
+      "message": "A new init_1_1() is needed to register the updated V1_1 ITetheringOffloadCallback. Otherwise this function will never be called.",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "ef59dd3bf8153eaf64515bb0aeaf1a28e8d8fb68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
