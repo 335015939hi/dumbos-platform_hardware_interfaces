@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b17c754_2d218af8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1173768
+      },
+      "writtenOn": "2020-12-17T20:01:39Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "6db854a7_79f4b446",
+      "revId": "b62566538fdc0ac0ebd2ac703d45e7601629224e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce367f27_91fec2da",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-12-17T07:43:42Z",
       "side": 1,
       "message": "where did you define this?",
+      "range": {
+        "startLine": 101,
+        "startChar": 22,
+        "endLine": 101,
+        "endChar": 65
+      },
+      "revId": "b62566538fdc0ac0ebd2ac703d45e7601629224e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ba4d171_4cdd73df",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1173768
+      },
+      "writtenOn": "2020-12-17T20:01:39Z",
+      "side": 1,
+      "message": "corrected comment to use setCarrierInfoForImsiEncryptionResponse",
+      "parentUuid": "ce367f27_91fec2da",
       "range": {
         "startLine": 101,
         "startChar": 22,
