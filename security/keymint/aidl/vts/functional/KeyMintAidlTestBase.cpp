@@ -36,7 +36,7 @@ using std::optional;
         os << "(Empty)" << ::std::endl;
     else {
         os << "\n";
-        for (size_t i = 0; i < set.size(); ++i) os << set[i] << ::std::endl;
+        for (auto& entry : set) os << entry << ::std::endl;
     }
     return os;
 }
@@ -90,23 +90,30 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     keyBlob->clear();
     keyChar->softwareEnforced.clear();
     keyChar->hardwareEnforced.clear();
-    certChain_ = {};
+    cert_chain_ = {};
 
     Status result;
     ByteArray blob;
+    result = keymint_->generateKey(key_desc.vector_data(), &blob, keyChar, &cert_chain_);
 
-    result = keymint_->generateKey(key_desc.vector_data(), &blob, keyChar, &certChain_);
-
-    // On result, blob & characteristics should be empty.
     if (result.isOk()) {
         if (SecLevel() != SecurityLevel::SOFTWARE) {
             EXPECT_GT(keyChar->hardwareEnforced.size(), 0);
         }
         EXPECT_GT(keyChar->softwareEnforced.size(), 0);
-        // TODO(seleneh) in a later version where we return @nullable
-        // single Certificate, check non-null single certificate is always
-        // non-empty.
         *keyBlob = blob.data;
+
+        auto algorithm = key_desc.GetTagValue(TAG_ALGORITHM);
+        EXPECT_TRUE(algorithm);
+        if (algorithm.value() == Algorithm::RSA || algorithm.value() == Algorithm::EC) {
+            EXPECT_TRUE(cert_chain_);
+            EXPECT_GE(cert_chain_->chain.size(), 1);
+            if (key_desc.Contains(TAG_ATTESTATION_CHALLENGE))
+                EXPECT_GT(cert_chain_->chain.size(), 1);
+        } else {
+            // For symmetric keys there should be no certificates.
+            EXPECT_FALSE(cert_chain_);
+        }
     }
 
     return GetReturnErrorCode(result);
@@ -121,7 +128,7 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFo
                                          KeyCharacteristics* key_characteristics) {
     Status result;
 
-    certChain_ = {};
+    cert_chain_ = {};
     key_characteristics->softwareEnforced.clear();
     key_characteristics->hardwareEnforced.clear();
     key_blob->clear();
@@ -129,7 +136,7 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFo
     ByteArray blob;
     result = keymint_->importKey(key_desc.vector_data(), format,
                                  vector<uint8_t>(key_material.begin(), key_material.end()), &blob,
-                                 key_characteristics, &certChain_);
+                                 key_characteristics, &cert_chain_);
 
     if (result.isOk()) {
         if (SecLevel() != SecurityLevel::SOFTWARE) {
@@ -137,6 +144,18 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFo
         }
         EXPECT_GT(key_characteristics->softwareEnforced.size(), 0);
         *key_blob = blob.data;
+
+        auto algorithm = key_desc.GetTagValue(TAG_ALGORITHM);
+        EXPECT_TRUE(algorithm);
+        if (algorithm.value() == Algorithm::RSA || algorithm.value() == Algorithm::EC) {
+            EXPECT_TRUE(cert_chain_);
+            EXPECT_GE(cert_chain_->chain.size(), 1);
+            if (key_desc.Contains(TAG_ATTESTATION_CHALLENGE))
+                EXPECT_GT(cert_chain_->chain.size(), 1);
+        } else {
+            // For symmetric keys there should be no certificates.
+            EXPECT_FALSE(cert_chain_);
+        }
     }
 
     return GetReturnErrorCode(result);
@@ -166,7 +185,7 @@ ErrorCode KeyMintAidlTestBase::ImportWrappedKey(string wrapped_key, string wrapp
                                         0 /* biometricSid */,                                     //
                                         &outBlob,                                                 //
                                         &key_characteristics_,                                    //
-                                        &certChain_);
+                                        &cert_chain_);
 
     if (result.isOk()) {
         key_blob_ = outBlob.data;
@@ -174,6 +193,9 @@ ErrorCode KeyMintAidlTestBase::ImportWrappedKey(string wrapped_key, string wrapp
             EXPECT_GT(key_characteristics_.hardwareEnforced.size(), 0);
         }
         EXPECT_GT(key_characteristics_.softwareEnforced.size(), 0);
+
+        // TODO(swillden) Check for certs in appropriate cases.
+        EXPECT_FALSE(cert_chain_);
     }
 
     return GetReturnErrorCode(result);
