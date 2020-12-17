@@ -240,90 +240,32 @@ inline KeyParameter Authorization(TypedTag<tag_type, tag> ttag, Args&&... args) 
     return makeKeyParameter(ttag, std::forward<Args>(args)...);
 }
 
-/**
- * This class wraps a (mostly return) value and stores whether or not the wrapped value is valid out
- * of band. Note that if the wrapped value is a reference it is unsafe to access the value if
- * !isOk(). If the wrapped type is a pointer or value and !isOk(), it is still safe to access the
- * wrapped value. In this case the pointer will be NULL though, and the value will be default
- * constructed.
- *
- * TODO(seleneh) replace this with std::optional.
- */
-template <typename ValueT>
-class NullOr {
-    using internal_t = std::conditional_t<std::is_lvalue_reference<ValueT>::value,
-                                          std::remove_reference_t<ValueT>*, ValueT>;
-
-    struct pointer_initializer {
-        static std::nullptr_t init() { return nullptr; }
-    };
-    struct value_initializer {
-        static ValueT init() { return ValueT(); }
-    };
-    struct value_pointer_deref_t {
-        static ValueT& deref(ValueT& v) { return v; }
-    };
-    struct reference_deref_t {
-        static auto& deref(internal_t v) { return *v; }
-    };
-    using initializer_t = std::conditional_t<std::is_lvalue_reference<ValueT>::value ||
-                                                     std::is_pointer<ValueT>::value,
-                                             pointer_initializer, value_initializer>;
-    using deref_t = std::conditional_t<std::is_lvalue_reference<ValueT>::value, reference_deref_t,
-                                       value_pointer_deref_t>;
-
-  public:
-    NullOr() : value_(initializer_t::init()), null_(true) {}
-    template <typename T>
-    NullOr(T&& value, typename std::enable_if<
-                              !std::is_lvalue_reference<ValueT>::value &&
-                                      std::is_same<std::decay_t<ValueT>, std::decay_t<T>>::value,
-                              int>::type = 0)
-        : value_(std::forward<ValueT>(value)), null_(false) {}
-    template <typename T>
-    NullOr(T& value, typename std::enable_if<
-                             std::is_lvalue_reference<ValueT>::value &&
-                                     std::is_same<std::decay_t<ValueT>, std::decay_t<T>>::value,
-                             int>::type = 0)
-        : value_(&value), null_(false) {}
-
-    bool isOk() const { return !null_; }
-
-    const ValueT& value() const& { return deref_t::deref(value_); }
-    ValueT& value() & { return deref_t::deref(value_); }
-    ValueT&& value() && { return std::move(deref_t::deref(value_)); }
-
-  private:
-    internal_t value_;
-    bool null_;
-};
-
 template <typename T>
 std::remove_reference_t<T> NullOrOr(T&& v) {
-    if (v.isOk()) return v;
+    if (v) return v;
     return {};
 }
 
 template <typename Head, typename... Tail>
 std::remove_reference_t<Head> NullOrOr(Head&& head, Tail&&... tail) {
-    if (head.isOk()) return head;
+    if (head) return head;
     return NullOrOr(std::forward<Tail>(tail)...);
 }
 
 template <typename Default, typename Wrapped>
-std::remove_reference_t<Wrapped> defaultOr(NullOr<Wrapped>&& optional, Default&& def) {
+std::remove_reference_t<Wrapped> defaultOr(std::optional<Wrapped>&& optional, Default&& def) {
     static_assert(std::is_convertible<std::remove_reference_t<Default>,
                                       std::remove_reference_t<Wrapped>>::value,
-                  "Type of default value must match the type wrapped by NullOr");
-    if (optional.isOk()) return optional.value();
+                  "Type of default value must match the type wrapped by std::optional");
+    if (optional) return *optional;
     return def;
 }
 
 template <TagType tag_type, Tag tag>
-inline NullOr<const typename TypedTag2ValueType<TypedTag<tag_type, tag>>::type&> authorizationValue(
+inline std::optional<std::reference_wrapper<const typename TypedTag2ValueType<TypedTag<tag_type, tag>>::type>> authorizationValue(
         TypedTag<tag_type, tag> ttag, const KeyParameter& param) {
     if (TypedTag2ValueType<TypedTag<tag_type, tag>>::unionTag != param.value.getTag()) return {};
-    return accessTagValue(ttag, param);
+    return std::reference_wrapper(accessTagValue(ttag, param));
 }
 
 }  // namespace android::hardware::security::keymint

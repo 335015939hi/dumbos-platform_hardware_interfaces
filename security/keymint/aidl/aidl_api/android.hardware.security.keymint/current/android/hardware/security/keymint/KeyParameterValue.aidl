@@ -18,6 +18,7 @@
 package android.hardware.security.keymint;
 @VintfStability
 union KeyParameterValue {
+  int invalid;
   android.hardware.security.keymint.Algorithm algorithm;
   android.hardware.security.keymint.BlockMode blockMode;
   android.hardware.security.keymint.PaddingMode paddingMode;

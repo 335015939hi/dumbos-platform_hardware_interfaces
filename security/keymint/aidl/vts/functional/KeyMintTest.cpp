@@ -251,10 +251,10 @@ class NewKeyGenerationTest : public KeyMintAidlTestBase {
 
         EXPECT_TRUE(auths.Contains(TAG_OS_VERSION, os_version()))
                 << "OS version is " << os_version() << " key reported "
-                << auths.GetTagValue(TAG_OS_VERSION);
+                << auths.GetTagValue(TAG_OS_VERSION)->get();
         EXPECT_TRUE(auths.Contains(TAG_OS_PATCHLEVEL, os_patch_level()))
                 << "OS patch level is " << os_patch_level() << " key reported "
-                << auths.GetTagValue(TAG_OS_PATCHLEVEL);
+                << auths.GetTagValue(TAG_OS_PATCHLEVEL)->get();
     }
 };
 
@@ -2333,8 +2333,8 @@ TEST_P(EncryptionOperationsTest, AesEcbPkcs7PaddingCorrupted) {
 
 vector<uint8_t> CopyIv(const AuthorizationSet& set) {
     auto iv = set.GetTagValue(TAG_NONCE);
-    EXPECT_TRUE(iv.isOk());
-    return iv.value();
+    EXPECT_TRUE(iv);
+    return iv->get();
 }
 
 /*
@@ -2459,13 +2459,13 @@ TEST_P(EncryptionOperationsTest, AesIncremental) {
                 case BlockMode::CBC:
                 case BlockMode::GCM:
                 case BlockMode::CTR:
-                    ASSERT_TRUE(iv.isOk()) << "No IV for block mode " << block_mode;
-                    EXPECT_EQ(block_mode == BlockMode::GCM ? 12U : 16U, iv.value().size());
-                    params.push_back(TAG_NONCE, iv.value());
+                    ASSERT_TRUE(iv) << "No IV for block mode " << block_mode;
+                    EXPECT_EQ(block_mode == BlockMode::GCM ? 12U : 16U, iv->get().size());
+                    params.push_back(TAG_NONCE, iv->get());
                     break;
 
                 case BlockMode::ECB:
-                    EXPECT_FALSE(iv.isOk()) << "ECB mode should not generate IV";
+                    EXPECT_FALSE(iv) << "ECB mode should not generate IV";
                     break;
             }
 
@@ -2649,9 +2649,9 @@ TEST_P(EncryptionOperationsTest, AesCallerNonce) {
     AuthorizationSet out_params;
     string ciphertext = EncryptMessage(message, params, &out_params);
     EXPECT_EQ(message.size(), ciphertext.size());
-    EXPECT_EQ(16U, out_params.GetTagValue(TAG_NONCE).value().size());
+    EXPECT_EQ(16U, out_params.GetTagValue(TAG_NONCE)->get().size());
 
-    params.push_back(TAG_NONCE, out_params.GetTagValue(TAG_NONCE).value());
+    params.push_back(TAG_NONCE, out_params.GetTagValue(TAG_NONCE)->get());
     string plaintext = DecryptMessage(ciphertext, params);
     EXPECT_EQ(message, plaintext);
 
@@ -2697,9 +2697,9 @@ TEST_P(EncryptionOperationsTest, AesCallerNonceProhibited) {
     AuthorizationSet out_params;
     string ciphertext = EncryptMessage(message, params, &out_params);
     EXPECT_EQ(message.size(), ciphertext.size());
-    EXPECT_EQ(16U, out_params.GetTagValue(TAG_NONCE).value().size());
+    EXPECT_EQ(16U, out_params.GetTagValue(TAG_NONCE)->get().size());
 
-    params.push_back(TAG_NONCE, out_params.GetTagValue(TAG_NONCE).value());
+    params.push_back(TAG_NONCE, out_params.GetTagValue(TAG_NONCE)->get());
     string plaintext = DecryptMessage(ciphertext, params);
     EXPECT_EQ(message, plaintext);
 
@@ -2893,7 +2893,7 @@ TEST_P(EncryptionOperationsTest, AesGcmTooShortTagOnDecrypt) {
     AuthorizationSet begin_out_params;
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &begin_out_params));
     EXPECT_EQ(1U, begin_out_params.size());
-    ASSERT_TRUE(begin_out_params.GetTagValue(TAG_NONCE).isOk());
+    ASSERT_TRUE(begin_out_params.GetTagValue(TAG_NONCE));
 
     AuthorizationSet finish_out_params;
     string ciphertext;

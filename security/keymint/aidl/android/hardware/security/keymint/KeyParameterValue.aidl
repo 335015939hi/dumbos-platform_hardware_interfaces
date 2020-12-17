@@ -28,6 +28,7 @@ import android.hardware.security.keymint.SecurityLevel;
 
 @VintfStability
 union KeyParameterValue {
+    int invalid;
     /* Enum types */
     Algorithm algorithm;
     BlockMode blockMode;
