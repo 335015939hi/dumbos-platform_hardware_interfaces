@@ -164,7 +164,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     }
 
     sp<IKeyMintOperation> op_;
-    std::optional<CertificateChain> certChain_;
+    std::optional<CertificateChain> cert_chain_;
     vector<uint8_t> key_blob_;
     KeyCharacteristics key_characteristics_;
 
