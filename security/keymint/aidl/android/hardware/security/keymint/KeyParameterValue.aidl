@@ -27,6 +27,7 @@ import android.hardware.security.keymint.PaddingMode;
 import android.hardware.security.keymint.SecurityLevel;
 
 @VintfStability
+@RustDerive(Clone=true, Eq=true, PartialEq=true, Ord=true, PartialOrd=true, Hash=true)
 union KeyParameterValue {
     int invalid;
     /* Enum types */

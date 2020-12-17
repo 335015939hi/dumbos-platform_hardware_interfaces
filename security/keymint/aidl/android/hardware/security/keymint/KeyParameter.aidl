@@ -24,6 +24,7 @@ import android.hardware.security.keymint.KeyParameterValue;
  * provided as an array of KeyParameters to IKeyMintDevice or Operation.
  */
 @VintfStability
+@RustDerive(Clone=true, Eq=true, PartialEq=true, Ord=true, PartialOrd=true, Hash=true)
 parcelable KeyParameter {
     Tag tag;
     KeyParameterValue value;
