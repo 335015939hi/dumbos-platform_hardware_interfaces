@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "909cd65d_a8528ed0",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1121193
+      },
+      "writtenOn": "2020-12-17T03:56:20Z",
+      "side": 1,
+      "message": "IIRC, emergency callback mode is a short duration following emergency call ends. not a indicator for emergency call start and end. \n+Tylor do you know any existing indicator?",
+      "range": {
+        "startLine": 328,
+        "startChar": 36,
+        "endLine": 328,
+        "endChar": 62
+      },
+      "revId": "b372768dfcdcbb24e8ceef1f58e1ecfa94975d56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
