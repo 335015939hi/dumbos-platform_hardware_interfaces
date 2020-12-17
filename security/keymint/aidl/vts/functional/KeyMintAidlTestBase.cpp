@@ -90,7 +90,7 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     keyBlob->clear();
     keyChar->softwareEnforced.clear();
     keyChar->hardwareEnforced.clear();
-    certChain_.clear();
+    certChain_ = {};
 
     Status result;
     ByteArray blob;
@@ -121,7 +121,7 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFo
                                          KeyCharacteristics* key_characteristics) {
     Status result;
 
-    certChain_.clear();
+    certChain_ = {};
     key_characteristics->softwareEnforced.clear();
     key_characteristics->hardwareEnforced.clear();
     key_blob->clear();
@@ -158,11 +158,15 @@ ErrorCode KeyMintAidlTestBase::ImportWrappedKey(string wrapped_key, string wrapp
     key_characteristics_.softwareEnforced.clear();
     key_characteristics_.hardwareEnforced.clear();
 
-    result = keymint_->importWrappedKey(vector<uint8_t>(wrapped_key.begin(), wrapped_key.end()),
-                                        key_blob_,
-                                        vector<uint8_t>(masking_key.begin(), masking_key.end()),
-                                        unwrapping_params.vector_data(), 0 /* passwordSid */,
-                                        0 /* biometricSid */, &outBlob, &key_characteristics_);
+    result = keymint_->importWrappedKey(vector<uint8_t>(wrapped_key.begin(), wrapped_key.end()),  //
+                                        key_blob_,                                                //
+                                        vector<uint8_t>(masking_key.begin(), masking_key.end()),  //
+                                        unwrapping_params.vector_data(),                          //
+                                        0 /* passwordSid */,                                      //
+                                        0 /* biometricSid */,                                     //
+                                        &outBlob,                                                 //
+                                        &key_characteristics_,                                    //
+                                        &certChain_);
 
     if (result.isOk()) {
         key_blob_ = outBlob.data;

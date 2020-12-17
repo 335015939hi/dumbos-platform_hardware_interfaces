@@ -16,10 +16,12 @@
 
 package android.hardware.security.keymint;
 
+import android.hardware.security.keymint.Certificate;
+
 /**
- * Certificate holds a DER-encoded X.509 certificate.
+ * CertificateChain holds an array of Certificates
  */
 @VintfStability
-parcelable Certificate {
-    byte[] certificate;
+parcelable CertificateChain {
+    Certificate[] chain;
 }
