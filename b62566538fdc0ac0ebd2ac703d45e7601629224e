@@ -81,6 +81,30 @@
       },
       "revId": "b62566538fdc0ac0ebd2ac703d45e7601629224e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8e52a7b_6b435336",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-12-17T21:18:42Z",
+      "side": 1,
+      "message": "We\u0027d like to have them a pair, even there is no signature change. Please define setCarrierInfoForImsiEncryptionResponse_1_6.",
+      "parentUuid": "6ba4d171_4cdd73df",
+      "range": {
+        "startLine": 101,
+        "startChar": 22,
+        "endLine": 101,
+        "endChar": 65
+      },
+      "revId": "b62566538fdc0ac0ebd2ac703d45e7601629224e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
