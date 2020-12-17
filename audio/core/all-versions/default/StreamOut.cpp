@@ -17,6 +17,7 @@
 #define LOG_TAG "StreamOutHAL"
 
 #include "core/default/StreamOut.h"
+#include "core/default/Conversions.h"
 #include "core/default/Util.h"
 
 //#define LOG_NDEBUG 0
@@ -585,30 +586,36 @@ Return<void> StreamOut::debug(const hidl_handle& fd, const hidl_vec<hidl_string>
 }
 
 #if MAJOR_VERSION >= 4
+#if MAJOR_VERSION <= 6
 Return<void> StreamOut::updateSourceMetadata(const SourceMetadata& sourceMetadata) {
     if (mStream->update_source_metadata == nullptr) {
         return Void();  // not supported by the HAL
     }
+    Return<void> ret = Void();
     std::vector<playback_track_metadata_t> halTracks;
-    halTracks.reserve(sourceMetadata.tracks.size());
-    for (auto& metadata : sourceMetadata.tracks) {
-        playback_track_metadata_t halTrackMetadata = {.gain = metadata.gain};
-        (void)HidlUtils::audioUsageToHal(metadata.usage, &halTrackMetadata.usage);
-        (void)HidlUtils::audioContentTypeToHal(metadata.contentType,
-                                               &halTrackMetadata.content_type);
-        halTracks.push_back(std::move(halTrackMetadata));
+    (void)sourceMetadataToHal(sourceMetadata, &halTracks);
+#else
+Return<Result> StreamOut::updateSourceMetadata(const SourceMetadata& sourceMetadata) {
+    if (mStream->update_source_metadata == nullptr) {
+        return Result::NOT_SUPPORTED;
     }
+    Return<Result> ret = Result::OK;
+    std::vector<playback_track_metadata_t> halTracks;
+    if (status_t status = sourceMetadataToHal(sourceMetadata, &halTracks); status != NO_ERROR) {
+        return Stream::analyzeStatus("sourceMetadataToHal", status);
+    }
+#endif  // MAJOR_VERSION <= 6
     const source_metadata_t halMetadata = {
         .track_count = halTracks.size(),
         .tracks = halTracks.data(),
     };
     mStream->update_source_metadata(mStream, &halMetadata);
-    return Void();
+    return ret;
 }
 Return<Result> StreamOut::selectPresentation(int32_t /*presentationId*/, int32_t /*programId*/) {
     return Result::NOT_SUPPORTED;  // TODO: propagate to legacy
 }
-#endif
+#endif  // MAJOR_VERSION >= 4
 
 #if MAJOR_VERSION >= 6
 Return<void> StreamOut::getDualMonoMode(getDualMonoMode_cb _hidl_cb) {

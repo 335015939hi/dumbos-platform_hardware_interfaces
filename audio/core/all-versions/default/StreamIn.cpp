@@ -478,30 +478,31 @@ Return<void> StreamIn::debug(const hidl_handle& fd, const hidl_vec<hidl_string>&
 }
 
 #if MAJOR_VERSION >= 4
+#if MAJOR_VERSION <= 6
 Return<void> StreamIn::updateSinkMetadata(const SinkMetadata& sinkMetadata) {
     if (mStream->update_sink_metadata == nullptr) {
         return Void();  // not supported by the HAL
     }
+    Return<void> ret = Void();
     std::vector<record_track_metadata> halTracks;
-    halTracks.reserve(sinkMetadata.tracks.size());
-    for (auto& metadata : sinkMetadata.tracks) {
-        record_track_metadata halTrackMetadata = {.gain = metadata.gain};
-        (void)HidlUtils::audioSourceToHal(metadata.source, &halTrackMetadata.source);
-#if MAJOR_VERSION >= 5
-        if (metadata.destination.getDiscriminator() ==
-            RecordTrackMetadata::Destination::hidl_discriminator::device) {
-            (void)deviceAddressToHal(metadata.destination.device(), &halTrackMetadata.dest_device,
-                                     halTrackMetadata.dest_device_address);
-        }
-#endif
-        halTracks.push_back(halTrackMetadata);
+    (void)sinkMetadataToHal(sinkMetadata, &halTracks);
+#else
+Return<Result> StreamIn::updateSinkMetadata(const SinkMetadata& sinkMetadata) {
+    if (mStream->update_sink_metadata == nullptr) {
+        return Result::NOT_SUPPORTED;
     }
+    Return<Result> ret = Result::OK;
+    std::vector<record_track_metadata> halTracks;
+    if (status_t status = sinkMetadataToHal(sinkMetadata, &halTracks); status != NO_ERROR) {
+        return Stream::analyzeStatus("sinkMetadataToHal", status);
+    }
+#endif  // MAJOR_VERSION <= 6
     const sink_metadata_t halMetadata = {
         .track_count = halTracks.size(),
         .tracks = halTracks.data(),
     };
     mStream->update_sink_metadata(mStream, &halMetadata);
-    return Void();
+    return ret;
 }
 
 Return<void> StreamIn::getActiveMicrophones(getActiveMicrophones_cb _hidl_cb) {
@@ -522,7 +523,7 @@ Return<void> StreamIn::getActiveMicrophones(getActiveMicrophones_cb _hidl_cb) {
     _hidl_cb(retval, microphones);
     return Void();
 }
-#endif
+#endif  // MAJOR_VERSION >= 4
 
 #if MAJOR_VERSION >= 5
 Return<Result> StreamIn::setMicrophoneDirection(MicrophoneDirection direction) {
