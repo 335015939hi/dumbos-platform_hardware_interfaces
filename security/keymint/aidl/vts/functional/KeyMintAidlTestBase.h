@@ -173,6 +173,10 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     inline const vector<KeyParameter>& SecLevelAuthorizations() {
         return SecLevelAuthorizations(key_characteristics_);
     }
+    const vector<KeyParameter>& HwEnforcedAuthorizations(
+            const vector<KeyCharacteristics>& key_characteristics);
+    const vector<KeyParameter>& SwEnforcedAuthorizations(
+            const vector<KeyCharacteristics>& key_characteristics);
 
   private:
     std::shared_ptr<IKeyMintDevice> keymint_;
