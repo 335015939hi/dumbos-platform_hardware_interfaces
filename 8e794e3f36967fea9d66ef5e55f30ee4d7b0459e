@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ebafa3a_baed7343",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-18T22:00:43Z",
+      "side": 1,
+      "message": "It\u0027s useful to have a parameter value state \"invalid\". It also works around an AIDL bug in the Java output.",
+      "parentUuid": "e0616e16_3b8fc279",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 15
+      },
+      "revId": "8e794e3f36967fea9d66ef5e55f30ee4d7b0459e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48dcdc48_476c97a5",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "661f4f4d_08d03a88",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-18T22:00:43Z",
+      "side": 1,
+      "message": "It\u0027s useful to distinguish them to prevent dates from being used where long integers are expected, and vice versa.",
+      "parentUuid": "48dcdc48_476c97a5",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 20
+      },
+      "revId": "8e794e3f36967fea9d66ef5e55f30ee4d7b0459e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88aa8358_877dc3e1",
@@ -60,6 +108,30 @@
       "writtenOn": "2020-12-18T06:49:26Z",
       "side": 1,
       "message": "I\u0027m wondering if the \"invalid\" field would be printed correctly?",
+      "range": {
+        "startLine": 39,
+        "startChar": 27,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "8e794e3f36967fea9d66ef5e55f30ee4d7b0459e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ebfc431_337028b2",
+        "filename": "security/keymint/support/key_param_output.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-18T22:00:43Z",
+      "side": 1,
+      "message": "Sure, it would just show the union tag is KeyParameterValue::invalid, and the value is some integer value.  Probably 0, since that\u0027s what I set it to.",
+      "parentUuid": "88aa8358_877dc3e1",
       "range": {
         "startLine": 39,
         "startChar": 27,
