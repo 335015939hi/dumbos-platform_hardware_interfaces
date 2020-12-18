@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0616e16_3b8fc279",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-12-18T06:49:26Z",
+      "side": 1,
+      "message": "invalid should be a value in the field, defined as a enum.  It doesn\u0027t make sense to create a member called invalid.",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 15
+      },
+      "revId": "8e794e3f36967fea9d66ef5e55f30ee4d7b0459e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48dcdc48_476c97a5",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-12-18T06:49:26Z",
+      "side": 1,
+      "message": "longInteger and data are both long, there is really no need to write them differently and use different variables.  I think I\u0027m not the only person thinking that, but I can\u0027t remember who else also thinks that.",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 20
+      },
+      "revId": "8e794e3f36967fea9d66ef5e55f30ee4d7b0459e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88aa8358_877dc3e1",
+        "filename": "security/keymint/support/key_param_output.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-12-18T06:49:26Z",
+      "side": 1,
+      "message": "I\u0027m wondering if the \"invalid\" field would be printed correctly?",
+      "range": {
+        "startLine": 39,
+        "startChar": 27,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "8e794e3f36967fea9d66ef5e55f30ee4d7b0459e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
