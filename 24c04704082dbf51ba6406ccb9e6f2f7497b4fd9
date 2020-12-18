@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34f5f214_18bce91d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-12-18T06:39:45Z",
+      "side": 1,
+      "message": "I remember aidl require us to use cpp for vts tests, and ndk for others.  Did you get the approval of aidl team for changing to this way?",
+      "revId": "24c04704082dbf51ba6406ccb9e6f2f7497b4fd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
