@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec74f7fb_373c5658",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-18T00:15:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0658ca1_280fc113",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "8fdc751c51bf71d715622b1a53957f4d86372cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6bef9a5_762072ac",
@@ -70,6 +94,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f05867f_62282d13",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-18T00:15:48Z",
+      "side": 1,
+      "message": "Deleted.  I think it should have said \"not nullable only because\"... but I don\u0027t think the comment is even needed.",
+      "parentUuid": "ebbb0a9c_f513d350",
+      "range": {
+        "startLine": 45,
+        "startChar": 27,
+        "endLine": 45,
+        "endChar": 68
+      },
+      "revId": "8fdc751c51bf71d715622b1a53957f4d86372cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa1fba6d_eb0f4adf",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-18T00:15:48Z",
+      "side": 1,
+      "message": "The others are a mistake.  Not sure how/why.  This has a suffix because \u0027bool\u0027 is a keyword in C and boolean is a keyword in Java.",
+      "parentUuid": "a6bef9a5_762072ac",
+      "range": {
+        "startLine": 45,
+        "startChar": 16,
+        "endLine": 45,
+        "endChar": 21
+      },
+      "revId": "8fdc751c51bf71d715622b1a53957f4d86372cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e91c61b_a0d1f9aa",
@@ -83,6 +155,30 @@
       "writtenOn": "2020-12-17T23:09:57Z",
       "side": 1,
       "message": "There is no \u0027@nullable\u0027 annotation (dated comment?)",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 55
+      },
+      "revId": "8fdc751c51bf71d715622b1a53957f4d86372cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbdce151_2b88e943",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyParameterValue.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-18T00:15:48Z",
+      "side": 1,
+      "message": "Deleted.",
+      "parentUuid": "7e91c61b_a0d1f9aa",
       "range": {
         "startLine": 50,
         "startChar": 0,
