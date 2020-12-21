@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6a11952_01ed6cce",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-12-21T20:25:56Z",
+      "side": 1,
+      "message": "Easier to read if you just did something like this\n\n  ciphertext1[offset_to_corrupt] ^\u003d 0xff;\n\ne.g. flip all bits in the victim byte.",
+      "range": {
+        "startLine": 2107,
+        "startChar": 0,
+        "endLine": 2111,
+        "endChar": 58
+      },
+      "revId": "bf7868592fcfc306075dcaa83c4019e25aee65fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
