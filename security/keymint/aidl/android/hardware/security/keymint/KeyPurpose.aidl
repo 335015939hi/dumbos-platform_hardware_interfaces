@@ -39,5 +39,9 @@ enum KeyPurpose {
     /* Usable with wrapping keys. */
     WRAP_KEY = 5,
 
-    /* TODO(seleneh) add AGREE_KEY and ATTEST_KEY and their corresponding codes and tests later*/
+    /* Usable as an attestation signing key.  Keys with this purpose must not have any other
+     * purpose. */
+    ATTEST_KEY = 6,
+
+    /* TODO(seleneh) add AGREE_KEY and corresponding codes and tests */
 }
