@@ -16,14 +16,15 @@
 
 package android.hardware.security.keymint;
 
+import android.hardware.security.keymint.AttestationKey;
 import android.hardware.security.keymint.BeginResult;
 import android.hardware.security.keymint.ByteArray;
 import android.hardware.security.keymint.HardwareAuthToken;
 import android.hardware.security.keymint.IKeyMintOperation;
 import android.hardware.security.keymint.KeyCreationResult;
 import android.hardware.security.keymint.KeyFormat;
-import android.hardware.security.keymint.KeyParameter;
 import android.hardware.security.keymint.KeyMintHardwareInfo;
+import android.hardware.security.keymint.KeyParameter;
 import android.hardware.security.keymint.KeyPurpose;
 import android.hardware.security.keymint.SecurityLevel;
 
@@ -314,9 +315,18 @@ interface IKeyMintDevice {
      *        provided in params.  See above for detailed specifications of which tags are required
      *        for which types of keys.
      *
+     * @param attestationKey, if provided, specifies the key that must be used to sign the
+     *        attestation certificate.  If `keyParams` does not contain a Tag::ATTESTATION_CHALLENGE
+     *        but `attestationKey` is non-null, the IKeyMintDevice must return
+     *        ErrorCode::INVALID_ARGUMENT.  If the provided AttestationKey does not contain a key
+     *        blob containing an assymetric key with KeyPurpose::ATTEST_KEY, the IKeyMintDevice must
+     *        return ErrorCode::INVALID_PURPOSE.  If the provided AttestationKey has an empty issuer
+     *        subject name, the IKeyMintDevice must return ErrorCode::INVALID_ARGUMENT.
+     *
      * @return The result of key creation.  See KeyCreationResult.aidl.
      */
-    KeyCreationResult generateKey(in KeyParameter[] keyParams);
+    KeyCreationResult generateKey(
+            in KeyParameter[] keyParams, in @nullable AttestationKey attestationKey);
 
     /**
      * Imports key material into an IKeyMintDevice.  Key definition parameters and return values
@@ -344,10 +354,18 @@ interface IKeyMintDevice {
      *
      * @param inKeyData The key material to import, in the format specified in keyFormat.
      *
+     * @param attestationKey, if provided, specifies the key that must be used to sign the
+     *        attestation certificate.  If `keyParams` does not contain a Tag::ATTESTATION_CHALLENGE
+     *        but `attestationKey` is non-null, the IKeyMintDevice must return
+     *        ErrorCode::INVALID_ARGUMENT.  If the provided AttestationKey does not contain a key
+     *        blob containing an assymetric key with KeyPurpose::ATTEST_KEY, the IKeyMintDevice must
+     *        return ErrorCode::INVALID_PURPOSE.  If the provided AttestationKey has an empty issuer
+     *        subject name, the IKeyMintDevice must return ErrorCode::INVALID_ARGUMENT.
+     *
      * @return The result of key creation.  See KeyCreationResult.aidl.
      */
     KeyCreationResult importKey(in KeyParameter[] keyParams, in KeyFormat keyFormat,
-                                in byte[] keyData);
+            in byte[] keyData, in @nullable AttestationKey attestationKey);
 
     /**
      * Securely imports a key, or key pair, returning a key blob and a description of the imported
@@ -427,14 +445,19 @@ interface IKeyMintDevice {
      *        If the wrappedKeyData does not contain such a tag and value, this argument must be
      *        ignored.
      *
+     * @param attestationKey, if provided, specifies the key that must be used to sign the
+     *        attestation certificate.  If `keyParams` does not contain a Tag::ATTESTATION_CHALLENGE
+     *        but `attestationKey` is non-null, the IKeyMintDevice must return
+     *        ErrorCode::INVALID_ARGUMENT.  If the provided AttestationKey does not contain a key
+     *        blob containing an assymetric key with KeyPurpose::ATTEST_KEY, the IKeyMintDevice must
+     *        return ErrorCode::INVALID_PURPOSE.  If the provided AttestationKey has an empty issuer
+     *        subject name, the IKeyMintDevice must return ErrorCode::INVALID_ARGUMENT.
+     *
      * @return The result of key creation.  See KeyCreationResult.aidl.
      */
-     KeyCreationResult importWrappedKey(in byte[] wrappedKeyData,
-                                        in byte[] wrappingKeyBlob,
-                                        in byte[] maskingKey,
-                                        in KeyParameter[] unwrappingParams,
-                                        in long passwordSid,
-                                        in long biometricSid);
+    KeyCreationResult importWrappedKey(in byte[] wrappedKeyData, in byte[] wrappingKeyBlob,
+            in byte[] maskingKey, in KeyParameter[] unwrappingParams, in long passwordSid,
+            in long biometricSid, in @nullable AttestationKey attestationKey);
 
     /**
      * Upgrades an old key blob.  Keys can become "old" in two ways: IKeyMintDevice can be
@@ -469,7 +492,7 @@ interface IKeyMintDevice {
      * @return A new key blob that references the same key as keyBlobToUpgrade, but is in the new
      *         format, or has the new version data.
      */
-    byte[] upgradeKey(in byte[] inKeyBlobToUpgrade, in KeyParameter[] inUpgradeParams);
+    byte[] upgradeKey(in byte[] keyBlobToUpgrade, in KeyParameter[] upgradeParams);
 
     /**
      * Deletes the key, or key pair, associated with the key blob.  Calling this function on
@@ -479,7 +502,7 @@ interface IKeyMintDevice {
      *
      * @param inKeyBlob The opaque descriptor returned by generateKey() or importKey();
      */
-    void deleteKey(in byte[] inKeyBlob);
+    void deleteKey(in byte[] keyBlob);
 
     /**
      * Deletes all keys in the hardware keystore.  Used when keystore is reset completely.  After
@@ -705,8 +728,6 @@ interface IKeyMintDevice {
      *         from operations that generate an IV or nonce, and IKeyMintOperation object pointer
      *         which is used to perform update(), finish() or abort() operations.
      */
-    BeginResult begin(in KeyPurpose inPurpose,
-               in byte[] inKeyBlob,
-               in KeyParameter[] inParams,
-               in HardwareAuthToken inAuthToken);
+    BeginResult begin(in KeyPurpose purpose, in byte[] keyBlob, in KeyParameter[] params,
+            in HardwareAuthToken authToken);
 }
