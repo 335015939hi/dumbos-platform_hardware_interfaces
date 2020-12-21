@@ -56,6 +56,29 @@
       },
       "revId": "fb86aa227f8e7480b0946621fe10c872d1c06534",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8238b9a_1d27107a",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2107,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-12-21T20:38:46Z",
+      "side": 1,
+      "message": "Easier to read if you just did something like this\n\n  ciphertext1[offset_to_corrupt] ^\u003d 0xff;\n\ne.g. flip all bits in the victim byte.",
+      "range": {
+        "startLine": 2103,
+        "startChar": 0,
+        "endLine": 2107,
+        "endChar": 54
+      },
+      "revId": "fb86aa227f8e7480b0946621fe10c872d1c06534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
