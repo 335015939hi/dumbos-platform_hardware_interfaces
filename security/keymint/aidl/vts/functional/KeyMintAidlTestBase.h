@@ -21,20 +21,27 @@
 #include <binder/IServiceManager.h>
 #include <binder/ProcessState.h>
 #include <gtest/gtest.h>
+#include <openssl/x509.h>
 
 #include <aidl/android/hardware/security/keymint/ErrorCode.h>
 #include <aidl/android/hardware/security/keymint/IKeyMintDevice.h>
 
 #include <keymint_support/authorization_set.h>
+#include <keymint_support/openssl_utils.h>
 
 namespace aidl::android::hardware::security::keymint {
 
 ::std::ostream& operator<<(::std::ostream& os, const AuthorizationSet& set);
 
+inline bool operator==(const keymint::AuthorizationSet& a, const keymint::AuthorizationSet& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
 namespace test {
 
 using ::android::sp;
 using Status = ::ndk::ScopedAStatus;
+using ::std::optional;
 using ::std::shared_ptr;
 using ::std::string;
 using ::std::vector;
@@ -43,6 +50,9 @@ constexpr uint64_t kOpHandleSentinel = 0xFFFFFFFFFFFFFFFF;
 
 class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
   public:
+    static bool arm_deleteAllKeys;
+    static bool dump_Attestations;
+
     void SetUp() override;
     void TearDown() override {
         if (key_blob_.size()) {
@@ -57,10 +67,18 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t os_patch_level() { return os_patch_level_; }
 
     ErrorCode GetReturnErrorCode(const Status& result);
-    ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
-                          vector<KeyCharacteristics>* key_characteristics);
 
-    ErrorCode GenerateKey(const AuthorizationSet& key_desc);
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
+                          vector<KeyCharacteristics>* key_characteristics) {
+        return GenerateKey(key_desc, std::nullopt /* attest_key */, key_blob, key_characteristics,
+                           &cert_chain_);
+    }
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc,
+                          const optional<AttestationKey>& attest_key, vector<uint8_t>* key_blob,
+                          vector<KeyCharacteristics>* key_characteristics,
+                          vector<Certificate>* cert_chain);
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc,
+                          const optional<AttestationKey>& attest_key = std::nullopt);
 
     ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                         const string& key_material, vector<uint8_t>* key_blob,
@@ -193,6 +211,16 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     string author_;
     long challenge_;
 };
+
+bool verify_attestation_record(const string& challenge,                //
+                               const string& app_id,                   //
+                               AuthorizationSet expected_sw_enforced,  //
+                               AuthorizationSet expected_hw_enforced,  //
+                               SecurityLevel security_level,
+                               const vector<uint8_t>& attestation_cert);
+string bin2hex(const vector<uint8_t>& data);
+X509_Ptr parse_cert_blob(const vector<uint8_t>& blob);
+::testing::AssertionResult ChainSignaturesAreValid(const vector<Certificate>& chain);
 
 #define INSTANTIATE_KEYMINT_AIDL_TEST(name)                                          \
     INSTANTIATE_TEST_SUITE_P(PerInstance, name,                                      \
