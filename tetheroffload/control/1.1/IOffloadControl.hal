@@ -17,12 +17,28 @@
 package android.hardware.tetheroffload.control@1.1;
 
 import @1.0::IOffloadControl;
+import ITetheringOffloadCallback;
 
 /**
  * Interface used to control the lifecycle of tethering offload. Note that callbacks of 1.1 HAL
  * can be registered with the existing callback registration methods from 1.0 HAL.
  */
 interface IOffloadControl extends @1.0::IOffloadControl {
+    /**
+     * This api replaces {@link @1.0::IOffloadControl::initOffload}, uses the updated
+     * {@link @1.0::ITetheringOffloadCallback}.
+     *
+     * @param cb Assuming success, this callback must provide unsolicited updates of offload status.
+     *           It is assumed to be valid until stopOffload is called.
+     *
+     * @return success true if initialization is successful, false otherwise
+     * @return errMsg a human readable string if eror has occurred.
+     *
+     */
+    @entry
+    @callflow(next={"*"})
+    initOffload_1_1(ITetheringOffloadCallback cb) generates (bool success, string errMsg);
+
     /**
      * Instruct hardware to send callbacks after certain number of bytes have been transferred in
      * either direction on this upstream interface.
