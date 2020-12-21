@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2021 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,17 +31,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.keymint;
-@VintfStability
-interface IKeyMintDevice {
-  android.hardware.security.keymint.KeyMintHardwareInfo getHardwareInfo();
-  void addRngEntropy(in byte[] data);
-  android.hardware.security.keymint.KeyCreationResult generateKey(in android.hardware.security.keymint.KeyParameter[] keyParams, in @nullable android.hardware.security.keymint.AttestationKey attestationKey);
-  android.hardware.security.keymint.KeyCreationResult importKey(in android.hardware.security.keymint.KeyParameter[] keyParams, in android.hardware.security.keymint.KeyFormat keyFormat, in byte[] keyData, in @nullable android.hardware.security.keymint.AttestationKey attestationKey);
-  android.hardware.security.keymint.KeyCreationResult importWrappedKey(in byte[] wrappedKeyData, in byte[] wrappingKeyBlob, in byte[] maskingKey, in android.hardware.security.keymint.KeyParameter[] unwrappingParams, in long passwordSid, in long biometricSid, in @nullable android.hardware.security.keymint.AttestationKey attestationKey);
-  byte[] upgradeKey(in byte[] inKeyBlobToUpgrade, in android.hardware.security.keymint.KeyParameter[] inUpgradeParams);
-  void deleteKey(in byte[] inKeyBlob);
-  void deleteAllKeys();
-  void destroyAttestationIds();
-  android.hardware.security.keymint.BeginResult begin(in android.hardware.security.keymint.KeyPurpose inPurpose, in byte[] inKeyBlob, in android.hardware.security.keymint.KeyParameter[] inParams, in android.hardware.security.keymint.HardwareAuthToken inAuthToken);
-  const int AUTH_TOKEN_MAC_LENGTH = 32;
+@RustDerive(Clone=true, Eq=true, Hash=true, Ord=true, PartialEq=true, PartialOrd=true) @VintfStability
+parcelable AttestationKey {
+  byte[] keyBlob;
+  android.hardware.security.keymint.KeyParameter[] attestKeyParams;
+  byte[] issuerSubjectName;
 }
