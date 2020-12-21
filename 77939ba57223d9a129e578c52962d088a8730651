@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86809215_1dd40fc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2020-12-21T05:46:56Z",
+      "side": 1,
+      "message": "Hi Shawn, sorry to bother you before Dec 23rd, it seems that VtsAidlKeyMintTargetTest is broken (can\u0027t be started in cuttlefish), please ignore if this is a false alert, thanks!",
+      "revId": "77939ba57223d9a129e578c52962d088a8730651",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
