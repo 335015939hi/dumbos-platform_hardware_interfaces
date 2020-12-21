@@ -337,6 +337,13 @@ interface IKeyMintDevice {
      *        provided in params.  See above for detailed specifications of which tags are required
      *        for which types of keys.
      *
+     * @param attestationSigningKeyBlob, if provided, specifies the key that must be used to sign
+     *        the attestation certificate.  If `keyParams` does not contain a
+     *        Tag::ATTESTATION_CHALLENGE but `attestationSigningKeyBlob` is non-null, the
+     *        IKeyMintDevice must return ErrorCode::INVALID_ARGUMENT.  If the provided blob does not
+     *        contain an assymetric key with KeyPurpose::ATTEST_KEY, the IKeyMintDevice must return
+     *        ErrorCode::INVALID_ARGUMENT.
+     *
      * @return generatedKeyBlob Opaque descriptor of the generated key.  The recommended
      *         implementation strategy is to include an encrypted copy of the key material, wrapped
      *         in a key unavailable outside secure hardware.
@@ -353,15 +360,24 @@ interface IKeyMintDevice {
      *         enforced.  Otherwise, it's software enforced.
      *
      * @return If the key is an asymmetric key, generateKey will return a chain of one or more
-     *         certificates.  If `keyParams` contains Tag::ATTESTATION_CHALLENGE the first
-     *         certificate will contain an attestation extension, and will be signed by a
-     *         factory-installed attestation key and followed by a chain of certificates leading to
-     *         an authoritative root.  If there is no attestation challenge, only one certificate
-     *         will be returned, and it will be self-signed or signed by a dummy key, depending on
-     *         whether the key has KeyPurpose::SIGN.  If the generated key is symmetric, the return
-     *         will be null.
+     *         certificates.  Three cases:
+     *
+     *         1.  If `keyParams` contains Tag::ATTESTATION_CHALLENGE and
+     *             `attestationSigningKeyBlob` is null, the first certificate will contain an
+     *             attestation extension, and will be signed by a factory-installed attestation key
+     *             and followed by a chain of certificates leading to an authoritative root.
+     *         2.  If `keyParams` contains Tag::ATTESTATION_CHALLENGE and
+     *             `attestationSigningKeyBlob` is not null and contains a key with
+     *             KeyPurpose::ATTEST_KEY, the chain will contain a single certificate, signed by
+     *             the provided attestation signing key.
+     *         3.  If `keyParams` does not contain Tag::ATTESTATION_CHALLENGE, the chain will
+     *             contain a single certificate, either self-signed or signed by a dummy key,
+     *             depending on whether the securely-imported key has KeyPurpose::SIGN.
+     *
+     *         If the imported key is symmetric or if an error occurs, the return will be null.
      */
     @nullable CertificateChain generateKey(in KeyParameter[] keyParams,
+                                           in @nullable byte[] attestationSigningKeyBlob,
                                            out ByteArray generatedKeyBlob,
                                            out KeyCharacteristics generatedKeyCharacteristics);
 
@@ -391,6 +407,13 @@ interface IKeyMintDevice {
      *
      * @param keyData The key material to import, in the format specified in keyFormat.
      *
+     * @param attestationSigningKeyBlob, if provided, specifies the key that must be used to sign
+     *        the attestation certificate.  If `keyParams` does not contain a
+     *        Tag::ATTESTATION_CHALLENGE but `attestationSigningKeyBlob` is non-null, the
+     *        IKeyMintDevice must return ErrorCode::INVALID_ARGUMENT.  If the provided blob does not
+     *        contain an assymetric key with KeyPurpose::ATTEST_KEY, the IKeyMintDevice must return
+     *        ErrorCode::INVALID_ARGUMENT.
+     *
      * @return importedKeyBlob descriptor of the imported key.  The format of the keyblob will
      *         be the google specified keyblob format.
      *
@@ -398,16 +421,27 @@ interface IKeyMintDevice {
      *         keyCharacteristics description in generateKey.
      *
      * @return If the key is an asymmetric key, importKey will return a chain of one or more
-     *         certificates.  If `keyParams` contains Tag::ATTESTATION_CHALLENGE the first
-     *         certificate will contain an attestation extension, and will be signed by a
-     *         factory-installed attestation key and followed by a chain of certificates leading to
-     *         an authoritative root.  If there is no attestation challenge, only one certificate
-     *         will be returned, and it will be self-signed or signed by a dummy key, depending on
-     *         whether the key has KeyPurpose::SIGN.  If the importted key is symmetric, the return
-     *         will be null.
+     *         certificates.  Three cases:
+     *
+     *         1.  If `keyParams` contains Tag::ATTESTATION_CHALLENGE and
+     *             `attestationSigningKeyBlob` is null, the first certificate will contain an
+     *             attestation extension, and will be signed by a factory-installed attestation key
+     *             and followed by a chain of certificates leading to an authoritative root.
+     *         2.  If `keyParams` contains Tag::ATTESTATION_CHALLENGE and
+     *             `attestationSigningKeyBlob` is not null and contains a key with
+     *             KeyPurpose::ATTEST_KEY, the chain will contain a single certificate, signed by
+     *             the provided attestation signing key.
+     *         3.  If `keyParams` does not contain Tag::ATTESTATION_CHALLENGE, the chain will
+     *             contain a single certificate, either self-signed or signed by a dummy key,
+     *             depending on whether the securely-imported key has KeyPurpose::SIGN.
+     *
+     *         If the imported key is symmetric or if an error occurs, the return will be null.
      */
-    @nullable CertificateChain importKey(in KeyParameter[] keyParams, in KeyFormat keyFormat,
-                                         in byte[] keyData, out ByteArray importedKeyBlob,
+    @nullable CertificateChain importKey(in KeyParameter[] keyParams,
+                                         in KeyFormat keyFormat,
+                                         in byte[] keyData,
+                                         in @nullable byte[] attestationSigningKeyBlob,
+                                         out ByteArray importedKeyBlob,
                                          out KeyCharacteristics keyCharacteristics);
 
     /**
@@ -488,6 +522,13 @@ interface IKeyMintDevice {
      *        If the wrappedKeyData does not contain such a tag and value, this argument must be
      *        ignored.
      *
+     * @param attestationSigningKeyBlob, if provided, specifies the key that must be used to sign
+     *        the attestation certificate.  If the keyParams in the importedKeyBlob does not contain
+     *        a Tag::ATTESTATION_CHALLENGE but `attestationSigningKeyBlob` is non-null, the
+     *        IKeyMintDevice must return ErrorCode::INVALID_ARGUMENT.  If the provided blob does not
+     *        contain an assymetric key with KeyPurpose::ATTEST_KEY, the IKeyMintDevice must return
+     *        ErrorCode::INVALID_ARGUMENT.
+     *
      * @return importedKeyBlob Opaque descriptor of the imported key.  It is recommended that the
      *         keyBlob contain a copy of the key material, wrapped in a key unavailable outside
      *         secure hardware.
@@ -496,13 +537,22 @@ interface IKeyMintDevice {
      *         keyCharacteristics parameter in generateKey.
      *
      * @return If the key is an asymmetric key, importWrappedKey will return a chain of one or more
-     *         certificates.  If the key parameters in wrappedKeyData contain
-     *         Tag::ATTESTATION_CHALLENGE the first certificate will contain an attestation
-     *         extension, and will be signed by a factory-installed attestation key and followed by
-     *         a chain of certificates leading to an authoritative root.  If there is no attestation
-     *         challenge, only one certificate will be returned, and it will be self-signed or
-     *         signed by a dummy key, depending on whether the securely-imported key has
-     *         KeyPurpose::SIGN.  If the imported key is symmetric, the return will be null.
+     *         certificates.  Three cases:
+     *
+     *         1.  If the key parameters in wrappedKeyData contain Tag::ATTESTATION_CHALLENGE and
+     *             `attestationSigningKeyBlob` is null, the first certificate will contain an
+     *             attestation extension, and will be signed by a factory-installed attestation key
+     *             and followed by a chain of certificates leading to an authoritative root.
+     *         2.  If the key parameters in wrappedKeyData contain Tag::ATTESTATION_CHALLENGE and
+     *             `attestationSigningKeyBlob` is not null and contains a key with
+     *             KeyPurpose::ATTEST_KEY, the chain will contain a single certificate, signed by
+     *             the provided attestation signing key.
+     *         3.  If the key parameters in wrappedKeyData does not contain
+     *             Tag::ATTESTATION_CHALLENGE, the chain will contain a single certificate, either
+     *             self-signed or signed by a dummy key, depending on whether the securely-imported
+     *             key has KeyPurpose::SIGN.
+     *
+     *         If the imported key is symmetric or if an error occurs, the return will be null.
      */
     @nullable CertificateChain importWrappedKey(in byte[] wrappedKeyData,
                                                 in byte[] wrappingKeyBlob,
@@ -510,6 +560,7 @@ interface IKeyMintDevice {
                                                 in KeyParameter[] unwrappingParams,
                                                 in long passwordSid,
                                                 in long biometricSid,
+                                                in @nullable byte[] attestationSigningKeyBlob,
                                                 out ByteArray importedKeyBlob,
                                                 out KeyCharacteristics keyCharacteristics);
 

@@ -94,7 +94,8 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
 
     Status result;
     ByteArray blob;
-    result = keymint_->generateKey(key_desc.vector_data(), &blob, keyChar, &cert_chain_);
+    result = keymint_->generateKey(key_desc.vector_data(), {} /* attestationSigningKeyBlob */,
+                                   &blob, keyChar, &cert_chain_);
 
     if (result.isOk()) {
         if (SecLevel() != SecurityLevel::SOFTWARE) {
@@ -135,8 +136,9 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFo
 
     ByteArray blob;
     result = keymint_->importKey(key_desc.vector_data(), format,
-                                 vector<uint8_t>(key_material.begin(), key_material.end()), &blob,
-                                 key_characteristics, &cert_chain_);
+                                 vector<uint8_t>(key_material.begin(), key_material.end()),
+                                 {} /* attestationSigningKeyBlob */, &blob, key_characteristics,
+                                 &cert_chain_);
 
     if (result.isOk()) {
         if (SecLevel() != SecurityLevel::SOFTWARE) {
@@ -183,6 +185,7 @@ ErrorCode KeyMintAidlTestBase::ImportWrappedKey(string wrapped_key, string wrapp
                                         unwrapping_params.vector_data(),                          //
                                         0 /* passwordSid */,                                      //
                                         0 /* biometricSid */,                                     //
+                                        {} /* attestationSigningKeyBlob */,                       //
                                         &outBlob,                                                 //
                                         &key_characteristics_,                                    //
                                         &cert_chain_);
