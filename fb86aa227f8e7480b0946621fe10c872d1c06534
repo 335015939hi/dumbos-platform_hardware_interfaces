@@ -16,6 +16,46 @@
       "message": "Note that all of this needs to move to hardware/interfaces/security.  I\u0027ll try to get the keymint copy landed today, so you can move this.",
       "revId": "fb86aa227f8e7480b0946621fe10c872d1c06534",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c965c80_d35355a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-12-21T20:30:15Z",
+      "side": 1,
+      "message": "Hmm, how is this different from CL:1518622 ? for example, they seem to add the same to keymint/aidl/vts/functional/keyMint1Test.cpp",
+      "revId": "fb86aa227f8e7480b0946621fe10c872d1c06534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b11343f4_92578b80",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-12-21T20:30:15Z",
+      "side": 1,
+      "message": "Missing newline.",
+      "range": {
+        "startLine": 199,
+        "startChar": 76,
+        "endLine": 199,
+        "endChar": 85
+      },
+      "revId": "fb86aa227f8e7480b0946621fe10c872d1c06534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
