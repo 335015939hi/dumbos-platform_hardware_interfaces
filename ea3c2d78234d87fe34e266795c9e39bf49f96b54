@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000006892049",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1534284?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "cd932a4e_4ea3f55d",
+          "description": "Change to \"tetheroffload/control/1.1/IOffloadControl.hal\"",
+          "replacements": [
+            {
+              "path": "tetheroffload/control/1.1/IOffloadControl.hal",
+              "range": {
+                "startLine": 28,
+                "startChar": 78,
+                "endLine": 28,
+                "endChar": 85
+              },
+              "replacement": "updated"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "a3c1e63b_2511610b",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-12-21T21:54:36Z",
+      "side": 1,
+      "message": "Common typo found: \"udpated\" -- should it be \"updated\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 28,
+        "startChar": 78,
+        "endLine": 28,
+        "endChar": 85
+      },
+      "revId": "ea3c2d78234d87fe34e266795c9e39bf49f96b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000006892049",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1534284?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "3a58741c_c9d077cd",
+          "description": "Change to \"tetheroffload/control/1.1/IOffloadControl.hal\"",
+          "replacements": [
+            {
+              "path": "tetheroffload/control/1.1/IOffloadControl.hal",
+              "range": {
+                "startLine": 35,
+                "startChar": 58,
+                "endLine": 35,
+                "endChar": 65
+              },
+              "replacement": "occurred"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "2c49d14a_f89ce061",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-12-21T21:54:36Z",
+      "side": 1,
+      "message": "Common typo found: \"occured\" -- should it be \"occurred\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 35,
+        "startChar": 58,
+        "endLine": 35,
+        "endChar": 65
+      },
+      "revId": "ea3c2d78234d87fe34e266795c9e39bf49f96b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
