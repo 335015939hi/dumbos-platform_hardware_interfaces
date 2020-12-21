@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce6c4342_1f3f9aa3",
+        "filename": "graphics/composer/2.4/vts/functional/VtsHalGraphicsComposerV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2020-12-21T21:59:27Z",
+      "side": 1,
+      "message": "can we have this as a named struct ?",
+      "range": {
+        "startLine": 286,
+        "startChar": 36,
+        "endLine": 286,
+        "endChar": 63
+      },
+      "revId": "1c010932b3b4e6ca7bc2821aaeb6c2b757e7f468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b234b04_5030eb0f",
+        "filename": "graphics/composer/2.4/vts/functional/VtsHalGraphicsComposerV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2020-12-21T21:59:27Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 288,
+        "startChar": 36,
+        "endLine": 288,
+        "endChar": 63
+      },
+      "revId": "1c010932b3b4e6ca7bc2821aaeb6c2b757e7f468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98b22c47_6185ceff",
+        "filename": "graphics/composer/2.4/vts/functional/VtsHalGraphicsComposerV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2020-12-21T21:59:27Z",
+      "side": 1,
+      "message": "why not just calling to mComposerClient-\u003egetDisplayAttribute_2_4? Then you can make configGroup a const.",
+      "range": {
+        "startLine": 291,
+        "startChar": 28,
+        "endLine": 291,
+        "endChar": 37
+      },
+      "revId": "1c010932b3b4e6ca7bc2821aaeb6c2b757e7f468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77678875_472817f1",
+        "filename": "graphics/composer/2.4/vts/functional/VtsHalGraphicsComposerV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2020-12-21T21:59:27Z",
+      "side": 1,
+      "message": "same for all attributes",
+      "range": {
+        "startLine": 299,
+        "startChar": 29,
+        "endLine": 299,
+        "endChar": 37
+      },
+      "revId": "1c010932b3b4e6ca7bc2821aaeb6c2b757e7f468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
