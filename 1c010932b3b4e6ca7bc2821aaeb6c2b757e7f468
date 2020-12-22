@@ -142,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35e78e80_e7b608e9",
+        "filename": "graphics/composer/2.4/vts/functional/VtsHalGraphicsComposerV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2020-12-22T22:43:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1be4dea1_4948b140",
+      "range": {
+        "startLine": 291,
+        "startChar": 28,
+        "endLine": 291,
+        "endChar": 37
+      },
+      "revId": "1c010932b3b4e6ca7bc2821aaeb6c2b757e7f468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77678875_472817f1",
