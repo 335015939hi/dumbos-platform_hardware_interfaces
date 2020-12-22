@@ -3849,8 +3849,13 @@ TEST_P(KeyDeletionTest, DeleteKey) {
 
     // Delete must work if rollback protection is implemented
     if (error == ErrorCode::OK) {
-        AuthorizationSet hardwareEnforced(key_characteristics_.hardwareEnforced);
-        ASSERT_TRUE(hardwareEnforced.Contains(TAG_ROLLBACK_RESISTANCE));
+        AuthorizationSet auth_params;
+        if (IsSecure()) {
+            auth_params = key_characteristics_.hardwareEnforced;
+        } else {
+            auth_params = key_characteristics_.softwareEnforced;
+        }
+        ASSERT_TRUE(auth_params.Contains(TAG_ROLLBACK_RESISTANCE));
 
         ASSERT_EQ(ErrorCode::OK, DeleteKey(true /* keep key blob */));
 
@@ -3882,8 +3887,13 @@ TEST_P(KeyDeletionTest, DeleteInvalidKey) {
 
     // Delete must work if rollback protection is implemented
     if (error == ErrorCode::OK) {
-        AuthorizationSet hardwareEnforced(key_characteristics_.hardwareEnforced);
-        ASSERT_TRUE(hardwareEnforced.Contains(TAG_ROLLBACK_RESISTANCE));
+        AuthorizationSet auth_params;
+        if (IsSecure()) {
+            auth_params = key_characteristics_.hardwareEnforced;
+        } else {
+            auth_params = key_characteristics_.softwareEnforced;
+        }
+        ASSERT_TRUE(auth_params.Contains(TAG_ROLLBACK_RESISTANCE));
 
         // Delete the key we don't care about the result at this point.
         DeleteKey();
@@ -3918,8 +3928,13 @@ TEST_P(KeyDeletionTest, DeleteAllKeys) {
 
     // Delete must work if rollback protection is implemented
     if (error == ErrorCode::OK) {
-        AuthorizationSet hardwareEnforced(key_characteristics_.hardwareEnforced);
-        ASSERT_TRUE(hardwareEnforced.Contains(TAG_ROLLBACK_RESISTANCE));
+        AuthorizationSet auth_params;
+        if (IsSecure()) {
+            auth_params = key_characteristics_.hardwareEnforced;
+        } else {
+            auth_params = key_characteristics_.softwareEnforced;
+        }
+        ASSERT_TRUE(auth_params.Contains(TAG_ROLLBACK_RESISTANCE));
 
         ASSERT_EQ(ErrorCode::OK, DeleteAllKeys());
 
