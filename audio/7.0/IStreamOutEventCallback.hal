@@ -51,6 +51,12 @@ interface IStreamOutEventCallback {
      * "has-atmos", int32
      * "audio-encoding", int32
      *
+     * S (audio HAL 7.0) defined keys are as follows :
+     * "audio-presentation-id", int32
+     * "audio-program-id", int32
+     * "audio-presentation-content-classifier", int32
+     * "audio-presentation-language", string
+     *
      * Parceling Format:
      * All values are native endian order. [1]
      *
