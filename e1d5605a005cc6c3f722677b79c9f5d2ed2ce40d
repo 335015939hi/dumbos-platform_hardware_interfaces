@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85e6f71d_505fbcb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-12-22T17:44:29Z",
+      "side": 1,
+      "message": "Did you figure out the root cause for the problems with the previous CLs? What are the additional tests that you\u0027ve run to make sure there isn\u0027t another regression requiring a revert?",
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31d45ee1_28ae32f7",
+        "filename": "memtrack/aidl/android/hardware/memtrack/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-12-22T17:44:29Z",
+      "side": 1,
+      "message": "IMemtrack::getGpuDeviceInfo() - or just drop this line. It may be used elsewhere in the future, and this comment is just meant to describe DeviceInfo.",
+      "range": {
+        "startLine": 20,
+        "startChar": 54,
+        "endLine": 20,
+        "endChar": 70
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c381d54a_615a8cc0",
+        "filename": "memtrack/aidl/android/hardware/memtrack/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-12-22T17:44:29Z",
+      "side": 1,
+      "message": "remove this line",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 46
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4df843f1_2a668c8e",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-12-22T17:44:29Z",
+      "side": 1,
+      "message": "\"must be\"?",
+      "range": {
+        "startLine": 34,
+        "startChar": 21,
+        "endLine": 34,
+        "endChar": 23
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3d664ff_b56800b2",
+        "filename": "memtrack/aidl/android/hardware/memtrack/MemtrackRecord.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-12-22T17:44:29Z",
+      "side": 1,
+      "message": "IMemtrack::getMemory() - or just drop this line. It may be used elsewhere in the future, and this comment is just meant to describe MemtrackRecord.",
+      "range": {
+        "startLine": 20,
+        "startChar": 58,
+        "endLine": 20,
+        "endChar": 67
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1602ca6_f04c9caa",
+        "filename": "memtrack/aidl/android/hardware/memtrack/MemtrackRecord.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-12-22T17:44:29Z",
+      "side": 1,
+      "message": "Remove this line.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 48
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed0f0580_e9cd791f",
+        "filename": "memtrack/aidl/vts/VtsHalMemtrackTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-12-22T17:44:29Z",
+      "side": 1,
+      "message": "I think these should be used in setup for the instance name using GetParam(), right? Otherwise, I\u0027m not seeing why these need to be parameterized tests.",
+      "range": {
+        "startLine": 82,
+        "startChar": 43,
+        "endLine": 82,
+        "endChar": 98
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
