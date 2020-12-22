@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1d46058_cfa9634b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-22T19:15:19Z",
+      "side": 1,
+      "message": "Hi Devin,\n\nI updated the commit message of aosp/1534121 to provide these details. This change was not the problem, the issue is with integrating into libmemtrack.",
+      "parentUuid": "85e6f71d_505fbcb1",
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31d45ee1_28ae32f7",
@@ -31,6 +49,30 @@
       "writtenOn": "2020-12-22T17:44:29Z",
       "side": 1,
       "message": "IMemtrack::getGpuDeviceInfo() - or just drop this line. It may be used elsewhere in the future, and this comment is just meant to describe DeviceInfo.",
+      "range": {
+        "startLine": 20,
+        "startChar": 54,
+        "endLine": 20,
+        "endChar": 70
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f78ee49_5d556eb2",
+        "filename": "memtrack/aidl/android/hardware/memtrack/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-22T19:15:19Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "31d45ee1_28ae32f7",
       "range": {
         "startLine": 20,
         "startChar": 54,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce2ac24f_a62a040d",
+        "filename": "memtrack/aidl/android/hardware/memtrack/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-22T19:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c381d54a_615a8cc0",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 46
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4df843f1_2a668c8e",
@@ -77,6 +143,30 @@
       "writtenOn": "2020-12-22T17:44:29Z",
       "side": 1,
       "message": "\"must be\"?",
+      "range": {
+        "startLine": 34,
+        "startChar": 21,
+        "endLine": 34,
+        "endChar": 23
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18b8bbdc_b00be394",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-22T19:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4df843f1_2a668c8e",
       "range": {
         "startLine": 34,
         "startChar": 21,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcde1bdc_a7ef4ee8",
+        "filename": "memtrack/aidl/android/hardware/memtrack/MemtrackRecord.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-22T19:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3d664ff_b56800b2",
+      "range": {
+        "startLine": 20,
+        "startChar": 58,
+        "endLine": 20,
+        "endChar": 67
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1602ca6_f04c9caa",
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d688ae4_0dd1d600",
+        "filename": "memtrack/aidl/android/hardware/memtrack/MemtrackRecord.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-22T19:15:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1602ca6_f04c9caa",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 48
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed0f0580_e9cd791f",
@@ -146,6 +284,30 @@
       "writtenOn": "2020-12-22T17:44:29Z",
       "side": 1,
       "message": "I think these should be used in setup for the instance name using GetParam(), right? Otherwise, I\u0027m not seeing why these need to be parameterized tests.",
+      "range": {
+        "startLine": 82,
+        "startChar": 43,
+        "endLine": 82,
+        "endChar": 98
+      },
+      "revId": "e1d5605a005cc6c3f722677b79c9f5d2ed2ce40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ca46577_d28e99db",
+        "filename": "memtrack/aidl/vts/VtsHalMemtrackTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2020-12-22T19:15:19Z",
+      "side": 1,
+      "message": "Good catch! I updated the setup.",
+      "parentUuid": "ed0f0580_e9cd791f",
       "range": {
         "startLine": 82,
         "startChar": 43,
