@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d043874e_706b84c8",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-12-22T20:55:39Z",
+      "side": 1,
+      "message": "Nit:  Move the TagType comment next to the tag type (2 \u003c\u003c 28).",
+      "range": {
+        "startLine": 204,
+        "startChar": 44,
+        "endLine": 204,
+        "endChar": 66
+      },
+      "revId": "4f237a4aa0121ab34bbf0f127c047efd4a40a135",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
