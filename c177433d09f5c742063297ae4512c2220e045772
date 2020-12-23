@@ -39,6 +39,30 @@
       },
       "revId": "c177433d09f5c742063297ae4512c2220e045772",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c7f2cb_40239930",
+        "filename": "audio/core/all-versions/default/Device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-12-23T23:00:04Z",
+      "side": 1,
+      "message": "Good suggestion. Instead of stating it here, I\u0027ve updated the contract of the interface of these functions and added verification in the tests.",
+      "parentUuid": "897cadf4_29539530",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 68
+      },
+      "revId": "c177433d09f5c742063297ae4512c2220e045772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
