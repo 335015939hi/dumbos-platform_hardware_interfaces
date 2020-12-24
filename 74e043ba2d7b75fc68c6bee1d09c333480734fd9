@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba6ee1ad_badcaae5",
+        "filename": "tv/input/1.0/default/TvInput.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1101748
+      },
+      "writtenOn": "2020-12-24T01:32:56Z",
+      "side": 0,
+      "message": "Q) Why did we add this parameter originally?",
+      "range": {
+        "startLine": 145,
+        "startChar": 14,
+        "endLine": 145,
+        "endChar": 22
+      },
+      "revId": "74e043ba2d7b75fc68c6bee1d09c333480734fd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
