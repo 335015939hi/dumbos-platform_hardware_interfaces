@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d05a65_a67af724",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2020-12-24T09:17:53Z",
+      "side": 1,
+      "message": "if the goal is to get at most one offload and one non offload invalid profile (as I understand from \"if (hasOffloadConfig \u0026\u0026 hasRegularConfig) break;\" below, we can continue here directly if (isOffload \u0026\u0026 hasOffloadConfig || !isOffload \u0026\u0026 hasRegularConfig)",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 66
+      },
+      "revId": "dc8615be19783654d0659edb7bb8ed502a7f9d92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd1a2a76_f2c66fe8",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2020-12-24T09:17:53Z",
+      "side": 1,
+      "message": "#else is enough here",
+      "range": {
+        "startLine": 976,
+        "startChar": 1,
+        "endLine": 976,
+        "endChar": 24
+      },
+      "revId": "dc8615be19783654d0659edb7bb8ed502a7f9d92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
