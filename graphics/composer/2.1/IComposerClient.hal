@@ -919,9 +919,8 @@ interface IComposerClient {
      *
      * This function must return NONE and have no other effect if called for a
      * layer with a composition type of Composition::SOLID_COLOR (because it
-     * has no buffer) or Composition::SIDEBAND or Composition::CLIENT (because
-     * synchronization and buffer updates for these layers are handled
-     * elsewhere).
+     * has no buffer) or Composition::SIDEBAND (because synchronization and
+     * buffer updates for these layers are handled elsewhere).
      *
      * @param layer is the layer to which the buffer is set.
      * @param bufferSlot is the buffer slot to use.
