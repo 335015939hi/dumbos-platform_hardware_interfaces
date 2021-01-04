@@ -495,10 +495,17 @@ TEST_P(GnssHalTest, GetAllExtensions) {
  * MeasurementCapabilities:
  * Verifies that modern hardware supports measurement capabilities.
  */
+<<<<<<< TARGET BRANCH (685b5e composer: fix 2.4 vts for multi-display)
 TEST_P(GnssHalTest, MeasurementCapabilites) {
     if (!IsAutomotiveDevice() && info_called_count_ > 0 && last_info_.yearOfHw >= 2016) {
         EXPECT_TRUE(last_capabilities_ & IGnssCallback::Capabilities::MEASUREMENTS);
     }
+=======
+TEST_F(GnssHalTest, MeasurementCapabilites) {
+  if (!IsAutomotiveDevice() && info_called_count_ > 0 && last_info_.yearOfHw >= 2016) {
+    EXPECT_TRUE(last_capabilities_ & IGnssCallback::Capabilities::MEASUREMENTS);
+  }
+>>>>>>> SOURCE BRANCH (bd78c6 Merge "Skip GnssMeasurement VTS for Android Automotive OS." )
 }
 
 /*
