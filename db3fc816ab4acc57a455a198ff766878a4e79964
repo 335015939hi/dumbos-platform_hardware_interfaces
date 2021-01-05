@@ -93,6 +93,30 @@
       },
       "revId": "db3fc816ab4acc57a455a198ff766878a4e79964",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e583b4e_fe95c566",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-05T17:27:45Z",
+      "side": 1,
+      "message": "Are there valid/invalid numbers expected in \"string number\" field? Can you have a \"+\", \"(\", \"-\", in that field? Does this field have an expected length?\nOr, is this just something that is passed along somewhere else(opaque).\nSame goes for emails and additionalNumbers.",
+      "parentUuid": "36dd1f02_7a29e848",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 34
+      },
+      "revId": "db3fc816ab4acc57a455a198ff766878a4e79964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
