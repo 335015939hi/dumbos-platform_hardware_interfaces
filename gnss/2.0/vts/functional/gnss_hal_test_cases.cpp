@@ -65,9 +65,13 @@ TEST_P(GnssHalTest, TestGnssMeasurementExtension) {
 
     // CDD does not require Android Automotive OS devices to support
     // GnssMeasurements.
+<<<<<<< HEAD   (685b5e composer: fix 2.4 vts for multi-display)
     if (Utils::isAutomotiveDevice()) {
         ALOGI("Test GnssMeasurementExtension skipped. Android Automotive OS deice is not required "
               "to support GNSS measurements.");
+=======
+    if(Utils::isAutomotiveDevice()) {
+>>>>>>> BRANCH (bd78c6 Merge "Skip GnssMeasurement VTS for Android Automotive OS." )
         return;
     }
 
