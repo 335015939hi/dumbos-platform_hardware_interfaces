@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3120e1e6_eae1f90f",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-01-05T18:44:40Z",
+      "side": 1,
+      "message": "Good catch, added.",
+      "parentUuid": "88d05a65_a67af724",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 66
+      },
+      "revId": "dc8615be19783654d0659edb7bb8ed502a7f9d92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd1a2a76_f2c66fe8",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-24T09:17:53Z",
       "side": 1,
       "message": "#else is enough here",
+      "range": {
+        "startLine": 976,
+        "startChar": 1,
+        "endLine": 976,
+        "endChar": 24
+      },
+      "revId": "dc8615be19783654d0659edb7bb8ed502a7f9d92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e717177d_54bd9923",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-01-05T18:44:40Z",
+      "side": 1,
+      "message": "We actually use this pattern in lots of places in these generic HAL and VTS files, since Kevin has unified them. Perhaps it\u0027s done for clarity or to minimize diffs once adding new versions. I would prefer to leave this as is for consistency.",
+      "parentUuid": "cd1a2a76_f2c66fe8",
       "range": {
         "startLine": 976,
         "startChar": 1,
