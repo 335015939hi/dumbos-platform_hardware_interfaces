@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68170ec4_bd5b2de1",
+        "filename": "tests/lazy/1.1/ILazy.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-05T22:13:46Z",
+      "side": 1,
+      "message": "use semantically relevant name for test readability (what is the expected behavior of the callback? \u0027custom\u0027 could be anything)",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 40
+      },
+      "revId": "9eac6d9bbe35548458d1e7bc384834665acf669c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
