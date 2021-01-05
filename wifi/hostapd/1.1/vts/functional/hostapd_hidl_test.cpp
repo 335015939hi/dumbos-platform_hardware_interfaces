@@ -60,7 +60,11 @@ class HostapdHidlTest
 
     virtual void TearDown() override {
         HIDL_INVOKE_VOID_WITHOUT_ARGUMENTS(hostapd_, terminate);
+<<<<<<< TARGET BRANCH (bf4acd health 2.0 vts: Allow for battery-less devices am: 828e90a42)
         stopHostapd(wifi_instance_name_);
+=======
+        stopHostapd();
+>>>>>>> SOURCE BRANCH (08ab48 wifi: Call terminate in VTS teardown)
     }
 
    protected:
