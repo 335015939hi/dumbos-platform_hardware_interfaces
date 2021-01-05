@@ -22,7 +22,6 @@ cc_test {
     ],
     srcs: [
         "KeyMintTest.cpp",
-        "VerificationTokenTest.cpp",
     ],
     shared_libs: [
         "libbinder_ndk",
