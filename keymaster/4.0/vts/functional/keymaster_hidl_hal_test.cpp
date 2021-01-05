@@ -17,8 +17,11 @@
 #define LOG_TAG "keymaster_hidl_hal_test"
 #include <cutils/log.h>
 
+<<<<<<< HEAD   (8173c2 [automerger skipped] Merge "Skip GnssMeasurement VTS for And)
 #include <signal.h>
 
+=======
+>>>>>>> BRANCH (cf6360 Allowing GSI patch level to be greater than vbmeta SPL)
 #include <functional>
 #include <iostream>
 #include <string>
