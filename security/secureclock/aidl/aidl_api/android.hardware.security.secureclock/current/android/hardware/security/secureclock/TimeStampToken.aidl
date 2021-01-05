@@ -19,7 +19,6 @@
 package android.hardware.security.secureclock;
 parcelable TimeStampToken {
   long challenge;
-  android.hardware.security.keymint.Timestamp timestamp;
-  android.hardware.security.keymint.SecurityLevel securityLevel;
+  android.hardware.security.secureclock.Timestamp timestamp;
   byte[] mac;
 }
