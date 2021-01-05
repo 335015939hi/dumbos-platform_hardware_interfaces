@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "193d2505_849603a8",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-05T23:06:06Z",
+      "side": 1,
+      "message": "Note that I\u0027m adding a get(size_t index) method to enable arrayItem-\u003eget(0). I think the syntax is a bit cleaner.",
+      "range": {
+        "startLine": 60,
+        "startChar": 38,
+        "endLine": 60,
+        "endChar": 53
+      },
+      "revId": "ea83b3f56f2f25c2dce54fdc7c85b463964c784d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61c273cd_fb8b453e",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-05T23:06:06Z",
+      "side": 1,
+      "message": "Note that I\u0027m adding moveValue() which returns a string\u0026\u0026 to avoid an allocation and a copy. Of course if you use moveValue() you\u0027ll need to be sure you don\u0027t try to access the contained value again because it\u0027ll be empty!",
+      "range": {
+        "startLine": 71,
+        "startChar": 28,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "ea83b3f56f2f25c2dce54fdc7c85b463964c784d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09b78c8e_38bb6fb8",
+        "filename": "identity/aidl/default/common/IdentityCredential.h",
+        "patchSetId": 41
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-05T23:06:06Z",
+      "side": 1,
+      "message": "Nit:  Might be nice to lift this into the aidl::android::hardware::identity namespace with a using declaration.",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 22
+      },
+      "revId": "ea83b3f56f2f25c2dce54fdc7c85b463964c784d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

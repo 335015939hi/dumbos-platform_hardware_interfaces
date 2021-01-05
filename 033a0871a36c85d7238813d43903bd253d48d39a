@@ -16,6 +16,29 @@
       "message": "Ready to be reviewed now Shawn - TIA!",
       "revId": "033a0871a36c85d7238813d43903bd253d48d39a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44794f6c_68b802e0",
+        "filename": "identity/aidl/default/EicOpsImpl.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-05T23:06:06Z",
+      "side": 1,
+      "message": "This should probably use CRYPTO_memcmp, which is constant-time.",
+      "range": {
+        "startLine": 66,
+        "startChar": 11,
+        "endLine": 66,
+        "endChar": 17
+      },
+      "revId": "033a0871a36c85d7238813d43903bd253d48d39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
