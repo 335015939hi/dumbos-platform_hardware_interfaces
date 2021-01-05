@@ -22,6 +22,30 @@
       },
       "revId": "9eac6d9bbe35548458d1e7bc384834665acf669c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a086dff_0ac33713",
+        "filename": "tests/lazy/1.1/ILazy.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-05T22:24:21Z",
+      "side": 1,
+      "message": "now that I\u0027ve read the test though - maybe just comment - the custom callback function still shut down the service",
+      "parentUuid": "68170ec4_bd5b2de1",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 40
+      },
+      "revId": "9eac6d9bbe35548458d1e7bc384834665acf669c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
