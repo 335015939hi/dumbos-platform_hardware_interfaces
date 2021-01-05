@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1835d0f_197a7009",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2021-01-05T11:15:17Z",
+      "side": 1,
+      "message": "It already merged in https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1191658",
+      "revId": "b69981bfc97c114e9898c41d9a509ef4ef504e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
