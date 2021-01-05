@@ -20,7 +20,6 @@ package android.hardware.security.secureclock;
 @RustDerive(Clone=true, Eq=true, Hash=true, Ord=true, PartialEq=true, PartialOrd=true) @VintfStability
 parcelable TimeStampToken {
   long challenge;
-  android.hardware.security.keymint.Timestamp timestamp;
-  android.hardware.security.keymint.SecurityLevel securityLevel;
+  android.hardware.security.secureclock.Timestamp timestamp;
   byte[] mac;
 }
