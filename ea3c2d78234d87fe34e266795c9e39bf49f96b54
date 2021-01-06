@@ -1,0 +1,28 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70dacd2a_1e182bd1",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2021-01-06T21:57:18Z",
+      "side": 1,
+      "message": "\u003e Common typo found: \"udpated\" -- should it be \"updated\"?\n\u003e Note: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.\n\nPlease fix.",
+      "parentUuid": "a3c1e63b_2511610b",
+      "range": {
+        "startLine": 28,
+        "startChar": 78,
+        "endLine": 28,
+        "endChar": 85
+      },
+      "revId": "ea3c2d78234d87fe34e266795c9e39bf49f96b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
