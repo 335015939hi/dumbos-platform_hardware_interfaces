@@ -76,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cf8b04c_023e774b",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2021-01-06T07:25:07Z",
+      "side": 1,
+      "message": "This means getPhonebookRecords() could be invoked after notified by the phonebookInitDone",
+      "parentUuid": "b151f8d6_eb36c292",
+      "range": {
+        "startLine": 80,
+        "startChar": 60,
+        "endLine": 80,
+        "endChar": 81
+      },
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7328d192_480d3453",
@@ -89,6 +113,30 @@
       "writtenOn": "2020-12-16T18:00:59Z",
       "side": 1,
       "message": "Is this maximum important to know? Is it documented anywhere?",
+      "range": {
+        "startLine": 91,
+        "startChar": 49,
+        "endLine": 91,
+        "endChar": 64
+      },
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2358f304_0fb4f45c",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2021-01-06T07:25:07Z",
+      "side": 1,
+      "message": "No，ATEL could count the received records and compare with the used contacts number in capacity, no matter what the maximum value is.",
+      "parentUuid": "7328d192_480d3453",
       "range": {
         "startLine": 91,
         "startChar": 49,
