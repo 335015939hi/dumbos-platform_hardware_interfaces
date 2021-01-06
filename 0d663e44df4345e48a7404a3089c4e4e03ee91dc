@@ -16,6 +16,23 @@
       "message": "Steven, please review.",
       "revId": "0d663e44df4345e48a7404a3089c4e4e03ee91dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edcb7cf8_4fafb892",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-01-06T19:10:54Z",
+      "side": 1,
+      "message": "I will need to upstream Eric\u0027s changes for the new playback/recording metadata structs and update this change accordingly, as they are overlapping in some parts.",
+      "revId": "0d663e44df4345e48a7404a3089c4e4e03ee91dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
