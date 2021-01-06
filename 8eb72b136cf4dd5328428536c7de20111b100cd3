@@ -324,6 +324,42 @@
       "parentUuid": "7961852c_8776fe80",
       "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c1bbbcb_256d7cb9",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2021-01-06T08:31:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78860880_7158b27b",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f361fc35_88113d9a",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2021-01-06T08:31:10Z",
+      "side": 1,
+      "message": "Did you mean support both 1 and multiple ANRs in one card？",
+      "parentUuid": "78860880_7158b27b",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

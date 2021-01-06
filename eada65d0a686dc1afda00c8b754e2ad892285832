@@ -238,6 +238,30 @@
       },
       "revId": "eada65d0a686dc1afda00c8b754e2ad892285832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc254677_c2ae59ea",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2021-01-06T08:31:10Z",
+      "side": 1,
+      "message": "Did you mean multiple emails in EFADN？\n1. There is no multiple emails case in commercial card since the limited space in sim card.\n2. If you mean the multiple emails case for lab card,for example, the max emails count is 20 and the max adn record is 10, then UI assumes that a given record can have 2 emails. If this SIM does not support multiple emails in EFADN, the max emails count should be 10.",
+      "parentUuid": "c778122f_b1e15f75",
+      "range": {
+        "startLine": 347,
+        "startChar": 4,
+        "endLine": 347,
+        "endChar": 7
+      },
+      "revId": "eada65d0a686dc1afda00c8b754e2ad892285832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
