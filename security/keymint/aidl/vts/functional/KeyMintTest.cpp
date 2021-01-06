@@ -328,8 +328,6 @@ TEST_P(NewKeyGenerationTest, LimitedUsageRsa) {
                 << "Key size " << key_size << "missing";
         EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
 
-        // TODO(siofive) check this is in the hardware-enforced when "secure storage" emulation is
-        // implemented.
         AuthorizationSet software_auths(key_characteristics.softwareEnforced);
         EXPECT_TRUE(software_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U))
                 << "key usage count limit " << 1U << " missing";
@@ -3907,6 +3905,71 @@ TEST_P(MaxOperationsTest, TestLimitRsa) {
 }
 
 INSTANTIATE_KEYMINT_AIDL_TEST(MaxOperationsTest);
+
+typedef KeyMintAidlTestBase UsageCountLimitTest;
+
+/*
+ * UsageCountLimitTest.TestLimitAes
+ *
+ * Verifies that the usage count limit tag works correctly with AES keys.
+ */
+TEST_P(UsageCountLimitTest, TestLimitAes) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) return;
+
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .AesEncryptionKey(128)
+                                                 .EcbMode()
+                                                 .Padding(PaddingMode::NONE)
+                                                 .Authorization(TAG_USAGE_COUNT_LIMIT, 1)));
+
+    string message = "1234567890123456";
+    auto params = AuthorizationSetBuilder().EcbMode().Padding(PaddingMode::NONE);
+
+    EncryptMessage(message, params);
+
+    AuthorizationSet software_auths(key_characteristics_.softwareEnforced);
+    if (software_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U)) {
+        // usage count limit is enforced by software, keymint does nothing.
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
+    } else {
+        // usage count limit is enforced by hardware. After using the key, the key blob
+        // must be invalidated from secure storage.
+        EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB, Begin(KeyPurpose::ENCRYPT, params));
+    }
+}
+
+/*
+ * UsageCountLimitTest.TestLimitAes
+ *
+ * Verifies that the usage count limit tag works correctly with RSA keys.
+ */
+TEST_P(UsageCountLimitTest, TestLimitRsa) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) return;
+
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .RsaSigningKey(1024, 65537)
+                                                 .NoDigestOrPadding()
+                                                 .Authorization(TAG_USAGE_COUNT_LIMIT, 1)));
+
+    string message = "1234567890123456";
+    auto params = AuthorizationSetBuilder().NoDigestOrPadding();
+
+    SignMessage(message, params);
+
+    AuthorizationSet software_auths(key_characteristics_.softwareEnforced);
+    if (software_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U)) {
+        // usage count limit is enforced by software, keymint does nothing.
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
+    } else {
+        // usage count limit is enforced by hardware. After using the key, the key blob
+        // must be invalidated from secure storage.
+        EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB, Begin(KeyPurpose::SIGN, params));
+    }
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(UsageCountLimitTest);
 
 typedef KeyMintAidlTestBase AddEntropyTest;
 
