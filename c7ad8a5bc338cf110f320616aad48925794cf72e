@@ -22,6 +22,76 @@
       },
       "revId": "c7ad8a5bc338cf110f320616aad48925794cf72e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc3a97c0_4d43fa58",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-01-07T17:38:28Z",
+      "side": 1,
+      "message": "I marked this resolved by mistake.",
+      "parentUuid": "7726a728_e09bd479",
+      "range": {
+        "startLine": 343,
+        "startChar": 27,
+        "endLine": 344,
+        "endChar": 86
+      },
+      "revId": "c7ad8a5bc338cf110f320616aad48925794cf72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d2ba9c_34ce507b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-01-07T17:38:28Z",
+      "side": 1,
+      "message": "Since this allows IKeyMintDevice to implement this feature, the test below must anticipate that the tag may appear in the hardware enforced list.",
+      "range": {
+        "startLine": 348,
+        "startChar": 7,
+        "endLine": 349,
+        "endChar": 20
+      },
+      "revId": "c7ad8a5bc338cf110f320616aad48925794cf72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34ba4348_7199a98d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 4039,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-01-07T17:38:28Z",
+      "side": 1,
+      "message": "Consider checking if the hardware enforced list contains this tag.\nSame below.",
+      "range": {
+        "startLine": 4039,
+        "startChar": 8,
+        "endLine": 4039,
+        "endChar": 58
+      },
+      "revId": "c7ad8a5bc338cf110f320616aad48925794cf72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
