@@ -46,6 +46,30 @@
       },
       "revId": "9eac6d9bbe35548458d1e7bc384834665acf669c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d53421b3_dd64fbb8",
+        "filename": "tests/lazy/1.1/ILazy.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1650665
+      },
+      "writtenOn": "2021-01-07T23:41:35Z",
+      "side": 1,
+      "message": "I\u0027ve added some comment",
+      "parentUuid": "7a086dff_0ac33713",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 40
+      },
+      "revId": "9eac6d9bbe35548458d1e7bc384834665acf669c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
