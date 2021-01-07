@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0d05733_36a98821",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-01-07T20:59:03Z",
+      "side": 1,
+      "message": "Steven, could you please re-approve. There had been some changes in the implementations files, but not in the HIDL interfaces.",
+      "revId": "3f1457b9537b1ff23704e17be7588dadf1e2884e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
