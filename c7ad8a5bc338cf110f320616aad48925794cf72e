@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7726a728_e09bd479",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-01-07T17:28:07Z",
+      "side": 1,
+      "message": "Statements like this sound nice and flexible but they are not exactly future prove. If this ever gets changed it creates a complete mess for developers because they have to check a million things to know what they actually get. If you want single use keys implement single use keys, if you want N use keys implement N use keys. But don\u0027t say maybe 1 maybe N. Change the language and nail down exactly one behavior.",
+      "range": {
+        "startLine": 343,
+        "startChar": 27,
+        "endLine": 344,
+        "endChar": 86
+      },
+      "revId": "c7ad8a5bc338cf110f320616aad48925794cf72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
