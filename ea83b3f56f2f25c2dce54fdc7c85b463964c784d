@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfdcd282_4f486fd7",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-01-07T14:54:31Z",
+      "side": 1,
+      "message": "Cool. We\u0027re still using a private copy of libcppbor, will switch to the one in external/ soon.",
+      "parentUuid": "193d2505_849603a8",
+      "range": {
+        "startLine": 60,
+        "startChar": 38,
+        "endLine": 60,
+        "endChar": 53
+      },
+      "revId": "ea83b3f56f2f25c2dce54fdc7c85b463964c784d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61c273cd_fb8b453e",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "daf29207_675db229",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-01-07T14:54:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61c273cd_fb8b453e",
+      "range": {
+        "startLine": 71,
+        "startChar": 28,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "ea83b3f56f2f25c2dce54fdc7c85b463964c784d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09b78c8e_38bb6fb8",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-01-05T23:06:06Z",
       "side": 1,
       "message": "Nit:  Might be nice to lift this into the aidl::android::hardware::identity namespace with a using declaration.",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 22
+      },
+      "revId": "ea83b3f56f2f25c2dce54fdc7c85b463964c784d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92606829_17abe1ec",
+        "filename": "identity/aidl/default/common/IdentityCredential.h",
+        "patchSetId": 41
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-01-07T14:54:31Z",
+      "side": 1,
+      "message": "I actually prefer it this way - it\u0027s only 5 characters and help remind readers where to look w/o having to jump to the top and find the \"using ndk::ScopedAStatus\".",
+      "parentUuid": "09b78c8e_38bb6fb8",
       "range": {
         "startLine": 61,
         "startChar": 4,

@@ -39,6 +39,30 @@
       },
       "revId": "033a0871a36c85d7238813d43903bd253d48d39a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0dc90f7_eeed9e83",
+        "filename": "identity/aidl/default/EicOpsImpl.cc",
+        "patchSetId": 44
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-01-07T14:54:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44794f6c_68b802e0",
+      "range": {
+        "startLine": 66,
+        "startChar": 11,
+        "endLine": 66,
+        "endChar": 17
+      },
+      "revId": "033a0871a36c85d7238813d43903bd253d48d39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
