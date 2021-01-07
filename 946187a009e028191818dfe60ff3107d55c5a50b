@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93c430eb_735e81e4",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-07T23:59:25Z",
+      "side": 1,
+      "message": "Add \u003cversion\u003e1\u003c/version\u003e here, please. It is technically not required, but explicitly specifying this is good.",
+      "revId": "946187a009e028191818dfe60ff3107d55c5a50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffd256d3_b7ab9d67",
         "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
         "patchSetId": 1
