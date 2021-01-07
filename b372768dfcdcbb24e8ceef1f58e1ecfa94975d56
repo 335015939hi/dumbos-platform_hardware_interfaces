@@ -46,6 +46,30 @@
       },
       "revId": "b372768dfcdcbb24e8ceef1f58e1ecfa94975d56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e071a34_c5a16c5b",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1561651
+      },
+      "writtenOn": "2021-01-07T10:58:01Z",
+      "side": 1,
+      "message": "Thanks. I\u0027ve removed that part in the comment.",
+      "parentUuid": "e250d398_cb74ed5a",
+      "range": {
+        "startLine": 328,
+        "startChar": 36,
+        "endLine": 328,
+        "endChar": 62
+      },
+      "revId": "b372768dfcdcbb24e8ceef1f58e1ecfa94975d56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
