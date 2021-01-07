@@ -16,6 +16,29 @@
       "message": "Eric, I\u0027ve updated the code you\u0027ve authored for the metadata passing. Please see the diff between PS4 and PS5 for your convenience.",
       "revId": "a3f76d4a76d9b122788996a878be6b4495ec8eed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a0a4dd_da1d96ee",
+        "filename": "audio/common/all-versions/default/tests/hidlutils_tests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-01-07T08:38:19Z",
+      "side": 1,
+      "message": "we should use \"VX_\" prefix to set the example for vendors.\n\"",
+      "range": {
+        "startLine": 746,
+        "startChar": 35,
+        "endLine": 746,
+        "endChar": 48
+      },
+      "revId": "a3f76d4a76d9b122788996a878be6b4495ec8eed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
