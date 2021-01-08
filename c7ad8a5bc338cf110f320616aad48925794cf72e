@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9894d761_525bacb5",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-08T14:52:38Z",
+      "side": 1,
+      "message": "For offline payment, single use key feature is sufficient. But for universal rollback protection in keymint2, N use key is the feature that we need and it also aligns with the requirement from offline payment when N \u003d 1. In this case, we\u0027d like to use N use keys instead of having single use keys.\n\nBut at this point, it\u0027s impossible for TEEs to enforce N use key into hardware without changing the key blob after finish operation. So for general cases (N\u003e1), IKeyMintDevice doesn\u0027t need to enforce this tag into hardware, keystore2 will take the responsibility to decrease the counter and delete the key. But for special case (N \u003d 1), IKeyMintDevice in some of the TEEs with secure storage may have the ability to enforce this into hardware, this helps a lot for offline payment if the key blob (or hash/metadata) is stored in secure storage and invalidated afteî finish() operation. So we\u0027d like to ask these TEEs to enforce (N\u003d1) into hardware if possible.\n\n\nIt\u0027s difficult to describe the behavior here without involving any details in universal rollback protection in keymint2. I\u0027m referring to this tag[1]\u0027s description, and found that definition of tags can also be changed in different versions. So we can ask TEEs to enforce general cases (N\u003e1) into hardware in keymint2.\n\nSo grateful to your help, please let us know if this one looks good to you, thank you very much!\n\n[1] https://source.android.com/security/keystore/tags#allow_while_on_body",
+      "parentUuid": "d1b59e3d_f6baa328",
+      "range": {
+        "startLine": 343,
+        "startChar": 27,
+        "endLine": 344,
+        "endChar": 86
+      },
+      "revId": "c7ad8a5bc338cf110f320616aad48925794cf72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2d2ba9c_34ce507b",
