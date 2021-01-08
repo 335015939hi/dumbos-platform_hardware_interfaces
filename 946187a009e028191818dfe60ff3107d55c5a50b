@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a803988_97a6165b",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-08T22:24:04Z",
+      "side": 1,
+      "message": "Thank you!",
+      "parentUuid": "e26b3285_a8be12dc",
+      "revId": "946187a009e028191818dfe60ff3107d55c5a50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffd256d3_b7ab9d67",
@@ -137,6 +155,30 @@
       "side": 1,
       "message": "Specifically, this means that getName will return an array of names.\n\nSo, I\u0027m curious, after getName is called, what is name.size()/name.length() expected to be? What is name[0], what is name[1], and so on? (does the name at position \u00270\u0027 refer to a different vendor from name at position \u00271\u0027?)",
       "parentUuid": "db8f88a7_541d7879",
+      "range": {
+        "startLine": 41,
+        "startChar": 27,
+        "endLine": 41,
+        "endChar": 29
+      },
+      "revId": "946187a009e028191818dfe60ff3107d55c5a50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f983ac8b_c4130da5",
+        "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-08T22:24:04Z",
+      "side": 1,
+      "message": "From the comment, it appears that you are returning only one string in the array? Why not just `String getName()` then? Do you need an optional string?\n\n(Same for isOemUnlockAllowedByCarrier, and isOemUnlockAllowedByDevice)",
+      "parentUuid": "553e7303_5bd7de3b",
       "range": {
         "startLine": 41,
         "startChar": 27,
