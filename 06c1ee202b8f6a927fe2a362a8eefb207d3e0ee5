@@ -22,6 +22,30 @@
       },
       "revId": "06c1ee202b8f6a927fe2a362a8eefb207d3e0ee5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34bc30de_3a1a0f47",
+        "filename": ".idea/.gitignore",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1443524
+      },
+      "writtenOn": "2021-01-08T19:39:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fbbc7d9c_aeb7f71c",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 10
+      },
+      "revId": "06c1ee202b8f6a927fe2a362a8eefb207d3e0ee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
