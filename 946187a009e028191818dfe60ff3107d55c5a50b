@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e26b3285_a8be12dc",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-08T07:06:07Z",
+      "side": 1,
+      "message": "Fixed at patchset 2, thanks.",
+      "parentUuid": "93c430eb_735e81e4",
+      "revId": "946187a009e028191818dfe60ff3107d55c5a50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffd256d3_b7ab9d67",
@@ -81,6 +99,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e497877_f3df9de7",
+        "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-08T07:06:07Z",
+      "side": 1,
+      "message": "Fixed at patchset 2, thanks.",
+      "parentUuid": "ffd256d3_b7ab9d67",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 36
+      },
+      "revId": "946187a009e028191818dfe60ff3107d55c5a50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c89cdbb6_0b047299",
@@ -104,6 +146,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5ab2d83_d96e7fb0",
+        "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-08T07:06:07Z",
+      "side": 1,
+      "message": "Fixed at patchset 2, thanks.",
+      "parentUuid": "c89cdbb6_0b047299",
+      "range": {
+        "startLine": 49,
+        "startChar": 37,
+        "endLine": 49,
+        "endChar": 58
+      },
+      "revId": "946187a009e028191818dfe60ff3107d55c5a50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a550d04a_9a89dda0",
@@ -117,6 +183,30 @@
       "writtenOn": "2021-01-07T23:57:24Z",
       "side": 1,
       "message": "bpfmt, please",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "946187a009e028191818dfe60ff3107d55c5a50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a146b836_d2fff9dd",
+        "filename": "oemlock/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-08T07:06:07Z",
+      "side": 1,
+      "message": "Fixed at patchset 2, thanks.",
+      "parentUuid": "a550d04a_9a89dda0",
       "range": {
         "startLine": 25,
         "startChar": 0,
