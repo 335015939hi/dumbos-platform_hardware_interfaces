@@ -22,6 +22,30 @@
       },
       "revId": "840ab70daa48dea34576dcd73274501bd1607e8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88b9292d_d4e372c4",
+        "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-08T23:48:45Z",
+      "side": 1,
+      "message": "fixed at patchset 3, thanks.",
+      "parentUuid": "d8f4917e_5ce08cc1",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 80
+      },
+      "revId": "840ab70daa48dea34576dcd73274501bd1607e8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
