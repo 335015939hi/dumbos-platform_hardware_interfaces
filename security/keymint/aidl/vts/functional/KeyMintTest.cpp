@@ -20,6 +20,7 @@
 #include <signal.h>
 #include <iostream>
 
+#include <openssl/ec.h>
 #include <openssl/evp.h>
 #include <openssl/mem.h>
 #include <openssl/x509.h>
@@ -4423,6 +4424,72 @@ TEST_P(TransportLimitTest, LargeFinishInput) {
 }
 
 INSTANTIATE_KEYMINT_AIDL_TEST(TransportLimitTest);
+
+typedef KeyMintAidlTestBase KeyAgreementTest;
+
+/*
+ * KeyAgreementTest.Ecdh_P256
+ *
+ * Verifies that ECDH works with curve P-256.
+ */
+TEST_P(KeyAgreementTest, Ecdh_P256) {
+    // Generate EC key locally (with access to private key material)
+    auto ecKey = EC_KEY_Ptr(EC_KEY_new());
+    auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1));
+    ASSERT_EQ(EC_KEY_set_group(ecKey.get(), group.get()), 1);
+    ASSERT_EQ(EC_KEY_generate_key(ecKey.get()), 1);
+    auto pkey = EVP_PKEY_Ptr(EVP_PKEY_new());
+    ASSERT_EQ(EVP_PKEY_set1_EC_KEY(pkey.get(), ecKey.get()), 1);
+
+    // Generate EC key in KeyMint (only access to public key material)
+    vector<uint8_t> challenge = {0x41, 0x42};
+    EXPECT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .Authorization(TAG_EC_CURVE, EcCurve::P_256)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::AGREE_KEY)
+                                  .Authorization(TAG_ALGORITHM, Algorithm::EC)
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, {0x61, 0x62})
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, challenge)))
+            << "Failed to generate key";
+    ASSERT_GT(cert_chain_.size(), 0);
+    X509_Ptr kmKeyCert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+    ASSERT_NE(kmKeyCert, nullptr);
+    auto kmPkey = EVP_PKEY_Ptr(X509_get_pubkey(kmKeyCert.get()));
+    ASSERT_NE(kmPkey, nullptr);
+
+    // Perform ECDH between the two keys...
+    auto ctx = EVP_PKEY_CTX_Ptr(EVP_PKEY_CTX_new(pkey.get(), nullptr));
+    ASSERT_NE(ctx, nullptr);
+    ASSERT_EQ(EVP_PKEY_derive_init(ctx.get()), 1);
+    ASSERT_EQ(EVP_PKEY_derive_set_peer(ctx.get(), kmPkey.get()), 1);
+    size_t ZabFromTestLen = 0;
+    ASSERT_EQ(EVP_PKEY_derive(ctx.get(), nullptr, &ZabFromTestLen), 1);
+    vector<uint8_t> ZabFromTest;
+    ZabFromTest.resize(ZabFromTestLen);
+    ASSERT_EQ(EVP_PKEY_derive(ctx.get(), ZabFromTest.data(), &ZabFromTestLen), 1);
+
+    // Ask KeyMint to perform ECDH..
+    //
+
+    // First, get encoded form of the public part of the locally generated key...
+    unsigned char* encodedPublicKey = nullptr;
+    int encodedPublicKeySize = i2d_PUBKEY(pkey.get(), &encodedPublicKey);
+    ASSERT_GT(encodedPublicKeySize, 0);
+
+    /// ... then send it to KeyMint
+    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::AGREE_KEY, AuthorizationSetBuilder()));
+    string ZabFromKeyMintStr;
+    EXPECT_EQ(ErrorCode::OK,
+              Finish(string(encodedPublicKey, encodedPublicKey + encodedPublicKeySize),
+                     &ZabFromKeyMintStr));
+    vector<uint8_t> ZabFromKeyMint(ZabFromKeyMintStr.begin(), ZabFromKeyMintStr.end());
+
+    // Finally, check the two Zab values match
+    EXPECT_EQ(ZabFromKeyMint, ZabFromTest);
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(KeyAgreementTest);
 
 }  // namespace aidl::android::hardware::security::keymint::test
 
