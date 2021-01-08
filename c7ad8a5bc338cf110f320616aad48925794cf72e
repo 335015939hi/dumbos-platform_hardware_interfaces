@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1b59e3d_f6baa328",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-08T14:50:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc3a97c0_4d43fa58",
+      "range": {
+        "startLine": 343,
+        "startChar": 27,
+        "endLine": 344,
+        "endChar": 86
+      },
+      "revId": "c7ad8a5bc338cf110f320616aad48925794cf72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2d2ba9c_34ce507b",
@@ -71,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c52f143_58790a9f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-08T14:50:30Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "d2d2ba9c_34ce507b",
+      "range": {
+        "startLine": 348,
+        "startChar": 7,
+        "endLine": 349,
+        "endChar": 20
+      },
+      "revId": "c7ad8a5bc338cf110f320616aad48925794cf72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34ba4348_7199a98d",
@@ -84,6 +132,30 @@
       "writtenOn": "2021-01-07T17:38:28Z",
       "side": 1,
       "message": "Consider checking if the hardware enforced list contains this tag.\nSame below.",
+      "range": {
+        "startLine": 4039,
+        "startChar": 8,
+        "endLine": 4039,
+        "endChar": 58
+      },
+      "revId": "c7ad8a5bc338cf110f320616aad48925794cf72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f75dee5_f24f5b04",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 4039,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-08T14:50:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34ba4348_7199a98d",
       "range": {
         "startLine": 4039,
         "startChar": 8,
