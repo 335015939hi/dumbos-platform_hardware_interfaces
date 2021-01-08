@@ -4144,6 +4144,21 @@ TEST_P(TransportLimitTest, LargeFinishInput) {
 
 INSTANTIATE_KEYMINT_AIDL_TEST(TransportLimitTest);
 
+typedef KeyMintAidlTestBase KeyAgreementTest;
+
+/*
+ * KeyAgreementTest.EcdsaAllCurves
+ *
+ * Verifies that ECDH succeed with all possible curves.
+ */
+TEST_P(KeyAgreementTest, EcdsaAllCurves) {
+    for (auto curve : ValidCurves()) {
+        EXPECT_EQ(1, 0) << "curve is " << curve;
+    }
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(KeyAgreementTest);
+
 }  // namespace aidl::android::hardware::security::keymint::test
 
 int main(int argc, char** argv) {
