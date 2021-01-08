@@ -4424,6 +4424,45 @@ TEST_P(TransportLimitTest, LargeFinishInput) {
 
 INSTANTIATE_KEYMINT_AIDL_TEST(TransportLimitTest);
 
+typedef KeyMintAidlTestBase KeyAgreementTest;
+
+/*
+ * KeyAgreementTest.Ecdh_P256
+ *
+ * Verifies that ECDH works with curve P-256.
+ */
+TEST_P(KeyAgreementTest, Ecdh_P256) {
+    ASSERT_EQ(ErrorCode::OK, ImportKey(AuthorizationSetBuilder()
+                                               .Authorization(TAG_NO_AUTH_REQUIRED)
+                                               .Authorization(TAG_EC_CURVE, EcCurve::P_256)
+                                               .Authorization(TAG_PURPOSE, KeyPurpose::AGREE_KEY)
+                                               .Authorization(TAG_ALGORITHM, Algorithm::EC),
+                                       KeyFormat::PKCS8, ec_256_key));
+    /*
+    auto ec_key = EC_KEY_Ptr(EC_KEY_new());
+    auto pkey = EVP_PKEY_Ptr(EVP_PKEY_new());
+    auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1));
+    ASSERT_EQ(EC_KEY_set_group(ec_key.get(), group.get()), 1);
+    ASSERT_EQ(EC_KEY_generate_key(ec_key.get()), 1);
+
+    vector<uint8_t> challenge = {0x41, 0x42};
+    EXPECT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                              .Authorization(TAG_NO_AUTH_REQUIRED)
+                              .Authorization(TAG_EC_CURVE, EcCurve::P_256)
+                              .Authorization(TAG_PURPOSE, KeyPurpose::AGREE_KEY)
+                              .Authorization(TAG_ALGORITHM, Algorithm::EC)
+                          .Authorization(TAG_ATTESTATION_CHALLENGE, challenge)
+                          )) << "Failed to generate key";
+    // Get public key from certChain_
+    fprintf(stderr, "num certs = %zd\n", certChain_.size());
+    ASSERT_GT(certChain_.size(), 0);
+    Certificate topMost = certChain_[0];
+    */
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(KeyAgreementTest);
+
 }  // namespace aidl::android::hardware::security::keymint::test
 
 int main(int argc, char** argv) {

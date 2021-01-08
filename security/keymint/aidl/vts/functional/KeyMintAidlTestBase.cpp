@@ -26,6 +26,8 @@
 #include <keymint_support/key_param_output.h>
 #include <keymint_support/keymint_utils.h>
 
+#include <AndroidKeyMintDevice.h>
+
 namespace aidl::android::hardware::security::keymint {
 
 using namespace std::literals::chrono_literals;
@@ -98,12 +100,8 @@ void KeyMintAidlTestBase::InitializeKeyMint(std::shared_ptr<IKeyMintDevice> keyM
 }
 
 void KeyMintAidlTestBase::SetUp() {
-    if (AServiceManager_isDeclared(GetParam().c_str())) {
-        ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
-        InitializeKeyMint(IKeyMintDevice::fromBinder(binder));
-    } else {
-        InitializeKeyMint(nullptr);
-    }
+    auto dev = ::new AndroidKeyMintDevice(SecurityLevel::SOFTWARE);
+    InitializeKeyMint(IKeyMintDevice::fromBinder(dev->asBinder()));
 }
 
 ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,

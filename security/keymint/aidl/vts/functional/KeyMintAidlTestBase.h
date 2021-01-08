@@ -161,8 +161,9 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     vector<Digest> ValidDigests(bool withNone, bool withMD5);
 
     static vector<string> build_params() {
-        auto params = ::android::getAidlHalInstanceNames(IKeyMintDevice::descriptor);
-        return params;
+        //        auto params = ::android::getAidlHalInstanceNames(IKeyMintDevice::descriptor);
+        //        return params;
+        return {"default"};
     }
 
     std::shared_ptr<IKeyMintOperation> op_;
