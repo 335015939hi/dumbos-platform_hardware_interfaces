@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d7b34e0d_f3ba8f28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-09T00:18:38Z",
+      "side": 1,
+      "message": "Do you need code review vote? It is best to get code review vote from other engineers who understands how OEM lock works",
+      "revId": "109522c0d1881cc3280eb4d008d32f68d9dc090e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3be09f43_514335fe",
         "filename": "oemlock/aidl/default/android.hardware.oemlock-service.example.xml",
         "patchSetId": 4
