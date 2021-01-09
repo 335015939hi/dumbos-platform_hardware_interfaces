@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de18ff8c_d0ff3b96",
+        "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-09T00:01:43Z",
+      "side": 1,
+      "message": "Line is too long\n\nsame below",
+      "range": {
+        "startLine": 45,
+        "startChar": 94,
+        "endLine": 45,
+        "endChar": 112
+      },
+      "revId": "4451c831d26065ae7cae1eb9b2d4d726c0fb0e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40433568_36b26530",
+        "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-09T00:01:43Z",
+      "side": 1,
+      "message": "disallowed / not allowed\n\nsame below",
+      "range": {
+        "startLine": 45,
+        "startChar": 41,
+        "endLine": 45,
+        "endChar": 50
+      },
+      "revId": "4451c831d26065ae7cae1eb9b2d4d726c0fb0e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1526431_7b13df15",
+        "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-09T00:01:43Z",
+      "side": 1,
+      "message": "nit: delete",
+      "range": {
+        "startLine": 65,
+        "startChar": 15,
+        "endLine": 65,
+        "endChar": 17
+      },
+      "revId": "4451c831d26065ae7cae1eb9b2d4d726c0fb0e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "104fad91_63e568c3",
+        "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-09T00:01:43Z",
+      "side": 1,
+      "message": "nit: comma + new line?",
+      "range": {
+        "startLine": 67,
+        "startChar": 27,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "4451c831d26065ae7cae1eb9b2d4d726c0fb0e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9972366c_0e5671ec",
+        "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-09T00:01:43Z",
+      "side": 1,
+      "message": "nit: delete",
+      "range": {
+        "startLine": 74,
+        "startChar": 22,
+        "endLine": 74,
+        "endChar": 24
+      },
+      "revId": "4451c831d26065ae7cae1eb9b2d4d726c0fb0e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
