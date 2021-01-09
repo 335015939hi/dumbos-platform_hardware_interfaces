@@ -49,6 +49,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1beeb8d2_d9afaf15",
+        "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-09T00:02:33Z",
+      "side": 1,
+      "message": "just a nit, there\u0027s actually a word \"unallowed\"",
+      "parentUuid": "40433568_36b26530",
+      "range": {
+        "startLine": 45,
+        "startChar": 41,
+        "endLine": 45,
+        "endChar": 50
+      },
+      "revId": "4451c831d26065ae7cae1eb9b2d4d726c0fb0e7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d1526431_7b13df15",
         "filename": "oemlock/aidl/android/hardware/oemlock/IOemLock.aidl",
         "patchSetId": 3
