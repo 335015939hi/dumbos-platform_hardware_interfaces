@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "37834e93_163030ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-09T00:20:01Z",
+      "side": 1,
+      "message": "Also, you might want to add an OWNERS file under oemlock/ so that you don\u0027t need our review when you need to update the implementation / VTS tests in the future",
+      "revId": "109522c0d1881cc3280eb4d008d32f68d9dc090e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3be09f43_514335fe",
         "filename": "oemlock/aidl/default/android.hardware.oemlock-service.example.xml",
         "patchSetId": 4
