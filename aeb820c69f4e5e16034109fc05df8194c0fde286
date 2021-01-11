@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad385ecc_59c139e7",
+        "filename": "authsecret/aidl/android/hardware/authsecret/IAuthSecret.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-11T16:12:06Z",
+      "side": 1,
+      "message": "fixed at patchset 4, thanks.",
+      "parentUuid": "4f91592f_51f4848b",
+      "range": {
+        "startLine": 21,
+        "startChar": 65,
+        "endLine": 21,
+        "endChar": 70
+      },
+      "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca97e161_01fef62b",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0946d865_19db5c82",
+        "filename": "authsecret/aidl/android/hardware/authsecret/IAuthSecret.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-11T16:12:06Z",
+      "side": 1,
+      "message": "fixed at patchset 4, thanks.",
+      "parentUuid": "ca97e161_01fef62b",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 72
+      },
+      "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86ecd460_da1399ad",
@@ -60,6 +108,24 @@
       "writtenOn": "2021-01-08T22:36:41Z",
       "side": 1,
       "message": "What happens if the input string is less than it? Is it silently ignored? Please define the behavior.",
+      "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52578862_f279fbec",
+        "filename": "authsecret/aidl/android/hardware/authsecret/IAuthSecret.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-11T16:12:06Z",
+      "side": 1,
+      "message": "fixed at patchset 4, thanks.",
+      "parentUuid": "86ecd460_da1399ad",
       "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -100,6 +166,54 @@
       "writtenOn": "2021-01-08T22:36:41Z",
       "side": 1,
       "message": "Note that oneway packets can be silently dropped. Does the client not care about failed transactions in this case?",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 10
+      },
+      "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7f4666e_bb35e191",
+        "filename": "authsecret/aidl/android/hardware/authsecret/IAuthSecret.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-11T16:12:06Z",
+      "side": 1,
+      "message": "rename to setPrimaryUserCredential at patchset 4, thanks.",
+      "parentUuid": "8330723d_bf14bcdc",
+      "range": {
+        "startLine": 47,
+        "startChar": 16,
+        "endLine": 47,
+        "endChar": 37
+      },
+      "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a972f307_04d5b1d3",
+        "filename": "authsecret/aidl/android/hardware/authsecret/IAuthSecret.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-11T16:12:06Z",
+      "side": 1,
+      "message": "This method will be called frequently(each time when user enter correct pin code or password to unlock the screen), should be fine with oneway.",
+      "parentUuid": "facd2274_df0853d5",
       "range": {
         "startLine": 47,
         "startChar": 4,
