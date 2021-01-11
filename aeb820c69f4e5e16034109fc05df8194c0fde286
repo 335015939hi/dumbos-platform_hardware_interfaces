@@ -226,6 +226,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cc3415d5_b36b02dd",
+        "filename": "authsecret/aidl/android/hardware/authsecret/IAuthSecret.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-11T17:38:45Z",
+      "side": 1,
+      "message": "The question has nothing to do with frequency. HAL implementations may crash in unexpected ways, or use up all binder threads, etc., causing the binder transaction to fail. Does the client (framework code) need to do anything in this case? If not, it is fine to use oneway.",
+      "parentUuid": "a972f307_04d5b1d3",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 10
+      },
+      "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b02bdf9f_d74f293a",
         "filename": "authsecret/aidl/default/android.hardware.authsecret-service.example.xml",
         "patchSetId": 3
@@ -255,6 +279,24 @@
       "side": 1,
       "message": "fixed at patchset 5, thanks.",
       "parentUuid": "b02bdf9f_d74f293a",
+      "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33e276db_f9ea8c4a",
+        "filename": "authsecret/aidl/default/android.hardware.authsecret-service.example.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-11T17:38:45Z",
+      "side": 1,
+      "message": "Thank you!",
+      "parentUuid": "973bc219_9e4f1587",
       "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
