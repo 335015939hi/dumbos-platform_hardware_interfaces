@@ -80,7 +80,6 @@ typedef struct km_auth_list {
     ASN1_INTEGER* auth_timeout;
     ASN1_NULL* allow_while_on_body;
     ASN1_NULL* all_applications;
-    ASN1_OCTET_STRING* application_id;
     ASN1_INTEGER* creation_date_time;
     ASN1_INTEGER* origin;
     ASN1_NULL* rollback_resistance;
@@ -256,7 +255,6 @@ static ErrorCode extract_auth_list(const KM_AUTH_LIST* record, AuthorizationSet*
 
     copyAuthTag(record->active_date_time, TAG_ACTIVE_DATETIME, auth_list);
     copyAuthTag(record->algorithm, TAG_ALGORITHM, auth_list);
-    copyAuthTag(record->application_id, TAG_APPLICATION_ID, auth_list);
     copyAuthTag(record->auth_timeout, TAG_AUTH_TIMEOUT, auth_list);
     copyAuthTag(record->creation_date_time, TAG_CREATION_DATETIME, auth_list);
     copyAuthTag(record->digest, TAG_DIGEST, auth_list);
