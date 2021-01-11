@@ -250,6 +250,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ac1e76c6_1b2b521e",
+        "filename": "authsecret/aidl/android/hardware/authsecret/IAuthSecret.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-11T18:27:27Z",
+      "side": 1,
+      "message": "Java client doesn\u0027t need to do anything if HAL failed, it\u0027s fine to retry at next run.",
+      "parentUuid": "cc3415d5_b36b02dd",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 10
+      },
+      "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b02bdf9f_d74f293a",
         "filename": "authsecret/aidl/default/android.hardware.authsecret-service.example.xml",
         "patchSetId": 3

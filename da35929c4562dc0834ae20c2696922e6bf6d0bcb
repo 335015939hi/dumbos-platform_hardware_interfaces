@@ -22,6 +22,30 @@
       },
       "revId": "da35929c4562dc0834ae20c2696922e6bf6d0bcb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba26da5a_bbe99c0e",
+        "filename": "authsecret/aidl/android/hardware/authsecret/IAuthSecret.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-11T18:27:27Z",
+      "side": 1,
+      "message": "fixed at patchset 6, thanks.",
+      "parentUuid": "cc82ba14_f3b6afa9",
+      "range": {
+        "startLine": 42,
+        "startChar": 59,
+        "endLine": 42,
+        "endChar": 63
+      },
+      "revId": "da35929c4562dc0834ae20c2696922e6bf6d0bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
