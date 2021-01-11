@@ -489,22 +489,6 @@ enum Tag {
      */
     UNLOCKED_DEVICE_REQUIRED = (7 << 28) /* TagType:BOOL */ | 509,
 
-    /**
-     * Tag::APPLICATION_ID.  When provided to generateKey or importKey, this tag specifies data
-     * that is necessary during all uses of the key.  In particular, calls to exportKey() and
-     * getKeyCharacteristics() must provide the same value to the clientId parameter, and calls to
-     * begin must provide this tag and the same associated data as part of the inParams set.  If
-     * the correct data is not provided, the method must return ErrorCode::INVALID_KEY_BLOB.
-     *
-     * The content of this tag must be bound to the key cryptographically, meaning it must not be
-     * possible for an adversary who has access to all of the secure world secrets but does not have
-     * access to the tag content to decrypt the key without brute-forcing the tag content, which
-     * applications can prevent by specifying sufficiently high-entropy content.
-     *
-     * Must never appear in KeyCharacteristics.
-     */
-    APPLICATION_ID = (9 << 28) /* TagType:BYTES */ | 601,
-
     /*
      * Semantically unenforceable tags, either because they have no specific meaning or because
      * they're informational only.

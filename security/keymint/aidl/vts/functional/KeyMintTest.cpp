@@ -588,30 +588,16 @@ TEST_P(SigningOperationsTest, RsaUseRequiresCorrectAppIdAppData) {
                                                  .RsaSigningKey(2048, 65537)
                                                  .Digest(Digest::NONE)
                                                  .Padding(PaddingMode::NONE)
-                                                 .Authorization(TAG_APPLICATION_ID, "clientid")
                                                  .Authorization(TAG_APPLICATION_DATA, "appdata")));
     EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
               Begin(KeyPurpose::SIGN,
                     AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::NONE)));
     AbortIfNeeded();
-    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
-              Begin(KeyPurpose::SIGN, AuthorizationSetBuilder()
-                                              .Digest(Digest::NONE)
-                                              .Padding(PaddingMode::NONE)
-                                              .Authorization(TAG_APPLICATION_ID, "clientid")));
-    AbortIfNeeded();
-    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
-              Begin(KeyPurpose::SIGN, AuthorizationSetBuilder()
-                                              .Digest(Digest::NONE)
-                                              .Padding(PaddingMode::NONE)
-                                              .Authorization(TAG_APPLICATION_DATA, "appdata")));
-    AbortIfNeeded();
     EXPECT_EQ(ErrorCode::OK,
               Begin(KeyPurpose::SIGN, AuthorizationSetBuilder()
                                               .Digest(Digest::NONE)
                                               .Padding(PaddingMode::NONE)
-                                              .Authorization(TAG_APPLICATION_DATA, "appdata")
-                                              .Authorization(TAG_APPLICATION_ID, "clientid")));
+                                              .Authorization(TAG_APPLICATION_DATA, "appdata")));
     AbortIfNeeded();
 }
 
@@ -1005,26 +991,14 @@ TEST_P(SigningOperationsTest, EcUseRequiresCorrectAppIdAppData) {
                                                  .Authorization(TAG_NO_AUTH_REQUIRED)
                                                  .EcdsaSigningKey(256)
                                                  .Digest(Digest::NONE)
-                                                 .Authorization(TAG_APPLICATION_ID, "clientid")
                                                  .Authorization(TAG_APPLICATION_DATA, "appdata")));
     EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
               Begin(KeyPurpose::SIGN, AuthorizationSetBuilder().Digest(Digest::NONE)));
     AbortIfNeeded();
-    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
-              Begin(KeyPurpose::SIGN, AuthorizationSetBuilder()
-                                              .Digest(Digest::NONE)
-                                              .Authorization(TAG_APPLICATION_ID, "clientid")));
-    AbortIfNeeded();
-    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
-              Begin(KeyPurpose::SIGN, AuthorizationSetBuilder()
-                                              .Digest(Digest::NONE)
-                                              .Authorization(TAG_APPLICATION_DATA, "appdata")));
-    AbortIfNeeded();
     EXPECT_EQ(ErrorCode::OK,
               Begin(KeyPurpose::SIGN, AuthorizationSetBuilder()
                                               .Digest(Digest::NONE)
-                                              .Authorization(TAG_APPLICATION_DATA, "appdata")
-                                              .Authorization(TAG_APPLICATION_ID, "clientid")));
+                                              .Authorization(TAG_APPLICATION_DATA, "appdata")));
     AbortIfNeeded();
 }
 
