@@ -239,6 +239,24 @@
       "message": "nit: please put\n\n    \u003cversion\u003e1\u003c/version\u003e\n\nhere. It is not required but it is more explicit.",
       "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "973bc219_9e4f1587",
+        "filename": "authsecret/aidl/default/android.hardware.authsecret-service.example.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-11T16:14:59Z",
+      "side": 1,
+      "message": "fixed at patchset 5, thanks.",
+      "parentUuid": "b02bdf9f_d74f293a",
+      "revId": "aeb820c69f4e5e16034109fc05df8194c0fde286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
