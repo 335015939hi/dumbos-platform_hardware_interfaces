@@ -126,16 +126,22 @@ import android.hardware.security.keymint.VerificationToken;
  * attacker can use them at will (though they're more secure than keys which can be
  * exfiltrated).  Therefore, IKeyMintDevice must enforce access controls.
  *
- * Access controls are defined as an "authorization list" of tag/value pairs.  Authorization tags
- * are 32-bit integers from the Tag enum, and the values are a variety of types, defined in the
- * TagType enum.  Some tags may be repeated to specify multiple values.  Whether a tag may be
- * repeated is specified in the documentation for the tag and in the TagType.  When a key is
- * created or imported, the caller specifies an authorization list.  The IKeyMintDevice must divide
- * the caller-provided authorizations into two lists, those it enforces in tee secure zone and
- * those enforced in the strongBox hardware.  These two lists are returned as the "teeEnforced"
- * and "strongboxEnforced" elements of the KeyCharacteristics struct. Note that software enforced
- * authorization list entries are not returned because they are not enforced by keymint.  The
- * IKeyMintDevice must also add the following authorizations to the appropriate list:
+ * Access controls are defined as "authorization lists" of tag/value pairs.  Authorization tags are
+ * 32-bit integers from the Tag enum, and the values are a variety of types, defined in the TagType
+ * enum.  Some tags may be repeated to specify multiple values.  Whether a tag may be repeated is
+ * specified in the documentation for the tag and in the TagType.  When a key is created or
+ * imported, the caller specifies a `key_description` authorization list.  The IKeyMintDevice must
+ * determine which tags it can and cannot enforce, and at what SecurityLevel, and return an array of
+ * `KeyCharacteristics` structures that contains everything it will enforce, associated with the
+ * appropriate security level, which is one of SOFTWARE, TRUSTED_ENVIRONMENT and STRONGBOX.
+ * Typically, implementations will only return a single KeyCharacteristics structure, because
+ * everything they enforce is enforced at the same security level.  There may be cases, however, for
+ * which multiple security levels are relevant. One example is that of a StrongBox IKeyMintDevice
+ * that relies on a TEE to enforce biometric user authentication.  In that case, the generate/import
+ * methods must return two KeyCharacteristics structs, one with SecurityLevel::TRUSTED_ENVIRONMENT
+ * and the biometric authentication-related tags, and another with SecurityLevel::STRONGBOX and
+ * everything else.  The IKeyMintDevice must also add the following authorizations to the
+ * appropriate list:
  *
  * o    Tag::OS_VERSION
  * o    Tag::OS_PATCHLEVEL
@@ -148,26 +154,27 @@ import android.hardware.security.keymint.VerificationToken;
  * The caller must always provide the current date time in the keyParameter CREATION_DATETIME
  * tags.
  *
- * All authorization tags and their values, both teeEnforced and strongboxEnforced, including
- * unknown tags, must be cryptographically bound to the private/secret key material such that any
- * modification of the portion of the key blob that contains the authorization list makes it
- * impossible for the secure environment to obtain the private/secret key material.  The
- * recommended approach to meet this requirement is to use the full set of authorization tags
- * associated with a key as input to a secure key derivation function used to derive a key that
- * is used to encrypt the private/secret key material.
+ * All authorization tags and their values enforced by an IKeyMintDevice must be cryptographically
+ * bound to the private/secret key material such that any modification of the portion of the key
+ * blob that contains the authorization list makes it impossible for the secure environment to
+ * obtain the private/secret key material.  The recommended approach to meet this requirement is to
+ * use the full set of authorization tags associated with a key as input to a secure key derivation
+ * function used to derive a key (the KEK) that is used to encrypt the private/secret key material.
+ * Note that it is NOT acceptable to use a static KEK to encrypt the private/secret key material
+ * with an AEAD cipher mode, using the enforced authorization tags as AAD.  This is because
+ * Tag::APPLICATION_DATA must not be included in the authorization tags stored in the key blob, but
+ * must be provided by the caller for every use.  Assuming the Tag::APPLICATION_DATA value has
+ * sufficient entropy, this provides a cryptographic guarantee that an attacker cannot use a key
+ * without knowing the Tag::APPLICATION_DATA value, even if they compromise the IKeyMintDevice.
  *
- * IKeyMintDevice implementations ignore any tags they cannot enforce and do not return them
- * in KeyCharacteristics.  For example, Tag::ORIGINATION_EXPIRE_DATETIME provides the date and
- * time after which a key may not be used to encrypt or sign new messages.  Unless the
- * IKeyMintDevice has access to a secure source of current date/time information, it is not
- * possible for the IKeyMintDevice to enforce this tag.  An IKeyMintDevice implementation will
- * not rely on the non-secure world's notion of time, because it could be controlled by an
- * attacker. Similarly, it cannot rely on GPSr time, even if it has exclusive control of the
- * GPSr, because that might be spoofed by attacker RF signals.
- *
- * IKeyMintDevices do not use or enforce any tags they place in the softwareEnforced
- * list.  The IKeyMintDevice caller must enforce them, and it is unnecessary to enforce them
- * twice.
+ * IKeyMintDevice implementations must ignore any tags they cannot enforce and must not return them
+ * in KeyCharacteristics.  For example, Tag::ORIGINATION_EXPIRE_DATETIME provides the date and time
+ * after which a key may not be used to encrypt or sign new messages.  Unless the IKeyMintDevice has
+ * access to a secure source of current date/time information, it is not possible for the
+ * IKeyMintDevice to enforce this tag.  An IKeyMintDevice implementation will not rely on the
+ * non-secure world's notion of time, because it could be controlled by an attacker. Similarly, it
+ * cannot rely on GPSr time, even if it has exclusive control of the GPSr, because that might be
+ * spoofed by attacker RF signals.
  *
  * Some tags must be enforced by the IKeyMintDevice.  See the detailed documentation on each Tag
  * in Tag.aidl.
@@ -341,16 +348,22 @@ interface IKeyMintDevice {
      *         implementation strategy is to include an encrypted copy of the key material, wrapped
      *         in a key unavailable outside secure hardware.
      *
-     * @return generatedKeyCharacteristics Description of the generated key, divided into two sets:
-     *         hardware-enforced and software-enforced.  The description here applies equally
-     *         to the key characteristics lists returned by generateKey, importKey and
-     *         importWrappedKey.  The characteristics returned by this parameter completely
-     *         describe the type and usage of the specified key.
+     * @return generatedKeyCharacteristics Description of the generated key, divided by
+     *         SecurityLevel.
      *
-     *         The rule that IKeyMintDevice implementations must use for deciding whether a
-     *         given tag belongs in the hardware-enforced or software-enforced list is that if
-     *         the meaning of the tag is fully assured by secure hardware, it is hardware
-     *         enforced.  Otherwise, it's software enforced.
+     *         The rules that IKeyMintDevice implementations must use for deciding whether a given
+     *         tag from `keyParams` should be returns in a `generatedKeyCharacteristics` entry are:
+     *
+     *         - If the IKeyMintDevice cannot fully enforce the semantics of the tag, it should be
+     *           omitted.
+     *         - If the semantics of the tag are fully enforced by the IKeyMintDevice, without any
+     *           assistance from components running at other security levels, it should be included
+     *           in an entry with the SecurityLevel of the IKeyMintDevice.
+     *         - If the semantics of the tag are fully enforced, but with the assistance of
+     *           components running at another SecurityLevel, it should be included in an entry with
+     *           the minimum SecurityLevel of the involved components.  For example if a StrongBox
+     *           IKeyMintDevice relies on a TEE to validate biometric authentication, biometric
+     *           authentication tags go in an entry with SecurityLevel::TRUSTED_ENVIRONMENT.
      *
      * @return outCertChain If the key is an asymmetric key, and proper keyparameters for
      *         attestation (such as challenge) is provided, then this parameter will return the
@@ -367,7 +380,7 @@ interface IKeyMintDevice {
      *         certificate return to a single certificate and make it nullable b/163604282.
      */
     void generateKey(in KeyParameter[] keyParams, out ByteArray generatedKeyBlob,
-                     out KeyCharacteristics generatedKeyCharacteristics,
+                     out KeyCharacteristics[] generatedKeyCharacteristics,
                      out Certificate[] outCertChain);
 
     /**
@@ -396,8 +409,22 @@ interface IKeyMintDevice {
      *
      * @param inKeyData The key material to import, in the format specified in keyFormat.
      *
-     * @return outImportedKeyBlob descriptor of the imported key.  The format of the keyblob will
-     *         be the google specified keyblob format.
+     * @return importedKeyCharacteristics Description of the generated key, divided by
+     *         SecurityLevel.
+     *
+     *         The rules that IKeyMintDevice implementations must use for deciding whether a given
+     *         tag from `keyParams` should be returns in a `generatedKeyCharacteristics` entry are:
+     *
+     *         - If the IKeyMintDevice cannot fully enforce the semantics of the tag, it should be
+     *           omitted.
+     *         - If the semantics of the tag are fully enforced by the IKeyMintDevice, without any
+     *           assistance from components running at other security levels, it should be included
+     *           in an entry with the SecurityLevel of the IKeyMintDevice.
+     *         - If the semantics of the tag are fully enforced, but with the assistance of
+     *           components running at another SecurityLevel, it should be included in an entry with
+     *           the minimum SecurityLevel of the involved components.  For example if a StrongBox
+     *           IKeyMintDevice relies on a TEE to validate biometric authentication, biometric
+     *           authentication tags go in an entry with SecurityLevel::TRUSTED_ENVIRONMENT.
      *
      * @return outImportedKeyCharacteristics Description of the generated key.  See the
      *         keyCharacteristics description in generateKey.
@@ -417,7 +444,7 @@ interface IKeyMintDevice {
      */
     void importKey(in KeyParameter[] inKeyParams, in KeyFormat inKeyFormat,
                    in byte[] inKeyData, out ByteArray outImportedKeyBlob,
-                   out KeyCharacteristics outImportedKeyCharacteristics,
+                   out KeyCharacteristics[] importedKeyCharacteristics,
                    out Certificate[] outCertChain);
 
     /**
@@ -502,8 +529,23 @@ interface IKeyMintDevice {
      *         the keyBlob contain a copy of the key material, wrapped in a key unavailable outside
      *         secure hardware.
      *
-     * @return outImportedKeyCharacteristics Description of the generated key.  See the description
-     *         of keyCharacteristics parameter in generateKey.
+     * @return importedKeyCharacteristics Description of the generated key, divided by
+     *         SecurityLevel.
+     *
+     *         The rules that IKeyMintDevice implementations must use for deciding whether a given
+     *         tag from `keyParams` should be returns in a `generatedKeyCharacteristics` entry are:
+     *
+     *         - If the IKeyMintDevice cannot fully enforce the semantics of the tag, it should be
+     *           omitted.
+     *         - If the semantics of the tag are fully enforced by the IKeyMintDevice, without any
+     *           assistance from components running at other security levels, it should be included
+     *           in an entry with the SecurityLevel of the IKeyMintDevice.
+     *         - If the semantics of the tag are fully enforced, but with the assistance of
+     *           components running at another SecurityLevel, it should be included in an entry with
+     *           the minimum SecurityLevel of the involved components.  For example if a StrongBox
+     *           IKeyMintDevice relies on a TEE to validate biometric authentication, biometric
+     *           authentication tags go in an entry with SecurityLevel::TRUSTED_ENVIRONMENT.
+     *
      */
     void importWrappedKey(in byte[] inWrappedKeyData,
                           in byte[] inWrappingKeyBlob,
@@ -512,7 +554,7 @@ interface IKeyMintDevice {
                           in long inPasswordSid,
                           in long inBiometricSid,
                           out ByteArray outImportedKeyBlob,
-                          out KeyCharacteristics outImportedKeyCharacteristics);
+                          out KeyCharacteristics[] importedKeyCharacteristics);
 
     /**
      * Upgrades an old key blob.  Keys can become "old" in two ways: IKeyMintDevice can be
