@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3a3405c_681fd575",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-01-12T10:14:20Z",
+      "side": 1,
+      "message": "maybe add MIX in the enum value to make it clear this is a mix extension:\nPORT_CONF_EXT_MIX_SOURCE\nPORT_CONF_EXT_MIX_SINK",
+      "range": {
+        "startLine": 332,
+        "startChar": 4,
+        "endLine": 332,
+        "endChar": 24
+      },
+      "revId": "c40732ab392bffa4264e6a18668c5b095b428255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b481c7f_5a14d594",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-01-12T10:14:20Z",
+      "side": 1,
+      "message": "If the goal is to factorize code, maybe having a boolean argument that would generate either valid or invalid configs here would be easier to understand and to maintain that the predefined indexes in the vector for each type of config.\nIt seems that there is never a mix and match of valid or invalid configs used and that we either generate all valid or all invalid configs.",
+      "range": {
+        "startLine": 336,
+        "startChar": 37,
+        "endLine": 336,
+        "endChar": 61
+      },
+      "revId": "c40732ab392bffa4264e6a18668c5b095b428255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4d21060_1ba92ffa",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-01-12T10:14:20Z",
+      "side": 1,
+      "message": "it is not clear that we are testing the right thing here:\ncreateAudioPatch() is not necessarily failing because the passed configs are invalid for sinks.\nIt will also fail for instance if the HAL does not support a particular patch description. For instance in this case, event if PORT_CONF_MINIMAL is valid, it is not a valid Mix port config a a source for the patch if the sinks are not Device configs.\nThe HAL could well return unsuported operation in this case before invalid arguments",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 48
+      },
+      "revId": "c40732ab392bffa4264e6a18668c5b095b428255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
