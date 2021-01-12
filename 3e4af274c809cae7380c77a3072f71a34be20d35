@@ -398,6 +398,30 @@
       },
       "revId": "3e4af274c809cae7380c77a3072f71a34be20d35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "782ba5b2_9cecd259",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/TimeStampToken.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-01-12T19:15:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85e7a2d1_6b286797",
+      "range": {
+        "startLine": 57,
+        "startChar": 5,
+        "endLine": 57,
+        "endChar": 6
+      },
+      "revId": "3e4af274c809cae7380c77a3072f71a34be20d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
