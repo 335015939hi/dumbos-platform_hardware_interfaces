@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000007207411",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1544908?revision\u003d4",
+      "fixSuggestions": [
+        {
+          "fixId": "4a885abc_c8d765a2",
+          "description": "Change to \"security/keymint/aidl/android/hardware/security/keymint/Certificate.aidl\"",
+          "replacements": [
+            {
+              "path": "security/keymint/aidl/android/hardware/security/keymint/Certificate.aidl",
+              "range": {
+                "startLine": 20,
+                "startChar": 71,
+                "endLine": 20,
+                "endChar": 81
+              },
+              "replacement": "asymmetric"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "9e29fae4_af722eda",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Certificate.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-01-12T02:58:55Z",
+      "side": 1,
+      "message": "Common typo found: \"assymetric\" -- should it be \"asymmetric\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 20,
+        "startChar": 71,
+        "endLine": 20,
+        "endChar": 81
+      },
+      "revId": "fb4a71b0774d468da54c19de16e1f9e8893db193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000007207413",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1544908?revision\u003d4",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "c8b458c7_23ccf48f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-01-12T02:58:55Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027complex\u0027, \u0027unexpected\u0027, or \u0027placeholder\u0027; see https://developers.google.com/style/inclusive-documentation#ableist-language for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 57,
+        "startChar": 83,
+        "endLine": 57,
+        "endChar": 88
+      },
+      "revId": "fb4a71b0774d468da54c19de16e1f9e8893db193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
