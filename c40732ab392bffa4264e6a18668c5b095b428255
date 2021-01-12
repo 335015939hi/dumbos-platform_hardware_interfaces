@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "362e53ea_53d7c5b9",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-01-12T23:35:07Z",
+      "side": 1,
+      "message": "I also was thinking about this, updated.",
+      "parentUuid": "f3a3405c_681fd575",
+      "range": {
+        "startLine": 332,
+        "startChar": 4,
+        "endLine": 332,
+        "endChar": 24
+      },
+      "revId": "c40732ab392bffa4264e6a18668c5b095b428255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b481c7f_5a14d594",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ba7eec6_1e829b24",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-01-12T23:35:07Z",
+      "side": 1,
+      "message": "Having an enum and combining the generators into a single function are orthogonal IMO. The only thing it improves is that it allows defining this enum locally instead of globally. I\u0027ve done that, thanks for the suggestion!\n\nEnum helps when we derive invalid configurations from valid ones. Sometimes we even use the same valid configuration as a starting point for several invalid ones.",
+      "parentUuid": "2b481c7f_5a14d594",
+      "range": {
+        "startLine": 336,
+        "startChar": 37,
+        "endLine": 336,
+        "endChar": 61
+      },
+      "revId": "c40732ab392bffa4264e6a18668c5b095b428255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4d21060_1ba92ffa",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-01-12T10:14:20Z",
       "side": 1,
       "message": "it is not clear that we are testing the right thing here:\ncreateAudioPatch() is not necessarily failing because the passed configs are invalid for sinks.\nIt will also fail for instance if the HAL does not support a particular patch description. For instance in this case, event if PORT_CONF_MINIMAL is valid, it is not a valid Mix port config a a source for the patch if the sinks are not Device configs.\nThe HAL could well return unsuported operation in this case before invalid arguments",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 48
+      },
+      "revId": "c40732ab392bffa4264e6a18668c5b095b428255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b15101d9_60b5cce1",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-01-12T23:35:07Z",
+      "side": 1,
+      "message": "I agree that createAudioPatch can return \u0027INVALID_ARGUMENT\u0027 due to other reasons. Clearly, this function offers quite a complex functionality, so testing it isn\u0027t trivial. In fact we don\u0027t currently have VTS tests for \"positive\" cases: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h;l\u003d503;drc\u003d3f1457b9537b1ff23704e17be7588dadf1e2884e\n\nSo, I don\u0027t currently know an easy way to know for sure that HAL would not have rejected the proposed arguments, assuming they didn\u0027t contain an invalid enum-string. I\u0027ve added a loop over the valid configs in the test to improve HAL logic coverage. At least, we can state that the HAL is required to return \u0027INVALID_ARGUMENT\u0027 in all of the cases, regardless of the actual cause. Although, I agree that we can\u0027t guarantee that it has actually rejected an invalid enum-string. Added a comment about that.\n\nI disagree that HAL should be using \u0027NOT_SUPPORTED\u0027 error since it\u0027s normally used for the case when this functionality isn\u0027t supported at all. This is stated in the docs: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/7.0/types.hal;l\u003d27;drc\u003dec5df2d7473e582e2f726f539b6911d4afa4a5f2. I\u0027ve clarified that in the interface definition.",
+      "parentUuid": "e4d21060_1ba92ffa",
       "range": {
         "startLine": 414,
         "startChar": 0,
