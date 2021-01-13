@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3958ce02_6ce575dc",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-13T18:50:35Z",
+      "side": 1,
+      "message": "Sorry, I should reopen this for suggestion on how to expose this enforcement to app developer.",
+      "parentUuid": "60b1cc7f_a483bfb0",
+      "range": {
+        "startLine": 346,
+        "startChar": 7,
+        "endLine": 348,
+        "endChar": 96
+      },
+      "revId": "a5367fea30a718aaaf1460c83da20d5e8add35da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a7395c1_d1b85982",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
         "patchSetId": 14
