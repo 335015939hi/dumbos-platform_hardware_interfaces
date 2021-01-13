@@ -16,6 +16,24 @@
       "message": "is there also a bug/plan for the VTS test? Sorry I didn\u0027t catch this earlier. The process to validate these things is trying to always keep the tree in a releasable state.\n\nGiven the size of this interface, I wonder if it would be simpler to add an example implementation and VTS test at the same time? Otherwise, we need a way that these can be guaranteed to land in this release.",
       "revId": "1d04100003699f37274f041778c41038e08d00fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f33a2224_c5ccabc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-01-13T23:44:07Z",
+      "side": 1,
+      "message": "Yes, pathakc@ is working on it. I added the bug numbers to the cuttlefish \"missing instance test\" CL.",
+      "parentUuid": "1a74866d_739fbcd9",
+      "revId": "1d04100003699f37274f041778c41038e08d00fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
