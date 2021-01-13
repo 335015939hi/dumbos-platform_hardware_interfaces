@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc2ae92f_fa0363e2",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/ISecureClock.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-13T02:44:12Z",
+      "side": 1,
+      "message": "format",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 3
+      },
+      "revId": "cf4d0cc0c2cd3522941b31214820658ca45faede",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "036ef6b0_99a76445",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/TimeStampToken.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-13T02:44:12Z",
+      "side": 1,
+      "message": "use string constant in interface, or allow dynamic values?",
+      "range": {
+        "startLine": 47,
+        "startChar": 14,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "cf4d0cc0c2cd3522941b31214820658ca45faede",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
