@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1efa159f_91a876a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2021-01-13T18:41:28Z",
+      "side": 1,
+      "message": "+2 by myself because this is exactly the same change of ag/13164522, which was reverted because it caused post submit failure that is not related to this CL.",
+      "revId": "df7ced7c3cd4f86569dbf6e9d659934be7442010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
