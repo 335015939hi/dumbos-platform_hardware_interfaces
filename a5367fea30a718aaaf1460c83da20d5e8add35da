@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "208a3659_51ac05af",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-13T18:25:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87e1d5b5_ed25bed7",
+      "range": {
+        "startLine": 342,
+        "startChar": 84,
+        "endLine": 342,
+        "endChar": 91
+      },
+      "revId": "a5367fea30a718aaaf1460c83da20d5e8add35da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb70f5ba_5fc402d6",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-13T06:08:38Z",
       "side": 1,
       "message": "We need to get a little more crisp. about how this will work.\n\nIf the caller specifies count \u003e 1, but KM can only enforce count \u003d\u003d 1,\n\n(a) Is the tag in the returned KeyCharacteristics? If so, with what value?\n(b) Is the tag in the attestation certificate (if requested)?  If so, in which authorization list and with what value?\n\nIf the caller specifies count \u003e\u003d 1, but KM can\u0027t enforce it at all, same questions.\n\nNote the almost-landed changes in KeyCharacteristics in aosp/1544908\n\nA related question:  How does the app developer know whether KM cannot enforce this, can enforce count \u003d\u003d 1 or count \u003e 1?",
+      "range": {
+        "startLine": 346,
+        "startChar": 7,
+        "endLine": 348,
+        "endChar": 96
+      },
+      "revId": "a5367fea30a718aaaf1460c83da20d5e8add35da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60b1cc7f_a483bfb0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-13T18:25:55Z",
+      "side": 1,
+      "message": "Thank you so much for reviewing this!\n\nI\u0027ve updated the documentation to specify each case now. And will rebase on this aosp/1544908 after resolving the conflicts in vts test.\n\n\u003e A related question:  How does the app developer know whether KM cannot enforce this, can enforce count \u003d\u003d 1 or count \u003e 1?\n\nI\u0027m thinking that only when the key is generated/imported, the app developer can know whether this is enforced in software/trusted_environment/strongbox. This probably requires us to expose another API like `getUsageCountLimitSecurityLevel`, does this make sense to you? Thanks!",
+      "parentUuid": "eb70f5ba_5fc402d6",
       "range": {
         "startLine": 346,
         "startChar": 7,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b8926d5_df5f7a0c",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-13T18:25:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a7395c1_d1b85982",
+      "range": {
+        "startLine": 352,
+        "startChar": 50,
+        "endLine": 352,
+        "endChar": 54
+      },
+      "revId": "a5367fea30a718aaaf1460c83da20d5e8add35da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52d87a20_a821f246",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-01-13T06:08:38Z",
       "side": 1,
       "message": "I think this is meant to be a statement about where it appears in the KeyCharacteristics.",
+      "range": {
+        "startLine": 354,
+        "startChar": 7,
+        "endLine": 355,
+        "endChar": 20
+      },
+      "revId": "a5367fea30a718aaaf1460c83da20d5e8add35da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55d86469_e15fee5e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-13T18:25:55Z",
+      "side": 1,
+      "message": "Updated now, thanks!",
+      "parentUuid": "52d87a20_a821f246",
       "range": {
         "startLine": 354,
         "startChar": 7,
