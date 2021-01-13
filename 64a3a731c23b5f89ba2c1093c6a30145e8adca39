@@ -46,6 +46,30 @@
       },
       "revId": "64a3a731c23b5f89ba2c1093c6a30145e8adca39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc1dbd91_5a3f3500",
+        "filename": "tv/input/1.0/default/TvInput.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1443524
+      },
+      "writtenOn": "2021-01-13T22:44:35Z",
+      "side": 1,
+      "message": "Yes. framework will behave actual same as before w/o optionalStatus.\nThe CL tried to fix a bug/gap: Not status update to framework at all.\nHAL 1.0 interface is fine, the issue is caused by the implementation, so we don\u0027t need HAL 1.1",
+      "parentUuid": "c8a3527c_62fccb83",
+      "range": {
+        "startLine": 145,
+        "startChar": 27,
+        "endLine": 145,
+        "endChar": 41
+      },
+      "revId": "64a3a731c23b5f89ba2c1093c6a30145e8adca39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
