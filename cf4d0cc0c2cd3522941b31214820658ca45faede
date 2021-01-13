@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9697dbc1_88cada50",
+        "filename": "security/secureclock/aidl/android/hardware/security/secureclock/TimeStampToken.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-13T02:45:03Z",
+      "side": 1,
+      "message": "by the client (if this is passed somewhere else) or by the server? Can you specify if this implies that a new challenge should always override an old one?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 42
+      },
+      "revId": "cf4d0cc0c2cd3522941b31214820658ca45faede",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "036ef6b0_99a76445",
         "filename": "security/secureclock/aidl/android/hardware/security/secureclock/TimeStampToken.aidl",
         "patchSetId": 7
