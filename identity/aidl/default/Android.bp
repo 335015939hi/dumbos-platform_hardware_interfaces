@@ -78,6 +78,7 @@ cc_binary {
         "libcrypto",
         "libbinder_ndk",
         "libkeymaster_messages",
+        "libcutils",
     ],
     static_libs: [
         "libbase",
