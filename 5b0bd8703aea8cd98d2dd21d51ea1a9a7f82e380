@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b6a306f_253c6243",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-13T02:43:28Z",
+      "side": 1,
+      "message": "how is this different than or should it be combined with weaver? is there any way this could be combined with a different interface? Or could it be built from simpler primitives?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "5b0bd8703aea8cd98d2dd21d51ea1a9a7f82e380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cffe804_91f6510b",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-13T02:43:28Z",
+      "side": 1,
+      "message": "nit: usual newline",
+      "range": {
+        "startLine": 40,
+        "startChar": 15,
+        "endLine": 40,
+        "endChar": 16
+      },
+      "revId": "5b0bd8703aea8cd98d2dd21d51ea1a9a7f82e380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dcd6a78_e6b3803a",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-13T02:43:28Z",
+      "side": 1,
+      "message": "provide this as a string constant (\"const String LABEL \u003d \"KeymasterSharedMac\")?\n\nor - any thought that this exact string should be returned by the implementation, so that this could be used with other labels?",
+      "range": {
+        "startLine": 63,
+        "startChar": 29,
+        "endLine": 63,
+        "endChar": 47
+      },
+      "revId": "5b0bd8703aea8cd98d2dd21d51ea1a9a7f82e380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99f04a0a_d93f421e",
+        "filename": "security/sharedsecret/aidl/android/hardware/security/sharedsecret/ISharedSecret.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-13T02:43:28Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 95,
+        "startChar": 40,
+        "endLine": 95,
+        "endChar": 72
+      },
+      "revId": "5b0bd8703aea8cd98d2dd21d51ea1a9a7f82e380",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
