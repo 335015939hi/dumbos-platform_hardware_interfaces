@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4af352b_3031ab45",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-14T17:33:43Z",
+      "side": 1,
+      "message": "nit: Add an empty line between these two lines.",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 433,
+        "endChar": 7
+      },
+      "revId": "619c1cae3890c613cabefc243ee9fe9ca77df8c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

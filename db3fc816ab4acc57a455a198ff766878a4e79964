@@ -117,6 +117,30 @@
       },
       "revId": "db3fc816ab4acc57a455a198ff766878a4e79964",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9c63c61_3de3bec1",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-14T17:33:43Z",
+      "side": 1,
+      "message": "Are the formats of these strings(number and emails) defined in 3GPP spec 31.102 v15 Section-4.4.2.3?\nOr are the strings opaque?",
+      "parentUuid": "0e583b4e_fe95c566",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 34
+      },
+      "revId": "db3fc816ab4acc57a455a198ff766878a4e79964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
