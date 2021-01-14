@@ -22,6 +22,30 @@
       },
       "revId": "3d52ebd4d59304c7f64ebecf77c8147bace63a11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34073f95_00e5b205",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/SecurityLevel.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-14T21:49:46Z",
+      "side": 1,
+      "message": "PTAL at PS2.",
+      "parentUuid": "9926aefd_81551cbc",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 2
+      },
+      "revId": "3d52ebd4d59304c7f64ebecf77c8147bace63a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
