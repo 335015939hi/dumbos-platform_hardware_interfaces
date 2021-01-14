@@ -16,6 +16,24 @@
       "message": "same on VTS here - sorry I also didn\u0027t realize it was missing here",
       "revId": "93bfb00e7523f5b0e0a5aaec75b35e366da160d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50c5aa05_29ac3bf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-01-14T16:09:46Z",
+      "side": 1,
+      "message": "as mentioned on the other CL. pathakc@ is working on both the VTS tests and the default implementations.",
+      "parentUuid": "d67daa61_92f3c969",
+      "revId": "93bfb00e7523f5b0e0a5aaec75b35e366da160d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
