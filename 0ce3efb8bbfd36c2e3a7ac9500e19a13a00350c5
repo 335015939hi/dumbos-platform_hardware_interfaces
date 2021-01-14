@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f321973_61af5a0f",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2021-01-14T09:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77cf8fd2_175353eb",
+      "range": {
+        "startLine": 124,
+        "startChar": 46,
+        "endLine": 124,
+        "endChar": 48
+      },
+      "revId": "0ce3efb8bbfd36c2e3a7ac9500e19a13a00350c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77a78164_ea267b6e",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b067d9f9_6a09927d",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2021-01-14T09:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77a78164_ea267b6e",
+      "range": {
+        "startLine": 435,
+        "startChar": 4,
+        "endLine": 436,
+        "endChar": 35
+      },
+      "revId": "0ce3efb8bbfd36c2e3a7ac9500e19a13a00350c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07520137_5ea3fd3d",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-01-13T08:43:33Z",
       "side": 1,
       "message": "This should be in the if block for card present.",
+      "range": {
+        "startLine": 479,
+        "startChar": 4,
+        "endLine": 479,
+        "endChar": 67
+      },
+      "revId": "0ce3efb8bbfd36c2e3a7ac9500e19a13a00350c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23842187_fe52ad9c",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2021-01-14T09:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07520137_5ea3fd3d",
       "range": {
         "startLine": 479,
         "startChar": 4,
