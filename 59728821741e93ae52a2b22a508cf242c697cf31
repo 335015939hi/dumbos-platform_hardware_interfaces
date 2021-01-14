@@ -83,6 +83,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ba9c5e5_91481da2",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-01-14T18:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1c7f9f4_dcca426c",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 5
+      },
+      "revId": "59728821741e93ae52a2b22a508cf242c697cf31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fae688ec_42cbcb32",
