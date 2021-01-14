@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9926aefd_81551cbc",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/SecurityLevel.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-01-14T21:45:23Z",
+      "side": 1,
+      "message": "Sounds really good. Here or at the KeyCharacteristics documentation we could leave a hint for implementers along the lines.\n\n If you are familiar with the hardware enforced and software enforced lists of the key \n characteristics. For an implementation of security level TEE or STRONGBOX, as a rule of thumb:\n The tags formerly in the hardware enforced list would now be associated with the security\n level of your implementation, while the tags in the software enforced list must now be \n associated with KEYSTORE.\n\nSomething like this maybe?",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 2
+      },
+      "revId": "3d52ebd4d59304c7f64ebecf77c8147bace63a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
