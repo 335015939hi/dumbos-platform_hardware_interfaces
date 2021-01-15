@@ -46,6 +46,30 @@
       },
       "revId": "b7f7d7ddf3c5ecbfec28c8412d55a64acb1599fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bf86fcb_5f6c5e92",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-01-15T15:24:41Z",
+      "side": 1,
+      "message": "Once the spec becomes public I can add a comment explaining how this value is specified.",
+      "parentUuid": "ea72ce46_e2b171f0",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 28
+      },
+      "revId": "b7f7d7ddf3c5ecbfec28c8412d55a64acb1599fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
