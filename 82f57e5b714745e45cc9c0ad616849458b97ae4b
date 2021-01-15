@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9c261ec_4db6a2e6",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestBaseV1_1.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2021-01-15T17:32:10Z",
+      "side": 1,
+      "message": "This file should have been removed.",
+      "parentUuid": "f41ada91_1bda7458",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 32
+      },
+      "revId": "82f57e5b714745e45cc9c0ad616849458b97ae4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4f1d7da_13de8a8d",
