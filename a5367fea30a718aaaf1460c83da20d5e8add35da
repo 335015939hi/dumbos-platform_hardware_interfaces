@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7cce20e0_1bc7c9cb",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-15T17:12:37Z",
+      "side": 1,
+      "message": "I thought about this again, limited use key can at least be enforced by Keystore2 with SecurityLevel::KEYSTORE defined in aosp/1551234. \n\nAnd at this point, probably it is not a good idea to add a new(dedicated) API telling about which SecurityLevel this feature is enforced. But for asymmetric keys, app developer can find this information in the attestation.",
+      "parentUuid": "3958ce02_6ce575dc",
+      "range": {
+        "startLine": 346,
+        "startChar": 7,
+        "endLine": 348,
+        "endChar": 96
+      },
+      "revId": "a5367fea30a718aaaf1460c83da20d5e8add35da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a7395c1_d1b85982",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
         "patchSetId": 14
