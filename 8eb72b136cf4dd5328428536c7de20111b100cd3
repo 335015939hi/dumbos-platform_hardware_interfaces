@@ -360,6 +360,24 @@
       "parentUuid": "78860880_7158b27b",
       "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cba783a4_c96b2d52",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1501760
+      },
+      "writtenOn": "2021-01-15T00:36:46Z",
+      "side": 1,
+      "message": "Yes. I have one SIM card which has 2 EF_ANR file under EF_PBR.\n01-13 16:16:22.644  5556  5556 D UsimPhoneBookManager #0: PBR rec: \nA8 23\n C0 03 4F3A 02 // EF_ADN\n C4 03 4F60 07 //0xC4 is EF_ANR_TAG - it is defined in UsimPhoneBookManager.java\n C4 03 4F64 08 // EF_ANR\n C1 03 4F84 0A // EF_IAP\n C6 03 4F80 05 // EF_GRP\n C9 03 4F20 0E // EF_UID\n C5 03 4F50 04 // EF_PBC\nA9 05 \n CA 03 4F70 09 // EF_EMAIL (type 2)\nAA 0F\n C8 03 4F4C 03\n C2 03 4F4A 06\n C7 03 4F4B 01\nFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\n\nAnyway, I saw your last comment in https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1441011/5..12/radio/1.6/types.hal#b347. I think your way can be solution of multiple Email/Anr file case, although I still think it is better to have a variable indicating the number of supported Email/ANR file in SIM.",
+      "parentUuid": "f361fc35_88113d9a",
+      "revId": "8eb72b136cf4dd5328428536c7de20111b100cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
