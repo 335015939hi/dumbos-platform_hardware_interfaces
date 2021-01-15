@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f41ada91_1bda7458",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestBaseV1_1.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2021-01-15T06:47:18Z",
+      "side": 1,
+      "message": "I can\u0027t really follow the code.\nIt seems now for 1.1 we have 2 classes both inherited from OffloadControlTestBase.\nWhy? And what\u0027s the relationship of them? Can they be merged together?",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 32
+      },
+      "revId": "82f57e5b714745e45cc9c0ad616849458b97ae4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4f1d7da_13de8a8d",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestV1_1.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2021-01-15T06:47:18Z",
+      "side": 1,
+      "message": "I don\u0027t really understand why there is a dedicated varialbe for it.\nCould we put it into the same control_cb variable, since cb_1_1 should also be an instance of 1.0?\nThus, 1.0 test could also verify 1.1 HAL, right?",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "82f57e5b714745e45cc9c0ad616849458b97ae4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
