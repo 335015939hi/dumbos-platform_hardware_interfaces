@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "785e7a47_d89e0c15",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-01-15T01:20:13Z",
+      "side": 0,
+      "message": "Shouldn\u0027t we mark it as reserved?",
+      "range": {
+        "startLine": 506,
+        "startChar": 4,
+        "endLine": 506,
+        "endChar": 18
+      },
+      "revId": "b3b0b11de39c3c85ea788fbc6ca2f213f786f88d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
