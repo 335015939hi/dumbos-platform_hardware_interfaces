@@ -236,7 +236,12 @@ TEST_P(RadioHidlTest_v1_5, setSignalStrengthReportingCriteria_1_5_NGRAN_SSRSRP) 
 
     ALOGI("setSignalStrengthReportingCriteria_1_5_NGRAN_SSRSRP, rspInfo.error = %s\n",
           toString(radioRsp_v1_5->rspInfo.error).c_str());
-    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_5->rspInfo.error, {RadioError::NONE}));
+
+    // Allow REQUEST_NOT_SUPPORTED as setSignalStrengthReportingCriteria_1_5() may not be supported
+    // for NGRAN
+    ASSERT_TRUE(
+            CheckAnyOfErrors(radioRsp_v1_5->rspInfo.error,
+                             {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));
 }
 
 /*
@@ -261,7 +266,12 @@ TEST_P(RadioHidlTest_v1_5, setSignalStrengthReportingCriteria_1_5_NGRAN_SSRSRQ) 
 
     ALOGI("setSignalStrengthReportingCriteria_1_5_NGRAN_SSRSRQ, rspInfo.error = %s\n",
           toString(radioRsp_v1_5->rspInfo.error).c_str());
-    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_5->rspInfo.error, {RadioError::NONE}));
+
+    // Allow REQUEST_NOT_SUPPORTED as setSignalStrengthReportingCriteria_1_5() may not be supported
+    // for NGRAN
+    ASSERT_TRUE(
+            CheckAnyOfErrors(radioRsp_v1_5->rspInfo.error,
+                             {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));
 }
 
 /*
@@ -307,7 +317,12 @@ TEST_P(RadioHidlTest_v1_5, setSignalStrengthReportingCriteria_1_5_NGRAN_SSSINR) 
 
     ALOGI("setSignalStrengthReportingCriteria_1_5_NGRAN_SSSINR, rspInfo.error = %s\n",
           toString(radioRsp_v1_5->rspInfo.error).c_str());
-    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_5->rspInfo.error, {RadioError::NONE}));
+
+    // Allow REQUEST_NOT_SUPPORTED as setSignalStrengthReportingCriteria_1_5() may not be supported
+    // for NGRAN
+    ASSERT_TRUE(
+            CheckAnyOfErrors(radioRsp_v1_5->rspInfo.error,
+                             {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));
 }
 
 /*
