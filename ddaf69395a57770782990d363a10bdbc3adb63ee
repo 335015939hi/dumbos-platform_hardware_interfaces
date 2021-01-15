@@ -16,6 +16,24 @@
       "message": "Hi Daniel,\nHow is this API different from existing IRadio HAL apis.\nEx:getRadioCapability(int32_t serial);\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/radio/1.0/IRadio.hal;l\u003d1437?q\u003diradio.hal\u0026ss\u003dandroid%2Fplatform%2Fsuperproject",
       "revId": "ddaf69395a57770782990d363a10bdbc3adb63ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "264853a8_d5533c9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2021-01-15T20:11:22Z",
+      "side": 1,
+      "message": "That\u0027s a good question.  getRadioCapability is the capability of the radio itself.  An example could be be, is 5G supported or not.\n\nThis new API is more about, does the radio hal (aka vendor) return info regarding the bandwidth on the secondary channel.\n\nThis is a CP from internal master, there is another CP coming that has the first radio hal capability.",
+      "parentUuid": "50e84eab_f658baf3",
+      "revId": "ddaf69395a57770782990d363a10bdbc3adb63ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
