@@ -71,11 +71,6 @@ void OffloadControlTestBase::initOffload(const bool expected_result) {
     ASSERT_TRUE(ret.isOk());
 }
 
-void OffloadControlTestBase::setupControlHal() {
-    prepareControlHal();
-    initOffload(true);
-}
-
 void OffloadControlTestBase::stopOffload(const ExpectBoolean value) {
     auto cb = [&](bool success, const hidl_string& errMsg) {
         switch (value) {
