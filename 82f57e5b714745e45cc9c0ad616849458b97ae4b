@@ -69,6 +69,30 @@
       },
       "revId": "82f57e5b714745e45cc9c0ad616849458b97ae4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "744de21c_8321f851",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestV1_1.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2021-01-15T17:44:48Z",
+      "side": 1,
+      "message": "With the current design it\u0027s not an extension of the 1.0 class.\n\nclass TetheringOffloadCallbackV1_1\n        : public testing::VtsHalHidlTargetCallbackBase\u003cTetheringOffloadCallbackArgsV1_1\u003e,\n          public android::hardware::tetheroffload::control::V1_1::ITetheringOffloadCallback\n\nIf there is a better way to be able to pass in the callbackArgs V1.1 to the existing TetheringOffloadCallback in 1.0 please advise.",
+      "parentUuid": "b4f1d7da_13de8a8d",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "82f57e5b714745e45cc9c0ad616849458b97ae4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
