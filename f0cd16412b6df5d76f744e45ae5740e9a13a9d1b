@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "060b7521_b5db9114",
+        "filename": "bluetooth/audio/2.1/default/A2dpOffloadAudioProvider.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Should there be a startSession_2_1 implementation, and check whether the audioConfig is valid or not while invoking IBluetoothAudioProvider.startSession_2_1()?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 52
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c58ecbc4_d08320fe",
+        "filename": "bluetooth/audio/2.1/default/A2dpSoftwareAudioProvider.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Should there be a startSession_2_1 implementation, and check whether the audioConfig is valid or not while invoking IBluetoothAudioProvider.startSession_2_1()?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 53
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46a696ba_48ebde3c",
+        "filename": "bluetooth/audio/2.1/default/HearingAidAudioProvider.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Should there be a startSession_2_1 implementation, and check whether the audioConfig is valid or not while invoking IBluetoothAudioProvider.startSession_2_1()?",
+      "range": {
+        "startLine": 68,
+        "startChar": 38,
+        "endLine": 68,
+        "endChar": 50
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae6a18c0_a141ef0e",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Why not 2_1? The HAL implementation can choose its library either libbluetooth_audio_session.so (2_0) or libbluetooth_audio_session_2_1.so, and this is also in the V2_1 namespace. So, here it should be okay to be only 2_1.",
+      "range": {
+        "startLine": 32,
+        "startChar": 47,
+        "endLine": 32,
+        "endChar": 50
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b288145_1a7946de",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Sam here, but why not 2_1?",
+      "range": {
+        "startLine": 46,
+        "startChar": 42,
+        "endLine": 46,
+        "endChar": 45
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65184c51_7cf23e6a",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Sam here, but why not 2_1?",
+      "range": {
+        "startLine": 61,
+        "startChar": 42,
+        "endLine": 61,
+        "endChar": 45
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b331a457_b4f6bdce",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Sam here, but why not 2_1?",
+      "range": {
+        "startLine": 73,
+        "startChar": 42,
+        "endLine": 73,
+        "endChar": 45
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00384b0a_f4e30895",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Sam here, but why not 2_1?",
+      "range": {
+        "startLine": 88,
+        "startChar": 62,
+        "endLine": 88,
+        "endChar": 65
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e3c4e40_07a243e8",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Sam here, but why not 2_1?",
+      "range": {
+        "startLine": 98,
+        "startChar": 64,
+        "endLine": 98,
+        "endChar": 67
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "720ece4b_1ab6e332",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Sam here, but why not 2_1?",
+      "range": {
+        "startLine": 108,
+        "startChar": 61,
+        "endLine": 108,
+        "endChar": 64
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2b4f1ef_299e76d5",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Sam here, but why not 2_1?",
+      "range": {
+        "startLine": 117,
+        "startChar": 74,
+        "endLine": 117,
+        "endChar": 77
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76a7505d_4133365e",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Sam here, but why not 2_1?",
+      "range": {
+        "startLine": 132,
+        "startChar": 42,
+        "endLine": 132,
+        "endChar": 45
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa5a43f4_24e43ee1",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Sam here, but why not 2_1?",
+      "range": {
+        "startLine": 143,
+        "startChar": 68,
+        "endLine": 143,
+        "endChar": 71
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0976307e_d9400579",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Sam here, but why not 2_1?",
+      "range": {
+        "startLine": 155,
+        "startChar": 66,
+        "endLine": 155,
+        "endChar": 69
+      },
+      "revId": "f0cd16412b6df5d76f744e45ae5740e9a13a9d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

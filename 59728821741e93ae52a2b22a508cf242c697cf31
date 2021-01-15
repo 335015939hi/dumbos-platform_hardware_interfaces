@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "865bcf08_505c219a",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-15T08:38:25Z",
+      "side": 1,
+      "message": "Does it check shared libraries specified by audio_bluetooth_hw Android.bp to choose which header to be included? In that Android.bp, we say *libbluetooth_audio_session*, and it goes for 2.0 BluetoothAudioSessionControl.h?",
+      "parentUuid": "0ffeb92f_e169f6de",
+      "revId": "59728821741e93ae52a2b22a508cf242c697cf31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26ada9a3_077d9144",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
         "patchSetId": 2
