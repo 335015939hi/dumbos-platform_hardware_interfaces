@@ -16,6 +16,24 @@
       "message": "Interface looks good, but the \"Merged-In\" cl hasn\u0027t been submitted yet and there is a conflict.",
       "revId": "e47a5164d8aa481ca1886c6e9268e3084e89e713",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16ba9c63_9436ef4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1468646
+      },
+      "writtenOn": "2021-01-15T17:02:37Z",
+      "side": 1,
+      "message": "Yes, I will submit the internal changes first then run presubmit and submit aosp.\nThanks",
+      "parentUuid": "99b71c48_b579f419",
+      "revId": "e47a5164d8aa481ca1886c6e9268e3084e89e713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
