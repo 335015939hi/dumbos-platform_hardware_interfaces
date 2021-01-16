@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc54a11d_e341c216",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2021-01-16T01:08:45Z",
+      "side": 1,
+      "message": "I think a better fix would be changing NGRAN to EUTRAN, which all devices should support.",
+      "revId": "763b144799d661ae629fa200e04ce40bb0c6c771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
