@@ -16,6 +16,24 @@
       "message": "I think a better fix would be changing NGRAN to EUTRAN, which all devices should support.",
       "revId": "763b144799d661ae629fa200e04ce40bb0c6c771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "668595d8_45cbac9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2021-01-16T01:25:28Z",
+      "side": 1,
+      "message": "https://source.corp.google.com/android/hardware/interfaces/radio/1.5/IRadio.hal;l\u003d50, these tests are for 5G signal strengths, so it needs to set the RAN as NGRAN, from my understanding.",
+      "parentUuid": "bc54a11d_e341c216",
+      "revId": "763b144799d661ae629fa200e04ce40bb0c6c771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
