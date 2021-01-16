@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3b7e49b_cfab3304",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2021-01-16T04:34:51Z",
+      "side": 1,
+      "message": "1. Generally the logic LGTM but I don\u0027t think I have enough knowledge about C++ to review this.\n2. IIUC we need to set to the same topic with previous CLs.",
+      "revId": "83b1cdc1db436a7c1bac901f08c581b0ac209af3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b3d3f38_ee3616f4",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestV1_1.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2021-01-16T04:34:51Z",
+      "side": 1,
+      "message": "Question: Can the offload be stopped with the original stopOffload function?",
+      "range": {
+        "startLine": 58,
+        "startChar": 51,
+        "endLine": 58,
+        "endChar": 66
+      },
+      "revId": "83b1cdc1db436a7c1bac901f08c581b0ac209af3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
