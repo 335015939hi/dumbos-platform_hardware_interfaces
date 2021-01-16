@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b5ad0c3_de122129",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-16T02:39:11Z",
+      "side": 0,
+      "message": "This is kept until all internal devices with target level 6 gets converted into AIDL HAL.",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 260,
+        "endChar": 10
+      },
+      "revId": "9c160b61fe9e0b464c1ad30d31eb094b9f0a1a33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
