@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b72e776_965025bb",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-18T09:20:22Z",
+      "side": 1,
+      "message": "As discussed offline, instead of getting this information from attestation, app developers should find this information by using PackageManger feature flags. Added several related feature flags now, thanks!",
+      "parentUuid": "7cce20e0_1bc7c9cb",
+      "range": {
+        "startLine": 346,
+        "startChar": 7,
+        "endLine": 348,
+        "endChar": 96
+      },
+      "revId": "a5367fea30a718aaaf1460c83da20d5e8add35da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a7395c1_d1b85982",
