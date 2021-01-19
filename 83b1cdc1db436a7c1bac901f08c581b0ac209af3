@@ -39,6 +39,30 @@
       },
       "revId": "83b1cdc1db436a7c1bac901f08c581b0ac209af3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca68a357_c1c30c6e",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestV1_1.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2021-01-19T17:42:53Z",
+      "side": 1,
+      "message": "stopOffload() can still be used. InitOffload() and initOffload_1_1() are used to register the different callbacks between 1.0/1.1, but all other api\u0027s can still be used.",
+      "parentUuid": "6b3d3f38_ee3616f4",
+      "range": {
+        "startLine": 58,
+        "startChar": 51,
+        "endLine": 58,
+        "endChar": 66
+      },
+      "revId": "83b1cdc1db436a7c1bac901f08c581b0ac209af3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
