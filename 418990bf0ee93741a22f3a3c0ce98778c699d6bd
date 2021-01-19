@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc843ea7_125a6176",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-19T20:21:48Z",
+      "side": 1,
+      "message": "Looks good! Just the date on one file.",
+      "revId": "418990bf0ee93741a22f3a3c0ce98778c699d6bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a047abdf_eb068f43",
+        "filename": "health/storage/aidl/vts/functional/VtsHalHealthStorageTargetTest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-19T20:21:48Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 19,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "418990bf0ee93741a22f3a3c0ce98778c699d6bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
