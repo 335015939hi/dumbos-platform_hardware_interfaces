@@ -22,6 +22,30 @@
       },
       "revId": "feed84d11dbf625869d3f57868dbb718881f8185",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9177bce9_72803311",
+        "filename": "health/storage/aidl/default/health-storage-default.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-19T23:30:41Z",
+      "side": 1,
+      "message": "There\u0027s no difference.\n\nFor Hal manifest, both can be used. For compatibility matrices, only \u003cinterface\u003e can be used; \u003cfqname\u003e is not supported.",
+      "parentUuid": "fa24360b_4df5fd8a",
+      "range": {
+        "startLine": 5,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 41
+      },
+      "revId": "feed84d11dbf625869d3f57868dbb718881f8185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
