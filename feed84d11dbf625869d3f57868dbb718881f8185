@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa24360b_4df5fd8a",
+        "filename": "health/storage/aidl/default/health-storage-default.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-19T22:33:28Z",
+      "side": 1,
+      "message": "Is there a difference between \u003cfqname\u003eIStorage/default\u003c/fqname\u003e and\n```\n\u003cinterface\u003e \n   \u003cname\u003eIStorage\u003c/name\u003e\n   \u003cinstance\u003edefault\u003c/instance\u003e\n\u003c/interface\u003e\n```\nI see the second format in https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1548963/3/compatibility_matrices/compatibility_matrix.current.xml",
+      "range": {
+        "startLine": 5,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 41
+      },
+      "revId": "feed84d11dbf625869d3f57868dbb718881f8185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
