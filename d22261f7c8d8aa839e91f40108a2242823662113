@@ -16,6 +16,121 @@
       "message": "(according to go/anapic-contact)",
       "revId": "d22261f7c8d8aa839e91f40108a2242823662113",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58c7327d_87e81e16",
+        "filename": "weaver/aidl/android/hardware/weaver/IWeaver.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-20T18:40:15Z",
+      "side": 1,
+      "message": "Since this is now a signed int, mention that it needs to be positive to be valid(if that is actually true).",
+      "range": {
+        "startLine": 56,
+        "startChar": 14,
+        "endLine": 56,
+        "endChar": 46
+      },
+      "revId": "d22261f7c8d8aa839e91f40108a2242823662113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed517905_bced31ad",
+        "filename": "weaver/aidl/android/hardware/weaver/IWeaver.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-20T18:40:15Z",
+      "side": 1,
+      "message": "You can describe the error codes that might be returned as service specific errors/exceptions in the description(before the @params) instead of the @return.\n\nsomething like:\n@return The WeaverReadResponse for this read request. If the status is OK, value is set to the value in the slot and timeout is 0. Otherwise, value is empty and timeout is set accordingly.",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 64,
+        "endChar": 72
+      },
+      "revId": "d22261f7c8d8aa839e91f40108a2242823662113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f17bafe_b0706cc8",
+        "filename": "weaver/aidl/android/hardware/weaver/IWeaver.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-20T18:40:15Z",
+      "side": 1,
+      "message": "Since there is no return in this method definition, this should be removed. You can describe the error codes that might be returned as service specific errors/exceptions in the body of the comment.\nIf they are defined in this file as constants, it makes it a bit more readable as well.",
+      "range": {
+        "startLine": 77,
+        "startChar": 7,
+        "endLine": 77,
+        "endChar": 61
+      },
+      "revId": "d22261f7c8d8aa839e91f40108a2242823662113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c0c3f85_d9c0548c",
+        "filename": "weaver/aidl/android/hardware/weaver/WeaverReadResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-20T18:40:15Z",
+      "side": 1,
+      "message": "does this need to be here if it\u0027s being returned as a service specific error code in read(...)?",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "d22261f7c8d8aa839e91f40108a2242823662113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cfbf13f_6fda6a18",
+        "filename": "weaver/aidl/android/hardware/weaver/WeaverReadStatus.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-20T18:40:15Z",
+      "side": 1,
+      "message": "You could add these as constants in the interface if they are just being used for the service specific error codes.\nHere\u0027s an example: https://source.corp.google.com/android/hardware/interfaces/gnss/aidl/android/hardware/gnss/IGnss.aidl;rcl\u003dc9a0e89adea26ea3fdd5058e1949c46d7c50f08a;l\u003d35",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 1
+      },
+      "revId": "d22261f7c8d8aa839e91f40108a2242823662113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
