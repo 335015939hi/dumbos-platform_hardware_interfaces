@@ -190,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b43860e_83d32d13",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2021-01-20T06:06:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6845959_5252b5a3",
+      "range": {
+        "startLine": 126,
+        "startChar": 62,
+        "endLine": 126,
+        "endChar": 95
+      },
+      "revId": "bece33f56ad5145ed5189e4aa060506a993839b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83885a52_ffd75968",
