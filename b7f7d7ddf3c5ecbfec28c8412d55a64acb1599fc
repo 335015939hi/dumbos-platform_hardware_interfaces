@@ -70,6 +70,30 @@
       },
       "revId": "b7f7d7ddf3c5ecbfec28c8412d55a64acb1599fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56fd98a2_96f34080",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-01-20T23:06:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2bf86fcb_5f6c5e92",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 28
+      },
+      "revId": "b7f7d7ddf3c5ecbfec28c8412d55a64acb1599fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
