@@ -22,6 +22,30 @@
       },
       "revId": "600b7775ef945b70b211d67bf2a3285a0071c252",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38189875_82a554a7",
+        "filename": "security/keymint/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-01-20T15:48:23Z",
+      "side": 0,
+      "message": "Yes, but it is not part of this interface anymore. Chirag should be working on it.",
+      "parentUuid": "e6c95d52_4a2fc162",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "600b7775ef945b70b211d67bf2a3285a0071c252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
