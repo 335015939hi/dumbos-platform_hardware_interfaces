@@ -16,6 +16,24 @@
       "message": "From our projects perspective this change should be applied to Android 11 and, if possible Android 10.",
       "revId": "791a9e4ea1a9dbbe0861dfc561c9c9ae6acedab8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4133a089_caf09350",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1583555
+      },
+      "writtenOn": "2021-01-21T11:36:09Z",
+      "side": 1,
+      "message": "Once the patch is merged on master we can cherry pick it to the proper branches.\n\nPlease add the bug number and how you tested the patch to the commit message (see https://android-review.googlesource.com/c/platform/test/vts-testcase/kernel/+/1553818 for an example).\n\nThanks",
+      "parentUuid": "2f5a6d4b_134fb54d",
+      "revId": "791a9e4ea1a9dbbe0861dfc561c9c9ae6acedab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
