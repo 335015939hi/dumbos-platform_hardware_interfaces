@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a748198_985c310f",
+        "filename": "weaver/aidl/android/hardware/weaver/IWeaver.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-21T17:21:24Z",
+      "side": 1,
+      "message": "fixed at patchset 4, thanks.",
+      "parentUuid": "e7718882_8441c429",
+      "range": {
+        "startLine": 68,
+        "startChar": 37,
+        "endLine": 68,
+        "endChar": 50
+      },
+      "revId": "3af5e703a7290d1e6af9291871a8da5e1d596bfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "266b3370_ddab0c00",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-21T17:08:31Z",
       "side": 1,
       "message": "\"successful\"",
+      "range": {
+        "startLine": 87,
+        "startChar": 31,
+        "endLine": 87,
+        "endChar": 45
+      },
+      "revId": "3af5e703a7290d1e6af9291871a8da5e1d596bfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a58c311e_cf8eb272",
+        "filename": "weaver/aidl/android/hardware/weaver/IWeaver.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-21T17:21:24Z",
+      "side": 1,
+      "message": "fixed at patchset 4, thanks.",
+      "parentUuid": "266b3370_ddab0c00",
       "range": {
         "startLine": 87,
         "startChar": 31,

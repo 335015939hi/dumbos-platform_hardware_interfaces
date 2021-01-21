@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12bb8a1c_d00e9995",
+        "filename": "weaver/aidl/android/hardware/weaver/IWeaver.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1568424
+      },
+      "writtenOn": "2021-01-21T17:21:24Z",
+      "side": 1,
+      "message": "Got it, thanks for the information.",
+      "parentUuid": "2ea86576_560e269d",
+      "range": {
+        "startLine": 56,
+        "startChar": 14,
+        "endLine": 56,
+        "endChar": 46
+      },
+      "revId": "d22261f7c8d8aa839e91f40108a2242823662113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed517905_bced31ad",
