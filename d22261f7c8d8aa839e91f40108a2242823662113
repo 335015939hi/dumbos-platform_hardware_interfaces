@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ea86576_560e269d",
+        "filename": "weaver/aidl/android/hardware/weaver/IWeaver.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-21T17:08:31Z",
+      "side": 1,
+      "message": "There is not.\nlong would be the next size up that can fit the largest positive value of uint32_t.\nhttps://b.corp.google.com/issues/155807276 for unsigned AIDL discussion if you wanted to know.",
+      "parentUuid": "3bcaa169_b0c9e665",
+      "range": {
+        "startLine": 56,
+        "startChar": 14,
+        "endLine": 56,
+        "endChar": 46
+      },
+      "revId": "d22261f7c8d8aa839e91f40108a2242823662113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed517905_bced31ad",

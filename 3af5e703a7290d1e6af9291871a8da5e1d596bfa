@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7718882_8441c429",
+        "filename": "weaver/aidl/android/hardware/weaver/IWeaver.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-21T17:08:31Z",
+      "side": 1,
+      "message": "\"unsuccessful\"",
+      "range": {
+        "startLine": 68,
+        "startChar": 37,
+        "endLine": 68,
+        "endChar": 50
+      },
+      "revId": "3af5e703a7290d1e6af9291871a8da5e1d596bfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "266b3370_ddab0c00",
+        "filename": "weaver/aidl/android/hardware/weaver/IWeaver.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-21T17:08:31Z",
+      "side": 1,
+      "message": "\"successful\"",
+      "range": {
+        "startLine": 87,
+        "startChar": 31,
+        "endLine": 87,
+        "endChar": 45
+      },
+      "revId": "3af5e703a7290d1e6af9291871a8da5e1d596bfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
