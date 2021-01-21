@@ -34,7 +34,6 @@ cc_defaults {
     shared_libs: [
         "libbase",
         // All the following are dependencies of any HAL definition library.
-        "libcutils",
         "liblog",
         "libhidlbase",
         "libutils",
