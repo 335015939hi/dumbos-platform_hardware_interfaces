@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "429cf2c7_5b21ddc1",
+        "filename": "camera/provider/2.4/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-01-21T01:02:00Z",
+      "side": 1,
+      "message": "this is still cutils?\n\n(it should probably be libbase\u0027s GetBoolProperty instead, but i don\u0027t know how many other uses of the libcutils API still exist in this code...)",
+      "range": {
+        "startLine": 47,
+        "startChar": 8,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "ff25d43b355a81d980e1d828d11e2a9eeaa21c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
