@@ -33,6 +33,23 @@
       "message": "sorry, wrote a reply that somehow never got sent.\n\ndo you have a trace or profile showing the CPU time now that you\u0027d be willing to share via email? thinking back to when this was written, I measured this on Pixel 1 or Pixel 2 and there was no difference in performance between little cores and big cores. I checked again on Pixel 5 and it seems to be about the same between the core types. is this specific to the different form factors of fingerprint sensors?",
       "revId": "4fc21b79b7d5520d74172c5cb049de1ecdf099e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b0d0dcb_cf11de8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2021-01-21T17:42:55Z",
+      "side": 1,
+      "message": "can you check your memory governor setting? Maybe your little cores are slow due to those stalled cycles. If little cores are capable to do the work, you would want to make sure the mem governor is not gating things.",
+      "revId": "4fc21b79b7d5520d74172c5cb049de1ecdf099e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
