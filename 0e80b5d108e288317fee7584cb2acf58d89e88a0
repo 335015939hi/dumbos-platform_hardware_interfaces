@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a8684f3_077e9959",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-01-21T09:29:40Z",
+      "side": 1,
+      "message": "Maybe it\u0027s better to extract this into a helper function, to prevent future errors caused by editing one of these instances, but not the other.",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 145,
+        "endChar": 5
+      },
+      "revId": "0e80b5d108e288317fee7584cb2acf58d89e88a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e2d57c9_56426d93",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-01-21T09:29:40Z",
+      "side": 1,
+      "message": "Maybe add a comment explaining that retval 1 means the complete chain can be verified (I had to look up X509_verify to understand what this was doing).",
+      "revId": "0e80b5d108e288317fee7584cb2acf58d89e88a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e87f0a1_47b287e4",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-01-21T09:29:40Z",
+      "side": 1,
+      "message": "Large parts of this and other functions appear in system/keymaster/tests/android_keymaster_test.cpp as well. I\u0027m not sure if it\u0027s possible to share code between these, but I think doing so might make both more robust in the future.",
+      "range": {
+        "startLine": 244,
+        "startChar": 19,
+        "endLine": 244,
+        "endChar": 41
+      },
+      "revId": "0e80b5d108e288317fee7584cb2acf58d89e88a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "749e3600_984f48a8",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-01-21T09:29:40Z",
+      "side": 1,
+      "message": "I had to look at filtered_tags and verify_attestation_record below to understand what this function was doing. Maybe a better name could be appears_in_attestation_list?",
+      "range": {
+        "startLine": 263,
+        "startChar": 5,
+        "endLine": 263,
+        "endChar": 16
+      },
+      "revId": "0e80b5d108e288317fee7584cb2acf58d89e88a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89f8b3de_8899bbd4",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-01-21T09:29:40Z",
+      "side": 1,
+      "message": "Similarly, if I understood correctly this keeps only the tags that appear in an attestation? If so, maybe a name like filter_attestation_tags might be better?",
+      "range": {
+        "startLine": 276,
+        "startChar": 17,
+        "endLine": 276,
+        "endChar": 30
+      },
+      "revId": "0e80b5d108e288317fee7584cb2acf58d89e88a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0032b96_3fc77e4a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-01-21T09:29:40Z",
+      "side": 1,
+      "message": "Should these values be excluded if avb verification is disabled?",
+      "range": {
+        "startLine": 342,
+        "startChar": 42,
+        "endLine": 343,
+        "endChar": 63
+      },
+      "revId": "0e80b5d108e288317fee7584cb2acf58d89e88a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff4953aa_77e6a6d2",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1363994
+      },
+      "writtenOn": "2021-01-21T09:29:40Z",
+      "side": 1,
+      "message": "Can these be made constants?",
+      "range": {
+        "startLine": 570,
+        "startChar": 8,
+        "endLine": 571,
+        "endChar": 28
+      },
+      "revId": "0e80b5d108e288317fee7584cb2acf58d89e88a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
