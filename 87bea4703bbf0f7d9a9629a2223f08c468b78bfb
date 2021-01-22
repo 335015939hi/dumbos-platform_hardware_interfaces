@@ -39,6 +39,30 @@
       },
       "revId": "87bea4703bbf0f7d9a9629a2223f08c468b78bfb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3538f33c_020b9556",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-22T22:38:36Z",
+      "side": 1,
+      "message": "https://b.corp.google.com/issues/174514415 for info/history.\nSAC docs describing it: https://source.android.com/devices/architecture/aidl/aidl-annotations#deprecated_in_comments\n\nFor the specific version, I think all you can do is add a trailing comment about the version. This won\u0027t be emitted for the older frozen version.\n\nDid you want to do this David?",
+      "parentUuid": "8455d230_18e871af",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "87bea4703bbf0f7d9a9629a2223f08c468b78bfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
