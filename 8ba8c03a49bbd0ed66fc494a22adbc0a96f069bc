@@ -16,6 +16,24 @@
       "message": "Hi Steven Moreland, I have some question about using extension interface.\nHal extension interface could let me add some customized function elegantly.\nBut, it still has to add some intermediate interface in VibratorService because only\nsystem_server has ability to access vendor_service.\n\nHow could I provided hal extension interface to our app without any modify on framework?\nIf extension interface is only to accessed by system_server, then what should i do to extends framework api elegantly?\n\nIf we must modify framework api, what is the mean of hal extension?",
       "revId": "8ba8c03a49bbd0ed66fc494a22adbc0a96f069bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "834b62d1_eb8c40ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-22T19:25:20Z",
+      "side": 1,
+      "message": "Hey Ming, excellent question (a very critical one for our industry!)\n\nI\u0027ve tried to amend the AIDL documentation w/ an explanation. Pending editorial review, you should see something similar to the following text added to\nhttps://source.android.com/devices/architecture/aidl/aidl-hals (hopefully soon!):\n\n  ## Extension Interfaces {:#extension-interfaces}\n\n  Android has a set of official AOSP interfaces with every release. When Android\n  partners want to add functionality to these interfaces, they shouldn\u0027t change\n  these directly because this would mean that their Android runtime is\n  incompatible with the one on tip of tree. For GMS devices, avoiding changing\n  these interfaces is also what ensures the GSI image can continue to work.\n\n  Extensions can register in two different ways:\n\n  * at runtime, see [attached extensions](#attached-extensions)\n  * standalone, registered globally and in VINTF\n\n  However an extension is registered, if it used by a vendor-specific component,\n  then there is no possible conflict. However, if an interface is also or\n  alternatively used by framework code, merge conflicts are possible. This isn\u0027t\n  desirable, but the following resolutions are possible:\n\n  * the interface additions can be upstreamed to AOSP in the next release\n  * interface additions which allow further flexibility, without merge conflicts,\n    can be upstreamed in the next release\n\n  ...\n\n  Attached extension interfaces\n  make the most sense when they are attached to sub-interfaces, since\n  functionality may be needed one-to-one with an existing sub-interface. In these\n  cases, the alternative of keeping some list or map of interfaces registered\n  separately can make it difficult to keep track of lifetimes or share data\n  between an instance of the core interface and an extension of it.\n\n\u003e How could I provided hal extension interface to our app without any modify on framework?\n\nLet me add one more specific suggestion here. You could have your own framework service providing APIs to apps (either via public.libraries.txt or users-library).",
+      "parentUuid": "eb2f9746_271ab746",
+      "revId": "8ba8c03a49bbd0ed66fc494a22adbc0a96f069bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
