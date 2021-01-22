@@ -87,6 +87,30 @@
       },
       "revId": "87bea4703bbf0f7d9a9629a2223f08c468b78bfb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afafad8c_27b1b2b4",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-01-22T22:55:10Z",
+      "side": 1,
+      "message": "Sure thing, fixed this in the latest PS.",
+      "parentUuid": "c37f1773_0b6c6378",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "87bea4703bbf0f7d9a9629a2223f08c468b78bfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
