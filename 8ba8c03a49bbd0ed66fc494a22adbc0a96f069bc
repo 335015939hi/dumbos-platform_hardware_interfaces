@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb2f9746_271ab746",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1626367
+      },
+      "writtenOn": "2021-01-22T12:11:33Z",
+      "side": 1,
+      "message": "Hi Steven Moreland, I have some question about using extension interface.\nHal extension interface could let me add some customized function elegantly.\nBut, it still has to add some intermediate interface in VibratorService because only\nsystem_server has ability to access vendor_service.\n\nHow could I provided hal extension interface to our app without any modify on framework?\nIf extension interface is only to accessed by system_server, then what should i do to extends framework api elegantly?\n\nIf we must modify framework api, what is the mean of hal extension?",
+      "revId": "8ba8c03a49bbd0ed66fc494a22adbc0a96f069bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
