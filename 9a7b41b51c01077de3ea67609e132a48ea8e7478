@@ -95,6 +95,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1415205f_5a0e9b4c",
+        "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:23:39Z",
+      "side": 1,
+      "message": "My bad.\n\nusing ::android::hardware::automotive::audiocontrol::V1_0::ContextNumber;",
+      "parentUuid": "a2eaf422_23f7015e",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 87
+      },
+      "revId": "9a7b41b51c01077de3ea67609e132a48ea8e7478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8479164_2b5dc01a",
         "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
         "patchSetId": 3
