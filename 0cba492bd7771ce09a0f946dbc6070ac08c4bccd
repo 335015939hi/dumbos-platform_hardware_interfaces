@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edc3fe3f_97f945cf",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad3880da_0c7a7cf2",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Please fully qualify all namespaces in a using statement with \"::\" as the prefix. \n\nDon\u0027t have to say \"using XXXX \u003d ::AAAA::BBBB::XXXX;\". The `XXXX` on the lhs is redundant, just \"using ::AAAA::BBBB::XXXX;\" is sufficient.\n\nPlease don\u0027t avoid using-directives (like \"using namespace\") to make all names under a namespace available in your code. Alias only the required names (i.e., class or function).\n\nusing ::aidl::android::automotive::watchdog::TimeoutLength;\nusing ::android::hardware::automotive::vehicle::V2_0::VehicleProperty;\nusing ::android::hardware::automotive::vehicle::V2_0::DiagnosticIntegerSensorIndex;\nusing ::android::hardware::automotive::vehicle::V2_0::DiagnosticFloatSensorIndex;\nusing ::android::hardware::hidl_vec;",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 34
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3f8414b_dbb11117",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Please prefer using \"constexpr const\" rather than just \"const\" for string constants. Const only informs the compiler that the value won\u0027t change. But constexpr makes sure the value is initialized statically.\n\nconstexpr const char* kCarMake \u003d \"Default Car\";",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 38
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b036dc87_abd69f21",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Similarly for other types use \"constexpr\" rather than just \"const\".\n\nconstexpr int kRetriableAttempts \u003d 3;\n... replace for others as well ...",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 91
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f12e015_53171fac",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Any method with 5+ lines shouldn\u0027t be inlined. Please define it outside the class.",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 5
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "653790d8_4b99f77c",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "terminate\n\nPlease refer to the below comment, this function can be removed.",
+      "range": {
+        "startLine": 158,
+        "startChar": 9,
+        "endLine": 158,
+        "endChar": 15
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e97ebbee_e95b97cb",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Any method with 5+ lines shouldn\u0027t be inlined. Please define it outside the class.",
+      "range": {
+        "startLine": 179,
+        "startChar": 3,
+        "endLine": 197,
+        "endChar": 5
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "336c6eca_b211865a",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "This is a really long file. Please move the class declaration into a header.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 0
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4d3b495_4323ccb7",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Please merge this with the constructor as this doesn\u0027t do anything special.",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 1
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccfb4a89_d22e202f",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Similarly merge this with the destructor.",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 1
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02bdeacb_7d51257c",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Define using statement for this and use hidl_string directly. Please be consistent with defining using statements throughout the file.",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 226,
+        "endChar": 34
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69e76bb7_79477395",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Using statement",
+      "range": {
+        "startLine": 228,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 34
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a722ea44_aee34703",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Reformat this to (/*numFds\u003d*/ 1, /*numInts\u003d*/ 0)",
+      "range": {
+        "startLine": 229,
+        "startChar": 64,
+        "endLine": 229,
+        "endChar": 91
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4637d4f0_b68f9351",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 230,
+        "startChar": 28,
+        "endLine": 230,
+        "endChar": 49
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a7aea11_ce8e9567",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "`called` variable is never used after assignment. Is this variable useful?",
+      "range": {
+        "startLine": 243,
+        "startChar": 4,
+        "endLine": 262,
+        "endChar": 7
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "313347a7_57cd01e4",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Is this mObjectPool ?\n\nPlease update the below lines 324-326 as well.",
+      "range": {
+        "startLine": 323,
+        "startChar": 12,
+        "endLine": 323,
+        "endChar": 32
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d630d193_cc2c01c1",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-01-22T01:15:08Z",
+      "side": 1,
+      "message": "Please enclose this code inside your project namespace.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 495,
+        "endChar": 1
+      },
+      "revId": "0cba492bd7771ce09a0f946dbc6070ac08c4bccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
