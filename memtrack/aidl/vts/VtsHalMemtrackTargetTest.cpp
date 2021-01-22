@@ -21,15 +21,22 @@
 #include <aidl/android/hardware/memtrack/MemtrackType.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
+#include <vintf/VintfObject.h>
 
 using aidl::android::hardware::memtrack::DeviceInfo;
 using aidl::android::hardware::memtrack::IMemtrack;
 using aidl::android::hardware::memtrack::MemtrackRecord;
 using aidl::android::hardware::memtrack::MemtrackType;
+using android::vintf::KernelVersion;
+using android::vintf::RuntimeInfo;
+using android::vintf::VintfObject;
 
 class MemtrackAidlTest : public testing::TestWithParam<std::string> {
   public:
     virtual void SetUp() override {
+        if (kKernelVersion < kMinKernelVersion) {
+            GTEST_SKIP();
+        }
         const auto instance = GetParam();
         ASSERT_TRUE(AServiceManager_isDeclared(instance.c_str()));
         auto memtrackBinder = ndk::SpAIBinder(AServiceManager_waitForService(instance.c_str()));
@@ -38,6 +45,11 @@ class MemtrackAidlTest : public testing::TestWithParam<std::string> {
     }
 
     std::shared_ptr<IMemtrack> memtrack_;
+    const KernelVersion kMinKernelVersion = KernelVersion(5, 10, 0);
+    const KernelVersion kKernelVersion =
+            VintfObject::GetInstance()
+                    ->getRuntimeInfo(RuntimeInfo::FetchFlag::CPU_VERSION)
+                    ->kernelVersion();
 };
 
 TEST_P(MemtrackAidlTest, GetMemoryInvalidPid) {
@@ -74,6 +86,12 @@ TEST_P(MemtrackAidlTest, GetGpuDeviceInfo) {
     std::vector<DeviceInfo> device_info;
 
     auto status = memtrack_->getGpuDeviceInfo(&device_info);
+
+    EXPECT_FALSE(device_info.empty());
+
+    for (auto device : device_info) {
+        EXPECT_FALSE(device.name.empty());
+    }
 
     EXPECT_TRUE(status.isOk());
 }
