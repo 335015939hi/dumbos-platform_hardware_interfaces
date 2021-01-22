@@ -59,7 +59,11 @@ class HostapdHidlTest
         HIDL_INVOKE_VOID_WITHOUT_ARGUMENTS(hostapd_, terminate);
         // Wait 3 seconds to allow terminate processing before kill hostapd.
         sleep(3);
+<<<<<<< HEAD   (7618b4 Merge "wifi: Add sleep 3 seconds to allow terminate processi)
         stopHostapd(wifi_instance_name_);
+=======
+        stopHostapd();
+>>>>>>> BRANCH (878932 Merge "wifi: Add sleep 3 seconds to allow terminate processi)
     }
 
    protected:
