@@ -50,6 +50,23 @@
       "message": "can you check your memory governor setting? Maybe your little cores are slow due to those stalled cycles. If little cores are capable to do the work, you would want to make sure the mem governor is not gating things.",
       "revId": "4fc21b79b7d5520d74172c5cb049de1ecdf099e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6c5dce0_b3afb80e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021512
+      },
+      "writtenOn": "2021-01-22T05:24:41Z",
+      "side": 1,
+      "message": "Thank you Tim and Wei, I will run some more tests and get back to you.",
+      "revId": "4fc21b79b7d5520d74172c5cb049de1ecdf099e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
