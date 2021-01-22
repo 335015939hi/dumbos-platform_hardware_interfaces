@@ -16,6 +16,98 @@
       "message": "+smoreland for AIDL-API-Review - thanks for looking!",
       "revId": "99ae0970a66b4d838dfc4fc0a963e8748b8e63ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc26e334_5e13907e",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-22T16:36:04Z",
+      "side": 1,
+      "message": "Does AIDL support a @deprecated tag?  It should.",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "99ae0970a66b4d838dfc4fc0a963e8748b8e63ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24fdd2da_6209111d",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-22T16:36:04Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 276,
+        "startChar": 40,
+        "endLine": 276,
+        "endChar": 46
+      },
+      "revId": "99ae0970a66b4d838dfc4fc0a963e8748b8e63ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8051961_6e355ce8",
+        "filename": "identity/aidl/default/EicOpsImpl.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-22T16:36:04Z",
+      "side": 1,
+      "message": "Nit:  You could use the vector ctor that takes a pair of iterators. e.g.\n\nvector\u003cuint8_t\u003e proofOfBindingVec(proofOfBinding, proofOfBinding + proofOfBindingSize);\n\nMight even be a tiny bit more efficient.",
+      "range": {
+        "startLine": 303,
+        "startChar": 8,
+        "endLine": 303,
+        "endChar": 61
+      },
+      "revId": "99ae0970a66b4d838dfc4fc0a963e8748b8e63ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "446d3c8c_909051e7",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-22T16:36:04Z",
+      "side": 1,
+      "message": "using ASN1_OCTET_STRING_Ptr \u003d bssl::UniquePtr\u003cASN1_OCTET_STRING\u003e;\n\nShould work, I think.  BoringSSL has bssl::UniquePtr types defined for most everything.  So you could reduce all of these Deleter definitions plus using declarations to just a list of using declarations.  bssl::UniquePtr is std::unique_ptr.",
+      "range": {
+        "startLine": 637,
+        "startChar": 0,
+        "endLine": 644,
+        "endChar": 87
+      },
+      "revId": "99ae0970a66b4d838dfc4fc0a963e8748b8e63ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
