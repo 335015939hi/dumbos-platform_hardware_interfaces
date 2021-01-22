@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1b55a00_cd9b1975",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-01-22T20:39:24Z",
+      "side": 1,
+      "message": "Steven, could you please give owner\u0027s approval?\n\nThe idea behind this CL is that we add a missing value to the XSD which on all versions of audio HAL prior to V7 was only used for XML config validation. We are doing this on the test branches only because the HAL interface is frozen.",
+      "revId": "db2d4be7fec5a7aa1cbc80fe1ef9c49db370efce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
