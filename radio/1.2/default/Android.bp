@@ -1,3 +1,7 @@
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 cc_binary {
     name: "android.hardware.radio@1.2-radio-service",
     init_rc: ["android.hardware.radio@1.2-radio-service.rc"],

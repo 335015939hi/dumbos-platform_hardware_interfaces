@@ -3,6 +3,10 @@
 // libhealthd and libhealthstoragedefault.
 
 
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 cc_library_static {
     name: "libhealthservice",
     vendor_available: true,

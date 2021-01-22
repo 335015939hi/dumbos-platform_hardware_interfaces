@@ -14,6 +14,10 @@
 // limitations under the License.
 //
 
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 cc_binary {
     name: "android.hardware.broadcastradio@2.0-service",
     init_rc: ["android.hardware.broadcastradio@2.0-service.rc"],

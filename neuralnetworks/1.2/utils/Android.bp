@@ -14,6 +14,10 @@
 // limitations under the License.
 //
 
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 cc_library_static {
     name: "neuralnetworks_utils_hal_1_2",
     defaults: ["neuralnetworks_utils_defaults"],

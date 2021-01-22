@@ -2,6 +2,10 @@
 // context. All this code would look the same if it was running in system
 // server for example.
 
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 cc_test {
     name: "android.hardware.tests.extension.vibrator-client",
     srcs: [

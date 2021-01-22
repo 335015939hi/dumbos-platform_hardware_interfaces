@@ -1,3 +1,7 @@
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 aidl_interface {
     // This is an example test interface showing how to add functionality
     // with setExtension/getExtension

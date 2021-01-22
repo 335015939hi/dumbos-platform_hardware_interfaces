@@ -16,6 +16,10 @@
 
 // Convenience library for (hwbinder) clients to choose the correct health
 // service instance.
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 cc_library_static {
     name: "libhealthhalutils",
     srcs: ["HealthHalUtils.cpp"],

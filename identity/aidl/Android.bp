@@ -1,3 +1,7 @@
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 aidl_interface {
     name: "android.hardware.identity",
     vendor_available: true,

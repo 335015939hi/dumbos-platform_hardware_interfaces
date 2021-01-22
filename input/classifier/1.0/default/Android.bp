@@ -1,3 +1,7 @@
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 cc_binary {
     name: "android.hardware.input.classifier@1.0-service.default",
     init_rc: ["android.hardware.input.classifier@1.0-service.default.rc"],

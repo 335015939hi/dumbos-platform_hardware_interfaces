@@ -14,6 +14,10 @@
 // limitations under the License.
 //
 
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 cc_test {
     name: "VtsHalCasV1_1TargetTest",
     defaults: ["VtsHalTargetTestDefaults"],
@@ -32,4 +36,3 @@ cc_test {
     ],
     test_suites: ["general-tests", "vts"],
 }
-

@@ -1,3 +1,7 @@
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 cc_binary {
     name: "android.hardware.biometrics.fingerprint@2.1-service",
     defaults: ["hidl_defaults"],

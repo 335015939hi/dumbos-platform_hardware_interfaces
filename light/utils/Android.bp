@@ -16,6 +16,10 @@
 
 // Turns off the screen.
 // Canonical usage is for init (which can't talk to hals directly).
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 cc_binary {
     name: "blank_screen",
     init_rc: ["blank_screen.rc"],
