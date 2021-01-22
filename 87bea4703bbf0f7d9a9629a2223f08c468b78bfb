@@ -16,6 +16,29 @@
       "message": "Yifan/Devin: Appreciate if you have time to review this today for AIDL-API-Review - I was hoping to land it today. Thanks in advance!",
       "revId": "87bea4703bbf0f7d9a9629a2223f08c468b78bfb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8455d230_18e871af",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-22T20:43:16Z",
+      "side": 1,
+      "message": "@deprecated\n\nSteven, what\u0027s the best way to declare \"deprecated in API version 3\" with annotations / @comments?",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "87bea4703bbf0f7d9a9629a2223f08c468b78bfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
