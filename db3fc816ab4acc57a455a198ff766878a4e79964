@@ -189,6 +189,30 @@
       },
       "revId": "db3fc816ab4acc57a455a198ff766878a4e79964",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5df35ab_317be2b2",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1754755
+      },
+      "writtenOn": "2021-01-22T03:38:32Z",
+      "side": 1,
+      "message": "The special character WAIT/PAUSE/WILD was handled in\nhttps://android-review.googlesource.com/c/platform/frameworks/opt/telephony/+/1440475/8/src/java/com/android/internal/telephony/uicc/SimPhoneBookRecord.java#70",
+      "parentUuid": "aa67ccf3_6959fc77",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 34
+      },
+      "revId": "db3fc816ab4acc57a455a198ff766878a4e79964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
