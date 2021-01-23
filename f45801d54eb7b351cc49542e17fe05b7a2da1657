@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "061d1382_7be45f9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-23T01:05:10Z",
+      "side": 1,
+      "message": "atest vts_treble_vintf_vendor_test on coral?",
+      "revId": "f45801d54eb7b351cc49542e17fe05b7a2da1657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b600eecf_c0bf8a4f",
