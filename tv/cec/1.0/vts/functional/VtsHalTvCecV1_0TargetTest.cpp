@@ -29,10 +29,13 @@
 
 using ::android::sp;
 using ::android::hardware::hidl_death_recipient;
+using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
 using ::android::hardware::tv::cec::V1_0::CecDeviceType;
 using ::android::hardware::tv::cec::V1_0::CecLogicalAddress;
 using ::android::hardware::tv::cec::V1_0::CecMessage;
+using ::android::hardware::tv::cec::V1_0::HdmiPortInfo;
+using ::android::hardware::tv::cec::V1_0::HdmiPortType;
 using ::android::hardware::tv::cec::V1_0::IHdmiCec;
 using ::android::hardware::tv::cec::V1_0::OptionKey;
 using ::android::hardware::tv::cec::V1_0::Result;
@@ -40,6 +43,7 @@ using ::android::hardware::tv::cec::V1_0::SendMessageResult;
 
 #define CEC_VERSION 0x05
 #define INCORRECT_VENDOR_ID 0x00
+#define TV_PHYSICAL_ADDRESS 0x0000
 
 // The main test class for TV CEC HAL.
 class HdmiCecTest : public ::testing::TestWithParam<std::string> {
@@ -125,6 +129,25 @@ TEST_P(HdmiCecTest, CecVersion) {
 TEST_P(HdmiCecTest, VendorId) {
     Return<uint32_t> ret = hdmiCec->getVendorId();
     EXPECT_NE(ret, INCORRECT_VENDOR_ID);
+}
+
+TEST_P(HdmiCecTest, GetPortInfo) {
+    hidl_vec<HdmiPortInfo> ports;
+    Return<void> ret =
+            hdmiCec->getPortInfo([&ports](hidl_vec<HdmiPortInfo> list) { ports = list; });
+    bool cecSupportedOnDevice = false;
+    for (size_t i = 0; i < ports.size(); ++i) {
+        EXPECT_TRUE((ports[i].type == HdmiPortType::OUTPUT) ||
+                    (ports[i].type == HdmiPortType::INPUT));
+        if (ports[i].portId == 0) {
+            ALOGW("%s: Port id should start from 1", __func__);
+        }
+        cecSupportedOnDevice = cecSupportedOnDevice | ports[i].cecSupported;
+        if (!hasDeviceType(CecDeviceType::TV)) {
+            EXPECT_NE(ports[i].physicalAddress, TV_PHYSICAL_ADDRESS);
+        }
+    }
+    EXPECT_NE(cecSupportedOnDevice, false) << "At least one port should support CEC";
 }
 
 TEST_P(HdmiCecTest, SetOption) {
