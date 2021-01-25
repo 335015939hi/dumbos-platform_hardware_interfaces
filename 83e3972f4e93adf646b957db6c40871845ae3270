@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f984399_db13a6c0",
+        "filename": "security/keymint/aidl/aidl_api/android.hardware.security.keymint/current/android/hardware/security/keymint/KeyPurpose.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-25T22:08:22Z",
+      "side": 1,
+      "message": "As I said in the keymaster_defs.h comment, this should be 4.",
+      "range": {
+        "startLine": 27,
+        "startChar": 14,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "83e3972f4e93adf646b957db6c40871845ae3270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
