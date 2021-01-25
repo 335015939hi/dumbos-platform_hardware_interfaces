@@ -70,6 +70,30 @@
       },
       "revId": "10f7e9822e19d7ebf8d1bbf94b4883c7cb1a84bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c5dcf56_c888b14d",
+        "filename": "memtrack/aidl/vts/VtsHalMemtrackTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-25T22:20:42Z",
+      "side": 1,
+      "message": "L100 ensures that this test applies whenever this HAL is installed. So, only \u0027ridiculous requirements that can only be implemented with the new kernel\u0027 should be exempted.\n\nL90..L95 actually isn\u0027t that big of a requirement. I was expecting something more like, sum up the GPU memory and make sure it sums up to the actual total memory (what is tested now is only \u0027something is reported, and the names aren\u0027t empty\u0027 - it\u0027s a low bar). L90 on a device w/o the kernel could be implemented by just saying \"all of the memory is unknown\", perhaps, for instance.\n\nAlso - does this method assume a device has only one GPU (wondering about this now?)\n\nIn any case, the kernel check should _only_ disable those tests which without the new kernel, it would be unreasonably complicated to implement the functionality. Also, consider adding a message w/ GTEST_SKIP.",
+      "parentUuid": "e70a103e_570226d2",
+      "range": {
+        "startLine": 37,
+        "startChar": 12,
+        "endLine": 37,
+        "endChar": 46
+      },
+      "revId": "10f7e9822e19d7ebf8d1bbf94b4883c7cb1a84bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
