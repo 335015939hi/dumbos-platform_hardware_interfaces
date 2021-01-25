@@ -22,6 +22,30 @@
       },
       "revId": "ff25d43b355a81d980e1d828d11e2a9eeaa21c81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c9a412_3a09914f",
+        "filename": "camera/provider/2.4/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1453063
+      },
+      "writtenOn": "2021-01-25T21:31:54Z",
+      "side": 1,
+      "message": "let\u0027s leave it as is, re-added cutils dependency in the blueprint.",
+      "parentUuid": "429cf2c7_5b21ddc1",
+      "range": {
+        "startLine": 47,
+        "startChar": 8,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "ff25d43b355a81d980e1d828d11e2a9eeaa21c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
