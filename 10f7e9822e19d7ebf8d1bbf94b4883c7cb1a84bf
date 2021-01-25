@@ -46,6 +46,30 @@
       },
       "revId": "10f7e9822e19d7ebf8d1bbf94b4883c7cb1a84bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e70a103e_570226d2",
+        "filename": "memtrack/aidl/vts/VtsHalMemtrackTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2021-01-25T15:16:58Z",
+      "side": 1,
+      "message": "Devices with \u003c 5.10 kernel would need to implement this HAL as well?",
+      "parentUuid": "430e8616_3c7b0850",
+      "range": {
+        "startLine": 37,
+        "startChar": 12,
+        "endLine": 37,
+        "endChar": 46
+      },
+      "revId": "10f7e9822e19d7ebf8d1bbf94b4883c7cb1a84bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
