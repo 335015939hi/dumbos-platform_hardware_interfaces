@@ -16,6 +16,23 @@
       "message": "Latest PS allows the VTS tests to pass successfully on HALs shipped in Android 11 (e.g. HAL API version 2). It\u0027s essentially GTEST_SKIP()\u0027ing if the HAL API version isn\u0027t big enough. Tested successfully on my crosshatch device with the vendor HAL (HAL API version 2).\n\nAlso wrt `atest vts_treble_vintf_vendor_test on coral?` I ran this on the same crosshatch device and it passed there.\n\nYifan/Devin: please CR+1 and AIDL-API+1. Shawn: please CR+2.\n",
       "revId": "49f2d2558ac417d090dfae9c78ab372d71e5140c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "786e083e_a6a6acef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-01-25T20:08:09Z",
+      "side": 1,
+      "message": "Ping elsk@ / devinmoore@ for AIDL-API+1 and CR+1 (for Owner-Review) - thanks!",
+      "revId": "49f2d2558ac417d090dfae9c78ab372d71e5140c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
