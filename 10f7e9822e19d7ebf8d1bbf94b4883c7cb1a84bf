@@ -117,6 +117,30 @@
       },
       "revId": "10f7e9822e19d7ebf8d1bbf94b4883c7cb1a84bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80b2337f_d3fbb3f7",
+        "filename": "memtrack/aidl/vts/VtsHalMemtrackTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2021-01-25T22:31:42Z",
+      "side": 1,
+      "message": "Ok makes sense. I will update to only skip for the getGpuDeviceInfo() tests. The test returns a list of DeviceInfo, so more that one entries should be returned if there are multiple GPUs.",
+      "parentUuid": "9c5dcf56_c888b14d",
+      "range": {
+        "startLine": 37,
+        "startChar": 12,
+        "endLine": 37,
+        "endChar": 46
+      },
+      "revId": "10f7e9822e19d7ebf8d1bbf94b4883c7cb1a84bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
