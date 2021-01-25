@@ -105,3 +105,7 @@ TEST_P(HdmiCecTest, SetOption) {
     hdmiCec->setOption(OptionKey::ENABLE_CEC, true);
     hdmiCec->setOption(OptionKey::SYSTEM_CEC_CONTROL, false);
 }
+
+TEST_P(HdmiCecTest, SetLanguage) {
+    hdmiCec->setLanguage("eng");
+}
