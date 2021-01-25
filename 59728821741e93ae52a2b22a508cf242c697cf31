@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f59e8e21_03dbac79",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-01-25T09:55:15Z",
+      "side": 1,
+      "message": "Yes - libbluetooth_audio_session goes for 2.0 HAL. AFAIK modules can check interface by its qualify name - so it means that there is no way to conditionally choose it in Android.bp. Headers have to be unique. Please correct me if I\u0027m wrong.",
+      "parentUuid": "865bcf08_505c219a",
+      "revId": "59728821741e93ae52a2b22a508cf242c697cf31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26ada9a3_077d9144",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
         "patchSetId": 2
