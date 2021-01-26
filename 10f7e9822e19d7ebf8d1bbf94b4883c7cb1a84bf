@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e53f26b_d9736d98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2021-01-26T16:29:52Z",
+      "side": 1,
+      "message": "Updated the description, so only devices with 5.10 or later kernels need to implement getGpuDevice()",
+      "parentUuid": "dfcf62db_86f28ac1",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "10f7e9822e19d7ebf8d1bbf94b4883c7cb1a84bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11b8ffe6_0d5bf814",
@@ -157,6 +181,30 @@
       "side": 1,
       "message": "\u003e only skip for the getGpuDeviceInfo() tests\n\nPerhaps for instance, allow it to return EX_UNSUPPORTED_OPERATION, but test it if it is implemented?",
       "parentUuid": "80b2337f_d3fbb3f7",
+      "range": {
+        "startLine": 37,
+        "startChar": 12,
+        "endLine": 37,
+        "endChar": 46
+      },
+      "revId": "10f7e9822e19d7ebf8d1bbf94b4883c7cb1a84bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e809c253_968aa92f",
+        "filename": "memtrack/aidl/vts/VtsHalMemtrackTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2021-01-26T16:29:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d4f64f3_f762bcd5",
       "range": {
         "startLine": 37,
         "startChar": 12,
