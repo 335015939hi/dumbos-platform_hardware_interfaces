@@ -6,7 +6,7 @@ cc_library_static {
     srcs: ["NativeHandle.cpp"],
     export_include_dirs: ["include"],
     shared_libs: [
-        "android.hardware.common-unstable-ndk_platform",
+        "android.hardware.common-V2-ndk_platform",
         "libcutils",
     ],
 }
@@ -20,7 +20,7 @@ cc_test {
         "libaidlcommonsupport",
     ],
     shared_libs: [
-        "android.hardware.common-unstable-ndk_platform",
+        "android.hardware.common-V2-ndk_platform",
         "libcutils",
     ],
     test_suites: ["general-tests"],

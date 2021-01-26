@@ -28,8 +28,8 @@ cc_library_static {
         "libsoft_attestation_cert",
         "libpuresoftkeymasterdevice",
         "android.hardware.identity-support-lib",
-        "android.hardware.identity-ndk_platform",
-        "android.hardware.keymaster-ndk_platform",
+        "android.hardware.identity-V2-ndk_platform",
+        "android.hardware.keymaster-V2-ndk_platform",
     ],
 }
 
@@ -88,8 +88,8 @@ cc_binary {
         "libsoft_attestation_cert",
         "libpuresoftkeymasterdevice",
         "android.hardware.identity-support-lib",
-        "android.hardware.identity-ndk_platform",
-        "android.hardware.keymaster-ndk_platform",
+        "android.hardware.identity-V2-ndk_platform",
+        "android.hardware.keymaster-V2-ndk_platform",
         "android.hardware.identity-libeic-hal-common",
         "android.hardware.identity-libeic-library",
     ],
