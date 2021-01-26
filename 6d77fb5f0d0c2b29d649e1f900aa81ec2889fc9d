@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39fd94c8_6e8819e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-26T21:56:25Z",
+      "side": 1,
+      "message": "This looks good but I think it\u0027s out of date with respect to the KeyCharacteristics changes that have landed.",
+      "revId": "6d77fb5f0d0c2b29d649e1f900aa81ec2889fc9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
