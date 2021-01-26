@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c67932d3_61310662",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-26T22:15:08Z",
+      "side": 1,
+      "message": "If this builds... we should probably create a  bug :)",
+      "range": {
+        "startLine": 747,
+        "startChar": 0,
+        "endLine": 747,
+        "endChar": 12
+      },
+      "revId": "f024ed7363fb4f014d0cf63fa2b574f774ba22ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b122d49_df54259a",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-01-26T22:15:08Z",
+      "side": 1,
+      "message": "is this correct? Same wording as the comment for sliceDifferentiator.",
+      "range": {
+        "startLine": 854,
+        "startChar": 52,
+        "endLine": 855,
+        "endChar": 55
+      },
+      "revId": "f024ed7363fb4f014d0cf63fa2b574f774ba22ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
