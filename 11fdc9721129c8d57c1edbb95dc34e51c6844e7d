@@ -16,6 +16,29 @@
       "message": "friendly reminder to make sure this lands/gets cherry-picked to the release branch!",
       "revId": "11fdc9721129c8d57c1edbb95dc34e51c6844e7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79f27adc_3e1e0cc1",
+        "filename": "memtrack/aidl/default/Memtrack.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-26T16:34:45Z",
+      "side": 1,
+      "message": "is there any reason why old kernels couldn\u0027t implement this? It seems straightforward?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 58
+      },
+      "revId": "11fdc9721129c8d57c1edbb95dc34e51c6844e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
