@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24d874f0_4d5e3fcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2021-01-26T06:03:53Z",
+      "side": 1,
+      "message": "Bypassing presubmit since this is fixing a build breakage and the presubmit failures appear to be pre-existing (I can\u0027t find any prior runs of these presubmits and I can\u0027t see how my change could have caused the failures).",
+      "revId": "0c4836f418b6d2074eb5d9b13fcff14977d60275",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
