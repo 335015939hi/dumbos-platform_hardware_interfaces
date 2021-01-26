@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87eabd04_8e754aca",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2021-01-26T22:32:26Z",
+      "side": 1,
+      "message": "hahhaa, this is a cherry pick, sorry i missed it",
+      "parentUuid": "c67932d3_61310662",
+      "range": {
+        "startLine": 747,
+        "startChar": 0,
+        "endLine": 747,
+        "endChar": 12
+      },
+      "revId": "f024ed7363fb4f014d0cf63fa2b574f774ba22ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b122d49_df54259a",
