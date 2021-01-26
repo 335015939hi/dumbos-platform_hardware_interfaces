@@ -16,6 +16,24 @@
       "message": "LGTM.  Could you add some n\u003e1 tests?  I\u0027m fine with putting those in a followup CL.",
       "revId": "d22ec8418bec5781d8e72478c17bc34735070a15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91ac4a1c_be5c2b39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-01-26T03:01:23Z",
+      "side": 1,
+      "message": "Thanks, will do! And will also add some tests to verify it appears in the attestation certificate in the followup CL.",
+      "parentUuid": "5e891fe3_fd40aa9c",
+      "revId": "d22ec8418bec5781d8e72478c17bc34735070a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
