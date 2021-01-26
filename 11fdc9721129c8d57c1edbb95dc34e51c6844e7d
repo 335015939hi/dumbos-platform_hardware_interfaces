@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b460b2c_dc372d08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-26T16:33:27Z",
+      "side": 1,
+      "message": "friendly reminder to make sure this lands/gets cherry-picked to the release branch!",
+      "revId": "11fdc9721129c8d57c1edbb95dc34e51c6844e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
