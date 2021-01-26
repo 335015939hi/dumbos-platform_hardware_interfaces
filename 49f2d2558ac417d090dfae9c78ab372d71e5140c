@@ -50,6 +50,23 @@
       "message": "Thanks for the review!",
       "revId": "49f2d2558ac417d090dfae9c78ab372d71e5140c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f1f02eb_7fa7c4ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-01-26T14:50:11Z",
+      "side": 1,
+      "message": "\u003e We were unable to auto-submit your change due to the following error: \n\u003e The latest presubmit run for this change has warnings.\n\u003e Please take a look at them in Treetop\n\nDid that. They\u0027re unrelated to these changes. Submitting.",
+      "revId": "49f2d2558ac417d090dfae9c78ab372d71e5140c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
