@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adaac7bf_d11bbf30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-01-26T01:50:47Z",
+      "side": 1,
+      "message": "There is an automerge path from android10-tests to android11-test, and the XSD of V5 has received the patch (aosp/1558728) automatically. However, V6 was new in Android 11 and needs its own patch here.",
+      "revId": "e7686793e4c260d391e8bbd540728cb920e00ac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
