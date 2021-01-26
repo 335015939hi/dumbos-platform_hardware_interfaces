@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98d52f3a_8a506b91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-01-26T17:21:49Z",
+      "side": 1,
+      "message": "I did a Forrest run downstream and all builds pass. I was surprised, however if there are actually no checks for changes in XSD, it\u0027s better to keep them in sync with the xTS branches.",
+      "revId": "d338aebc385f279ea9cab88a35daf7d01bbdf528",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
