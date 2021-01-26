@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7be6b770_eafb595b",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-01-26T09:50:51Z",
+      "side": 1,
+      "message": "You have specified that the updating *audio.bluetooth.default.so* uses *libbluetooth_audio_session_2_1* by the following CL, so I think it can just use *libbluetooth_audio_session_2_1* headers since all libbluetooth_audio_session are re-implemented by *libbluetooth_audio_session_2_1*.\nhttps://android-review.googlesource.com/c/platform/system/bt/+/1498816/8/audio_bluetooth_hw/Android.bp#20\n\nThe updating audio.bluetooth.default.so (@2.1) is not necessary to link to *libbluetooth_audio_session* (old @2.0).",
+      "parentUuid": "f59e8e21_03dbac79",
+      "revId": "59728821741e93ae52a2b22a508cf242c697cf31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26ada9a3_077d9144",
         "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSessionControl_2_1.h",
         "patchSetId": 2
