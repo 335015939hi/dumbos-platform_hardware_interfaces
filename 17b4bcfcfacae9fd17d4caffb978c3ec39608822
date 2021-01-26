@@ -16,6 +16,23 @@
       "message": "friendly ping ",
       "revId": "17b4bcfcfacae9fd17d4caffb978c3ec39608822",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "078fdf9e_fcb0e4c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2021-01-26T18:53:07Z",
+      "side": 1,
+      "message": "I don\u0027t have owner +1",
+      "revId": "17b4bcfcfacae9fd17d4caffb978c3ec39608822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
