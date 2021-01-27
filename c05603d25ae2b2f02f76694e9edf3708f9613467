@@ -52,6 +52,24 @@
       "parentUuid": "8e8d8c52_834ac9ee",
       "revId": "c05603d25ae2b2f02f76694e9edf3708f9613467",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee8d37b8_ac30181e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2021-01-27T13:04:55Z",
+      "side": 1,
+      "message": "If we fix for this OEM.\nWe still don\u0027t know if it is OK for all OEMs.\nIIUC The only way is to only check for new devices.\nKeep this open for tracking.",
+      "parentUuid": "c786285e_73cde146",
+      "revId": "c05603d25ae2b2f02f76694e9edf3708f9613467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
