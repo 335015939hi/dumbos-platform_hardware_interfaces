@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b32ec53d_a5e0fe22",
+        "filename": "tetheroffload/control/1.0/vts/functional/include/OffloadControlTestBase.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2021-01-27T07:22:09Z",
+      "side": 1,
+      "message": "Would like you to use \"pure\" virtual function to force derived class to implement their prepareControlHal as L.66?\n\nFrom your the V1_1 implementation (prepareControlHal, initOffload) in OffloadControlTestV1_1.h, it looks like that the current implementation in Base can\u0027t be used in the derived class.",
+      "range": {
+        "startLine": 73,
+        "startChar": 36,
+        "endLine": 73,
+        "endChar": 37
+      },
+      "revId": "626fba018283e22069e9154144cd97766f29fdb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77221fdc_48260de0",
+        "filename": "tetheroffload/control/1.0/vts/functional/include/OffloadControlTestBase.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2021-01-27T07:22:09Z",
+      "side": 1,
+      "message": "ditto as L.73",
+      "range": {
+        "startLine": 75,
+        "startChar": 56,
+        "endLine": 75,
+        "endChar": 57
+      },
+      "revId": "626fba018283e22069e9154144cd97766f29fdb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a3ad68a_c3544a50",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestV1_1.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2021-01-27T07:22:09Z",
+      "side": 1,
+      "message": "Current change may make the derived classes:\nV1_0 : Base\nV1_1 : Base\nV1_2 : Base\n..\n\nMay I know why you don\u0027t want to inherit class OffloadControlTestV1_0_HalNotStarted as L.22? That can remove the duplicated SetUp() \u003cL.32 to L.36\u003e which has already defined by OffloadControlTestV1_0_HalNotStarted.\n\nThe derived classes will be:\nV1_0 : Base\nV1_1 : V1_0\nV1_2 : V1_1\n..\n\nIt looks like that we only need to focus on the diff between the versions.\n\nPlease share your thought with me :)",
+      "range": {
+        "startLine": 30,
+        "startChar": 43,
+        "endLine": 30,
+        "endChar": 74
+      },
+      "revId": "626fba018283e22069e9154144cd97766f29fdb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0095d116_8004a130",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestV1_1.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2021-01-27T07:22:09Z",
+      "side": 1,
+      "message": "nit: dup",
+      "range": {
+        "startLine": 49,
+        "startChar": 67,
+        "endLine": 49,
+        "endChar": 70
+      },
+      "revId": "626fba018283e22069e9154144cd97766f29fdb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddf854cd_e4888deb",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestV1_1.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1348424
+      },
+      "writtenOn": "2021-01-27T07:22:09Z",
+      "side": 1,
+      "message": "probably check the return value of getControlV1_1() which maybe null",
+      "range": {
+        "startLine": 58,
+        "startChar": 33,
+        "endLine": 58,
+        "endChar": 49
+      },
+      "revId": "626fba018283e22069e9154144cd97766f29fdb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
