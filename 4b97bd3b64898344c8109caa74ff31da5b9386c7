@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c361b7c0_575c56fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-27T17:32:47Z",
+      "side": 1,
+      "message": "can you do this in the release branch as well?, to help w/ consistency (people will run the script during a cherry-pick, inevitably)",
+      "revId": "4b97bd3b64898344c8109caa74ff31da5b9386c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
