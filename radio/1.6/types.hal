@@ -833,7 +833,7 @@ struct SliceInfo {
     /**
      * Slice differentiator is the identifier of a slice that has
      * SliceServiceType as SST. A value of -1 indicates that there is
-     * no corresponding SliceInfo of the HPLMN.
+     * no corresponding SliceInfo.
      *
      * see: 3GPP TS 24.501 Section 9.11.2.8.
      */
