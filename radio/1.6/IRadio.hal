@@ -27,8 +27,14 @@ import @1.4::EmergencyServiceCategory;
 import @1.4::RadioAccessFamily;
 import @1.5::IRadio;
 import @1.5::AccessNetwork;
-import @1.5::DataProfileInfo;
 import @1.5::LinkAddress;
+import @1.6::DataProfileInfo;
+import @1.6::DataThrottlingAction;
+import @1.6::ImsiEncryptionInfo;
+import @1.6::NrDualConnectivityState;
+import @1.6::OptionalSliceInfo;
+import @1.6::OptionalTrafficDescriptor;
+import @1.6::PhonebookRecordInfo;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -152,6 +158,32 @@ interface IRadio extends @1.5::IRadio {
             DataRequestReason reason, vec<LinkAddress> addresses, vec<string> dnses,
             int32_t pduSessionId, OptionalSliceInfo sliceInfo,
             OptionalTrafficDescriptor trafficDescriptor, bool matchAllRuleAllowed);
+
+    /**
+     * Set an APN to initial attach network.
+     *
+     * @param serial Serial number of request.
+     * @param dataProfileInfo data profile containing APN settings
+     *
+     * Response callback is IRadioResponse.setInitialAttachApnResponse_1_6()
+     *
+     * Note this API is the same as the 1.5 version except using the 1.6 DataProfileInfo
+     * as the input param.
+     */
+    oneway setInitialAttachApn_1_6(int32_t serial, DataProfileInfo dataProfileInfo);
+
+    /**
+     * Send data profiles of the current carrier to the modem.
+     *
+     * @param serial Serial number of request.
+     * @param profiles Array of DataProfileInfo to set.
+     *
+     * Response callback is IRadioResponse.setDataProfileResponse_1_6()
+     *
+     * Note this API is the same as the 1.5 version except using the 1.6 DataProfileInfo
+     * as the input param.
+     */
+    oneway setDataProfile_1_6(int32_t serial, vec<DataProfileInfo> profiles);
 
     /**
      * Send an SMS message

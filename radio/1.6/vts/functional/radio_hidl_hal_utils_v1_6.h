@@ -753,6 +753,10 @@ class RadioResponse_v1_6 : public ::android::hardware::radio::V1_6::IRadioRespon
             const ::android::hardware::radio::V1_6::RadioResponseInfo& info,
             const hidl_vec<::android::hardware::radio::V1_6::SetupDataCallResult>& dcResponse);
 
+    Return<void> setInitialAttachApnResponse_1_6(const RadioResponseInfo& info);
+
+    Return<void> setDataProfileResponse_1_6(const RadioResponseInfo& info);
+
     Return<void> sendSmsResponse_1_6(
             const ::android::hardware::radio::V1_6::RadioResponseInfo& info,
             const SendSmsResult& sms);
