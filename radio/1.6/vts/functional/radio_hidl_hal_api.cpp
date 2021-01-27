@@ -27,26 +27,26 @@ TEST_P(RadioHidlTest_v1_6, setupDataCall_1_6) {
     ::android::hardware::radio::V1_5::AccessNetwork accessNetwork =
             ::android::hardware::radio::V1_5::AccessNetwork::EUTRAN;
 
-    android::hardware::radio::V1_5::DataProfileInfo dataProfileInfo;
+    android::hardware::radio::V1_6::DataProfileInfo dataProfileInfo;
     memset(&dataProfileInfo, 0, sizeof(dataProfileInfo));
-    dataProfileInfo.profileId = DataProfileId::DEFAULT;
-    dataProfileInfo.apn = hidl_string("internet");
-    dataProfileInfo.protocol = PdpProtocolType::IP;
-    dataProfileInfo.roamingProtocol = PdpProtocolType::IP;
-    dataProfileInfo.authType = ApnAuthType::NO_PAP_NO_CHAP;
-    dataProfileInfo.user = hidl_string("username");
-    dataProfileInfo.password = hidl_string("password");
-    dataProfileInfo.type = DataProfileInfoType::THREE_GPP;
-    dataProfileInfo.maxConnsTime = 300;
-    dataProfileInfo.maxConns = 20;
-    dataProfileInfo.waitTime = 0;
-    dataProfileInfo.enabled = true;
+    dataProfileInfo.base.profileId = DataProfileId::DEFAULT;
+    dataProfileInfo.base.apn = hidl_string("internet");
+    dataProfileInfo.base.protocol = PdpProtocolType::IP;
+    dataProfileInfo.base.roamingProtocol = PdpProtocolType::IP;
+    dataProfileInfo.base.authType = ApnAuthType::NO_PAP_NO_CHAP;
+    dataProfileInfo.base.user = hidl_string("username");
+    dataProfileInfo.base.password = hidl_string("password");
+    dataProfileInfo.base.type = DataProfileInfoType::THREE_GPP;
+    dataProfileInfo.base.maxConnsTime = 300;
+    dataProfileInfo.base.maxConns = 20;
+    dataProfileInfo.base.waitTime = 0;
+    dataProfileInfo.base.enabled = true;
     dataProfileInfo.supportedApnTypesBitmap = 320;
-    dataProfileInfo.bearerBitmap = 161543;
-    dataProfileInfo.mtuV4 = 0;
-    dataProfileInfo.mtuV6 = 0;
-    dataProfileInfo.preferred = true;
-    dataProfileInfo.persistent = false;
+    dataProfileInfo.base.bearerBitmap = 161543;
+    dataProfileInfo.base.mtuV4 = 0;
+    dataProfileInfo.base.mtuV6 = 0;
+    dataProfileInfo.base.preferred = true;
+    dataProfileInfo.base.persistent = false;
 
     bool roamingAllowed = false;
 
@@ -88,32 +88,122 @@ TEST_P(RadioHidlTest_v1_6, setupDataCall_1_6) {
     }
 }
 
+/*
+ * Test IRadio.setInitialAttachApn_1_6() for the response returned.
+ */
+TEST_P(RadioHidlTest_v1_6, setInitialAttachApn_1_6) {
+    serial = GetRandomSerialNumber();
+
+    // Create a dataProfileInfo
+    android::hardware::radio::V1_6::DataProfileInfo dataProfileInfo;
+    memset(&dataProfileInfo, 0, sizeof(dataProfileInfo));
+    dataProfileInfo.base.profileId = DataProfileId::DEFAULT;
+    dataProfileInfo.base.apn = hidl_string("internet");
+    dataProfileInfo.base.protocol = PdpProtocolType::IPV4V6;
+    dataProfileInfo.base.roamingProtocol = PdpProtocolType::IPV4V6;
+    dataProfileInfo.base.authType = ApnAuthType::NO_PAP_NO_CHAP;
+    dataProfileInfo.base.user = hidl_string("username");
+    dataProfileInfo.base.password = hidl_string("password");
+    dataProfileInfo.base.type = DataProfileInfoType::THREE_GPP;
+    dataProfileInfo.base.maxConnsTime = 300;
+    dataProfileInfo.base.maxConns = 20;
+    dataProfileInfo.base.waitTime = 0;
+    dataProfileInfo.base.enabled = true;
+    dataProfileInfo.supportedApnTypesBitmap = 320;
+    dataProfileInfo.base.bearerBitmap = 161543;
+    dataProfileInfo.base.mtuV4 = 0;
+    dataProfileInfo.base.mtuV6 = 0;
+    dataProfileInfo.base.preferred = true;
+    dataProfileInfo.base.persistent = false;
+
+    radio_v1_6->setInitialAttachApn_1_6(serial, dataProfileInfo);
+
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_5->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_6->rspInfo.serial);
+
+    if (cardStatus.base.base.base.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_6->rspInfo.error,
+                                     {RadioError::SIM_ABSENT, RadioError::RADIO_NOT_AVAILABLE}));
+    } else if (cardStatus.base.base.base.cardState == CardState::PRESENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_6->rspInfo.error,
+                                     {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE}));
+    }
+}
+
+/*
+ * Test IRadio.setDataProfile_1_6() for the response returned.
+ */
+TEST_P(RadioHidlTest_v1_6, setDataProfile_1_6) {
+    serial = GetRandomSerialNumber();
+
+    // Create a dataProfileInfo
+    android::hardware::radio::V1_6::DataProfileInfo dataProfileInfo;
+    memset(&dataProfileInfo, 0, sizeof(dataProfileInfo));
+    dataProfileInfo.base.profileId = DataProfileId::DEFAULT;
+    dataProfileInfo.base.apn = hidl_string("internet");
+    dataProfileInfo.base.protocol = PdpProtocolType::IPV4V6;
+    dataProfileInfo.base.roamingProtocol = PdpProtocolType::IPV4V6;
+    dataProfileInfo.base.authType = ApnAuthType::NO_PAP_NO_CHAP;
+    dataProfileInfo.base.user = hidl_string("username");
+    dataProfileInfo.base.password = hidl_string("password");
+    dataProfileInfo.base.type = DataProfileInfoType::THREE_GPP;
+    dataProfileInfo.base.maxConnsTime = 300;
+    dataProfileInfo.base.maxConns = 20;
+    dataProfileInfo.base.waitTime = 0;
+    dataProfileInfo.base.enabled = true;
+    dataProfileInfo.supportedApnTypesBitmap = 320;
+    dataProfileInfo.base.bearerBitmap = 161543;
+    dataProfileInfo.base.mtuV4 = 0;
+    dataProfileInfo.base.mtuV6 = 0;
+    dataProfileInfo.base.preferred = true;
+    dataProfileInfo.base.persistent = true;
+
+    // Create a dataProfileInfoList
+    android::hardware::hidl_vec<android::hardware::radio::V1_6::DataProfileInfo>
+            dataProfileInfoList = {dataProfileInfo};
+
+    radio_v1_6->setDataProfile_1_6(serial, dataProfileInfoList);
+
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_6->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_6->rspInfo.serial);
+
+    if (cardStatus.base.base.base.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_6->rspInfo.error,
+                                     {RadioError::SIM_ABSENT, RadioError::RADIO_NOT_AVAILABLE}));
+    } else if (cardStatus.base.base.base.cardState == CardState::PRESENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_6->rspInfo.error,
+                                     {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE}));
+    }
+}
+
 TEST_P(RadioHidlTest_v1_6, setupDataCall_1_6_osAppId) {
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_5::AccessNetwork accessNetwork =
             ::android::hardware::radio::V1_5::AccessNetwork::EUTRAN;
 
-    android::hardware::radio::V1_5::DataProfileInfo dataProfileInfo;
+    android::hardware::radio::V1_6::DataProfileInfo dataProfileInfo;
     memset(&dataProfileInfo, 0, sizeof(dataProfileInfo));
-    dataProfileInfo.profileId = DataProfileId::DEFAULT;
-    dataProfileInfo.apn = hidl_string("internet");
-    dataProfileInfo.protocol = PdpProtocolType::IP;
-    dataProfileInfo.roamingProtocol = PdpProtocolType::IP;
-    dataProfileInfo.authType = ApnAuthType::NO_PAP_NO_CHAP;
-    dataProfileInfo.user = hidl_string("username");
-    dataProfileInfo.password = hidl_string("password");
-    dataProfileInfo.type = DataProfileInfoType::THREE_GPP;
-    dataProfileInfo.maxConnsTime = 300;
-    dataProfileInfo.maxConns = 20;
-    dataProfileInfo.waitTime = 0;
-    dataProfileInfo.enabled = true;
+    dataProfileInfo.base.profileId = DataProfileId::DEFAULT;
+    dataProfileInfo.base.apn = hidl_string("internet");
+    dataProfileInfo.base.protocol = PdpProtocolType::IP;
+    dataProfileInfo.base.roamingProtocol = PdpProtocolType::IP;
+    dataProfileInfo.base.authType = ApnAuthType::NO_PAP_NO_CHAP;
+    dataProfileInfo.base.user = hidl_string("username");
+    dataProfileInfo.base.password = hidl_string("password");
+    dataProfileInfo.base.type = DataProfileInfoType::THREE_GPP;
+    dataProfileInfo.base.maxConnsTime = 300;
+    dataProfileInfo.base.maxConns = 20;
+    dataProfileInfo.base.waitTime = 0;
+    dataProfileInfo.base.enabled = true;
     dataProfileInfo.supportedApnTypesBitmap = 320;
-    dataProfileInfo.bearerBitmap = 161543;
-    dataProfileInfo.mtuV4 = 0;
-    dataProfileInfo.mtuV6 = 0;
-    dataProfileInfo.preferred = true;
-    dataProfileInfo.persistent = false;
+    dataProfileInfo.base.bearerBitmap = 161543;
+    dataProfileInfo.base.mtuV4 = 0;
+    dataProfileInfo.base.mtuV6 = 0;
+    dataProfileInfo.base.preferred = true;
+    dataProfileInfo.base.persistent = false;
 
     bool roamingAllowed = false;
 
