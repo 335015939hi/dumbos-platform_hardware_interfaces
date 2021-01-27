@@ -22,6 +22,30 @@
       },
       "revId": "b0311068cc3f29dd5bf5fee553b35aec340b36cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9ded487_6eabe1d5",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2021-01-27T15:46:03Z",
+      "side": 1,
+      "message": "I was able to get it working without it. Refer to the VTS.",
+      "parentUuid": "9492c933_a65a94b7",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "b0311068cc3f29dd5bf5fee553b35aec340b36cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
