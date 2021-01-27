@@ -69,6 +69,30 @@
       },
       "revId": "f024ed7363fb4f014d0cf63fa2b574f774ba22ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e316b83_e1d141fd",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2021-01-27T00:23:19Z",
+      "side": 1,
+      "message": "Good catch.  I updated the wording on a successive commit since this is a cherry pick.",
+      "parentUuid": "2b122d49_df54259a",
+      "range": {
+        "startLine": 854,
+        "startChar": 52,
+        "endLine": 855,
+        "endChar": 55
+      },
+      "revId": "f024ed7363fb4f014d0cf63fa2b574f774ba22ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
