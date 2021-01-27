@@ -16,6 +16,23 @@
       "message": "over to smoreland for owners",
       "revId": "9448490f8d57707af01ad6957613f418539c2c44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07aa412e_b50afbca",
+        "filename": "camera/provider/2.4/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-27T19:13:58Z",
+      "side": 1,
+      "message": "this change has the effect of dropping the log if it fails. Is that intentional?",
+      "revId": "9448490f8d57707af01ad6957613f418539c2c44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
