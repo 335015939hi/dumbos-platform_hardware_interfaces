@@ -22,6 +22,30 @@
       },
       "revId": "037a5b7683732c9cc9d3447c11016ac1c7899881",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f02b17b_c5032ef9",
+        "filename": "tv/cec/1.0/vts/functional/VtsHalTvCecV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-01-27T05:27:52Z",
+      "side": 1,
+      "message": "We are writing these tests under the assumption that a device may/may not be connected and broadcast should always succeed, so we have used broadcast. We have validated the use case on deadpool with no HDMI output connected, broadcast message receives SendMessageResult::SUCCESS.",
+      "parentUuid": "610bad8f_9c116b64",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 85,
+        "endChar": 47
+      },
+      "revId": "037a5b7683732c9cc9d3447c11016ac1c7899881",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
