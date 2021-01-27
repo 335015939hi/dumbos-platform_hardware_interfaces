@@ -77,6 +77,41 @@ interface IRadioResponse extends @1.5::IRadioResponse {
 
     /**
      * @param info Response info struct containing response type, serial no. and error
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:SUBSCRIPTION_NOT_AVAILABLE
+     *   RadioError:NO_MEMORY
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:SYSTEM_ERR
+     *   RadioError:MODEM_ERR
+     *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:NOT_PROVISIONED
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:NO_RESOURCES
+     *   RadioError:CANCELLED
+     */
+    oneway setInitialAttachApnResponse_1_6(RadioResponseInfo info);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:SUBSCRIPTION_NOT_AVAILABLE
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:NO_MEMORY
+     *   RadioError:NO_RESOURCES
+     *   RadioError:CANCELLED
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:SIM_ABSENT
+     */
+    oneway setDataProfileResponse_1_6(RadioResponseInfo info);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
      * @param sms Response to sms sent as defined by SendSmsResult in types.hal
      *
      * Valid errors returned:

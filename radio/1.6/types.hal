@@ -38,12 +38,14 @@ import @1.4::DataConnActiveStatus;
 import @1.4::NrSignalStrength;
 import @1.4::PdpProtocolType;
 import @1.4::RadioTechnology;
+import @1.5::ApnTypes;
 import @1.5::CellIdentity;
 import @1.5::CellIdentityLte;
 import @1.5::CellIdentityNr;
 import @1.5::CellInfoGsm;
 import @1.5::CellInfoWcdma;
 import @1.5::CellInfoTdscdma;
+import @1.5::DataProfileInfo;
 import @1.5::LinkAddress;
 import @1.5::NgranBands;
 import @1.5::RegStateResult.AccessTechnologySpecificInfo.Cdma2000RegistrationInfo;
@@ -52,6 +54,33 @@ import @1.5::RegistrationFailCause;
 import @1.5::SetupDataCallResult;
 
 import android.hidl.safe_union@1.0::Monostate;
+
+enum ApnTypes : @1.5::ApnTypes {
+    /**
+     * NOTE: Due to the addition of these new values, the value ALL defined in
+     * 1.0::ApnTypes is deprecated and should not be used.
+     */
+
+    /**
+     * APN type for VSIM (Virtual SIM service)
+     */
+    VSIM = 1 << 12,
+
+    /**
+     * APN type for BIP (Bearer Independent Protocol)
+     */
+    BIP = 1 << 13,
+};
+
+/**
+ * Overwritten from @1.5::DataProfileInfo to update ApnTypes to 1.6 version.
+ */
+struct DataProfileInfo {
+    @1.5::DataProfileInfo base;
+
+    // Supported APN types bitmap. See ApnTypes for the value of each bit.
+    bitfield<ApnTypes> supportedApnTypesBitmap;
+};
 
 struct QosBandwidth {
     /** Maximum bit rate possible on the bearer */
