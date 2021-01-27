@@ -354,6 +354,8 @@ enum ApnTypes : @1.4::ApnTypes {
      * 1.0::ApnTypes is deprecated and should not be used.
      */
     XCAP = 1 << 11,
+    VSIM = 1 << 12,
+    BIP = 1 << 13,
 };
 
 /**
