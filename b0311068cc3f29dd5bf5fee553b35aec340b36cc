@@ -46,6 +46,30 @@
       },
       "revId": "b0311068cc3f29dd5bf5fee553b35aec340b36cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2aad197_2119ee5d",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2021-01-28T06:23:37Z",
+      "side": 1,
+      "message": "Reverted to patch 18.",
+      "parentUuid": "e9ded487_6eabe1d5",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "b0311068cc3f29dd5bf5fee553b35aec340b36cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
