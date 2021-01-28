@@ -46,6 +46,30 @@
       },
       "revId": "0536bca3f2c4bfcb926466ce2fb9740118365c60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29f544e1_99a0111b",
+        "filename": "tetheroffload/control/1.1/vts/functional/include/OffloadControlTestV1_1.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2021-01-28T02:26:45Z",
+      "side": 1,
+      "message": "Done in follow-up patch",
+      "parentUuid": "5e743541_7886a6f0",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 37
+      },
+      "revId": "0536bca3f2c4bfcb926466ce2fb9740118365c60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
