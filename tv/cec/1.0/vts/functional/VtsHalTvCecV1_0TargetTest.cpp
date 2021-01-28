@@ -171,3 +171,14 @@ TEST_P(HdmiCecTest, SetLanguage) {
     Return<void> ret = hdmiCec->setLanguage("eng");
     EXPECT_TRUE(ret.isOk());
 }
+
+TEST_P(HdmiCecTest, EnableAudioReturnChannel) {
+    hidl_vec<HdmiPortInfo> ports;
+    Return<void> ret =
+            hdmiCec->getPortInfo([&ports](hidl_vec<HdmiPortInfo> list) { ports = list; });
+    for (size_t i = 0; i < ports.size(); ++i) {
+        if (ports[i].arcSupported) {
+            hdmiCec->enableAudioReturnChannel(ports[i].portId, true);
+        }
+    }
+}
