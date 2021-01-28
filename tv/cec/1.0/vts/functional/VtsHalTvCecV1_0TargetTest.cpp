@@ -189,3 +189,23 @@ TEST_P(HdmiCecTest, EnableAudioReturnChannel) {
         }
     }
 }
+
+TEST_P(HdmiCecTest, IsConnected) {
+    Result result;
+    uint16_t addr;
+    hidl_vec<HdmiPortInfo> ports;
+    Return<void> ret = hdmiCec->getPhysicalAddress([&result, &addr](Result res, uint16_t paddr) {
+        result = res;
+        addr = paddr;
+    });
+    ret = hdmiCec->getPortInfo([&ports](hidl_vec<HdmiPortInfo> list) { ports = list; });
+    bool status = false;
+    for (size_t i = 0; i < ports.size(); ++i) {
+        status |= hdmiCec->isConnected(ports[i].portId);
+    }
+    if (!hasDeviceType(CecDeviceType::TV)) {
+        EXPECT_TRUE(status);
+    } else {
+        EXPECT_FALSE(status);
+    }
+}
