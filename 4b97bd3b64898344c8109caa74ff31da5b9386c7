@@ -16,6 +16,24 @@
       "message": "can you do this in the release branch as well?, to help w/ consistency (people will run the script during a cherry-pick, inevitably)",
       "revId": "4b97bd3b64898344c8109caa74ff31da5b9386c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f73abc88_b50dbf81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-01-28T02:19:43Z",
+      "side": 1,
+      "message": "you mean the s branch? it will be automatically done as there still is an automerger path from aosp/master to it.",
+      "parentUuid": "c361b7c0_575c56fb",
+      "revId": "4b97bd3b64898344c8109caa74ff31da5b9386c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
