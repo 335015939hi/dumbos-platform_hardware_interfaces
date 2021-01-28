@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72656a66_07c1982f",
+        "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-01-28T11:13:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "203c16c5_ab8255b0",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "9a7b41b51c01077de3ea67609e132a48ea8e7478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a071f77_19cdc936",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ddb7218_c638e55b",
+        "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-01-28T11:13:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a071f77_19cdc936",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 31
+      },
+      "revId": "9a7b41b51c01077de3ea67609e132a48ea8e7478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "238a9610_fc637b69",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-01-22T01:22:10Z",
       "side": 1,
       "message": "Please don\u0027t use using-declarative. Include only the names that are required from a namespace. Please remove this.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 82
+      },
+      "revId": "9a7b41b51c01077de3ea67609e132a48ea8e7478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2340c394_17443a46",
+        "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-01-28T11:13:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "238a9610_fc637b69",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -117,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07494f5b_181da12b",
+        "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-01-28T11:13:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1415205f_5a0e9b4c",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 87
+      },
+      "revId": "9a7b41b51c01077de3ea67609e132a48ea8e7478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8479164_2b5dc01a",
@@ -140,6 +236,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25289dfb_492dc7a9",
+        "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-01-28T11:13:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8479164_2b5dc01a",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "9a7b41b51c01077de3ea67609e132a48ea8e7478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2174141_f689e7b2",
@@ -153,6 +273,30 @@
       "writtenOn": "2021-01-22T01:22:10Z",
       "side": 1,
       "message": "Enclose the code with your project\u0027s namespace.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 0
+      },
+      "revId": "9a7b41b51c01077de3ea67609e132a48ea8e7478",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d009919_b374b495",
+        "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-01-28T11:13:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2174141_f689e7b2",
       "range": {
         "startLine": 22,
         "startChar": 0,
