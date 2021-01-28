@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65dca66b_8079fed9",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4420,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-01-28T17:09:31Z",
+      "side": 1,
+      "message": "This is incorrect, I think, in two ways.\n\nFirst, although we expect that implementations will not be able to enforce LUKs in hardware some might be able to.  So if they report HW support, you should validate that they actually enforce it.\n\nSecond, non-SW implementations that place the authorization in the SW list are saying they are not going to enforce it, which means you should actually be able to use the key as many times as you like, because KeyMint told you it\u0027s not enforcing it.\n\nOur recent (but not yet landed) change to add the \"Keystore\" security level makes this clearer.   After that lands, authorizations place in the Keystore list should not be enforced by KeyMint. HW KeyMint implementations should not place anything in the SW list.",
+      "range": {
+        "startLine": 4414,
+        "startChar": 2,
+        "endLine": 4420,
+        "endChar": 60
+      },
+      "revId": "bc416a2fc32d70da330deccf057dbb2c0c3d4c3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
