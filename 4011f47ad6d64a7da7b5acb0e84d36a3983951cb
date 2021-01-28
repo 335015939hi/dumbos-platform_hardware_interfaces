@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57679321_845f6eab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2021-01-28T07:23:05Z",
+      "side": 1,
+      "message": "LGTM. Feel free to address comments in a follow-up once this CL is merged.",
+      "revId": "4011f47ad6d64a7da7b5acb0e84d36a3983951cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a48b6a4c_418cea22",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2021-01-28T07:23:05Z",
+      "side": 1,
+      "message": "will always call setDataWarningAndLimit on 1.1 implementations, and setDataLimit on 1.0 implementations.",
+      "range": {
+        "startLine": 40,
+        "startChar": 84,
+        "endLine": 41,
+        "endChar": 77
+      },
+      "revId": "4011f47ad6d64a7da7b5acb0e84d36a3983951cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee41b483_29ead28c",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2021-01-28T07:23:05Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to say this since it\u0027s a general property of HALs that 1.1 implementations must continue to implement 1.0 methods. See:\n\nhttps://source.android.com/devices/architecture/hidl/versioning",
+      "range": {
+        "startLine": 42,
+        "startChar": 62,
+        "endLine": 44,
+        "endChar": 31
+      },
+      "revId": "4011f47ad6d64a7da7b5acb0e84d36a3983951cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
