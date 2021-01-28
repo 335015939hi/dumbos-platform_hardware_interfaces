@@ -646,6 +646,61 @@ TEST_P(NewKeyGenerationTest, LimitedUsageRsa) {
 }
 
 /*
+ * NewKeyGenerationTest.LimitedUsageRsaWithAttestation
+ *
+ * Verifies that KeyMint can generate all required RSA key sizes with limited usage, and that the
+ * resulting keys have correct characteristics and attestation.
+ */
+TEST_P(NewKeyGenerationTest, LimitedUsageRsaWithAttestation) {
+    for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        auto challenge = "hello";
+        auto app_id = "foo";
+
+        vector<uint8_t> key_blob;
+        vector<KeyCharacteristics> key_characteristics;
+        ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                     .RsaSigningKey(key_size, 65537)
+                                                     .Digest(Digest::NONE)
+                                                     .Padding(PaddingMode::NONE)
+                                                     .AttestationChallenge(challenge)
+                                                     .AttestationApplicationId(app_id)
+                                                     .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                     .Authorization(TAG_USAGE_COUNT_LIMIT, 1),
+                                             &key_blob, &key_characteristics));
+
+        ASSERT_GT(key_blob.size(), 0U);
+        CheckBaseParams(key_characteristics);
+
+        AuthorizationSet crypto_params = SecLevelAuthorizations(key_characteristics);
+
+        EXPECT_TRUE(crypto_params.Contains(TAG_ALGORITHM, Algorithm::RSA));
+        EXPECT_TRUE(crypto_params.Contains(TAG_KEY_SIZE, key_size))
+                << "Key size " << key_size << "missing";
+        EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
+
+        // Check the usage count limit tag appears in the authorizations.
+        AuthorizationSet auths;
+        for (auto& entry : key_characteristics) {
+            auths.push_back(AuthorizationSet(entry.authorizations));
+        }
+        EXPECT_TRUE(auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U))
+                << "key usage count limit " << 1U << " missing";
+
+        // Check the usage count limit tag also appears in the attestation.
+        EXPECT_TRUE(verify_chain(cert_chain_));
+        ASSERT_GT(cert_chain_.size(), 0);
+
+        AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
+        AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
+        EXPECT_TRUE(verify_attestation_record(challenge, app_id,  //
+                                              sw_enforced, hw_enforced, SecLevel(),
+                                              cert_chain_[0].encodedCertificate));
+
+        CheckedDeleteKey(&key_blob);
+    }
+}
+
+/*
  * NewKeyGenerationTest.NoInvalidRsaSizes
  *
  * Verifies that keymint cannot generate any RSA key sizes that are designated as invalid.
@@ -4297,11 +4352,11 @@ INSTANTIATE_KEYMINT_AIDL_TEST(MaxOperationsTest);
 typedef KeyMintAidlTestBase UsageCountLimitTest;
 
 /*
- * UsageCountLimitTest.TestLimitAes
+ * UsageCountLimitTest.TestSingleUseAes
  *
- * Verifies that the usage count limit tag works correctly with AES keys.
+ * Verifies that the usage count limit tag = 1 works correctly with AES keys.
  */
-TEST_P(UsageCountLimitTest, TestLimitAes) {
+TEST_P(UsageCountLimitTest, TestSingleUseAes) {
     if (SecLevel() == SecurityLevel::STRONGBOX) return;
 
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -4342,11 +4397,45 @@ TEST_P(UsageCountLimitTest, TestLimitAes) {
 }
 
 /*
- * UsageCountLimitTest.TestLimitRsa
+ * UsageCountLimitTest.TestLimitedUseAes
  *
- * Verifies that the usage count limit tag works correctly with RSA keys.
+ * Verifies that the usage count limit tag > 1 works correctly with AES keys.
  */
-TEST_P(UsageCountLimitTest, TestLimitRsa) {
+TEST_P(UsageCountLimitTest, TestLimitedUseAes) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) return;
+
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .AesEncryptionKey(128)
+                                                 .EcbMode()
+                                                 .Padding(PaddingMode::NONE)
+                                                 .Authorization(TAG_USAGE_COUNT_LIMIT, 3)));
+
+    // At this point, if the caller specifies count > 1, it is not expected that any TEE
+    // will be able to enforce this feature in the hardware due to limited resources of
+    // secure storage. So the tag with the value of maximum usage must be added to the
+    // key characteristics with SecurityLevel::SOFTWARE by the KeyMint.
+    AuthorizationSet software_auths = SwEnforcedAuthorizations(key_characteristics_);
+    EXPECT_TRUE(software_auths.Contains(TAG_USAGE_COUNT_LIMIT, 3U))
+            << "key usage count limit " << 1U << " missing";
+
+    string message = "1234567890123456";
+    auto params = AuthorizationSetBuilder().EcbMode().Padding(PaddingMode::NONE);
+
+    EncryptMessage(message, params);
+    EncryptMessage(message, params);
+    EncryptMessage(message, params);
+
+    // Usage count limit tag is enforced by software, keymint does nothing.
+    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
+}
+
+/*
+ * UsageCountLimitTest.TestSingleUseRsa
+ *
+ * Verifies that the usage count limit tag = 1 works correctly with RSA keys.
+ */
+TEST_P(UsageCountLimitTest, TestSingleUseRsa) {
     if (SecLevel() == SecurityLevel::STRONGBOX) return;
 
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -4384,6 +4473,39 @@ TEST_P(UsageCountLimitTest, TestLimitRsa) {
         // Usage count limit tag is enforced by software, keymint does nothing.
         EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
     }
+}
+
+/*
+ * UsageCountLimitTest.TestLimitUseRsa
+ *
+ * Verifies that the usage count limit tag > 1 works correctly with RSA keys.
+ */
+TEST_P(UsageCountLimitTest, TestLimitUseRsa) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) return;
+
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .RsaSigningKey(1024, 65537)
+                                                 .NoDigestOrPadding()
+                                                 .Authorization(TAG_USAGE_COUNT_LIMIT, 3)));
+
+    // At this point, if the caller specifies count > 1, it is not expected that any TEE
+    // will be able to enforce this feature in the hardware due to limited resources of
+    // secure storage. So the tag with the value of maximum usage must be added to the
+    // key characteristics with SecurityLevel::SOFTWARE by the KeyMint.
+    AuthorizationSet software_auths = SwEnforcedAuthorizations(key_characteristics_);
+    EXPECT_TRUE(software_auths.Contains(TAG_USAGE_COUNT_LIMIT, 3U))
+            << "key usage count limit " << 1U << " missing";
+
+    string message = "1234567890123456";
+    auto params = AuthorizationSetBuilder().NoDigestOrPadding();
+
+    SignMessage(message, params);
+    SignMessage(message, params);
+    SignMessage(message, params);
+
+    // Usage count limit tag is enforced by software, keymint does nothing.
+    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
 }
 
 INSTANTIATE_KEYMINT_AIDL_TEST(UsageCountLimitTest);
