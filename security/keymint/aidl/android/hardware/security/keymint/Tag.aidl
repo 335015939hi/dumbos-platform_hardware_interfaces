@@ -964,4 +964,16 @@ enum Tag {
      * or importKey.
      */
     CERTIFICATE_NOT_AFTER = (6 << 28) /* TagType:DATE */ | 1009,
+
+    /**
+     * Tag::MAX_BOOT_LEVEL specifies a maximum boot level at which a key should function.
+     *
+     * Earlier boot stages are harder to attack than later ones, since less code has been run.
+     * During the init process keystore will receive calls to advanceBootLevel, passing it an
+     * integer value. If a key is created with a MAX_BOOT_LEVEL of x, and advanceBootLevel is
+     * called with a value greater than x, that key can then not be used again until the next boot.
+     * This is cryptographically enforced where Keymaster 4.0 or greater is present, and can be
+     * used to defend against persistence of attacks.
+     */
+    MAX_BOOT_LEVEL = (3 << 28) /* TagType:UINT */ | 1010,
 }
