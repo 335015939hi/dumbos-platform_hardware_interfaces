@@ -69,6 +69,24 @@
       "parentUuid": "4b39ecb7_6433df43",
       "revId": "a00c26ba34db2d2e2c337e2b15af256083fbc2e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebdad377_043de958",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1839965
+      },
+      "writtenOn": "2021-01-29T01:14:27Z",
+      "side": 1,
+      "message": "Thanks for your quick reply.\nActually, I created that ticket last month. But I couldn\u0027t get any review from graphics team.\nWho should I assign for the review ?",
+      "parentUuid": "7f334e74_79272c79",
+      "revId": "a00c26ba34db2d2e2c337e2b15af256083fbc2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
