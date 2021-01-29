@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a994fbdf_900edd78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-01-29T10:32:13Z",
+      "side": 1,
+      "message": "please move to audio HAL @7.0",
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d325fb6_075b44c2",
+        "filename": "audio/6.0/IPrimaryDevice.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-01-29T10:32:13Z",
+      "side": 1,
+      "message": "registerAudioGainCallback.\n\nAlso, I understand that the IAudioGainCallback can be implemented by the IAudioGain interface and access by other components than the audio server. Why does it need to be registered by the audio server via the IPrimaryDevice API? I did not see how it is used by the audio framework. Is there a CL for that?\n\nAlso, if it is needed by the audio framework, why limit it to IPrimaryDevice and not add it to IDevice interface?",
+      "range": {
+        "startLine": 209,
+        "startChar": 4,
+        "endLine": 209,
+        "endChar": 13
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f39c17ae_08bd2934",
+        "filename": "audio/6.0/IPrimaryDevice.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-01-29T10:32:13Z",
+      "side": 1,
+      "message": "unregisterAudioGainCallback",
+      "range": {
+        "startLine": 225,
+        "startChar": 4,
+        "endLine": 225,
+        "endChar": 15
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3b12d1b_0fd1acd5",
+        "filename": "audio/audiogain/6.0/IAudioGain.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-01-29T10:32:13Z",
+      "side": 1,
+      "message": "registerAudioGainCallback",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fc73433_ffe3cf5f",
+        "filename": "audio/audiogain/6.0/IAudioGain.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-01-29T10:32:13Z",
+      "side": 1,
+      "message": "unregisterAudioGainCallback",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 15
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd4a6dd1_b3620bad",
+        "filename": "audio/audiogain/6.0/IAudioGainCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-01-29T10:32:13Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 29,
+        "startChar": 64,
+        "endLine": 29,
+        "endChar": 76
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
