@@ -105,6 +105,24 @@
       "parentUuid": "d3316ad3_d74a7059",
       "revId": "9448490f8d57707af01ad6957613f418539c2c44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08189167_b7921292",
+        "filename": "camera/provider/2.4/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1453063
+      },
+      "writtenOn": "2021-01-29T18:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfb05a0e_1345ea2f",
+      "revId": "9448490f8d57707af01ad6957613f418539c2c44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
