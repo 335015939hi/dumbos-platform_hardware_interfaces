@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df0bf5b0_9a5714e3",
+        "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1651020
+      },
+      "writtenOn": "2021-01-29T12:17:48Z",
+      "side": 1,
+      "message": "Should tuner HAL be in this list or should I remove this line?",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "5dab210544d02056bb054969cdc36399e29d9c1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
