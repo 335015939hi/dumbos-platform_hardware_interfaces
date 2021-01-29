@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5544581d_b626108c",
+        "filename": "media/omx/1.0/vts/functional/common/media_hidl_test_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2021-01-29T09:58:47Z",
+      "side": 1,
+      "message": "This handle is same to buffer-\u003eomxBuffer.nativeHandle, could you kindly explain why this handled leaked from omxBuffer?",
+      "revId": "179a52cbbffd27ff939fd59f0d4921eaeaf0f664",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
