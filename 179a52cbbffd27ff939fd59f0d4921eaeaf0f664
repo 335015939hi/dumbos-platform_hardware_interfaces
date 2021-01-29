@@ -16,6 +16,24 @@
       "message": "This handle is same to buffer-\u003eomxBuffer.nativeHandle, could you kindly explain why this handled leaked from omxBuffer?",
       "revId": "179a52cbbffd27ff939fd59f0d4921eaeaf0f664",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09469e1e_4b73c294",
+        "filename": "media/omx/1.0/vts/functional/common/media_hidl_test_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2021-01-29T19:50:51Z",
+      "side": 1,
+      "message": "Sungtak,\nfree() form android::GraphicBufferAllocator needs to be called for graphic buffers and this was missing. freePortBuffers() now calls the required free().\n\nand regarding omxBuffer.nativeHandle, we couldn\u0027t pass that to free() (free() was returning with invalid handle error as nativeHandle is not not native_handle_t. So we created another place holder to preserve the handle and used it for free.",
+      "parentUuid": "5544581d_b626108c",
+      "revId": "179a52cbbffd27ff939fd59f0d4921eaeaf0f664",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
