@@ -16,6 +16,24 @@
       "message": "is this README necessary?",
       "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0344089e_0837c488",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-01-29T10:49:32Z",
+      "side": 1,
+      "message": "The README file contains Design Considerations for the fuzzer plugin along with build and run steps, so that it is easy for anyone to run the fuzzer.\n\nIf it is not required, it can be removed",
+      "parentUuid": "e7de6228_7e0c8276",
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
