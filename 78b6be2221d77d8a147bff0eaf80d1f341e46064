@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d6404ed_1b8e1ec7",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-01-29T21:45:37Z",
+      "side": 1,
+      "message": "also - please update this in the S section",
+      "range": {
+        "startLine": 584,
+        "startChar": 0,
+        "endLine": 584,
+        "endChar": 49
+      },
+      "revId": "78b6be2221d77d8a147bff0eaf80d1f341e46064",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
