@@ -51,6 +51,24 @@
       "parentUuid": "51925ed1_89b4839a",
       "revId": "a00c26ba34db2d2e2c337e2b15af256083fbc2e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f334e74_79272c79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2021-01-29T01:11:40Z",
+      "side": 1,
+      "message": "Yes, I can access the bug. Thanks!\n\nI think this change has been rejected by treble team as well.",
+      "parentUuid": "4b39ecb7_6433df43",
+      "revId": "a00c26ba34db2d2e2c337e2b15af256083fbc2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
