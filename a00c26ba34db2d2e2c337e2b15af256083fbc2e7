@@ -16,6 +16,23 @@
       "message": "Dear, Peiyong Lin.\n\nI am experiencing an issue with the Composer 2.1 API SetClientBuffer.\n(Related link: https://partnerissuetracker.corp.google.com/issues/175843499)\n\nI made a patch, and while I was looking for a reviewer, I found out that you are the last committer  relevant file. May I ask you to review the issue and patch ?\n\nThank you,\nBest Regards,\n-Sungyong Choi",
       "revId": "a00c26ba34db2d2e2c337e2b15af256083fbc2e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51925ed1_89b4839a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2021-01-29T01:04:15Z",
+      "side": 1,
+      "message": "I don\u0027t understand what you mean in the case you mentioned. Could you please point to the bug where the graphics team has agreed on this solution? I don\u0027t think wee will take patches without bug report and a solution agreed by us.",
+      "revId": "a00c26ba34db2d2e2c337e2b15af256083fbc2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
