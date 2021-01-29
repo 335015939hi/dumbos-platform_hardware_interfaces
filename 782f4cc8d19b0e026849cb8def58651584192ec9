@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57ad3d5c_4b01c767",
+        "filename": "audio/6.0/IPrimaryDevice.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1226222
+      },
+      "writtenOn": "2021-01-29T10:53:49Z",
+      "side": 1,
+      "message": "CarAudioService needs this information. Most probably, CarAudioService should get information through a new API but it won\u0027t be connected directly to Primary Audio HAL.\nAgree, it might be applicable to secondary devices.",
+      "parentUuid": "8d325fb6_075b44c2",
+      "range": {
+        "startLine": 209,
+        "startChar": 4,
+        "endLine": 209,
+        "endChar": 13
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f39c17ae_08bd2934",
         "filename": "audio/6.0/IPrimaryDevice.hal",
         "patchSetId": 8
