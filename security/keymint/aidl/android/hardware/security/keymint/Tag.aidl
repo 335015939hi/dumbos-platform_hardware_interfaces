@@ -964,4 +964,15 @@ enum Tag {
      * or importKey.
      */
     CERTIFICATE_NOT_AFTER = (6 << 28) /* TagType:DATE */ | 1009,
+
+    /**
+     * Tag::MAX_BOOT_LEVEL specifies a maximum boot level at which a key should function.
+     *
+     * Over the course of the init process, the property keystore.boot_level will be set to
+     * monotonically increasing integer values. Implementations MUST NOT allow the key
+     * to be used once keystore.boot_level advances beyond the value of this tag.
+     *
+     * Need not be hardware-enforced.
+     */
+    MAX_BOOT_LEVEL = (3 << 28) /* TagType:UINT */ | 1010,
 }
