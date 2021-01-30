@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea84e496_5477f39f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-30T01:30:38Z",
+      "side": 1,
+      "message": "Please explain more to a public reader.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "5dab210544d02056bb054969cdc36399e29d9c1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df0bf5b0_9a5714e3",
         "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
         "patchSetId": 1
@@ -38,6 +61,30 @@
       "side": 1,
       "message": "tuner@.10 is being used by framework.\nDon\u0027t remove it.",
       "parentUuid": "df0bf5b0_9a5714e3",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "5dab210544d02056bb054969cdc36399e29d9c1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab013d5d_a987b2ed",
+        "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-30T01:30:38Z",
+      "side": 1,
+      "message": "I think you should remove this line because it is unrelated to this CL.\n\nAlso, instead of adding things to the list, I think you should delete the HAL definitions directly.",
+      "parentUuid": "0468ed36_12aac6aa",
       "range": {
         "startLine": 48,
         "startChar": 12,
