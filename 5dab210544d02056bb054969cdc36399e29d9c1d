@@ -93,6 +93,30 @@
       },
       "revId": "5dab210544d02056bb054969cdc36399e29d9c1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8397456d_477aab8e",
+        "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-01-30T01:54:45Z",
+      "side": 1,
+      "message": "Also, this is an exemption list. By *adding* this line here, you are allowing the framework compatibility matrix to *NOT* declare the tuner HAL. \n\nBut as Henry says, the FCM must declare the tuner HAL because tuner is used by the framework.\n\nSo Marvin, you should delete this line.",
+      "parentUuid": "ab013d5d_a987b2ed",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "5dab210544d02056bb054969cdc36399e29d9c1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
