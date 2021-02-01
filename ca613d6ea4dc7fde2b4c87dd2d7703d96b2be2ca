@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6eabf28_6023d8f4",
+        "filename": "audio/core/all-versions/default/util/CoreUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-02-01T09:43:31Z",
+      "side": 1,
+      "message": "maybe clear halFlagMask bit at flag position once done and exit foor loop when halFlagMask \u003d\u003d 0",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 43
+      },
+      "revId": "ca613d6ea4dc7fde2b4c87dd2d7703d96b2be2ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8612c2c7_8330dd38",
+        "filename": "audio/core/all-versions/default/util/CoreUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-02-01T09:43:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 71
+      },
+      "revId": "ca613d6ea4dc7fde2b4c87dd2d7703d96b2be2ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
