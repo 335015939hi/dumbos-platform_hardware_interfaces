@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "365253a6_2d1f7e62",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/SecurityLevel.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-01T22:32:49Z",
+      "side": 1,
+      "message": "It seems dangerous to document the lack of an existance of a requirement, in the case that this requirement is added later.\n\nIt\u0027s not clear to me:\n- if it is tested by a testing lab, should this be categorized as something else (that is, is this part of the definition of \u0027TRUSTED_ENVIRONMENT\u0027 vs \u0027STRONGBOX\u0027)?\n- what kind of testing lab is this?\n- is there any specific CDD/GMS requirement you can note here, that explains the absence of this requirement, so that if it is updated in the future, the documentation won\u0027t be out of date?",
+      "range": {
+        "startLine": 51,
+        "startChar": 22,
+        "endLine": 51,
+        "endChar": 97
+      },
+      "revId": "a0c3e3ee89018ab57a688561970e552928b41ff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c78bb60c_ff4afe4b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/SecurityLevel.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-01T22:32:49Z",
+      "side": 1,
+      "message": "is this a requirement for the client or server?",
+      "range": {
+        "startLine": 70,
+        "startChar": 92,
+        "endLine": 72,
+        "endChar": 12
+      },
+      "revId": "a0c3e3ee89018ab57a688561970e552928b41ff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
