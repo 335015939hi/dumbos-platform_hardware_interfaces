@@ -16,6 +16,24 @@
       "message": "Also noting, to enable this CL, we confirmed no devices were using this HAL, and we will be removing it following this.",
       "revId": "885bd8e07c4ed9cefd25000a5d985816642f7deb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b983b7_ce04e2d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-02-01T19:31:09Z",
+      "side": 1,
+      "message": "Marvin, please add this statement to the commit message.",
+      "parentUuid": "e4455d6b_53c88bb1",
+      "revId": "885bd8e07c4ed9cefd25000a5d985816642f7deb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
