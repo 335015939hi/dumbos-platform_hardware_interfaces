@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f2eeec4_bed375e5",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/SecurityLevel.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-01T23:58:37Z",
+      "side": 1,
+      "message": "I\u0027ll remove it.  Though I really doubt this will ever change.  I wish it would...",
+      "parentUuid": "365253a6_2d1f7e62",
+      "range": {
+        "startLine": 51,
+        "startChar": 22,
+        "endLine": 51,
+        "endChar": 97
+      },
+      "revId": "a0c3e3ee89018ab57a688561970e552928b41ff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c78bb60c_ff4afe4b",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-01T22:32:49Z",
       "side": 1,
       "message": "is this a requirement for the client or server?",
+      "range": {
+        "startLine": 70,
+        "startChar": 92,
+        "endLine": 72,
+        "endChar": 12
+      },
+      "revId": "a0c3e3ee89018ab57a688561970e552928b41ff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba4bfeea_c4885656",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/SecurityLevel.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-01T23:58:37Z",
+      "side": 1,
+      "message": "Clarified.",
+      "parentUuid": "c78bb60c_ff4afe4b",
       "range": {
         "startLine": 70,
         "startChar": 92,
