@@ -33,6 +33,24 @@
       "message": "Hey Shuo - FYI - Devin is now reviewing radio interfaces, but as you mentioned I have already looks at the internal version of this, so approving.",
       "revId": "df7ced7c3cd4f86569dbf6e9d659934be7442010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e16ea033_c76a027b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2021-02-01T21:43:11Z",
+      "side": 1,
+      "message": "Thanks for the introduce. I will ask Devin for future radio interfaces.",
+      "parentUuid": "59943a20_8a17596f",
+      "revId": "df7ced7c3cd4f86569dbf6e9d659934be7442010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
