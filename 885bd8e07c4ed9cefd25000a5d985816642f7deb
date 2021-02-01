@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4455d6b_53c88bb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-01T17:41:17Z",
+      "side": 1,
+      "message": "Also noting, to enable this CL, we confirmed no devices were using this HAL, and we will be removing it following this.",
+      "revId": "885bd8e07c4ed9cefd25000a5d985816642f7deb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
