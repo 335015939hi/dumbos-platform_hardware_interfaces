@@ -30,16 +30,20 @@ using ::android::hardware::bluetooth::audio::V2_0::AacVariableBitRate;
 using ::android::hardware::bluetooth::audio::V2_0::AptxParameters;
 using ::android::hardware::bluetooth::audio::V2_0::BitsPerSample;
 using ::android::hardware::bluetooth::audio::V2_0::ChannelMode;
+using ::android::hardware::bluetooth::audio::V2_0::CodecCapabilities;
+using ::android::hardware::bluetooth::audio::V2_0::CodecConfiguration;
 using ::android::hardware::bluetooth::audio::V2_0::CodecType;
 using ::android::hardware::bluetooth::audio::V2_0::LdacChannelMode;
 using ::android::hardware::bluetooth::audio::V2_0::LdacParameters;
 using ::android::hardware::bluetooth::audio::V2_0::LdacQualityIndex;
+using ::android::hardware::bluetooth::audio::V2_0::PcmParameters;
 using ::android::hardware::bluetooth::audio::V2_0::SampleRate;
 using ::android::hardware::bluetooth::audio::V2_0::SbcAllocMethod;
 using ::android::hardware::bluetooth::audio::V2_0::SbcBlockLength;
 using ::android::hardware::bluetooth::audio::V2_0::SbcChannelMode;
 using ::android::hardware::bluetooth::audio::V2_0::SbcNumSubbands;
 using ::android::hardware::bluetooth::audio::V2_0::SbcParameters;
+using ::android::hardware::bluetooth::audio::V2_0::SessionType;
 
 // Default Supported PCM Parameters
 static const PcmParameters kDefaultSoftwarePcmCapabilities = {
@@ -52,6 +56,28 @@ static const PcmParameters kDefaultSoftwarePcmCapabilities = {
     .bitsPerSample = static_cast<BitsPerSample>(BitsPerSample::BITS_16 |
                                                 BitsPerSample::BITS_24 |
                                                 BitsPerSample::BITS_32)};
+
+static const ::android::hardware::bluetooth::audio::V2_1::PcmParameters
+    kDefaultSoftwarePcmCapabilities_2_1 = {
+        .sampleRate = static_cast<
+            ::android::hardware::bluetooth::audio::V2_1::SampleRate>(
+            ::android::hardware::bluetooth::audio::V2_1::SampleRate::
+                RATE_44100 |
+            ::android::hardware::bluetooth::audio::V2_1::SampleRate::
+                RATE_48000 |
+            ::android::hardware::bluetooth::audio::V2_1::SampleRate::
+                RATE_88200 |
+            ::android::hardware::bluetooth::audio::V2_1::SampleRate::
+                RATE_96000 |
+            ::android::hardware::bluetooth::audio::V2_1::SampleRate::
+                RATE_16000 |
+            ::android::hardware::bluetooth::audio::V2_1::SampleRate::
+                RATE_24000),
+        .channelMode =
+            static_cast<ChannelMode>(ChannelMode::MONO | ChannelMode::STEREO),
+        .bitsPerSample = static_cast<BitsPerSample>(BitsPerSample::BITS_16 |
+                                                    BitsPerSample::BITS_24 |
+                                                    BitsPerSample::BITS_32)};
 
 // Default Supported Codecs
 // SBC: mSampleRate:(44100), mBitsPerSample:(16), mChannelMode:(MONO|STEREO)
@@ -300,9 +326,25 @@ std::vector<PcmParameters> GetSoftwarePcmCapabilities() {
   return std::vector<PcmParameters>(1, kDefaultSoftwarePcmCapabilities);
 }
 
+std::vector<::android::hardware::bluetooth::audio::V2_1::PcmParameters>
+GetSoftwarePcmCapabilities_2_1() {
+  return std::vector<
+      ::android::hardware::bluetooth::audio::V2_1::PcmParameters>(
+      1, kDefaultSoftwarePcmCapabilities_2_1);
+}
+
 std::vector<CodecCapabilities> GetOffloadCodecCapabilities(
     const SessionType& session_type) {
-  if (session_type != SessionType::A2DP_HARDWARE_OFFLOAD_DATAPATH) {
+  return GetOffloadCodecCapabilities(
+      static_cast<::android::hardware::bluetooth::audio::V2_1::SessionType>(
+          session_type));
+}
+
+std::vector<CodecCapabilities> GetOffloadCodecCapabilities(
+    const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+        session_type) {
+  if (session_type != ::android::hardware::bluetooth::audio::V2_1::SessionType::
+                          A2DP_HARDWARE_OFFLOAD_DATAPATH) {
     return std::vector<CodecCapabilities>(0);
   }
   std::vector<CodecCapabilities> offload_a2dp_codec_capabilities =
@@ -363,6 +405,21 @@ bool IsSoftwarePcmConfigurationValid(const PcmParameters& pcm_config) {
   LOG(WARNING) << __func__
                << ": Unsupported PCM Configuration=" << toString(pcm_config);
   return false;
+}
+
+bool IsSoftwarePcmConfigurationValid_2_1(
+    const ::android::hardware::bluetooth::audio::V2_1::PcmParameters&
+        pcm_config) {
+  // TODO: sum of all 2.0 and 2.1 configurations
+  if (pcm_config.sampleRate & kDefaultSoftwarePcmCapabilities_2_1.sampleRate &&
+      pcm_config.bitsPerSample &
+          kDefaultSoftwarePcmCapabilities_2_1.bitsPerSample &&
+      pcm_config.channelMode &
+          kDefaultSoftwarePcmCapabilities_2_1.channelMode &&
+      pcm_config.dataIntervalUs != 0) {
+    return true;
+  }
+  return true;
 }
 
 bool IsOffloadCodecConfigurationValid(const SessionType& session_type,

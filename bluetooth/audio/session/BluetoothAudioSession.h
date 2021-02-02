@@ -20,6 +20,7 @@
 #include <unordered_map>
 
 #include <android/hardware/bluetooth/audio/2.0/IBluetoothAudioPort.h>
+#include <android/hardware/bluetooth/audio/2.1/types.h>
 #include <fmq/MessageQueue.h>
 #include <hardware/audio.h>
 #include <hidl/MQDescriptor.h>
@@ -31,14 +32,14 @@ namespace audio {
 using ::android::sp;
 using ::android::hardware::kSynchronizedReadWrite;
 using ::android::hardware::MessageQueue;
-using ::android::hardware::bluetooth::audio::V2_0::AudioConfiguration;
 using ::android::hardware::bluetooth::audio::V2_0::BitsPerSample;
 using ::android::hardware::bluetooth::audio::V2_0::ChannelMode;
 using ::android::hardware::bluetooth::audio::V2_0::CodecConfiguration;
 using ::android::hardware::bluetooth::audio::V2_0::IBluetoothAudioPort;
-using ::android::hardware::bluetooth::audio::V2_0::PcmParameters;
-using ::android::hardware::bluetooth::audio::V2_0::SampleRate;
-using ::android::hardware::bluetooth::audio::V2_0::SessionType;
+using ::android::hardware::bluetooth::audio::V2_1::AudioConfiguration;
+using ::android::hardware::bluetooth::audio::V2_1::PcmParameters;
+using ::android::hardware::bluetooth::audio::V2_1::SampleRate;
+using ::android::hardware::bluetooth::audio::V2_1::SessionType;
 
 using BluetoothAudioStatus =
     ::android::hardware::bluetooth::audio::V2_0::Status;
@@ -158,6 +159,7 @@ class BluetoothAudioSession {
       .sampleRate = SampleRate::RATE_UNKNOWN,
       .channelMode = ChannelMode::UNKNOWN,
       .bitsPerSample = BitsPerSample::BITS_UNKNOWN,
+      .dataIntervalUs = 0,
   };
   // can't be constexpr because of non-literal type
   static const CodecConfiguration kInvalidCodecConfiguration;
@@ -170,7 +172,7 @@ class BluetoothAudioSession {
 
 class BluetoothAudioSessionInstance {
  public:
-  // The API is to fetch the specified session of A2DP / Hearing Aid
+  // The API is to fetch the specified session
   static std::shared_ptr<BluetoothAudioSession> GetSessionInstance(
       const SessionType& session_type);
 

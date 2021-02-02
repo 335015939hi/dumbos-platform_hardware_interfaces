@@ -70,7 +70,8 @@ Return<void> A2dpOffloadAudioProvider::startSession(
              DataMQ::Descriptor());
     return Void();
   } else if (!android::bluetooth::audio::IsOffloadCodecConfigurationValid(
-                 session_type_, audioConfig.codecConfig())) {
+                 static_cast<V2_0::SessionType>(session_type_),
+                 audioConfig.codecConfig())) {
     _hidl_cb(BluetoothAudioStatus::UNSUPPORTED_CODEC_CONFIGURATION,
              DataMQ::Descriptor());
     return Void();

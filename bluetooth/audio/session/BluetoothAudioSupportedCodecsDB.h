@@ -17,23 +17,37 @@
 #pragma once
 
 #include <android/hardware/bluetooth/audio/2.0/types.h>
+#include <android/hardware/bluetooth/audio/2.1/types.h>
 
 namespace android {
 namespace bluetooth {
 namespace audio {
 
-using ::android::hardware::bluetooth::audio::V2_0::CodecCapabilities;
-using ::android::hardware::bluetooth::audio::V2_0::CodecConfiguration;
-using ::android::hardware::bluetooth::audio::V2_0::PcmParameters;
-using ::android::hardware::bluetooth::audio::V2_0::SessionType;
+std::vector<::android::hardware::bluetooth::audio::V2_0::PcmParameters>
+GetSoftwarePcmCapabilities();
+std::vector<::android::hardware::bluetooth::audio::V2_1::PcmParameters>
+GetSoftwarePcmCapabilities_2_1();
+std::vector<::android::hardware::bluetooth::audio::V2_0::CodecCapabilities>
+GetOffloadCodecCapabilities(
+    const ::android::hardware::bluetooth::audio::V2_0::SessionType&
+        session_type);
+std::vector<::android::hardware::bluetooth::audio::V2_0::CodecCapabilities>
+GetOffloadCodecCapabilities(
+    const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+        session_type);
 
-std::vector<PcmParameters> GetSoftwarePcmCapabilities();
-std::vector<CodecCapabilities> GetOffloadCodecCapabilities(
-    const SessionType& session_type);
+bool IsSoftwarePcmConfigurationValid(
+    const ::android::hardware::bluetooth::audio::V2_0::PcmParameters&
+        pcm_config);
+bool IsSoftwarePcmConfigurationValid_2_1(
+    const ::android::hardware::bluetooth::audio::V2_1::PcmParameters&
+        pcm_config);
 
-bool IsSoftwarePcmConfigurationValid(const PcmParameters& pcm_config);
-bool IsOffloadCodecConfigurationValid(const SessionType& session_type,
-                                      const CodecConfiguration& codec_config);
+bool IsOffloadCodecConfigurationValid(
+    const ::android::hardware::bluetooth::audio::V2_0::SessionType&
+        session_type,
+    const ::android::hardware::bluetooth::audio::V2_0::CodecConfiguration&
+        codec_config);
 
 }  // namespace audio
 }  // namespace bluetooth
