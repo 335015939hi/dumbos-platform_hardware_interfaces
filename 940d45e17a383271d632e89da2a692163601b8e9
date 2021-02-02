@@ -88,6 +88,24 @@
       "parentUuid": "f8bf3e2f_14e90765",
       "revId": "940d45e17a383271d632e89da2a692163601b8e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe13c2c0_9e32492d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-02T02:50:25Z",
+      "side": 1,
+      "message": "\u003e However, when ISurroundView (the wrong one) shows up in 6.xml, it is the responsibility of hal_implementation_test (?) to check that ISurroundView is not implemented on cuttlefish. Right?\n\n*is implemented on cuttlefish\n\nYes, it is, but automotive packages are frequently excluded. It wouldn\u0027t make sense to test this there because the test requires a device, but validating the matrix can be done without that dependency. Furthermore - it\u0027s cuttlefish specific, but we should be able to validate the HAL regardless of our lunch taret/device.\n\n\u003e Or, maybe we should have the test that uses fcm_exclude to check all interfaces in matrix are in libhidl/aidl_metadata as well.\n\nWe shouldn\u0027t need fcm_exclude here even. It should just be compatibility matrix + libhidl/aidl_metadata (since it\u0027s only checking that the entries are accurate, there should be no exceptions within android.*).",
+      "parentUuid": "249a8031_3324e096",
+      "revId": "940d45e17a383271d632e89da2a692163601b8e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
