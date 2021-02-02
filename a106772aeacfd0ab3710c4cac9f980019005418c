@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "961f798b_2d064a3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-02T21:48:23Z",
+      "side": 1,
+      "message": "Noting that, the framework never used this, and we checked that devices don\u0027t implement this.",
+      "revId": "a106772aeacfd0ab3710c4cac9f980019005418c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
