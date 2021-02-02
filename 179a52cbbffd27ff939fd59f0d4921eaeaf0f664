@@ -52,6 +52,24 @@
       "parentUuid": "09469e1e_4b73c294",
       "revId": "179a52cbbffd27ff939fd59f0d4921eaeaf0f664",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fef46bbc_f84fde15",
+        "filename": "media/omx/1.0/vts/functional/common/media_hidl_test_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2021-02-02T19:09:41Z",
+      "side": 1,
+      "message": "Marking this as resolved as discussed with Sungtak.",
+      "parentUuid": "09469e1e_4b73c294",
+      "revId": "179a52cbbffd27ff939fd59f0d4921eaeaf0f664",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
