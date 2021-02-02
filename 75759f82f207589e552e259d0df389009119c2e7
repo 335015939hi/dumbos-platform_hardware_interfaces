@@ -16,6 +16,23 @@
       "message": "Hi Mikhail,\n\nCan you please review?",
       "revId": "75759f82f207589e552e259d0df389009119c2e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce0ebdb6_d0f77a9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-02T02:31:48Z",
+      "side": 1,
+      "message": "Hi Dean,\n\nA couple of questions:\n\n1. What are the differences of IEC 60958 vs. IEC 61937. To my understanding, both refer to digital audio transmission, but I\u0027m not very up to date on the details.\n\n2. Should this format be visible to apps and thus listed in https://android.googlesource.com/platform/frameworks/base/+/refs/heads/master/media/java/android/media/AudioFormat.java?\n\n3. How will this format interact with AUDIO_OUTPUT_FLAG_IEC958_NONAUDIO flag? As I understand, IEC60958 superseded 958.\n\nIn any case, you will also want to add this format to system/audio.h for framework visibility: https://android.googlesource.com/platform/system/media/+/refs/heads/master/audio/include/system/audio-hal-enums.h#572\n\nAdding Jiabin and Phil as they are working on digital audio pass-through.",
+      "revId": "75759f82f207589e552e259d0df389009119c2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
