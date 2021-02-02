@@ -70,6 +70,24 @@
       "parentUuid": "b1bec6fd_0310c6cf",
       "revId": "940d45e17a383271d632e89da2a692163601b8e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "249a8031_3324e096",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-02-02T02:08:08Z",
+      "side": 1,
+      "message": "fcm_exclude is the exempt list to check that all interfaces in libhidl/aidl_metadata are declared in matrix.\n\nIn this case, ISurroundViewService is already declared in 5.xml, so that test passes.\n\nHowever, when ISurroundView (the wrong one) shows up in 6.xml, it is the responsibility of hal_implementation_test (?) to check that ISurroundView is not implemented on cuttlefish. Right?\n\nOr, maybe we should have the test that uses fcm_exclude to check all interfaces in matrix are in libhidl/aidl_metadata as well.",
+      "parentUuid": "f8bf3e2f_14e90765",
+      "revId": "940d45e17a383271d632e89da2a692163601b8e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
