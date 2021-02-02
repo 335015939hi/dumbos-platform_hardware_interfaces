@@ -22,6 +22,30 @@
       },
       "revId": "bc416a2fc32d70da330deccf057dbb2c0c3d4c3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bea1d88e_c17fd971",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4420,
+      "author": {
+        "id": 1801328
+      },
+      "writtenOn": "2021-02-02T12:50:50Z",
+      "side": 1,
+      "message": "Thanks for detailed comments, I\u0027ve updated the documentation of limited use key, and checked this will be enforced by KEYSTORE explicitly if hardware can\u0027t enforce it.",
+      "parentUuid": "65dca66b_8079fed9",
+      "range": {
+        "startLine": 4414,
+        "startChar": 2,
+        "endLine": 4420,
+        "endChar": 60
+      },
+      "revId": "bc416a2fc32d70da330deccf057dbb2c0c3d4c3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
