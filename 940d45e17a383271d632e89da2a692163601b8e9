@@ -52,6 +52,24 @@
       "parentUuid": "bb238b5d_ab4b4791",
       "revId": "940d45e17a383271d632e89da2a692163601b8e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8bf3e2f_14e90765",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-02T01:59:25Z",
+      "side": 1,
+      "message": "I had forgotten what fcm_exclude did (though I did check automotive isn\u0027t in that list).\n\nhal_implementation_test\u0027s job is to check to see if a HAL is implemented on cuttlefish. This is a cuttlefish specific test (and a device test - verifying these XML files shouldn\u0027t require a device) which we use as a general proxy for our testing coverage/health/ability to maintain HALs.\n\nSo, in this case, I think we should have a separate host test verifying that entries in the compatibility matrix don\u0027t have typos (I know there was a bug for this long ago, but we didn\u0027t have the data easily available for it then).",
+      "parentUuid": "b1bec6fd_0310c6cf",
+      "revId": "940d45e17a383271d632e89da2a692163601b8e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
