@@ -16,6 +16,24 @@
       "message": "could hardware/interfaces/compatibility_matrices/exclude/fcm_exclude.cpp be amended to check that the instance name exists as well? (or file a follow-up bug) we have the data!",
       "revId": "940d45e17a383271d632e89da2a692163601b8e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb238b5d_ab4b4791",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-02-02T01:43:24Z",
+      "side": 1,
+      "message": "automotive is NOT in the list. \n\nIt also does serve this purpose. The corresponding test for phones are hal_implementation_test; so we probably want to run a similar hal_implementation_test on cf_auto.",
+      "parentUuid": "6aed0c47_f0233b85",
+      "revId": "940d45e17a383271d632e89da2a692163601b8e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
