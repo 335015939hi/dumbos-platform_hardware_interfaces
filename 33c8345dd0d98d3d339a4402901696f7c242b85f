@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d440cce_e08c1710",
+        "filename": "security/keymint/aidl/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-03T16:53:06Z",
+      "side": 1,
+      "message": "Nit: Maybe add a blank line before each section that adds a new interface. Just to group them visually a little better.\n\nOr... what might even be better is to make a template helper function that does each instantiation and check.  Something like:\n\n    template\u003ctypename T\u003e addServiceInterface(std::shared_ptr\u003cAndroidKeyMintDevice\u003e dev) {\n        std::shared_ptr\u003cT\u003e serviceInterface \u003d\n            ndk::SharedRefBase::make\u003cT\u003e(dev-\u003egetKeymasterImpl();\n        auto instanceName \u003d std::string(T::descriptor) + \"/default\";\n        LOG(INFO) \u003c\u003c \"Adding KeyMint service interface: \" \u003c\u003c instanceName;\n        status \u003d AServiceManager_addService(\n                serviceInterface-\u003easBinder().get(), instanceName.c_str());\n        CHECK(status \u003d\u003d STATUS_OK) \u003c\u003c \"Failed to add interface \" \u003c\u003c interfaceName;\n\nThen you can just call it three times, e.g.:\n\n    addServiceInterface\u003cAndroidKeyMintDevice\u003e(keyMint);\n    addServiceInterface\u003cAndroidSharedSecret\u003e(keyMint);\n    addServiceInterface\u003cAndroidSecureClock\u003e(keyMint);",
+      "range": {
+        "startLine": 46,
+        "startChar": 6,
+        "endLine": 46,
+        "endChar": 7
+      },
+      "revId": "33c8345dd0d98d3d339a4402901696f7c242b85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52988c0d_4943886c",
+        "filename": "security/sharedsecret/aidl/vts/functional/SharedSecretAidlTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-03T16:53:06Z",
+      "side": 1,
+      "message": "Blank line above.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 8
+      },
+      "revId": "33c8345dd0d98d3d339a4402901696f7c242b85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37c3db9a_e8b8c7ac",
+        "filename": "security/sharedsecret/aidl/vts/functional/SharedSecretAidlTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-03T16:53:06Z",
+      "side": 1,
+      "message": "Blank line above.",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 6
+      },
+      "revId": "33c8345dd0d98d3d339a4402901696f7c242b85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17ee1508_d0375a03",
+        "filename": "security/sharedsecret/aidl/vts/functional/SharedSecretAidlTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-03T16:53:06Z",
+      "side": 1,
+      "message": "It should succeed at computing a shared secret.  What will happen is that the verification string will be different (i.e. it computed the wrong shared secret.)",
+      "range": {
+        "startLine": 213,
+        "startChar": 23,
+        "endLine": 214,
+        "endChar": 39
+      },
+      "revId": "33c8345dd0d98d3d339a4402901696f7c242b85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
