@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5d348a3_757437ef",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 5901,
+      "author": {
+        "id": 1121338
+      },
+      "writtenOn": "2021-02-03T22:14:28Z",
+      "side": 1,
+      "message": "should we be having this for RAW12 as well ? https://android.googlesource.com/platform/hardware/interfaces/+/refs/heads/master/graphics/common/1.0/types.hal#312",
+      "range": {
+        "startLine": 5901,
+        "startChar": 13,
+        "endLine": 5901,
+        "endChar": 31
+      },
+      "revId": "ef46cd30418e6d635651d85bacf6dd212c033aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
