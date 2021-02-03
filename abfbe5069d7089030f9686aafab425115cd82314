@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b67bc442_d1334bb2",
+        "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:44:17Z",
+      "side": 1,
+      "message": "Please create a sub-namespace under the namespaces used by the files in the parent directory rather than creating a new namespace.\n\nnamespace android::hardware::automotive::audiocontrol::V1_0::implementation::fuzzer;",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "abfbe5069d7089030f9686aafab425115cd82314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dd76ed7_3d687394",
+        "filename": "automotive/audiocontrol/1.0/default/test/fuzzer/audiocontrolV1.0_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:44:17Z",
+      "side": 1,
+      "message": "if(sp\u003cAudioControl\u003e audioControl \u003d new AudioControl(); audioControl !\u003d nullptr) {",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 34
+      },
+      "revId": "abfbe5069d7089030f9686aafab425115cd82314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
