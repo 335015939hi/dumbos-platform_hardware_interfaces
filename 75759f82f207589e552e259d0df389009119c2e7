@@ -51,6 +51,24 @@
       "parentUuid": "ce0ebdb6_d0f77a9c",
       "revId": "75759f82f207589e552e259d0df389009119c2e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00ddd235_6092c9df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-03T17:44:54Z",
+      "side": 1,
+      "message": "Thanks for the details, Dean! Very much appreciated.\n\nDo I understand correctly that AUDIO_FORMAT_IEC60958 is intended to be used for digital patches similar to AUDIO_FORMAT_IEC61937, however it\u0027s a broader format, allowing to transmit either actual PCM or encoded data encapsulated into PCM using IEC61937? So basically, IEC61937 indicates that it\u0027s encoded data specifically, while IEC60958 just says that it\u0027s \"digital audio.\"\n\nPlease add this format to system/media/audio/include/system/audio-hal-enums.h otherwise the framework will not be able to use it for creating patches.",
+      "parentUuid": "6375eb65_e6b866eb",
+      "revId": "75759f82f207589e552e259d0df389009119c2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
