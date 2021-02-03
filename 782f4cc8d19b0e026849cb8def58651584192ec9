@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45fc14e2_98e313ed",
+        "filename": "audio/6.0/IPrimaryDevice.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-03T21:37:22Z",
+      "side": 1,
+      "message": "I also think it needs to be added to IDevice rather than IPrimaryDevice.",
+      "parentUuid": "57ad3d5c_4b01c767",
+      "range": {
+        "startLine": 209,
+        "startChar": 4,
+        "endLine": 209,
+        "endChar": 13
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f39c17ae_08bd2934",
         "filename": "audio/6.0/IPrimaryDevice.hal",
         "patchSetId": 8
@@ -152,6 +176,144 @@
         "startChar": 64,
         "endLine": 29,
         "endChar": 76
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df389756_9eb4c450",
+        "filename": "audio/audiogain/6.0/IAudioGainCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-03T21:37:22Z",
+      "side": 1,
+      "message": "bitfield\u003cReason\u003e",
+      "range": {
+        "startLine": 47,
+        "startChar": 21,
+        "endLine": 47,
+        "endChar": 29
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a157725d_c9755b9a",
+        "filename": "audio/audiogain/6.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-03T21:37:22Z",
+      "side": 1,
+      "message": "We should limit this. Can anything beyond \u0027OK\u0027 and \u0027INVALID_ARGUMENTS\u0027 actually occur for callback registration/deregistration?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 17
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51e47d44_2f36e7f4",
+        "filename": "audio/audiogain/6.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-03T21:37:22Z",
+      "side": 1,
+      "message": "Perhaps call it \u0027ReasonFlag\u0027 to indicate that these are flags.",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 11
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da9c32b6_914484ef",
+        "filename": "audio/audiogain/all-versions/default/AudioGain.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-03T21:37:22Z",
+      "side": 1,
+      "message": "Audio HAL doesn\u0027t support more than one client, and that client is usually the audio framework.  Also, since the result of \u0027openPrimaryDevice\u0027 is not stored anywhere, the returned client interface will automatically vanish after exiting this method, and the audio HAL service can close the device.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 0
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "034cd553_859bc986",
+        "filename": "audio/audiogain/all-versions/default/include/AudioGain.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-03T21:37:22Z",
+      "side": 1,
+      "message": "Not used",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 30
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c72093e_4ed5bd77",
+        "filename": "audio/audiogain/all-versions/default/include/AudioGain.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-03T21:37:22Z",
+      "side": 1,
+      "message": "Not used",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 27
       },
       "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
