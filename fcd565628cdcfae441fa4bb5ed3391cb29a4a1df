@@ -22,6 +22,30 @@
       },
       "revId": "fcd565628cdcfae441fa4bb5ed3391cb29a4a1df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "312eb913_f8936085",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-02-03T02:25:32Z",
+      "side": 1,
+      "message": "Yes:\n\nhttps://android.googlesource.com/platform/system/libvintf/+/bdb6d18096a325ff2087b4bb810b8ad191250190/test/LibVintfTest.cpp#3696\nhttps://android.googlesource.com/platform/system/libvintf/+/bdb6d18096a325ff2087b4bb810b8ad191250190/test/LibVintfTest.cpp#3812\nhttps://android.googlesource.com/platform/system/libvintf/+/bdb6d18096a325ff2087b4bb810b8ad191250190/test/LibVintfTest.cpp#3868\n\netc.",
+      "parentUuid": "92fb5ea9_d6b75d7a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "fcd565628cdcfae441fa4bb5ed3391cb29a4a1df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
