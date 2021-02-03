@@ -273,7 +273,8 @@ enum HandoverFailureMode : int32_t {
 /**
  * Overwritten from @1.5::SetupDataCallResult in order to change the suggestedRetryTime
  * to 64-bit value. In the future, this must be extended instead of overwritten.
- * Also added defaultQos, qosSessions, and handoverFailureMode in this version.
+ * Also added defaultQos, qosSessions, handoverFailureMode, pduSessionId, sliceInfo,
+ * and traffic descriptors in this version.
  */
 struct SetupDataCallResult {
     /** Data call fail cause. DataCallFailCause.NONE if no error. */
@@ -752,6 +753,96 @@ struct Call {
     string forwardedNumber;
 };
 
+<<<<<<< HEAD
+=======
+/**
+ * This safe_union represents an optional slice info
+ */
+safe_union OptionalSliceInfo {
+    Monostate noinit;
+    SliceInfo value;
+};
+
+/**
+ * This struct represents a S-NSSAI as defined in 3GPP TS 24.501.
+ */
+struct SliceInfo {
+    /**
+     * The type of service provided by the slice.
+     *
+     * see: 3GPP TS 24.501 Section 9.11.2.8.
+     */
+    SliceServiceType sst;
+
+    /**
+     * Slice differentiator is the identifier of a slice that has
+     * SliceServiceType as SST. A value of -1 indicates that there is
+     * no corresponding SliceInfo of the HPLMN.
+     *
+     * see: 3GPP TS 24.501 Section 9.11.2.8.
+     */
+    int32_t sliceDifferentiator;
+
+    /**
+     * This SST corresponds to a SliceInfo (S-NSSAI) of the HPLMN; the SST is
+     * mapped to this value.
+     *
+     * see: 3GPP TS 24.501 Section 9.11.2.8.
+     */
+    SliceServiceType mappedHplmnSst;
+
+    /**
+     * Present only if both sliceDifferentiator and mappedHplmnSst are also
+     * present. This SD corresponds to a SliceInfo (S-NSSAI) of the HPLMN;
+     * sliceDifferentiator is mapped to this value. A value of -1 indicates that
+     * there is no corresponding SliceInfo of the HPLMN.
+     *
+     * see: 3GPP TS 24.501 Section 9.11.2.8.
+     */
+    int32_t mappedHplmnSD;
+};
+
+/**
+ * Slice/Service Type as defined in 3GPP TS 23.501.
+ */
+enum SliceServiceType : uint8_t {
+    /* Not specified */
+    NONE = 0,
+
+    /* Slice suitable for the handling of 5G enhanced Mobile Broadband */
+    EMBB = 1,
+
+    /**
+     * Slice suitable for the handling of ultra-reliable low latency
+     * communications
+     */
+    URLLC = 2,
+
+    /* Slice suitable for the handling of massive IoT */
+    MIOT = 3,
+};
+
+/**
+ * Expose more setup data call failures.
+ */
+enum DataCallFailCause : @1.4::DataCallFailCause {
+    /**
+     * Data call fail due to the slice not being allowed for the data call.
+     */
+    SLICE_REJECTED = 0x8CC,
+
+    /**
+     * No matching rule available for the request, and match-all rule is not allowed for it.
+     */
+    MATCH_ALL_RULE_NOT_ALLOWED = 0x8CD,
+
+    /**
+     * If connection failed for all matching URSP rules.
+     */
+    ALL_MATCHING_RULES_FAILED = 0x8CE,
+};
+
+>>>>>>> c5a379828 (API updates for TrafficDescriptr fields)
 struct PhysicalChannelConfig {
     /** Connection status for cell. Valid values are PRIMARY_SERVING and SECONDARY_SERVING */
     CellConnectionStatus status;
@@ -820,7 +911,28 @@ enum NgranBands  : @1.5::NgranBands {
 };
 
 /**
+<<<<<<< HEAD
  * This safe_union represents an optional slice info
+=======
+ * This safe_union represents an optional DNN. DNN stands for Data Network Name
+ * and represents an APN as defined in 3GPP TS 23.003.
+ */
+safe_union OptionalDnn {
+    Monostate noinit;
+    string value;
+};
+
+/**
+ * This safe_union represents an optional OsAppId.
+ */
+safe_union OptionalOsAppId {
+    Monostate noinit;
+    OsAppId value;
+};
+
+/**
+ * This safe_union represents an optional TrafficDescriptor.
+>>>>>>> c5a379828 (API updates for TrafficDescriptr fields)
  */
 safe_union OptionalSliceInfo {
     Monostate noinit;
@@ -830,6 +942,7 @@ safe_union OptionalSliceInfo {
 /**
  * This struct represents a S-NSSAI as defined in 3GPP TS 24.501.
  */
+<<<<<<< HEAD
 struct SliceInfo {
     /**
      * The type of service provided by the slice.
@@ -844,6 +957,28 @@ struct SliceInfo {
      * no corresponding SliceInfo of the HPLMN.
      *
      * see: 3GPP TS 24.501 Section 9.11.2.8.
+=======
+struct TrafficDescriptor {
+    /**
+     * DNN stands for Data Network Name and represents an APN as defined in
+     * 3GPP TS 23.003.
+     */
+    OptionalDnn dnn;
+    /**
+     * Indicates the OsId + OsAppId (used as category in Android).
+     */
+    OptionalOsAppId osAppId;
+};
+
+/**
+ * This struct represents the OsId + OsAppId as defined in TS 24.526 Section 5.2
+ */
+struct OsAppId {
+    /**
+     * Byte array representing OsId + OsAppId. The minimum length of the array is
+     * 18 and maximum length is 272 (16 bytes for OsId + 1 byte for OsAppId length
+     * + up to 255 bytes for OsAppId).
+>>>>>>> c5a379828 (API updates for TrafficDescriptr fields)
      */
     int32_t sliceDifferentiator;
 
