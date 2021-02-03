@@ -34,6 +34,391 @@
       "parentUuid": "e7de6228_7e0c8276",
       "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7f1720e_6a7a2a02",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "Please check for nullptr as the caller may not have allocated the output param.",
+      "range": {
+        "startLine": 35,
+        "startChar": 52,
+        "endLine": 35,
+        "endChar": 73
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "185582eb_8e2dd7db",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "Why are these values hardcoded here? Are they checked anywhere in this test or these are just filler values that the test doesn\u0027t care about?",
+      "range": {
+        "startLine": 49,
+        "startChar": 16,
+        "endLine": 59,
+        "endChar": 0
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f616a33_a99396db",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "native handle is created but never destroyed. The function comment on native_handle_create says the handle should be destroyed by calling native_handle_delete.\n\nBecause the fd is passed to debug calls, either\n#1 Set shouldOwn to true, so the native handle is deleted when fd and it\u0027s copies goes out of scope.\n#2 Call native_handle_delete at the end of this function (if the debug calls doesn\u0027t cache a copy of this fd).\n#3 If you are unsure about the life of fd and its copies, call native_handle_delete in the VehicleHalManagerFuzzer\u0027s desctructor.\n\nCan be updated to either\nhidl_handle fd \u003d {};\nfd.setTo(native_handle_create(/*numFds\u003d*/1, /*numInts\u003d*/0), /*shouldOwn\u003d*/true);\n\nor \n\nhidl_handle fd(native_handle_create(/*numFds\u003d*/1, /*numInts\u003d*/0)); // shouldOwn is false by default.",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 49
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50f72704_d08033c1",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "mManager-\u003edebug(fd,{});\nmManager-\u003edebug(fd, {debugOption});",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 97,
+        "endChar": 40
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44ee9cf0_d8a1a33d",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "[]([[maybe_unused]] StatusCode status, [[maybe_unused]] const hidl_vec\u003cVehiclePropConfig\u003e\u0026 c) {});",
+      "range": {
+        "startLine": 107,
+        "startChar": 29,
+        "endLine": 110,
+        "endChar": 32
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2eb369d_eaeb60b1",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "Why is this math required?",
+      "range": {
+        "startLine": 112,
+        "startChar": 49,
+        "endLine": 112,
+        "endChar": 92
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff7f5710_b072e14e",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "[]([[maybe_unused]] StatusCode status, [[maybe_unused]] const hidl_vec\u003cVehiclePropConfig\u003e\u0026 c) {});",
+      "range": {
+        "startLine": 113,
+        "startChar": 29,
+        "endLine": 117,
+        "endChar": 0
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "823644bc_1642adf1",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "[]([[maybe_unused]] const hidl_vec\u003cVehiclePropConfig\u003e\u0026 propConfigs) {});",
+      "range": {
+        "startLine": 119,
+        "startChar": 12,
+        "endLine": 119,
+        "endChar": 87
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3562834_55b03549",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "/*areaId\u003d*/0",
+      "range": {
+        "startLine": 164,
+        "startChar": 23,
+        "endLine": 164,
+        "endChar": 37
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed2fe798_df990456",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "Prefer static_cast",
+      "range": {
+        "startLine": 217,
+        "startChar": 32,
+        "endLine": 217,
+        "endChar": 71
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "060c6e21_fe4d1eb8",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "/*opts\u003d*/mFuzzedDataProvider-\u003eConsumeBool()",
+      "range": {
+        "startLine": 352,
+        "startChar": 72,
+        "endLine": 352,
+        "endChar": 83
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7786bfb1_44f8be31",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "if (auto watchdogClient \u003d ndk::SharedRefBase::make\u003cWatchdogClient\u003e(looper, service); watchdogClient-\u003einitialize()) {",
+      "range": {
+        "startLine": 353,
+        "startChar": 4,
+        "endLine": 355,
+        "endChar": 39
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ec3b674_d35fbc6a",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "Please rename the file to VehicleManager_fuzzer.h and VehicleManager_fuzzer.cpp",
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfc265d0_6b390a02",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "namespace android::hardware::automotive::vehicle::V2_0::fuzzer {",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a62d9bf_c0b472d5",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "Please avoid `using .*` or `namespace .* \u003d .*` statements in the header files as every cpp that includes this header will also include these statements which violates \"include only what you use\" recommendation.\n\nPlease move the using statements into the cpp file. Prefer using complete namespace in header file.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 69
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca99c9ff_4879a14a",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "Please move all constants to anonymous namespace in cpp file except the ones required in the header.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 0
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a60f791_02510a01",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2021-02-03T01:40:29Z",
+      "side": 1,
+      "message": "Private member variables. Initialize them in the constructor rather than here.",
+      "range": {
+        "startLine": 138,
+        "startChar": 3,
+        "endLine": 139,
+        "endChar": 52
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
