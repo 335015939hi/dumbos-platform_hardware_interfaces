@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08b53a36_7b48006a",
+        "filename": "bluetooth/audio/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-02-04T20:56:17Z",
+      "side": 1,
+      "message": "Can we use here just ::android::hardware::bluetooth::audio::V2_1::SessionType ? I bet that we use here only V2_1",
+      "revId": "f92b244912ec33a1ada72782af9fa535aff13744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac739b1f_b4dcf5f9",
+        "filename": "bluetooth/audio/session/BluetoothAudioSupportedCodecsDB_2_1.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-02-04T20:56:17Z",
+      "side": 1,
+      "message": "I\u0027m wondering if it would be possible that for example A2DP session will be different for HAL 2.0 and HAL 2.1. If yes we can\u0027t state here that SessionType_2_1 is SessionType_2_0",
+      "revId": "f92b244912ec33a1ada72782af9fa535aff13744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "955207fc_af640174",
+        "filename": "bluetooth/audio/session/BluetoothAudioSupportedCodecsDB_2_1.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-02-04T20:56:17Z",
+      "side": 1,
+      "message": "I think you forget here about some frequencies. Take a look on this CL https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1525949/2",
+      "revId": "f92b244912ec33a1ada72782af9fa535aff13744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cd1d701_4540c282",
+        "filename": "bluetooth/audio/session/BluetoothAudioSupportedCodecsDB_2_1.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-02-04T20:56:17Z",
+      "side": 1,
+      "message": "ditto - frequencies. For LC3 we would like to have 8kHz, 32kHz also",
+      "revId": "f92b244912ec33a1ada72782af9fa535aff13744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
