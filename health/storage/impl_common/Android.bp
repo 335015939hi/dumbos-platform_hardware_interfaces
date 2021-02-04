@@ -15,6 +15,13 @@
  */
 
 // Common implementation between HIDL and AIDL HAL.
+package {
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // the below license kinds from "hardware_interfaces_license":
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
 cc_library_static {
     name: "libhealth_storage_impl_common",
     vendor: true,
