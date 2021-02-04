@@ -46,6 +46,30 @@
       },
       "revId": "cd1cc19faeca16f13e15ee5097510864235284a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4085815_c1087eb4",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-04T23:37:37Z",
+      "side": 1,
+      "message": "Perhaps it is not so great to use side channels, even in that case. Okay, sg.",
+      "parentUuid": "9d2ff1a0_6c1e4f0f",
+      "range": {
+        "startLine": 740,
+        "startChar": 0,
+        "endLine": 745,
+        "endChar": 26
+      },
+      "revId": "cd1cc19faeca16f13e15ee5097510864235284a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
