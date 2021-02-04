@@ -69,6 +69,24 @@
       "parentUuid": "6375eb65_e6b866eb",
       "revId": "75759f82f207589e552e259d0df389009119c2e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e749e97_9e53e060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2021-02-04T01:05:39Z",
+      "side": 1,
+      "message": "Hi Mikhail,\n\nI\u0027ve opened https://android-review.googlesource.com/c/platform/system/media/+/1573940 for your review.\n\nYour understanding matches mine regarding the differences between 60958 and 61937 and how they relate to one another.\n\nThanks,",
+      "parentUuid": "00ddd235_6092c9df",
+      "revId": "75759f82f207589e552e259d0df389009119c2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
