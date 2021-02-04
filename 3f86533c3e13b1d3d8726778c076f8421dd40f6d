@@ -16,6 +16,23 @@
       "message": "+ by myself for cp and previous approval",
       "revId": "3f86533c3e13b1d3d8726778c076f8421dd40f6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c6c59e0_14c45902",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-02-04T22:53:57Z",
+      "side": 1,
+      "message": "aosp is still merging to sc-dev which is merging to internal master. So you could just submit to aosp to get to all three of those branches for future CLs if you want. http://go/automergergraph",
+      "revId": "3f86533c3e13b1d3d8726778c076f8421dd40f6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
