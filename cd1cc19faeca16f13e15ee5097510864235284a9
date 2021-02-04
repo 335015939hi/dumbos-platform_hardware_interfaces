@@ -22,6 +22,30 @@
       },
       "revId": "cd1cc19faeca16f13e15ee5097510864235284a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d2ff1a0_6c1e4f0f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-02-04T23:21:40Z",
+      "side": 1,
+      "message": "This is not a new feature. It was already present in KM 4.1. It signal the implementation that certain keys that are marked with the early boot tag can no longer be used after this call. I am not sure if this \"early boot\" is the same definition as what init considers \"early boot\".",
+      "parentUuid": "8f4b3477_33e97fe4",
+      "range": {
+        "startLine": 740,
+        "startChar": 0,
+        "endLine": 745,
+        "endChar": 26
+      },
+      "revId": "cd1cc19faeca16f13e15ee5097510864235284a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
