@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f4b3477_33e97fe4",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-04T22:32:24Z",
+      "side": 1,
+      "message": "is this different than the API init alrdady exposes via init.rc for boot phases?",
+      "range": {
+        "startLine": 740,
+        "startChar": 0,
+        "endLine": 745,
+        "endChar": 26
+      },
+      "revId": "cd1cc19faeca16f13e15ee5097510864235284a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
