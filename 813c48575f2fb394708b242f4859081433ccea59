@@ -16,6 +16,24 @@
       "message": "Please rename the files via `git mv`. The comment history is lost in the old file.",
       "revId": "813c48575f2fb394708b242f4859081433ccea59",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00bd0033_a010527a",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/VehicleManager_fuzzer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-02-05T09:45:09Z",
+      "side": 1,
+      "message": "Hi Lakshman,\nI have uploaded 2 patchsets - Patchset 6 and Patchset 7\nPatchset 6 has the renamed files\nIn Patchset 7, all the other review comments are taken\n\nSince VehicleManager_fuzzer.h had lot of changes, git was considering it as a new file even though \u0027git mv\u0027 was used.\nSo, we had to make 2 patchset uploads.",
+      "parentUuid": "47d05f83_6f2fb3e6",
+      "revId": "813c48575f2fb394708b242f4859081433ccea59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
