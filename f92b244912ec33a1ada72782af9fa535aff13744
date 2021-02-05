@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af72e338_3a643370",
+        "filename": "bluetooth/audio/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-02-05T10:44:05Z",
+      "side": 1,
+      "message": "SessionType is used by BluetoothAudioSession.h, but get compilation error here if using SessionType again.",
+      "parentUuid": "08b53a36_7b48006a",
+      "revId": "f92b244912ec33a1ada72782af9fa535aff13744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac739b1f_b4dcf5f9",
         "filename": "bluetooth/audio/session/BluetoothAudioSupportedCodecsDB_2_1.cpp",
         "patchSetId": 4
