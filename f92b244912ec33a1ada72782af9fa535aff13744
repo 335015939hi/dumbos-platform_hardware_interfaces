@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38a37df7_1f6ddff3",
+        "filename": "bluetooth/audio/session/BluetoothAudioSessionControl_2_1.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-02-05T10:28:54Z",
+      "side": 1,
+      "message": "No:\n\nerror: using declaration in class refers into \u0027::android::hardware::bluetooth::audio::V2_1::\u0027, which is not a class\n\n\nIf I move it outside of class then:\n\n\n\n\n error: target of using declaration conflicts with declaration already in scope",
+      "parentUuid": "08b53a36_7b48006a",
+      "revId": "f92b244912ec33a1ada72782af9fa535aff13744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac739b1f_b4dcf5f9",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-02-04T20:56:17Z",
       "side": 1,
       "message": "I\u0027m wondering if it would be possible that for example A2DP session will be different for HAL 2.0 and HAL 2.1. If yes we can\u0027t state here that SessionType_2_1 is SessionType_2_0",
+      "revId": "f92b244912ec33a1ada72782af9fa535aff13744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8d64079_cb1136b0",
+        "filename": "bluetooth/audio/session/BluetoothAudioSupportedCodecsDB_2_1.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-02-05T10:28:54Z",
+      "side": 1,
+      "message": "We added new parameters for LC3, and I don\u0027t expect any A2DP vendor implementation to rely on them for A2DP.\nIf there were new parameters useful for A2DP, I would expect that vendors would add new type, and implement handling of those new parameters separately.",
+      "parentUuid": "ac739b1f_b4dcf5f9",
       "revId": "f92b244912ec33a1ada72782af9fa535aff13744",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38d8b98b_0bf9025f",
+        "filename": "bluetooth/audio/session/BluetoothAudioSupportedCodecsDB_2_1.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-02-05T10:28:54Z",
+      "side": 1,
+      "message": "I think those should be added in separate CL, where we also check these are enabled just for LC3",
+      "parentUuid": "955207fc_af640174",
+      "revId": "f92b244912ec33a1ada72782af9fa535aff13744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cd1d701_4540c282",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-02-04T20:56:17Z",
       "side": 1,
       "message": "ditto - frequencies. For LC3 we would like to have 8kHz, 32kHz also",
+      "revId": "f92b244912ec33a1ada72782af9fa535aff13744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e0838f_d479caee",
+        "filename": "bluetooth/audio/session/BluetoothAudioSupportedCodecsDB_2_1.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-02-05T10:28:54Z",
+      "side": 1,
+      "message": "I think those should be added in separate CL, where we also check these are enabled just for LC3",
+      "parentUuid": "5cd1d701_4540c282",
       "revId": "f92b244912ec33a1ada72782af9fa535aff13744",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
