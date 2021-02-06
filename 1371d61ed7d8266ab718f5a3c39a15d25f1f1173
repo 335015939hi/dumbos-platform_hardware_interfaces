@@ -16,6 +16,29 @@
       "message": "ali",
       "revId": "1371d61ed7d8266ab718f5a3c39a15d25f1f1173",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f84a6484_6dfef717",
+        "filename": "bluetooth/audio/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-06T00:39:07Z",
+      "side": 1,
+      "message": "consider moving this to bluetooth/audio/util/Android.bp and adding OWNERS file there (it can\u0027t be added here because of how HIDL does API review)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 19
+      },
+      "revId": "1371d61ed7d8266ab718f5a3c39a15d25f1f1173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
