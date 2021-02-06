@@ -16,6 +16,24 @@
       "message": "device/google/cuttlefish/guest/hals/ril/reference-libril/ril_service.cpp:12316:31: error: allocating an object of abstract class type \u0027RadioImpl_1_6\u0027\n        radioService[i] \u003d new RadioImpl_1_6;\n                              ^\nout/soong/.intermediates/hardware/interfaces/radio/1.6/android.hardware.radio@1.6_genc++_headers/gen/android/hardware/radio/1.6/IRadio.h:2728:47: note: unimplemented pure virtual method \u0027setCarrierInfoForImsiEncryption_1_6\u0027 in \u0027RadioImpl_1_6\u0027\n    virtual ::android::hardware::Return\u003cvoid\u003e setCarrierInfoForImsiEncryption_1_6(int32_t serial, const ::android::hardware::radio::V1_6::ImsiEncryptionInfo\u0026 imsiEncryptionInfo) \u003d 0;\n                                              ^\n1 error generated.\n\nPlease make changes on cuttlefish as well.",
       "revId": "f9aac332a9edc5f8dd4e342e3aae5a997e9fc679",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f715c7e3_d1345475",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2021-02-06T02:21:58Z",
+      "side": 1,
+      "message": "Use https://android-review.googlesource.com/q/topic:cp-edial-1-6 as reference.",
+      "parentUuid": "e5e45034_ef5d93a5",
+      "revId": "f9aac332a9edc5f8dd4e342e3aae5a997e9fc679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
