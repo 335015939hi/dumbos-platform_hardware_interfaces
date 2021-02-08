@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1ef9c29_73d4097a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-02-08T12:37:37Z",
+      "side": 1,
+      "message": "Done, suffered a little bit as 7.0 is not stable, I made an ugly WA in media/libaudiohal/impl/DeviceHalHidl.cpp to have it works. But at last it works...",
+      "parentUuid": "a994fbdf_900edd78",
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d325fb6_075b44c2",
