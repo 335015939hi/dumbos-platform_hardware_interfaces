@@ -107,6 +107,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e14c989b_e4c63769",
+        "filename": "audio/6.0/IPrimaryDevice.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-02-08T12:41:31Z",
+      "side": 1,
+      "message": "@Eric: no change in core framework yet. But you are right, changes shall be propagated to libaudiohal/APM/AudioService and registration callback API added in AudioManager.\nNo CL done so far, I will do my best to delivery the whole change.\n\n@All: agree to migrate to IDevice",
+      "parentUuid": "45fc14e2_98e313ed",
+      "range": {
+        "startLine": 209,
+        "startChar": 4,
+        "endLine": 209,
+        "endChar": 13
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f39c17ae_08bd2934",
@@ -120,6 +144,30 @@
       "writtenOn": "2021-01-29T10:32:13Z",
       "side": 1,
       "message": "unregisterAudioGainCallback",
+      "range": {
+        "startLine": 225,
+        "startChar": 4,
+        "endLine": 225,
+        "endChar": 15
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42f45866_f877cf1c",
+        "filename": "audio/6.0/IPrimaryDevice.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-02-08T12:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f39c17ae_08bd2934",
       "range": {
         "startLine": 225,
         "startChar": 4,
