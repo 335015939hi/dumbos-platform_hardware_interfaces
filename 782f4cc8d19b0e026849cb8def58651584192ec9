@@ -413,6 +413,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "099dc2a4_fd809031",
+        "filename": "audio/audiogain/all-versions/default/AudioGain.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-02-08T13:15:20Z",
+      "side": 1,
+      "message": "BTW, this remark gives full meaning to have the IAudioGain being merged in AudioHAL, handled by core framework and proposing registration API in java side (AudioManager) and native (AudioSystem)",
+      "parentUuid": "749139ed_1e0c9d4f",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 0
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "034cd553_859bc986",
         "filename": "audio/audiogain/all-versions/default/include/AudioGain.h",
         "patchSetId": 8
