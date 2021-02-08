@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
@@ -27,6 +28,7 @@ import android.hardware.security.keymint.HardwareAuthenticatorType;
  * begin(), update(), and finish() to prove that authentication occurred.  See those methods for
  * more details.  It is up to the caller to determine which of the generated auth tokens is
  * appropriate for a given key operation.
+ * @hide
  */
 @VintfStability
 @RustDerive(Clone=true, Eq=true, PartialEq=true, Ord=true, PartialOrd=true, Hash=true)
@@ -35,12 +37,14 @@ parcelable HardwareAuthToken {
      * challenge is a value that's used to enable authentication tokens to authorize specific
      * events.  The primary use case for challenge is to authorize an IKeyMintDevice cryptographic
      * operation, for keys that require authentication per operation. See begin() for details.
+     * @hide
      */
     long challenge;
 
     /**
      *  userId is the a "secure" user ID.  It is not related to any Android user ID or UID, but is
      *  created in the Gatekeeper application in the secure environment.
+     * @hide
      */
     long userId;
 
@@ -48,12 +52,14 @@ parcelable HardwareAuthToken {
      *  authenticatorId is the a "secure" user ID.  It is not related to any Android user ID or UID,
      *  but is created in an authentication application in the secure environment, such as the
      *  Fingerprint application.
+     * @hide
      */
     long authenticatorId;
 
     /**
      * authenticatorType describes the type of authentication that took place, e.g. password or
      * fingerprint.
+     * @hide
      */
     HardwareAuthenticatorType authenticatorType;
 
@@ -62,6 +68,7 @@ parcelable HardwareAuthToken {
      * starting point (generally the most recent device boot) which all of the applications within
      * one secure environment must agree upon.  This timestamp is used to determine whether or not
      * the authentication occurred recently enough to unlock a key (see Tag::AUTH_TIMEOUT).
+     * @hide
      */
     Timestamp timestamp;
 
@@ -79,6 +86,7 @@ parcelable HardwareAuthToken {
      * authenticatorId values are in machine order, but authenticatorType and timestamp are in
      * network order (big-endian).  This odd construction is compatible with the hw_auth_token_t
      * structure.
+     * @hide
      */
     byte[] mac;
 }

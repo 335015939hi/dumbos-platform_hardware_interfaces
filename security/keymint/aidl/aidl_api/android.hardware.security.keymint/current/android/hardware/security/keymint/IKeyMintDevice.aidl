@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  *////////////////////////////////////////////////////////////////////////////////
 // THIS FILE IS IMMUTABLE. DO NOT EDIT IN ANY CASE.                          //
 ///////////////////////////////////////////////////////////////////////////////
@@ -31,17 +32,50 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.keymint;
-@VintfStability
+/**
+ * @hide
+ */
+@SensitiveData @VintfStability
 interface IKeyMintDevice {
+  /**
+   * @hide
+   */
   android.hardware.security.keymint.KeyMintHardwareInfo getHardwareInfo();
+  /**
+   * @hide
+   */
   void addRngEntropy(in byte[] data);
+  /**
+   * @hide
+   */
   android.hardware.security.keymint.KeyCreationResult generateKey(in android.hardware.security.keymint.KeyParameter[] keyParams);
+  /**
+   * @hide
+   */
   android.hardware.security.keymint.KeyCreationResult importKey(in android.hardware.security.keymint.KeyParameter[] keyParams, in android.hardware.security.keymint.KeyFormat keyFormat, in byte[] keyData);
+  /**
+   * @hide
+   */
   android.hardware.security.keymint.KeyCreationResult importWrappedKey(in byte[] wrappedKeyData, in byte[] wrappingKeyBlob, in byte[] maskingKey, in android.hardware.security.keymint.KeyParameter[] unwrappingParams, in long passwordSid, in long biometricSid);
+  /**
+   * @hide
+   */
   byte[] upgradeKey(in byte[] inKeyBlobToUpgrade, in android.hardware.security.keymint.KeyParameter[] inUpgradeParams);
+  /**
+   * @hide
+   */
   void deleteKey(in byte[] inKeyBlob);
+  /**
+   * @hide
+   */
   void deleteAllKeys();
+  /**
+   * @hide
+   */
   void destroyAttestationIds();
+  /**
+   * @hide
+   */
   android.hardware.security.keymint.BeginResult begin(in android.hardware.security.keymint.KeyPurpose inPurpose, in byte[] inKeyBlob, in android.hardware.security.keymint.KeyParameter[] inParams, in android.hardware.security.keymint.HardwareAuthToken inAuthToken);
   const int AUTH_TOKEN_MAC_LENGTH = 32;
 }

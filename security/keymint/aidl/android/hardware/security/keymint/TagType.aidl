@@ -12,12 +12,14 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
 
 /**
  * TagType classifies Tags in Tag.aidl into various groups of data.
+ * @hide
  */
 @VintfStability
 @Backing(type="int")

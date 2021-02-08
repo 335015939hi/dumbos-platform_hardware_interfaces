@@ -12,25 +12,42 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
 
 /**
  * Algorithms provided by IKeyMintDevice implementations.
+ * @hide
  */
 @VintfStability
 @Backing(type="int")
 enum Algorithm {
-    /** Asymmetric algorithms. */
+    /* Asymmetric algorithms. */
+    /**
+     * @hide
+     */
     RSA = 1,
-    /** 2 removed, do not reuse. */
+    /* 2 removed, do not reuse. */
+    /**
+     * @hide
+     */
     EC = 3,
 
-    /** Block cipher algorithms */
+    /* Block cipher algorithms */
+    /**
+     * @hide
+     */
     AES = 32,
+    /**
+     * @hide
+     */
     TRIPLE_DES = 33,
 
-    /** MAC algorithms */
+    /* MAC algorithms */
+    /**
+     * @hide
+     */
     HMAC = 128,
 }

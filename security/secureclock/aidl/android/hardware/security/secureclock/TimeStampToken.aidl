@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.secureclock;
@@ -20,18 +21,20 @@ import android.hardware.security.secureclock.Timestamp;
 
 /**
  * TimeStampToken instances are used for secure environments that requires secure time information.
+ * @hide
  */
-
 @VintfStability
 @RustDerive(Clone=true, Eq=true, PartialEq=true, Ord=true, PartialOrd=true, Hash=true)
 parcelable TimeStampToken {
     /**
      * The challenge that was provided as argument to ISecureClock.generateTimeStamp by the client.
+     * @hide
      */
     long challenge;
 
     /**
      * The current time of the secure environment that generates the TimeStampToken.
+     * @hide
      */
     Timestamp timestamp;
 
@@ -51,6 +54,7 @@ parcelable TimeStampToken {
      *
      * The representation of challenge and timestamp is as 64-bit unsigned integers in big-endian
      * order.  securityLevel is represented as a 32-bit unsigned integer in big-endian order.
+     * @hide
      */
     byte[] mac;
 }

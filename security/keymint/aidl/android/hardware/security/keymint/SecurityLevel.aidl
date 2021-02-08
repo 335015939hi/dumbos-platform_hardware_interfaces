@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
@@ -27,6 +28,7 @@ package android.hardware.security.keymint;
  *     certificates.  This specifies the security level of the weakest environment involved in
  *     enforcing that particular tag, i.e. the sort of security environment an attacker would have
  *     to subvert in order to break the enforcement of that tag.
+ * @hide
  */
 @VintfStability
 @Backing(type="int")
@@ -39,6 +41,7 @@ enum SecurityLevel {
      * Note that the distinction between SOFTWARE and KEYSTORE is only relevant on-device.  For
      * attestation purposes, these categories are combined into the software-enforced authorization
      * list.
+     * @hide
      */
     SOFTWARE = 0,
 
@@ -49,6 +52,7 @@ enum SecurityLevel {
      * attacker who can find an exploit that gains them control of the trusted environment, or who
      * has access to the physical device and can mount a sophisticated hardware attack, may be able
      * to defeat it.
+     * @hide
      */
     TRUSTED_ENVIRONMENT = 1,
     /**
@@ -57,6 +61,7 @@ enum SecurityLevel {
      * are discrete, security-focus computing environments that are hardened against physical and
      * side channel attack, and have had their security formally validated by a competent
      * penetration testing lab.
+     * @hide
      */
     STRONGBOX = 2,
 
@@ -70,6 +75,7 @@ enum SecurityLevel {
      * Note that the distinction between SOFTWARE and KEYSTORE is only relevant on-device.  When
      * KeyMint generates an attestation certificate, these categories are combined into the
      * software-enforced authorization list.
+     * @hide
      */
     KEYSTORE = 100
 }

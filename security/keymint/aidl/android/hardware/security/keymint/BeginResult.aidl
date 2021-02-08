@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
@@ -21,17 +22,26 @@ import android.hardware.security.keymint.KeyParameter;
 
 /**
  * This is all the results returned by the IKeyMintDevice begin() function.
+ * @hide
  */
 @VintfStability
 parcelable BeginResult {
-    /* This is the challenge used in verifyAuthorization.  It must be a nonce. */
+    /**
+     * This is the challenge used in verifyAuthorization.  It must be a nonce.
+     * @hide
+     */
     long challenge;
 
     /**
      * begin() uses this field to return additional data from the operation
      * initialization, notably to return the IV or nonce from operations
      * that generate an IV or nonce.
+     * @hide
      */
     KeyParameter[] params;
+    /**
+     * Operation interface representing the life cycle of the begun operation.
+     * @hide
+     */
     IKeyMintOperation operation;
 }

@@ -12,17 +12,20 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
 
 /**
  * This encodes an IKeyMintDevice certificate, generated for a KeyMint asymmetric public key.
+ * @hide
  */
 @VintfStability
 parcelable Certificate {
     /**
      * EncodedCertificate contains the bytes of a DER-encoded X.509 certificate.
+     * @hide
      */
     byte[] encodedCertificate;
 }

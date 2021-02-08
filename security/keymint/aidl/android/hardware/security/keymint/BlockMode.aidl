@@ -12,12 +12,14 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
 
 /**
  * Symmetric block cipher modes provided by IKeyMintDevice implementations.
+ * @hide
  */
 @VintfStability
 @Backing(type="int")
@@ -26,13 +28,25 @@ enum BlockMode {
      * Unauthenticated modes, usable only for encryption/decryption and not generally recommended
      * except for compatibility with existing other protocols.
      */
+    /**
+     * @hide
+     */
     ECB = 1,
+    /**
+     * @hide
+     */
     CBC = 2,
+    /**
+     * @hide
+     */
     CTR = 3,
 
     /*
      * Authenticated modes, usable for encryption/decryption and signing/verification.  Recommended
      * over unauthenticated modes for all purposes.
+     */
+    /**
+     * @hide
      */
     GCM = 32,
 }

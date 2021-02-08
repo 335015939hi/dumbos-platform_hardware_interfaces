@@ -12,18 +12,32 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
 
 /**
  * Supported EC curves, used in ECDSA
+ * @hide
  */
 @VintfStability
 @Backing(type="int")
 enum EcCurve {
+    /**
+     * @hide
+     */
     P_224 = 0,
+    /**
+     * @hide
+     */
     P_256 = 1,
+    /**
+     * @hide
+     */
     P_384 = 2,
+    /**
+     * @hide
+     */
     P_521 = 3,
 }

@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
@@ -210,14 +211,17 @@ import android.hardware.security.keymint.SecurityLevel;
  * hardwareEnforced authorization list.  Tag::OS_VERSION, Tag::OS_PATCHLEVEL,
  * Tag::VENDOR_PATCHLEVEL, and Tag::BOOT_PATCHLEVEL must be cryptographically bound to every
  * IKeyMintDevice key, as described in the Key Access Control section above.
+ * @hide
  */
 @VintfStability
+@SensitiveData
 interface IKeyMintDevice {
     const int AUTH_TOKEN_MAC_LENGTH = 32;
 
     /**
      * @return info which contains information about the underlying IKeyMintDevice hardware, such
      *         as version number, security level, keyMint name and author name.
+     * @hide
      */
     KeyMintHardwareInfo getHardwareInfo();
 
@@ -237,6 +241,7 @@ interface IKeyMintDevice {
      *
      * @return error ErrorCode::OK on success; ErrorCode::INVALID_INPUT_LENGTH if the caller
      *         provides more than 2 KiB of data.
+     * @hide
      */
     void addRngEntropy(in byte[] data);
 
@@ -315,6 +320,7 @@ interface IKeyMintDevice {
      *        for which types of keys.
      *
      * @return The result of key creation.  See KeyCreationResult.aidl.
+     * @hide
      */
     KeyCreationResult generateKey(in KeyParameter[] keyParams);
 
@@ -345,6 +351,7 @@ interface IKeyMintDevice {
      * @param inKeyData The key material to import, in the format specified in keyFormat.
      *
      * @return The result of key creation.  See KeyCreationResult.aidl.
+     * @hide
      */
     KeyCreationResult importKey(in KeyParameter[] keyParams, in KeyFormat keyFormat,
                                 in byte[] keyData);
@@ -428,6 +435,7 @@ interface IKeyMintDevice {
      *        ignored.
      *
      * @return The result of key creation.  See KeyCreationResult.aidl.
+     * @hide
      */
      KeyCreationResult importWrappedKey(in byte[] wrappedKeyData,
                                         in byte[] wrappingKeyBlob,
@@ -468,6 +476,7 @@ interface IKeyMintDevice {
      *
      * @return A new key blob that references the same key as keyBlobToUpgrade, but is in the new
      *         format, or has the new version data.
+     * @hide
      */
     byte[] upgradeKey(in byte[] inKeyBlobToUpgrade, in KeyParameter[] inUpgradeParams);
 
@@ -478,6 +487,7 @@ interface IKeyMintDevice {
      * may not be rendered unusable.
      *
      * @param inKeyBlob The opaque descriptor returned by generateKey() or importKey();
+     * @hide
      */
     void deleteKey(in byte[] inKeyBlob);
 
@@ -488,6 +498,7 @@ interface IKeyMintDevice {
      * Tag::ROLLBACK_RESISTANCE may or may not be rendered unusable.
      *
      * @return error See the ErrorCode enum.
+     * @hide
      */
     void deleteAllKeys();
 
@@ -501,6 +512,7 @@ interface IKeyMintDevice {
      * must never attest any device ids.
      *
      * This is a NOP if device id attestation is not supported.
+     * @hide
      */
     void destroyAttestationIds();
 
@@ -704,6 +716,7 @@ interface IKeyMintDevice {
      *         additional data from the operation initialization, notably to return the IV or nonce
      *         from operations that generate an IV or nonce, and IKeyMintOperation object pointer
      *         which is used to perform update(), finish() or abort() operations.
+     * @hide
      */
     BeginResult begin(in KeyPurpose inPurpose,
                in byte[] inKeyBlob,

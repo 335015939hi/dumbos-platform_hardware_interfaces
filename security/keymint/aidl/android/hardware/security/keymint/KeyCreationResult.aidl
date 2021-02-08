@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
@@ -22,11 +23,13 @@ import android.hardware.security.keymint.KeyCharacteristics;
 /**
  * This structure is returned when a new key is created with generateKey(), importKey() or
  * importWrappedKey().
+ * @hide
  */
 @VintfStability
 parcelable KeyCreationResult {
     /**
      * `keyBlob` is an descriptor of the generated/imported key key.
+     * @hide
      */
     byte[] keyBlob;
 
@@ -47,6 +50,7 @@ parcelable KeyCreationResult {
      * - If the semantics are not enforced by KeyMint at all, SecurityLevel::KEYSTORE is used to
      *   indicate that Keystore should enforce.  Note that in Keymaster (predecessor to KeyMint),
      *   these tags would have been in SecurityLevel::SOFTWARE.
+     * @hide
      */
     KeyCharacteristics[] keyCharacteristics;
 
@@ -59,6 +63,7 @@ parcelable KeyCreationResult {
      * one certificate will be returned, and it will be self-signed or contain a fake signature,
      * depending on whether the key has KeyPurpose::SIGN.  If the generated key is symmetric,
      * certificateChain will be empty.
+     * @hide
      */
     Certificate[] certificateChain;
 }

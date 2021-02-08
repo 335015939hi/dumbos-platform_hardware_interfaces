@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
@@ -19,6 +20,7 @@ package android.hardware.security.keymint;
 
 /**
  * Possible purposes of a key (or pair).
+ * @hide
  */
 @VintfStability
 @Backing(type = "int")
