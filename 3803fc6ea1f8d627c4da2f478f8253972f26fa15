@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a8f5746_d011fd51",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-08T16:27:31Z",
+      "side": 1,
+      "message": "\u003e Common typo found: \"recieves\" -- should it be \"receives\"?\n\u003e Note: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.\n\nPlease fix.",
+      "parentUuid": "0105af39_6b3797e4",
+      "range": {
+        "startLine": 66,
+        "startChar": 32,
+        "endLine": 66,
+        "endChar": 40
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5f7c42a_efe4c627",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-08T16:27:31Z",
+      "side": 1,
+      "message": "\u003e Common typo found: \"the the\" -- should it be \"the\"?\n\u003e Note: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.\n\nPlease fix.",
+      "parentUuid": "32a0d33f_cc24163a",
+      "range": {
+        "startLine": 102,
+        "startChar": 80,
+        "endLine": 102,
+        "endChar": 87
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffb22790_159fc10f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-08T16:27:31Z",
+      "side": 1,
+      "message": "KeyMint actually doesn\u0027t.  We were planning to define a format, but didn\u0027t.",
+      "range": {
+        "startLine": 135,
+        "startChar": 76,
+        "endLine": 135,
+        "endChar": 90
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8998845_0f62d821",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-08T16:27:31Z",
+      "side": 1,
+      "message": "X25519",
+      "range": {
+        "startLine": 156,
+        "startChar": 51,
+        "endLine": 156,
+        "endChar": 57
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a5196e1_44982485",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-08T16:27:31Z",
+      "side": 1,
+      "message": "kKeyMintEcdsaP256Params would be a better name.  \u0027k\u0027 to indicate that this is a constant.  Also, I\u0027d mark it constexpr, and rather than using \u0027static\u0027 to limit the scope, put it in an anonymous namespace.",
+      "range": {
+        "startLine": 218,
+        "startChar": 29,
+        "endLine": 218,
+        "endChar": 35
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59f3e3d1_b6b9336d",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-08T16:27:31Z",
+      "side": 1,
+      "message": "I don\u0027t think this adds any value.  We never relied on being able to return values in the event of an error.",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 70
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "716df55b_3a7dcfaa",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-08T16:27:31Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you return an error code in this case?",
+      "range": {
+        "startLine": 262,
+        "startChar": 8,
+        "endLine": 263,
+        "endChar": 56
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e845bf0_47edf4f6",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-08T16:27:31Z",
+      "side": 1,
+      "message": "It would be nice to pull this certificate parsing and key extraction code out into a helper function.",
+      "range": {
+        "startLine": 267,
+        "startChar": 17,
+        "endLine": 267,
+        "endChar": 25
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8319f0da_89081e46",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-08T16:27:31Z",
+      "side": 1,
+      "message": "Return error.",
+      "range": {
+        "startLine": 271,
+        "startChar": 8,
+        "endLine": 271,
+        "endChar": 47
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83589a8f_3623c09b",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-08T16:27:31Z",
+      "side": 1,
+      "message": "Return error.",
+      "range": {
+        "startLine": 278,
+        "startChar": 8,
+        "endLine": 278,
+        "endChar": 36
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3c553dc_30741e6c",
+        "filename": "security/keymint/support/cppcose.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-08T16:27:31Z",
+      "side": 1,
+      "message": "BoringSSL has _Ptr types defined for pretty much everything.  Try using bssl::EVP_CIPHER_CTX_Ptr.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 82
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
