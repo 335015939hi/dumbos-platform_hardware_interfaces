@@ -247,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fded35f2_cfa93b54",
+        "filename": "audio/audiogain/6.0/IAudioGainCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-02-08T13:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd4a6dd1_b3620bad",
+      "range": {
+        "startLine": 29,
+        "startChar": 64,
+        "endLine": 29,
+        "endChar": 76
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df389756_9eb4c450",
@@ -260,6 +284,30 @@
       "writtenOn": "2021-02-03T21:37:22Z",
       "side": 1,
       "message": "bitfield\u003cReason\u003e",
+      "range": {
+        "startLine": 47,
+        "startChar": 21,
+        "endLine": 47,
+        "endChar": 29
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9968e780_df547640",
+        "filename": "audio/audiogain/6.0/IAudioGainCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-02-08T13:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df389756_9eb4c450",
       "range": {
         "startLine": 47,
         "startChar": 21,
@@ -341,6 +389,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "749139ed_1e0c9d4f",
+        "filename": "audio/audiogain/all-versions/default/AudioGain.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-02-08T13:10:42Z",
+      "side": 1,
+      "message": "Excellent remark. We\u0027v been facing this kind of issue since IAudioControl automotive interface has been introduced and highly recommanded to be implemented by primary HAL.\nAs a result, we have 2 clients for a while in AudioHAL.\n\nAudio HAL Primary Device IF has been \"singletonized\" within our DeviceFactory.cpp.",
+      "parentUuid": "da9c32b6_914484ef",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 0
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "034cd553_859bc986",
         "filename": "audio/audiogain/all-versions/default/include/AudioGain.h",
         "patchSetId": 8
@@ -352,6 +424,30 @@
       "writtenOn": "2021-02-03T21:37:22Z",
       "side": 1,
       "message": "Not used",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 30
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "888d9590_6f14e5a6",
+        "filename": "audio/audiogain/all-versions/default/include/AudioGain.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-02-08T13:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "034cd553_859bc986",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -375,6 +471,30 @@
       "writtenOn": "2021-02-03T21:37:22Z",
       "side": 1,
       "message": "Not used",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c549543_7af895f2",
+        "filename": "audio/audiogain/all-versions/default/include/AudioGain.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-02-08T13:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c72093e_4ed5bd77",
       "range": {
         "startLine": 25,
         "startChar": 0,
