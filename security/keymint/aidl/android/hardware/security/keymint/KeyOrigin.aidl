@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
@@ -21,6 +22,7 @@ package android.hardware.security.keymint;
  * either the hardware-enforced or software-enforced list for a key, indicating whether the key is
  * hardware or software-based.  Specifically, a key with GENERATED in the hardware-enforced list
  * must be guaranteed never to have existed outide the secure hardware.
+ * @hide
  */
 @VintfStability
 @Backing(type="int")
@@ -40,6 +42,7 @@ enum KeyOrigin {
     /**
      * Securely imported into KeyMint.  Was created elsewhere, and passed securely through Android
      * to secure hardware.
+     * @hide
      */
     SECURELY_IMPORTED = 4,
 }

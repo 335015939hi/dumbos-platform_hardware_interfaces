@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  *////////////////////////////////////////////////////////////////////////////////
 // THIS FILE IS IMMUTABLE. DO NOT EDIT IN ANY CASE.                          //
 ///////////////////////////////////////////////////////////////////////////////
@@ -31,9 +32,21 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.keymint;
+/**
+ * @hide
+ */
 @VintfStability
 parcelable BeginResult {
+  /**
+   * @hide
+   */
   long challenge;
+  /**
+   * @hide
+   */
   android.hardware.security.keymint.KeyParameter[] params;
+  /**
+   * @hide
+   */
   android.hardware.security.keymint.IKeyMintOperation operation;
 }

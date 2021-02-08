@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
@@ -26,6 +27,9 @@ import android.hardware.security.keymint.KeyPurpose;
 import android.hardware.security.keymint.PaddingMode;
 import android.hardware.security.keymint.SecurityLevel;
 
+/**
+ * @hide
+ */
 @VintfStability
 @RustDerive(Clone=true, Eq=true, PartialEq=true, Ord=true, PartialOrd=true, Hash=true)
 union KeyParameterValue {

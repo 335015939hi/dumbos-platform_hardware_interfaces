@@ -12,21 +12,44 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
 
 /**
  * Digests provided by keyMint implementations.
+ * @hide
  */
 @VintfStability
 @Backing(type="int")
 enum Digest {
+    /**
+     * @hide
+     */
     NONE = 0,
+    /**
+     * @hide
+     */
     MD5 = 1,
+    /**
+     * @hide
+     */
     SHA1 = 2,
+    /**
+     * @hide
+     */
     SHA_2_224 = 3,
+    /**
+     * @hide
+     */
     SHA_2_256 = 4,
+    /**
+     * @hide
+     */
     SHA_2_384 = 5,
+    /**
+     * @hide
+     */
     SHA_2_512 = 6,
 }

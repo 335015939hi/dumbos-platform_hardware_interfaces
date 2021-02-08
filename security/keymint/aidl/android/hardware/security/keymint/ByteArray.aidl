@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
@@ -19,8 +20,12 @@ package android.hardware.security.keymint;
 /**
  * This is used to contain a byte[], to make out parameters of byte arrays
  * more convenient for callers.
+ * @hide
  */
 @VintfStability
 parcelable ByteArray {
+    /**
+     * @hide
+     */
     byte[] data;
 }

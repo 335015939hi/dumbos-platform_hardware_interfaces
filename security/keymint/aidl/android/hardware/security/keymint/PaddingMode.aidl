@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.keymint;
@@ -23,6 +24,7 @@ package android.hardware.security.keymint;
  * padding modes for both symmetric and asymmetric algorithms.  Note that implementations should not
  * provide all possible combinations of algorithm and padding, only the
  * cryptographically-appropriate pairs.
+ * @hide
  */
 @VintfStability
 @Backing(type="int")

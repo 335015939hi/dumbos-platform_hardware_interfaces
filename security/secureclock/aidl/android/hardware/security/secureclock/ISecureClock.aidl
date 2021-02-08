@@ -11,6 +11,7 @@
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * limitations under the License.
+ * @hide
  */
 
 package android.hardware.security.secureclock;
@@ -25,13 +26,14 @@ import android.hardware.security.secureclock.TimeStampToken;
  * secret. The shared secret must be available to secure clock service by implementing
  * ISharedSecret aidl. Note: ISecureClock depends on the shared secret, without which the secure
  * time stamp token cannot be generated.
+ * @hide
  */
-
 @VintfStability
 interface ISecureClock {
     /**
      * String used as context in the HMAC computation signing the generated time stamp.
      * See TimeStampToken.mac for details.
+     * @hide
      */
     const String TIME_STAMP_MAC_LABEL = "Time Verification";
 
@@ -43,6 +45,7 @@ interface ISecureClock {
      *        challenge cannot be specified or predicted by an attacker.
      *
      * @return the TimeStampToken, see the definition for details.
+     * @hide
      */
     TimeStampToken generateTimeStamp(in long challenge);
 }
