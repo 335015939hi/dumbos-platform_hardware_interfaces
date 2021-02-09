@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e337702d_fe15096d",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-09T17:40:00Z",
+      "side": 1,
+      "message": "There was.  KeyMint was going to define a standard format for key blobs, and a test mode which would use a known value (e.g. all zeros) for the KeyMint master key, then we could write VTS tests that decrypt and parse the test-mode key blobs.",
+      "parentUuid": "fcaba86a_077a347e",
+      "range": {
+        "startLine": 135,
+        "startChar": 76,
+        "endLine": 135,
+        "endChar": 90
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b8998845_0f62d821",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 9
@@ -228,6 +252,30 @@
       "side": 1,
       "message": "Renamed. It is within an anonymous namespace; I had made it static to avoid reallocating the array each time a keypair was generated while also still being able to take advantage of the convenience functions from using Authorization() calls to initialize the params. Do you think it\u0027s worth it to drop the Authorization() calls and directly fill the structs in order to use constexpr?",
       "parentUuid": "4a5196e1_44982485",
+      "range": {
+        "startLine": 218,
+        "startChar": 29,
+        "endLine": 218,
+        "endChar": 35
+      },
+      "revId": "3803fc6ea1f8d627c4da2f478f8253972f26fa15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7df3455e_204025d7",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-09T17:40:00Z",
+      "side": 1,
+      "message": "Okay.  I don\u0027t think it\u0027s worth dropping the Authorization calls in order to use constexpr. It would be cool to see if there\u0027s a way that we could have something similar to Authorization that could be constexpr, but that\u0027s something to think about when we have more time. Or not. Maybe we\u0027ll just rewrite this all in Rust anyway :-)",
+      "parentUuid": "5d27c8c4_a1f50b46",
       "range": {
         "startLine": 218,
         "startChar": 29,
