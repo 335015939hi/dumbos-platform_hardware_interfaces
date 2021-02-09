@@ -544,7 +544,8 @@ TEST_P(NewKeyGenerationTest, Rsa) {
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .RsaSigningKey(key_size, 65537)
                                                      .Digest(Digest::NONE)
-                                                     .Padding(PaddingMode::NONE),
+                                                     .Padding(PaddingMode::NONE)
+                                                     .SetDefaultValidity(),
                                              &key_blob, &key_characteristics));
 
         ASSERT_GT(key_blob.size(), 0U);
@@ -580,7 +581,8 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
                                                      .Padding(PaddingMode::NONE)
                                                      .AttestationChallenge(challenge)
                                                      .AttestationApplicationId(app_id)
-                                                     .Authorization(TAG_NO_AUTH_REQUIRED),
+                                                     .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                     .SetDefaultValidity(),
                                              &key_blob, &key_characteristics));
 
         ASSERT_GT(key_blob.size(), 0U);
@@ -620,7 +622,8 @@ TEST_P(NewKeyGenerationTest, LimitedUsageRsa) {
                                                      .RsaSigningKey(key_size, 65537)
                                                      .Digest(Digest::NONE)
                                                      .Padding(PaddingMode::NONE)
-                                                     .Authorization(TAG_USAGE_COUNT_LIMIT, 1),
+                                                     .Authorization(TAG_USAGE_COUNT_LIMIT, 1)
+                                                     .SetDefaultValidity(),
                                              &key_blob, &key_characteristics));
 
         ASSERT_GT(key_blob.size(), 0U);
@@ -665,7 +668,8 @@ TEST_P(NewKeyGenerationTest, LimitedUsageRsaWithAttestation) {
                                                      .AttestationChallenge(challenge)
                                                      .AttestationApplicationId(app_id)
                                                      .Authorization(TAG_NO_AUTH_REQUIRED)
-                                                     .Authorization(TAG_USAGE_COUNT_LIMIT, 1),
+                                                     .Authorization(TAG_USAGE_COUNT_LIMIT, 1)
+                                                     .SetDefaultValidity(),
                                              &key_blob, &key_characteristics));
 
         ASSERT_GT(key_blob.size(), 0U);
@@ -713,7 +717,8 @@ TEST_P(NewKeyGenerationTest, NoInvalidRsaSizes) {
                   GenerateKey(AuthorizationSetBuilder()
                                       .RsaSigningKey(key_size, 65537)
                                       .Digest(Digest::NONE)
-                                      .Padding(PaddingMode::NONE),
+                                      .Padding(PaddingMode::NONE)
+                                      .SetDefaultValidity(),
                               &key_blob, &key_characteristics));
     }
 }
@@ -742,10 +747,11 @@ TEST_P(NewKeyGenerationTest, Ecdsa) {
     for (auto key_size : ValidKeySizes(Algorithm::EC)) {
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
-        ASSERT_EQ(ErrorCode::OK,
-                  GenerateKey(
-                          AuthorizationSetBuilder().EcdsaSigningKey(key_size).Digest(Digest::NONE),
-                          &key_blob, &key_characteristics));
+        ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                     .EcdsaSigningKey(key_size)
+                                                     .Digest(Digest::NONE)
+                                                     .SetDefaultValidity(),
+                                             &key_blob, &key_characteristics));
         ASSERT_GT(key_blob.size(), 0U);
         CheckBaseParams(key_characteristics);
 
@@ -772,7 +778,8 @@ TEST_P(NewKeyGenerationTest, LimitedUsageEcdsa) {
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .EcdsaSigningKey(key_size)
                                                      .Digest(Digest::NONE)
-                                                     .Authorization(TAG_USAGE_COUNT_LIMIT, 1),
+                                                     .Authorization(TAG_USAGE_COUNT_LIMIT, 1)
+                                                     .SetDefaultValidity(),
                                              &key_blob, &key_characteristics));
 
         ASSERT_GT(key_blob.size(), 0U);
@@ -820,10 +827,11 @@ TEST_P(NewKeyGenerationTest, EcdsaInvalidSize) {
     for (auto key_size : InvalidKeySizes(Algorithm::EC)) {
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
-        ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
-                  GenerateKey(
-                          AuthorizationSetBuilder().EcdsaSigningKey(key_size).Digest(Digest::NONE),
-                          &key_blob, &key_characteristics));
+        ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE, GenerateKey(AuthorizationSetBuilder()
+                                                                       .EcdsaSigningKey(key_size)
+                                                                       .Digest(Digest::NONE)
+                                                                       .SetDefaultValidity(),
+                                                               &key_blob, &key_characteristics));
     }
 
     ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
