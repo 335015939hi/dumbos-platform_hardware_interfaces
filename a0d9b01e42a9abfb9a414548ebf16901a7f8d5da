@@ -34,6 +34,47 @@
       "parentUuid": "a71049b2_28edbeae",
       "revId": "a0d9b01e42a9abfb9a414548ebf16901a7f8d5da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31a90dbd_0535b0e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-10T19:47:31Z",
+      "side": 1,
+      "message": "Yes - it adds a lot of new APIs which have to be maintained, tested, implemented, and it\u0027s not flexible. Furthermore, it means that every vendor has to implement these APIs everytime we want to add a new feature. If there is one generic API, it can be used as we see fit. Many domain specific APIs mean old devices will end up not getting new features.\n\nIs a generic HAL possible? That means one API for vendors to implement, one to test, one to use, and it could hopefully avoid a lot of domain specific HALs like this.\n\nThere are a _lot_ of security HALs now. keymint/weaver/oemunlock/authsecret/sharedsecret/gatekeeper/timeclock (and maybe others). This is a lot of things for vendors to implement if they are creating a new device. How do they know what they need to implement?",
+      "parentUuid": "cb4c313d_a74e5e57",
+      "revId": "a0d9b01e42a9abfb9a414548ebf16901a7f8d5da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "318e8c34_d7efdafe",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-10T19:47:31Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "a0d9b01e42a9abfb9a414548ebf16901a7f8d5da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
