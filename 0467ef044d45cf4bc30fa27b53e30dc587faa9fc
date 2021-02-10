@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "150c82e5_4a734bbf",
+        "filename": "security/secureclock/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-10T18:00:44Z",
+      "side": 1,
+      "message": "this should be able to be automatically generated (require_root: true in Android.bp), right? Why is this needed here?",
+      "revId": "0467ef044d45cf4bc30fa27b53e30dc587faa9fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d514ad39_2bfdb7b7",
+        "filename": "security/sharedsecret/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-10T18:00:44Z",
+      "side": 1,
+      "message": "same",
+      "revId": "0467ef044d45cf4bc30fa27b53e30dc587faa9fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
