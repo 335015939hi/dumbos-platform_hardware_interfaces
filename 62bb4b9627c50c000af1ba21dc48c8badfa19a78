@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cf8f535_eeebc286",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-02-10T22:33:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "402b8f9b_0e782999",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 35
+      },
+      "revId": "62bb4b9627c50c000af1ba21dc48c8badfa19a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6218b069_3a7bdb78",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "each bit will mean a specific channel.\nexample bit 1 - left\nbit 2 - right channel\nbit 3 - front left\nbit 4 - front right\nbit 5 - subwoofer\n\nSo if we enable bits 1 and 2, we will send left and right channels in the outgoing over-the-air packet, in this order\n\n\nif we enable bits 1,2,5, then we will send left, right and subwoofer.\n\n\n\"List of Audio Locations\" is part of specification that is not public yet.",
       "parentUuid": "6218b069_3a7bdb78",
+      "range": {
+        "startLine": 69,
+        "startChar": 29,
+        "endLine": 69,
+        "endChar": 69
+      },
+      "revId": "62bb4b9627c50c000af1ba21dc48c8badfa19a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a141f621_f968a56b",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-02-10T22:33:06Z",
+      "side": 1,
+      "message": "So the bits specify which channels are included, but their order is constant.  i.e., front left will always come before front right, if they are both included.\n\nI feel like the ordering is a separate issue.  Maybe we could just split the sentence.\n\nThis is also a bitfield, which specifies which channels are included in the outgoing media packet.  The data in the packet has the same order as the bitfield (i.e., the data enabled by bit 2 comes before the data enabled by bit 3).",
+      "parentUuid": "2a19c59f_6d6ca166",
       "range": {
         "startLine": 69,
         "startChar": 29,
