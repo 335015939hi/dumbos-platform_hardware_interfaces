@@ -33,6 +33,24 @@
       "message": "same Q as v6 version - can we require namespaces for these?",
       "revId": "c0525521bbc19c85d96a18baa8e48928f1bd5bfb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b935a1c_f4adaa56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-10T00:39:32Z",
+      "side": 1,
+      "message": "Same answer--let\u0027s do it in V7 (b/176144684) and leave V5 as is.",
+      "parentUuid": "db116697_1d7d6e64",
+      "revId": "c0525521bbc19c85d96a18baa8e48928f1bd5bfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
