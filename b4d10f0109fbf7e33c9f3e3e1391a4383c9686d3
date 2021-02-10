@@ -51,6 +51,24 @@
       "parentUuid": "5e9b8063_1680bc23",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb74f1cf_0aa50a92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-10T00:39:15Z",
+      "side": 1,
+      "message": "at the same time - this is retroactively extending the HAL interfaces to add more. Shouldn\u0027t I also -2 this if it is already \"frozen\"? New APIs which are added here should be subjected to the same restrictions as new APIs which are added elsewhere. :D",
+      "parentUuid": "b4517144_a3dc9058",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
