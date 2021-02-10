@@ -33,6 +33,24 @@
       "message": "Can you specify the format of this more precisely, e.g. to add namespaces?",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4517144_a3dc9058",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-10T00:36:09Z",
+      "side": 1,
+      "message": "For V7 we can do it, there is a bug for that: b/176144684. However, it seems not right for me to require that retroactively for already \"frozen\" HAL interfaces.",
+      "parentUuid": "5e9b8063_1680bc23",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
