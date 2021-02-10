@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79794da4_87eea170",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-02-10T18:42:04Z",
+      "side": 1,
+      "message": "Why use a bitfield for a count?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 35
+      },
+      "revId": "62bb4b9627c50c000af1ba21dc48c8badfa19a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6218b069_3a7bdb78",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-02-10T18:42:04Z",
+      "side": 1,
+      "message": "I don\u0027t understand how a bitfield specifies order",
+      "range": {
+        "startLine": 69,
+        "startChar": 29,
+        "endLine": 69,
+        "endChar": 69
+      },
+      "revId": "62bb4b9627c50c000af1ba21dc48c8badfa19a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
