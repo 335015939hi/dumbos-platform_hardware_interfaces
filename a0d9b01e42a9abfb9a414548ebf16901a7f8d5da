@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a71049b2_28edbeae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-10T00:19:41Z",
+      "side": 1,
+      "message": "We now have 3 HALs with a strikingly similar structure (time clock, shared secret, \u0026 this).\n\nDo we need so many APIs? Is there a way to make it generic?",
+      "revId": "a0d9b01e42a9abfb9a414548ebf16901a7f8d5da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
