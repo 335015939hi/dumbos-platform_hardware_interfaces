@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "402b8f9b_0e782999",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-02-10T18:55:50Z",
+      "side": 1,
+      "message": "To express that HW offload supports one channel or two channels\nOr that it supports 1,2, or 7 channels - i.e. for future TVs with broadcasting mutliple versions of stream",
+      "parentUuid": "79794da4_87eea170",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 35
+      },
+      "revId": "62bb4b9627c50c000af1ba21dc48c8badfa19a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6218b069_3a7bdb78",
         "filename": "bluetooth/audio/2.1/types.hal",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-10T18:42:04Z",
       "side": 1,
       "message": "I don\u0027t understand how a bitfield specifies order",
+      "range": {
+        "startLine": 69,
+        "startChar": 29,
+        "endLine": 69,
+        "endChar": 69
+      },
+      "revId": "62bb4b9627c50c000af1ba21dc48c8badfa19a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a19c59f_6d6ca166",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-02-10T18:55:50Z",
+      "side": 1,
+      "message": "each bit will mean a specific channel.\nexample bit 1 - left\nbit 2 - right channel\nbit 3 - front left\nbit 4 - front right\nbit 5 - subwoofer\n\nSo if we enable bits 1 and 2, we will send left and right channels in the outgoing over-the-air packet, in this order\n\n\nif we enable bits 1,2,5, then we will send left, right and subwoofer.\n\n\n\"List of Audio Locations\" is part of specification that is not public yet.",
+      "parentUuid": "6218b069_3a7bdb78",
       "range": {
         "startLine": 69,
         "startChar": 29,
