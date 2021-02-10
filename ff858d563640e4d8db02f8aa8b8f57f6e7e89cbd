@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebfd7f78_dd98cba2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-02-10T20:21:47Z",
+      "side": 1,
+      "message": "I\u0027m struggling with the presubmit errors here\nERROR: hardware/interfaces/power/stats/aidl/aidl_api/android.hardware.power.stats/current/android/hardware/power/stats/EnergyConsumer.aidl:38.57-111: Bad internal state: !resolved_: Should be resolved first: android.hardware.power.stats.EnergyConsumerType.OTHER\nAborted (core dumped)\n###############################################################################\n# ERROR: AIDL API change detected                                             #\n###############################################################################\nAbove AIDL file(s) has changed. Run `m android.hardware.power.stats-update-api` to reflect the changes\n\n\nI ran `m android.hardware.power.stats-update-api` already and it successfully completes",
+      "revId": "ff858d563640e4d8db02f8aa8b8f57f6e7e89cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
