@@ -39,6 +39,30 @@
       },
       "revId": "ff858d563640e4d8db02f8aa8b8f57f6e7e89cbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73ff660f_6e5547c5",
+        "filename": "power/stats/aidl/aidl_api/android.hardware.power.stats/current/android/hardware/power/stats/EnergyConsumer.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-02-10T23:30:30Z",
+      "side": 1,
+      "message": "This looks like a bug in AIDL check_api. I\u0027ll try to get a fix for it and let you know.",
+      "parentUuid": "0c9b00e0_731725d9",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 111
+      },
+      "revId": "ff858d563640e4d8db02f8aa8b8f57f6e7e89cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
