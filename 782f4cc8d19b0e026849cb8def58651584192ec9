@@ -437,6 +437,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "823078ac_7e50d534",
+        "filename": "audio/audiogain/all-versions/default/AudioGain.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-10T22:21:31Z",
+      "side": 1,
+      "message": "I see. That also means this modification to the DeviceFactory needs to be upstreamed. Otherwise, the VTS test for the AudioGain HAL has good chances of failing on a simple test that adds a callback and then removes it.",
+      "parentUuid": "099dc2a4_fd809031",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 0
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "034cd553_859bc986",
         "filename": "audio/audiogain/all-versions/default/include/AudioGain.h",
         "patchSetId": 8

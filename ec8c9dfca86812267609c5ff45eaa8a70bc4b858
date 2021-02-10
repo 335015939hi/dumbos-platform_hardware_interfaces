@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abd10bf9_b07bbc82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-10T22:21:31Z",
+      "side": 1,
+      "message": "Please note that a HAL interface also requires VTS tests to be submitted together with the implementation.",
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c48d4360_8b99b657",
+        "filename": "audio/7.0/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-10T22:21:31Z",
+      "side": 1,
+      "message": "Please sort.",
+      "range": {
+        "startLine": 19,
+        "startChar": 8,
+        "endLine": 19,
+        "endChar": 47
+      },
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a57142_be713b75",
+        "filename": "audio/7.0/IDevice.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-10T22:21:31Z",
+      "side": 1,
+      "message": "Please sort.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 64
+      },
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c2380e4_8c06b903",
+        "filename": "audio/audiogain/7.0/IAudioGain.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-10T22:21:31Z",
+      "side": 1,
+      "message": "The year on new files needs to be updated to 2021.",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c7cda6e_f818e696",
+        "filename": "audio/audiogain/all-versions/default/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-10T22:21:31Z",
+      "side": 1,
+      "message": "Please sort.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 37
+      },
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdb55cd5_405d909c",
+        "filename": "audio/core/all-versions/default/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-10T22:21:31Z",
+      "side": 1,
+      "message": "Please sort.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 0
+      },
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bedbf7ff_6694165a",
+        "filename": "audio/core/all-versions/default/Device.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-10T22:21:31Z",
+      "side": 1,
+      "message": "How this works w.r.t. \u0027Device::close\u0027 being called on another thread? Does the \u0027close\u0027 function of the legacy HAL block until the callback has finished?",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 538,
+        "endChar": 0
+      },
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
