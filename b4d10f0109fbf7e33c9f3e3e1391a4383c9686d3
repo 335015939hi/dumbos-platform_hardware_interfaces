@@ -16,6 +16,23 @@
       "message": "Robin, please see the linked bug. There is a defect reported by a vendor.",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e9b8063_1680bc23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-10T00:17:49Z",
+      "side": 1,
+      "message": "Can you specify the format of this more precisely, e.g. to add namespaces?",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
