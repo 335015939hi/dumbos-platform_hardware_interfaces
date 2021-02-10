@@ -69,6 +69,24 @@
       "parentUuid": "b4517144_a3dc9058",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0bf56f4_1e7c3a8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-10T00:50:22Z",
+      "side": 1,
+      "message": "This change addresses a defect revealed by a vendor, please see the bug. There is a \u0027no patch no waiver\u0027 policy, so we must provide a fix. It seems to me that the aforementioned policy conflicts with the policy of \u0027frozen interfaces.\u0027 Thankfully, we are not really modifying an interface, just a schema for the data. If you wish to oppose this change, please provide an alternative solution to this problem.",
+      "parentUuid": "bb74f1cf_0aa50a92",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
