@@ -16,6 +16,24 @@
       "message": "We now have 3 HALs with a strikingly similar structure (time clock, shared secret, \u0026 this).\n\nDo we need so many APIs? Is there a way to make it generic?",
       "revId": "a0d9b01e42a9abfb9a414548ebf16901a7f8d5da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb4c313d_a74e5e57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-02-10T02:51:22Z",
+      "side": 1,
+      "message": "I cannot speak as well to the other two HALs, as I am not that familiar with them. At a quick glance they appear to have very different functionality. This HAL could potentially have been directly combined with the KeyMint HAL, but I think for the purposes of keeping the \u0027role\u0027 of each HAL rather narrow it was better to split this out. Additionally, we wouldn\u0027t want device makers to skip adopting KeyMint 1.0 because they weren\u0027t yet ready to make the factory changes required to adopt this HAL as well. Shawn can probably speak better to this though.\n\nI was under the impression that we had grouped these HALs under the \u0027security\u0027 path to avoid cluttering the general hardware/interfaces HAL directory originally. Are there significant drawbacks to be aware of when creating more, focused HALs instead of generic, wider-encompassing ones?",
+      "parentUuid": "a71049b2_28edbeae",
+      "revId": "a0d9b01e42a9abfb9a414548ebf16901a7f8d5da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
