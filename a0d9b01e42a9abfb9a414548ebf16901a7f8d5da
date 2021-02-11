@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7bcec7be_8e01261e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-02-11T08:41:44Z",
+      "side": 1,
+      "message": "As far as older devices not getting new features goes, this specific HAL is for a feature that explicitly can\u0027t work on devices that aren\u0027t launching on S or later as it requires some work to be done in the factory for the HAL to have any real use, and as such this HAL should stay optional for vendors to implement if they aren\u0027t supporting this factory rework. More generally speaking, I was under the impression that vendors generally didn\u0027t update HAL functionality after launch anyways unless it\u0027s for bug fixing, but I may be misunderstanding the current ecosystem situation there.\n\nAfter discussing with Janis to get clarity on some of the other HALs that I\u0027m not familiar with, it seems like we\u0027re going for more general modularization. The downside of a very large, generic HAL in our case is that it would result in a lot of binaries having a large swath of dead interfaces or duplicating interfaces into every other HAL that needs the functionality (e.g. Gatekeeper/Fingerprint/KeyMint all need to implement ISharedSecret, and a StrongBox KeyMint instance has no use for ISecureClock).\n\nGenerally, we document what is needed where and under what conditions in the AIDL interface files themselves. Until you pointed it out, I had not realized just how many interfaces we\u0027ve collectively added this release. Given the proliferation of interfaces, it would probably be good for us to publish some all-encompassing security HAL doc that collates and spells out the conditions for implementing these HALs. I can bring this up in our team standup tomorrow if that is amenable to you.",
+      "parentUuid": "31a90dbd_0535b0e5",
+      "revId": "a0d9b01e42a9abfb9a414548ebf16901a7f8d5da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "318e8c34_d7efdafe",
         "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
         "patchSetId": 11
@@ -67,6 +85,30 @@
       "writtenOn": "2021-02-10T19:47:31Z",
       "side": 1,
       "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "a0d9b01e42a9abfb9a414548ebf16901a7f8d5da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b1ec86c_f7c6075a",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-02-11T08:41:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "318e8c34_d7efdafe",
       "range": {
         "startLine": 2,
         "startChar": 17,
