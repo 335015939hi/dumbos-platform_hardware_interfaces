@@ -63,6 +63,30 @@
       },
       "revId": "ff858d563640e4d8db02f8aa8b8f57f6e7e89cbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2df06a3f_895cd3e8",
+        "filename": "power/stats/aidl/aidl_api/android.hardware.power.stats/current/android/hardware/power/stats/EnergyConsumer.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-02-11T04:58:34Z",
+      "side": 1,
+      "message": "Yes, it is a bug. Uploaded the fix aosp/1584624 and verified that this change builds okay with the fix.",
+      "parentUuid": "73ff660f_6e5547c5",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 111
+      },
+      "revId": "ff858d563640e4d8db02f8aa8b8f57f6e7e89cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
