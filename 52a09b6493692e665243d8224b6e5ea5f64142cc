@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000008093510",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1584428?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "a5780792_dbd1f425",
+          "description": "Change to \"compatibility_matrices/hals_for_release.py\"",
+          "replacements": [
+            {
+              "path": "compatibility_matrices/hals_for_release.py",
+              "range": {
+                "startLine": 111,
+                "startChar": 34,
+                "endLine": 111,
+                "endChar": 46
+              },
+              "replacement": "compatibility"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "7648e487_c5b46aeb",
+        "filename": "compatibility_matrices/hals_for_release.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-02-11T04:27:38Z",
+      "side": 1,
+      "message": "Common typo found: \"compatibilty\" -- should it be \"compatibility\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 111,
+        "startChar": 34,
+        "endLine": 111,
+        "endChar": 46
+      },
+      "revId": "52a09b6493692e665243d8224b6e5ea5f64142cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000008093511",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1584428?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "34e8bef8_e4fa2155",
+        "filename": "compatibility_matrices/hals_for_release.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-02-11T04:27:38Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 4
+      },
+      "revId": "52a09b6493692e665243d8224b6e5ea5f64142cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
