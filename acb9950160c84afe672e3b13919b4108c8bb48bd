@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2133d043_5683afce",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4603,
+      "author": {
+        "id": 1798566
+      },
+      "writtenOn": "2021-02-11T11:29:51Z",
+      "side": 1,
+      "message": "Are we testing this here (I guess not)? If not, we should probably remove it from the comment as well?",
+      "range": {
+        "startLine": 4602,
+        "startChar": 85,
+        "endLine": 4603,
+        "endChar": 41
+      },
+      "revId": "acb9950160c84afe672e3b13919b4108c8bb48bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
