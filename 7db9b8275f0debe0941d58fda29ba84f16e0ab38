@@ -22,6 +22,30 @@
       },
       "revId": "7db9b8275f0debe0941d58fda29ba84f16e0ab38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5766791_9df43fce",
+        "filename": "power/stats/aidl/aidl_api/android.hardware.power.stats/current/android/hardware/power/stats/EnergyConsumerType.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-02-11T19:22:21Z",
+      "side": 1,
+      "message": "Would we want framework to get GNSS related energy consumption from GNSS hal? \n\nhttps://source.corp.google.com/android/hardware/interfaces/gnss/aidl/android/hardware/gnss/GnssPowerStats.aidl has total energy consumption information from GNSS along with per-mode breakdown.",
+      "parentUuid": "93c4b110_9cc0efea",
+      "range": {
+        "startLine": 35,
+        "startChar": 5,
+        "endLine": 35,
+        "endChar": 23
+      },
+      "revId": "7db9b8275f0debe0941d58fda29ba84f16e0ab38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
