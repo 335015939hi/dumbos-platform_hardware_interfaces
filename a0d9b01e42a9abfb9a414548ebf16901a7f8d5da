@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "109c2548_d7b9cfbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-11T18:40:51Z",
+      "side": 1,
+      "message": "As Max said, what we\u0027re doing here is modularizing.  Take the shared secret interface, for example.  Prior to S, the methods in that interface are part of Keymaster, which allows any number of Keymaster services on a device to compute a shared secret they can use to exchange securely-authenticated methods. But the shared secret is actually needed by other components (e.g. Gatekeeper and biometric auths), which forces vendors to find some way to internally share the secret. By breaking this interface out of KeyMint we allow any number of system components to implement it, and all of them will get to participate in the sharing process (we use this interface by enumerating all implementations). We\u0027re making fewer assumptions about how vendors architect their devices, giving them more flexibility.\n\nThe RKP interface (this one) is another good example.  In the S timeframe, only some KeyMints will support remote provisioning, so only those will implement this interface. Eventually, all KeyMints will be required to support RKP, but we expect other system components to use remote provisioning as well.  I probably shouldn\u0027t give any examples given that this discussion is on AOSP, but there are some.\n\nTo us it seems simpler and more flexible to decompose these interfaces and allow vendors to have the service for the secure component able to provide some piece of functionality to implement the interface for that piece of functionality.\n\nAs for which HALs they need to implement:  All of the ones you listed (Except Weaver; that only applies if they have an SE.  We plan in the future to combine Gatekeeper and Weaver).  But they have flexibility in which of the secure hardware components in their devices provide which features.\n\nAlso, I\u0027m a bit confused by why you think these interfaces are similar. They\u0027re all quite different.  The time clock interface produces secure time stamps. The shared secret interface doesn\u0027t produce anything externally, but enables a set of parties to agree on a key they can use for other purposes.  This one generates attestation key pairs and authenticates the public keys for certificate issuance.  They aren\u0027t related in ordinality, either.  The clock interface will be a singleton; only one can be registered on the device. The shared secret and RKP interfaces will each have several enumerable implementations on a device, but they won\u0027t have the same number.\n\nYou have a good point that the profusion of interfaces may be a bit confusing. So far the vendors don\u0027t seem to be getting confused, but perhaps we\u0027ll need to put some documentation on S.A.C. to explain the pieces and how they interact.  I\u0027ll discuss that with lhaviland@.",
+      "parentUuid": "7bcec7be_8e01261e",
+      "revId": "a0d9b01e42a9abfb9a414548ebf16901a7f8d5da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "318e8c34_d7efdafe",
         "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
         "patchSetId": 11
