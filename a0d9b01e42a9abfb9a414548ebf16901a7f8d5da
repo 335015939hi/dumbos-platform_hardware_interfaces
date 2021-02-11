@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9dc24705_13fce0dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-11T20:54:52Z",
+      "side": 1,
+      "message": "Yeah - my assertion that they are similar isn\u0027t a deep one - but there are probably more security-related HALs than any other domain (if you include things like secure_ui as well). Flexibility of implementation is good in general - but if we don\u0027t actually need it, it\u0027s also a negative.\n\nIf there are reasons and you are optimizing for these things and the split/direction can be documented, I think that should be more than sufficient. Of course, the biggest question here from me is then: how can we reduce the number of interfaces required, how can we move parts of the functionality into the linux kernel (for some of these non-SE-specific features)? Anything which every vendor needs to do is another barrier, and an opportunity for bugs/app compat issues/etc.\n\nAlso - Android is currently building interfaces here at two levels. We also have the secure_element HAL (using linux kernel stuff here would have to be done in conjunction w/ nfc/se team \u0026 is probably out of scope for this thread). Should we be standardizing around that HAL? Why should a vendor have/need custom code here, and what\u0027s the path forward for that?\n\nYa\u0027ll are of course in the best positions to look at this in detail though. Can you cc me on that thread or bug, for follow-up?",
+      "parentUuid": "109c2548_d7b9cfbe",
+      "revId": "a0d9b01e42a9abfb9a414548ebf16901a7f8d5da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "318e8c34_d7efdafe",
         "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
         "patchSetId": 11
