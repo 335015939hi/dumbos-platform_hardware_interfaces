@@ -211,6 +211,24 @@
       "parentUuid": "960092e8_77faca69",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7ed8a91_58ae9ceb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-12T21:32:28Z",
+      "side": 1,
+      "message": "\u003e We should be using the second type consistently through the schema, however there were a couple of places where we forgot to do that.\n\nWe should also be namespacing vendor extensions consistently. Is there any place this is missing in 7.0?",
+      "parentUuid": "495e9539_d85c4f56",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
