@@ -229,6 +229,24 @@
       "parentUuid": "495e9539_d85c4f56",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18be2756_ed75557b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-12T22:33:36Z",
+      "side": 1,
+      "message": "\u003e but CMIIR _no_ extensions were allowed in 5.0/6.0 (hence this bug + backport).\n\nThis isn\u0027t correct. Use of vendor-extended types for audio devices and formats (in XSD, at least) was allowed even in 4.0: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/4.0/config/audio_policy_configuration.xsd;l\u003d366;drc\u003dd3f6a411500f6b5deaa575773b5111dd58100914\n\nIn 5.0 we have added a couple more fields of audio format type into XSD. And we have made a mistake of using the enum-only type (\u0027audioFormat\u0027) instead of the type that allows enums and vendor extensions (\u0027extendableAudioFormat\u0027) for these new fields.\n\nThat means, vendors could already have vendor extensions for audio formats in their audio policy manager configuration files, however they could not use them consistently for all the fields that carry an audio format value. This is the bug we are fixing.\n\nCould you please explain why are you considering this as a request to add a new API?\n\n\u003e We should also be namespacing vendor extensions consistently. Is there any place this is missing in 7.0?\n\nI haven\u0027t fixed the bug that asks to namespace vendor extensions. I will do that soon.",
+      "parentUuid": "b7ed8a91_58ae9ceb",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
