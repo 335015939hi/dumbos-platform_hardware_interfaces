@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c49fd577_7bd0a7ae",
+        "filename": "keymint/aidl/android/hardware/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-02-12T01:51:31Z",
+      "side": 1,
+      "message": "The MAC is a known size. I could go ahead and throw this into a parcelable too if that\u0027s just the preferred style for passing byte[]\u0027s though.",
+      "parentUuid": "23b834bd_09202c3f",
+      "range": {
+        "startLine": 139,
+        "startChar": 31,
+        "endLine": 139,
+        "endChar": 42
+      },
+      "revId": "0e94316282a9aa59d304e4f00726671c9c6f5d25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d8d9558a_b62a65d4",
         "filename": "keymint/aidl/android/hardware/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 4
