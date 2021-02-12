@@ -193,6 +193,24 @@
       "message": "Eric, could you please give a +2.\n\nRobin, could you please give a Dr. No\u0027s approval.",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "495e9539_d85c4f56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-12T21:31:52Z",
+      "side": 1,
+      "message": "If the 5.0/6.0 interface was released in this form (even if 4.0 allowed it), then this constitutes an addition of new APIs. Certainly, it may be the case that devices before that used extensions, but CMIIR _no_ extensions were allowed in 5.0/6.0 (hence this bug + backport). The vendor is requesting an addition of new APIs here, to satisfy a usecase that was accidentally no longer supported (this is a huge inconvenience, but they could always create a custom interface). So - I don\u0027t exactly see how/why we can dismiss namespaces here out of hand. Can we see if these vendors would accept namespaces? At the least, can we recommend namespaces here? Is there something I\u0027m missing?",
+      "parentUuid": "960092e8_77faca69",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
