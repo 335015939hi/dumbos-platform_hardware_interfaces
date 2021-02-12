@@ -158,6 +158,24 @@
       "parentUuid": "f05214d4_64c1452a",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "960092e8_77faca69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-12T20:51:40Z",
+      "side": 1,
+      "message": "The latter. There are two types for audio formats: the set of enum values, and the one that allows vendor extensions on top of them. We should be using the second type consistently through the schema, however there were a couple of places where we forgot to do that.\n\nThanks for approving!",
+      "parentUuid": "ca4b0dab_44e820ec",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
