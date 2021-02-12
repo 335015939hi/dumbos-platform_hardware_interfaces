@@ -122,6 +122,24 @@
       "parentUuid": "c1bdd280_ed194f54",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f05214d4_64c1452a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-12T00:13:50Z",
+      "side": 1,
+      "message": "Robin brings in a good point. If we start requiring retroactively that vendor extension values must follow a certain format (e.g. being namespaced) this can, and will lead to regressions in VTS that were previously passing.",
+      "parentUuid": "a0bf56f4_1e7c3a8c",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
