@@ -104,6 +104,24 @@
       "message": "Will this lead to test regressions for folks who already launched their Audio Hal V6 devices?",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bec7722b_522f6675",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-12T00:12:25Z",
+      "side": 1,
+      "message": "No. This change, in its current form, only extends the list of values that vendors can use.",
+      "parentUuid": "c1bdd280_ed194f54",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
