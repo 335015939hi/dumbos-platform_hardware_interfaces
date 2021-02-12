@@ -140,6 +140,24 @@
       "parentUuid": "a0bf56f4_1e7c3a8c",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca4b0dab_44e820ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-12T19:26:27Z",
+      "side": 1,
+      "message": "Does that mean there was another change that added this restriction after the original release of 6.0? Or was the 6.0 interface released in this form?",
+      "parentUuid": "f05214d4_64c1452a",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
