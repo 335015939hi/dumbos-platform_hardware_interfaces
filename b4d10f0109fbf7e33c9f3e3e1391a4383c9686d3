@@ -247,6 +247,24 @@
       "parentUuid": "b7ed8a91_58ae9ceb",
       "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "490e2847_fc669830",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-12T22:36:02Z",
+      "side": 1,
+      "message": "Okay - thanks for the explanation. I missed this detail - these \u0027types\u0027 are already used extensively, just elsewhere.",
+      "parentUuid": "18be2756_ed75557b",
+      "revId": "b4d10f0109fbf7e33c9f3e3e1391a4383c9686d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
