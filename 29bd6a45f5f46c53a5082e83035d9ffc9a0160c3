@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10bfdfa5_682316e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2021-02-13T02:23:06Z",
+      "side": 1,
+      "message": "Daniel, can you help make this new HAL set optional following the new patterns?  I\u0027d like to avoid the special-purpose device config they\u0027ve had to add and gain the annotation support.",
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
