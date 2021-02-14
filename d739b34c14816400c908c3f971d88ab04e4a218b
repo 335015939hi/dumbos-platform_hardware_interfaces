@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eb4fa7f_bbcdc297",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/AttestationKey.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-14T22:52:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fe784f0_cd3eaa12",
+      "range": {
+        "startLine": 22,
+        "startChar": 12,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "d739b34c14816400c908c3f971d88ab04e4a218b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24fd8d43_700fb625",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-11T19:52:47Z",
       "side": 1,
       "message": "Attestation on wrapped key import?",
+      "range": {
+        "startLine": 448,
+        "startChar": 7,
+        "endLine": 454,
+        "endChar": 87
+      },
+      "revId": "d739b34c14816400c908c3f971d88ab04e4a218b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d74a7fe2_dca23896",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-14T22:52:19Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "24fd8d43_700fb625",
       "range": {
         "startLine": 448,
         "startChar": 7,
