@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffaa0d76_6907ca65",
+        "filename": "keymint/aidl/android/hardware/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-02-16T16:12:14Z",
+      "side": 1,
+      "message": "Yes, this value will remain static. It should be pretty unlikely that we swap off of 32 byte MACs.",
+      "parentUuid": "580e01fc_9ed3c55c",
+      "range": {
+        "startLine": 139,
+        "startChar": 31,
+        "endLine": 139,
+        "endChar": 42
+      },
+      "revId": "0e94316282a9aa59d304e4f00726671c9c6f5d25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8d9558a_b62a65d4",
