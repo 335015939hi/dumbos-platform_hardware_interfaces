@@ -103,6 +103,24 @@
       "message": "Robin, please provide the DrNo approval.",
       "revId": "c0525521bbc19c85d96a18baa8e48928f1bd5bfb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cc98829_9157b048",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-16T23:10:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "051bf1a3_220c1c42",
+      "revId": "c0525521bbc19c85d96a18baa8e48928f1bd5bfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
