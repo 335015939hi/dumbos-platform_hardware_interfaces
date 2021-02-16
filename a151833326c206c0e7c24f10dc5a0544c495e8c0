@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4165ea8d_a0286c4f",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1199008
+      },
+      "writtenOn": "2021-02-16T22:57:46Z",
+      "side": 1,
+      "message": "Please add RadioError:REQUEST_NOT_SUPPORTED",
+      "range": {
+        "startLine": 427,
+        "startChar": 9,
+        "endLine": 427,
+        "endChar": 29
+      },
+      "revId": "a151833326c206c0e7c24f10dc5a0544c495e8c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
