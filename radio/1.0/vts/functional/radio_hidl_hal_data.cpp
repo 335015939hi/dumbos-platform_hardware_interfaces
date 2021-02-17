@@ -15,6 +15,7 @@
  */
 
 #include <android-base/logging.h>
+#include <android/hardware/radio/1.2/IRadio.h>
 #include <radio_hidl_hal_utils_v1_0.h>
 
 using namespace ::android::hardware::radio::V1_0;
@@ -135,6 +136,9 @@ TEST_P(RadioHidlTest, setupDataCall) {
     radio->setupDataCall(serial, radioTechnology, dataProfileInfo, modemCognitive, roamingAllowed,
                          isRoaming);
 
+    // setupDataCall is deprecated on radio::V1_2 with setupDataCall_1_2
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_2);
+
     EXPECT_EQ(std::cv_status::no_timeout, wait(300));
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
@@ -159,6 +163,9 @@ TEST_P(RadioHidlTest, deactivateDataCall) {
     bool reasonRadioShutDown = false;
 
     radio->deactivateDataCall(serial, cid, reasonRadioShutDown);
+
+    // deactivateDataCall is deprecated on radio::V1_2 with deactiveDataCall_1_2
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_2);
 
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <android/hardware/radio/1.2/IRadio.h>
 #include <radio_hidl_hal_utils_v1_1.h>
 #include <vector>
 
@@ -103,6 +104,10 @@ TEST_P(RadioHidlTest_v1_1, startNetworkScan) {
     request.specifiers[0] = specifier;
 
     radio_v1_1->startNetworkScan(serial, request);
+
+    // startNetworkScan is deprecated on radio::V1_2 with startNetworkScan_1_2
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_2);
+
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_1->rspInfo.type);
     EXPECT_EQ(serial, radioRsp_v1_1->rspInfo.serial);
@@ -127,6 +132,10 @@ TEST_P(RadioHidlTest_v1_1, startNetworkScan_InvalidArgument) {
     request.interval = 60;
 
     radio_v1_1->startNetworkScan(serial, request);
+
+    // startNetworkScan is deprecated on radio::V1_2 with startNetworkScan_1_2
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_2);
+
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_1->rspInfo.type);
     EXPECT_EQ(serial, radioRsp_v1_1->rspInfo.serial);

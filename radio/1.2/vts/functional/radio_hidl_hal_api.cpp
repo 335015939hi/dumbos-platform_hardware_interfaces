@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <android/hardware/radio/1.4/IRadio.h>
 #include <radio_hidl_hal_utils_v1_2.h>
 #include <vector>
 
@@ -52,6 +53,10 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan) {
             .incrementalResultsPeriodicity = 1};
 
     Return<void> res = radio_v1_2->startNetworkScan_1_2(serial, request);
+
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_4);
+
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
@@ -89,6 +94,10 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidArgument) {
                                                                     .interval = 60};
 
     Return<void> res = radio_v1_2->startNetworkScan_1_2(serial, request);
+
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_4);
+
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
@@ -121,6 +130,10 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidInterval1) {
             .incrementalResultsPeriodicity = 1};
 
     Return<void> res = radio_v1_2->startNetworkScan_1_2(serial, request);
+
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_4);
+
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
@@ -153,6 +166,10 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidInterval2) {
             .incrementalResultsPeriodicity = 1};
 
     Return<void> res = radio_v1_2->startNetworkScan_1_2(serial, request);
+
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_4);
+
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
@@ -185,6 +202,10 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidMaxSearchTime1) {
             .incrementalResultsPeriodicity = 1};
 
     Return<void> res = radio_v1_2->startNetworkScan_1_2(serial, request);
+
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_4);
+
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
@@ -217,6 +238,10 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidMaxSearchTime2) {
             .incrementalResultsPeriodicity = 1};
 
     Return<void> res = radio_v1_2->startNetworkScan_1_2(serial, request);
+
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_4);
+
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
@@ -249,6 +274,10 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidPeriodicity1) {
             .incrementalResultsPeriodicity = 0};
 
     Return<void> res = radio_v1_2->startNetworkScan_1_2(serial, request);
+
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_4);
+
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
@@ -281,6 +310,10 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidPeriodicity2) {
             .incrementalResultsPeriodicity = 11};
 
     Return<void> res = radio_v1_2->startNetworkScan_1_2(serial, request);
+
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_4);
+
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
@@ -317,6 +350,10 @@ TEST_P(RadioHidlTest_v1_2, DISABLED_startNetworkScan_GoodRequest1) {
             .incrementalResultsPeriodicity = 10};
 
     Return<void> res = radio_v1_2->startNetworkScan_1_2(serial, request);
+
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_4);
+
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
@@ -354,6 +391,10 @@ TEST_P(RadioHidlTest_v1_2, DISABLED_startNetworkScan_GoodRequest2) {
             .mccMncs = {"310410"}};
 
     Return<void> res = radio_v1_2->startNetworkScan_1_2(serial, request);
+
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_4);
+
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
