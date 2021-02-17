@@ -86,6 +86,9 @@ TEST_P(RadioHidlTest_v1_1, setSimCardPower_1_1) {
  * Test IRadio.startNetworkScan() for the response returned.
  */
 TEST_P(RadioHidlTest_v1_1, startNetworkScan) {
+    // startNetworkScan is deprecated on radio::V1_2 with startNetworkScan_1_2
+    SKIP_TEST_WHNE_HAL_VERSION_AT_LEAST(1_2);
+
     serial = GetRandomSerialNumber();
 
     NetworkScanRequest request;
@@ -120,6 +123,9 @@ TEST_P(RadioHidlTest_v1_1, startNetworkScan) {
  * Test IRadio.startNetworkScan() for the response returned.
  */
 TEST_P(RadioHidlTest_v1_1, startNetworkScan_InvalidArgument) {
+    // startNetworkScan is deprecated on radio::V1_2 with startNetworkScan_1_2
+    SKIP_TEST_WHNE_HAL_VERSION_AT_LEAST(1_2);
+
     serial = GetRandomSerialNumber();
 
     NetworkScanRequest request;

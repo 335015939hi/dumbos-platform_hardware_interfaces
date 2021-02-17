@@ -104,6 +104,10 @@ TEST_P(RadioHidlTest, getDataRegistrationState) {
  */
 TEST_P(RadioHidlTest, setupDataCall) {
     LOG(DEBUG) << "setupDataCall";
+
+    // setupDataCall is deprecated on radio::V1_2 with setupDataCall_1_2
+    SKIP_TEST_WHNE_HAL_VERSION_AT_LEAST(1_2);
+
     serial = GetRandomSerialNumber();
 
     RadioTechnology radioTechnology = RadioTechnology::LTE;
@@ -154,6 +158,10 @@ TEST_P(RadioHidlTest, setupDataCall) {
  */
 TEST_P(RadioHidlTest, deactivateDataCall) {
     LOG(DEBUG) << "deactivateDataCall";
+
+    // deactivateDataCall is deprecated on radio::V1_2 with deactiveDataCall_1_2
+    SKIP_TEST_WHNE_HAL_VERSION_AT_LEAST(1_2);
+
     serial = GetRandomSerialNumber();
     int cid = 1;
     bool reasonRadioShutDown = false;

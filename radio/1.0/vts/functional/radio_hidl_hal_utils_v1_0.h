@@ -24,6 +24,9 @@
 #include <android/hardware/radio/1.0/IRadioIndication.h>
 #include <android/hardware/radio/1.0/IRadioResponse.h>
 #include <android/hardware/radio/1.0/types.h>
+
+#include <android/hardware/radio/1.2/IRadio.h>
+
 #include <gtest/gtest.h>
 
 #include "vts_test_util.h"
@@ -38,6 +41,15 @@ using ::android::sp;
 
 #define TIMEOUT_PERIOD 75
 #define RADIO_SERVICE_NAME "slot1"
+#define SKIP_TEST_WHNE_HAL_VERSION_AT_LEAST(__ver__)                             \
+    do {                                                                         \
+        sp<::android::hardware::radio::V##__ver__::IRadio> __radio =             \
+                ::android::hardware::radio::V##__ver__::IRadio::castFrom(radio); \
+        if (__radio) {                                                           \
+            LOG(DEBUG) << "Test case ignored";                                   \
+            return;                                                              \
+        }                                                                        \
+    } while (0)
 
 class RadioHidlTest;
 extern CardStatus cardStatus;
