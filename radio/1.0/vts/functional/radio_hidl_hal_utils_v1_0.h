@@ -24,6 +24,12 @@
 #include <android/hardware/radio/1.0/IRadioIndication.h>
 #include <android/hardware/radio/1.0/IRadioResponse.h>
 #include <android/hardware/radio/1.0/types.h>
+
+#include <android/hardware/radio/1.2/IRadio.h>
+#include <android/hardware/radio/1.2/IRadioIndication.h>
+#include <android/hardware/radio/1.2/IRadioResponse.h>
+#include <android/hardware/radio/1.2/types.h>
+
 #include <gtest/gtest.h>
 
 #include "vts_test_util.h"

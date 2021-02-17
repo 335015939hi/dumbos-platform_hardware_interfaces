@@ -764,6 +764,14 @@ TEST_P(RadioHidlTest, setRadioCapability) {
  */
 TEST_P(RadioHidlTest, startLceService) {
     LOG(DEBUG) << "startLceService";
+
+    // HAL 1.2 and later use the always-on LCE that relies on indications.
+    sp<::android::hardware::radio::V1_2::IRadio> radio_v1_2 = ::android::hardware::radio::V1_2::IRadio::castFrom(radio);
+    if (radio_v1_2) {
+      LOG(DEBUG) << "test case ignored, radio::V1_2 supported.";
+      return;
+    }
+
     serial = GetRandomSerialNumber();
 
     radio->startLceService(serial, 5, true);
