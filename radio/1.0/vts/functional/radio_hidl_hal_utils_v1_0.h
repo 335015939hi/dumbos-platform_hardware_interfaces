@@ -38,6 +38,15 @@ using ::android::sp;
 
 #define TIMEOUT_PERIOD 75
 #define RADIO_SERVICE_NAME "slot1"
+#define SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(__ver__)          \
+    do {                                                                               \
+        sp<::android::hardware::radio::V##__ver__::IRadio> __radio =                   \
+                ::android::hardware::radio::V##__ver__::IRadio::castFrom(radio);       \
+        if (__radio && radioRsp->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) { \
+            LOG(DEBUG) << "Test case skipped.";                                        \
+            return;                                                                    \
+        }                                                                              \
+    } while (0)
 
 class RadioHidlTest;
 extern CardStatus cardStatus;
