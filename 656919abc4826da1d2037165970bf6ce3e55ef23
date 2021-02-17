@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c8efeae_7811272a",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-02-17T21:13:05Z",
+      "side": 1,
+      "message": "Nit: A rationale is not really necessary here. But if you provide one, offset it with a paragraph.",
+      "range": {
+        "startLine": 971,
+        "startChar": 7,
+        "endLine": 972,
+        "endChar": 7
+      },
+      "revId": "656919abc4826da1d2037165970bf6ce3e55ef23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "babbfdf6_e30bb7aa",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
         "patchSetId": 3
