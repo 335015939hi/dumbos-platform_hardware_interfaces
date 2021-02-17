@@ -33,6 +33,23 @@
       "message": "Lajos/Robin - can you help review?",
       "revId": "9bccd2c3e6d5a599d164aca709627a7e01edb5e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7e615b4_14ecd04e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-17T21:12:03Z",
+      "side": 1,
+      "message": "OWNERS review",
+      "revId": "9bccd2c3e6d5a599d164aca709627a7e01edb5e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
