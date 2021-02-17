@@ -1642,21 +1642,20 @@ bool ecdsaSignatureCoseToDer(const vector<uint8_t>& ecdsaCoseSignature,
 
 bool ecdsaSignatureDerToCose(const vector<uint8_t>& ecdsaDerSignature,
                              vector<uint8_t>& ecdsaCoseSignature) {
-    ECDSA_SIG* sig;
     const unsigned char* p = ecdsaDerSignature.data();
-    sig = d2i_ECDSA_SIG(nullptr, &p, ecdsaDerSignature.size());
-    if (sig == nullptr) {
+    auto sig = ECDSA_SIG_Ptr(d2i_ECDSA_SIG(nullptr, &p, ecdsaDerSignature.size()));
+    if (sig.get() == nullptr) {
         LOG(ERROR) << "Error decoding DER signature";
         return false;
     }
 
     ecdsaCoseSignature.clear();
     ecdsaCoseSignature.resize(64);
-    if (BN_bn2binpad(ECDSA_SIG_get0_r(sig), ecdsaCoseSignature.data(), 32) != 32) {
+    if (BN_bn2binpad(ECDSA_SIG_get0_r(sig.get()), ecdsaCoseSignature.data(), 32) != 32) {
         LOG(ERROR) << "Error encoding r";
         return false;
     }
-    if (BN_bn2binpad(ECDSA_SIG_get0_s(sig), ecdsaCoseSignature.data() + 32, 32) != 32) {
+    if (BN_bn2binpad(ECDSA_SIG_get0_s(sig.get()), ecdsaCoseSignature.data() + 32, 32) != 32) {
         LOG(ERROR) << "Error encoding s";
         return false;
     }
