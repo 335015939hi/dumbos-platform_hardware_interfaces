@@ -25,6 +25,16 @@ using ::android::hardware::radio::V1_0::RegState;
 using ::android::hardware::radio::V1_0::SapResultCode;
 using namespace std;
 
+#define SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL(__ver__, __radio__, __radioRsp__)      \
+    do {                                                                                   \
+        sp<::android::hardware::radio::V##__ver__::IRadio> __radio =                       \
+                ::android::hardware::radio::V##__ver__::IRadio::castFrom(__radio__);       \
+        if (__radio && __radioRsp__->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED) { \
+            LOG(DEBUG) << "Test case skipped.";                                            \
+            return;                                                                        \
+        }                                                                                  \
+    } while (0)
+
 enum CheckFlag {
     CHECK_DEFAULT = 0,
     CHECK_GENERAL_ERROR = 1,
