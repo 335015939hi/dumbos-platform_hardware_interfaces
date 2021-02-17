@@ -15,6 +15,7 @@
  */
 
 #include <android-base/logging.h>
+#include <android/hardware/radio/1.2/IRadio.h>
 #include <radio_hidl_hal_utils_v1_0.h>
 
 /*
@@ -767,9 +768,13 @@ TEST_P(RadioHidlTest, startLceService) {
     serial = GetRandomSerialNumber();
 
     radio->startLceService(serial, 5, true);
+
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+
+    // HAL 1.2 and later use the always-on LCE that relies on indications.
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_2);
 
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(
@@ -788,9 +793,13 @@ TEST_P(RadioHidlTest, stopLceService) {
     serial = GetRandomSerialNumber();
 
     radio->stopLceService(serial);
+
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+
+    // HAL 1.2 and later use the always-on LCE that relies on indications.
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_2);
 
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp->rspInfo.error,
@@ -808,9 +817,13 @@ TEST_P(RadioHidlTest, pullLceData) {
     serial = GetRandomSerialNumber();
 
     radio->pullLceData(serial);
+
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+
+    // HAL 1.2 and later use the always-on LCE that relies on indications.
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_2);
 
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp->rspInfo.error,
@@ -964,12 +977,16 @@ TEST_P(RadioHidlTest, sendDeviceState) {
  */
 TEST_P(RadioHidlTest, setIndicationFilter) {
     LOG(DEBUG) << "setIndicationFilter";
+
     serial = GetRandomSerialNumber();
 
     radio->setIndicationFilter(serial, 1);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+
+    // setIndicationFilter is deprecated on radio::V1_2 with setIndicationFilter_1_2
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_2);
 
     std::cout << static_cast<int>(radioRsp->rspInfo.error) << std::endl;
 
@@ -988,9 +1005,13 @@ TEST_P(RadioHidlTest, setSimCardPower) {
     serial = GetRandomSerialNumber();
 
     radio->setSimCardPower(serial, true);
+
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+
+    // setSimCardPower is deprecated on radio::V1_1 with setSimCardPower_1_1
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(1_1);
 
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp->rspInfo.error,
