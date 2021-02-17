@@ -764,6 +764,10 @@ TEST_P(RadioHidlTest, setRadioCapability) {
  */
 TEST_P(RadioHidlTest, startLceService) {
     LOG(DEBUG) << "startLceService";
+
+    // HAL 1.2 and later use the always-on LCE that relies on indications.
+    IGNORE_CASE_ON_VERSION(1_2);
+
     serial = GetRandomSerialNumber();
 
     radio->startLceService(serial, 5, true);
@@ -785,6 +789,10 @@ TEST_P(RadioHidlTest, startLceService) {
  */
 TEST_P(RadioHidlTest, stopLceService) {
     LOG(DEBUG) << "stopLceService";
+
+    // HAL 1.2 and later use the always-on LCE that relies on indications.
+    IGNORE_CASE_ON_VERSION(1_2);
+
     serial = GetRandomSerialNumber();
 
     radio->stopLceService(serial);
@@ -805,6 +813,10 @@ TEST_P(RadioHidlTest, stopLceService) {
  */
 TEST_P(RadioHidlTest, pullLceData) {
     LOG(DEBUG) << "pullLceData";
+
+    // HAL 1.2 and later use the always-on LCE that relies on indications.
+    IGNORE_CASE_ON_VERSION(1_2);
+
     serial = GetRandomSerialNumber();
 
     radio->pullLceData(serial);
@@ -964,6 +976,10 @@ TEST_P(RadioHidlTest, sendDeviceState) {
  */
 TEST_P(RadioHidlTest, setIndicationFilter) {
     LOG(DEBUG) << "setIndicationFilter";
+
+    // setIndicationFilter is deprecated on radio::V1_2 with setIndicationFilter_1_2
+    IGNORE_CASE_ON_VERSION(1_2);
+
     serial = GetRandomSerialNumber();
 
     radio->setIndicationFilter(serial, 1);
@@ -985,6 +1001,10 @@ TEST_P(RadioHidlTest, setIndicationFilter) {
  */
 TEST_P(RadioHidlTest, setSimCardPower) {
     LOG(DEBUG) << "setSimCardPower";
+
+    // setSimCardPower is deprecated on radio::V1_1 with setSimCardPower_1_1
+    IGNORE_CASE_ON_VERSION(1_1);
+
     serial = GetRandomSerialNumber();
 
     radio->setSimCardPower(serial, true);
