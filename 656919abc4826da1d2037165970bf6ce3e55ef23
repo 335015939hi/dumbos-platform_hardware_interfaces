@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "babbfdf6_e30bb7aa",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-02-17T21:10:33Z",
+      "side": 1,
+      "message": "Is this function defined in a different CL?",
+      "range": {
+        "startLine": 973,
+        "startChar": 74,
+        "endLine": 973,
+        "endChar": 90
+      },
+      "revId": "656919abc4826da1d2037165970bf6ce3e55ef23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f214ece_4f43d14a",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-02-17T21:10:33Z",
+      "side": 1,
+      "message": "I would change the language slightly to be more affirmative. Implementers need this to be concise and unambiguous.\nE.g.:\n\n Implementations MUST NOT allow the key to be used once the boot level has\n advanced beyond the level indicated by this key parameter\n (See also IKeyMintDevice::advanceBootLevel).\n\nThen you can give implementation recommendations. References to Keymaster 4.0 are not required here. This is the KeyMint spec.",
+      "range": {
+        "startLine": 973,
+        "startChar": 22,
+        "endLine": 974,
+        "endChar": 99
+      },
+      "revId": "656919abc4826da1d2037165970bf6ce3e55ef23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8656f62_591162b6",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-02-17T21:10:33Z",
+      "side": 1,
+      "message": "Missing information:\n\nThis tag must appear in the hardware enforced list of the attestation extension IFF this tag is hardware enforced.\n\nAlso, does it need to be hardware enforced to be a correct KeyMint implementation or can it be delegated to Keystore?",
+      "range": {
+        "startLine": 977,
+        "startChar": 5,
+        "endLine": 977,
+        "endChar": 7
+      },
+      "revId": "656919abc4826da1d2037165970bf6ce3e55ef23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
