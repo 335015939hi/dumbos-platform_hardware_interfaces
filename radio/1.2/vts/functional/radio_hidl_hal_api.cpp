@@ -32,6 +32,9 @@ const RadioAccessSpecifier GERAN_SPECIFIER_850 = {.radioAccessNetwork = RadioAcc
  * Test IRadio.startNetworkScan() for the response returned.
  */
 TEST_P(RadioHidlTest_v1_2, startNetworkScan) {
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_HAL_VERSION_AT_LEAST(1_4);
+
     serial = GetRandomSerialNumber();
 
     if (radioConfig != NULL && DDS_LOGICAL_SLOT_INDEX != logicalSlotId) {
@@ -83,6 +86,9 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan) {
  * Test IRadio.startNetworkScan() with invalid specifier.
  */
 TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidArgument) {
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_HAL_VERSION_AT_LEAST(1_4);
+
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {.type = ScanType::ONE_SHOT,
@@ -110,6 +116,9 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidArgument) {
  * Test IRadio.startNetworkScan() with invalid interval (lower boundary).
  */
 TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidInterval1) {
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_HAL_VERSION_AT_LEAST(1_4);
+
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
@@ -142,6 +151,9 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidInterval1) {
  * Test IRadio.startNetworkScan() with invalid interval (upper boundary).
  */
 TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidInterval2) {
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_HAL_VERSION_AT_LEAST(1_4);
+
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
@@ -174,6 +186,9 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidInterval2) {
  * Test IRadio.startNetworkScan() with invalid max search time (lower boundary).
  */
 TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidMaxSearchTime1) {
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_HAL_VERSION_AT_LEAST(1_4);
+
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
@@ -206,6 +221,9 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidMaxSearchTime1) {
  * Test IRadio.startNetworkScan() with invalid max search time (upper boundary).
  */
 TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidMaxSearchTime2) {
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_HAL_VERSION_AT_LEAST(1_4);
+
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
@@ -238,6 +256,9 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidMaxSearchTime2) {
  * Test IRadio.startNetworkScan() with invalid periodicity (lower boundary).
  */
 TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidPeriodicity1) {
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_HAL_VERSION_AT_LEAST(1_4);
+
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
@@ -270,6 +291,9 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidPeriodicity1) {
  * Test IRadio.startNetworkScan() with invalid periodicity (upper boundary).
  */
 TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidPeriodicity2) {
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_HAL_VERSION_AT_LEAST(1_4);
+
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
@@ -304,6 +328,9 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidPeriodicity2) {
  * Test IRadio.startNetworkScan() with valid periodicity
  */
 TEST_P(RadioHidlTest_v1_2, DISABLED_startNetworkScan_GoodRequest1) {
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_HAL_VERSION_AT_LEAST(1_4);
+
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
@@ -340,6 +367,9 @@ TEST_P(RadioHidlTest_v1_2, DISABLED_startNetworkScan_GoodRequest1) {
  * Test IRadio.startNetworkScan() with valid periodicity and plmns
  */
 TEST_P(RadioHidlTest_v1_2, DISABLED_startNetworkScan_GoodRequest2) {
+    // startNetworkScan_1_2 is deprecated in radio::V1_4 with startNetworkScan_1_4
+    SKIP_TEST_IF_HAL_VERSION_AT_LEAST(1_4);
+
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
