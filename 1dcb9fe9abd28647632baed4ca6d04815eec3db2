@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa24861e_eae39114",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyPurpose.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-17T14:57:41Z",
+      "side": 1,
+      "message": "Just tried, they all failed.",
+      "parentUuid": "953f304b_e69b6bbc",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 19
+      },
+      "revId": "1dcb9fe9abd28647632baed4ca6d04815eec3db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35630fbe_e27dbe19",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-17T11:05:03Z",
       "side": 1,
       "message": "Nit: signing",
+      "range": {
+        "startLine": 73,
+        "startChar": 63,
+        "endLine": 73,
+        "endChar": 69
+      },
+      "revId": "1dcb9fe9abd28647632baed4ca6d04815eec3db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "facf3568_96a52296",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-17T14:57:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35630fbe_e27dbe19",
       "range": {
         "startLine": 73,
         "startChar": 63,
