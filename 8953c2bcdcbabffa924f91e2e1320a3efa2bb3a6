@@ -16,6 +16,29 @@
       "message": "Pushing changes related to AC4 presentation callback info to master branch.",
       "revId": "8953c2bcdcbabffa924f91e2e1320a3efa2bb3a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be0949e3_d832ad54",
+        "filename": "audio/7.0/IStreamOutEventCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-18T18:21:06Z",
+      "side": 1,
+      "message": "To clarify, I would use the following sentence:\n\nS (audio HAL 7.0) in addition adds the following keys:\n\n\nThis is to show that the keys defined in R are still valid to be used.",
+      "range": {
+        "startLine": 54,
+        "startChar": 25,
+        "endLine": 54,
+        "endChar": 52
+      },
+      "revId": "8953c2bcdcbabffa924f91e2e1320a3efa2bb3a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
