@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f501c23f_5f088a34",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-18T17:27:14Z",
+      "side": 1,
+      "message": "I think he\u0027s referring to a keystore function, not a KM function. I don\u0027t think this belongs here.",
+      "parentUuid": "babbfdf6_e30bb7aa",
+      "range": {
+        "startLine": 973,
+        "startChar": 74,
+        "endLine": 973,
+        "endChar": 90
+      },
+      "revId": "656919abc4826da1d2037165970bf6ce3e55ef23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f214ece_4f43d14a",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
         "patchSetId": 3
@@ -83,6 +107,30 @@
       "writtenOn": "2021-02-17T21:10:33Z",
       "side": 1,
       "message": "Missing information:\n\nThis tag must appear in the hardware enforced list of the attestation extension IFF this tag is hardware enforced.\n\nAlso, does it need to be hardware enforced to be a correct KeyMint implementation or can it be delegated to Keystore?",
+      "range": {
+        "startLine": 977,
+        "startChar": 5,
+        "endLine": 977,
+        "endChar": 7
+      },
+      "revId": "656919abc4826da1d2037165970bf6ce3e55ef23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a14e15a_afc2665b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-18T17:27:14Z",
+      "side": 1,
+      "message": "This should be keystore-enforced.",
+      "parentUuid": "f8656f62_591162b6",
       "range": {
         "startLine": 977,
         "startChar": 5,
