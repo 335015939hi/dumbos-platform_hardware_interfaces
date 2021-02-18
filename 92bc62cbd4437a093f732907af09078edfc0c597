@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33918b65_4d0c560d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-18T22:07:17Z",
+      "side": 1,
+      "message": "Update a formal patch for formal review.\n\nThis is still a minimum change (only VTS change without HAL interfaces deprecation comment which need a non-ABI-break update).\n\nWill update with HAL interfaces deprecation comment if Robert is also +1 for it.\nThanks",
+      "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1acfedf_4f6c06c2",
+        "filename": "radio/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-18T22:07:17Z",
+      "side": 1,
+      "message": "bpfmt hook fail and force us to change the format when uploading the patch.\nThe real change in all bp is only introducing the new radio static_libs.",
+      "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "833c57fc_16fa635b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-18T22:07:17Z",
+      "side": 1,
+      "message": "Sure. It was a draft patch. Now both of them are updated. Thanks",
+      "parentUuid": "ef506ee9_5d182ce3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 6
+      },
+      "revId": "6441b95ddfaf47206ace7626776904f5b4d1fb1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "dbdee465_0bf6672b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-18T19:40:33Z",
       "side": 1,
       "message": "Is it possible to turn this into a little utility macro like:\n\nIGNORE_IF_VERSION(__ver__) \\\n    if (sp\u003c::android::hardware::radio::V ## (__ver__) ## ::IRadio\u003e __radio \u003d \\\n            ::android::hardware::radio::V ## (__ver__) ## ::IRadio::castFrom(radio)) return;",
+      "range": {
+        "startLine": 769,
+        "startChar": 104,
+        "endLine": 769,
+        "endChar": 112
+      },
+      "revId": "6441b95ddfaf47206ace7626776904f5b4d1fb1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4cf4614_c58514de",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-18T22:07:17Z",
+      "side": 1,
+      "message": "MACRO is great here to remove the duplication logic and serve as additional comments from its name \u0026 parameter.\nThanks",
+      "parentUuid": "f566134d_f6151540",
       "range": {
         "startLine": 769,
         "startChar": 104,
