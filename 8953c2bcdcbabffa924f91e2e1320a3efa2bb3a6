@@ -56,6 +56,30 @@
       },
       "revId": "8953c2bcdcbabffa924f91e2e1320a3efa2bb3a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0c135aa_e8b011ee",
+        "filename": "audio/7.0/IStreamOutEventCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1565664
+      },
+      "writtenOn": "2021-02-18T22:14:27Z",
+      "side": 1,
+      "message": "Sure, will address it.",
+      "parentUuid": "be0949e3_d832ad54",
+      "range": {
+        "startLine": 54,
+        "startChar": 25,
+        "endLine": 54,
+        "endChar": 52
+      },
+      "revId": "8953c2bcdcbabffa924f91e2e1320a3efa2bb3a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
