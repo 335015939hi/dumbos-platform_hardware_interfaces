@@ -1,0 +1,82 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000008251241",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1593911?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "b6434ab8_7292b9ef",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-02-18T08:19:26Z",
+      "side": 1,
+      "message": "This file contains a set of conflict markers.If this is a false alarm, add IGNORE_MERGE_CONFLICT_CHECK\u003d\u003d\u003creason\u003e to your commit message.",
+      "range": {
+        "startLine": 131,
+        "startChar": 1,
+        "endLine": 131,
+        "endChar": 7
+      },
+      "revId": "97823a60d1214e9be3e7d7fdc32124541ce9476d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000008251241",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1593911?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "7c50764b_f86b399f",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-02-18T08:19:26Z",
+      "side": 1,
+      "message": "This file contains a set of conflict markers.If this is a false alarm, add IGNORE_MERGE_CONFLICT_CHECK\u003d\u003d\u003creason\u003e to your commit message.",
+      "range": {
+        "startLine": 945,
+        "startChar": 1,
+        "endLine": 945,
+        "endChar": 7
+      },
+      "revId": "97823a60d1214e9be3e7d7fdc32124541ce9476d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000008251241",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1593911?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "1a540348_87140c1d",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-02-18T08:19:26Z",
+      "side": 1,
+      "message": "This file contains a set of conflict markers.If this is a false alarm, add IGNORE_MERGE_CONFLICT_CHECK\u003d\u003d\u003creason\u003e to your commit message.",
+      "range": {
+        "startLine": 85,
+        "startChar": 1,
+        "endLine": 85,
+        "endChar": 7
+      },
+      "revId": "97823a60d1214e9be3e7d7fdc32124541ce9476d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
