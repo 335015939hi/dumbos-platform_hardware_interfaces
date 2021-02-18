@@ -16,6 +16,24 @@
       "message": "This needs to be in the 1.6 HAL.  We can\u0027t modify the old 1.5 version",
       "revId": "d5f5474d484ed523c9a16aff08ecd1865e1ae849",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e64f70d1_dfad92e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1355299
+      },
+      "writtenOn": "2021-02-18T01:57:43Z",
+      "side": 1,
+      "message": "Uploaded new patch set, please help to review again, thanks.",
+      "parentUuid": "da584208_3c04cc63",
+      "revId": "d5f5474d484ed523c9a16aff08ecd1865e1ae849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
