@@ -1,0 +1,28 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cf53eac_b665359a",
+        "filename": "security/keymint/aidl/vts/performance/README",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2021-02-19T16:21:53Z",
+      "side": 1,
+      "message": "\u003e Please remove the trailing whitespace.\n\nPlease fix.",
+      "parentUuid": "684debe1_5b57afad",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "7f1c52048dd62e7c2bb9cae34a946df7134066c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
