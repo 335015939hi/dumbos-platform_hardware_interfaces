@@ -78,6 +78,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0cf8fab0_ae7315eb",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-02-19T01:32:51Z",
+      "side": 1,
+      "message": "\"ON_VERSION\" sounds like this test is only skipped when the HAL is 1.2, not \u003e\u003d 1.2. How about WHEN_HAL_VERSION_AT_LEAST?",
+      "range": {
+        "startLine": 109,
+        "startChar": 16,
+        "endLine": 109,
+        "endChar": 26
+      },
+      "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d67817a7_9920d44c",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
         "patchSetId": 2
@@ -89,6 +112,30 @@
       "writtenOn": "2021-02-19T01:20:33Z",
       "side": 1,
       "message": "tokens always need parentheses.\n\nAlso, I don\u0027t know what the spacing should be but perhaps a space beteween each token?\n\nAlso probably putting inside a do{}while(0)",
+      "range": {
+        "startLine": 46,
+        "startChar": 42,
+        "endLine": 46,
+        "endChar": 49
+      },
+      "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0608017_5601a606",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-02-19T01:32:51Z",
+      "side": 1,
+      "message": "I think if we add parens the token pasting will get messed up, because there would be literal parens in a type identifier which isn\u0027t valid.\n\ndo { ... } while (0) is something we should do, though.",
+      "parentUuid": "d67817a7_9920d44c",
       "range": {
         "startLine": 46,
         "startChar": 42,
