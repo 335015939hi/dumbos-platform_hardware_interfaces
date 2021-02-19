@@ -72,7 +72,7 @@ interface IKeyMintOperation {
      *
      * @param input Additional Authentication Data to be processed.
      *
-     * @param
+     * @param authToken Authentication token. Can be nullable if not provided.
      *
      * @param timeStampToken timestamp token, certifies the freshness of an auth token in case
      *        the security domain of this KeyMint instance has a different clock than the
