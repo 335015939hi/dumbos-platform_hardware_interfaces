@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "424abeb6_5bc1097a",
+        "filename": "radio/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-19T05:44:50Z",
+      "side": 1,
+      "message": "Done. This does make the change more cleaner.",
+      "parentUuid": "163085aa_a76772a9",
+      "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3e5e1a7_94c6ad7f",
@@ -99,6 +117,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce8db486_b7d0dcb9",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-19T05:44:50Z",
+      "side": 1,
+      "message": "Agree. The name of the MACRO somehow also work as a comments. It is better to more accurate.\nthanks",
+      "parentUuid": "0cf8fab0_ae7315eb",
+      "range": {
+        "startLine": 109,
+        "startChar": 16,
+        "endLine": 109,
+        "endChar": 26
+      },
+      "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ab53ab6_20563773",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-19T05:44:50Z",
+      "side": 1,
+      "message": "Done. If Robert/Amit have better suggestion, a replacement will be quick with ease :-)",
+      "parentUuid": "a3e5e1a7_94c6ad7f",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 26
+      },
+      "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d67817a7_9920d44c",
@@ -136,6 +202,30 @@
       "side": 1,
       "message": "I think if we add parens the token pasting will get messed up, because there would be literal parens in a type identifier which isn\u0027t valid.\n\ndo { ... } while (0) is something we should do, though.",
       "parentUuid": "d67817a7_9920d44c",
+      "range": {
+        "startLine": 46,
+        "startChar": 42,
+        "endLine": 46,
+        "endChar": 49
+      },
+      "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35472259_f2f78b43",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-19T05:44:50Z",
+      "side": 1,
+      "message": "Yes, the parens will messed up the macro. do{} while (0) is better than just {} which introduce an additional local scope.\n\nSearch aosp for the usage of MACRO with ##, a few have space between token while most others not. The space is removed here.\nThanks",
+      "parentUuid": "a0608017_5601a606",
       "range": {
         "startLine": 46,
         "startChar": 42,
