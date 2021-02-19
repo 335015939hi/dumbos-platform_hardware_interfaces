@@ -25,31 +25,44 @@ import android.hardware.security.keymint.SecurityLevel;
 @RustDerive(Clone=true, Eq=true, PartialEq=true, Ord=true, PartialOrd=true, Hash=true)
 parcelable KeyMintHardwareInfo {
     /**
-     * Implementation version of the keymint hardware.  The version number is implementation
-     * defined, and not necessarily globally meaningful.  The version is used to distinguish
-     * between different versions of a given implementation.
-     * TODO(seleneh) add the version related info to the code.
+     * The security level of the IKeyMintDevice implementation accessed through this aidl package.
      */
-    int versionNumber;
-
-    /* securityLevel is the security level of the IKeyMintDevice implementation accessed
-     * through this aidl package.  */
     SecurityLevel securityLevel = SecurityLevel.SOFTWARE;
 
-    /* keyMintName is the name of the IKeyMintDevice implementation.  */
-    @utf8InCpp String keyMintName;
-
-    /* keyMintAuthorName is the name of the author of the IKeyMintDevice implementation
-     *         (organization name, not individual). This name is implementation defined,
-     *         so it can be used to distinguish between different implementations from the
-     *         same author.
+    /**
+     * keyMintAuthorName is the name of the author of the IKeyMintDevice implementation
+     * (organization name, not individual).
      */
     @utf8InCpp String keyMintAuthorName;
 
-    /* The timestampTokenRequired is a boolean flag, which when true reflects that IKeyMintDevice
-     * instance will expect a valid TimeStampToken with various operations. This will typically
-     * required by the StrongBox implementations that generally don't have secure clock hardware to
-     * generate timestamp tokens.
+    /**
+     * keyMintName is the name of the IKeyMintDevice implementation.  This should provide enough
+     * information to distinguish between KeyMint implementations from the same author.
+     */
+    @utf8InCpp String keyMintName;
+
+    /**
+     * Implementation version of the keymint implementation.  The version number structure is
+     * implementation defined, and not necessarily globally meaningful.  The version is used to
+     * distinguish between different versions of a given implementation.  Different releases should
+     * have different numbers, and chronologically-later releases should generally have larger
+     * numbers.
+     */
+    long versionNumber;
+
+    /**
+     * timestampTokenRequired is a boolean flag, which indicates that IKeyMintDevice instance will
+     * expect a valid TimeStampToken with various operations. This will typically be required by
+     * StrongBox implementations that generally don't have secure clock hardware to track time.
      */
     boolean timestampTokenRequired;
+
+    /**
+     * UUID provides a 16-byte value that uniquely identifies a KeyMint implementation on a device.
+     * No two KeyMint implementations on the same device may return the same UUID, and the UUID
+     * returned by a given implementation must not change between factory resets, even when the
+     * implementation is upgraded to a new but compatible version.  The UUID may change upon factory
+     * reset, but is not required to.
+     */
+    byte[] uuid;
 }

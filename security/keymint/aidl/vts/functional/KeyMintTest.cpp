@@ -4738,6 +4738,23 @@ TEST_P(PerformOperationTest, RequireUnimplemented) {
 
 INSTANTIATE_KEYMINT_AIDL_TEST(PerformOperationTest);
 
+using HardwareInfoTest = KeyMintAidlTestBase;
+
+TEST_P(HardwareInfoTest, VerifyInfoNonEmpty) {
+    EXPECT_GT(hardware_info_.keyMintName.size(), 0);
+    EXPECT_GT(hardware_info_.keyMintAuthorName.size(), 0);
+    EXPECT_GT(hardware_info_.versionNumber, 0);
+    EXPECT_EQ(hardware_info_.uuid.size(), 16);
+}
+
+TEST_P(HardwareInfoTest, ValuesAreConstant) {
+    KeyMintHardwareInfo info;
+    ASSERT_TRUE(keymint_->getHardwareInfo(&info).isOk());
+    ASSERT_EQ(hardware_info_, info);
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(HardwareInfoTest);
+
 }  // namespace aidl::android::hardware::security::keymint::test
 
 int main(int argc, char** argv) {

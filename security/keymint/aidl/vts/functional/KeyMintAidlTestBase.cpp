@@ -156,12 +156,7 @@ void KeyMintAidlTestBase::InitializeKeyMint(std::shared_ptr<IKeyMintDevice> keyM
     ASSERT_NE(keyMint, nullptr);
     keymint_ = std::move(keyMint);
 
-    KeyMintHardwareInfo info;
-    ASSERT_TRUE(keymint_->getHardwareInfo(&info).isOk());
-
-    securityLevel_ = info.securityLevel;
-    name_.assign(info.keyMintName.begin(), info.keyMintName.end());
-    author_.assign(info.keyMintAuthorName.begin(), info.keyMintAuthorName.end());
+    ASSERT_TRUE(keymint_->getHardwareInfo(&hardware_info_).isOk());
 
     os_version_ = getOsVersion();
     os_patch_level_ = getOsPatchlevel();
@@ -746,7 +741,7 @@ vector<uint32_t> KeyMintAidlTestBase::InvalidKeySizes(Algorithm algorithm) {
 }
 
 vector<EcCurve> KeyMintAidlTestBase::ValidCurves() {
-    if (securityLevel_ == SecurityLevel::STRONGBOX) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
         return {EcCurve::P_256};
     } else {
         return {EcCurve::P_224, EcCurve::P_256, EcCurve::P_384, EcCurve::P_521};
