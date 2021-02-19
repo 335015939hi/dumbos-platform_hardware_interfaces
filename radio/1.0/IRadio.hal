@@ -386,6 +386,8 @@ interface IRadio {
      *                  must not use this param for any other reason.
      *
      * Response function is IRadioResponse.setupDataCallResponse()
+     *
+     * DEPRECATED in @1.2 and above, use @1.2::IRadio.setupDataCall_1_2() instead.
      */
     oneway setupDataCall(int32_t serial, RadioTechnology radioTechnology,
             DataProfileInfo dataProfileInfo, bool modemCognitive, bool roamingAllowed,
@@ -547,6 +549,8 @@ interface IRadio {
      *        true => Radio shutdown requested
      *
      * Response function is IRadioResponse.deactivateDataCallResponse()
+     *
+     * DEPRECATED in @1.2 and above, use @1.2::IRadio.deactivateDataCall_1_2() instead.
      */
     oneway deactivateDataCall(int32_t serial, int32_t cid,
             bool reasonRadioShutDown);
@@ -1457,6 +1461,8 @@ interface IRadio {
      * @param pullMode LCE service mode. true: PULL; false: PUSH.
      *
      * Response callback is IRadioResponse.startLceServiceResponse()
+     *
+     * DEPRECATED in @1.2 and above which use the always-on LCE that relies on indications.
      */
     oneway startLceService(int32_t serial, int32_t reportInterval, bool pullMode);
 
@@ -1467,6 +1473,8 @@ interface IRadio {
      * @param serial Serial number of request.
      *
      * Response callback is IRadioResponse.stopLceServiceResponse()
+     *
+     * DEPRECATED in @1.2 and above which use the always-on LCE that relies on indications.
      */
     oneway stopLceService(int32_t serial);
 
@@ -1476,6 +1484,8 @@ interface IRadio {
      * @param serial Serial number of request.
      *
      * Response callback is IRadioResponse.pullLceDataResponse()
+     *
+     * DEPRECATED in @1.2 and above which use the always-on LCE that relies on indications.
      */
     oneway pullLceData(int32_t serial);
 
@@ -1547,6 +1557,8 @@ interface IRadio {
      *        indications are enabled. See IndicationFilter for the definition of each bit.
      *
      * Response callback is IRadioResponse.setIndicationFilterResponse()
+     *
+     * DEPRECATED in @1.2 and above, use @1.2::IRadio.setIndicationFilter_1_2() instead.
      */
     oneway setIndicationFilter(int32_t serial, bitfield<IndicationFilter> indicationFilter);
 
@@ -1561,6 +1573,8 @@ interface IRadio {
      * @param powerUp True if powering up the sim card
      *
      * Response callback is IRadioResponse.setSimCardPowerResponse()
+     *
+     * DEPRECATED in @1.1 and above, use @1.1::IRadio.setSimCardPower_1_1() instead.
      */
     oneway setSimCardPower(int32_t serial, bool powerUp);
 

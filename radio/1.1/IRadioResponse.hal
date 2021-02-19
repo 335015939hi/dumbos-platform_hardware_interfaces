@@ -51,6 +51,10 @@ interface IRadioResponse extends @1.0::IRadioResponse {
      * @param info Response info struct containing response type, serial no. and error
      *
      * Valid errors returned:
+     *   RadioError:REQUEST_NOT_SUPPORTED must be returned when IRadio.startNetworkScan
+     *                                    is not supported in @1.2 and above, or
+     *                                    IRadio.startNetworkScan_1_2 is not
+     *                                    supported in @1.4 and above.
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:OPERATION_NOT_ALLOWED
@@ -59,7 +63,6 @@ interface IRadioResponse extends @1.0::IRadioResponse {
      *   RadioError:NO_MEMORY
      *   RadioError:MODEM_ERR
      *   RadioError:INVALID_ARGUMENTS
-     *   RadioError:REQUEST_NOT_SUPPORTED
      */
     oneway startNetworkScanResponse(RadioResponseInfo info);
 
