@@ -33,6 +33,70 @@
       "message": "bpfmt hook fail and force us to change the format when uploading the patch.\nThe real change in all bp is only introducing the new radio static_libs.",
       "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "163085aa_a76772a9",
+        "filename": "radio/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-02-19T01:20:33Z",
+      "side": 1,
+      "message": "Suggest to upload a non-functional patch that changes the formatting first if that\u0027s the case... better to separate the cosmetic changes from the functional ones.",
+      "parentUuid": "b1acfedf_4f6c06c2",
+      "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3e5e1a7_94c6ad7f",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-02-19T01:20:33Z",
+      "side": 1,
+      "message": "Probably SKIP is better than IGNORE.\n\nCASE should probably be TEST... I dunno. Maybe get an opinion from Robert or Amit before doing another round of global-find-and-replace though.",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 26
+      },
+      "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d67817a7_9920d44c",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-02-19T01:20:33Z",
+      "side": 1,
+      "message": "tokens always need parentheses.\n\nAlso, I don\u0027t know what the spacing should be but perhaps a space beteween each token?\n\nAlso probably putting inside a do{}while(0)",
+      "range": {
+        "startLine": 46,
+        "startChar": 42,
+        "endLine": 46,
+        "endChar": 49
+      },
+      "revId": "92bc62cbd4437a093f732907af09078edfc0c597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
