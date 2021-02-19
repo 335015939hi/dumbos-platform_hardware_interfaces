@@ -23,11 +23,21 @@ package {
     default_applicable_licenses: ["hardware_interfaces_license"],
 }
 
+cc_defaults {
+    name: "keymint_vts_defaults",
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wunused",
+    ],
+}
+
 cc_test {
     name: "VtsAidlKeyMintTargetTest",
     defaults: [
         "VtsHalTargetTestDefaults",
         "use_libaidlvintf_gtest_helper_static",
+        "keymint_vts_defaults",
     ],
     srcs: [
         "AttestKeyTest.cpp",
@@ -56,6 +66,7 @@ cc_test_library {
     defaults: [
         "VtsHalTargetTestDefaults",
         "use_libaidlvintf_gtest_helper_static",
+        "keymint_vts_defaults",
     ],
     srcs: [
         "KeyMintAidlTestBase.cpp",
@@ -81,6 +92,7 @@ cc_test {
     defaults: [
         "VtsHalTargetTestDefaults",
         "use_libaidlvintf_gtest_helper_static",
+        "keymint_vts_defaults",
     ],
     srcs: [
         "VtsRemotelyProvisionedComponentTests.cpp",
