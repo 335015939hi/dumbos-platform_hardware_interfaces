@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f0b52fc_dc4f358c",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-02-19T21:31:22Z",
+      "side": 1,
+      "message": "Missing authToken doc?",
+      "range": {
+        "startLine": 75,
+        "startChar": 7,
+        "endLine": 75,
+        "endChar": 13
+      },
+      "revId": "5e706fddd1fff250e79af2792f36b64fe8889326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5562e643_e012f354",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCharacteristics.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-02-19T21:31:22Z",
+      "side": 1,
+      "message": "Nit: Maybe KEYSTORE would be a good default.",
+      "range": {
+        "startLine": 34,
+        "startChar": 48,
+        "endLine": 34,
+        "endChar": 56
+      },
+      "revId": "5e706fddd1fff250e79af2792f36b64fe8889326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55764464_260b36fb",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-02-19T21:31:22Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 37,
+        "startChar": 48,
+        "endLine": 37,
+        "endChar": 56
+      },
+      "revId": "5e706fddd1fff250e79af2792f36b64fe8889326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
