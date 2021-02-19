@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3736ed84_c13c59e6",
+        "filename": "security/keymint/aidl/vts/performance/README",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-19T13:06:48Z",
+      "side": 1,
+      "message": "Nit:  Wordwrap this file.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 122
+      },
+      "revId": "25a7748135dd59f66842a93c6f1887daa0b18834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
