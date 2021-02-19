@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebac1436_59e06a25",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-19T23:46:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f0b52fc_dc4f358c",
+      "range": {
+        "startLine": 75,
+        "startChar": 7,
+        "endLine": 75,
+        "endChar": 13
+      },
+      "revId": "5e706fddd1fff250e79af2792f36b64fe8889326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5562e643_e012f354",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53424dfb_bf5b2cc4",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCharacteristics.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-19T23:46:56Z",
+      "side": 1,
+      "message": "As discussed, I think this is better because it\u0027s invalid for non-SW implementations,and there are VTS tests to check for mismatches.",
+      "parentUuid": "5562e643_e012f354",
+      "range": {
+        "startLine": 34,
+        "startChar": 48,
+        "endLine": 34,
+        "endChar": 56
+      },
+      "revId": "5e706fddd1fff250e79af2792f36b64fe8889326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55764464_260b36fb",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-02-19T21:31:22Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 37,
+        "startChar": 48,
+        "endLine": 37,
+        "endChar": 56
+      },
+      "revId": "5e706fddd1fff250e79af2792f36b64fe8889326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e73ed72d_753b0338",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-19T23:46:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "55764464_260b36fb",
       "range": {
         "startLine": 37,
         "startChar": 48,
