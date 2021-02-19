@@ -22,6 +22,53 @@
       },
       "revId": "a3745ee5e6655248fec5582b4de8c645023cd9c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c3c77c6_26d8f824",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-02-19T19:25:26Z",
+      "side": 1,
+      "message": "+1 \"IF\"",
+      "parentUuid": "59813dda_340295ef",
+      "range": {
+        "startLine": 109,
+        "startChar": 14,
+        "endLine": 109,
+        "endChar": 18
+      },
+      "revId": "a3745ee5e6655248fec5582b4de8c645023cd9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62b5fd89_7e97395d",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-02-19T19:25:26Z",
+      "side": 1,
+      "message": "Nit: blank line between 1.4 + gtest #includes",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "a3745ee5e6655248fec5582b4de8c645023cd9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
