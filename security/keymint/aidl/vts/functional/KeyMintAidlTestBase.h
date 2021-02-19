@@ -223,8 +223,8 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
         EXPECT_EQ(expectedReturn, errorCode);
         return {aesKeyData, hmacKeyData, rsaKeyData, ecdsaKeyData};
     }
-    bool IsSecure() const { return securityLevel_ != SecurityLevel::SOFTWARE; }
-    SecurityLevel SecLevel() const { return securityLevel_; }
+    bool IsSecure() const { return SecLevel() != SecurityLevel::SOFTWARE; }
+    SecurityLevel SecLevel() const { return hardware_info_.securityLevel; }
 
     vector<uint32_t> ValidKeySizes(Algorithm algorithm);
     vector<uint32_t> InvalidKeySizes(Algorithm algorithm);
@@ -266,9 +266,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t os_version_;
     uint32_t os_patch_level_;
 
-    SecurityLevel securityLevel_;
-    string name_;
-    string author_;
+    KeyMintHardwareInfo hardware_info_;
     long challenge_;
 };
 
