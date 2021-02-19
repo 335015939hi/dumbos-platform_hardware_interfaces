@@ -782,6 +782,10 @@ b9fbb6e2e061ed0960939d48b785e9700210add1f13ed32ecd688d0f1ca20ef7 android.hardwar
 0f53d70e1eadf8d987766db4bf6ae2048004682168f4cab118da576787def3fa android.hardware.radio@1.0::types
 38d65fb20c60a5b823298560fc0825457ecdc49603a4b4e94bf81511790737da android.hardware.radio@1.4::types
 954c334efd80e8869b66d1ce5fe2755712d96ba4b3c38d415739c330af5fb4cb android.hardware.radio@1.5::types
+64727fe124a6173d05b1356a2281bdac061e5885a9a918dbd47ebd465f5a05c2 android.hardware.radio@1.0::IRadio
+89d78fa49b09e2f31812bb63e1bfac2bf318a9561473c6b0ed6904ce18377d54 android.hardware.radio@1.0::IRadioIndication
+976ca606058d7eff2bb1df1cbd964375e57d405ca94a0f532f192adfd0e13a15 android.hardware.radio@1.1::IRadio
+35619e23b17b688306bc655c5fe53da0fb6065b4ca5f92ef3ce139210b88103d android.hardware.radio@1.2::IRadio
 
 # HALs released in Android S
 # NOTE: waiting to freeze HALs until later in the release
