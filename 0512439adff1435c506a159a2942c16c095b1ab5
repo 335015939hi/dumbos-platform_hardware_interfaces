@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f673f788_7f667b33",
+        "filename": "audio/7.0/IStreamOutEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2021-02-22T22:38:44Z",
+      "side": 1,
+      "message": "is the \"audio-\" in these keys superfluous? I note there is precedent in R with \"audio-encoding\", but it still may be simpler to drop \"audio-\" from these keys. On the java side, the class is Audio specific (AudioMetadata), so the \"AUDIO_\" in those names probably aren\u0027t useful either.",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 14
+      },
+      "revId": "0512439adff1435c506a159a2942c16c095b1ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
