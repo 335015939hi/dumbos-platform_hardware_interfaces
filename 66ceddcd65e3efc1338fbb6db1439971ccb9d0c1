@@ -16,6 +16,23 @@
       "message": "Sarah and Amit, can you take a look through this topic set?",
       "revId": "66ceddcd65e3efc1338fbb6db1439971ccb9d0c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4605cc50_b659dbe3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-02-23T05:37:06Z",
+      "side": 1,
+      "message": "If updating ApnTypes, all structures that use ApnTypes also need to be updated. From what I can tell, that\u0027s these below, but please do a search to see other places that it may be used.\nDataProfileInfo in 1.5/types.hal - uses bitfield\u003cApnTypes\u003e\nsetInitialAttachApn_1_5 in 1.5/IRadio.hal - uses DataProfileInfo\nsetDataProfile_1_5 in 1.5/IRadio.hal - uses vec\u003cDataProfileInfo\u003e\nsetInitialAttachApnResponse_1_5 in 1.5/IRadioResponse.hal - response for setInitialAttachApn_1_5\nsetDataProfileResponse_1_5 in 1.5/IRadioResponse.hal - response for setDataProfile_1_5",
+      "revId": "66ceddcd65e3efc1338fbb6db1439971ccb9d0c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
