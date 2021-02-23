@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89d5e847_a5ed707a",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-23T23:06:39Z",
+      "side": 1,
+      "message": "is this targeting the S release (it needs to be to delete it)? If so, what ensures we won\u0027t forget this?",
+      "range": {
+        "startLine": 886,
+        "startChar": 0,
+        "endLine": 886,
+        "endChar": 46
+      },
+      "revId": "61496bc921adccd9a83f7c41ca4c2a16e55f362d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
