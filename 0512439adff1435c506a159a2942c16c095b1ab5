@@ -22,6 +22,30 @@
       },
       "revId": "0512439adff1435c506a159a2942c16c095b1ab5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef78bde4_c8f4d413",
+        "filename": "audio/7.0/IStreamOutEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-02-23T00:28:12Z",
+      "side": 1,
+      "message": "Good point, Dean! I agree there is no need for namespacing here.",
+      "parentUuid": "f673f788_7f667b33",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 14
+      },
+      "revId": "0512439adff1435c506a159a2942c16c095b1ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
