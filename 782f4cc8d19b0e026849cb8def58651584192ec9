@@ -343,6 +343,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "31abb148_07b73d7c",
+        "filename": "audio/audiogain/6.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-02-23T17:17:10Z",
+      "side": 1,
+      "message": "exact, enough",
+      "parentUuid": "a157725d_c9755b9a",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 17
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51e47d44_2f36e7f4",
         "filename": "audio/audiogain/6.0/types.hal",
         "patchSetId": 8
@@ -354,6 +378,30 @@
       "writtenOn": "2021-02-03T21:37:22Z",
       "side": 1,
       "message": "Perhaps call it \u0027ReasonFlag\u0027 to indicate that these are flags.",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 11
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b9c8ad0_9656f065",
+        "filename": "audio/audiogain/6.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-02-23T17:17:10Z",
+      "side": 1,
+      "message": "I propose ReasonMask, to refer what it really represent",
+      "parentUuid": "51e47d44_2f36e7f4",
       "range": {
         "startLine": 37,
         "startChar": 5,
