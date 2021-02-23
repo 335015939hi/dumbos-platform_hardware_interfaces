@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bfbdb35_3344eed2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080889
+      },
+      "writtenOn": "2021-02-23T11:30:28Z",
+      "side": 1,
+      "message": "Hi Max, sorry for the late \u0027comment\u0027, but is it ok to seek clarification as to whether this change can/should be applied to keymaster3 as well? Per [1], \"The NIST Special Publication on Computer Security (SP 800-78 Rev 1 of August 2007) does not allow public exponents e smaller than 65537\", so our TEE returns an error when VtsHalKeymasterV3_0TargetTest calls in with an exponent of 3. \n\n[1] https://en.wikipedia.org/wiki/RSA_(cryptosystem)",
+      "revId": "ee1ccd88babeacc91dbcac3c1e690eaca9e9434d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
