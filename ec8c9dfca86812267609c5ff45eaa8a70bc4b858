@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90feb432_50706253",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-02-24T09:39:44Z",
+      "side": 1,
+      "message": "If we pipe the callback via the audio framework, I propose we get rid of the IAudioGain HAL and just add the callback registration/ unregistration to the audio HAL IPrimaryDevice interface (only IPrimaryDEvice) so that there is no ambiguity with which HAL module to chose when the framework installs the callback.",
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c48d4360_8b99b657",
