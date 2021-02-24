@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d744111a_b2021f0e",
+        "filename": "keymaster/4.1/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-02-24T14:47:07Z",
+      "side": 1,
+      "message": "Let\u0027s allow only CANNOT_ATTEST_IDS.  As we discussed yesterday, this cannot cause any existing implementation to fail, because the test currently requires them to support it.",
+      "range": {
+        "startLine": 286,
+        "startChar": 47,
+        "endLine": 286,
+        "endChar": 84
+      },
+      "revId": "651b2e08bce4bb2770cdd6254c8d81875b46ea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
