@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000008438482",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1606757?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "c4e1334b_3cc42e5b",
+          "description": "Change to \"compatibility_matrices/compatibility_matrix.5.xml\"",
+          "replacements": [
+            {
+              "path": "compatibility_matrices/compatibility_matrix.5.xml",
+              "range": {
+                "startLine": 262,
+                "startChar": 23,
+                "endLine": 262,
+                "endChar": 30
+              },
+              "replacement": "Android"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "9689b519_e84bb8f7",
+        "filename": "compatibility_matrices/compatibility_matrix.5.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-02-24T23:48:54Z",
+      "side": 1,
+      "message": "Common typo found: \"Andorid\" -- should it be \"Android\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 262,
+        "startChar": 23,
+        "endLine": 262,
+        "endChar": 30
+      },
+      "revId": "a1433cd7f0f90f6afaa3ed443caa219fae4e7f63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
