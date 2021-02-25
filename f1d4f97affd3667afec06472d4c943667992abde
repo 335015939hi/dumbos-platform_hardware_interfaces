@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7265b7e4_bc2c285d",
+        "filename": "audio/7.0/IStreamOutEventCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1565664
+      },
+      "writtenOn": "2021-02-25T02:15:19Z",
+      "side": 1,
+      "message": "Do you mean presentation-content-classifier int definition values from AudioPresentation.java\n\nhttps://android-review.googlesource.com/c/platform/frameworks/base/+/1591453/6/media/java/android/media/AudioPresentation.java\n\nIs it ok to provide possible values description only to this key ?",
+      "parentUuid": "fe95d76b_60703483",
+      "range": {
+        "startLine": 57,
+        "startChar": 42,
+        "endLine": 57,
+        "endChar": 47
+      },
+      "revId": "f1d4f97affd3667afec06472d4c943667992abde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44e656f2_f2f3bea0",
         "filename": "audio/7.0/IStreamOutEventCallback.hal",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-25T01:30:26Z",
       "side": 1,
       "message": "encoding?",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 38
+      },
+      "revId": "f1d4f97affd3667afec06472d4c943667992abde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4a1f722_9b2776aa",
+        "filename": "audio/7.0/IStreamOutEventCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1565664
+      },
+      "writtenOn": "2021-02-25T02:15:19Z",
+      "side": 1,
+      "message": "I\u0027m sorry, i do not understand the question for string type here. Can you please elaborate.",
+      "parentUuid": "44e656f2_f2f3bea0",
       "range": {
         "startLine": 58,
         "startChar": 32,
