@@ -22,6 +22,30 @@
       },
       "revId": "e23122209ccde41d48e802dd258c57e161fc9223",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ba5839b_15df7444",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2021-02-25T10:07:08Z",
+      "side": 1,
+      "message": "Also, I think this should be done not via NOT_SUPPORTED but via HAL features. Please ping dbright@ for details on that.\n\nSunny, this is a CP of the internal version of the CL so we should keep it the same. We will add support to make this API optional separately.\n\nHongbo, let\u0027s go ahead and remove this error code from this CL and match the internal version for now.",
+      "parentUuid": "0397a69a_758ffe1e",
+      "range": {
+        "startLine": 431,
+        "startChar": 9,
+        "endLine": 431,
+        "endChar": 41
+      },
+      "revId": "e23122209ccde41d48e802dd258c57e161fc9223",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
