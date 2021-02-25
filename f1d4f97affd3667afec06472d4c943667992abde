@@ -16,6 +16,52 @@
       "message": "Steven, could you PTAL.",
       "revId": "f1d4f97affd3667afec06472d4c943667992abde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe95d76b_60703483",
+        "filename": "audio/7.0/IStreamOutEventCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-25T01:30:26Z",
+      "side": 1,
+      "message": "should this explain possible values here as well? I\u0027m not sure I\u0027ve seen this before",
+      "range": {
+        "startLine": 57,
+        "startChar": 42,
+        "endLine": 57,
+        "endChar": 47
+      },
+      "revId": "f1d4f97affd3667afec06472d4c943667992abde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44e656f2_f2f3bea0",
+        "filename": "audio/7.0/IStreamOutEventCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-25T01:30:26Z",
+      "side": 1,
+      "message": "encoding?",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 38
+      },
+      "revId": "f1d4f97affd3667afec06472d4c943667992abde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
