@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d45a456f_b43e5f6e",
+        "filename": "audio/7.0/IStreamOutEventCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-25T23:11:05Z",
+      "side": 1,
+      "message": "this should probably specify the exact class + types that can be used, yeah",
+      "parentUuid": "7265b7e4_bc2c285d",
+      "range": {
+        "startLine": 57,
+        "startChar": 42,
+        "endLine": 57,
+        "endChar": 47
+      },
+      "revId": "f1d4f97affd3667afec06472d4c943667992abde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44e656f2_f2f3bea0",
         "filename": "audio/7.0/IStreamOutEventCallback.hal",
         "patchSetId": 3
