@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0397a69a_758ffe1e",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2021-02-25T10:04:15Z",
+      "side": 1,
+      "message": "This is different from the internal version. Is there a CL to add this on S?",
+      "range": {
+        "startLine": 431,
+        "startChar": 9,
+        "endLine": 431,
+        "endChar": 41
+      },
+      "revId": "e23122209ccde41d48e802dd258c57e161fc9223",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
