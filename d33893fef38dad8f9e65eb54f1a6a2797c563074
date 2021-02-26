@@ -16,6 +16,23 @@
       "message": "The change LGTM, thanks! Lev, because you made the original version of the NN AIDL HAL, could you review this as well?",
       "revId": "d33893fef38dad8f9e65eb54f1a6a2797c563074",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d82317cf_8a6c2247",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-02-26T23:44:52Z",
+      "side": 1,
+      "message": "Thank you, reviewers. \n\nOwner approvals required for .aidl files. Devin, please take a look.",
+      "revId": "d33893fef38dad8f9e65eb54f1a6a2797c563074",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
