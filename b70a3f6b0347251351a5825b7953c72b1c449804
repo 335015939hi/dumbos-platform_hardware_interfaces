@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cebcee8_958931dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2021-02-26T21:48:07Z",
+      "side": 1,
+      "message": "If I\u0027m misunderstanding your question, feel free to ping me on chat or set up a meeting!",
+      "revId": "b70a3f6b0347251351a5825b7953c72b1c449804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f66c72d3_6897c7c6",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-02-26T21:28:38Z",
       "side": 1,
       "message": "this topic sets this property as system_internal_prop\n\nhow is it possible it can be read by a HAL implementation?",
+      "range": {
+        "startLine": 971,
+        "startChar": 0,
+        "endLine": 973,
+        "endChar": 81
+      },
+      "revId": "b70a3f6b0347251351a5825b7953c72b1c449804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2da1a9e_3375104a",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2021-02-26T21:48:07Z",
+      "side": 1,
+      "message": "The property is read and enforced by keystore. If and when we add a hardware implementation, keystore will pass on changes to this value to keymint.\nhttps://android-review.googlesource.com/c/platform/system/sepolicy/+/1600565/2/private/keystore.te",
+      "parentUuid": "f66c72d3_6897c7c6",
       "range": {
         "startLine": 971,
         "startChar": 0,
