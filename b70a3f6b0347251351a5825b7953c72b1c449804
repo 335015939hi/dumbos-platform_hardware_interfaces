@@ -80,6 +80,30 @@
       },
       "revId": "b70a3f6b0347251351a5825b7953c72b1c449804",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5718189_15413553",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-02-26T22:29:10Z",
+      "side": 1,
+      "message": "The hal spec should not include this property, because it is not relevant to implementers. As a result this tag cannot be hardware enforced until we add a channel to inform the implementation about the current boot lever. Please remove the property from this description and change the last sentence to something like:\n\n Cannot be hardware enforced [as of this version].",
+      "parentUuid": "b2da1a9e_3375104a",
+      "range": {
+        "startLine": 971,
+        "startChar": 0,
+        "endLine": 973,
+        "endChar": 81
+      },
+      "revId": "b70a3f6b0347251351a5825b7953c72b1c449804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
