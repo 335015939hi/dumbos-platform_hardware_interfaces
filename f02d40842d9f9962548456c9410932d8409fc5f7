@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85f6fa90_fe18d13e",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-02-26T04:51:47Z",
+      "side": 1,
+      "message": "Marking this as resolved as CL has Code-Review +2",
+      "parentUuid": "0344089e_0837c488",
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7f1720e_6a7a2a02",
@@ -120,6 +138,30 @@
       "side": 1,
       "message": "Hi Lakshman, The values are just filler values and they are not checked anywhere in the test.",
       "parentUuid": "185582eb_8e2dd7db",
+      "range": {
+        "startLine": 49,
+        "startChar": 16,
+        "endLine": 59,
+        "endChar": 0
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8616504d_c77c1755",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-02-26T04:51:47Z",
+      "side": 1,
+      "message": "Marking this as resolved as CL has Code-Review +2",
+      "parentUuid": "ddea408a_2b96106e",
       "range": {
         "startLine": 49,
         "startChar": 16,
@@ -308,6 +350,30 @@
       "side": 1,
       "message": "This is done so that at least once a valid Vehicle Property is sent to getPropConfigs().\nWe are basically retrieving a random value from the kVehicleProp[] array.",
       "parentUuid": "c2eb369d_eaeb60b1",
+      "range": {
+        "startLine": 112,
+        "startChar": 49,
+        "endLine": 112,
+        "endChar": 92
+      },
+      "revId": "f02d40842d9f9962548456c9410932d8409fc5f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6dacc15_1efe93d0",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/vehicleManager_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-02-26T04:51:47Z",
+      "side": 1,
+      "message": "Marking this as resolved as CL has Code-Review +2",
+      "parentUuid": "2a613f0c_cb6eb2ee",
       "range": {
         "startLine": 112,
         "startChar": 49,
