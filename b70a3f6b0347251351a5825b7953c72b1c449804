@@ -16,6 +16,29 @@
       "message": "Looking for AIDL-API-Review.",
       "revId": "b70a3f6b0347251351a5825b7953c72b1c449804",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f66c72d3_6897c7c6",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-26T21:28:38Z",
+      "side": 1,
+      "message": "this topic sets this property as system_internal_prop\n\nhow is it possible it can be read by a HAL implementation?",
+      "range": {
+        "startLine": 971,
+        "startChar": 0,
+        "endLine": 973,
+        "endChar": 81
+      },
+      "revId": "b70a3f6b0347251351a5825b7953c72b1c449804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
