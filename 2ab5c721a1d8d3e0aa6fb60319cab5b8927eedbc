@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d9db36f4_b3d60bff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-02-26T02:09:56Z",
+      "side": 1,
+      "message": "Can you also add -Wsign-compare in the Android.bp files to prevent this from happening again?",
+      "revId": "2ab5c721a1d8d3e0aa6fb60319cab5b8927eedbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "62410b44_93d98101",
         "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvidersFactory.cpp",
         "patchSetId": 2
