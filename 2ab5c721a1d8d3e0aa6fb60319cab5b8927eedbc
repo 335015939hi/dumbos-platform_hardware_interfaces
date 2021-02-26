@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62410b44_93d98101",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-02-26T02:09:28Z",
+      "side": 1,
+      "message": "could be just size_t I think",
+      "range": {
+        "startLine": 78,
+        "startChar": 11,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "2ab5c721a1d8d3e0aa6fb60319cab5b8927eedbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
