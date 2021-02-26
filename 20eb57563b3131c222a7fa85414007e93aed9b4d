@@ -16,6 +16,23 @@
       "message": "Cherry-picked from https://partner-android-review.googlesource.com/c/platform/hardware/interfaces/+/1823711",
       "revId": "20eb57563b3131c222a7fa85414007e93aed9b4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e39fc17_0a2a263e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1209463
+      },
+      "writtenOn": "2021-02-26T21:53:55Z",
+      "side": 1,
+      "message": "Please enable autosubmit vote +1 to merge the CL. Thanks",
+      "revId": "20eb57563b3131c222a7fa85414007e93aed9b4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
