@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b86f5167_16dd2dc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2021-02-26T21:30:01Z",
+      "side": 1,
+      "message": "Just a nit - what do you think?",
+      "revId": "26900829ea598e4a505f39082b1ae351a657e769",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b73c16ab_ee3f6460",
@@ -19,6 +36,29 @@
         "startChar": 4,
         "endLine": 109,
         "endChar": 37
+      },
+      "revId": "26900829ea598e4a505f39082b1ae351a657e769",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "380efdd8_7c0b5730",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2021-02-26T21:30:01Z",
+      "side": 1,
+      "message": "I\u0027m not sure it makes sense to include this dependency here.  It\u0027s actually the lines in the test files that require this and they may ask for 1.3 or 1.4 or whatever with a non-obvious need to add the #include.  Should this be closer to where 1.2 is referenced?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 46
       },
       "revId": "26900829ea598e4a505f39082b1ae351a657e769",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
