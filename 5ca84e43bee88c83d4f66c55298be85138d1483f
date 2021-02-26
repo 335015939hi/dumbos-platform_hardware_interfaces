@@ -39,6 +39,30 @@
       },
       "revId": "5ca84e43bee88c83d4f66c55298be85138d1483f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80124966_e0f113c6",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-02-26T21:54:34Z",
+      "side": 1,
+      "message": "No, I have not. I think it\u0027s impossible - session cannot be bi-directional. This mutext is per session. For e.g. in LE Audio there will be separate read and write session to/from queue.",
+      "parentUuid": "fd3e8b77_6bb12003",
+      "range": {
+        "startLine": 414,
+        "startChar": 48,
+        "endLine": 414,
+        "endChar": 54
+      },
+      "revId": "5ca84e43bee88c83d4f66c55298be85138d1483f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
