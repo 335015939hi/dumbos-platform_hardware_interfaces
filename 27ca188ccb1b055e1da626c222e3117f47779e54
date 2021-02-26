@@ -33,6 +33,46 @@
       "message": "Thank you for adding this Shawn. It looks good to me too.",
       "revId": "27ca188ccb1b055e1da626c222e3117f47779e54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63343a6d_c780958b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-26T21:16:27Z",
+      "side": 1,
+      "message": "(not normal to add an API like this - but from IM discussion, this will be used on limited devices. Getting it in now is to avoid breaking changes on implementations that won\u0027t use this feature)",
+      "revId": "27ca188ccb1b055e1da626c222e3117f47779e54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f22e0e4_a86ed31e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-02-26T21:16:27Z",
+      "side": 1,
+      "message": "nit: specify that this must currently return UNSUPPORTED_OPERATION (like is tested in VTS)",
+      "range": {
+        "startLine": 767,
+        "startChar": 0,
+        "endLine": 768,
+        "endChar": 31
+      },
+      "revId": "27ca188ccb1b055e1da626c222e3117f47779e54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
