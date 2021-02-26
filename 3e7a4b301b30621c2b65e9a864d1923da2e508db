@@ -16,6 +16,24 @@
       "message": "I found another OWNERS file further down. ",
       "revId": "3e7a4b301b30621c2b65e9a864d1923da2e508db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b569fb51_71dee12f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156643
+      },
+      "writtenOn": "2021-02-26T18:04:50Z",
+      "side": 1,
+      "message": ".",
+      "parentUuid": "f23ea44f_0c4925ef",
+      "revId": "3e7a4b301b30621c2b65e9a864d1923da2e508db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
