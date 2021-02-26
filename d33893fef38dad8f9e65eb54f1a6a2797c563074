@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5d05342_e079f479",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-02-26T18:48:28Z",
+      "side": 1,
+      "message": "The change LGTM, thanks! Lev, because you made the original version of the NN AIDL HAL, could you review this as well?",
+      "revId": "d33893fef38dad8f9e65eb54f1a6a2797c563074",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
