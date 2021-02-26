@@ -141,6 +141,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe8b67b6_885a32af",
+        "filename": "automotive/audiocontrol/1.0/default/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-02-26T04:49:41Z",
+      "side": 1,
+      "message": "Marking this as resolved as CL has Code-Review +2",
+      "parentUuid": "efd6d8e2_b10b314d",
+      "revId": "d55e4acb6aa1074cef30ab87547a42a9fdea3855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b462c8bb_ec8b3457",
