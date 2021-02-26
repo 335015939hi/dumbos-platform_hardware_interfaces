@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "518663a5_c26e026c",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-02-26T13:05:12Z",
+      "side": 1,
+      "message": "Please use clang-format on this patch",
+      "revId": "5ca84e43bee88c83d4f66c55298be85138d1483f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd3e8b77_6bb12003",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-02-26T13:05:12Z",
+      "side": 1,
+      "message": "Not a bug,just thining out loud:\nBoth read and write are possibly blocking operation.\nHave you observed any issues caused by using same mutex on both of them ?",
+      "range": {
+        "startLine": 414,
+        "startChar": 48,
+        "endLine": 414,
+        "endChar": 54
+      },
+      "revId": "5ca84e43bee88c83d4f66c55298be85138d1483f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
