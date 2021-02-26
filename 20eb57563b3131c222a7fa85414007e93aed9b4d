@@ -33,6 +33,23 @@
       "message": "Please enable autosubmit vote +1 to merge the CL. Thanks",
       "revId": "20eb57563b3131c222a7fa85414007e93aed9b4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd778cc7_b0631893",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1153368
+      },
+      "writtenOn": "2021-02-26T22:56:58Z",
+      "side": 1,
+      "message": "Can you add this CL to master also? Is this also needed on Android11-tests-dev?",
+      "revId": "20eb57563b3131c222a7fa85414007e93aed9b4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
