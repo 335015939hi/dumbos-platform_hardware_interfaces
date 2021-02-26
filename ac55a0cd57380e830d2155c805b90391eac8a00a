@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ebde5ce_ac8ab82c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1362648
+      },
+      "writtenOn": "2021-02-26T16:46:43Z",
+      "side": 1,
+      "message": "This is not merged in internal master, right? Should we remove this line?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 68
+      },
+      "revId": "ac55a0cd57380e830d2155c805b90391eac8a00a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
