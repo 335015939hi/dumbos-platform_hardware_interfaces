@@ -22,6 +22,30 @@
       },
       "revId": "a6f52af9bf2ca529a99bf8cca9292ee350dec485",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3716e9b_bb27a1b1",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-27T04:59:51Z",
+      "side": 1,
+      "message": "Although both radio and radioRsp objects has different names across versions (e.g. they are \"radio_v1_1\" and \"radioRsp_v1_1\" in @1.1), but the following facts make it safe to include it into the macro:\n1. The name is constant for all test cases in current version (define in the same head file as the macro)\n2. It is a compilation error (instead of runtime error) if the incorrect object is used.\n\nWe can put both radio and radioRsp into MACRO as parameters to make the MACRO definition exactly the same for every version. But this decrease the readability and does not help to make the test logic robust.\n\nWith this, I keep radio/radioRsp in MACRO and relax the caller side (they are simple and the same in any version).",
+      "parentUuid": "9c8d3858_068e36fa",
+      "range": {
+        "startLine": 44,
+        "startChar": 73,
+        "endLine": 44,
+        "endChar": 78
+      },
+      "revId": "a6f52af9bf2ca529a99bf8cca9292ee350dec485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

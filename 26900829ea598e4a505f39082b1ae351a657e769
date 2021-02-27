@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4649d89_381d7173",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-27T04:59:51Z",
+      "side": 1,
+      "message": "Yes, we should still call the interface, verify the basic behaviors (no timeout, response type is SOLICITED and serial matches).\n\nThe remain VTS case will skip only when\n1. The radio HAL under test does deprecate the interface and\n2. REQUEST_NOT_SUPPORTED response is return",
+      "parentUuid": "b73c16ab_ee3f6460",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 37
+      },
+      "revId": "26900829ea598e4a505f39082b1ae351a657e769",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "380efdd8_7c0b5730",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-02-26T21:30:01Z",
       "side": 1,
       "message": "I\u0027m not sure it makes sense to include this dependency here.  It\u0027s actually the lines in the test files that require this and they may ask for 1.3 or 1.4 or whatever with a non-obvious need to add the #include.  Should this be closer to where 1.2 is referenced?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 46
+      },
+      "revId": "26900829ea598e4a505f39082b1ae351a657e769",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "457b95a0_b25a6acc",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-27T04:59:51Z",
+      "side": 1,
+      "message": "Yes, agree. The head file should only be included for files that really need it.",
+      "parentUuid": "380efdd8_7c0b5730",
       "range": {
         "startLine": 28,
         "startChar": 0,
