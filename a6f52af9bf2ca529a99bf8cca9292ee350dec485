@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c8d3858_068e36fa",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-02-27T02:07:10Z",
+      "side": 1,
+      "message": ":-( Rambo has informed me that the name of these isn\u0027t in some way \"fixed\" across versions. I get very nervous about assuming the name of class members unless it\u0027s mandated by some top-level base class that\u0027s common.",
+      "range": {
+        "startLine": 44,
+        "startChar": 73,
+        "endLine": 44,
+        "endChar": 78
+      },
+      "revId": "a6f52af9bf2ca529a99bf8cca9292ee350dec485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
