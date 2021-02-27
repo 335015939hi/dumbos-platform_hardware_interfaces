@@ -16,6 +16,24 @@
       "message": "Amit may not be available until next tuesday - are there others that could satisfy owners?",
       "revId": "41ca2fd21e531512252284b7357e7f4c92690f15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae62cc0e_078495c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-02-27T01:42:17Z",
+      "side": 1,
+      "message": "My fault, I remembered that Amit is OOO after adding him. \nSteven helped me get the owner approval already.\nThanks for letting know the info when Amit will return.",
+      "parentUuid": "30535e0a_583ef777",
+      "revId": "41ca2fd21e531512252284b7357e7f4c92690f15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
