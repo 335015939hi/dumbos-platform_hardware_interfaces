@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4868a5e_bbb3a76f",
+        "filename": "audio/7.0/IStreamOutEventCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1565664
+      },
+      "writtenOn": "2021-02-28T22:04:30Z",
+      "side": 1,
+      "message": "Thank you for the explanation. \nI have uploaded a new patch set with additional description as part of the comments. Can you please confirm if Patchset5 is as per your expectation ?",
+      "parentUuid": "d45a456f_b43e5f6e",
+      "range": {
+        "startLine": 57,
+        "startChar": 42,
+        "endLine": 57,
+        "endChar": 47
+      },
+      "revId": "f1d4f97affd3667afec06472d4c943667992abde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44e656f2_f2f3bea0",
         "filename": "audio/7.0/IStreamOutEventCallback.hal",
         "patchSetId": 3
