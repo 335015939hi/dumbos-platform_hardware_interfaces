@@ -16,15 +16,32 @@
 
 #include "PowerStats.h"
 
+#include "ExampleStateResidencyDataProvider.h"
+
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 
+using aidl::android::hardware::power::stats::ExampleStateResidencyDataProvider;
 using aidl::android::hardware::power::stats::PowerStats;
+using aidl::android::hardware::power::stats::State;
+
+void addExample1(std::shared_ptr<PowerStats> p) {
+    p->addStateResidencyDataProvider(std::make_unique<ExampleStateResidencyDataProvider>(
+            "CPU", std::vector<State>{{0, "Idle"}, {1, "Active"}}));
+}
+
+void addExample2(std::shared_ptr<PowerStats> p) {
+    p->addStateResidencyDataProvider(std::make_unique<ExampleStateResidencyDataProvider>(
+            "Display", std::vector<State>{{0, "Off"}, {1, "On"}}));
+}
 
 int main() {
     ABinderProcess_setThreadPoolMaxThreadCount(0);
     std::shared_ptr<PowerStats> p = ndk::SharedRefBase::make<PowerStats>();
+
+    addExample1(p);
+    addExample2(p);
 
     const std::string instance = std::string() + PowerStats::descriptor + "/default";
     binder_status_t status = AServiceManager_addService(p->asBinder().get(), instance.c_str());
