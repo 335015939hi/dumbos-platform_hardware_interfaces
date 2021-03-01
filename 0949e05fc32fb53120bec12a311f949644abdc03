@@ -16,6 +16,29 @@
       "message": "Thanks for your suggestions. The new patch tries to locate all of them. Please help to take a look again to see if I catch your points. ",
       "revId": "0949e05fc32fb53120bec12a311f949644abdc03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51787efe_56174bc5",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-03-01T23:15:07Z",
+      "side": 1,
+      "message": "I\u0027m still not _thrilled_ about redefining the macro in each file because it\u0027s \"hiding\" local variables that have different version-specific names. :-/ I\u0027m not saying \"no\", but I would encourage you to see if there\u0027s another shape that makes sense (possibly letting the macro be defined globally)?",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 68
+      },
+      "revId": "0949e05fc32fb53120bec12a311f949644abdc03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
