@@ -16,15 +16,45 @@
 
 #include "PowerStats.h"
 
+#include "MockEnergyMeter.h"
+#include "MockStateResidencyDataProvider.h"
+
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 
+using aidl::android::hardware::power::stats::MockEnergyMeter;
+using aidl::android::hardware::power::stats::MockStateResidencyDataProvider;
 using aidl::android::hardware::power::stats::PowerStats;
+using aidl::android::hardware::power::stats::State;
+
+void setExampleEnergyMeter(std::shared_ptr<PowerStats> p) {
+    p->setEnergyMeter(
+            std::make_unique<MockEnergyMeter>(std::vector<std::pair<std::string, std::string>>{
+                    {"Rail1", "Display"},
+                    {"Rail2", "CPU"},
+                    {"Rail3", "Modem"},
+            }));
+}
+
+void addExampleStateResidencyDataProvider1(std::shared_ptr<PowerStats> p) {
+    p->addStateResidencyDataProvider(std::make_unique<MockStateResidencyDataProvider>(
+            "CPU", std::vector<State>{{0, "Idle"}, {1, "Active"}}));
+}
+
+void addExampleStateResidencyDataProvider2(std::shared_ptr<PowerStats> p) {
+    p->addStateResidencyDataProvider(std::make_unique<MockStateResidencyDataProvider>(
+            "Display", std::vector<State>{{0, "Off"}, {1, "On"}}));
+}
 
 int main() {
     ABinderProcess_setThreadPoolMaxThreadCount(0);
     std::shared_ptr<PowerStats> p = ndk::SharedRefBase::make<PowerStats>();
+
+    setExampleEnergyMeter(p);
+
+    addExampleStateResidencyDataProvider1(p);
+    addExampleStateResidencyDataProvider2(p);
 
     const std::string instance = std::string() + PowerStats::descriptor + "/default";
     binder_status_t status = AServiceManager_addService(p->asBinder().get(), instance.c_str());
