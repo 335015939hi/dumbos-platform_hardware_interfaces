@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbb71bc3_9fff274c",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_1.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-03-01T12:10:45Z",
+      "side": 1,
+      "message": "if you reverse this condition, you can return errors immediately, reduce indentation and make code easier to read:",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 40
+      },
+      "revId": "314d28688f70ed0db3c722783560dcf53048b6e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67ec6280_521fdb45",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_1.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-03-01T12:10:45Z",
+      "side": 1,
+      "message": "if you reverse this condition, you can return immediately, reduce indentation and make code easier to read:\n\n\nif (session_type_2_1_ !\u003d SessionType_2_1::UNKNOWN){\n return audio_config_2_1_;\n}\n...",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 56
+      },
+      "revId": "314d28688f70ed0db3c722783560dcf53048b6e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
