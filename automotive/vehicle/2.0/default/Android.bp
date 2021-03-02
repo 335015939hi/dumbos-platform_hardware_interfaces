@@ -85,7 +85,6 @@ cc_library_static {
         "impl/vhal_v2_0/VehicleHalClient.cpp",
         "impl/vhal_v2_0/VehicleHalServer.cpp",
         "impl/vhal_v2_0/VehicleEmulator.cpp",
-        "impl/vhal_v2_0/PipeComm.cpp",
         "impl/vhal_v2_0/ProtoMessageConverter.cpp",
         "impl/vhal_v2_0/SocketComm.cpp",
         "impl/vhal_v2_0/LinearFakeValueGenerator.cpp",
@@ -97,7 +96,6 @@ cc_library_static {
     whole_static_libs: [
         "android.hardware.automotive.vehicle@2.0-emulated-user-hal-lib",
         "android.hardware.automotive.vehicle@2.0-manager-lib",
-        "libqemu_pipe",
     ],
     shared_libs: [
         "libbase",

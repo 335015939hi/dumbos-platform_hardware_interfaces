@@ -23,7 +23,6 @@
 
 #include <vhal_v2_0/VehicleUtils.h>
 
-#include "PipeComm.h"
 #include "ProtoMessageConverter.h"
 #include "SocketComm.h"
 
@@ -44,18 +43,10 @@ VehicleEmulator::VehicleEmulator(EmulatedVehicleHalIface* hal) : mHal{hal} {
     mSocketComm = std::make_unique<SocketComm>(this);
     mSocketComm->start();
 
-    if (android::base::GetBoolProperty("ro.kernel.qemu", false)) {
-        ALOGI("Starting PipeComm");
-        mPipeComm = std::make_unique<PipeComm>(this);
-        mPipeComm->start();
-    }
 }
 
 VehicleEmulator::~VehicleEmulator() {
     mSocketComm->stop();
-    if (mPipeComm) {
-        mPipeComm->stop();
-    }
 }
 
 /**
@@ -70,9 +61,6 @@ void VehicleEmulator::doSetValueFromClient(const VehiclePropValue& propValue) {
     msg.set_msg_type(vhal_proto::SET_PROPERTY_ASYNC);
 
     mSocketComm->sendMessage(msg);
-    if (mPipeComm) {
-        mPipeComm->sendMessage(msg);
-    }
 }
 
 void VehicleEmulator::doGetConfig(VehicleEmulator::EmulatorMessage const& rxMsg,

@@ -25,7 +25,6 @@
 #include "vhal_v2_0/VehicleHal.h"
 
 #include "CommConn.h"
-#include "PipeComm.h"
 #include "SocketComm.h"
 #include "VehicleHalProto.pb.h"
 
@@ -92,7 +91,6 @@ class VehicleEmulator : public MessageProcessor {
 private:
     EmulatedVehicleHalIface* mHal;
     std::unique_ptr<SocketComm> mSocketComm;
-    std::unique_ptr<PipeComm> mPipeComm;
 };
 
 }  // impl
