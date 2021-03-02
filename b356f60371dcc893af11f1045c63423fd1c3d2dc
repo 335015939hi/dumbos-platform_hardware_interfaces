@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33186096_0627d5e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1455398
+      },
+      "writtenOn": "2021-03-02T18:59:38Z",
+      "side": 1,
+      "message": "What\u0027s the benefit of this?\nThe whole emulator CarData part needs to be reformat after this.\n\nhttps://source.corp.google.com/android/external/qemu/android/android-emu/android/car.cpp;l\u003d69?q\u003dandroid_send_car_data\n\nhttps://source.corp.google.com/android/external/qemu/android-qemu2-glue/qemu-car-data-agent-impl.cpp?q\u003dCarDataAgent\n\nFeel free to ping me if necessary.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "b356f60371dcc893af11f1045c63423fd1c3d2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
