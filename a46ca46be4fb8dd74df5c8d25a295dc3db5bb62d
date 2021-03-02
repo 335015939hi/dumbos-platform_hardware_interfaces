@@ -34,6 +34,24 @@
       "parentUuid": "c78a84de_8672f667",
       "revId": "a46ca46be4fb8dd74df5c8d25a295dc3db5bb62d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b0a7397_5988a608",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2021-03-02T05:50:55Z",
+      "side": 1,
+      "message": "Or if you have an example te change on other services, I could apply the same change to tuner. Thanks!",
+      "parentUuid": "e33be2e0_7ae64313",
+      "revId": "a46ca46be4fb8dd74df5c8d25a295dc3db5bb62d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
