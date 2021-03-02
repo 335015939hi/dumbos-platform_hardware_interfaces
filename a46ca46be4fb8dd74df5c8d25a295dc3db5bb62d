@@ -16,6 +16,24 @@
       "message": "The change would need an associated sepolicy addition too.",
       "revId": "a46ca46be4fb8dd74df5c8d25a295dc3db5bb62d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e33be2e0_7ae64313",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2021-03-02T05:49:50Z",
+      "side": 1,
+      "message": "Hi Hridya, do we also have a cl for the sepolicy change?",
+      "parentUuid": "c78a84de_8672f667",
+      "revId": "a46ca46be4fb8dd74df5c8d25a295dc3db5bb62d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
