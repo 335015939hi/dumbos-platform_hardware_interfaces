@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd61aee4_863cbeea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-03-02T20:34:09Z",
+      "side": 1,
+      "message": "Please also add/run VTS tests for the new methods added.\nThey could be copied over from the 1.5 IRadio tests",
+      "revId": "d8ccab1395e9be0993619d2cf78cbc656a111c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3ad0f2e_0828826b",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-03-02T20:34:09Z",
+      "side": 1,
+      "message": "Just out of curiosity, did this not compile without these imports?\nIt seems unrelated to this change.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "d8ccab1395e9be0993619d2cf78cbc656a111c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84973c7f_28760901",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-03-02T20:34:09Z",
+      "side": 1,
+      "message": "This should be extended from DataProfileInfo 1.5 instead of overwritten:\n```\nstruct DataProfileInfo : @1.5::DataProfileInfo {\n    @1.5::DataProfileInfo base;\n    bitfield\u003cApnTypes\u003e supportedApnTypesBitmap;\n}\n```\n\n1.5 was overwritten due to deprecating fields, but that\u0027s not the case here.",
+      "range": {
+        "startLine": 80,
+        "startChar": 7,
+        "endLine": 80,
+        "endChar": 22
+      },
+      "revId": "d8ccab1395e9be0993619d2cf78cbc656a111c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
