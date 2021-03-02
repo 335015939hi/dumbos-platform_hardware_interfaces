@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80b3fd9a_a12f4ce1",
+        "filename": "audio/core/all-versions/vts/functional/7.0/Generators.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-03-02T10:25:27Z",
+      "side": 1,
+      "message": "missing result.emplace_back(device, config, validFlags); ?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 25
+      },
+      "revId": "0d69f39629756e7c48eb6fd9148d8ecd7321db04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
