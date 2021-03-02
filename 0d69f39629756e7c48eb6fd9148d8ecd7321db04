@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72a50d99_882b9c81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-02T18:55:13Z",
+      "side": 1,
+      "message": "It\u0027s in this CL. See https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1612588/1/audio/core/all-versions/vts/functional/PolicyConfig.h#86. This is only needed for V6 because V7 uses a serializer generated via xsdc tool, and it already works as expected.",
+      "parentUuid": "b9c6732b_f45cfdc3",
+      "revId": "0d69f39629756e7c48eb6fd9148d8ecd7321db04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80b3fd9a_a12f4ce1",
