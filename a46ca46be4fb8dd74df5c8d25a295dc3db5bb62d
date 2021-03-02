@@ -52,6 +52,24 @@
       "parentUuid": "e33be2e0_7ae64313",
       "revId": "a46ca46be4fb8dd74df5c8d25a295dc3db5bb62d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09570bcd_7f566440",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-03-02T06:09:57Z",
+      "side": 1,
+      "message": "I didn\u0027t create an sepolicy change since I could not test it(I usually use audit2allow to create the policy from logcat). Here is an example though: https://android-review.googlesource.com/c/platform/system/sepolicy/+/1425994/2/private/system_server.te\n\nPlease feel free to ping me if you run into trouble!",
+      "parentUuid": "7b0a7397_5988a608",
+      "revId": "a46ca46be4fb8dd74df5c8d25a295dc3db5bb62d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
