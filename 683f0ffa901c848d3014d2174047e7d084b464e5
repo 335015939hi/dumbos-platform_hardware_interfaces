@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "59b8ee1c_e37c107a",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-03-03T00:11:20Z",
+      "side": 1,
+      "message": "Hmmm, this isn\u0027t a getMemory() parameter. The first sentence makes it sounds like it is. I\u0027m not sure what the best way to word this would be.\n\nAre you saying that only the UNACCOUNTED MemtrackRecords should be reported this way? What about the ACCOUNTED records? Are they not important for memory accounting in dumpsys meminfo?",
+      "range": {
+        "startLine": 36,
+        "startChar": 28,
+        "endLine": 36,
+        "endChar": 70
+      },
+      "revId": "683f0ffa901c848d3014d2174047e7d084b464e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fbf4c17_dd7f59d2",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-03-03T00:11:20Z",
+      "side": 1,
+      "message": "\u0027must\u0027?",
+      "range": {
+        "startLine": 95,
+        "startChar": 57,
+        "endLine": 95,
+        "endChar": 63
+      },
+      "revId": "683f0ffa901c848d3014d2174047e7d084b464e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1fd9c0d2_07c42936",
