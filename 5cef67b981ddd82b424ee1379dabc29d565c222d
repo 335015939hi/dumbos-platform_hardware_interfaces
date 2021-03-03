@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59ad1332_cd2c21c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-03-03T23:49:17Z",
+      "side": 1,
+      "message": "Hi Shuo, this is the cherry-pick of ag/12061243. \n\nThe hash change (current.txt) has been in aosp but the hal change is not. That\u0027s why this CL only has HAL change this time.\n\nPls advice if this is not your preferred action.\nThanks",
+      "revId": "5cef67b981ddd82b424ee1379dabc29d565c222d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
