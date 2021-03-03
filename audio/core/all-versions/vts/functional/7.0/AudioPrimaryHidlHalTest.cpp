@@ -487,3 +487,283 @@ TEST_P(SingleConfigInputStreamTest, UpdateInvalidSinkMetadata) {
                 << ::testing::PrintToString(metadata);
     }
 }
+
+static const std::vector<DeviceConfigParameter>& getOutputDevicePcmOnlyConfigParameters() {
+    static const std::vector<DeviceConfigParameter> parameters = [] {
+        auto allParams = getOutputDeviceConfigParameters();
+        std::vector<DeviceConfigParameter> pcmParams;
+        std::copy_if(
+                allParams.begin(), allParams.end(), std::back_inserter(pcmParams), [](auto cfg) {
+                    const auto& flags = std::get<PARAM_FLAGS>(cfg);
+                    return xsd::isLinearPcm(std::get<PARAM_CONFIG>(cfg).base.format)
+                           // MMAP NOIRQ profiles use different writing protocol.
+                           &&
+                           std::find(flags.begin(), flags.end(),
+                                     toString(xsd::AudioInOutFlag::AUDIO_OUTPUT_FLAG_MMAP_NOIRQ)) ==
+                                   flags.end() &&
+                           !getCachedPolicyConfig()
+                                    .getAttachedSinkDeviceForMixPort(
+                                            std::get<PARAM_DEVICE_NAME>(
+                                                    std::get<PARAM_DEVICE>(cfg)),
+                                            std::get<PARAM_PORT_NAME>(cfg))
+                                    .empty();
+                });
+        return pcmParams;
+    }();
+    return parameters;
+}
+
+class PcmOnlyConfigOutputStreamTest : public OutputStreamTest {
+  public:
+    // A time interval to wait after write operations.
+    static constexpr int kWriteDurationUs = 100 * 1000;
+
+    bool canQueryPresentationPosition() const {
+        auto maybeSinkAddress =
+                getCachedPolicyConfig().getSinkDeviceForMixPort(getDeviceName(), getMixPortName());
+        // Returning 'true' when no sink is found so the test can fail later with a more clear
+        // problem description.
+        return !maybeSinkAddress.has_value() ||
+               !xsd::isTelephonyDevice(maybeSinkAddress.value().deviceType);
+    }
+    void createPatchIfNeeded() {
+        auto maybeSinkAddress =
+                getCachedPolicyConfig().getSinkDeviceForMixPort(getDeviceName(), getMixPortName());
+        ASSERT_TRUE(maybeSinkAddress.has_value())
+                << "No sink device found for mix port " << getMixPortName() << " (module "
+                << getDeviceName() << ")";
+        if (areAudioPatchesSupported()) {
+            AudioPortConfig source;
+            source.base.format.value(getConfig().base.format);
+            source.base.sampleRateHz.value(getConfig().base.sampleRateHz);
+            source.base.channelMask.value(getConfig().base.channelMask);
+            source.ext.mix({});
+            source.ext.mix().ioHandle = helper.getIoHandle();
+            source.ext.mix().useCase.stream({});
+            AudioPortConfig sink;
+            sink.ext.device(maybeSinkAddress.value());
+            EXPECT_OK(getDevice()->createAudioPatch(hidl_vec<AudioPortConfig>{source},
+                                                    hidl_vec<AudioPortConfig>{sink},
+                                                    returnIn(res, mPatchHandle)));
+            mHasPatch = res == Result::OK;
+        } else {
+            EXPECT_OK(stream->setDevices({maybeSinkAddress.value()}));
+        }
+    }
+    void releasePatchIfNeeded() {
+        if (areAudioPatchesSupported()) {
+            if (mHasPatch) {
+                EXPECT_OK(getDevice()->releaseAudioPatch(mPatchHandle));
+            }
+        } else {
+            EXPECT_OK(stream->setDevices({address}));
+        }
+    }
+    const std::string& getMixPortName() const { return std::get<PARAM_PORT_NAME>(GetParam()); }
+
+  private:
+    AudioPatchHandle mPatchHandle = {};
+    bool mHasPatch = false;
+};
+
+TEST_P(PcmOnlyConfigOutputStreamTest, Write) {
+    doc::test("Check that output streams opened for PCM output accepts audio data");
+    StreamWriter writer(stream.get(), stream->getBufferSize());
+    ASSERT_TRUE(writer.start());
+    usleep(kWriteDurationUs);
+    EXPECT_FALSE(writer.hasError());
+}
+
+TEST_P(PcmOnlyConfigOutputStreamTest, PresentationPositionAdvancesWithWrites) {
+    doc::test("Check that the presentation position advances with writes");
+    if (!canQueryPresentationPosition()) {
+        GTEST_SKIP() << "Presentation position retrieval is not possible";
+    }
+
+    ASSERT_NO_FATAL_FAILURE(createPatchIfNeeded());
+    StreamWriter writer(stream.get(), stream->getBufferSize());
+    ASSERT_TRUE(writer.start());
+    usleep(kWriteDurationUs);
+    EXPECT_FALSE(writer.hasError());
+
+    uint64_t framesInitial;
+    TimeSpec ts;
+    ASSERT_OK(stream->getPresentationPosition(returnIn(res, framesInitial, ts)));
+    ASSERT_RESULT(Result::OK, res);
+
+    usleep(kWriteDurationUs);
+    EXPECT_FALSE(writer.hasError());
+
+    uint64_t frames;
+    ASSERT_OK(stream->getPresentationPosition(returnIn(res, frames, ts)));
+    ASSERT_RESULT(Result::OK, res);
+    EXPECT_GT(frames, framesInitial);
+
+    writer.stop();
+    releasePatchIfNeeded();
+}
+
+TEST_P(PcmOnlyConfigOutputStreamTest, PresentationPositionPreservedOnStandby) {
+    doc::test("Check that the presentation position does not reset on standby");
+    if (!canQueryPresentationPosition()) {
+        GTEST_SKIP() << "Presentation position retrieval is not possible";
+    }
+
+    ASSERT_NO_FATAL_FAILURE(createPatchIfNeeded());
+    StreamWriter writer(stream.get(), stream->getBufferSize());
+    ASSERT_TRUE(writer.start());
+    usleep(kWriteDurationUs);
+    EXPECT_FALSE(writer.hasError());
+
+    uint64_t framesInitial;
+    TimeSpec ts;
+    ASSERT_OK(stream->getPresentationPosition(returnIn(res, framesInitial, ts)));
+    ASSERT_RESULT(Result::OK, res);
+
+    writer.pause();
+    ASSERT_OK(stream->standby());
+    writer.resume();
+    usleep(kWriteDurationUs);
+    EXPECT_FALSE(writer.hasError());
+
+    uint64_t frames;
+    ASSERT_OK(stream->getPresentationPosition(returnIn(res, frames, ts)));
+    ASSERT_RESULT(Result::OK, res);
+    EXPECT_GT(frames, framesInitial);
+
+    writer.stop();
+    releasePatchIfNeeded();
+}
+
+INSTANTIATE_TEST_CASE_P(PcmOnlyConfigOutputStream, PcmOnlyConfigOutputStreamTest,
+                        ::testing::ValuesIn(getOutputDevicePcmOnlyConfigParameters()),
+                        &DeviceConfigParameterToString);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(PcmOnlyConfigOutputStreamTest);
+
+static const std::vector<DeviceConfigParameter>& getInputDevicePcmOnlyConfigParameters() {
+    static const std::vector<DeviceConfigParameter> parameters = [] {
+        auto allParams = getInputDeviceConfigParameters();
+        std::vector<DeviceConfigParameter> pcmParams;
+        std::copy_if(
+                allParams.begin(), allParams.end(), std::back_inserter(pcmParams), [](auto cfg) {
+                    const auto& flags = std::get<PARAM_FLAGS>(cfg);
+                    return xsd::isLinearPcm(std::get<PARAM_CONFIG>(cfg).base.format)
+                           // MMAP NOIRQ profiles use different reading protocol.
+                           &&
+                           std::find(flags.begin(), flags.end(),
+                                     toString(xsd::AudioInOutFlag::AUDIO_INPUT_FLAG_MMAP_NOIRQ)) ==
+                                   flags.end() &&
+                           !getCachedPolicyConfig()
+                                    .getAttachedSourceDeviceForMixPort(
+                                            std::get<PARAM_DEVICE_NAME>(
+                                                    std::get<PARAM_DEVICE>(cfg)),
+                                            std::get<PARAM_PORT_NAME>(cfg))
+                                    .empty();
+                });
+        return pcmParams;
+    }();
+    return parameters;
+}
+
+class PcmOnlyConfigInputStreamTest : public InputStreamTest {
+  public:
+    void createPatchIfNeeded() {
+        auto maybeSourceAddress = getCachedPolicyConfig().getSourceDeviceForMixPort(
+                getDeviceName(), getMixPortName());
+        ASSERT_TRUE(maybeSourceAddress.has_value())
+                << "No source device found for mix port " << getMixPortName() << " (module "
+                << getDeviceName() << ")";
+        if (areAudioPatchesSupported()) {
+            AudioPortConfig source;
+            source.ext.device(maybeSourceAddress.value());
+            AudioPortConfig sink;
+            sink.base.format.value(getConfig().base.format);
+            sink.base.sampleRateHz.value(getConfig().base.sampleRateHz);
+            sink.base.channelMask.value(getConfig().base.channelMask);
+            sink.ext.mix({});
+            sink.ext.mix().ioHandle = helper.getIoHandle();
+            sink.ext.mix().useCase.source(toString(xsd::AudioSource::AUDIO_SOURCE_MIC));
+            EXPECT_OK(getDevice()->createAudioPatch(hidl_vec<AudioPortConfig>{source},
+                                                    hidl_vec<AudioPortConfig>{sink},
+                                                    returnIn(res, mPatchHandle)));
+            mHasPatch = res == Result::OK;
+        } else {
+            EXPECT_OK(stream->setDevices({maybeSourceAddress.value()}));
+        }
+    }
+    void releasePatchIfNeeded() {
+        if (areAudioPatchesSupported()) {
+            if (mHasPatch) {
+                EXPECT_OK(getDevice()->releaseAudioPatch(mPatchHandle));
+            }
+        } else {
+            EXPECT_OK(stream->setDevices({address}));
+        }
+    }
+    const std::string& getMixPortName() const { return std::get<PARAM_PORT_NAME>(GetParam()); }
+
+  private:
+    AudioPatchHandle mPatchHandle = {};
+    bool mHasPatch = false;
+};
+
+TEST_P(PcmOnlyConfigInputStreamTest, Read) {
+    doc::test("Check that input streams opened for PCM input retrieve audio data");
+    StreamReader reader(stream.get(), stream->getBufferSize());
+    ASSERT_TRUE(reader.start());
+    EXPECT_TRUE(reader.waitForAtLeastOneCycle());
+}
+
+TEST_P(PcmOnlyConfigInputStreamTest, CapturePositionAdvancesWithReads) {
+    doc::test("Check that the capture position advances with reads");
+
+    ASSERT_NO_FATAL_FAILURE(createPatchIfNeeded());
+    StreamReader reader(stream.get(), stream->getBufferSize());
+    ASSERT_TRUE(reader.start());
+    EXPECT_TRUE(reader.waitForAtLeastOneCycle());
+
+    uint64_t framesInitial, ts;
+    ASSERT_OK(stream->getCapturePosition(returnIn(res, framesInitial, ts)));
+    ASSERT_RESULT(Result::OK, res);
+
+    EXPECT_TRUE(reader.waitForAtLeastOneCycle());
+
+    uint64_t frames;
+    ASSERT_OK(stream->getCapturePosition(returnIn(res, frames, ts)));
+    ASSERT_RESULT(Result::OK, res);
+    EXPECT_GT(frames, framesInitial);
+
+    reader.stop();
+    releasePatchIfNeeded();
+}
+
+TEST_P(PcmOnlyConfigInputStreamTest, CapturePositionPreservedOnStandby) {
+    doc::test("Check that the capture position does not reset on standby");
+
+    ASSERT_NO_FATAL_FAILURE(createPatchIfNeeded());
+    StreamReader reader(stream.get(), stream->getBufferSize());
+    ASSERT_TRUE(reader.start());
+    EXPECT_TRUE(reader.waitForAtLeastOneCycle());
+
+    uint64_t framesInitial, ts;
+    ASSERT_OK(stream->getCapturePosition(returnIn(res, framesInitial, ts)));
+    ASSERT_RESULT(Result::OK, res);
+
+    reader.pause();
+    ASSERT_OK(stream->standby());
+    reader.resume();
+    EXPECT_FALSE(reader.hasError());
+
+    uint64_t frames;
+    ASSERT_OK(stream->getCapturePosition(returnIn(res, frames, ts)));
+    ASSERT_RESULT(Result::OK, res);
+    EXPECT_GT(frames, framesInitial);
+
+    reader.stop();
+    releasePatchIfNeeded();
+}
+
+INSTANTIATE_TEST_CASE_P(PcmOnlyConfigInputStream, PcmOnlyConfigInputStreamTest,
+                        ::testing::ValuesIn(getInputDevicePcmOnlyConfigParameters()),
+                        &DeviceConfigParameterToString);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(PcmOnlyConfigInputStreamTest);
