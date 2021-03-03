@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a704eef0_ab8bab5f",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2021-03-03T00:40:49Z",
+      "side": 1,
+      "message": "You are right. I think \u0027categories\u0027 instead or \u0027parameters\u0027 makes more sense.\n\nNot sure why the original memtrack HAL had those categories for smaps ACCOUNTED memory. They are not documented anywhere and I can\u0027t find any uses either. These stats are read directly from smaps in ActivityManagerService so there shouldn\u0027t be a need for Memtrack HAL to report them. \n\nI retained those for compatibly since we are not sure they can be removed yet.",
+      "parentUuid": "59b8ee1c_e37c107a",
+      "range": {
+        "startLine": 36,
+        "startChar": 28,
+        "endLine": 36,
+        "endChar": 70
+      },
+      "revId": "683f0ffa901c848d3014d2174047e7d084b464e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fbf4c17_dd7f59d2",
         "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-03T00:11:20Z",
       "side": 1,
       "message": "\u0027must\u0027?",
+      "range": {
+        "startLine": 95,
+        "startChar": 57,
+        "endLine": 95,
+        "endChar": 63
+      },
+      "revId": "683f0ffa901c848d3014d2174047e7d084b464e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2df60180_0bb09e88",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2021-03-03T00:40:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2fbf4c17_dd7f59d2",
       "range": {
         "startLine": 95,
         "startChar": 57,
