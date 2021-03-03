@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5e3a40d_ec9afabb",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-03T18:35:17Z",
+      "side": 1,
+      "message": "Thanks - I added some comments on the latest patchset because of this.",
+      "parentUuid": "d4649d89_381d7173",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 37
+      },
+      "revId": "26900829ea598e4a505f39082b1ae351a657e769",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "380efdd8_7c0b5730",

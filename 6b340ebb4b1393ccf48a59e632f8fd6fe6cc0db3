@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93e1e6f8_4b814d34",
+        "filename": "radio/1.0/vts/functional/vts_test_util.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-03T18:35:17Z",
+      "side": 1,
+      "message": "how can this be guaranteed to be updated? is there any race? - at least - it\u0027s not clear when using this macro that you must also wait for a response before using it",
+      "range": {
+        "startLine": 32,
+        "startChar": 23,
+        "endLine": 32,
+        "endChar": 50
+      },
+      "revId": "6b340ebb4b1393ccf48a59e632f8fd6fe6cc0db3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f77118_0990960c",
+        "filename": "radio/1.0/vts/functional/vts_test_util.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-03T18:35:17Z",
+      "side": 1,
+      "message": "prefer GTEST_SKIP so this is reflected in results at the highest level",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 21
+      },
+      "revId": "6b340ebb4b1393ccf48a59e632f8fd6fe6cc0db3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
