@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33cd8365_e74d8745",
+        "filename": "radio/1.0/vts/functional/vts_test_util.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-03-03T21:24:00Z",
+      "side": 1,
+      "message": "That\u0027s a very nice catch. The MACRO is used to eliminate the duplicated logic in each case that skip test only AFTER receiving the response.  It is worthy to adding comments to provide context on why the macro is introduced and where it should be used, instead of introducing more complicated logic into the macro.\n\nThe worst case is that, in the further, any mis-use of the macro will cause a crash of the test case and it should be able to catch immediately with the comments. I think it is acceptable but pls free feel to advice.\nThanks",
+      "parentUuid": "93e1e6f8_4b814d34",
+      "range": {
+        "startLine": 32,
+        "startChar": 23,
+        "endLine": 32,
+        "endChar": 50
+      },
+      "revId": "6b340ebb4b1393ccf48a59e632f8fd6fe6cc0db3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6f77118_0990960c",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-03T18:35:17Z",
       "side": 1,
       "message": "prefer GTEST_SKIP so this is reflected in results at the highest level",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 21
+      },
+      "revId": "6b340ebb4b1393ccf48a59e632f8fd6fe6cc0db3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "659f50e9_b0b5269a",
+        "filename": "radio/1.0/vts/functional/vts_test_util.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-03-03T21:24:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6f77118_0990960c",
       "range": {
         "startLine": 33,
         "startChar": 0,
