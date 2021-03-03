@@ -2718,7 +2718,7 @@ TEST_F(EncryptionOperationsTest, RsaOaepSuccess) {
 
         EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
         string result;
-        EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
+        EXPECT_EQ(ErrorCode::VERIFICATION_FAILED, Finish(ciphertext1, &result));
         EXPECT_EQ(0U, result.size());
     }
 }
@@ -2763,7 +2763,7 @@ TEST_F(EncryptionOperationsTest, RsaOaepDecryptWithWrongDigest) {
         Begin(KeyPurpose::DECRYPT,
               AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP)));
     string result;
-    EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext, &result));
+    EXPECT_EQ(ErrorCode::VERIFICATION_FAILED, Finish(ciphertext, &result));
     EXPECT_EQ(0U, result.size());
 }
 
@@ -2826,7 +2826,7 @@ TEST_F(EncryptionOperationsTest, RsaPkcs1Success) {
 
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
     string result;
-    EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
+    EXPECT_EQ(ErrorCode::VERIFICATION_FAILED, Finish(ciphertext1, &result));
     EXPECT_EQ(0U, result.size());
 }
 
