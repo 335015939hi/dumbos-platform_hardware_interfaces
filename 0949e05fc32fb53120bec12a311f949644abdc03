@@ -39,6 +39,30 @@
       },
       "revId": "0949e05fc32fb53120bec12a311f949644abdc03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae043afa_b7481562",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-03-03T00:16:44Z",
+      "side": 1,
+      "message": "I understand the hiding local variables are the main concern. The new patch try to improve it with change below:\n1. Move the MACRO to \"vts_test_util.h\" which will be included by all radio_hidl_hal_utils_vX_Y.h head file like this one.\n2. Each version of head file (again like this one) have to explicitly override with radio/radioRsp object in current version.\n3. Although it is still a compile time error if no override and call, this make it much more clear which radio/radioRsp is used in each version.\n\nPls let me know if this eliminate your concern here.\nThanks",
+      "parentUuid": "51787efe_56174bc5",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 68
+      },
+      "revId": "0949e05fc32fb53120bec12a311f949644abdc03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
