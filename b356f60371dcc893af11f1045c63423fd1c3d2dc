@@ -70,6 +70,30 @@
       },
       "revId": "b356f60371dcc893af11f1045c63423fd1c3d2dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db68a0da_21448d4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2021-03-03T00:09:48Z",
+      "side": 1,
+      "message": "If you still need qemu_pipe, you can use device/generic/goldfish/qemud (it is about a drop-in replacement), you can\u0027t use one in system/core/qemu_pipe.",
+      "parentUuid": "5c51fa11_84e6e583",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "b356f60371dcc893af11f1045c63423fd1c3d2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
