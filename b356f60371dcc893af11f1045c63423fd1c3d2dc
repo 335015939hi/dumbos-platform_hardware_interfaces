@@ -144,6 +144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2203be79_dffe8fec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2021-03-03T21:51:15Z",
+      "side": 1,
+      "message": "You cannot use system/core/qemu_pipe, I am going to delete because it will stop working. If you want to use the qemu pipe, you have to use one in device/generic/goldfish/qemud, but you cannot use it in hardware/interfaces.",
+      "parentUuid": "b5b13b07_0fc5d1e8",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "b356f60371dcc893af11f1045c63423fd1c3d2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4fb93b1d_54e8fe21",
