@@ -118,6 +118,23 @@
       },
       "revId": "b356f60371dcc893af11f1045c63423fd1c3d2dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fb93b1d_54e8fe21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2021-03-03T21:46:18Z",
+      "side": 1,
+      "message": "ping",
+      "revId": "b356f60371dcc893af11f1045c63423fd1c3d2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
