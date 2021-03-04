@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "123c9221_db1bdcd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-04T01:47:01Z",
+      "side": 1,
+      "message": "This should probably refer to AIDL as well, but:\n\nhttps://www.google.com/search?q\u003dandroid%20hardware/interfaces\n\nit\u0027s googleable. Do we really need this?",
+      "revId": "8e893add6529806e3680063e21b3d1fe638a7c93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
