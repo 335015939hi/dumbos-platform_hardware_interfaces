@@ -28,6 +28,8 @@ struct HalDeviceCapabilities {
    * or android.hardware.radio@1.6::LinkCapacityEstimate:secondaryUplinkCapacityKbps
    * when given from android.hardware.radio@1.6::RadioIndication:currentLinkCapacityEstimate
    * </li>
+   * <li>Requesting android.hardware.radio@1.6::IRadio.setDataThrottling()
+   * </li>
    * </ul>
    */
   bool modemReducedFeatureSet1;
