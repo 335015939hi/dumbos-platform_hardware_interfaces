@@ -23,9 +23,11 @@
 
 using android::hardware::keymaster::V4_0::SecurityLevel;
 
-int main() {
+int main(int, char** argv) {
+    ::android::base::InitLogging(argv);
     ::android::hardware::configureRpcThreadpool(1, true /* willJoinThreadpool */);
     auto keymaster = ::keymaster::V4_0::ng::CreateKeymasterDevice(SecurityLevel::SOFTWARE);
+    ::keymaster::SoftKeymasterLogger logger;
     auto status = keymaster->registerAsService();
     if (status != android::OK) {
         LOG(FATAL) << "Could not register service for Keymaster 4.0 (" << status << ")";
