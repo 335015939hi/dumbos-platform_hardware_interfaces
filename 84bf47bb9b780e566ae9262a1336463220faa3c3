@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9481f532_100f2c23",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-03-04T22:30:45Z",
+      "side": 1,
+      "message": "Rather than checking the timestamp, you should check the MAC, which should be empty in invalid auth tokens.  Even better would be to mark the auth token argument as @nullable, then you really know if it\u0027s present or not (@nullable will be translated to std::optional).",
+      "range": {
+        "startLine": 257,
+        "startChar": 2,
+        "endLine": 257,
+        "endChar": 48
+      },
+      "revId": "84bf47bb9b780e566ae9262a1336463220faa3c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a87382f_cc8c705a",
+        "filename": "identity/aidl/default/libeic/EicPresentation.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-03-04T22:30:45Z",
+      "side": 1,
+      "message": "Nit: Unusual formatting.",
+      "range": {
+        "startLine": 347,
+        "startChar": 7,
+        "endLine": 348,
+        "endChar": 90
+      },
+      "revId": "84bf47bb9b780e566ae9262a1336463220faa3c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
