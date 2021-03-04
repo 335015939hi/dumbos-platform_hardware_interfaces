@@ -30,7 +30,9 @@ cc_binary {
         "libhidlbase",
         "libhidltransport",
         "libkeymaster4",
+        "libkeymaster_portable",
         "liblog",
+        "libsoftkeymasterdevice",
         "libutils",
     ],
 
