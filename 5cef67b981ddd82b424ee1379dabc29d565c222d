@@ -34,6 +34,24 @@
       "parentUuid": "59ad1332_cd2c21c2",
       "revId": "5cef67b981ddd82b424ee1379dabc29d565c222d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b90d869d_a0f0a120",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2021-03-04T01:11:07Z",
+      "side": 1,
+      "message": "Thanks for finding this. I am OK to merge this CL if it resolves the conflict. I can help to make treehugger pass by modifying the current.txt. \n\nIt is strange to me that https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1362181 is merged but the current AOSP code is not reflected. \n\nAs you mentioned, if the hash change is in but the HAL change is not, then the hash is not reflecting the HAL, which is also strange.",
+      "parentUuid": "1b702ba4_9237ad32",
+      "revId": "5cef67b981ddd82b424ee1379dabc29d565c222d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
