@@ -16,6 +16,24 @@
       "message": "Hi Shuo, this is the cherry-pick of ag/12061243. \n\nThe hash change (current.txt) has been in aosp but the hal change is not. That\u0027s why this CL only has HAL change this time.\n\nPls advice if this is not your preferred action.\nThanks",
       "revId": "5cef67b981ddd82b424ee1379dabc29d565c222d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b702ba4_9237ad32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2021-03-04T00:56:28Z",
+      "side": 1,
+      "message": "Looking, the ag/12061243 should have been cp-ed in https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1362181",
+      "parentUuid": "59ad1332_cd2c21c2",
+      "revId": "5cef67b981ddd82b424ee1379dabc29d565c222d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
