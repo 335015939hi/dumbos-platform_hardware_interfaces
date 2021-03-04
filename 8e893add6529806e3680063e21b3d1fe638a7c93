@@ -52,6 +52,24 @@
       "parentUuid": "5d31637d_08446c3c",
       "revId": "8e893add6529806e3680063e21b3d1fe638a7c93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "771007c4_4d4d0693",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-04T23:16:50Z",
+      "side": 1,
+      "message": "The documentation being added is incorrect, and anyway it would be duplicating information in other doc systems. Android uses source.android.com for platform documentation (for better or worse). If there is an issue, we should fix it there.",
+      "parentUuid": "e8d614a8_0824f103",
+      "revId": "8e893add6529806e3680063e21b3d1fe638a7c93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
