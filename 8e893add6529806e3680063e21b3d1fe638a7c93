@@ -16,6 +16,24 @@
       "message": "This should probably refer to AIDL as well, but:\n\nhttps://www.google.com/search?q\u003dandroid%20hardware/interfaces\n\nit\u0027s googleable. Do we really need this?",
       "revId": "8e893add6529806e3680063e21b3d1fe638a7c93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d31637d_08446c3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1299481
+      },
+      "writtenOn": "2021-03-04T01:53:55Z",
+      "side": 1,
+      "message": "Having README file with necessary details is always useful. (also, many open-source projects do this)\n\n\u003e\u003e This directory contains only the interfaces that HAL services implement.\n\nfor example, this message is not clearly written anywhere. This readme will save many engineer hours I believe\n\n(I unfortunately lost many hours without this info)",
+      "parentUuid": "123c9221_db1bdcd6",
+      "revId": "8e893add6529806e3680063e21b3d1fe638a7c93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
