@@ -16,6 +16,144 @@
       "message": "looks good to me",
       "revId": "e2498b20eee4dfc0f204597fbf0890a899e9bde2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f62cff1_b418d780",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-04T21:59:40Z",
+      "side": 1,
+      "message": "assuming this is zero indexed? Can you provide an example?\n\nLike, 0b1010 would mean 2 or 4 channels can be used simultaneously?",
+      "range": {
+        "startLine": 66,
+        "startChar": 32,
+        "endLine": 66,
+        "endChar": 33
+      },
+      "revId": "e2498b20eee4dfc0f204597fbf0890a899e9bde2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e325540_6c71ca20",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-04T21:59:40Z",
+      "side": 1,
+      "message": "what is the format of this?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 36
+      },
+      "revId": "e2498b20eee4dfc0f204597fbf0890a899e9bde2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ead5b08b_386fca60",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-04T21:59:40Z",
+      "side": 1,
+      "message": "is there any reason this is a choice between 7500us and 10000us? Should this use a uint32_t for flexibility?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 35
+      },
+      "revId": "e2498b20eee4dfc0f204597fbf0890a899e9bde2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8659b21c_981238a3",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-04T21:59:40Z",
+      "side": 1,
+      "message": "camel case for consistency, also what is SDU (can you document it)?",
+      "range": {
+        "startLine": 75,
+        "startChar": 12,
+        "endLine": 75,
+        "endChar": 26
+      },
+      "revId": "e2498b20eee4dfc0f204597fbf0890a899e9bde2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30a2a99a_73b90f14",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-04T21:59:40Z",
+      "side": 1,
+      "message": "nit: the fields here are a superset of LeAudioCodecCapabilities. Should LeAudioCodecCapabilities be used as a field instead of codecType + lc3Config?",
+      "range": {
+        "startLine": 97,
+        "startChar": 7,
+        "endLine": 97,
+        "endChar": 32
+      },
+      "revId": "e2498b20eee4dfc0f204597fbf0890a899e9bde2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0d1e994_d173f05b",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-04T21:59:40Z",
+      "side": 1,
+      "message": "Should we have this limit? 16mbps is exceeded by some audio formats, and those probably won\u0027t be used by this, but should we save those bits here? We can\u0027t extend these bits to mean something else later (and anyway we want each field/type to represent only one thing at this layer)",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 41
+      },
+      "revId": "e2498b20eee4dfc0f204597fbf0890a899e9bde2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
