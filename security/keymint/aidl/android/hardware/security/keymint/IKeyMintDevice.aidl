@@ -107,7 +107,7 @@ import android.hardware.security.secureclock.TimeStampToken;
  *
  *      - 168-bit keys.
  *      - CBC and ECB mode.
-
+ *
  *      - CBC and ECB modes must support unpadded and PKCS7 padding modes.  With no padding CBC and
  *        ECB-mode operations must fail with ErrorCode::INVALID_INPUT_LENGTH if the input isn't a
  *        multiple of the DES block size.
@@ -310,6 +310,10 @@ interface IKeyMintDevice {
      * If Tag::BLOCK_MODE is specified with value BlockMode::GCM, then the caller must also provide
      * Tag::MIN_MAC_LENGTH.  If omitted, generateKey must return ErrorCode::MISSING_MIN_MAC_LENGTH.
      *
+     * == 3DES Keys ==
+     *
+     * Only Tag::KEY_SIZE is required to generate an 3DES key, and its value must be 168.  If
+     * omitted, generateKey must return ErrorCode::UNSUPPORTED_KEY_SIZE.
      *
      * @param keyParams Key generation parameters are defined as KeyMintDevice tag/value pairs,
      *        provided in params.  See above for detailed specifications of which tags are required
