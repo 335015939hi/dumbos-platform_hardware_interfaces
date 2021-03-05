@@ -22,6 +22,30 @@
       },
       "revId": "fe36c1c85c49a603612c69a74df67807152809a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "075960be_0a49a227",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-05T19:08:42Z",
+      "side": 1,
+      "message": "Sounds good. Added in a separate CL",
+      "parentUuid": "e607d8af_5cbab956",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "fe36c1c85c49a603612c69a74df67807152809a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
