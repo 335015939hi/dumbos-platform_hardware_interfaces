@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c1c38be_e8799d94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-05T01:23:03Z",
+      "side": 1,
+      "message": "I verified that VTS tests pass on cuttlefish https://fusion2.corp.google.com/invocations/66ed2e40-5beb-44df-b426-4989ce33d80e/targets",
+      "revId": "5da872d7f60fb0e15457f9bd70aeaadfd1598c8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
