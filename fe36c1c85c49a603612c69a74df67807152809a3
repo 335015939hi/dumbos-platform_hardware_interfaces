@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e607d8af_5cbab956",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-05T19:04:02Z",
+      "side": 1,
+      "message": "nit: usually prefer separate CL over \u0027Also\u0027 b/c for instance, if this caused a crash, you wouldn\u0027t want to revert OWNERS. Also - the OWNERS change technically should be reviewed by someone else. Also - having distinct changes like this makes git bisect more effective (etc..)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "fe36c1c85c49a603612c69a74df67807152809a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
