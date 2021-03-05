@@ -25,7 +25,7 @@ import android.hardware.security.keymint.KeyParameter;
  */
 @VintfStability
 parcelable BeginResult {
-    /* This is the challenge used in verifyAuthorization.  It must be a nonce. */
+    /* This is the challenge used to verify authorization of an operation. */
     long challenge;
 
     /**

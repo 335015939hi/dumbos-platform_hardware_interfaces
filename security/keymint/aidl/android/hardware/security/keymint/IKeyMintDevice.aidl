@@ -107,7 +107,6 @@ import android.hardware.security.secureclock.TimeStampToken;
  *
  *      - 168-bit keys.
  *      - CBC and ECB mode.
-
  *      - CBC and ECB modes must support unpadded and PKCS7 padding modes.  With no padding CBC and
  *        ECB-mode operations must fail with ErrorCode::INVALID_INPUT_LENGTH if the input isn't a
  *        multiple of the DES block size.
@@ -185,7 +184,7 @@ import android.hardware.security.secureclock.TimeStampToken;
  * startup, preferably by the bootloader.  This bitstring must be cryptographically bound to every
  * key managed by the IKeyMintDevice.  As above, the recommended mechanism for this cryptographic
  * binding is to include the Root of Trust data in the input to the key derivation function used to
- * derive a key that is used to encryp the private/secret key material.
+ * derive a key that is used to encrypt the private/secret key material.
  *
  * The root of trust consists of a bitstring that must be derived from the public key used by
  * Verified Boot to verify the signature on the boot image and from the lock state of the
@@ -247,7 +246,7 @@ interface IKeyMintDevice {
      * Generates a new cryptographic key, specifying associated parameters, which must be
      * cryptographically bound to the key.  IKeyMintDevice implementations must disallow any use
      * of a key in any way inconsistent with the authorizations specified at generation time.  With
-     * respect to parameters that the secure environment cannot enforce, the secure envionment's
+     * respect to parameters that the secure environment cannot enforce, the secure environment's
      * obligation is limited to ensuring that the unenforceable parameters associated with the key
      * cannot be modified.  In addition, the characteristics returned by generateKey places
      * parameters correctly in the tee-enforced and strongbox-enforced lists.
@@ -288,7 +287,7 @@ interface IKeyMintDevice {
      *   except AGREE_KEY must be supported for RSA keys.
      *
      * o Tag::DIGEST specifies digest algorithms that may be used with the new key.  TEE
-     *   IKeyMintDevice implementatiosn must support all Digest values (see digest.aidl) for RSA
+     *   IKeyMintDevice implementations must support all Digest values (see digest.aidl) for RSA
      *   keys.  StrongBox IKeyMintDevice implementations must support SHA_2_256.
      *
      * o Tag::PADDING specifies the padding modes that may be used with the new
@@ -312,6 +311,10 @@ interface IKeyMintDevice {
      * If Tag::BLOCK_MODE is specified with value BlockMode::GCM, then the caller must also provide
      * Tag::MIN_MAC_LENGTH.  If omitted, generateKey must return ErrorCode::MISSING_MIN_MAC_LENGTH.
      *
+     * == 3DES Keys ==
+     *
+     * Only Tag::KEY_SIZE is required to generate an 3DES key, and its value must be 168.  If
+     * omitted, generateKey must return ErrorCode::UNSUPPORTED_KEY_SIZE.
      *
      * @param keyParams Key generation parameters are defined as KeyMintDevice tag/value pairs,
      *        provided in params.  See above for detailed specifications of which tags are required
@@ -375,7 +378,7 @@ interface IKeyMintDevice {
      *
      * @param inWrappedKeyData The wrapped key material to import.
      *     TODO(seleneh) Decide if we want the wrapped key in DER-encoded ASN.1 format or CBOR
-     *     format or both.  And specify the standarized format.
+     *     format or both.  And specify the standardized format.
      *
      *     KeyDescription ::= SEQUENCE(
      *         keyFormat INTEGER,                   # Values from KeyFormat enum.
@@ -435,7 +438,7 @@ interface IKeyMintDevice {
      *
      * @param passwordSid specifies the password secure ID (SID) of the user that owns the key being
      *        installed.  If the authorization list in wrappedKeyData contains a
-     *        Tag::USER_SECURE_IDwith a value that has the HardwareAuthenticatorType::PASSWORD bit
+     *        Tag::USER_SECURE_ID with a value that has the HardwareAuthenticatorType::PASSWORD bit
      *        set, the constructed key must be bound to the SID value provided by this argument.  If
      *        the wrappedKeyData does not contain such a tag and value, this argument must be
      *        ignored.
@@ -503,8 +506,6 @@ interface IKeyMintDevice {
      * this function is called all keys with Tag::ROLLBACK_RESISTANCE in their hardware-enforced
      * authorization lists must be rendered permanently unusable.  Keys without
      * Tag::ROLLBACK_RESISTANCE may or may not be rendered unusable.
-     *
-     * @return error See the ErrorCode enum.
      */
     void deleteAllKeys();
 
@@ -523,17 +524,17 @@ interface IKeyMintDevice {
 
     /**
      * Begins a cryptographic operation using the specified key.  If all is well, begin() must
-     * return ErrorCode::OK and create an operation handle which must be passed to subsequent calls
-     * to update(), finish() or abort().
+     * return ErrorCode::OK and create an IKeyMintOperation handle which will be used to perform
+     * the cryptographic operation.
      *
-     * It is critical that each call to begin() be paired with a subsequent call to finish() or
-     * abort(), to allow the IKeyMintDevice implementation to clean up any internal operation
-     * state.  The caller's failure to do this may leak internal state space or other internal
-     * resources and may eventually cause begin() to return ErrorCode::TOO_MANY_OPERATIONS when it
-     * runs out of space for operations.  Any result other than ErrorCode::OK from begin(), update()
-     * or finish() implicitly aborts the operation, in which case abort() need not be called (and
-     * must return ErrorCode::INVALID_OPERATION_HANDLE if called).  IKeyMintDevice implementations
-     * must support 32 concurrent operations.
+     * It is critical that each successful call to begin() be paired with a subsequent call to
+     * finish() or abort() on the resulting IKeyMintOperation, to allow the IKeyMintDevice
+     * implementation to clean up any internal operation state.  The caller's failure to do this may
+     * leak internal state space or other internal resources and may eventually cause begin() to
+     * return ErrorCode::TOO_MANY_OPERATIONS when it runs out of space for operations.  Any result
+     * other than ErrorCode::OK from begin() will not return an IKeyMintOperation (in which case
+     * calling finish() or abort() is neither possible nor necessary). IKeyMintDevice
+     * implementations must support 32 concurrent operations.
      *
      * If Tag::APPLICATION_ID or Tag::APPLICATION_DATA were specified during key generation or
      * import, calls to begin must include those tags with the originally-specified values in the
@@ -687,7 +688,7 @@ interface IKeyMintDevice {
      * authorizations contain Tag::CALLER_NONCE, then the caller may provide an IV/nonce with
      * Tag::NONCE in inParams.  If a nonce is provided when Tag::CALLER_NONCE is not authorized,
      * begin() must return ErrorCode::CALLER_NONCE_PROHIBITED.  If a nonce is not provided when
-     * Tag::CALLER_NONCE is authorized, IKeyMintDevice msut generate a random IV/nonce.
+     * Tag::CALLER_NONCE is authorized, IKeyMintDevice must generate a random IV/nonce.
      *
      * -- HMAC keys --
      *
@@ -737,7 +738,7 @@ interface IKeyMintDevice {
      * Note that the IKeyMintDevice UNLOCKED_DEVICE_REQUIRED semantics are slightly different from
      * the UNLOCKED_DEVICE_REQUIRED semantics enforced by keystore.  Keystore handles device locking
      * on a per-user basis.  Because auth tokens do not contain an Android user ID, it's not
-     * possible to replicate the keystore enformcement logic in IKeyMintDevice.  So from the
+     * possible to replicate the keystore enforcement logic in IKeyMintDevice.  So from the
      * IKeyMintDevice perspective, any user unlock unlocks all UNLOCKED_DEVICE_REQUIRED keys.
      * Keystore will continue enforcing the per-user device locking.
      *

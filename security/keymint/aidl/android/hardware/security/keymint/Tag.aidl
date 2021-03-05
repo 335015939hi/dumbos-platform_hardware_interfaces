@@ -19,7 +19,7 @@ package android.hardware.security.keymint;
 import android.hardware.security.keymint.TagType;
 
 // TODO(seleneh) : note aidl currently does not support double nested enum definitions such as
-// ROOT_OF_TRUST = TagType:BYTES | 704.  So we are forced to write definations as
+// ROOT_OF_TRUST = TagType:BYTES | 704.  So we are forced to write definitions as
 // ROOT_OF_TRUST = (9 << 28) for now.  Will need to flip this back later when aidl support is added.
 
 /**
@@ -59,7 +59,7 @@ enum Tag {
     ALGORITHM = (1 << 28) /* TagType:ENUM */ | 2,
 
     /**
-     * Tag::KEY_SIZE pecifies the size, in bits, of the key, measuring in the normal way for the
+     * Tag::KEY_SIZE specifies the size, in bits, of the key, measuring in the normal way for the
      * key's algorithm.  For example, for RSA keys, Tag::KEY_SIZE specifies the size of the public
      * modulus.  For AES keys it specifies the length of the secret key material.  For 3DES keys it
      * specifies the length of the key material, not counting parity bits (though parity bits must
@@ -241,7 +241,7 @@ enum Tag {
      * ErrorCode::ROLLBACK_RESISTANCE_UNAVAILABLE.  IKeyMintDevice implementations are not
      * required to support rollback resistance.
      *
-     * Must be hardwared-enforced.
+     * Must be hardware-enforced.
      */
     ROLLBACK_RESISTANCE = (7 << 28) /* TagType:BOOL */ | 303,
 
@@ -251,7 +251,7 @@ enum Tag {
     /**
      * Keys tagged with EARLY_BOOT_ONLY may only be used during early boot, until
      * IKeyMintDevice::earlyBootEnded() is called.  Early boot keys may be created after
-     * early boot.  Early boot keys may not be imprted at all, if Tag::EARLY_BOOT_ONLY is
+     * early boot.  Early boot keys may not be imported at all, if Tag::EARLY_BOOT_ONLY is
      * provided to IKeyMintDevice::importKey, the import must fail with
      * ErrorCode::INVALID_ARGUMENT.
      */
@@ -307,7 +307,7 @@ enum Tag {
      * with ErrorCode::KEY_RATE_LIMIT_EXCEEDED.  This implies that the IKeyMintDevice must keep a
      * table of use counters for keys with this tag.  Because memory is often limited, this table
      * may have a fixed maximum size and KeyMint may fail operations that attempt to use keys with
-     * this tag when the table is full.  The table must acommodate at least 8 in-use keys and
+     * this tag when the table is full.  The table must accommodate at least 8 in-use keys and
      * aggressively reuse table slots when key minimum-usage intervals expire.  If an operation
      * fails because the table is full, KeyMint returns ErrorCode::TOO_MANY_OPERATIONS.
      *
@@ -327,7 +327,7 @@ enum Tag {
      * device is restarted.  This implies that the IKeyMintDevice must keep a table of use
      * counters for keys with this tag.  Because KeyMint memory is often limited, this table can
      * have a fixed maximum size and KeyMint can fail operations that attempt to use keys with
-     * this tag when the table is full.  The table needs to acommodate at least 8 keys.  If an
+     * this tag when the table is full.  The table needs to accommodate at least 8 keys.  If an
      * operation fails because the table is full, IKeyMintDevice must
      * ErrorCode::TOO_MANY_OPERATIONS.
      *
@@ -386,14 +386,14 @@ enum Tag {
      * key, and may only be used if the difference between the current time when begin() is called
      * and the timestamp in the HardwareAuthToken is less than the value in Tag::AUTH_TIMEOUT * 1000
      * (the multiplier is because Tag::AUTH_TIMEOUT is in seconds, but the HardwareAuthToken
-     * timestamp is in milliseconds).  Otherwise the IKeyMintDevice must returrn
+     * timestamp is in milliseconds).  Otherwise the IKeyMintDevice must return
      * ErrorCode::KEY_USER_NOT_AUTHENTICATED.
      *
      * If Tag::AUTH_TIMEOUT is not present, then the key is an "auth-per-operation" key.  In this
      * case, begin() must not require a HardwareAuthToken with appropriate contents.  Instead,
      * update() and finish() must receive a HardwareAuthToken with Tag::USER_SECURE_ID value in
      * userId or authenticatorId fields, and the current operation's operation handle in the
-     * challenge field.  Otherwise the IKeyMintDevice must returrn
+     * challenge field.  Otherwise the IKeyMintDevice must return
      * ErrorCode::KEY_USER_NOT_AUTHENTICATED.
      *
      * This tag is repeatable.  If repeated, and any one of the values matches the HardwareAuthToken
@@ -434,7 +434,7 @@ enum Tag {
     /**
      * Tag::AUTH_TIMEOUT specifies the time in seconds for which the key is authorized for use,
      * after user authentication.  If
-     * Tag::USER_SECURE_ID is present and this tag is not, then the key requies authentication for
+     * Tag::USER_SECURE_ID is present and this tag is not, then the key requires authentication for
      * every usage (see begin() for the details of the authentication-per-operation flow).
      *
      * The value is a 32-bit integer specifying the time in seconds after a successful
@@ -504,7 +504,7 @@ enum Tag {
      * Tag::TRUSTED_CONFIRMATION_REQUIRED is only applicable to keys with KeyPurpose SIGN, and
      *  specifies that this key must not be usable unless the user provides confirmation of the data
      *  to be signed.  Confirmation is proven to keyMint via an approval token.  See
-     *  CONFIRMATION_TOKEN, as well as the ConfirmatinUI HAL.
+     *  CONFIRMATION_TOKEN, as well as the ConfirmationUI HAL.
      *
      * If an attempt to use a key with this tag does not have a cryptographically valid
      * CONFIRMATION_TOKEN provided to finish() or if the data provided to update()/finish() does not
@@ -524,10 +524,10 @@ enum Tag {
 
     /**
      * Tag::APPLICATION_ID.  When provided to generateKey or importKey, this tag specifies data
-     * that is necessary during all uses of the key.  In particular, calls to exportKey() and
-     * getKeyCharacteristics() must provide the same value to the clientId parameter, and calls to
-     * begin must provide this tag and the same associated data as part of the inParams set.  If
-     * the correct data is not provided, the method must return ErrorCode::INVALID_KEY_BLOB.
+     * that is necessary during all uses of the key.  In particular, calls to exportKey() must
+     * provide the same value to the clientId parameter, and calls to begin() must provide this
+     * tag and the same associated data as part of the inParams set.  If the correct data is not
+     * provided, the method must return ErrorCode::INVALID_KEY_BLOB.
      *
      * The content of this tag must be bound to the key cryptographically, meaning it must not be
      * possible for an adversary who has access to all of the secure world secrets but does not have
@@ -550,7 +550,7 @@ enum Tag {
      * provide this tag and the same associated data as part of the inParams set.  If the correct
      * data is not provided, the method must return ErrorCode::INVALID_KEY_BLOB.
      *
-     * The content of this tag msut be bound to the key cryptographically, meaning it must not be
+     * The content of this tag must be bound to the key cryptographically, meaning it must not be
      * possible for an adversary who has access to all of the secure world secrets but does not have
      * access to the tag content to decrypt the key without brute-forcing the tag content, which
      * applications can prevent by specifying sufficiently high-entropy content.
@@ -593,8 +593,8 @@ enum Tag {
      * Tag::OS_VERSION specifies the system OS version with which the key may be used.  This tag is
      * never sent to the IKeyMintDevice, but is added to the hardware-enforced authorization list
      * by the TA.  Any attempt to use a key with a Tag::OS_VERSION value different from the
-     * currently-running OS version must cause begin(), getKeyCharacteristics() or exportKey() to
-     * return ErrorCode::KEY_REQUIRES_UPGRADE.  See upgradeKey() for details.
+     * currently-running OS version must cause begin() or exportKey() to return
+     * ErrorCode::KEY_REQUIRES_UPGRADE.  See upgradeKey() for details.
      *
      * The value of the tag is an integer of the form MMmmss, where MM is the major version number,
      * mm is the minor version number, and ss is the sub-minor version number.  For example, for a
@@ -616,9 +616,8 @@ enum Tag {
      * Tag::OS_PATCHLEVEL specifies the system security patch level with which the key may be used.
      * This tag is never sent to the keyMint TA, but is added to the hardware-enforced
      * authorization list by the TA.  Any attempt to use a key with a Tag::OS_PATCHLEVEL value
-     * different from the currently-running system patchlevel must cause begin(),
-     * getKeyCharacteristics() or exportKey() to return ErrorCode::KEY_REQUIRES_UPGRADE.  See
-     * upgradeKey() for details.
+     * different from the currently-running system patchlevel must cause begin() or
+     * exportKey() to return ErrorCode::KEY_REQUIRES_UPGRADE.  See upgradeKey() for details.
      *
      * The value of the tag is an integer of the form YYYYMM, where YYYY is the four-digit year of
      * the last update and MM is the two-digit month of the last update.  For example, for a key
@@ -779,7 +778,7 @@ enum Tag {
 
     /**
      * Tag::ATTESTATION_ID_MANUFACTURER provides the device's manufacturer name, as returned by
-     * Build.MANUFACTURER in Android, to attstKey().  This field must be set only when requesting
+     * Build.MANUFACTURER in Android, to attestKey().  This field must be set only when requesting
      * attestation of the device's identifiers.
      *
      * If the device does not support ID attestation (or destroyAttestationIds() was previously
@@ -807,9 +806,8 @@ enum Tag {
      * Tag::VENDOR_PATCHLEVEL specifies the vendor image security patch level with which the key may
      * be used.  This tag is never sent to the keyMint TA, but is added to the hardware-enforced
      * authorization list by the TA.  Any attempt to use a key with a Tag::VENDOR_PATCHLEVEL value
-     * different from the currently-running system patchlevel must cause begin(),
-     * getKeyCharacteristics() or exportKey() to return ErrorCode::KEY_REQUIRES_UPGRADE.  See
-     * upgradeKey() for details.
+     * different from the currently-running system patchlevel must cause begin() or
+     * exportKey() to return ErrorCode::KEY_REQUIRES_UPGRADE.  See upgradeKey() for details.
      *
      * The value of the tag is an integer of the form YYYYMMDD, where YYYY is the four-digit year of
      * the last update, MM is the two-digit month and DD is the two-digit day of the last
@@ -830,8 +828,8 @@ enum Tag {
      * key may be used.  This tag is never sent to the keyMint TA, but is added to the
      * hardware-enforced authorization list by the TA.  Any attempt to use a key with a
      * Tag::BOOT_PATCHLEVEL value different from the currently-running system patchlevel must
-     * cause begin(), getKeyCharacteristics() or exportKey() to return
-     * ErrorCode::KEY_REQUIRES_UPGRADE.  See upgradeKey() for details.
+     * cause begin() or exportKey() to return ErrorCode::KEY_REQUIRES_UPGRADE.  See upgradeKey() for
+     * details.
      *
      * The value of the tag is an integer of the form YYYYMMDD, where YYYY is the four-digit year of
      * the last update, MM is the two-digit month and DD is the two-digit day of the last
@@ -839,7 +837,7 @@ enum Tag {
      * the value would be 20180605.  If the day is not known, 00 may be substituted.
      *
      * During each boot, the bootloader must provide the patch level of the boot image to the secure
-     * envirionment (mechanism is implementation-defined).
+     * environment (mechanism is implementation-defined).
      *
      * Must be hardware-enforced.
      */
