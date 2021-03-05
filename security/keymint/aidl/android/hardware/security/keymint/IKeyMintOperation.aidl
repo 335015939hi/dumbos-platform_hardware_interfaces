@@ -99,7 +99,7 @@ interface IKeyMintOperation {
      * in the inputConsumed parameter.  Implementations must always consume at least one byte,
      * unless the operation cannot accept any more; if more than zero bytes are provided and zero
      * bytes are consumed, callers must consider this an error and abort the operation.
-     * TODO(seleneh) update the code to always consume alll the input data. b/168665179.
+     * TODO(seleneh) update the code to always consume all the input data. b/168665179.
      *
      * Implementations may also choose how much data to return, as a result of the update.  This is
      * only relevant for encryption and decryption operations, because signing and verification
