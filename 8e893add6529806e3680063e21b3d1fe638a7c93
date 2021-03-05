@@ -106,6 +106,24 @@
       "parentUuid": "d742c15a_ff28dc3f",
       "revId": "8e893add6529806e3680063e21b3d1fe638a7c93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ae36ff8_7f8b190d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1299481
+      },
+      "writtenOn": "2021-03-05T20:50:46Z",
+      "side": 1,
+      "message": "I was hoping you\u0027ll give comments regarding this, any thoughts on this:\n\n\u003e\u003e NOTE: This directory contains only the interfaces that HAL services\n      implement. For system service interfaces use\n      //frameworks/hardware/interfaces/ or other directories.\n\nI\u0027ve updated",
+      "parentUuid": "cbb034b3_fe1fec3a",
+      "revId": "8e893add6529806e3680063e21b3d1fe638a7c93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
