@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40795561_2b51b6fc",
+        "filename": "power/stats/aidl/default/MockEnergyConsumer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2021-03-05T22:36:31Z",
+      "side": 1,
+      "message": "Are other \"purely for demonstration\" default implementations using this nomenclature?  I ask because this seems a bit more like a fake than a mock, and while that\u0027s a somewhat pedantic distinction, it might(?) lead to some confusion since it\u0027s going into AOSP?",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "e7cc525eb17c5e160c9ae02479a7c84aaea6a844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf15ad93_3839812d",
+        "filename": "power/stats/aidl/default/MockStateResidencyDataProvider.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2021-03-05T22:36:31Z",
+      "side": 1,
+      "message": "I\u0027ve probably just been in Java mental space too long, but it seems like there\u0027s an awful lot of implementation code in these header files, possibly just for the sake of avoiding cpp files.  What\u0027s the rationale?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 9
+      },
+      "revId": "e7cc525eb17c5e160c9ae02479a7c84aaea6a844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bfe1d6f_d4648327",
+        "filename": "power/stats/aidl/default/PowerStats.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2021-03-05T22:36:31Z",
+      "side": 1,
+      "message": "This seems a bit cryptic, unless I\u0027m just having a brain glitch.  \"res\" below is less cryptic, but still perhaps unnecessarily terse.  This code is likely to be used as a reference by other developers, so a focus on clarity might be helpful toward that end.",
+      "range": {
+        "startLine": 143,
+        "startChar": 13,
+        "endLine": 143,
+        "endChar": 19
+      },
+      "revId": "e7cc525eb17c5e160c9ae02479a7c84aaea6a844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
