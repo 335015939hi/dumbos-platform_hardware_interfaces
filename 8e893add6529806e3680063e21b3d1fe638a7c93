@@ -88,6 +88,24 @@
       "parentUuid": "771007c4_4d4d0693",
       "revId": "8e893add6529806e3680063e21b3d1fe638a7c93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbb034b3_fe1fec3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-05T18:39:52Z",
+      "side": 1,
+      "message": "This only refers to HIDL, but this directory contains AIDL + HIDL interfaces",
+      "parentUuid": "d742c15a_ff28dc3f",
+      "revId": "8e893add6529806e3680063e21b3d1fe638a7c93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
