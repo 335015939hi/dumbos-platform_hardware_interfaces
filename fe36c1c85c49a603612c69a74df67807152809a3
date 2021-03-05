@@ -46,6 +46,30 @@
       },
       "revId": "fe36c1c85c49a603612c69a74df67807152809a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83be647f_3593c5c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-05T19:26:02Z",
+      "side": 1,
+      "message": "btw - if you switch the order of these (or merge the OWNERS update and rebase this), it would apply to this CL as well.",
+      "parentUuid": "075960be_0a49a227",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "fe36c1c85c49a603612c69a74df67807152809a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
