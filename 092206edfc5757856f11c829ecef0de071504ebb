@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a0d499e_7600bc12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-05T18:41:26Z",
+      "side": 1,
+      "message": "are there any specific API questions here? or can you add someone specific to power stats to do review of the default implementation? (you might also add OWNERS in power/stats/aidl/, if you want)",
+      "revId": "092206edfc5757856f11c829ecef0de071504ebb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
