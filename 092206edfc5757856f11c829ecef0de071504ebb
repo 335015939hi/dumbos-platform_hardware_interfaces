@@ -16,6 +16,41 @@
       "message": "are there any specific API questions here? or can you add someone specific to power stats to do review of the default implementation? (you might also add OWNERS in power/stats/aidl/, if you want)",
       "revId": "092206edfc5757856f11c829ecef0de071504ebb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d26d0116_ab2c36a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-05T18:57:56Z",
+      "side": 1,
+      "message": "k",
+      "revId": "092206edfc5757856f11c829ecef0de071504ebb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea4860ef_a8d7e452",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-05T18:57:56Z",
+      "side": 1,
+      "message": "Will do both of these things.",
+      "parentUuid": "3a0d499e_7600bc12",
+      "revId": "092206edfc5757856f11c829ecef0de071504ebb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
