@@ -50,7 +50,11 @@
 
 /* As component is switching states (loaded<->idle<->execute), dequeueMessage()
  * expects the events to be received within this duration */
+<<<<<<< TARGET BRANCH (20eb57 Fix VTS issue of BroadcastRadio v2.0)
 #define DEFAULT_TIMEOUT 100000
+=======
+#define DEFAULT_TIMEOUT 150000
+>>>>>>> SOURCE BRANCH (c476ff Increase default timeout for changeStateIdletoExecute() from)
 // b/70933963
 #define RELAXED_TIMEOUT 400000
 /* Time interval between successive Input/Output enqueues */
