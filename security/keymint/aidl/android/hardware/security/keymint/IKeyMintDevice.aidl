@@ -761,6 +761,12 @@ interface IKeyMintDevice {
      */
     void earlyBootEnded();
 
+    /*
+     * Called by the client to get a wrapped ephemeral key from a wrapped
+     * storage key.
+     */
+    byte[] convertStorageKeyToEphemeral(in byte[] storageKeyBlob);
+
     /**
      * Called by the client to perform a KeyMint operation.
      *
