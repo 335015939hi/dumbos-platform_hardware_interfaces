@@ -52,6 +52,11 @@ Return<void> RadioConfigResponse::setPreferredDataModemResponse(
     return Void();
 }
 
+Return<void> RadioConfigResponse::setPreferredDataModemResponse_1_3(
+        const ::android::hardware::radio::V1_0::RadioResponseInfo& /* info */) {
+    return Void();
+}
+
 Return<void> RadioConfigResponse::getModemsConfigResponse(
         const ::android::hardware::radio::V1_0::RadioResponseInfo& /* info */,
         const ModemsConfig& /* mConfig */) {

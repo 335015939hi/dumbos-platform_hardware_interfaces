@@ -28,3 +28,46 @@ TEST_P(RadioConfigHidlTest, getHalDeviceCapabilities) {
     ALOGI("getHalDeviceCapabilities, rspInfo.error = %s\n",
           toString(radioConfigRsp->rspInfo.error).c_str());
 }
+
+/*
+ * Test IRadioConfig.setPreferredDataModem_1_3()
+ */
+TEST_P(RadioConfigHidlTest, setPreferredDataModem_1_3) {
+    serial = GetRandomSerialNumber();
+    Return<void> res = radioConfig->getPhoneCapability(serial);
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioConfigRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioConfigRsp->rspInfo.serial);
+    ALOGI("getPhoneCapability, rspInfo.error = %s\n",
+          toString(radioConfigRsp->rspInfo.error).c_str());
+
+    ASSERT_TRUE(CheckAnyOfErrors(
+            radioConfigRsp->rspInfo.error,
+            {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::INTERNAL_ERR}));
+
+    if (radioConfigRsp->rspInfo.error != RadioError ::NONE) {
+        return;
+    }
+
+    if (radioConfigRsp->phoneCap.logicalModemList.size() == 0) {
+        return;
+    }
+
+    // We get phoneCapability. send setPreferredDataModem command
+    serial = GetRandomSerialNumber();
+    uint8_t modemId = radioConfigRsp->phoneCap.logicalModemList[0].modemId;
+    res = radioConfig->setPreferredDataModem_1_3(serial, modemId);
+
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioConfigRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioConfigRsp->rspInfo.serial);
+    ALOGI("setPreferredDataModem_1_3, rspInfo.error = %s\n",
+          toString(radioConfigRsp->rspInfo.error).c_str());
+
+    ASSERT_TRUE(CheckAnyOfErrors(
+            radioConfigRsp->rspInfo.error,
+            {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE,
+             RadioError::OP_NOT_ALLOWED_DURING_VOICE_CALL, RadioError::INVALID_SIM_STATE}));
+}

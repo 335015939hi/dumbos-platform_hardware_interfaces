@@ -36,4 +36,19 @@ interface IRadioConfigResponse extends @1.2::IRadioConfigResponse {
      */
     oneway getHalDeviceCapabilitiesResponse(RadioResponseInfo info,
         HalDeviceCapabilities capabilities);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     *
+     * This is exactly the same as @1.0::setPreferredDataModemResponse, but added two
+     * more error codes OP_NOT_ALLOWED_DURING_VOICE_CALL and INVALID_SIM_STATE.
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:OP_NOT_ALLOWED_DURING_VOICE_CALL
+     *   RadioError:INVALID_SIM_STATE
+     */
+    oneway setPreferredDataModemResponse_1_3(RadioResponseInfo info);
 };

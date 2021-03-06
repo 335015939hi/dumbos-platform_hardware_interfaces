@@ -82,6 +82,8 @@ class RadioConfigResponse : public IRadioConfigResponse {
 
     Return<void> setPreferredDataModemResponse(const RadioResponseInfo& info);
 
+    Return<void> setPreferredDataModemResponse_1_3(const RadioResponseInfo& info);
+
     Return<void> getModemsConfigResponse(const RadioResponseInfo& info,
                                          const ModemsConfig& mConfig);
 

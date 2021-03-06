@@ -39,4 +39,21 @@ interface IRadioConfig extends @1.1::IRadioConfig {
      * IRadioConfigResponse.getHalDeviceCapabilitiesResponse()
      */
     oneway getHalDeviceCapabilities(int32_t serial);
+
+   /**
+     * Set preferred data modem Id.
+     * In a multi-SIM device, notify modem layer which logical modem will be used primarily
+     * for data. It helps modem with resource optimization and decisions of what data connections
+     * should be satisfied.
+     *
+     * Note this is exactly the same as @1.0::setPreferredDataModem, but added two more error
+     * codes in the response setPreferredDataModemResponse_1_3.
+     *
+     * @param serial Serial number of request.
+     * @param modem Id the logical modem ID, which should match one of modem IDs returned
+     * from getPhoneCapability().
+     *
+     * Response callback is IRadioConfigResponse.setPreferredDataModemResponse()
+     */
+    oneway setPreferredDataModem_1_3(int32_t serial, uint8_t modemId);
 };
