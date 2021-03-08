@@ -22,6 +22,30 @@
       },
       "revId": "9c944a129da4b51aeffcd68dcaa20cf5d9234e4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24a20839_3999484f",
+        "filename": "power/stats/aidl/default/PowerStats.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-08T20:02:17Z",
+      "side": 1,
+      "message": ":)",
+      "parentUuid": "6a3b8d84_7a3e2317",
+      "range": {
+        "startLine": 36,
+        "startChar": 21,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "9c944a129da4b51aeffcd68dcaa20cf5d9234e4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
