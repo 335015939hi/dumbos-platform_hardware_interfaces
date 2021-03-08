@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e7f7d55_cabc5c9a",
+        "filename": "power/stats/aidl/default/MockEnergyConsumer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-08T19:01:08Z",
+      "side": 1,
+      "message": "Mock -\u003e Fake",
+      "parentUuid": "6cf79de2_72023dc1",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "e7cc525eb17c5e160c9ae02479a7c84aaea6a844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf15ad93_3839812d",
