@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0105b549_7db275b5",
+        "filename": "tv/cec/1.0/vts/functional/VtsHalTvCecV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1651020
+      },
+      "writtenOn": "2021-03-08T14:32:57Z",
+      "side": 1,
+      "message": "Calls should verify that the return code is OK",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 53
+      },
+      "revId": "96c5321cb3ea34d6b6b7ecf1bb6e3076de5d3daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
