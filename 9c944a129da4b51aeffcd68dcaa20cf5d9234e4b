@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a3b8d84_7a3e2317",
+        "filename": "power/stats/aidl/default/PowerStats.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2021-03-08T19:55:41Z",
+      "side": 1,
+      "message": "Oh, structured binding... I wish I could like you more...\n\nBut this is a great place for it, since the API should be stable and clarity is an especially high-value consideration in sample code.  Nice work.  :-)",
+      "range": {
+        "startLine": 36,
+        "startChar": 21,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "9c944a129da4b51aeffcd68dcaa20cf5d9234e4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
