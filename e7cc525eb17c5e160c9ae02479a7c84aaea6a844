@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5226dd12_85e75049",
+        "filename": "power/stats/aidl/default/MockEnergyConsumer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1071633
+      },
+      "writtenOn": "2021-03-08T18:46:42Z",
+      "side": 1,
+      "message": "Dummy ? ;-)",
+      "parentUuid": "55e6d812_0c59a966",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "e7cc525eb17c5e160c9ae02479a7c84aaea6a844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf15ad93_3839812d",
         "filename": "power/stats/aidl/default/MockStateResidencyDataProvider.h",
         "patchSetId": 10
