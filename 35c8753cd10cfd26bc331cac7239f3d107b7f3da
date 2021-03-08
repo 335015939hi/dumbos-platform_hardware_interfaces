@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4d137d9_22e34a22",
+        "filename": "tv/cec/1.0/vts/functional/VtsHalTvCecV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1651020
+      },
+      "writtenOn": "2021-03-08T14:33:00Z",
+      "side": 1,
+      "message": "Test should verify that return code of setLanguage is OK",
+      "range": {
+        "startLine": 109,
+        "startChar": 33,
+        "endLine": 110,
+        "endChar": 11
+      },
+      "revId": "35c8753cd10cfd26bc331cac7239f3d107b7f3da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
