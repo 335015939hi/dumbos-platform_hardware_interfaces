@@ -167,6 +167,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b5363fa_8f49ede0",
+        "filename": "power/stats/aidl/default/MockStateResidencyDataProvider.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-08T20:02:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73256e3f_78b2c6f6",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 9
+      },
+      "revId": "e7cc525eb17c5e160c9ae02479a7c84aaea6a844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bfe1d6f_d4648327",
