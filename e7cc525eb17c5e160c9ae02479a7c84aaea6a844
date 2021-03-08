@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55e6d812_0c59a966",
+        "filename": "power/stats/aidl/default/MockEnergyConsumer.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-08T18:43:30Z",
+      "side": 1,
+      "message": "yes, this is purely for demonstration purposes.\n\nRegarding \"fake\" vs \"mock\" I\u0027m not really sure I understand the difference in nomenclature but I\u0027m happy to change the name to whatever you think is a better fit here.",
+      "parentUuid": "40795561_2b51b6fc",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "e7cc525eb17c5e160c9ae02479a7c84aaea6a844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf15ad93_3839812d",
         "filename": "power/stats/aidl/default/MockStateResidencyDataProvider.h",
         "patchSetId": 10
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73256e3f_78b2c6f6",
+        "filename": "power/stats/aidl/default/MockStateResidencyDataProvider.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-08T18:43:30Z",
+      "side": 1,
+      "message": "This a \"mock\" or \"fake\" implementation so I felt it would be easier for others to see everything in one place without having to check separate files for an implementation.\n\nIf you think this is better to put in a separate cpp file I can move it over.",
+      "parentUuid": "bf15ad93_3839812d",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 9
+      },
+      "revId": "e7cc525eb17c5e160c9ae02479a7c84aaea6a844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2bfe1d6f_d4648327",
         "filename": "power/stats/aidl/default/PowerStats.cpp",
         "patchSetId": 10
@@ -60,6 +108,30 @@
       "writtenOn": "2021-03-05T22:36:31Z",
       "side": 1,
       "message": "This seems a bit cryptic, unless I\u0027m just having a brain glitch.  \"res\" below is less cryptic, but still perhaps unnecessarily terse.  This code is likely to be used as a reference by other developers, so a focus on clarity might be helpful toward that end.",
+      "range": {
+        "startLine": 143,
+        "startChar": 13,
+        "endLine": 143,
+        "endChar": 19
+      },
+      "revId": "e7cc525eb17c5e160c9ae02479a7c84aaea6a844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d66136e_50cea608",
+        "filename": "power/stats/aidl/default/PowerStats.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-08T18:43:30Z",
+      "side": 1,
+      "message": "changed to optionalResult",
+      "parentUuid": "2bfe1d6f_d4648327",
       "range": {
         "startLine": 143,
         "startChar": 13,
