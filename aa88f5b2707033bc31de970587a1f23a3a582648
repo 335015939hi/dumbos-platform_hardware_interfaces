@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29ce18aa_44481980",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-08T17:24:24Z",
+      "side": 1,
+      "message": "I\u0027m working on VTS tests to verify the frame counter behavior, but it seems to take some time as we have never tested actual playback behavior in VTS before. I would like to get the interface changes in before the freeze deadline.",
+      "revId": "aa88f5b2707033bc31de970587a1f23a3a582648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
