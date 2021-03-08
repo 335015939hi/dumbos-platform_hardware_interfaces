@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "480234dd_19bb14f0",
+        "filename": "tv/cec/1.0/vts/functional/VtsHalTvCecV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1651020
+      },
+      "writtenOn": "2021-03-08T14:38:51Z",
+      "side": 1,
+      "message": "Why do we expect a port to be connected on source devices, but not on TV devices? It should be consistent - however requiring a connection may be a bit harsh and makes this test hard to pass without extra setup.\n\nWe should verify that isConnected returns correctly, but verifying true/false without setup steps is probably not possible.",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 5
+      },
+      "revId": "73a362437ea8926794bda40f33641aa05958cab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
