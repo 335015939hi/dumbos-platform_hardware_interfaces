@@ -161,6 +161,9 @@ TEST_P(SoundTriggerHidlTest, GetProperties) {
       halProperties = res;
   });
 
+  if (ret == -ENODEV)
+      return;
+
   EXPECT_TRUE(hidlReturn.isOk());
   EXPECT_EQ(0, ret);
   EXPECT_GT(halProperties.maxSoundModels, 0u);
