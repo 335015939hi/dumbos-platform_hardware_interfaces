@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20cc0a0b_bd152cbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-03-09T12:22:06Z",
+      "side": 1,
+      "message": "I would be highly tempted by this solution that **really** make sense since no need to (for example) add pain to singletonize hal for implementation of correlated HAL like audio gain.\nAgree to do it if we are sure we can have for sure the gain cb in the framework for S!",
+      "parentUuid": "90feb432_50706253",
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c48d4360_8b99b657",
