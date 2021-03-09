@@ -16,6 +16,23 @@
       "message": "cherry pick",
       "revId": "2c0d2f175bbaaa81b6dca39096885ff8bdcde9a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "522ac56a_a518de79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1606087
+      },
+      "writtenOn": "2021-03-09T00:16:54Z",
+      "side": 1,
+      "message": "cherry pick",
+      "revId": "2c0d2f175bbaaa81b6dca39096885ff8bdcde9a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
