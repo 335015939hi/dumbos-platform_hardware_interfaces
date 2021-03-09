@@ -287,6 +287,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d9356f0_71b7e493",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-09T10:37:52Z",
+      "side": 1,
+      "message": "One more, if telephony does the math check to determine the last indication, it could save one more completion indication.\n\nAs for reliance, there always should be one timer to avoid timeout in modem side. If math in telephony, telephony starts the timer; else if math in RIL, RIL also need the timer.",
+      "parentUuid": "5a41e506_eaeb65a2",
+      "range": {
+        "startLine": 142,
+        "startChar": 36,
+        "endLine": 142,
+        "endChar": 55
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7091c4f7_9e697a40",
