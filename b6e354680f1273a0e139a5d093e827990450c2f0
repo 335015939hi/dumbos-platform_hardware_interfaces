@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1892d088_a12f97d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2021-03-09T04:26:30Z",
+      "side": 1,
+      "message": "Thanks Shuo who helped me align the baseline. We get no merge conflict now.\n\nA topic is created (as suggested by Robert) to connect this  CP only CL with aosp/1591095.\n\nIf Jack can help to provide an owner review, we will be able to submit the topic and end the radio hal interface deprecation work.\n\nThanks",
+      "revId": "b6e354680f1273a0e139a5d093e827990450c2f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
