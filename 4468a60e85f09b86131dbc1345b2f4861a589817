@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "803cf025_a289e2b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-09T21:12:28Z",
+      "side": 1,
+      "message": "if this is the case, the device shouldn\u0027t declare the soundtrigger HAL. Can you remove it or use ro.boot.product.hardware.sku or similar instead?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 76
+      },
+      "revId": "4468a60e85f09b86131dbc1345b2f4861a589817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "71c3540f_419a654a",
