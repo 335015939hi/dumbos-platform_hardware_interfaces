@@ -100,6 +100,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "213f86dc_6ac56759",
+        "filename": "audio/7.0/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-03-09T13:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17a7dfab_1979890d",
+      "range": {
+        "startLine": 19,
+        "startChar": 8,
+        "endLine": 19,
+        "endChar": 47
+      },
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40a57142_be713b75",
@@ -170,6 +194,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cf3ae6a_04fd0014",
+        "filename": "audio/audiogain/7.0/IAudioGain.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-03-09T13:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c2380e4_8c06b903",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c7cda6e_f818e696",
@@ -193,6 +241,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6700bdf8_f05e4eab",
+        "filename": "audio/audiogain/all-versions/default/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-03-09T13:55:18Z",
+      "side": 1,
+      "message": "removed as piped with audio hal",
+      "parentUuid": "0c7cda6e_f818e696",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 37
+      },
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdb55cd5_405d909c",
@@ -206,6 +278,30 @@
       "writtenOn": "2021-02-10T22:21:31Z",
       "side": 1,
       "message": "Please sort.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 0
+      },
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deb84918_c481f1db",
+        "filename": "audio/core/all-versions/default/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-03-09T13:55:18Z",
+      "side": 1,
+      "message": "removed as piped with audio hal",
+      "parentUuid": "cdb55cd5_405d909c",
       "range": {
         "startLine": 138,
         "startChar": 0,

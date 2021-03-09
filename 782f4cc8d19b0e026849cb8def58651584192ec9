@@ -507,6 +507,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e551fe96_45d647d7",
+        "filename": "audio/audiogain/all-versions/default/AudioGain.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-03-09T13:55:18Z",
+      "side": 1,
+      "message": "removed as piped with audio hal",
+      "parentUuid": "823078ac_7e50d534",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 0
+      },
+      "revId": "782f4cc8d19b0e026849cb8def58651584192ec9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "034cd553_859bc986",
