@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d9016a_8cc90f21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308560
+      },
+      "writtenOn": "2021-03-09T08:35:50Z",
+      "side": 1,
+      "message": "build pass at aosp/1621200\u0027s presubmit.\nThe test case apct/telephony/unit_test-cloud-tf fail is not related this part, so skip it.\nThe test cases fails are tracking on b/181932317.",
+      "revId": "f92b61c2db853fc032bbf930e82e1dd59d4214b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
