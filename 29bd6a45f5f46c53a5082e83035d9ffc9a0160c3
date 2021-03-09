@@ -75,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eb1e0c4_a29b15af",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-09T10:22:31Z",
+      "side": 1,
+      "message": "Currently, telephony doesn’t get SIM phonebook at boot up, then the “initdone” isn\u0027t necessary during the whole process. But once a new requirement to query the record immediately after SIM ready, then it rather need this indication to ensure modem side is ready. Otherwise if modem is not ready, it will get failure immediately, or if blocking till ready, the wakelock from RILJ might time out.\n\nFurthermore, how about renaming the ”phonebookInitDone” to “SimPhoneBookReady” to exactly express this indication, just like existing SIM ready indication? Only after this explicit indication, the client could load SIM phonebook gracefully.",
+      "parentUuid": "28a696a3_7f210000",
+      "range": {
+        "startLine": 499,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 87
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b85860e_aa52c84f",
@@ -88,6 +112,30 @@
       "writtenOn": "2021-03-05T20:08:20Z",
       "side": 1,
       "message": "we should include another int32_t token from the caller. This should be included in each of the unsol we get back so the caller can know these apply to their request.",
+      "range": {
+        "startLine": 507,
+        "startChar": 39,
+        "endLine": 507,
+        "endChar": 45
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e560aff0_40b601df",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-09T10:22:31Z",
+      "side": 1,
+      "message": "Currently other async APIs like startNetworkScan don’t have the token, so we follow the same. And in qcril/QMI, no token are used either. \n\nIn case of multiple or duplicated requests on one sub, they will be queued and returned only once after completion, see mAdnLoadingWaiters in https://android-review.googlesource.com/c/platform/frameworks/opt/telephony/+/1440475/18/src/java/com/android/internal/telephony/uicc/SimPhoneBookRecordCache.java#144.\n\nBesides, if adding the token, RIL could just store the token but almost does nothing. So can we keep the current design?",
+      "parentUuid": "5b85860e_aa52c84f",
       "range": {
         "startLine": 507,
         "startChar": 39,
@@ -121,6 +169,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cacfc624_a5dcaedb",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-09T10:22:31Z",
+      "side": 1,
+      "message": "Just as commented previously, to improve the flexibility, we\u0027d better keep it, and maybe we could rename the indication to simPhoneBookStatusChanged? Or simPhoneBookReady?",
+      "parentUuid": "50c64d6d_66cefc0c",
+      "range": {
+        "startLine": 127,
+        "startChar": 11,
+        "endLine": 127,
+        "endChar": 28
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "151bb30d_4c749855",
@@ -144,6 +216,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "459b92a7_aa5a6168",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-09T10:22:31Z",
+      "side": 1,
+      "message": "The SIM phonebook capacity would be 3000 SIM records at max (according to SIM type), and both QMI/HIDL message have the data transmission limitation, that’s why there will be multiple indications to pass the data. \n\nHowever, we couldn’t guarantee the QMI indication order in RIL, that’s why we do the calculation according to the capacity and received AND in telephony at the end. \n\nIf not doing math in telephony, RIL still need to do that eventually. If unsol indications couldn’t guarantee the order either, that will be the problem (correct me if I’m wrong).  \n\nBesides, considering that one more indication still need additional logics, could we keep current design?",
+      "parentUuid": "151bb30d_4c749855",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 99
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a55a9ac_8aaae7b1",
@@ -157,6 +253,30 @@
       "writtenOn": "2021-03-05T20:08:20Z",
       "side": 1,
       "message": "should have \nIndtype,\nint for the token from the request that started this sequence\npbReceivedStatus (error, continues, done)\nvec\u003cPRI\u003e records",
+      "range": {
+        "startLine": 142,
+        "startChar": 36,
+        "endLine": 142,
+        "endChar": 55
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a41e506_eaeb65a2",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-09T10:22:31Z",
+      "side": 1,
+      "message": "About the token argument, we already replied it here https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1441011/18/radio/1.6/IRadio.hal#507, personally we want to leave it.\n\nFor pbReceivedStatus, RIL doesn\u0027t have the error status. For continues/done, it still relates to the math comment above. In summary, the math check is needed, the only qn is who should handle it, RIL or telephony. Either is doable. We could follow your final decision 😊.",
+      "parentUuid": "3a55a9ac_8aaae7b1",
       "range": {
         "startLine": 142,
         "startChar": 36,
@@ -214,6 +334,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cea7302_569a9573",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-09T10:22:31Z",
+      "side": 1,
+      "message": "@Robert Yes, good, it should be removed since it is already controlled by the capability config (see https://android-review.googlesource.com/c/platform/frameworks/base/+/1440613/9/telephony/java/android/telephony/TelephonyManager.java#14419).\n\n@Daniel Already done.",
+      "parentUuid": "81ced39b_ff12b25c",
+      "range": {
+        "startLine": 426,
+        "startChar": 9,
+        "endLine": 426,
+        "endChar": 41
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfd414fa_a352e088",
@@ -237,6 +381,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2691f17_f3c71254",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-09T10:22:31Z",
+      "side": 1,
+      "message": "Yes, it’s good to add one separate API to get the capacity, how about the API name getSimPhoneBookCapacity?\n\nWe could add the capacity support in legacy file-based codes step by step. But it won\u0027t impact current HAL change.\n\nSo how about we quickly conclude the HAL APIs firstly before the HAL frozen? Later we could finish the main framework solution and add more support in legacy codes as well?",
+      "parentUuid": "dfd414fa_a352e088",
+      "range": {
+        "startLine": 432,
+        "startChar": 81,
+        "endLine": 432,
+        "endChar": 89
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c03cb7a_6758daec",
@@ -250,6 +418,30 @@
       "writtenOn": "2021-03-05T20:08:20Z",
       "side": 1,
       "message": "ditto on comment for capability.",
+      "range": {
+        "startLine": 442,
+        "startChar": 9,
+        "endLine": 442,
+        "endChar": 41
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a8f721e_3f505fd8",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-09T10:22:31Z",
+      "side": 1,
+      "message": "Yes, as previous comment, we should remove this comment.",
+      "parentUuid": "8c03cb7a_6758daec",
       "range": {
         "startLine": 442,
         "startChar": 9,
