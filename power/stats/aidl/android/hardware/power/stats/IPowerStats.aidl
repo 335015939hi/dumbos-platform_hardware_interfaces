@@ -54,9 +54,9 @@ interface IPowerStats {
      *
      * @return StateResidency since boot for each requested PowerEntity
      *
-     * Returns the following service-specific exceptions in order of highest priority:
-     *  - STATUS_BAD_VALUE if an invalid powerEntityId is provided
-     *  - STATUS_FAILED_TRANSACTION if any StateResidencyResult fails to be returned
+     * Returns the following exception codes in order of highest priority:
+     *  - EX_ILLEGAL_ARGUMENT if an invalid powerEntityId is provided
+     *  - EX_SERVICE_SPECIFIC if any StateResidencyResult fails to be returned
      */
     StateResidencyResult[] getStateResidency(in int[] powerEntityIds);
 
@@ -74,13 +74,13 @@ interface IPowerStats {
      * Reports the energy consumed since boot by each requested EnergyConsumer.
      *
      * @param energyConsumerIds List of IDs of EnergyConsumers for which data is requested.
-     *     Passing an empty list will return state residency for all available EnergyConsumers.
+     *     Passing an empty list will return results for all available EnergyConsumers.
      *
      * @return Energy consumed since boot for each requested EnergyConsumer
      *
-     * Returns the following service-specific exceptions in order of highest priority:
-     *  - STATUS_BAD_VALUE if an invalid energyConsumerId is provided
-     *  - STATUS_FAILED_TRANSACTION if any EnergyConsumerResult fails to be returned
+     * Returns the following exception codes in order of highest priority:
+     *  - EX_ILLEGAL_ARGUMENT if an invalid energyConsumerId is provided
+     *  - EX_SERVICE_SPECIFIC if any EnergyConsumerResult fails to be returned
      */
     EnergyConsumerResult[] getEnergyConsumed(in int[] energyConsumerIds);
 
@@ -103,9 +103,9 @@ interface IPowerStats {
      *
      * @return Energy measured since boot for each requested channel
      *
-     * Returns the following service-specific exceptions in order of highest priority:
-     *  - STATUS_BAD_VALUE if an invalid channelId is provided
-     *  - STATUS_FAILED_TRANSACTION if any EnergyMeasurement fails to be returned
+     * Returns the following exception codes in order of highest priority:
+     *  - EX_ILLEGAL_ARGUMENT if an invalid channelId is provided
+     *  - EX_SERVICE_SPECIFIC if any EnergyMeasurement fails to be returned
      */
     EnergyMeasurement[] readEnergyMeter(in int[] channelIds);
 }
