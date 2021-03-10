@@ -16,6 +16,23 @@
       "message": "I\u0027m working on VTS tests to verify the frame counter behavior, but it seems to take some time as we have never tested actual playback behavior in VTS before. I would like to get the interface changes in before the freeze deadline.",
       "revId": "aa88f5b2707033bc31de970587a1f23a3a582648",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50e6c44b_22ee6acf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-03-10T00:26:31Z",
+      "side": 1,
+      "message": "thanks for putting in the clarifications!",
+      "revId": "aa88f5b2707033bc31de970587a1f23a3a582648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
