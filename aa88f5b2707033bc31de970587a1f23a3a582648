@@ -50,6 +50,23 @@
       "message": "Steven, could you PTAL? These are comment changes only to clarify the behavior the we already have in vendor HALs. I\u0027m working on VTS tests to validate it, but want the interface change to get in before the freeze.",
       "revId": "aa88f5b2707033bc31de970587a1f23a3a582648",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9659a311_7d74c2de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-10T22:38:46Z",
+      "side": 1,
+      "message": "Steven, could you PTAL?",
+      "revId": "aa88f5b2707033bc31de970587a1f23a3a582648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
