@@ -41,7 +41,7 @@ using ::android::sp;
 #define NUM_HCI_COMMANDS_BANDWIDTH 1000
 #define NUM_SCO_PACKETS_BANDWIDTH 1000
 #define NUM_ACL_PACKETS_BANDWIDTH 1000
-#define WAIT_FOR_INIT_TIMEOUT std::chrono::milliseconds(2000)
+#define WAIT_FOR_INIT_TIMEOUT std::chrono::milliseconds(3000)
 #define WAIT_FOR_HCI_EVENT_TIMEOUT std::chrono::milliseconds(2000)
 #define WAIT_FOR_SCO_DATA_TIMEOUT std::chrono::milliseconds(1000)
 #define WAIT_FOR_ACL_DATA_TIMEOUT std::chrono::milliseconds(1000)
