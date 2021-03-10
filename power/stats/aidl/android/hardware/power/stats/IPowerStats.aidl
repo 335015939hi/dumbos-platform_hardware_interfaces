@@ -32,7 +32,7 @@ interface IPowerStats {
      * A PowerEntity is defined as a platform subsystem, peripheral, or power domain that impacts
      * the total device power consumption.
      *
-     * @return List of information on each PowerEntity
+     * @return List of information on each PowerEntity for which state residency can be requested.
      */
     PowerEntity[] getPowerEntityInfo();
 
@@ -52,11 +52,10 @@ interface IPowerStats {
      *     Passing an empty list will return state residency for all available PowerEntitys.
      *     ID of each PowerEntity is contained in PowerEntityInfo.
      *
-     * @return StateResidency since boot for each requested PowerEntity
+     * @return StateResidency since boot for each requested and available PowerEntity
      *
-     * Returns the following service-specific exceptions in order of highest priority:
-     *  - STATUS_BAD_VALUE if an invalid powerEntityId is provided
-     *  - STATUS_FAILED_TRANSACTION if any StateResidencyResult fails to be returned
+     * Returns the following exception codes:
+     *  - EX_ILLEGAL_ARGUMENT if an invalid powerEntityId is provided
      */
     StateResidencyResult[] getStateResidency(in int[] powerEntityIds);
 
@@ -66,7 +65,7 @@ interface IPowerStats {
      * An EnergyConsumer is a device subsystem or peripheral that consumes energy. Energy
      * consumption data may be used by framework for the purpose of power attribution.
      *
-     * @return List of EnergyConsumers that are available.
+     * @return List of EnergyConsumers for which energy consumption can be requested.
      */
     EnergyConsumer[] getEnergyConsumerInfo();
 
@@ -74,13 +73,12 @@ interface IPowerStats {
      * Reports the energy consumed since boot by each requested EnergyConsumer.
      *
      * @param energyConsumerIds List of IDs of EnergyConsumers for which data is requested.
-     *     Passing an empty list will return state residency for all available EnergyConsumers.
+     *     Passing an empty list will return results for all available EnergyConsumers.
      *
-     * @return Energy consumed since boot for each requested EnergyConsumer
+     * @return Energy consumed since boot for each requested and available EnergyConsumer.
      *
-     * Returns the following service-specific exceptions in order of highest priority:
-     *  - STATUS_BAD_VALUE if an invalid energyConsumerId is provided
-     *  - STATUS_FAILED_TRANSACTION if any EnergyConsumerResult fails to be returned
+     * Returns the following exception codes:
+     *  - EX_ILLEGAL_ARGUMENT if an invalid energyConsumerId is provided
      */
     EnergyConsumerResult[] getEnergyConsumed(in int[] energyConsumerIds);
 
@@ -90,7 +88,7 @@ interface IPowerStats {
      * An Energy Meter is a device that monitors energy and may support monitoring multiple
      * channels simultaneously. A channel may correspond a bus, sense resistor, or power rail.
      *
-     * @return Channels monitored by Energy Meters.
+     * @return All Channels for which energy measurements can be requested.
      */
     Channel[] getEnergyMeterInfo();
 
@@ -101,11 +99,10 @@ interface IPowerStats {
      *     Passing an empty list will return energy measurements for all available channels.
      *     ID of each channel is contained in ChannelInfo.
      *
-     * @return Energy measured since boot for each requested channel
+     * @return Energy measured since boot for each requested and available Channel
      *
-     * Returns the following service-specific exceptions in order of highest priority:
-     *  - STATUS_BAD_VALUE if an invalid channelId is provided
-     *  - STATUS_FAILED_TRANSACTION if any EnergyMeasurement fails to be returned
+     * Returns the following exception codes:
+     *  - EX_ILLEGAL_ARGUMENT if an invalid channelId is provided
      */
     EnergyMeasurement[] readEnergyMeter(in int[] channelIds);
 }
