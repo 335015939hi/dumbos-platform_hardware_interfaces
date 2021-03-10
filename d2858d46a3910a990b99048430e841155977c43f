@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "666e9451_8521ec37",
+        "filename": "security/keymint/aidl/default/android.hardware.security.keymint.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-03-10T19:57:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is actually correct. Is there a place where KeyMint versions are defined?",
+      "range": {
+        "startLine": 17,
+        "startChar": 61,
+        "endLine": 17,
+        "endChar": 64
+      },
+      "revId": "d2858d46a3910a990b99048430e841155977c43f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
