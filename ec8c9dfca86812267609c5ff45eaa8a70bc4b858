@@ -333,6 +333,30 @@
       },
       "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77a82228_ce3c7596",
+        "filename": "audio/core/all-versions/default/Device.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2021-03-10T13:44:56Z",
+      "side": 1,
+      "message": "yes, this is something to definitely take into account. I put a comment as a notice",
+      "parentUuid": "bedbf7ff_6694165a",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 538,
+        "endChar": 0
+      },
+      "revId": "ec8c9dfca86812267609c5ff45eaa8a70bc4b858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
