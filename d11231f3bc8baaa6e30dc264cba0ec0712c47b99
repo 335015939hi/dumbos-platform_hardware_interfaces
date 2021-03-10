@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "857e4957_85a3e04a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-03-10T23:31:35Z",
+      "side": 1,
+      "message": "The section below the list of files has \"presubmit build status\". You can click the drop down on the right to see the results for patchset 1, or wait til they start failing on this new patchset.\nOne of the links: https://android-build.googleplex.com/builds/pending/P20524995/coral-userdebug/latest/view/logs/build_error.log",
+      "parentUuid": "b4a62683_419067a9",
+      "revId": "d11231f3bc8baaa6e30dc264cba0ec0712c47b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5684136f_8d288b2d",
