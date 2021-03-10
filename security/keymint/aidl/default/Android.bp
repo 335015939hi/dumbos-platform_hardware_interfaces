@@ -39,6 +39,16 @@ cc_binary {
     srcs: [
         "service.cpp",
     ],
+    required: [
+        "android.hardware.security.keymint.xml",
+    ],
+}
+
+prebuilt_etc {
+    name: "android.hardware.security.keymint.xml",
+    sub_dir: "permissions",
+    vendor: true,
+    src: "android.hardware.security.keymint.xml",
 }
 
 cc_library {
