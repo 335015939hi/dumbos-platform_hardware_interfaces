@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4a62683_419067a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2021-03-10T23:26:19Z",
+      "side": 1,
+      "message": "Where do you see that?",
+      "parentUuid": "dcdd60bc_1c076548",
+      "revId": "d11231f3bc8baaa6e30dc264cba0ec0712c47b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5684136f_8d288b2d",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-03-10T23:18:59Z",
       "side": 1,
       "message": "nit: could move UNKNOWN to the first position(0). That way extending the enum later is a little bit cleaner and it sometimes catches bugs using uninitialized enum variables.",
+      "range": {
+        "startLine": 1078,
+        "startChar": 4,
+        "endLine": 1078,
+        "endChar": 11
+      },
+      "revId": "d11231f3bc8baaa6e30dc264cba0ec0712c47b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82a209bb_6679dfe0",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2021-03-10T23:26:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5684136f_8d288b2d",
       "range": {
         "startLine": 1078,
         "startChar": 4,
