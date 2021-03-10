@@ -107,7 +107,7 @@ ndk::ScopedAStatus PowerStats::getStateResidency(const std::vector<int32_t>& in_
             _aidl_return->emplace_back(res);
         } else {
             // Failed to retrieve results for the given id.
-            err = STATUS_FAILED_TRANSACTION;
+            err = STATUS_UNKNOWN_ERROR;
         }
     }
 
@@ -147,7 +147,7 @@ ndk::ScopedAStatus PowerStats::getEnergyConsumed(const std::vector<int32_t>& in_
             _aidl_return->emplace_back(result);
         } else {
             // Failed to retrieve results for the given id.
-            err = STATUS_FAILED_TRANSACTION;
+            err = STATUS_UNKNOWN_ERROR;
         }
     }
 
