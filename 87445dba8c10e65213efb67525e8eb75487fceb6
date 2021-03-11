@@ -70,6 +70,30 @@
       },
       "revId": "87445dba8c10e65213efb67525e8eb75487fceb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31283983_837619cf",
+        "filename": "power/stats/aidl/default/PowerStats.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-11T17:46:00Z",
+      "side": 1,
+      "message": "returning ndk::ScopedAStatus(AStatus_fromServiceSpecificError(42)) counts as an error in that a client would see that the returned status.isOk() \u003d\u003d false.\n\nThe client would then check and see that status.getExceptionCode() \u003d\u003d EX_SERVICE_SPECIFIC.\n\nThe client could then see what the service specific error code and see that status.getServiceSpecificError() \u003d\u003d 42.\n\nThis is really nice if we eventually get to a point where we would need to return various kinds of statuses, but I believe that each service specific error code would need to be documented in the HAL.\n\n\nSo with the current code, status.isOk() would be true as long as the binder transaction succeeded and the parameters passed in were valid, which I think keeps the client code simpler.",
+      "parentUuid": "f4ddfd61_12a9012d",
+      "range": {
+        "startLine": 108,
+        "startChar": 12,
+        "endLine": 108,
+        "endChar": 74
+      },
+      "revId": "87445dba8c10e65213efb67525e8eb75487fceb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
