@@ -238,6 +238,30 @@
       },
       "revId": "87445dba8c10e65213efb67525e8eb75487fceb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5578bda0_528e2e76",
+        "filename": "power/stats/aidl/default/PowerStats.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-11T23:49:34Z",
+      "side": 1,
+      "message": "I removed EX_SERVICE_SPECIFIC exceptions from the documentation here.",
+      "parentUuid": "4edc1c41_3b121bb2",
+      "range": {
+        "startLine": 108,
+        "startChar": 12,
+        "endLine": 108,
+        "endChar": 74
+      },
+      "revId": "87445dba8c10e65213efb67525e8eb75487fceb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
