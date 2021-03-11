@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e23f277_da6143eb",
+        "filename": "power/stats/aidl/android/hardware/power/stats/IPowerStats.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-11T18:05:43Z",
+      "side": 1,
+      "message": "Should I be more explicit that data could fail to be returned at any point?\n\nWant to communicate that not all data will be returned sometimes and that clients shall not rely on data always being returned on every request.",
+      "range": {
+        "startLine": 55,
+        "startChar": 60,
+        "endLine": 55,
+        "endChar": 73
+      },
+      "revId": "68bfffb293d166cb810f3c11bd380039dbf82459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
