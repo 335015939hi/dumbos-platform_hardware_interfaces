@@ -94,6 +94,30 @@
       },
       "revId": "87445dba8c10e65213efb67525e8eb75487fceb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d779aad5_21c3578f",
+        "filename": "power/stats/aidl/default/PowerStats.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-11T18:01:26Z",
+      "side": 1,
+      "message": "I updated the language in IPowerStats.aidl to (hopefully) communicate that \"clients should be prepared for the possibility that not all data might be returned sometimes\"\n\nLet me know if you think it needs to be more explicit 😊",
+      "parentUuid": "31283983_837619cf",
+      "range": {
+        "startLine": 108,
+        "startChar": 12,
+        "endLine": 108,
+        "endChar": 74
+      },
+      "revId": "87445dba8c10e65213efb67525e8eb75487fceb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
