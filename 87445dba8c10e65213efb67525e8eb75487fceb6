@@ -142,6 +142,30 @@
       },
       "revId": "87445dba8c10e65213efb67525e8eb75487fceb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b751c682_ade3f52d",
+        "filename": "power/stats/aidl/default/PowerStats.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-11T22:27:19Z",
+      "side": 1,
+      "message": "Correct. Currently on Pixel the only way this would happen would be if on device power monitor driver was used in a way that prevented the HAL from providing data for one or more consumers or channels, but that is not currently a use case that we expect to encounter in the field.\n\nBut we sought to define the API such that clients were not critically depending on these stats that are meant more for telemetry and diagnostic purposes.",
+      "parentUuid": "8c559b30_17abb356",
+      "range": {
+        "startLine": 108,
+        "startChar": 12,
+        "endLine": 108,
+        "endChar": 74
+      },
+      "revId": "87445dba8c10e65213efb67525e8eb75487fceb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
