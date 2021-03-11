@@ -46,6 +46,30 @@
       },
       "revId": "87445dba8c10e65213efb67525e8eb75487fceb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4ddfd61_12a9012d",
+        "filename": "power/stats/aidl/default/PowerStats.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2021-03-11T07:45:10Z",
+      "side": 1,
+      "message": "Does EX_SERVICE_SPECIFIC go away in the AIDL if you end up opting not to return an error code?\n\nI think your logic makes sense; clients should be prepared for the possibility that not all data might be returned sometimes, so treating it as an absolute failure would be overkill.",
+      "parentUuid": "79afa3cf_7c36f7c4",
+      "range": {
+        "startLine": 108,
+        "startChar": 12,
+        "endLine": 108,
+        "endChar": 74
+      },
+      "revId": "87445dba8c10e65213efb67525e8eb75487fceb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
