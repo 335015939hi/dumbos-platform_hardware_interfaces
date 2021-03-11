@@ -182,7 +182,7 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_testMode) {
 
 class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
   protected:
-    CertificateRequestTest() : eekId_(string_to_bytevec("eekid")) {
+    CertificateRequestTest() : eekId_(string_to_bytevec("eekid")), challenge_(randomBytes(32)) {
         auto chain = generateEekChain(3, eekId_);
         EXPECT_TRUE(chain) << chain.message();
         if (chain) eekChain_ = chain.moveValue();
@@ -203,8 +203,64 @@ class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
         }
     }
 
+    void checkProtectedData(bool testMode, const cppbor::Array& keysToSign,
+                            const bytevec& keysToSignMac, const ProtectedData& protectedData) {
+        auto [parsedProtectedData, _, protDataErrMsg] = cppbor::parse(protectedData.protectedData);
+        ASSERT_TRUE(parsedProtectedData) << protDataErrMsg;
+        ASSERT_TRUE(parsedProtectedData->asArray());
+        ASSERT_EQ(parsedProtectedData->asArray()->size(), kCoseEncryptEntryCount);
+
+        auto senderPubkey = getSenderPubKeyFromCoseEncrypt(parsedProtectedData);
+        ASSERT_TRUE(senderPubkey) << senderPubkey.message();
+        EXPECT_EQ(senderPubkey->second, eekId_);
+
+        auto sessionKey = x25519_HKDF_DeriveKey(eekChain_.last_pubkey, eekChain_.last_privkey,
+                                                senderPubkey->first, false /* senderIsA */);
+        ASSERT_TRUE(sessionKey) << sessionKey.message();
+
+        auto protectedDataPayload =
+                decryptCoseEncrypt(*sessionKey, parsedProtectedData.get(), bytevec{} /* aad */);
+        ASSERT_TRUE(protectedDataPayload) << protectedDataPayload.message();
+
+        auto [parsedPayload, __, payloadErrMsg] = cppbor::parse(*protectedDataPayload);
+        ASSERT_TRUE(parsedPayload) << "Failed to parse payload: " << payloadErrMsg;
+        ASSERT_TRUE(parsedPayload->asArray());
+        EXPECT_EQ(parsedPayload->asArray()->size(), 2U);
+
+        auto& signedMac = parsedPayload->asArray()->get(0);
+        auto& bcc = parsedPayload->asArray()->get(1);
+        ASSERT_TRUE(signedMac && signedMac->asArray());
+        ASSERT_TRUE(bcc && bcc->asArray());
+
+        // BCC is [ pubkey, + BccEntry]
+        auto bccContents = validateBcc(bcc->asArray());
+        ASSERT_TRUE(bccContents) << "\n" << bccContents.message() << "\n" << prettyPrint(bcc.get());
+        ASSERT_GT(bccContents->size(), 0U);
+
+        auto& signingKey = bccContents->back().pubKey;
+        auto macKey = verifyAndParseCoseSign1(testMode, signedMac->asArray(), signingKey,
+                                              cppbor::Array()  // DeviceInfo
+                                                      .add(challenge_)
+                                                      .add(cppbor::Map())
+                                                      .encode());
+        ASSERT_TRUE(macKey) << macKey.message();
+
+        auto coseMac0 = cppbor::Array()
+                                .add(cppbor::Map()  // protected
+                                             .add(ALGORITHM, HMAC_256)
+                                             .canonicalize()
+                                             .encode())
+                                .add(cppbor::Bstr())       // unprotected
+                                .add(keysToSign.encode())  // payload (keysToSign)
+                                .add(keysToSignMac);       // tag
+
+        auto macPayload = verifyAndParseCoseMac0(&coseMac0, *macKey);
+        ASSERT_TRUE(macPayload) << macPayload.message();
+    }
+
     bytevec eekId_;
     EekChain eekChain_;
+    bytevec challenge_;
     std::vector<MacedPublicKey> keysToSign_;
     cppbor::Array cborKeysToSign_;
 };
@@ -217,63 +273,12 @@ TEST_P(CertificateRequestTest, EmptyRequest_testMode) {
     bool testMode = true;
     bytevec keysToSignMac;
     ProtectedData protectedData;
-    auto challenge = randomBytes(32);
     auto status = provisionable_->generateCertificateRequest(testMode, {} /* keysToSign */,
-                                                             eekChain_.chain, challenge,
+                                                             eekChain_.chain, challenge_,
                                                              &keysToSignMac, &protectedData);
     ASSERT_TRUE(status.isOk()) << status.getMessage();
 
-    auto [parsedProtectedData, _, protDataErrMsg] = cppbor::parse(protectedData.protectedData);
-    ASSERT_TRUE(parsedProtectedData) << protDataErrMsg;
-    ASSERT_TRUE(parsedProtectedData->asArray());
-    ASSERT_EQ(parsedProtectedData->asArray()->size(), kCoseEncryptEntryCount);
-
-    auto senderPubkey = getSenderPubKeyFromCoseEncrypt(parsedProtectedData);
-    ASSERT_TRUE(senderPubkey) << senderPubkey.message();
-    EXPECT_EQ(senderPubkey->second, eekId_);
-
-    auto sessionKey = x25519_HKDF_DeriveKey(eekChain_.last_pubkey, eekChain_.last_privkey,
-                                            senderPubkey->first, false /* senderIsA */);
-    ASSERT_TRUE(sessionKey) << sessionKey.message();
-
-    auto protectedDataPayload =
-            decryptCoseEncrypt(*sessionKey, parsedProtectedData.get(), bytevec{} /* aad */);
-    ASSERT_TRUE(protectedDataPayload) << protectedDataPayload.message();
-
-    auto [parsedPayload, __, payloadErrMsg] = cppbor::parse(*protectedDataPayload);
-    ASSERT_TRUE(parsedPayload) << "Failed to parse payload: " << payloadErrMsg;
-    ASSERT_TRUE(parsedPayload->asArray());
-    EXPECT_EQ(parsedPayload->asArray()->size(), 2U);
-
-    auto& signedMac = parsedPayload->asArray()->get(0);
-    auto& bcc = parsedPayload->asArray()->get(1);
-    ASSERT_TRUE(signedMac && signedMac->asArray());
-    ASSERT_TRUE(bcc && bcc->asArray());
-
-    // BCC is [ pubkey, + BccEntry]
-    auto bccContents = validateBcc(bcc->asArray());
-    ASSERT_TRUE(bccContents) << "\n" << bccContents.message() << "\n" << prettyPrint(bcc.get());
-    ASSERT_GT(bccContents->size(), 0U);
-
-    auto& signingKey = bccContents->back().pubKey;
-    auto macKey = verifyAndParseCoseSign1(testMode, signedMac->asArray(), signingKey,
-                                          cppbor::Array()          // DeviceInfo
-                                                  .add(challenge)  //
-                                                  .add(cppbor::Map())
-                                                  .encode());
-    ASSERT_TRUE(macKey) << macKey.message();
-
-    auto coseMac0 = cppbor::Array()
-                            .add(cppbor::Map()  // protected
-                                         .add(ALGORITHM, HMAC_256)
-                                         .canonicalize()
-                                         .encode())
-                            .add(cppbor::Bstr())             // unprotected
-                            .add(cppbor::Array().encode())   // payload (keysToSign)
-                            .add(std::move(keysToSignMac));  // tag
-
-    auto macPayload = verifyAndParseCoseMac0(&coseMac0, *macKey);
-    ASSERT_TRUE(macPayload) << macPayload.message();
+    checkProtectedData(testMode, cppbor::Array(), keysToSignMac, protectedData);
 }
 
 /**
@@ -287,9 +292,8 @@ TEST_P(CertificateRequestTest, EmptyRequest_prodMode) {
     bool testMode = false;
     bytevec keysToSignMac;
     ProtectedData protectedData;
-    auto challenge = randomBytes(32);
     auto status = provisionable_->generateCertificateRequest(testMode, {} /* keysToSign */,
-                                                             eekChain_.chain, challenge,
+                                                             eekChain_.chain, challenge_,
                                                              &keysToSignMac, &protectedData);
     ASSERT_FALSE(status.isOk());
     ASSERT_EQ(status.getServiceSpecificError(), BnRemotelyProvisionedComponent::STATUS_INVALID_EEK);
@@ -304,61 +308,11 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_testMode) {
 
     bytevec keysToSignMac;
     ProtectedData protectedData;
-    auto challenge = randomBytes(32);
     auto status = provisionable_->generateCertificateRequest(
-            testMode, keysToSign_, eekChain_.chain, challenge, &keysToSignMac, &protectedData);
+            testMode, keysToSign_, eekChain_.chain, challenge_, &keysToSignMac, &protectedData);
     ASSERT_TRUE(status.isOk()) << status.getMessage();
 
-    auto [parsedProtectedData, _, protDataErrMsg] = cppbor::parse(protectedData.protectedData);
-    ASSERT_TRUE(parsedProtectedData) << protDataErrMsg;
-    ASSERT_TRUE(parsedProtectedData->asArray());
-    ASSERT_EQ(parsedProtectedData->asArray()->size(), kCoseEncryptEntryCount);
-
-    auto senderPubkey = getSenderPubKeyFromCoseEncrypt(parsedProtectedData);
-    ASSERT_TRUE(senderPubkey) << senderPubkey.message();
-    EXPECT_EQ(senderPubkey->second, eekId_);
-
-    auto sessionKey = x25519_HKDF_DeriveKey(eekChain_.last_pubkey, eekChain_.last_privkey,
-                                            senderPubkey->first, false /* senderIsA */);
-    ASSERT_TRUE(sessionKey) << sessionKey.message();
-
-    auto protectedDataPayload =
-            decryptCoseEncrypt(*sessionKey, parsedProtectedData.get(), bytevec{} /* aad */);
-    ASSERT_TRUE(protectedDataPayload) << protectedDataPayload.message();
-
-    auto [parsedPayload, __, payloadErrMsg] = cppbor::parse(*protectedDataPayload);
-    ASSERT_TRUE(parsedPayload) << "Failed to parse payload: " << payloadErrMsg;
-    ASSERT_TRUE(parsedPayload->asArray());
-    EXPECT_EQ(parsedPayload->asArray()->size(), 2U);
-
-    auto& signedMac = parsedPayload->asArray()->get(0);
-    auto& bcc = parsedPayload->asArray()->get(1);
-    ASSERT_TRUE(signedMac && signedMac->asArray());
-    ASSERT_TRUE(bcc);
-
-    auto bccContents = validateBcc(bcc->asArray());
-    ASSERT_TRUE(bccContents) << "\n" << prettyPrint(bcc.get());
-    ASSERT_GT(bccContents->size(), 0U);
-
-    auto& signingKey = bccContents->back().pubKey;
-    auto macKey = verifyAndParseCoseSign1(testMode, signedMac->asArray(), signingKey,
-                                          cppbor::Array()          // DeviceInfo
-                                                  .add(challenge)  //
-                                                  .add(cppbor::Array())
-                                                  .encode());
-    ASSERT_TRUE(macKey) << macKey.message();
-
-    auto coseMac0 = cppbor::Array()
-                            .add(cppbor::Map()  // protected
-                                         .add(ALGORITHM, HMAC_256)
-                                         .canonicalize()
-                                         .encode())
-                            .add(cppbor::Bstr())             // unprotected
-                            .add(cborKeysToSign_.encode())   // payload
-                            .add(std::move(keysToSignMac));  // tag
-
-    auto macPayload = verifyAndParseCoseMac0(&coseMac0, *macKey);
-    ASSERT_TRUE(macPayload) << macPayload.message();
+    checkProtectedData(testMode, cborKeysToSign_, keysToSignMac, protectedData);
 }
 
 /**
@@ -374,9 +328,8 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_prodMode) {
 
     bytevec keysToSignMac;
     ProtectedData protectedData;
-    auto challenge = randomBytes(32);
     auto status = provisionable_->generateCertificateRequest(
-            testMode, keysToSign_, eekChain_.chain, challenge, &keysToSignMac, &protectedData);
+            testMode, keysToSign_, eekChain_.chain, challenge_, &keysToSignMac, &protectedData);
     ASSERT_FALSE(status.isOk());
     ASSERT_EQ(status.getServiceSpecificError(), BnRemotelyProvisionedComponent::STATUS_INVALID_EEK);
 }
@@ -390,9 +343,8 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_prodKeyInTestCert) {
 
     bytevec keysToSignMac;
     ProtectedData protectedData;
-    auto challenge = randomBytes(32);
     auto status = provisionable_->generateCertificateRequest(true /* testMode */, keysToSign_,
-                                                             eekChain_.chain, challenge,
+                                                             eekChain_.chain, challenge_,
                                                              &keysToSignMac, &protectedData);
     ASSERT_FALSE(status.isOk());
     ASSERT_EQ(status.getServiceSpecificError(),
@@ -409,7 +361,7 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_testKeyInProdCert) {
     bytevec keysToSignMac;
     ProtectedData protectedData;
     auto status = provisionable_->generateCertificateRequest(
-            false /* testMode */, keysToSign_, eekChain_.chain, randomBytes(32) /* challenge */,
+            false /* testMode */, keysToSign_, eekChain_.chain, randomBytes(32) /* challenge_ */,
             &keysToSignMac, &protectedData);
     ASSERT_FALSE(status.isOk());
     ASSERT_EQ(status.getServiceSpecificError(),
