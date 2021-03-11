@@ -1,0 +1,126 @@
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.tv.earc@1.0;
+
+import IHdmiEarcCallback;
+
+/**
+ * HDMI-EARC HAL interface definition.
+ */
+interface IHdmiEarc {
+    /**
+     * Get the hardware variation of eARC support flag.
+	 *
+     * This used by framework to consider the eARC feature in need.
+	 *
+     * @param
+     * @return result Result code of the operation. OK if successful, otherwise fail.
+     * @return status Earc support status related with hardware variation.
+     *				  TRUE if support eARC.
+     */
+    @callflow(next={"getEarcPort", "setCallback"})
+	isSupported() generates (Result result, bool status);
+
+    /**
+     * Get the current eARC port id.
+     *
+     * @param
+     * @return result Result code of the operation. OK if successful, otherwise fail.
+     * @return port_id The current eARC port id.
+     *         It shall start from "1" which indicates the "hdmi port 1".
+     */
+    @callflow(next={""})
+	getPortId() generates (Result result, uint32_t port_id);
+
+    /**
+     * Get the current eARC status.
+     *
+     * Since eARC not rely on CEC message, Framework need to get the current eARC
+     * hw status to avoid handle the ARC handshake at first.
+	 *
+     * @param
+     * @return result Result code of the operation. OK if successful, otherwise fail.
+     * @return status The current eARC hw status as defined in EarcStatus.
+     */
+    @callflow(next={""})
+	getStatus() generates (Result result, EarcStatus status);
+
+    /**
+     * Get the capability of eARC RX device.
+	 * 
+	 * The audio capability data structure as defined in hdmi2.1 spec 9.5 and example in
+	 * Appendix H, Which indicate the audio formats and sample rates that eARC device support.
+	 * Earc tx shall only send Basic audio or audio that capability indicates it supports.
+     *
+     * @param
+     * @return result Result code of the operation. OK if successful, otherwise fail.
+     * @return capability The audio capability from device.
+     */
+    @callflow(next={""})
+	getCapability() generates (Result result, EarcCap capability);
+
+    /**
+     * Get the eARC latency value.
+	 *
+     * The latency value from device used by audio framework to control/adjust the audio latency feature.
+     *
+     * @param
+     * @return result Result code of the operation. OK if successful, otherwise fail.
+     * @return latency The latency value from device.
+     */
+    @callflow(next={""})
+	getLatency() generates (Result result, EarcLatcy latency);
+
+    /**
+     * Control the eARC Audio latency.
+	 *
+     * If support the eARC audio latency feature, Audio framework or others would adjust the latency value
+     * according to the which from eARC device and send back.
+	 *
+     * @param latency The adjusted latency value.
+     *
+     * @return result Result code of the operation. OK if successful, otherwise fail.
+     */
+    @callflow(next={""})
+	controlAudioLatency(EarcLatcy latency) generates (Result result);
+
+    /**
+     * Control the eARC feature.
+     *
+     * Users should control the eARC feature in user interface.
+	 *
+     * @param support The bool parameter for user to control the eARC feature.
+     *
+     * @return result Result code of the operation. OK if successful, otherwise fail.
+     */
+    @callflow(next={""})
+	controlFeature(bool support) generates (Result result);
+
+    /**
+     * Set the eARC callback event.
+	 * 
+     * It's used by the framework to receive status change event, capability change event,
+     * and latency change event. Only one callback client is supported.
+	 *
+     * @param callback Callback function to pass eARC event to the system.
+     *
+     * @return result Result code of the operation. OK if successful, otherwise fail.
+     */
+    @callflow(next={""})
+	setCallback(IHdmiEarcCallback callback) generates (Result result);
+};
+

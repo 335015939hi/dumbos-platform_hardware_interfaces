@@ -1,0 +1,106 @@
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.tv.earc@1.0;
+
+/**
+ * HDMI EARC result code.
+ */
+enum Result : int32_t {
+	OK = 0,
+	EARC_NOT_SUPPORT,
+	INVALID_ARG,
+	NO_RESPONED,
+	UNKNOWN,
+};
+
+/**
+ * HDMI EARC All event type.
+ * Currently it's only the status/capability/latency change event.
+ */
+enum EarcEvtTyp : int32_t {
+    STATUS_CHG = 0,
+    CAPABILITY_CHG,
+    LATENCY_CHG,
+};
+
+/**
+ * For user control HDMI EARC feature.
+ */
+enum EarcCtl : int32_t {
+    NO_WAY = 0,
+    ARC_ONLY,
+    PREFER_EARC,
+};
+
+/**
+ * HDMI EARC status change flag.
+ */
+enum EarcEvtChg : int32_t {
+	STATUS_CHG_TRUE = 1,
+};
+
+/**
+ * HDMI EARC connect status.
+ * As specified with the Discovery and Disconnect State Diagram
+ * in Figure 9-22/3 of the HDMI2.1 spec.
+ */
+enum EarcStatus : int32_t {
+	EARC_IDLE = 0,
+	EARC_WAITING,
+	EARC_NOT_ENABLED,
+	EARC_ENABLED,
+};
+
+/**
+ * HDMI EARC Capability. The max size 
+ * defined in the Chapter 9.5.3.6 of HDMI2.1 spec.
+ */
+enum EarcCapMaxSize : int32_t {
+	CAP_MAX_SIZE = 256,
+};
+
+struct EarcCap {
+	int32_t		 len;
+	vec<uint8_t> payload;
+};
+
+/**
+ * HDMI EARC Latency.
+ */
+typedef int32_t EarcLatcy;
+
+/**
+ * HDMI EARC Status Change Event.
+ */
+struct StaChgEvt {
+	EarcStatus status;
+};
+
+/**
+ * HDMI EARC Capability Change Event.
+ */
+struct CapChgEvt {
+	bool flag;
+};
+
+/**
+ * HDMI EARC Latency Change Event.
+ */
+struct LatcyChgEvt {
+	bool flag;
+};
+
