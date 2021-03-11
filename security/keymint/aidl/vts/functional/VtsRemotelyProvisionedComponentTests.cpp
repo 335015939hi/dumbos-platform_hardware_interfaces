@@ -52,6 +52,83 @@ bytevec string_to_bytevec(const char* s) {
     return bytevec(p, p + strlen(s));
 }
 
+void check_cose_key(const vector<uint8_t>& data, bool testMode) {
+    auto [parsedPayload, __, payloadParseErr] = cppbor::parse(data);
+    ASSERT_TRUE(parsedPayload) << "Key parse failed: " << payloadParseErr;
+
+    // The following check assumes that canonical CBOR encoding is used for the COSE_Key.
+    if (testMode) {
+        EXPECT_THAT(cppbor::prettyPrint(parsedPayload.get()),
+                    MatchesRegex("{\n"
+                                 "  1 : 2,\n"   // kty: EC2
+                                 "  3 : -7,\n"  // alg: ES256
+                                 "  -1 : 1,\n"  // EC id: P256
+                                 // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a
+                                 // sequence of 32 hexadecimal bytes, enclosed in braces and
+                                 // separated by commas. In this case, some Ed25519 public key.
+                                 "  -2 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_x: data
+                                 "  -3 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_y: data
+                                 "  -70000 : null,\n"                              // test marker
+                                 "}"));
+    } else {
+        EXPECT_THAT(cppbor::prettyPrint(parsedPayload.get()),
+                    MatchesRegex("{\n"
+                                 "  1 : 2,\n"   // kty: EC2
+                                 "  3 : -7,\n"  // alg: ES256
+                                 "  -1 : 1,\n"  // EC id: P256
+                                 // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a
+                                 // sequence of 32 hexadecimal bytes, enclosed in braces and
+                                 // separated by commas. In this case, some Ed25519 public key.
+                                 "  -2 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_x: data
+                                 "  -3 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_y: data
+                                 "}"));
+    }
+}
+
+void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,
+                        vector<uint8_t>* payload_value) {
+    auto [coseMac0, _, mac0ParseErr] = cppbor::parse(macedPubKey.macedKey);
+    ASSERT_TRUE(coseMac0) << "COSE Mac0 parse failed " << mac0ParseErr;
+
+    ASSERT_NE(coseMac0->asArray(), nullptr);
+    ASSERT_EQ(coseMac0->asArray()->size(), kCoseMac0EntryCount);
+
+    auto protParms = coseMac0->asArray()->get(kCoseMac0ProtectedParams)->asBstr();
+    ASSERT_NE(protParms, nullptr);
+
+    // Header label:value of 'alg': HMAC-256
+    ASSERT_EQ(cppbor::prettyPrint(protParms->value()), "{\n  1 : 5,\n}");
+
+    // TODO: this should be an empty map not an empty bstr
+    auto unprotParms = coseMac0->asArray()->get(kCoseMac0UnprotectedParams)->asBstr();
+    ASSERT_NE(unprotParms, nullptr);
+    ASSERT_EQ(unprotParms->value().size(), 0);
+
+    // The payload is a bstr holding an encoded COSE_Key
+    auto payload = coseMac0->asArray()->get(kCoseMac0Payload)->asBstr();
+    ASSERT_NE(payload, nullptr);
+    check_cose_key(payload->value(), testMode);
+
+    auto coseMac0Tag = coseMac0->asArray()->get(kCoseMac0Tag)->asBstr();
+    ASSERT_TRUE(coseMac0Tag);
+    auto extractedTag = coseMac0Tag->value();
+    EXPECT_EQ(extractedTag.size(), 32U);
+
+    // Compare with tag generated with kTestMacKey.  Should only match in test mode
+    auto testTag = cppcose::generateCoseMac0Mac(remote_prov::kTestMacKey, {} /* external_aad */,
+                                                payload->value());
+    ASSERT_TRUE(testTag) << "Tag calculation failed: " << testTag.message();
+
+    if (testMode) {
+        EXPECT_EQ(*testTag, extractedTag);
+    } else {
+        EXPECT_NE(*testTag, extractedTag);
+    }
+    if (payload_value != nullptr) {
+        *payload_value = payload->value();
+    }
+}
+
 }  // namespace
 
 class VtsRemotelyProvisionedComponentTests : public testing::TestWithParam<std::string> {
@@ -87,47 +164,7 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_prodMode) {
     auto status = provisionable_->generateEcdsaP256KeyPair(testMode, &macedPubKey, &privateKeyBlob);
     ASSERT_TRUE(status.isOk());
 
-    auto [coseMac0, _, mac0ParseErr] = cppbor::parse(macedPubKey.macedKey);
-    ASSERT_TRUE(coseMac0) << "COSE Mac0 parse failed " << mac0ParseErr;
-
-    ASSERT_NE(coseMac0->asArray(), nullptr);
-    ASSERT_EQ(coseMac0->asArray()->size(), kCoseMac0EntryCount);
-
-    auto protParms = coseMac0->asArray()->get(kCoseMac0ProtectedParams)->asBstr();
-    ASSERT_NE(protParms, nullptr);
-    ASSERT_EQ(cppbor::prettyPrint(protParms->value()), "{\n  1 : 5,\n}");
-
-    auto unprotParms = coseMac0->asArray()->get(kCoseMac0UnprotectedParams)->asBstr();
-    ASSERT_NE(unprotParms, nullptr);
-    ASSERT_EQ(unprotParms->value().size(), 0);
-
-    auto payload = coseMac0->asArray()->get(kCoseMac0Payload)->asBstr();
-    ASSERT_NE(payload, nullptr);
-    auto [parsedPayload, __, payloadParseErr] = cppbor::parse(payload->value());
-    ASSERT_TRUE(parsedPayload) << "Key parse failed: " << payloadParseErr;
-    EXPECT_THAT(cppbor::prettyPrint(parsedPayload.get()),
-                MatchesRegex("{\n"
-                             "  1 : 2,\n"
-                             "  3 : -7,\n"
-                             "  -1 : 1,\n"
-                             // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a sequence of
-                             // 32 hexadecimal bytes, enclosed in braces and separated by commas.
-                             // In this case, some Ed25519 public key.
-                             "  -2 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"
-                             "  -3 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"
-                             "}"));
-
-    auto coseMac0Tag = coseMac0->asArray()->get(kCoseMac0Tag)->asBstr();
-    ASSERT_TRUE(coseMac0Tag);
-    auto extractedTag = coseMac0Tag->value();
-    EXPECT_EQ(extractedTag.size(), 32U);
-
-    // Compare with tag generated with kTestMacKey.  Shouldn't match.
-    auto testTag = cppcose::generateCoseMac0Mac(remote_prov::kTestMacKey, {} /* external_aad */,
-                                                payload->value());
-    ASSERT_TRUE(testTag) << "Tag calculation failed: " << testTag.message();
-
-    EXPECT_NE(*testTag, extractedTag);
+    check_maced_pubkey(macedPubKey, testMode, nullptr);
 }
 
 /**
@@ -140,48 +177,7 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_testMode) {
     auto status = provisionable_->generateEcdsaP256KeyPair(testMode, &macedPubKey, &privateKeyBlob);
     ASSERT_TRUE(status.isOk());
 
-    auto [coseMac0, _, mac0ParseErr] = cppbor::parse(macedPubKey.macedKey);
-    ASSERT_TRUE(coseMac0) << "COSE Mac0 parse failed " << mac0ParseErr;
-
-    ASSERT_NE(coseMac0->asArray(), nullptr);
-    ASSERT_EQ(coseMac0->asArray()->size(), kCoseMac0EntryCount);
-
-    auto protParms = coseMac0->asArray()->get(kCoseMac0ProtectedParams)->asBstr();
-    ASSERT_NE(protParms, nullptr);
-    ASSERT_EQ(cppbor::prettyPrint(protParms->value()), "{\n  1 : 5,\n}");
-
-    auto unprotParms = coseMac0->asArray()->get(kCoseMac0UnprotectedParams)->asBstr();
-    ASSERT_NE(unprotParms, nullptr);
-    ASSERT_EQ(unprotParms->value().size(), 0);
-
-    auto payload = coseMac0->asArray()->get(kCoseMac0Payload)->asBstr();
-    ASSERT_NE(payload, nullptr);
-    auto [parsedPayload, __, payloadParseErr] = cppbor::parse(payload->value());
-    ASSERT_TRUE(parsedPayload) << "Key parse failed: " << payloadParseErr;
-    EXPECT_THAT(cppbor::prettyPrint(parsedPayload.get()),
-                MatchesRegex("{\n"
-                             "  1 : 2,\n"
-                             "  3 : -7,\n"
-                             "  -1 : 1,\n"
-                             // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a sequence of
-                             // 32 hexadecimal bytes, enclosed in braces and separated by commas.
-                             // In this case, some Ed25519 public key.
-                             "  -2 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"
-                             "  -3 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"
-                             "  -70000 : null,\n"
-                             "}"));
-
-    auto coseMac0Tag = coseMac0->asArray()->get(kCoseMac0Tag)->asBstr();
-    ASSERT_TRUE(coseMac0);
-    auto extractedTag = coseMac0Tag->value();
-    EXPECT_EQ(extractedTag.size(), 32U);
-
-    // Compare with tag generated with kTestMacKey.  Should match.
-    auto testTag = cppcose::generateCoseMac0Mac(remote_prov::kTestMacKey, {} /* external_aad */,
-                                                payload->value());
-    ASSERT_TRUE(testTag) << testTag.message();
-
-    EXPECT_EQ(*testTag, extractedTag);
+    check_maced_pubkey(macedPubKey, testMode, nullptr);
 }
 
 class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
@@ -201,16 +197,9 @@ class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
             auto status = provisionable_->generateEcdsaP256KeyPair(testMode, &key, &privateKeyBlob);
             ASSERT_TRUE(status.isOk()) << status.getMessage();
 
-            auto [parsedMacedKey, _, parseErr] = cppbor::parse(key.macedKey);
-            ASSERT_TRUE(parsedMacedKey) << "Failed parsing MACed key: " << parseErr;
-            ASSERT_TRUE(parsedMacedKey->asArray()) << "COSE_Mac0 not an array?";
-            ASSERT_EQ(parsedMacedKey->asArray()->size(), kCoseMac0EntryCount);
-
-            auto& payload = parsedMacedKey->asArray()->get(kCoseMac0Payload);
-            ASSERT_TRUE(payload);
-            ASSERT_TRUE(payload->asBstr());
-
-            cborKeysToSign_.add(cppbor::EncodedItem(payload->asBstr()->value()));
+            vector<uint8_t> payload_value;
+            check_maced_pubkey(key, testMode, &payload_value);
+            cborKeysToSign_.add(cppbor::EncodedItem(payload_value));
         }
     }
 
