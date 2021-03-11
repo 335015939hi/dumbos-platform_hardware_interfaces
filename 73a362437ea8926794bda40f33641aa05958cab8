@@ -22,6 +22,30 @@
       },
       "revId": "73a362437ea8926794bda40f33641aa05958cab8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a49eaeb3_1e747a4e",
+        "filename": "tv/cec/1.0/vts/functional/VtsHalTvCecV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-03-11T09:25:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "480234dd_19bb14f0",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 5
+      },
+      "revId": "73a362437ea8926794bda40f33641aa05958cab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
