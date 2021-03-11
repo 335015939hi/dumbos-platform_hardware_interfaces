@@ -46,6 +46,30 @@
       },
       "revId": "d2858d46a3910a990b99048430e841155977c43f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61dcec45_bc109c71",
+        "filename": "security/keymint/aidl/default/android.hardware.security.keymint.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-03-11T21:23:01Z",
+      "side": 1,
+      "message": "Cool. We should also make sure that  https://source.android.com/security/keystore/attestation#attestation-extension mentions them since this is where the Relying Party - that is, the server-side program which will be processing the attestation - is likely to look.",
+      "parentUuid": "070edd69_fc4ec10a",
+      "range": {
+        "startLine": 17,
+        "startChar": 61,
+        "endLine": 17,
+        "endChar": 64
+      },
+      "revId": "d2858d46a3910a990b99048430e841155977c43f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
