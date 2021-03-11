@@ -22,6 +22,30 @@
       },
       "revId": "68bfffb293d166cb810f3c11bd380039dbf82459",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd7fc953_4a08f592",
+        "filename": "power/stats/aidl/android/hardware/power/stats/IPowerStats.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-03-11T18:40:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e23f277_da6143eb",
+      "range": {
+        "startLine": 55,
+        "startChar": 60,
+        "endLine": 55,
+        "endChar": 73
+      },
+      "revId": "68bfffb293d166cb810f3c11bd380039dbf82459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
