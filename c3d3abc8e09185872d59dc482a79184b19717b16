@@ -52,6 +52,24 @@
       "parentUuid": "0529fcbc_77c2bce1",
       "revId": "c3d3abc8e09185872d59dc482a79184b19717b16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b19da707_8bdd1ab7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1624675
+      },
+      "writtenOn": "2021-03-11T09:24:10Z",
+      "side": 1,
+      "message": "Okay, it\u0027s uploaded https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1627941",
+      "parentUuid": "ae8c33c0_afc29437",
+      "revId": "c3d3abc8e09185872d59dc482a79184b19717b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
