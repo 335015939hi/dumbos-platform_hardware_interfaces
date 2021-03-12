@@ -46,6 +46,14 @@ using namespace keymaster;
 
 namespace {
 
+// Hard-coded set of acceptable public keys that can act as roots of EEK chains.
+inline const vector<bytevec> kAuthorizedEekRoots = {
+        // TODO(drysdale): replace this random value with real root pubkey(s).
+        {0x5c, 0xea, 0x4b, 0xd2, 0x31, 0x27, 0x15, 0x5e, 0x62, 0x94, 0x70,
+         0x53, 0x94, 0x43, 0x0f, 0x9a, 0x89, 0xd5, 0xc5, 0x0f, 0x82, 0x9b,
+         0xcd, 0x10, 0xe0, 0x79, 0xef, 0xf3, 0xfa, 0x40, 0xeb, 0x0a},
+};
+
 constexpr auto STATUS_FAILED = RemotelyProvisionedComponent::STATUS_FAILED;
 constexpr auto STATUS_INVALID_EEK = RemotelyProvisionedComponent::STATUS_INVALID_EEK;
 constexpr auto STATUS_INVALID_MAC = RemotelyProvisionedComponent::STATUS_INVALID_MAC;
@@ -135,6 +143,13 @@ StatusOr<std::pair<bytevec /* EEK pub */, bytevec /* EEK ID */>> validateAndExtr
                           "Failed to validate EEK chain: " + cosePubKey.moveMessage());
         }
         lastPubKey = *std::move(cosePubKey);
+
+        // In prod mode the first pubkey should match a well-known Google public key.
+        if (!testMode && i == 0 &&
+            std::find(kAuthorizedEekRoots.begin(), kAuthorizedEekRoots.end(), lastPubKey) ==
+                    kAuthorizedEekRoots.end()) {
+            return Status(STATUS_INVALID_EEK, "Unrecognized root of EEK chain");
+        }
     }
 
     auto eek = CoseKey::parseX25519(lastPubKey, true /* requireKid */);
