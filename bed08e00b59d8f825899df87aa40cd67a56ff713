@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd48c70f_7609d7ad",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-03-12T10:27:19Z",
+      "side": 1,
+      "message": "Is this the size of one sample or the number of samples in one second? Bitrate should be meaning about number of samples per second, but is not equal to BitsPerSample.",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42c86729_791ed255",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-03-12T10:27:19Z",
+      "side": 1,
+      "message": "Should this be in the Lc3Parameters or the LeAudioCodecConfiguration? From my view, this is more like the LE channel property, and is vary similar to MTU. Should we merge the MTU and this blocksPerSdu to a single parameter?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b55bc5c1_4d0ecd61",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-03-12T10:27:19Z",
+      "side": 1,
+      "message": "Looks weird for me that there is only LC3 capabilities, but it has the code type parameter. What if the codec type is not LC3?",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 34
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "878964ec_feef60d7",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-03-12T10:27:19Z",
+      "side": 1,
+      "message": "Similar to line #85, but is it necessary to have this parameter since LC3 is the only option?",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 24
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
