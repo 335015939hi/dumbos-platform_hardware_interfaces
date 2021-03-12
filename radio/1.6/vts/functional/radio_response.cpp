@@ -850,6 +850,8 @@ Return<void> RadioResponse_v1_6::getModemStackStatusResponse(
 /* 1.4 Apis */
 Return<void> RadioResponse_v1_6::emergencyDialResponse(
         const ::android::hardware::radio::V1_0::RadioResponseInfo& /*info*/) {
+    rspInfo = info;
+    parent_v1_6.notify(info.serial);
     return Void();
 }
 
