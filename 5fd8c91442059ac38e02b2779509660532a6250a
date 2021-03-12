@@ -22,6 +22,30 @@
       },
       "revId": "5fd8c91442059ac38e02b2779509660532a6250a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce1a2af2_1a54a169",
+        "filename": "graphics/composer/2.1/utils/vts/include/composer-vts/2.1/GraphicsComposerCallback.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1561731
+      },
+      "writtenOn": "2021-03-12T19:28:27Z",
+      "side": 1,
+      "message": "This was so that the default behavior would be to allow vsync (since the default constructed value in std::unordered_map is false, mVsyncDisallowedForDisplay[display] would mean allowed). I can switch to allowed and just add a helper function if you would prefer.",
+      "parentUuid": "71bc5d90_b8d23eb6",
+      "range": {
+        "startLine": 54,
+        "startChar": 38,
+        "endLine": 54,
+        "endChar": 64
+      },
+      "revId": "5fd8c91442059ac38e02b2779509660532a6250a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
