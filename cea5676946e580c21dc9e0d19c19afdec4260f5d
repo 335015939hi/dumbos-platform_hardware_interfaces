@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a4d2ab2_1a3c949c",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2021-03-12T21:02:24Z",
+      "side": 1,
+      "message": "I think this should only be REQUEST_NOT_SUPPORTED. If we allow others, then we are losing the significance of modemReducedFeatureSet1 IMO. We can check with Daniel/Robert if you feel otherwise.",
+      "range": {
+        "startLine": 375,
+        "startChar": 17,
+        "endLine": 378,
+        "endChar": 67
+      },
+      "revId": "cea5676946e580c21dc9e0d19c19afdec4260f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
