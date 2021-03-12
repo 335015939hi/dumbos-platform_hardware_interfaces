@@ -99,7 +99,6 @@ void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,
     // Header label:value of 'alg': HMAC-256
     ASSERT_EQ(cppbor::prettyPrint(protParms->value()), "{\n  1 : 5,\n}");
 
-    // TODO: this should be an empty map not an empty bstr
     auto unprotParms = coseMac0->asArray()->get(kCoseMac0UnprotectedParams)->asBstr();
     ASSERT_NE(unprotParms, nullptr);
     ASSERT_EQ(unprotParms->value().size(), 0);
@@ -127,6 +126,55 @@ void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,
     if (payload_value != nullptr) {
         *payload_value = payload->value();
     }
+}
+
+ErrMsgOr<cppbor::Array> corrupt_sig(const cppbor::Array* coseSign1) {
+    if (coseSign1->size() != kCoseSign1EntryCount) {
+        return "Invalid COSE_Sign1, wrong entry count";
+    }
+    const cppbor::Bstr* protectedParams = coseSign1->get(kCoseSign1ProtectedParams)->asBstr();
+    const cppbor::Bstr* unprotectedParams = coseSign1->get(kCoseSign1UnprotectedParams)->asBstr();
+    const cppbor::Bstr* payload = coseSign1->get(kCoseSign1Payload)->asBstr();
+    const cppbor::Bstr* signature = coseSign1->get(kCoseSign1Signature)->asBstr();
+    if (!protectedParams || !unprotectedParams || !payload || !signature) {
+        return "Invalid COSE_Sign1: missing content";
+    }
+
+    auto corruptSig = cppbor::Array();
+    corruptSig.add(protectedParams->clone());
+    corruptSig.add(unprotectedParams->clone());
+    corruptSig.add(payload->clone());
+    vector<uint8_t> sigData = signature->value();
+    sigData[0] ^= 0x08;
+    corruptSig.add(cppbor::Bstr(sigData));
+
+    return std::move(corruptSig);
+}
+
+ErrMsgOr<EekChain> corrupt_sig_chain(const EekChain& eek, int which) {
+    auto [chain, _, parseErr] = cppbor::parse(eek.chain);
+    if (!chain || !chain->asArray()) {
+        return "EekChain parse failed";
+    }
+
+    cppbor::Array* eekChain = chain->asArray();
+    if (which >= eekChain->size()) {
+        return "selected sig out of range";
+    }
+    auto corruptChain = cppbor::Array();
+
+    for (int ii = 0; ii < eekChain->size(); ++ii) {
+        if (ii == which) {
+            auto sig = corrupt_sig(eekChain->get(which)->asArray());
+            if (!sig) {
+                return "Failed to build corrupted signature" + sig.moveMessage();
+            }
+            corruptChain.add(sig.moveValue());
+        } else {
+            corruptChain.add(eekChain->get(ii)->clone());
+        }
+    }
+    return EekChain{corruptChain.encode(), eek.last_pubkey, eek.last_privkey};
 }
 
 }  // namespace
@@ -182,8 +230,9 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_testMode) {
 
 class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
   protected:
+    const size_t kEekLength = 3;
     CertificateRequestTest() : eekId_(string_to_bytevec("eekid")), challenge_(randomBytes(32)) {
-        auto chain = generateEekChain(3, eekId_);
+        auto chain = generateEekChain(kEekLength, eekId_);
         EXPECT_TRUE(chain) << chain.message();
         if (chain) eekChain_ = chain.moveValue();
     }
@@ -330,6 +379,62 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_prodMode) {
     ProtectedData protectedData;
     auto status = provisionable_->generateCertificateRequest(
             testMode, keysToSign_, eekChain_.chain, challenge_, &keysToSignMac, &protectedData);
+    ASSERT_FALSE(status.isOk());
+    ASSERT_EQ(status.getServiceSpecificError(), BnRemotelyProvisionedComponent::STATUS_INVALID_EEK);
+}
+
+/**
+ * Generate a non-empty certificate request in prod mode that has a corrupt EEK chain.
+ * Confirm that the request is rejected.
+ *
+ * TODO(drysdale): Update to use a valid GEEK, so that the test actually confirms that the
+ * implementation is checking signatures.
+ */
+TEST_P(CertificateRequestTest, NonEmptyCorruptEekRequest_prodMode) {
+    bool testMode = false;
+    generateKeys(testMode, 4 /* numKeys */);
+
+    for (size_t ii = 0; ii < kEekLength; ii++) {
+        auto chain = corrupt_sig_chain(eekChain_, ii);
+        ASSERT_TRUE(chain) << chain.message();
+        EekChain corruptEek = chain.moveValue();
+
+        bytevec keysToSignMac;
+        ProtectedData protectedData;
+        auto status = provisionable_->generateCertificateRequest(
+                testMode, keysToSign_, eekChain_.chain, challenge_, &keysToSignMac, &protectedData);
+        ASSERT_FALSE(status.isOk());
+        ASSERT_EQ(status.getServiceSpecificError(),
+                  BnRemotelyProvisionedComponent::STATUS_INVALID_EEK);
+    }
+}
+
+/**
+ * Generate a non-empty certificate request in prod mode that has an incomplete EEK chain.
+ * Confirm that the request is rejected.
+ *
+ * TODO(drysdale): Update to use a valid GEEK, so that the test actually confirms that the
+ * implementation is checking signatures.
+ */
+TEST_P(CertificateRequestTest, NonEmptyIncompleteEekRequest_prodMode) {
+    bool testMode = false;
+    generateKeys(testMode, 4 /* numKeys */);
+
+    // Build an EEK chain that omits the first self-signed cert.
+    auto truncatedChain = cppbor::Array();
+    auto [chain, _, parseErr] = cppbor::parse(eekChain_.chain);
+    ASSERT_TRUE(chain);
+    auto eekChain = chain->asArray();
+    ASSERT_NE(eekChain, nullptr);
+    for (size_t ii = 1; ii < eekChain->size(); ii++) {
+        truncatedChain.add(eekChain->get(ii)->clone());
+    }
+
+    bytevec keysToSignMac;
+    ProtectedData protectedData;
+    auto status = provisionable_->generateCertificateRequest(testMode, keysToSign_,
+                                                             truncatedChain.encode(), challenge_,
+                                                             &keysToSignMac, &protectedData);
     ASSERT_FALSE(status.isOk());
     ASSERT_EQ(status.getServiceSpecificError(), BnRemotelyProvisionedComponent::STATUS_INVALID_EEK);
 }
