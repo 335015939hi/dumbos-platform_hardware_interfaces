@@ -22,6 +22,30 @@
       },
       "revId": "cea5676946e580c21dc9e0d19c19afdec4260f5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fffc74c9_39f95241",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-03-12T21:24:36Z",
+      "side": 1,
+      "message": "Daniel, can you please confirm if a vendor can continue to support a feature even though they return reducedFeature as true.",
+      "parentUuid": "7a4d2ab2_1a3c949c",
+      "range": {
+        "startLine": 375,
+        "startChar": 17,
+        "endLine": 378,
+        "endChar": 67
+      },
+      "revId": "cea5676946e580c21dc9e0d19c19afdec4260f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
