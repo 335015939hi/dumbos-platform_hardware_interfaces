@@ -23,6 +23,8 @@
 
 #include "Power.h"
 
+#include <dlfcn.h>
+
 namespace android {
 namespace hardware {
 namespace power {
@@ -35,7 +37,11 @@ Power::Power(power_module_t *module) : mModule(module) {
 }
 
 Power::~Power() {
-    delete(mModule);
+    if (mModule) {
+        if (mModule->common.dso) {
+            dlclose(mModule->common.dso);
+        }
+    }
 }
 
 // Methods from ::android::hardware::power::V1_0::IPower follow.
