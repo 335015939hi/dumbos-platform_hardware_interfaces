@@ -16,6 +16,24 @@
       "message": "update the VTS for this.",
       "revId": "6f50a8bf7b452403ae465f886162dfdf9b6dd82e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54705402_1e107629",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1707895
+      },
+      "writtenOn": "2021-03-13T01:00:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886731f9_ea3c4616",
+      "revId": "6f50a8bf7b452403ae465f886162dfdf9b6dd82e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
