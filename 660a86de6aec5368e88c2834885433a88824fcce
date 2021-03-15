@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "714bff98_a992a964",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-03-15T08:46:18Z",
+      "side": 1,
+      "message": "Should this CL be in sc-dev as it apparently applies to HAL V7.0 ?\n",
+      "revId": "660a86de6aec5368e88c2834885433a88824fcce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
