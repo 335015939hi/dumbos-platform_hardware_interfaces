@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7db4c5aa_05577bba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-15T22:50:45Z",
+      "side": 1,
+      "message": "can this go in a scripts subfolder or something? (if we don\u0027t already have one here, we should)",
+      "revId": "72f197fce014193495a5e74bc76b659cf2f324d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
