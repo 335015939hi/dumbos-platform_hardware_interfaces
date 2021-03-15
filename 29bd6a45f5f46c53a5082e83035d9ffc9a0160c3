@@ -88,6 +88,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2327436d_8a8b480e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-15T07:29:53Z",
+      "side": 1,
+      "message": "Hi Robert\n\nI\u0027m in Shanghai, China UTC/GMT+8. We could have a meeting and let Sukanya help organize one this week if we still have any concerns left 😊",
+      "parentUuid": "1594ef4d_8a310e65",
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28a696a3_7f210000",
         "filename": "radio/1.6/IRadio.hal",
         "patchSetId": 18
@@ -147,6 +165,30 @@
       "side": 1,
       "message": "Hi Fei.  Discussed this with Ajay earlier today and I think we have a better compromise:\n\nTurn this into the real get + changed-notification model.\n\nRemove the language that it \"can only be used after receiving..\".  Before the phonebook is read this would just return an empty set.  When it\u0027s ready we\u0027ll get a unsol notification that the phonebook has changed (and if the phonebook does change for some reason, you can send that again to trigger a re-fetch from the AP).\n\nThis has the same semantics from your side but adds value in the unsol indication from our POV and fits the existing models better.\n\nWhat do you think?",
       "parentUuid": "6eb1e0c4_a29b15af",
+      "range": {
+        "startLine": 499,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 87
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e422df39_7376c964",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-15T07:29:53Z",
+      "side": 1,
+      "message": "Yes, this is good, RIL could return empty if SIM phonebook module is not ready. And once ready, we will send one notification to telephony.\n\nOne concern is that, if telephony/UI update one PBM record, then modem will send one indication after update, how will AP handle it since AP already has the valid cache?",
+      "parentUuid": "1f59acec_f62ce419",
       "range": {
         "startLine": 499,
         "startChar": 0,
@@ -228,6 +270,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7c93b73_75f2b535",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-15T07:29:53Z",
+      "side": 1,
+      "message": "Sure, thanks for the suggestion. We will add \"Sim\" to all related APIs, and address the token comment later.",
+      "parentUuid": "eb4ce6c0_5936df01",
+      "range": {
+        "startLine": 507,
+        "startChar": 39,
+        "endLine": 507,
+        "endChar": 45
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b02c01a1_397cc336",
@@ -241,6 +307,30 @@
       "writtenOn": "2021-03-10T02:43:13Z",
       "side": 1,
       "message": "updateSimPhonebookRecords",
+      "range": {
+        "startLine": 522,
+        "startChar": 11,
+        "endLine": 522,
+        "endChar": 32
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19b7704f_851b3a4f",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-15T07:29:53Z",
+      "side": 1,
+      "message": "Sure, will update. Thanks.",
+      "parentUuid": "b02c01a1_397cc336",
       "range": {
         "startLine": 522,
         "startChar": 11,
@@ -322,6 +412,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa7953a1_b6114ae4",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-15T07:29:53Z",
+      "side": 1,
+      "message": "Sure, that\u0027s fine. We will update both the name and comment.\n\nBTW, echo one previous concern, how to avoid the duplicated PBM update indication if it is triggered by AP side?",
+      "parentUuid": "4535e9c4_1fe8ca08",
+      "range": {
+        "startLine": 127,
+        "startChar": 11,
+        "endLine": 127,
+        "endChar": 28
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "151bb30d_4c749855",
@@ -383,6 +497,30 @@
       "side": 1,
       "message": "I think we should call this simPhonebookRecordsRecieved.\n\nI still think we should have a status indicator: ok, error, final.\n\nI don\u0027t want the interface between the vendor code and the AP dependent on the number remaining fixed between the beginning of the chunked transfer and the end.  If the QMI implementation requires the RIL do math, that\u0027s QC specific and shouldn\u0027t leak across the RIL.",
       "parentUuid": "459b92a7_aa5a6168",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 99
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fc35c29_7156f85c",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-15T07:29:53Z",
+      "side": 1,
+      "message": "Sure, for the math process, that\u0027s fine, RIL will do the math.\n\nAs for the status indicator, do you mean we add one more parameter like pbReceivedStatus you previously suggested? If yes, do you mean we shall have the Error/OK enum, and continue/last indicator in this struct?",
+      "parentUuid": "984199da_03b6bdd8",
       "range": {
         "startLine": 139,
         "startChar": 0,
@@ -488,6 +626,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c241faf1_001b1192",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-15T07:29:53Z",
+      "side": 1,
+      "message": "OK, RIL can do that, to have one timer, and after timeout, will send failure to telephony.",
+      "parentUuid": "8a66c137_48f1b6ef",
+      "range": {
+        "startLine": 142,
+        "startChar": 36,
+        "endLine": 142,
+        "endChar": 55
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7091c4f7_9e697a40",
@@ -583,6 +745,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c081ba4_b6072352",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-15T07:29:53Z",
+      "side": 1,
+      "message": "OK, will update to add the clear comment.",
+      "parentUuid": "120f5d92_d7437233",
+      "range": {
+        "startLine": 426,
+        "startChar": 9,
+        "endLine": 426,
+        "endChar": 41
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfd414fa_a352e088",
@@ -654,6 +840,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff0f11a5_63152f87",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-15T07:29:53Z",
+      "side": 1,
+      "message": "Either way is fine to us. Please suggest what you like, we could follow.",
+      "parentUuid": "9fbe6d7d_a33e812e",
+      "range": {
+        "startLine": 432,
+        "startChar": 81,
+        "endLine": 432,
+        "endChar": 89
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c03cb7a_6758daec",
@@ -715,6 +925,30 @@
       "side": 1,
       "message": "I don\u0027t think it should be removed - I think it needs supplemental info that this should only be returned if the device doesn\u0027t support CAPABILITY_SIM_PHONEBOOK.",
       "parentUuid": "8a8f721e_3f505fd8",
+      "range": {
+        "startLine": 442,
+        "startChar": 9,
+        "endLine": 442,
+        "endChar": 41
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88c94638_25ab94da",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-15T07:29:53Z",
+      "side": 1,
+      "message": "Sure, will update the comment.",
+      "parentUuid": "232397ce_4ef95d7e",
       "range": {
         "startLine": 442,
         "startChar": 9,
