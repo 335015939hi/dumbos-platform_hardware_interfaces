@@ -16,6 +16,24 @@
       "message": "Should this CL be in sc-dev as it apparently applies to HAL V7.0 ?\n",
       "revId": "660a86de6aec5368e88c2834885433a88824fcce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d914a8d8_659c3bf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-15T16:12:29Z",
+      "side": 1,
+      "message": "Eric, not sure what do you mean. AOSP master eventually gets merged into sc-dev (at least, at the moment). Please see the AM graph (the path starting from mirror-aosp-master): https://android-build.googleplex.com/builds/automerger/graph/project/googleplex-android/platform/hardware/interfaces",
+      "parentUuid": "714bff98_a992a964",
+      "revId": "660a86de6aec5368e88c2834885433a88824fcce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
