@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da5b409e_d795a931",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-03-15T17:25:28Z",
+      "side": 1,
+      "message": "The documentation needs to be sufficient for engineer to implement this feature or decide that it is not relevant for the given platform. This needs more context and also a description of possible error codes such as UNIMPLEMENTD.",
+      "range": {
+        "startLine": 765,
+        "startChar": 7,
+        "endLine": 766,
+        "endChar": 18
+      },
+      "revId": "b14ae981133f19db24c6d681b6db36673bd6b02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
