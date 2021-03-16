@@ -1,0 +1,116 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009015972",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1441011?revision\u003d19",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "7d436f78_ffa18a6d",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-03-16T02:09:40Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 127,
+        "startChar": 76,
+        "endLine": 127,
+        "endChar": 77
+      },
+      "revId": "cf386e2faaec64011f14679f63bbd26020cef699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009015971",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1441011?revision\u003d19",
+      "fixSuggestions": [
+        {
+          "fixId": "7d887551_7d6b9e21",
+          "description": "Change to \"radio/1.6/types.hal\"",
+          "replacements": [
+            {
+              "path": "radio/1.6/types.hal",
+              "range": {
+                "startLine": 1193,
+                "startChar": 33,
+                "endLine": 1193,
+                "endChar": 41
+              },
+              "replacement": "retrieval"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "12ba486b_c461200a",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-03-16T02:09:40Z",
+      "side": 1,
+      "message": "Common typo found: \"retrival\" -- should it be \"retrieval\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 1193,
+        "startChar": 33,
+        "endLine": 1193,
+        "endChar": 41
+      },
+      "revId": "cf386e2faaec64011f14679f63bbd26020cef699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009015971",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1441011?revision\u003d19",
+      "fixSuggestions": [
+        {
+          "fixId": "f5419a96_f30a3898",
+          "description": "Change to \"radio/1.6/vts/functional/radio_hidl_hal_api.cpp\"",
+          "replacements": [
+            {
+              "path": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+              "range": {
+                "startLine": 730,
+                "startChar": 47,
+                "endLine": 730,
+                "endChar": 54
+              },
+              "replacement": "response"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "baeb4ae1_e84ebc71",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-03-16T02:09:40Z",
+      "side": 1,
+      "message": "Common typo found: \"respone\" -- should it be \"response\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 730,
+        "startChar": 47,
+        "endLine": 730,
+        "endChar": 54
+      },
+      "revId": "cf386e2faaec64011f14679f63bbd26020cef699",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
