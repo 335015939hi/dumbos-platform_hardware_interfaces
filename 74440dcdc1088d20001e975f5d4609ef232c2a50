@@ -16,6 +16,24 @@
       "message": "I\u0027ll need to update https://source.android.com/devices/architecture/hidl/converting#c2hal as well.",
       "revId": "74440dcdc1088d20001e975f5d4609ef232c2a50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fab31515_c8ac9301",
+        "filename": "scripts/update-base-files.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-16T00:26:26Z",
+      "side": 1,
+      "message": "we could also avoid moving these for now (do they both work when moved?)",
+      "parentUuid": "6faf82a6_da8b6755",
+      "revId": "74440dcdc1088d20001e975f5d4609ef232c2a50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
