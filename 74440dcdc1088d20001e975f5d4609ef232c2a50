@@ -34,6 +34,24 @@
       "parentUuid": "6faf82a6_da8b6755",
       "revId": "74440dcdc1088d20001e975f5d4609ef232c2a50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2090278b_ac3b7d03",
+        "filename": "scripts/update-base-files.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-03-16T00:31:40Z",
+      "side": 1,
+      "message": "I didn\u0027t actually check, but just by looking at the script, you are using absolute paths so it should be fine. I\u0027ll abandon this then.",
+      "parentUuid": "fab31515_c8ac9301",
+      "revId": "74440dcdc1088d20001e975f5d4609ef232c2a50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
