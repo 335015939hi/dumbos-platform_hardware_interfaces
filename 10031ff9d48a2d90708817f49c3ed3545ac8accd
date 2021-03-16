@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c2c488a_55667c90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2021-03-16T22:41:54Z",
+      "side": 1,
+      "message": "Looks pretty good - getting down to wordsmithing.",
+      "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4abe0d8b_9c5bb42f",
