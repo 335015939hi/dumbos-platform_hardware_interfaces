@@ -16,6 +16,24 @@
       "message": "this will exceed time HCI startup timeout, so if this platform is having trouble passing this test it will likely turn into failures that users see as well",
       "revId": "cea65b53e356ffd7b831297b0b4bd6e8c8f74057",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5daf7ad_90635598",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1866345
+      },
+      "writtenOn": "2021-03-16T03:42:17Z",
+      "side": 1,
+      "message": "We also expand HCI startup timeout in the framework app as well, so as not to face any failure.\npackages/apps/Bluetooth/src/com/android/bluetooth/btservice/AdapterState.java",
+      "parentUuid": "27b18713_b45e9000",
+      "revId": "cea65b53e356ffd7b831297b0b4bd6e8c8f74057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
