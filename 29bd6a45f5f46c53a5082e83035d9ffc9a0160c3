@@ -460,6 +460,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e0097bb_6b1ce616",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2021-03-16T22:45:22Z",
+      "side": 1,
+      "message": "I don\u0027t know what you mean by the update indication being triggered by the AP side.\nThe indication would be sent by the modem when it has records to send and if the records ever change.",
+      "parentUuid": "aa7953a1_b6114ae4",
+      "range": {
+        "startLine": 127,
+        "startChar": 11,
+        "endLine": 127,
+        "endChar": 28
+      },
+      "revId": "29bd6a45f5f46c53a5082e83035d9ffc9a0160c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "151bb30d_4c749855",

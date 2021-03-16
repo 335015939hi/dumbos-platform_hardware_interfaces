@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad66bb28_9b7a540c",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2021-03-16T22:45:22Z",
+      "side": 1,
+      "message": "We probably need a comment that simPhonebookChanged will be called for every successful call of updateSimPhonebookRecords.\n\nWe could go with a fancy solution where simPhonebookChanged includes a change# parameter and if that matches the change# param in updateSimPhonebookRecordsResponse it can be ignored (no need to refetch the records if your cache is up to date), but I think in the near term we can just do it by the # of calls to update and the # of change indications received.",
+      "range": {
+        "startLine": 573,
+        "startChar": 0,
+        "endLine": 573,
+        "endChar": 53
+      },
+      "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "00337db3_25c4f6bf",
         "filename": "radio/1.6/IRadioResponse.hal",
         "patchSetId": 22
