@@ -87,6 +87,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aba5344e_53ae3a9e",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-17T06:14:22Z",
+      "side": 1,
+      "message": "Thanks a lot for the suggestion, will update.",
+      "parentUuid": "00337db3_25c4f6bf",
+      "range": {
+        "startLine": 450,
+        "startChar": 7,
+        "endLine": 451,
+        "endChar": 56
+      },
+      "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b417375_0e59d7ea",
@@ -110,6 +134,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8433cd21_70f17cf7",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-17T06:14:22Z",
+      "side": 1,
+      "message": "Sure, will update.",
+      "parentUuid": "8b417375_0e59d7ea",
+      "range": {
+        "startLine": 467,
+        "startChar": 7,
+        "endLine": 468,
+        "endChar": 56
+      },
+      "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ed114c2_ce93b624",
@@ -123,6 +171,30 @@
       "writtenOn": "2021-03-16T22:41:34Z",
       "side": 1,
       "message": "same as above",
+      "range": {
+        "startLine": 488,
+        "startChar": 7,
+        "endLine": 489,
+        "endChar": 56
+      },
+      "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a068e3b_c5e3e828",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-17T06:14:22Z",
+      "side": 1,
+      "message": "Will update.",
+      "parentUuid": "3ed114c2_ce93b624",
       "range": {
         "startLine": 488,
         "startChar": 7,
@@ -227,6 +299,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41d37026_20fc1bd6",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-17T06:14:22Z",
+      "side": 1,
+      "message": "It is not an empty packet, and it will contain the data. We will update the comment clearly.",
+      "parentUuid": "97642e4d_77102b16",
+      "range": {
+        "startLine": 1166,
+        "startChar": 0,
+        "endLine": 1166,
+        "endChar": 60
+      },
+      "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d73be343_e6fc0791",
@@ -240,6 +336,30 @@
       "writtenOn": "2021-03-17T02:23:30Z",
       "side": 1,
       "message": "we should add a comment that this is expected to be called whenever the phonebook changes (even if we change it ourselves) or if a sim is inserted or removed.",
+      "range": {
+        "startLine": 416,
+        "startChar": 13,
+        "endLine": 416,
+        "endChar": 33
+      },
+      "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "743caf21_d0bebb8c",
+        "filename": "radio/1.6/vts/functional/radio_indication.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1156349
+      },
+      "writtenOn": "2021-03-17T06:14:22Z",
+      "side": 1,
+      "message": "Sure, will add.",
+      "parentUuid": "d73be343_e6fc0791",
       "range": {
         "startLine": 416,
         "startChar": 13,
