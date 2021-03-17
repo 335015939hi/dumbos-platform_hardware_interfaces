@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a23e12ff_44c82a70",
+        "filename": "security/sharedsecret/aidl/vts/functional/SharedSecretAidlTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-17T22:02:16Z",
+      "side": 1,
+      "message": "this should not be considered an error (some devices won\u0027t have any)",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 83
+      },
+      "revId": "48cf9a3ad484ed63d83abb48f21d082fda7537a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f86ac978_4584428d",
+        "filename": "security/sharedsecret/aidl/vts/functional/SharedSecretAidlTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-17T22:02:16Z",
+      "side": 1,
+      "message": "same",
+      "revId": "48cf9a3ad484ed63d83abb48f21d082fda7537a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
