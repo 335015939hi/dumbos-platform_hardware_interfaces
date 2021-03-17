@@ -201,6 +201,29 @@
       },
       "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d73be343_e6fc0791",
+        "filename": "radio/1.6/vts/functional/radio_indication.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2021-03-17T02:23:30Z",
+      "side": 1,
+      "message": "we should add a comment that this is expected to be called whenever the phonebook changes (even if we change it ourselves) or if a sim is inserted or removed.",
+      "range": {
+        "startLine": 416,
+        "startChar": 13,
+        "endLine": 416,
+        "endChar": 33
+      },
+      "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
