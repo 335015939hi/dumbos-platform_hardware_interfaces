@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f98904b6_9fee1d1e",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1423906
+      },
+      "writtenOn": "2021-03-17T07:55:40Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "4abe0d8b_9c5bb42f",
+      "range": {
+        "startLine": 550,
+        "startChar": 7,
+        "endLine": 551,
+        "endChar": 20
+      },
+      "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad66bb28_9b7a540c",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-16T22:45:22Z",
       "side": 1,
       "message": "We probably need a comment that simPhonebookChanged will be called for every successful call of updateSimPhonebookRecords.\n\nWe could go with a fancy solution where simPhonebookChanged includes a change# parameter and if that matches the change# param in updateSimPhonebookRecordsResponse it can be ignored (no need to refetch the records if your cache is up to date), but I think in the near term we can just do it by the # of calls to update and the # of change indications received.",
+      "range": {
+        "startLine": 573,
+        "startChar": 0,
+        "endLine": 573,
+        "endChar": 53
+      },
+      "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6530bd3d_08e4b241",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1423906
+      },
+      "writtenOn": "2021-03-17T07:55:40Z",
+      "side": 1,
+      "message": "ok, added it",
+      "parentUuid": "ad66bb28_9b7a540c",
       "range": {
         "startLine": 573,
         "startChar": 0,
@@ -266,6 +314,30 @@
       "side": 1,
       "message": "ok - please add that detail to the comment - that on ABORT you expect the caller to try again.",
       "parentUuid": "b34e9ac9_0d376020",
+      "range": {
+        "startLine": 1164,
+        "startChar": 19,
+        "endLine": 1165,
+        "endChar": 57
+      },
+      "revId": "10031ff9d48a2d90708817f49c3ed3545ac8accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac0cb6d_e657e359",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1423906
+      },
+      "writtenOn": "2021-03-17T07:55:40Z",
+      "side": 1,
+      "message": "sure",
+      "parentUuid": "8dcaa74d_cb43a5d9",
       "range": {
         "startLine": 1164,
         "startChar": 19,
