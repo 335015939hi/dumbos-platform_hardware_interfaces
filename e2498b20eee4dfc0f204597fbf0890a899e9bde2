@@ -255,6 +255,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72d75ab8_a04da0ea",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-03-17T20:48:49Z",
+      "side": 1,
+      "message": "Right now LE Audio have just one codec - LC3.\nIn future, I expect that some vendors will create new codecs.\nI copied this from AudioCodecConfiguration from @2.0 types. I\u0027m hoping that this pattern will make it easier to add new LE Audio codecs in future.",
+      "parentUuid": "30a2a99a_73b90f14",
+      "range": {
+        "startLine": 97,
+        "startChar": 7,
+        "endLine": 97,
+        "endChar": 32
+      },
+      "revId": "e2498b20eee4dfc0f204597fbf0890a899e9bde2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0d1e994_d173f05b",
         "filename": "bluetooth/audio/2.1/types.hal",
         "patchSetId": 7
@@ -266,6 +290,30 @@
       "writtenOn": "2021-03-04T21:59:40Z",
       "side": 1,
       "message": "Should we have this limit? 16mbps is exceeded by some audio formats, and those probably won\u0027t be used by this, but should we save those bits here? We can\u0027t extend these bits to mean something else later (and anyway we want each field/type to represent only one thing at this layer)",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 41
+      },
+      "revId": "e2498b20eee4dfc0f204597fbf0890a899e9bde2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a81e678b_96d03d2f",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-03-17T20:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0d1e994_d173f05b",
       "range": {
         "startLine": 103,
         "startChar": 0,

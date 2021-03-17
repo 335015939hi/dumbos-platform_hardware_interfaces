@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ecbd2ee_89d17b2b",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-03-17T20:48:49Z",
+      "side": 1,
+      "message": "This is size of one sample. I.e 16 or 24 bits per sample.",
+      "parentUuid": "fd48c70f_7609d7ad",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42c86729_791ed255",
         "filename": "bluetooth/audio/2.1/types.hal",
         "patchSetId": 8
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-12T10:27:19Z",
       "side": 1,
       "message": "Should this be in the Lc3Parameters or the LeAudioCodecConfiguration? From my view, this is more like the LE channel property, and is vary similar to MTU. Should we merge the MTU and this blocksPerSdu to a single parameter?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede8124b_05788cf6",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-03-17T20:48:49Z",
+      "side": 1,
+      "message": "As per latest BAP specification, all parameters above are defined as generic fields, not specific to LC3 codec. Other codecs in future have freedom to choose which ones they want to use.\nI don\u0027t have strong opinion wether to keep these field in Lc3Parameters, or have them defined in LeAudioCodecCapabilities and LeAudioCodecConfiguration.\nIf you have any good reason I can move them.\n\n\nI moved audioChannelAllocation and audioChannelCount to more proper place.",
+      "parentUuid": "42c86729_791ed255",
       "range": {
         "startLine": 77,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e545529f_d71ab55e",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-03-17T20:48:49Z",
+      "side": 1,
+      "message": "Please see my comment below. I\u0027m hoping that this will make capabilities for new codecs easier in the future.",
+      "parentUuid": "b55bc5c1_4d0ecd61",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 34
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "878964ec_feef60d7",
         "filename": "bluetooth/audio/2.1/types.hal",
         "patchSetId": 8
@@ -83,6 +155,30 @@
       "writtenOn": "2021-03-12T10:27:19Z",
       "side": 1,
       "message": "Similar to line #85, but is it necessary to have this parameter since LC3 is the only option?",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 24
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48b3ee1a_69142307",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-03-17T20:48:49Z",
+      "side": 1,
+      "message": "See my reply above.",
+      "parentUuid": "878964ec_feef60d7",
       "range": {
         "startLine": 101,
         "startChar": 0,
