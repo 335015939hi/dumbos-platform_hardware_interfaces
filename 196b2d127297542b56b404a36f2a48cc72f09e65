@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e6e21d6_95631f00",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 23
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1423906
+      },
+      "writtenOn": "2021-03-17T07:44:40Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "77afe56f_a2cd7ffb",
+      "range": {
+        "startLine": 572,
+        "startChar": 49,
+        "endLine": 572,
+        "endChar": 54
+      },
+      "revId": "196b2d127297542b56b404a36f2a48cc72f09e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31a489c2_6825b687",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-17T06:14:22Z",
       "side": 1,
       "message": "after",
+      "range": {
+        "startLine": 577,
+        "startChar": 57,
+        "endLine": 577,
+        "endChar": 61
+      },
+      "revId": "196b2d127297542b56b404a36f2a48cc72f09e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73b88d2c_2644c8ea",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 23
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1423906
+      },
+      "writtenOn": "2021-03-17T07:44:40Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "31a489c2_6825b687",
       "range": {
         "startLine": 577,
         "startChar": 57,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1aae3cf_60505e21",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 23
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1423906
+      },
+      "writtenOn": "2021-03-17T07:44:40Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "90983a3f_42d655a0",
+      "revId": "196b2d127297542b56b404a36f2a48cc72f09e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b71acac8_05fa5d43",
@@ -81,6 +147,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7891a2a_8defd4b9",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 23
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1423906
+      },
+      "writtenOn": "2021-03-17T07:44:40Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "b71acac8_05fa5d43",
+      "revId": "196b2d127297542b56b404a36f2a48cc72f09e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb18984f_3393cf4f",
@@ -94,6 +178,24 @@
       "writtenOn": "2021-03-17T06:14:22Z",
       "side": 1,
       "message": "Please use \"phonebook\" consistent in the codes and comments.",
+      "revId": "196b2d127297542b56b404a36f2a48cc72f09e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "370201b9_14f3cf50",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 23
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 1423906
+      },
+      "writtenOn": "2021-03-17T07:44:40Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "fb18984f_3393cf4f",
       "revId": "196b2d127297542b56b404a36f2a48cc72f09e65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
