@@ -114,14 +114,15 @@ class SharedSecretAidlTest : public ::testing::Test {
     const vector<shared_ptr<ISharedSecret>>& allSharedSecrets() { return allSharedSecrets_; }
 
     static void SetUpTestCase() {
-        if (allSharedSecrets_.empty()) {
-            auto names = ::android::getAidlHalInstanceNames(ISharedSecret::descriptor);
-            for (const auto& name : names) {
-                auto servicePtr = getSharedSecretService(name.c_str());
-                if (servicePtr != nullptr) allSharedSecrets_.push_back(std::move(servicePtr));
-            }
+        ASSERT_TRUE(allSharedSecrets_.empty()) << "The Shared Secret vector is not empty.";
+        auto names = ::android::getAidlHalInstanceNames(ISharedSecret::descriptor);
+        ASSERT_FALSE(names.empty()) << "No Shared Secret Aidl Hal Instances found";
+        for (const auto& name : names) {
+            auto servicePtr = getSharedSecretService(name.c_str());
+            if (servicePtr != nullptr) allSharedSecrets_.push_back(std::move(servicePtr));
         }
     }
+
     static void TearDownTestCase() {}
     void SetUp() override {}
     void TearDown() override {}
@@ -134,6 +135,7 @@ vector<shared_ptr<ISharedSecret>> SharedSecretAidlTest::allSharedSecrets_;
 
 TEST_F(SharedSecretAidlTest, GetParameters) {
     auto sharedSecrets = allSharedSecrets();
+    ASSERT_FALSE(sharedSecrets.empty()) << "No Shared Secret services registered";
     for (auto sharedSecret : sharedSecrets) {
         auto result1 = getSharedSecretParameters(sharedSecret);
         EXPECT_EQ(ErrorCode::OK, result1.error);
