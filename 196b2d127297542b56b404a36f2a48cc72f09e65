@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009063112",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1441011?revision\u003d23",
+      "fixSuggestions": [
+        {
+          "fixId": "0587fee0_a3ca55e6",
+          "description": "Change to \"radio/1.6/IRadio.hal\"",
+          "replacements": [
+            {
+              "path": "radio/1.6/IRadio.hal",
+              "range": {
+                "startLine": 550,
+                "startChar": 79,
+                "endLine": 550,
+                "endChar": 87
+              },
+              "replacement": "received"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "cf1615f0_b908e43f",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 23
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-03-17T05:48:50Z",
+      "side": 1,
+      "message": "Common typo found: \"recevied\" -- should it be \"received\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 550,
+        "startChar": 79,
+        "endLine": 550,
+        "endChar": 87
+      },
+      "revId": "196b2d127297542b56b404a36f2a48cc72f09e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
