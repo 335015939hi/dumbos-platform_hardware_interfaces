@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8339a308_3a97e759",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Thanks for catching this! It\u0027s a typo that happens to work due to the rule you\u0027ve mentioned.",
+      "parentUuid": "a28487e8_45de9a49",
+      "range": {
+        "startLine": 492,
+        "startChar": 51,
+        "endLine": 492,
+        "endChar": 52
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7da55266_c1634d2d",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-03-18T02:40:55Z",
       "side": 1,
       "message": "nit: is this const?",
+      "range": {
+        "startLine": 521,
+        "startChar": 40,
+        "endLine": 521,
+        "endChar": 41
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85c354ea_24b49f5f",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7da55266_c1634d2d",
       "range": {
         "startLine": 521,
         "startChar": 40,
@@ -104,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2d9f74d_080f5773",
+        "filename": "audio/core/all-versions/vts/functional/7.0/PolicyConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Thanks! A leftover from times when mConfigName was a const char*.",
+      "parentUuid": "47cb39b0_c2cd2b2f",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 27
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc8705ff_046a17bd",
@@ -117,6 +189,30 @@
       "writtenOn": "2021-03-18T02:40:55Z",
       "side": 1,
       "message": "or just {} here and on line 117.  I think that\u0027s the most efficient ctor.",
+      "range": {
+        "startLine": 109,
+        "startChar": 11,
+        "endLine": 109,
+        "endChar": 24
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f427ad9_cd2477ff",
+        "filename": "audio/core/all-versions/vts/functional/7.0/PolicyConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc8705ff_046a17bd",
       "range": {
         "startLine": 109,
         "startChar": 11,
@@ -150,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f3b7919_076fc6ad",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "No need. Tests always run on a single thread.",
+      "parentUuid": "d501fa2d_02619e28",
+      "range": {
+        "startLine": 787,
+        "startChar": 11,
+        "endLine": 787,
+        "endChar": 24
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "799a3ee8_c68ddb9b",
@@ -163,6 +283,30 @@
       "writtenOn": "2021-03-18T02:40:55Z",
       "side": 1,
       "message": "nit while on line 967 and continue here?\n\nalso line 1173.",
+      "range": {
+        "startLine": 984,
+        "startChar": 12,
+        "endLine": 984,
+        "endChar": 23
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7abf3e52_127ea4dd",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "There also needs to be a break down below and an extra indent level. My personal preference is since we are dealing with a rarely occurring situation it\u0027s a less \u0027intrusive\u0027 style to use a goto to handle it. Then the bulk of the code looks like this situation never normally happen.",
+      "parentUuid": "799a3ee8_c68ddb9b",
       "range": {
         "startLine": 984,
         "startChar": 12,
@@ -196,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ad781e7_47669f46",
+        "filename": "audio/core/all-versions/vts/functional/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f350095e_ee1ba602",
+      "range": {
+        "startLine": 33,
+        "startChar": 18,
+        "endLine": 33,
+        "endChar": 28
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc4b10ba_83e70af1",
@@ -209,6 +377,30 @@
       "writtenOn": "2021-03-18T02:40:55Z",
       "side": 1,
       "message": "nit: return mWorkerState \u003d\u003d WorkerState::RUNNING;\n\nthe copy to the return value occurs before the destructors are sequenced.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 23
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a69e615_2a09c423",
+        "filename": "audio/core/all-versions/vts/functional/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Thanks! For some reason I didn\u0027t realize that destroying an unique_lock releases the mutex, I was only considering manual locking / unlocking.",
+      "parentUuid": "bc4b10ba_83e70af1",
       "range": {
         "startLine": 36,
         "startChar": 0,
@@ -242,6 +434,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccac405a_1afa9b03",
+        "filename": "audio/core/all-versions/vts/functional/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "My personal preference is not to use const because no client is using this class via a const reference. I\u0027m not a big fan of using \u0027mutable\u0027.",
+      "parentUuid": "1d35b87f_eb34611b",
+      "range": {
+        "startLine": 42,
+        "startChar": 20,
+        "endLine": 42,
+        "endChar": 21
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e7f1d45_d3c6ed96",
@@ -255,6 +471,30 @@
       "writtenOn": "2021-03-18T02:40:55Z",
       "side": 1,
       "message": "how about ERROR, do we need that state?",
+      "range": {
+        "startLine": 49,
+        "startChar": 45,
+        "endLine": 49,
+        "endChar": 52
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0db19732_6de75c78",
+        "filename": "audio/core/all-versions/vts/functional/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Error state could only occur if the thread has been started. In this case we need to join it.",
+      "parentUuid": "1e7f1d45_d3c6ed96",
       "range": {
         "startLine": 49,
         "startChar": 45,
@@ -288,6 +528,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c9bd7ab_9a1ce007",
+        "filename": "audio/core/all-versions/vts/functional/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "All subclasses override it. I\u0027ve removed the default implementation and added a comment about them.",
+      "parentUuid": "5f591e4c_4548b904",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 67,
+        "endChar": 22
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf2f9283_604ccaae",
@@ -301,6 +565,30 @@
       "writtenOn": "2021-03-18T02:40:55Z",
       "side": 1,
       "message": "nit: needed?",
+      "range": {
+        "startLine": 79,
+        "startChar": 12,
+        "endLine": 79,
+        "endChar": 26
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d99b2a2b_735fa9bb",
+        "filename": "audio/core/all-versions/vts/functional/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "No, thanks!",
+      "parentUuid": "cf2f9283_604ccaae",
       "range": {
         "startLine": 79,
         "startChar": 12,
@@ -334,6 +622,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1aa9942_e4305ee2",
+        "filename": "audio/core/all-versions/vts/functional/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "772f952f_56caf7e1",
+      "range": {
+        "startLine": 85,
+        "startChar": 7,
+        "endLine": 85,
+        "endChar": 22
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73afb28e_f0dff36c",
@@ -347,6 +659,30 @@
       "writtenOn": "2021-03-18T02:40:55Z",
       "side": 1,
       "message": "why isn\u0027t this on line 108?  seems odd, perhaps notification is needed only if the state changes?\n\nmWorkerState !\u003d state (which was old).",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 17
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a98d71cb_b8210aa7",
+        "filename": "audio/core/all-versions/vts/functional/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "This is needed to make sure that one worker cycle has been executed before we indicate that the thread has resumed, in other words, to implement a synchronous resume, symmetric to synchronous pause. I\u0027ve added a comment about this.",
+      "parentUuid": "73afb28e_f0dff36c",
       "range": {
         "startLine": 99,
         "startChar": 0,
@@ -380,6 +716,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcb2e9df_5fc8a786",
+        "filename": "audio/core/all-versions/vts/functional/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Again, this is needed for synchronous resume. Please see the comment I\u0027ve added.",
+      "parentUuid": "a4199ea5_c82eb47f",
+      "range": {
+        "startLine": 108,
+        "startChar": 19,
+        "endLine": 108,
+        "endChar": 20
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f35d428a_f7039fe0",
@@ -393,6 +753,30 @@
       "writtenOn": "2021-03-18T02:40:55Z",
       "side": 1,
       "message": "this is odd that state isn\u0027t the same.",
+      "range": {
+        "startLine": 116,
+        "startChar": 15,
+        "endLine": 117,
+        "endChar": 45
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fe63ee0_18197967",
+        "filename": "audio/core/all-versions/vts/functional/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "The worker loop doesn\u0027t care why it has been stopped: due to a request or due to an error. Using \u0027STOPPED\u0027 for any case simplifies the check in the main \u0027for\u0027 loop.",
+      "parentUuid": "f35d428a_f7039fe0",
       "range": {
         "startLine": 116,
         "startChar": 15,
@@ -426,6 +810,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbc5baf0_708626dc",
+        "filename": "audio/core/all-versions/vts/functional/tests/streamworker_tests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ebdab15_d1e9a0b3",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98c0f644_8d724ec4",
@@ -449,6 +857,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "406b0d32_6c28f4c9",
+        "filename": "audio/core/all-versions/vts/functional/tests/streamworker_tests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Yes. It\u0027s a test,\nnot production code, I don\u0027t want to complicate it with use of condition variables.",
+      "parentUuid": "98c0f644_8d724ec4",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa161197_a04f2e6d",
@@ -462,6 +894,30 @@
       "writtenOn": "2021-03-18T02:40:55Z",
       "side": 1,
       "message": "nit: const?  here and below?",
+      "range": {
+        "startLine": 42,
+        "startChar": 28,
+        "endLine": 42,
+        "endChar": 29
+      },
+      "revId": "d295cf51764be7e65a82629e3e6720501ee9073e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b728084_f39247be",
+        "filename": "audio/core/all-versions/vts/functional/tests/streamworker_tests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-18T21:12:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa161197_a04f2e6d",
       "range": {
         "startLine": 42,
         "startChar": 28,
