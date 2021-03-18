@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db3a2959_7ef3d228",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-03-18T07:37:48Z",
+      "side": 1,
+      "message": "Sounds like that *bitsPerSample* or *(pcm)bitDepth* would be a proper naming than *pcmBitRate*?",
+      "parentUuid": "0ecbd2ee_89d17b2b",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42c86729_791ed255",
         "filename": "bluetooth/audio/2.1/types.hal",
         "patchSetId": 8
@@ -97,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e29ed302_74f7219b",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-03-18T07:37:48Z",
+      "side": 1,
+      "message": "I see, so is it used in current LE Audio or just some concept that can be used in the future? I just think that it is more clear if all generic fields are grouped together and all parameters here are specific to codec.",
+      "parentUuid": "ede8124b_05788cf6",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b55bc5c1_4d0ecd61",
         "filename": "bluetooth/audio/2.1/types.hal",
         "patchSetId": 8
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "Please see my comment below. I\u0027m hoping that this will make capabilities for new codecs easier in the future.",
       "parentUuid": "b55bc5c1_4d0ecd61",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 34
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "101e86e8_dc5a5933",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-03-18T07:37:48Z",
+      "side": 1,
+      "message": "Nit: do we need a union to save different codec parameters?",
+      "parentUuid": "e545529f_d71ab55e",
       "range": {
         "startLine": 85,
         "startChar": 0,
