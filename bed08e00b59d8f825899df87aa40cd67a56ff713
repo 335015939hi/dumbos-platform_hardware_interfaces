@@ -191,6 +191,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3a4301a_1238947a",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-03-18T10:36:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "879512eb_8328b37e",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b55bc5c1_4d0ecd61",
@@ -286,6 +310,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6fd8cc6_c67e3aed",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-03-18T10:36:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca476c30_dc15a695",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 34
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "878964ec_feef60d7",
@@ -323,6 +371,30 @@
       "side": 1,
       "message": "See my reply above.",
       "parentUuid": "878964ec_feef60d7",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 24
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e73094dc_470298e5",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-03-18T10:36:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "48b3ee1a_69142307",
       "range": {
         "startLine": 101,
         "startChar": 0,
