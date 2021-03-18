@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8272d1f2_d17a3ad6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-18T23:58:20Z",
+      "side": 1,
+      "message": "do consider switching OWNERS files to use \u0027include\u0027 when changing them, to simplify this kind of transformation in the future",
+      "revId": "c12d5adea8a4037d0ea0aeb8d15b8c9c5e8145d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
