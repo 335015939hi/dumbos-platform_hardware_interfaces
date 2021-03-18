@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3339a54e_33c8749a",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-03-18T10:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db3a2959_7ef3d228",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42c86729_791ed255",
@@ -145,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "879512eb_8328b37e",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-03-18T10:19:38Z",
+      "side": 1,
+      "message": "All fields are defined as generic LTV (length-type-value). I.e. there is generic \"frame duration\".\n\nLC3 integration requirements list LTV fields that MUST be specified for LC3 codec parameters - these are all listed here, and they are all generic.\n\nIn future there might be codec that either reuses those LTV definitions, or make new ones that it needs.\n\nThere is no group of fields that\u0027s defined as \"must have\" for possible future codecs, so I would prefer to not create a generic fields group.",
+      "parentUuid": "e29ed302_74f7219b",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b55bc5c1_4d0ecd61",
         "filename": "bluetooth/audio/2.1/types.hal",
         "patchSetId": 8
@@ -204,6 +252,30 @@
       "side": 1,
       "message": "Nit: do we need a union to save different codec parameters?",
       "parentUuid": "e545529f_d71ab55e",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 34
+      },
+      "revId": "bed08e00b59d8f825899df87aa40cd67a56ff713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca476c30_dc15a695",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-03-18T10:19:38Z",
+      "side": 1,
+      "message": "I\u0027m getting compilation error when creating such union:\n\nERROR: Safe union must contain at least two types to be useful\n\nI guess I won\u0027t be able to extend those structs then. I\u0027ll remove the codec type parameter then.",
+      "parentUuid": "101e86e8_dc5a5933",
       "range": {
         "startLine": 85,
         "startChar": 0,
