@@ -46,6 +46,30 @@
       },
       "revId": "c506ebca285c0663e2240d48cbe38422f87121c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b1186ea_1be5b6de",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-18T00:52:11Z",
+      "side": 1,
+      "message": "I meant more like which error code (also would this be via ServiceSpecificException?)",
+      "parentUuid": "b9e6f89e_073d95d9",
+      "range": {
+        "startLine": 771,
+        "startChar": 0,
+        "endLine": 771,
+        "endChar": 96
+      },
+      "revId": "c506ebca285c0663e2240d48cbe38422f87121c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
