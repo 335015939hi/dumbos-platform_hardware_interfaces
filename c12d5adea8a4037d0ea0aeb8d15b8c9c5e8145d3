@@ -34,6 +34,24 @@
       "parentUuid": "8272d1f2_d17a3ad6",
       "revId": "c12d5adea8a4037d0ea0aeb8d15b8c9c5e8145d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d681c02_cf0d7c11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-19T01:19:17Z",
+      "side": 1,
+      "message": "It works across projects too, so if you have something in, say, frameworks/av, it can be the leader. If you don\u0027t have something like this, you could consider creating a central file whose purpose is only to be imported.",
+      "parentUuid": "f0c3ff86_e4fd19eb",
+      "revId": "c12d5adea8a4037d0ea0aeb8d15b8c9c5e8145d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
