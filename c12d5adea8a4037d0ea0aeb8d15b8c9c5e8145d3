@@ -52,6 +52,24 @@
       "parentUuid": "f0c3ff86_e4fd19eb",
       "revId": "c12d5adea8a4037d0ea0aeb8d15b8c9c5e8145d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bda24618_91192967",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-19T16:49:03Z",
+      "side": 1,
+      "message": "Yes, I saw examples of that. However, no OWNERS file under frameworks/av satisfies. I will think where it\u0027s possible to put a single OWNERS file for all this default implementation code.",
+      "parentUuid": "1d681c02_cf0d7c11",
+      "revId": "c12d5adea8a4037d0ea0aeb8d15b8c9c5e8145d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
