@@ -22,6 +22,30 @@
       },
       "revId": "00fd050ed4241bc905103954908df93b5d62619b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e066570f_19f6029f",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-03-19T18:20:18Z",
+      "side": 1,
+      "message": "Again, I am not an expert of bluetooth, so if this won\u0027t work because of some obvious reason, please let me know.",
+      "parentUuid": "3c969e00_ac8e3e0b",
+      "range": {
+        "startLine": 736,
+        "startChar": 0,
+        "endLine": 745,
+        "endChar": 65
+      },
+      "revId": "00fd050ed4241bc905103954908df93b5d62619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
