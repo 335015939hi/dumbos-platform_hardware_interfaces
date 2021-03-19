@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cdf90f0_afd48510",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-03-19T00:15:35Z",
+      "side": 1,
+      "message": "In general, we don\u0027t like to increase this timeout.  If we increase this timeout, there is less time for the Android Bluetooth stack to come up.  We have a timeout to make sure that the stack remains responsive.\n\nIn the past, increasing the UART baud rate for downloading the firmware or removing unnecessary wait times have been sufficient.",
+      "revId": "973b87ed848dfe008768a8b9a0d6170541f324cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
