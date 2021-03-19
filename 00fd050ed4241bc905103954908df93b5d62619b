@@ -46,6 +46,30 @@
       },
       "revId": "00fd050ed4241bc905103954908df93b5d62619b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c862c4c_1f68bd86",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-03-19T18:33:24Z",
+      "side": 1,
+      "message": "Thanks for confirming, Yifan.",
+      "parentUuid": "e066570f_19f6029f",
+      "range": {
+        "startLine": 736,
+        "startChar": 0,
+        "endLine": 745,
+        "endChar": 65
+      },
+      "revId": "00fd050ed4241bc905103954908df93b5d62619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
