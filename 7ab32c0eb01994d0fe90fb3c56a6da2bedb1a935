@@ -50,6 +50,98 @@
       "message": "Steven, seems like we need your approval for one of the files. Could you PTAL? No interface changes, just adding VTS tests to verify behavior we previously left unverified.",
       "revId": "7ab32c0eb01994d0fe90fb3c56a6da2bedb1a935",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89ee2d93_1c795329",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-03-19T09:31:24Z",
+      "side": 1,
+      "message": "maybe also skip flag AUDIO_OUTPUT_FLAG_HW_AV_SYNC as the HAL is expected PCM data with headers and the writer just provides raw PCM",
+      "range": {
+        "startLine": 502,
+        "startChar": 67,
+        "endLine": 502,
+        "endChar": 95
+      },
+      "revId": "7ab32c0eb01994d0fe90fb3c56a6da2bedb1a935",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0674fe51_c4688a30",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-03-19T09:31:24Z",
+      "side": 1,
+      "message": "One problem is that the read pointe may only start moving once the driver pulls samples which depends on the ALSA buffer size and start threshold and cold start latency.\nA simple sleep may not be enough to cover all situations and we may have to monitor the position until it starts moving with a time out?",
+      "range": {
+        "startLine": 594,
+        "startChar": 0,
+        "endLine": 594,
+        "endChar": 29
+      },
+      "revId": "7ab32c0eb01994d0fe90fb3c56a6da2bedb1a935",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b7ad36_6e3bfc37",
+        "filename": "audio/core/all-versions/vts/functional/7.0/PolicyConfig.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-03-19T09:31:24Z",
+      "side": 1,
+      "message": "seems inconsistent with other getters get_module() -\u003e getModule()",
+      "range": {
+        "startLine": 205,
+        "startChar": 66,
+        "endLine": 205,
+        "endChar": 76
+      },
+      "revId": "7ab32c0eb01994d0fe90fb3c56a6da2bedb1a935",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b08e06ca_28304d92",
+        "filename": "audio/core/all-versions/vts/functional/StreamWorker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-03-19T09:31:24Z",
+      "side": 1,
+      "message": "something wrong with this sentence?",
+      "range": {
+        "startLine": 100,
+        "startChar": 52,
+        "endLine": 101,
+        "endChar": 47
+      },
+      "revId": "7ab32c0eb01994d0fe90fb3c56a6da2bedb1a935",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
