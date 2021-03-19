@@ -70,6 +70,30 @@
       },
       "revId": "c506ebca285c0663e2240d48cbe38422f87121c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15377574_cca406b2",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1368904
+      },
+      "writtenOn": "2021-03-19T19:44:50Z",
+      "side": 1,
+      "message": "Yes, it\u0027s reported as a ServiceSpecificException (updated in the new version). I\u0027m not sure we can say which error codes, because I think it could really be anything - it\u0027s really whatever the underlying device\u0027s exportKey() can possibly return, so I don\u0027t know what error code to mention in specific...or am I still misunderstanding what you\u0027re asking?",
+      "parentUuid": "6b1186ea_1be5b6de",
+      "range": {
+        "startLine": 771,
+        "startChar": 0,
+        "endLine": 771,
+        "endChar": 96
+      },
+      "revId": "c506ebca285c0663e2240d48cbe38422f87121c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
