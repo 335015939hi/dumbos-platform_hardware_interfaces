@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c969e00_ac8e3e0b",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-03-19T18:18:44Z",
+      "side": 1,
+      "message": "I am not an expert of bluetooth. Digging into this code a bit, here\u0027s my suggestion.\n\nI see that `wait_for_completed_packets_event` calls `wait_for_event`, which uses wake locks instead of polling. This is good. So why can\u0027t we rely on this wakelock, but need a `sleep()`? For example:\n\n\n  for (int completed_packets \u003d 0; acl_packets_sent \u003c completed_packets; ) {\n    completed_packets +\u003d wait_for_completed_packets_event(...);\n  }\n\nIf you need a hard timeout for these three lines in case wait_for_completed_packets_event is stuck in the wakelock, you could start a separate std::thread to execute this code in the background and kill the thread after some time.",
+      "range": {
+        "startLine": 736,
+        "startChar": 0,
+        "endLine": 745,
+        "endChar": 65
+      },
+      "revId": "00fd050ed4241bc905103954908df93b5d62619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
