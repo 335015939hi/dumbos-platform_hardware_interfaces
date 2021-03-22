@@ -40,3 +40,16 @@ aidl_interface {
         },
     },
 }
+
+cc_library {
+    name: "android.hardware.memtrack-translate-ndk",
+    vendor_available: true,
+    srcs: ["android/hardware/memtrack/translate-ndk.cpp"],
+    shared_libs: [
+        "libbinder_ndk",
+        "libhidlbase",
+        "android.hardware.memtrack-V1-ndk_platform",
+        "android.hardware.memtrack@1.0",
+    ],
+    export_include_dirs: ["include"],
+}
