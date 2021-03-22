@@ -4635,9 +4635,14 @@ INSTANTIATE_KEYMINT_AIDL_TEST(KeyAgreementTest);
 
 using EarlyBootKeyTest = KeyMintAidlTestBase;
 
+// Because VTS tests are run on fully-booted machines, we can only run negative tests for early boot
+// keys, which cannot be created or used after /data is mounted.  This is the only test we can run
+// in the normal case.  The positive test will have to be done by the Android system, when it
+// creates/uses early boot keys during boot.  It should fail to boot if the early boot key usage
+// fails.
 TEST_P(EarlyBootKeyTest, CreateEarlyBootKeys) {
     auto [aesKeyData, hmacKeyData, rsaKeyData, ecdsaKeyData] =
-            CreateTestKeys(TAG_EARLY_BOOT_ONLY, ErrorCode::OK);
+            CreateTestKeys(TAG_EARLY_BOOT_ONLY, ErrorCode::EARLY_BOOT_ENDED);
 
     CheckedDeleteKey(&aesKeyData.blob);
     CheckedDeleteKey(&hmacKeyData.blob);
