@@ -16,6 +16,24 @@
       "message": "please kindly help to review and give comments!  Thank you in advance!",
       "revId": "cfefc7b5e805caa9201d5fe9f91edbb75f0df866",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "929aa9f5_411e1ccf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1585259
+      },
+      "writtenOn": "2021-03-22T16:43:28Z",
+      "side": 1,
+      "message": "I have tested this on my device with \"a_sns_test breakit\" and do not see any problems. +2ing",
+      "parentUuid": "abf5cc5e_991604e7",
+      "revId": "cfefc7b5e805caa9201d5fe9f91edbb75f0df866",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
