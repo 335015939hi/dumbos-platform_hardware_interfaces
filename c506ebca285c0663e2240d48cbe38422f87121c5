@@ -94,6 +94,30 @@
       },
       "revId": "c506ebca285c0663e2240d48cbe38422f87121c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d1f29ac_b26bd003",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-22T20:07:03Z",
+      "side": 1,
+      "message": "We should be able to prescribe the implementation. How can the client know to handle this? Keep in mind, these clients need to be backwards compatible for years.",
+      "parentUuid": "15377574_cca406b2",
+      "range": {
+        "startLine": 771,
+        "startChar": 0,
+        "endLine": 771,
+        "endChar": 96
+      },
+      "revId": "c506ebca285c0663e2240d48cbe38422f87121c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
