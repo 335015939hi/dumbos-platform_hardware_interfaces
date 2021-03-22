@@ -22,8 +22,8 @@ package android.hardware.security.sharedsecret;
  * getSharedSecretParameters() and send to computeShareSecret().  See the named methods in
  * ISharedSecret for details of usage.
  */
-
 @VintfStability
+@RustDerive(Clone=true, Eq=true, PartialEq=true, Ord=true, PartialOrd=true, Hash=true)
 parcelable SharedSecretParameters {
     /**
      * Either empty or contains a non zero persistent value that is associated with the pre-shared
