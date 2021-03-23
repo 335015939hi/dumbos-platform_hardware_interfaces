@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b566446_ee7d0340",
+        "filename": "security/sharedsecret/aidl/vts/functional/SharedSecretAidlTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-23T23:06:06Z",
+      "side": 1,
+      "message": "nit: this is a no-op (since all checks are in the forloop)",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 38
+      },
+      "revId": "47cc8abc5abd7d08993d61bd4d8a062ee7f2c637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b219aa_b1079131",
+        "filename": "security/sharedsecret/aidl/vts/functional/SharedSecretAidlTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-23T23:06:06Z",
+      "side": 1,
+      "message": "prefer GTEST_SKIP on these? so it will be recorded if there are no instances (rather than silently skipping)",
+      "range": {
+        "startLine": 153,
+        "startChar": 31,
+        "endLine": 153,
+        "endChar": 37
+      },
+      "revId": "47cc8abc5abd7d08993d61bd4d8a062ee7f2c637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
