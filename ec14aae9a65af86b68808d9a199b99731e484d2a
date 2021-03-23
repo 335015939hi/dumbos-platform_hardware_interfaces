@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d092ed74_7af7a22a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-03-23T11:55:59Z",
+      "side": 1,
+      "message": "Unlike Keymaster, KeyMint does allow creation of early-boot-only keys after early boot, just not usage.  The test is correct as written.",
+      "revId": "ec14aae9a65af86b68808d9a199b99731e484d2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
