@@ -16,6 +16,52 @@
       "message": "Looking for HAL review if any owners are around.",
       "revId": "73d59a189be32b045a1f7735d749c419220d87d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "114ccfca_64e8c993",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 24
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-03-23T14:34:50Z",
+      "side": 1,
+      "message": "\"Get\"",
+      "range": {
+        "startLine": 561,
+        "startChar": 7,
+        "endLine": 561,
+        "endChar": 11
+      },
+      "revId": "73d59a189be32b045a1f7735d749c419220d87d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a6eb321_0a69b491",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 24
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-03-23T14:34:50Z",
+      "side": 1,
+      "message": "what happens when these values are negatives? Is it allowed? There should be a comment mentioning what that means.\nSame for the rest of these values in PhonebookCapacity.",
+      "range": {
+        "startLine": 1130,
+        "startChar": 4,
+        "endLine": 1130,
+        "endChar": 70
+      },
+      "revId": "73d59a189be32b045a1f7735d749c419220d87d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
