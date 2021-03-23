@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d94360b8_d1157afb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2021-03-23T23:07:47Z",
+      "side": 1,
+      "message": "Sukanya, is it possible to get an updated patch that includes the sub impl for cuttlefish as well?  This doesn\u0027t build.  For example see https://android-review.googlesource.com/q/topic:IMSI_encryption and the google/cuttlefish project change.\n\nCurrently we get:\ndevice/google/cuttlefish/guest/hals/ril/reference-libril/ril_service.cpp:12552:31: error: allocating an object of abstract class type \u0027RadioImpl_1_6\u0027\n        radioService[i] \u003d new RadioImpl_1_6;",
+      "revId": "48966f0583e327e28066c17bfa3b342f417abd7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
