@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c42ef3bb_16a9a16f",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 24
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1801859
+      },
+      "writtenOn": "2021-03-23T17:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "114ccfca_64e8c993",
+      "range": {
+        "startLine": 561,
+        "startChar": 7,
+        "endLine": 561,
+        "endChar": 11
+      },
+      "revId": "73d59a189be32b045a1f7735d749c419220d87d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a6eb321_0a69b491",
@@ -78,6 +102,30 @@
       "side": 1,
       "message": "should the be a uint or do we need a -1 token to indicate anything?  I suspect since we don\u0027t talk about special -1 values we should convert to uints.",
       "parentUuid": "9a6eb321_0a69b491",
+      "range": {
+        "startLine": 1130,
+        "startChar": 4,
+        "endLine": 1130,
+        "endChar": 70
+      },
+      "revId": "73d59a189be32b045a1f7735d749c419220d87d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "112451ac_3902ebd5",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 24
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1801859
+      },
+      "writtenOn": "2021-03-23T17:27:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e54943ee_1a203544",
       "range": {
         "startLine": 1130,
         "startChar": 4,
