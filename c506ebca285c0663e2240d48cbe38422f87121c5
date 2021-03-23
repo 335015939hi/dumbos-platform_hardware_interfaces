@@ -118,6 +118,30 @@
       },
       "revId": "c506ebca285c0663e2240d48cbe38422f87121c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5f0cf21_c1530e99",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1368904
+      },
+      "writtenOn": "2021-03-23T00:45:37Z",
+      "side": 1,
+      "message": "Ah I see, thanks! I think the only ErrorCode that clients should need to return are UNIMPLEMENTED if the operation isn\u0027t supported, and INVALID_ARGUMENT if the input is malformed in any way. If the input is valid, then this method should always succeed. Is that reasonable? I\u0027ve updated the documentation to reflect this.",
+      "parentUuid": "2d1f29ac_b26bd003",
+      "range": {
+        "startLine": 771,
+        "startChar": 0,
+        "endLine": 771,
+        "endChar": 96
+      },
+      "revId": "c506ebca285c0663e2240d48cbe38422f87121c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
