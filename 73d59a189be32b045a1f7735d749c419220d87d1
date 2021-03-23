@@ -62,6 +62,30 @@
       },
       "revId": "73d59a189be32b045a1f7735d749c419220d87d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e54943ee_1a203544",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 24
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2021-03-23T16:52:34Z",
+      "side": 1,
+      "message": "should the be a uint or do we need a -1 token to indicate anything?  I suspect since we don\u0027t talk about special -1 values we should convert to uints.",
+      "parentUuid": "9a6eb321_0a69b491",
+      "range": {
+        "startLine": 1130,
+        "startChar": 4,
+        "endLine": 1130,
+        "endChar": 70
+      },
+      "revId": "73d59a189be32b045a1f7735d749c419220d87d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
