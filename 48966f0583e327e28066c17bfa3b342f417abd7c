@@ -16,6 +16,23 @@
       "message": "Sukanya, is it possible to get an updated patch that includes the sub impl for cuttlefish as well?  This doesn\u0027t build.  For example see https://android-review.googlesource.com/q/topic:IMSI_encryption and the google/cuttlefish project change.\n\nCurrently we get:\ndevice/google/cuttlefish/guest/hals/ril/reference-libril/ril_service.cpp:12552:31: error: allocating an object of abstract class type \u0027RadioImpl_1_6\u0027\n        radioService[i] \u003d new RadioImpl_1_6;",
       "revId": "48966f0583e327e28066c17bfa3b342f417abd7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af0a8b14_e289a08c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2021-03-24T20:29:18Z",
+      "side": 1,
+      "message": "Bypassing as we passed presubmit already.  I added presubmit-ready again thinking that was holding up the submit, but it was a QC +1, which has been added.  Canceling the extra presubmit-check.",
+      "revId": "48966f0583e327e28066c17bfa3b342f417abd7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
