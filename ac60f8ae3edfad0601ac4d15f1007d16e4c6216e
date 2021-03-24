@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a05e6d57_a15a7445",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-03-24T03:34:42Z",
+      "side": 1,
+      "message": "No, sorry. This data is used in the certificate signing request that goes to the server. After verification of the bundle against the known public key for the device on the server side, the server can use this DeviceInfo data structure to make decisions about whether or not the CSRs *should* be signed.\n\nPatch level with respect to wrapping the actual keys on device just applies to the private key blob returned in the generate key call in IRemotelyProvisionedComponent HAL, and the upgrading of these keys so that they stay usable is handled like any other KM key.",
+      "parentUuid": "491bc763_f2ba414a",
+      "range": {
+        "startLine": 21,
+        "startChar": 74,
+        "endLine": 23,
+        "endChar": 47
+      },
+      "revId": "ac60f8ae3edfad0601ac4d15f1007d16e4c6216e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95de357b_c8e3eb38",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-24T00:13:43Z",
       "side": 1,
       "message": "what do this mean? I don\u0027t get anything from googling it",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 60
+      },
+      "revId": "ac60f8ae3edfad0601ac4d15f1007d16e4c6216e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4755edd_f955891f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-03-24T03:34:42Z",
+      "side": 1,
+      "message": "This is related to Android Verified Boot, more here: https://android.googlesource.com/platform/external/avb/+/master/README.md#:~:text\u003dgreen%3A%20If%20in%20LOCKED%20state,set%20by%20the%20end%20user.\n\ntl;dr\ngreen: locked, running OEM signed firmware\nyellow: locked, running user signed firmware\norange: unlocked",
+      "parentUuid": "95de357b_c8e3eb38",
       "range": {
         "startLine": 36,
         "startChar": 0,
@@ -60,6 +108,30 @@
       "writtenOn": "2021-03-24T00:13:43Z",
       "side": 1,
       "message": "nit: should this be a boolean?",
+      "range": {
+        "startLine": 37,
+        "startChar": 18,
+        "endLine": 37,
+        "endChar": 34
+      },
+      "revId": "ac60f8ae3edfad0601ac4d15f1007d16e4c6216e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e656f03c_9d784e6b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-03-24T03:34:42Z",
+      "side": 1,
+      "message": "In my opinion; yes. However, here the intent is to directly match the values coming from AVB, and in the documentation / property list this value is listed as a string which is either \"locked\" or \"unlocked\".\n\nI assume there\u0027s probably a good reason for that where I\u0027m lacking some context that David or Shawn could fill in. If I had to guess, it\u0027s either that some third value could be possible in future releases, or that it\u0027s harder for a developer to accidentally invert the meaning of a string than the meaning of a boolean, so it\u0027s better to err on the side of caution when a mistake means revoking attestation keys.",
+      "parentUuid": "57e2fd4f_979fa9d1",
       "range": {
         "startLine": 37,
         "startChar": 18,
@@ -106,6 +178,30 @@
       "writtenOn": "2021-03-24T00:13:43Z",
       "side": 1,
       "message": "do we have things for product/odm/etc? kernel?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 64
+      },
+      "revId": "ac60f8ae3edfad0601ac4d15f1007d16e4c6216e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24413c41_543283b8",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-03-24T03:34:42Z",
+      "side": 1,
+      "message": "Nothing outside of the current set seen above, which does include product, but this list is likely to expand. The amount of information we get about the state of the device when deciding on if CSRs should be signed will definitely be expanding as we move to a full DICE (go/dice-profile and go/remote-provisioning-soc) solution in the future once hardware support lands for it.",
+      "parentUuid": "7f76c49a_1b86ade4",
       "range": {
         "startLine": 39,
         "startChar": 0,

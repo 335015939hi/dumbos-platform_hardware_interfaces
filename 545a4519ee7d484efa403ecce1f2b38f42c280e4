@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "867f3c87_5521361e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-03-24T03:34:42Z",
+      "side": 1,
+      "message": "Hm, on a side note, do you know why TH would be failing this change based on the parcelable not being marked final / nullable? None of the other parcelables in this directory are annotated with either of those annotations... I tried to run the linter locally, but the build targets mentioned in the api-council doc do not seem to exist anymore.",
+      "revId": "545a4519ee7d484efa403ecce1f2b38f42c280e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
