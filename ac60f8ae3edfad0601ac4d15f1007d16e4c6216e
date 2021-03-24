@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0ba16ad_79d36007",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-03-24T20:43:32Z",
+      "side": 1,
+      "message": "Forgot to check resolved.",
+      "parentUuid": "a05e6d57_a15a7445",
+      "range": {
+        "startLine": 21,
+        "startChar": 74,
+        "endLine": 23,
+        "endChar": 47
+      },
+      "revId": "ac60f8ae3edfad0601ac4d15f1007d16e4c6216e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95de357b_c8e3eb38",
@@ -165,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb03f8c0_15e68f1e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-03-24T20:43:32Z",
+      "side": 1,
+      "message": "Sorry, added a comment to clarify.",
+      "parentUuid": "8b0e1649_e5b0b3b4",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 37
+      },
+      "revId": "ac60f8ae3edfad0601ac4d15f1007d16e4c6216e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f76c49a_1b86ade4",
@@ -202,6 +250,30 @@
       "side": 1,
       "message": "Nothing outside of the current set seen above, which does include product, but this list is likely to expand. The amount of information we get about the state of the device when deciding on if CSRs should be signed will definitely be expanding as we move to a full DICE (go/dice-profile and go/remote-provisioning-soc) solution in the future once hardware support lands for it.",
       "parentUuid": "7f76c49a_1b86ade4",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 64
+      },
+      "revId": "ac60f8ae3edfad0601ac4d15f1007d16e4c6216e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef1e944d_a26cdb4c",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-03-24T20:43:32Z",
+      "side": 1,
+      "message": "Forgot to check resolved.",
+      "parentUuid": "24413c41_543283b8",
       "range": {
         "startLine": 39,
         "startChar": 0,
