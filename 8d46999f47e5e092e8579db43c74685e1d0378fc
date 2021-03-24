@@ -16,6 +16,29 @@
       "message": "Steven, could you help review this CL? It is reviewed by the audio team at ag/13784035. Thanks,",
       "revId": "8d46999f47e5e092e8579db43c74685e1d0378fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd6dedb2_70f9ed35",
+        "filename": "audio/common/7.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-24T00:16:45Z",
+      "side": 1,
+      "message": "I think I commented this on a copy of this CL (or it was lost), but format of this, and nit: avoid typedef",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 38
+      },
+      "revId": "8d46999f47e5e092e8579db43c74685e1d0378fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
