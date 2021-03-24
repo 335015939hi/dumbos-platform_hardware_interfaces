@@ -39,6 +39,30 @@
       },
       "revId": "8d46999f47e5e092e8579db43c74685e1d0378fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13464528_8c59cff1",
+        "filename": "audio/common/7.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2021-03-24T00:23:37Z",
+      "side": 1,
+      "message": "Yes, it is in the internal CL of this CL. I added some more comments here as this is similar to what other audio enums do, for instance, AudioChannelMask/AudioFormat.",
+      "parentUuid": "fd6dedb2_70f9ed35",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 38
+      },
+      "revId": "8d46999f47e5e092e8579db43c74685e1d0378fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
