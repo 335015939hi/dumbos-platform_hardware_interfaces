@@ -476,6 +476,14 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>android.hardware.security.authgraph</name>
+        <version>1</version>
+        <interface>
+            <name>IAuthGraphCommon</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>android.hardware.security.secureclock</name>
         <version>1</version>
         <interface>
