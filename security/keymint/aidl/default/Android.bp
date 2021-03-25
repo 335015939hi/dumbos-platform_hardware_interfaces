@@ -15,6 +15,7 @@ cc_binary {
         "android.hardware.security.keymint-service.xml",
         "android.hardware.security.sharedsecret-service.xml",
         "android.hardware.security.secureclock-service.xml",
+        "android.hardware.security.authgraph-service.xml",
     ],
     vendor: true,
     cflags: [
@@ -25,6 +26,7 @@ cc_binary {
         "android.hardware.security.keymint-V1-ndk_platform",
         "android.hardware.security.sharedsecret-V1-ndk_platform",
         "android.hardware.security.secureclock-V1-ndk_platform",
+        "android.hardware.security.authgraph-V1-ndk_platform",
         "libbase",
         "libbinder_ndk",
         "libcppbor_external",

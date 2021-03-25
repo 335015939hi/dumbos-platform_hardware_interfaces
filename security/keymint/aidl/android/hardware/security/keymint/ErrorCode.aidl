@@ -111,6 +111,12 @@ enum ErrorCode {
     UNIMPLEMENTED = -100,
     VERSION_MISMATCH = -101,
 
+    // Authgraph error codes.
+    OPERATION_NOT_SUPPORTED = -500,
+    INVALID_EC_KEY = -501,
+    INVALID_SIGNATURE = -502,
+    CHANNEL_VERIFICATION_FAILED = -503,
+
     UNKNOWN_ERROR = -1000,
 
     // Implementer's namespace for error codes starts at -10000.
