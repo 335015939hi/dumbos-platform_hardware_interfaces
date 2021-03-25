@@ -580,12 +580,19 @@ class PcmOnlyConfigOutputStreamTest : public OutputStreamTest {
         // Starting / resuming of streams is asynchronous at HAL level.
         // Sometimes HAL doesn't have enough information until the audio data actually gets
         // consumed by the hardware.
-        do {
+        bool timedOut = false;
+        res = Result::INVALID_STATE;
+        for (android::base::Timer elapsed;
+             res != Result::OK && !writer.hasError() &&
+             !(timedOut = (elapsed.duration() >= kPositionChangeTimeout));) {
             ASSERT_OK(stream->getPresentationPosition(returnIn(res, framesInitial, ts)));
             ASSERT_RESULT(okOrInvalidState, res);
-        } while (res != Result::OK);
+        }
+        ASSERT_FALSE(writer.hasError());
+        ASSERT_FALSE(timedOut);
+
         uint64_t frames = framesInitial;
-        bool timedOut = false;
+        timedOut = false;
         for (android::base::Timer elapsed;
              frames <= framesInitial && !writer.hasError() &&
              !(timedOut = (elapsed.duration() >= kPositionChangeTimeout));) {
@@ -690,6 +697,15 @@ class PcmOnlyConfigInputStreamTest : public InputStreamTest {
         InputStreamTest::TearDown();
     }
 
+    bool canQueryCapturePosition() const {
+        auto maybeSourceAddress = getCachedPolicyConfig().getSourceDeviceForMixPort(
+                getDeviceName(), getMixPortName());
+        // Returning 'true' when no source is found so the test can fail later with a more clear
+        // problem description.
+        return !maybeSourceAddress.has_value() ||
+               !xsd::isTelephonyDevice(maybeSourceAddress.value().deviceType);
+    }
+
     void createPatchIfNeeded() {
         auto maybeSourceAddress = getCachedPolicyConfig().getSourceDeviceForMixPort(
                 getDeviceName(), getMixPortName());
@@ -714,6 +730,7 @@ class PcmOnlyConfigInputStreamTest : public InputStreamTest {
             EXPECT_OK(stream->setDevices({maybeSourceAddress.value()}));
         }
     }
+
     void releasePatchIfNeeded() {
         if (areAudioPatchesSupported()) {
             if (mHasPatch) {
@@ -724,7 +741,42 @@ class PcmOnlyConfigInputStreamTest : public InputStreamTest {
             EXPECT_OK(stream->setDevices({address}));
         }
     }
-    const std::string& getMixPortName() const { return std::get<PARAM_PORT_NAME>(GetParam()); }
+
+    void waitForCapturePositionAdvance(StreamReader& reader, uint64_t* firstPosition = nullptr,
+                                       uint64_t* lastPosition = nullptr) {
+        static constexpr int kReadDurationUs = 50 * 1000;
+        static constexpr std::chrono::milliseconds kPositionChangeTimeout{10000};
+        uint64_t framesInitial, ts;
+        // Starting / resuming of streams is asynchronous at HAL level.
+        // Sometimes HAL doesn't have enough information until the audio data actually has been
+        // produced by the hardware. Legacy HALs might return NOT_SUPPORTED when they actually
+        // mean INVALID_STATE.
+        bool timedOut = false;
+        res = Result::INVALID_STATE;
+        for (android::base::Timer elapsed;
+             res != Result::OK && !reader.hasError() &&
+             !(timedOut = (elapsed.duration() >= kPositionChangeTimeout));) {
+            ASSERT_OK(stream->getCapturePosition(returnIn(res, framesInitial, ts)));
+            ASSERT_RESULT(okOrInvalidStateOrNotSupported, res);
+        }
+        ASSERT_FALSE(reader.hasError());
+        ASSERT_FALSE(timedOut);
+
+        uint64_t frames = framesInitial;
+        timedOut = false;
+        for (android::base::Timer elapsed;
+             frames <= framesInitial && !reader.hasError() &&
+             !(timedOut = (elapsed.duration() >= kPositionChangeTimeout));) {
+            usleep(kReadDurationUs);
+            ASSERT_OK(stream->getCapturePosition(returnIn(res, frames, ts)));
+            ASSERT_RESULT(Result::OK, res);
+        }
+        EXPECT_FALSE(timedOut);
+        EXPECT_FALSE(reader.hasError());
+        EXPECT_GT(frames, framesInitial);
+        if (firstPosition) *firstPosition = framesInitial;
+        if (lastPosition) *lastPosition = frames;
+    }
 
   private:
     AudioPatchHandle mPatchHandle = {};
@@ -740,47 +792,36 @@ TEST_P(PcmOnlyConfigInputStreamTest, Read) {
 
 TEST_P(PcmOnlyConfigInputStreamTest, CapturePositionAdvancesWithReads) {
     doc::test("Check that the capture position advances with reads");
+    if (!canQueryCapturePosition()) {
+        GTEST_SKIP() << "Capture position retrieval is not possible";
+    }
 
     ASSERT_NO_FATAL_FAILURE(createPatchIfNeeded());
     StreamReader reader(stream.get(), stream->getBufferSize());
     ASSERT_TRUE(reader.start());
     EXPECT_TRUE(reader.waitForAtLeastOneCycle());
-
-    uint64_t framesInitial, ts;
-    ASSERT_OK(stream->getCapturePosition(returnIn(res, framesInitial, ts)));
-    ASSERT_RESULT(Result::OK, res);
-
-    EXPECT_TRUE(reader.waitForAtLeastOneCycle());
-
-    uint64_t frames;
-    ASSERT_OK(stream->getCapturePosition(returnIn(res, frames, ts)));
-    ASSERT_RESULT(Result::OK, res);
-    EXPECT_GT(frames, framesInitial);
-
-    reader.stop();
-    releasePatchIfNeeded();
+    ASSERT_NO_FATAL_FAILURE(waitForCapturePositionAdvance(reader));
 }
 
 TEST_P(PcmOnlyConfigInputStreamTest, CapturePositionPreservedOnStandby) {
     doc::test("Check that the capture position does not reset on standby");
+    if (!canQueryCapturePosition()) {
+        GTEST_SKIP() << "Capture position retrieval is not possible";
+    }
 
     ASSERT_NO_FATAL_FAILURE(createPatchIfNeeded());
     StreamReader reader(stream.get(), stream->getBufferSize());
     ASSERT_TRUE(reader.start());
     EXPECT_TRUE(reader.waitForAtLeastOneCycle());
 
-    uint64_t framesInitial, ts;
-    ASSERT_OK(stream->getCapturePosition(returnIn(res, framesInitial, ts)));
-    ASSERT_RESULT(Result::OK, res);
-
+    uint64_t framesInitial;
+    ASSERT_NO_FATAL_FAILURE(waitForCapturePositionAdvance(reader, nullptr, &framesInitial));
     reader.pause();
     ASSERT_OK(stream->standby());
     reader.resume();
-    EXPECT_FALSE(reader.hasError());
 
     uint64_t frames;
-    ASSERT_OK(stream->getCapturePosition(returnIn(res, frames, ts)));
-    ASSERT_RESULT(Result::OK, res);
+    ASSERT_NO_FATAL_FAILURE(waitForCapturePositionAdvance(reader, &frames, nullptr));
     EXPECT_GT(frames, framesInitial);
 
     reader.stop();
