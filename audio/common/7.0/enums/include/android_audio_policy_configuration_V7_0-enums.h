@@ -212,6 +212,15 @@ static inline bool isOutputDevice(const std::string& device) {
     return isOutputDevice(stringToAudioDevice(device));
 }
 
+static inline bool isMicrophone(AudioDevice device) {
+    return device == AudioDevice::AUDIO_DEVICE_IN_BUILTIN_MIC ||
+           device == AudioDevice::AUDIO_DEVICE_IN_BACK_MIC;
+}
+
+static inline bool isMicrophone(const std::string& device) {
+    return isMicrophone(stringToAudioDevice(device));
+}
+
 static inline bool isTelephonyDevice(AudioDevice device) {
     return device == AudioDevice::AUDIO_DEVICE_OUT_TELEPHONY_TX ||
            device == AudioDevice::AUDIO_DEVICE_IN_TELEPHONY_RX;
