@@ -20,6 +20,7 @@
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 
+#include <AndroidAuthGraphCommon.h>
 #include <AndroidKeyMintDevice.h>
 #include <AndroidSecureClock.h>
 #include <AndroidSharedSecret.h>
@@ -27,6 +28,7 @@
 
 #include "RemotelyProvisionedComponent.h"
 
+using aidl::android::hardware::security::authgraph::AndroidAuthGraphCommon;
 using aidl::android::hardware::security::keymint::AndroidKeyMintDevice;
 using aidl::android::hardware::security::keymint::RemotelyProvisionedComponent;
 using aidl::android::hardware::security::keymint::SecurityLevel;
@@ -57,6 +59,8 @@ int main() {
     addService<AndroidSharedSecret>(keyMint);
     // Add Remotely Provisioned Component Service
     addService<RemotelyProvisionedComponent>(keyMint);
+    // Add Auth Graph Common Service
+    addService<AndroidAuthGraphCommon>(keyMint);
     ABinderProcess_joinThreadPool();
     return EXIT_FAILURE;  // should not reach
 }
