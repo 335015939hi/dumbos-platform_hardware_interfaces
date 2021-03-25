@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90254952_b1a52eca",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-03-25T02:33:37Z",
+      "side": 1,
+      "message": "These should all be dataProfileInfo.base.____, except for dataProfileInfo.supportedApnTypesBitmask.",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 39
+      },
+      "revId": "dd7ace953d5bf72116dd589be3162dd22329993b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f257031_f3fd1289",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-03-25T02:33:37Z",
+      "side": 1,
+      "message": "same comment as above.",
+      "range": {
+        "startLine": 143,
+        "startChar": 4,
+        "endLine": 143,
+        "endChar": 19
+      },
+      "revId": "dd7ace953d5bf72116dd589be3162dd22329993b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
