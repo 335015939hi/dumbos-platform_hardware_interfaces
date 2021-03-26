@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf14e0df_dcd6a64f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-03-26T03:23:07Z",
+      "side": 1,
+      "message": "minor nits",
+      "revId": "636d72e51e2e7885e519ef202ab1cc6c8360d765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02af9aed_a1bbfd1e",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-03-26T03:23:07Z",
+      "side": 1,
+      "message": "do you want to sleep like line 599?  (ditto below)",
+      "range": {
+        "startLine": 587,
+        "startChar": 76,
+        "endLine": 587,
+        "endChar": 77
+      },
+      "revId": "636d72e51e2e7885e519ef202ab1cc6c8360d765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac8cc042_6170878c",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-03-26T03:23:07Z",
+      "side": 1,
+      "message": "still needed (see 592)?",
+      "range": {
+        "startLine": 595,
+        "startChar": 8,
+        "endLine": 595,
+        "endChar": 16
+      },
+      "revId": "636d72e51e2e7885e519ef202ab1cc6c8360d765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
