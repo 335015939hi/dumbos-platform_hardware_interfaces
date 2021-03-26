@@ -62,6 +62,29 @@
       },
       "revId": "636d72e51e2e7885e519ef202ab1cc6c8360d765",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed3a5497_e773357f",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-03-26T08:33:22Z",
+      "side": 1,
+      "message": "I don\u0027t understand this: \nfor record track meta data, the destination device is not the souerce device the capture is taken from (e.g microphone) but the sink device the capture will be bridged to (this is used for MSD).\n\nAlso the \"source\" is the audio source (MIC, VOICE_RECOGNITION, CAMCORDER...) . We can set it whether the source device is a mic or not or did you see failures when sending track metadata and the capture is from say VOICE_RX_IN device?",
+      "range": {
+        "startLine": 1203,
+        "startChar": 0,
+        "endLine": 1206,
+        "endChar": 13
+      },
+      "revId": "636d72e51e2e7885e519ef202ab1cc6c8360d765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
