@@ -3,6 +3,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc3d2cc5_208ab4be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-29T20:50:41Z",
+      "side": 1,
+      "message": "is there a reason a keystore API is needed in addition to this?",
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "469af240_79a457ca",
+        "filename": "security/authgraph/aidl/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-29T20:50:41Z",
+      "side": 1,
+      "message": "is this not inherited from hardware/interfaces?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 0
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25d1adb7_6febd0fd",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/CreateChannelResult.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-29T20:50:41Z",
+      "side": 1,
+      "message": "define, also what\u0027s the format of the bytes?",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d037863f_ecddc6ac",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/CreateChannelResult.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-29T20:50:41Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 30
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5406c62e_9b5614bb",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/ErrorCode.aidl",
         "patchSetId": 9
