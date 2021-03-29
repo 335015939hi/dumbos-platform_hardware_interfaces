@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d41a330_7a00d999",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T19:12:44Z",
+      "side": 1,
+      "message": "@Paul, I am wondering if the two channel arcs should have different transcripts based on the direction? If that is the case, there need to be two signatures on the two transcript in the CreateChannelResult parceleable. \nJust wanted to confirm before changing the current definition.",
+      "range": {
+        "startLine": 62,
+        "startChar": 66,
+        "endLine": 66,
+        "endChar": 66
+      },
+      "revId": "fd712446d013b290af439c5c71395fdcbc381a4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
