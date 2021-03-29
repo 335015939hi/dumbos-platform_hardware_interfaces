@@ -135,6 +135,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "750e79fd_7b6bdbb9",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-29T20:52:36Z",
+      "side": 1,
+      "message": "should these all be 2021?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "119f1917_b1dac82e",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
         "patchSetId": 9
@@ -151,6 +174,29 @@
         "startChar": 2,
         "endLine": 35,
         "endChar": 68
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bfd14f4_52f8c510",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-29T20:52:36Z",
+      "side": 1,
+      "message": "where are the additional methods for source or sink domains?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 28
       },
       "revId": "cc8ac40868deffff5114911251119d9de29fea15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -220,6 +266,29 @@
         "startChar": 48,
         "endLine": 49,
         "endChar": 50
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5801cfc_da64c8c6",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-03-29T20:52:36Z",
+      "side": 1,
+      "message": "As a ServiceSpecificException?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 92
       },
       "revId": "cc8ac40868deffff5114911251119d9de29fea15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
