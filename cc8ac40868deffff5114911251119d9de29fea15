@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e61f7720_589ecdb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:15:39Z",
+      "side": 1,
+      "message": "Yes, this is independent from Keystore API. As mentioned in the description at the top of the IAuthGraphCommon.aidl file, auth graph is a separate scheme which allows two domains to communicate via a secure channel as well as have one domain\u0027s secrets encrypted with keys derived from another domain\u0027s secret.",
+      "parentUuid": "fc3d2cc5_208ab4be",
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "469af240_79a457ca",
