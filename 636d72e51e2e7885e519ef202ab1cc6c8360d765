@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ba75b39_a5871ca6",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-29T17:30:48Z",
+      "side": 1,
+      "message": "Added here and in the reader method.",
+      "parentUuid": "02af9aed_a1bbfd1e",
+      "range": {
+        "startLine": 587,
+        "startChar": 76,
+        "endLine": 587,
+        "endChar": 77
+      },
+      "revId": "636d72e51e2e7885e519ef202ab1cc6c8360d765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac8cc042_6170878c",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19d48622_2db0f71a",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-29T17:30:48Z",
+      "side": 1,
+      "message": "Thanks, removed!",
+      "parentUuid": "ac8cc042_6170878c",
+      "range": {
+        "startLine": 595,
+        "startChar": 8,
+        "endLine": 595,
+        "endChar": 16
+      },
+      "revId": "636d72e51e2e7885e519ef202ab1cc6c8360d765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed3a5497_e773357f",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-03-26T08:33:22Z",
       "side": 1,
       "message": "I don\u0027t understand this: \nfor record track meta data, the destination device is not the souerce device the capture is taken from (e.g microphone) but the sink device the capture will be bridged to (this is used for MSD).\n\nAlso the \"source\" is the audio source (MIC, VOICE_RECOGNITION, CAMCORDER...) . We can set it whether the source device is a mic or not or did you see failures when sending track metadata and the capture is from say VOICE_RX_IN device?",
+      "range": {
+        "startLine": 1203,
+        "startChar": 0,
+        "endLine": 1206,
+        "endChar": 13
+      },
+      "revId": "636d72e51e2e7885e519ef202ab1cc6c8360d765",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e759f1c0_5acd8546",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-29T17:30:48Z",
+      "side": 1,
+      "message": "Right, specifying the destination device isn\u0027t needed, removed. As for the source, it seems that we need to specify something other than \u0027DEFAULT\u0027 since otherwise older QC HALs do not know what to do and no input is actually opened, and they fail to report this situation correctly both while opening stream and while trying to read from it. I\u0027ve changed the source to \u0027UNPROCESSED\u0027 unconditionally, this seems to work as well.",
+      "parentUuid": "ed3a5497_e773357f",
       "range": {
         "startLine": 1203,
         "startChar": 0,
