@@ -33,6 +33,23 @@
       "message": "Ping",
       "revId": "93d11f50dfd671c1a680da6fb8f1c4232f0290ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1736ede9_6f16ccaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1209463
+      },
+      "writtenOn": "2021-03-29T21:43:31Z",
+      "side": 1,
+      "message": "Please enable autosubmit vote +1 to merge the CL. Thanks",
+      "revId": "93d11f50dfd671c1a680da6fb8f1c4232f0290ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
