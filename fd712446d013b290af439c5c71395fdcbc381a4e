@@ -22,6 +22,30 @@
       },
       "revId": "fd712446d013b290af439c5c71395fdcbc381a4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a450601c_54836c85",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Also, what would be the signing algorithm recommended to use here? Is it ECDSA-P256 with SHA-256?",
+      "parentUuid": "4d41a330_7a00d999",
+      "range": {
+        "startLine": 62,
+        "startChar": 66,
+        "endLine": 66,
+        "endChar": 66
+      },
+      "revId": "fd712446d013b290af439c5c71395fdcbc381a4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

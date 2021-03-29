@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "272d8e30_2c3f407b",
+        "filename": "security/authgraph/aidl/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "I am not sure. I followed the template in https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/Android.bp\nShould I remove it here?",
+      "parentUuid": "469af240_79a457ca",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 0
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "25d1adb7_6febd0fd",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/CreateChannelResult.aidl",
         "patchSetId": 9
@@ -54,6 +78,30 @@
       "writtenOn": "2021-03-29T20:50:41Z",
       "side": 1,
       "message": "define, also what\u0027s the format of the bytes?",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce289c5d_ce77d3cb",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/CreateChannelResult.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Here I added that the format is same as the output of AES-GCM encryption operation. And I have explained what an arc is in little bit more detail at the top of IAuthGraphCommon aidl file, which I refer to, from the top of this file.",
+      "parentUuid": "25d1adb7_6febd0fd",
       "range": {
         "startLine": 24,
         "startChar": 7,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8c5bc9e_bb791aa2",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/CreateChannelResult.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Please see the reply above.",
+      "parentUuid": "d037863f_ecddc6ac",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 30
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5406c62e_9b5614bb",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-03-29T20:02:25Z",
       "side": 1,
       "message": "Nit: start.  Also, if this sentence is in the same paragraph as the previous one, word-wrap them together.  If not, put a blank line between them.",
+      "range": {
+        "startLine": 22,
+        "startChar": 19,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "414b6243_32c0871a",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/ErrorCode.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5406c62e_9b5614bb",
       "range": {
         "startLine": 22,
         "startChar": 19,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "724285cf_bfda2bf2",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/ErrorCode.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "There will be more error codes related to the Authgraph AIDL interface. So, instead, shall I add at the end of Keymint error codes aidl file, asking not to use error codes less than or equal to -500? (I assume Keymint error codes will not grow that far)\nPlease let me know if you still think it is better to move error codes to Keymint error code file, including any Authgraph error codes introduced in the future. I will do it accordingly then.",
+      "parentUuid": "e97b7977_27d58f3e",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 14
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "750e79fd_7b6bdbb9",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
         "patchSetId": 9
@@ -146,6 +266,30 @@
       "writtenOn": "2021-03-29T20:52:36Z",
       "side": 1,
       "message": "should these all be 2021?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07008289_4bd1de6e",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "750e79fd_7b6bdbb9",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -181,6 +325,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "227eb079_e32dbafe",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "So as mentioned, it is the output of an AES-GCM encryption operation with the inputs K, M and D. I added an equation to simplify it. Please let me know if any further details is required.",
+      "parentUuid": "119f1917_b1dac82e",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 68
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2bfd14f4_52f8c510",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
         "patchSetId": 9
@@ -192,6 +360,30 @@
       "writtenOn": "2021-03-29T20:52:36Z",
       "side": 1,
       "message": "where are the additional methods for source or sink domains?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 28
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45f78a73_46401de2",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Those are not required for the protected VM feature. Here we are adding the scoped down version of Authgraph interface that is required to enable communication between Keymint and a pVM via a secure channel.",
+      "parentUuid": "2bfd14f4_52f8c510",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -227,6 +419,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7650809_ea2663e6",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Added @hide. But I get compilation errors when @VintfStability is added. I think it should match some properties in Android.bp file. Maybe it conflicts with unstable: true, in the current Android.bp file.\nCan we add stability: \"vintf\",in the Android.bp file at this stage?",
+      "parentUuid": "648b6f12_054048c6",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 2
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bdbb8541_46d5d814",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
         "patchSetId": 9
@@ -238,6 +454,30 @@
       "writtenOn": "2021-03-29T20:02:25Z",
       "side": 1,
       "message": "Nit: Same comment as in the other file about sentences v. paragraphs.  Paragraphs should be a single word-wrapped block, no newlines before sentence starts (unless the sentence naturally falls on a word-wrap boundary).  Paragraphs should be separated by blank lines.",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6142a39_1e7d6d8a",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Thanks for pointing it out.",
+      "parentUuid": "bdbb8541_46d5d814",
       "range": {
         "startLine": 42,
         "startChar": 5,
@@ -271,6 +511,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48fb8d23_54b80781",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d59d494b_2c64ce36",
+      "range": {
+        "startLine": 48,
+        "startChar": 48,
+        "endLine": 49,
+        "endChar": 50
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5801cfc_da64c8c6",
@@ -284,6 +548,30 @@
       "writtenOn": "2021-03-29T20:52:36Z",
       "side": 1,
       "message": "As a ServiceSpecificException?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 92
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bd2a9b0_63f67d66",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5801cfc_da64c8c6",
       "range": {
         "startLine": 52,
         "startChar": 0,
@@ -317,6 +605,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "511e2122_2ca7b34d",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Yes, updated the description to clarify that.",
+      "parentUuid": "43d24875_4b6ca994",
+      "range": {
+        "startLine": 76,
+        "startChar": 7,
+        "endLine": 76,
+        "endChar": 95
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1324b80f_0c19d72a",
@@ -330,6 +642,30 @@
       "writtenOn": "2021-03-29T20:02:25Z",
       "side": 1,
       "message": "Is this \"verifyChannel\" or is it \"completeChannel\", or some similar name? It doesn\u0027t appear to be optional, nor only to verify.",
+      "range": {
+        "startLine": 99,
+        "startChar": 24,
+        "endLine": 99,
+        "endChar": 37
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a26da6f_d3a55bf6",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "I updated it to be finalizeChannel.",
+      "parentUuid": "1324b80f_0c19d72a",
       "range": {
         "startLine": 99,
         "startChar": 24,
@@ -363,6 +699,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed0f7bb9_120b4f27",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/InitChannelResult.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Sorry, I thought this is fine for one line comments.",
+      "parentUuid": "b88a6207_4a7f14f6",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0457d5da_9f08f3cc",
@@ -386,6 +746,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83b042ef_79fe425e",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/InitChannelResult.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0457d5da_9f08f3cc",
+      "range": {
+        "startLine": 29,
+        "startChar": 33,
+        "endLine": 29,
+        "endChar": 59
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a10c00fa_89b1d809",
@@ -399,6 +783,30 @@
       "writtenOn": "2021-03-29T20:02:25Z",
       "side": 1,
       "message": "arcFromPerBootKeyToPrivateKey?  It costs little to spell these things out, and makes life easier for readers.",
+      "range": {
+        "startLine": 31,
+        "startChar": 21,
+        "endLine": 31,
+        "endChar": 36
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "692130a1_01b106ee",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/InitChannelResult.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-29T23:11:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a10c00fa_89b1d809",
       "range": {
         "startLine": 31,
         "startChar": 21,
