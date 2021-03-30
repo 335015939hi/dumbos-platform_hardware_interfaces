@@ -154,6 +154,26 @@ status_t EffectUtils::effectConfigToHal(const EffectConfig& config, effect_confi
     return result;
 }
 
+inline hidl_string charBufferFromHal(const char* halBuf, size_t halBufSize) {
+    // Even if the original field contains a non-terminated string, hidl_string
+    // adds a NUL terminator.
+    return hidl_string(halBuf, strnlen(halBuf, halBufSize));
+}
+
+inline status_t charBufferToHal(const hidl_string& str, char* halBuf, size_t halBufSize,
+                                const char* fieldName) {
+    status_t result = NO_ERROR;
+    size_t strSize = str.size();
+    if (strSize >= halBufSize) {
+        ALOGE("%s is too long: %zu (%zu max)", fieldName, strSize, halBufSize - 1);
+        strSize = halBufSize - 1;
+        result = BAD_VALUE;
+    }
+    strncpy(halBuf, str.c_str(), strSize);
+    halBuf[strSize] = '\0';
+    return result;
+}
+
 status_t EffectUtils::effectDescriptorFromHal(const effect_descriptor_t& halDescriptor,
                                               EffectDescriptor* descriptor) {
     UuidUtils::uuidFromHal(halDescriptor.type, &descriptor->type);
@@ -166,9 +186,9 @@ status_t EffectUtils::effectDescriptorFromHal(const effect_descriptor_t& halDesc
     memcpy(descriptor->implementor.data(), halDescriptor.implementor,
            descriptor->implementor.size());
 #else
-    descriptor->name = hidl_string(halDescriptor.name, ARRAY_SIZE(halDescriptor.name));
+    descriptor->name = charBufferFromHal(halDescriptor.name, ARRAY_SIZE(halDescriptor.name));
     descriptor->implementor =
-            hidl_string(halDescriptor.implementor, ARRAY_SIZE(halDescriptor.implementor));
+            charBufferFromHal(halDescriptor.implementor, ARRAY_SIZE(halDescriptor.implementor));
 #endif
     return NO_ERROR;
 }
@@ -186,25 +206,13 @@ status_t EffectUtils::effectDescriptorToHal(const EffectDescriptor& descriptor,
     memcpy(halDescriptor->implementor, descriptor.implementor.data(),
            descriptor.implementor.size());
 #else
-    // According to 'dumpEffectDescriptor' 'name' and 'implementor' must be NUL-terminated.
-    size_t nameSize = descriptor.name.size();
-    if (nameSize >= ARRAY_SIZE(halDescriptor->name)) {
-        ALOGE("effect name is too long: %zu (%zu max)", nameSize,
-              ARRAY_SIZE(halDescriptor->name) - 1);
-        nameSize = ARRAY_SIZE(halDescriptor->name) - 1;
-        result = BAD_VALUE;
-    }
-    strncpy(halDescriptor->name, descriptor.name.c_str(), nameSize);
-    halDescriptor->name[nameSize] = '\0';
-    size_t implementorSize = descriptor.implementor.size();
-    if (implementorSize >= ARRAY_SIZE(halDescriptor->implementor)) {
-        ALOGE("effect implementor is too long: %zu (%zu max)", implementorSize,
-              ARRAY_SIZE(halDescriptor->implementor) - 1);
-        implementorSize = ARRAY_SIZE(halDescriptor->implementor) - 1;
-        result = BAD_VALUE;
-    }
-    strncpy(halDescriptor->implementor, descriptor.implementor.c_str(), implementorSize);
-    halDescriptor->implementor[implementorSize] = '\0';
+    // According to 'dumpEffectDescriptor', 'name' and 'implementor' must be NUL-terminated.
+    CONVERT_CHECKED(charBufferToHal(descriptor.name, halDescriptor->name,
+                                    ARRAY_SIZE(halDescriptor->name), "effect name"),
+                    result);
+    CONVERT_CHECKED(charBufferToHal(descriptor.implementor, halDescriptor->implementor,
+                                    ARRAY_SIZE(halDescriptor->implementor), "effect implementor"),
+                    result);
 #endif
     return result;
 }
