@@ -22,6 +22,30 @@
       },
       "revId": "f0d516d28181eb51b7654ca2a4e7170bdd406a0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78665441_f5bd4521",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-03-30T06:04:51Z",
+      "side": 1,
+      "message": "I *think* it\u0027s OK:\n - EVP_PKEY_Ptr is a std::unique_ptr\u003cEVP_PKEY\u003e wrapper with OpenSSL deleter\n - pubKey is the unique_ptr that has initial ownership\n - the std::move() moves ownership into *signingKey, resetting pubKey\n - this is signing_pubkey in generateEcdsaP256Key_prodMode()\n - when signing_pubkey goes out of scope there, the unique_ptr\u0027s deleter calls EVP_PKEY_Delete\n\nBut let me double-check to confirm, given that my C++ is a bit Rusty [pun intended].",
+      "parentUuid": "c9865ba9_7a0826b4",
+      "range": {
+        "startLine": 90,
+        "startChar": 28,
+        "endLine": 90,
+        "endChar": 34
+      },
+      "revId": "f0d516d28181eb51b7654ca2a4e7170bdd406a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
