@@ -46,6 +46,30 @@
       },
       "revId": "f0d516d28181eb51b7654ca2a4e7170bdd406a0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "195ccc63_e2975562",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-03-30T07:05:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78665441_f5bd4521",
+      "range": {
+        "startLine": 90,
+        "startChar": 28,
+        "endLine": 90,
+        "endChar": 34
+      },
+      "revId": "f0d516d28181eb51b7654ca2a4e7170bdd406a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
