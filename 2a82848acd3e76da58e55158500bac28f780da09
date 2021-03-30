@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b70b7da0_64dabaa2",
+        "filename": "audio/effect/all-versions/default/util/EffectUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-30T22:53:37Z",
+      "side": 1,
+      "message": "Yes, I know about this, initially I thought \"well, this will create a copy of this code for every value of N\", but we actually only have one value.",
+      "parentUuid": "4c2b114d_42964309",
+      "range": {
+        "startLine": 157,
+        "startChar": 36,
+        "endLine": 157,
+        "endChar": 75
+      },
+      "revId": "2a82848acd3e76da58e55158500bac28f780da09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "535bdcd3_abf62f15",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-03-30T22:17:48Z",
       "side": 1,
       "message": "halBufSize - 1 if you want to force compatible sizes with 168.",
+      "range": {
+        "startLine": 160,
+        "startChar": 47,
+        "endLine": 160,
+        "endChar": 57
+      },
+      "revId": "2a82848acd3e76da58e55158500bac28f780da09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbafebf5_040a4a65",
+        "filename": "audio/effect/all-versions/default/util/EffectUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-03-30T22:53:37Z",
+      "side": 1,
+      "message": "There are no restrictions on the hidl_string size, so it\u0027s OK if the HAL buffer is not NUL-terminated. We will have an error condition when converting back to legacy API, though. However, we might not need to do that, so it\u0027s better to preserve as many characters as we can here.",
+      "parentUuid": "535bdcd3_abf62f15",
       "range": {
         "startLine": 160,
         "startChar": 47,
