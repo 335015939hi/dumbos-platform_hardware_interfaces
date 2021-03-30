@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58e09771_fbdc10c9",
+        "filename": "memtrack/aidl/include/android/hardware/memtrack/translate-ndk.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-03-30T00:23:06Z",
+      "side": 1,
+      "message": "nit: V1 looks nicer to me",
+      "range": {
+        "startLine": 24,
+        "startChar": 10,
+        "endLine": 24,
+        "endChar": 11
+      },
+      "revId": "f7dac0c7e35874cf702cc05fc7bda929da2467c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
