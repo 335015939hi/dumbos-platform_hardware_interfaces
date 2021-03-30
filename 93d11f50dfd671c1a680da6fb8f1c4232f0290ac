@@ -50,6 +50,23 @@
       "message": "Please enable autosubmit vote +1 to merge the CL. Thanks",
       "revId": "93d11f50dfd671c1a680da6fb8f1c4232f0290ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04fd5c40_dec55ec0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2021-03-30T18:13:55Z",
+      "side": 1,
+      "message": "Friendly ping",
+      "revId": "93d11f50dfd671c1a680da6fb8f1c4232f0290ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
