@@ -16,6 +16,23 @@
       "message": "Andy thanks for the comments! Please re-approve if you are OK with the final state, as in AOSP approvals are not sticky.",
       "revId": "8fca30025603e1c918a0ecec31e58f235d4afbfb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49ffcd5e_af09812c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-03-30T23:00:17Z",
+      "side": 1,
+      "message": "thanks, would be curious how clang handles the code size issues you brought up.",
+      "revId": "8fca30025603e1c918a0ecec31e58f235d4afbfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
