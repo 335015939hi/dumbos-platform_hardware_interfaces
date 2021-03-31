@@ -271,6 +271,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa6c79df_0a94d99f",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/ErrorCode.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-31T19:21:10Z",
+      "side": 1,
+      "message": "Error codes moved to KeyMint\u0027s ErrorCode.aidl",
+      "parentUuid": "724285cf_bfda2bf2",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 14
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "750e79fd_7b6bdbb9",
@@ -449,6 +473,30 @@
       "side": 1,
       "message": "Added @hide. But I get compilation errors when @VintfStability is added. I think it should match some properties in Android.bp file. Maybe it conflicts with unstable: true, in the current Android.bp file.\nCan we add stability: \"vintf\",in the Android.bp file at this stage?",
       "parentUuid": "648b6f12_054048c6",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 2
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03f6e1ef_c6de9365",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-03-31T19:21:10Z",
+      "side": 1,
+      "message": "@VintfStability added and there is another CL on the topic with a change to vndk.go file to support that.",
+      "parentUuid": "b7650809_ea2663e6",
       "range": {
         "startLine": 39,
         "startChar": 0,
