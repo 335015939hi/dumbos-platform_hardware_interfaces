@@ -969,8 +969,7 @@ class KeymasterHidlTest : public ::testing::TestWithParam<std::string> {
                                            &att_tee_enforced,                //
                                            &att_unique_id));
 
-        EXPECT_TRUE(att_attestation_version == 1 || att_attestation_version == 2);
-
+        EXPECT_GE(att_attestation_version, 3U);
         expected_sw_enforced.push_back(TAG_ATTESTATION_APPLICATION_ID, HidlBuf(app_id));
 
         if (!IsSecure()) {
