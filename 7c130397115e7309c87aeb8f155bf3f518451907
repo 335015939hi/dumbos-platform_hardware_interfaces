@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9fb5d46_9b92d574",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-03-31T11:17:14Z",
+      "side": 1,
+      "message": "I think we miss this in ErrorCode.aidl",
+      "range": {
+        "startLine": 324,
+        "startChar": 21,
+        "endLine": 324,
+        "endChar": 47
+      },
+      "revId": "7c130397115e7309c87aeb8f155bf3f518451907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
