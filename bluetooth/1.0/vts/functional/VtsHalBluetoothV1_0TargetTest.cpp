@@ -500,26 +500,16 @@ void BluetoothHidlTest::sendAndCheckACL(int num_packets, size_t size,
     bluetooth->sendAclData(acl_vector);
 
     // Check the loopback of the ACL packet
-    EXPECT_TRUE(bluetooth_cb->WaitForCallback(kCallbackNameAclEventReceived)
+    ASSERT_TRUE(bluetooth_cb->WaitForCallback(kCallbackNameAclEventReceived)
                     .no_timeout);
     hidl_vec<uint8_t> acl_loopback = acl_queue.front();
     acl_queue.pop();
 
-    EXPECT_EQ(acl_packet.size(), acl_loopback.size());
-    size_t successful_bytes = 0;
+    ASSERT_EQ(acl_packet.size(), acl_loopback.size());
 
     for (size_t i = 0; i < acl_packet.size(); i++) {
-      if (acl_packet[i] == acl_loopback[i]) {
-        successful_bytes = i;
-      } else {
-        ALOGE("Miscompare at %d (expected %x, got %x)", static_cast<int>(i),
-              acl_packet[i], acl_loopback[i]);
-        ALOGE("At %d (expected %x, got %x)", static_cast<int>(i + 1),
-              acl_packet[i + 1], acl_loopback[i + 1]);
-        break;
-      }
+      ASSERT_EQ(acl_packet[i], acl_loopback[i]);
     }
-    EXPECT_EQ(acl_packet.size(), successful_bytes + 1);
   }
   logger.setTotalBytes(num_packets * size * 2);
 }
