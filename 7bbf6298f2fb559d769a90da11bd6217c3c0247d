@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ab1d523_b97d3cdb",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-04-02T06:31:08Z",
+      "side": 1,
+      "message": "Shall we specify \"ec\" in the name?",
+      "range": {
+        "startLine": 210,
+        "startChar": 22,
+        "endLine": 210,
+        "endChar": 44
+      },
+      "revId": "7bbf6298f2fb559d769a90da11bd6217c3c0247d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
