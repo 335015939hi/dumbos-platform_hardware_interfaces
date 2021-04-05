@@ -39,6 +39,41 @@
       "message": "Many devices must have passed with this old test, right? Usually in this situation we should make the both error codes expected OR change the documentation to be what was the tested requirement.",
       "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "288d9163_f366939d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1416371
+      },
+      "writtenOn": "2021-04-05T17:39:05Z",
+      "side": 1,
+      "message": "This would need to be accompanied by a change to system/keymaster to cause our reference implementation to return this error code. (I\u0027m also not convinced it should change, but if it does, you need to change the reference implementation at the same time.)",
+      "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc753903_a7b952ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1416371
+      },
+      "writtenOn": "2021-04-05T17:39:05Z",
+      "side": 1,
+      "message": "+1 to this. If this is changing, the old value needs to be tolerated unless there\u0027s a good reason why devices returning the previous error code would cause problems (and in that case I\u0027d expect a docs or spec change).",
+      "parentUuid": "01abc6ff_fc321862",
+      "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
