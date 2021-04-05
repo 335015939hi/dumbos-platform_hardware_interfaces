@@ -876,12 +876,12 @@ bool verify_attestation_record(const string& challenge,                //
     EXPECT_EQ(ErrorCode::OK, error);
     if (error != ErrorCode::OK) return false;
 
-    EXPECT_GE(att_attestation_version, 3U);
+    EXPECT_EQ(att_attestation_version, 100U);
 
     expected_sw_enforced.push_back(TAG_ATTESTATION_APPLICATION_ID,
                                    vector<uint8_t>(app_id.begin(), app_id.end()));
 
-    EXPECT_GE(att_keymaster_version, 4U);
+    EXPECT_EQ(att_keymaster_version, 100U);
     EXPECT_EQ(security_level, att_keymaster_security_level);
     EXPECT_EQ(security_level, att_attestation_security_level);
 
