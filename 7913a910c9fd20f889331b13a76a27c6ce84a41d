@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f669ec_ce3235dc",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-06T19:44:24Z",
+      "side": 1,
+      "message": "This is the sort of thing where we should probably be very cognizant about everything that can \u0027go wrong\u0027 within the context of our solution in the first minute or so of a device\u0027s lifetime - making sure that SetupWizard, etc, aren\u0027t breaking any of our new assumptions if a device is coming up without network.",
+      "range": {
+        "startLine": 329,
+        "startChar": 21,
+        "endLine": 329,
+        "endChar": 65
+      },
+      "revId": "7913a910c9fd20f889331b13a76a27c6ce84a41d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fac2ca48_6a4b6904",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-06T19:44:24Z",
+      "side": 1,
+      "message": "I thought we were going to go more concrete here to avoid breaking any attestation checking implementations in the field - that all these fields must be zeroed out / set to false.",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 97
+      },
+      "revId": "7913a910c9fd20f889331b13a76a27c6ce84a41d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
