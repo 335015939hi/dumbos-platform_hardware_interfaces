@@ -74,6 +74,23 @@
       "parentUuid": "01abc6ff_fc321862",
       "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d56a57a_1048fefe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-06T13:30:21Z",
+      "side": 1,
+      "message": "Why are you making this change? How do you know that it won\u0027t cause existing (passing) implementations to begin to fail VTS?",
+      "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
