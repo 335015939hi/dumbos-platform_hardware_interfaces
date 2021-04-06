@@ -16,6 +16,23 @@
       "message": "Hello,\n\nCan you review our patch please?\n\nThanks.",
       "revId": "51d0f5cdda0fc9e151bb811819c10809d52221dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe66933f_500733c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1651900
+      },
+      "writtenOn": "2021-04-06T14:06:04Z",
+      "side": 1,
+      "message": "Please reference the bug ID (b/182296217) in the commit message",
+      "revId": "51d0f5cdda0fc9e151bb811819c10809d52221dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
