@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9126fb4c_350221db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-04-07T22:05:38Z",
+      "side": 1,
+      "message": "I may consider turning this into a macro since errors I get no longer point to the line in which they occurred:\n\nhardware/interfaces/power/stats/aidl/vts/VtsHalPowerStatsTargetTest.cpp:68: Failure\nValue of: ret.isOk()\nActual: false\nExpected: true\nStatus(-129, EX_TRANSACTION_FAILED): \u0027DEAD_OBJECT: \u0027\n",
+      "revId": "301396ca2f1f8d4f340ef7c8809efb7f01d7a48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9011f58d_bc465fdb",
