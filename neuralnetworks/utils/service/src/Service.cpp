@@ -42,6 +42,9 @@
 #include <unordered_set>
 #include <vector>
 
+// TODO: replace __ANDROID_API_FUTURE__with 31 when it's official (b/178144708)
+#define __NNAPI_AIDL_MIN_API__ __ANDROID_API_FUTURE__
+
 namespace android::hardware::neuralnetworks::service {
 namespace {
 
@@ -82,7 +85,7 @@ void getAidlDevices(std::vector<nn::SharedDevice>* devices,
 
     // Devices with SDK level lower than 31 (Android S) don't have any AIDL drivers available, so
     // there is no need for a workaround supported on lower levels.
-    if (__builtin_available(android __ANDROID_API_S__, *)) {
+    if (__builtin_available(android __NNAPI_AIDL_MIN_API__, *)) {
         AServiceManager_forEachDeclaredInstance(aidl_hal::IDevice::descriptor,
                                                 static_cast<void*>(&names), callback);
     }
