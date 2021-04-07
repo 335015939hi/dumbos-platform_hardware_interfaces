@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "111fd13b_5807836a",
+        "filename": "neuralnetworks/utils/service/src/Service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-04-07T16:40:40Z",
+      "side": 1,
+      "message": "Can we make this define more centralized in the NNAPI? This is something that\u0027s also needed for lazy AIDL registration in libneuralnetworks_shim.so.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "bfc4b75923f58b6d5254d43ddc73ddef9d651bbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
