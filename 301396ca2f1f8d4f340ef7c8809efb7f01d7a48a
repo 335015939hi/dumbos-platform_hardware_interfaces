@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9011f58d_bc465fdb",
+        "filename": "power/stats/aidl/vts/VtsHalPowerStatsTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-04-07T21:58:35Z",
+      "side": 1,
+      "message": "this will return from the testOk function, but it will no longer return from the outer function. I would recommend using a macro to continue the original behavior, or switching this to return an AssertionResult",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "301396ca2f1f8d4f340ef7c8809efb7f01d7a48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
