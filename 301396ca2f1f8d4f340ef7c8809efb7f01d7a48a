@@ -39,6 +39,30 @@
       },
       "revId": "301396ca2f1f8d4f340ef7c8809efb7f01d7a48a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7ead665_852ab75f",
+        "filename": "power/stats/aidl/vts/VtsHalPowerStatsTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-04-07T22:13:27Z",
+      "side": 1,
+      "message": "Replaced with a macro.",
+      "parentUuid": "9011f58d_bc465fdb",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "301396ca2f1f8d4f340ef7c8809efb7f01d7a48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
