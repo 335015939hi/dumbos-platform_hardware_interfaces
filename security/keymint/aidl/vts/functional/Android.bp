@@ -95,7 +95,7 @@ cc_test {
     static_libs: [
         "android.hardware.security.keymint-V1-ndk_platform",
         "android.hardware.security.secureclock-V1-ndk_platform",
-        "libcppcose",
+        "libcppcose_rpk",
         "libgmock_ndk",
         "libkeymint",
         "libkeymint_support",
