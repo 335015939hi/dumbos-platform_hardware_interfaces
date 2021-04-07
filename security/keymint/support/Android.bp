@@ -66,6 +66,7 @@ cc_library {
 cc_library {
     name: "libcppcose",
     vendor_available: true,
+    host_supported: true,
     srcs: [
         "cppcose.cpp",
     ],
@@ -77,9 +78,5 @@ cc_library {
         "libcppbor_external",
         "libcrypto",
         "liblog",
-    ],
-    static_libs: [
-        // TODO(swillden): Remove keymint NDK
-        "android.hardware.security.keymint-V1-ndk_platform",
     ],
 }
