@@ -108,6 +108,24 @@
       "message": "We have read the code review comments.  It seems best solution is to put OR condition( ie  UNKNOWN ERROR \u0026  VERFIFICATON_FAILED) both acceptable in VTS test code. In fact that will goes as per the sprit of the SPEC.\nThis will not violates CDD specs as can be seen in section 3.5 .  It uses the word  \"SHOULD\"   use keystore AOSP  source code. It is not a MUST.  \n",
       "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "231236e7_01a62347",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1749738
+      },
+      "writtenOn": "2021-04-08T18:13:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc753903_a7b952ce",
+      "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
