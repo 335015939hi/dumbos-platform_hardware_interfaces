@@ -16,6 +16,24 @@
       "message": "Looks like there is additional dependency: error: device/google/trout/hal/vehicle/2.0/Android.bp:144:1: \"android.hardware.automotive.vehicle@2.0-virtualization-service\" depends on undefined module \"libqemu_pipe\"\nninja: build stopped: subcommand failed.\n",
       "revId": "4e370a4b424f2df3d85c8a4753243f483905beca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fe5c0b1_e02e7dcc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2021-04-08T21:19:03Z",
+      "side": 1,
+      "message": "This is b/184872612.",
+      "parentUuid": "a3c5e655_d420f7a4",
+      "revId": "4e370a4b424f2df3d85c8a4753243f483905beca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
