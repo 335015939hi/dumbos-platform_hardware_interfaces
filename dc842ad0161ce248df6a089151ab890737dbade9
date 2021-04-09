@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c21d350_5ed3e1ce",
+        "filename": "identity/support/tests/IdentityCredentialSupportTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-09T15:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aed8f0a_82587645",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 48
+      },
+      "revId": "dc842ad0161ce248df6a089151ab890737dbade9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c2e0012_2f453513",
@@ -60,6 +84,30 @@
       "writtenOn": "2021-04-09T14:10:57Z",
       "side": 1,
       "message": "This one too.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 56
+      },
+      "revId": "dc842ad0161ce248df6a089151ab890737dbade9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1ee5cc7_f97b9194",
+        "filename": "identity/support/tests/IdentityCredentialSupportTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-09T15:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c2e0012_2f453513",
       "range": {
         "startLine": 83,
         "startChar": 0,

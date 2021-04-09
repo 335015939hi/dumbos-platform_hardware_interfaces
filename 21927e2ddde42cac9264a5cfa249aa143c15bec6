@@ -16,6 +16,24 @@
       "message": "This doesn\u0027t seem related to rest of the CL (but I\u0027m fine including it in this CL if it\u0027s easier for you).",
       "revId": "21927e2ddde42cac9264a5cfa249aa143c15bec6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f22ec99c_7e08ebb3",
+        "filename": "security/keymint/support/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-09T15:58:08Z",
+      "side": 0,
+      "message": "This can be dropped. It\u0027s sort of a no-op at this point since this particular file change already made it in. I was hoping to avoid redo-ing the TH approvals, but will have to anyways to fix the other comments.",
+      "parentUuid": "16e295e0_b63605e0",
+      "revId": "21927e2ddde42cac9264a5cfa249aa143c15bec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
