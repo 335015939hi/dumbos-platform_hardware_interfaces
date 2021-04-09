@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3bfcecab_1fb2bd4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1749738
+      },
+      "writtenOn": "2021-04-09T13:56:21Z",
+      "side": 1,
+      "message": "Below are \"why is this expected\"  details for each of the test points\n\n\nThe  implementation of key master in hypervisor environment  in CSM  expected to gracefully fails on below defined error scenario\n\n1\u003e      TEST_F(EncryptionOperationsTest, RsaOaepSuccess)\nDescription : If cipher text is corrupted . An attempt to decrypt fails gracefully.  While doing so error code is returned “VERIFICATION_FAILED”.\nWithout divulging any further  information.\n\n2\u003e      TEST_F(EncryptionOperationsTest, RsaOaepDecryptWithWrongDigest)\nDescription:   If attempt is made to decrypt a cipher text with a modified size of  numeric representation i.e. non relevant digest. An attempt to decrypt fails gracefully.  While doing so error code is returned “VERIFICATION_FAILED”.\nWithout divulging any further  information..\nNOTE: UNSUPPORTED_DIGEST \u003d -12,\n      INCOMPATIBLE_DIGEST \u003d -13  error codes are related to encryption phase.\n\n\n3\u003e      TEST_F(EncryptionOperationsTest, RsaPkcs1Success)\n\nDescription :   If cipher text is corrupted . An attempt to decrypt fails gracefully.  While doing so error code is returned “VERIFICATION_FAILED”\nWithout divulging any further  information.\nNOTE:  The circumstances of this test point  is same as case 1.  Both cases, corrupted cipher text. Hence same expected return error code behavior",
+      "parentUuid": "912234eb_35e2efa8",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 9,
+        "endChar": 15
+      },
+      "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01abc6ff_fc321862",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -124,6 +148,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "bc753903_a7b952ce",
+      "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdc52606_5738982c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1749738
+      },
+      "writtenOn": "2021-04-09T13:56:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "288d9163_f366939d",
       "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
