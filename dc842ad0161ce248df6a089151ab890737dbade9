@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b8ff579_274ae00f",
+        "filename": "identity/aidl/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-09T16:21:45Z",
+      "side": 1,
+      "message": "Whoops, I think this was an artifact of some overzealous refactoring. Thanks for catching this.",
+      "parentUuid": "f1955871_e0c5228a",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 20
+      },
+      "revId": "dc842ad0161ce248df6a089151ab890737dbade9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1aed8f0a_82587645",
