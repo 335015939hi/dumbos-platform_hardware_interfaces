@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16e295e0_b63605e0",
+        "filename": "security/keymint/support/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-04-09T14:10:57Z",
+      "side": 0,
+      "message": "This doesn\u0027t seem related to rest of the CL (but I\u0027m fine including it in this CL if it\u0027s easier for you).",
+      "revId": "21927e2ddde42cac9264a5cfa249aa143c15bec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
