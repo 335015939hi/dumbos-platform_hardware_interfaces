@@ -192,6 +192,24 @@
       "parentUuid": "288d9163_f366939d",
       "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd88c86_52540f2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1416371
+      },
+      "writtenOn": "2021-04-12T18:31:23Z",
+      "side": 1,
+      "message": "If this is in fact the correct behavior (still leaving that to swillden@ and co), system/keymaster needs to change for this to go in. We shouldn\u0027t update our tests to encourage a different return code without updating the reference implementation.",
+      "parentUuid": "cdc52606_5738982c",
+      "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
