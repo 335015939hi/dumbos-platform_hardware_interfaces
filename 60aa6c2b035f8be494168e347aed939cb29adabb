@@ -16,6 +16,24 @@
       "message": "Change LGTM, but do we have to run \"m android.hardware.neuralnetworks-update-api\"?",
       "revId": "60aa6c2b035f8be494168e347aed939cb29adabb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ab16dc5_d0f14018",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-04-13T17:09:53Z",
+      "side": 1,
+      "message": "Most comments are stripped from the generated aidl_api files, so I don\u0027t think it will create a change. It will complain during a build if the interface is used/built.",
+      "parentUuid": "2980f62a_de1a12c2",
+      "revId": "60aa6c2b035f8be494168e347aed939cb29adabb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
