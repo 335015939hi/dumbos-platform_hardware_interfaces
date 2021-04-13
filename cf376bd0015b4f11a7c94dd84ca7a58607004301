@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "addd27d0_6bde8658",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-04-13T18:01:06Z",
+      "side": 1,
+      "message": "I agree, this was a mere attempt at explaining why QCOM adds random data in this field with a +, I initially thought they read the def as MCC+MNC \u003e 111+111, but they\u0027re doing this part correctly.",
+      "parentUuid": "83958a11_570e14ac",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "cf376bd0015b4f11a7c94dd84ca7a58607004301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b86abab7_27a1d5fe",
@@ -54,6 +78,23 @@
       "writtenOn": "2021-04-13T17:07:05Z",
       "side": 1,
       "message": "You\u0027re kidding me! This is fine.",
+      "revId": "cf376bd0015b4f11a7c94dd84ca7a58607004301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c267cb8_eb0ea9a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-04-13T18:01:06Z",
+      "side": 1,
+      "message": "Holding off for VTS change",
       "revId": "cf376bd0015b4f11a7c94dd84ca7a58607004301",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
