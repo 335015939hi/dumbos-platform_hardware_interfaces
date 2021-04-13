@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "83958a11_570e14ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-04-13T17:37:07Z",
+      "side": 1,
+      "message": "I think in this context, it could be viewed to mean concatenation, and as such might be slightly more readable because it separates \u0027MCC\u0027 from \u0027MNC\u0027, whereas it\u0027s unclear that MCCMNC is two tokens.",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "cf376bd0015b4f11a7c94dd84ca7a58607004301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b86abab7_27a1d5fe",
