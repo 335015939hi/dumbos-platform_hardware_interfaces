@@ -54,6 +54,7 @@ class RadioResponse : public IRadioResponse {
     hidl_string imsi;
     IccIoResult iccIoResult;
     int channelId;
+    hidl_vec<OperatorInfo> networkInfos;
 
     // Sms
     SendSmsResult sendSmsResult;

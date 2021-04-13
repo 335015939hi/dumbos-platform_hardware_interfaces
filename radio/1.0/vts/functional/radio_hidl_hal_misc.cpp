@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <regex>
+
 #include <android-base/logging.h>
 #include <android/hardware/radio/1.2/IRadio.h>
 #include <radio_hidl_hal_utils_v1_0.h>
@@ -153,6 +155,7 @@ TEST_P(RadioHidlTest, setNetworkSelectionModeManual) {
 /*
  * Test IRadio.getAvailableNetworks() for the response returned.
  */
+static const std::regex kOperatorNumericRe("^[0-9]{5,6}$");
 TEST_P(RadioHidlTest, getAvailableNetworks) {
     LOG(DEBUG) << "getAvailableNetworks";
     serial = GetRandomSerialNumber();
@@ -169,8 +172,13 @@ TEST_P(RadioHidlTest, getAvailableNetworks) {
                              {RadioError::NONE, RadioError::CANCELLED, RadioError::DEVICE_IN_USE,
                               RadioError::MODEM_ERR, RadioError::OPERATION_NOT_ALLOWED},
                              CHECK_GENERAL_ERROR));
-  }
-  LOG(DEBUG) << "getAvailableNetworks finished";
+    }
+    for (OperatorInfo info : radioRsp->networkInfos) {
+        if (info.operatorNumeric != nullptr) {
+            ASSERT_TRUE(std::regex_match(std::string(info.operatorNumeric), kOperatorNumericRe));
+        }
+    }
+    LOG(DEBUG) << "getAvailableNetworks finished";
 }
 
 /*
