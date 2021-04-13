@@ -16,6 +16,24 @@
       "message": "Only compile tested for now, as I\u0027ve never ran VTS.\n\nThis happens on I think every QCOM device out there.",
       "revId": "5613e7dcd7282eeb66faebae30d99e06722404ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8b90485_13118a65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-04-13T23:12:00Z",
+      "side": 1,
+      "message": "Great change!\n\n\u003e This happens\n\nif it breaks existing devices, we\u0027ll have to make it conditional based on shipping API level. if the issue is serious enough for old devices, we\u0027ll need to update the framework to handle it or reach out to address this on a case by case basis (Jack)\n\n\u003e I\u0027ve never ran VTS\n\nThis test isn\u0027t configured to run via VTS. If you (or radio team) could add VtsHalRadioV1_0TargetTest and friends to a TEST_MAPPING file in the appropriate directory, I\u0027d be happy to run TH. However, as it stands, the automated testing infrastructure won\u0027t tell us much.",
+      "parentUuid": "a784927f_7947902f",
+      "revId": "5613e7dcd7282eeb66faebae30d99e06722404ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
