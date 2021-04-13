@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7d2d337_d7dfd587",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-04-13T20:36:16Z",
+      "side": 1,
+      "message": "Just a little FYI, the new selector doesn\u0027t seem to be supported in OnePlus sm8250 even if they are on radio 1.5.\nI tough it was required on the newer HALs?\nIt puts out an INVALID_ARGUMENTS exception.",
+      "parentUuid": "5307c288_95eddf74",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "cf376bd0015b4f11a7c94dd84ca7a58607004301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b86abab7_27a1d5fe",
