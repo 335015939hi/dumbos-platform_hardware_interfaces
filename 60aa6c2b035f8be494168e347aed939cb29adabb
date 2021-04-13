@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2980f62a_de1a12c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-04-13T16:35:25Z",
+      "side": 1,
+      "message": "Change LGTM, but do we have to run \"m android.hardware.neuralnetworks-update-api\"?",
+      "revId": "60aa6c2b035f8be494168e347aed939cb29adabb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
