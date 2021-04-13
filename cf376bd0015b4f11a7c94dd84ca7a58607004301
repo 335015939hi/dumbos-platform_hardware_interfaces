@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b86abab7_27a1d5fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-04-13T14:34:45Z",
+      "side": 1,
+      "message": "I though some vendors were actually using this field as suggested in comment, instead they append extra data there !\u003d from MCCMNC ( ex QCOM appends \"+RAF\" )\n\nI worked around it  in https://android-review.googlesource.com/c/platform/frameworks/opt/telephony/+/1673270 but this should really be a VTS test to make sure they follow the proper format",
+      "revId": "cf376bd0015b4f11a7c94dd84ca7a58607004301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
