@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5307c288_95eddf74",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-04-13T18:39:49Z",
+      "side": 1,
+      "message": "I\u0027ve seen this happening on Oneplus sm8250 devices with R firmware.\nBut I can see from QCOM sm8250 BSP ( in Q ) they used this field in their custom network selection interface ( com.qualcomm.qti.networksetting ) that replaced AOSP V2 network selection ( or so I think ).\nNetworkSetting.apk for reference on any QCOM device.\n\nThen in R some devices moved back to AOSP network selection, thus QCOM didn\u0027t remove the extra field in some BSP releases and some devices end up with it on R still.\nEx Rog 3 uses AOSP, but OnePlus still uses NetworkSetting.\n\nAt the same time, setNetworkSelectionModeManual requires to append a \"+\" to operatorNumeric to successfully select the network.\nAt least they hacked both the getter and setter...\n\nIt\u0027s all speculation but BSP don\u0027t lie.",
+      "parentUuid": "7926c12b_1281efe2",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "cf376bd0015b4f11a7c94dd84ca7a58607004301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b86abab7_27a1d5fe",
