@@ -1432,7 +1432,7 @@ struct CallForwardInfo {
 struct OperatorInfo {
     string alphaLong;                     // long alpha ONS or EONS
     string alphaShort;                    // short alpha ONS or EONS
-    string operatorNumeric;               // 5 or 6 digit numeric code (MCC + MNC)
+    string operatorNumeric;               // 5 or 6 digit numeric code (MCCMNC)
     OperatorStatus status;
 };
 
