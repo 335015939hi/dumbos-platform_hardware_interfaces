@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bebd1903_d6db22ca",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-13T15:57:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "52f669ec_ce3235dc",
+      "range": {
+        "startLine": 329,
+        "startChar": 21,
+        "endLine": 329,
+        "endChar": 65
+      },
+      "revId": "7913a910c9fd20f889331b13a76a27c6ce84a41d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fac2ca48_6a4b6904",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-06T19:44:24Z",
       "side": 1,
       "message": "I thought we were going to go more concrete here to avoid breaking any attestation checking implementations in the field - that all these fields must be zeroed out / set to false.",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 97
+      },
+      "revId": "7913a910c9fd20f889331b13a76a27c6ce84a41d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f7af2b6_62a4f828",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-13T15:57:32Z",
+      "side": 1,
+      "message": "As discussed, we reversed this decision.",
+      "parentUuid": "fac2ca48_6a4b6904",
       "range": {
         "startLine": 192,
         "startChar": 0,
