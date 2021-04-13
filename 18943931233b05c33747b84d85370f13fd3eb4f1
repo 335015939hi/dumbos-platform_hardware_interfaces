@@ -210,6 +210,24 @@
       "parentUuid": "cdc52606_5738982c",
       "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22a6ee07_82000722",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1749738
+      },
+      "writtenOn": "2021-04-13T15:25:45Z",
+      "side": 1,
+      "message": "My few cents:  CDD section 3.5 is expecting the AOSP keymaster to be close to third party virtualization keymaster. It is reasonable to have complimentary error code for the UNKNOWN_ERROR. This makes VTS test code more robust to cover all situations.",
+      "parentUuid": "1fd88c86_52540f2c",
+      "revId": "18943931233b05c33747b84d85370f13fd3eb4f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
