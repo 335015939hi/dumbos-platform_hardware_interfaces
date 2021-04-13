@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7926c12b_1281efe2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-04-13T18:12:00Z",
+      "side": 1,
+      "message": "That was certainly the initial thought (that \u0027+\u0027 means concatenation). My suspicion is not that this documentation is confusing, but that implementers are intentionally abusing the API:\n\nhttps://android-review.googlesource.com/c/platform/frameworks/opt/telephony/+/1673270\n\nBtw, @Luca, I didn\u0027t initially notice that you\u0027re an external contributor. Thanks for pointing this (and the RadioResponse) out as problems. The \"good\" news is that the API in question is deprecated. the IRadio::requestNetworkScan/IRadioIndicaton:networkScanResult are the APIs of the current/future... so no matter what we do with responseOperatorInfos, it is on borrowed time. In fact, I have WIP patches to remove the rest of the support for OperatorInfo from the framework: https://android-review.googlesource.com/q/topic:remove-operator-info\n\n:-)\n\nThat said, which modems/devices are you seeing using responseOperatorInfos? That would be useful data for me.",
+      "parentUuid": "83958a11_570e14ac",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "cf376bd0015b4f11a7c94dd84ca7a58607004301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b86abab7_27a1d5fe",
