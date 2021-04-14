@@ -89,6 +89,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e7fe4ae_4e5f0023",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-04-14T23:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8941f429_7a8c7296",
+      "revId": "5613e7dcd7282eeb66faebae30d99e06722404ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23842239_5c86ff1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-04-14T23:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a67f0b6_aac827aa",
+      "revId": "5613e7dcd7282eeb66faebae30d99e06722404ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c13795f_7dc066c1",
@@ -102,6 +138,30 @@
       "writtenOn": "2021-04-14T21:49:23Z",
       "side": 1,
       "message": "nit, does something break if you move this static into the test method?",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 6
+      },
+      "revId": "5613e7dcd7282eeb66faebae30d99e06722404ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27711a66_20ca5252",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-04-14T23:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c13795f_7dc066c1",
       "range": {
         "startLine": 158,
         "startChar": 0,
