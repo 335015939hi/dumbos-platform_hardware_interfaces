@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5a63ef6_6057cb53",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-14T21:38:29Z",
+      "side": 1,
+      "message": "that function is specialized for signing keys.  I cannot use it without adding another parameter differenciating the type of keys, which would result in dozens of callers been changed.  So I figure it is better to just put the code here as there is only one caller.",
+      "parentUuid": "cbff8a6b_b6bb4fba",
+      "range": {
+        "startLine": 447,
+        "startChar": 4,
+        "endLine": 468,
+        "endChar": 37
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ceb1bc5b_3f20e5d6",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 2
@@ -37,6 +61,24 @@
       "writtenOn": "2021-04-14T17:20:11Z",
       "side": 1,
       "message": "Missing a CheckedDeleteKey() at the end ?",
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "571de1cb_904f9391",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-14T21:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ceb1bc5b_3f20e5d6",
       "revId": "61338036e20a607a95469cdf201ad1506061da01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +96,24 @@
       "writtenOn": "2021-04-14T17:20:11Z",
       "side": 1,
       "message": "Missing a CheckedDeleteKey() at the end ?",
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f73af40_fff681ef",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-14T21:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91dc72d3_82edce91",
       "revId": "61338036e20a607a95469cdf201ad1506061da01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
