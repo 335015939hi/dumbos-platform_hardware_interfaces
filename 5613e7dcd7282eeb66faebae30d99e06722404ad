@@ -34,6 +34,24 @@
       "parentUuid": "a784927f_7947902f",
       "revId": "5613e7dcd7282eeb66faebae30d99e06722404ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce7d1183_8bf0e50c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-04-14T08:11:53Z",
+      "side": 1,
+      "message": "\u003e Great change!\n\u003e \n\u003e \u003e This happens\n\u003e \n\u003e if it breaks existing devices, we\u0027ll have to make it conditional based on shipping API level. if the issue is serious enough for old devices, we\u0027ll need to update the framework to handle it or reach out to address this on a case by case basis (Jack)\n\nIndeed it breaks _some_ existing devices, that\u0027s why I also \"fixed\" it framework side https://android-review.googlesource.com/c/platform/frameworks/opt/telephony/+/1673270 but to me this is just a mere violation of the hal definition, not sure if it should be guarded via API level, maybe the should should only cover 1.6? Also Nathan is looking to deprecated it ( if it makes in time for S )\nNathan suggested to only add a VTS test.\n\n\u003e \n\u003e \u003e I\u0027ve never ran VTS\n\u003e \n\u003e This test isn\u0027t configured to run via VTS. If you (or radio team) could add VtsHalRadioV1_0TargetTest and friends to a TEST_MAPPING file in the appropriate directory, I\u0027d be happy to run TH. However, as it stands, the automated testing infrastructure won\u0027t tell us much.\n\nOk thanks for the info, I\u0027d rather not touch TEST_MAPPING myself as handling pre-submit for external contributors it\u0027s comparable to hell, I\u0027ll leave that to the radio team.",
+      "parentUuid": "d8b90485_13118a65",
+      "revId": "5613e7dcd7282eeb66faebae30d99e06722404ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
