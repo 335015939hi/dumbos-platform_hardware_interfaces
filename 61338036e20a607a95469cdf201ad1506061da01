@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbff8a6b_b6bb4fba",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-14T17:20:11Z",
+      "side": 1,
+      "message": "Could this chunk just be replaced with a call to CheckSymmetricParams() ?",
+      "range": {
+        "startLine": 447,
+        "startChar": 4,
+        "endLine": 468,
+        "endChar": 37
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceb1bc5b_3f20e5d6",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-14T17:20:11Z",
+      "side": 1,
+      "message": "Missing a CheckedDeleteKey() at the end ?",
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91dc72d3_82edce91",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-14T17:20:11Z",
+      "side": 1,
+      "message": "Missing a CheckedDeleteKey() at the end ?",
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
