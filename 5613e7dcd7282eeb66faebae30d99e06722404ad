@@ -70,6 +70,29 @@
       "parentUuid": "ce7d1183_8bf0e50c",
       "revId": "5613e7dcd7282eeb66faebae30d99e06722404ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c13795f_7dc066c1",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-04-14T21:49:23Z",
+      "side": 1,
+      "message": "nit, does something break if you move this static into the test method?",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 6
+      },
+      "revId": "5613e7dcd7282eeb66faebae30d99e06722404ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
