@@ -34,6 +34,24 @@
       "parentUuid": "2980f62a_de1a12c2",
       "revId": "60aa6c2b035f8be494168e347aed939cb29adabb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e3ede27_5ba6f0d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1362648
+      },
+      "writtenOn": "2021-04-14T14:38:38Z",
+      "side": 1,
+      "message": "I\u0027ve ran \"m android.hardware.neuralnetworks-update-api\" before uploading this but, as Devin said, it produced no changes",
+      "parentUuid": "4ab16dc5_d0f14018",
+      "revId": "60aa6c2b035f8be494168e347aed939cb29adabb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
