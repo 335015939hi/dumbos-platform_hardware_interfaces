@@ -52,6 +52,24 @@
       "parentUuid": "d8b90485_13118a65",
       "revId": "5613e7dcd7282eeb66faebae30d99e06722404ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8941f429_7a8c7296",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-04-14T21:38:55Z",
+      "side": 1,
+      "message": "Yeah, we need to consider existing implementations which have been certified as valid, and the hal definition as incorrect. Adding this as part of 1.6 would be great, though someone from the radio team will need to approve (Jack?)",
+      "parentUuid": "ce7d1183_8bf0e50c",
+      "revId": "5613e7dcd7282eeb66faebae30d99e06722404ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
