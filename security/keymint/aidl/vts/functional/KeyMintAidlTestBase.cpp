@@ -168,6 +168,7 @@ void KeyMintAidlTestBase::InitializeKeyMint(std::shared_ptr<IKeyMintDevice> keyM
     securityLevel_ = info.securityLevel;
     name_.assign(info.keyMintName.begin(), info.keyMintName.end());
     author_.assign(info.keyMintAuthorName.begin(), info.keyMintAuthorName.end());
+    timestamp_token_required_ = info.timestampTokenRequired;
 
     os_version_ = getOsVersion();
     os_patch_level_ = getOsPatchlevel();
