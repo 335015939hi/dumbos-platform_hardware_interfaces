@@ -127,6 +127,13 @@ nn::GeneralResult<Model> clone(const Model& model) {
     };
 }
 
+bool isUpdatable(const std::string& instanceName) {
+    constexpr std::string_view kUpdatableSuffix = "_updatable";
+    return instanceName.size() > kUpdatableSuffix.size() &&
+           instanceName.compare(instanceName.size() - kUpdatableSuffix.size(), std::string::npos,
+                                kUpdatableSuffix) == 0;
+}
+
 nn::GeneralResult<void> handleTransportError(const ndk::ScopedAStatus& ret) {
     if (ret.getStatus() == STATUS_DEAD_OBJECT) {
         return nn::error(nn::ErrorStatus::DEAD_OBJECT)

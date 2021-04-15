@@ -222,6 +222,13 @@ std::string gtestCompliantName(std::string name) {
     return name;
 }
 
+bool endsWithUpdatable(const std::string& instanceName) {
+    constexpr std::string_view kUpdatableSuffix = "_updatable";
+    return instanceName.size() > kUpdatableSuffix.size() &&
+           instanceName.compare(instanceName.size() - kUpdatableSuffix.size(), std::string::npos,
+                                kUpdatableSuffix) == 0;
+}
+
 }  // namespace android::hardware::neuralnetworks
 
 namespace android::hardware::neuralnetworks::V1_0 {

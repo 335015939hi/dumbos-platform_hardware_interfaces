@@ -154,6 +154,8 @@ const Type& getData(const Named<Type>& namedData) {
 
 std::string gtestCompliantName(std::string name);
 
+bool endsWithUpdatable(const std::string& instanceName);
+
 }  // namespace android::hardware::neuralnetworks
 
 namespace android::hardware::neuralnetworks::V1_0 {

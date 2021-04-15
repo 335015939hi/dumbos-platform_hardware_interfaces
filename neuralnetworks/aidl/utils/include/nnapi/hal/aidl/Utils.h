@@ -70,6 +70,8 @@ nn::GeneralResult<Request> clone(const Request& request);
 nn::GeneralResult<RequestMemoryPool> clone(const RequestMemoryPool& requestPool);
 nn::GeneralResult<Model> clone(const Model& model);
 
+bool isUpdatable(const std::string& instanceName);
+
 nn::GeneralResult<void> handleTransportError(const ndk::ScopedAStatus& ret);
 
 #define HANDLE_ASTATUS(ret)                                            \

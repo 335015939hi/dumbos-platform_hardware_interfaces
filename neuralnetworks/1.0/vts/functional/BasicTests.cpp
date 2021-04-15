@@ -19,6 +19,7 @@
 #include "VtsHalNeuralnetworks.h"
 
 #include "1.0/Callbacks.h"
+#include "1.0/Utils.h"
 
 namespace android::hardware::neuralnetworks::V1_0::vts::functional {
 
@@ -177,6 +178,20 @@ TEST_P(NeuralnetworksHidlTest, CycleTest) {
     EXPECT_NE(prepareLaunchReturn, ErrorStatus::NONE);
     EXPECT_NE(preparedModelCallback->getStatus(), ErrorStatus::NONE);
     EXPECT_EQ(preparedModelCallback->getPreparedModel(), nullptr);
+}
+
+// device name test
+TEST_P(NeuralnetworksHidlTest, GetDeviceNameTest) {
+    const std::string deviceName = getName(GetParam());
+    auto pos = deviceName.find('-');
+    EXPECT_NE(pos, std::string::npos);
+    // The separator should not be the first or last character.
+    EXPECT_NE(pos, 0);
+    EXPECT_NE(pos, deviceName.length() - 1);
+    // There should only be 1 separator.
+    EXPECT_EQ(std::string::npos, deviceName.find('-', pos + 1));
+    // The suffix "_updatable" is reserved for updatable AIDL service instance names.
+    EXPECT_FALSE(endsWithUpdatable(deviceName));
 }
 
 }  // namespace android::hardware::neuralnetworks::V1_0::vts::functional

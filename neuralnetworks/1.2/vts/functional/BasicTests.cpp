@@ -16,6 +16,7 @@
 
 #define LOG_TAG "neuralnetworks_hidl_hal_test"
 
+#include "1.0/Utils.h"
 #include "VtsHalNeuralnetworks.h"
 
 namespace android::hardware::neuralnetworks::V1_2::vts::functional {
@@ -93,6 +94,8 @@ TEST_P(NeuralnetworksHidlTest, GetDeviceNameTest) {
     EXPECT_NE(pos, deviceName.length() - 1);
     // There should only be 1 separator.
     EXPECT_EQ(std::string::npos, deviceName.find('-', pos + 1));
+    // The suffix "_updatable" is reserved for updatable AIDL service instance names.
+    EXPECT_FALSE(endsWithUpdatable(deviceName));
 }
 
 // device supported extensions test
