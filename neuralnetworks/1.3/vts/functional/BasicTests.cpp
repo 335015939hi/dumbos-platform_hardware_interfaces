@@ -207,4 +207,25 @@ TEST_P(NeuralnetworksHidlTest, CycleTest) {
     EXPECT_EQ(preparedModelCallback->getPreparedModel(), nullptr);
 }
 
+static bool endsWithUpdatable(const std::string& instanceName) {
+    constexpr std::string_view kUpdatableSuffix = "_updatable";
+    return instanceName.size() > kUpdatableSuffix.size() &&
+           instanceName.compare(instanceName.size() - kUpdatableSuffix.size(), std::string::npos,
+                                kUpdatableSuffix) == 0;
+}
+
+// device name test
+TEST_P(NeuralnetworksHidlTest, GetDeviceNameTest) {
+    const std::string deviceName = getName(GetParam());
+    auto pos = deviceName.find('-');
+    EXPECT_NE(pos, std::string::npos);
+    // The separator should not be the first or last character.
+    EXPECT_NE(pos, 0);
+    EXPECT_NE(pos, deviceName.length() - 1);
+    // There should only be 1 separator.
+    EXPECT_EQ(std::string::npos, deviceName.find('-', pos + 1));
+    // The suffix "_updatable" is reserved for updatable AIDL service instance names.
+    EXPECT_FALSE(endsWithUpdatable(deviceName));
+}
+
 }  // namespace android::hardware::neuralnetworks::V1_3::vts::functional

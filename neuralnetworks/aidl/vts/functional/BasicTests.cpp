@@ -22,6 +22,11 @@
 #include <aidl/android/hardware/neuralnetworks/OperandType.h>
 #include <aidl/android/hardware/neuralnetworks/Priority.h>
 #include <android/binder_interface_utils.h>
+#include <nnapi/hal/aidl/Utils.h>
+#include <vintf/VintfObject.h>
+
+#include <string>
+#include <string_view>
 
 #include "Utils.h"
 #include "VtsHalNeuralnetworks.h"
@@ -188,6 +193,55 @@ TEST_P(NeuralNetworksAidlTest, CycleTest) {
 
     EXPECT_NE(preparedModelCallback->getStatus(), ErrorStatus::NONE);
     EXPECT_EQ(preparedModelCallback->getPreparedModel(), nullptr);
+}
+
+// device name test
+TEST_P(NeuralNetworksAidlTest, GetDeviceNameTest) {
+    const std::string deviceName = getName(GetParam());
+    auto pos = deviceName.find('-');
+    EXPECT_NE(pos, std::string::npos);
+    // The separator should not be the first or last character.
+    EXPECT_NE(pos, 0);
+    EXPECT_NE(pos, deviceName.length() - 1);
+    // There should only be 1 separator.
+    EXPECT_EQ(std::string::npos, deviceName.find('-', pos + 1));
+}
+
+TEST(NeuralNetworksAidlUpdatabilityTest, VerifyName) {
+    const auto manifest = ::android::vintf::VintfObject::GetDeviceHalManifest();
+    ASSERT_TRUE(manifest.get() != nullptr);
+
+    const bool success = manifest->forEachInstance([](const auto& manifestInstance) {
+        if (manifestInstance.format() != ::android::vintf::HalFormat::AIDL) {
+            return true;  // continue to next instance
+        }
+
+        // Skip instance if it does not belong to android.hardware.neuralnetworks.IDevice.
+        const std::string descriptor =
+                manifestInstance.package() + "." + manifestInstance.interface();
+        if (descriptor != IDevice::descriptor) {
+            return true;  // continue to next instance
+        }
+
+        // If the code gets to this point, the instance is relevant to the NN AIDL VTS test.
+        const std::string& instance = manifestInstance.instance();
+        SCOPED_TRACE(instance);
+
+        // Ensure that if the NN driver is updatable via apex, it's updatable through
+        // com.android.neuralnetworks.
+        const std::optional<std::string>& updatableViaApex = manifestInstance.updatableViaApex();
+        const bool isUpdatable = updatableViaApex.has_value();
+        constexpr std::string_view kNnapiMainlinePackage = "com.android.neuralnetworks";
+        if (isUpdatable) {
+            EXPECT_EQ(updatableViaApex.value(), kNnapiMainlinePackage);
+        }
+
+        // Ensure that the NN driver's updatability matches in the manifest.
+        EXPECT_EQ(utils::isUpdatable(instance), isUpdatable);
+
+        return true;  // continue to next instance
+    });
+    EXPECT_TRUE(success);
 }
 
 }  // namespace aidl::android::hardware::neuralnetworks::vts::functional

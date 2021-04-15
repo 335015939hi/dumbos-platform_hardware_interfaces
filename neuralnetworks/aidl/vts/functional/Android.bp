@@ -60,6 +60,7 @@ cc_test {
         "libneuralnetworks_generated_test_harness",
         "libneuralnetworks_utils",
         "libsync",
+        "libvintf",
         "neuralnetworks_utils_hal_aidl",
     ],
     whole_static_libs: [

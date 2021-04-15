@@ -83,6 +83,13 @@ TEST_P(NeuralnetworksHidlTest, GetDeviceTypeTest) {
     EXPECT_TRUE(ret.isOk());
 }
 
+static bool endsWithUpdatable(const std::string& instanceName) {
+    constexpr std::string_view kUpdatableSuffix = "_updatable";
+    return instanceName.size() > kUpdatableSuffix.size() &&
+           instanceName.compare(instanceName.size() - kUpdatableSuffix.size(), std::string::npos,
+                                kUpdatableSuffix) == 0;
+}
+
 // device name test
 TEST_P(NeuralnetworksHidlTest, GetDeviceNameTest) {
     const std::string deviceName = getName(GetParam());
@@ -93,6 +100,8 @@ TEST_P(NeuralnetworksHidlTest, GetDeviceNameTest) {
     EXPECT_NE(pos, deviceName.length() - 1);
     // There should only be 1 separator.
     EXPECT_EQ(std::string::npos, deviceName.find('-', pos + 1));
+    // The suffix "_updatable" is reserved for updatable AIDL service instance names.
+    EXPECT_FALSE(endsWithUpdatable(deviceName));
 }
 
 // device supported extensions test
