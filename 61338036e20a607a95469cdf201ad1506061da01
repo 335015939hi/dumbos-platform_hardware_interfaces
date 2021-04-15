@@ -333,6 +333,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5cff7fba_dd7f36cc",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-15T08:39:27Z",
+      "side": 1,
+      "message": "Ah, sorry, I hadn\u0027t realized the distinction.  \n\n(I guess it would be nice if all these keys were in some RAII container (http://go/totw/41) but probably not worth the effort of retrofitting...)",
+      "parentUuid": "fa4e8922_e916c490",
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "91dc72d3_82edce91",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 2
