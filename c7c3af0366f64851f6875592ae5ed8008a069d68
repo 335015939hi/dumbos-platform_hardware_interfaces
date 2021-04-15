@@ -16,6 +16,29 @@
       "message": "I think this should be fine.\nCompile tested",
       "revId": "c7c3af0366f64851f6875592ae5ed8008a069d68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a6866db_577b9a74",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-04-15T17:27:53Z",
+      "side": 1,
+      "message": "Do we only check for the retval if the cardstate is absent?\n\nISTM that we should check for certain errors if the SIM is absent (and then return).\n\nIf the SIM state is present, there are probably other \"allowed\" errors, and if the error is NONE, then we can validate the operator contents?\n\n\n    /**\n     * @param info Response info struct containing response type, serial no. and error\n     * @param networkInfos List of network operator information as OperatorInfos defined in\n     *         types.hal\n     *\n     * Valid errors returned:\n     *   RadioError:NONE\n     *   RadioError:RADIO_NOT_AVAILABLE\n     *   RadioError:OPERATION_NOT_ALLOWED\n     *   RadioError:ABORTED\n     *   RadioError:DEVICE_IN_USE\n     *   RadioError:INTERNAL_ERR\n     *   RadioError:NO_MEMORY\n     *   RadioError:MODEM_ERR\n     *   RadioError:REQUEST_NOT_SUPPORTED\n     *   RadioError:CANCELLED\n     *   RadioError:NO_RESOURCES\n     *   RadioError:INTERNAL_ERR",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 64
+      },
+      "revId": "c7c3af0366f64851f6875592ae5ed8008a069d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
