@@ -39,6 +39,30 @@
       },
       "revId": "c7c3af0366f64851f6875592ae5ed8008a069d68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d52f7578_57245a28",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-04-15T17:34:02Z",
+      "side": 1,
+      "message": "Currently this is 1:1 of the 1.0 test.\nYou\u0027re probably correct to check if any of the others error occurred when sim is present and skip the check",
+      "parentUuid": "4a6866db_577b9a74",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 64
+      },
+      "revId": "c7c3af0366f64851f6875592ae5ed8008a069d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
