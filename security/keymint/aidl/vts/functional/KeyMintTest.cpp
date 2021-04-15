@@ -707,8 +707,8 @@ TEST_P(NewKeyGenerationTest, Rsa) {
 /*
  * NewKeyGenerationTest.RsaWithAttestation
  *
- * Verifies that keymint can generate all required RSA key sizes, and that the resulting keys
- * have correct characteristics.
+ * Verifies that keymint can generate all required RSA key sizes with attestation, and that the
+ * resulting keys have correct characteristics.
  */
 TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
@@ -952,6 +952,22 @@ TEST_P(NewKeyGenerationTest, RsaNoDefaultSize) {
 }
 
 /*
+ * NewKeyGenerationTest.RsaNonPrimeExponent
+ *
+ * Verifies that specifying a non-prime exponent fails.
+ */
+TEST_P(NewKeyGenerationTest, RsaNonPrimeExponent) {
+    for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        // 7909 = 11 * 719 so not a prime.
+        ASSERT_EQ(ErrorCode::INVALID_ARGUMENT, GenerateKey(AuthorizationSetBuilder()
+                                                                   .RsaSigningKey(key_size, 7909)
+                                                                   .Digest(Digest::NONE)
+                                                                   .Padding(PaddingMode::NONE)
+                                                                   .SetDefaultValidity()));
+    }
+}
+
+/*
  * NewKeyGenerationTest.Ecdsa
  *
  * Verifies that keymint can generate all required EC key sizes, and that the resulting keys
@@ -1090,7 +1106,7 @@ TEST_P(NewKeyGenerationTest, EcdsaAllValidSizes) {
 }
 
 /*
- * NewKeyGenerationTest.EcdsaInvalidCurves
+ * NewKeyGenerationTest.EcdsaAllValidCurves
  *
  * Verifies that keymint does not support any curve designated as unsupported.
  */
@@ -1205,6 +1221,16 @@ TEST_P(NewKeyGenerationTest, HmacCheckKeySizes) {
                     << "Failed to generate HMAC key of size " << key_size;
             CheckedDeleteKey();
         }
+    }
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        // STRONGBOX devices must not support keys larger than 512 bits.
+        size_t key_size = 520;
+        EXPECT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
+                  GenerateKey(AuthorizationSetBuilder()
+                                      .HmacKey(key_size)
+                                      .Digest(Digest::SHA_2_256)
+                                      .Authorization(TAG_MIN_MAC_LENGTH, 256)))
+                << "HMAC key size " << key_size << " unexpectedly valid";
     }
 }
 
@@ -2244,6 +2270,46 @@ TEST_P(ImportKeyTest, RsaSuccess) {
 }
 
 /*
+ * ImportKeyTest.RsaSuccessWithoutParams
+ *
+ * Verifies that importing and using an RSA key pair without specifying parameters
+ * works correctly.
+ */
+TEST_P(ImportKeyTest, RsaSuccessWithoutParams) {
+    uint32_t key_size;
+    string key;
+
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        key_size = 2048;
+        key = rsa_2048_key;
+    } else {
+        key_size = 1024;
+        key = rsa_key;
+    }
+
+    ASSERT_EQ(ErrorCode::OK, ImportKey(AuthorizationSetBuilder()
+                                               .Authorization(TAG_NO_AUTH_REQUIRED)
+                                               .SigningKey()
+                                               .Authorization(TAG_ALGORITHM, Algorithm::RSA)
+                                               .Digest(Digest::SHA_2_256)
+                                               .Padding(PaddingMode::RSA_PSS)
+                                               .SetDefaultValidity(),
+                                       KeyFormat::PKCS8, key));
+
+    CheckCryptoParam(TAG_ALGORITHM, Algorithm::RSA);
+    CheckCryptoParam(TAG_KEY_SIZE, key_size);
+    CheckCryptoParam(TAG_RSA_PUBLIC_EXPONENT, 65537U);
+    CheckCryptoParam(TAG_DIGEST, Digest::SHA_2_256);
+    CheckCryptoParam(TAG_PADDING, PaddingMode::RSA_PSS);
+    CheckOrigin();
+
+    string message(1024 / 8, 'a');
+    auto params = AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_PSS);
+    string signature = SignMessage(message, params);
+    VerifyMessage(message, signature, params);
+}
+
+/*
  * ImportKeyTest.RsaKeySizeMismatch
  *
  * Verifies that importing an RSA key pair with a size that doesn't match the key fails in the
@@ -2608,6 +2674,28 @@ TEST_P(ImportWrappedKeyTest, Success) {
     EXPECT_EQ(message, plaintext);
 }
 
+TEST_P(ImportWrappedKeyTest, SuccessSidsIgnored) {
+    auto wrapping_key_desc = AuthorizationSetBuilder()
+                                     .RsaEncryptionKey(2048, 65537)
+                                     .Digest(Digest::SHA_2_256)
+                                     .Padding(PaddingMode::RSA_OAEP)
+                                     .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY)
+                                     .SetDefaultValidity();
+
+    ASSERT_EQ(ErrorCode::OK,
+              ImportWrappedKey(wrapped_key, wrapping_key, wrapping_key_desc, zero_masking_key,
+                               AuthorizationSetBuilder()
+                                       .Digest(Digest::SHA_2_256)
+                                       .Padding(PaddingMode::RSA_OAEP),
+                               42, 24));
+
+    string message = "Hello World!";
+    auto params = AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::PKCS7);
+    string ciphertext = EncryptMessage(message, params);
+    string plaintext = DecryptMessage(ciphertext, params);
+    EXPECT_EQ(message, plaintext);
+}
+
 TEST_P(ImportWrappedKeyTest, SuccessMasked) {
     auto wrapping_key_desc = AuthorizationSetBuilder()
                                      .RsaEncryptionKey(2048, 65537)
@@ -2654,6 +2742,36 @@ TEST_P(ImportWrappedKeyTest, WrongPurpose) {
                                      .Padding(PaddingMode::RSA_OAEP)));
 }
 
+TEST_P(ImportWrappedKeyTest, WrongPaddingMode) {
+    auto wrapping_key_desc = AuthorizationSetBuilder()
+                                     .RsaEncryptionKey(2048, 65537)
+                                     .Digest(Digest::SHA_2_256)
+                                     .Padding(PaddingMode::RSA_PSS)
+                                     .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY)
+                                     .SetDefaultValidity();
+
+    ASSERT_EQ(ErrorCode::INCOMPATIBLE_PADDING_MODE,
+              ImportWrappedKey(wrapped_key, wrapping_key, wrapping_key_desc, zero_masking_key,
+                               AuthorizationSetBuilder()
+                                       .Digest(Digest::SHA_2_256)
+                                       .Padding(PaddingMode::RSA_OAEP)));
+}
+
+TEST_P(ImportWrappedKeyTest, WrongDigest) {
+    auto wrapping_key_desc = AuthorizationSetBuilder()
+                                     .RsaEncryptionKey(2048, 65537)
+                                     .Digest(Digest::SHA_2_512)
+                                     .Padding(PaddingMode::RSA_OAEP)
+                                     .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY)
+                                     .SetDefaultValidity();
+
+    ASSERT_EQ(ErrorCode::INCOMPATIBLE_DIGEST,
+              ImportWrappedKey(wrapped_key, wrapping_key, wrapping_key_desc, zero_masking_key,
+                               AuthorizationSetBuilder()
+                                       .Digest(Digest::SHA_2_256)
+                                       .Padding(PaddingMode::RSA_OAEP)));
+}
+
 INSTANTIATE_KEYMINT_AIDL_TEST(ImportWrappedKeyTest);
 
 typedef KeyMintAidlTestBase EncryptionOperationsTest;
@@ -2664,22 +2782,26 @@ typedef KeyMintAidlTestBase EncryptionOperationsTest;
  * Verifies that raw RSA encryption works.
  */
 TEST_P(EncryptionOperationsTest, RsaNoPaddingSuccess) {
-    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
-                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
-                                                 .RsaEncryptionKey(2048, 65537)
-                                                 .Padding(PaddingMode::NONE)
-                                                 .SetDefaultValidity()));
+    for (uint64_t exponent : {3, 65537}) {
+        ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                     .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                     .RsaEncryptionKey(2048, exponent)
+                                                     .Padding(PaddingMode::NONE)
+                                                     .SetDefaultValidity()));
 
-    string message = string(2048 / 8, 'a');
-    auto params = AuthorizationSetBuilder().Padding(PaddingMode::NONE);
-    string ciphertext1 = EncryptMessage(message, params);
-    EXPECT_EQ(2048U / 8, ciphertext1.size());
+        string message = string(2048 / 8, 'a');
+        auto params = AuthorizationSetBuilder().Padding(PaddingMode::NONE);
+        string ciphertext1 = EncryptMessage(message, params);
+        EXPECT_EQ(2048U / 8, ciphertext1.size());
 
-    string ciphertext2 = EncryptMessage(message, params);
-    EXPECT_EQ(2048U / 8, ciphertext2.size());
+        string ciphertext2 = EncryptMessage(message, params);
+        EXPECT_EQ(2048U / 8, ciphertext2.size());
 
-    // Unpadded RSA is deterministic
-    EXPECT_EQ(ciphertext1, ciphertext2);
+        // Unpadded RSA is deterministic
+        EXPECT_EQ(ciphertext1, ciphertext2);
+
+        CheckedDeleteKey();
+    }
 }
 
 /*
@@ -3097,6 +3219,48 @@ TEST_P(EncryptionOperationsTest, AesEcbRoundTripSuccess) {
 }
 
 /*
+ * EncryptionOperationsTest.AesEcbUnknownTag
+ *
+ * Verifies that AES ECB operations ignore unknown tags.
+ */
+TEST_P(EncryptionOperationsTest, AesEcbUnknownTag) {
+    int32_t unknown_tag_value = ((7 << 28) /* TagType:BOOL */ | 150);
+    Tag unknown_tag = static_cast<Tag>(unknown_tag_value);
+    KeyParameter unknown_param;
+    unknown_param.tag = unknown_tag;
+
+    vector<KeyCharacteristics> key_characteristics;
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .AesEncryptionKey(128)
+                                                 .Authorization(TAG_BLOCK_MODE, BlockMode::ECB)
+                                                 .Padding(PaddingMode::NONE)
+                                                 .Authorization(unknown_param),
+                                         &key_blob_, &key_characteristics));
+    ASSERT_GT(key_blob_.size(), 0U);
+
+    // Unknown tags should not be returned in key characteristics.
+    AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
+    AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
+    EXPECT_EQ(hw_enforced.find(unknown_tag), -1);
+    EXPECT_EQ(sw_enforced.find(unknown_tag), -1);
+
+    // Encrypt without mentioning the unknown parameter.
+    auto params = AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::NONE);
+    string message = "12345678901234567890123456789012";
+    string ciphertext = EncryptMessage(message, params);
+    EXPECT_EQ(message.size(), ciphertext.size());
+
+    // Decrypt including the unknown parameter.
+    auto decrypt_params = AuthorizationSetBuilder()
+                                  .BlockMode(BlockMode::ECB)
+                                  .Padding(PaddingMode::NONE)
+                                  .Authorization(unknown_param);
+    string plaintext = DecryptMessage(ciphertext, decrypt_params);
+    EXPECT_EQ(message, plaintext);
+}
+
+/*
  * EncryptionOperationsTest.AesWrongMode
  *
  * Verifies that AES encryption fails in the correct way when an unauthorized mode is specified.
@@ -3159,25 +3323,30 @@ TEST_P(EncryptionOperationsTest, AesWrongPurpose) {
 }
 
 /*
- * EncryptionOperationsTest.AesEcbNoPaddingWrongInputSize
+ * EncryptionOperationsTest.AesEcbCbcNoPaddingWrongInputSize
  *
  * Verifies that AES encryption fails in the correct way when provided an input that is not a
  * multiple of the block size and no padding is specified.
  */
-TEST_P(EncryptionOperationsTest, AesEcbNoPaddingWrongInputSize) {
-    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
-                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
-                                                 .AesEncryptionKey(128)
-                                                 .Authorization(TAG_BLOCK_MODE, BlockMode::ECB)
-                                                 .Padding(PaddingMode::NONE)));
-    // Message is slightly shorter than two blocks.
-    string message(16 * 2 - 1, 'a');
+TEST_P(EncryptionOperationsTest, AesEcbCbcNoPaddingWrongInputSize) {
+    for (BlockMode blockMode : {BlockMode::ECB, BlockMode::CBC}) {
+        ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                     .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                     .AesEncryptionKey(128)
+                                                     .Authorization(TAG_BLOCK_MODE, blockMode)
+                                                     .Padding(PaddingMode::NONE)));
+        // Message is slightly shorter than two blocks.
+        string message(16 * 2 - 1, 'a');
 
-    auto params = AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::NONE);
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
-    string ciphertext;
-    EXPECT_EQ(ErrorCode::INVALID_INPUT_LENGTH, Finish(message, &ciphertext));
-    EXPECT_EQ(0U, ciphertext.size());
+        auto params = AuthorizationSetBuilder().BlockMode(blockMode).Padding(PaddingMode::NONE);
+        AuthorizationSet out_params;
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &out_params));
+        string ciphertext;
+        EXPECT_EQ(ErrorCode::INVALID_INPUT_LENGTH, Finish(message, &ciphertext));
+        EXPECT_EQ(0U, ciphertext.size());
+
+        CheckedDeleteKey();
+    }
 }
 
 /*
@@ -4415,25 +4584,29 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcNotAuthorized) {
 }
 
 /*
- * EncryptionOperationsTest.TripleDesCbcNoPaddingWrongInputSize
+ * EncryptionOperationsTest.TripleDesEcbCbcNoPaddingWrongInputSize
  *
  * Verifies that unpadded CBC operations reject inputs that are not a multiple of block size.
  */
-TEST_P(EncryptionOperationsTest, TripleDesCbcNoPaddingWrongInputSize) {
-    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
-                                                 .TripleDesEncryptionKey(168)
-                                                 .BlockMode(BlockMode::CBC)
-                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
-                                                 .Padding(PaddingMode::NONE)));
-    // Message is slightly shorter than two blocks.
-    string message = "123456789012345";
+TEST_P(EncryptionOperationsTest, TripleDesEcbCbcNoPaddingWrongInputSize) {
+    for (BlockMode blockMode : {BlockMode::ECB, BlockMode::CBC}) {
+        ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                     .TripleDesEncryptionKey(168)
+                                                     .BlockMode(blockMode)
+                                                     .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                     .Padding(PaddingMode::NONE)));
+        // Message is slightly shorter than two blocks.
+        string message = "123456789012345";
 
-    auto begin_params =
-            AuthorizationSetBuilder().BlockMode(BlockMode::CBC).Padding(PaddingMode::NONE);
-    AuthorizationSet output_params;
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &output_params));
-    string ciphertext;
-    EXPECT_EQ(ErrorCode::INVALID_INPUT_LENGTH, Finish(message, "", &ciphertext));
+        auto begin_params =
+                AuthorizationSetBuilder().BlockMode(blockMode).Padding(PaddingMode::NONE);
+        AuthorizationSet output_params;
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &output_params));
+        string ciphertext;
+        EXPECT_EQ(ErrorCode::INVALID_INPUT_LENGTH, Finish(message, "", &ciphertext));
+
+        CheckedDeleteKey();
+    }
 }
 
 /*
@@ -5006,6 +5179,29 @@ TEST_P(KeyDeletionTest, DeleteAllKeys) {
 
 INSTANTIATE_KEYMINT_AIDL_TEST(KeyDeletionTest);
 
+typedef KeyMintAidlTestBase KeyUpgradeTest;
+
+/**
+ * KeyUpgradeTest.UpgradeInvalidKey
+ *
+ * This test checks that the HAL excepts invalid key blobs..
+ */
+TEST_P(KeyUpgradeTest, UpgradeInvalidKey) {
+    AidlBuf key_blob = AidlBuf("just some garbage data which is not a valid key blob");
+
+    std::vector<uint8_t> new_blob;
+    Status result = keymint_->upgradeKey(key_blob,
+                                         AuthorizationSetBuilder()
+                                                 .Authorization(TAG_APPLICATION_ID, "clientid")
+                                                 .Authorization(TAG_APPLICATION_DATA, "appdata")
+                                                 .vector_data(),
+                                         &new_blob);
+    EXPECT_TRUE(result.isOk()) << result.getServiceSpecificError();
+    ASSERT_EQ(ErrorCode::INVALID_KEY_BLOB, GetReturnErrorCode(result));
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(KeyUpgradeTest);
+
 using UpgradeKeyTest = KeyMintAidlTestBase;
 
 /*
@@ -5309,7 +5505,7 @@ TEST_P(UnlockedDeviceRequiredTest, DISABLED_KeysBecomeUnusable) {
     EXPECT_EQ(ErrorCode::OK, UseEcdsaKey(ecdsaKeyData.blob));
 
     ErrorCode rc = GetReturnErrorCode(
-            keyMint().deviceLocked(false /* passwordOnly */, {} /* verificationToken */));
+            keyMint().deviceLocked(false /* passwordOnly */, {} /* timestampToken */));
     ASSERT_EQ(ErrorCode::OK, rc);
     EXPECT_EQ(ErrorCode::DEVICE_LOCKED, UseAesKey(aesKeyData.blob));
     EXPECT_EQ(ErrorCode::DEVICE_LOCKED, UseHmacKey(hmacKeyData.blob));

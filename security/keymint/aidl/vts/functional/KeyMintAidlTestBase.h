@@ -95,7 +95,14 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
 
     ErrorCode ImportWrappedKey(string wrapped_key, string wrapping_key,
                                const AuthorizationSet& wrapping_key_desc, string masking_key,
-                               const AuthorizationSet& unwrapping_params);
+                               const AuthorizationSet& unwrapping_params, int64_t password_sid,
+                               int64_t biometric_sid);
+    ErrorCode ImportWrappedKey(string wrapped_key, string wrapping_key,
+                               const AuthorizationSet& wrapping_key_desc, string masking_key,
+                               const AuthorizationSet& unwrapping_params) {
+        return ImportWrappedKey(wrapped_key, wrapping_key, wrapping_key_desc, masking_key,
+                                unwrapping_params, 0 /* password_sid */, 0 /* biometric_sid */);
+    }
 
     ErrorCode DeleteKey(vector<uint8_t>* key_blob, bool keep_key_blob = false);
     ErrorCode DeleteKey(bool keep_key_blob = false);
@@ -268,6 +275,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t os_version_;
     uint32_t os_patch_level_;
     uint32_t vendor_patch_level_;
+    bool timestamp_token_required_;
 
     SecurityLevel securityLevel_;
     string name_;
