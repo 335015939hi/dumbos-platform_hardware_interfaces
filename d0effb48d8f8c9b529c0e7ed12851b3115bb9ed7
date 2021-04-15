@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6fca07e0_9840235a",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:49:15Z",
+      "side": 1,
+      "message": "Can\u0027t be done in general, because the KeyMint implementation may have a factory-provisioned key.  We could write a test that tries this option and verifies that you either get an attestation certificate chain or the error.\n\nActually, another useful bit to test would be:  If you get the ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED, check to see that remote provisioning is supported.  On real devices they *must* support one of the two options.",
+      "parentUuid": "96fca9e0_6d5771f3",
+      "range": {
+        "startLine": 372,
+        "startChar": 32,
+        "endLine": 372,
+        "endChar": 64
+      },
+      "revId": "d0effb48d8f8c9b529c0e7ed12851b3115bb9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2ed94a1_b3af749f",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-15T01:27:55Z",
       "side": 1,
       "message": "this is very confusing when combined with the previous sentence.  Maybe say:\n\nIf factory-provisioned attestation keys are present, do .....\nIf they are not present, do....\nthey are not necessary required....",
+      "range": {
+        "startLine": 67,
+        "startChar": 25,
+        "endLine": 67,
+        "endChar": 40
+      },
+      "revId": "d0effb48d8f8c9b529c0e7ed12851b3115bb9ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4b3d528_ff58e81b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:49:15Z",
+      "side": 1,
+      "message": "Hmm.  I think it\u0027s explained well below.  It wouldn\u0027t make sense to explain the non-factory case in the factory case.",
+      "parentUuid": "a2ed94a1_b3af749f",
       "range": {
         "startLine": 67,
         "startChar": 25,
