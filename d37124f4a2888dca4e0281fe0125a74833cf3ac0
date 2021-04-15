@@ -22,6 +22,30 @@
       },
       "revId": "d37124f4a2888dca4e0281fe0125a74833cf3ac0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbc05d43_e412cdd6",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-15T01:53:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28976d75_9a3d5d3f",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 88
+      },
+      "revId": "d37124f4a2888dca4e0281fe0125a74833cf3ac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
