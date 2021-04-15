@@ -268,6 +268,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t os_version_;
     uint32_t os_patch_level_;
     uint32_t vendor_patch_level_;
+    bool timestamp_token_required_;
 
     SecurityLevel securityLevel_;
     string name_;
