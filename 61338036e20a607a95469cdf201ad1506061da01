@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65be5159_739011b5",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:43:30Z",
+      "side": 1,
+      "message": "KeyPurpose::ENCRYPT doesn\u0027t make sense on RSA keys; we should remove that from the AuthorizationSetBuilder::RsaEncryptionKey.  I don\u0027t think we need to require implementations to return an error if it\u0027s provided, though.\n\nWe should have a test that validates that providing KeyPurpose::ENCRYPT to begin() with an RSA key fails with UNSUPPORTED_PURPOSE.\n\nSimilarly, we should ensure that KeyPurpose::VERIFY isn\u0027t usable with either RSA or EC keys.",
+      "range": {
+        "startLine": 453,
+        "startChar": 3,
+        "endLine": 453,
+        "endChar": 66
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbff8a6b_b6bb4fba",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 2
@@ -50,6 +73,213 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "178014c1_0dfd5f83",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:43:30Z",
+      "side": 1,
+      "message": "key",
+      "range": {
+        "startLine": 492,
+        "startChar": 34,
+        "endLine": 492,
+        "endChar": 38
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a0d56f4_a8bdde6d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:43:30Z",
+      "side": 1,
+      "message": "self-signed certificate (*not* attestation).",
+      "range": {
+        "startLine": 493,
+        "startChar": 2,
+        "endLine": 493,
+        "endChar": 38
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d75e124_6ab5cb7c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:43:30Z",
+      "side": 1,
+      "message": "Weird character.",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 1
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fce6691f_205da46a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:43:30Z",
+      "side": 1,
+      "message": "RsaWithSelfSigned\n\nAlso, whether in this test or another, we should test Tag::CERTIFICATE_SUBJECT and Tag::CERTIFICATE_SERIAL.",
+      "range": {
+        "startLine": 496,
+        "startChar": 29,
+        "endLine": 496,
+        "endChar": 51
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25e1e921_126abbc8",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:43:30Z",
+      "side": 1,
+      "message": "These are unused.",
+      "range": {
+        "startLine": 521,
+        "startChar": 0,
+        "endLine": 523,
+        "endChar": 0
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4094ef14_37b2bad1",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:43:30Z",
+      "side": 1,
+      "message": "Nit:  \"checks for missing app ID.\" would read better.",
+      "range": {
+        "startLine": 531,
+        "startChar": 34,
+        "endLine": 531,
+        "endChar": 57
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5db942f9_e553e322",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:43:30Z",
+      "side": 1,
+      "message": "These are unused.",
+      "range": {
+        "startLine": 582,
+        "startChar": 0,
+        "endLine": 583,
+        "endChar": 81
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a779f3a9_bc970199",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:43:30Z",
+      "side": 1,
+      "message": "Nit: Wrap at 100 columns.",
+      "range": {
+        "startLine": 1091,
+        "startChar": 1,
+        "endLine": 1092,
+        "endChar": 40
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e6b7d4e_755c80b0",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:43:30Z",
+      "side": 1,
+      "message": "Nit: attestation",
+      "range": {
+        "startLine": 1260,
+        "startChar": 17,
+        "endLine": 1260,
+        "endChar": 26
+      },
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ceb1bc5b_3f20e5d6",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 2
@@ -79,6 +309,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "ceb1bc5b_3f20e5d6",
+      "revId": "61338036e20a607a95469cdf201ad1506061da01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa4e8922_e916c490",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-15T01:43:30Z",
+      "side": 1,
+      "message": "It\u0027s not necessary.  The test fixture destructor called CheckedDeleteKey; it\u0027s only necessary to call it manually when you have a loop that creates many keys.\n\nIt would be better to change the fixture so that generating/importing when the key blob already has a key in it executes CheckedDeleteKey, then test authors wouldn\u0027t have to worry about it.",
+      "parentUuid": "571de1cb_904f9391",
       "revId": "61338036e20a607a95469cdf201ad1506061da01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
