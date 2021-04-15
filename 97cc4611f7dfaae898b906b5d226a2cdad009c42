@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90946ede_20d5f29a",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-15T15:58:49Z",
+      "side": 1,
+      "message": "Can this be deleted too?  That way there\u0027s one fewer TODO with my name on it...",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 2
+      },
+      "revId": "97cc4611f7dfaae898b906b5d226a2cdad009c42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3374495_bfd860af",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-15T15:58:49Z",
+      "side": 1,
+      "message": "nit: odd capitalization in error message?",
+      "revId": "97cc4611f7dfaae898b906b5d226a2cdad009c42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
