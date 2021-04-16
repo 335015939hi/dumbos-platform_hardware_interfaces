@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91a294a3_d115e664",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-04-16T21:15:37Z",
+      "side": 1,
+      "message": "Would adding the API be nicer (either on servicemanager or the interface)?\n\nWhat I thought in the email thread is that specific instances would be associated with clients on some other basis. For instance, a given system service might choose to always use instance \u0027foo\u0027.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "08161497cb6a51752d73d907e04f378689459e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
