@@ -391,6 +391,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e495fd94_e67681f4",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-04-16T01:30:44Z",
+      "side": 1,
+      "message": "Please ignore the previous comment. I will add it since we have defined the data formats now.",
+      "parentUuid": "227eb079_e32dbafe",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 68
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2bfd14f4_52f8c510",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
         "patchSetId": 9
@@ -426,6 +450,30 @@
       "side": 1,
       "message": "Those are not required for the protected VM feature. Here we are adding the scoped down version of Authgraph interface that is required to enable communication between Keymint and a pVM via a secure channel.",
       "parentUuid": "2bfd14f4_52f8c510",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 28
+      },
+      "revId": "cc8ac40868deffff5114911251119d9de29fea15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70903ca6_8d4696d0",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphCommon.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-04-16T01:30:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45f78a73_46401de2",
       "range": {
         "startLine": 37,
         "startChar": 0,
