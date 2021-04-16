@@ -68,6 +68,24 @@
       "message": "The automerger is blocked by a conflict before my change.",
       "revId": "4e370a4b424f2df3d85c8a4753243f483905beca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3731215_20036a29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133963
+      },
+      "writtenOn": "2021-04-16T22:09:10Z",
+      "side": 1,
+      "message": "I see. Is it a conflict that I should be helping resolve, or is there already ownership?",
+      "parentUuid": "1972b83e_799c8ded",
+      "revId": "4e370a4b424f2df3d85c8a4753243f483905beca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
