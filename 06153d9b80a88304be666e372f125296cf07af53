@@ -118,6 +118,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b451a96f_f1b0ac4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-04-16T19:02:27Z",
+      "side": 1,
+      "message": "I think the problem is that the sequence can contain a null character, so at a minimum we need to have a \"{ptr, size}\".",
+      "parentUuid": "751f4038_0fc0041d",
+      "revId": "06153d9b80a88304be666e372f125296cf07af53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a29d703_cc95ef7d",
