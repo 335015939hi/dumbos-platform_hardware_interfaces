@@ -39,6 +39,29 @@
       "message": "nit: odd capitalization in error message?",
       "revId": "97cc4611f7dfaae898b906b5d226a2cdad009c42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a53961e8_f7dc95e4",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2021-04-16T16:02:33Z",
+      "side": 1,
+      "message": "I noted in the companion CL, but I think this is a strong case for improving encapsulation of the GenerateCsrRequest class to get stronger memory ownership guarantees. This is just asking for leaks (or use-after-free).\n\nIf you don\u0027t move this delete to the dtor, please at least null out the value so it\u0027s a nullptr crash instead of use-after-free (nullptr segfault is a lot easier to debug, IMO)",
+      "range": {
+        "startLine": 166,
+        "startChar": 3,
+        "endLine": 166,
+        "endChar": 40
+      },
+      "revId": "97cc4611f7dfaae898b906b5d226a2cdad009c42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
