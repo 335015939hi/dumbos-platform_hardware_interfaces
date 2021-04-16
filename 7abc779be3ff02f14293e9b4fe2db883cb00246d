@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb7b8e6f_0a43e1c5",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-16T23:09:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07d9f405_29d66087",
+      "range": {
+        "startLine": 27,
+        "startChar": 14,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "7abc779be3ff02f14293e9b4fe2db883cb00246d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97ee50f5_b92e66f0",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-16T22:57:08Z",
       "side": 1,
       "message": "instance name?\n\nHow would this be used? this could also potentially be IRemotelyProvisionedComponent directly. It\u0027s technically possible for a different implementation (the only thing that would have the right permissions) to register over one with a different name",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 26
+      },
+      "revId": "7abc779be3ff02f14293e9b4fe2db883cb00246d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "496e903d_22c93563",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-16T23:09:14Z",
+      "side": 1,
+      "message": "This was mostly just mirrored after KeyMint\u0027s HardwareInfo aidl. I think you\u0027re right though, the instance name should just suffice, I can probably delete this...",
+      "parentUuid": "97ee50f5_b92e66f0",
       "range": {
         "startLine": 37,
         "startChar": 22,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5933a9e6_ac027bbe",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-16T23:09:14Z",
+      "side": 1,
+      "message": "This is also modeled after the IKeyMint getHardwareInfo interface, which returns the HardwareInfo with an author field within it. Would it be better to stay consistent or to swap it over in your opinion?",
+      "parentUuid": "47aa1cd6_08dce9c5",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 36
+      },
+      "revId": "7abc779be3ff02f14293e9b4fe2db883cb00246d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd7272bd_6e1f3901",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
         "patchSetId": 2
@@ -83,6 +155,30 @@
       "writtenOn": "2021-04-16T22:57:08Z",
       "side": 1,
       "message": "with values defined above, right?\n\nnit: consider \u0027int supportedEekCurve \u003d CURVE_NONE;\u0027",
+      "range": {
+        "startLine": 48,
+        "startChar": 36,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "7abc779be3ff02f14293e9b4fe2db883cb00246d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef660c2d_383b64c2",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-16T23:09:14Z",
+      "side": 1,
+      "message": "If an implementation returns NONE, it couldn\u0027t be a valid implementation by the spec. Should it still be added since that is the case?",
+      "parentUuid": "fd7272bd_6e1f3901",
       "range": {
         "startLine": 48,
         "startChar": 36,
