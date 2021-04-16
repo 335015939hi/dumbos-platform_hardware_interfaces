@@ -741,8 +741,9 @@ int StreamOut::asyncEventCallback(stream_event_callback_type_t event, void* para
     Return<void> result;
     switch (event) {
         case STREAM_EVENT_CBK_TYPE_CODEC_FORMAT_CHANGED: {
+            std::basic_string<uint8_t> matadataBs = *reinterpret_cast<std::basic_string<uint8_t> *>(param);
             hidl_vec<uint8_t> audioMetadata;
-            audioMetadata.setToExternal((uint8_t*)param, strlen((char*)param));
+            audioMetadata.setToExternal((uint8_t*)matadataBs.c_str(), matadataBs.size());
             result = eventCallback->onCodecFormatChanged(audioMetadata);
         } break;
         default:
