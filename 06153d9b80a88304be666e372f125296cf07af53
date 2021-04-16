@@ -82,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75b53061_bf6142c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2021-04-16T16:59:53Z",
+      "side": 1,
+      "message": "We don\u0027t use strlen in StreamOutHalLocal::asyncEventCallback. See https://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/libaudiohal/impl/StreamHalLocal.cpp;l\u003d343?q\u003dStreamOutHalLocal::asyncEventCallback",
+      "parentUuid": "67ca373e_7b44732a",
+      "revId": "06153d9b80a88304be666e372f125296cf07af53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a29d703_cc95ef7d",
