@@ -100,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "751f4038_0fc0041d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-04-16T17:49:38Z",
+      "side": 1,
+      "message": "Thanks Jiabin!\n\nWhat we do in StreamOutHalLocal:\n\n  std::basic_string\u003cuint8_t\u003e((uint8_t*)param)\n\ndoes make sense to me as it invokes the overload of the constructor which takes the \u0027param\u0027 data in and then \u0027Constructs the string with the contents initialized with a copy of the null-terminated character string pointed to by s. The length of the string is determined by the first null character.\u0027\n\nBut doing what the CL is proposing:\n\n  std::basic_string\u003cuint8_t\u003e metadataBs \u003d\n     *reinterpret_cast\u003cstd::basic_string\u003cuint8_t\u003e *\u003e(param);\n\nis different--it is reinterpeting \u0027param\u0027 as a string object, which seems incorrect to me.",
+      "parentUuid": "75b53061_bf6142c7",
+      "revId": "06153d9b80a88304be666e372f125296cf07af53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a29d703_cc95ef7d",
