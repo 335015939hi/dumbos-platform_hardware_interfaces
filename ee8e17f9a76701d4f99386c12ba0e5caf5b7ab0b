@@ -16,6 +16,23 @@
       "message": "I guess this is the best I can with guessing alone.\nCan you take a look Nathan? Thanks",
       "revId": "ee8e17f9a76701d4f99386c12ba0e5caf5b7ab0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78a6c40b_025cd271",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-04-16T18:51:09Z",
+      "side": 1,
+      "message": "I don\u0027t have a device using HAL 1.6, but for my money, I say we check this in and if it fails for some reason, we can fix it.\n\nOver to Jack for +2.",
+      "revId": "ee8e17f9a76701d4f99386c12ba0e5caf5b7ab0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
