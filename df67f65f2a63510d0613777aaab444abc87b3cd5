@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3a9ae4f_846edd70",
+        "filename": "audio/core/all-versions/default/StreamOut.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-04-16T16:45:33Z",
+      "side": 1,
+      "message": "I can\u0027t find where it\u0027s specified that \u0027param\u0027 is in fact \u0027std::basic_string\u003cuint8_t\u003e*\u0027 for all legacy audio HAL implementations (at least it\u0027s not here: https://cs.android.com/android/platform/superproject/+/master:hardware/libhardware/include/hardware/audio.h).\n\nSince it doesn\u0027t seem to be guaranteed, I would not recommend doing such a cast and calling methods on the coerced pointer as this may easily crash with a legacy HAL from other vendor that has other assumptions.\n\nHow was it intended to find the size of the \u0027param\u0027 block when this interface was proposed?",
+      "range": {
+        "startLine": 744,
+        "startChar": 0,
+        "endLine": 745,
+        "endChar": 75
+      },
+      "revId": "df67f65f2a63510d0613777aaab444abc87b3cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
