@@ -51,6 +51,23 @@
       "message": "LGTM but we should fix the automerger first",
       "revId": "4e370a4b424f2df3d85c8a4753243f483905beca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1972b83e_799c8ded",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2021-04-16T22:05:10Z",
+      "side": 1,
+      "message": "The automerger is blocked by a conflict before my change.",
+      "revId": "4e370a4b424f2df3d85c8a4753243f483905beca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
