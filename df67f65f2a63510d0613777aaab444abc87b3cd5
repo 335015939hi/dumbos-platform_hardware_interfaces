@@ -22,6 +22,30 @@
       },
       "revId": "df67f65f2a63510d0613777aaab444abc87b3cd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bf683a7_119190c1",
+        "filename": "audio/core/all-versions/default/StreamOut.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-04-16T16:49:41Z",
+      "side": 1,
+      "message": "In fact, since libhardware\u0027s audio.h is a C API, using anything than C-compatible types and data representations there is not allowed as the client of this code might be also implemented in plain C.",
+      "parentUuid": "c3a9ae4f_846edd70",
+      "range": {
+        "startLine": 744,
+        "startChar": 0,
+        "endLine": 745,
+        "endChar": 75
+      },
+      "revId": "df67f65f2a63510d0613777aaab444abc87b3cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
