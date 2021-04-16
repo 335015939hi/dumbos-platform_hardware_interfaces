@@ -33,6 +33,23 @@
       "message": "Hi, Karthik, Could you help to get patch reviewed?",
       "revId": "80cd218b3e2ce066a89bd54cb88c3b8b80da08a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e418172_46e4fce1",
+        "filename": "keymaster/3.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1377410
+      },
+      "writtenOn": "2021-04-16T21:16:19Z",
+      "side": 1,
+      "message": "@Guang Zhu, could you please review this? The current test fails if the att_attestation_version is not 1 or 2. Is this expected?",
+      "revId": "80cd218b3e2ce066a89bd54cb88c3b8b80da08a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
