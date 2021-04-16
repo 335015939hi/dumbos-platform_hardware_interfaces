@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "64941f0f_b9000d5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-04-16T08:02:51Z",
+      "side": 1,
+      "message": "nit incorrect.  line length.",
+      "range": {
+        "startLine": 10,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "06153d9b80a88304be666e372f125296cf07af53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "98e61e4d_5d4f231b",
@@ -14,6 +37,46 @@
       "writtenOn": "2021-04-16T06:46:43Z",
       "side": 1,
       "message": "Could you help review this commit that solve metadata transferring problem?",
+      "revId": "06153d9b80a88304be666e372f125296cf07af53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67ca373e_7b44732a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-04-16T08:02:51Z",
+      "side": 1,
+      "message": "Jiabin, do we have a similar problem at StreamOutHalLocal::asyncEventCallback?",
+      "revId": "06153d9b80a88304be666e372f125296cf07af53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a29d703_cc95ef7d",
+        "filename": "audio/core/all-versions/default/StreamOut.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-04-16T08:02:51Z",
+      "side": 1,
+      "message": "nit: line length",
+      "range": {
+        "startLine": 744,
+        "startChar": 11,
+        "endLine": 744,
+        "endChar": 12
+      },
       "revId": "06153d9b80a88304be666e372f125296cf07af53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
