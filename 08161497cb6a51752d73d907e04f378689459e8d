@@ -22,6 +22,30 @@
       },
       "revId": "08161497cb6a51752d73d907e04f378689459e8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df827437_6e1e9bfb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-04-16T22:28:40Z",
+      "side": 1,
+      "message": "\u003e Would adding the API be nicer (either on servicemanager or the interface)?\nAdding an API on service manager would accomplish the same thing that this change does, and would arguably be nicer (because it\u0027s more structured and not NNAPI-specific). However, adding an API to the NNAPI interface (e.g., IDevice::isUpdatable) would require retrieving the service instance, querying whether it\u0027s updatable, and then possibly ignoring the service instance. This sequence could be wasteful if there\u0027s a lazy service involved, so it would be nice to know if a service is updatable before retrieving the service.\n\n\u003e What I thought in the email thread is that specific instances would be associated with clients on some other basis. For instance, a given system service might choose to always use instance \u0027foo\u0027.\nThis is true, but with one minor exception: the default libneuralnetworks.so partitioner. When a client does not select which devices they wish to use explicitly, the NNAPI will partition the workload across all devices. Recently, the NNAPI team decided to make the updatable drivers opt-in for the initial release, so we would like to initially exclude the updatable drivers from the default partitioner. This means the runtime itself needs to know whether or not the driver is updatable or not.",
+      "parentUuid": "91a294a3_d115e664",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "08161497cb6a51752d73d907e04f378689459e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
