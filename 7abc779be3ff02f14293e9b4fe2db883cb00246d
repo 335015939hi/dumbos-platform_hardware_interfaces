@@ -168,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3160f5c0_ae5894c4",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-17T22:38:16Z",
+      "side": 1,
+      "message": "I think I may be missing something here. From my perspective:\n\nThis change adds the getHardwareInfo() function to IRemotelyProvisionedComponent, which is the only function that returns this parcelable. The information within this parcelable should all be relevant to the IRPC component that it\u0027s retrieved from, analogous to the IKeyMintDevice interface\u0027s getHardwareInfo function and the KeyMintHardwareInfo parcelable that is returned from it.",
+      "parentUuid": "b029593d_76d464a9",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 36
+      },
+      "revId": "7abc779be3ff02f14293e9b4fe2db883cb00246d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd7272bd_6e1f3901",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
         "patchSetId": 2
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "Maybe not. I just thought it may be errorprone if you default initialize it, it\u0027ll already be P256 (might be hard to notice). I guess that also means a component can\u0027t support multiple curves at the same time?",
       "parentUuid": "ef660c2d_383b64c2",
+      "range": {
+        "startLine": 48,
+        "startChar": 36,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "7abc779be3ff02f14293e9b4fe2db883cb00246d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9afdcbe1_95248e50",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-04-17T22:38:16Z",
+      "side": 1,
+      "message": "Ah okay, that makes sense. Adding it as the default case and having a VTS test to make certain NONE isn\u0027t returned is probably best in the interest of reducing unintentional implementation bugs. Thanks for pointing that out!\n\nA component could support multiple curves, but I don\u0027t think that\u0027s a usecase we want to handle. Ideally everyone would support curve 25519, and hopefully we can deprecate P256 in the future entirely whenever SEs universally offer 25519 support. \n\nIn practice, anything that offered 25519 support would probably be able to trivially offer P256 support.",
+      "parentUuid": "2d61724c_86effac5",
       "range": {
         "startLine": 48,
         "startChar": 36,
