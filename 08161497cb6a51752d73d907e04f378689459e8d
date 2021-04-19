@@ -46,6 +46,23 @@
       },
       "revId": "08161497cb6a51752d73d907e04f378689459e8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0db8be5f_5146c465",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015680
+      },
+      "writtenOn": "2021-04-19T12:59:07Z",
+      "side": 1,
+      "message": "+2, but please resolve smoreland comment before submitting. ",
+      "revId": "08161497cb6a51752d73d907e04f378689459e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
