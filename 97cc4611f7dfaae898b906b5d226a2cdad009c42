@@ -128,6 +128,30 @@
       },
       "revId": "97cc4611f7dfaae898b906b5d226a2cdad009c42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14c732c0_4f319471",
+        "filename": "security/keymint/aidl/default/RemotelyProvisionedComponent.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2021-04-19T17:11:18Z",
+      "side": 1,
+      "message": "I think you can remove this now?",
+      "parentUuid": "cc11f3e4_190f8081",
+      "range": {
+        "startLine": 166,
+        "startChar": 3,
+        "endLine": 166,
+        "endChar": 40
+      },
+      "revId": "97cc4611f7dfaae898b906b5d226a2cdad009c42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
