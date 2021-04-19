@@ -348,7 +348,7 @@ ErrorCode KeyMintAidlTestBase::Begin(KeyPurpose purpose, const vector<uint8_t>& 
     SCOPED_TRACE("Begin");
     Status result;
     BeginResult out;
-    result = keymint_->begin(purpose, key_blob, in_params.vector_data(), HardwareAuthToken(), &out);
+    result = keymint_->begin(purpose, key_blob, in_params.vector_data(), std::nullopt, &out);
 
     if (result.isOk()) {
         *out_params = out.params;
@@ -366,7 +366,7 @@ ErrorCode KeyMintAidlTestBase::Begin(KeyPurpose purpose, const vector<uint8_t>& 
     Status result;
     BeginResult out;
 
-    result = keymint_->begin(purpose, key_blob, in_params.vector_data(), HardwareAuthToken(), &out);
+    result = keymint_->begin(purpose, key_blob, in_params.vector_data(), std::nullopt, &out);
 
     if (result.isOk()) {
         *out_params = out.params;
