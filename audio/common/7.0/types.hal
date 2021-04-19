@@ -319,8 +319,8 @@ struct AudioOffloadInfo {
     uint32_t bufferSize;
     AudioUsage usage;
     AudioEncapsulationMode encapsulationMode;
-    int32_t contentId;
-    int32_t syncId;
+    int64_t contentId;
+    int64_t syncId;
 };
 
 /**
