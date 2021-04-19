@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9772e3f7_5ca57601",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-04-19T21:28:39Z",
+      "side": 1,
+      "message": "Yes, I think adding a way to query whether a service is updatable-via-apex through the servicemanager API would be best. If we go with that route, I\u0027ll abandon this change. Do you want me to file a feature request? If so, where should it be filed?",
+      "parentUuid": "28b38909_207c6ef9",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "08161497cb6a51752d73d907e04f378689459e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0db8be5f_5146c465",
@@ -85,6 +109,23 @@
       "writtenOn": "2021-04-19T12:59:07Z",
       "side": 1,
       "message": "+2, but please resolve smoreland comment before submitting. ",
+      "revId": "08161497cb6a51752d73d907e04f378689459e8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b451e4a_3467afc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-04-19T21:28:39Z",
+      "side": 1,
+      "message": "-2 until servicemanager path is resolved (see comments)",
       "revId": "08161497cb6a51752d73d907e04f378689459e8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
