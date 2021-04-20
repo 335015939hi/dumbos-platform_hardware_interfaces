@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5f734af_fdda5e57",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-20T18:49:49Z",
+      "side": 1,
+      "message": "Need a space.",
+      "range": {
+        "startLine": 575,
+        "startChar": 45,
+        "endLine": 575,
+        "endChar": 55
+      },
+      "revId": "b369c25a1a7aaa942c6f7433950b42b70d2781d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
