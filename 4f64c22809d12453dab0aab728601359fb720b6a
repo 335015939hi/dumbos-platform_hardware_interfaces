@@ -16,6 +16,24 @@
       "message": "Dropping this loses the leaf subject check for all the other existing places that ChainSignaturesAreValid gets called -- could we get the best of both worlds with an overload?  Maybe something like:\n\nAssertionResult ChainSignaturesAreValid(const vector\u003cCertificate\u003e\u0026 chain, uint64_t leaf_serial, const string\u0026 leaf_subject);\n\n(and fold verify_subject_and_serial() contents in here), then have an overload:\n\nAssertionResult ChainSignaturesAreValid(const vector\u003cCertificate\u003e\u0026 chain) {\n  ChainSignaturesAreValid(chain, 1, \"Android Keystore Key\");\n}",
       "revId": "4f64c22809d12453dab0aab728601359fb720b6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "331ffd9e_3fd5d655",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-21T23:24:48Z",
+      "side": 0,
+      "message": "No I don\u0027t think this code is necessary anymore given that all the tests that need to verify subject have already called the verify_subject_and_serial().  This part of the code only looks at the first certificate in the chain anyway.  The name of the function suggests it should look at chain related stuff.",
+      "parentUuid": "bfd36f85_88319749",
+      "revId": "4f64c22809d12453dab0aab728601359fb720b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

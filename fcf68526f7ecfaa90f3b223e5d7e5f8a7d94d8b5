@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5182a774_a1e109f6",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-21T23:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1013e330_0b180d17",
+      "revId": "fcf68526f7ecfaa90f3b223e5d7e5f8a7d94d8b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ef3b77e_4978394b",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-04-21T07:08:44Z",
       "side": 1,
       "message": "super-nit: the \"set_\" prefix feels a bit misleading -- this doesn\u0027t alter a serial blob in an existing object, it creates and returns a new object. Maybe `build_serial_blob` ? (I\u0027d suggest just `serial_blob()` but that would clash with local variable names later.)",
+      "revId": "fcf68526f7ecfaa90f3b223e5d7e5f8a7d94d8b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6d069ae_778e493a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-21T23:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ef3b77e_4978394b",
       "revId": "fcf68526f7ecfaa90f3b223e5d7e5f8a7d94d8b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "260036b0_960639c5",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-21T23:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ac08e56_15636064",
+      "revId": "fcf68526f7ecfaa90f3b223e5d7e5f8a7d94d8b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24174900_2e73a3c1",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-04-21T07:08:44Z",
       "side": 1,
       "message": "nit: unnecessary copy construction - could have `const Certificate\u0026` and `const string\u0026`?",
+      "revId": "fcf68526f7ecfaa90f3b223e5d7e5f8a7d94d8b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82919fe7_716ba653",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-21T23:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24174900_2e73a3c1",
       "revId": "fcf68526f7ecfaa90f3b223e5d7e5f8a7d94d8b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
