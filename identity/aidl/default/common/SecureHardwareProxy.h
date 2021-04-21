@@ -76,6 +76,8 @@ class SecureHardwareProvisioningProxy : public RefBase {
     virtual optional<vector<uint8_t>> createCredentialKey(const vector<uint8_t>& challenge,
                                                           const vector<uint8_t>& applicationId) = 0;
 
+    virtual bool setIssuerEphemeralPublicKey(const vector<uint8_t>& issuerPublicKey) = 0;
+
     virtual bool startPersonalization(int accessControlProfileCount, vector<int> entryCounts,
                                       const string& docType,
                                       size_t expectedProofOfProvisioningSize) = 0;
@@ -86,12 +88,13 @@ class SecureHardwareProvisioningProxy : public RefBase {
             uint64_t timeoutMillis, uint64_t secureUserId) = 0;
 
     virtual bool beginAddEntry(const vector<int>& accessControlProfileIds, const string& nameSpace,
-                               const string& name, uint64_t entrySize) = 0;
+                               const string& name, uint64_t entrySize, bool encrypted) = 0;
 
     // Returns encryptedContent.
     virtual optional<vector<uint8_t>> addEntryValue(const vector<int>& accessControlProfileIds,
                                                     const string& nameSpace, const string& name,
-                                                    const vector<uint8_t>& content) = 0;
+                                                    const vector<uint8_t>& content,
+                                                    bool encrypted) = 0;
 
     // Returns signatureOfToBeSigned (EIC_ECDSA_P256_SIGNATURE_SIZE bytes).
     virtual optional<vector<uint8_t>> finishAddingEntries() = 0;

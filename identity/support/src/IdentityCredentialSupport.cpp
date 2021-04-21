@@ -510,6 +510,16 @@ bool checkEcDsaSignature(const vector<uint8_t>& digest, const vector<uint8_t>& s
     return true;
 }
 
+vector<uint8_t> sha1(const vector<uint8_t>& data) {
+    vector<uint8_t> ret;
+    ret.resize(SHA_DIGEST_LENGTH);
+    SHA_CTX ctx;
+    SHA1_Init(&ctx);
+    SHA1_Update(&ctx, data.data(), data.size());
+    SHA1_Final((unsigned char*)ret.data(), &ctx);
+    return ret;
+}
+
 vector<uint8_t> sha256(const vector<uint8_t>& data) {
     vector<uint8_t> ret;
     ret.resize(SHA256_DIGEST_LENGTH);

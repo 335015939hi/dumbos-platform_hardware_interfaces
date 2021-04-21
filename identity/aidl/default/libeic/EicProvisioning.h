@@ -43,6 +43,9 @@ typedef struct {
     size_t curEntrySize;
     size_t curEntryNumBytesReceived;
 
+    // Set by eicProvisioningSetIssuerEphemeralPublicKey
+    uint8_t provisioningEncryptionKey[16];
+
     // Set by eicProvisioningInit() OR eicProvisioningInitForUpdate()
     uint8_t storageKey[EIC_AES_128_KEY_SIZE];
 
@@ -56,6 +59,10 @@ typedef struct {
 
     EicCbor cbor;
 
+    // Set to true if entry is encrypted.
+    bool curEntryEncrypted;
+
+    // Set to true if we're provisioning a test credential.
     bool testCredential;
 
     // Set to true if this is an update.
@@ -73,6 +80,9 @@ bool eicProvisioningCreateCredentialKey(EicProvisioning* ctx, const uint8_t* cha
                                         size_t applicationIdSize, uint8_t* publicKeyCert,
                                         size_t* publicKeyCertSize);
 
+bool eicProvisioningSetIssuerEphemeralPublicKey(
+        EicProvisioning* ctx, const uint8_t issuerEphemeralPublicKey[EIC_P256_PUB_KEY_SIZE]);
+
 bool eicProvisioningStartPersonalization(EicProvisioning* ctx, int accessControlProfileCount,
                                          const int* entryCounts, size_t numEntryCounts,
                                          const char* docType,
@@ -89,8 +99,8 @@ bool eicProvisioningAddAccessControlProfile(EicProvisioning* ctx, int id,
 //
 bool eicProvisioningBeginAddEntry(EicProvisioning* ctx, const int* accessControlProfileIds,
                                   size_t numAccessControlProfileIds, const char* nameSpace,
-                                  const char* name, uint64_t entrySize, uint8_t* scratchSpace,
-                                  size_t scratchSpaceSize);
+                                  const char* name, uint64_t entrySize, bool encrypted,
+                                  uint8_t* scratchSpace, size_t scratchSpaceSize);
 
 // The outEncryptedContent array must be contentSize + 28 bytes long.
 //
@@ -99,9 +109,24 @@ bool eicProvisioningBeginAddEntry(EicProvisioning* ctx, const int* accessControl
 //
 bool eicProvisioningAddEntryValue(EicProvisioning* ctx, const int* accessControlProfileIds,
                                   size_t numAccessControlProfileIds, const char* nameSpace,
-                                  const char* name, const uint8_t* content, size_t contentSize,
+                                  const char* name, uint8_t* content, size_t contentSize,
                                   uint8_t* outEncryptedContent, uint8_t* scratchSpace,
                                   size_t scratchSpaceSize);
+
+// The outEncryptedContent array must be same size as issuerEncryptedContentSize.
+//
+// issuerEncryptedContent will be used as scratch space for decryption during this operation
+// and as such will be modified.
+//
+// The scratchSpace should be set to a buffer at least 512 bytes. It's done this way to
+// avoid allocating stack space.
+//
+bool eicProvisioningAddEncryptedEntryValue(EicProvisioning* ctx, const int* accessControlProfileIds,
+                                           size_t numAccessControlProfileIds, const char* nameSpace,
+                                           const char* name, uint8_t* issuerEncryptedContent,
+                                           size_t issuerEncryptedContentSize,
+                                           uint8_t* outEncryptedContent, uint8_t* scratchSpace,
+                                           size_t scratchSpaceSize);
 
 // The data returned in |signatureOfToBeSigned| contains the ECDSA signature of
 // the ToBeSigned CBOR from RFC 8051 "4.4. Signing and Verification Process"

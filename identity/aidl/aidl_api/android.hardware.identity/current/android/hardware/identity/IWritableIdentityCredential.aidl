@@ -12,7 +12,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *////////////////////////////////////////////////////////////////////////////////
+ */
+///////////////////////////////////////////////////////////////////////////////
 // THIS FILE IS IMMUTABLE. DO NOT EDIT IN ANY CASE.                          //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -40,4 +41,7 @@ interface IWritableIdentityCredential {
   byte[] addEntryValue(in byte[] content);
   void finishAddingEntries(out byte[] credentialData, out byte[] proofOfProvisioningSignature);
   void setExpectedProofOfProvisioningSize(in int expectedProofOfProvisioningSize);
+  void setIssuerEphemeralPublicKey(in byte[] publicKey);
+  void beginAddEncryptedEntry(in int[] accessControlProfileIds, in @utf8InCpp String nameSpace, in @utf8InCpp String name, in int entrySize);
+  byte[] addEncryptedEntryValue(in byte[] issuerEncryptedContent);
 }

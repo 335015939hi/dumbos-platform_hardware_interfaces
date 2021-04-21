@@ -78,7 +78,16 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
             vector<uint8_t>* outCredentialData,
             vector<uint8_t>* outProofOfProvisioningSignature) override;
 
+    ndk::ScopedAStatus setIssuerEphemeralPublicKey(const vector<uint8_t>& publicKey) override;
+    ndk::ScopedAStatus beginAddEncryptedEntry(const vector<int32_t>& accessControlProfileIds,
+                                              const string& nameSpace, const string& name,
+                                              int32_t entrySize) override;
+    ndk::ScopedAStatus addEncryptedEntryValue(const vector<uint8_t>& issuerEncryptedContent,
+                                              vector<uint8_t>* outEncryptedContent) override;
+
   private:
+    ndk::ScopedAStatus beginAddEntryCommon(const string& nameSpace);
+
     // Set by constructor.
     sp<SecureHardwareProvisioningProxy> hwProxy_;
     string docType_;
@@ -91,6 +100,9 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
     // This is set in getAttestationCertificate().
     bool getAttestationCertificateAlreadyCalled_ = false;
 
+    // Set in setIssuerEphemeralPublicKey()
+    bool haveIssuerEphemeralPublicKey_ = false;
+
     // These fields are initialized during startPersonalization()
     size_t numAccessControlProfileRemaining_;
     vector<int32_t> remainingEntryCounts_;
@@ -102,7 +114,7 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
     // This field is initialized in addAccessControlProfile
     set<int32_t> accessControlProfileIds_;
 
-    // These fields are initialized during beginAddEntry()
+    // These fields are initialized during beginAddEntry() / begineAddEncryptedEntry()
     size_t entryRemainingBytes_;
     string entryNameSpace_;
     string entryName_;

@@ -335,4 +335,42 @@ interface IWritableIdentityCredential {
      */
     void setExpectedProofOfProvisioningSize(in int expectedProofOfProvisioningSize);
 
+    /**
+     * Sets the public part of the issuer's ephemeral key pair.
+     *
+     * The key is referred to as IssuerEphemeralKey in the following.
+     *
+     * This is used to establish an encrypted channel at provisioning time between
+     * the Secure Hardware and the issuer. Elliptic-Curve Diffie-Helllman (ECDH)
+     * as specified in BSI TR-03111 shall be used using CredentialKey and
+     * IssuerEphemeralKey.
+     *
+     * The shared secret Zab resulting from the ECDH operation shall be used as the
+     * input key material for the HKDF function (RFC 5869). Salt shall be empty,
+     * info shall be set to the bytes of the string "ICEncProv", and 16 bytes shall
+     * be produced. These 16 bytes shall be used as the AES-128 key for AES-GCM
+     * encryption.
+     *
+     * (TODO: maybe use SHA-256(CredentialKeyCertChain) as salt?)
+     *
+     * Currently only encrypted provisioning - see beginAddEncryptedEntry() - uses
+     * this encrypted channel so this only needs to be called if that feature is
+     * used. In the future more features may use this channel.
+     *
+     * This method may only be called once per instance. If called more than once,
+     * STATUS_FAILED will be returned.
+     *
+     * This method was introduced in API version 4.
+     *
+     * @param publicKey contains the issuer's ephemeral public key, in uncompressed
+     *        form (e.g. 0x04 || X || Y).
+     */
+    void setIssuerEphemeralPublicKey(in byte[] publicKey);
+
+    /** TODO: docs */
+    void beginAddEncryptedEntry(in int[] accessControlProfileIds, in @utf8InCpp String nameSpace,
+        in @utf8InCpp String name, in int entrySize);
+
+    /** TODO: docs */
+    byte[] addEncryptedEntryValue(in byte[] issuerEncryptedContent);
 }
