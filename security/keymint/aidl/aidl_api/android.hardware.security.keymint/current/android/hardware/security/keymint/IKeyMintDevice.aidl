@@ -48,6 +48,5 @@ interface IKeyMintDevice {
   void deviceLocked(in boolean passwordOnly, in @nullable android.hardware.security.secureclock.TimeStampToken timestampToken);
   void earlyBootEnded();
   byte[] convertStorageKeyToEphemeral(in byte[] storageKeyBlob);
-  byte[] performOperation(in byte[] request);
   const int AUTH_TOKEN_MAC_LENGTH = 32;
 }
