@@ -94,6 +94,9 @@ constexpr size_t kAes128GcmKeySize = 16;
 // Returns |numBytes| bytes of random data.
 optional<vector<uint8_t>> getRandom(size_t numBytes);
 
+// Calculates the SHA-1 of |data|.
+vector<uint8_t> sha1(const vector<uint8_t>& data);
+
 // Calculates the SHA-256 of |data|.
 vector<uint8_t> sha256(const vector<uint8_t>& data);
 

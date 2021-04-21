@@ -202,56 +202,9 @@ ndk::ScopedAStatus WritableIdentityCredential::addAccessControlProfile(
 ndk::ScopedAStatus WritableIdentityCredential::beginAddEntry(
         const vector<int32_t>& accessControlProfileIds, const string& nameSpace, const string& name,
         int32_t entrySize) {
-    if (numAccessControlProfileRemaining_ != 0) {
-        LOG(ERROR) << "numAccessControlProfileRemaining_ is " << numAccessControlProfileRemaining_
-                   << " and expected zero";
-        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                IIdentityCredentialStore::STATUS_INVALID_DATA,
-                "numAccessControlProfileRemaining_ is not zero"));
-    }
-
-    if (remainingEntryCounts_.size() == 0) {
-        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                IIdentityCredentialStore::STATUS_INVALID_DATA, "No more namespaces to add to"));
-    }
-
-    // Handle initial beginEntry() call.
-    if (firstEntry_) {
-        firstEntry_ = false;
-        entryNameSpace_ = nameSpace;
-        allNameSpaces_.insert(nameSpace);
-    }
-
-    // If the namespace changed...
-    if (nameSpace != entryNameSpace_) {
-        if (allNameSpaces_.find(nameSpace) != allNameSpaces_.end()) {
-            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                    IIdentityCredentialStore::STATUS_INVALID_DATA,
-                    "Name space cannot be added in interleaving fashion"));
-        }
-
-        // Then check that all entries in the previous namespace have been added..
-        if (remainingEntryCounts_[0] != 0) {
-            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                    IIdentityCredentialStore::STATUS_INVALID_DATA,
-                    "New namespace but a non-zero number of entries remain to be added"));
-        }
-        remainingEntryCounts_.erase(remainingEntryCounts_.begin());
-        remainingEntryCounts_[0] -= 1;
-        allNameSpaces_.insert(nameSpace);
-
-        if (signedDataCurrentNamespace_.size() > 0) {
-            signedDataNamespaces_.add(entryNameSpace_, std::move(signedDataCurrentNamespace_));
-            signedDataCurrentNamespace_ = cppbor::Array();
-        }
-    } else {
-        // Same namespace...
-        if (remainingEntryCounts_[0] == 0) {
-            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                    IIdentityCredentialStore::STATUS_INVALID_DATA,
-                    "Same namespace but no entries remain to be added"));
-        }
-        remainingEntryCounts_[0] -= 1;
+    ndk::ScopedAStatus status = beginAddEntryCommon(nameSpace);
+    if (!status.isOk()) {
+        return status;
     }
 
     entryRemainingBytes_ = entrySize;
@@ -261,7 +214,7 @@ ndk::ScopedAStatus WritableIdentityCredential::beginAddEntry(
     entryBytes_.resize(0);
     // LOG(INFO) << "name=" << name << " entrySize=" << entrySize;
 
-    if (!hwProxy_->beginAddEntry(accessControlProfileIds, nameSpace, name, entrySize)) {
+    if (!hwProxy_->beginAddEntry(accessControlProfileIds, nameSpace, name, entrySize, false)) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_FAILED, "eicBeginAddEntry"));
     }
@@ -295,7 +248,7 @@ ndk::ScopedAStatus WritableIdentityCredential::addEntryValue(const vector<uint8_
     }
 
     optional<vector<uint8_t>> encryptedContent = hwProxy_->addEntryValue(
-            entryAccessControlProfileIds_, entryNameSpace_, entryName_, content);
+            entryAccessControlProfileIds_, entryNameSpace_, entryName_, content, false);
     if (!encryptedContent) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_FAILED, "eicAddEntryValue"));
@@ -390,6 +343,156 @@ ndk::ScopedAStatus WritableIdentityCredential::finishAddingEntries(
     *outProofOfProvisioningSignature = signature.value();
     hwProxy_->shutdown();
 
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus WritableIdentityCredential::setIssuerEphemeralPublicKey(
+        const vector<uint8_t>& publicKey) {
+    // DER encoding is 0x04 | x | y, we don't want the leading 0x04.
+    if (publicKey.size() != EIC_P256_PUB_KEY_SIZE + 1) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Unexpected size of public key"));
+    }
+    vector<uint8_t> rawPublicKey(publicKey.begin() + 1, publicKey.end());
+
+    if (!hwProxy_->setIssuerEphemeralPublicKey(rawPublicKey)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED,
+                "eicProvisioningSetIssuerEphemeralPublicKey"));
+    }
+    haveIssuerEphemeralPublicKey_ = true;
+
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus WritableIdentityCredential::beginAddEntryCommon(const string& nameSpace) {
+    if (numAccessControlProfileRemaining_ != 0) {
+        LOG(ERROR) << "numAccessControlProfileRemaining_ is " << numAccessControlProfileRemaining_
+                   << " and expected zero";
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_INVALID_DATA,
+                "numAccessControlProfileRemaining_ is not zero"));
+    }
+
+    if (remainingEntryCounts_.size() == 0) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_INVALID_DATA, "No more namespaces to add to"));
+    }
+
+    // Handle initial beginEntry() call.
+    if (firstEntry_) {
+        firstEntry_ = false;
+        entryNameSpace_ = nameSpace;
+        allNameSpaces_.insert(nameSpace);
+    }
+
+    // If the namespace changed...
+    if (nameSpace != entryNameSpace_) {
+        if (allNameSpaces_.find(nameSpace) != allNameSpaces_.end()) {
+            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                    IIdentityCredentialStore::STATUS_INVALID_DATA,
+                    "Name space cannot be added in interleaving fashion"));
+        }
+
+        // Then check that all entries in the previous namespace have been added..
+        if (remainingEntryCounts_[0] != 0) {
+            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                    IIdentityCredentialStore::STATUS_INVALID_DATA,
+                    "New namespace but a non-zero number of entries remain to be added"));
+        }
+        remainingEntryCounts_.erase(remainingEntryCounts_.begin());
+        remainingEntryCounts_[0] -= 1;
+        allNameSpaces_.insert(nameSpace);
+
+        if (signedDataCurrentNamespace_.size() > 0) {
+            signedDataNamespaces_.add(entryNameSpace_, std::move(signedDataCurrentNamespace_));
+            signedDataCurrentNamespace_ = cppbor::Array();
+        }
+    } else {
+        // Same namespace...
+        if (remainingEntryCounts_[0] == 0) {
+            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                    IIdentityCredentialStore::STATUS_INVALID_DATA,
+                    "Same namespace but no entries remain to be added"));
+        }
+        remainingEntryCounts_[0] -= 1;
+    }
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus WritableIdentityCredential::beginAddEncryptedEntry(
+        const vector<int32_t>& accessControlProfileIds, const string& nameSpace, const string& name,
+        int32_t entrySize) {
+    ndk::ScopedAStatus status = beginAddEntryCommon(nameSpace);
+    if (!status.isOk()) {
+        return status;
+    }
+
+    entryRemainingBytes_ = entrySize;
+    entryNameSpace_ = nameSpace;
+    entryName_ = name;
+    entryAccessControlProfileIds_ = accessControlProfileIds;
+    entryBytes_.resize(0);
+    // LOG(INFO) << "name=" << name << " entrySize=" << entrySize;
+
+    if (!hwProxy_->beginAddEntry(accessControlProfileIds, nameSpace, name, entrySize, true)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicBeginAddEncryptedEntry"));
+    }
+
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus WritableIdentityCredential::addEncryptedEntryValue(
+        const vector<uint8_t>& issuerEncryptedContent, vector<uint8_t>* outEncryptedContent) {
+    size_t issuerEncryptedContentSize = issuerEncryptedContent.size();
+
+    constexpr size_t kMaxEncryptedBlobSize = IdentityCredentialStore::kGcmChunkSize +
+                                             support::kAesGcmIvSize + support::kAesGcmTagSize;
+
+    if (issuerEncryptedContentSize > kMaxEncryptedBlobSize) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_INVALID_DATA,
+                "Passed in chunk is bigger than kGcmChunkSize + 28"));
+    }
+    if (issuerEncryptedContentSize > entryRemainingBytes_) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_INVALID_DATA,
+                "Passed in chunk is bigger than remaining space"));
+    }
+
+    entryBytes_.insert(entryBytes_.end(), issuerEncryptedContent.begin(),
+                       issuerEncryptedContent.end());
+    entryRemainingBytes_ -= issuerEncryptedContentSize;
+    if (entryRemainingBytes_ > 0) {
+        if (issuerEncryptedContentSize != kMaxEncryptedBlobSize) {
+            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                    IIdentityCredentialStore::STATUS_INVALID_DATA,
+                    "Retrieved non-final chunk which isn't kGcmChunkSize + 28"));
+        }
+    }
+
+    optional<vector<uint8_t>> encryptedContent =
+            hwProxy_->addEntryValue(entryAccessControlProfileIds_, entryNameSpace_, entryName_,
+                                    issuerEncryptedContent, true);
+    if (!encryptedContent) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicAddEntryEncryptedValue"));
+    }
+
+    if (entryRemainingBytes_ == 0) {
+        cppbor::Map entryMap;
+        entryMap.add("name", entryName_);
+        entryMap.add("encryptedValue", entryBytes_);
+        cppbor::Array profileIdArray;
+        for (auto id : entryAccessControlProfileIds_) {
+            profileIdArray.add(id);
+        }
+        entryMap.add("accessControlProfiles", std::move(profileIdArray));
+        signedDataCurrentNamespace_.add(std::move(entryMap));
+    }
+
+    *outEncryptedContent = encryptedContent.value();
     return ndk::ScopedAStatus::ok();
 }
 

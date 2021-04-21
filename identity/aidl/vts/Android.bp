@@ -28,6 +28,7 @@ cc_test {
         "EndToEndTests.cpp",
         "TestCredentialTests.cpp",
         "AuthenticationKeyTests.cpp",
+        "EncryptedProvisioningTests.cpp",
     ],
     shared_libs: [
         "libbinder",

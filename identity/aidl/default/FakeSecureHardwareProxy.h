@@ -41,6 +41,8 @@ class FakeSecureHardwareProvisioningProxy : public SecureHardwareProvisioningPro
     optional<vector<uint8_t>> createCredentialKey(const vector<uint8_t>& challenge,
                                                   const vector<uint8_t>& applicationId) override;
 
+    bool setIssuerEphemeralPublicKey(const vector<uint8_t>& issuerPublicKey) override;
+
     bool startPersonalization(int accessControlProfileCount, vector<int> entryCounts,
                               const string& docType,
                               size_t expectedProofOfProvisioningSize) override;
@@ -53,12 +55,13 @@ class FakeSecureHardwareProvisioningProxy : public SecureHardwareProvisioningPro
                                                       uint64_t secureUserId) override;
 
     bool beginAddEntry(const vector<int>& accessControlProfileIds, const string& nameSpace,
-                       const string& name, uint64_t entrySize) override;
+                       const string& name, uint64_t entrySize, bool encrypted) override;
 
     // Returns encryptedContent.
     optional<vector<uint8_t>> addEntryValue(const vector<int>& accessControlProfileIds,
                                             const string& nameSpace, const string& name,
-                                            const vector<uint8_t>& content) override;
+                                            const vector<uint8_t>& content,
+                                            bool encrypted) override;
 
     // Returns signatureOfToBeSigned (EIC_ECDSA_P256_SIGNATURE_SIZE bytes).
     optional<vector<uint8_t>> finishAddingEntries() override;

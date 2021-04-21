@@ -224,8 +224,8 @@ bool eicProvisioningAddAccessControlProfile(EicProvisioning* ctx, int id,
 
 bool eicProvisioningBeginAddEntry(EicProvisioning* ctx, const int* accessControlProfileIds,
                                   size_t numAccessControlProfileIds, const char* nameSpace,
-                                  const char* name, uint64_t entrySize, uint8_t* scratchSpace,
-                                  size_t scratchSpaceSize) {
+                                  const char* name, uint64_t entrySize, bool encrypted,
+                                  uint8_t* scratchSpace, size_t scratchSpaceSize) {
     uint8_t* additionalDataCbor = scratchSpace;
     const size_t additionalDataCborBufSize = scratchSpaceSize;
     size_t additionalDataCborSize;
@@ -264,7 +264,14 @@ bool eicProvisioningBeginAddEntry(EicProvisioning* ctx, const int* accessControl
     ctx->curEntrySize = entrySize;
     ctx->curEntryNumBytesReceived = 0;
 
-    eicCborAppendString(&ctx->cbor, "value");
+    ctx->curEntryEncrypted = encrypted;
+    if (encrypted) {
+        eicCborAppendString(&ctx->cbor, "encryptedValue");
+        // Open bstr
+        eicCborBegin(&ctx->cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, entrySize);
+    } else {
+        eicCborAppendString(&ctx->cbor, "value");
+    }
 
     ctx->curNamespaceNumProcessed += 1;
     return true;
@@ -272,7 +279,7 @@ bool eicProvisioningBeginAddEntry(EicProvisioning* ctx, const int* accessControl
 
 bool eicProvisioningAddEntryValue(EicProvisioning* ctx, const int* accessControlProfileIds,
                                   size_t numAccessControlProfileIds, const char* nameSpace,
-                                  const char* name, const uint8_t* content, size_t contentSize,
+                                  const char* name, uint8_t* content, size_t contentSize,
                                   uint8_t* outEncryptedContent, uint8_t* scratchSpace,
                                   size_t scratchSpaceSize) {
     uint8_t* additionalDataCbor = scratchSpace;
@@ -292,6 +299,27 @@ bool eicProvisioningAddEntryValue(EicProvisioning* ctx, const int* accessControl
     }
 
     eicCborAppend(&ctx->cbor, content, contentSize);
+    ctx->curEntryNumBytesReceived += contentSize;
+
+    // Decrypt issuer-signed data if needed.
+    //
+    // We're guaranteed that |outEncryptedContent| is contentSize + 28 bytes. So we use it
+    // as a temp buf for the decrypting issuer-encrypted content... then move it back over
+    // to content when we're done.
+    if (ctx->curEntryEncrypted) {
+        if (contentSize < 28) {
+            eicDebug("Bogus contenSize %zd for encrypted content");
+            return false;
+        }
+        const uint8_t aadTodo[] = {};
+        if (!eicOpsDecryptAes128Gcm(ctx->provisioningEncryptionKey, content, contentSize, aadTodo,
+                                    0, outEncryptedContent)) {
+            eicDebug("Error decrypting content encrypted by issuer");
+            return false;
+        }
+        contentSize -= 28;
+        eicMemCpy(content, outEncryptedContent, contentSize);
+    }
 
     uint8_t nonce[12];
     if (!eicOpsRandom(nonce, 12)) {
@@ -303,7 +331,6 @@ bool eicProvisioningAddEntryValue(EicProvisioning* ctx, const int* accessControl
     }
 
     // If done with this entry, close the map
-    ctx->curEntryNumBytesReceived += contentSize;
     if (ctx->curEntryNumBytesReceived == ctx->curEntrySize) {
         eicCborAppendString(&ctx->cbor, "accessControlProfiles");
         eicCborAppendArray(&ctx->cbor, numAccessControlProfileIds);
@@ -372,6 +399,28 @@ bool eicProvisioningFinishGetCredentialData(EicProvisioning* ctx, const char* do
         return false;
     }
     *encryptedCredentialKeysSize = cbor.size + 28;
+
+    return true;
+}
+
+bool eicProvisioningSetIssuerEphemeralPublicKey(
+        EicProvisioning* ctx, const uint8_t issuerEphemeralPublicKey[EIC_P256_PUB_KEY_SIZE]) {
+    // Calculate encryption key
+    uint8_t sharedSecret[EIC_P256_COORDINATE_SIZE];
+    if (!eicOpsEcdh(issuerEphemeralPublicKey, ctx->credentialPrivateKey, sharedSecret)) {
+        eicDebug("ECDH failed");
+        return false;
+    }
+
+    // TODO: maybe put entropy in salt
+    const uint8_t salt[0] = {};
+    const char infoStr[] = "ICEncProv";
+    if (!eicOpsHkdf(sharedSecret, EIC_P256_COORDINATE_SIZE, salt, sizeof(salt),
+                    (const uint8_t*)infoStr, sizeof(infoStr) - 1, ctx->provisioningEncryptionKey,
+                    sizeof(ctx->provisioningEncryptionKey))) {
+        eicDebug("HKDF failed");
+        return false;
+    }
 
     return true;
 }

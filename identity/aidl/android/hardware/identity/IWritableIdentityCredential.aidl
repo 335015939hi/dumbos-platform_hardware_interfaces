@@ -335,4 +335,27 @@ interface IWritableIdentityCredential {
      */
     void setExpectedProofOfProvisioningSize(in int expectedProofOfProvisioningSize);
 
+    /**
+     * Sets the public part of the issuer's ephemeral key pair.
+     *
+     * This only needs to be called if encrypted provisioning is used.
+     *
+     * TODO: docs about how the encryption is derived (ECDH + HKDF).
+     *
+     * This method may only be called once per instance. If called more than once, STATUS_FAILED
+     * will be returned.
+     *
+     * This method was introduced in API version 4.
+     *
+     * @param publicKey contains the issuer's ephemeral public key, in uncompressed
+     *        form (e.g. 0x04 || X || Y).
+     */
+    void setIssuerEphemeralPublicKey(in byte[] publicKey);
+
+    /** TODO: docs */
+    void beginAddEncryptedEntry(in int[] accessControlProfileIds, in @utf8InCpp String nameSpace,
+        in @utf8InCpp String name, in int entrySize);
+
+    /** TODO: docs */
+    byte[] addEncryptedEntryValue(in byte[] issuerEncryptedContent);
 }

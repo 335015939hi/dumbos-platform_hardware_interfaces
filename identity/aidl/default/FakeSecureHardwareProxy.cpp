@@ -115,23 +115,29 @@ optional<vector<uint8_t>> FakeSecureHardwareProvisioningProxy::addAccessControlP
 
 bool FakeSecureHardwareProvisioningProxy::beginAddEntry(const vector<int>& accessControlProfileIds,
                                                         const string& nameSpace, const string& name,
-                                                        uint64_t entrySize) {
+                                                        uint64_t entrySize, bool encrypted) {
     uint8_t scratchSpace[512];
     return eicProvisioningBeginAddEntry(&ctx_, accessControlProfileIds.data(),
                                         accessControlProfileIds.size(), nameSpace.c_str(),
-                                        name.c_str(), entrySize, scratchSpace, sizeof scratchSpace);
+                                        name.c_str(), entrySize, encrypted, scratchSpace,
+                                        sizeof scratchSpace);
 }
 
 // Returns encryptedContent.
 optional<vector<uint8_t>> FakeSecureHardwareProvisioningProxy::addEntryValue(
         const vector<int>& accessControlProfileIds, const string& nameSpace, const string& name,
-        const vector<uint8_t>& content) {
+        const vector<uint8_t>& content, bool encrypted) {
+    vector<uint8_t> eicContent = content;  // Make a copy size since calling function may modify
     vector<uint8_t> eicEncryptedContent;
     uint8_t scratchSpace[512];
-    eicEncryptedContent.resize(content.size() + 28);
+    if (encrypted) {
+        eicEncryptedContent.resize(content.size());
+    } else {
+        eicEncryptedContent.resize(content.size() + 28);
+    }
     if (!eicProvisioningAddEntryValue(
                 &ctx_, accessControlProfileIds.data(), accessControlProfileIds.size(),
-                nameSpace.c_str(), name.c_str(), content.data(), content.size(),
+                nameSpace.c_str(), name.c_str(), eicContent.data(), eicContent.size(),
                 eicEncryptedContent.data(), scratchSpace, sizeof scratchSpace)) {
         return {};
     }
@@ -158,6 +164,14 @@ optional<vector<uint8_t>> FakeSecureHardwareProvisioningProxy::finishGetCredenti
     }
     encryptedCredentialKeys.resize(size);
     return encryptedCredentialKeys;
+}
+
+bool FakeSecureHardwareProvisioningProxy::setIssuerEphemeralPublicKey(
+        const vector<uint8_t>& issuerPublicKey) {
+    if (issuerPublicKey.size() != EIC_P256_PUB_KEY_SIZE) {
+        return false;
+    }
+    return eicProvisioningSetIssuerEphemeralPublicKey(&ctx_, issuerPublicKey.data());
 }
 
 // ----------------------------------------------------------------------
