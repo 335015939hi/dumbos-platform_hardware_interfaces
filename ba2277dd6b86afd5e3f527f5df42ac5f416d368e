@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3ef2f90_c2f16a00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2021-04-21T13:57:22Z",
+      "side": 1,
+      "message": "I believe the build will fail because the hashes in current.txt need to be updated",
+      "revId": "ba2277dd6b86afd5e3f527f5df42ac5f416d368e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
