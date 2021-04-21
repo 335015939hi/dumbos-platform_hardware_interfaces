@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1013e330_0b180d17",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-21T07:08:44Z",
+      "side": 1,
+      "message": "Not a big deal because this is just a test, but `(const X509* cert, const string\u0026 subject, bool self_signed)` would be nicer as a signature (add const, remove extra string copy)",
+      "revId": "fcf68526f7ecfaa90f3b223e5d7e5f8a7d94d8b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ef3b77e_4978394b",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-21T07:08:44Z",
+      "side": 1,
+      "message": "super-nit: the \"set_\" prefix feels a bit misleading -- this doesn\u0027t alter a serial blob in an existing object, it creates and returns a new object. Maybe `build_serial_blob` ? (I\u0027d suggest just `serial_blob()` but that would clash with local variable names later.)",
+      "revId": "fcf68526f7ecfaa90f3b223e5d7e5f8a7d94d8b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ac08e56_15636064",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-21T07:08:44Z",
+      "side": 1,
+      "message": "nit: RVO should mean the move is unnecessary (http://go/totw/labs/should-i-return-std-move)",
+      "revId": "fcf68526f7ecfaa90f3b223e5d7e5f8a7d94d8b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24174900_2e73a3c1",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-21T07:08:44Z",
+      "side": 1,
+      "message": "nit: unnecessary copy construction - could have `const Certificate\u0026` and `const string\u0026`?",
+      "revId": "fcf68526f7ecfaa90f3b223e5d7e5f8a7d94d8b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
