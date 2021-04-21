@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b850237e_29eaddc7",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-21T11:04:39Z",
+      "side": 1,
+      "message": "Can you delete it and just leave a comment reserving the number?",
+      "range": {
+        "startLine": 207,
+        "startChar": 7,
+        "endLine": 207,
+        "endChar": 57
+      },
+      "revId": "77c160b56f703875d628a4eafe258ff3cfc4602a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
