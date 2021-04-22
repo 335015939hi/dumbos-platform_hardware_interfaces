@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34d0a8e5_db789097",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-04-22T21:33:01Z",
+      "side": 1,
+      "message": "(currently stuck, please see b/186144950 for a question about stable AIDL - thanks!)",
+      "revId": "c48ec3b483b4a903583ee58dc5835170ee79a8da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
