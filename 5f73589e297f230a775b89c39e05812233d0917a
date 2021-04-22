@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87ee6835_4c3d7b97",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-22T11:43:02Z",
+      "side": 1,
+      "message": "nit: this X509* could be const too",
+      "revId": "5f73589e297f230a775b89c39e05812233d0917a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad95c52e_8ee2070b",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-22T11:43:02Z",
+      "side": 1,
+      "message": "leak?",
+      "revId": "5f73589e297f230a775b89c39e05812233d0917a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39c77d61_e049e5b8",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-22T11:43:02Z",
+      "side": 1,
+      "message": "BN_get_u64() can fail -- assert that the return code is 1?",
+      "revId": "5f73589e297f230a775b89c39e05812233d0917a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c6a0387_2e56f4db",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-22T11:43:02Z",
+      "side": 1,
+      "message": "leak?",
+      "revId": "5f73589e297f230a775b89c39e05812233d0917a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -34,6 +34,24 @@
       "parentUuid": "bfd36f85_88319749",
       "revId": "4f64c22809d12453dab0aab728601359fb720b6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42e66016_39b75857",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-22T11:43:02Z",
+      "side": 0,
+      "message": "Ah, so you\u0027re saying that the other tests (e.g. in AttestKeyTest.cpp) don\u0027t need to check that the default subject is there?",
+      "parentUuid": "331ffd9e_3fd5d655",
+      "revId": "4f64c22809d12453dab0aab728601359fb720b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
