@@ -33,6 +33,23 @@
       "message": "Weird thing is that this worked fine before the change, all I did was to run `m android.hardware.identity-freeze-api`....",
       "revId": "c9cb83667a7cfbbc1e7f8d4e3bac14d98ef91f5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc90ecc6_070f7a62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-04-22T17:43:24Z",
+      "side": 1,
+      "message": "I think this is b/c we also need to freeze keymaster. I\u0027ll include that in this CL.",
+      "revId": "c9cb83667a7cfbbc1e7f8d4e3bac14d98ef91f5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
