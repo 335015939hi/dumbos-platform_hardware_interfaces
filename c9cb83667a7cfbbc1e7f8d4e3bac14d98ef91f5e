@@ -67,6 +67,24 @@
       "message": "Hmm. So this is fishy. aosp/1560549 (Cc jeongik) introduced a dependency on keymaster-V3 I guess in anticipation that there would be a keymaster-V3... but there\u0027s no need for that since there are no changes since keymaster-V2 (so `m android.hardware.keymaster-freeze-api` won\u0027t create one). I\u0027ll change this back to keymaster-V2 and see what happens...",
       "revId": "c9cb83667a7cfbbc1e7f8d4e3bac14d98ef91f5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20539750_addae5cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-04-22T20:38:59Z",
+      "side": 1,
+      "message": "Actually `m android.hardware.keymaster-freeze-api` works just fine so I\u0027ll freeze keymaster at V3 since there\u0027s already other non-AOSP stuff that depends on it.",
+      "parentUuid": "f9b1af16_913cde45",
+      "revId": "c9cb83667a7cfbbc1e7f8d4e3bac14d98ef91f5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
