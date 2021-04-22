@@ -40,7 +40,7 @@ cc_library_static {
         "libpuresoftkeymasterdevice",
         "android.hardware.identity-support-lib",
         "android.hardware.identity-V3-ndk_platform",
-        "android.hardware.keymaster-V3-ndk_platform",
+        "android.hardware.keymaster-V2-ndk_platform",
     ],
 }
 
@@ -101,7 +101,7 @@ cc_binary {
         "libpuresoftkeymasterdevice",
         "android.hardware.identity-support-lib",
         "android.hardware.identity-V3-ndk_platform",
-        "android.hardware.keymaster-V3-ndk_platform",
+        "android.hardware.keymaster-V2-ndk_platform",
         "android.hardware.identity-libeic-hal-common",
         "android.hardware.identity-libeic-library",
     ],
