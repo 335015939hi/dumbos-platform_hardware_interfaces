@@ -41,9 +41,9 @@
 
 // Forward declaration of the mobilenet generated test models in
 // frameworks/ml/nn/runtime/test/generated/.
-namespace generated_tests::mobilenet_224_gender_basic_fixed {
+namespace generated_tests::add {
 const test_helper::TestModel& get_test_model();
-}  // namespace generated_tests::mobilenet_224_gender_basic_fixed
+}  // namespace generated_tests::add
 
 namespace generated_tests::mobilenet_quantized {
 const test_helper::TestModel& get_test_model();
@@ -56,7 +56,7 @@ using implementation::PreparedModelCallback;
 
 namespace float32_model {
 
-constexpr auto get_test_model = generated_tests::mobilenet_224_gender_basic_fixed::get_test_model;
+constexpr auto get_test_model = generated_tests::add::get_test_model;
 
 }  // namespace float32_model
 
@@ -238,6 +238,7 @@ class CompilationCachingTestBase : public testing::Test {
 
         mNumModelCache = numCacheFiles.numModelCache;
         mNumDataCache = numCacheFiles.numDataCache;
+        LOG(INFO) << "test getNumberOfCacheFilesNeeded: " << mNumModelCache << " " << mNumDataCache;
         ASSERT_GE(mNumModelCache, 0) << "Invalid numModelCache: " << mNumModelCache;
         ASSERT_GE(mNumDataCache, 0) << "Invalid numDataCache: " << mNumDataCache;
         mIsCachingSupported = mNumModelCache > 0 || mNumDataCache > 0;
@@ -338,8 +339,8 @@ class CompilationCachingTestBase : public testing::Test {
             LOG(INFO) << "NN VTS: Early termination of test because vendor service cannot "
                          "save the prepared model that it does not support.";
             std::cout << "[          ]   Early termination of test because vendor service cannot "
-                         "save the prepared model that it does not support."
-                      << std::endl;
+                         "save the prepared model that it does not support: "
+                      << status << std::endl;
             return true;
         }
         return false;
@@ -357,16 +358,29 @@ class CompilationCachingTestBase : public testing::Test {
         return false;
     }
 
-    void prepareModelFromCache(const std::vector<ndk::ScopedFileDescriptor>& modelCache,
+    void prepareModelFromCache(const Model& model,
+                               const std::vector<ndk::ScopedFileDescriptor>& modelCache,
                                const std::vector<ndk::ScopedFileDescriptor>& dataCache,
                                std::shared_ptr<IPreparedModel>* preparedModel,
                                ErrorStatus* status) {
+        const bool testingTheShim = true;
+
         // Launch prepare model from cache.
         std::shared_ptr<PreparedModelCallback> preparedModelCallback =
                 ndk::SharedRefBase::make<PreparedModelCallback>();
         std::vector<uint8_t> cacheToken(std::begin(mToken), std::end(mToken));
-        const auto prepareLaunchStatus = kDevice->prepareModelFromCache(
+        auto prepareLaunchStatus = kDevice->prepareModelFromCache(
                 kNoDeadline, modelCache, dataCache, cacheToken, preparedModelCallback);
+
+        // TODO: describe the hack
+        if (!prepareLaunchStatus.isOk() && testingTheShim) {
+            LOG(WARNING) << "prepareModelFromCache: special shim fallback: " << modelCache.size() << " " << dataCache.size();
+            preparedModelCallback = ndk::SharedRefBase::make<PreparedModelCallback>();
+            prepareLaunchStatus = kDevice->prepareModel(
+                    model, ExecutionPreference::FAST_SINGLE_ANSWER, kDefaultPriority, kNoDeadline,
+                    modelCache, dataCache, cacheToken, preparedModelCallback);
+        }
+
         ASSERT_TRUE(prepareLaunchStatus.isOk() ||
                     prepareLaunchStatus.getExceptionCode() == EX_SERVICE_SPECIFIC)
                 << "prepareLaunchStatus: " << prepareLaunchStatus.getDescription();
@@ -418,12 +432,14 @@ class CompilationCachingTest : public CompilationCachingTestBase,
 
 TEST_P(CompilationCachingTest, CacheSavingAndRetrieval) {
     // Create test HIDL model and compile.
+    LOG(WARNING) << "stage: Create test HIDL model and compile.";
     const TestModel& testModel = createTestModel();
     const Model model = createModel(testModel);
     if (checkEarlyTermination(model)) return;
     std::shared_ptr<IPreparedModel> preparedModel = nullptr;
 
     // Save the compilation to cache.
+    LOG(WARNING) << "stage: Save the compilation to cache.";
     {
         std::vector<ndk::ScopedFileDescriptor> modelCache, dataCache;
         createCacheFds(mModelCache, AccessMode::READ_WRITE, &modelCache);
@@ -432,13 +448,14 @@ TEST_P(CompilationCachingTest, CacheSavingAndRetrieval) {
     }
 
     // Retrieve preparedModel from cache.
+    LOG(WARNING) << "stage: Retrieve preparedModel from cache.";
     {
         preparedModel = nullptr;
         ErrorStatus status;
         std::vector<ndk::ScopedFileDescriptor> modelCache, dataCache;
         createCacheFds(mModelCache, AccessMode::READ_WRITE, &modelCache);
         createCacheFds(mDataCache, AccessMode::READ_WRITE, &dataCache);
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (!mIsCachingSupported) {
             ASSERT_EQ(status, ErrorStatus::GENERAL_FAILURE);
             ASSERT_EQ(preparedModel, nullptr);
@@ -453,6 +470,7 @@ TEST_P(CompilationCachingTest, CacheSavingAndRetrieval) {
     }
 
     // Execute and verify results.
+    LOG(WARNING) << "stage: Execute and verify results.";
     EvaluatePreparedModel(kDevice, preparedModel, testModel, /*testKind=*/TestKind::GENERAL);
 }
 
@@ -498,7 +516,7 @@ TEST_P(CompilationCachingTest, CacheSavingAndRetrievalNonZeroOffset) {
         for (uint32_t i = 0; i < dataCache.size(); i++) {
             ASSERT_GE(read(dataCache[i].get(), &placeholderByte, 1), 0);
         }
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (!mIsCachingSupported) {
             ASSERT_EQ(status, ErrorStatus::GENERAL_FAILURE);
             ASSERT_EQ(preparedModel, nullptr);
@@ -538,7 +556,7 @@ TEST_P(CompilationCachingTest, SaveToCacheInvalidNumCache) {
         // Check if prepareModelFromCache fails.
         preparedModel = nullptr;
         ErrorStatus status;
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (status != ErrorStatus::INVALID_ARGUMENT) {
             ASSERT_EQ(status, ErrorStatus::GENERAL_FAILURE);
         }
@@ -562,7 +580,7 @@ TEST_P(CompilationCachingTest, SaveToCacheInvalidNumCache) {
         // Check if prepareModelFromCache fails.
         preparedModel = nullptr;
         ErrorStatus status;
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (status != ErrorStatus::INVALID_ARGUMENT) {
             ASSERT_EQ(status, ErrorStatus::GENERAL_FAILURE);
         }
@@ -585,7 +603,7 @@ TEST_P(CompilationCachingTest, SaveToCacheInvalidNumCache) {
         // Check if prepareModelFromCache fails.
         preparedModel = nullptr;
         ErrorStatus status;
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (status != ErrorStatus::INVALID_ARGUMENT) {
             ASSERT_EQ(status, ErrorStatus::GENERAL_FAILURE);
         }
@@ -609,7 +627,7 @@ TEST_P(CompilationCachingTest, SaveToCacheInvalidNumCache) {
         // Check if prepareModelFromCache fails.
         preparedModel = nullptr;
         ErrorStatus status;
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (status != ErrorStatus::INVALID_ARGUMENT) {
             ASSERT_EQ(status, ErrorStatus::GENERAL_FAILURE);
         }
@@ -640,7 +658,7 @@ TEST_P(CompilationCachingTest, PrepareModelFromCacheInvalidNumCache) {
         createCacheFds(mModelCache, AccessMode::READ_WRITE, &modelCache);
         createCacheFds(mDataCache, AccessMode::READ_WRITE, &dataCache);
         mModelCache.pop_back();
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (status != ErrorStatus::GENERAL_FAILURE) {
             ASSERT_EQ(status, ErrorStatus::INVALID_ARGUMENT);
         }
@@ -657,7 +675,7 @@ TEST_P(CompilationCachingTest, PrepareModelFromCacheInvalidNumCache) {
         createCacheFds(mModelCache, AccessMode::READ_WRITE, &modelCache);
         createCacheFds(mDataCache, AccessMode::READ_WRITE, &dataCache);
         mModelCache.push_back(tmp);
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (status != ErrorStatus::GENERAL_FAILURE) {
             ASSERT_EQ(status, ErrorStatus::INVALID_ARGUMENT);
         }
@@ -673,7 +691,7 @@ TEST_P(CompilationCachingTest, PrepareModelFromCacheInvalidNumCache) {
         createCacheFds(mModelCache, AccessMode::READ_WRITE, &modelCache);
         createCacheFds(mDataCache, AccessMode::READ_WRITE, &dataCache);
         mDataCache.pop_back();
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (status != ErrorStatus::GENERAL_FAILURE) {
             ASSERT_EQ(status, ErrorStatus::INVALID_ARGUMENT);
         }
@@ -690,7 +708,7 @@ TEST_P(CompilationCachingTest, PrepareModelFromCacheInvalidNumCache) {
         createCacheFds(mModelCache, AccessMode::READ_WRITE, &modelCache);
         createCacheFds(mDataCache, AccessMode::READ_WRITE, &dataCache);
         mDataCache.push_back(tmp);
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (status != ErrorStatus::GENERAL_FAILURE) {
             ASSERT_EQ(status, ErrorStatus::INVALID_ARGUMENT);
         }
@@ -721,7 +739,7 @@ TEST_P(CompilationCachingTest, SaveToCacheInvalidAccessMode) {
         // Check if prepareModelFromCache fails.
         preparedModel = nullptr;
         ErrorStatus status;
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (status != ErrorStatus::INVALID_ARGUMENT) {
             ASSERT_EQ(status, ErrorStatus::GENERAL_FAILURE);
         }
@@ -743,7 +761,7 @@ TEST_P(CompilationCachingTest, SaveToCacheInvalidAccessMode) {
         // Check if prepareModelFromCache fails.
         preparedModel = nullptr;
         ErrorStatus status;
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         if (status != ErrorStatus::INVALID_ARGUMENT) {
             ASSERT_EQ(status, ErrorStatus::GENERAL_FAILURE);
         }
@@ -776,7 +794,7 @@ TEST_P(CompilationCachingTest, PrepareModelFromCacheInvalidAccessMode) {
         createCacheFds(mModelCache, modelCacheMode, &modelCache);
         createCacheFds(mDataCache, dataCacheMode, &dataCache);
         modelCacheMode[i] = AccessMode::READ_WRITE;
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         ASSERT_EQ(status, ErrorStatus::GENERAL_FAILURE);
         ASSERT_EQ(preparedModel, nullptr);
     }
@@ -790,7 +808,7 @@ TEST_P(CompilationCachingTest, PrepareModelFromCacheInvalidAccessMode) {
         createCacheFds(mModelCache, modelCacheMode, &modelCache);
         createCacheFds(mDataCache, dataCacheMode, &dataCache);
         dataCacheMode[i] = AccessMode::READ_WRITE;
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
         ASSERT_EQ(status, ErrorStatus::GENERAL_FAILURE);
         ASSERT_EQ(preparedModel, nullptr);
     }
@@ -872,7 +890,7 @@ TEST_P(CompilationCachingTest, SaveToCache_TOCTOU) {
             std::vector<ndk::ScopedFileDescriptor> modelCache, dataCache;
             createCacheFds(mModelCache, AccessMode::READ_WRITE, &modelCache);
             createCacheFds(mDataCache, AccessMode::READ_WRITE, &dataCache);
-            prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+            prepareModelFromCache(modelAdd, modelCache, dataCache, &preparedModel, &status);
 
             // The preparation may fail or succeed, but must not crash. If the preparation succeeds,
             // the prepared model must be executed with the correct result and not crash.
@@ -933,7 +951,7 @@ TEST_P(CompilationCachingTest, PrepareFromCache_TOCTOU) {
 
             // Spawn a thread to copy the cache content concurrently while preparing from cache.
             std::thread thread(copyCacheFiles, std::cref(modelCacheMul), std::cref(mModelCache));
-            prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+            prepareModelFromCache(modelAdd, modelCache, dataCache, &preparedModel, &status);
             thread.join();
 
             // The preparation may fail or succeed, but must not crash. If the preparation succeeds,
@@ -993,7 +1011,7 @@ TEST_P(CompilationCachingTest, ReplaceSecuritySensitiveCache) {
         std::vector<ndk::ScopedFileDescriptor> modelCache, dataCache;
         createCacheFds(mModelCache, AccessMode::READ_WRITE, &modelCache);
         createCacheFds(mDataCache, AccessMode::READ_WRITE, &dataCache);
-        prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+        prepareModelFromCache(modelMul, modelCache, dataCache, &preparedModel, &status);
         ASSERT_EQ(status, ErrorStatus::GENERAL_FAILURE);
         ASSERT_EQ(preparedModel, nullptr);
     }
@@ -1098,7 +1116,7 @@ class CompilationCachingSecurityTest
             std::vector<ndk::ScopedFileDescriptor> modelCache, dataCache;
             createCacheFds(mModelCache, AccessMode::READ_WRITE, &modelCache);
             createCacheFds(mDataCache, AccessMode::READ_WRITE, &dataCache);
-            prepareModelFromCache(modelCache, dataCache, &preparedModel, &status);
+            prepareModelFromCache(model, modelCache, dataCache, &preparedModel, &status);
 
             switch (expected) {
                 case ExpectedResult::GENERAL_FAILURE:
