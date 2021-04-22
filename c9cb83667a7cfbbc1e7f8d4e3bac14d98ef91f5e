@@ -16,6 +16,23 @@
       "message": "Actually stay tuned, this doesn\u0027t work... investigating\n\n```\nerror: hardware/interfaces/identity/aidl/default/Android.bp:10:1: module \"android.hardware.identity-libeic-hal-common\" variant \"android_x86_64_static\": depends on multiple versions of the same aidl_interface: android.hardware.keymaster-V2-ndk_platform, android.hardware.keymaster-V3-ndk_platform\nerror: hardware/interfaces/identity/aidl/default/Android.bp:10:1: module \"android.hardware.identity-libeic-hal-common\" variant \"android_x86_64_static\": Dependency path:\n           via tag cc.libraryDependencyTag: { Kind:staticLibraryDependency Order:normalLibraryDependency wholeStatic:false reexportFlags:false explicitlyVersioned:false dataLib:false ndk:false staticUnwinder:false makeSuffix: skipApexAllowedDependenciesCheck:false excludeInApex:false}\n    -\u003e android.hardware.identity-V3-ndk_platform{os:android,image:,arch:x86_64,sdk:,link:static}\n           via tag cc.libraryDependencyTag: { Kind:sharedLibraryDependency Order:normalLibraryDependency wholeStatic:false reexportFlags:true explicitlyVersioned:false dataLib:false ndk:false staticUnwinder:false makeSuffix: skipApexAllowedDependenciesCheck:false excludeInApex:false}\n    -\u003e android.hardware.keymaster-V2-ndk_platform{os:android,image:,arch:x86_64,sdk:,link:shared,version:}\nerror: hardware/interfaces/identity/aidl/default/Android.bp:10:1: module \"android.hardware.identity-libeic-hal-common\" variant \"android_x86_64_static\": Dependency path:\n           via tag cc.libraryDependencyTag: { Kind:staticLibraryDependency Order:normalLibraryDependency wholeStatic:false reexportFlags:false explicitlyVersioned:false dataLib:false ndk:false staticUnwinder:false makeSuffix: skipApexAllowedDependenciesCheck:false excludeInApex:false}\n    -\u003e android.hardware.keymaster-V3-ndk_platform{os:android,image:,arch:x86_64,sdk:,link:static}\n13:30:09 soong bootstrap failed with: exit status 1\n\n#### failed to build some targets (35 seconds) ####\n```",
       "revId": "c9cb83667a7cfbbc1e7f8d4e3bac14d98ef91f5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74f1b680_99e2ee84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-04-22T17:39:12Z",
+      "side": 1,
+      "message": "Weird thing is that this worked fine before the change, all I did was to run `m android.hardware.identity-freeze-api`....",
+      "revId": "c9cb83667a7cfbbc1e7f8d4e3bac14d98ef91f5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
