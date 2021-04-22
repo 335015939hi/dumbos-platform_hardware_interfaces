@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f1607ed_dd80b8d3",
+        "filename": "atrace/1.0/default/AtraceDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-04-22T22:13:30Z",
+      "side": 1,
+      "message": "Yes, this has always been true.",
+      "parentUuid": "8a8bdb0c_11efeecc",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 88
+      },
+      "revId": "ac3ab0db8f1babfe8ae09569cbfcbc9527a92a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87fef6c6_c873e8bd",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-22T16:51:13Z",
       "side": 1,
       "message": "nit: this codebase seems to be using camel case",
+      "range": {
+        "startLine": 86,
+        "startChar": 28,
+        "endLine": 86,
+        "endChar": 53
+      },
+      "revId": "ac3ab0db8f1babfe8ae09569cbfcbc9527a92a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6592872_f9423e97",
+        "filename": "atrace/1.0/default/AtraceDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-04-22T22:13:30Z",
+      "side": 1,
+      "message": "Ah thanks for catching that Steven, I have tried to make everything use lower case in PS2 instead.",
+      "parentUuid": "87fef6c6_c873e8bd",
       "range": {
         "startLine": 86,
         "startChar": 28,
