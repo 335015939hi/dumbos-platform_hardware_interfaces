@@ -16,6 +16,24 @@
       "message": "You can name the test xml to AndroidTest.xml, then you don\u0027t need this line.",
       "revId": "1f3312ce04cb7a80220dcf6539281b46d68b8ea6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcc6c8aa_08260f25",
+        "filename": "bluetooth/1.1/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-04-23T17:23:55Z",
+      "side": 1,
+      "message": "I don\u0027t mind it being explicit.  Would you like it to be changed before it\u0027s merged?",
+      "parentUuid": "a5167c21_0727d350",
+      "revId": "1f3312ce04cb7a80220dcf6539281b46d68b8ea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
