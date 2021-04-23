@@ -16,6 +16,24 @@
       "message": "I believe the build will fail because the hashes in current.txt need to be updated",
       "revId": "ba2277dd6b86afd5e3f527f5df42ac5f416d368e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91ae95b6_04b52384",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018687
+      },
+      "writtenOn": "2021-04-23T15:27:24Z",
+      "side": 1,
+      "message": "Sorry, missed this, done.",
+      "parentUuid": "e3ef2f90_c2f16a00",
+      "revId": "ba2277dd6b86afd5e3f527f5df42ac5f416d368e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
