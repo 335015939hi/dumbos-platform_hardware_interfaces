@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0dbeb1c_d09db726",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "nit: s/varify it/verify they/",
+      "revId": "fb51e2fed34f28e8c4e839dab5e4eef617c7a9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4758b76_7c26214c",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "nit: it would be nice to be consistent about whether local variables are re-used (attested_key_characteristics, hw_enforced,...) or not (hw_enforced2).",
+      "revId": "fb51e2fed34f28e8c4e839dab5e4eef617c7a9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee9a88e3_68af09c9",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "nit: \"creates an RSA attestion key .. and verifies..\"",
+      "revId": "fb51e2fed34f28e8c4e839dab5e4eef617c7a9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19daaf99_c39c6263",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "s/atteston/attestation/",
+      "revId": "fb51e2fed34f28e8c4e839dab5e4eef617c7a9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f223666_56977a20",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "I skipped this chunk assuming that it will disappear in the merge conflict resolution",
+      "revId": "fb51e2fed34f28e8c4e839dab5e4eef617c7a9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dab62d51_96e7d90d",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "Just to check my understanding, would:\n\n  verify_subject_and_serial(attest_key_cert_chain[0], serial_int, subject, /* self_signed\u003d */ true);\n\nwork here?",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a724000_57705e3d",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "nit: re-use subject_der from above so the names don\u0027t need to be kept in sync",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d001c2da_ed1495a1",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "Maybe use a different subject+serial for the second key?",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d3862b1_cf165237",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "Idle thought: could move this into the loop and have distinct subject/serial for each key?  Not sure if that tests anything new though.",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc977e66_09435a81",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "nit: use a constant for 6 (in 4 places)",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea05dbca_91364be6",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "move comment into if block, something like \"For keys other than the first, attestation by itself...\"",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0ad3956_623731c1",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "Same comments as for Rsa case",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d5ef840_2ba0cc08",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6460a662_46e703ae",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "(same comments as above)",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96353c12_8b9bda85",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:39:11Z",
+      "side": 1,
+      "message": "nit: would it be possible to reduce copy-pasta by doing all of the AuthorizationSetBuilder stuff in common, except for the .{Ecdsa,Rsa}SigningKey() part?",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
