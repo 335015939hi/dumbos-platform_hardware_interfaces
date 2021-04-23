@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5924e831_3412e76f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T15:53:13Z",
+      "side": 1,
+      "message": "+smoreland@ for API review please.\n\nThere is one failing TreeHugger test, which involves the OTA of a Cuttlefish device and which can\u0027t be made to pass:\n\n - The OTA process for Cuttlefish has a limitation that it can\u0027t update /vendor.\n - This means that for this CL the OTA process ends up with the HAL out of sync: /system has the new version, /vendor implements the old.\n - This causes a crash in /vendor/bin/hw/android.hardware.security.keymint-service after reboot, so the OTA fails.\n     - The specific cause in this CL is the removal of the performOperation() entrypoint.\n\nIt doesn\u0027t seem worth investigating the crash (wild speculation: some HAL-versioning related dlsym() shenanigans?), as no real devices have an implementation of the KeyMint HAL yet.  \n\n(However, from an abundance of caution we will run an OTA including this topic on a real device before submitting.)\n\nzhangkelvin@ : please correct if I\u0027ve misunderstood anything you explained about the OTA stuff, and thanks for your help",
+      "revId": "56ba912b30e91a2c20174f693c4e2b0d634cfb90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d7dacab_5e0f0d36",
