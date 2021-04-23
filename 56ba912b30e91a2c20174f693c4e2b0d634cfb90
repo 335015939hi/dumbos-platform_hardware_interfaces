@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d7dacab_5e0f0d36",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-23T15:06:25Z",
+      "side": 1,
+      "message": "authToken",
+      "range": {
+        "startLine": 713,
+        "startChar": 14,
+        "endLine": 713,
+        "endChar": 25
+      },
+      "revId": "56ba912b30e91a2c20174f693c4e2b0d634cfb90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e84b55a3_2c1f94eb",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
         "patchSetId": 6
