@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e84b55a3_2c1f94eb",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-23T07:26:06Z",
+      "side": 1,
+      "message": "perhaps we need to define this as reserved instead of comment?",
+      "range": {
+        "startLine": 206,
+        "startChar": 6,
+        "endLine": 206,
+        "endChar": 23
+      },
+      "revId": "56ba912b30e91a2c20174f693c4e2b0d634cfb90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "62c47256_205fcf07",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 6
