@@ -34,6 +34,24 @@
       "parentUuid": "a5167c21_0727d350",
       "revId": "1f3312ce04cb7a80220dcf6539281b46d68b8ea6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84c0e978_4484d56f",
+        "filename": "bluetooth/1.1/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2021-04-23T17:29:49Z",
+      "side": 1,
+      "message": "no preference, just fyi.",
+      "parentUuid": "dcc6c8aa_08260f25",
+      "revId": "1f3312ce04cb7a80220dcf6539281b46d68b8ea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
