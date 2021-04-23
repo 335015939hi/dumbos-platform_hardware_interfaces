@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62c47256_205fcf07",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-23T07:23:02Z",
+      "side": 1,
+      "message": "we should have at least some test that test with a auth token passed in.",
+      "range": {
+        "startLine": 368,
+        "startChar": 78,
+        "endLine": 368,
+        "endChar": 85
+      },
+      "revId": "56ba912b30e91a2c20174f693c4e2b0d634cfb90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
