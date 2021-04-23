@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a0dfed30_83c0526c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T08:40:22Z",
+      "side": 1,
+      "message": "LGTM, just nitty things",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "dab62d51_96e7d90d",
         "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
         "patchSetId": 2
