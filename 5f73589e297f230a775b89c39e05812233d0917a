@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b15bca6b_bd530cad",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-23T07:53:08Z",
+      "side": 1,
+      "message": "Little known fact: \"OpenSSL\" is an expletive in 17 languages.",
+      "parentUuid": "44298d4e_c3323267",
+      "revId": "5f73589e297f230a775b89c39e05812233d0917a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad95c52e_8ee2070b",
