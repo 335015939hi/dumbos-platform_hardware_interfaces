@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5e85b2e_07b018b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-04-23T00:14:59Z",
+      "side": 1,
+      "message": "Can you share more details? Maybe edit the bug or the commit message?\n\nWhy should we not use libgtest_prod?\nWhy do we need these headers instead of the regular gtest headers?",
+      "revId": "cb1036a353ebb0bf9ef1b04691306c1264487145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
