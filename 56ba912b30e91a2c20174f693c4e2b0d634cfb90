@@ -93,6 +93,30 @@
       },
       "revId": "56ba912b30e91a2c20174f693c4e2b0d634cfb90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7fdd08f_8c8ec7a6",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-23T07:53:00Z",
+      "side": 1,
+      "message": "yea, but it seems like you suddently removed all of them. We should add at least 1 or 2 for it, either in this cl or the next cl.",
+      "parentUuid": "6e07fe09_0c47eb29",
+      "range": {
+        "startLine": 368,
+        "startChar": 78,
+        "endLine": 368,
+        "endChar": 85
+      },
+      "revId": "56ba912b30e91a2c20174f693c4e2b0d634cfb90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
