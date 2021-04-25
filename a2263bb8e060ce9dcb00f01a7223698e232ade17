@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "731b20df_3e78c5d7",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "this function is called on line 198 already.  And it is not self signed because it is factory signed in this test.",
+      "parentUuid": "dab62d51_96e7d90d",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a724000_57705e3d",
@@ -52,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8b2165c_651164d0",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a724000_57705e3d",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d001c2da_ed1495a1",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-04-23T08:39:11Z",
       "side": 1,
       "message": "Maybe use a different subject+serial for the second key?",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98292d2a_1b4edba0",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d001c2da_ed1495a1",
       "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -103,6 +157,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38f52ec7_4a334d74",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc977e66_09435a81",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea05dbca_91364be6",
@@ -120,6 +192,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d43e377_5c5fc132",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea05dbca_91364be6",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0ad3956_623731c1",
@@ -133,6 +223,24 @@
       "writtenOn": "2021-04-23T08:39:11Z",
       "side": 1,
       "message": "Same comments as for Rsa case",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "200868bd_738db0b0",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0ad3956_623731c1",
       "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -171,6 +279,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7905d4e_91ff0fd9",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6460a662_46e703ae",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96353c12_8b9bda85",
@@ -184,6 +310,24 @@
       "writtenOn": "2021-04-23T08:39:11Z",
       "side": 1,
       "message": "nit: would it be possible to reduce copy-pasta by doing all of the AuthorizationSetBuilder stuff in common, except for the .{Ecdsa,Rsa}SigningKey() part?",
+      "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28df21df_2416335b",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "you need separate variables either way. So it\u0027s making a copy vs this.  I think this is ok and straight forward.",
+      "parentUuid": "96353c12_8b9bda85",
       "revId": "a2263bb8e060ce9dcb00f01a7223698e232ade17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

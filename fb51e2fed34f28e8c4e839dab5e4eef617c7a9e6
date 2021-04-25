@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b16f250c_3f2b9de5",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0dbeb1c_d09db726",
+      "revId": "fb51e2fed34f28e8c4e839dab5e4eef617c7a9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4758b76_7c26214c",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-04-23T08:39:11Z",
       "side": 1,
       "message": "nit: it would be nice to be consistent about whether local variables are re-used (attested_key_characteristics, hw_enforced,...) or not (hw_enforced2).",
+      "revId": "fb51e2fed34f28e8c4e839dab5e4eef617c7a9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47068e70_92e9a238",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4758b76_7c26214c",
       "revId": "fb51e2fed34f28e8c4e839dab5e4eef617c7a9e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5ec4082_41fc0a3d",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee9a88e3_68af09c9",
+      "revId": "fb51e2fed34f28e8c4e839dab5e4eef617c7a9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19daaf99_c39c6263",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-04-23T08:39:11Z",
       "side": 1,
       "message": "s/atteston/attestation/",
+      "revId": "fb51e2fed34f28e8c4e839dab5e4eef617c7a9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cefed32_c0a9854e",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T05:44:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19daaf99_c39c6263",
       "revId": "fb51e2fed34f28e8c4e839dab5e4eef617c7a9e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
