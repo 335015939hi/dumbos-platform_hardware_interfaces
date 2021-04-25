@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dc4d54b_d7c9a153",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2021-04-25T06:01:56Z",
+      "side": 1,
+      "message": "this doesn\u0027t do anything, and I already checked that aes doesn\u0027t return a certificate, so might as well delete this and make sure the most basic tests works.",
+      "range": {
+        "startLine": 400,
+        "startChar": 39,
+        "endLine": 401,
+        "endChar": 72
+      },
+      "revId": "ae18289cd25b107d2a61cb1eb3b4cef192a54f41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
