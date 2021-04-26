@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e48e57d_0f27fd75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-04-26T23:13:47Z",
+      "side": 1,
+      "message": "Sorry Steven, we are trying to land aosp/1679847 which is a super set of this CL. I will abandon this chain.",
+      "revId": "a385356d8065bbf7c71a66b85f9328c98ad67394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
