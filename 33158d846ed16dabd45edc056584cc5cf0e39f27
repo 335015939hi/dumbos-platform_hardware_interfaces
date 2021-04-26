@@ -16,6 +16,23 @@
       "message": "Note: this protocol can\u0027t be implemented in the Jetpack due to lack of ECDH support (in the Jetpack case, CredentialKey is an Android Keystore key). This problem can be fixed by using an ephemeral key on the device side (signed by CredentialKey) and using ECDH on that (since that ephemeral key wouldn\u0027t be an Android Keystore key).\n\n",
       "revId": "33158d846ed16dabd45edc056584cc5cf0e39f27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18ca710d_197641c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-04-26T21:38:38Z",
+      "side": 1,
+      "message": "David - just noticing this. It is past the API freeze date. Is this for Android S? If so, please send an email",
+      "revId": "33158d846ed16dabd45edc056584cc5cf0e39f27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
