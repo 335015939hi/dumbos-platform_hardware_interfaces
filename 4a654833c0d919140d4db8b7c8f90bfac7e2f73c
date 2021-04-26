@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc84d893_2ee056d9",
+        "filename": "graphics/composer/2.4/vts/functional/VtsHalGraphicsComposerV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2021-04-26T19:03:27Z",
+      "side": 1,
+      "message": "Done - see aosp/1686817",
+      "parentUuid": "9da89ee3_1cb9c38e",
+      "range": {
+        "startLine": 74,
+        "startChar": 68,
+        "endLine": 74,
+        "endChar": 73
+      },
+      "revId": "4a654833c0d919140d4db8b7c8f90bfac7e2f73c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53ddc239_b6d2f681",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-26T17:31:41Z",
       "side": 1,
       "message": "delete",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 12
+      },
+      "revId": "4a654833c0d919140d4db8b7c8f90bfac7e2f73c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b5531fd_7bf37155",
+        "filename": "graphics/composer/2.4/vts/functional/VtsHalGraphicsComposerV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2021-04-26T19:03:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "53ddc239_b6d2f681",
       "range": {
         "startLine": 81,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fecc2a5_6c056244",
+        "filename": "graphics/composer/2.4/vts/functional/VtsHalGraphicsComposerV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2021-04-26T19:03:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ce1d5b11_1f70c96b",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 12
+      },
+      "revId": "4a654833c0d919140d4db8b7c8f90bfac7e2f73c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbaa0841_a6b8d3c0",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b39f6a4f_d11229e1",
+        "filename": "graphics/composer/2.4/vts/functional/VtsHalGraphicsComposerV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2021-04-26T19:03:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fbaa0841_a6b8d3c0",
+      "range": {
+        "startLine": 201,
+        "startChar": 12,
+        "endLine": 201,
+        "endChar": 37
+      },
+      "revId": "4a654833c0d919140d4db8b7c8f90bfac7e2f73c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73611fcd_b7664ae6",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-04-26T17:31:41Z",
       "side": 1,
       "message": "VtsDisplay",
+      "range": {
+        "startLine": 325,
+        "startChar": 9,
+        "endLine": 325,
+        "endChar": 20
+      },
+      "revId": "4a654833c0d919140d4db8b7c8f90bfac7e2f73c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "392ce289_0b82e877",
+        "filename": "graphics/composer/2.4/vts/functional/VtsHalGraphicsComposerV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2021-04-26T19:03:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "73611fcd_b7664ae6",
       "range": {
         "startLine": 325,
         "startChar": 9,
