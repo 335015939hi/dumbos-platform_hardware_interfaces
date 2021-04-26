@@ -36,6 +36,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dd8c7ba_527491a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-26T11:00:59Z",
+      "side": 1,
+      "message": "OTA-ed on a Pixel 4 successfully.\n\n- I first updated from a droidfood build (`flame-userdebug S TP1A.210416.002 7288137 dev-keys`) to a clean sc-dev build (`flame-userdebug S MASTER eng.drysda.20210426.075448 dev-keys`).\n- I then updated from there to an sc-dev build with this topic applied (`flame-userdebug S MASTER eng.drysda.20210426.103152 dev-keys`)",
+      "revId": "56ba912b30e91a2c20174f693c4e2b0d634cfb90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d7dacab_5e0f0d36",
