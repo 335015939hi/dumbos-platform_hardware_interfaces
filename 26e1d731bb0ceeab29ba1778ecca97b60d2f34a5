@@ -33,6 +33,24 @@
       "message": "Please set Autosubmit vote +1 ",
       "revId": "26e1d731bb0ceeab29ba1778ecca97b60d2f34a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad6d1df5_6b1a1c88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2021-04-26T22:02:55Z",
+      "side": 1,
+      "message": "What does this mean:\nWe were unable to auto-submit your change due to the following error: Could not find workplan L92600000870127471 in fingerprinting database.\n\n?",
+      "parentUuid": "6b8d0140_e28a235a",
+      "revId": "26e1d731bb0ceeab29ba1778ecca97b60d2f34a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
