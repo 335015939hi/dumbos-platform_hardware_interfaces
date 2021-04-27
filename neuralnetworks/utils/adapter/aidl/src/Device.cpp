@@ -122,8 +122,9 @@ nn::GeneralResult<DeviceBuffer> allocate(const nn::IDevice& device, const Buffer
 
 nn::GeneralResult<std::vector<bool>> getSupportedOperations(const nn::IDevice& device,
                                                             const Model& model) {
-    const auto nnModel = NN_TRY(convertInput(model));
-    return device.getSupportedOperations(nnModel);
+    auto nnModel = NN_TRY(convertInput(model));
+    const auto validModel = nn::valid::Model::make(std::move(nnModel)).value();
+    return device.getSupportedOperations(validModel);
 }
 
 using PrepareModelResult = nn::GeneralResult<nn::SharedPreparedModel>;
@@ -160,6 +161,7 @@ nn::GeneralResult<void> prepareModel(const nn::SharedDevice& device, const Execu
     }
 
     auto nnModel = NN_TRY(convertInput(model));
+    auto validModel = nn::valid::Model::make(std::move(nnModel)).value();
     const auto nnPreference = NN_TRY(convertInput(preference));
     const auto nnPriority = NN_TRY(convertInput(priority));
     const auto nnDeadline = NN_TRY(makeOptionalTimePoint(deadlineNs));
@@ -167,10 +169,10 @@ nn::GeneralResult<void> prepareModel(const nn::SharedDevice& device, const Execu
     auto nnDataCache = NN_TRY(convertInput(dataCache));
     const auto nnToken = NN_TRY(convertCacheToken(token));
 
-    Task task = [device, nnModel = std::move(nnModel), nnPreference, nnPriority, nnDeadline,
+    Task task = [device, validModel = std::move(validModel), nnPreference, nnPriority, nnDeadline,
                  nnModelCache = std::move(nnModelCache), nnDataCache = std::move(nnDataCache),
                  nnToken, callback] {
-        auto result = device->prepareModel(nnModel, nnPreference, nnPriority, nnDeadline,
+        auto result = device->prepareModel(validModel, nnPreference, nnPriority, nnDeadline,
                                            nnModelCache, nnDataCache, nnToken);
         notify(callback.get(), std::move(result));
     };

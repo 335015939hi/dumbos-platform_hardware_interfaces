@@ -61,11 +61,12 @@ class Device final : public nn::IDevice {
     nn::GeneralResult<void> wait() const override;
 
     nn::GeneralResult<std::vector<bool>> getSupportedOperations(
-            const nn::Model& model) const override;
+            const nn::valid::Model& model) const override;
 
     nn::GeneralResult<nn::SharedPreparedModel> prepareModel(
-            const nn::Model& model, nn::ExecutionPreference preference, nn::Priority priority,
-            nn::OptionalTimePoint deadline, const std::vector<nn::SharedHandle>& modelCache,
+            const nn::valid::Model& model, nn::ExecutionPreference preference,
+            nn::Priority priority, nn::OptionalTimePoint deadline,
+            const std::vector<nn::SharedHandle>& modelCache,
             const std::vector<nn::SharedHandle>& dataCache,
             const nn::CacheToken& token) const override;
 
