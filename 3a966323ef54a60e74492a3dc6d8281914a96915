@@ -34,6 +34,24 @@
       "parentUuid": "df662365_d7ba3144",
       "revId": "3a966323ef54a60e74492a3dc6d8281914a96915",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00b46318_4177b962",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-04-27T22:45:36Z",
+      "side": 1,
+      "message": "I agree with Steven. We\u0027d better introduce proper default values before we have a snapshot of it? btw, it would be another change.",
+      "parentUuid": "91dcf617_da2e0eab",
+      "revId": "3a966323ef54a60e74492a3dc6d8281914a96915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
