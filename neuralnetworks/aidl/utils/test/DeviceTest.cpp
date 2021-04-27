@@ -42,16 +42,21 @@ using ::testing::Invoke;
 using ::testing::InvokeWithoutArgs;
 using ::testing::SetArgPointee;
 
-const nn::Model kSimpleModel = {
-        .main = {.operands = {{.type = nn::OperandType::TENSOR_FLOAT32,
-                               .dimensions = {1},
-                               .lifetime = nn::Operand::LifeTime::SUBGRAPH_INPUT},
-                              {.type = nn::OperandType::TENSOR_FLOAT32,
-                               .dimensions = {1},
-                               .lifetime = nn::Operand::LifeTime::SUBGRAPH_OUTPUT}},
-                 .operations = {{.type = nn::OperationType::RELU, .inputs = {0}, .outputs = {1}}},
-                 .inputIndexes = {0},
-                 .outputIndexes = {1}}};
+nn::valid::Model makeSimpleModel() {
+    nn::Model model = {.main = {.operands = {{.type = nn::OperandType::TENSOR_FLOAT32,
+                                              .dimensions = {1},
+                                              .lifetime = nn::Operand::LifeTime::SUBGRAPH_INPUT},
+                                             {.type = nn::OperandType::TENSOR_FLOAT32,
+                                              .dimensions = {1},
+                                              .lifetime = nn::Operand::LifeTime::SUBGRAPH_OUTPUT}},
+                                .operations = {{.type = nn::OperationType::RELU,
+                                                .inputs = {0},
+                                                .outputs = {1}}},
+                                .inputIndexes = {0},
+                                .outputIndexes = {1}}};
+    return nn::valid::Model::make(std::move(model)).value();
+}
+const nn::valid::Model kSimpleModel = makeSimpleModel();
 
 const std::string kName = "Google-MockV1";
 const std::string kInvalidName = "";
@@ -515,7 +520,7 @@ TEST_P(DeviceTest, getSupportedOperations) {
     EXPECT_CALL(*mockDevice, getSupportedOperations(_, _))
             .Times(1)
             .WillOnce(DoAll(
-                    SetArgPointee<1>(std::vector<bool>(kSimpleModel.main.operations.size(), true)),
+                    SetArgPointee<1>(std::vector<bool>(kSimpleModel->main.operations.size(), true)),
                     InvokeWithoutArgs(makeStatusOk)));
 
     // run test
@@ -525,7 +530,7 @@ TEST_P(DeviceTest, getSupportedOperations) {
     ASSERT_TRUE(result.has_value())
             << "Failed with " << result.error().code << ": " << result.error().message;
     const auto& supportedOperations = result.value();
-    EXPECT_EQ(supportedOperations.size(), kSimpleModel.main.operations.size());
+    EXPECT_EQ(supportedOperations.size(), kSimpleModel->main.operations.size());
     EXPECT_THAT(supportedOperations, Each(testing::IsTrue()));
 }
 

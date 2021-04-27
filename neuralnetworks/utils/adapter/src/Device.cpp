@@ -124,8 +124,9 @@ void notify(CallbackType* callback, PrepareModelResult result, Executor executor
 template <typename ModelType>
 nn::GeneralResult<hidl_vec<bool>> getSupportedOperations(const nn::SharedDevice& device,
                                                          const ModelType& model) {
-    const auto nnModel = NN_TRY(convertInput(model));
-    return NN_TRY(device->getSupportedOperations(nnModel));
+    auto nnModel = NN_TRY(convertInput(model));
+    const auto validModel = nn::valid::Model::make(std::move(nnModel)).value();
+    return NN_TRY(device->getSupportedOperations(validModel));
 }
 
 nn::GeneralResult<void> prepareModel(const nn::SharedDevice& device, const Executor& executor,
@@ -136,10 +137,11 @@ nn::GeneralResult<void> prepareModel(const nn::SharedDevice& device, const Execu
     }
 
     auto nnModel = NN_TRY(convertInput(model));
+    auto validModel = nn::valid::Model::make(std::move(nnModel)).value();
 
     const uid_t userId = hardware::IPCThreadState::self()->getCallingUid();
-    Task task = [device, nnModel = std::move(nnModel), userId, executor, callback] {
-        auto result = device->prepareModel(nnModel, nn::ExecutionPreference::DEFAULT,
+    Task task = [device, validModel = std::move(validModel), userId, executor, callback] {
+        auto result = device->prepareModel(validModel, nn::ExecutionPreference::DEFAULT,
                                            nn::Priority::DEFAULT, {}, {}, {}, {});
         notify(callback.get(), std::move(result), executor, userId);
     };
@@ -157,12 +159,14 @@ nn::GeneralResult<void> prepareModel_1_1(const nn::SharedDevice& device, const E
     }
 
     auto nnModel = NN_TRY(convertInput(model));
+    auto validModel = nn::valid::Model::make(std::move(nnModel)).value();
     const auto nnPreference = NN_TRY(convertInput(preference));
 
     const uid_t userId = hardware::IPCThreadState::self()->getCallingUid();
-    Task task = [device, nnModel = std::move(nnModel), nnPreference, userId, executor, callback] {
-        auto result =
-                device->prepareModel(nnModel, nnPreference, nn::Priority::DEFAULT, {}, {}, {}, {});
+    Task task = [device, validModel = std::move(validModel), nnPreference, userId, executor,
+                 callback] {
+        auto result = device->prepareModel(validModel, nnPreference, nn::Priority::DEFAULT, {}, {},
+                                           {}, {});
         notify(callback.get(), std::move(result), executor, userId);
     };
     executor(std::move(task), userId, {});
@@ -182,16 +186,17 @@ nn::GeneralResult<void> prepareModel_1_2(const nn::SharedDevice& device, const E
     }
 
     auto nnModel = NN_TRY(convertInput(model));
+    auto validModel = nn::valid::Model::make(std::move(nnModel)).value();
     const auto nnPreference = NN_TRY(convertInput(preference));
     auto nnModelCache = NN_TRY(convertInput(modelCache));
     auto nnDataCache = NN_TRY(convertInput(dataCache));
     const auto nnToken = nn::CacheToken(token);
 
     const uid_t userId = hardware::IPCThreadState::self()->getCallingUid();
-    Task task = [device, nnModel = std::move(nnModel), nnPreference,
+    Task task = [device, validModel = std::move(validModel), nnPreference,
                  nnModelCache = std::move(nnModelCache), nnDataCache = std::move(nnDataCache),
                  nnToken, userId, executor, callback] {
-        auto result = device->prepareModel(nnModel, nnPreference, nn::Priority::DEFAULT, {},
+        auto result = device->prepareModel(validModel, nnPreference, nn::Priority::DEFAULT, {},
                                            nnModelCache, nnDataCache, nnToken);
         notify(callback.get(), std::move(result), executor, userId);
     };
@@ -211,6 +216,7 @@ nn::GeneralResult<void> prepareModel_1_3(
     }
 
     auto nnModel = NN_TRY(convertInput(model));
+    auto validModel = nn::valid::Model::make(std::move(nnModel)).value();
     const auto nnPreference = NN_TRY(convertInput(preference));
     const auto nnPriority = NN_TRY(convertInput(priority));
     const auto nnDeadline = NN_TRY(convertInput(deadline));
@@ -219,10 +225,10 @@ nn::GeneralResult<void> prepareModel_1_3(
     const auto nnToken = nn::CacheToken(token);
 
     const uid_t userId = hardware::IPCThreadState::self()->getCallingUid();
-    Task task = [device, nnModel = std::move(nnModel), nnPreference, nnPriority, nnDeadline,
+    Task task = [device, validModel = std::move(validModel), nnPreference, nnPriority, nnDeadline,
                  nnModelCache = std::move(nnModelCache), nnDataCache = std::move(nnDataCache),
                  nnToken, userId, executor, callback] {
-        auto result = device->prepareModel(nnModel, nnPreference, nnPriority, nnDeadline,
+        auto result = device->prepareModel(validModel, nnPreference, nnPriority, nnDeadline,
                                            nnModelCache, nnDataCache, nnToken);
         notify(callback.get(), std::move(result), executor, userId);
     };

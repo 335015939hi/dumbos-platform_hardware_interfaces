@@ -34,10 +34,10 @@ class MockDevice final : public IDevice {
     MOCK_METHOD((std::pair<uint32_t, uint32_t>), getNumberOfCacheFilesNeeded, (),
                 (const, override));
     MOCK_METHOD(GeneralResult<void>, wait, (), (const, override));
-    MOCK_METHOD(GeneralResult<std::vector<bool>>, getSupportedOperations, (const Model& model),
-                (const, override));
+    MOCK_METHOD(GeneralResult<std::vector<bool>>, getSupportedOperations,
+                (const valid::Model& model), (const, override));
     MOCK_METHOD(GeneralResult<SharedPreparedModel>, prepareModel,
-                (const Model& model, ExecutionPreference preference, Priority priority,
+                (const valid::Model& model, ExecutionPreference preference, Priority priority,
                  OptionalTimePoint deadline, const std::vector<SharedHandle>& modelCache,
                  const std::vector<SharedHandle>& dataCache, const CacheToken& token),
                 (const, override));
