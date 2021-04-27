@@ -168,11 +168,12 @@ nn::GeneralResult<void> Device::wait() const {
     return {};
 }
 
-nn::GeneralResult<std::vector<bool>> Device::getSupportedOperations(const nn::Model& model) const {
+nn::GeneralResult<std::vector<bool>> Device::getSupportedOperations(
+        const nn::valid::Model& model) const {
     // Ensure that model is ready for IPC.
     std::optional<nn::Model> maybeModelInShared;
     const nn::Model& modelInShared =
-            NN_TRY(hal::utils::flushDataFromPointerToShared(&model, &maybeModelInShared));
+            NN_TRY(hal::utils::flushDataFromPointerToShared(&model.get(), &maybeModelInShared));
 
     const auto hidlModel = NN_TRY(convert(modelInShared));
 
@@ -185,7 +186,7 @@ nn::GeneralResult<std::vector<bool>> Device::getSupportedOperations(const nn::Mo
 }
 
 nn::GeneralResult<nn::SharedPreparedModel> Device::prepareModel(
-        const nn::Model& model, nn::ExecutionPreference preference, nn::Priority priority,
+        const nn::valid::Model& model, nn::ExecutionPreference preference, nn::Priority priority,
         nn::OptionalTimePoint deadline, const std::vector<nn::SharedHandle>& modelCache,
         const std::vector<nn::SharedHandle>& dataCache, const nn::CacheToken& token,
         const std::vector<nn::TokenValuePair>& /*hints*/,
@@ -193,7 +194,7 @@ nn::GeneralResult<nn::SharedPreparedModel> Device::prepareModel(
     // Ensure that model is ready for IPC.
     std::optional<nn::Model> maybeModelInShared;
     const nn::Model& modelInShared =
-            NN_TRY(hal::utils::flushDataFromPointerToShared(&model, &maybeModelInShared));
+            NN_TRY(hal::utils::flushDataFromPointerToShared(&model.get(), &maybeModelInShared));
 
     const auto hidlModel = NN_TRY(convert(modelInShared));
     const auto hidlPreference = NN_TRY(convert(preference));
