@@ -16,6 +16,24 @@
       "message": "Errant conflict marker",
       "revId": "5431a10a557f5fbfd82e0438d211db3ff942104c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05c80051_663aff78",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-27T13:12:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50dbb036_29888b61",
+      "revId": "5431a10a557f5fbfd82e0438d211db3ff942104c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
