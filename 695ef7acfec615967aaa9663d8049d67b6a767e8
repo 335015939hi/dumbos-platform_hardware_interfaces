@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4be2de5_9490968f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2021-04-27T17:33:32Z",
+      "side": 1,
+      "message": "Chatted offline, the implicit default value is already 0, so this at least won\u0027t change the default behaviour.",
+      "revId": "695ef7acfec615967aaa9663d8049d67b6a767e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff2e6920_daa910df",
@@ -41,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b1a4316_422f768e",
+        "filename": "graphics/common/aidl/aidl_api/android.hardware.graphics.common/current/android/hardware/graphics/common/HardwareBufferDescription.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2021-04-27T17:33:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ff2e6920_daa910df",
+      "range": {
+        "startLine": 24,
+        "startChar": 56,
+        "endLine": 24,
+        "endChar": 113
+      },
+      "revId": "695ef7acfec615967aaa9663d8049d67b6a767e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3939052c_7f39b8a7",
@@ -54,6 +95,30 @@
       "writtenOn": "2021-04-27T16:41:10Z",
       "side": 1,
       "message": "same applies to buffer usage",
+      "range": {
+        "startLine": 25,
+        "startChar": 55,
+        "endLine": 25,
+        "endChar": 115
+      },
+      "revId": "695ef7acfec615967aaa9663d8049d67b6a767e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95fd4595_f28fbd1d",
+        "filename": "graphics/common/aidl/aidl_api/android.hardware.graphics.common/current/android/hardware/graphics/common/HardwareBufferDescription.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2021-04-27T17:33:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3939052c_7f39b8a7",
       "range": {
         "startLine": 25,
         "startChar": 55,
