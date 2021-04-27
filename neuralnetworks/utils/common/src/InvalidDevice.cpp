@@ -76,12 +76,12 @@ nn::GeneralResult<void> InvalidDevice::wait() const {
 }
 
 nn::GeneralResult<std::vector<bool>> InvalidDevice::getSupportedOperations(
-        const nn::Model& /*model*/) const {
+        const nn::valid::Model& /*model*/) const {
     return NN_ERROR() << "InvalidDevice";
 }
 
 nn::GeneralResult<nn::SharedPreparedModel> InvalidDevice::prepareModel(
-        const nn::Model& /*model*/, nn::ExecutionPreference /*preference*/,
+        const nn::valid::Model& /*model*/, nn::ExecutionPreference /*preference*/,
         nn::Priority /*priority*/, nn::OptionalTimePoint /*deadline*/,
         const std::vector<nn::SharedHandle>& /*modelCache*/,
         const std::vector<nn::SharedHandle>& /*dataCache*/, const nn::CacheToken& /*token*/) const {

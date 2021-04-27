@@ -169,7 +169,7 @@ nn::GeneralResult<void> ResilientDevice::wait() const {
 }
 
 nn::GeneralResult<std::vector<bool>> ResilientDevice::getSupportedOperations(
-        const nn::Model& model) const {
+        const nn::valid::Model& model) const {
     const auto fn = [&model](const nn::IDevice& device) {
         return device.getSupportedOperations(model);
     };
@@ -177,7 +177,7 @@ nn::GeneralResult<std::vector<bool>> ResilientDevice::getSupportedOperations(
 }
 
 nn::GeneralResult<nn::SharedPreparedModel> ResilientDevice::prepareModel(
-        const nn::Model& model, nn::ExecutionPreference preference, nn::Priority priority,
+        const nn::valid::Model& model, nn::ExecutionPreference preference, nn::Priority priority,
         nn::OptionalTimePoint deadline, const std::vector<nn::SharedHandle>& modelCache,
         const std::vector<nn::SharedHandle>& dataCache, const nn::CacheToken& token) const {
 #if 0
@@ -232,7 +232,7 @@ bool ResilientDevice::isValidInternal() const {
 }
 
 nn::GeneralResult<nn::SharedPreparedModel> ResilientDevice::prepareModelInternal(
-        const nn::Model& model, nn::ExecutionPreference preference, nn::Priority priority,
+        const nn::valid::Model& model, nn::ExecutionPreference preference, nn::Priority priority,
         nn::OptionalTimePoint deadline, const std::vector<nn::SharedHandle>& modelCache,
         const std::vector<nn::SharedHandle>& dataCache, const nn::CacheToken& token) const {
     if (!isValidInternal()) {

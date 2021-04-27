@@ -33,6 +33,22 @@ using ::testing::Return;
 using SharedMockDevice = std::shared_ptr<const nn::MockDevice>;
 using MockDeviceFactory = ::testing::MockFunction<nn::GeneralResult<nn::SharedDevice>(bool)>;
 
+nn::valid::Model makeSimpleModel() {
+    nn::Model model = {.main = {.operands = {{.type = nn::OperandType::TENSOR_FLOAT32,
+                                              .dimensions = {1},
+                                              .lifetime = nn::Operand::LifeTime::SUBGRAPH_INPUT},
+                                             {.type = nn::OperandType::TENSOR_FLOAT32,
+                                              .dimensions = {1},
+                                              .lifetime = nn::Operand::LifeTime::SUBGRAPH_OUTPUT}},
+                                .operations = {{.type = nn::OperationType::RELU,
+                                                .inputs = {0},
+                                                .outputs = {1}}},
+                                .inputIndexes = {0},
+                                .outputIndexes = {1}}};
+    return nn::valid::Model::make(std::move(model)).value();
+}
+const nn::valid::Model kSimpleModel = makeSimpleModel();
+
 const std::string kName = "Google-MockV1";
 const std::string kVersionString = "version1";
 const auto kExtensions = std::vector<nn::Extension>{};
@@ -253,7 +269,7 @@ TEST(ResilientDeviceTest, getSupportedOperations) {
             .WillOnce(Return(nn::GeneralResult<std::vector<bool>>{}));
 
     // run test
-    const auto result = device->getSupportedOperations({});
+    const auto result = device->getSupportedOperations(kSimpleModel);
 
     // verify result
     ASSERT_TRUE(result.has_value())
@@ -266,7 +282,7 @@ TEST(ResilientDeviceTest, getSupportedOperationsError) {
     EXPECT_CALL(*mockDevice, getSupportedOperations(_)).Times(1).WillOnce(kReturnGeneralFailure);
 
     // run test
-    const auto result = device->getSupportedOperations({});
+    const auto result = device->getSupportedOperations(kSimpleModel);
 
     // verify result
     ASSERT_FALSE(result.has_value());
@@ -280,7 +296,7 @@ TEST(ResilientDeviceTest, getSupportedOperationsDeadObjectFailedRecovery) {
     EXPECT_CALL(*mockDeviceFactory, Call(false)).Times(1).WillOnce(kReturnGeneralFailure);
 
     // run test
-    const auto result = device->getSupportedOperations({});
+    const auto result = device->getSupportedOperations(kSimpleModel);
 
     // verify result
     ASSERT_FALSE(result.has_value());
@@ -298,7 +314,7 @@ TEST(ResilientDeviceTest, getSupportedOperationsDeadObjectSuccessfulRecovery) {
     EXPECT_CALL(*mockDeviceFactory, Call(false)).Times(1).WillOnce(Return(recoveredMockDevice));
 
     // run test
-    const auto result = device->getSupportedOperations({});
+    const auto result = device->getSupportedOperations(kSimpleModel);
 
     // verify result
     ASSERT_TRUE(result.has_value())
@@ -314,7 +330,7 @@ TEST(ResilientDeviceTest, prepareModel) {
             .WillOnce(Return(mockPreparedModel));
 
     // run test
-    const auto result = device->prepareModel({}, {}, {}, {}, {}, {}, {});
+    const auto result = device->prepareModel(kSimpleModel, {}, {}, {}, {}, {}, {});
 
     // verify result
     ASSERT_TRUE(result.has_value())
@@ -329,7 +345,7 @@ TEST(ResilientDeviceTest, prepareModelError) {
             .WillOnce(kReturnGeneralFailure);
 
     // run test
-    const auto result = device->prepareModel({}, {}, {}, {}, {}, {}, {});
+    const auto result = device->prepareModel(kSimpleModel, {}, {}, {}, {}, {}, {});
 
     // verify result
     ASSERT_FALSE(result.has_value());
@@ -345,7 +361,7 @@ TEST(ResilientDeviceTest, prepareModelDeadObjectFailedRecovery) {
     EXPECT_CALL(*mockDeviceFactory, Call(false)).Times(1).WillOnce(kReturnGeneralFailure);
 
     // run test
-    const auto result = device->prepareModel({}, {}, {}, {}, {}, {}, {});
+    const auto result = device->prepareModel(kSimpleModel, {}, {}, {}, {}, {}, {});
 
     // verify result
     ASSERT_FALSE(result.has_value());
@@ -366,7 +382,7 @@ TEST(ResilientDeviceTest, prepareModelDeadObjectSuccessfulRecovery) {
     EXPECT_CALL(*mockDeviceFactory, Call(false)).Times(1).WillOnce(Return(recoveredMockDevice));
 
     // run test
-    const auto result = device->prepareModel({}, {}, {}, {}, {}, {}, {});
+    const auto result = device->prepareModel(kSimpleModel, {}, {}, {}, {}, {}, {});
 
     // verify result
     ASSERT_TRUE(result.has_value())
@@ -679,7 +695,7 @@ TEST(ResilientDeviceTest, recoverCacheMismatchInvalidPrepareModel) {
     device->recover(mockDevice.get(), /*blocking=*/false);
 
     // run test
-    auto result = device->prepareModel({}, {}, {}, {}, {}, {}, {});
+    auto result = device->prepareModel(kSimpleModel, {}, {}, {}, {}, {}, {});
 
     // verify result
     ASSERT_TRUE(result.has_value())
