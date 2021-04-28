@@ -16,6 +16,29 @@
       "message": "Still try to do some VTS but not sure if we are able to do it.",
       "revId": "db3183947bae0fcf181d24d7a0c57dce2be15db2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1f5e436_d7d1e1b2",
+        "filename": "tetheroffload/control/1.1/ITetheringOffloadCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-04-28T16:32:02Z",
+      "side": 1,
+      "message": "this is a new requirement, so we should at least change the commit message. Can you confirm here or in the email if/where this is tested in VTS or if that\u0027s possible? Or can we make it so that the framework can handle both?",
+      "range": {
+        "startLine": 29,
+        "startChar": 28,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "db3183947bae0fcf181d24d7a0c57dce2be15db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
