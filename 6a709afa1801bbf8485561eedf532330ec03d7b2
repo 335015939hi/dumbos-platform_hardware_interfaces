@@ -380,6 +380,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5aa4e14_b0f73714",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-29T19:02:31Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be on finish(), I think. This is all about parameters for begin(). The actual padding will be applied during finish(), I suppose.",
+      "parentUuid": "118c0af0_dce261ae",
+      "range": {
+        "startLine": 234,
+        "startChar": 94,
+        "endLine": 235,
+        "endChar": 60
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4942d76b_1f5a62e2",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
         "patchSetId": 9
