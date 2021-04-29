@@ -356,6 +356,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "118c0af0_dce261ae",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-29T18:32:12Z",
+      "side": 1,
+      "message": "I did the first part (mention SHA1 default), but I\u0027m not sure about the second part.  This comment is attached to finish() so might there be knock-on effects of needing the tag at begin() time rather than finish() time (e.g. requires the implementation to track the digest with the in-progress operation)?",
+      "parentUuid": "c1848052_b2d65b76",
+      "range": {
+        "startLine": 234,
+        "startChar": 94,
+        "endLine": 235,
+        "endChar": 60
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4942d76b_1f5a62e2",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
         "patchSetId": 9
