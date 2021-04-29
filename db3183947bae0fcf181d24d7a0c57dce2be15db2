@@ -39,6 +39,30 @@
       },
       "revId": "db3183947bae0fcf181d24d7a0c57dce2be15db2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2d286c3_bde7d18a",
+        "filename": "tetheroffload/control/1.1/ITetheringOffloadCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2021-04-29T02:16:35Z",
+      "side": 1,
+      "message": "1. Commit message updated.\n2. Yes we are co-working with vendor to see whether it is possible.\naosp/1689688\n3. Yes that is what we currently do in\nhttps://googleplex-android-review.git.corp.google.com/c/platform/packages/modules/Connectivity/+/13973147/comment/3c3af39c_2f44e80e/\n\nLeave this open to track item 2.",
+      "parentUuid": "a1f5e436_d7d1e1b2",
+      "range": {
+        "startLine": 29,
+        "startChar": 28,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "db3183947bae0fcf181d24d7a0c57dce2be15db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
