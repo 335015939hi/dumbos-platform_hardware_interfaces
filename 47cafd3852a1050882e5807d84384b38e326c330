@@ -22,6 +22,29 @@
       },
       "revId": "47cafd3852a1050882e5807d84384b38e326c330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fcd90d8_e0c6dece",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2021-04-29T18:07:45Z",
+      "side": 1,
+      "message": "Cannot guarantee that this will be called. The callback trigger is dependent on data over hardware path and this cannot be emulated in a test case right now. This test will always fail.",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 15
+      },
+      "revId": "47cafd3852a1050882e5807d84384b38e326c330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
