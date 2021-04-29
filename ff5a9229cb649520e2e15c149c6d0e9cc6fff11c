@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92903afb_1e28f63a",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-29T15:01:59Z",
+      "side": 1,
+      "message": "So it is -- removed.",
+      "parentUuid": "061bacac_c90eced3",
+      "range": {
+        "startLine": 179,
+        "startChar": 42,
+        "endLine": 184,
+        "endChar": 74
+      },
+      "revId": "ff5a9229cb649520e2e15c149c6d0e9cc6fff11c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7351c12_a154524b",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-23T07:48:41Z",
       "side": 1,
       "message": "wrong comment",
+      "range": {
+        "startLine": 190,
+        "startChar": 53,
+        "endLine": 190,
+        "endChar": 88
+      },
+      "revId": "ff5a9229cb649520e2e15c149c6d0e9cc6fff11c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec05e682_c64bb7e3",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-29T15:01:59Z",
+      "side": 1,
+      "message": "(removed anyway)",
+      "parentUuid": "e7351c12_a154524b",
       "range": {
         "startLine": 190,
         "startChar": 53,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86fadbbc_113292bd",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-29T15:01:59Z",
+      "side": 1,
+      "message": "I\u0027m generally taking the approach that if the text of the AIDL spec mandates something, we should have a test for it (for this one it says \"If provided with a non-prime value, generateKey must return ErrorCode::INVALID_ARGUMENT.\").\n\nI guess the alternative is to remove that text from the AIDL spec.",
+      "parentUuid": "57e8e3e5_d8a1388f",
+      "range": {
+        "startLine": 962,
+        "startChar": 49,
+        "endLine": 962,
+        "endChar": 81
+      },
+      "revId": "ff5a9229cb649520e2e15c149c6d0e9cc6fff11c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "943a8e36_139a7929",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 3
@@ -83,6 +155,30 @@
       "writtenOn": "2021-04-23T07:48:41Z",
       "side": 1,
       "message": "better to use a valid size first.",
+      "range": {
+        "startLine": 1227,
+        "startChar": 26,
+        "endLine": 1227,
+        "endChar": 29
+      },
+      "revId": "ff5a9229cb649520e2e15c149c6d0e9cc6fff11c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8602752c_b79a3023",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-29T15:01:59Z",
+      "side": 1,
+      "message": "Sorry, not quite sure what you mean - the code above already includes valid sizes.",
+      "parentUuid": "943a8e36_139a7929",
       "range": {
         "startLine": 1227,
         "startChar": 26,
