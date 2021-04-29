@@ -332,6 +332,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c1848052_b2d65b76",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-29T18:19:40Z",
+      "side": 1,
+      "message": "Very close.  You should probably also specify that it should default to SHA1 if unspecified.\n\nActually, maybe we should just change that, and mandate that MGF digest(s) must be specified when an RSA OAEP key is created, and that exactly one of them must be specified to begin().  Then at the Java API layer if the user creates an RSA OAEP key but doesn\u0027t specify we can do the defaulting there.  In other words, move the complexity to userspace and out of the HAL/TA.\n\nWDYT?",
+      "parentUuid": "4a569173_894a8d6f",
+      "range": {
+        "startLine": 234,
+        "startChar": 94,
+        "endLine": 235,
+        "endChar": 60
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4942d76b_1f5a62e2",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
         "patchSetId": 9
