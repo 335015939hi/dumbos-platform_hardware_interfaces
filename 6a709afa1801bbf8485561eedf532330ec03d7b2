@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd0b743_bf60460c",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-29T17:17:02Z",
+      "side": 1,
+      "message": "I think now is a good opportunity to simplify this.  We should specify EC keys by curve, not size.",
+      "range": {
+        "startLine": 297,
+        "startChar": 7,
+        "endLine": 297,
+        "endChar": 44
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "712cf1de_948add73",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-29T17:17:02Z",
+      "side": 1,
+      "message": "If the operation\n\nor maybe\n\nIf the IKeyMintOperation",
+      "range": {
+        "startLine": 34,
+        "startChar": 7,
+        "endLine": 34,
+        "endChar": 19
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fe72fd6_25908062",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-29T17:17:02Z",
+      "side": 1,
+      "message": "It probably doesn\u0027t make sense to talk about the \"handle\", since the IKeyMintOperation object has replaced the handle.\n\nMaybe something like:\n\nAny future use of this object must return ErrorCode::INVALID_OPERATION_HANDLE.",
+      "range": {
+        "startLine": 38,
+        "startChar": 50,
+        "endLine": 38,
+        "endChar": 96
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2c2bef7_a56360cf",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-29T17:17:02Z",
+      "side": 1,
+      "message": "The wording here is a bit awkward. The first three times I read it I wondered if you\u0027d accidentally duplicated a chunk of the sentence.",
+      "range": {
+        "startLine": 61,
+        "startChar": 11,
+        "endLine": 62,
+        "endChar": 60
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da20fa04_1d6d91f9",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-29T17:17:02Z",
+      "side": 1,
+      "message": "The wording is odd.  It must be null if not provided.",
+      "range": {
+        "startLine": 78,
+        "startChar": 46,
+        "endLine": 78,
+        "endChar": 73
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d411027_cc299659",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-29T17:17:02Z",
+      "side": 1,
+      "message": "Unnecessary comma.",
+      "range": {
+        "startLine": 97,
+        "startChar": 57,
+        "endLine": 97,
+        "endChar": 58
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "725c1198_d643e0cb",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-29T17:17:02Z",
+      "side": 1,
+      "message": "There is now a tag that can be used to specify the MGF1 digest algorithm.",
+      "range": {
+        "startLine": 234,
+        "startChar": 94,
+        "endLine": 235,
+        "endChar": 60
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4942d76b_1f5a62e2",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-29T17:17:02Z",
+      "side": 1,
+      "message": "generation/import.",
+      "range": {
+        "startLine": 665,
+        "startChar": 30,
+        "endLine": 665,
+        "endChar": 52
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
