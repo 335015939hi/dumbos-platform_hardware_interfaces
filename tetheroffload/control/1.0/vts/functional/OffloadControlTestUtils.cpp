@@ -16,6 +16,12 @@
 
 #include <OffloadControlTestUtils.h>
 #include <android-base/unique_fd.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <sys/types.h>
 
 using android::base::unique_fd;
 
@@ -50,4 +56,16 @@ int conntrackSocket(unsigned groups) {
     }
 
     return s.release();
+}
+
+// Check whether the specified interface is up.
+bool interfaceIsUp(const char* name) {
+    if (name == nullptr) return false;
+    struct ifreq ifr = {};
+    strlcpy(ifr.ifr_name, name, sizeof(ifr.ifr_name));
+    int sock = socket(AF_INET6, SOCK_DGRAM, 0);
+    if (sock == -1) return false;
+    int ret = ioctl(sock, SIOCGIFFLAGS, &ifr, sizeof(ifr));
+    close(sock);
+    return (ret == 0) && (ifr.ifr_flags & IFF_UP);
 }

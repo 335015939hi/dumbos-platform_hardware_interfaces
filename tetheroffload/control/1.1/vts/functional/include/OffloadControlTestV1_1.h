@@ -25,7 +25,8 @@ constexpr char kCallbackOnEvent_1_1[] = "onEvent_1_1";
 
 class TetheringOffloadCallbackArgsV1_1 {
   public:
-    android::hardware::tetheroffload::control::V1_1::OffloadCallbackEvent last_event;
+    android::hardware::tetheroffload::control::V1_0::OffloadCallbackEvent last_event10;
+    android::hardware::tetheroffload::control::V1_1::OffloadCallbackEvent last_event11;
 };
 
 class OffloadControlTestV1_1_HalNotStarted : public OffloadControlTestV1_0_HalNotStarted {
@@ -71,13 +72,14 @@ class OffloadControlTestV1_1_HalNotStarted : public OffloadControlTestV1_0_HalNo
         Return<void> onEvent_1_1(
                 android::hardware::tetheroffload::control::V1_1::OffloadCallbackEvent event)
                 override {
-            const TetheringOffloadCallbackArgsV1_1 args{.last_event = event};
+            const TetheringOffloadCallbackArgsV1_1 args{.last_event11 = event};
             NotifyFromCallback(kCallbackOnEvent_1_1, args);
             return Void();
         };
 
-        Return<void> onEvent([[maybe_unused]] OffloadCallbackEvent event) override {
-            // Tested only in IOffloadControl 1.0.
+        Return<void> onEvent(OffloadCallbackEvent event) override {
+            const TetheringOffloadCallbackArgsV1_1 args{.last_event10 = event};
+            NotifyFromCallback(kCallbackOnEvent, args);
             return Void();
         };
 

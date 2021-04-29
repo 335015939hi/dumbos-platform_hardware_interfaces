@@ -37,3 +37,5 @@
 inline const sockaddr* asSockaddr(const sockaddr_nl* nladdr);
 
 int conntrackSocket(unsigned groups);
+
+bool interfaceIsUp(const char* name);

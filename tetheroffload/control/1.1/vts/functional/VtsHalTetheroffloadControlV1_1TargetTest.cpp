@@ -56,6 +56,14 @@ TEST_P(OffloadControlTestV1_1_HalStarted, SetDataWarningAndLimitZeroOk) {
     const Return<void> ret =
             getControlV1_1()->setDataWarningAndLimit(TEST_IFACE, 0ULL, 0ULL, ASSERT_TRUE_CALLBACK);
     EXPECT_TRUE(ret.isOk());
+    EXPECT_TRUE(interfaceIsUp(TEST_IFACE.c_str()));
+    auto result = control_cb_1_1->WaitForCallback(kCallbackOnEvent_1_1);
+    EXPECT_TRUE(result.no_timeout);
+    EXPECT_TRUE(result.args);
+    // FIXME: Use a proper way to prevent from racing.
+    EXPECT_FALSE(result.args->last_event10);
+    EXPECT_TRUE(result.args->last_event11 == android::hardware::tetheroffload::control::V1_1::
+                                                     OffloadCallbackEvent::OFFLOAD_WARNING_REACHED);
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(OffloadControlTestV1_1_HalNotStarted);

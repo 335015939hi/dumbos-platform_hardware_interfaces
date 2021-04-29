@@ -16,6 +16,7 @@
 
 #define LOG_TAG "VtsOffloadControlV1_0TargetTest"
 
+#include <OffloadControlTestUtils.h>
 #include <OffloadControlTestV1_0.h>
 #include <android-base/stringprintf.h>
 #include <gtest/gtest.h>
@@ -45,18 +46,6 @@ TEST_P(OffloadControlTestV1_0_HalNotStarted, MultipleStopsWithoutInitReturnFalse
     stopOffload(ExpectBoolean::False);
     stopOffload(ExpectBoolean::False);
     stopOffload(ExpectBoolean::False);
-}
-
-// Check whether the specified interface is up.
-bool interfaceIsUp(const char* name) {
-    if (name == nullptr) return false;
-    struct ifreq ifr = {};
-    strlcpy(ifr.ifr_name, name, sizeof(ifr.ifr_name));
-    int sock = socket(AF_INET6, SOCK_DGRAM, 0);
-    if (sock == -1) return false;
-    int ret = ioctl(sock, SIOCGIFFLAGS, &ifr, sizeof(ifr));
-    close(sock);
-    return (ret == 0) && (ifr.ifr_flags & IFF_UP);
 }
 
 // Check that calling stopOffload() after a complete init/stop cycle returns false.
