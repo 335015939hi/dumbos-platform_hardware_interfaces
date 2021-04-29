@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc9693a5_a7ed7a1e",
+        "filename": "tetheroffload/control/1.1/vts/functional/VtsHalTetheroffloadControlV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2021-04-29T17:57:36Z",
+      "side": 1,
+      "message": "This fails to compile.\n\nIn order to validate last_event10, it would need a default value. Can we put OFFLOAD_STOPPED_LIMIT_REACHED for the default value and validate that it is still set here?\n\nAlso, since OFFLOAD_WARNING_REACHED will only ever be sent during V1_1 as it\u0027s a new event. A better test would be for any of the other events to check that only their V1_1 counter part is sent (would still need the default value from above though).",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 44
+      },
+      "revId": "47cafd3852a1050882e5807d84384b38e326c330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
