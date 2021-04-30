@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0606e5e8_0d4e1635",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1015680
+      },
+      "writtenOn": "2021-04-30T08:53:54Z",
+      "side": 1,
+      "message": "this is not sufficient to detect if the device is running through shim. AFAIK, there\u0027s no reliable way of detecting this.",
+      "revId": "cfca871a101548fddef7f714f8916761e719348d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
