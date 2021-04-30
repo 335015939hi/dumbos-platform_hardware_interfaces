@@ -402,6 +402,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76c93c6f_ee2b9605",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-30T13:21:01Z",
+      "side": 1,
+      "message": "Yeah, that was confusing me. I\u0027ve removed it here and added text at begin() and in Tag.aidl.",
+      "parentUuid": "a5aa4e14_b0f73714",
+      "range": {
+        "startLine": 234,
+        "startChar": 94,
+        "endLine": 235,
+        "endChar": 60
+      },
+      "revId": "6a709afa1801bbf8485561eedf532330ec03d7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4942d76b_1f5a62e2",
