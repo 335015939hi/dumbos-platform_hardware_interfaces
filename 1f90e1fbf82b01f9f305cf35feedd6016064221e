@@ -16,6 +16,23 @@
       "message": "CP from internal S branch.",
       "revId": "1f90e1fbf82b01f9f305cf35feedd6016064221e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2324613c_25220e12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-04-30T17:21:37Z",
+      "side": 1,
+      "message": "Steven, can you please help give owner\u0027s review?  This constant is already on internal S, we are bringing to AOSP to assist vendor development.  Thanks!",
+      "revId": "1f90e1fbf82b01f9f305cf35feedd6016064221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
