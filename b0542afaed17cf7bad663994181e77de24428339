@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51174f5e_0d788359",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-30T13:43:51Z",
+      "side": 1,
+      "message": "This is invalid for TEEs also.",
+      "range": {
+        "startLine": 746,
+        "startChar": 12,
+        "endLine": 747,
+        "endChar": 28
+      },
+      "revId": "b0542afaed17cf7bad663994181e77de24428339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33d565a8_1d2ab0fd",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-30T13:43:51Z",
+      "side": 1,
+      "message": "We should check vendor patch level here, too.  It\u0027d be nice to validate boot patch level, but I don\u0027t think that\u0027s available in the system.",
+      "range": {
+        "startLine": 325,
+        "startChar": 11,
+        "endLine": 325,
+        "endChar": 61
+      },
+      "revId": "b0542afaed17cf7bad663994181e77de24428339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61bc762d_528eb45f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-30T13:43:51Z",
+      "side": 1,
+      "message": "\"Still allowed\" is an interesting way to put that.  I\u0027d say \"isn\u0027t an error\".  Maybe those are the same things?",
+      "range": {
+        "startLine": 534,
+        "startChar": 24,
+        "endLine": 534,
+        "endChar": 52
+      },
+      "revId": "b0542afaed17cf7bad663994181e77de24428339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7cfb6b3_51ca87b5",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 2889,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-04-30T13:43:51Z",
+      "side": 1,
+      "message": "Nit: a",
+      "range": {
+        "startLine": 2889,
+        "startChar": 37,
+        "endLine": 2889,
+        "endChar": 39
+      },
+      "revId": "b0542afaed17cf7bad663994181e77de24428339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
