@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7faac1d1_f3e233d5",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-30T13:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51174f5e_0d788359",
+      "range": {
+        "startLine": 746,
+        "startChar": 12,
+        "endLine": 747,
+        "endChar": 28
+      },
+      "revId": "b0542afaed17cf7bad663994181e77de24428339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33d565a8_1d2ab0fd",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-30T13:43:51Z",
       "side": 1,
       "message": "We should check vendor patch level here, too.  It\u0027d be nice to validate boot patch level, but I don\u0027t think that\u0027s available in the system.",
+      "range": {
+        "startLine": 325,
+        "startChar": 11,
+        "endLine": 325,
+        "endChar": 61
+      },
+      "revId": "b0542afaed17cf7bad663994181e77de24428339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0dd57ec_ad43e032",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-30T13:50:43Z",
+      "side": 1,
+      "message": "That\u0027s in the next CL.",
+      "parentUuid": "33d565a8_1d2ab0fd",
       "range": {
         "startLine": 325,
         "startChar": 11,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbffe954_94ec156e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-30T13:50:43Z",
+      "side": 1,
+      "message": "Changed the wording.  However, if we don\u0027t really care we could just drop this test case.",
+      "parentUuid": "61bc762d_528eb45f",
+      "range": {
+        "startLine": 534,
+        "startChar": 24,
+        "endLine": 534,
+        "endChar": 52
+      },
+      "revId": "b0542afaed17cf7bad663994181e77de24428339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7cfb6b3_51ca87b5",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-04-30T13:43:51Z",
       "side": 1,
       "message": "Nit: a",
+      "range": {
+        "startLine": 2889,
+        "startChar": 37,
+        "endLine": 2889,
+        "endChar": 39
+      },
+      "revId": "b0542afaed17cf7bad663994181e77de24428339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab83cc6_8b66ddc1",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 2889,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-30T13:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7cfb6b3_51ca87b5",
       "range": {
         "startLine": 2889,
         "startChar": 37,
