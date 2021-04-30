@@ -19,6 +19,7 @@
 #include <chrono>
 #include <unordered_set>
 #include <vector>
+#include "gmock/gmock-matchers.h"
 
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
@@ -44,7 +45,9 @@ using std::unique_ptr;
 using ::testing::AssertionFailure;
 using ::testing::AssertionResult;
 using ::testing::AssertionSuccess;
+using ::testing::ElementsAreArray;
 using ::testing::MatchesRegex;
+using ::testing::Not;
 
 ::std::ostream& operator<<(::std::ostream& os, const AuthorizationSet& set) {
     if (set.size() == 0)
@@ -1246,14 +1249,18 @@ void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,
     EXPECT_EQ(extractedTag.size(), 32U);
 
     // Compare with tag generated with kTestMacKey.  Should only match in test mode
-    auto testTag = cppcose::generateCoseMac0Mac(remote_prov::kTestMacKey, {} /* external_aad */,
-                                                payload->value());
+    auto macFunction = [](const void* input, size_t input_size) {
+        return cppcose::SignHmacSha256(remote_prov::kTestMacKey.data(),
+                                       remote_prov::kTestMacKey.size(), input, input_size);
+    };
+    auto testTag =
+            cppcose::generateCoseMac0Mac(macFunction, {} /* external_aad */, payload->value());
     ASSERT_TRUE(testTag) << "Tag calculation failed: " << testTag.message();
 
     if (testMode) {
-        EXPECT_EQ(*testTag, extractedTag);
+        EXPECT_THAT(*testTag, ElementsAreArray(extractedTag));
     } else {
-        EXPECT_NE(*testTag, extractedTag);
+        EXPECT_THAT(*testTag, Not(ElementsAreArray(extractedTag)));
     }
     if (payload_value != nullptr) {
         *payload_value = payload->value();
