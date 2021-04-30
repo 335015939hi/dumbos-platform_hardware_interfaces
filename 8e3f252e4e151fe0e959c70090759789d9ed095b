@@ -16,6 +16,52 @@
       "message": "Xusong, can you double check? Otherwise lgtm!",
       "revId": "8e3f252e4e151fe0e959c70090759789d9ed095b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba81a310_c3498bc4",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-04-30T23:27:05Z",
+      "side": 1,
+      "message": "Should we additionally check that the error code is GENERAL_FAILURE in the condition?",
+      "range": {
+        "startLine": 377,
+        "startChar": 13,
+        "endLine": 377,
+        "endChar": 32
+      },
+      "revId": "8e3f252e4e151fe0e959c70090759789d9ed095b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e48edffd_dcda9449",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-04-30T23:27:05Z",
+      "side": 1,
+      "message": "I think this and several other tests asserting prepareModelFromCache failures with the fallback model are against the specification of IDevice::prepareModel. The specification says:\n\n\u003e Any error that occurs when saving to cache must not affect the status of preparing the model. Even if the input arguments related to the cache may be invalid, or the driver may fail to save to cache, the prepareModel function must finish preparing the model.\n\nhttps://source.corp.google.com/android/hardware/interfaces/neuralnetworks/aidl/android/hardware/neuralnetworks/IDevice.aidl;l\u003d291-293\n\nSo a driver is expected to successfully prepare the model even if the number of cache files is invalid.",
+      "range": {
+        "startLine": 557,
+        "startChar": 8,
+        "endLine": 557,
+        "endChar": 29
+      },
+      "revId": "8e3f252e4e151fe0e959c70090759789d9ed095b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
