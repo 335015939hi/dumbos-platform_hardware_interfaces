@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac82e5a3_4e80a76a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2021-04-30T21:05:11Z",
+      "side": 1,
+      "message": "Bypassing presubmit.\n\n*`P22349843 qemu_generic_arm64_fuzz_test_debug on aosp-trusty-master` \n    * mmaurer@ indicates that this is flakiness, a Trusty kernel failure he is confident is unrelated to the change.\n* `asit/ota/incremental_mixed on aosp_cf_x86_64_phone-userdebug on aosp-master`\n    * this is `Device failed to boot.`\n* `asit/ota/incremental_to on aosp_cf_x86_64_phone-userdebug on aosp-master`\n    * this is `Could not find device 127.0.0.1:33685`\n* The change is conservative.\n* smoreland@ has indicated that this change must land as soon as possible.",
+      "revId": "dadb18dd290fb7f6fe3ef3c0b82f83a9c6207e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
