@@ -166,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffe8a0d5_28a76e45",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-30T18:24:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59771f19_8260524f",
+      "range": {
+        "startLine": 962,
+        "startChar": 49,
+        "endLine": 962,
+        "endChar": 81
+      },
+      "revId": "ff5a9229cb649520e2e15c149c6d0e9cc6fff11c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "943a8e36_139a7929",

@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a66f199_445be0e6",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 2852,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-30T18:24:12Z",
+      "side": 1,
+      "message": "Won\u0027t keystore just pass through the key data it gets on IKeystoreSecurityLevel::importKey(), without parsing it to extract key size and exponent?",
+      "parentUuid": "cb9f8a30_9d9fd37a",
+      "range": {
+        "startLine": 2851,
+        "startChar": 0,
+        "endLine": 2852,
+        "endChar": 19
+      },
+      "revId": "b5a1747125d73182433141fc3b80189d35e830ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26352595_ecd322c1",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 10
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-30T14:43:36Z",
       "side": 1,
       "message": "Nice :-)\n\nIs there a reason you only annotated this one?",
+      "range": {
+        "startLine": 3174,
+        "startChar": 28,
+        "endLine": 3174,
+        "endChar": 73
+      },
+      "revId": "b5a1747125d73182433141fc3b80189d35e830ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66fe7392_02bccef4",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 3174,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-30T18:24:12Z",
+      "side": 1,
+      "message": "I wanted to cross-check against the ASN1 schema, and having done it I thought I might as well keep the annotations.\n\nI\u0027ve added more annotations.",
+      "parentUuid": "26352595_ecd322c1",
       "range": {
         "startLine": 3174,
         "startChar": 28,
@@ -60,6 +108,30 @@
       "writtenOn": "2021-04-30T14:43:36Z",
       "side": 1,
       "message": "It took me a moment to figure out what this is testing.  A doc comment would be good.",
+      "range": {
+        "startLine": 3303,
+        "startChar": 29,
+        "endLine": 3303,
+        "endChar": 47
+      },
+      "revId": "b5a1747125d73182433141fc3b80189d35e830ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44a64248_53c2c68d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 3303,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-04-30T18:24:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6880f30d_05b6bd2e",
       "range": {
         "startLine": 3303,
         "startChar": 29,
