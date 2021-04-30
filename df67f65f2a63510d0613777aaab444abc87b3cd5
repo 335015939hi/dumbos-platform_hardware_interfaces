@@ -63,6 +63,30 @@
       },
       "revId": "df67f65f2a63510d0613777aaab444abc87b3cd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd25538f_18df3b66",
+        "filename": "audio/core/all-versions/default/StreamOut.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-04-30T22:30:28Z",
+      "side": 1,
+      "message": "I think I\u0027ve understood what is going on here. The contract of IStreamOutEventCallback.hal actually says that it\u0027s a ByteString object (defined in system/media/audio_utils/include/audio_utils/Metadata.h). Please update the code to make this clear.",
+      "parentUuid": "9bf683a7_119190c1",
+      "range": {
+        "startLine": 744,
+        "startChar": 0,
+        "endLine": 745,
+        "endChar": 75
+      },
+      "revId": "df67f65f2a63510d0613777aaab444abc87b3cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
