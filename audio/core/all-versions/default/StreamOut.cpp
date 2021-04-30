@@ -742,7 +742,11 @@ int StreamOut::asyncEventCallback(stream_event_callback_type_t event, void* para
     switch (event) {
         case STREAM_EVENT_CBK_TYPE_CODEC_FORMAT_CHANGED: {
             hidl_vec<uint8_t> audioMetadata;
-            audioMetadata.setToExternal((uint8_t*)param, strlen((char*)param));
+            // void* param is the byte string buffer from byte_string_from_audio_metadata().
+            // As the byte string buffer may have embedded zeroes, we cannot use strlen()
+            // but instead use audio_metadata_byte_string_len().
+            audioMetadata.setToExternal((const uint8_t*)param,
+                                        audio_metadata_byte_string_len((const uint8_t*)param));
             result = eventCallback->onCodecFormatChanged(audioMetadata);
         } break;
         default:
