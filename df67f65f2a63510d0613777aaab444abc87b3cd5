@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68007f68_e544f6c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-05-01T00:44:19Z",
+      "side": 1,
+      "message": "Kuowei, please see the proposed fix here, thanks!\n\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1692490\nhttps://android-review.googlesource.com/c/platform/system/media/+/1692727\n",
+      "revId": "df67f65f2a63510d0613777aaab444abc87b3cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3a9ae4f_846edd70",
