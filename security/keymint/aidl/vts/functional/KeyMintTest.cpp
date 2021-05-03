@@ -443,9 +443,8 @@ TEST_P(NewKeyGenerationTest, AesInvalidPadding) {
             for (auto padding_mode : InvalidPaddingModes(Algorithm::AES, block_mode)) {
                 SCOPED_TRACE(testing::Message()
                              << "AES-" << key_size << "-" << block_mode << "-" << padding_mode);
-                vector<uint8_t> key_blob;
-                vector<KeyCharacteristics> key_characteristics;
                 auto builder = AuthorizationSetBuilder()
+                                       .Authorization(TAG_NO_AUTH_REQUIRED)
                                        .AesEncryptionKey(key_size)
                                        .BlockMode(block_mode)
                                        .Padding(padding_mode)
@@ -454,7 +453,7 @@ TEST_P(NewKeyGenerationTest, AesInvalidPadding) {
                     builder.Authorization(TAG_MIN_MAC_LENGTH, 128);
                 }
 
-                auto result = GenerateKey(builder, &key_blob, &key_characteristics);
+                auto result = GenerateKey(builder);
                 if (result == ErrorCode::OK) {
                     // Key creation was OK but has generated a key that cannot be used.
                     auto params =
@@ -2884,7 +2883,7 @@ TEST_P(ImportKeyTest, AesFailure) {
     string key = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     uint32_t bitlen = key.size() * 8;
     for (uint32_t key_size : {bitlen - 1, bitlen + 1, bitlen - 8, bitlen + 8}) {
-        ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
+        ASSERT_EQ(ErrorCode::IMPORT_PARAMETER_MISMATCH,
                   ImportKey(AuthorizationSetBuilder()
                                     .Authorization(TAG_NO_AUTH_REQUIRED)
                                     .AesEncryptionKey(key_size)
@@ -2930,7 +2929,7 @@ TEST_P(ImportKeyTest, TripleDesFailure) {
     string key = hex2str("a49d7564199e97cb529d2c9d97bf2f98d35edf57ba1f7358");
     uint32_t bitlen = key.size() * 8;
     for (uint32_t key_size : {bitlen - 1, bitlen + 1, bitlen - 8, bitlen + 8}) {
-        ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
+        ASSERT_EQ(ErrorCode::IMPORT_PARAMETER_MISMATCH,
                   ImportKey(AuthorizationSetBuilder()
                                     .Authorization(TAG_NO_AUTH_REQUIRED)
                                     .TripleDesEncryptionKey(key_size)
