@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e98af2ba_6fdaa551",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 2876,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-05-03T14:12:46Z",
+      "side": 1,
+      "message": "Since the TAG_KEY_SIZE is provided, this should be ErrorCode::IMPORT_PARAMETER_MISMATCH.",
+      "range": {
+        "startLine": 2876,
+        "startChar": 29,
+        "endLine": 2876,
+        "endChar": 49
+      },
+      "revId": "7de9febd174214cfb9ac65ada12c2ceb988cd19d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b72dc000_2596f9f9",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 2922,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-05-03T14:12:46Z",
+      "side": 1,
+      "message": "Since the TAG_KEY_SIZE is provided, this should be ErrorCode::IMPORT_PARAMETER_MISMATCH.",
+      "range": {
+        "startLine": 2922,
+        "startChar": 29,
+        "endLine": 2922,
+        "endChar": 49
+      },
+      "revId": "7de9febd174214cfb9ac65ada12c2ceb988cd19d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
