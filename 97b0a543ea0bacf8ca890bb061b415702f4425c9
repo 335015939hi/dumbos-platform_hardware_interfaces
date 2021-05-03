@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f62887fc_89b391e4",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-05-03T15:15:15Z",
+      "side": 1,
+      "message": "This is wrong.  192 is the normally-valid size which should not be supported in strongbox.",
+      "range": {
+        "startLine": 746,
+        "startChar": 24,
+        "endLine": 746,
+        "endChar": 27
+      },
+      "revId": "97b0a543ea0bacf8ca890bb061b415702f4425c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
