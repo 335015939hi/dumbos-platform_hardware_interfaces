@@ -16,6 +16,23 @@
       "message": "Please also fix StreamOutHalLocal::asyncEventCallback which also deals with this callback: https://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/libaudiohal/impl/StreamHalLocal.cpp;l\u003d343;drc\u003d560637e3abc7ff0c28c74f46c39210fa7ad3a354",
       "revId": "e6e3a171261d81ec8605ee8c0e129e7fa96703ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59bad843_ab684260",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-05-03T22:16:20Z",
+      "side": 1,
+      "message": "thanks for pointing it out, I added https://android-review.googlesource.com/c/platform/frameworks/av/+/1694625 to address StreamHalLocal.",
+      "revId": "e6e3a171261d81ec8605ee8c0e129e7fa96703ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
