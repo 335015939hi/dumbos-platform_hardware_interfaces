@@ -63,6 +63,30 @@
       },
       "revId": "db3183947bae0fcf181d24d7a0c57dce2be15db2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f9bc9f1_e6fb1f21",
+        "filename": "tetheroffload/control/1.1/ITetheringOffloadCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2021-05-03T06:03:06Z",
+      "side": 1,
+      "message": "Done, as vendor commented, there is no reliable way to guarantee the callback will be called in the test.\nRefer to aosp/1689688.",
+      "parentUuid": "f2d286c3_bde7d18a",
+      "range": {
+        "startLine": 29,
+        "startChar": 28,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "db3183947bae0fcf181d24d7a0c57dce2be15db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
