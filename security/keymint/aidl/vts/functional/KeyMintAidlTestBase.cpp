@@ -743,7 +743,7 @@ vector<uint32_t> KeyMintAidlTestBase::InvalidKeySizes(Algorithm algorithm) {
             case Algorithm::EC:
                 return {224, 384, 521};
             case Algorithm::AES:
-                return {192};
+                return {384};
             case Algorithm::TRIPLE_DES:
                 return {56};
             default:
