@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29623bc3_b060e656",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 2852,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-05-04T00:33:26Z",
+      "side": 1,
+      "message": "Yes, but the public API will always provide defaults.  I suppose someone could bypass that and use the binder API, though.",
+      "parentUuid": "3a66f199_445be0e6",
+      "range": {
+        "startLine": 2851,
+        "startChar": 0,
+        "endLine": 2852,
+        "endChar": 19
+      },
+      "revId": "b5a1747125d73182433141fc3b80189d35e830ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26352595_ecd322c1",
