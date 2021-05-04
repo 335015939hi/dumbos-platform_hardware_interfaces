@@ -16,6 +16,29 @@
       "message": "Thanks.",
       "revId": "3800e4679e81fbcc9b2c23c56e015660d0be895a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2850151_b1e64363",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-05-04T15:10:58Z",
+      "side": 1,
+      "message": "Typo, sorry",
+      "range": {
+        "startLine": 462,
+        "startChar": 65,
+        "endLine": 462,
+        "endChar": 66
+      },
+      "revId": "3800e4679e81fbcc9b2c23c56e015660d0be895a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
