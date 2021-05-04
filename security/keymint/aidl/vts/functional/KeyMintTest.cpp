@@ -634,9 +634,8 @@ TEST_P(NewKeyGenerationTest, AesInvalidPadding) {
             for (auto padding_mode : InvalidPaddingModes(Algorithm::AES, block_mode)) {
                 SCOPED_TRACE(testing::Message()
                              << "AES-" << key_size << "-" << block_mode << "-" << padding_mode);
-                vector<uint8_t> key_blob;
-                vector<KeyCharacteristics> key_characteristics;
                 auto builder = AuthorizationSetBuilder()
+                                       .Authorization(TAG_NO_AUTH_REQUIRED)
                                        .AesEncryptionKey(key_size)
                                        .BlockMode(block_mode)
                                        .Padding(padding_mode)
@@ -645,14 +644,18 @@ TEST_P(NewKeyGenerationTest, AesInvalidPadding) {
                     builder.Authorization(TAG_MIN_MAC_LENGTH, 128);
                 }
 
-                auto result = GenerateKey(builder, &key_blob, &key_characteristics);
+                auto result = GenerateKey(builder);
                 if (result == ErrorCode::OK) {
                     // Key creation was OK but has generated a key that cannot be used.
                     auto params =
                             AuthorizationSetBuilder().BlockMode(block_mode).Padding(padding_mode);
+                    if (block_mode == BlockMode::GCM) {
+                        params.Authorization(TAG_MAC_LENGTH, 128);
+                    }
                     auto result = Begin(KeyPurpose::ENCRYPT, params);
                     EXPECT_TRUE(result == ErrorCode::INCOMPATIBLE_PADDING_MODE ||
-                                result == ErrorCode::INVALID_KEY_BLOB);
+                                result == ErrorCode::INVALID_KEY_BLOB)
+                            << "unexpected result: " << result;
                 } else {
                     // The KeyMint implementation detected that the generated key
                     // is unusable.
@@ -3261,14 +3264,35 @@ TEST_P(ImportKeyTest, AesFailure) {
     string key = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     uint32_t bitlen = key.size() * 8;
     for (uint32_t key_size : {bitlen - 1, bitlen + 1, bitlen - 8, bitlen + 8}) {
-        ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
-                  ImportKey(AuthorizationSetBuilder()
-                                    .Authorization(TAG_NO_AUTH_REQUIRED)
-                                    .AesEncryptionKey(key_size)
-                                    .EcbMode()
-                                    .Padding(PaddingMode::PKCS7),
-                            KeyFormat::RAW, key));
+        // Explicit key size doesn't match that of the provided key.
+        auto result = ImportKey(AuthorizationSetBuilder()
+                                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                                        .AesEncryptionKey(key_size)
+                                        .EcbMode()
+                                        .Padding(PaddingMode::PKCS7),
+                                KeyFormat::RAW, key);
+        ASSERT_TRUE(result == ErrorCode::IMPORT_PARAMETER_MISMATCH ||
+                    result == ErrorCode::UNSUPPORTED_KEY_SIZE)
+                << "unexpected result: " << result;
     }
+
+    // Explicit key size matches that of the provided key, but it's not a valid size.
+    string long_key = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
+              ImportKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .AesEncryptionKey(long_key.size() * 8)
+                                .EcbMode()
+                                .Padding(PaddingMode::PKCS7),
+                        KeyFormat::RAW, long_key));
+    string short_key = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
+              ImportKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .AesEncryptionKey(short_key.size() * 8)
+                                .EcbMode()
+                                .Padding(PaddingMode::PKCS7),
+                        KeyFormat::RAW, short_key));
 }
 
 /*
@@ -3307,14 +3331,34 @@ TEST_P(ImportKeyTest, TripleDesFailure) {
     string key = hex2str("a49d7564199e97cb529d2c9d97bf2f98d35edf57ba1f7358");
     uint32_t bitlen = key.size() * 8;
     for (uint32_t key_size : {bitlen - 1, bitlen + 1, bitlen - 8, bitlen + 8}) {
-        ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
-                  ImportKey(AuthorizationSetBuilder()
-                                    .Authorization(TAG_NO_AUTH_REQUIRED)
-                                    .TripleDesEncryptionKey(key_size)
-                                    .EcbMode()
-                                    .Padding(PaddingMode::PKCS7),
-                            KeyFormat::RAW, key));
+        // Explicit key size doesn't match that of the provided key.
+        auto result = ImportKey(AuthorizationSetBuilder()
+                                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                                        .TripleDesEncryptionKey(key_size)
+                                        .EcbMode()
+                                        .Padding(PaddingMode::PKCS7),
+                                KeyFormat::RAW, key);
+        ASSERT_TRUE(result == ErrorCode::IMPORT_PARAMETER_MISMATCH ||
+                    result == ErrorCode::UNSUPPORTED_KEY_SIZE)
+                << "unexpected result: " << result;
     }
+    // Explicit key size matches that of the provided key, but it's not a valid size.
+    string long_key = hex2str("a49d7564199e97cb529d2c9d97bf2f98d35edf57ba1f7358");
+    ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
+              ImportKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .TripleDesEncryptionKey(long_key.size() * 8)
+                                .EcbMode()
+                                .Padding(PaddingMode::PKCS7),
+                        KeyFormat::RAW, long_key));
+    string short_key = hex2str("a49d7564199e97cb529d2c9d97bf2f98d35edf57ba1f7358");
+    ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
+              ImportKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .TripleDesEncryptionKey(short_key.size() * 8)
+                                .EcbMode()
+                                .Padding(PaddingMode::PKCS7),
+                        KeyFormat::RAW, short_key));
 }
 
 /*
