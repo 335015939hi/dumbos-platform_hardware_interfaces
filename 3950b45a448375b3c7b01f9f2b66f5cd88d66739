@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0e500cd_ac5b962d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-05-05T12:34:36Z",
+      "side": 1,
+      "message": "Nit:  It should be fine to just add this unconditionally.",
+      "range": {
+        "startLine": 462,
+        "startChar": 24,
+        "endLine": 462,
+        "endChar": 66
+      },
+      "revId": "3950b45a448375b3c7b01f9f2b66f5cd88d66739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
