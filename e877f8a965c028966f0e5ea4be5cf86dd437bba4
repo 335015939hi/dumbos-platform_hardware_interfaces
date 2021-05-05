@@ -50,6 +50,24 @@
       "message": "Hi. Any updates on this?",
       "revId": "e877f8a965c028966f0e5ea4be5cf86dd437bba4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc975bf5_7d653913",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2021-05-05T19:53:23Z",
+      "side": 1,
+      "message": "If this hal does nothing useful if emulator things are not available, maybe it should be ok to delete it?",
+      "parentUuid": "182b0808_544ad954",
+      "revId": "e877f8a965c028966f0e5ea4be5cf86dd437bba4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
