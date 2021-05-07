@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e1668fd_b9de5dd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-05-07T11:53:36Z",
+      "side": 1,
+      "message": "I initially added this test to enforce operatorNumeric format, but by reading the HAL definition it should never be empty, framework also doesn\u0027t support this empty field.",
+      "revId": "305464e24b3bc093a7cd061fa5a737a13c711c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
