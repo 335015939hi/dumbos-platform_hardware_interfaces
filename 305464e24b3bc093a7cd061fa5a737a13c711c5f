@@ -34,6 +34,24 @@
       "parentUuid": "1e1668fd_b9de5dd2",
       "revId": "305464e24b3bc093a7cd061fa5a737a13c711c5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4113c417_fd10950e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-05-07T15:23:56Z",
+      "side": 1,
+      "message": "Ok makes sense. Then I think the proper solution would be to check in which cases the string is/should be empty ( via RadioError ) and skip the regex, otherwise always test it ( removing the nullptr check completely )\nThe check was a safe-measure I added in these cases, maybe Nathan or Jack can check what\u0027s best.\nIdeally there would be no check on operator info itself rather on other values returned by the HAL",
+      "parentUuid": "8b8a87b8_b6b7954f",
+      "revId": "305464e24b3bc093a7cd061fa5a737a13c711c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
