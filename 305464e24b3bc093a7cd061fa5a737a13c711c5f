@@ -52,6 +52,24 @@
       "parentUuid": "8b8a87b8_b6b7954f",
       "revId": "305464e24b3bc093a7cd061fa5a737a13c711c5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aacf0a40_f1afc112",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-05-10T12:06:28Z",
+      "side": 1,
+      "message": "I uploaded patchset 2 to remove the empty string checking.\nIf the operator numeric is a empty string, then the assert checking will return failure as expected.",
+      "parentUuid": "4113c417_fd10950e",
+      "revId": "305464e24b3bc093a7cd061fa5a737a13c711c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
