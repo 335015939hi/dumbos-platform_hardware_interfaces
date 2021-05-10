@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a485477f_2d2a3b22",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3347,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-05-10T09:56:52Z",
+      "side": 1,
+      "message": "No, there\u0027s definitely a couple of things I got wrong here - sorry.\n\nThe first is a copy-paste error -- the long_key was intended to be 25-bytes long, and the short_key was intended to be 23-bytes long. The length was then intended to be consistent with the key contents, but consistently wrong.\n\nThe second thing wrong is that 3DES key sizes are (I think) specified in \"used\" bits, so everything should be multiplied by 7 rather than 8.\n\nI\u0027ll try to fix things up.",
+      "parentUuid": "7a5847d7_5e651b08",
+      "range": {
+        "startLine": 3347,
+        "startChar": 25,
+        "endLine": 3347,
+        "endChar": 45
+      },
+      "revId": "c9bc2f742d084b7ec4e367b78ae009c3bdae7efe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78048baa_07a47b42",
