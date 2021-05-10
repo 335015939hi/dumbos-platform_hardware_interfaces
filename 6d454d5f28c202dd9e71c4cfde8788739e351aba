@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1fb4a2e_d08b537f",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-05-10T20:53:50Z",
+      "side": 0,
+      "message": "how can removing a null check prevent a crash when what we are removing is a stateless operation? If info.operatorNumeric is null, this will introduce a crash, since std::string(nullptr) crashes.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
