@@ -40,6 +40,30 @@
       "parentUuid": "f1fb4a2e_d08b537f",
       "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ca1559_8fb38492",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-05-10T21:08:15Z",
+      "side": 0,
+      "message": "unresolve",
+      "parentUuid": "5e03f9e1_9f2da38c",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
