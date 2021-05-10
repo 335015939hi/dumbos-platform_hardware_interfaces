@@ -22,6 +22,24 @@
       },
       "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e03f9e1_9f2da38c",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-05-10T20:55:26Z",
+      "side": 0,
+      "message": "and either way won\u0027t fix the regex check since it won\u0027t match",
+      "parentUuid": "f1fb4a2e_d08b537f",
+      "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
