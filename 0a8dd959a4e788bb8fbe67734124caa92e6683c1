@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ef5e88b_fa49eaa6",
+        "filename": "power/stats/aidl/android/hardware/power/stats/EnergyMeasurement.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-05-11T17:29:00Z",
+      "side": 0,
+      "message": "Not \"approximate\" any more?",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "0a8dd959a4e788bb8fbe67734124caa92e6683c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
