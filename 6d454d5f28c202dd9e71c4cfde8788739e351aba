@@ -88,6 +88,30 @@
       },
       "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "665abb84_21a418a6",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-05-11T02:20:15Z",
+      "side": 0,
+      "message": "Here is the crash backtrace log,\n05-07 16:57:06.848  root  8464  8464 F DEBUG   :       #00 pc 0000000000049460  /apex/com.android.runtime/lib64/bionic/libc.so (__strcmp_aarch64+32) (BuildId: b56477707e80ce24c4e2453f4b924586)\n05-07 16:57:06.848  root  8464  8464 F DEBUG   :       #01 pc 00000000000b6c34  /data/local/tmp/VtsHalRadioV1_6TargetTest/arm64/VtsHalRadioV1_6TargetTest (android::hardware::operator!\u003d(android::hardware::hidl_string const\u0026, char const*)+32) (BuildId: 36024f6c25ec0fa47581d87adf67550f)\n\nPer the radio/1.0/type.hal, the OperatorInfo.operatorNumeric is a string type, not a pointer.\nstruct OperatorInfo {\n    string alphaLong;                     // long alpha ONS or EONS\n    string alphaShort;                    // short alpha ONS or EONS\n    string operatorNumeric;               // 5 or 6 digit numeric code (MCC + MNC)\n    OperatorStatus status;\n};\n\nI guess the crash is because the original code comparing the string to a nullptr, then the operator function try to access a string by the nullptr, so the crash happened.\nRemoving the incorrect null checking and let the assert check to return failure if the operatorNumeric is a unexpected empty string.",
+      "parentUuid": "dc9688b9_02bc16bf",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
