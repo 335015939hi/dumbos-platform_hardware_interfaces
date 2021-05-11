@@ -22,6 +22,30 @@
       },
       "revId": "0a8dd959a4e788bb8fbe67734124caa92e6683c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c45ec022_2e3a17bb",
+        "filename": "power/stats/aidl/android/hardware/power/stats/EnergyMeasurement.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-05-11T17:41:17Z",
+      "side": 0,
+      "message": "Yes, the intent for this field is to allow us to combine the data with other information using the timestamp. We meant for this to be CLOCK_BOOTTIME but the language is too imprecise and has resulted in some misunderstandings.",
+      "parentUuid": "9ef5e88b_fa49eaa6",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "0a8dd959a4e788bb8fbe67734124caa92e6683c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
