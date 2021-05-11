@@ -64,6 +64,30 @@
       },
       "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc9688b9_02bc16bf",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-05-11T00:37:02Z",
+      "side": 0,
+      "message": "Sorry I\u0027m late to the party here. Do we need to assert \"nonnull \u0026\u0026 regex_match\"?",
+      "parentUuid": "d3ca1559_8fb38492",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
