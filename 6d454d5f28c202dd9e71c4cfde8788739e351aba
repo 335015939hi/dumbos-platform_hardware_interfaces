@@ -112,6 +112,30 @@
       },
       "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a39cfee0_42c27474",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2021-05-11T09:47:20Z",
+      "side": 0,
+      "message": "Oh hidl_string !\u003d operator internally dereferences itself, so checking for nullptr crashes. That\u0027s not something I didn\u0027t think of...\n\nIf the conversion to std::string handles nullptr sanely and the regex fails if null/empty this is fine then.",
+      "parentUuid": "665abb84_21a418a6",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
