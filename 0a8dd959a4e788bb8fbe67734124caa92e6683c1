@@ -46,6 +46,30 @@
       },
       "revId": "0a8dd959a4e788bb8fbe67734124caa92e6683c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d5db8f0_abc1567f",
+        "filename": "power/stats/aidl/android/hardware/power/stats/EnergyMeasurement.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2021-05-11T23:42:53Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "c45ec022_2e3a17bb",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "0a8dd959a4e788bb8fbe67734124caa92e6683c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
