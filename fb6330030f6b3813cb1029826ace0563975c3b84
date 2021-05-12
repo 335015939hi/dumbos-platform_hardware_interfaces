@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ec5671f_c6f91d69",
+        "filename": "keymaster/4.1/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-05-12T09:09:47Z",
+      "side": 1,
+      "message": "nit: put braces {} around things that aren\u0027t on one line?",
+      "revId": "fb6330030f6b3813cb1029826ace0563975c3b84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
