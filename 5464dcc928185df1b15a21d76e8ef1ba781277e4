@@ -33,6 +33,23 @@
       "message": "Is master the right branch or will it need to be cherry-picked to any release branches?",
       "revId": "5464dcc928185df1b15a21d76e8ef1ba781277e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4216f79e_a58b9b8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-05-12T14:13:14Z",
+      "side": 1,
+      "message": "Nice catch, thanks! I don\u0027t think any of the tests cover this, I mean, this path is only hit if trying to encode an integer that requires 8-byte encoding.... that will never happen with the kind of CBOR this library spits out.\n\nIdeally we\u0027d have unit tests for EicCbor and friends but so much of the code is exercised by the VTS and CTS tests that sit on top that I didn\u0027t bother (it\u0027s on my TODO list though)... so I\u0027m inclined to just +2 this.",
+      "revId": "5464dcc928185df1b15a21d76e8ef1ba781277e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
