@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e18f42_a26d814b",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-05-12T09:37:03Z",
+      "side": 1,
+      "message": "I didn\u0027t realize there was a specific error code for this -- I think we should make this test expect (just) ATTESTATION_CHALLENGE_MISSING and change the spec text [1] to reference the more specific error code. \n\n[1] https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl;l\u003d319-321",
+      "revId": "8fa1ace2c4b37970f26dd05ee1e55e8f078fcf6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "497385f4_5f97b646",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-05-12T09:37:03Z",
+      "side": 1,
+      "message": "(pre-existing: it would be nice if the variable and function had a name that made it clear this is specific to attestation -- I\u0027ll try to remember to fix up at some point..)",
+      "revId": "8fa1ace2c4b37970f26dd05ee1e55e8f078fcf6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dc0d23b_c1983096",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-05-12T09:37:03Z",
+      "side": 1,
+      "message": "Hmm, there are slots available in the schema for vendor and boot patchlevel, so maybe the tests should be checking/expecting these?   (There\u0027s also a slot for ecCurve, which was already being filtered out).\n\nBTW, the AIDL spec more generally expects vendor and boot patchlevel to always be present [2]; I added a test for this in aosp/1673208 but it\u0027s turned off for the moment because it produced too many test failures and got in the way of other things.  Once we\u0027ve fixed the CF KeyMint implementation to add these tags, I\u0027d hope to re-enable the check -- would that cause you problems?\n\n[1] https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl;l\u003d195-196\n[2] https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl;l\u003d142-149",
+      "revId": "8fa1ace2c4b37970f26dd05ee1e55e8f078fcf6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "251c4b17_ebf0c68e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2268,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-05-12T09:37:03Z",
+      "side": 1,
+      "message": "The AIDL spec [1] has \"If unspecified or specified more than once, begin() must return ErrorCode::UNSUPPORTED_DIGEST\" -- is there another chunk of spec text that allows INVALID_ARGUMENT?\n\n[1] https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl;l\u003d613-614",
+      "revId": "8fa1ace2c4b37970f26dd05ee1e55e8f078fcf6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
