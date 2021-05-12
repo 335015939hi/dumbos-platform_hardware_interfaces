@@ -16,6 +16,47 @@
       "message": "Hi guys, do you think this CL is still relevant? ",
       "revId": "4cd102accb24fca5fb77d55453f4bf20ee52bbfb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b18e86fc_99bd32e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-05-12T16:52:06Z",
+      "side": 1,
+      "message": "To some percentage of devices, for sure!",
+      "parentUuid": "1a14d09e_8a0bab28",
+      "revId": "4cd102accb24fca5fb77d55453f4bf20ee52bbfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a1746be_a2254baf",
+        "filename": "current.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-05-12T16:52:06Z",
+      "side": 1,
+      "message": "you will need to add an entry to this list so that this change compiles. See https://source.android.com/devices/architecture/hidl/hashing",
+      "range": {
+        "startLine": 769,
+        "startChar": 0,
+        "endLine": 769,
+        "endChar": 49
+      },
+      "revId": "4cd102accb24fca5fb77d55453f4bf20ee52bbfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
