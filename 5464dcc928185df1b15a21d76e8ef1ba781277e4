@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d97458f_6ff7005a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2021-05-12T12:25:31Z",
+      "side": 1,
+      "message": "I tried `atest VtsHalIdentityTargetTest`, but I got a very unhappy response. Is there a simpler test to run, or would you be able to validate it if you\u0027ve for things set up?",
+      "revId": "5464dcc928185df1b15a21d76e8ef1ba781277e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc8659a8_f8194041",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2021-05-12T12:25:31Z",
+      "side": 1,
+      "message": "Is master the right branch or will it need to be cherry-picked to any release branches?",
+      "revId": "5464dcc928185df1b15a21d76e8ef1ba781277e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
