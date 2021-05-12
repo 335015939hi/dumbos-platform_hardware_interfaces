@@ -16,6 +16,24 @@
       "message": "nit: put braces {} around things that aren\u0027t on one line?",
       "revId": "fb6330030f6b3813cb1029826ace0563975c3b84",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f356f9e_7ef38cf4",
+        "filename": "keymaster/4.1/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-05-12T10:07:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ec5671f_c6f91d69",
+      "revId": "fb6330030f6b3813cb1029826ace0563975c3b84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
