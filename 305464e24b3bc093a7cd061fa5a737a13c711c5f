@@ -88,6 +88,24 @@
       "parentUuid": "aacf0a40_f1afc112",
       "revId": "305464e24b3bc093a7cd061fa5a737a13c711c5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b58b1fef_2813f124",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-05-12T20:49:55Z",
+      "side": 1,
+      "message": "std::string(nullptr) should be UB according to the C++ standard, but I\u0027ve certainly always see it abort in Android.",
+      "parentUuid": "3bdf8c16_abedf635",
+      "revId": "305464e24b3bc093a7cd061fa5a737a13c711c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
