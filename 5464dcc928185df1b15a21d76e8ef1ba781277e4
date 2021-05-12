@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7ad81159_96651377",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2021-05-12T15:09:04Z",
+      "side": 1,
+      "message": "Oops, this was user error. Somehow managed to get my repo in a bad state. Sorted that and the the VTS test is happily passing.",
+      "parentUuid": "124cb1a4_8c91a03c",
+      "revId": "5464dcc928185df1b15a21d76e8ef1ba781277e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fc8659a8_f8194041",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
