@@ -42,7 +42,6 @@ class DeviceUniqueAttestationTest : public KeyMintAidlTestBase {
 
         EXPECT_TRUE(crypto_params.Contains(TAG_KEY_SIZE, key_size)) << "Key size missing";
 
-        EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
         ASSERT_GT(cert_chain_.size(), 0);
 
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);

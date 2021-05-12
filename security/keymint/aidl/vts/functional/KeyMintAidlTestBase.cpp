@@ -208,7 +208,7 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
             (algorithm.value() == Algorithm::RSA || algorithm.value() == Algorithm::EC)) {
             EXPECT_GE(cert_chain->size(), 1);
             if (key_desc.Contains(TAG_ATTESTATION_CHALLENGE)) {
-                if (attest_key) {
+                if (attest_key || key_desc.Contains(TAG_DEVICE_UNIQUE_ATTESTATION)) {
                     EXPECT_EQ(cert_chain->size(), 1);
                 } else {
                     EXPECT_GT(cert_chain->size(), 1);
