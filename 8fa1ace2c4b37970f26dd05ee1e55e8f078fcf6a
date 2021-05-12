@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2efe8bf8_c2fa1878",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-05-12T10:53:30Z",
+      "side": 1,
+      "message": "Good idea. I\u0027ll update the spec text in the next patch.",
+      "parentUuid": "c6e18f42_a26d814b",
+      "revId": "8fa1ace2c4b37970f26dd05ee1e55e8f078fcf6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "497385f4_5f97b646",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 1
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd6640c4_988faa5f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-05-12T10:53:30Z",
+      "side": 1,
+      "message": "I can remark such test failur of strongbox as a known issue (actually it is - b/186735514).\nDo you have any schedule on enable the check?",
+      "parentUuid": "6dc0d23b_c1983096",
+      "revId": "8fa1ace2c4b37970f26dd05ee1e55e8f078fcf6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "251c4b17_ebf0c68e",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 1
@@ -65,6 +101,24 @@
       "writtenOn": "2021-05-12T09:37:03Z",
       "side": 1,
       "message": "The AIDL spec [1] has \"If unspecified or specified more than once, begin() must return ErrorCode::UNSUPPORTED_DIGEST\" -- is there another chunk of spec text that allows INVALID_ARGUMENT?\n\n[1] https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl;l\u003d613-614",
+      "revId": "8fa1ace2c4b37970f26dd05ee1e55e8f078fcf6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5bece92_b59e5a4a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2268,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-05-12T10:53:30Z",
+      "side": 1,
+      "message": "Strongbox doens\u0027t allow any repeat tag during the input parameter validation, and will return INVALID_ARGUMENT further than the digest supportness checking.\nSo I think in this case we might allow these 2 kinds of error. Does that make sense to you?",
+      "parentUuid": "251c4b17_ebf0c68e",
       "revId": "8fa1ace2c4b37970f26dd05ee1e55e8f078fcf6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
