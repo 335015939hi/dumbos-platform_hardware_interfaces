@@ -136,6 +136,30 @@
       },
       "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8981b966_874cf900",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-05-12T20:31:21Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "a39cfee0_42c27474",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "6d454d5f28c202dd9e71c4cfde8788739e351aba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
