@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec03b20b_4f913f83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-05-12T20:44:21Z",
+      "side": 1,
+      "message": "OWNERS approval. Change looks great, though waiting for full approval from sensors team. Thanks for your contribution!",
+      "revId": "59bb6f9394ea77c5ae8a9ac5835ce3be62c2afd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c644ea6e_71920762",
+        "filename": "current.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-05-12T20:44:21Z",
+      "side": 1,
+      "message": "note - moved for alphabetical + avoiding downstream merge conflict.",
+      "range": {
+        "startLine": 783,
+        "startChar": 93,
+        "endLine": 784,
+        "endChar": 99
+      },
+      "revId": "59bb6f9394ea77c5ae8a9ac5835ce3be62c2afd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
