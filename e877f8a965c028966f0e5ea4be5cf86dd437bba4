@@ -68,6 +68,23 @@
       "parentUuid": "182b0808_544ad954",
       "revId": "e877f8a965c028966f0e5ea4be5cf86dd437bba4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2fbfea8_695c3827",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2021-05-14T17:25:52Z",
+      "side": 1,
+      "message": "We still need default HAL as it is useful for SOC / OEM for their earlier development.",
+      "revId": "e877f8a965c028966f0e5ea4be5cf86dd437bba4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
