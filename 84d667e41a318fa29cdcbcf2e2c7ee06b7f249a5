@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee62e18e_6e67cc63",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-14T00:14:44Z",
+      "side": 1,
+      "message": "I wonder why this condition is needed? It seems to contradict the comment above.",
+      "range": {
+        "startLine": 574,
+        "startChar": 12,
+        "endLine": 574,
+        "endChar": 55
+      },
+      "revId": "84d667e41a318fa29cdcbcf2e2c7ee06b7f249a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da1e1b48_fb21e7b2",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-14T00:14:44Z",
+      "side": 1,
+      "message": "nit: This code block has been repeated multiple times, maybe extracted it to a separate function?",
+      "range": {
+        "startLine": 562,
+        "startChar": 0,
+        "endLine": 580,
+        "endChar": 9
+      },
+      "revId": "84d667e41a318fa29cdcbcf2e2c7ee06b7f249a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b381efb5_7c295229",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-14T00:14:44Z",
+      "side": 1,
+      "message": "Apply similar fallback test here?",
+      "range": {
+        "startLine": 864,
+        "startChar": 0,
+        "endLine": 867,
+        "endChar": 9
+      },
+      "revId": "84d667e41a318fa29cdcbcf2e2c7ee06b7f249a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b486ce16_b8c05346",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-14T00:14:44Z",
+      "side": 1,
+      "message": "Apply similar fallback test here?",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 889,
+        "endChar": 9
+      },
+      "revId": "84d667e41a318fa29cdcbcf2e2c7ee06b7f249a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ece459fd_dd4439c6",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-14T00:14:44Z",
+      "side": 1,
+      "message": "nit: In some cases (e.g. line 919), fallbackModel is set to nullptr implicitly by the default value. In some other cases (e.g. line 1016), we are specifying nullptr explicitly. It might be good to keep it consistent.",
+      "range": {
+        "startLine": 1015,
+        "startChar": 80,
+        "endLine": 1016,
+        "endChar": 59
+      },
+      "revId": "84d667e41a318fa29cdcbcf2e2c7ee06b7f249a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
