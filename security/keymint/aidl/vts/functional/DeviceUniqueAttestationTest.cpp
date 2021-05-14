@@ -133,15 +133,18 @@ TEST_P(DeviceUniqueAttestationTest, RsaDeviceUniqueAttestation) {
 
     ASSERT_EQ(ErrorCode::OK, result);
 
-    AuthorizationSet hw_enforced = AuthorizationSetBuilder()
-                                           .Authorization(TAG_DEVICE_UNIQUE_ATTESTATION)
-                                           .Authorization(TAG_NO_AUTH_REQUIRED)
-                                           .RsaSigningKey(2048, 65537)
-                                           .Digest(Digest::SHA_2_256)
-                                           .Padding(PaddingMode::RSA_PKCS1_1_5_SIGN)
-                                           .Authorization(TAG_ORIGIN, KeyOrigin::GENERATED)
-                                           .Authorization(TAG_OS_VERSION, os_version())
-                                           .Authorization(TAG_OS_PATCHLEVEL, os_patch_level());
+    AuthorizationSet hw_enforced =
+            AuthorizationSetBuilder()
+                    .Authorization(TAG_DEVICE_UNIQUE_ATTESTATION)
+                    .Authorization(TAG_NO_AUTH_REQUIRED)
+                    .RsaSigningKey(2048, 65537)
+                    .Digest(Digest::SHA_2_256)
+                    .Padding(PaddingMode::RSA_PKCS1_1_5_SIGN)
+                    .Authorization(TAG_ORIGIN, KeyOrigin::GENERATED)
+                    .Authorization(TAG_OS_VERSION, os_version())
+                    .Authorization(TAG_OS_PATCHLEVEL, os_patch_level())
+                    .Authorization(TAG_VENDOR_PATCHLEVEL, vendor_patch_level())
+                    .Authorization(TAG_BOOT_PATCHLEVEL, boot_patch_level());
 
     CheckUniqueAttestationResults(key_blob, key_characteristics, hw_enforced, key_size);
 }
@@ -173,15 +176,18 @@ TEST_P(DeviceUniqueAttestationTest, EcdsaDeviceUniqueAttestation) {
     if (result == ErrorCode::CANNOT_ATTEST_IDS) return;
     ASSERT_EQ(ErrorCode::OK, result);
 
-    AuthorizationSet hw_enforced = AuthorizationSetBuilder()
-                                           .Authorization(TAG_DEVICE_UNIQUE_ATTESTATION)
-                                           .Authorization(TAG_NO_AUTH_REQUIRED)
-                                           .EcdsaSigningKey(EcCurve::P_256)
-                                           .Digest(Digest::SHA_2_256)
-                                           .Authorization(TAG_EC_CURVE, EcCurve::P_256)
-                                           .Authorization(TAG_ORIGIN, KeyOrigin::GENERATED)
-                                           .Authorization(TAG_OS_VERSION, os_version())
-                                           .Authorization(TAG_OS_PATCHLEVEL, os_patch_level());
+    AuthorizationSet hw_enforced =
+            AuthorizationSetBuilder()
+                    .Authorization(TAG_DEVICE_UNIQUE_ATTESTATION)
+                    .Authorization(TAG_NO_AUTH_REQUIRED)
+                    .EcdsaSigningKey(EcCurve::P_256)
+                    .Digest(Digest::SHA_2_256)
+                    .Authorization(TAG_EC_CURVE, EcCurve::P_256)
+                    .Authorization(TAG_ORIGIN, KeyOrigin::GENERATED)
+                    .Authorization(TAG_OS_VERSION, os_version())
+                    .Authorization(TAG_OS_PATCHLEVEL, os_patch_level())
+                    .Authorization(TAG_VENDOR_PATCHLEVEL, vendor_patch_level())
+                    .Authorization(TAG_BOOT_PATCHLEVEL, boot_patch_level());
 
     CheckUniqueAttestationResults(key_blob, key_characteristics, hw_enforced, key_size);
 }
