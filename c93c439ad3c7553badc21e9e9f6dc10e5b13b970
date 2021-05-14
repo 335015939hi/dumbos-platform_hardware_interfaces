@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf526f7_ead30538",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-05-14T14:50:51Z",
+      "side": 1,
+      "message": "(I think EC_CURVE should be removed from this list because it should be filled in; I\u0027ll do that in a follow-up CL at some point...)",
+      "revId": "c93c439ad3c7553badc21e9e9f6dc10e5b13b970",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

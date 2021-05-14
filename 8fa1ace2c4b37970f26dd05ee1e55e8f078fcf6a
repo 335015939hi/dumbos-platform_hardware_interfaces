@@ -88,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76684256_dfbd8058",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-05-14T14:50:51Z",
+      "side": 1,
+      "message": "I\u0027m currently working on getting Cuttlefish to populate VENDOR_PATCHLEVEL and BOOT_PATCHLEVEL. Once that\u0027s in (hopefully early next week), I\u0027d be keen to remove the --check_patchLevels flag and always check that keys have these tags.",
+      "parentUuid": "bd6640c4_988faa5f",
+      "revId": "8fa1ace2c4b37970f26dd05ee1e55e8f078fcf6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "251c4b17_ebf0c68e",
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "Strongbox doens\u0027t allow any repeat tag during the input parameter validation, and will return INVALID_ARGUMENT further than the digest supportness checking.\nSo I think in this case we might allow these 2 kinds of error. Does that make sense to you?",
       "parentUuid": "251c4b17_ebf0c68e",
+      "revId": "8fa1ace2c4b37970f26dd05ee1e55e8f078fcf6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6b32b3e_7bd0f10c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2268,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-05-14T14:50:51Z",
+      "side": 1,
+      "message": "Seems reasonable to me.",
+      "parentUuid": "d5bece92_b59e5a4a",
       "revId": "8fa1ace2c4b37970f26dd05ee1e55e8f078fcf6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
