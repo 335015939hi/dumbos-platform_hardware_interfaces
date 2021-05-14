@@ -124,8 +124,7 @@ char nibble2hex[16] = {'0', '1', '2', '3', '4', '5', '6', '7',
 // Attestations don't contain everything in key authorization lists, so we need to filter the key
 // lists to produce the lists that we expect to match the attestations.
 auto kTagsToFilter = {
-        Tag::CREATION_DATETIME,        //
-        Tag::EC_CURVE,
+        Tag::CREATION_DATETIME,
         Tag::HARDWARE_TYPE,
         Tag::INCLUDE_UNIQUE_ID,
 };
@@ -151,6 +150,21 @@ string x509NameToStr(X509_NAME* name) {
 
 bool KeyMintAidlTestBase::arm_deleteAllKeys = false;
 bool KeyMintAidlTestBase::dump_Attestations = false;
+
+uint32_t KeyMintAidlTestBase::boot_patch_level() {
+    // The boot patchlevel is not available as a property, but should be present
+    // in the key characteristics of any created key.
+    AuthorizationSet allAuths;
+    for (auto& entry : key_characteristics_) {
+        allAuths.push_back(AuthorizationSet(entry.authorizations));
+    }
+    auto patchlevel = allAuths.GetTagValue(TAG_BOOT_PATCHLEVEL);
+    if (patchlevel.has_value()) {
+        return patchlevel.value();
+    } else {
+        return 0;
+    }
+}
 
 ErrorCode KeyMintAidlTestBase::GetReturnErrorCode(const Status& result) {
     if (result.isOk()) return ErrorCode::OK;
