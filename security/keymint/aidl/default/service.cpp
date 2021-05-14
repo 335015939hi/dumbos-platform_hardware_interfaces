@@ -24,6 +24,7 @@
 #include <AndroidRemotelyProvisionedComponentDevice.h>
 #include <AndroidSecureClock.h>
 #include <AndroidSharedSecret.h>
+#include <keymaster/keymaster_configuration.h>
 #include <keymaster/soft_keymaster_logger.h>
 
 using aidl::android::hardware::security::keymint::AndroidKeyMintDevice;
@@ -50,6 +51,20 @@ int main() {
     // Add Keymint Service
     std::shared_ptr<AndroidKeyMintDevice> keyMint =
             addService<AndroidKeyMintDevice>(SecurityLevel::SOFTWARE);
+
+    int32_t message_version =
+            keymaster::MessageVersion(keymaster::KmVersion::KEYMINT_1, 0 /* km_date */);
+    keymaster::ConfigurePatchlevelsRequest req(message_version);
+    req.vendor_patchlevel = keymaster::GetVendorPatchlevel();
+    req.boot_patchlevel = 0;
+
+    LOG(INFO) << "Setting keymint service patchlevels " << req.vendor_patchlevel;
+    keymaster::ConfigurePatchlevelsResponse rsp =
+            keyMint->getKeymasterImpl()->ConfigurePatchlevels(req);
+    if (rsp.error != KM_ERROR_OK) {
+        LOG(ERROR) << "Failed to configure keymaster patchlevels: " << rsp.error;
+    }
+
     // Add Secure Clock Service
     addService<AndroidSecureClock>(keyMint);
     // Add Shared Secret Service
