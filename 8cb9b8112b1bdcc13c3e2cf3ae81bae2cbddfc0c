@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af56ac73_27671dd9",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6362,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-05-19T15:35:45Z",
+      "side": 1,
+      "message": "Should fail at any stage.",
+      "range": {
+        "startLine": 6362,
+        "startChar": 43,
+        "endLine": 6362,
+        "endChar": 60
+      },
+      "revId": "8cb9b8112b1bdcc13c3e2cf3ae81bae2cbddfc0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
