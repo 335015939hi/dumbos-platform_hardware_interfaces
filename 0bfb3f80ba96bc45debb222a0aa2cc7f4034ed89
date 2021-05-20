@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d47838a6_61dc6dbf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2021-05-20T17:55:45Z",
+      "side": 1,
+      "message": "Bug: 186685601",
+      "revId": "0bfb3f80ba96bc45debb222a0aa2cc7f4034ed89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06a20336_e1616d7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2021-05-20T17:55:45Z",
+      "side": 1,
+      "message": "Thank you again for working on this!",
+      "revId": "0bfb3f80ba96bc45debb222a0aa2cc7f4034ed89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
