@@ -22,6 +22,30 @@
       },
       "revId": "3f40b2b6246374e429678df6394a350b00b3f20e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a09e8757_81b8758a",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2021-05-21T21:13:05Z",
+      "side": 1,
+      "message": "It would be possible to panic if the property didn\u0027t exist.",
+      "parentUuid": "ddc70af1_b738d66e",
+      "range": {
+        "startLine": 156,
+        "startChar": 23,
+        "endLine": 156,
+        "endChar": 37
+      },
+      "revId": "3f40b2b6246374e429678df6394a350b00b3f20e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
