@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b06ea0cb_17f1aa63",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1015680
+      },
+      "writtenOn": "2021-05-21T16:32:44Z",
+      "side": 1,
+      "message": "let me clarify the comment - it can still fail due to driver not supporting the model, hence the check",
+      "parentUuid": "ee62e18e_6e67cc63",
+      "range": {
+        "startLine": 574,
+        "startChar": 12,
+        "endLine": 574,
+        "endChar": 55
+      },
+      "revId": "84d667e41a318fa29cdcbcf2e2c7ee06b7f249a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da1e1b48_fb21e7b2",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-05-14T00:14:44Z",
       "side": 1,
       "message": "nit: This code block has been repeated multiple times, maybe extracted it to a separate function?",
+      "range": {
+        "startLine": 562,
+        "startChar": 0,
+        "endLine": 580,
+        "endChar": 9
+      },
+      "revId": "84d667e41a318fa29cdcbcf2e2c7ee06b7f249a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caba4d50_5f0d1b76",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1015680
+      },
+      "writtenOn": "2021-05-21T16:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da1e1b48_fb21e7b2",
       "range": {
         "startLine": 562,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc06baef_b02caf90",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1015680
+      },
+      "writtenOn": "2021-05-21T16:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b381efb5_7c295229",
+      "range": {
+        "startLine": 864,
+        "startChar": 0,
+        "endLine": 867,
+        "endChar": 9
+      },
+      "revId": "84d667e41a318fa29cdcbcf2e2c7ee06b7f249a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b486ce16_b8c05346",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31e95ecd_0074aa9b",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1015680
+      },
+      "writtenOn": "2021-05-21T16:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b486ce16_b8c05346",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 889,
+        "endChar": 9
+      },
+      "revId": "84d667e41a318fa29cdcbcf2e2c7ee06b7f249a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ece459fd_dd4439c6",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-05-14T00:14:44Z",
       "side": 1,
       "message": "nit: In some cases (e.g. line 919), fallbackModel is set to nullptr implicitly by the default value. In some other cases (e.g. line 1016), we are specifying nullptr explicitly. It might be good to keep it consistent.",
+      "range": {
+        "startLine": 1015,
+        "startChar": 80,
+        "endLine": 1016,
+        "endChar": 59
+      },
+      "revId": "84d667e41a318fa29cdcbcf2e2c7ee06b7f249a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a3d0540_46e14e4b",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1015680
+      },
+      "writtenOn": "2021-05-21T16:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ece459fd_dd4439c6",
       "range": {
         "startLine": 1015,
         "startChar": 80,
