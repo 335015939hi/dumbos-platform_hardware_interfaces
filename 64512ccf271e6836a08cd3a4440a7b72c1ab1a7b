@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f8da757_27668a9e",
+        "filename": "common/fmq/aidl/aidl_api/android.hardware.common.fmq/current/android/hardware/common/fmq/MQDescriptor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-05-22T22:50:41Z",
+      "side": 1,
+      "message": "This is the changed part.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 36
+      },
+      "revId": "64512ccf271e6836a08cd3a4440a7b72c1ab1a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
