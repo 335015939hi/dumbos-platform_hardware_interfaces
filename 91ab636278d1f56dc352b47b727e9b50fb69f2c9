@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07cd3b40_74b700e4",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-24T22:59:20Z",
+      "side": 1,
+      "message": "Probably worth a function comment on when the fallback will be attempted -- fallbackModel is provide, prepareModelFromCache returns GENERAL_FAILURE, and caching is supported.",
+      "range": {
+        "startLine": 363,
+        "startChar": 44,
+        "endLine": 363,
+        "endChar": 57
+      },
+      "revId": "91ab636278d1f56dc352b47b727e9b50fb69f2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77c26812_3b40d295",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-24T22:59:20Z",
+      "side": 1,
+      "message": "From the implementation, it looks like we are expecting prepareModelFromCache to either fail with INVALID_ARGUMENT because of bad cache, or GENERAL_FAILURE if not supported. We are not expecting it to succeed. Maybe worth a function comment on this expectation.",
+      "range": {
+        "startLine": 403,
+        "startChar": 4,
+        "endLine": 403,
+        "endChar": 46
+      },
+      "revId": "91ab636278d1f56dc352b47b727e9b50fb69f2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8450aa6_d63658e4",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-24T22:59:20Z",
+      "side": 1,
+      "message": "typo: \"prapare\" -\u003e \"prepare\"",
+      "range": {
+        "startLine": 403,
+        "startChar": 9,
+        "endLine": 403,
+        "endChar": 46
+      },
+      "revId": "91ab636278d1f56dc352b47b727e9b50fb69f2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b8b42e9_cc1dedb5",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-24T22:59:20Z",
+      "side": 1,
+      "message": "I wonder if there is any call sites that need these two outputs? If not, it\u0027s probably better to remove these.",
+      "range": {
+        "startLine": 406,
+        "startChar": 12,
+        "endLine": 406,
+        "endChar": 79
+      },
+      "revId": "91ab636278d1f56dc352b47b727e9b50fb69f2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b039b83_ceeab3f6",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-24T22:59:20Z",
+      "side": 1,
+      "message": "I think this comment should be \"Unless caching is not supported\"? The model is guaranteed to be supported here because of the \"checkEarlyTermination\" call at the start of tests. The fallback path will only be executed if caching is supported because of the \"mIsCachingSupported\" condition, and thus if caching is not supported, the status here will be GENERAL_FAILURE.",
+      "range": {
+        "startLine": 420,
+        "startChar": 15,
+        "endLine": 420,
+        "endChar": 48
+      },
+      "revId": "91ab636278d1f56dc352b47b727e9b50fb69f2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "128ee574_fccbf622",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-24T22:59:20Z",
+      "side": 1,
+      "message": "nit: these lines are no longer needed? same for other places.",
+      "range": {
+        "startLine": 587,
+        "startChar": 8,
+        "endLine": 588,
+        "endChar": 27
+      },
+      "revId": "91ab636278d1f56dc352b47b727e9b50fb69f2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
