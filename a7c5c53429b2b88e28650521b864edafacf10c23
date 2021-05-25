@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2377a579_2f346545",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-25T16:18:21Z",
+      "side": 1,
+      "message": "Please take a look at one remaining comment and a Lint warning.",
+      "revId": "a7c5c53429b2b88e28650521b864edafacf10c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26575ab5_51166fc2",
+        "filename": "neuralnetworks/aidl/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-05-25T16:18:21Z",
+      "side": 1,
+      "message": "This comment seems obsolete?",
+      "range": {
+        "startLine": 715,
+        "startChar": 8,
+        "endLine": 715,
+        "endChar": 51
+      },
+      "revId": "a7c5c53429b2b88e28650521b864edafacf10c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
