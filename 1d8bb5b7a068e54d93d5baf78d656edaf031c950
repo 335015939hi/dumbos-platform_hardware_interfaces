@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a7bf0946_6c40dfb2",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-05-27T17:19:42Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e515eec0_0a2414dc",
+      "revId": "1d8bb5b7a068e54d93d5baf78d656edaf031c950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d2eb5b67_eb9e06d2",
         "filename": "security/keymint/aidl/vts/functional/DeviceUniqueAttestationTest.cpp",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2021-05-27T14:26:32Z",
       "side": 1,
       "message": "BTW, will this check the other problem that seemed to be occurring in the field (cert.tbsCertificate.signature !\u003d cert.signatureAlgorithm)?",
+      "revId": "1d8bb5b7a068e54d93d5baf78d656edaf031c950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5dc5c0c_80086abc",
+        "filename": "security/keymint/aidl/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-05-27T17:19:42Z",
+      "side": 1,
+      "message": "Yes. I\u0027ve confirmed that OpenSSL would _not_ validate such a chain but _will_ validate a chain where the signatureAlgorithm fields are equal.",
+      "parentUuid": "d2eb5b67_eb9e06d2",
       "revId": "1d8bb5b7a068e54d93d5baf78d656edaf031c950",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
