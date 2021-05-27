@@ -6462,6 +6462,11 @@ TEST_P(EarlyBootKeyTest, CreateEarlyBootKeys) {
     auto [aesKeyData, hmacKeyData, rsaKeyData, ecdsaKeyData] =
             CreateTestKeys(TAG_EARLY_BOOT_ONLY, ErrorCode::OK);
 
+    for (const auto& keyData : {aesKeyData, hmacKeyData, rsaKeyData, ecdsaKeyData}) {
+        ASSERT_GT(keyData.blob.size(), 0U);
+        AuthorizationSet crypto_params = SecLevelAuthorizations(keyData.characteristics);
+        EXPECT_TRUE(crypto_params.Contains(TAG_EARLY_BOOT_ONLY)) << crypto_params;
+    }
     CheckedDeleteKey(&aesKeyData.blob);
     CheckedDeleteKey(&hmacKeyData.blob);
     CheckedDeleteKey(&rsaKeyData.blob);
@@ -6469,7 +6474,31 @@ TEST_P(EarlyBootKeyTest, CreateEarlyBootKeys) {
 }
 
 /*
- * EarlyBootKeyTest.UsetEarlyBootKeyFailure
+ * EarlyBootKeyTest.CreateAttestedEarlyBootKey
+ *
+ * Verifies that creating an early boot key with attestation succeeds.
+ */
+TEST_P(EarlyBootKeyTest, CreateAttestedEarlyBootKey) {
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .EcdsaSigningKey(256)
+                                                 .Authorization(TAG_EARLY_BOOT_ONLY)
+                                                 .AttestationChallenge("challenge")
+                                                 .AttestationApplicationId("app_id")
+                                                 .Digest(Digest::SHA_2_256)
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .SetDefaultValidity(),
+                                         &key_blob, &key_characteristics));
+    ASSERT_GT(key_blob.size(), 0U);
+    AuthorizationSet crypto_params = SecLevelAuthorizations(key_characteristics);
+    EXPECT_TRUE(crypto_params.Contains(TAG_EARLY_BOOT_ONLY)) << crypto_params;
+
+    CheckedDeleteKey(&key_blob);
+}
+
+/*
+ * EarlyBootKeyTest.UseEarlyBootKeyFailure
  *
  * Verifies that using early boot keys at a later stage fails.
  */
