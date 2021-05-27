@@ -16,6 +16,23 @@
       "message": "Work on strongbox",
       "revId": "300b555b6b4008be4dbe53d1a8ce66dcc1696207",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2ec01b5_588c47db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2021-05-27T23:51:37Z",
+      "side": 1,
+      "message": "Support incoming for CF: aosp/1720334",
+      "revId": "300b555b6b4008be4dbe53d1a8ce66dcc1696207",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
