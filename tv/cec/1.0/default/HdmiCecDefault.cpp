@@ -53,7 +53,20 @@ Return<void> HdmiCecDefault::clearLogicalAddress() {
     return Void();
 }
 
-Return<void> HdmiCecDefault::getPhysicalAddress(getPhysicalAddress_cb /*_hidl_cb*/) {
+Return<void> HdmiCecDefault::getPhysicalAddress(getPhysicalAddress_cb callback) {
+    uint16_t addr;
+    int ret = ioctl(mCecFd, CEC_ADAP_G_PHYS_ADDR, &addr);
+    switch (ret) {
+        case 0:
+            callback(Result::SUCCESS, addr);
+            break;
+        case -EBADF:
+            callback(Result::FAILURE_INVALID_STATE, addr);
+            break;
+        default:
+            callback(Result::FAILURE_UNKNOWN, addr);
+            break;
+    }
     return Void();
 }
 
