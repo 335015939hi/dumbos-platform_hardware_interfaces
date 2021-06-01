@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79c11e29_f7e8f74c",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-06-01T19:44:20Z",
+      "side": 1,
+      "message": "nit: maybe `config.size() / 2`? So it tries to tune to some middle frequency and not the first/last one (first one could be a default for radio chip, so we\u0027re likely to catch more bugs this way).",
+      "range": {
+        "startLine": 518,
+        "startChar": 27,
+        "endLine": 518,
+        "endChar": 28
+      },
+      "revId": "67b98c0980e72e6603620e65ef521988390cbaaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
