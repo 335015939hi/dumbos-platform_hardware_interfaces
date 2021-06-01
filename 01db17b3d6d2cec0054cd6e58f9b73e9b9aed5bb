@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bedb64f_5b12664e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-01T17:46:39Z",
+      "side": 1,
+      "message": "Hey David, this HAL is frozen internally (I didn\u0027t check if the failure here is related to this, but it will fail if you run it again for sure). Please move this change to the sc-dev branch internally and see https://source.android.com/devices/architecture/hidl/hashing for how to update the hash.\n\nIf you do want to update this on AOSP, I should freeze hashes on aosp/master (that normally wouldn\u0027t get updated until sc source code is released). If you want to be able to do this, please let me know, and I can get that setup.",
+      "revId": "01db17b3d6d2cec0054cd6e58f9b73e9b9aed5bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
