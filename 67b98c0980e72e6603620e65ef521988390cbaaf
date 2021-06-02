@@ -22,6 +22,30 @@
       },
       "revId": "67b98c0980e72e6603620e65ef521988390cbaaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ef77655_3894e79e",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1836835
+      },
+      "writtenOn": "2021-06-02T08:53:18Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "79c11e29_f7e8f74c",
+      "range": {
+        "startLine": 518,
+        "startChar": 27,
+        "endLine": 518,
+        "endChar": 28
+      },
+      "revId": "67b98c0980e72e6603620e65ef521988390cbaaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
