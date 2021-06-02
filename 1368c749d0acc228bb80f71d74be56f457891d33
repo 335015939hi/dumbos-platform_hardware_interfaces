@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c900d346_99c9dd94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1559553
+      },
+      "writtenOn": "2021-06-02T15:44:38Z",
+      "side": 1,
+      "message": "Looks okay from a fuzzing perspective, but I\u0027ll let Myles chime in about the bluetooth-specific stuff.",
+      "revId": "1368c749d0acc228bb80f71d74be56f457891d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
