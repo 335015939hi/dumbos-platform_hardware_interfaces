@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49f043f4_311256fa",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1463284
+      },
+      "writtenOn": "2021-06-02T13:52:46Z",
+      "side": 1,
+      "message": "Is there any chance config here is an empty array?",
+      "revId": "3fdb93f8897a46cff70b0994c01826c8af229ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
