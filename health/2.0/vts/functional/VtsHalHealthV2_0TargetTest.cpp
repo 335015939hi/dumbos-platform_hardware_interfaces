@@ -542,9 +542,13 @@ TEST_P(BatteryTest, InstantCurrentAgainstChargeStatusFromHal) {
         TEST_AND_RETURN(isOk(mHealth->getCurrentNow([&](auto result, auto value) {
             currentNow = {result, value};
         })));
+        HalResult<HealthInfo> healthInfo;
+        mHealth->getHealthInfo([&](auto result, const auto& value) {
+            healthInfo = {result, value};
+        });
 
         return IsBatteryCurrentSignCorrect(status, currentNow,
-                                           false /* accept zero current as unknown */);
+                   !healthInfo.value.legacy.batteryPresent /* accept zero current as unknown */);
     };
 
     EXPECT_TRUE(SucceedOnce(gBatteryTestTimeout, testOnce))
@@ -561,8 +565,13 @@ TEST_P(BatteryTest, AverageCurrentAgainstChargeStatusFromHal) {
         TEST_AND_RETURN(isOk(mHealth->getCurrentAverage([&](auto result, auto value) {
             currentAverage = {result, value};
         })));
+        HalResult<HealthInfo> healthInfo;
+        mHealth->getHealthInfo([&](auto result, const auto& value) {
+            healthInfo = {result, value};
+        });
+
         return IsBatteryCurrentSignCorrect(status, currentAverage,
-                                           false /* accept zero current as unknown */);
+                   !healthInfo.value.legacy.batteryPresent /* accept zero current as unknown */);
     };
 
     EXPECT_TRUE(SucceedOnce(gBatteryTestTimeout, testOnce))
