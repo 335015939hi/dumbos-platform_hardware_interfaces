@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8277cea6_623b1537",
+        "filename": "security/keymint/support/attestation_record.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-06-03T08:49:59Z",
+      "side": 1,
+      "message": "I\u0027m not quite sure about the ASN.1 schema definition.\nBut since it was defined in km41 (https://source.corp.google.com/aosp-android11/hardware/interfaces/keymaster/4.1/support/attestation_record.cpp;l\u003d104?q\u003dDEVICE_UNIQUE_ATTESTATION%20p:android), I think it should be in the schema as well.\n\nI think this tag needs to be presented in the attestation record. \nHAL def: https://source.corp.google.com/aosp-master/hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/Tag.aidl;l\u003d843",
+      "parentUuid": "50b502e5_c41d498a",
+      "revId": "8c73a31007f07140df55686f783ae7c61f5493ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06814ae6_3afc2f6e",
         "filename": "security/keymint/support/attestation_record.cpp",
         "patchSetId": 2
