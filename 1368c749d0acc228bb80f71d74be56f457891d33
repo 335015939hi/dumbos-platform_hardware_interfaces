@@ -16,6 +16,46 @@
       "message": "Looks okay from a fuzzing perspective, but I\u0027ll let Myles chime in about the bluetooth-specific stuff.",
       "revId": "1368c749d0acc228bb80f71d74be56f457891d33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c31e412_adb9e04f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-06-03T22:47:50Z",
+      "side": 1,
+      "message": "This looks like it tests the default implementation, which is not used by recent phones.  I don\u0027t think we should try to test anything with bt_vendor.h.",
+      "revId": "1368c749d0acc228bb80f71d74be56f457891d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c6f17a7_3cacb9b5",
+        "filename": "bluetooth/1.0/default/test/fuzzer/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-06-03T22:47:50Z",
+      "side": 1,
+      "message": "should we be fuzzing 1.1?",
+      "range": {
+        "startLine": 34,
+        "startChar": 36,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "1368c749d0acc228bb80f71d74be56f457891d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
