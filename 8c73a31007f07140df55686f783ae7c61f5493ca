@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "063dcefa_e2cae8c2",
+        "filename": "security/keymint/support/attestation_record.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-06-03T08:31:27Z",
+      "side": 1,
+      "message": "Also, if this bool field should be in the ASN.1 schema, does this also mean that device unique attestation tests should be checking that it is present in any extensions received?",
+      "parentUuid": "50b502e5_c41d498a",
+      "revId": "8c73a31007f07140df55686f783ae7c61f5493ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06814ae6_3afc2f6e",
         "filename": "security/keymint/support/attestation_record.cpp",
         "patchSetId": 2
