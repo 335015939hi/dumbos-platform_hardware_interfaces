@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc180a8f_479383f6",
+        "filename": "security/keymint/support/attestation_record.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-06-03T07:37:09Z",
+      "side": 1,
+      "message": "We\u0027ll need the following at the end.\n+    ASN1_NULL* device_unique_attestation;",
+      "revId": "8c73a31007f07140df55686f783ae7c61f5493ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06814ae6_3afc2f6e",
+        "filename": "security/keymint/support/attestation_record.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-06-03T07:37:09Z",
+      "side": 1,
+      "message": "+        ASN1_EXP_OPT(KM_AUTH_LIST, device_unique_attestation, ASN1_NULL,\n+                     TAG_DEVICE_UNIQUE_ATTESTATION.maskedTag()),",
+      "revId": "8c73a31007f07140df55686f783ae7c61f5493ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07876c50_6e087130",
+        "filename": "security/keymint/support/attestation_record.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-06-03T07:37:09Z",
+      "side": 1,
+      "message": "+    copyAuthTag(record-\u003edevice_unique_attestation, TAG_DEVICE_UNIQUE_ATTESTATION, auth_list);",
+      "revId": "8c73a31007f07140df55686f783ae7c61f5493ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
