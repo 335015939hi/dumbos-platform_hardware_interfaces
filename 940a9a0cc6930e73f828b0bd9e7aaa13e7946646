@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20173b71_0957df2a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2021-06-03T22:17:52Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better to fail the test?\n\nOr, perhaps, return an error instead indicating you cannot find the boot_patch_level?",
+      "range": {
+        "startLine": 177,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 17
+      },
+      "revId": "940a9a0cc6930e73f828b0bd9e7aaa13e7946646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eda856f0_80b3372e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1460,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2021-06-03T22:17:52Z",
+      "side": 1,
+      "message": "It\u0027s very odd that we can create keys that are immediately invalid (creation time \u003d\u003d expiration time).\n\nMaybe that\u0027s ok?",
+      "range": {
+        "startLine": 1460,
+        "startChar": 78,
+        "endLine": 1460,
+        "endChar": 91
+      },
+      "revId": "940a9a0cc6930e73f828b0bd9e7aaa13e7946646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5663c2f_52af3d5f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1482,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2021-06-03T22:17:52Z",
+      "side": 1,
+      "message": "DRY nit: create once as a constant, then copy it for each test instead of duplicating the code",
+      "range": {
+        "startLine": 1474,
+        "startChar": 0,
+        "endLine": 1482,
+        "endChar": 46
+      },
+      "revId": "940a9a0cc6930e73f828b0bd9e7aaa13e7946646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
