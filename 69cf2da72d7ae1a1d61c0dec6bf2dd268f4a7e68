@@ -70,6 +70,30 @@
       },
       "revId": "69cf2da72d7ae1a1d61c0dec6bf2dd268f4a7e68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99c15c41_d2666aab",
+        "filename": "security/keymint/aidl/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2021-06-04T15:08:21Z",
+      "side": 0,
+      "message": "It seems super odd to me that we don\u0027t specify the curve.\n\nWe\u0027re ok for now, because only NIST P-curves are supported (based on the EcCurve enum). However, I could totally see us expanding this in the future to support other curves, at which point relying solely on the key size is going to be a problem.",
+      "parentUuid": "2aeb9472_1502fd08",
+      "range": {
+        "startLine": 181,
+        "startChar": 58,
+        "endLine": 181,
+        "endChar": 70
+      },
+      "revId": "69cf2da72d7ae1a1d61c0dec6bf2dd268f4a7e68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
