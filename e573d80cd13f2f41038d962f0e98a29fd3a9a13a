@@ -22,6 +22,30 @@
       },
       "revId": "e573d80cd13f2f41038d962f0e98a29fd3a9a13a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e092b98b_c46cd4d6",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-06-04T15:48:59Z",
+      "side": 1,
+      "message": "Done (I was struggling with getting the right syntax for a default std::function arg, but it seems to work OK this time around).",
+      "parentUuid": "eaa1232b_f620e488",
+      "range": {
+        "startLine": 211,
+        "startChar": 80,
+        "endLine": 211,
+        "endChar": 87
+      },
+      "revId": "e573d80cd13f2f41038d962f0e98a29fd3a9a13a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
