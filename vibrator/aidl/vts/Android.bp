@@ -18,7 +18,7 @@ cc_test {
         "libbinder",
     ],
     static_libs: [
-        "android.hardware.vibrator-V1-cpp",
+        "android.hardware.vibrator-V2-cpp",
     ],
     test_suites: [
         "general-tests",
