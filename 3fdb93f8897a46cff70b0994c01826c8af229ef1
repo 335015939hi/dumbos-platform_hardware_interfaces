@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fb07335_b15e9315",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1583555
+      },
+      "writtenOn": "2021-06-04T13:34:37Z",
+      "side": 1,
+      "message": "Jan, please create a bug for this in Buganizer and add the id to the commit message. Thanks",
+      "revId": "3fdb93f8897a46cff70b0994c01826c8af229ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49f043f4_311256fa",
