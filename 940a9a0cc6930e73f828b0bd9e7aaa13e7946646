@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "431a98e0_1be65087",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-06-04T08:51:53Z",
+      "side": 1,
+      "message": "I didn\u0027t want to deal with error paths in the few places that use this, so I went for returning a nonsense value that will later fail any checks.",
+      "parentUuid": "20173b71_0957df2a",
+      "range": {
+        "startLine": 177,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 17
+      },
+      "revId": "940a9a0cc6930e73f828b0bd9e7aaa13e7946646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eda856f0_80b3372e",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e991cae_ed78c4b5",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1460,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-06-04T08:51:53Z",
+      "side": 1,
+      "message": "Changed to a later timestamp (KeyMint is just supposed to blindly transcribe these values into the cert without checking, but you\u0027re right we might as well put in something valid in case a KeyMint impl is more diligent).",
+      "parentUuid": "eda856f0_80b3372e",
+      "range": {
+        "startLine": 1460,
+        "startChar": 78,
+        "endLine": 1460,
+        "endChar": 91
+      },
+      "revId": "940a9a0cc6930e73f828b0bd9e7aaa13e7946646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5663c2f_52af3d5f",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-06-03T22:17:52Z",
       "side": 1,
       "message": "DRY nit: create once as a constant, then copy it for each test instead of duplicating the code",
+      "range": {
+        "startLine": 1474,
+        "startChar": 0,
+        "endLine": 1482,
+        "endChar": 46
+      },
+      "revId": "940a9a0cc6930e73f828b0bd9e7aaa13e7946646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f710932_48e15e25",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1482,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-06-04T08:51:53Z",
+      "side": 1,
+      "message": "Done (although this is somewhat inconsistent with the rest of the file, which is very non-DRY...)",
+      "parentUuid": "e5663c2f_52af3d5f",
       "range": {
         "startLine": 1474,
         "startChar": 0,
