@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "387b0bab_1c51e986",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_1.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-06-06T08:00:43Z",
+      "side": 1,
+      "message": "Does these conditions need to be separated checking from is_offload_session? I think we may check the Le audio session type with is_offload_session if they do not have different logic. The same is for is_le_audio_offload_audio_config. \n\nBut if you purpose is to check the corresponding relation between session type of audio config, it is good to change the is_offload_session naming to is_offload_a2dp_session. The same is for is_offload_audio_config. It\u0027s more clearer and have more readability.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 90
+      },
+      "revId": "3c5c915239035e48b299a71549c65b517d58110e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
