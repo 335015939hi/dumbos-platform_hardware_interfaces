@@ -39,6 +39,30 @@
       },
       "revId": "926749be4522ba76cefa9982caa07cfdeeafa4c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c3cf873_0b847b53",
+        "filename": "bluetooth/audio/2.1/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-06-07T17:17:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb27582c_85fcf1b5",
+      "range": {
+        "startLine": 86,
+        "startChar": 41,
+        "endLine": 86,
+        "endChar": 50
+      },
+      "revId": "926749be4522ba76cefa9982caa07cfdeeafa4c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
