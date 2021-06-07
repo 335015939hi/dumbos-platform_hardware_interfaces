@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "422b46e5_d4c3477b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-06-07T05:10:59Z",
+      "side": 1,
+      "message": "The objective of the fuzzer is to test 1.0-impl. We have created library libbt-vendor.so (consisting of bt_vendor.h and bt_vendor.cpp) for the sole purpose of increasing the code coverage of the fuzzer.",
+      "parentUuid": "3c31e412_adb9e04f",
+      "revId": "1368c749d0acc228bb80f71d74be56f457891d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c6f17a7_3cacb9b5",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-06-03T22:47:50Z",
       "side": 1,
       "message": "should we be fuzzing 1.1?",
+      "range": {
+        "startLine": 34,
+        "startChar": 36,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "1368c749d0acc228bb80f71d74be56f457891d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "809f75d2_16bd8c66",
+        "filename": "bluetooth/1.0/default/test/fuzzer/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-06-07T05:10:59Z",
+      "side": 1,
+      "message": "Sure, we too feel bluetooth@1.1 would require a fuzz target. Since 1.0-impl and 1.1 are separate libraries, a fuzzer for 1.0-impl shall also be required. Request you to kindly review 1.0-impl and we will discuss with @Kris regarding developing a fuzz target for 1.1. Thank you.",
+      "parentUuid": "8c6f17a7_3cacb9b5",
       "range": {
         "startLine": 34,
         "startChar": 36,
