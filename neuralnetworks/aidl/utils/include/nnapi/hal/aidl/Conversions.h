@@ -95,8 +95,6 @@ GeneralResult<ExecutionPreference> unvalidatedConvert(
 GeneralResult<Extension> unvalidatedConvert(const aidl_hal::Extension& extension);
 GeneralResult<Extension::OperandTypeInformation> unvalidatedConvert(
         const aidl_hal::ExtensionOperandTypeInformation& operandTypeInformation);
-GeneralResult<SharedHandle> unvalidatedConvert(
-        const ::aidl::android::hardware::common::NativeHandle& handle);
 GeneralResult<SyncFence> unvalidatedConvert(const ndk::ScopedFileDescriptor& syncFence);
 
 GeneralResult<std::vector<Operation>> unvalidatedConvert(
@@ -160,9 +158,7 @@ nn::GeneralResult<int64_t> unvalidatedConvert(const nn::Duration& duration);
 nn::GeneralResult<int64_t> unvalidatedConvert(const nn::OptionalDuration& optionalDuration);
 nn::GeneralResult<int64_t> unvalidatedConvert(const nn::OptionalTimePoint& optionalTimePoint);
 nn::GeneralResult<ndk::ScopedFileDescriptor> unvalidatedConvert(const nn::SyncFence& syncFence);
-nn::GeneralResult<common::NativeHandle> unvalidatedConvert(const nn::SharedHandle& sharedHandle);
-nn::GeneralResult<ndk::ScopedFileDescriptor> unvalidatedConvertCache(
-        const nn::SharedHandle& handle);
+nn::GeneralResult<ndk::ScopedFileDescriptor> unvalidatedConvert(const nn::SharedHandle& handle);
 
 nn::GeneralResult<std::vector<uint8_t>> convert(const nn::CacheToken& cacheToken);
 nn::GeneralResult<BufferDesc> convert(const nn::BufferDesc& bufferDesc);
