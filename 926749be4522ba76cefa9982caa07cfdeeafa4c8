@@ -16,6 +16,29 @@
       "message": "LGTM",
       "revId": "926749be4522ba76cefa9982caa07cfdeeafa4c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb27582c_85fcf1b5",
+        "filename": "bluetooth/audio/2.1/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-06-07T14:22:08Z",
+      "side": 1,
+      "message": "audioConfig.leAudioCodecConfig()?",
+      "range": {
+        "startLine": 86,
+        "startChar": 41,
+        "endLine": 86,
+        "endChar": 50
+      },
+      "revId": "926749be4522ba76cefa9982caa07cfdeeafa4c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
