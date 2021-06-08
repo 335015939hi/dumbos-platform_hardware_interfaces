@@ -94,6 +94,30 @@
       },
       "revId": "69cf2da72d7ae1a1d61c0dec6bf2dd268f4a7e68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dd16484_6d949967",
+        "filename": "security/keymint/aidl/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-06-08T14:26:27Z",
+      "side": 0,
+      "message": "Ohh sorry for confusion.\n\nWhat I want to say is this `AuthorizationSet hw_enforced` is different from what\u0027s been input on GenerateKey(#165).\nSo for this hw_enforce list, \n- #181 is actually be packed in #179. So this line is redundent.\n- Either update #165 to have EcCurve::P_256, or remove TAG_EC_CURVE here can make them consistent. \n\nAnd since David found that Tag::EC_CURVE is a must-have, it might be better to update #165?",
+      "parentUuid": "99c15c41_d2666aab",
+      "range": {
+        "startLine": 181,
+        "startChar": 58,
+        "endLine": 181,
+        "endChar": 70
+      },
+      "revId": "69cf2da72d7ae1a1d61c0dec6bf2dd268f4a7e68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
