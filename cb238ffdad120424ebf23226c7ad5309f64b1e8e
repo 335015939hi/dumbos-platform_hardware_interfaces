@@ -33,6 +33,24 @@
       "message": "The VtsHalKeymasterV4_1TargetTest target has a dependency on libkeymaster4vtstest, so would it be possible to split up the verify_chain() function from keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp, and re-use the second half of it ?",
       "revId": "cb238ffdad120424ebf23226c7ad5309f64b1e8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f15efa3_d8c5cd02",
+        "filename": "keymaster/4.1/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-06-08T15:07:20Z",
+      "side": 1,
+      "message": "I can do this in a follow-up CL when I can also test the root is self-signed. Then it would look more similar to verify_chain() in keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp\n\nDoes that work for you?",
+      "parentUuid": "6566e751_3c538688",
+      "revId": "cb238ffdad120424ebf23226c7ad5309f64b1e8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
