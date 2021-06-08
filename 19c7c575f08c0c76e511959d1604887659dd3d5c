@@ -22,6 +22,30 @@
       },
       "revId": "19c7c575f08c0c76e511959d1604887659dd3d5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a0cd3b5_470bc7ad",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-06-08T14:57:05Z",
+      "side": 0,
+      "message": "AIUI they\u0027re only applicable to symmetric keys so not relevant in the attestation of an asymmetric key",
+      "parentUuid": "fad5eaeb_91aeaa84",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 1
+      },
+      "revId": "19c7c575f08c0c76e511959d1604887659dd3d5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
