@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72d3b34d_99154a38",
+        "filename": "security/keymint/aidl/default/service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2021-06-09T17:00:26Z",
+      "side": 1,
+      "message": "OS version and patchlevel are currently set in the AndroidKeyMintDevice constructor. For consistency, I think it would be good to set all the patchlevels in one spot.\n\nUnfortunately, KeymasterContext::SetSystemPatchlevels can fail, but I see a few options off the top of my head:\n1. Set the system patchlevels in the AndroidKeyMintDevice ctor and CHECK that it doesn\u0027t fail. PureSoftKeymasterContext::SetSystemPatchlevels should always work.\n2. Change SetSystemPatchlevels so it cannot fail (perhaps CHECK in the base class implementation? Make it pure virtual?).\n3. Add AndroidKeyMintDevice::initialize, similar to RemoteKeymaster::Initialize.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 5
+      },
+      "revId": "afde4b4bd660800afc861ae55825fc68b12c35d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
