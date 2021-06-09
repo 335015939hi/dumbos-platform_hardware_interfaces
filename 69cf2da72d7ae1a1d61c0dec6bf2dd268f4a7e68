@@ -142,6 +142,30 @@
       },
       "revId": "69cf2da72d7ae1a1d61c0dec6bf2dd268f4a7e68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55fb6e46_7fffbf0c",
+        "filename": "security/keymint/aidl/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-06-09T08:27:48Z",
+      "side": 0,
+      "message": "Agreed, but making that change (which affects dozens of places) will be a separate CL.",
+      "parentUuid": "38e5f78e_8414ba15",
+      "range": {
+        "startLine": 181,
+        "startChar": 58,
+        "endLine": 181,
+        "endChar": 70
+      },
+      "revId": "69cf2da72d7ae1a1d61c0dec6bf2dd268f4a7e68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
