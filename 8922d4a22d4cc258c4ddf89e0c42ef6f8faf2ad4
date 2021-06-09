@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0f31879_d1d5daa3",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-06-09T12:05:20Z",
+      "side": 1,
+      "message": "Seems slightly better to have a constant for that.",
+      "range": {
+        "startLine": 179,
+        "startChar": 15,
+        "endLine": 179,
+        "endChar": 23
+      },
+      "revId": "8922d4a22d4cc258c4ddf89e0c42ef6f8faf2ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cd49547_d670ae65",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1521,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-06-09T12:05:20Z",
+      "side": 1,
+      "message": "Can you please elaborate? Under which conditions should KeyMint reject attesting those values?",
+      "range": {
+        "startLine": 1521,
+        "startChar": 53,
+        "endLine": 1521,
+        "endChar": 80
+      },
+      "revId": "8922d4a22d4cc258c4ddf89e0c42ef6f8faf2ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
