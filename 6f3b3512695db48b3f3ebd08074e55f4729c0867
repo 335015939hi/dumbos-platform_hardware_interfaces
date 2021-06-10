@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26d02dd3_603bbeb2",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_1.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-06-10T07:01:38Z",
+      "side": 1,
+      "message": "I recently added path for LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH , do we need checks like in 2.0 hw offloaded version for it ?\n\n\nhere is snipped for A2DP offload:\n\n\n  std::lock_guard\u003cstd::recursive_mutex\u003e guard(mutex_);\n  bool dataMQ_valid \u003d\n      (session_type_ \u003d\u003d SessionType::A2DP_HARDWARE_OFFLOAD_DATAPATH ||\n       (mDataMQ !\u003d nullptr \u0026\u0026 mDataMQ-\u003eisValid()));\n  return stack_iface_ !\u003d nullptr \u0026\u0026 dataMQ_valid;",
+      "revId": "6f3b3512695db48b3f3ebd08074e55f4729c0867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
