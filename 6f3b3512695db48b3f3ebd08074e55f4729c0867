@@ -16,6 +16,24 @@
       "message": "I recently added path for LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH , do we need checks like in 2.0 hw offloaded version for it ?\n\n\nhere is snipped for A2DP offload:\n\n\n  std::lock_guard\u003cstd::recursive_mutex\u003e guard(mutex_);\n  bool dataMQ_valid \u003d\n      (session_type_ \u003d\u003d SessionType::A2DP_HARDWARE_OFFLOAD_DATAPATH ||\n       (mDataMQ !\u003d nullptr \u0026\u0026 mDataMQ-\u003eisValid()));\n  return stack_iface_ !\u003d nullptr \u0026\u0026 dataMQ_valid;",
       "revId": "6f3b3512695db48b3f3ebd08074e55f4729c0867",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7a1256d_30e58ba9",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_1.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-06-10T07:21:09Z",
+      "side": 1,
+      "message": "We might do it. \n\nHowever under current logic, IsSessionReady for BluetoothAudioSession_2_1 only handle LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH, and the mDataMQ seems be for the software encoded/decoded data. So if we would handle LE_AUDIO_SOFTWARE_ENCODED_DATAPATH and LE_AUDIO_SOFTWARE_DECODED_DATAPATH here, we need to change this part as BluetoothAudioSession.\n\nWe could do it for in the later patch.",
+      "parentUuid": "26d02dd3_603bbeb2",
+      "revId": "6f3b3512695db48b3f3ebd08074e55f4729c0867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
