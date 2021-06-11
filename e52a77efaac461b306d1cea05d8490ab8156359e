@@ -16,6 +16,29 @@
       "message": "Friendly ping",
       "revId": "e52a77efaac461b306d1cea05d8490ab8156359e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10ab8191_415c7c67",
+        "filename": "neuralnetworks/aidl/utils/src/PreparedModel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2021-06-11T10:48:12Z",
+      "side": 1,
+      "message": "Could this call fail? If so, should we do NN_TRY instead?",
+      "range": {
+        "startLine": 163,
+        "startChar": 87,
+        "endLine": 163,
+        "endChar": 92
+      },
+      "revId": "e52a77efaac461b306d1cea05d8490ab8156359e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
