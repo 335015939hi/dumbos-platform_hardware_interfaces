@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "993966a5_ff0f6970",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCharacteristics.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-06-14T15:44:40Z",
+      "side": 1,
+      "message": "Wasn\u0027t quite sure what this sentence meant.",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 23
+      },
+      "revId": "3555f12f61497b24af8eec47cd1f4e209fdde59b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
