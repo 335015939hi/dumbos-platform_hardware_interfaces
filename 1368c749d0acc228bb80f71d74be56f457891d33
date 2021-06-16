@@ -98,6 +98,30 @@
       },
       "revId": "1368c749d0acc228bb80f71d74be56f457891d33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5917f8c7_6bf5b923",
+        "filename": "bluetooth/1.0/default/test/fuzzer/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-06-16T18:08:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "809f75d2_16bd8c66",
+      "range": {
+        "startLine": 34,
+        "startChar": 36,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "1368c749d0acc228bb80f71d74be56f457891d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
