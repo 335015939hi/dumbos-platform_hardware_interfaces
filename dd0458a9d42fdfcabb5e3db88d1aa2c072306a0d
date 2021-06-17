@@ -1,0 +1,434 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011892058",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "66b66c2a_0546dd62",
+          "description": "Change to \"radio/aidl/aidl_api/android.hardware.radio/current/android/hardware/radio/DataCallFailCause.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/aidl_api/android.hardware.radio/current/android/hardware/radio/DataCallFailCause.aidl",
+              "range": {
+                "startLine": 41,
+                "startChar": 10,
+                "endLine": 41,
+                "endChar": 16
+              },
+              "replacement": "UNKNOWN"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "6a79b73b_12212798",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio/current/android/hardware/radio/DataCallFailCause.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T21:45:05Z",
+      "side": 1,
+      "message": "Common typo found: \"UKNOWN\" -- should it be \"UNKNOWN\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 41,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 16
+      },
+      "revId": "dd0458a9d42fdfcabb5e3db88d1aa2c072306a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011892058",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "486ff853_5ed92010",
+          "description": "Change to \"radio/aidl/aidl_api/android.hardware.radio/current/android/hardware/radio/DataCallFailCause.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/aidl_api/android.hardware.radio/current/android/hardware/radio/DataCallFailCause.aidl",
+              "range": {
+                "startLine": 360,
+                "startChar": 12,
+                "endLine": 360,
+                "endChar": 23
+              },
+              "replacement": "UNAUTHORIZED"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "dfb3832e_3a918c24",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio/current/android/hardware/radio/DataCallFailCause.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T21:45:05Z",
+      "side": 1,
+      "message": "Common typo found: \"UNATHORIZED\" -- should it be \"UNAUTHORIZED\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 360,
+        "startChar": 12,
+        "endLine": 360,
+        "endChar": 23
+      },
+      "revId": "dd0458a9d42fdfcabb5e3db88d1aa2c072306a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011892058",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "d9006a16_2e666568",
+          "description": "Change to \"radio/aidl/android/hardware/radio/DataCallFailCause.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/android/hardware/radio/DataCallFailCause.aidl",
+              "range": {
+                "startLine": 44,
+                "startChar": 12,
+                "endLine": 44,
+                "endChar": 18
+              },
+              "replacement": "UNKNOWN"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "1584ade9_da4d5bf4",
+        "filename": "radio/aidl/android/hardware/radio/DataCallFailCause.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T21:45:05Z",
+      "side": 1,
+      "message": "Common typo found: \"UKNOWN\" -- should it be \"UNKNOWN\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 44,
+        "startChar": 12,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "dd0458a9d42fdfcabb5e3db88d1aa2c072306a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011892058",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "ade26ea4_86d9cfe7",
+          "description": "Change to \"radio/aidl/android/hardware/radio/DataCallFailCause.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/android/hardware/radio/DataCallFailCause.aidl",
+              "range": {
+                "startLine": 1226,
+                "startChar": 14,
+                "endLine": 1226,
+                "endChar": 25
+              },
+              "replacement": "UNAUTHORIZED"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "3b5f4e2b_b07cef30",
+        "filename": "radio/aidl/android/hardware/radio/DataCallFailCause.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T21:45:05Z",
+      "side": 1,
+      "message": "Common typo found: \"UNATHORIZED\" -- should it be \"UNAUTHORIZED\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 1226,
+        "startChar": 14,
+        "endLine": 1226,
+        "endChar": 25
+      },
+      "revId": "dd0458a9d42fdfcabb5e3db88d1aa2c072306a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011892058",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "647f6efd_4fc1e3d1",
+          "description": "Change to \"radio/aidl/android/hardware/radio/IRadioResponse.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/android/hardware/radio/IRadioResponse.aidl",
+              "range": {
+                "startLine": 2962,
+                "startChar": 40,
+                "endLine": 2962,
+                "endChar": 51
+              },
+              "replacement": "containing"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "a67d472d_bf9953a4",
+        "filename": "radio/aidl/android/hardware/radio/IRadioResponse.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 2962,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T21:45:05Z",
+      "side": 1,
+      "message": "Common typo found: \"contatining\" -- should it be \"containing\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 2962,
+        "startChar": 40,
+        "endLine": 2962,
+        "endChar": 51
+      },
+      "revId": "dd0458a9d42fdfcabb5e3db88d1aa2c072306a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011892058",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "9f42a70b_935c6b13",
+          "description": "Change to \"radio/aidl/android/hardware/radio/LteSignalStrength.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/android/hardware/radio/LteSignalStrength.aidl",
+              "range": {
+                "startLine": 26,
+                "startChar": 57,
+                "endLine": 26,
+                "endChar": 66
+              },
+              "replacement": "multiplied"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "fb36a384_cacfd280",
+        "filename": "radio/aidl/android/hardware/radio/LteSignalStrength.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T21:45:05Z",
+      "side": 1,
+      "message": "Common typo found: \"multipled\" -- should it be \"multiplied\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 26,
+        "startChar": 57,
+        "endLine": 26,
+        "endChar": 66
+      },
+      "revId": "dd0458a9d42fdfcabb5e3db88d1aa2c072306a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011892058",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "91c796a7_2dde25ad",
+          "description": "Change to \"radio/aidl/android/hardware/radio/NrSignalStrength.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/android/hardware/radio/NrSignalStrength.aidl",
+              "range": {
+                "startLine": 22,
+                "startChar": 43,
+                "endLine": 22,
+                "endChar": 52
+              },
+              "replacement": "multiplied"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "e5fda5ff_5573bafc",
+        "filename": "radio/aidl/android/hardware/radio/NrSignalStrength.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T21:45:05Z",
+      "side": 1,
+      "message": "Common typo found: \"multipled\" -- should it be \"multiplied\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 22,
+        "startChar": 43,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "dd0458a9d42fdfcabb5e3db88d1aa2c072306a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011892058",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "7a9c2f88_22b64bfe",
+          "description": "Change to \"radio/aidl/android/hardware/radio/NrSignalStrength.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/android/hardware/radio/NrSignalStrength.aidl",
+              "range": {
+                "startLine": 30,
+                "startChar": 45,
+                "endLine": 30,
+                "endChar": 54
+              },
+              "replacement": "multiplied"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "017c9f2c_dc7a777f",
+        "filename": "radio/aidl/android/hardware/radio/NrSignalStrength.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T21:45:05Z",
+      "side": 1,
+      "message": "Common typo found: \"multipled\" -- should it be \"multiplied\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 30,
+        "startChar": 45,
+        "endLine": 30,
+        "endChar": 54
+      },
+      "revId": "dd0458a9d42fdfcabb5e3db88d1aa2c072306a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011892058",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "b0be4aed_dceb0956",
+          "description": "Change to \"radio/aidl/android/hardware/radio/NrSignalStrength.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/android/hardware/radio/NrSignalStrength.aidl",
+              "range": {
+                "startLine": 46,
+                "startChar": 44,
+                "endLine": 46,
+                "endChar": 53
+              },
+              "replacement": "multiplied"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "18b73e45_29df60d5",
+        "filename": "radio/aidl/android/hardware/radio/NrSignalStrength.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T21:45:05Z",
+      "side": 1,
+      "message": "Common typo found: \"multipled\" -- should it be \"multiplied\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 46,
+        "startChar": 44,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "dd0458a9d42fdfcabb5e3db88d1aa2c072306a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011892058",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "1b12f2bd_4fbdf3b6",
+          "description": "Change to \"radio/aidl/android/hardware/radio/NrSignalStrength.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/android/hardware/radio/NrSignalStrength.aidl",
+              "range": {
+                "startLine": 54,
+                "startChar": 46,
+                "endLine": 54,
+                "endChar": 55
+              },
+              "replacement": "multiplied"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "bd7e9f3e_e833a0d2",
+        "filename": "radio/aidl/android/hardware/radio/NrSignalStrength.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T21:45:05Z",
+      "side": 1,
+      "message": "Common typo found: \"multipled\" -- should it be \"multiplied\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 54,
+        "startChar": 46,
+        "endLine": 54,
+        "endChar": 55
+      },
+      "revId": "dd0458a9d42fdfcabb5e3db88d1aa2c072306a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
