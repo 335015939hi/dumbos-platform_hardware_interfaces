@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "783c30ee_a8ba097d",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-06-17T11:23:48Z",
+      "side": 1,
+      "message": "Please name this variable meaningfully, e.g. mEventThread.",
+      "range": {
+        "startLine": 41,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 17
+      },
+      "revId": "fc30b02522b68921cace0299d41c1ade7bab0872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2af85123_6b49dfa2",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-06-17T11:23:48Z",
+      "side": 1,
+      "message": "poll(ufds, /* size(ufds) \u003d */ 3, /* timeout \u003d */ -1);",
+      "range": {
+        "startLine": 337,
+        "startChar": 18,
+        "endLine": 337,
+        "endChar": 36
+      },
+      "revId": "fc30b02522b68921cace0299d41c1ade7bab0872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1289454c_8b7bba93",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-06-17T11:23:48Z",
+      "side": 1,
+      "message": "nit: errno",
+      "range": {
+        "startLine": 352,
+        "startChar": 43,
+        "endLine": 352,
+        "endChar": 59
+      },
+      "revId": "fc30b02522b68921cace0299d41c1ade7bab0872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b9ad197_fdb412aa",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-06-17T11:23:48Z",
+      "side": 1,
+      "message": "nit: errno",
+      "range": {
+        "startLine": 373,
+        "startChar": 43,
+        "endLine": 373,
+        "endChar": 60
+      },
+      "revId": "fc30b02522b68921cace0299d41c1ade7bab0872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
