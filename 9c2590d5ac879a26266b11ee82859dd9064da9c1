@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2abeec3_3b7502bc",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-06-17T11:12:57Z",
+      "side": 1,
+      "message": "According to:\nhttps://man7.org/linux/man-pages/man2/ioctl.2.html\nioctl will always return -1 on a failure.\nThis would mean checking for -EBADF is not correct.\nInstead one should check \u0027errno\u0027 for this value.\nAm I missing something?\n\nIn any case, please add a log statement in case of ret !\u003d 0.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 18
+      },
+      "revId": "9c2590d5ac879a26266b11ee82859dd9064da9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
