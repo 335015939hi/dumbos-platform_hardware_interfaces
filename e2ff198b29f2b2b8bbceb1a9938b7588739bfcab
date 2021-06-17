@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0c108dd_179fc7cc",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCharacteristics.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-06-17T16:29:14Z",
+      "side": 1,
+      "message": "Nit: Does this need to be here? \"A key can have different properties enforced by components of different security levels.\" sounds more straightforward to me.",
+      "range": {
+        "startLine": 42,
+        "startChar": 43,
+        "endLine": 42,
+        "endChar": 49
+      },
+      "revId": "e2ff198b29f2b2b8bbceb1a9938b7588739bfcab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
