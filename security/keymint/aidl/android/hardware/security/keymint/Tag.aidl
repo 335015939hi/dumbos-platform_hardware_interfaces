@@ -874,10 +874,8 @@ enum Tag {
     STORAGE_KEY = TagType.BOOL | 722,
 
     /**
-     * OBSOLETE: Do not use. See IKeyMintOperation.updateAad instead.
-     * TODO: Delete when keystore1 is deleted.
+     * Tag 1000 was ASSOCIATED_DATA
      */
-    ASSOCIATED_DATA = TagType.BYTES | 1000,
 
     /**
      * Tag::NONCE is used to provide or return a nonce or Initialization Vector (IV) for AES-GCM,
