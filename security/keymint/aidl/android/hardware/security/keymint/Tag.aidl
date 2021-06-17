@@ -268,10 +268,6 @@ enum Tag {
     USAGE_EXPIRE_DATETIME = TagType.DATE | 402,
 
     /**
-     * TODO(seleneh) this tag need to be deleted.
-     *
-     * TODO(seleneh) this tag need to be deleted.
-     *
      * Tag::MIN_SECONDS_BETWEEN_OPS specifies the minimum amount of time that elapses between
      * allowed operations using a key.  This can be used to rate-limit uses of keys in contexts
      * where unlimited use may enable brute force attacks.
@@ -289,6 +285,8 @@ enum Tag {
      * fails because the table is full, KeyMint returns ErrorCode::TOO_MANY_OPERATIONS.
      *
      * Must be hardware-enforced.
+     *
+     * TODO: find out if this tag is still supported.
      */
     MIN_SECONDS_BETWEEN_OPS = TagType.UINT | 403,
 
@@ -876,9 +874,8 @@ enum Tag {
     STORAGE_KEY = TagType.BOOL | 722,
 
     /**
-     * TODO: Delete when keystore1 is deleted.
+     * Tag 1000 was ASSOCIATED_DATA
      */
-    ASSOCIATED_DATA = TagType.BYTES | 1000,
 
     /**
      * Tag::NONCE is used to provide or return a nonce or Initialization Vector (IV) for AES-GCM,
