@@ -22,6 +22,30 @@
       },
       "revId": "2a0a36679dfaacddfa8172837549f29db468cab7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e79ca9b9_2021a268",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1651020
+      },
+      "writtenOn": "2021-06-17T11:35:08Z",
+      "side": 1,
+      "message": "This sounds like a sane default.",
+      "parentUuid": "8e1e1492_0a901929",
+      "range": {
+        "startLine": 121,
+        "startChar": 53,
+        "endLine": 121,
+        "endChar": 75
+      },
+      "revId": "2a0a36679dfaacddfa8172837549f29db468cab7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
