@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc84f473_1d0feb14",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-06-17T15:10:12Z",
+      "side": 1,
+      "message": "Why not return X509_Ptr here?",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 4
+      },
+      "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0196441f_4ce7ac79",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-06-17T15:10:12Z",
+      "side": 1,
+      "message": "Can you please add a brief comment indicating that the return value points to data owned by `certificate` and must not be freed. Also it cannot outlive `certificate`.",
+      "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0af3171_d92ee783",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-06-17T15:10:12Z",
+      "side": 1,
+      "message": "both X509_get_ext_by_OBJ and X509_get_ext take const X509*. So I think this can be const X509*.",
+      "range": {
+        "startLine": 87,
+        "startChar": 69,
+        "endLine": 87,
+        "endChar": 74
+      },
+      "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa70056d_0a14a2a7",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_authSet_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-06-17T15:10:12Z",
+      "side": 1,
+      "message": "Do you mean /dev/zero? I don\u0027t think you can read from /dev/null. Also can you explain to me what case 5 should accomplish, I don\u0027t quite understand the purpose of this.",
+      "range": {
+        "startLine": 61,
+        "startChar": 32,
+        "endLine": 61,
+        "endChar": 36
+      },
+      "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9419649b_3273c4b5",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-06-17T15:10:12Z",
+      "side": 1,
+      "message": "Do you have a rationale for the set of parameter combinations chosen?",
+      "range": {
+        "startLine": 69,
+        "startChar": 17,
+        "endLine": 69,
+        "endChar": 39
+      },
+      "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
