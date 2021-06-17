@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a64bdb2_ce78de37",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-06-17T11:13:17Z",
+      "side": 1,
+      "message": "Should we log the tx_status value in this case? (or even in all cases except TX_STATUS_OK)",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 43
+      },
+      "revId": "03c5b5dc32eebb0621321dc0c363a9e51b6ed903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
