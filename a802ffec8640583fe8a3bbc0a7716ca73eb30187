@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d9bbcd7_a68d3bde",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-06-17T11:12:18Z",
+      "side": 1,
+      "message": "nit: Please add also errno to the log.",
+      "range": {
+        "startLine": 132,
+        "startChar": 35,
+        "endLine": 132,
+        "endChar": 50
+      },
+      "revId": "a802ffec8640583fe8a3bbc0a7716ca73eb30187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
