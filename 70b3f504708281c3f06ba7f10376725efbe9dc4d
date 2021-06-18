@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed98e462_9430169f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3130,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-06-18T12:23:13Z",
+      "side": 1,
+      "message": "Need to remove",
+      "range": {
+        "startLine": 3130,
+        "startChar": 0,
+        "endLine": 3130,
+        "endChar": 41
+      },
+      "revId": "70b3f504708281c3f06ba7f10376725efbe9dc4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25ae2401_93378eeb",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3157,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-06-18T12:23:13Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 3157,
+        "startChar": 0,
+        "endLine": 3157,
+        "endChar": 41
+      },
+      "revId": "70b3f504708281c3f06ba7f10376725efbe9dc4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb2f4f10_070c178f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3183,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-06-18T12:23:13Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 3183,
+        "startChar": 0,
+        "endLine": 3183,
+        "endChar": 41
+      },
+      "revId": "70b3f504708281c3f06ba7f10376725efbe9dc4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18d04558_d4af8814",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3210,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-06-18T12:23:13Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 3210,
+        "startChar": 0,
+        "endLine": 3210,
+        "endChar": 41
+      },
+      "revId": "70b3f504708281c3f06ba7f10376725efbe9dc4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
