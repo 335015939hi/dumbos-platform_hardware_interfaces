@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26073bea_e6605473",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-06-18T02:39:17Z",
+      "side": 1,
+      "message": "Devin, could I please get a high-level review of the changes here? Mainly general API/best practices feedback. I thought it might be better to do it step by step than having a huge change later on.\nNot included: files generated from `m android.hardware.radio-update-api`",
+      "revId": "83a549725dc475eef3bd4f52f21f79145a8406c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
