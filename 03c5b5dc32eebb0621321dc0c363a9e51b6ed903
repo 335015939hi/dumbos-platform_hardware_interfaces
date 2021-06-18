@@ -22,6 +22,30 @@
       },
       "revId": "03c5b5dc32eebb0621321dc0c363a9e51b6ed903",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa42f2e7_5b5fa1b3",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-06-18T15:00:31Z",
+      "side": 1,
+      "message": "We already have log of failure case before the switch block",
+      "parentUuid": "7a64bdb2_ce78de37",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 43
+      },
+      "revId": "03c5b5dc32eebb0621321dc0c363a9e51b6ed903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
