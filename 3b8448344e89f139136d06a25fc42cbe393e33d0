@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011900171",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "17827fde_19d545c7",
+          "description": "Change to \"radio/aidl/android/hardware/radio/DataCallFailCause.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/android/hardware/radio/DataCallFailCause.aidl",
+              "range": {
+                "startLine": 41,
+                "startChar": 12,
+                "endLine": 41,
+                "endChar": 18
+              },
+              "replacement": "UNKNOWN"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "dc4a9a48_cbb2ad77",
+        "filename": "radio/aidl/android/hardware/radio/DataCallFailCause.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-18T02:20:34Z",
+      "side": 1,
+      "message": "Common typo found: \"UKNOWN\" -- should it be \"UNKNOWN\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 41,
+        "startChar": 12,
+        "endLine": 41,
+        "endChar": 18
+      },
+      "revId": "3b8448344e89f139136d06a25fc42cbe393e33d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011900171",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740274?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "f38dff00_d825ff92",
+          "description": "Change to \"radio/aidl/android/hardware/radio/DataCallFailCause.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/android/hardware/radio/DataCallFailCause.aidl",
+              "range": {
+                "startLine": 1223,
+                "startChar": 14,
+                "endLine": 1223,
+                "endChar": 25
+              },
+              "replacement": "UNAUTHORIZED"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "1b6a3942_02cd305f",
+        "filename": "radio/aidl/android/hardware/radio/DataCallFailCause.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-18T02:20:34Z",
+      "side": 1,
+      "message": "Common typo found: \"UNATHORIZED\" -- should it be \"UNAUTHORIZED\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 1223,
+        "startChar": 14,
+        "endLine": 1223,
+        "endChar": 25
+      },
+      "revId": "3b8448344e89f139136d06a25fc42cbe393e33d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
