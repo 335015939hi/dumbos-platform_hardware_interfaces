@@ -22,6 +22,30 @@
       },
       "revId": "9c2590d5ac879a26266b11ee82859dd9064da9c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66c8c78a_943e2ec0",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-06-18T15:00:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2abeec3_3b7502bc",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 18
+      },
+      "revId": "9c2590d5ac879a26266b11ee82859dd9064da9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
