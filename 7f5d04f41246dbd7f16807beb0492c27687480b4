@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a2a2aad_449bc8c7",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-06-18T17:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc84f473_1d0feb14",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 4
+      },
+      "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0196441f_4ce7ac79",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2895202_6e7754f2",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-06-18T17:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0196441f_4ce7ac79",
+      "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0af3171_d92ee783",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-06-17T15:10:12Z",
       "side": 1,
       "message": "both X509_get_ext_by_OBJ and X509_get_ext take const X509*. So I think this can be const X509*.",
+      "range": {
+        "startLine": 87,
+        "startChar": 69,
+        "endLine": 87,
+        "endChar": 74
+      },
+      "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a3ed3af_dffbe26a",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-06-18T17:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0af3171_d92ee783",
       "range": {
         "startLine": 87,
         "startChar": 69,
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "609def22_ed27780a",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_authSet_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-06-18T17:25:19Z",
+      "side": 1,
+      "message": "Updated it to /dev/zero/. \u0027Case 5\u0027 calls the \u0027Deserialize()\u0027 function of authorization_set.cpp.",
+      "parentUuid": "aa70056d_0a14a2a7",
+      "range": {
+        "startLine": 61,
+        "startChar": 32,
+        "endLine": 61,
+        "endChar": 36
+      },
+      "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9419649b_3273c4b5",
@@ -100,6 +190,30 @@
       "writtenOn": "2021-06-17T15:10:12Z",
       "side": 1,
       "message": "Do you have a rationale for the set of parameter combinations chosen?",
+      "range": {
+        "startLine": 69,
+        "startChar": 17,
+        "endLine": 69,
+        "endChar": 39
+      },
+      "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5b1b507_ba86ef12",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-06-18T17:25:19Z",
+      "side": 1,
+      "message": "Hi, the various cases in the switch case are chosen such that all the functions that return \u0027AuthorizationSetBuilder\u0027 can be covered.\nFor each case, digest and padding are chosen from \u0027FuzzedDataProvider\u0027.",
+      "parentUuid": "9419649b_3273c4b5",
       "range": {
         "startLine": 69,
         "startChar": 17,
