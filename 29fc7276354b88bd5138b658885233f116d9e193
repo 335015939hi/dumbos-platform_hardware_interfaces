@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6800032_190f0ed0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-06-18T23:55:54Z",
+      "side": 1,
+      "message": "Just as a reminder, this can be \"Fixes\" to automatically close the bug.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 3
+      },
+      "revId": "29fc7276354b88bd5138b658885233f116d9e193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e69155b9_406bc289",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-06-18T23:55:54Z",
+      "side": 1,
+      "message": "Congrats on your first CL! The change looks good, so I\u0027ve given it a +2 Code-Review. I\u0027m also an OWNER of this directory, so that\u0027s also granted you Code Owner approval.",
+      "revId": "29fc7276354b88bd5138b658885233f116d9e193",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
