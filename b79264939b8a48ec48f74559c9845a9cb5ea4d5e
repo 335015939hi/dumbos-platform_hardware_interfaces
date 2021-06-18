@@ -16,6 +16,24 @@
       "message": "Providing owners review here. I don\u0027t fully understand these task profiles tho, so need someone to look at them more closely.",
       "revId": "b79264939b8a48ec48f74559c9845a9cb5ea4d5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ebffd78_a102284c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2021-06-18T20:38:31Z",
+      "side": 1,
+      "message": "Functionally they end up doing the same things as writepid but task profiles are coded in a configuration file which does not require hard-coding cgroup details. For example this is how ProcessCapacityHigh is specified:\nhttps://cs.android.com/android/platform/superproject/+/master:device/google/cuttlefish/shared/config/task_profiles.json;l\u003d214\nNote that this way we can move cgroup mount point or change which cgroup we are using from inside configuration file without changing all these places which use this profile.",
+      "parentUuid": "7ed83ec1_9cc2e505",
+      "revId": "b79264939b8a48ec48f74559c9845a9cb5ea4d5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
