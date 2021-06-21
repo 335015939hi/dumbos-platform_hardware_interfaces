@@ -16,6 +16,92 @@
       "message": "Devin, could I please get a high-level review of the changes here? Mainly general API/best practices feedback. I thought it might be better to do it step by step than having a huge change later on.\nNot included: files generated from `m android.hardware.radio-update-api`",
       "revId": "83a549725dc475eef3bd4f52f21f79145a8406c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d886a5a_b277df3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-06-21T18:40:43Z",
+      "side": 1,
+      "message": "Adding smoreland@ in case he had any ideas of high level changes for the Radio hal while moving to AIDL.",
+      "revId": "83a549725dc475eef3bd4f52f21f79145a8406c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15b80786_0e55da69",
+        "filename": "radio/aidl/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-06-21T18:40:43Z",
+      "side": 1,
+      "message": "do you know if you need the cpp backend?\nTypically the ndk backend can take care of any native needs AND allows for vendor code to use it. cpp backend cannot be used in vendor code.\nhttps://source.android.com/devices/architecture/aidl/aidl-hals#choosing-runtime",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 10
+      },
+      "revId": "83a549725dc475eef3bd4f52f21f79145a8406c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03bdc6d6_9edc0865",
+        "filename": "radio/aidl/android/hardware/radio/AccessNetwork.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-06-21T18:40:43Z",
+      "side": 1,
+      "message": "you could move this to the top and remove all the explicit values(\" \u003d 0\"). There are other enums here that have explicit values but don\u0027t seem to need it.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 16
+      },
+      "revId": "83a549725dc475eef3bd4f52f21f79145a8406c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa200d68_ed4e9773",
+        "filename": "radio/aidl/android/hardware/radio/BarringInfoBarringType.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-06-21T18:40:43Z",
+      "side": 1,
+      "message": "You can change these enums to `@Backing(type\u003d\"byte\")` if you are concerned about size and are confident that they won\u0027t need the extra bits in the future. There are a few other small enums in this package that might benefit from this.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "83a549725dc475eef3bd4f52f21f79145a8406c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
