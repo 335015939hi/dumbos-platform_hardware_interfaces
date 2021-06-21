@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3904fda0_f7f36b53",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-06-21T12:47:29Z",
+      "side": 1,
+      "message": "add \" after initialization\"",
+      "range": {
+        "startLine": 39,
+        "startChar": 58,
+        "endLine": 39,
+        "endChar": 73
+      },
+      "revId": "936cea1d7fe7e8955d6cfeb4065c32e58262e647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
