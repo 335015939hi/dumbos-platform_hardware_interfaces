@@ -3,6 +3,7 @@ package audio.policy.V1_0 {
 
   public class AttributesGroup {
     ctor public AttributesGroup();
+    method public String getAliasVolumeGroup();
     method public java.util.List<audio.policy.V1_0.AttributesType> getAttributes_optional();
     method public audio.policy.V1_0.BundleType getBundle_optional();
     method public audio.policy.V1_0.ContentTypeType getContentType_optional();
@@ -11,6 +12,7 @@ package audio.policy.V1_0 {
     method public audio.policy.V1_0.Stream getStreamType();
     method public audio.policy.V1_0.UsageType getUsage_optional();
     method public String getVolumeGroup();
+    method public void setAliasVolumeGroup(String);
     method public void setBundle_optional(audio.policy.V1_0.BundleType);
     method public void setContentType_optional(audio.policy.V1_0.ContentTypeType);
     method public void setFlags_optional(audio.policy.V1_0.FlagsType);
