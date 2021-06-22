@@ -290,6 +290,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b6004a0_8d56fc1b",
+        "filename": "radio/aidl/android/hardware/radio/ISap.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-06-22T01:07:13Z",
+      "side": 1,
+      "message": "mixing oneway and non-oneway methods is not recommended. But if you mean it, `@SuppressWarnings(value\u003d{\"mixed-oneway\"})` would silence the AIDL compiler.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 50
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7a63de6_66c317b5",
+        "filename": "radio/aidl/android/hardware/radio/ISapCallback.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-06-22T01:07:13Z",
+      "side": 1,
+      "message": "nit: You can make the interface \"oneway\" instead of marking them all.\n\n  oneway interface ISapCallback { ... }",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 10
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3545643d_3efcf992",
         "filename": "radio/aidl/android/hardware/radio/IncrementalResultsPeriodicityRange.aidl",
         "patchSetId": 5
