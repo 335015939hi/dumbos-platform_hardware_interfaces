@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4a1f38fa_f39ba868",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-06-22T00:29:53Z",
+      "side": 1,
+      "message": "Is a wholesale photocopy actually the right thing to do? There are a lot of bugs, redundancies, unfortunate design patterns, and missed opportunities for cleaner organization in the previous HAL.\n\nIs there a design doc or some discussion where these things were considered? Do we actually need to carry forward CDMA support? Do we need the now-almost-entirely-redundant SIM card API?\n\nWe can\u0027t fix everything, but we should make sure we are opportunistic about making investments when they yield the greatest benefit relative to the cost. This is one of those moments.",
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "804e5ba1_8e09ed5d",
         "filename": "radio/aidl/Android.bp",
         "patchSetId": 5
