@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0f6516d_787c6341",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "Probably it would be good to do a full once-over, you should. I just read through everything except the translate code. First, I want to say, from an API perspective, it\u0027s the same interface, I\u0027m not really worried. If any of my comments are adding to your work in a bad way, please ignore then.\n\nThis is a huge interface. One thing I do wonder is if it would make sense to move some of these types into a sub-package. For instance, instead of radio/CdmaRoamingType.aidl, we could have radio/cdma/(Cdma)?RoamingType.aidl. This might help with navigating this directory (also +jooyung because this CL shows the benefit of b/182508839). That might help?\n\nThe other thing I would say is, are all these types needed? The fewer things that can be added, the more things that can be consolidated, the better. It would probably be worth it to ask a few people on the team to go through the interfaces to see if anything can be removed. I noted a few that could, from an AIDL perspective, but I don\u0027t know from a radio perspective.",
+      "parentUuid": "7d886a5a_b277df3b",
+      "revId": "83a549725dc475eef3bd4f52f21f79145a8406c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15b80786_0e55da69",
         "filename": "radio/aidl/Android.bp",
         "patchSetId": 4

@@ -1,0 +1,366 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "804e5ba1_8e09ed5d",
+        "filename": "radio/aidl/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "nice! +1",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 27
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6777cdb3_624f7d5b",
+        "filename": "radio/aidl/android/hardware/radio/AddressProperty.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "I wonder, is this needed then? We could use the kernel type directly (I know I pushed for different in the HIDL era, but the linux kernel is stable, so we could rely on it - that is, unless you need it in Java)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6349fb43_671dd8d8",
+        "filename": "radio/aidl/android/hardware/radio/AppStatus.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "should this be a boolean?",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ae6d57a_cda42c61",
+        "filename": "radio/aidl/android/hardware/radio/BarringInfoBarringTypeSpecificInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "use @nullable BarringInfoBarringTypeSpecificInfoConditional (might be more - I already commented on one other Maybe*)",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd0727a_7b02e820",
+        "filename": "radio/aidl/android/hardware/radio/CarrierRestrictionsWithPriority.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "this is something you should be expecting a lot of. In HIDL, we had to create a new struct with a new field. However, in AIDL, we can have only CarrierRestrictions and we can add the boolean there (and any new fields in the future, we can add directly to the AIDL structure)\n\nAny HIDL type which was \"with*\" could probably be removed (hidl2aidl only dedupes ones that shared the same name)",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "692efa4c_15c96208",
+        "filename": "radio/aidl/android/hardware/radio/CdmaSmsErrorClass.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "is this needed?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "149b3629_c70788cf",
+        "filename": "radio/aidl/android/hardware/radio/CdmaSmsNumberMode.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "is this needed?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40221161_7f7249ce",
+        "filename": "radio/aidl/android/hardware/radio/DataRegStateResultVopsInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "another one - @nullable LteVopsInfo",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "723d2635_fc0d6cff",
+        "filename": "radio/aidl/android/hardware/radio/HardwareConfigModem.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "do you know what values this can take on?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "123039ab_aa617033",
+        "filename": "radio/aidl/android/hardware/radio/HardwareConfigModem.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "units?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 19
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9e33122_4e3612ff",
+        "filename": "radio/aidl/android/hardware/radio/IRadioResponse.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "just want to say - 162 methods in IRadio, 162 methods here. Awesome!",
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3545643d_3efcf992",
+        "filename": "radio/aidl/android/hardware/radio/IncrementalResultsPeriodicityRange.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "in AIDL, this can also be declared as constants, if you want. For instance, in an interface:\n\n    interface ...\n        const INCREMENTAL_RESULTS_PERIODICITY_RANGE_MIN \u003d 1;\n        ...\n    \nThis might apply to some other files as well (or not, but still)",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8fe2c76_90e67840",
+        "filename": "radio/aidl/android/hardware/radio/MaybePort.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "in AIDL, this won\u0027t be needed. You can use \u0027@nullable PortRange\u0027.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ea82db8_7b1fc960",
+        "filename": "radio/aidl/android/hardware/radio/OptionalCsgInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "these too, could use @nullable",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 14
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cfe7b05_4484c60a",
+        "filename": "radio/aidl/android/hardware/radio/SscMode.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "we could use \u0027byte\u0027 directly for this, if you wanted",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a700c6e2_84a88f33",
+        "filename": "radio/aidl/android/hardware/radio/SubscriptionType.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-22T00:14:27Z",
+      "side": 1,
+      "message": "This is odd :/ do you know what it is?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
