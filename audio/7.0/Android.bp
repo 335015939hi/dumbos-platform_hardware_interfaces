@@ -14,6 +14,7 @@ hidl_interface {
     root: "android.hardware",
     srcs: [
         "types.hal",
+        "IAudioGainCallback.hal",
         "IDevice.hal",
         "IDevicesFactory.hal",
         "IPrimaryDevice.hal",
