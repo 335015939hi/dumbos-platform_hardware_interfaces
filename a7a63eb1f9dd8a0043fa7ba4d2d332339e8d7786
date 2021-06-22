@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7a49fd0f_476befc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-06-22T01:17:42Z",
+      "side": 1,
+      "message": "It won\u0027t be a full photocopy of the API. I might have put this change out too early, but it was mainly intended for getting feedback on any high-level changes that might need to be made to the API from an AIDL perspective so I can make sure to fix them.\nFor now there\u0027s just a 1P, but there will be a design doc soon that goes more into detail into this and can list out opportunities for us to clean up the API and fix the issues from previous versions.",
+      "parentUuid": "4a1f38fa_f39ba868",
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "804e5ba1_8e09ed5d",
         "filename": "radio/aidl/Android.bp",
         "patchSetId": 5

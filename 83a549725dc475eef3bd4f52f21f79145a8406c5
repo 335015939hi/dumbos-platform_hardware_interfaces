@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "020ecd96_e451750a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-06-22T01:17:42Z",
+      "side": 1,
+      "message": "Thanks for the review!\nYep, most/all of the API surface can be separated into higher-level modules, so I can look into moving these into subpackages to help with organization. Some of the APIs and types from earlier versions can also be removed (mainly an issue because HIDL didn\u0027t have a good way to deprecate them without creating an IRadio 2.0), but I would need to have more discussion with teammates regarding which ones are unnecessary from a radio perspective.",
+      "parentUuid": "e0f6516d_787c6341",
+      "revId": "83a549725dc475eef3bd4f52f21f79145a8406c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15b80786_0e55da69",
         "filename": "radio/aidl/Android.bp",
         "patchSetId": 4
