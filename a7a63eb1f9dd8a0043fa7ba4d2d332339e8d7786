@@ -135,6 +135,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "13d4d522_5d5bae62",
+        "filename": "radio/aidl/android/hardware/radio/CdmaSmsAddress.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-06-22T00:40:04Z",
+      "side": 1,
+      "message": "Is this missing?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 40
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "692efa4c_15c96208",
         "filename": "radio/aidl/android/hardware/radio/CdmaSmsErrorClass.aidl",
         "patchSetId": 5
@@ -375,6 +398,29 @@
         "startChar": 0,
         "endLine": 25,
         "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a9c4544_ca24280d",
+        "filename": "radio/aidl/android/hardware/radio/UrspRule.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-06-22T00:40:04Z",
+      "side": 1,
+      "message": "byte is mapped to int8_t. I recommend to use int for the value of 0 to 255.",
+      "range": {
+        "startLine": 28,
+        "startChar": 40,
+        "endLine": 28,
+        "endChar": 48
       },
       "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
