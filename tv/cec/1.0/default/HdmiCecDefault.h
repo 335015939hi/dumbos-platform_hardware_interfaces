@@ -17,6 +17,8 @@
 #include <android/hardware/tv/cec/1.0/IHdmiCec.h>
 #include <hardware/hdmi_cec.h>
 
+#define PROPERTY_DEVICE_TYPE "ro.hdmi.device_type"
+
 namespace android {
 namespace hardware {
 namespace tv {
@@ -53,6 +55,8 @@ struct HdmiCecDefault : public IHdmiCec, public hidl_death_recipient {
     static bool isTransferableInSleep(struct cec_msg message);
     static int getFirstParam(struct cec_msg message);
     static bool isPowerUICommand(struct cec_msg message);
+    void initDeviceType();
+    static bool hasDeviceType(int deviceType);
 };
 
 }  // namespace implementation
