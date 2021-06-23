@@ -50,6 +50,9 @@ struct HdmiCecDefault : public IHdmiCec, public hidl_death_recipient {
     static void* event_thread(void*);
     static int getOpcode(struct cec_msg message);
     static bool isWakeupMessage(struct cec_msg message);
+    static bool isTransferableInSleep(struct cec_msg message);
+    static int getFirstParam(struct cec_msg message);
+    static bool isPowerUICommand(struct cec_msg message);
 };
 
 }  // namespace implementation

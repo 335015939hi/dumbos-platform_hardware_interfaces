@@ -36,6 +36,10 @@ namespace cec {
 namespace V1_0 {
 namespace implementation {
 
+static const int CEC_KEYCODE_POWER = 0x40;
+static const int CEC_KEYCODE_ROOT_MENU = 0x09;
+static const int CEC_KEYCODE_POWER_ON_FUNCTION = 0x6D;
+
 // When set to false, all the CEC commands are discarded. True by default after initialization.
 bool mCecEnabled;
 /*
@@ -43,6 +47,11 @@ bool mCecEnabled;
  * <Text View On>. True by default after initialization.
  */
 bool mWakeupEnabled;
+/*
+ * Called when system goes in and out of standby mode to notify that it should start/stop handling
+ * CEC commands on behalf of the system. False by default after initialization.
+ */
+bool mCecControlEnabled;
 
 int mCecFd;
 int mExitFd;
@@ -54,6 +63,7 @@ HdmiCecDefault::HdmiCecDefault() {
     mExitFd = -1;
     mCecEnabled = false;
     mWakeupEnabled = false;
+    mCecControlEnabled = true;
     mCallback = nullptr;
 }
 
@@ -254,7 +264,9 @@ Return<void> HdmiCecDefault::setOption(OptionKey key, bool value) {
             LOG(DEBUG) << "setOption: WAKEUP: " << value;
             mWakeupEnabled = value;
             break;
-        default:
+        case OptionKey::SYSTEM_CEC_CONTROL:
+            LOG(DEBUG) << "setOption: SYSTEM_CEC_CONTROL: " << value;
+            mCecControlEnabled = value;
             break;
     }
     return Void();
@@ -328,6 +340,7 @@ Return<Result> HdmiCecDefault::init() {
 
     mCecEnabled = true;
     mWakeupEnabled = true;
+    mCecControlEnabled = false;
     return Result::SUCCESS;
 }
 
@@ -419,6 +432,11 @@ void* HdmiCecDefault::event_thread(void*) {
                 continue;
             }
 
+            if (mCecControlEnabled && !isTransferableInSleep(msg)) {
+                LOG(DEBUG) << "Filter message in standby mode";
+                continue;
+            }
+
             if (mCallback != nullptr) {
                 size_t length = std::min(msg.len - 1, (uint32_t)MaxLength::MESSAGE_BODY);
                 CecMessage cecMessage{
@@ -453,6 +471,51 @@ bool HdmiCecDefault::isWakeupMessage(struct cec_msg message) {
     }
 }
 
+bool HdmiCecDefault::isTransferableInSleep(struct cec_msg message) {
+    int opcode = getOpcode(message);
+    switch (opcode) {
+        case CEC_MESSAGE_ABORT:
+        case CEC_MESSAGE_DEVICE_VENDOR_ID:
+        case CEC_MESSAGE_GET_CEC_VERSION:
+        case CEC_MESSAGE_GET_MENU_LANGUAGE:
+        case CEC_MESSAGE_GIVE_DEVICE_POWER_STATUS:
+        case CEC_MESSAGE_GIVE_DEVICE_VENDOR_ID:
+        case CEC_MESSAGE_GIVE_OSD_NAME:
+        case CEC_MESSAGE_GIVE_PHYSICAL_ADDRESS:
+        case CEC_MESSAGE_REPORT_PHYSICAL_ADDRESS:
+        case CEC_MESSAGE_REPORT_POWER_STATUS:
+        case CEC_MESSAGE_SET_OSD_NAME:
+            return true;
+        case CEC_MESSAGE_USER_CONTROL_PRESSED:
+            return isPowerUICommand(message);
+        case CEC_MESSAGE_DECK_CONTROL:
+        case CEC_MESSAGE_PLAY:
+            return hasDeviceType(CEC_DEVICE_PLAYBACK);
+        case CEC_MESSAGE_IMAGE_VIEW_ON:
+        case CEC_MESSAGE_TEXT_VIEW_ON:
+            return hasDeviceType(CEC_DEVICE_TV);
+        case CEC_MESSAGE_SYSTEM_AUDIO_MODE_REQUEST:
+            return hasDeviceType(CEC_DEVICE_AUDIO_SYSTEM);
+        default:
+            return false;
+    }
+}
+
+int HdmiCecDefault::getFirstParam(struct cec_msg message) {
+    return (static_cast<uint8_t>(message.msg[2]) & 0xff);
+}
+
+bool HdmiCecDefault::isPowerUICommand(struct cec_msg message) {
+    int uiCommand = getFirstParam(message);
+    switch (uiCommand) {
+        case CEC_KEYCODE_POWER:
+        case CEC_KEYCODE_ROOT_MENU:
+        case CEC_KEYCODE_POWER_ON_FUNCTION:
+            return true;
+        default:
+            return false;
+    }
+}
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace cec
