@@ -26,6 +26,7 @@
 #include <pthread.h>
 #include <sys/eventfd.h>
 #include <algorithm>
+#include <vector>
 
 #include "HdmiCecDefault.h"
 
@@ -35,6 +36,9 @@ namespace tv {
 namespace cec {
 namespace V1_0 {
 namespace implementation {
+
+using std::find;
+using std::vector;
 
 // When set to false, all the CEC commands are discarded. True by default after initialization.
 bool mCecEnabled;
@@ -48,6 +52,7 @@ int mCecFd;
 int mExitFd;
 pthread_t mEventThread;
 sp<IHdmiCecCallback> mCallback;
+vector<int> mDeviceTypes;
 
 HdmiCecDefault::HdmiCecDefault() {
     mCecFd = -1;
@@ -233,13 +238,13 @@ Return<void> HdmiCecDefault::getPortInfo(getPortInfo_cb callback) {
         LOG(ERROR) << "Get port info failed, Error = " << strerror(errno);
     }
 
-    unsigned int type = property_get_int32("ro.hdmi.device_type", CEC_DEVICE_PLAYBACK);
     hidl_vec<HdmiPortInfo> portInfos(1);
-    portInfos[0] = {.type = (type == CEC_DEVICE_TV ? HdmiPortType::INPUT : HdmiPortType::OUTPUT),
-                    .portId = 1,
-                    .cecSupported = true,
-                    .arcSupported = false,
-                    .physicalAddress = addr};
+    portInfos[0] = {
+            .type = (hasDeviceType(CEC_DEVICE_TV) ? HdmiPortType::INPUT : HdmiPortType::OUTPUT),
+            .portId = 1,
+            .cecSupported = true,
+            .arcSupported = false,
+            .physicalAddress = addr};
     callback(portInfos);
     return Void();
 }
@@ -328,6 +333,7 @@ Return<Result> HdmiCecDefault::init() {
 
     mCecEnabled = true;
     mWakeupEnabled = true;
+    initDeviceType();
     return Result::SUCCESS;
 }
 
@@ -346,6 +352,7 @@ Return<void> HdmiCecDefault::release() {
     mCecEnabled = false;
     mWakeupEnabled = false;
     setCallback(nullptr);
+    mDeviceTypes.clear();
     return Void();
 }
 
@@ -453,6 +460,36 @@ bool HdmiCecDefault::isWakeupMessage(struct cec_msg message) {
     }
 }
 
+void HdmiCecDefault::initDeviceType() {
+    char value[PROPERTY_VALUE_MAX] = {0};
+    const char* split = ",";
+
+    property_get(PROPERTY_DEVICE_TYPE, value, "4");
+
+    char* deviceTypes = strtok(value, split);
+    while (deviceTypes != NULL) {
+        int deviceType;
+        if (Result::SUCCESS == strToInt(deviceTypes, &deviceType)) {
+            mDeviceTypes.push_back(deviceType);
+        }
+        deviceTypes = strtok(NULL, split);
+    }
+}
+
+bool HdmiCecDefault::hasDeviceType(int deviceType) {
+    return find(mDeviceTypes.begin(), mDeviceTypes.end(), deviceType) != mDeviceTypes.end();
+}
+
+Return<Result> HdmiCecDefault::strToInt(char* string, int* num) {
+    char* end;
+    long int lnum = strtol(string, &end, 10);
+    if (end == string) {
+        LOG(ERROR) << "Can't convert string " << string << " to number";
+        return Result::FAILURE_INVALID_ARGS;
+    }
+    *num = (int)lnum;
+    return Result::SUCCESS;
+}
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace cec
