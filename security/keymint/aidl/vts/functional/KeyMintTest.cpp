@@ -4380,7 +4380,14 @@ TEST_P(EncryptionOperationsTest, AesEcbPkcs7PaddingCorrupted) {
 
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
     string plaintext;
-    EXPECT_EQ(ErrorCode::INVALID_INPUT_LENGTH, Finish(message, &plaintext));
+    ErrorCode error = Finish(message, &plaintext);
+    if (error == ErrorCode::OK) {
+        // It's possible that corrupting the padding still decrypts, but when
+        // this happens we should get an output that's the wrong length.
+        EXPECT_NE(plaintext.length(), message.length());
+    } else {
+        EXPECT_EQ(error, ErrorCode::INVALID_INPUT_LENGTH);
+    }
 }
 
 vector<uint8_t> CopyIv(const AuthorizationSet& set) {
@@ -5351,7 +5358,14 @@ TEST_P(EncryptionOperationsTest, TripleDesEcbPkcs7PaddingCorrupted) {
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
     string plaintext;
     EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext));
-    EXPECT_EQ(ErrorCode::INVALID_ARGUMENT, Finish(&plaintext));
+    ErrorCode error = Finish(&plaintext);
+    if (error == ErrorCode::OK) {
+        // It's possible that corrupting the padding still decrypts, but when
+        // this happens we should get an output that's the wrong length.
+        EXPECT_NE(plaintext.length(), message.length());
+    } else {
+        EXPECT_EQ(error, ErrorCode::INVALID_ARGUMENT);
+    }
 }
 
 struct TripleDesTestVector {
@@ -5688,7 +5702,14 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcPkcs7PaddingCorrupted) {
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
     string plaintext;
     EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext));
-    EXPECT_EQ(ErrorCode::INVALID_ARGUMENT, Finish(&plaintext));
+    ErrorCode error = Finish(&plaintext);
+    if (error == ErrorCode::OK) {
+        // It's possible that corrupting the padding still decrypts, but when
+        // this happens we should get an output that's the wrong length.
+        EXPECT_NE(plaintext.length(), message.length());
+    } else {
+        EXPECT_EQ(error, ErrorCode::INVALID_ARGUMENT);
+    }
 }
 
 /*
