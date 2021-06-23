@@ -40,6 +40,7 @@ using android::base::GetUintProperty;
 
 bool HdmiCecDefault::sCecEnabled = false;
 bool HdmiCecDefault::sWakeupEnabled = false;
+bool HdmiCecDefault::sCecControlEnabled = false;
 sp<IHdmiCecCallback> HdmiCecDefault::sCallback = nullptr;
 int HdmiCecDefault::sCecFd = -1;
 int HdmiCecDefault::sExitFd = -1;
@@ -243,7 +244,9 @@ Return<void> HdmiCecDefault::setOption(OptionKey key, bool value) {
             LOG(DEBUG) << "setOption: WAKEUP: " << value;
             sWakeupEnabled = value;
             break;
-        default:
+        case OptionKey::SYSTEM_CEC_CONTROL:
+            LOG(DEBUG) << "setOption: SYSTEM_CEC_CONTROL: " << value;
+            sCecControlEnabled = value;
             break;
     }
     return Void();
@@ -317,6 +320,7 @@ Return<Result> HdmiCecDefault::init() {
 
     sCecEnabled = true;
     sWakeupEnabled = true;
+    sCecControlEnabled = true;
     return Result::SUCCESS;
 }
 
@@ -334,6 +338,7 @@ Return<void> HdmiCecDefault::release() {
     }
     sCecEnabled = false;
     sWakeupEnabled = false;
+    sCecControlEnabled = false;
     setCallback(nullptr);
     return Void();
 }
@@ -408,6 +413,11 @@ void* HdmiCecDefault::event_thread(void*) {
                 continue;
             }
 
+            if (!sCecControlEnabled && !isTransferableInSleep(msg)) {
+                LOG(DEBUG) << "Filter message in standby mode";
+                continue;
+            }
+
             if (sCallback != nullptr) {
                 size_t length = std::min(msg.len - 1, (uint32_t)MaxLength::MESSAGE_BODY);
                 CecMessage cecMessage{
@@ -442,6 +452,48 @@ bool HdmiCecDefault::isWakeupMessage(cec_msg message) {
     }
 }
 
+bool HdmiCecDefault::isTransferableInSleep(cec_msg message) {
+    int opcode = getOpcode(message);
+    switch (opcode) {
+        case CEC_MESSAGE_ABORT:
+        case CEC_MESSAGE_DEVICE_VENDOR_ID:
+        case CEC_MESSAGE_GET_CEC_VERSION:
+        case CEC_MESSAGE_GET_MENU_LANGUAGE:
+        case CEC_MESSAGE_GIVE_DEVICE_POWER_STATUS:
+        case CEC_MESSAGE_GIVE_DEVICE_VENDOR_ID:
+        case CEC_MESSAGE_GIVE_OSD_NAME:
+        case CEC_MESSAGE_GIVE_PHYSICAL_ADDRESS:
+        case CEC_MESSAGE_REPORT_PHYSICAL_ADDRESS:
+        case CEC_MESSAGE_REPORT_POWER_STATUS:
+        case CEC_MESSAGE_SET_OSD_NAME:
+        case CEC_MESSAGE_DECK_CONTROL:
+        case CEC_MESSAGE_PLAY:
+        case CEC_MESSAGE_IMAGE_VIEW_ON:
+        case CEC_MESSAGE_TEXT_VIEW_ON:
+        case CEC_MESSAGE_SYSTEM_AUDIO_MODE_REQUEST:
+            return true;
+        case CEC_MESSAGE_USER_CONTROL_PRESSED:
+            return isPowerUICommand(message);
+        default:
+            return false;
+    }
+}
+
+int HdmiCecDefault::getFirstParam(cec_msg message) {
+    return static_cast<uint8_t>(message.msg[2]);
+}
+
+bool HdmiCecDefault::isPowerUICommand(cec_msg message) {
+    int uiCommand = getFirstParam(message);
+    switch (uiCommand) {
+        case CEC_OP_UI_CMD_POWER:
+        case CEC_OP_UI_CMD_DEVICE_ROOT_MENU:
+        case CEC_OP_UI_CMD_POWER_ON_FUNCTION:
+            return true;
+        default:
+            return false;
+    }
+}
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace cec
