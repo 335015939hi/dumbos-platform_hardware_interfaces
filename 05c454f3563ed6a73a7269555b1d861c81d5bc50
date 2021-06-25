@@ -16,6 +16,23 @@
       "message": "Looking for an Owners Review for the Default CEC HAL in this change and the dependent changes.",
       "revId": "05c454f3563ed6a73a7269555b1d861c81d5bc50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d6f48ad_2135fdf6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-25T21:00:21Z",
+      "side": 1,
+      "message": "(for owners)",
+      "revId": "05c454f3563ed6a73a7269555b1d861c81d5bc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
