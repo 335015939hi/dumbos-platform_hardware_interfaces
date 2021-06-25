@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e44c2aa3_8f9b7b71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-25T20:56:19Z",
+      "side": 1,
+      "message": "This should also be merged on aosp/master first, I believe?",
+      "revId": "af6295c1ea4c522c9d14f384176ff59176ce18b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
