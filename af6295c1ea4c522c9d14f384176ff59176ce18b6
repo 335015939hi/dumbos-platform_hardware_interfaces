@@ -16,6 +16,24 @@
       "message": "This should also be merged on aosp/master first, I believe?",
       "revId": "af6295c1ea4c522c9d14f384176ff59176ce18b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31f98ed9_3bb9091b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1061057
+      },
+      "writtenOn": "2021-06-26T05:10:55Z",
+      "side": 1,
+      "message": "Yes, aosp/master first. I\u0027ve done it here: aosp/1748636\nSince this one is a CP of 3c7f0d90bac9ef33c4f43710374ce5c8fc3ca96f from internal branch, let me merge it now.",
+      "parentUuid": "e44c2aa3_8f9b7b71",
+      "revId": "af6295c1ea4c522c9d14f384176ff59176ce18b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
