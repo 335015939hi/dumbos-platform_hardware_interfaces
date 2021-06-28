@@ -33,6 +33,23 @@
       "message": "(for owners)",
       "revId": "05c454f3563ed6a73a7269555b1d861c81d5bc50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1011f3fe_c2903240",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-28T16:22:06Z",
+      "side": 1,
+      "message": "for OWNERS, plesae consider adding tv/cec/1.0/default/OWNERS file",
+      "revId": "05c454f3563ed6a73a7269555b1d861c81d5bc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
