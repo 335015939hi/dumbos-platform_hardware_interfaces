@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22f4e7a0_a2a63619",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-06-28T11:36:24Z",
+      "side": 1,
+      "message": "Nit: You can add b/191738660 to the TODO so we take care of that tag too.",
+      "range": {
+        "startLine": 923,
+        "startChar": 7,
+        "endLine": 923,
+        "endChar": 45
+      },
+      "revId": "3a630323e74046752b156989d42fe3ba5880f3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
