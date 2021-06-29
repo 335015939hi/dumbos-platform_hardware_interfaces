@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a86f706_ed543167",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-06-29T21:53:02Z",
+      "side": 0,
+      "message": "feel free to keep this \"(for example, `dumpsys meminfo`)\". I know I\u0027ve expressed different opinions on things like this in the past, but with AIDL, we really can modify these any time. If this is helpful (and still accurate), it\u0027s fine to keep!",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "05e6b870a40e3f067686ba3acb4c75278cad9079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
