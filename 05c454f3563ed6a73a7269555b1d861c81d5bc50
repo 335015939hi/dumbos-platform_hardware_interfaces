@@ -50,6 +50,24 @@
       "message": "for OWNERS, plesae consider adding tv/cec/1.0/default/OWNERS file",
       "revId": "05c454f3563ed6a73a7269555b1d861c81d5bc50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2afbd60c_22a29a9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2021-06-30T11:27:45Z",
+      "side": 1,
+      "message": "See ag/15147313",
+      "parentUuid": "1011f3fe_c2903240",
+      "revId": "05c454f3563ed6a73a7269555b1d861c81d5bc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
