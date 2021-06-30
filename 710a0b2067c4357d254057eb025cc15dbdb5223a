@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a1617f0_29cedef8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-06-30T06:14:04Z",
+      "side": 1,
+      "message": "Hello Myles, Kris,\n\nWe have done some updates in order to by-pass the build error observed due to the presence of \u0027libbt-vendor.so\u0027 on internal master:\n1. A new library android.hardware.bluetooth@1.0-impl-test is added for the sole purpose of testing bluetoothV1.0_fuzzer.\nIn android.hardware.bluetooth@1.0-impl-test, a flag \u0027BT_FUZZER\u0027 is set, which enables the dlopen of \u0027libbt-vendor-default.so\u0027 rather than \u0027libbt-vendor.so\u0027\n2. The fuzzer is also updated accordingly to create \u0027libbt-vendor-default.so\u0027 library rather than \u0027libbt-vendor.so\u0027\n\nPlease let us know if it looks fine.",
+      "revId": "710a0b2067c4357d254057eb025cc15dbdb5223a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
