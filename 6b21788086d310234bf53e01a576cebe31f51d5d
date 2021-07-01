@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c6f1a7d_290eab7d",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1559553
+      },
+      "writtenOn": "2021-07-01T21:26:58Z",
+      "side": 1,
+      "message": "We\u0027ll need to remove this and set automotiveSvV1.0_headers to be vendor_available.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "6b21788086d310234bf53e01a576cebe31f51d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
