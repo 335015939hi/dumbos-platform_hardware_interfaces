@@ -76,7 +76,8 @@ cc_test {
         "libgmock",
         "libhidlmemory",
         "libneuralnetworks_generated_test_harness",
-        "libneuralnetworks_utils",
+        "libneuralnetworks_common",
+        "libtextclassifier_hash_static",
         "libsync",
     ],
     whole_static_libs: [

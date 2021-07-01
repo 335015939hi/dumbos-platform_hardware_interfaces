@@ -52,6 +52,7 @@ std::unique_ptr<TestAshmem> TestAshmem::create(uint32_t size) {
 void TestAshmem::initialize(uint32_t size) {
     mIsValid = false;
     ASSERT_GT(size, 0);
+#ifdef __ANDROID__
     mHidlMemory = nn::allocateSharedMemory(size);
     ASSERT_TRUE(mHidlMemory.valid());
     mMappedMemory = mapMemory(mHidlMemory);
@@ -59,6 +60,7 @@ void TestAshmem::initialize(uint32_t size) {
     mPtr = static_cast<uint8_t*>(static_cast<void*>(mMappedMemory->getPointer()));
     ASSERT_NE(mPtr, nullptr);
     mIsValid = true;
+#endif  // __ANDROID__
 }
 
 std::unique_ptr<TestBlobAHWB> TestBlobAHWB::create(uint32_t size) {
@@ -69,6 +71,7 @@ std::unique_ptr<TestBlobAHWB> TestBlobAHWB::create(uint32_t size) {
 void TestBlobAHWB::initialize(uint32_t size) {
     mIsValid = false;
     ASSERT_GT(size, 0);
+#ifdef __ANDROID__
     const auto usage = AHARDWAREBUFFER_USAGE_CPU_READ_OFTEN | AHARDWAREBUFFER_USAGE_CPU_WRITE_OFTEN;
     const AHardwareBuffer_Desc desc = {
             .width = size,
@@ -90,13 +93,16 @@ void TestBlobAHWB::initialize(uint32_t size) {
     ASSERT_NE(handle, nullptr);
     mHidlMemory = hidl_memory("hardware_buffer_blob", handle, desc.width);
     mIsValid = true;
+#endif  // __ANDROID__
 }
 
 TestBlobAHWB::~TestBlobAHWB() {
+#ifdef __ANDROID__
     if (mAhwb) {
         AHardwareBuffer_unlock(mAhwb, nullptr);
         AHardwareBuffer_release(mAhwb);
     }
+#endif  // __ANDROID__
 }
 
 Request ExecutionContext::createRequest(const TestModel& testModel, MemoryType memoryType) {
