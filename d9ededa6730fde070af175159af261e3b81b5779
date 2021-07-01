@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12db7bed_299b8868",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579540
+      },
+      "writtenOn": "2021-07-01T15:06:12Z",
+      "side": 1,
+      "message": "Hi,\n\nThis is a small fix for the TestGnssSvInfoFields Gnss VTS test. The test didn\u0027t enforce that at least 1 svinfo was received before getting the last item from the list, which could result in a crash.\n\nI would like also to highlight the underlying issue, which is not addressed by this patch: The test is making the assumption that SvStatus data is always received before the first location data, which is not always the case, the order in which SvStatus and location data is not stated in the interface definition nor the CDD.\n\nWhen calling \u0027start\u0027 on the Gnss service, it can be that the location fix is already available, for example if other tests have already use the Gnss service to get location. In this case, the first location data can be received quite fast, and whether SvStatus data is received first may change from implementation to implementation.\n\nIn our case (u-blox Gnss driver) it wasn\u0027t the case, hence the crash. We shouldn\u0027t have to arbitrarily change the order in which data is sent to the framework (which is not defined by the interface) to pass the test.\n\nBest Regards,\nJean DAO",
+      "revId": "d9ededa6730fde070af175159af261e3b81b5779",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
