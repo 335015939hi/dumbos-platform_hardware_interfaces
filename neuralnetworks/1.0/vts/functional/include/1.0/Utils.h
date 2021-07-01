@@ -73,7 +73,9 @@ class TestBlobAHWB : public TestMemoryBase {
 
   private:
     void initialize(uint32_t size);
+#ifdef __ANDROID__
     AHardwareBuffer* mAhwb = nullptr;
+#endif  // __ANDROID__
 };
 
 enum class MemoryType { ASHMEM, BLOB_AHWB, DEVICE };

@@ -269,8 +269,13 @@ void copyTestBuffers(const std::vector<const TestBuffer*>& buffers, uint8_t* out
 void waitForSyncFence(int syncFd) {
     constexpr int kInfiniteTimeout = -1;
     ASSERT_GT(syncFd, 0);
+#ifdef __ANDROID__
     int r = sync_wait(syncFd, kInfiniteTimeout);
     ASSERT_GE(r, 0);
+#else   // __ANDROID__
+    LOG(FATAL) << "void waitForSyncFence(int syncFd): Not Available on Host Build";
+    (void)kInfiniteTimeout;
+#endif  // __ANDROID__
 }
 
 Model createModel(const TestModel& testModel) {

@@ -25,6 +25,7 @@ package {
 
 cc_library_static {
     name: "neuralnetworks_utils_hal_aidl",
+    host_supported: true,
     defaults: ["neuralnetworks_utils_defaults"],
     srcs: ["src/*"],
     local_include_dirs: ["include/nnapi/hal/aidl/"],
@@ -41,12 +42,17 @@ cc_library_static {
         "android.hardware.neuralnetworks-V1-ndk_platform",
         "libbinder_ndk",
         "libhidlbase",
-        "libnativewindow",
     ],
+    target: {
+        android: {
+            shared_libs: ["libnativewindow"],
+        },
+    },
 }
 
 cc_test {
     name: "neuralnetworks_utils_hal_aidl_test",
+    host_supported: true,
     defaults: ["neuralnetworks_utils_defaults"],
     srcs: [
         "test/*.cpp",
@@ -70,9 +76,21 @@ cc_test {
         "libhidlbase",
         "libhidlmemory",
         "liblog",
-        "libnativewindow",
         "libutils",
     ],
+    target: {
+        android: {
+            shared_libs: ["libnativewindow"],
+        },
+        host: {
+            cflags: [
+                "-D__INTRODUCED_IN(x)=",
+                "-D__assert(a,b,c)=",
+                // We want all the APIs to be available on the host.
+                "-D__ANDROID_API__=10000",
+            ],
+        },
+    },
     cflags: [
         /* GMOCK defines functions for printing all MOCK_DEVICE arguments and
          * MockDevice contains a string pointer which triggers a warning in the
