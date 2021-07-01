@@ -25,6 +25,7 @@ package {
 
 cc_test {
     name: "VtsHalNeuralnetworksTargetTest",
+    host_supported: false,
     defaults: [
         "neuralnetworks_vts_functional_defaults",
         "use_libaidlvintf_gtest_helper_static",

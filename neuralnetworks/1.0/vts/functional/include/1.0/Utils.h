@@ -19,7 +19,6 @@
 
 #include <android-base/logging.h>
 #include <android/hardware/neuralnetworks/1.0/types.h>
-#include <android/hardware_buffer.h>
 #include <android/hidl/memory/1.0/IMemory.h>
 #include <gtest/gtest.h>
 #include <algorithm>
@@ -28,6 +27,10 @@
 #include <utility>
 #include <vector>
 #include "TestHarness.h"
+
+#ifdef __ANDROID__
+#include <android/hardware_buffer.h>
+#endif  // __ANDROID__
 
 namespace android::hardware::neuralnetworks {
 
@@ -73,7 +76,9 @@ class TestBlobAHWB : public TestMemoryBase {
 
   private:
     void initialize(uint32_t size);
+#ifdef __ANDROID__
     AHardwareBuffer* mAhwb = nullptr;
+#endif  // __ANDROID__
 };
 
 enum class MemoryType { ASHMEM, BLOB_AHWB, DEVICE };
