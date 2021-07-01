@@ -252,7 +252,7 @@ TEST_P(GnssHalTest, TestGnssSvInfoFields) {
 
     // Tolerate 1 less sv status to handle edge cases in reporting.
     int sv_info_list_cbq_size = gnss_cb_->sv_info_list_cbq_.size();
-    EXPECT_GE(sv_info_list_cbq_size, 0);
+    EXPECT_GT(sv_info_list_cbq_size, 0);
     ALOGD("Observed %d GnssSvStatus, while awaiting one location (%d received)",
           sv_info_list_cbq_size, location_called_count);
 
