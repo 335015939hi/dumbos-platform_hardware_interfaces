@@ -57,6 +57,30 @@
       },
       "revId": "67c0bbd93ba1e83442b3ec85bd401bb75d588cee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c307fa24_23879abd",
+        "filename": "neuralnetworks/aidl/utils/src/Conversions.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1883470
+      },
+      "writtenOn": "2021-07-07T22:48:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe2d4d15_9cc2ab80",
+      "range": {
+        "startLine": 402,
+        "startChar": 12,
+        "endLine": 402,
+        "endChar": 56
+      },
+      "revId": "67c0bbd93ba1e83442b3ec85bd401bb75d588cee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
