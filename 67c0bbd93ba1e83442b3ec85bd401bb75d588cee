@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8663f2e_a8ff0325",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2021-07-07T21:03:02Z",
+      "side": 1,
+      "message": "Please extend the commit comments to better explain the nature of this change; I don\u0027t know what \"Host Support\" means or what \"neuralnetworks_types\" is.\n",
+      "revId": "67c0bbd93ba1e83442b3ec85bd401bb75d588cee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
