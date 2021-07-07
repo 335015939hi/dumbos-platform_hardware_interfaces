@@ -16,6 +16,29 @@
       "message": "Please extend the commit comments to better explain the nature of this change; I don\u0027t know what \"Host Support\" means or what \"neuralnetworks_types\" is.\n",
       "revId": "67c0bbd93ba1e83442b3ec85bd401bb75d588cee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe2d4d15_9cc2ab80",
+        "filename": "neuralnetworks/aidl/utils/src/Conversions.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1883470
+      },
+      "writtenOn": "2021-07-07T21:17:02Z",
+      "side": 1,
+      "message": "Change msg to be \"Not Available on Host Build\"",
+      "range": {
+        "startLine": 402,
+        "startChar": 12,
+        "endLine": 402,
+        "endChar": 56
+      },
+      "revId": "67c0bbd93ba1e83442b3ec85bd401bb75d588cee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
