@@ -157,9 +157,9 @@ nn::GeneralResult<hidl_memory> createHidlMemoryFrom(const nn::Memory::HardwareBu
 
     return hidl_memory(name, std::move(copiedHandle), size);
 #else   // __ANDROID__
-    LOG(FATAL) << "Not Available on Host Build";
-    if (memory.handle.get() != 0) {
-    }
+    LOG(FATAL) << "nn::GeneralResult<hidl_memory> createHidlMemoryFrom(const "
+                  "nn::Memory::HardwareBuffer& memory): Not Available on Host Build";
+    (void)memory;
     return (NN_ERROR() << "createHidlMemoryFrom failed").operator nn::GeneralResult<hidl_memory>();
 #endif  // __ANDROID__
 }
@@ -437,7 +437,8 @@ nn::GeneralResult<nn::SharedMemory> createSharedMemoryFromHidlMemory(const hidl_
 
     return nn::createSharedMemoryFromAHWB(hardwareBuffer, /*takeOwnership=*/true);
 #else   // __ANDROID__
-    LOG(FATAL) << "Not Available on Host Build";
+    LOG(FATAL) << "nn::GeneralResult<nn::SharedMemory> createSharedMemoryFromHidlMemory(const "
+                  "hidl_memory& memory): Not Available on Host Build";
     return (NN_ERROR() << "createSharedMemoryFromHidlMemory failed")
             .
             operator nn::GeneralResult<nn::SharedMemory>();

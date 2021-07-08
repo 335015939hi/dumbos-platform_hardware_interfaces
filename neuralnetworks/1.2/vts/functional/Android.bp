@@ -25,6 +25,7 @@ package {
 
 cc_library_static {
     name: "VtsHalNeuralNetworksV1_2_utils",
+    host_supported: true,
     defaults: ["neuralnetworks_vts_functional_defaults"],
     export_include_dirs: ["include"],
     srcs: [
@@ -43,6 +44,7 @@ cc_library_static {
 
 cc_test {
     name: "VtsHalNeuralnetworksV1_2TargetTest",
+    host_supported: true,
     defaults: ["neuralnetworks_vts_functional_defaults"],
     srcs: [
         "BasicTests.cpp",
@@ -58,7 +60,6 @@ cc_test {
     local_include_dirs: ["include"],
     shared_libs: [
         "libfmq",
-        "libnativewindow",
     ],
     static_libs: [
         "VtsHalNeuralNetworksV1_0_utils",
@@ -71,13 +72,32 @@ cc_test {
         "libgmock",
         "libhidlmemory",
         "libneuralnetworks_generated_test_harness",
-        "libneuralnetworks_utils",
+        "libneuralnetworks_common",
+        "libtextclassifier_hash_static",
     ],
     whole_static_libs: [
         "neuralnetworks_generated_V1_0_example",
         "neuralnetworks_generated_V1_1_example",
         "neuralnetworks_generated_V1_2_example",
     ],
+    target: {
+        android: {
+            shared_libs: [
+                "libnativewindow",
+            ],
+        },
+        host: {
+            cflags: [
+                "-D__INTRODUCED_IN(n)=",
+                "-D__assert(a,b,c)=",
+                // We want all the APIs to be available on the host.
+                "-D__ANDROID_API__=10000",
+            ],
+            static_libs: [
+                "android.hardware.neuralnetworks@1.3",
+            ],
+        },
+    },
     header_libs: [
         "libneuralnetworks_headers",
     ],
