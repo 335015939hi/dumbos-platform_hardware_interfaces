@@ -29,7 +29,9 @@
 
 #include "1.0/Callbacks.h"
 #include "1.0/Utils.h"
+#ifdef __ANDROID__
 #include "MemoryUtils.h"
+#endif  // __ANDROID__
 #include "TestHarness.h"
 #include "VtsHalNeuralnetworks.h"
 
@@ -100,7 +102,9 @@ Model createModel(const TestModel& testModel) {
     // Shared memory.
     hidl_vec<hidl_memory> pools;
     if (constRefSize > 0) {
+#ifdef __ANDROID__
         hidl_vec_push_back(&pools, nn::allocateSharedMemory(constRefSize));
+#endif  // __ANDROID__
         CHECK_NE(pools[0].size(), 0u);
 
         // load data

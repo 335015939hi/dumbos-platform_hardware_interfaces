@@ -42,6 +42,7 @@ cc_defaults {
 
 cc_library_static {
     name: "VtsHalNeuralNetworksV1_0_utils",
+    host_supported: true,
     srcs: [
         "Callbacks.cpp",
         "Utils.cpp",
@@ -50,8 +51,17 @@ cc_library_static {
     export_include_dirs: ["include"],
     shared_libs: [
         "libfmq",
-        "libnativewindow",
     ],
+    target: {
+        android: {
+            shared_libs: [
+                "libnativewindow",
+            ],
+            static_libs: [
+                "libneuralnetworks_utils",
+            ],
+        },
+    },
     static_libs: [
         "android.hardware.neuralnetworks@1.0",
         "android.hidl.allocator@1.0",
@@ -59,7 +69,6 @@ cc_library_static {
         "libgmock",
         "libhidlmemory",
         "libneuralnetworks_generated_test_harness",
-        "libneuralnetworks_utils",
     ],
     header_libs: [
         "libneuralnetworks_headers",
@@ -68,6 +77,7 @@ cc_library_static {
 
 cc_test {
     name: "VtsHalNeuralnetworksV1_0TargetTest",
+    host_supported: true,
     defaults: ["neuralnetworks_vts_functional_defaults"],
     srcs: [
         "BasicTests.cpp",
@@ -80,7 +90,6 @@ cc_test {
     ],
     shared_libs: [
         "libfmq",
-        "libnativewindow",
     ],
     static_libs: [
         "android.hardware.neuralnetworks@1.0",
@@ -89,12 +98,21 @@ cc_test {
         "libgmock",
         "libhidlmemory",
         "libneuralnetworks_generated_test_harness",
-        "libneuralnetworks_utils",
         "VtsHalNeuralNetworksV1_0_utils",
     ],
-    whole_static_libs: [
-        "neuralnetworks_generated_V1_0_example",
-    ],
+    target: {
+        android: {
+            shared_libs: [
+                "libnativewindow",
+            ],
+            static_libs: [
+                "libneuralnetworks_utils",
+            ],
+            whole_static_libs: [
+                "neuralnetworks_generated_V1_0_example",
+            ],
+        },
+    },
     header_libs: [
         "libneuralnetworks_headers",
     ],

@@ -25,6 +25,7 @@ package {
 
 cc_library_static {
     name: "VtsHalNeuralNetworksV1_2_utils",
+    host_supported: true,
     defaults: ["neuralnetworks_vts_functional_defaults"],
     export_include_dirs: ["include"],
     srcs: [
