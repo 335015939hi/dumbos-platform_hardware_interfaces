@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdd95259_84de7ac7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-07-13T23:45:42Z",
+      "side": 1,
+      "message": "I agree. But with this log, LAST_LOGCAT in the bugreport are full of it, and we can\u0027t trace the source of the problem at all.",
+      "parentUuid": "a24807f9_b604e156",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "975a60002961b1a5fd68dbefc1030e7960f8b4be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80d0d110_c5f75e8f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-13T19:43:10Z",
       "side": 1,
       "message": "nit: might comment this is called in order to consider the result as checked",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "975a60002961b1a5fd68dbefc1030e7960f8b4be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c93d9ce_4dc041f6",
+        "filename": "health/utils/libhealth2impl/BinderHealth.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-07-13T23:45:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "80d0d110_c5f75e8f",
       "range": {
         "startLine": 39,
         "startChar": 0,
