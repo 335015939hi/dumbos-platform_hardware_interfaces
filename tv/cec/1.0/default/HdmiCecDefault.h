@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-#include <android/hardware/tv/cec/1.0/IHdmiCec.h>
 #include <hardware/hdmi_cec.h>
+#include "HdmiCecPort.h"
 
 #define PROPERTY_DEVICE_TYPE "ro.hdmi.device_type"
+#define OUTPUT_PORT_INDEX 0
+#define INVALID_PHYSICAL_ADDRESS 0xFFFF
 
 namespace android {
 namespace hardware {
