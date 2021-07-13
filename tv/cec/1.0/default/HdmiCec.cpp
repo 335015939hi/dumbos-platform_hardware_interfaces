@@ -392,6 +392,7 @@ Return<bool> HdmiCec::isConnected(int32_t portId) {
 }
 
 IHdmiCec* getHdmiCecDefault() {
+    LOG(ERROR) << "getHdmiCecDefault";
     HdmiCecDefault* hdmiCecDefault = new HdmiCecDefault();
     Result result = hdmiCecDefault->init();
     if (result == Result::SUCCESS) {
@@ -401,8 +402,9 @@ IHdmiCec* getHdmiCecDefault() {
     return nullptr;
 }
 
-IHdmiCec* HIDL_FETCH_IHdmiCec(const char* hal) {
-    hdmi_cec_device_t* hdmi_cec_device;
+IHdmiCec* HIDL_FETCH_IHdmiCec(const char* /*hal*/) {
+    return getHdmiCecDefault();
+    /*hdmi_cec_device_t* hdmi_cec_device;
     int ret = 0;
     const hw_module_t* hw_module = nullptr;
 
@@ -421,7 +423,7 @@ IHdmiCec* HIDL_FETCH_IHdmiCec(const char* hal) {
     } else {
         LOG(ERROR) << "Passthrough failed to load legacy HAL.";
         return getHdmiCecDefault();
-    }
+    }*/
 }
 
 }  // namespace implementation
