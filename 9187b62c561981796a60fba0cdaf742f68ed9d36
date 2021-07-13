@@ -139,6 +139,30 @@
       },
       "revId": "9187b62c561981796a60fba0cdaf742f68ed9d36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db08bbe8_99000118",
+        "filename": "neuralnetworks/utils/common/src/CommonUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-13T23:31:56Z",
+      "side": 1,
+      "message": "You\u0027re right that this is solely to avoid a warning/error. Personally, I think the second proposal unnecessarily duplicates the code. The first proposal ([[maybe_unused]]) is effectively the same as (void)memory IMO, so I\u0027m fine with either, but it looks like there are more references to \"(void)\" than \"[[maybe_unused]]\" in our codebase, albeit not by much.",
+      "parentUuid": "5ecb4dc4_41abdaa8",
+      "range": {
+        "startLine": 161,
+        "startChar": 4,
+        "endLine": 162,
+        "endChar": 5
+      },
+      "revId": "9187b62c561981796a60fba0cdaf742f68ed9d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
