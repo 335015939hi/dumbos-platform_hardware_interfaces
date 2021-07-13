@@ -1175,6 +1175,9 @@ TEST_P(RadioHidlTest_v1_5, setRadioPower_1_5_emergencyCall_cancelled) {
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_5->rspInfo.type);
     EXPECT_EQ(serial, radioRsp_v1_5->rspInfo.serial);
     EXPECT_EQ(RadioError::NONE, radioRsp_v1_5->rspInfo.error);
+
+    // Give some time for modem to acquire network service.
+    sleep(10);
 }
 
 /*
