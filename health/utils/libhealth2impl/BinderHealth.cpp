@@ -38,7 +38,7 @@ namespace implementation {
 bool IsDeadObjectLogged(const Return<void>& ret) {
     if (ret.isOk()) return false;
     if (ret.isDeadObject()) return true;
-    LOG(ERROR) << "Cannot call healthInfoChanged* on callback: " << ret.description();
+    LOG(DEBUG) << "Cannot call healthInfoChanged* on callback: " << ret.description();
     return false;
 }
 
