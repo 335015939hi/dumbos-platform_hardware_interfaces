@@ -115,6 +115,30 @@
       },
       "revId": "9187b62c561981796a60fba0cdaf742f68ed9d36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ecb4dc4_41abdaa8",
+        "filename": "neuralnetworks/utils/common/src/CommonUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2021-07-13T17:42:44Z",
+      "side": 1,
+      "message": "If this is solely to avoid a warning/error about an unreferenced name, can we instead change the parameter declaration?\n\n nn::GeneralResult\u003chidl_memory\u003e createHidlMemoryFrom([[maybe_unused]] const nn::Memory::HardwareBuffer\u0026 memory) {\n \nOr do this in place of the existing lines 144..165:\n\n #ifdef __ANDROID__\n nn::GeneralResult\u003chidl_memory\u003e createHidlMemoryFrom(const nn::Memory::HardwareBuffer\u0026 memory) {\n     // existing lines 146..158 go here\n }\n #else   // __ANDROID__\n nn::GeneralResult\u003chidl_memory\u003e createHidlMemoryFrom(const nn::Memory::HardwareBuffer\u0026) {\n     LOG(FATAL) \u003c\u003c \"Not Available on Host Build\"\n     return (NN_ERROR() \u003c\u003c \"createHidlMemoryFrom failed\").operator nn::GeneralResult\u003chidl_memory\u003e();\n }\n #endif  // __ANDROID__",
+      "parentUuid": "621c5503_75ec6da9",
+      "range": {
+        "startLine": 161,
+        "startChar": 4,
+        "endLine": 162,
+        "endChar": 5
+      },
+      "revId": "9187b62c561981796a60fba0cdaf742f68ed9d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
