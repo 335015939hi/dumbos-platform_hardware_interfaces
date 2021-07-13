@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "968b12d0_c7c4422c",
+        "filename": "memtrack/aidl/android/hardware/memtrack/IMemtrack.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2021-07-13T17:27:52Z",
+      "side": 1,
+      "message": "extra?",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "0cd22248c0c9b0c3243e1304dabd77549dc0a54f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
