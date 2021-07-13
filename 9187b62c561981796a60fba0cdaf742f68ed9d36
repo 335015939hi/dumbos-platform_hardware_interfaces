@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd5ca98f_86102490",
+        "filename": "neuralnetworks/1.2/utils/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-13T05:49:16Z",
+      "side": 1,
+      "message": "Can we try to make these cc_tests also host_supported?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 7
+      },
+      "revId": "9187b62c561981796a60fba0cdaf742f68ed9d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8af5cb9_b27e1637",
+        "filename": "neuralnetworks/aidl/utils/src/Conversions.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-13T05:49:16Z",
+      "side": 1,
+      "message": "Can we do the following instead?\n  (void)memory;",
+      "range": {
+        "startLine": 712,
+        "startChar": 4,
+        "endLine": 713,
+        "endChar": 5
+      },
+      "revId": "9187b62c561981796a60fba0cdaf742f68ed9d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f6f01ac_d4026a08",
+        "filename": "neuralnetworks/aidl/utils/src/Conversions.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-13T05:49:16Z",
+      "side": 1,
+      "message": "Out of curiosity, does the following work?\n  return NN_ERROR() \u003c\u003c \"unvalidatedConvert failed\";",
+      "range": {
+        "startLine": 714,
+        "startChar": 4,
+        "endLine": 714,
+        "endChar": 92
+      },
+      "revId": "9187b62c561981796a60fba0cdaf742f68ed9d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "621c5503_75ec6da9",
+        "filename": "neuralnetworks/utils/common/src/CommonUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-13T05:49:16Z",
+      "side": 1,
+      "message": "Can we do the following instead?\n  (void)memory;",
+      "range": {
+        "startLine": 161,
+        "startChar": 4,
+        "endLine": 162,
+        "endChar": 5
+      },
+      "revId": "9187b62c561981796a60fba0cdaf742f68ed9d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
