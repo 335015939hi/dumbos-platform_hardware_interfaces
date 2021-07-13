@@ -51,6 +51,24 @@
       "parentUuid": "777cc657_afb8e881",
       "revId": "aad1e9db2b1bf0ae8978223350ae9c3b125c5054",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a285b67_d104bad7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2021-07-13T02:58:16Z",
+      "side": 1,
+      "message": "Without main format in audio_policy_configuration.xsd which means we can only declare sub format in policy configuration xml. Wouldn\u0027t be problem that user just pass the main format? Or it is expected behavior?",
+      "parentUuid": "b206805f_2b8131b7",
+      "revId": "aad1e9db2b1bf0ae8978223350ae9c3b125c5054",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
