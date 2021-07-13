@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64fb5160_cb6b9e78",
+        "filename": "neuralnetworks/1.2/utils/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-13T05:50:52Z",
+      "side": 1,
+      "message": "Nevermind; it looks like you did this in the followup CL: aosp/1760967",
+      "parentUuid": "bd5ca98f_86102490",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 7
+      },
+      "revId": "9187b62c561981796a60fba0cdaf742f68ed9d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8af5cb9_b27e1637",
