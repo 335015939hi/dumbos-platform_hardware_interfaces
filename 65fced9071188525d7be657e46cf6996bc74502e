@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38d8bfec_0142695b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2021-07-15T20:41:56Z",
+      "side": 1,
+      "message": "I am not sure if this is a good idea. These are not new tests and have been passing earlier.\n\nMoreover, if getBarringInfo() has a requirement about device state, the corresponding test should check that instead of adding a delay here.\n\nNathan, do you have any comments from getBarringInfo() perspective since you added that API?",
+      "revId": "65fced9071188525d7be657e46cf6996bc74502e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
