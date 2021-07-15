@@ -492,7 +492,7 @@ TEST_P(SensorsHidlTest, InjectSensorEventData) {
 void SensorsHidlTest::activateAllSensors(bool enable) {
     for (const SensorInfoType& sensorInfo : getSensorsList()) {
         if (isValidType(sensorInfo.type)) {
-            batch(sensorInfo.sensorHandle, sensorInfo.minDelay, 0 /* maxReportLatencyNs */);
+            batch(sensorInfo.sensorHandle, sensorInfo.minDelay * 1000, 0 /* maxReportLatencyNs */);
             activate(sensorInfo.sensorHandle, enable);
         }
     }
@@ -591,7 +591,7 @@ void SensorsHidlTest::runFlushTest(const std::vector<SensorInfoType>& sensors, b
 
     for (const SensorInfoType& sensor : sensors) {
         // Configure and activate the sensor
-        batch(sensor.sensorHandle, sensor.maxDelay, 0 /* maxReportLatencyNs */);
+        batch(sensor.sensorHandle, sensor.maxDelay * 1000, 0 /* maxReportLatencyNs */);
         activate(sensor.sensorHandle, activateSensor);
 
         // Flush the sensor
@@ -681,7 +681,7 @@ TEST_P(SensorsHidlTest, Batch) {
         // parameter. Use 0 instead to avoid errors.
         int64_t samplingPeriodNs = extractReportMode(sensor.flags) == SensorFlagBits::ONE_SHOT_MODE
                                            ? 0
-                                           : sensor.minDelay;
+                                           : sensor.minDelay * 1000;
         ASSERT_EQ(batch(sensor.sensorHandle, samplingPeriodNs, 0 /* maxReportLatencyNs */),
                   Result::OK);
 
@@ -689,7 +689,7 @@ TEST_P(SensorsHidlTest, Batch) {
         activate(sensor.sensorHandle, true /* enabled */);
 
         // Call batch on an active sensor
-        ASSERT_EQ(batch(sensor.sensorHandle, sensor.maxDelay, 0 /* maxReportLatencyNs */),
+        ASSERT_EQ(batch(sensor.sensorHandle, sensor.maxDelay * 1000, 0 /* maxReportLatencyNs */),
                   Result::OK);
     }
     activateAllSensors(false /* enable */);
@@ -697,7 +697,7 @@ TEST_P(SensorsHidlTest, Batch) {
     // Call batch on an invalid sensor
     SensorInfoType sensor = getSensorsList().front();
     sensor.sensorHandle = getInvalidSensorHandle();
-    ASSERT_EQ(batch(sensor.sensorHandle, sensor.minDelay, 0 /* maxReportLatencyNs */),
+    ASSERT_EQ(batch(sensor.sensorHandle, sensor.minDelay * 1000, 0 /* maxReportLatencyNs */),
               Result::BAD_VALUE);
 }
 
@@ -713,7 +713,7 @@ TEST_P(SensorsHidlTest, Activate) {
                      << sensor.sensorHandle << std::dec << " type=" << static_cast<int>(sensor.type)
                      << " name=" << sensor.name);
 
-        batch(sensor.sensorHandle, sensor.minDelay, 0 /* maxReportLatencyNs */);
+        batch(sensor.sensorHandle, sensor.minDelay * 1000, 0 /* maxReportLatencyNs */);
         ASSERT_EQ(activate(sensor.sensorHandle, true), Result::OK);
 
         // Call activate on a sensor that is already activated
