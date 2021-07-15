@@ -33,6 +33,24 @@
       "message": "If this is needed to fix VTS 11, then it should be submitted to aosp-android11-tests-dev.",
       "revId": "d8d3fc1bf28cfd555379b449ece539f6b6e8c0f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d233ff_141a0baa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1659539
+      },
+      "writtenOn": "2021-07-15T12:12:35Z",
+      "side": 1,
+      "message": "Thanks! I\u0027ll abandon this one.",
+      "parentUuid": "66d8f14b_64d2086d",
+      "revId": "d8d3fc1bf28cfd555379b449ece539f6b6e8c0f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
