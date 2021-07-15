@@ -16,6 +16,23 @@
       "message": "Hi, Could you please help with DrNo for this change?\nThanks!",
       "revId": "d8d3fc1bf28cfd555379b449ece539f6b6e8c0f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66d8f14b_64d2086d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1061057
+      },
+      "writtenOn": "2021-07-15T07:52:52Z",
+      "side": 1,
+      "message": "If this is needed to fix VTS 11, then it should be submitted to aosp-android11-tests-dev.",
+      "revId": "d8d3fc1bf28cfd555379b449ece539f6b6e8c0f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
