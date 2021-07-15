@@ -33,6 +33,24 @@
       "message": "Is there something unique here for BarringInfo? How do we do \"sim inserted\" tests for things like GET_VOICE_REGISTRATION_STATE? We should be consistent for all of them.",
       "revId": "65fced9071188525d7be657e46cf6996bc74502e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aae8259_402d440e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2021-07-15T21:43:56Z",
+      "side": 1,
+      "message": "Other tests just require a SIM to be present and that is checked based on SIM state in the setup function. But it seems to me that the BarringInfo test requires network service? Is that correct?",
+      "parentUuid": "b6d91414_5ace3fc9",
+      "revId": "65fced9071188525d7be657e46cf6996bc74502e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
