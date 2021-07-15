@@ -51,6 +51,24 @@
       "parentUuid": "b6d91414_5ace3fc9",
       "revId": "65fced9071188525d7be657e46cf6996bc74502e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6479a159_a43bc07b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-07-15T22:07:35Z",
+      "side": 1,
+      "message": "We can\u0027t do a thorough test of those other things without network service. As of now, this test does require the device to be camped (doesn\u0027t require service). We could weaken the test so that it\u0027s allowed to happen when the device is OOS, but ISTM that we should be moving these tests in the other direction since there is a lot of stuff we simply can\u0027t test effectively unless the device is in service (or at least camped).",
+      "parentUuid": "4aae8259_402d440e",
+      "revId": "65fced9071188525d7be657e46cf6996bc74502e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
