@@ -51,6 +51,29 @@
       "message": "Thanks for reporting this issue!",
       "revId": "d9ededa6730fde070af175159af261e3b81b5779",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55a28946_914b70c9",
+        "filename": "gnss/2.1/vts/functional/gnss_hal_test_cases.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1105161
+      },
+      "writtenOn": "2021-07-16T18:29:56Z",
+      "side": 1,
+      "message": "How does this make things much better?\n\nBefore this change, it looks like (per the comment above), we\u0027d allow 0+, and now we\u0027d allow 1+.\n\nWith this change, in the problem cases of 1-Location \u0026 0-Sv-Info\u0027s, it looks like we\u0027d avoid the back behavior below - of trying to read from an empty list - but we\u0027d still fail here.  So we\u0027d want to simply wait longer for an SV Info to arrive, right?",
+      "range": {
+        "startLine": 255,
+        "startChar": 12,
+        "endLine": 255,
+        "endChar": 13
+      },
+      "revId": "d9ededa6730fde070af175159af261e3b81b5779",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
