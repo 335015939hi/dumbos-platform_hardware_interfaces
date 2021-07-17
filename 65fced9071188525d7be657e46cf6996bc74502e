@@ -69,6 +69,24 @@
       "parentUuid": "4aae8259_402d440e",
       "revId": "65fced9071188525d7be657e46cf6996bc74502e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "564b2942_025a16e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-07-17T03:17:02Z",
+      "side": 1,
+      "message": "Hi Amit, Mathan,\nI uploaded a new patchset, moving the delay to the getBarringInfo test function.\nCheck the voice reg state before calling getBarringInfo() as you mentioned.\nCould you please take a look? Thanks.",
+      "parentUuid": "6479a159_a43bc07b",
+      "revId": "65fced9071188525d7be657e46cf6996bc74502e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
