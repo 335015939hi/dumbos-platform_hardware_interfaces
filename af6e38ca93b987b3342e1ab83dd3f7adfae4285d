@@ -34,6 +34,24 @@
       "parentUuid": "d531cb37_322b6f1e",
       "revId": "af6e38ca93b987b3342e1ab83dd3f7adfae4285d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80e0f049_31453f6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-07-19T23:49:44Z",
+      "side": 1,
+      "message": "\u003e If elaurent@ doesn\u0027t plan to own this module, then we need a separate OWENRS file.\n\nI think in that case we would also need to have \u0027set noparent\u0027 on that separate OWNERS file to prevent ownership inheritance.\n\nBut, I don\u0027t think elaurent@ will not object for being the contact point. The buganizer component anyway has a default assignee, which isn\u0027t him. Thus, adding \u0027# Bug component: 48436\u0027 to \u0027hardware/interfaces/audio/effect/all-versions/OWNERS\u0027 should work.",
+      "parentUuid": "f244cf1b_af54b7ac",
+      "revId": "af6e38ca93b987b3342e1ab83dd3f7adfae4285d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
