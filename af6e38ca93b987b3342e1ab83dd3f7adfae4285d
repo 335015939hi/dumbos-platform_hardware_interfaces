@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d531cb37_322b6f1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-07-19T23:31:20Z",
+      "side": 1,
+      "message": "Hi Yiming,\n\nThere is already \u0027hardware/interfaces/audio/effect/all-versions/OWNERS\u0027 which covers both code and VTS tests. What does adding this VTS-specific OWNERS file actually gives? The effective ownership doesn\u0027t change.",
+      "revId": "af6e38ca93b987b3342e1ab83dd3f7adfae4285d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
