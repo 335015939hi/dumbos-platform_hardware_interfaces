@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c40a7a39_4ac03dfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579540
+      },
+      "writtenOn": "2021-07-19T08:42:35Z",
+      "side": 1,
+      "message": "Hello,\n\nthis is a patch to fix the minDelay/maxDelay unit conversion in various Sensors VTS tests.\n\nBest Regards,\nJean Dao\n",
+      "revId": "47a6868a819664c1a73c162947d5459d23a6b71e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
