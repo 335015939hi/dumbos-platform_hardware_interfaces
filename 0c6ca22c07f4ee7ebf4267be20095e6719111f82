@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5882668_cf5a49bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-07-21T05:46:00Z",
+      "side": 1,
+      "message": "Hi,\nWith Patchset 3, following code coverage improvements are observed:\n1. keymaster4_authSet_fuzzer : 65.36% to 75%\n2. keymaster4_utils_fuzzer: 72.11% to 82.72%\n\nkeymaster4_attestation_fuzzer already had 75.14% coverage, so no change was made to that. ",
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
