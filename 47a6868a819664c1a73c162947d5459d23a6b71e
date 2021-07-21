@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e5d73a3_4d57ef47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2021-07-21T16:01:35Z",
+      "side": 1,
+      "message": "While I agree that the test doesn\u0027t really make this clear and we need to update it to make the requirements clearer, this behavior is in violation of the HAL requirements.\n\nPer https://source.android.com/devices/sensors/batching, \"if sampling_period_ns is less than SensorInfo.minDelay, then the HAL implementation must silently clamp it to max(SensorInfo.minDelay, 1ms).\" so I think your HAL implementation needs to be updated. We can look at at least adding some comments to the test to make it clear what the test is doing is OK behavior.",
+      "range": {
+        "startLine": 13,
+        "startChar": 16,
+        "endLine": 15,
+        "endChar": 54
+      },
+      "revId": "47a6868a819664c1a73c162947d5459d23a6b71e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c40a7a39_4ac03dfe",
