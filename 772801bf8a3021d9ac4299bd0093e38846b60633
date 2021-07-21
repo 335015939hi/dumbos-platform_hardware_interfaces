@@ -16,6 +16,24 @@
       "message": "Nathan/Jack, do you think this is fine? I still feel adding a delay is not a good idea. Moreover it is possible there\u0027s no service, will the test fail in that case?",
       "revId": "772801bf8a3021d9ac4299bd0093e38846b60633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93a9beb2_3c0c4bbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-07-21T21:00:19Z",
+      "side": 1,
+      "message": "We are allowed to require that the device is able to obtain service. That\u0027s the bar of CTS (same for VTS). So we don\u0027t need to worry about that. A device with a SIM that can\u0027t acquire service can/should/is allowed to fail VTS just like CTS.\n\nNow, as to whether this specific timer is good enough. **shrug**",
+      "parentUuid": "c0c303e1_6a67bb9d",
+      "revId": "772801bf8a3021d9ac4299bd0093e38846b60633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
