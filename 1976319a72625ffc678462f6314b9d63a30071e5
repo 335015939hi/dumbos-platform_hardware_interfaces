@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af620d62_0c9f5c88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-07-22T16:27:23Z",
+      "side": 1,
+      "message": "Thanks for catching this! Indeed the method is optional.",
+      "revId": "1976319a72625ffc678462f6314b9d63a30071e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
