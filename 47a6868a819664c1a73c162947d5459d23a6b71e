@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a6d7dafd_e46fc914",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1579540
+      },
+      "writtenOn": "2021-07-22T07:53:15Z",
+      "side": 1,
+      "message": "Thanks for your comment. You\u0027re right, our implementation needs to be updated, this requirement went unnoticed.\n\nI agree the test should still be updated, either by not using minDelay/maxDelay at all but obvious out-of-range values (with added comments), or by using correct minDelay/maxDelay (this patch) and additionally explicitly test the clamping requirement.",
+      "parentUuid": "0e5d73a3_4d57ef47",
+      "range": {
+        "startLine": 13,
+        "startChar": 16,
+        "endLine": 15,
+        "endChar": 54
+      },
+      "revId": "47a6868a819664c1a73c162947d5459d23a6b71e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c40a7a39_4ac03dfe",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
