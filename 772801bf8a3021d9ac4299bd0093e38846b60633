@@ -34,6 +34,24 @@
       "parentUuid": "c0c303e1_6a67bb9d",
       "revId": "772801bf8a3021d9ac4299bd0093e38846b60633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43eda6ec_78e9c23f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-07-22T01:30:38Z",
+      "side": 1,
+      "message": "The timer value is base on my tests.\nAnd I have discussed internally, 10s should enough for radio restart case.",
+      "parentUuid": "93a9beb2_3c0c4bbe",
+      "revId": "772801bf8a3021d9ac4299bd0093e38846b60633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
