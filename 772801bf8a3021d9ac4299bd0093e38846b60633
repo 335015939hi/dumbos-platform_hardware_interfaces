@@ -52,6 +52,23 @@
       "parentUuid": "93a9beb2_3c0c4bbe",
       "revId": "772801bf8a3021d9ac4299bd0093e38846b60633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e45718fa_a2d14a5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-07-22T01:35:18Z",
+      "side": 1,
+      "message": "Obviously this is not an ideal fix, but I\u0027d prefer a hacky test that actually verifies modem behavior to a beautiful test that doesn\u0027t actually verify anything; hence I prefer this over allowing the test to pass if the device is OOS.",
+      "revId": "772801bf8a3021d9ac4299bd0093e38846b60633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
