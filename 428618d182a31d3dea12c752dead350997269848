@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e87b928_d3315ca2",
+        "filename": "neuralnetworks/aidl/utils/src/Conversions.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-22T22:41:08Z",
+      "side": 1,
+      "message": "Can we add the function name to this error message? E.g.:\n  unvalidatedConvert(const aidl_hal::Memory\u0026 memory) is not available on host build",
+      "range": {
+        "startLine": 402,
+        "startChar": 27,
+        "endLine": 402,
+        "endChar": 30
+      },
+      "revId": "428618d182a31d3dea12c752dead350997269848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "996f9f50_6a74772e",
+        "filename": "neuralnetworks/utils/common/src/CommonUtils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-22T22:41:08Z",
+      "side": 1,
+      "message": "Can we add the function name to this error message?",
+      "range": {
+        "startLine": 160,
+        "startChar": 4,
+        "endLine": 160,
+        "endChar": 48
+      },
+      "revId": "428618d182a31d3dea12c752dead350997269848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "781ba16f_af50dcdf",
+        "filename": "neuralnetworks/utils/common/src/CommonUtils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-22T22:41:08Z",
+      "side": 1,
+      "message": "Can we add the function name to this error message?",
+      "range": {
+        "startLine": 440,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 48
+      },
+      "revId": "428618d182a31d3dea12c752dead350997269848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d9a5446_94f3b0d6",
+        "filename": "neuralnetworks/utils/service/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-22T22:41:08Z",
+      "side": 1,
+      "message": "Can some of these __assert statements be removed now?",
+      "range": {
+        "startLine": 53,
+        "startChar": 16,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "428618d182a31d3dea12c752dead350997269848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
