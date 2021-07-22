@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b8a9c1_57b47fba",
+        "filename": "neuralnetworks/1.0/vts/functional/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-22T22:54:28Z",
+      "side": 1,
+      "message": ":)",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "c227effe4e03190bc5940de7e97feb423e855102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eb633ee_fa4bd79f",
+        "filename": "neuralnetworks/1.0/vts/functional/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-22T22:54:28Z",
+      "side": 1,
+      "message": "I think we\u0027ll want to disable the VTS tests (and VTS utility code) from the host build for now, but it was an important part of making sure that the linker succeeded.",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "c227effe4e03190bc5940de7e97feb423e855102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b46ef1fc_da4732da",
+        "filename": "neuralnetworks/1.0/vts/functional/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-22T22:54:28Z",
+      "side": 1,
+      "message": "I think we\u0027ll want to disable the VTS tests (and VTS utility code) from the host build for now, but it was an important part of making sure that the linker succeeded.",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 25
+      },
+      "revId": "c227effe4e03190bc5940de7e97feb423e855102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66b76ddd_437a962b",
+        "filename": "neuralnetworks/utils/common/src/CommonUtils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-22T22:54:28Z",
+      "side": 1,
+      "message": "Can these \"add more description\" changes be made in aosp/1758649?",
+      "range": {
+        "startLine": 160,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 85
+      },
+      "revId": "c227effe4e03190bc5940de7e97feb423e855102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
