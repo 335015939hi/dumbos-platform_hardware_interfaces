@@ -91,6 +91,30 @@
       },
       "revId": "c227effe4e03190bc5940de7e97feb423e855102",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "202d8728_16f20270",
+        "filename": "neuralnetworks/utils/common/src/CommonUtils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-23T00:22:27Z",
+      "side": 1,
+      "message": "This comment no longer applies because aosp/1758649 was squashed into this CL.",
+      "parentUuid": "66b76ddd_437a962b",
+      "range": {
+        "startLine": 160,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 85
+      },
+      "revId": "c227effe4e03190bc5940de7e97feb423e855102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

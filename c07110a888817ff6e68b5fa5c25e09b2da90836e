@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38c7b3eb_14062915",
+        "filename": "neuralnetworks/aidl/utils/src/Conversions.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-23T00:22:27Z",
+      "side": 1,
+      "message": "Out of curiosity, does the following work?\n  return NN_ERROR() \u003c\u003c \"unvalidatedConvert failed\";",
+      "range": {
+        "startLine": 715,
+        "startChar": 4,
+        "endLine": 715,
+        "endChar": 92
+      },
+      "revId": "c07110a888817ff6e68b5fa5c25e09b2da90836e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
