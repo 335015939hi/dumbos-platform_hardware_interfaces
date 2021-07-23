@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a5a7832_0a0f30e9",
+        "filename": "neuralnetworks/1.0/vts/functional/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1883470
+      },
+      "writtenOn": "2021-07-23T20:33:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7eb633ee_fa4bd79f",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "c227effe4e03190bc5940de7e97feb423e855102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b46ef1fc_da4732da",
@@ -60,6 +84,30 @@
       "writtenOn": "2021-07-22T22:54:28Z",
       "side": 1,
       "message": "I think we\u0027ll want to disable the VTS tests (and VTS utility code) from the host build for now, but it was an important part of making sure that the linker succeeded.",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 25
+      },
+      "revId": "c227effe4e03190bc5940de7e97feb423e855102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30872a72_4db62e50",
+        "filename": "neuralnetworks/1.0/vts/functional/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1883470
+      },
+      "writtenOn": "2021-07-23T20:33:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b46ef1fc_da4732da",
       "range": {
         "startLine": 71,
         "startChar": 4,
