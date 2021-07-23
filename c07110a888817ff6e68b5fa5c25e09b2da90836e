@@ -22,6 +22,29 @@
       },
       "revId": "c07110a888817ff6e68b5fa5c25e09b2da90836e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01efe243_f4732d69",
+        "filename": "neuralnetworks/utils/adapter/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-23T04:43:46Z",
+      "side": 1,
+      "message": "I get a build error saying that these definitions are doubly-defined, because they\u0027re also defined in one of the defaults. Can we either remove it here or in the default rule?",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 6
+      },
+      "revId": "c07110a888817ff6e68b5fa5c25e09b2da90836e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
