@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a18a5b5d_246a24e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-26T19:47:01Z",
+      "side": 1,
+      "message": "Can we list which libraries/tests are host supported?",
+      "revId": "52e12674408d162b19057f34e75b91fb3a503b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37876a37_bedc98a6",
+        "filename": "neuralnetworks/1.0/vts/functional/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-26T19:47:01Z",
+      "side": 1,
+      "message": "nit: I *think* this is redundant because it\u0027s not defined in \"neuralnetworks_float16\" and I don\u0027t think it\u0027s defined in \"VtsHalTargetTestDefaults\", but it\u0027s fine to leave it in.",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 26
+      },
+      "revId": "52e12674408d162b19057f34e75b91fb3a503b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebf31691_7262a2b3",
+        "filename": "neuralnetworks/1.0/vts/functional/GeneratedTestHarness.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-26T19:47:01Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like this change is needed anymore. Can we undo the change?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 18
+      },
+      "revId": "52e12674408d162b19057f34e75b91fb3a503b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d19f4447_9b9cfd10",
+        "filename": "neuralnetworks/1.0/vts/functional/Utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-26T19:47:01Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like this change is needed anymore. Can we undo the change? (same comment applies to the changes below)",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 18
+      },
+      "revId": "52e12674408d162b19057f34e75b91fb3a503b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "645d8957_6f3bde1e",
+        "filename": "neuralnetworks/1.0/vts/functional/include/1.0/Utils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-26T19:47:01Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like this change is needed anymore. Can we undo the change?",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 18
+      },
+      "revId": "52e12674408d162b19057f34e75b91fb3a503b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0998f45_e0011384",
+        "filename": "neuralnetworks/1.1/vts/functional/GeneratedTestHarness.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-26T19:47:01Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like this change is needed anymore. Can we undo the change?",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 18
+      },
+      "revId": "52e12674408d162b19057f34e75b91fb3a503b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3c6c121_6cf9373d",
+        "filename": "neuralnetworks/1.2/vts/functional/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-26T19:47:01Z",
+      "side": 1,
+      "message": "Were these changes only made in order to support a host build? Are we able to undo these changes?",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 46
+      },
+      "revId": "52e12674408d162b19057f34e75b91fb3a503b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b64b450_8e0ee70d",
+        "filename": "neuralnetworks/1.3/vts/functional/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-26T19:47:01Z",
+      "side": 1,
+      "message": "Were these changes only made in order to support a host build? Are we able to undo these changes?",
+      "range": {
+        "startLine": 79,
+        "startChar": 9,
+        "endLine": 80,
+        "endChar": 40
+      },
+      "revId": "52e12674408d162b19057f34e75b91fb3a503b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b07b1b7_d1b0b26b",
+        "filename": "neuralnetworks/1.3/vts/functional/GeneratedTestHarness.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-26T19:47:01Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like this change is needed anymore. Can we undo the change?",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 18
+      },
+      "revId": "52e12674408d162b19057f34e75b91fb3a503b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3debe35_7b6e9ef8",
+        "filename": "neuralnetworks/aidl/vts/functional/GeneratedTestHarness.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-26T19:47:01Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like this change is needed anymore. Can we undo the change?",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 18
+      },
+      "revId": "52e12674408d162b19057f34e75b91fb3a503b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
