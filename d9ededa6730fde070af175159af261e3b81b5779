@@ -116,6 +116,30 @@
       },
       "revId": "d9ededa6730fde070af175159af261e3b81b5779",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9667d226_6bc13006",
+        "filename": "gnss/2.1/vts/functional/gnss_hal_test_cases.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1358281
+      },
+      "writtenOn": "2021-07-26T19:53:43Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1769028 was just submitted. Please let us know if it works for you.",
+      "parentUuid": "cdac2921_6c84bb87",
+      "range": {
+        "startLine": 255,
+        "startChar": 12,
+        "endLine": 255,
+        "endChar": 13
+      },
+      "revId": "d9ededa6730fde070af175159af261e3b81b5779",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
