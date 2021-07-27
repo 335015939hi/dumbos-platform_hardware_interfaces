@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84a86834_6989b65a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-27T21:39:06Z",
+      "side": 1,
+      "message": "Can we list these host libraries and tests in bullet point format?\n\n  Host Supported Libs:\n  * neuralnetworks_utils_hal_1_0\n  * ...\n  * neuralnetworks_utils_hal_common\n  \n  Host Supported Tests:\n  * neuralnetworks_utils_hal_1_0_test\n  * ...\n  * neuralnetworks_utils_hal_common_test",
+      "revId": "858417a2a739236a0ce6d3bb32385be563289287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
