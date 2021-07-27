@@ -16,6 +16,23 @@
       "message": "Hi Devin, would you be able to grant owner-approval to the change in neuralnetworks/aidl/Android.bp? We\u0027re trying to create a host build of the NN HAL libraries for testing purposes.",
       "revId": "a6d6002431c4b5bc3216827fdf0bf5744229fdea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbadcfbd_d375e61f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-07-27T22:46:02Z",
+      "side": 1,
+      "message": "Hi Devin, would you be able to grant owner-approval to the change in neuralnetworks/aidl/Android.bp? We\u0027re trying to create a host build of the NN HAL libraries for testing purposes.",
+      "revId": "a6d6002431c4b5bc3216827fdf0bf5744229fdea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
