@@ -1,0 +1,62 @@
+// Copyright (C) 2020 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+apex_key {
+    name: "com.android.vibrator.default.key",
+    public_key: "com.android.vibrator.default.avbpubkey",
+    private_key: "com.android.vibrator.default.pem",
+}
+
+android_app_certificate {
+    name: "com.android.vibrator.default.certificate",
+    certificate: "com.android.vibrator.default",
+}
+
+prebuilt_etc {
+    name: "android.hardware.vibrator-service.example.rc",
+    src: "android.hardware.vibrator-service.example.rc",
+    installable: false,
+}
+
+apex {
+    name: "com.android.vibrator.default",
+    manifest: "apex_manifest.json",
+    key: "com.android.vibrator.default.key",
+    certificate: ":com.android.vibrator.default.certificate",
+    file_contexts: "file_contexts",
+    use_vndk_as_stable: true,
+    updatable: false,
+
+    // Install the apex in /vendor/apex
+    proprietary: true,
+
+    // BEGIN of apex payloads
+    binaries: [
+        // /bin
+        "android.hardware.vibrator-service.example",
+    ],
+    prebuilts: [
+        // /etc
+        "android.hardware.vibrator-service.example.rc",
+    ],
+    // END of apex payloads
+
+    // BEGIN of companion files
+    // vintf manifest fragments, which is installed in /vendor/etc/vintf.
+    // TODO(b/130058564): should we put vintf framgments within the apex?
+    vintf_fragments: [
+        "android.hardware.vibrator-service.example.xml",
+    ],
+    // END of companion files
+}
