@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7514a834_4106a243",
+        "filename": "health/2.0/vts/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-07-28T00:55:13Z",
+      "side": 1,
+      "message": "health/2.0/vts/OWNERS is already in place.\n\nThough, it is outdated; please remove yim@",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 14
+      },
+      "revId": "4b44edfc0602fc416073daf4a927446f8a342583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f695cb1a_4b894895",
         "filename": "health/2.0/vts/functional/OWNERS",
         "patchSetId": 1
