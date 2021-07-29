@@ -16,6 +16,24 @@
       "message": "Is this a backwards compatible change?",
       "revId": "a0cc24730eafe91021643b9b36889d61728f58f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ae215fe_5afeb765",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-07-29T18:50:55Z",
+      "side": 1,
+      "message": "Sure. There is an old issue we did not found before. The buffer size 7168 is not divisible by 24 bits, but may cause an incomplete PCM sample while underrun. Now it (7168 --\u003e 7680) is compatible with 16, 24, and 32 bits per sample.",
+      "parentUuid": "a3166dc5_f38a8eff",
+      "revId": "a0cc24730eafe91021643b9b36889d61728f58f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
