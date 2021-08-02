@@ -52,6 +52,24 @@
       "parentUuid": "0bd5732f_f54ea5a4",
       "revId": "792c11c84d7796b34fde4bcfba2409d10a8bb944",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f42fbde6_6ebcae33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-08-02T20:51:34Z",
+      "side": 1,
+      "message": "it *should* be magikarp instead of mew, right? :P",
+      "parentUuid": "832a1385_301dbdc6",
+      "revId": "792c11c84d7796b34fde4bcfba2409d10a8bb944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
