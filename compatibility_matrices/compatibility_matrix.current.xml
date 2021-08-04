@@ -637,4 +637,12 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.tv.earc</name>
+        <version>1</version>
+        <interface>
+            <name>IHdmiEarc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
