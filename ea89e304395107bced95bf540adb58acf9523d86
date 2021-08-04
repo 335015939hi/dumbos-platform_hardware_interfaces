@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9f4d3ec_1039b2c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-08-04T23:56:04Z",
+      "side": 1,
+      "message": "Bypass-Presubmit because that\u0027s what the Android Build Cop is recommending.",
+      "revId": "ea89e304395107bced95bf540adb58acf9523d86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
