@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "058b5e72_7b1709f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-08-04T12:34:25Z",
+      "side": 1,
+      "message": "Something is confused here. Citing hdmi_cec.h:\n\n    /*\n     * Setting this flag to false means Android system\n     * will stop handling CEC service and yield the control\n     * over to the microprocessor that is powered on through\n     * the standby mode. When set to true, the system will gain\n     * the control over, hence telling the microprocessor to stop\n     * handling the cec commands. This is called when system goes\n     * in and out of standby mode to notify the microprocessor\n     * that it should start/stop handling CEC commands on behalf\n     * of the system. False by default.\n     */\n    HDMI_OPTION_SYSTEM_CEC_CONTROL \u003d 3,\n\nPlease fix the commit message.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 11
+      },
+      "revId": "9819d2350db1151578329ba5dc2c595e964ad2db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3613a0f1_cd988b48",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-08-04T12:34:25Z",
+      "side": 1,
+      "message": "Please rephrase:\n\n /*\n  * Updated when system goes in and out of standby mode.\n  * When set to true, Android system is handling CEC commands.\n  * When set to false, microprocessor is handling CEC commands.\n  * False by default after initialization.\n  */",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 3
+      },
+      "revId": "9819d2350db1151578329ba5dc2c595e964ad2db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
