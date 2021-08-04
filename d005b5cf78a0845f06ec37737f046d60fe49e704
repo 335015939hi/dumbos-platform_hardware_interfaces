@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "514bdb5a_f8f594a6",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-08-04T12:51:43Z",
+      "side": 1,
+      "message": "Nit: `atoi` would return 0 on error which in our case denotes CEC_DEVICE_TV.\nHow about using `strtol` with proper error handling... just in case?",
+      "range": {
+        "startLine": 535,
+        "startChar": 8,
+        "endLine": 535,
+        "endChar": 43
+      },
+      "revId": "d005b5cf78a0845f06ec37737f046d60fe49e704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
