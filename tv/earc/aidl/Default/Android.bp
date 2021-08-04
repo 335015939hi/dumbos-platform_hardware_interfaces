@@ -1,0 +1,21 @@
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+cc_binary {
+    name: "android.hardware.tv.earc-service.example",
+    relative_install_path: "hw",
+    init_rc: ["HdmiEarc-default.rc"],
+    vintf_fragments: ["HdmiEarc-default.xml"],
+    vendor: true,
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "android.hardware.tv.earc-V1-ndk_platform",
+    ],
+    srcs: [
+        "Service.cpp",
+        "HdmiEarc.cpp",
+    ],
+}
+
