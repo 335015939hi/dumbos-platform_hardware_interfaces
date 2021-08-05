@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "688bbfae_5a95e8af",
         "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
@@ -20,10 +21,34 @@
         "endChar": 60
       },
       "revId": "b92793fec5058585e248ea2eeac761e9d4576033",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa89c114_f0cea887",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1623292
+      },
+      "writtenOn": "2021-08-05T06:04:55Z",
+      "side": 1,
+      "message": "interface close needs to give time to libbt-vendor to do close processing",
+      "parentUuid": "688bbfae_5a95e8af",
+      "range": {
+        "startLine": 747,
+        "startChar": 36,
+        "endLine": 747,
+        "endChar": 60
+      },
+      "revId": "b92793fec5058585e248ea2eeac761e9d4576033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "42c4fe19_e663f947",
         "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
@@ -43,10 +68,34 @@
         "endChar": 40
       },
       "revId": "b92793fec5058585e248ea2eeac761e9d4576033",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df865da4_60aad72b",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1623292
+      },
+      "writtenOn": "2021-08-05T06:04:55Z",
+      "side": 1,
+      "message": "Add retry, to prevent the complete package from receiving problems",
+      "parentUuid": "42c4fe19_e663f947",
+      "range": {
+        "startLine": 749,
+        "startChar": 8,
+        "endLine": 749,
+        "endChar": 40
+      },
+      "revId": "b92793fec5058585e248ea2eeac761e9d4576033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "3b83d1b0_b4070808",
         "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
@@ -66,8 +115,31 @@
         "endChar": 72
       },
       "revId": "b92793fec5058585e248ea2eeac761e9d4576033",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df0ec41_ebe51f32",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1623292
+      },
+      "writtenOn": "2021-08-05T06:04:55Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "3b83d1b0_b4070808",
+      "range": {
+        "startLine": 754,
+        "startChar": 0,
+        "endLine": 754,
+        "endChar": 72
+      },
+      "revId": "b92793fec5058585e248ea2eeac761e9d4576033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
