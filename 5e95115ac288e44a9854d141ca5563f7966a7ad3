@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c35ebb4b_9dc69c49",
+        "filename": "tv/cec/1.0/default/HdmiCec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-08-05T11:49:48Z",
+      "side": 1,
+      "message": "Please remove if not needed.\nIf needed, decrease the log verbosity.",
+      "range": {
+        "startLine": 395,
+        "startChar": 4,
+        "endLine": 395,
+        "endChar": 38
+      },
+      "revId": "5e95115ac288e44a9854d141ca5563f7966a7ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "864ba58a_b826e421",
+        "filename": "tv/cec/1.0/default/HdmiCec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-08-05T11:49:48Z",
+      "side": 1,
+      "message": "Is this intended? If so, please remove the commented code.",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 7
+      },
+      "revId": "5e95115ac288e44a9854d141ca5563f7966a7ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44a7a323_8f54fdc5",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-08-05T11:49:48Z",
+      "side": 1,
+      "message": "I assume it\u0027s desired to continue for all ports even if one fails. But then we return failure anyway?",
+      "range": {
+        "startLine": 160,
+        "startChar": 12,
+        "endLine": 160,
+        "endChar": 42
+      },
+      "revId": "5e95115ac288e44a9854d141ca5563f7966a7ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28c24ad0_69b98cf0",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2021-08-05T11:49:48Z",
+      "side": 1,
+      "message": "This vector holds pointers. This will not free the memory for HdmiCecPort structures.",
+      "range": {
+        "startLine": 357,
+        "startChar": 4,
+        "endLine": 357,
+        "endChar": 26
+      },
+      "revId": "5e95115ac288e44a9854d141ca5563f7966a7ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
