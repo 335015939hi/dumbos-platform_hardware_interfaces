@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f9c427b_88a80e03",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-08-11T21:51:15Z",
+      "side": 1,
+      "message": "Can we change this commit message to the following?\n\n*******************************\n\nRevert^2 \"Making NN hardware interface libs \"host supported\"\"\n\nThis is a revert of I6f657743, which is a revert of I1d7c66516.\n\nChanging static libraries in hardware/interfaces/neuralnetworks to be\n\"host supported\", meaning that the libraries within this directory\nwill be available on the host/linux build to make integration and\ndebugging more efficient.\n\nHost Supported Libs:\n* neuralnetworks_utils_hal_1_0\n* neuralnetworks_utils_hal_1_1\n* neuralnetworks_utils_hal_1_2\n* neuralnetworks_utils_hal_1_3\n* neuralnetworks_utils_hal_aidl\n* neuralnetworks_utils_hal_common\n\nHost Supported Tests:\n* neuralnetworks_utils_hal_1_0_test\n* neuralnetworks_utils_hal_1_1_test\n* neuralnetworks_utils_hal_1_2_test\n* neuralnetworks_utils_hal_1_3_test\n* neuralnetworks_utils_hal_aidl_test\n* neuralnetworks_utils_hal_common_test\n\nBug: 146324523\nTest: neuralnetworks_utils_hal_*_test\nChange-Id: I6c3cc00cd1ceefe4ae4ca5e40a8f3062d3251ff1",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 52
+      },
+      "revId": "89245334115c2924d94a85f252cd1b3b390f0a8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
