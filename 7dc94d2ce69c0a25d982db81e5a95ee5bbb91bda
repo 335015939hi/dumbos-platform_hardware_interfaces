@@ -16,6 +16,24 @@
       "message": "We\u0027ve been using the following two owners throughput hardware/interfaces:\n\narabawy@google.com\netancohen@google.com",
       "revId": "7dc94d2ce69c0a25d982db81e5a95ee5bbb91bda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9329efb6_abbc93ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2021-08-11T23:52:17Z",
+      "side": 1,
+      "message": "Do you want to modify all the OWNERS CLs you\u0027ve created?",
+      "parentUuid": "1d2ecf8a_ec989cb8",
+      "revId": "7dc94d2ce69c0a25d982db81e5a95ee5bbb91bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
