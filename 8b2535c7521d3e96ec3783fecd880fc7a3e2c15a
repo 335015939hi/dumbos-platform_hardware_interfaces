@@ -16,6 +16,24 @@
       "message": "There is https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/effect/all-versions/OWNERS. Do we actually need to add another one down below?",
       "revId": "8b2535c7521d3e96ec3783fecd880fc7a3e2c15a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffd97889_3bed04b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-08-12T00:17:34Z",
+      "side": 1,
+      "message": "oh this is good. We don\u0027t need a new OWNERS. This CL is created by my script that cannot detect whether there is a parent OWNERS file that is sufficient.",
+      "parentUuid": "452443cc_e4c630cb",
+      "revId": "8b2535c7521d3e96ec3783fecd880fc7a3e2c15a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
