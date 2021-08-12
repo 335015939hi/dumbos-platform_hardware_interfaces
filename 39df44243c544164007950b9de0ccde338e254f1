@@ -16,6 +16,24 @@
       "message": "Please also add keunyoung@google.com as owner",
       "revId": "39df44243c544164007950b9de0ccde338e254f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "868efcda_9cfd2f7a",
+        "filename": "broadcastradio/2.0/vts/functional/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-08-12T19:23:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "718ed637_6136013f",
+      "revId": "39df44243c544164007950b9de0ccde338e254f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
