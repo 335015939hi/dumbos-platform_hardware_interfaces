@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "452443cc_e4c630cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-08-12T00:11:23Z",
+      "side": 1,
+      "message": "There is https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/effect/all-versions/OWNERS. Do we actually need to add another one down below?",
+      "revId": "8b2535c7521d3e96ec3783fecd880fc7a3e2c15a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
