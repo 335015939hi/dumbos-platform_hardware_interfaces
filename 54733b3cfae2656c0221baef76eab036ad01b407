@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c775bb_28884fc7",
+        "filename": "audio/core/all-versions/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-08-12T19:18:23Z",
+      "side": 1,
+      "message": "While you are on this, please remove krocard@ as he had moved to other team.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "54733b3cfae2656c0221baef76eab036ad01b407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
