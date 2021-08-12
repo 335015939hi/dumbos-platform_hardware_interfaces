@@ -16,6 +16,24 @@
       "message": "I\u0027m not the owner of broadcast radio domain anymore. It\u0027s oscarazu@ now. ",
       "revId": "3ef455a3f683b641f1f556823eeb042133edbb8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84137347_97a794ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-08-12T18:51:03Z",
+      "side": 1,
+      "message": "Thanks for letting me know. Updated. Can you still give owner vote? I see you are still suggested by gerrit.",
+      "parentUuid": "a62686fa_a63d9321",
+      "revId": "3ef455a3f683b641f1f556823eeb042133edbb8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
