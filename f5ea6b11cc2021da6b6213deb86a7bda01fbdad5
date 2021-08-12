@@ -16,6 +16,24 @@
       "message": "Is it possible instead to add the component id to https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/core/all-versions/OWNERS?",
       "revId": "f5ea6b11cc2021da6b6213deb86a7bda01fbdad5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4620501_77fddea9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-08-12T00:15:09Z",
+      "side": 1,
+      "message": "Yes, let me work on it.",
+      "parentUuid": "dc1ffac6_56900f61",
+      "revId": "f5ea6b11cc2021da6b6213deb86a7bda01fbdad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
