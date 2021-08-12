@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85649d64_6d586a2f",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_attestation_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-08-12T01:39:48Z",
+      "side": 1,
+      "message": "std::unique_ptr",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 23
+      },
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68ca9aa8_41a7d250",
         "filename": "keymaster/4.0/support/fuzzer/keymaster4_authSet_fuzzer.cpp",
         "patchSetId": 3
