@@ -222,6 +222,30 @@
       },
       "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb036994_c91a3639",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-08-12T01:37:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f5b1b507_ba86ef12",
+      "range": {
+        "startLine": 69,
+        "startChar": 17,
+        "endLine": 69,
+        "endChar": 39
+      },
+      "revId": "7f5d04f41246dbd7f16807beb0492c27687480b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
