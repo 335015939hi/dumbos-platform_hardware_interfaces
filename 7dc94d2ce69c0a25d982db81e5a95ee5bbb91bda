@@ -87,6 +87,24 @@
       "message": "Should include arabawy@ in the OWNERS",
       "revId": "7dc94d2ce69c0a25d982db81e5a95ee5bbb91bda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b19527bb_0e34ccd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2021-08-13T17:17:38Z",
+      "side": 1,
+      "message": "Sorry - something is confusing. Our team doesn\u0027t work in AOSP. On internal repo all OWNERS file already exist - e.g. https://source.corp.google.com/android/hardware/interfaces/wifi/hostapd/1.0/vts/OWNERS\n\nWhy are these needed?",
+      "parentUuid": "545e01f9_ec27b779",
+      "revId": "7dc94d2ce69c0a25d982db81e5a95ee5bbb91bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
