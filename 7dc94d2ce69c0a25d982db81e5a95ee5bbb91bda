@@ -70,6 +70,23 @@
       "parentUuid": "ea6503e5_a54c72d9",
       "revId": "7dc94d2ce69c0a25d982db81e5a95ee5bbb91bda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8836ea85_7cc29847",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2021-08-13T17:04:28Z",
+      "side": 1,
+      "message": "Should include arabawy@ in the OWNERS",
+      "revId": "7dc94d2ce69c0a25d982db81e5a95ee5bbb91bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
