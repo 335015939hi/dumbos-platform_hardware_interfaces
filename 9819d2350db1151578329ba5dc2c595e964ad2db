@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7574cc1_131c5704",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-08-16T15:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "058b5e72_7b1709f5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 11
+      },
+      "revId": "9819d2350db1151578329ba5dc2c595e964ad2db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3613a0f1_cd988b48",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-04T12:34:25Z",
       "side": 1,
       "message": "Please rephrase:\n\n /*\n  * Updated when system goes in and out of standby mode.\n  * When set to true, Android system is handling CEC commands.\n  * When set to false, microprocessor is handling CEC commands.\n  * False by default after initialization.\n  */",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 3
+      },
+      "revId": "9819d2350db1151578329ba5dc2c595e964ad2db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2d12121_24de1523",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-08-16T15:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3613a0f1_cd988b48",
       "range": {
         "startLine": 50,
         "startChar": 0,
