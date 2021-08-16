@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08186f08_4af350a3",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_attestation_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-08-16T11:20:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85649d64_6d586a2f",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 23
+      },
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68ca9aa8_41a7d250",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-08-12T01:37:35Z",
       "side": 1,
       "message": "consider using std::unique_ptr and avoid calling delete explicitely.",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 22
+      },
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09a28f3b_2989e7ed",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_authSet_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-08-16T11:20:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68ca9aa8_41a7d250",
       "range": {
         "startLine": 92,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6ee85aa_f81db521",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_authSet_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-08-16T11:20:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e00abca7_7c9d393c",
+      "range": {
+        "startLine": 152,
+        "startChar": 49,
+        "endLine": 152,
+        "endChar": 59
+      },
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a59a2d81_983a0c79",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-08-12T01:37:35Z",
       "side": 1,
       "message": "I wish I had never introduced this pattern in the fist place. This is extremely dangerous if used incorrectly. There is no ownership transfer, so this can only be used if the resulting hidl_vec does not outlive the vec argument. But the way it is used below, this is exactly what is happening.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 1
+      },
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7dcc4b0_5a857d76",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-08-16T11:20:44Z",
+      "side": 1,
+      "message": "Done, removed toHidlVec().",
+      "parentUuid": "a59a2d81_983a0c79",
       "range": {
         "startLine": 62,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9305dab6_109fe50b",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_utils_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-08-16T11:20:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33f0845e_1a24c26a",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 28
+      },
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cba52481_c8f73a92",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-08-12T01:37:35Z",
       "side": 1,
       "message": "This is never used. Is there anything that prevents the compiler from optimizing this out? Same above.",
+      "range": {
+        "startLine": 80,
+        "startChar": 22,
+        "endLine": 80,
+        "endChar": 32
+      },
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e629e6fd_068db104",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_utils_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-08-16T11:20:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cba52481_c8f73a92",
       "range": {
         "startLine": 80,
         "startChar": 22,
