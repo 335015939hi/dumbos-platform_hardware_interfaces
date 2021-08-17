@@ -118,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d821625_90425099",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-08-17T09:04:23Z",
+      "side": 1,
+      "message": "Yes it is desired to continue for all ports even if one fails. \nReturn failure is to keep the service informed that it failed to update at least one of the ports.",
+      "parentUuid": "44a7a323_8f54fdc5",
+      "range": {
+        "startLine": 160,
+        "startChar": 12,
+        "endLine": 160,
+        "endChar": 42
+      },
+      "revId": "5e95115ac288e44a9854d141ca5563f7966a7ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28c24ad0_69b98cf0",
