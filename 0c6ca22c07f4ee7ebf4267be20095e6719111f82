@@ -67,6 +67,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6e915b7_f03f527f",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_attestation_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-08-17T02:10:01Z",
+      "side": 1,
+      "message": "In this case toHidlVec would actually be safe. The reason: challenge and attestationId outlive the resulting AuthorizationSet. So even if it holds a reference to the vectors they will never be dangling.\n\nBut what you did is safe - no action required. Just Ack.",
+      "range": {
+        "startLine": 170,
+        "startChar": 64,
+        "endLine": 170,
+        "endChar": 74
+      },
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68ca9aa8_41a7d250",
         "filename": "keymaster/4.0/support/fuzzer/keymaster4_authSet_fuzzer.cpp",
         "patchSetId": 3
@@ -290,6 +313,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "cba52481_c8f73a92",
+      "range": {
+        "startLine": 80,
+        "startChar": 22,
+        "endLine": 80,
+        "endChar": 32
+      },
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7ee0931_ae1fccb5",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_utils_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-08-17T02:10:01Z",
+      "side": 1,
+      "message": "What I meant is this: What prevents the compiler from optimizing out all of the function calls?\n\n HardwareAuthToken authToken \u003d support::hidlVec2AuthToken(dataVector);\n support::authToken2HidlVec(authToken);\n \nAnd most of the above. The program would be correct even if none of this would be executed. There are no side effect and there is nothing volatile here, so the compiler is free to optimize it all out. Are you sure this actually increases the coverage?",
+      "parentUuid": "e629e6fd_068db104",
       "range": {
         "startLine": 80,
         "startChar": 22,

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee7f9fd9_f8bdbf9a",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_attestation_fuzzer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-08-17T02:10:01Z",
+      "side": 1,
+      "message": "I missed this. It is not necessary to clear this explicitly. The destructor of sp will take care of this. So you can simply not provide a user defined destructor or set it to default:\n\n ~KeyMaster4AttestationFuzzer() \u003d default;",
+      "range": {
+        "startLine": 29,
+        "startChar": 37,
+        "endLine": 29,
+        "endChar": 56
+      },
+      "revId": "01b582e28224e19d5d1c1a705021c16055412e22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
