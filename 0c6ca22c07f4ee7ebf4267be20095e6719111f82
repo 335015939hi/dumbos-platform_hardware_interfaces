@@ -88,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8451584b_9c0c0be9",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_attestation_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-08-17T16:00:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a6e915b7_f03f527f",
+      "range": {
+        "startLine": 170,
+        "startChar": 64,
+        "endLine": 170,
+        "endChar": 74
+      },
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68ca9aa8_41a7d250",
@@ -337,6 +361,30 @@
       "side": 1,
       "message": "What I meant is this: What prevents the compiler from optimizing out all of the function calls?\n\n HardwareAuthToken authToken \u003d support::hidlVec2AuthToken(dataVector);\n support::authToken2HidlVec(authToken);\n \nAnd most of the above. The program would be correct even if none of this would be executed. There are no side effect and there is nothing volatile here, so the compiler is free to optimize it all out. Are you sure this actually increases the coverage?",
       "parentUuid": "e629e6fd_068db104",
+      "range": {
+        "startLine": 80,
+        "startChar": 22,
+        "endLine": 80,
+        "endChar": 32
+      },
+      "revId": "0c6ca22c07f4ee7ebf4267be20095e6719111f82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e603e982_48e5e549",
+        "filename": "keymaster/4.0/support/fuzzer/keymaster4_utils_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2021-08-17T16:00:17Z",
+      "side": 1,
+      "message": "Yes. We have verified that coverage does increase with these calls.\nSince the compiler doesn\u0027t know the underlying functions when compiling these functions (functions called here are from a library), compiler can\u0027t remove these right?",
+      "parentUuid": "d7ee0931_ae1fccb5",
       "range": {
         "startLine": 80,
         "startChar": 22,
