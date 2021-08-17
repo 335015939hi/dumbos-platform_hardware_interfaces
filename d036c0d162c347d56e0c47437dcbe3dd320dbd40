@@ -16,6 +16,24 @@
       "message": "Hi Jordan/Sarah, does the OWNERS file look okay to you? Thank You!",
       "revId": "d036c0d162c347d56e0c47437dcbe3dd320dbd40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd2a3d29_4eb6c6c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-08-17T23:15:56Z",
+      "side": 1,
+      "message": "Please also add the following people (from hardware/interfaces/radio/1.0/vts/OWNERS)\namitmahajan@google.com\nshuoq@google.com\njackyu@google.com\ndshi@google.com",
+      "parentUuid": "9fe30386_c4b67771",
+      "revId": "d036c0d162c347d56e0c47437dcbe3dd320dbd40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
