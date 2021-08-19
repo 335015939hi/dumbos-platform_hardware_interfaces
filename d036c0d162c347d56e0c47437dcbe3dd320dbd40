@@ -52,6 +52,24 @@
       "parentUuid": "bd2a3d29_4eb6c6c8",
       "revId": "d036c0d162c347d56e0c47437dcbe3dd320dbd40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa16196b_e5119723",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-08-19T18:21:27Z",
+      "side": 1,
+      "message": "Ack. Please remove dshi@ in that case. devinmoore@ is the ANAPIC contact for IRadio/IRadioConfig, but I\u0027ll leave it up to your judgement to determine whether it\u0027s necessary to include them in the OWNERS list.",
+      "parentUuid": "d2d074ac_e90f3fbf",
+      "revId": "d036c0d162c347d56e0c47437dcbe3dd320dbd40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
