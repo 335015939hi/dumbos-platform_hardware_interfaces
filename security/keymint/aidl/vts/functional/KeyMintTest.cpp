@@ -1843,6 +1843,7 @@ TEST_P(NewKeyGenerationTest, EcdsaMismatchKeySize) {
     if (SecLevel() == SecurityLevel::STRONGBOX) return;
 
     auto result = GenerateKey(AuthorizationSetBuilder()
+                                      .Authorization(TAG_ALGORITHM, Algorithm::EC)
                                       .Authorization(TAG_KEY_SIZE, 224)
                                       .Authorization(TAG_EC_CURVE, EcCurve::P_256)
                                       .Digest(Digest::NONE)
