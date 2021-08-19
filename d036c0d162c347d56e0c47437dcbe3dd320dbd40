@@ -34,6 +34,24 @@
       "parentUuid": "9fe30386_c4b67771",
       "revId": "d036c0d162c347d56e0c47437dcbe3dd320dbd40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d074ac_e90f3fbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-08-19T17:47:09Z",
+      "side": 1,
+      "message": "Updated. Note that people in this OWNERS file might be pinged for any issue seen on module VtsHalRadioConfigV1_0TargetTest. I would like to double check whether these people have enough context to triage those issues. As far as I know, dshi@ is not maintaining this module so I doubt whether he should be in the OWNERS file.",
+      "parentUuid": "bd2a3d29_4eb6c6c8",
+      "revId": "d036c0d162c347d56e0c47437dcbe3dd320dbd40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
