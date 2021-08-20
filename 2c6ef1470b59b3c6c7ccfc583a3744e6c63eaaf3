@@ -22,6 +22,30 @@
       },
       "revId": "2c6ef1470b59b3c6c7ccfc583a3744e6c63eaaf3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1a09c22_a0132b42",
+        "filename": "vibrator/1.3/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-08-20T23:02:49Z",
+      "side": 1,
+      "message": "Hmm, somehow your name showed up on the VTS owners spreadsheet: https://docs.google.com/spreadsheets/d/1Mwnb6juZBiRH9_l3Wa6Gm8q6xpj9bsHK1YNL8yo3APc/edit#gid\u003d1880379107\u0026range\u003dE71. I left a comment to you there. Can you double check if you own any of the modules that are owned by you according to the spreadsheet.",
+      "parentUuid": "7702ebb7_5a6f0188",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 8
+      },
+      "revId": "2c6ef1470b59b3c6c7ccfc583a3744e6c63eaaf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
