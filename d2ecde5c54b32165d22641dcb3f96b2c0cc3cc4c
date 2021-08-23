@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "039aaa34_8c475c3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-08-23T18:53:14Z",
+      "side": 1,
+      "message": "This change LGTM. Do we need to do similar changes for VtsHalNeuralNetworksV1_2TargetTest or VtsHalNeuralNetworksV1_3TargetTest?",
+      "revId": "d2ecde5c54b32165d22641dcb3f96b2c0cc3cc4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
