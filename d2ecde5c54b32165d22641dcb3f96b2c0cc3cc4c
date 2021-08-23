@@ -33,6 +33,42 @@
       "message": "Does this change need to be cherry-picked to sc-dev?",
       "revId": "d2ecde5c54b32165d22641dcb3f96b2c0cc3cc4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00513184_651c5ec1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-08-23T19:06:14Z",
+      "side": 1,
+      "message": "Looks like HIDL utils are not using the new SharedMemory and Mapping types, so I don\u0027t think the same issue applies to HIDL VTS tests.",
+      "parentUuid": "039aaa34_8c475c3c",
+      "revId": "d2ecde5c54b32165d22641dcb3f96b2c0cc3cc4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5f0fe82_f6496479",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-08-23T19:06:14Z",
+      "side": 1,
+      "message": "IIUC, this needs to be cp\u0027ed to stage-aosp-sc-ts-dev because it only affects test. I\u0027ll do the cp later.",
+      "parentUuid": "fae2447a_a3f405c5",
+      "revId": "d2ecde5c54b32165d22641dcb3f96b2c0cc3cc4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
