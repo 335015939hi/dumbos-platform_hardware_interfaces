@@ -33,6 +33,24 @@
       "message": "But please check the presubmit failures",
       "revId": "b99a3ccddfde468cf280fdda4e924c8e22e22d50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5f160a5_2cf38cfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1407716
+      },
+      "writtenOn": "2021-08-23T21:29:35Z",
+      "side": 1,
+      "message": "These are from merge conflicts in master. I\u0027ll wait for the change in master to land first before retrying presubmit - the Merged-In label should work after that.",
+      "parentUuid": "a98e50dc_3e8db99b",
+      "revId": "b99a3ccddfde468cf280fdda4e924c8e22e22d50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
