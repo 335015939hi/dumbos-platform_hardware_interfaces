@@ -16,6 +16,23 @@
       "message": "+smoreland for OWNERS...",
       "revId": "d4ca56889c51b2a650ddee32c2e3aa20c7a3169a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "496e8d68_c53e3845",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-08-26T19:54:56Z",
+      "side": 1,
+      "message": "note - this is pending QCOM review",
+      "revId": "d4ca56889c51b2a650ddee32c2e3aa20c7a3169a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
