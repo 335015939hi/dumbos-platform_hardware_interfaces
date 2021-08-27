@@ -108,6 +108,30 @@
       },
       "revId": "1042ad1f0824ceb79586d37e66d8bdf7a1d8c707",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d339ebd_8ce94517",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-08-27T17:23:34Z",
+      "side": 1,
+      "message": "The implementation of the interface, e.g. hostapd daemon is lazy service both for hidl and aidl. So the service will only be started when Wifi hotspot is enabled. If vendor customize it to be static service then it won\u0027t restart again. This behavior is same as the current hidl service.",
+      "parentUuid": "2514fc3a_51c43cbc",
+      "range": {
+        "startLine": 113,
+        "startChar": 20,
+        "endLine": 113,
+        "endChar": 24
+      },
+      "revId": "1042ad1f0824ceb79586d37e66d8bdf7a1d8c707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
