@@ -69,6 +69,42 @@
       "parentUuid": "fae2447a_a3f405c5",
       "revId": "d2ecde5c54b32165d22641dcb3f96b2c0cc3cc4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac929484_b6f5dba8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-08-27T17:59:33Z",
+      "side": 1,
+      "message": "Do we know if this also needs to be cherry-picked to the release branch (in order to update the VTS tests)?",
+      "parentUuid": "f5f0fe82_f6496479",
+      "revId": "d2ecde5c54b32165d22641dcb3f96b2c0cc3cc4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7de5480_565973db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-08-27T17:59:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "00513184_651c5ec1",
+      "revId": "d2ecde5c54b32165d22641dcb3f96b2c0cc3cc4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
