@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb368e5f_e863c3de",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/HostapdStatusCode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-08-28T01:04:42Z",
+      "side": 1,
+      "message": "Since ndk::ScopedAStatus::isOk() indicates the same thing, would it be safe to remove this?",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 12
+      },
+      "revId": "504bad114958e2ac27b71cac28933a8684305ecf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
