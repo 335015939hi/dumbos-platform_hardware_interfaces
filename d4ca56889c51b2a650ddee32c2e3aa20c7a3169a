@@ -33,6 +33,23 @@
       "message": "note - this is pending QCOM review",
       "revId": "d4ca56889c51b2a650ddee32c2e3aa20c7a3169a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "539685c8_5bd80d0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1030767
+      },
+      "writtenOn": "2021-08-30T03:49:20Z",
+      "side": 1,
+      "message": "Need +1 Qualcomm-Review, hoping @mvivek, @dng or @dmathur can provide it.",
+      "revId": "d4ca56889c51b2a650ddee32c2e3aa20c7a3169a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
