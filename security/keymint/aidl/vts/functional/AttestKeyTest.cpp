@@ -783,6 +783,19 @@ TEST_P(AttestKeyTest, EcdsaAttestationMismatchID) {
     CheckedDeleteKey(&attest_key.keyBlob);
 }
 
+TEST_P(AttestKeyTest, AdditionalKeyPurposes) {
+    for (KeyPurpose purpose : {KeyPurpose::ENCRYPT, KeyPurpose::DECRYPT, KeyPurpose::SIGN,
+                               KeyPurpose::VERIFY, KeyPurpose::WRAP_KEY, KeyPurpose::AGREE_KEY}) {
+        ASSERT_EQ(ErrorCode::INCOMPATIBLE_PURPOSE,
+                  GenerateKey(AuthorizationSetBuilder()
+                                      .RsaKey(2048, 65537)
+                                      .AttestKey()
+                                      .Authorization(TAG_PURPOSE, purpose)
+                                      .Authorization(TAG_NO_AUTH_REQUIRED)
+                                      .SetDefaultValidity()));
+    }
+}
+
 INSTANTIATE_KEYMINT_AIDL_TEST(AttestKeyTest);
 
 }  // namespace aidl::android::hardware::security::keymint::test
