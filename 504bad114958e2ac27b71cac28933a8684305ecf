@@ -22,6 +22,30 @@
       },
       "revId": "504bad114958e2ac27b71cac28933a8684305ecf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "768e70bf_42ed0b40",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/HostapdStatusCode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-08-30T22:22:55Z",
+      "side": 1,
+      "message": "It\u0027s ok to keep it, like the FAILURE_UNKNOWN and FAILURE_ARGS_INVALID. We can keep these as interface specific error codes.",
+      "parentUuid": "bb368e5f_e863c3de",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 12
+      },
+      "revId": "504bad114958e2ac27b71cac28933a8684305ecf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
