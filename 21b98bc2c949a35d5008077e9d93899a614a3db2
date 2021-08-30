@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1576955e_50fb2563",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2021-08-30T21:08:17Z",
+      "side": 1,
+      "message": "I haven\u0027t been involved with development of the HALs or tests for any power HAL version after 1.0. Maybe arabawy@ who seems to have been involved in adding 1.1?",
+      "revId": "21b98bc2c949a35d5008077e9d93899a614a3db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
