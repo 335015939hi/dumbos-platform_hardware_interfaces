@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ccebfec_095031f1",
+        "filename": "renderscript/1.0/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-08-30T23:20:46Z",
+      "side": 1,
+      "message": "Please remove me from the list. I don\u0027t own this test.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "e41282ca68ceb4cbcb76efa53b64671b9d2b43aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f44478b_bba4395c",
         "filename": "renderscript/1.0/vts/functional/OWNERS",
         "patchSetId": 1
