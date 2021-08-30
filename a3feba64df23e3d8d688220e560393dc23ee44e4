@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5015f914_14d37b95",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-08-30T22:26:12Z",
+      "side": 1,
+      "message": "Please change the description of StatusCode, as it is not returned by the AIDL interface method, like addAccessPoint, instead it is returned by AIDL call.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 55
+      },
+      "revId": "a3feba64df23e3d8d688220e560393dc23ee44e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dad7367_2e966d8d",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-08-30T22:26:12Z",
+      "side": 1,
+      "message": "ditto.",
+      "range": {
+        "startLine": 56,
+        "startChar": 6,
+        "endLine": 56,
+        "endChar": 39
+      },
+      "revId": "a3feba64df23e3d8d688220e560393dc23ee44e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
