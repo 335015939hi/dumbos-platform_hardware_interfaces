@@ -50,6 +50,23 @@
       "message": "Need +1 Qualcomm-Review, hoping @mvivek, @dng or @dmathur can provide it.",
       "revId": "d4ca56889c51b2a650ddee32c2e3aa20c7a3169a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55616a79_87eeb30b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1805931
+      },
+      "writtenOn": "2021-08-31T18:14:32Z",
+      "side": 1,
+      "message": "not qualcomm contribution ",
+      "revId": "d4ca56889c51b2a650ddee32c2e3aa20c7a3169a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
