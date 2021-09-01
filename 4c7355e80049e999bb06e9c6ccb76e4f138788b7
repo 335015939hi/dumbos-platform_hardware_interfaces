@@ -227,6 +227,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "312bca22_95f5fda1",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapdCallback.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-01T01:59:03Z",
+      "side": 1,
+      "message": "yeah, this is true, a parcelable would be extensible, but this also contains parcelables, and it\u0027s always possible to add a new method. At least, it\u0027s something to consider.",
+      "parentUuid": "4b4c0b5f_e0c31e64",
+      "range": {
+        "startLine": 42,
+        "startChar": 40,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd9eed0f_23ea2410",
         "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IfaceParams.aidl",
         "patchSetId": 6
