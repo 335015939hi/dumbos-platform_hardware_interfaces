@@ -251,6 +251,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d92b9bcb_9fa2fc1e",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapdCallback.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T02:03:19Z",
+      "side": 1,
+      "message": "You mean Generation and Bandwidth? They are enums.\n\nThanks for your comment. Linzhao, please treat this as a suggestion. Feel free to disregard it if you think a list of parameters are more preferable. After all, a parcelable has a little bit more overhead.",
+      "parentUuid": "312bca22_95f5fda1",
+      "range": {
+        "startLine": 42,
+        "startChar": 40,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd9eed0f_23ea2410",
         "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IfaceParams.aidl",
         "patchSetId": 6
