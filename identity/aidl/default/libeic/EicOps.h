@@ -72,6 +72,29 @@ extern "C" {
 
 #define EIC_AES_128_KEY_SIZE 16
 
+#define EIC_OUT_BUFFER_SIZE 1024
+
+// Feature version 202009:
+//
+//         CredentialKeys = [
+//              bstr,   ; storageKey, a 128-bit AES key
+//              bstr,   ; credentialPrivKey, the private key for credentialKey
+//         ]
+//
+// Feature version 202101:
+//
+//         CredentialKeys = [
+//              bstr,   ; storageKey, a 128-bit AES key
+//              bstr,   ; credentialPrivKey, the private key for credentialKey
+//              bstr    ; proofOfProvisioning SHA-256
+//         ]
+//
+// where storageKey is 16 bytes, credentialPrivateKey is 32 bytes, and proofOfProvisioning
+// SHA-256 is 32 bytes.
+#define EIC_CREDENTIAL_KEY_SIZE_V1 52
+#define EIC_CREDENTIAL_KEY_SIZE_V2 86
+#define EIC_NONCE_TAG_SIZE 28
+
 // The following are definitions of implementation functions the
 // underlying platform must provide.
 //
@@ -166,7 +189,8 @@ bool eicOpsEncryptAes128Gcm(
         const uint8_t* data,   // May be NULL if size is 0
         size_t dataSize,
         const uint8_t* additionalAuthenticationData,  // May be NULL if size is 0
-        size_t additionalAuthenticationDataSize, uint8_t* encryptedData);
+        size_t additionalAuthenticationDataSize, uint8_t* encryptedData,
+        size_t* encryptedDataLength);
 
 // Decrypts |encryptedData| using |key| and |additionalAuthenticatedData|,
 // returns resulting plaintext in |data| must be of size |encryptedDataSize| - 28.
@@ -176,7 +200,8 @@ bool eicOpsEncryptAes128Gcm(
 bool eicOpsDecryptAes128Gcm(const uint8_t* key,  // Must be 16 bytes
                             const uint8_t* encryptedData, size_t encryptedDataSize,
                             const uint8_t* additionalAuthenticationData,
-                            size_t additionalAuthenticationDataSize, uint8_t* data);
+                            size_t additionalAuthenticationDataSize, uint8_t* data,
+                            size_t* dataLength);
 
 // Creates an EC key using the P-256 curve. The private key is written to
 // |privateKey|. The public key is written to |publicKey|.
@@ -291,7 +316,7 @@ bool eicOpsEcDsaVerifyWithPublicKey(const uint8_t* digest, size_t digestSize,
 bool eicOpsValidateAuthToken(uint64_t challenge, uint64_t secureUserId, uint64_t authenticatorId,
                              int hardwareAuthenticatorType, uint64_t timeStamp, const uint8_t* mac,
                              size_t macSize, uint64_t verificationTokenChallenge,
-                             uint64_t verificationTokenTimeStamp,
+                             uint64_t verificationTokenTimestamp,
                              int verificationTokenSecurityLevel,
                              const uint8_t* verificationTokenMac, size_t verificationTokenMacSize);
 
