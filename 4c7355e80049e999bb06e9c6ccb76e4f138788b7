@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6de9d060_b0812105",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "668b110f_a13e4060",
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cef75526_e4ffaef3",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-09-01T01:56:00Z",
       "side": 1,
       "message": "Interface (same below)",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 12
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eafeb25c_53da59ab",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/HostapdStatusCode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cef75526_e4ffaef3",
       "range": {
         "startLine": 38,
         "startChar": 7,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7448028b_db49d93a",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebeac663_d1e2bcdd",
+      "range": {
+        "startLine": 29,
+        "startChar": 13,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b7b781b_58e6904c",
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cce6d7a_5f6e4100",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b7b781b_58e6904c",
+      "range": {
+        "startLine": 52,
+        "startChar": 28,
+        "endLine": 52,
+        "endChar": 31
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "deb72f27_6fb779f0",
@@ -100,6 +190,30 @@
       "writtenOn": "2021-09-01T01:56:00Z",
       "side": 1,
       "message": "nit: delete \"which\"\n\nor \"which is defined\"",
+      "range": {
+        "startLine": 53,
+        "startChar": 55,
+        "endLine": 53,
+        "endChar": 60
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c614cda_d3b5a6a3",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "deb72f27_6fb779f0",
       "range": {
         "startLine": 53,
         "startChar": 55,
@@ -156,6 +270,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e6fb269_38bf7d9d",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef3378d9_ed85b514",
+      "range": {
+        "startLine": 79,
+        "startChar": 12,
+        "endLine": 79,
+        "endChar": 18
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a67d1e6_3d3db000",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "216fc067_f72c57b8",
+      "range": {
+        "startLine": 79,
+        "startChar": 58,
+        "endLine": 79,
+        "endChar": 63
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f4cd81c_346b804c",
@@ -179,6 +341,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b765688e_9f9467fe",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f4cd81c_346b804c",
+      "range": {
+        "startLine": 101,
+        "startChar": 55,
+        "endLine": 101,
+        "endChar": 60
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9d4a8d8_76ca85f7",
@@ -192,6 +378,30 @@
       "writtenOn": "2021-09-01T01:56:00Z",
       "side": 1,
       "message": "nit: interface",
+      "range": {
+        "startLine": 23,
+        "startChar": 22,
+        "endLine": 23,
+        "endChar": 28
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb640e49_b4734c79",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapdCallback.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9d4a8d8_76ca85f7",
       "range": {
         "startLine": 23,
         "startChar": 22,
@@ -273,6 +483,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5369b06_c42c43d7",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapdCallback.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Thanks Yifan and Steven, we can add ApInfo and ClientInfo as parcelable param for the callbacks.",
+      "parentUuid": "d92b9bcb_9fa2fc1e",
+      "range": {
+        "startLine": 42,
+        "startChar": 40,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd9eed0f_23ea2410",
@@ -286,6 +520,30 @@
       "writtenOn": "2021-09-01T01:56:00Z",
       "side": 1,
       "message": "nit: name\n\n... because `Iface` is already in the class name.",
+      "range": {
+        "startLine": 30,
+        "startChar": 11,
+        "endLine": 30,
+        "endChar": 20
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "910e4071_f0429a5e",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IfaceParams.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd9eed0f_23ea2410",
       "range": {
         "startLine": 30,
         "startChar": 11,
@@ -319,6 +577,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcaa670b_b5cde74e",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IfaceParams.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48efb02c_b3ec003e",
+      "range": {
+        "startLine": 32,
+        "startChar": 18,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cd022ad_ca2adbf3",
@@ -332,6 +614,30 @@
       "writtenOn": "2021-09-01T01:56:00Z",
       "side": 1,
       "message": "channelParamList\n\nor\n\nchannelParams",
+      "range": {
+        "startLine": 38,
+        "startChar": 20,
+        "endLine": 38,
+        "endChar": 37
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c338c74e_d6da428a",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IfaceParams.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-01T23:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cd022ad_ca2adbf3",
       "range": {
         "startLine": 38,
         "startChar": 20,
