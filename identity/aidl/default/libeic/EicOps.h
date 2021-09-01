@@ -72,6 +72,8 @@ extern "C" {
 
 #define EIC_AES_128_KEY_SIZE 16
 
+#define EIC_OUT_BUFFER_SIZE 1024
+
 // The following are definitions of implementation functions the
 // underlying platform must provide.
 //
@@ -166,7 +168,8 @@ bool eicOpsEncryptAes128Gcm(
         const uint8_t* data,   // May be NULL if size is 0
         size_t dataSize,
         const uint8_t* additionalAuthenticationData,  // May be NULL if size is 0
-        size_t additionalAuthenticationDataSize, uint8_t* encryptedData);
+        size_t additionalAuthenticationDataSize, uint8_t* encryptedData,
+        size_t* encryptedDataLength);
 
 // Decrypts |encryptedData| using |key| and |additionalAuthenticatedData|,
 // returns resulting plaintext in |data| must be of size |encryptedDataSize| - 28.
@@ -176,7 +179,8 @@ bool eicOpsEncryptAes128Gcm(
 bool eicOpsDecryptAes128Gcm(const uint8_t* key,  // Must be 16 bytes
                             const uint8_t* encryptedData, size_t encryptedDataSize,
                             const uint8_t* additionalAuthenticationData,
-                            size_t additionalAuthenticationDataSize, uint8_t* data);
+                            size_t additionalAuthenticationDataSize, uint8_t* data,
+                            size_t* dataLength);
 
 // Creates an EC key using the P-256 curve. The private key is written to
 // |privateKey|. The public key is written to |publicKey|.

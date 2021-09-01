@@ -123,7 +123,12 @@ bool eicOpsEncryptAes128Gcm(
         const uint8_t* data,   // May be NULL if size is 0
         size_t dataSize,
         const uint8_t* additionalAuthenticationData,  // May be NULL if size is 0
-        size_t additionalAuthenticationDataSize, uint8_t* encryptedData) {
+        size_t additionalAuthenticationDataSize,
+        uint8_t* encryptedData, size_t*encryptedDataLength) {
+
+    if (*encryptedDataLength != dataSize + 28)
+        return false;
+
     vector<uint8_t> cppKey;
     cppKey.resize(16);
     memcpy(cppKey.data(), key, 16);
@@ -152,6 +157,7 @@ bool eicOpsEncryptAes128Gcm(
     }
 
     memcpy(encryptedData, cppEncryptedData.value().data(), cppEncryptedData.value().size());
+    *encryptedDataLength = cppEncryptedData.value().size();
     return true;
 }
 
@@ -163,7 +169,12 @@ bool eicOpsEncryptAes128Gcm(
 bool eicOpsDecryptAes128Gcm(const uint8_t* key,  // Must be 16 bytes
                             const uint8_t* encryptedData, size_t encryptedDataSize,
                             const uint8_t* additionalAuthenticationData,
-                            size_t additionalAuthenticationDataSize, uint8_t* data) {
+                            size_t additionalAuthenticationDataSize, uint8_t* data,
+                            size_t *dataLength) {
+
+    if (*dataLength != encryptedDataSize - 28)
+        return false;
+
     vector<uint8_t> keyVec;
     keyVec.resize(16);
     memcpy(keyVec.data(), key, 16);
@@ -196,6 +207,7 @@ bool eicOpsDecryptAes128Gcm(const uint8_t* key,  // Must be 16 bytes
     if (decryptedDataVec.value().size() > 0) {
         memcpy(data, decryptedDataVec.value().data(), decryptedDataVec.value().size());
     }
+    *dataLength = decryptedDataVec.value().size();
     return true;
 }
 
@@ -374,7 +386,7 @@ bool eicOpsValidateAuthToken(uint64_t /* challenge */, uint64_t /* secureUserId 
                              uint64_t /* authenticatorId */, int /* hardwareAuthenticatorType */,
                              uint64_t /* timeStamp */, const uint8_t* /* mac */,
                              size_t /* macSize */, uint64_t /* verificationTokenChallenge */,
-                             uint64_t /* verificationTokenTimeStamp */,
+                             uint64_t /* verificationTokenTimestamp */,
                              int /* verificationTokenSecurityLevel */,
                              const uint8_t* /* verificationTokenMac */,
                              size_t /* verificationTokenMacSize */) {
