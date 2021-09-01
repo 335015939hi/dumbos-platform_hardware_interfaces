@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb70e254_0d1075de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-01T18:54:27Z",
+      "side": 1,
+      "message": "This AIDL interface is created based on the IRadio HIDL interface with no/minimal API changes. I\u0027m just creating a skeleton interface for now so others can start developing T HAL features in AIDL without being blocked on the migration/modularization. Once this change goes in, I can create a new CL to apply the API-related changes mentioned in aosp/1740274.",
+      "revId": "991e9e930dfba8be2d4c9cf72ad739c2250b68d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
