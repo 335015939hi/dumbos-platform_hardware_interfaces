@@ -107,8 +107,11 @@ void eicCborBegin(EicCbor* cbor, int majorType, size_t size);
 /* Appends a bytestring. */
 void eicCborAppendByteString(EicCbor* cbor, const uint8_t* data, size_t dataSize);
 
+/* Appends a UTF-8 string. */
+void eicCborAppendString(EicCbor* cbor, const char* str, size_t strLength);
+
 /* Appends a NUL-terminated UTF-8 string. */
-void eicCborAppendString(EicCbor* cbor, const char* str);
+void eicCborAppendStringZ(EicCbor* cbor, const char* str);
 
 /* Appends a simple value. */
 void eicCborAppendSimple(EicCbor* cbor, uint8_t simpleValue);
@@ -144,10 +147,11 @@ bool eicCborCalcAccessControl(EicCbor* cborBuilder, int id, const uint8_t* reade
                               size_t readerCertificateSize, bool userAuthenticationRequired,
                               uint64_t timeoutMillis, uint64_t secureUserId);
 
-bool eicCborCalcEntryAdditionalData(const int* accessControlProfileIds,
+bool eicCborCalcEntryAdditionalData(const uint8_t* accessControlProfileIds,
                                     size_t numAccessControlProfileIds, const char* nameSpace,
-                                    const char* name, uint8_t* cborBuffer, size_t cborBufferSize,
-                                    size_t* outAdditionalDataCborSize,
+                                    size_t nameSpaceLength, const char* name,
+                                    size_t nameLength, uint8_t* cborBuffer,
+                                    size_t cborBufferSize, size_t* outAdditionalDataCborSize,
                                     uint8_t additionalDataSha256[EIC_SHA256_DIGEST_SIZE]);
 
 // The maximum size of an encoded Secure Access Control Profile that we
