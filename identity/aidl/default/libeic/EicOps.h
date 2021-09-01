@@ -72,6 +72,8 @@ extern "C" {
 
 #define EIC_AES_128_KEY_SIZE 16
 
+#define EIC_OUT_BUFFER_SIZE 1024
+
 // The following are definitions of implementation functions the
 // underlying platform must provide.
 //
