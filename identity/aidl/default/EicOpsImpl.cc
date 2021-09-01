@@ -123,7 +123,8 @@ bool eicOpsEncryptAes128Gcm(
         const uint8_t* data,   // May be NULL if size is 0
         size_t dataSize,
         const uint8_t* additionalAuthenticationData,  // May be NULL if size is 0
-        size_t additionalAuthenticationDataSize, uint8_t* encryptedData) {
+        size_t additionalAuthenticationDataSize,
+        uint8_t* encryptedData) {
     vector<uint8_t> cppKey;
     cppKey.resize(16);
     memcpy(cppKey.data(), key, 16);
@@ -374,7 +375,7 @@ bool eicOpsValidateAuthToken(uint64_t /* challenge */, uint64_t /* secureUserId 
                              uint64_t /* authenticatorId */, int /* hardwareAuthenticatorType */,
                              uint64_t /* timeStamp */, const uint8_t* /* mac */,
                              size_t /* macSize */, uint64_t /* verificationTokenChallenge */,
-                             uint64_t /* verificationTokenTimeStamp */,
+                             uint64_t /* verificationTokenTimestamp */,
                              int /* verificationTokenSecurityLevel */,
                              const uint8_t* /* verificationTokenMac */,
                              size_t /* verificationTokenMacSize */) {

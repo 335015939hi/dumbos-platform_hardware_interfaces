@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "EicCbor.h"
+#include "libeic.h"
 
 void eicCborInit(EicCbor* cbor, uint8_t* buffer, size_t bufferSize) {
     eicMemSet(cbor, '\0', sizeof(EicCbor));
@@ -59,6 +59,7 @@ void eicCborAppend(EicCbor* cbor, const uint8_t* data, size_t size) {
             eicOpsHmacSha256Update(&cbor->digester.hmacSha256, data, size);
             break;
     }
+
     if (cbor->secondaryDigesterSha256 != NULL) {
         eicOpsSha256Update(cbor->secondaryDigesterSha256, data, size);
     }
@@ -91,8 +92,48 @@ size_t eicCborAdditionalLengthBytesFor(size_t size) {
     return 8;
 }
 
+// Note: eicCborAppendLargeNumber() to support uint64_t type CBOR encoding
+void eicCborAppendLargeNumber(EicCbor *cbor, int majorType, uint64_t value)
+{
+    uint8_t data[9] = {0};
+
+    if (value < 24) {
+        data[0] = (majorType << 5) | value;
+        eicCborAppend(cbor, data, 1);
+    } else if (value <= 0xff) {
+        data[0] = (majorType << 5) | 24;
+        data[1] = value;
+        eicCborAppend(cbor, data, 2);
+    } else if (value <= 0xffff) {
+        data[0] = (majorType << 5) | 25;
+        data[1] = value >> 8;
+        data[2] = value & 0xff;
+        eicCborAppend(cbor, data, 3);
+    } else if (value <= 0xffffffff) {
+        data[0] = (majorType << 5) | 26;
+        data[1] = (value >> 24) & 0xff;
+        data[2] = (value >> 16) & 0xff;
+        data[3] = (value >> 8) & 0xff;
+        data[4] = value & 0xff;
+        eicCborAppend(cbor, data, 5);
+    } else {
+        data[0] = (majorType << 5) | 27;
+        data[1] = (value >> 56) & 0xff;
+        data[2] = (value >> 48) & 0xff;
+        data[3] = (value >> 40) & 0xff;
+        data[4] = (value >> 32) & 0xff;
+        data[5] = (value >> 24) & 0xff;
+        data[6] = (value >> 16) & 0xff;
+        data[7] = (value >> 8) & 0xff;
+        data[8] = value & 0xff;
+        eicCborAppend(cbor, data, 9);
+    }
+}
+
+// Note: call eicCborAppendLargeNumber() to support 64bit wide CBOR data encoding.
 void eicCborBegin(EicCbor* cbor, int majorType, size_t size) {
     uint8_t data[9];
+    uint64_t big_size = size;
 
     if (size < 24) {
         data[0] = (majorType << 5) | size;
@@ -114,17 +155,10 @@ void eicCborBegin(EicCbor* cbor, int majorType, size_t size) {
         data[4] = size & 0xff;
         eicCborAppend(cbor, data, 5);
     } else {
-        data[0] = (majorType << 5) | 27;
-        data[1] = (((uint64_t)size) >> 56) & 0xff;
-        data[2] = (((uint64_t)size) >> 48) & 0xff;
-        data[3] = (((uint64_t)size) >> 40) & 0xff;
-        data[4] = (((uint64_t)size) >> 32) & 0xff;
-        data[5] = (((uint64_t)size) >> 24) & 0xff;
-        data[6] = (((uint64_t)size) >> 16) & 0xff;
-        data[7] = (((uint64_t)size) >> 8) & 0xff;
-        data[8] = ((uint64_t)size) & 0xff;
-        eicCborAppend(cbor, data, 9);
+        eicCborAppendLargeNumber(cbor, majorType, big_size);
     }
+
+    return;
 }
 
 void eicCborAppendByteString(EicCbor* cbor, const uint8_t* data, size_t dataSize) {
@@ -132,10 +166,15 @@ void eicCborAppendByteString(EicCbor* cbor, const uint8_t* data, size_t dataSize
     eicCborAppend(cbor, data, dataSize);
 }
 
-void eicCborAppendString(EicCbor* cbor, const char* str) {
-    size_t length = eicStrLen(str);
-    eicCborBegin(cbor, EIC_CBOR_MAJOR_TYPE_STRING, length);
-    eicCborAppend(cbor, (const uint8_t*)str, length);
+void eicCborAppendString(EicCbor* cbor, const char* str, size_t strLength) {
+    eicCborBegin(cbor, EIC_CBOR_MAJOR_TYPE_STRING, strLength);
+    eicCborAppend(cbor, (const uint8_t*)str, strLength);
+}
+
+void eicCborAppendStringZ(EicCbor* cbor, const char* str) {
+    size_t strLength = eicStrLen(str);
+    eicCborBegin(cbor, EIC_CBOR_MAJOR_TYPE_STRING, strLength);
+    eicCborAppend(cbor, (const uint8_t*)str, strLength);
 }
 
 void eicCborAppendSimple(EicCbor* cbor, uint8_t simpleValue) {
@@ -153,16 +192,18 @@ void eicCborAppendSemantic(EicCbor* cbor, uint64_t value) {
 }
 
 void eicCborAppendUnsigned(EicCbor* cbor, uint64_t value) {
-    size_t encoded = value;
-    eicCborBegin(cbor, EIC_CBOR_MAJOR_TYPE_UNSIGNED, encoded);
+    eicCborAppendLargeNumber(cbor, EIC_CBOR_MAJOR_TYPE_UNSIGNED, value);
 }
 
 void eicCborAppendNumber(EicCbor* cbor, int64_t value) {
     if (value < 0) {
-        size_t encoded = -1 - value;
-        eicCborBegin(cbor, EIC_CBOR_MAJOR_TYPE_NEGATIVE, encoded);
+        uint64_t encoded = -1 - value;
+        eicCborAppendLargeNumber(cbor, EIC_CBOR_MAJOR_TYPE_NEGATIVE,
+                     encoded);
     } else {
-        eicCborAppendUnsigned(cbor, value);
+        uint64_t encoded = value;
+        eicCborAppendLargeNumber(cbor, EIC_CBOR_MAJOR_TYPE_UNSIGNED,
+                     encoded);
     }
 }
 
@@ -188,19 +229,19 @@ bool eicCborCalcAccessControl(EicCbor* cborBuilder, int id, const uint8_t* reade
         }
     }
     eicCborAppendMap(cborBuilder, numPairs);
-    eicCborAppendString(cborBuilder, "id");
+    eicCborAppendStringZ(cborBuilder, "id");
     eicCborAppendUnsigned(cborBuilder, id);
     if (readerCertificateSize > 0) {
-        eicCborAppendString(cborBuilder, "readerCertificate");
+        eicCborAppendStringZ(cborBuilder, "readerCertificate");
         eicCborAppendByteString(cborBuilder, readerCertificate, readerCertificateSize);
     }
     if (userAuthenticationRequired) {
-        eicCborAppendString(cborBuilder, "userAuthenticationRequired");
+        eicCborAppendStringZ(cborBuilder, "userAuthenticationRequired");
         eicCborAppendBool(cborBuilder, userAuthenticationRequired);
-        eicCborAppendString(cborBuilder, "timeoutMillis");
+        eicCborAppendStringZ(cborBuilder, "timeoutMillis");
         eicCborAppendUnsigned(cborBuilder, timeoutMillis);
         if (secureUserId > 0) {
-            eicCborAppendString(cborBuilder, "secureUserId");
+            eicCborAppendStringZ(cborBuilder, "secureUserId");
             eicCborAppendUnsigned(cborBuilder, secureUserId);
         }
     }
@@ -214,20 +255,21 @@ bool eicCborCalcAccessControl(EicCbor* cborBuilder, int id, const uint8_t* reade
     return true;
 }
 
-bool eicCborCalcEntryAdditionalData(const int* accessControlProfileIds,
+bool eicCborCalcEntryAdditionalData(const uint8_t* accessControlProfileIds,
                                     size_t numAccessControlProfileIds, const char* nameSpace,
-                                    const char* name, uint8_t* cborBuffer, size_t cborBufferSize,
-                                    size_t* outAdditionalDataCborSize,
+                                    size_t nameSpaceLength, const char* name,
+                                    size_t nameLength, uint8_t* cborBuffer,
+                                    size_t cborBufferSize, size_t* outAdditionalDataCborSize,
                                     uint8_t additionalDataSha256[EIC_SHA256_DIGEST_SIZE]) {
     EicCbor cborBuilder;
 
     eicCborInit(&cborBuilder, cborBuffer, cborBufferSize);
     eicCborAppendMap(&cborBuilder, 3);
-    eicCborAppendString(&cborBuilder, "Namespace");
-    eicCborAppendString(&cborBuilder, nameSpace);
-    eicCborAppendString(&cborBuilder, "Name");
-    eicCborAppendString(&cborBuilder, name);
-    eicCborAppendString(&cborBuilder, "AccessControlProfileIds");
+    eicCborAppendStringZ(&cborBuilder, "Namespace");
+    eicCborAppendString(&cborBuilder, nameSpace, nameSpaceLength);
+    eicCborAppendStringZ(&cborBuilder, "Name");
+    eicCborAppendString(&cborBuilder, name, nameLength);
+    eicCborAppendStringZ(&cborBuilder, "AccessControlProfileIds");
     eicCborAppendArray(&cborBuilder, numAccessControlProfileIds);
     for (size_t n = 0; n < numAccessControlProfileIds; n++) {
         eicCborAppendNumber(&cborBuilder, accessControlProfileIds[n]);
