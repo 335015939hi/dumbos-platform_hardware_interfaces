@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "668b110f_a13e4060",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "nit: optionally add\n\n```\n\u003cversion\u003e1\u003c/version\u003e\n```",
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cef75526_e4ffaef3",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/HostapdStatusCode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "Interface (same below)",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 12
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebeac663_d1e2bcdd",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "nit: interface",
+      "range": {
+        "startLine": 29,
+        "startChar": 13,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b7b781b_58e6904c",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "nit: MAC?",
+      "range": {
+        "startLine": 52,
+        "startChar": 28,
+        "endLine": 52,
+        "endChar": 31
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "deb72f27_6fb779f0",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "nit: delete \"which\"\n\nor \"which is defined\"",
+      "range": {
+        "startLine": 53,
+        "startChar": 55,
+        "endLine": 53,
+        "endChar": 60
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef3378d9_ed85b514",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "nit: must",
+      "range": {
+        "startLine": 79,
+        "startChar": 12,
+        "endLine": 79,
+        "endChar": 18
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "216fc067_f72c57b8",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "nit: set up",
+      "range": {
+        "startLine": 79,
+        "startChar": 58,
+        "endLine": 79,
+        "endChar": 63
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f4cd81c_346b804c",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "nit: states",
+      "range": {
+        "startLine": 101,
+        "startChar": 55,
+        "endLine": 101,
+        "endChar": 60
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9d4a8d8_76ca85f7",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapdCallback.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "nit: interface",
+      "range": {
+        "startLine": 23,
+        "startChar": 22,
+        "endLine": 23,
+        "endChar": 28
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b4c0b5f_e0c31e64",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapdCallback.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "There are many objects here. Consider creating a parcelable that contains these?\n\nA parcelable is also more extensible.\n\nSame for onConnectedClientsChanged below.\n\n(smoreland WDYT?)",
+      "range": {
+        "startLine": 42,
+        "startChar": 40,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd9eed0f_23ea2410",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IfaceParams.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "nit: name\n\n... because `Iface` is already in the class name.",
+      "range": {
+        "startLine": 30,
+        "startChar": 11,
+        "endLine": 30,
+        "endChar": 20
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48efb02c_b3ec003e",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IfaceParams.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "hw? hardware?",
+      "range": {
+        "startLine": 32,
+        "startChar": 18,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cd022ad_ca2adbf3",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IfaceParams.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-01T01:56:00Z",
+      "side": 1,
+      "message": "channelParamList\n\nor\n\nchannelParams",
+      "range": {
+        "startLine": 38,
+        "startChar": 20,
+        "endLine": 38,
+        "endChar": 37
+      },
+      "revId": "4c7355e80049e999bb06e9c6ccb76e4f138788b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
