@@ -16,6 +16,23 @@
       "message": "This AIDL interface is created based on the IRadio HIDL interface with no/minimal API changes. I\u0027m just creating a skeleton interface for now so others can start developing T HAL features in AIDL without being blocked on the migration/modularization. Once this change goes in, I can create a new CL to apply the API-related changes mentioned in aosp/1740274.",
       "revId": "991e9e930dfba8be2d4c9cf72ad739c2250b68d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e81ed210_a1f8208d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-02T18:46:36Z",
+      "side": 1,
+      "message": "Checking this in as as-is will be fine - Sarah said the outstanding comments from the previous CL would be addressed in later reviews along wiht the modularization.\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1740274\n",
+      "revId": "991e9e930dfba8be2d4c9cf72ad739c2250b68d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
