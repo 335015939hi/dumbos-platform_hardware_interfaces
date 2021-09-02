@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10161d67_59293077",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/ApInfo.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-02T00:34:34Z",
+      "side": 1,
+      "message": "nit: This is probably widely known to Wi-Fi developers, but is there an (IEEE?) spec for mac addresses? Do we need to be aware of byte orders etc.?",
+      "revId": "0b568d5b0c890b97591f8ad369d10533fd2dd501",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
