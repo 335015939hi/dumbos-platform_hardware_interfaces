@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ef82bed_d9a9f575",
+        "filename": "identity/aidl/default/libeic/EicCbor.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T19:19:25Z",
+      "side": 1,
+      "message": "The comment is still wrong. Actually I\u0027m thinking let\u0027s do it like this\n\n /* Appends a UTF-8 string. */\n void eicCborAppendString(EicCbor* cbor, const char* str, size_t strLength);\n\n /* Appends a NUL-terminated UTF-8 string. */\n void eicCborAppendStringZ(EicCbor* cbor, const char* str);\n\nand then please use eicCborAppendStringZ() in all places where we add literal strings. That way it\u0027ll be\n\n eicCborAppendStringZ(cbor, \"SomeString\");\n\nwhich is a lot better than\n\n eicCborAppendString(cbor, \"SomeString\", sizeof \"SomeString\" - 1);",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 75
+      },
+      "revId": "bfde0eb715dab21b913b205b40b8b966b569e76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66c55171_65809ba9",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T19:19:25Z",
+      "side": 1,
+      "message": "Not needed. The caller already knows that content should be allocated so it\u0027s at (encryptedContentSize - 28) bytes long.",
+      "range": {
+        "startLine": 225,
+        "startChar": 39,
+        "endLine": 225,
+        "endChar": 59
+      },
+      "revId": "bfde0eb715dab21b913b205b40b8b966b569e76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93c4927c_3b3e7298",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T19:19:25Z",
+      "side": 1,
+      "message": "Remove. Caller already knows that outEncryptedContent must be allocated to hold (contentSize + 28).",
+      "range": {
+        "startLine": 110,
+        "startChar": 64,
+        "endLine": 110,
+        "endChar": 97
+      },
+      "revId": "bfde0eb715dab21b913b205b40b8b966b569e76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
