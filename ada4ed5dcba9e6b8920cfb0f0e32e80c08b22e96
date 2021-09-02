@@ -374,6 +374,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2fb6156f_e10885a1",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T16:36:30Z",
+      "side": 1,
+      "message": "No it doesn\u0027t make sense to add this.",
+      "parentUuid": "da3877c6_b20e666a",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "435f5f0d_a710b89e",
         "filename": "identity/aidl/default/libeic/EicOps.h",
         "patchSetId": 4
@@ -433,6 +457,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "3467dd11_c3e083c2",
+      "range": {
+        "startLine": 204,
+        "startChar": 28,
+        "endLine": 204,
+        "endChar": 48
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e12d7718_4de4e3df",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T16:36:30Z",
+      "side": 1,
+      "message": "Don\u0027t add it.",
+      "parentUuid": "1244e7ef_dabab3d6",
       "range": {
         "startLine": 204,
         "startChar": 28,
@@ -516,6 +564,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46ba3824_de7abc33",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T16:36:30Z",
+      "side": 1,
+      "message": "OK, fine with changing it.",
+      "parentUuid": "52379a59_a9e33a4b",
+      "range": {
+        "startLine": 319,
+        "startChar": 38,
+        "endLine": 319,
+        "endChar": 64
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d857d9fb_93cc6206",
         "filename": "identity/aidl/default/libeic/EicPresentation.h",
         "patchSetId": 4
@@ -575,6 +647,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "ae3a2df3_aba67c87",
+      "range": {
+        "startLine": 104,
+        "startChar": 51,
+        "endLine": 104,
+        "endChar": 71
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "851759c3_87a4ac90",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T16:36:30Z",
+      "side": 1,
+      "message": "There is nothing to check. By definition this is a 60 byte buffer - because it\u0027s defined as AES-GCM-ENC(storageKey, R, signingKey, docType) - and storageKey by definition takes up 32 bytes.",
+      "parentUuid": "62d1200b_51dbd3dd",
       "range": {
         "startLine": 104,
         "startChar": 51,
@@ -930,6 +1026,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "e16bf06e_be4a0488",
+      "range": {
+        "startLine": 77,
+        "startChar": 41,
+        "endLine": 77,
+        "endChar": 67
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de262b66_d337dad1",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T16:36:30Z",
+      "side": 1,
+      "message": "That\u0027s just a limitation in the implementation which can be removed later I think.",
+      "parentUuid": "ab0d2932_22932535",
       "range": {
         "startLine": 77,
         "startChar": 41,
