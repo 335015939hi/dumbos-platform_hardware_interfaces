@@ -16,6 +16,24 @@
       "message": "nit: This is probably widely known to Wi-Fi developers, but is there an (IEEE?) spec for mac addresses? Do we need to be aware of byte orders etc.?",
       "revId": "0b568d5b0c890b97591f8ad369d10533fd2dd501",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11844775_ba8b6f16",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/ApInfo.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2021-09-02T06:17:40Z",
+      "side": 1,
+      "message": "Yes it\u0027s IEEE standard MAC address of 48 bits, 6 octets.  The byte order from array 0 - 5 are the 6 octets of the address. \nhttps://en.wikipedia.org/wiki/MAC_address",
+      "parentUuid": "10161d67_59293077",
+      "revId": "0b568d5b0c890b97591f8ad369d10533fd2dd501",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
