@@ -206,6 +206,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff748cb1_51351e61",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e8a0fdf_8357eac0",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 37
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb3c7f5f_31cea424",
@@ -243,6 +267,30 @@
       "side": 1,
       "message": "Okay ~ \n\nI will remove this definition.\n\nThank you,\nJoseph.",
       "parentUuid": "eb3c7f5f_31cea424",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 29
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf3022c_34afcebe",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4034ffcf_100dd645",
       "range": {
         "startLine": 96,
         "startChar": 0,
@@ -300,6 +348,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da3877c6_b20e666a",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1e0af900_e0006ad1",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "435f5f0d_a710b89e",
@@ -337,6 +409,30 @@
       "side": 1,
       "message": "Yes~\n\nI know we don\u0027t need to get encrypted data size back, but Red team ask me to add dataLength to validate the data buffer. So I add it.\n\nSo for data buffer checking purpose, do you agree to add dataLength for double checking?\n\nThank you,\nJoseph.",
       "parentUuid": "435f5f0d_a710b89e",
+      "range": {
+        "startLine": 204,
+        "startChar": 28,
+        "endLine": 204,
+        "endChar": 48
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1244e7ef_dabab3d6",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3467dd11_c3e083c2",
       "range": {
         "startLine": 204,
         "startChar": 28,
@@ -394,6 +490,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52379a59_a9e33a4b",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd1533ce_bf1f79ad",
+      "range": {
+        "startLine": 319,
+        "startChar": 38,
+        "endLine": 319,
+        "endChar": 64
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d857d9fb_93cc6206",
@@ -431,6 +551,30 @@
       "side": 1,
       "message": "Okay ~\n\nI will check the signingKeyBlob buffer size inside function eicPresentationGenerateSigningKeyPair().\n\n\nThank you,\nJoseph.",
       "parentUuid": "d857d9fb_93cc6206",
+      "range": {
+        "startLine": 104,
+        "startChar": 51,
+        "endLine": 104,
+        "endChar": 71
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62d1200b_51dbd3dd",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae3a2df3_aba67c87",
       "range": {
         "startLine": 104,
         "startChar": 51,
@@ -488,6 +632,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "716fd4ab_62b5d3fe",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d7e1b64_d664ff28",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 65
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f66a8e8_f31532fe",
@@ -525,6 +693,30 @@
       "side": 1,
       "message": "Sure~\n\nI believe red team like this buffer size checking.\n\nThank you,\nJoseph.",
       "parentUuid": "1f66a8e8_f31532fe",
+      "range": {
+        "startLine": 159,
+        "startChar": 58,
+        "endLine": 159,
+        "endChar": 70
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c727871_1938c30d",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "376c30bf_1afbd589",
       "range": {
         "startLine": 159,
         "startChar": 58,
@@ -582,6 +774,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2aaa727_20725d56",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0122962_1184359e",
+      "range": {
+        "startLine": 212,
+        "startChar": 63,
+        "endLine": 212,
+        "endChar": 72
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5d99c05_9360a602",
@@ -619,6 +835,30 @@
       "side": 1,
       "message": "Okay ~\n\nI will check the content buffer size inside eicPresentationRetrieveEntryValue().\n    \nThank you,\nJoseph.",
       "parentUuid": "c5d99c05_9360a602",
+      "range": {
+        "startLine": 223,
+        "startChar": 39,
+        "endLine": 223,
+        "endChar": 61
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d50f6d3c_765f149d",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d0744f1_713a90c5",
       "range": {
         "startLine": 223,
         "startChar": 39,
@@ -676,6 +916,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab0d2932_22932535",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e16bf06e_be4a0488",
+      "range": {
+        "startLine": 77,
+        "startChar": 41,
+        "endLine": 77,
+        "endChar": 67
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03a93b06_beeb64a6",
@@ -713,6 +977,30 @@
       "side": 1,
       "message": "Sure ~\n\nI will add buffer checking in eicProvisioningAddAccessControlProfile()\n\nbool eicProvisioningAddAccessControlProfile(EicProvisioning* ctx, int id,\n                                            const uint8_t* readerCertificate,\n                                            size_t readerCertificateSize,\n                                            bool userAuthenticationRequired,\n                                            uint64_t timeoutMillis, uint64_t secureUserId,\n                                            uint8_t outMac[28], uint8_t* scratchSpace,\n                                            size_t scratchSpaceSize) {\n\n    if (scratchSpaceSize \u003c  512) {\n        return false;\n    }\n    \nThank you,\nJoseph.",
       "parentUuid": "03a93b06_beeb64a6",
+      "range": {
+        "startLine": 89,
+        "startChar": 64,
+        "endLine": 89,
+        "endChar": 85
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4902886_5b59797d",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "293f97f5_d1ba54da",
       "range": {
         "startLine": 89,
         "startChar": 64,
