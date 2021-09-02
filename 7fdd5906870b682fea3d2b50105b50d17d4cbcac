@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25a7a9ef_a4164fa3",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:49:03Z",
+      "side": 1,
+      "message": "use smart pointer w/ explicit ownership?",
+      "range": {
+        "startLine": 66,
+        "startChar": 7,
+        "endLine": 66,
+        "endChar": 19
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3911b3e_a0dd9449",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:49:03Z",
+      "side": 1,
+      "message": "(everywhere) Should these be range checked? I didn\u0027t look outside this directory, but I don\u0027t any code here which calls \u0027init\u0027, and ::init could fail, but these are IPC calls, so this would be OOR.",
+      "range": {
+        "startLine": 90,
+        "startChar": 33,
+        "endLine": 90,
+        "endChar": 52
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd683f9d_f97f4d99",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:49:03Z",
+      "side": 1,
+      "message": "I\u0027ve personally spent a lot of time refactoring code to use parsers instead of regex since they\u0027re a bit heavy. Maybe it\u0027s okay because we only temporarily allocate here, but still",
+      "range": {
+        "startLine": 320,
+        "startChar": 4,
+        "endLine": 320,
+        "endChar": 31
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2234e95c_89914326",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:49:03Z",
+      "side": 1,
+      "message": "same nit: declare only when needed (we can save allocations in this case if L326 doesn\u0027t match, and it\u0027s more clear that L326 is searching the filename, not the filepath)",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 48
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79417955_cfd810c4",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:49:03Z",
+      "side": 1,
+      "message": "nit: regex_search w/ ^..$ is like regex_match",
+      "range": {
+        "startLine": 326,
+        "startChar": 12,
+        "endLine": 326,
+        "endChar": 24
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e369824_256fff88",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:49:03Z",
+      "side": 1,
+      "message": "needs error checking",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 46
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bda88fc_de8a6e84",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:49:03Z",
+      "side": 1,
+      "message": "now that we have \u0027using std::string\u0027 this is a bit strange",
+      "range": {
+        "startLine": 497,
+        "startChar": 46,
+        "endLine": 497,
+        "endChar": 52
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
