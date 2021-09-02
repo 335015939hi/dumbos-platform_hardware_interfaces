@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "36bb8203_b6bcd0c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Okay I will remove this description.\n\nThank you,\nJoseph.",
+      "parentUuid": "78066745_f54313ac",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 43
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "627d2164_f8fb014b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "100971c0_aa27d499",
+        "filename": "identity/aidl/default/libeic/EicCbor.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Yeah\n\nI forget to remove the comment.\n\nThank you,\nJoseph.",
+      "parentUuid": "7d8b6515_061ac027",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 44
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d7d1af3_68c06d25",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-09-02T14:18:15Z",
       "side": 1,
       "message": "I don\u0027t think this really adds anything (there\u0027s generally less than a handful of profiles for a credential) but, sure, each id fits in an uint8_t so let\u0027s just do it.",
+      "range": {
+        "startLine": 147,
+        "startChar": 36,
+        "endLine": 147,
+        "endChar": 75
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d3ff394_c1176f3c",
+        "filename": "identity/aidl/default/libeic/EicCbor.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Thank you for the agreement.\n\nThank you,\nJoseph.",
+      "parentUuid": "9d7d1af3_68c06d25",
       "range": {
         "startLine": 147,
         "startChar": 36,
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e8a0fdf_8357eac0",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Sure ~\n\nI will move these to a new file EicCommon.h.\n\nThank you,\nJoseph.",
+      "parentUuid": "3c47ec77_3ba95b02",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 37
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb3c7f5f_31cea424",
         "filename": "identity/aidl/default/libeic/EicOps.h",
         "patchSetId": 4
@@ -123,6 +219,30 @@
       "writtenOn": "2021-09-02T14:18:15Z",
       "side": 1,
       "message": "I\u0027m not sure this is the correct - \"nonce\" and \"tag\" and pretty generic terms and you have to qualify that this is for AES-GCM-128. Hmm. I would prefer if you just used 28 instead of this define, I don\u0027t think it adds much.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 29
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4034ffcf_100dd645",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Okay ~ \n\nI will remove this definition.\n\nThank you,\nJoseph.",
+      "parentUuid": "eb3c7f5f_31cea424",
       "range": {
         "startLine": 96,
         "startChar": 0,
@@ -158,6 +278,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e0af900_e0006ad1",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Yes~\n\nI know we don\u0027t need to get encrypted data size back, but Red team ask me to add encryptedDataLength to validate the encryptedData buffer. So I add it.\n\nSo for encryptedData buffer checking purpose, do you agree to add encryptedDataLength for double checking?\n\nThank you,\nJoseph.",
+      "parentUuid": "42002fc7_fc9a5f9f",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "435f5f0d_a710b89e",
         "filename": "identity/aidl/default/libeic/EicOps.h",
         "patchSetId": 4
@@ -169,6 +313,30 @@
       "writtenOn": "2021-09-02T14:18:15Z",
       "side": 1,
       "message": "As above, not needed, docs in header file already says that |data| must be of size |encryptedDataSize| - 28.",
+      "range": {
+        "startLine": 204,
+        "startChar": 28,
+        "endLine": 204,
+        "endChar": 48
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3467dd11_c3e083c2",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Yes~\n\nI know we don\u0027t need to get encrypted data size back, but Red team ask me to add dataLength to validate the data buffer. So I add it.\n\nSo for data buffer checking purpose, do you agree to add dataLength for double checking?\n\nThank you,\nJoseph.",
+      "parentUuid": "435f5f0d_a710b89e",
       "range": {
         "startLine": 204,
         "startChar": 28,
@@ -204,6 +372,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd1533ce_bf1f79ad",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Okay ~\n\nI just found other function use verificationTokenTimestamp and just try to make it align.\n\nIf you don\u0027t want to change it. I am okay.\n\nThank you,\nJoseph.",
+      "parentUuid": "c7989104_6166da17",
+      "range": {
+        "startLine": 319,
+        "startChar": 38,
+        "endLine": 319,
+        "endChar": 64
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d857d9fb_93cc6206",
         "filename": "identity/aidl/default/libeic/EicPresentation.h",
         "patchSetId": 4
@@ -215,6 +407,30 @@
       "writtenOn": "2021-09-02T14:18:15Z",
       "side": 1,
       "message": "Why? It will always be 60 bytes...",
+      "range": {
+        "startLine": 104,
+        "startChar": 51,
+        "endLine": 104,
+        "endChar": 71
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae3a2df3_aba67c87",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Okay ~\n\nI will check the signingKeyBlob buffer size inside function eicPresentationGenerateSigningKeyPair().\n\n\nThank you,\nJoseph.",
+      "parentUuid": "d857d9fb_93cc6206",
       "range": {
         "startLine": 104,
         "startChar": 51,
@@ -250,6 +466,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d7e1b64_d664ff28",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Okay~ I will follow this rules.\n\nThank you,\nJoseph.",
+      "parentUuid": "8150450b_210b5399",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 65
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f66a8e8_f31532fe",
         "filename": "identity/aidl/default/libeic/EicPresentation.h",
         "patchSetId": 4
@@ -261,6 +501,30 @@
       "writtenOn": "2021-09-02T14:18:15Z",
       "side": 1,
       "message": "Also need size_t scratchSpaceSize so the implementation can actually verify it\u0027s not overflowing the passed-in scratch space.",
+      "range": {
+        "startLine": 159,
+        "startChar": 58,
+        "endLine": 159,
+        "endChar": 70
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "376c30bf_1afbd589",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Sure~\n\nI believe red team like this buffer size checking.\n\nThank you,\nJoseph.",
+      "parentUuid": "1f66a8e8_f31532fe",
       "range": {
         "startLine": 159,
         "startChar": 58,
@@ -296,6 +560,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0122962_1184359e",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Okay ~\n\nI think if can use (void)entrySize to avoid build break.\n\nThank you,\nJoseph.",
+      "parentUuid": "6bc65c1d_9b613251",
+      "range": {
+        "startLine": 212,
+        "startChar": 63,
+        "endLine": 212,
+        "endChar": 72
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5d99c05_9360a602",
         "filename": "identity/aidl/default/libeic/EicPresentation.h",
         "patchSetId": 4
@@ -307,6 +595,30 @@
       "writtenOn": "2021-09-02T14:18:15Z",
       "side": 1,
       "message": "Remove. Docs already say what length it must be.",
+      "range": {
+        "startLine": 223,
+        "startChar": 39,
+        "endLine": 223,
+        "endChar": 61
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d0744f1_713a90c5",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Okay ~\n\nI will check the content buffer size inside eicPresentationRetrieveEntryValue().\n    \nThank you,\nJoseph.",
+      "parentUuid": "c5d99c05_9360a602",
       "range": {
         "startLine": 223,
         "startChar": 39,
@@ -342,6 +654,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e16bf06e_be4a0488",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Okay ~\n\nI will add it back.\n\nI just found we return false if entryCounts[n] \u003e\u003d 256 in eicProvisioningStartPersonalization().\n\nbool eicProvisioningStartPersonalization(EicProvisioning* ctx, int accessControlProfileCount,\n                                         const int* entryCounts, size_t numEntryCounts,\n                                         const char* docType, size_t docTypeLength,\n                                         size_t expectedProofOfProvisioningSize) {\n....\n\n    for (size_t n \u003d 0; n \u003c numEntryCounts; n++) {\n        if (entryCounts[n] \u003e\u003d 256) {\n            return false;\n        }\n        ctx-\u003eentryCounts[n] \u003d entryCounts[n];\n    }\n    \nThank you,\nJoseph.\nThank you,\nJoseph.",
+      "parentUuid": "fec87239_fa8437dd",
+      "range": {
+        "startLine": 77,
+        "startChar": 41,
+        "endLine": 77,
+        "endChar": 67
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03a93b06_beeb64a6",
         "filename": "identity/aidl/default/libeic/EicProvisioning.h",
         "patchSetId": 4
@@ -353,6 +689,30 @@
       "writtenOn": "2021-09-02T14:18:15Z",
       "side": 1,
       "message": "add size_t scratchSpaceSize param.",
+      "range": {
+        "startLine": 89,
+        "startChar": 64,
+        "endLine": 89,
+        "endChar": 85
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "293f97f5_d1ba54da",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-02T16:18:39Z",
+      "side": 1,
+      "message": "Sure ~\n\nI will add buffer checking in eicProvisioningAddAccessControlProfile()\n\nbool eicProvisioningAddAccessControlProfile(EicProvisioning* ctx, int id,\n                                            const uint8_t* readerCertificate,\n                                            size_t readerCertificateSize,\n                                            bool userAuthenticationRequired,\n                                            uint64_t timeoutMillis, uint64_t secureUserId,\n                                            uint8_t outMac[28], uint8_t* scratchSpace,\n                                            size_t scratchSpaceSize) {\n\n    if (scratchSpaceSize \u003c  512) {\n        return false;\n    }\n    \nThank you,\nJoseph.",
+      "parentUuid": "03a93b06_beeb64a6",
       "range": {
         "startLine": 89,
         "startChar": 64,
