@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b579dcbc_5c7a9746",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:38:43Z",
+      "side": 1,
+      "message": "nit: this is C++, so unneeded",
+      "range": {
+        "startLine": 544,
+        "startChar": 34,
+        "endLine": 544,
+        "endChar": 41
+      },
+      "revId": "70b301df6255e2df61379245eff8238a73a4ec0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
