@@ -1,0 +1,366 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78066745_f54313ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "No need to mention this, it\u0027s obvious from the diff which functions are modified.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 43
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "627d2164_f8fb014b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "Hi, only comments on the header files for now. Will look at the .cc changes once we\u0027re done with the header files. Thanks!",
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d8b6515_061ac027",
+        "filename": "identity/aidl/default/libeic/EicCbor.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "With your change this is no longer true. Also update comment.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 44
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d7d1af3_68c06d25",
+        "filename": "identity/aidl/default/libeic/EicCbor.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "I don\u0027t think this really adds anything (there\u0027s generally less than a handful of profiles for a credential) but, sure, each id fits in an uint8_t so let\u0027s just do it.",
+      "range": {
+        "startLine": 147,
+        "startChar": 36,
+        "endLine": 147,
+        "endChar": 75
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c47ec77_3ba95b02",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "Hmm. It\u0027s really not correct to store this in EicOps.h since EicOps.h is only about the system-layer which is provided by the implementor (e.g. POSIX and NuggetOS). So all this should go into a new file EicCommon.h which is included by libeic.h and also where needed.\n\nPlease also use these names instead.\n\nEIC_CREDENTIAL_KEYS_CBOR_SIZE_FEATURE_VERSION_202009\nEIC_CREDENTIAL_KEYS_CBOR_SIZE_FEATURE_VERSION_202101",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 37
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb3c7f5f_31cea424",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is the correct - \"nonce\" and \"tag\" and pretty generic terms and you have to qualify that this is for AES-GCM-128. Hmm. I would prefer if you just used 28 instead of this define, I don\u0027t think it adds much.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 29
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42002fc7_fc9a5f9f",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "Not needed. The size of the encrypted data will always be |dataSize| + 28 as documented by this function already at:\n\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/identity/aidl/default/libeic/EicOps.h;l\u003d160?q\u003dEicOps.h",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "435f5f0d_a710b89e",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "As above, not needed, docs in header file already says that |data| must be of size |encryptedDataSize| - 28.",
+      "range": {
+        "startLine": 204,
+        "startChar": 28,
+        "endLine": 204,
+        "endChar": 48
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7989104_6166da17",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "No need to change this parameter name,",
+      "range": {
+        "startLine": 319,
+        "startChar": 38,
+        "endLine": 319,
+        "endChar": 64
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d857d9fb_93cc6206",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "Why? It will always be 60 bytes...",
+      "range": {
+        "startLine": 104,
+        "startChar": 51,
+        "endLine": 104,
+        "endChar": 71
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8150450b_210b5399",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "Replace with\n\n //\n // The scratchSpace should be set to a buffer at least 512 bytes. It\u0027s done\n // this way to avoid allocating stack space.\n\nso there\u0027s a blank line before and so it also explains why it\u0027s there. This way it\u0027s the same docs as other functions taking scratchSpace.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 65
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f66a8e8_f31532fe",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "Also need size_t scratchSpaceSize so the implementation can actually verify it\u0027s not overflowing the passed-in scratch space.",
+      "range": {
+        "startLine": 159,
+        "startChar": 58,
+        "endLine": 159,
+        "endChar": 70
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bc65c1d_9b613251",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 212,
+        "startChar": 63,
+        "endLine": 212,
+        "endChar": 72
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5d99c05_9360a602",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "Remove. Docs already say what length it must be.",
+      "range": {
+        "startLine": 223,
+        "startChar": 39,
+        "endLine": 223,
+        "endChar": 61
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fec87239_fa8437dd",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "It\u0027s possible to have more than 256 entries in a namespace so we can\u0027t do this.",
+      "range": {
+        "startLine": 77,
+        "startChar": 41,
+        "endLine": 77,
+        "endChar": 67
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03a93b06_beeb64a6",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-02T14:18:15Z",
+      "side": 1,
+      "message": "add size_t scratchSpaceSize param.",
+      "range": {
+        "startLine": 89,
+        "startChar": 64,
+        "endLine": 89,
+        "endChar": 85
+      },
+      "revId": "ada4ed5dcba9e6b8920cfb0f0e32e80c08b22e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
