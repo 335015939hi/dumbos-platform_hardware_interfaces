@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce02d409_9c7cea8e",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:36:54Z",
+      "side": 1,
+      "message": "any reason these are globals and exposed in the symbol table instead of members (they are named as members)?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 25
+      },
+      "revId": "debb39f30f70f492edb4d11396a915ede038a741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48e98264_97ba17c8",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:36:54Z",
+      "side": 1,
+      "message": "nit: prefer libbase APIs which will read the type directly",
+      "range": {
+        "startLine": 464,
+        "startChar": 0,
+        "endLine": 464,
+        "endChar": 41
+      },
+      "revId": "debb39f30f70f492edb4d11396a915ede038a741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc193984_df00afec",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:36:54Z",
+      "side": 1,
+      "message": "nit: declare variable only where it is needed",
+      "range": {
+        "startLine": 465,
+        "startChar": 0,
+        "endLine": 465,
+        "endChar": 28
+      },
+      "revId": "debb39f30f70f492edb4d11396a915ede038a741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f4ef0a_43dcd56d",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:36:54Z",
+      "side": 1,
+      "message": "strtok is not threadsafe/essentially deprecated. Prefer android::base::Split?",
+      "range": {
+        "startLine": 469,
+        "startChar": 24,
+        "endLine": 469,
+        "endChar": 30
+      },
+      "revId": "debb39f30f70f492edb4d11396a915ede038a741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcacbb2e_2e70aad4",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:36:54Z",
+      "side": 1,
+      "message": "super nit: is this API needed? even as an internal structure: https://2014.jsconf.eu/speakers/sebastian-markbage-minimal-api-surface-area-learning-patterns-instead-of-frameworks.html",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 1
+      },
+      "revId": "debb39f30f70f492edb4d11396a915ede038a741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ca036b_cb8327b0",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:36:54Z",
+      "side": 1,
+      "message": "libbase would also hand the case where this casts to a negative number",
+      "range": {
+        "startLine": 490,
+        "startChar": 11,
+        "endLine": 490,
+        "endChar": 16
+      },
+      "revId": "debb39f30f70f492edb4d11396a915ede038a741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94cc96ac_431dc555",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:36:54Z",
+      "side": 1,
+      "message": "defined in the header but only used in the cpp?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 50
+      },
+      "revId": "debb39f30f70f492edb4d11396a915ede038a741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "832549d7_2a7c60b5",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:36:54Z",
+      "side": 1,
+      "message": "I\u0027m not sure what this API is doing",
+      "range": {
+        "startLine": 56,
+        "startChar": 30,
+        "endLine": 56,
+        "endChar": 33
+      },
+      "revId": "debb39f30f70f492edb4d11396a915ede038a741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3d042c6_b9dc87f5",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-02T20:36:54Z",
+      "side": 1,
+      "message": "prefer libbase parseInt APIs?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 52
+      },
+      "revId": "debb39f30f70f492edb4d11396a915ede038a741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
