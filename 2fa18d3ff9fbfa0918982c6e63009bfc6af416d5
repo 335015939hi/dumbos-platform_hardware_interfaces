@@ -51,6 +51,23 @@
       "parentUuid": "311d85e9_bab5224b",
       "revId": "2fa18d3ff9fbfa0918982c6e63009bfc6af416d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb0ebfd3_6039ab63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-03T23:44:03Z",
+      "side": 1,
+      "message": "Hi Yifan, looks like we still need an OWNER vote. Could you help?",
+      "revId": "2fa18d3ff9fbfa0918982c6e63009bfc6af416d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
