@@ -41,7 +41,6 @@ enum OperandType : @1.2::OperandType {
      * real_value = (integer_value - zeroPoint) * scale.
      */
     TENSOR_QUANT8_ASYMM_SIGNED = 14,
-
     /**
      * A reference to a subgraph.
      *
