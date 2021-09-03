@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3097b149_94539ac3",
+        "filename": "identity/aidl/default/libeic/EicCbor.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-03T01:17:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "564132d6_76071e66",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 75
+      },
+      "revId": "bfde0eb715dab21b913b205b40b8b966b569e76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66c55171_65809ba9",
@@ -95,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dcc9fd0_60a7412c",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-03T01:17:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe3f4a17_53dbee82",
+      "range": {
+        "startLine": 225,
+        "startChar": 39,
+        "endLine": 225,
+        "endChar": 59
+      },
+      "revId": "bfde0eb715dab21b913b205b40b8b966b569e76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93c4927c_3b3e7298",
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "okay ~ I will do the buffer size checking before calling eicProvisioningAddEntryValue() in TA side.",
       "parentUuid": "93c4927c_3b3e7298",
+      "range": {
+        "startLine": 110,
+        "startChar": 64,
+        "endLine": 110,
+        "endChar": 97
+      },
+      "revId": "bfde0eb715dab21b913b205b40b8b966b569e76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1206c4e2_fe46c348",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-03T01:17:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d034728_ee0f52ae",
       "range": {
         "startLine": 110,
         "startChar": 64,
