@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff5344fe_23b7a48d",
+        "filename": "renderscript/1.0/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-03T23:34:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4ccebfec_095031f1",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "e41282ca68ceb4cbcb76efa53b64671b9d2b43aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f44478b_bba4395c",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-08-30T19:55:36Z",
       "side": 1,
       "message": "Can we also add:\n  dgross@google.com\n  jeanluc@google.com\n  miaowang@google.com\n  xusongw@google.com",
+      "revId": "e41282ca68ceb4cbcb76efa53b64671b9d2b43aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a708ce4b_c7a00bc8",
+        "filename": "renderscript/1.0/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-03T23:34:52Z",
+      "side": 1,
+      "message": "Sure, just make sure that they are all okay with being assigned to or CC\u0027ed in the bugs relating to VtsHalRenderscriptV1_0TargetTest.",
+      "parentUuid": "1f44478b_bba4395c",
       "revId": "e41282ca68ceb4cbcb76efa53b64671b9d2b43aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
