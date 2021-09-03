@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "564132d6_76071e66",
+        "filename": "identity/aidl/default/libeic/EicCbor.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-03T01:16:33Z",
+      "side": 1,
+      "message": "I think I overwrite my previous patch#4.\n\nI agree with that to have new two APIs.\n\nI will follow up.",
+      "parentUuid": "1ef82bed_d9a9f575",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 75
+      },
+      "revId": "bfde0eb715dab21b913b205b40b8b966b569e76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66c55171_65809ba9",
         "filename": "identity/aidl/default/libeic/EicPresentation.h",
         "patchSetId": 9
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe3f4a17_53dbee82",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-03T01:16:33Z",
+      "side": 1,
+      "message": "okay ~ I will do the buffer size checking before calling eicPresentationRetrieveEntryValue() in TA side.",
+      "parentUuid": "66c55171_65809ba9",
+      "range": {
+        "startLine": 225,
+        "startChar": 39,
+        "endLine": 225,
+        "endChar": 59
+      },
+      "revId": "bfde0eb715dab21b913b205b40b8b966b569e76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "93c4927c_3b3e7298",
         "filename": "identity/aidl/default/libeic/EicProvisioning.h",
         "patchSetId": 9
@@ -60,6 +108,30 @@
       "writtenOn": "2021-09-02T19:19:25Z",
       "side": 1,
       "message": "Remove. Caller already knows that outEncryptedContent must be allocated to hold (contentSize + 28).",
+      "range": {
+        "startLine": 110,
+        "startChar": 64,
+        "endLine": 110,
+        "endChar": 97
+      },
+      "revId": "bfde0eb715dab21b913b205b40b8b966b569e76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d034728_ee0f52ae",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-03T01:16:33Z",
+      "side": 1,
+      "message": "okay ~ I will do the buffer size checking before calling eicProvisioningAddEntryValue() in TA side.",
+      "parentUuid": "93c4927c_3b3e7298",
       "range": {
         "startLine": 110,
         "startChar": 64,
