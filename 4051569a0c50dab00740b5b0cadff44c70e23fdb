@@ -288,6 +288,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da66e769_0dc73ea6",
+        "filename": "identity/aidl/default/libeic/EicCbor.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:18:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaa1b9a3_f6f222cb",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 56
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7222432_ce7b34cc",
