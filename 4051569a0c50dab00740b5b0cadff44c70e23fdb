@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82dab553_44a805fb",
+        "filename": "identity/aidl/default/libeic/EicCbor.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17377b8e_224d6820",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 19
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88f4721d_f98acf0d",
@@ -96,6 +120,24 @@
       "side": 1,
       "message": "I will remove spurious white space here.",
       "parentUuid": "88f4721d_f98acf0d",
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eafd0bd_84d2b36e",
+        "filename": "identity/aidl/default/libeic/EicCbor.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b37146e_9f872529",
       "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -137,6 +179,30 @@
       "side": 1,
       "message": "Yes～ you are right.\n\nI found the size_t is 32 bit in Nugget OS since they are 32bit Arch.\n\nI will use your suggestion.",
       "parentUuid": "6545e862_07f89a4e",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 5
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2125e3d0_3e1a3327",
+        "filename": "identity/aidl/default/libeic/EicCbor.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8507d631_5a8b929a",
       "range": {
         "startLine": 157,
         "startChar": 0,
@@ -194,6 +260,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e73b48d_c1a1dd02",
+        "filename": "identity/aidl/default/libeic/EicCbor.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b27d234f_c4a728a0",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 56
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44ba1253_8c45788c",
@@ -231,6 +321,30 @@
       "side": 1,
       "message": "Yes~ I could use the minimum code to do the same thing.",
       "parentUuid": "44ba1253_8c45788c",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 1
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a01d5c4f_25d462b9",
+        "filename": "identity/aidl/default/libeic/EicCbor.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adbb0642_746cc01f",
       "range": {
         "startLine": 193,
         "startChar": 0,
@@ -359,6 +473,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a46019f1_a9b4552d",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc58253e_a4fc0635",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 32
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5afe1171_45966471",
@@ -396,6 +534,30 @@
       "side": 1,
       "message": "I will include EicPresentation.h here.",
       "parentUuid": "5afe1171_45966471",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 19
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed70c9a4_9ea68e18",
+        "filename": "identity/aidl/default/libeic/EicPresentation.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db47db37_a50bb8a4",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -453,6 +615,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f761ea10_e0744d0b",
+        "filename": "identity/aidl/default/libeic/EicPresentation.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b147024b_77abaabf",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 79
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65d370f5_1dbe44bf",
@@ -484,6 +670,24 @@
       "side": 1,
       "message": "Will remove the white space here.",
       "parentUuid": "65d370f5_1dbe44bf",
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a1d262f_a7f45203",
+        "filename": "identity/aidl/default/libeic/EicPresentation.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee41db07_6e5dd081",
       "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -525,6 +729,30 @@
       "side": 1,
       "message": "Okay ~ I will move the scratchSpace buffer checking before calling libeic functions from caller side.",
       "parentUuid": "a2ce7ddd_c4c5637a",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 459,
+        "endChar": 5
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f61ee938_4f9ce2b9",
+        "filename": "identity/aidl/default/libeic/EicPresentation.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "607d9e43_45be402e",
       "range": {
         "startLine": 455,
         "startChar": 0,
@@ -582,6 +810,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d246dfb5_99fe4821",
+        "filename": "identity/aidl/default/libeic/EicPresentation.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb1bc294_dc3f12ac",
+      "range": {
+        "startLine": 464,
+        "startChar": 30,
+        "endLine": 464,
+        "endChar": 86
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e5e701f_de195a9d",
@@ -613,6 +865,24 @@
       "side": 1,
       "message": "Sure ~",
       "parentUuid": "1e5e701f_de195a9d",
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "818dbbf5_1c163970",
+        "filename": "identity/aidl/default/libeic/EicPresentation.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c61c3bb_dad0df18",
       "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -664,6 +934,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db69a82d_0fd97caf",
+        "filename": "identity/aidl/default/libeic/EicPresentation.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b944015a_90698cb9",
+      "range": {
+        "startLine": 717,
+        "startChar": 0,
+        "endLine": 720,
+        "endChar": 5
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4607e136_661d7b46",
@@ -695,6 +989,24 @@
       "side": 1,
       "message": "Will remove it.",
       "parentUuid": "4607e136_661d7b46",
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15d0de01_5953e748",
+        "filename": "identity/aidl/default/libeic/EicPresentation.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61205ec6_5581c369",
       "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -736,6 +1048,30 @@
       "side": 1,
       "message": "I will include EicProvisioning.h and EicCommon.h here.",
       "parentUuid": "8e0139fc_fda2d696",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 19
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3fa97f0_07e8c2ff",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccb032bd_54bc7877",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -793,6 +1129,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6059c496_4d7380c3",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b4744ed_7fbca0c0",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 0
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "399474a3_5ca9bea2",
@@ -830,6 +1190,30 @@
       "side": 1,
       "message": "Sure ~",
       "parentUuid": "399474a3_5ca9bea2",
+      "range": {
+        "startLine": 217,
+        "startChar": 44,
+        "endLine": 217,
+        "endChar": 88
+      },
+      "revId": "4051569a0c50dab00740b5b0cadff44c70e23fdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee551808_b70ee999",
+        "filename": "identity/aidl/default/libeic/EicProvisioning.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-06T10:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73beadac_e91fd6f4",
       "range": {
         "startLine": 217,
         "startChar": 44,
