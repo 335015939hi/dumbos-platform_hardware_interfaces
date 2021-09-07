@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9183e6f7_17300468",
+        "filename": "radio/config/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb67f6bd_74cd4c48",
+      "range": {
+        "startLine": 17,
+        "startChar": 21,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5e09269_6442ae5c",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-09-07T23:38:08Z",
       "side": 1,
       "message": "we should remove references to android.hardware.radio@x.x",
+      "range": {
+        "startLine": 28,
+        "startChar": 7,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "231d817b_2d496efe",
+        "filename": "radio/config/aidl/android/hardware/radio/config/HalDeviceCapabilities.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5e09269_6442ae5c",
       "range": {
         "startLine": 28,
         "startChar": 7,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99620603_3ac81be0",
+        "filename": "radio/config/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53a4ffb2_189beecc",
+      "range": {
+        "startLine": 56,
+        "startChar": 20,
+        "endLine": 56,
+        "endChar": 26
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94c89c45_13f6c687",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-09-07T23:38:08Z",
       "side": 1,
       "message": "@x.x",
+      "range": {
+        "startLine": 66,
+        "startChar": 20,
+        "endLine": 66,
+        "endChar": 26
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5f518a1_d11f6b10",
+        "filename": "radio/config/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94c89c45_13f6c687",
       "range": {
         "startLine": 66,
         "startChar": 20,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4192932d_8f182114",
+        "filename": "radio/config/aidl/android/hardware/radio/config/IRadioConfigIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ec71e17_f7686413",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 83
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89bc5673_46d84384",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-09-07T23:38:08Z",
       "side": 1,
       "message": "we should remove references to android.hardware.radio@x.x",
+      "range": {
+        "startLine": 33,
+        "startChar": 16,
+        "endLine": 33,
+        "endChar": 44
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81365e28_16e45c01",
+        "filename": "radio/config/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89bc5673_46d84384",
       "range": {
         "startLine": 33,
         "startChar": 16,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ffc91df_938f2dda",
+        "filename": "radio/config/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "838b2ffb_5bf04aab",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 34
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "165cecff_71456e08",
@@ -192,6 +360,30 @@
       "writtenOn": "2021-09-07T23:38:08Z",
       "side": 1,
       "message": "@x.x",
+      "range": {
+        "startLine": 68,
+        "startChar": 31,
+        "endLine": 68,
+        "endChar": 37
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af1187f5_9ff7b676",
+        "filename": "radio/config/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "165cecff_71456e08",
       "range": {
         "startLine": 68,
         "startChar": 31,
@@ -225,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a85bb95b_1f5727aa",
+        "filename": "radio/config/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84de0a57_a184296b",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 91
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7e8900c_ad8dce50",
@@ -238,6 +454,30 @@
       "writtenOn": "2021-09-07T23:38:08Z",
       "side": 1,
       "message": "this could be removed",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 2
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "698a5141_41c8ffc1",
+        "filename": "radio/config/aidl/android/hardware/radio/config/ModemInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7e8900c_ad8dce50",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -271,6 +511,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b77f7ffd_d2a3aee1",
+        "filename": "radio/config/aidl/android/hardware/radio/config/SlotState.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c9d9886_1d535a77",
+      "range": {
+        "startLine": 25,
+        "startChar": 15,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e5af9e1_e01e7924",
@@ -284,6 +548,30 @@
       "writtenOn": "2021-09-07T23:38:08Z",
       "side": 1,
       "message": "This should be updated with an implementation. Sample here for an array of type UusInfo:\n```\nif (in.uusInfo !\u003d null) {\n    out.uusInfo \u003d new android.hardware.radio.UusInfo[in.uusInfo.size()];\n    for (int i \u003d 0; i \u003c in.uusInfo.size(); i++) {\n        out.uusInfo[i] \u003d h2aTranslate(in.uusInfo.get(i));\n    }\n}\n```",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 109
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3ae8f4f_f1179428",
+        "filename": "radio/config/aidl/android/hardware/radio/config/Translate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e5af9e1_e01e7924",
       "range": {
         "startLine": 58,
         "startChar": 0,
@@ -317,6 +605,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84ec0e31_16958c7e",
+        "filename": "radio/config/aidl/android/hardware/radio/config/translate-cpp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b42d9df6_385efe26",
+      "range": {
+        "startLine": 19,
+        "startChar": 19,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c83ecee_921148a9",
@@ -340,6 +652,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "771a71c5_4184c1a4",
+        "filename": "radio/config/aidl/android/hardware/radio/config/translate-ndk.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c83ecee_921148a9",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 109
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf4c3df1_45e5ad6b",
@@ -353,6 +689,30 @@
       "writtenOn": "2021-09-07T23:38:08Z",
       "side": 1,
       "message": "this file could also be removed if the cpp backend is disabled",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "2cd7a8626dbf3b03baa465b1b79f1b31e1e1ae4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85dc9029_aefa6a09",
+        "filename": "radio/config/aidl/include/android/hardware/radio/config/translate-cpp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-07T23:52:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf4c3df1_45e5ad6b",
       "range": {
         "startLine": 31,
         "startChar": 19,
