@@ -16,6 +16,23 @@
       "message": "Hi Shawn,\nI\u0027m submitting it on behalf of Alexandre Gonzalo from Trustonic.",
       "revId": "f9409c0a43ed4156dd8c3b9f0b6a6875fdb17ebe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff9c1c0_6c3b1383",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1886347
+      },
+      "writtenOn": "2021-09-07T12:05:45Z",
+      "side": 1,
+      "message": "It looks like a patch needed to solve the VTS problem, can you merge this? If there is no patch, Our keymint can not recognize that it is EC",
+      "revId": "f9409c0a43ed4156dd8c3b9f0b6a6875fdb17ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
