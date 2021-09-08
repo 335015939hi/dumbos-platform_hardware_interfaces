@@ -22,6 +22,30 @@
       },
       "revId": "6270607bd4fbd1ba6d0ad6544c7d3eda494679cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92203db6_f697a2ee",
+        "filename": "current.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-09-08T16:43:09Z",
+      "side": 1,
+      "message": "Thanks for reviewing. And done!",
+      "parentUuid": "d89debbf_64cd8873",
+      "range": {
+        "startLine": 839,
+        "startChar": 0,
+        "endLine": 839,
+        "endChar": 49
+      },
+      "revId": "6270607bd4fbd1ba6d0ad6544c7d3eda494679cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
