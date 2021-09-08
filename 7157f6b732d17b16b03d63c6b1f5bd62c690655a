@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b0aff0f_30fa5e54",
+        "filename": "bluetooth/1.0/default/test/fuzzer/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-09-08T21:12:16Z",
+      "side": 1,
+      "message": "fuzzer?",
+      "range": {
+        "startLine": 18,
+        "startChar": 24,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "7157f6b732d17b16b03d63c6b1f5bd62c690655a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
