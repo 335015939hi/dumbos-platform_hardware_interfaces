@@ -68,6 +68,24 @@
       "parentUuid": "c511d2d3_d5432c1d",
       "revId": "d89d8352520b56bea7897d5a1cc97f6f3cecddaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4339b15f_4f146ab2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-08T23:52:43Z",
+      "side": 1,
+      "message": "Hi just want to confirm, do miaowang@ and pszczepaniak@ own all versions of ardware/interfaces/neuralnetworks/? If so I will update other CLs too.",
+      "parentUuid": "4dd57162_bccd0cca",
+      "revId": "d89d8352520b56bea7897d5a1cc97f6f3cecddaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
