@@ -16,6 +16,24 @@
       "message": "It would be good to update the text for AES in IKeymasterDevice.hal to match this test, maybe something like: \n\" - TRUSTED_ENVIRONMENT IKeymasterDevices must support 192-bit keys, but STRONGBOX devices must not support 192-bit keys. \"\n\nMaybe also add a comment here to explain a bit more, \"The HAL specification was only clarified to exclude AES-192 for STRONGBOX in Android S, so allow earlier implementations to skip this check\"",
       "revId": "6974ed517aeac8a62b40333d74afd47af76feb24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0480996a_d581bc8c",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2021-09-08T08:51:54Z",
+      "side": 1,
+      "message": "Done. The .hal change will have to be in a separate patch though, as this one must be cherrypicked to the VTS-tests-only stage-aosp-ts-sc-etc-etc branch.",
+      "parentUuid": "83836d85_e07e0dce",
+      "revId": "6974ed517aeac8a62b40333d74afd47af76feb24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
