@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cad98dc_bca4d9fb",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-09-08T21:03:43Z",
+      "side": 1,
+      "message": "Should this be libbt-vendor-fuzz.so, or something like that?  I wouldn\u0027t think the fuzzed would be named default.",
+      "range": {
+        "startLine": 31,
+        "startChar": 55,
+        "endLine": 31,
+        "endChar": 62
+      },
+      "revId": "f32716bc5110938c4de1f6f71ca3da499c2f6624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
