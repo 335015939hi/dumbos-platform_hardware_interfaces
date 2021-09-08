@@ -50,6 +50,24 @@
       "message": "You\u0027ve not responded to my comments.",
       "revId": "d89d8352520b56bea7897d5a1cc97f6f3cecddaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dd57162_bccd0cca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-08T23:47:42Z",
+      "side": 1,
+      "message": "Oops, I triggered presubmit with a command. Just updated CL.",
+      "parentUuid": "c511d2d3_d5432c1d",
+      "revId": "d89d8352520b56bea7897d5a1cc97f6f3cecddaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
