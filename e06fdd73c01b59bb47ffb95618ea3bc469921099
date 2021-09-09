@@ -16,6 +16,23 @@
       "message": "Hi Iliyan and Yifan, could either of you give an owner review? Thanks!",
       "revId": "e06fdd73c01b59bb47ffb95618ea3bc469921099",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b339fe3c_39da8d69",
+        "filename": "biometrics/fingerprint/2.2/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-09-09T02:19:47Z",
+      "side": 1,
+      "message": "Usually there should be more than one owners in an OWNERS file. Though, we should have other owners in higher level directories, so this is probably fine...",
+      "revId": "e06fdd73c01b59bb47ffb95618ea3bc469921099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
