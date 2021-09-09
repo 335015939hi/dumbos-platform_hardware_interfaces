@@ -16,6 +16,42 @@
       "message": "Hi Jean-Luc, does the OWNERS file look okay to you? Thank You!",
       "revId": "92eea1f6efd30c873cc962b824ec6b54acb1baa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49ddc80e_d05fc52f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-09T21:55:42Z",
+      "side": 1,
+      "message": "updated owners as requested by the reviewer.",
+      "parentUuid": "8513367d_3825e077",
+      "revId": "92eea1f6efd30c873cc962b824ec6b54acb1baa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44e71d44_4fee5b95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-09T21:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8513367d_3825e077",
+      "revId": "92eea1f6efd30c873cc962b824ec6b54acb1baa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
