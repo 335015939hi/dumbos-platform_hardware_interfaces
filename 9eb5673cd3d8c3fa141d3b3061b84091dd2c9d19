@@ -16,6 +16,24 @@
       "message": "Looks like we need a \"Non-author-code-review\". What is this?",
       "revId": "9eb5673cd3d8c3fa141d3b3061b84091dd2c9d19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a17d88c4_33da9dae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2021-09-09T21:43:44Z",
+      "side": 1,
+      "message": "edwinwong +2\u0027d as non-author",
+      "parentUuid": "eb6c9d56_7c205cb7",
+      "revId": "9eb5673cd3d8c3fa141d3b3061b84091dd2c9d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
