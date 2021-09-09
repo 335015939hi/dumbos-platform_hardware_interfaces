@@ -22,6 +22,30 @@
       },
       "revId": "474e1cefcb2a5766fe845d126f0307b4eeecebe7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a018756a_32a9bd02",
+        "filename": "neuralnetworks/1.0/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-09T21:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a27caeb9_6c673a7b",
+      "range": {
+        "startLine": 2,
+        "startChar": 15,
+        "endLine": 2,
+        "endChar": 18
+      },
+      "revId": "474e1cefcb2a5766fe845d126f0307b4eeecebe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
