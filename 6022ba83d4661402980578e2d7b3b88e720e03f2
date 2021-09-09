@@ -16,6 +16,24 @@
       "message": "Hi Dan, what we need now is an owner vote. Could you give it? If not I can find another person. Same thing needs to be done for aosp/1793850 and aosp/1793848.",
       "revId": "6022ba83d4661402980578e2d7b3b88e720e03f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "268653dc_6bf3ad25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2021-09-09T22:52:51Z",
+      "side": 1,
+      "message": "I don\u0027t have owner +1, Added Zhuoyao and Steven for that.",
+      "parentUuid": "6bc38df7_9d935be3",
+      "revId": "6022ba83d4661402980578e2d7b3b88e720e03f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
