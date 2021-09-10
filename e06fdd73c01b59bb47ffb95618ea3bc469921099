@@ -33,6 +33,24 @@
       "message": "Usually there should be more than one owners in an OWNERS file. Though, we should have other owners in higher level directories, so this is probably fine...",
       "revId": "e06fdd73c01b59bb47ffb95618ea3bc469921099",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de23c025_c3f7656f",
+        "filename": "biometrics/fingerprint/2.2/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-10T17:06:29Z",
+      "side": 1,
+      "message": "Agree. ilyamaty@ is the only owner in our record: https://docs.google.com/spreadsheets/d/1Mwnb6juZBiRH9_l3Wa6Gm8q6xpj9bsHK1YNL8yo3APc/edit#gid\u003d1880379107\u0026range\u003dE382. If you want to add more people later, feel free to update the OWNERS file.",
+      "parentUuid": "b339fe3c_39da8d69",
+      "revId": "e06fdd73c01b59bb47ffb95618ea3bc469921099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
