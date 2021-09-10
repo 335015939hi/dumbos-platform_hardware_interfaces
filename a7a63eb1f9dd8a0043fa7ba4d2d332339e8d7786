@@ -105,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ea746f5_37d5baf3",
+        "filename": "radio/aidl/android/hardware/radio/AppStatus.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/15789387/2/radio/aidl/android/hardware/radio/AppStatus.aidl",
+      "parentUuid": "6349fb43_671dd8d8",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ae6d57a_cda42c61",
@@ -118,6 +142,30 @@
       "writtenOn": "2021-06-22T00:14:27Z",
       "side": 1,
       "message": "use @nullable BarringInfoBarringTypeSpecificInfoConditional (might be more - I already commented on one other Maybe*)",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaf8e26f_5ee308fe",
+        "filename": "radio/aidl/android/hardware/radio/BarringInfoBarringTypeSpecificInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/15789387/2/radio/aidl/android/hardware/radio/BarringInfoBarringTypeSpecificInfo.aidl",
+      "parentUuid": "8ae6d57a_cda42c61",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -151,6 +199,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b51d852_80a77562",
+        "filename": "radio/aidl/android/hardware/radio/CarrierRestrictionsWithPriority.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "I only see this one \"with*\" type in IRadio. I\u0027ll keep an eye out for more.\nhttps://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/15789387/2/radio/aidl/android/hardware/radio/CarrierRestrictionsWithPriority.aidl",
+      "parentUuid": "4dd0727a_7b02e820",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13d4d522_5d5bae62",
@@ -164,6 +236,30 @@
       "writtenOn": "2021-06-22T00:40:04Z",
       "side": 1,
       "message": "Is this missing?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 40
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28dd85d3_40ad6ec7",
+        "filename": "radio/aidl/android/hardware/radio/CdmaSmsAddress.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/15789387/2/radio/aidl/android/hardware/radio/CdmaSmsAddress.aidl",
+      "parentUuid": "13d4d522_5d5bae62",
       "range": {
         "startLine": 41,
         "startChar": 0,
@@ -197,6 +293,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f07c61c3_9a2fce90",
+        "filename": "radio/aidl/android/hardware/radio/CdmaSmsErrorClass.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/15789387/2/radio/aidl/android/hardware/radio/CdmaSmsErrorClass.aidl",
+      "parentUuid": "692efa4c_15c96208",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "149b3629_c70788cf",
@@ -220,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d62ddd54_6da33b0a",
+        "filename": "radio/aidl/android/hardware/radio/CdmaSmsNumberMode.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/15789387/2/radio/aidl/android/hardware/radio/CdmaSmsNumberMode.aidl",
+      "parentUuid": "149b3629_c70788cf",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40221161_7f7249ce",
@@ -233,6 +377,30 @@
       "writtenOn": "2021-06-22T00:14:27Z",
       "side": 1,
       "message": "another one - @nullable LteVopsInfo",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da90f061_b67dcde7",
+        "filename": "radio/aidl/android/hardware/radio/DataRegStateResultVopsInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/15789387/2/radio/aidl/android/hardware/radio/DataRegStateResultVopsInfo.aidl",
+      "parentUuid": "40221161_7f7249ce",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -306,6 +474,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6368857e_8b217135",
+        "filename": "radio/aidl/android/hardware/radio/IRadioResponse.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c9e33122_4e3612ff",
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b6004a0_8d56fc1b",
@@ -319,6 +505,30 @@
       "writtenOn": "2021-06-22T01:07:13Z",
       "side": 1,
       "message": "mixing oneway and non-oneway methods is not recommended. But if you mean it, `@SuppressWarnings(value\u003d{\"mixed-oneway\"})` would silence the AIDL compiler.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 50
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a22ea21c_d8b63212",
+        "filename": "radio/aidl/android/hardware/radio/ISap.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/15789387/2/radio/aidl/android/hardware/radio/ISap.aidl",
+      "parentUuid": "9b6004a0_8d56fc1b",
       "range": {
         "startLine": 67,
         "startChar": 0,
@@ -398,6 +608,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7337e575_3476b1bd",
+        "filename": "radio/aidl/android/hardware/radio/MaybePort.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/15789387/2/radio/aidl/aidl_api/android.hardware.radio/current/android/hardware/radio/MaybePort.aidl",
+      "parentUuid": "e8fe2c76_90e67840",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ea82db8_7b1fc960",
@@ -411,6 +645,30 @@
       "writtenOn": "2021-06-22T00:14:27Z",
       "side": 1,
       "message": "these too, could use @nullable",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 14
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efcb7fb2_d4fe3ebf",
+        "filename": "radio/aidl/android/hardware/radio/OptionalCsgInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/15789387/2/radio/aidl/aidl_api/android.hardware.radio/current/android/hardware/radio/OptionalCsgInfo.aidl",
+      "parentUuid": "0ea82db8_7b1fc960",
       "range": {
         "startLine": 22,
         "startChar": 5,
@@ -480,6 +738,30 @@
       "writtenOn": "2021-06-22T00:40:04Z",
       "side": 1,
       "message": "byte is mapped to int8_t. I recommend to use int for the value of 0 to 255.",
+      "range": {
+        "startLine": 28,
+        "startChar": 40,
+        "endLine": 28,
+        "endChar": 48
+      },
+      "revId": "a7a63eb1f9dd8a0043fa7ba4d2d332339e8d7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ec6df91_2f379c0a",
+        "filename": "radio/aidl/android/hardware/radio/UrspRule.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-10T22:29:36Z",
+      "side": 1,
+      "message": "https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/15789387/2/radio/aidl/aidl_api/android.hardware.radio/current/android/hardware/radio/UrspRule.aidl",
+      "parentUuid": "0a9c4544_ca24280d",
       "range": {
         "startLine": 28,
         "startChar": 40,
