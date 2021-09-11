@@ -30,6 +30,7 @@
 #include <cppbor.h>
 
 #include "IdentityCredentialStore.h"
+#include "PresentationSession.h"
 #include "SecureHardwareProxy.h"
 
 namespace aidl::android::hardware::identity {
@@ -47,10 +48,12 @@ class IdentityCredential : public BnIdentityCredential {
   public:
     IdentityCredential(sp<SecureHardwareProxyFactory> hwProxyFactory,
                        sp<SecureHardwarePresentationProxy> hwProxy,
-                       const vector<uint8_t>& credentialData)
+                       const vector<uint8_t>& credentialData,
+                       shared_ptr<PresentationSession> session)
         : hwProxyFactory_(hwProxyFactory),
           hwProxy_(hwProxy),
           credentialData_(credentialData),
+          session_(session),
           numStartRetrievalCalls_(0),
           expectedDeviceNameSpacesSize_(0) {}
 
@@ -98,6 +101,7 @@ class IdentityCredential : public BnIdentityCredential {
     sp<SecureHardwareProxyFactory> hwProxyFactory_;
     sp<SecureHardwarePresentationProxy> hwProxy_;
     vector<uint8_t> credentialData_;
+    shared_ptr<PresentationSession> session_;
     int numStartRetrievalCalls_;
 
     // Set by initialize()

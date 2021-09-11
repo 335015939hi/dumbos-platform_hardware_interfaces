@@ -13,6 +13,7 @@ cc_library_static {
     srcs: [
         "common/IdentityCredential.cpp",
         "common/IdentityCredentialStore.cpp",
+        "common/PresentationSession.cpp",
         "common/WritableIdentityCredential.cpp",
     ],
     export_include_dirs: [
@@ -49,6 +50,7 @@ cc_library_static {
     vendor_available: true,
     srcs: [
         "libeic/EicCbor.c",
+        "libeic/EicSession.c",
         "libeic/EicPresentation.c",
         "libeic/EicProvisioning.c",
         "EicOpsImpl.cc",
