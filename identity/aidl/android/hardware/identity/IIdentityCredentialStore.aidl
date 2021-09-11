@@ -16,10 +16,11 @@
 
 package android.hardware.identity;
 
-import android.hardware.identity.IIdentityCredential;
-import android.hardware.identity.IWritableIdentityCredential;
-import android.hardware.identity.HardwareInformation;
 import android.hardware.identity.CipherSuite;
+import android.hardware.identity.HardwareInformation;
+import android.hardware.identity.IIdentityCredential;
+import android.hardware.identity.IPresentationSession;
+import android.hardware.identity.IWritableIdentityCredential;
 
 /**
  * IIdentityCredentialStore provides an interface to a secure store for user identity documents.
@@ -214,16 +215,16 @@ interface IIdentityCredentialStore {
      * @return an IWritableIdentityCredential interface that provides operations to
      *     provision a credential.
      */
-    IWritableIdentityCredential createCredential(in @utf8InCpp String docType,
-                                                 in boolean testCredential);
+    IWritableIdentityCredential createCredential(
+            in @utf8InCpp String docType, in boolean testCredential);
 
     /**
      * getCredential retrieves an IIdentityCredential interface which allows use of a stored
      * Credential.
      *
-     * The cipher suite used to communicate with the remote verifier must also be specified. Currently
-     * only a single cipher-suite is supported. Support for other cipher suites may be added in a
-     * future version of this HAL.
+     * The cipher suite used to communicate with the remote verifier must also be specified.
+     * Currently only a single cipher-suite is supported. Support for other cipher suites may be
+     * added in a future version of this HAL.
      *
      * This method fails with STATUS_INVALID_DATA if the passed in credentialData cannot be
      * decoded or decrypted.
@@ -241,4 +242,22 @@ interface IIdentityCredentialStore {
      * @return an IIdentityCredential interface that provides operations on the Credential.
      */
     IIdentityCredential getCredential(in CipherSuite cipherSuite, in byte[] credentialData);
+
+    /**
+     * createPresentationSession creates IPresentationSession interface which can be used to
+     * present one or more credentials to a remote verifier device.
+     *
+     * The cipher suite used to communicate with the remote verifier must be specified. Currently
+     * only a single cipher-suite is supported. Support for other cipher suites may be added in a
+     * future version of this HAL.
+     *
+     * In this version of the HAL, implementations are only required to support a single session
+     * being active. In a future version, implementations may be required to support multiple
+     * presentation sessions being active at the same time.
+     *
+     * @param cipherSuite is the cipher suite to use.
+     *
+     * @return an IPresentationSession interface.
+     */
+    IPresentationSession createPresentationSession(in CipherSuite cipherSuite);
 }

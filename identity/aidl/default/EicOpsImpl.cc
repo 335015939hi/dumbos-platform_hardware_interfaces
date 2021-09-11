@@ -63,6 +63,11 @@ size_t eicStrLen(const char* s) {
     return strlen(s);
 }
 
+void* eicMemMem(const uint8_t* haystack, size_t haystackLen, const uint8_t* needle,
+                size_t needleLen) {
+    return memmem(haystack, haystackLen, needle, needleLen);
+}
+
 int eicCryptoMemCmp(const void* s1, const void* s2, size_t n) {
     return CRYPTO_memcmp(s1, s2, n);
 }

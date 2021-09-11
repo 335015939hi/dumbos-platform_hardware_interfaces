@@ -23,6 +23,7 @@
 #include <android-base/logging.h>
 #include <android-base/stringprintf.h>
 #include <string.h>
+#include <map>
 
 #include <openssl/sha.h>
 
@@ -162,15 +163,72 @@ optional<vector<uint8_t>> FakeSecureHardwareProvisioningProxy::finishGetCredenti
 
 // ----------------------------------------------------------------------
 
+FakeSecureHardwareSessionProxy::FakeSecureHardwareSessionProxy() {}
+
+FakeSecureHardwareSessionProxy::~FakeSecureHardwareSessionProxy() {}
+
+bool FakeSecureHardwareSessionProxy::initialize() {
+    LOG(INFO) << "FakeSecureHardwareSessionProxy created, sizeof(EicSession): "
+              << sizeof(EicSession);
+    bool ret = eicSessionInit(&ctx_);
+    if (!ret) {
+        return false;
+    }
+    return true;
+}
+
+optional<uint64_t> FakeSecureHardwareSessionProxy::getId() {
+    uint64_t id;
+    if (!eicSessionGetId(&ctx_, &id)) {
+        return {};
+    }
+    return id;
+}
+
+optional<uint64_t> FakeSecureHardwareSessionProxy::getAuthChallenge() {
+    uint64_t authChallenge;
+    if (!eicSessionGetAuthChallenge(&ctx_, &authChallenge)) {
+        return {};
+    }
+    return authChallenge;
+}
+
+optional<vector<uint8_t>> FakeSecureHardwareSessionProxy::getEphemeralKeyPair() {
+    vector<uint8_t> priv(EIC_P256_PRIV_KEY_SIZE);
+    if (!eicSessionGetEphemeralKeyPair(&ctx_, priv.data())) {
+        return {};
+    }
+    return priv;
+}
+
+bool FakeSecureHardwareSessionProxy::setReaderEphemeralPublicKey(
+        const vector<uint8_t>& readerEphemeralPublicKey) {
+    return eicSessionSetReaderEphemeralPublicKey(&ctx_, readerEphemeralPublicKey.data());
+}
+
+bool FakeSecureHardwareSessionProxy::setSessionTranscript(
+        const vector<uint8_t>& sessionTranscript) {
+    return eicSessionSetSessionTranscript(&ctx_, sessionTranscript.data(),
+                                          sessionTranscript.size());
+}
+
+bool FakeSecureHardwareSessionProxy::shutdown() {
+    LOG(INFO) << "FakeSecureHardwareSessionProxy shutdown";
+    return true;
+}
+
+// ----------------------------------------------------------------------
+
 FakeSecureHardwarePresentationProxy::FakeSecureHardwarePresentationProxy() {}
 
 FakeSecureHardwarePresentationProxy::~FakeSecureHardwarePresentationProxy() {}
 
-bool FakeSecureHardwarePresentationProxy::initialize(bool testCredential, string docType,
+bool FakeSecureHardwarePresentationProxy::initialize(uint64_t sessionId, bool testCredential,
+                                                     string docType,
                                                      vector<uint8_t> encryptedCredentialKeys) {
     LOG(INFO) << "FakeSecureHardwarePresentationProxy created, sizeof(EicPresentation): "
               << sizeof(EicPresentation);
-    return eicPresentationInit(&ctx_, testCredential, docType.c_str(),
+    return eicPresentationInit(&ctx_, sessionId, testCredential, docType.c_str(),
                                encryptedCredentialKeys.data(), encryptedCredentialKeys.size());
 }
 
