@@ -72,12 +72,38 @@ class FakeSecureHardwareProvisioningProxy : public SecureHardwareProvisioningPro
 
 // This implementation uses libEmbeddedIC in-process.
 //
+class FakeSecureHardwareSessionProxy : public SecureHardwareSessionProxy {
+  public:
+    FakeSecureHardwareSessionProxy();
+    virtual ~FakeSecureHardwareSessionProxy();
+
+    bool initialize() override;
+
+    optional<uint64_t> getId() override;
+
+    optional<uint64_t> getAuthChallenge() override;
+
+    // Returns private key
+    optional<vector<uint8_t>> getEphemeralKeyPair() override;
+
+    bool setReaderEphemeralPublicKey(const vector<uint8_t>& readerEphemeralPublicKey) override;
+
+    bool setSessionTranscript(const vector<uint8_t>& sessionTranscript) override;
+
+    bool shutdown() override;
+
+  protected:
+    EicSession ctx_;
+};
+
+// This implementation uses libEmbeddedIC in-process.
+//
 class FakeSecureHardwarePresentationProxy : public SecureHardwarePresentationProxy {
   public:
     FakeSecureHardwarePresentationProxy();
     virtual ~FakeSecureHardwarePresentationProxy();
 
-    bool initialize(bool testCredential, string docType,
+    bool initialize(uint64_t sessionId, bool testCredential, string docType,
                     vector<uint8_t> encryptedCredentialKeys) override;
 
     // Returns publicKeyCert (1st component) and signingKeyBlob (2nd component)
@@ -148,6 +174,10 @@ class FakeSecureHardwareProxyFactory : public SecureHardwareProxyFactory {
 
     sp<SecureHardwareProvisioningProxy> createProvisioningProxy() override {
         return new FakeSecureHardwareProvisioningProxy();
+    }
+
+    sp<SecureHardwareSessionProxy> createSessionProxy() override {
+        return new FakeSecureHardwareSessionProxy();
     }
 
     sp<SecureHardwarePresentationProxy> createPresentationProxy() override {

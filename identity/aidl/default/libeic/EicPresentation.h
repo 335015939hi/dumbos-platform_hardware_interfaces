@@ -38,6 +38,9 @@ typedef struct {
 
     uint8_t ephemeralPrivateKey[EIC_P256_PRIV_KEY_SIZE];
 
+    // If non-zero, the id of the EicSession object this presentation object is associated with.
+    uint64_t sessionId;
+
     // The challenge generated with eicPresentationCreateAuthChallenge()
     uint64_t authChallenge;
 
@@ -93,8 +96,12 @@ typedef struct {
     EicCbor cbor;
 } EicPresentation;
 
-bool eicPresentationInit(EicPresentation* ctx, bool testCredential, const char* docType,
-                         size_t docTypeLength, const uint8_t* encryptedCredentialKeys,
+// If sessionId is zero, the presentation object is not associated with a session object.
+// Otherwise it's the id of the session object.
+//
+bool eicPresentationInit(EicPresentation* ctx, uint64_t sessionId, bool testCredential,
+                         const char* docType, size_t docTypeLength,
+                         const uint8_t* encryptedCredentialKeys,
                          size_t encryptedCredentialKeysSize);
 
 bool eicPresentationGenerateSigningKeyPair(EicPresentation* ctx, const char* docType,
