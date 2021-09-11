@@ -72,12 +72,31 @@ int IdentityCredential::initialize() {
     testCredential_ = testCredentialItem->value();
 
     encryptedCredentialKeys_ = encryptedCredentialKeysItem->value();
-    if (!hwProxy_->initialize(testCredential_, docType_, encryptedCredentialKeys_)) {
-        LOG(ERROR) << "hwProxy->initialize failed";
-        return false;
+
+    // If in a session, delay the initialization of the proxy.
+    //
+    if (!session_) {
+        if (!ensureHwProxy()) {
+            LOG(ERROR) << "Error initializing hw proxy";
+            return IIdentityCredentialStore::STATUS_FAILED;
+        }
     }
 
     return IIdentityCredentialStore::STATUS_OK;
+}
+
+bool IdentityCredential::ensureHwProxy() {
+    if (hwProxy_) {
+        return true;
+    }
+    hwProxy_ = hwProxyFactory_->createPresentationProxy();
+    uint64_t sessionId = session_ ? session_->getSessionId() : 0;
+    if (!hwProxy_->initialize(sessionId, testCredential_, docType_, encryptedCredentialKeys_)) {
+        hwProxy_.clear();
+        LOG(ERROR) << "Error initializing presentation proxy";
+        return false;
+    }
+    return true;
 }
 
 ndk::ScopedAStatus IdentityCredential::deleteCredential(
@@ -93,6 +112,14 @@ ndk::ScopedAStatus IdentityCredential::deleteCredentialWithChallenge(
 ndk::ScopedAStatus IdentityCredential::deleteCredentialCommon(
         const vector<uint8_t>& challenge, bool includeChallenge,
         vector<uint8_t>* outProofOfDeletionSignature) {
+    if (session_) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Cannot be called in a session"));
+    }
+    if (!ensureHwProxy()) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error initializing hw proxy"));
+    }
     if (challenge.size() > 32) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_INVALID_DATA, "Challenge too big"));
@@ -128,6 +155,14 @@ ndk::ScopedAStatus IdentityCredential::deleteCredentialCommon(
 
 ndk::ScopedAStatus IdentityCredential::proveOwnership(
         const vector<uint8_t>& challenge, vector<uint8_t>* outProofOfOwnershipSignature) {
+    if (session_) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Cannot be called in a session"));
+    }
+    if (!ensureHwProxy()) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error initializing hw proxy"));
+    }
     if (challenge.size() > 32) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_INVALID_DATA, "Challenge too big"));
@@ -159,6 +194,14 @@ ndk::ScopedAStatus IdentityCredential::proveOwnership(
 }
 
 ndk::ScopedAStatus IdentityCredential::createEphemeralKeyPair(vector<uint8_t>* outKeyPair) {
+    if (session_) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Cannot be called in a session"));
+    }
+    if (!ensureHwProxy()) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error initializing hw proxy"));
+    }
     optional<vector<uint8_t>> ephemeralPriv = hwProxy_->createEphemeralKeyPair();
     if (!ephemeralPriv) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
@@ -186,11 +229,23 @@ ndk::ScopedAStatus IdentityCredential::createEphemeralKeyPair(vector<uint8_t>* o
 
 ndk::ScopedAStatus IdentityCredential::setReaderEphemeralPublicKey(
         const vector<uint8_t>& publicKey) {
+    if (session_) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Cannot be called in a session"));
+    }
     readerPublicKey_ = publicKey;
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus IdentityCredential::createAuthChallenge(int64_t* outChallenge) {
+    if (session_) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Cannot be called in a session"));
+    }
+    if (!ensureHwProxy()) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error initializing hw proxy"));
+    }
     optional<uint64_t> challenge = hwProxy_->createAuthChallenge();
     if (!challenge) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
@@ -217,6 +272,22 @@ ndk::ScopedAStatus IdentityCredential::startRetrieval(
         const HardwareAuthToken& authToken, const vector<uint8_t>& itemsRequest,
         const vector<uint8_t>& signingKeyBlob, const vector<uint8_t>& sessionTranscript,
         const vector<uint8_t>& readerSignature, const vector<int32_t>& requestCounts) {
+    if (!ensureHwProxy()) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error initializing hw proxy"));
+    }
+
+    // If in a session, ensure the passed-in session transcript matches the
+    // session transcript from the session.
+    if (session_) {
+        if (sessionTranscript != session_->getSessionTranscript()) {
+            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                    IIdentityCredentialStore::STATUS_SESSION_TRANSCRIPT_MISMATCH,
+                    "In a session and passed-in SessionTranscript doesn't match the one "
+                    "from the session"));
+        }
+    }
+
     std::unique_ptr<cppbor::Item> sessionTranscriptItem;
     if (sessionTranscript.size() > 0) {
         auto [item, _, message] = cppbor::parse(sessionTranscript);
@@ -390,32 +461,36 @@ ndk::ScopedAStatus IdentityCredential::startRetrieval(
         }
     }
 
-    // TODO: move this check to the TA
-#if 1
-    // To prevent replay-attacks, we check that the public part of the ephemeral
-    // key we previously created, is present in the DeviceEngagement part of
-    // SessionTranscript as a COSE_Key, in uncompressed form.
-    //
-    // We do this by just searching for the X and Y coordinates.
-    if (sessionTranscript.size() > 0) {
-        auto [getXYSuccess, ePubX, ePubY] = support::ecPublicKeyGetXandY(ephemeralPublicKey_);
-        if (!getXYSuccess) {
-            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                    IIdentityCredentialStore::STATUS_EPHEMERAL_PUBLIC_KEY_NOT_FOUND,
-                    "Error extracting X and Y from ePub"));
-        }
-        if (sessionTranscript.size() > 0 &&
-            !(memmem(sessionTranscript.data(), sessionTranscript.size(), ePubX.data(),
-                     ePubX.size()) != nullptr &&
-              memmem(sessionTranscript.data(), sessionTranscript.size(), ePubY.data(),
-                     ePubY.size()) != nullptr)) {
-            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                    IIdentityCredentialStore::STATUS_EPHEMERAL_PUBLIC_KEY_NOT_FOUND,
-                    "Did not find ephemeral public key's X and Y coordinates in "
-                    "SessionTranscript (make sure leading zeroes are not used)"));
+    if (session_) {
+        // If presenting in a session, the TA has already done this check.
+
+    } else {
+        // To prevent replay-attacks, we check that the public part of the ephemeral
+        // key we previously created, is present in the DeviceEngagement part of
+        // SessionTranscript as a COSE_Key, in uncompressed form.
+        //
+        // We do this by just searching for the X and Y coordinates.
+        //
+        // Would be nice to move this check to the TA.
+        if (sessionTranscript.size() > 0) {
+            auto [getXYSuccess, ePubX, ePubY] = support::ecPublicKeyGetXandY(ephemeralPublicKey_);
+            if (!getXYSuccess) {
+                return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                        IIdentityCredentialStore::STATUS_EPHEMERAL_PUBLIC_KEY_NOT_FOUND,
+                        "Error extracting X and Y from ePub"));
+            }
+            if (sessionTranscript.size() > 0 &&
+                !(memmem(sessionTranscript.data(), sessionTranscript.size(), ePubX.data(),
+                         ePubX.size()) != nullptr &&
+                  memmem(sessionTranscript.data(), sessionTranscript.size(), ePubY.data(),
+                         ePubY.size()) != nullptr)) {
+                return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                        IIdentityCredentialStore::STATUS_EPHEMERAL_PUBLIC_KEY_NOT_FOUND,
+                        "Did not find ephemeral public key's X and Y coordinates in "
+                        "SessionTranscript (make sure leading zeroes are not used)"));
+            }
         }
     }
-#endif
 
     // itemsRequest: If non-empty, contains request data that may be signed by the
     // reader.  The content can be defined in the way appropriate for the
@@ -535,23 +610,40 @@ ndk::ScopedAStatus IdentityCredential::startRetrieval(
         }
     }
 
-    // Finally, pass info so the HMAC key can be derived and the TA can start
-    // creating the DeviceNameSpaces CBOR...
-    if (sessionTranscript_.size() > 0 && readerPublicKey_.size() > 0 && signingKeyBlob.size() > 0) {
-        // We expect the reader ephemeral public key to be same size and curve
-        // as the ephemeral key we generated (e.g. P-256 key), otherwise ECDH
-        // won't work. So its length should be 65 bytes and it should be
-        // starting with 0x04.
-        if (readerPublicKey_.size() != 65 || readerPublicKey_[0] != 0x04) {
-            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                    IIdentityCredentialStore::STATUS_FAILED,
-                    "Reader public key is not in expected format"));
+    if (!session_) {
+        // Finally, pass info so the HMAC key can be derived and the TA can start
+        // creating the DeviceNameSpaces CBOR...
+        if (sessionTranscript_.size() > 0 && readerPublicKey_.size() > 0 &&
+            signingKeyBlob.size() > 0) {
+            // We expect the reader ephemeral public key to be same size and curve
+            // as the ephemeral key we generated (e.g. P-256 key), otherwise ECDH
+            // won't work. So its length should be 65 bytes and it should be
+            // starting with 0x04.
+            if (readerPublicKey_.size() != 65 || readerPublicKey_[0] != 0x04) {
+                return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                        IIdentityCredentialStore::STATUS_FAILED,
+                        "Reader public key is not in expected format"));
+            }
+            vector<uint8_t> pubKeyP256(readerPublicKey_.begin() + 1, readerPublicKey_.end());
+            if (!hwProxy_->calcMacKey(sessionTranscript_, pubKeyP256, signingKeyBlob, docType_,
+                                      numNamespacesWithValues, expectedDeviceNameSpacesSize_)) {
+                return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                        IIdentityCredentialStore::STATUS_FAILED,
+                        "Error starting retrieving entries"));
+            }
         }
-        vector<uint8_t> pubKeyP256(readerPublicKey_.begin() + 1, readerPublicKey_.end());
-        if (!hwProxy_->calcMacKey(sessionTranscript_, pubKeyP256, signingKeyBlob, docType_,
-                                  numNamespacesWithValues, expectedDeviceNameSpacesSize_)) {
-            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                    IIdentityCredentialStore::STATUS_FAILED, "Error starting retrieving entries"));
+    } else {
+        if (session_->getSessionTranscript().size() > 0 &&
+            session_->getReaderEphemeralPublicKey().size() > 0) {
+            // Don't actually pass the reader ephemeral public key in, the TA will get
+            // it from the session object.
+            //
+            if (!hwProxy_->calcMacKey(sessionTranscript_, {}, signingKeyBlob, docType_,
+                                      numNamespacesWithValues, expectedDeviceNameSpacesSize_)) {
+                return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                        IIdentityCredentialStore::STATUS_FAILED,
+                        "Error starting retrieving entries"));
+            }
         }
     }
 
@@ -665,6 +757,11 @@ void IdentityCredential::calcDeviceNameSpacesSize(uint32_t accessControlProfileM
 ndk::ScopedAStatus IdentityCredential::startRetrieveEntryValue(
         const string& nameSpace, const string& name, int32_t entrySize,
         const vector<int32_t>& accessControlProfileIds) {
+    if (!ensureHwProxy()) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error initializing hw proxy"));
+    }
+
     if (name.empty()) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_INVALID_DATA, "Name cannot be empty"));
@@ -785,6 +882,11 @@ ndk::ScopedAStatus IdentityCredential::startRetrieveEntryValue(
 
 ndk::ScopedAStatus IdentityCredential::retrieveEntryValue(const vector<uint8_t>& encryptedContent,
                                                           vector<uint8_t>* outContent) {
+    if (!ensureHwProxy()) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error initializing hw proxy"));
+    }
+
     optional<vector<uint8_t>> content = hwProxy_->retrieveEntryValue(
             encryptedContent, currentNameSpace_, currentName_, currentAccessControlProfileIds_);
     if (!content) {
@@ -829,6 +931,11 @@ ndk::ScopedAStatus IdentityCredential::retrieveEntryValue(const vector<uint8_t>&
 
 ndk::ScopedAStatus IdentityCredential::finishRetrieval(vector<uint8_t>* outMac,
                                                        vector<uint8_t>* outDeviceNameSpaces) {
+    if (!ensureHwProxy()) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error initializing hw proxy"));
+    }
+
     if (currentNameSpaceDeviceNameSpacesMap_.size() > 0) {
         deviceNameSpacesMap_.add(currentNameSpace_,
                                  std::move(currentNameSpaceDeviceNameSpacesMap_));
@@ -846,18 +953,16 @@ ndk::ScopedAStatus IdentityCredential::finishRetrieval(vector<uint8_t>* outMac,
                         .c_str()));
     }
 
-    // If there's no signing key or no sessionTranscript or no reader ephemeral
-    // public key, we return the empty MAC.
+    // If the TA calculated a MAC (it might not have), format it as a COSE_Mac0
+    //
     optional<vector<uint8_t>> mac;
-    if (signingKeyBlob_.size() > 0 && sessionTranscript_.size() > 0 &&
-        readerPublicKey_.size() > 0) {
-        optional<vector<uint8_t>> digestToBeMaced = hwProxy_->finishRetrieval();
-        if (!digestToBeMaced || digestToBeMaced.value().size() != 32) {
-            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                    IIdentityCredentialStore::STATUS_INVALID_DATA,
-                    "Error generating digestToBeMaced"));
-        }
-        // Now construct COSE_Mac0 from the returned MAC...
+    optional<vector<uint8_t>> digestToBeMaced = hwProxy_->finishRetrieval();
+
+    if (!digestToBeMaced) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_INVALID_DATA, "Error generating digestToBeMaced"));
+    }
+    if (digestToBeMaced.value().size() == 32) {
         mac = support::coseMacWithDigest(digestToBeMaced.value(), {} /* data */);
     }
 
@@ -868,6 +973,11 @@ ndk::ScopedAStatus IdentityCredential::finishRetrieval(vector<uint8_t>* outMac,
 
 ndk::ScopedAStatus IdentityCredential::generateSigningKeyPair(
         vector<uint8_t>* outSigningKeyBlob, Certificate* outSigningKeyCertificate) {
+    if (!ensureHwProxy()) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error initializing hw proxy"));
+    }
+
     time_t now = time(NULL);
     optional<pair<vector<uint8_t>, vector<uint8_t>>> pair =
             hwProxy_->generateSigningKeyPair(docType_, now);
@@ -885,9 +995,10 @@ ndk::ScopedAStatus IdentityCredential::generateSigningKeyPair(
 
 ndk::ScopedAStatus IdentityCredential::updateCredential(
         shared_ptr<IWritableIdentityCredential>* outWritableCredential) {
-    sp<SecureHardwareProvisioningProxy> hwProxy = hwProxyFactory_->createProvisioningProxy();
+    sp<SecureHardwareProvisioningProxy> provisioningHwProxy =
+            hwProxyFactory_->createProvisioningProxy();
     shared_ptr<WritableIdentityCredential> wc =
-            ndk::SharedRefBase::make<WritableIdentityCredential>(hwProxy, docType_,
+            ndk::SharedRefBase::make<WritableIdentityCredential>(provisioningHwProxy, docType_,
                                                                  testCredential_);
     if (!wc->initializeForUpdate(encryptedCredentialKeys_)) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
