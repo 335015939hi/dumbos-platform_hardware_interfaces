@@ -16,11 +16,13 @@
 
 #include "EicPresentation.h"
 #include "EicCommon.h"
+#include "EicSession.h"
 
 #include <inttypes.h>
 
-bool eicPresentationInit(EicPresentation* ctx, bool testCredential, const char* docType,
-                         size_t docTypeLength, const uint8_t* encryptedCredentialKeys,
+bool eicPresentationInit(EicPresentation* ctx, uint64_t sessionId, bool testCredential,
+                         const char* docType, size_t docTypeLength,
+                         const uint8_t* encryptedCredentialKeys,
                          size_t encryptedCredentialKeysSize) {
     uint8_t credentialKeys[EIC_CREDENTIAL_KEYS_CBOR_SIZE_FEATURE_VERSION_202101];
     bool expectPopSha256 = false;
@@ -39,6 +41,7 @@ bool eicPresentationInit(EicPresentation* ctx, bool testCredential, const char* 
     }
 
     eicMemSet(ctx, '\0', sizeof(EicPresentation));
+    ctx->sessionId = sessionId;
 
     if (!eicOpsDecryptAes128Gcm(eicOpsGetHardwareBoundKey(testCredential), encryptedCredentialKeys,
                                 encryptedCredentialKeysSize,
@@ -190,6 +193,24 @@ bool eicPresentationValidateRequestMessage(EicPresentation* ctx, const uint8_t* 
                                            int coseSignAlg,
                                            const uint8_t* readerSignatureOfToBeSigned,
                                            size_t readerSignatureOfToBeSignedSize) {
+    if (ctx->sessionId != 0) {
+        EicSession* session = eicSessionGetForId(ctx->sessionId);
+        if (session == NULL) {
+            eicDebug("Error looking up session for sessionId %" PRIu64, ctx->sessionId);
+            return false;
+        }
+        EicSha256Ctx sha256;
+        uint8_t sessionTranscriptSha256[EIC_SHA256_DIGEST_SIZE];
+        eicOpsSha256Init(&sha256);
+        eicOpsSha256Update(&sha256, sessionTranscript, sessionTranscriptSize);
+        eicOpsSha256Final(&sha256, sessionTranscriptSha256);
+        if (eicCryptoMemCmp(sessionTranscriptSha256, session->sessionTranscriptSha256,
+                            EIC_SHA256_DIGEST_SIZE) != 0) {
+            eicDebug("SessionTranscript mismatch");
+            return false;
+        }
+    }
+
     if (ctx->readerPublicKeySize == 0) {
         eicDebug("No public key for reader");
         return false;
@@ -338,14 +359,25 @@ bool eicPresentationSetAuthToken(EicPresentation* ctx, uint64_t challenge, uint6
                                  int verificationTokenSecurityLevel,
                                  const uint8_t* verificationTokenMac,
                                  size_t verificationTokenMacSize) {
+    // Use authChallenge from session if applicable.
+    uint64_t authChallenge = ctx->authChallenge;
+    if (ctx->sessionId != 0) {
+        EicSession* session = eicSessionGetForId(ctx->sessionId);
+        if (session == NULL) {
+            eicDebug("Error looking up session for sessionId %" PRIu64, ctx->sessionId);
+            return false;
+        }
+        authChallenge = session->authChallenge;
+    }
+
     // It doesn't make sense to accept any tokens if eicPresentationCreateAuthChallenge()
     // was never called.
-    if (ctx->authChallenge == 0) {
-        eicDebug("Trying validate tokens when no auth-challenge was previously generated");
+    if (authChallenge == 0) {
+        eicDebug("Trying to validate tokens when no auth-challenge was previously generated");
         return false;
     }
     // At least the verification-token must have the same challenge as what was generated.
-    if (verificationTokenChallenge != ctx->authChallenge) {
+    if (verificationTokenChallenge != authChallenge) {
         eicDebug("Challenge in verification token does not match the challenge "
                  "previously generated");
         return false;
@@ -354,6 +386,7 @@ bool eicPresentationSetAuthToken(EicPresentation* ctx, uint64_t challenge, uint6
                 challenge, secureUserId, authenticatorId, hardwareAuthenticatorType, timeStamp, mac,
                 macSize, verificationTokenChallenge, verificationTokenTimestamp,
                 verificationTokenSecurityLevel, verificationTokenMac, verificationTokenMacSize)) {
+        eicDebug("Error validating authToken");
         return false;
     }
     ctx->authTokenChallenge = challenge;
@@ -377,11 +410,22 @@ static bool checkUserAuth(EicPresentation* ctx, bool userAuthenticationRequired,
     // Only ACP with auth-on-every-presentation - those with timeout == 0 - need the
     // challenge to match...
     if (timeoutMillis == 0) {
-        if (ctx->authTokenChallenge != ctx->authChallenge) {
+        // Use authChallenge from session if applicable.
+        uint64_t authChallenge = ctx->authChallenge;
+        if (ctx->sessionId != 0) {
+            EicSession* session = eicSessionGetForId(ctx->sessionId);
+            if (session == NULL) {
+                eicDebug("Error looking up session for sessionId %" PRIu64, ctx->sessionId);
+                return false;
+            }
+            authChallenge = session->authChallenge;
+        }
+
+        if (ctx->authTokenChallenge != authChallenge) {
             eicDebug("Challenge in authToken (%" PRIu64
                      ") doesn't match the challenge "
                      "that was created (%" PRIu64 ") for this session",
-                     ctx->authTokenChallenge, ctx->authChallenge);
+                     ctx->authTokenChallenge, authChallenge);
             return false;
         }
     }
@@ -490,6 +534,25 @@ bool eicPresentationCalcMacKey(EicPresentation* ctx, const uint8_t* sessionTrans
                                const uint8_t signingKeyBlob[60], const char* docType,
                                size_t docTypeLength, unsigned int numNamespacesWithValues,
                                size_t expectedDeviceNamespacesSize) {
+    if (ctx->sessionId != 0) {
+        EicSession* session = eicSessionGetForId(ctx->sessionId);
+        if (session == NULL) {
+            eicDebug("Error looking up session for sessionId %" PRIu64, ctx->sessionId);
+            return false;
+        }
+        EicSha256Ctx sha256;
+        uint8_t sessionTranscriptSha256[EIC_SHA256_DIGEST_SIZE];
+        eicOpsSha256Init(&sha256);
+        eicOpsSha256Update(&sha256, sessionTranscript, sessionTranscriptSize);
+        eicOpsSha256Final(&sha256, sessionTranscriptSha256);
+        if (eicCryptoMemCmp(sessionTranscriptSha256, session->sessionTranscriptSha256,
+                            EIC_SHA256_DIGEST_SIZE) != 0) {
+            eicDebug("SessionTranscript mismatch");
+            return false;
+        }
+        readerEphemeralPublicKey = session->readerEphemeralPublicKey;
+    }
+
     uint8_t signingKeyPriv[EIC_P256_PRIV_KEY_SIZE];
     if (!eicOpsDecryptAes128Gcm(ctx->storageKey, signingKeyBlob, 60, (const uint8_t*)docType,
                                 docTypeLength, signingKeyPriv)) {
