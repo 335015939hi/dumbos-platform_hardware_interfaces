@@ -17,9 +17,9 @@
 package android.hardware.identity;
 
 import android.hardware.identity.Certificate;
+import android.hardware.identity.IWritableIdentityCredential;
 import android.hardware.identity.RequestNamespace;
 import android.hardware.identity.SecureAccessControlProfile;
-import android.hardware.identity.IWritableIdentityCredential;
 import android.hardware.keymaster.HardwareAuthToken;
 import android.hardware.keymaster.VerificationToken;
 
@@ -50,7 +50,7 @@ interface IIdentityCredential {
     byte[] deleteCredential();
 
     /**
-     * Creates an ephemeral EC key pair, for use in establishing a seceure session with a reader.
+     * Creates an ephemeral EC key pair, for use in establishing a secure session with a reader.
      * This method returns the private key so the caller can perform an ECDH key agreement operation
      * with the reader.  The reason for generating the key pair in the secure environment is so that
      * the secure environment knows what public key to expect to find in the session transcript.
@@ -59,6 +59,9 @@ interface IIdentityCredential {
      *
      * This method may only be called once per instance. If called more than once, STATUS_FAILED
      * will be returned.
+     *
+     * If the method is called on an instance obtained via IPresentationSession.getCredential(),
+     * STATUS_FAILED will be returned.
      *
      * @return the private key, in DER format as specified in RFC 5915.
      */
@@ -69,6 +72,9 @@ interface IIdentityCredential {
      *
      * This method may only be called once per instance. If called more than once, STATUS_FAILED
      * will be returned.
+     *
+     * If the method is called on an instance obtained via IPresentationSession.getCredential(),
+     * STATUS_FAILED will be returned.
      *
      * @param publicKey contains the reader's ephemeral public key, in uncompressed
      *        form (e.g. 0x04 || X || Y).
@@ -82,6 +88,9 @@ interface IIdentityCredential {
      *
      * This method may only be called once per instance. If called more than once, STATUS_FAILED
      * will be returned. If user authentication is not needed, this method may not be called.
+     *
+     * If the method is called on an instance obtained via IPresentationSession.getCredential(),
+     * STATUS_FAILED will be returned.
      *
      * @return challenge, a non-zero number.
      */
@@ -227,8 +236,8 @@ interface IIdentityCredential {
      *   and remove the corresponding requests from the counts.
      */
     void startRetrieval(in SecureAccessControlProfile[] accessControlProfiles,
-        in HardwareAuthToken authToken, in byte[] itemsRequest, in byte[] signingKeyBlob,
-        in byte[] sessionTranscript, in byte[] readerSignature, in int[] requestCounts);
+            in HardwareAuthToken authToken, in byte[] itemsRequest, in byte[] signingKeyBlob,
+            in byte[] sessionTranscript, in byte[] readerSignature, in int[] requestCounts);
 
     /**
      * Starts retrieving an entry, subject to access control requirements.  Entries must be
@@ -259,8 +268,8 @@ interface IIdentityCredential {
      *     is given and this profile wasn't passed to startRetrieval() this call fails
      *     with STATUS_INVALID_DATA.
      */
-    void startRetrieveEntryValue(in @utf8InCpp String nameSpace, in @utf8InCpp String name,
-                                 in int entrySize, in int[] accessControlProfileIds);
+    void startRetrieveEntryValue(in @utf8InCpp String nameSpace,
+            in @utf8InCpp String name, in int entrySize, in int[] accessControlProfileIds);
 
     /**
      * Retrieves an entry value, or part of one, if the entry value is larger than gcmChunkSize.
@@ -392,13 +401,13 @@ interface IIdentityCredential {
      */
     void setRequestedNamespaces(in RequestNamespace[] requestNamespaces);
 
-   /**
-    * Sets the VerificationToken. This method must be called before startRetrieval() is
-    * called. This token uses the same challenge as returned by createAuthChallenge().
-    *
-    * @param verificationToken
-    *   The verification token. This token is only valid if the timestamp field is non-zero.
-    */
+    /**
+     * Sets the VerificationToken. This method must be called before startRetrieval() is
+     * called. This token uses the same challenge as returned by createAuthChallenge().
+     *
+     * @param verificationToken
+     *   The verification token. This token is only valid if the timestamp field is non-zero.
+     */
     void setVerificationToken(in VerificationToken verificationToken);
 
     /**
