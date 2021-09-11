@@ -31,12 +31,18 @@ extern "C" {
 #define EIC_PRESENTATION_MAX_READER_PUBLIC_KEY_SIZE 65
 
 typedef struct {
+    // A non-zero number unique for this EicPresentation instance
+    uint32_t id;
+
     int featureLevel;
 
     uint8_t storageKey[EIC_AES_128_KEY_SIZE];
     uint8_t credentialPrivateKey[EIC_P256_PRIV_KEY_SIZE];
 
     uint8_t ephemeralPrivateKey[EIC_P256_PRIV_KEY_SIZE];
+
+    // If non-zero, the id of the EicSession object this presentation object is associated with.
+    uint32_t sessionId;
 
     // The challenge generated with eicPresentationCreateAuthChallenge()
     uint64_t authChallenge;
@@ -93,9 +99,17 @@ typedef struct {
     EicCbor cbor;
 } EicPresentation;
 
-bool eicPresentationInit(EicPresentation* ctx, bool testCredential, const char* docType,
-                         size_t docTypeLength, const uint8_t* encryptedCredentialKeys,
+// If sessionId is zero, the presentation object is not associated with a session object.
+// Otherwise it's the id of the session object.
+//
+bool eicPresentationInit(EicPresentation* ctx, uint32_t sessionId, bool testCredential,
+                         const char* docType, size_t docTypeLength,
+                         const uint8_t* encryptedCredentialKeys,
                          size_t encryptedCredentialKeysSize);
+
+bool eicPresentationShutdown(EicPresentation* ctx);
+
+bool eicPresentationGetId(EicPresentation* ctx, uint32_t* outId);
 
 bool eicPresentationGenerateSigningKeyPair(EicPresentation* ctx, const char* docType,
                                            size_t docTypeLength, time_t now,
