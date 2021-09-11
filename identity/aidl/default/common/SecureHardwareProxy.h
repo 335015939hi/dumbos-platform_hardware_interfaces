@@ -42,6 +42,7 @@ using ::std::vector;
 // Forward declare.
 //
 class SecureHardwareProvisioningProxy;
+class SecureHardwareSessionProxy;
 class SecureHardwarePresentationProxy;
 
 // This is a class used to create proxies.
@@ -52,6 +53,7 @@ class SecureHardwareProxyFactory : public RefBase {
     virtual ~SecureHardwareProxyFactory() {}
 
     virtual sp<SecureHardwareProvisioningProxy> createProvisioningProxy() = 0;
+    virtual sp<SecureHardwareSessionProxy> createSessionProxy() = 0;
     virtual sp<SecureHardwarePresentationProxy> createPresentationProxy() = 0;
 };
 
@@ -66,6 +68,10 @@ class SecureHardwareProvisioningProxy : public RefBase {
 
     virtual bool initializeForUpdate(bool testCredential, string docType,
                                      vector<uint8_t> encryptedCredentialKeys) = 0;
+
+    virtual optional<uint32_t> getId() = 0;
+
+    virtual bool shutdown() = 0;
 
     // Returns public key certificate chain with attestation.
     //
@@ -98,8 +104,6 @@ class SecureHardwareProvisioningProxy : public RefBase {
 
     // Returns encryptedCredentialKeys (80 bytes).
     virtual optional<vector<uint8_t>> finishGetCredentialData(const string& docType) = 0;
-
-    virtual bool shutdown() = 0;
 };
 
 enum AccessCheckResult {
@@ -110,6 +114,30 @@ enum AccessCheckResult {
     kReaderAuthenticationFailed,
 };
 
+// The proxy used for sessions.
+//
+class SecureHardwareSessionProxy : public RefBase {
+  public:
+    SecureHardwareSessionProxy() {}
+
+    virtual ~SecureHardwareSessionProxy() {}
+
+    virtual bool initialize() = 0;
+
+    virtual optional<uint32_t> getId() = 0;
+
+    virtual bool shutdown() = 0;
+
+    virtual optional<uint64_t> getAuthChallenge() = 0;
+
+    // Returns private key
+    virtual optional<vector<uint8_t>> getEphemeralKeyPair() = 0;
+
+    virtual bool setReaderEphemeralPublicKey(const vector<uint8_t>& readerEphemeralPublicKey) = 0;
+
+    virtual bool setSessionTranscript(const vector<uint8_t>& sessionTranscript) = 0;
+};
+
 // The proxy used for presentation.
 //
 class SecureHardwarePresentationProxy : public RefBase {
@@ -117,8 +145,12 @@ class SecureHardwarePresentationProxy : public RefBase {
     SecureHardwarePresentationProxy() {}
     virtual ~SecureHardwarePresentationProxy() {}
 
-    virtual bool initialize(bool testCredential, string docType,
+    virtual bool initialize(uint32_t sessionId, bool testCredential, string docType,
                             vector<uint8_t> encryptedCredentialKeys) = 0;
+
+    virtual optional<uint32_t> getId() = 0;
+
+    virtual bool shutdown() = 0;
 
     // Returns publicKeyCert (1st component) and signingKeyBlob (2nd component)
     virtual optional<pair<vector<uint8_t>, vector<uint8_t>>> generateSigningKeyPair(string docType,
@@ -174,8 +206,6 @@ class SecureHardwarePresentationProxy : public RefBase {
     virtual optional<vector<uint8_t>> proveOwnership(const string& docType, bool testCredential,
                                                      const vector<uint8_t>& challenge,
                                                      size_t proofOfOwnershipCborSize) = 0;
-
-    virtual bool shutdown() = 0;
 };
 
 }  // namespace android::hardware::identity
