@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62c484b7_895b86e2",
+        "filename": "radio/config/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-13T18:36:20Z",
+      "side": 1,
+      "message": "Yes, it should be okay.",
+      "parentUuid": "3205bc57_f0931f9e",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 10
+      },
+      "revId": "d6ea563b4c63c711b2e364e5ab54e91a93779b87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "222f2048_c9b7c0d2",
         "filename": "radio/config/aidl/android/hardware/radio/config/IRadioConfigIndication.aidl",
         "patchSetId": 6
