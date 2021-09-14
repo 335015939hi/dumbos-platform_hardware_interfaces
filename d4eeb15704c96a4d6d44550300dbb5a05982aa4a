@@ -22,6 +22,30 @@
       },
       "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a46ad1e_7cc4012c",
+        "filename": "radio/config/aidl/android/hardware/radio/config/SimSlotStatus.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-14T22:03:31Z",
+      "side": 1,
+      "message": "All enums that were only used for one class were deleted and moved to constants in that class instead. To reference the CardState enum, you can use CardStatus#STATE_ instead.",
+      "parentUuid": "5cdf3f16_257d11a1",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
