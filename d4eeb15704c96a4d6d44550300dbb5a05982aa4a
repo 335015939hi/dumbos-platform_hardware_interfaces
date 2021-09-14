@@ -46,6 +46,30 @@
       },
       "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a747097_ce426a30",
+        "filename": "radio/config/aidl/android/hardware/radio/config/SimSlotStatus.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-14T22:04:53Z",
+      "side": 1,
+      "message": "Yep, just wanted to confirm that",
+      "parentUuid": "0a46ad1e_7cc4012c",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
