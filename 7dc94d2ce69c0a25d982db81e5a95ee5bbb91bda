@@ -123,6 +123,24 @@
       "parentUuid": "b19527bb_0e34ccd0",
       "revId": "7dc94d2ce69c0a25d982db81e5a95ee5bbb91bda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8ecebd4_ed555f48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-14T22:08:44Z",
+      "side": 1,
+      "message": "I have a script create this OWNERS file because it detects that VTS test module VtsHalWifiHostapdV1_0TargetTest your team owns is defined in directory wifi/hostapd/1.0/vts/functional/ in AOSP. My script is not intelligent enough to check existing parent OWNERS files. Since there is already a parent OWNERS file, we don\u0027t need to create a new one, but rather update the parent OWNERS file. My only concern is will a merge conflict happen when https://source.corp.google.com/android/hardware/interfaces/wifi/hostapd/1.0/vts/OWNERS is pushed to AOSP?",
+      "parentUuid": "eb6dbc88_fb04add6",
+      "revId": "7dc94d2ce69c0a25d982db81e5a95ee5bbb91bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
