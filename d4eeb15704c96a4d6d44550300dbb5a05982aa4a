@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cdf3f16_257d11a1",
+        "filename": "radio/config/aidl/android/hardware/radio/config/SimSlotStatus.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-14T21:52:50Z",
+      "side": 1,
+      "message": "Sarah, do you prefer restoring hardware.interfaces.radio.CardState enum or keep it this way? You deleted it in aosp/1825101",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
