@@ -22,13 +22,13 @@
 
     <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
         <option name="cleanup" value="true" />
-        <option name="push-file" key="VtsHalDrmV1_0TargetTest" value="/data/local/tmp/VtsHalDrmV1_0TargetTest" />
-        <option name="push-file" key="libvtswidevine64.so" value="/data/local/tmp/64/lib/libvtswidevine.so" />
-        <option name="push-file" key="libvtswidevine32.so" value="/data/local/tmp/32/lib/libvtswidevine.so" />
+        <option name="push-file" key="VtsHalDrmV1_0TargetTest" value="/data/local/tests/unrestricted/VtsHalDrmV1_0TargetTest" />
+        <option name="push-file" key="libvtswidevine64.so" value="/data/local/tests/unrestricted/64/lib/libvtswidevine.so" />
+        <option name="push-file" key="libvtswidevine32.so" value="/data/local/tests/unrestricted/32/lib/libvtswidevine.so" />
     </target_preparer>
 
     <test class="com.android.tradefed.testtype.GTest" >
-        <option name="native-test-device-path" value="/data/local/tmp" />
+        <option name="native-test-device-path" value="/data/local/tests/unrestricted" />
         <option name="module-name" value="VtsHalDrmV1_0TargetTest" />
     </test>
 </configuration>

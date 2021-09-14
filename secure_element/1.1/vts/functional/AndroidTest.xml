@@ -23,11 +23,11 @@
 
     <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
         <option name="cleanup" value="true" />
-        <option name="push" value="VtsHalSecureElementV1_1TargetTest->/data/local/tmp/VtsHalSecureElementV1_1TargetTest" />
+        <option name="push" value="VtsHalSecureElementV1_1TargetTest->/data/local/tests/unrestricted/VtsHalSecureElementV1_1TargetTest" />
     </target_preparer>
 
     <test class="com.android.tradefed.testtype.GTest" >
-        <option name="native-test-device-path" value="/data/local/tmp" />
+        <option name="native-test-device-path" value="/data/local/tests/unrestricted" />
         <option name="module-name" value="VtsHalSecureElementV1_1TargetTest" />
     </test>
 </configuration>

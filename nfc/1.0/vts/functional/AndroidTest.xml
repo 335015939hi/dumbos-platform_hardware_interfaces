@@ -22,11 +22,11 @@
 
     <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
         <option name="cleanup" value="true" />
-        <option name="push" value="VtsHalNfcV1_0TargetTest->/data/local/tmp/VtsHalNfcV1_0TargetTest" />
+        <option name="push" value="VtsHalNfcV1_0TargetTest->/data/local/tests/unrestricted/VtsHalNfcV1_0TargetTest" />
     </target_preparer>
 
     <test class="com.android.tradefed.testtype.GTest" >
-        <option name="native-test-device-path" value="/data/local/tmp" />
+        <option name="native-test-device-path" value="/data/local/tests/unrestricted" />
         <option name="module-name" value="VtsHalNfcV1_0TargetTest" />
         <option name="native-test-timeout" value="600000"/>
     </test>
