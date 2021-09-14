@@ -3,6 +3,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "317fad68_8ea7211f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-14T22:46:23Z",
+      "side": 1,
+      "message": "Maybe a question for Sarah. Does IRadioConfig need all the translate code? Or is it set up similarly to the main IRadio interface where different versions of types aren\u0027t translated between each other?\n\nIf it\u0027s not needed, you could delete it all now, or check it in and delete it afterwards to keep the history in case it is actually needed.",
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8ad9dd9_141101b0",
+        "filename": "radio/config/aidl/android/hardware/radio/config/ModemInfo.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-14T22:46:23Z",
+      "side": 1,
+      "message": "does this start at 0 or 1? does it matter?",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebb0eba1_da37d793",
+        "filename": "radio/config/aidl/android/hardware/radio/config/ModemsConfig.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-14T22:46:23Z",
+      "side": 1,
+      "message": "There are lots of single field parcelables in this interface. Is that because we expect to expand them in the future?",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5cdf3f16_257d11a1",
         "filename": "radio/config/aidl/android/hardware/radio/config/SimSlotStatus.aidl",
         "patchSetId": 10
@@ -67,6 +130,52 @@
         "startChar": 4,
         "endLine": 27,
         "endChar": 18
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bacb0c6_08ac4a87",
+        "filename": "radio/config/aidl/android/hardware/radio/config/SimSlotStatus.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-14T22:46:23Z",
+      "side": 1,
+      "message": "CardStatus::STATE_PRESENT or however you want to say it. CardStatus.STATE_PRESENT, same for the other instances below.",
+      "range": {
+        "startLine": 37,
+        "startChar": 54,
+        "endLine": 37,
+        "endChar": 71
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a578dae_8870bf4c",
+        "filename": "radio/config/aidl/android/hardware/radio/config/SimSlotStatus.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-14T22:46:23Z",
+      "side": 1,
+      "message": "does this start at 1 or 0? Probably worth mentioning.",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 21
       },
       "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
