@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e561d2de_c2aef5d0",
+        "filename": "radio/config/aidl/android/hardware/radio/config/ModemInfo.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-15T00:20:14Z",
+      "side": 1,
+      "message": "Checked how this attribute is being used and all of them assign value before using it. So no assumptions.",
+      "parentUuid": "b8ad9dd9_141101b0",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebb0eba1_da37d793",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-09-14T22:46:23Z",
       "side": 1,
       "message": "There are lots of single field parcelables in this interface. Is that because we expect to expand them in the future?",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fae6556_6a72eff7",
+        "filename": "radio/config/aidl/android/hardware/radio/config/ModemsConfig.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-15T00:20:14Z",
+      "side": 1,
+      "message": "As per discussions in chat, since it is not a hidl2aidl quirk we are keeping it as it is.",
+      "parentUuid": "ebb0eba1_da37d793",
       "range": {
         "startLine": 25,
         "startChar": 4,
@@ -158,6 +206,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b3cd105_ae14a7c6",
+        "filename": "radio/config/aidl/android/hardware/radio/config/SimSlotStatus.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-15T00:20:14Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "2bacb0c6_08ac4a87",
+      "range": {
+        "startLine": 37,
+        "startChar": 54,
+        "endLine": 37,
+        "endChar": 71
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a578dae_8870bf4c",
@@ -171,6 +243,30 @@
       "writtenOn": "2021-09-14T22:46:23Z",
       "side": 1,
       "message": "does this start at 1 or 0? Probably worth mentioning.",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 21
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a780364_fdc5044d",
+        "filename": "radio/config/aidl/android/hardware/radio/config/SimSlotStatus.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-15T00:20:14Z",
+      "side": 1,
+      "message": "This field is also being assigned before the usage, hence we can keep it as it is.",
+      "parentUuid": "4a578dae_8870bf4c",
       "range": {
         "startLine": 40,
         "startChar": 8,
