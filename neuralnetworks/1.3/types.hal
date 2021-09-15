@@ -2350,7 +2350,7 @@ enum OperationType : int32_t {
      * * 0: An (n - 1)-D {@link OperandType::TENSOR_INT32} tensor.
      *      If input is 1-dimensional, the output shape is [1].
      */
-    ARGMIN = @1.2::OperationType:ARGMIN,  // See ARGMAX for naming discussion.
+    ARGMIN = @1.2::OperationType:ARGMIN, // See ARGMAX for naming discussion.
 
     /**
      * Transform axis-aligned bounding box proposals using bounding box deltas.
