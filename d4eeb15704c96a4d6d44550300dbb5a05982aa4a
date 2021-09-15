@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "249c143c_acef1789",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-15T00:25:05Z",
+      "side": 1,
+      "message": "sounds good!",
+      "parentUuid": "ca2ddc67_7733b960",
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8ad9dd9_141101b0",
@@ -120,6 +138,30 @@
       "side": 1,
       "message": "As per discussions in chat, since it is not a hidl2aidl quirk we are keeping it as it is.",
       "parentUuid": "ebb0eba1_da37d793",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "241c4934_f90605a7",
+        "filename": "radio/config/aidl/android/hardware/radio/config/ModemsConfig.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-15T00:25:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1fae6556_6a72eff7",
       "range": {
         "startLine": 25,
         "startChar": 4,
