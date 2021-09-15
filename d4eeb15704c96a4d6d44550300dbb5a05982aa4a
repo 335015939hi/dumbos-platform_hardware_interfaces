@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca2ddc67_7733b960",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1403265
+      },
+      "writtenOn": "2021-09-15T00:21:51Z",
+      "side": 1,
+      "message": "I prefer to keep it around until I finish refactoring the implementation. I have created a b/199948813 for myself to delete it later on when done refactoring.",
+      "parentUuid": "317fad68_8ea7211f",
+      "revId": "d4eeb15704c96a4d6d44550300dbb5a05982aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8ad9dd9_141101b0",
