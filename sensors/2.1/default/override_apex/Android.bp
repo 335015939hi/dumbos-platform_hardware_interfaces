@@ -1,0 +1,6 @@
+soong_namespace {}
+
+override_apex {
+    name: "com.android.hardware.sensors.override",
+    base: "com.android.hardware.sensors",
+}
