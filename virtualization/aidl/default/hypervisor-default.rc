@@ -1,0 +1,4 @@
+service vendor.hypervisor-default /vendor/bin/hw/android.hardware.hypervisor-service.example
+    class hal
+    user system
+    group system
