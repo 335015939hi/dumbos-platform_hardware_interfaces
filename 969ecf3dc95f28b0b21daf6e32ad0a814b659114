@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7012f92_f8bb3617",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1014491
+      },
+      "writtenOn": "2021-09-16T00:32:05Z",
+      "side": 1,
+      "message": "PTAL.\n(Presubmit failure comes from merge conflicts which is being addressed in internal gerrit)",
+      "revId": "969ecf3dc95f28b0b21daf6e32ad0a814b659114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
