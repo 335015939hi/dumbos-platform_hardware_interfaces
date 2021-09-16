@@ -16,6 +16,7 @@
 
 #include <android/hardware/tv/cec/1.0/IHdmiCec.h>
 #include <hardware/hdmi_cec.h>
+#include <linux/cec.h>
 
 namespace android {
 namespace hardware {
@@ -24,7 +25,8 @@ namespace cec {
 namespace V1_0 {
 namespace implementation {
 
-struct HdmiCecDefault : public IHdmiCec, public hidl_death_recipient {
+class HdmiCecDefault : public IHdmiCec, public hidl_death_recipient {
+  public:
     HdmiCecDefault();
     ~HdmiCecDefault();
     // Methods from ::android::hardware::tv::cec::V1_0::IHdmiCec follow.
@@ -47,11 +49,26 @@ struct HdmiCecDefault : public IHdmiCec, public hidl_death_recipient {
 
     Return<Result> init();
     Return<void> release();
-    static void* event_thread(void*);
-    static int getOpcode(struct cec_msg message);
-    static bool isWakeupMessage(struct cec_msg message);
-};
 
+  private:
+    static void* event_thread(void*);
+    static int getOpcode(cec_msg message);
+    static bool isWakeupMessage(cec_msg message);
+
+    pthread_t mEventThread;
+
+    // When set to false, all the CEC commands are discarded. True by default after initialization.
+    static bool sCecEnabled;
+    /*
+     * When set to false, HAL does not wake up the system upon receiving <Image View On> or
+     * <Text View On>. True by default after initialization.
+     */
+    static bool sWakeupEnabled;
+    static sp<IHdmiCecCallback> sCallback;
+
+    static int sCecFd;
+    static int sExitFd;
+};
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace cec
