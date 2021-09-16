@@ -266,6 +266,13 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>android.hardware.hypervisor</name>
+        <interface>
+            <name>IHypervisor</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>android.hardware.identity</name>
         <version>1-3</version>
         <interface>
