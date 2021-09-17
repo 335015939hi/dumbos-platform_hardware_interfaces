@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6489298_dfde4e7e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-17T00:20:35Z",
+      "side": 1,
+      "message": "how does this work with the Android pKVM virtualization stuff?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 66
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d767210_861b8977",
+        "filename": "virtualization/aidl/android/hardware/hypervisor/IHypervisor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-17T00:20:35Z",
+      "side": 1,
+      "message": "it is pretty heavy to add a process and a HAL to expose something informational like this. Could we use a system property?",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 27
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c19668d6_af115927",
+        "filename": "virtualization/aidl/default/hypervisor-default.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-17T00:20:35Z",
+      "side": 1,
+      "message": "(if we keep it)\n\nuser nobody\ngroup nobody",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 16
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51ac5a05_a6697702",
+        "filename": "virtualization/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-17T00:20:35Z",
+      "side": 1,
+      "message": "(if we keep it)\n\n2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d9f88de_99153c12",
+        "filename": "virtualization/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-17T00:20:35Z",
+      "side": 1,
+      "message": "(if we keep it)\n\nprefer CHECK_EQ, so that it would log what the failure is",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 9
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
