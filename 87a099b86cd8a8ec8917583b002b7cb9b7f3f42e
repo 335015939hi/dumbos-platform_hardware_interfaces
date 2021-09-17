@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ae69174_b8b1902f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2021-09-17T08:48:53Z",
+      "side": 1,
+      "message": "It would query /dev/kvm and check the capabilities e.g. whether it booted in protected mode (vs traditional VHE or nVHE mode).",
+      "parentUuid": "f6489298_dfde4e7e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 66
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2d767210_861b8977",
         "filename": "virtualization/aidl/android/hardware/hypervisor/IHypervisor.aidl",
         "patchSetId": 1
