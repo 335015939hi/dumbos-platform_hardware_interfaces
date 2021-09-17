@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d71a455_8c2ae037",
+        "filename": "virtualization/aidl/android/hardware/hypervisor/IHypervisor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-09-17T00:46:52Z",
+      "side": 1,
+      "message": "I agree with Steven. A HAL just for a version string seems to be an overkill to me. In addition, the value is expected to be immutable. Where is the source of truth? I think that this information can be provided as a bootconfig (which will then automatically translates into a system property) or a node in DT when Android is booted inside a guest VM.",
+      "parentUuid": "2d767210_861b8977",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 27
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c19668d6_af115927",
         "filename": "virtualization/aidl/default/hypervisor-default.rc",
         "patchSetId": 1
