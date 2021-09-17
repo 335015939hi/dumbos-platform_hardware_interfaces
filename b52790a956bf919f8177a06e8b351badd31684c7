@@ -22,6 +22,29 @@
       },
       "revId": "b52790a956bf919f8177a06e8b351badd31684c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b00d72a_3ed30c3b",
+        "filename": "vibrator/aidl/default/apex/com.android.hardware.vibrator.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-17T00:35:06Z",
+      "side": 1,
+      "message": "these probably should have been nobody for the vibrator-service",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "b52790a956bf919f8177a06e8b351badd31684c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
