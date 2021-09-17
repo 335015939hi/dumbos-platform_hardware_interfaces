@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e9d3f91_274c497a",
+        "filename": "vibrator/aidl/default/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-17T00:34:21Z",
+      "side": 1,
+      "message": "different SOCs might install things like vibrator.\u003csoc\u003e or similar. If you want to make it portable, you might check for things in /*/bin/hw/vibrator.*\n\n(note \"vibrator\" from VIBRATOR_HARDWARE_MODULE_ID)\n\nFor cuttlefish, I don\u0027t think we have vibrator.default installed?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 36
+      },
+      "revId": "b52790a956bf919f8177a06e8b351badd31684c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
