@@ -50,6 +50,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e12b6ec_43af10d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1133963
+      },
+      "writtenOn": "2021-09-17T15:59:39Z",
+      "side": 1,
+      "message": "Basically, the idea is - each hypervisor can figure out how to best determine its environment, and return an appropriate string\n\nFor AAOS, I can imagine we may run a GRPC-over-vsock server, and have the HAL impl. cache the response from the host upon first invocation. The host side can then do whatever it needs to provide useful output.",
+      "parentUuid": "5ae69174_b8b1902f",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 66
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0cf2239_79d07b03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133963
+      },
+      "writtenOn": "2021-09-17T15:59:39Z",
+      "side": 1,
+      "message": "Please help me review Hypervisor HAL",
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2d767210_861b8977",
         "filename": "virtualization/aidl/android/hardware/hypervisor/IHypervisor.aidl",
         "patchSetId": 1
@@ -97,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6bb2ef2_9295225c",
+        "filename": "virtualization/aidl/android/hardware/hypervisor/IHypervisor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1133963
+      },
+      "writtenOn": "2021-09-17T15:59:39Z",
+      "side": 1,
+      "message": "I don\u0027t disagree with the heavyweight argument and I\u0027m happy to explore options. Here\u0027s a couple thoughts on why go HAL route\n\nA system property, or DT entry, is pretty much a \"dead end\", i.e. it can represent a static text string but not any kind of dynamic behavior. Even though the HAL is pretty minimal now, I could see trying to add new features (memory sharing is one that AAOS may end up wanting for example), and having the HAL in place makes it a more natural extension.\n\nHaving a HAL in place also has the value of one standard place to do this kind of work. A system property or DT entry is fine and all, but it also feels highly vendor specific, and there is no real nudge to partners towards \"do the standard Android thing\". The HAL offers that IMO.\n\nLast point, I am not sure if system properties can be individually secured. Regular apps really have no business getting their hands on this information, and I\u0027m not sure if there\u0027s SELinux policy mechanisms that can say \"thou shalt not touch this specific property\". This may just be a gap in my knowledge, but I know how to secure a HAL, I don\u0027t know how to secure a system property.",
+      "parentUuid": "8d71a455_8c2ae037",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 27
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c19668d6_af115927",
         "filename": "virtualization/aidl/default/hypervisor-default.rc",
         "patchSetId": 1
@@ -108,6 +173,30 @@
       "writtenOn": "2021-09-17T00:20:35Z",
       "side": 1,
       "message": "(if we keep it)\n\nuser nobody\ngroup nobody",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 16
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5ae37cc_58cbabd9",
+        "filename": "virtualization/aidl/default/hypervisor-default.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1133963
+      },
+      "writtenOn": "2021-09-17T15:59:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c19668d6_af115927",
       "range": {
         "startLine": 3,
         "startChar": 0,
@@ -141,6 +230,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df31544f_eeefd5b7",
+        "filename": "virtualization/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1133963
+      },
+      "writtenOn": "2021-09-17T15:59:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "51ac5a05_a6697702",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d9f88de_99153c12",
@@ -154,6 +267,30 @@
       "writtenOn": "2021-09-17T00:20:35Z",
       "side": 1,
       "message": "(if we keep it)\n\nprefer CHECK_EQ, so that it would log what the failure is",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 9
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d4b7348_e43600ad",
+        "filename": "virtualization/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1133963
+      },
+      "writtenOn": "2021-09-17T15:59:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1d9f88de_99153c12",
       "range": {
         "startLine": 50,
         "startChar": 4,
