@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edcc09d6_301a5a78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041495
+      },
+      "writtenOn": "2021-09-17T13:30:14Z",
+      "side": 1,
+      "message": "VTS builds, and all of VtsHalGraphicsComposerV2_4TargetTest now passes on my device. Considering we just removed a test, I would\u0027ve been very surprised to see anything break. :)",
+      "revId": "2670782508cffc03a1eca68d6eec74cd4c5e6761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
