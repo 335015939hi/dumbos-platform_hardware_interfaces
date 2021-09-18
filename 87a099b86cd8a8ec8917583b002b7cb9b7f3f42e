@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "63667543_4a7497b1",
+        "filename": "virtualization/aidl/android/hardware/hypervisor/IHypervisor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-09-18T01:37:50Z",
+      "side": 1,
+      "message": "\u003e \"thou shalt not touch this specific property\" \n\nYes, this is supported. You can configure the sepolicy so that it can be set only by \u0027init\u0027 and read only by a certain set of processes.\n\n\u003e memory sharing is one that AAOS may end up wanting for example\n\nShouldn\u0027t such features be accomplished via virtio-*? For example, virtio-pmem allows the guest to have direct access to pages in the host.",
+      "parentUuid": "a6bb2ef2_9295225c",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 27
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c19668d6_af115927",
         "filename": "virtualization/aidl/default/hypervisor-default.rc",
         "patchSetId": 1
