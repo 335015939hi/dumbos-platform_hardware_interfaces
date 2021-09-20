@@ -16,6 +16,24 @@
       "message": "Since the reverted change has now been in for a while, do I now need to add a new hash here for compatibility?\n\nIf so, do we want to do that here (making it an \"unclean\" revert), or in a separate commit?",
       "revId": "621519943bc332cddc56d9558179416390d9260d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba3b097a_e66490a2",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-20T22:09:56Z",
+      "side": 0,
+      "message": "We need to keep the hash since certain devices would have been compiled using this interface. However, since there is a previous valid hash, we don\u0027t need to add any additional hash to this file.",
+      "parentUuid": "f43aa41f_de363547",
+      "revId": "621519943bc332cddc56d9558179416390d9260d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
