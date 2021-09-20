@@ -32,7 +32,6 @@ import android.hardware.radio.DataRegStateResult;
 import android.hardware.radio.GsmBroadcastSmsConfigInfo;
 import android.hardware.radio.HardwareConfig;
 import android.hardware.radio.IccIoResult;
-import android.hardware.radio.KeepaliveStatus;
 import android.hardware.radio.LastCallFailCauseInfo;
 import android.hardware.radio.LceDataInfo;
 import android.hardware.radio.LceStatusInfo;
@@ -50,10 +49,8 @@ import android.hardware.radio.RadioTechnology;
 import android.hardware.radio.RadioTechnologyFamily;
 import android.hardware.radio.RegStateResult;
 import android.hardware.radio.SendSmsResult;
-import android.hardware.radio.SetupDataCallResult;
 import android.hardware.radio.SignalStrength;
 import android.hardware.radio.SimLockMultiSimPolicy;
-import android.hardware.radio.SlicingConfig;
 import android.hardware.radio.TtyMode;
 import android.hardware.radio.VoiceRegStateResult;
 
@@ -144,19 +141,6 @@ oneway interface IRadioResponse {
 
     /**
      * @param info Response info struct containing response type, serial no. and error
-     * @param id The allocated id. On an error, this is set to 0.
-     *
-     * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:INTERNAL_ERR
-     *   RadioError:NO_RESOURCES- Indicates that no pdu session ids are available
-     *   RadioError:REQUEST_NOT_SUPPORTED
-     */
-    void allocatePduSessionIdResponse(in RadioResponseInfo info, in int id);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
      * @param enabled whether Uicc applications are enabled.
      *
      * Valid errors returned:
@@ -166,20 +150,6 @@ oneway interface IRadioResponse {
      *   RadioError:INTERNAL_ERR
      */
     void areUiccApplicationsEnabledResponse(in RadioResponseInfo info, in boolean enabled);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
-     * @param dcResponse Attributes of data call
-     *
-     * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:INTERNAL_ERR
-     *   RadioError:NO_RESOURCES
-     *   RadioError:REQUEST_NOT_SUPPORTED
-     *   RadioError:INVALID_CALL_ID
-     */
-    void cancelHandoverResponse(in RadioResponseInfo info);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -259,24 +229,6 @@ oneway interface IRadioResponse {
      *   RadioError:CANCELLED
      */
     void conferenceResponse(in RadioResponseInfo info);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
-     *
-     * Valid errors returned:
-     *   RadioError:REQUEST_NOT_SUPPORTED may be returned when HAL 1.2 or higher is supported.
-     *   RadioError:NONE
-     *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:INVALID_CALL_ID
-     *   RadioError:INVALID_STATE
-     *   RadioError:INVALID_ARGUMENTS
-     *   RadioError:INTERNAL_ERR
-     *   RadioError:NO_MEMORY
-     *   RadioError:NO_RESOURCES
-     *   RadioError:CANCELLED
-     *   RadioError:SIM_ABSENT
-     */
-    void deactivateDataCallResponse(in RadioResponseInfo info);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -756,18 +708,6 @@ oneway interface IRadioResponse {
 
     /**
      * @param info Response info struct containing response type, serial no. and error
-     * @param dcResponse List of SetupDataCallResult as defined in types.hal
-     *
-     * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:INTERNAL_ERR
-     *   RadioError:SIM_ABSENT
-     */
-    void getDataCallListResponse(in RadioResponseInfo info, in SetupDataCallResult[] dcResponse);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
      * @param dataRegResponse Current Data registration response as defined by RegStateResult in
      *        types.hal
      *
@@ -1181,18 +1121,6 @@ oneway interface IRadioResponse {
 
     /**
      * @param info Response info struct containing response type, serial no. and error
-     * @param slicingConfig Current slicing configuration
-     *
-     * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:INTERNAL_ERR
-     *   RadioError:MODEM_ERR
-     */
-    void getSlicingConfigResponse(in RadioResponseInfo info, in SlicingConfig slicingConfig);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
      * @param smsc Short Message Service Center address on the device
      *
      * Valid errors returned:
@@ -1527,18 +1455,6 @@ oneway interface IRadioResponse {
      *   RadioError:CANCELLED
      */
     void rejectCallResponse(in RadioResponseInfo info);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
-     *
-     * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:INTERNAL_ERR
-     *   RadioError:NO_RESOURCES
-     *   RadioError:REQUEST_NOT_SUPPORTED
-     */
-    void releasePduSessionIdResponse(in RadioResponseInfo info);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -2237,53 +2153,6 @@ oneway interface IRadioResponse {
 
     /**
      * @param info Response info struct containing response type, serial no. and error
-     *
-     * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:NO_MEMORY
-     *   RadioError:INTERNAL_ERR
-     *   RadioError:SYSTEM_ERR
-     *   RadioError:MODEM_ERR
-     *   RadioError:INVALID_ARGUMENTS
-     *   RadioError:DEVICE_IN_USE
-     *   RadioError:INVALID_MODEM_STATE
-     *   RadioError:NO_RESOURCES
-     *   RadioError:CANCELLED
-     *   RadioError:REQUEST_NOT_SUPPORTED
-     */
-    void setDataAllowedResponse(in RadioResponseInfo info);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
-     *
-     * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:SUBSCRIPTION_NOT_AVAILABLE
-     *   RadioError:INTERNAL_ERR
-     *   RadioError:NO_MEMORY
-     *   RadioError:NO_RESOURCES
-     *   RadioError:CANCELLED
-     *   RadioError:REQUEST_NOT_SUPPORTED
-     *   RadioError:SIM_ABSENT
-     */
-    void setDataProfileResponse(in RadioResponseInfo info);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
-     *
-     *  Valid errors returned:
-     *  RadioError:NONE
-     *  RadioError:RADIO_NOT_AVAILABLE
-     *  RadioError:MODEM_ERR
-     *  RadioError:INVALID_ARGUMENTS
-     *  RadioError:REQUEST_NOT_SUPPORTED
-     */
-    void setDataThrottlingResponse(in RadioResponseInfo info);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
      * @param retry 0 is the number of retries remaining, or -1 if unknown
      *
      * Valid errors returned:
@@ -2358,25 +2227,6 @@ oneway interface IRadioResponse {
      *   RadioError:SYSTEM_ERR
      */
     void setIndicationFilterResponse(in RadioResponseInfo info);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
-     *
-     * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:SUBSCRIPTION_NOT_AVAILABLE
-     *   RadioError:NO_MEMORY
-     *   RadioError:INTERNAL_ERR
-     *   RadioError:SYSTEM_ERR
-     *   RadioError:MODEM_ERR
-     *   RadioError:INVALID_ARGUMENTS
-     *   RadioError:NOT_PROVISIONED
-     *   RadioError:REQUEST_NOT_SUPPORTED
-     *   RadioError:NO_RESOURCES
-     *   RadioError:CANCELLED
-     */
-    void setInitialAttachApnResponse(in RadioResponseInfo info);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -2677,24 +2527,6 @@ oneway interface IRadioResponse {
 
     /**
      * @param info Response info struct containing response type, serial no. and error
-     * @param dcResponse SetupDataCallResult defined in types.hal
-     *
-     * Valid errors returned:
-     *   RadioError:NONE must be returned on both success and failure of setup with the
-     *              DataCallResponse.status containing the actual status
-     *              For all other errors the DataCallResponse is ignored.
-     *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:OP_NOT_ALLOWED_BEFORE_REG_TO_NW
-     *   RadioError:OP_NOT_ALLOWED_DURING_VOICE_CALL
-     *   RadioError:INVALID_ARGUMENTS
-     *   RadioError:INTERNAL_ERR
-     *   RadioError:NO_RESOURCES if the vendor is unable handle due to resources are full.
-     *   RadioError:SIM_ABSENT
-     */
-    void setupDataCallResponse(in RadioResponseInfo info, in SetupDataCallResult dcResponse);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
      *
      * Valid errors returned:
      *   RadioError:NONE
@@ -2712,32 +2544,6 @@ oneway interface IRadioResponse {
      *   RadioError:INVALID_MODEM_STATE
      */
     void startDtmfResponse(in RadioResponseInfo info);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
-     *
-     * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:INTERNAL_ERR
-     *   RadioError:NO_RESOURCES
-     *   RadioError:REQUEST_NOT_SUPPORTED
-     *   RadioError:INVALID_CALL_ID
-     */
-    void startHandoverResponse(in RadioResponseInfo info);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
-     * @param status Status object containing a new handle and a current status. The status returned
-     *        here may be PENDING to indicate that the radio has not yet processed the keepalive
-     *        request.
-     *
-     * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:NO_RESOURCES
-     *   RadioError:INVALID_ARGUMENTS
-     */
-    void startKeepaliveResponse(in RadioResponseInfo info, in KeepaliveStatus status);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -2787,15 +2593,6 @@ oneway interface IRadioResponse {
      *   RadioError:INVALID_MODEM_STATE
      */
     void stopDtmfResponse(in RadioResponseInfo info);
-
-    /**
-     * @param info Response info struct containing response type, serial no. and error
-     *
-     * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:INVALID_ARGUMENTS
-     */
-    void stopKeepaliveResponse(in RadioResponseInfo info);
 
     /**
      * @param info Response info struct containing response type, serial no. and error

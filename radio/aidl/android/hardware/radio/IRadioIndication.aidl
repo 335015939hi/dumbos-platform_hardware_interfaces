@@ -28,12 +28,10 @@ import android.hardware.radio.CellInfo;
 import android.hardware.radio.Domain;
 import android.hardware.radio.EmergencyNumber;
 import android.hardware.radio.HardwareConfig;
-import android.hardware.radio.KeepaliveStatus;
 import android.hardware.radio.LceDataInfo;
 import android.hardware.radio.LinkCapacityEstimate;
 import android.hardware.radio.NetworkScanResult;
 import android.hardware.radio.PbReceivedStatus;
-import android.hardware.radio.PcoDataInfo;
 import android.hardware.radio.PhoneRestrictedState;
 import android.hardware.radio.PhonebookRecordInfo;
 import android.hardware.radio.PhysicalChannelConfig;
@@ -41,7 +39,6 @@ import android.hardware.radio.RadioCapability;
 import android.hardware.radio.RadioIndicationType;
 import android.hardware.radio.RadioState;
 import android.hardware.radio.RadioTechnology;
-import android.hardware.radio.SetupDataCallResult;
 import android.hardware.radio.SignalStrength;
 import android.hardware.radio.SimRefreshResult;
 import android.hardware.radio.SrvccState;
@@ -224,20 +221,6 @@ oneway interface IRadioIndication {
     void currentSignalStrength(in RadioIndicationType type, in SignalStrength signalStrength);
 
     /**
-     * Indicates data call contexts have changed.
-     *
-     * @param type Type of radio indication
-     * @param dcList Array of SetupDataCallResult identical to that returned by
-     *        IRadio.getDataCallList(). It is the complete list of current data contexts including
-     *        new contexts that have been activated. A data call is only removed from this list
-     *        when any of the below conditions is matched:
-     *        - The framework sends a IRadio.deactivateDataCall().
-     *        - The radio is powered off/on.
-     *        - Unsolicited disconnect from either modem or network side.
-     */
-    void dataCallListChanged(in RadioIndicationType type, in SetupDataCallResult[] dcList);
-
-    /**
      * Indicates that the radio system selection module has autonomously entered emergency
      * callback mode.
      *
@@ -276,17 +259,6 @@ oneway interface IRadioIndication {
      * @param start true = start play ringback tone, false = stop playing ringback tone
      */
     void indicateRingbackTone(in RadioIndicationType type, in boolean start);
-
-    /**
-     * Indicates a status update for a particular Keepalive session. This must include a handle for
-     * a previous session and should include a status update regarding the state of a keepalive.
-     * Unsolicited keepalive status reports should never be PENDING as unsolicited status should
-     * only be sent when known.
-     *
-     * @param type Type of radio indication
-     * @param status Status information for a Keepalive session
-     */
-    void keepaliveStatus(in RadioIndicationType type, in KeepaliveStatus status);
 
     /**
      * Indicates when there is an incoming Link Capacity Estimate (LCE) info report.
@@ -401,16 +373,6 @@ oneway interface IRadioIndication {
      * @param msg Message string in UTF-8, if applicable
      */
     void onUssd(in RadioIndicationType type, in UssdModeType modeType, in String msg);
-
-    /**
-     * Indicates when there is new Carrier PCO data received for a data call. Ideally only new data
-     * must be forwarded, though this is not required. Multiple boxes of carrier PCO data for a
-     * given call must result in a series of pcoData() calls.
-     *
-     * @param type Type of radio indication
-     * @param pco New PcoData
-     */
-    void pcoData(in RadioIndicationType type, in PcoDataInfo pco);
 
     /**
      * Sent when setRadioCapability() completes. Returns the phone radio capability exactly as
@@ -604,17 +566,6 @@ oneway interface IRadioIndication {
      * @param enabled whether uiccApplications are enabled, or disabled
      */
     void uiccApplicationsEnablementChanged(in RadioIndicationType type, in boolean enabled);
-
-    /**
-     * The modem can explicitly set SetupDataCallResult::suggestedRetryTime after a failure in
-     * IRadio.SetupDataCall. During that time, no new calls are allowed to IRadio.SetupDataCall that
-     * use the same APN. When IRadioIndication.unthrottleApn is sent, AOSP will no longer throttle
-     * calls to IRadio.SetupDataCall for the given APN.
-     *
-     * @param type Type of radio indication
-     * @param apn Apn to unthrottle
-     */
-    void unthrottleApn(in RadioIndicationType type, in String apn);
 
     /**
      * Indicates that voice technology has changed. Responds with new rat.

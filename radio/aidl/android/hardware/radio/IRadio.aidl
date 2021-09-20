@@ -26,9 +26,6 @@ import android.hardware.radio.CdmaSmsAck;
 import android.hardware.radio.CdmaSmsMessage;
 import android.hardware.radio.CdmaSmsWriteArgs;
 import android.hardware.radio.CdmaSubscriptionSource;
-import android.hardware.radio.DataProfileInfo;
-import android.hardware.radio.DataRequestReason;
-import android.hardware.radio.DataThrottlingAction;
 import android.hardware.radio.DeviceStateType;
 import android.hardware.radio.Dial;
 import android.hardware.radio.EmergencyCallRouting;
@@ -41,8 +38,6 @@ import android.hardware.radio.IccIo;
 import android.hardware.radio.ImsSmsMessage;
 import android.hardware.radio.ImsiEncryptionInfo;
 import android.hardware.radio.IndicationFilter;
-import android.hardware.radio.KeepaliveRequest;
-import android.hardware.radio.LinkAddress;
 import android.hardware.radio.NetworkScanRequest;
 import android.hardware.radio.NrDualConnectivityState;
 import android.hardware.radio.NvItem;
@@ -61,10 +56,8 @@ import android.hardware.radio.SelectUiccSub;
 import android.hardware.radio.SignalThresholdInfo;
 import android.hardware.radio.SimApdu;
 import android.hardware.radio.SimLockMultiSimPolicy;
-import android.hardware.radio.SliceInfo;
 import android.hardware.radio.SmsAcknowledgeFailCause;
 import android.hardware.radio.SmsWriteArgs;
-import android.hardware.radio.TrafficDescriptor;
 import android.hardware.radio.TtyMode;
 
 /**
@@ -128,19 +121,6 @@ oneway interface IRadio {
             in int serial, in boolean success, in SmsAcknowledgeFailCause cause);
 
     /**
-     * Reserves an unallocated pdu session id from the pool of ids. The allocated id is returned
-     * in the response. When the id is no longer needed, call releasePduSessionId to return it to
-     * the pool.
-     *
-     * Reference: 3GPP TS 24.007 section 11.2.3.1b
-     *
-     * @param serial Serial number of request.
-     *
-     * Response function is IRadioResponse.allocatePduSessionIdResponse()
-     */
-    void allocatePduSessionId(in int serial);
-
-    /**
      * Whether uiccApplications are enabled, or disabled.
      * By default uiccApplications must be enabled, unless enableUiccApplications() with enable
      * being false is called.
@@ -150,18 +130,6 @@ oneway interface IRadio {
      * Response callback is IRadioResponse.areUiccApplicationsEnabledResponse()
      */
     void areUiccApplicationsEnabled(in int serial);
-
-    /**
-     * Indicates that a handover was cancelled after a call to IRadio::startHandover.
-     * Since the handover was unsuccessful, the modem retains ownership over any of the resources
-     * being transferred and is still responsible for releasing them.
-     *
-     * @param serial Serial number of request.
-     * @param id callId The identifier of the data call which is provided in SetupDataCallResult
-     *
-     * Response function is IRadioResponse.cancelHandoverResponse()
-     */
-    void cancelHandover(in int serial, in int callId);
 
     /**
      * Cancel the current USSD session if one exists.
@@ -204,18 +172,6 @@ oneway interface IRadio {
      * Response function is IRadioResponse.conferenceResponse()
      */
     void conference(in int serial);
-
-    /**
-     * Deactivate packet data connection and remove from the data call list. An
-     * unsolDataCallListChanged() must be sent when data connection is deactivated.
-     *
-     * @param serial Serial number of request.
-     * @param cid Data call id.
-     * @param reason The request reason. Must be normal, handover, or shutdown.
-     *
-     * Response function is IRadioResponse.deactivateDataCallResponse()
-     */
-    void deactivateDataCall(in int serial, in int cid, in DataRequestReason reason);
 
     /**
      * Deletes a CDMA SMS message from RUIM memory.
@@ -512,17 +468,6 @@ oneway interface IRadio {
     void getCurrentCalls(in int serial);
 
     /**
-     * Returns the data call list. An entry is added when a setupDataCall() is issued and removed
-     * on a deactivateDataCall(). The list is emptied when setRadioPower()  off/on issued or when
-     * the vendor HAL or modem crashes.
-     *
-     * @param serial Serial number of request.
-     *
-     * Response function is IRadioResponse.getDataCallListResponse()
-     */
-    void getDataCallList(in int serial);
-
-    /**
      * Request current data registration state.
      *
      * @param serial Serial number of request.
@@ -740,17 +685,6 @@ oneway interface IRadio {
     void getSimPhonebookRecords(in int serial);
 
     /**
-     * Request to get the current slicing configuration including URSP rules and NSSAIs
-     * (configured, allowed and rejected). URSP stands for UE route selection policy and is defined
-     * in 3GPP TS 24.526 Section 4.2. An NSSAI is a collection of network slices. Each network slice
-     * is identified by an S-NSSAI and is represented by the struct SliceInfo. NSSAI and S-NSSAI
-     * are defined in 3GPP TS 24.501.
-     *
-     * Response function is IRadioResponse.getSlicingConfigResponse()
-     */
-    void getSlicingConfig(in int serial);
-
-    /**
      * Get the default Short Message Service Center address on the device.
      *
      * @param serial Serial number of request.
@@ -961,17 +895,6 @@ oneway interface IRadio {
      * Response function is IRadioResponse.rejectCallResponse()
      */
     void rejectCall(in int serial);
-
-    /**
-     * Releases a pdu session id that was previously allocated using allocatePduSessionId.
-     * Reference: 3GPP TS 24.007 section 11.2.3.1b
-     *
-     * @param serial Serial number of request.
-     * @param id Pdu session id to release.
-     *
-     * Response function is IRadioResponse.releasePduSessionIdResponse()
-     */
-    void releasePduSessionId(in int serial, in int id);
 
     /**
      * Indicates whether there is storage available for new SMS messages.
@@ -1364,48 +1287,6 @@ oneway interface IRadio {
     void setClir(in int serial, in int status);
 
     /**
-     * Tells the modem whether data calls are allowed or not
-     *
-     * @param serial Serial number of request.
-     * @param allow true to allow data calls, false to disallow data calls
-     *
-     * Response callback is IRadioResponse.setDataAllowedResponse()
-     */
-    void setDataAllowed(in int serial, in boolean allow);
-
-    /**
-     * Send data profiles of the current carrier to the modem.
-     *
-     * @param serial Serial number of request.
-     * @param profiles Array of DataProfileInfo to set.
-     *
-     * Response callback is IRadioResponse.setDataProfileResponse()
-     */
-    void setDataProfile(in int serial, in DataProfileInfo[] profiles);
-
-    /**
-     * Control data throttling at modem.
-     * - DataThrottlingAction:NO_DATA_THROTTLING should clear any existing data throttling within
-     *   the requested completion window.
-     * - DataThrottlingAction:THROTTLE_SECONDARY_CARRIER: Remove any existing throttling on anchor
-     *   carrier and achieve maximum data throttling on secondary carrier within the requested
-     *   completion window.
-     * - DataThrottlingAction:THROTTLE_ANCHOR_CARRIER: disable secondary carrier and achieve maximum
-     *   data throttling on anchor carrier by requested completion window.
-     * - DataThrottlingAction:HOLD: Immediately hold on to current level of throttling.
-     *
-     * @param serial Serial number of request.
-     * @param dataThrottlingAction DataThrottlingAction as defined in types.hal
-     * @param completionDurationMillis window, in milliseconds, in which the requested throttling
-     *        action has to be achieved. This must be 0 when dataThrottlingAction is
-     *        DataThrottlingAction:HOLD.
-     *
-     * Response function is IRadioResponse.setDataThrottlingResponse()
-     */
-    void setDataThrottling(in int serial, in DataThrottlingAction dataThrottlingAction,
-            in long completionDurationMillis);
-
-    /**
      * Enable/disable one facility lock
      *
      * @param serial Serial number of request.
@@ -1455,16 +1336,6 @@ oneway interface IRadio {
      * Response callback is IRadioResponse.setIndicationFilterResponse()
      */
     void setIndicationFilter(in int serial, in IndicationFilter indicationFilter);
-
-    /**
-     * Set an APN to initial attach network.
-     *
-     * @param serial Serial number of request.
-     * @param dataProfileInfo data profile containing APN settings
-     *
-     * Response callback is IRadioResponse.setInitialAttachApnResponse()
-     */
-    void setInitialAttachApn(in int serial, in DataProfileInfo dataProfileInfo);
 
     /**
      * Sets the link capacity reporting criteria. The resulting reporting criteria are the AND of
@@ -1746,70 +1617,6 @@ oneway interface IRadio {
     void setUiccSubscription(in int serial, in SelectUiccSub uiccSub);
 
     /**
-     * Setup a packet data connection. If DataCallResponse.status returns DataCallFailCause:NONE,
-     * the data connection must be added to data calls and a unsolDataCallListChanged() must be
-     * sent. The call remains until removed by subsequent unsolDataCallIstChanged(). It may be lost
-     * due to many factors, including deactivateDataCall() being issued, the radio powered off,
-     * reception lost or even transient factors like congestion. This data call list is returned by
-     * getDataCallList() and dataCallListChanged().
-     * The Radio is expected to:
-     * - Create one data call context.
-     * - Create and configure a dedicated interface for the context.
-     * - The interface must be point to point.
-     * - The interface is configured with one or more addresses and is capable of sending and
-     *   receiving packets. The format is IP address with optional "/" prefix length (The format is
-     *   defined in RFC-4291 section 2.3). For example, "192.0.1.3", "192.0.1.11/16", or
-     *   "2001:db8::1/64". Typically one IPv4 or one IPv6 or one of each. If the prefix length is
-     *   absent, then the addresses are assumed to be point to point with IPv4 with prefix length 32
-     *   or IPv6 with prefix length 128.
-     * - Must not modify routing configuration related to this interface; routing management is
-     *   exclusively within the purview of the Android OS.
-     * - Support simultaneous data call contexts up to DataRegStateResult.maxDataCalls specified in
-     *   the response of getDataRegistrationState.
-     *
-     * @param serial Serial number of request.
-     * @param accessNetwork The access network to setup the data call. If the data connection cannot
-     *        be established on the specified access network then this should respond with an error.
-     * @param dataProfileInfo Data profile info.
-     * @param roamingAllowed Indicates whether or not data roaming is allowed by the user.
-     * @param reason The request reason. Must be DataRequestReason:NORMAL or
-     *        DataRequestReason:HANDOVER.
-     * @param addresses If the reason is DataRequestReason:HANDOVER, this indicates the list of link
-     *        addresses of the existing data connection. This parameter must be ignored unless
-     *        reason is DataRequestReason:HANDOVER.
-     * @param dnses If the reason is DataRequestReason:HANDOVER, this indicates the list of DNS
-     *        addresses of the existing data connection. The format is defined in RFC-4291 section
-     *        2.2. For example, "192.0.1.3" or "2001:db8::1". This parameter must be ignored unless
-     *        reason is DataRequestReason:HANDOVER.
-     * @param pduSessionId The pdu session id to be used for this data call. A value of 0 means no
-     *        pdu session id was attached to this call. Reference: 3GPP TS 24.007 section 11.2.3.1b
-     * @param sliceInfo SliceInfo to be used for the data connection when a handover occurs from
-     *        EPDG to 5G. It is valid only when accessNetwork is AccessNetwork:NGRAN. If the slice
-     *        passed from EPDG is rejected, then the data failure cause must be
-     *        DataCallFailCause:SLICE_REJECTED.
-     * @param trafficDescriptor TrafficDescriptor for which data connection needs to be established.
-     *        It is used for URSP traffic matching as described in TS 24.526 Section 4.2.2.
-     *        It includes an optional DNN which, if present, must be used for traffic matching --
-     *        it does not specify the end point to be used for the data call. The end point is
-     *        specified by DataProfileInfo.apn; DataProfileInfo.apn must be used as the end point if
-     *        one is not specified through URSP rules.
-     * @param matchAllRuleAllowed bool to indicate if using default match-all URSP rule for this
-     *        request is allowed. If false, this request must not use the match-all URSP rule and if
-     *        a non-match-all rule is not found (or if URSP rules are not available) it should
-     *        return failure with cause DataCallFailCause:MATCH_ALL_RULE_NOT_ALLOWED. This is needed
-     *        as some requests need to have a hard failure if the intention cannot be met, for
-     *        example, a zero-rating slice.
-     *
-     * Response function is IRadioResponse.setupDataCallResponse()
-     */
-    void setupDataCall(in int serial, in AccessNetwork accessNetwork,
-            in DataProfileInfo dataProfileInfo, in boolean roamingAllowed,
-            in DataRequestReason reason, in LinkAddress[] addresses, in String[] dnses,
-            in int pduSessionId, in @nullable SliceInfo sliceInfo,
-            in @nullable TrafficDescriptor trafficDescriptor,
-            in boolean matchAllRuleAllowed);
-
-    /**
      * Start playing a DTMF tone. Continue playing DTMF tone until stopDtmf is received. If a
      * startDtmf() is received while a tone is currently playing, it must cancel the previous tone
      * and play the new one.
@@ -1820,33 +1627,6 @@ oneway interface IRadio {
      * Response function is IRadioResponse.startDtmfResponse()
      */
     void startDtmf(in int serial, in String s);
-
-    /**
-     * Indicates that a handover to the IWLAN transport has begun. Any resources being transferred
-     * to the IWLAN transport cannot be released while a handover is underway. For example, if a
-     * pdu session id needs to be transferred to IWLAN, then the modem should not release the id
-     * while the handover is in progress. If a handover was unsuccessful, then the framework calls
-     * IRadio::cancelHandover. The modem retains ownership over any of the resources being
-     * transferred to IWLAN. If a handover was successful, the framework calls
-     * IRadio::deactivateDataCall with reason HANDOVER. The IWLAN transport now owns the transferred
-     * resources and is responsible for releasing them.
-     *
-     * @param serial Serial number of request.
-     * @param id callId The identifier of the data call which is provided in SetupDataCallResult
-     *
-     * Response function is IRadioResponse.startHandoverResponse()
-     */
-    void startHandover(in int serial, in int callId);
-
-    /**
-     * Start a Keepalive session (for IPsec)
-     *
-     * @param serial Serial number of request.
-     * @param keepalive A request structure containing all necessary info to describe a keepalive
-     *
-     * Response function is IRadioResponse.startKeepaliveResponse()
-     */
-    void startKeepalive(in int serial, in KeepaliveRequest keepalive);
 
     /**
      * Starts a network scan.
@@ -1866,16 +1646,6 @@ oneway interface IRadio {
      * Response function is IRadioResponse.stopDtmfResponse()
      */
     void stopDtmf(in int serial);
-
-    /**
-     * Stop an ongoing Keepalive session (for IPsec)
-     *
-     * @param serial Serial number of request.
-     * @param sessionHandle The handle that was provided by IRadioResponse.startKeepaliveResponse
-     *
-     * Response function is IRadioResponse.stopKeepaliveResponse()
-     */
-    void stopKeepalive(in int serial, in int sessionHandle);
 
     /**
      * Stops ongoing network scan
