@@ -5274,4 +5274,35 @@ enum OperationType {
      *      c_o = r_y if adj_y else c_y
      */
     BATCH_MATMUL = 102,
+
+    /**
+     * Packs a list of rank R tensors into one rank R+1 tensor.
+     *
+     * Packs a list of tensors along an axis into a tensor with rank one higher.
+     *
+     * For example, given N tensors of shape (A, B, C). If axis is 0,
+     * the output tensor will have shape (N, A, B, C). If axis is 1,
+     * then the output tensor will have shape (A, N, B, C).
+     *
+     *
+     * The input tensors have identical {@link OperandType} and dimensions.
+     *
+     * Supported tensor {@link OperandType}:
+     * * {@link OperandType::TENSOR_FLOAT16}
+     * * {@link OperandType::TENSOR_FLOAT32}
+     * * {@link OperandType::TENSOR_QUANT8_ASYMM}
+     * * {@link OperandType::TENSOR_QUANT8_ASYMM_SIGNED}
+     * * {@link OperandType::TENSOR_INT32}
+     * 
+     * Supported tensor rank: from 1
+     * 
+     * Inputs:
+     * * 0: A list of tensors.
+     * * 1: An optional {@link OperandType::INT32} scalar, specifying
+     *      the dimension along which to pack. Defaults to 0.
+     *
+     * Outputs:
+     * * 0: The packed tensor.
+     */
+    PACK = 103,
 }
