@@ -186,6 +186,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee6c0e81_7d149857",
+        "filename": "virtualization/aidl/android/hardware/hypervisor/IHypervisor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1133963
+      },
+      "writtenOn": "2021-09-20T15:35:18Z",
+      "side": 1,
+      "message": "Fair points. I am probably going to bounce back on the email thread \u0026 see if we can align on either a HAL or something more lightweight",
+      "parentUuid": "63667543_4a7497b1",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 27
+      },
+      "revId": "87a099b86cd8a8ec8917583b002b7cb9b7f3f42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c19668d6_af115927",
         "filename": "virtualization/aidl/default/hypervisor-default.rc",
         "patchSetId": 1
