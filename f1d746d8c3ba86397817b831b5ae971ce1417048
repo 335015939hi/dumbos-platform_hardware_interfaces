@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a20b2143_364f7e55",
+        "filename": "neuralnetworks/aidl/aidl_api/android.hardware.neuralnetworks/current/android/hardware/neuralnetworks/OperationType.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2021-09-21T23:28:41Z",
+      "side": 1,
+      "message": "BATCH_MATMUL is missing from PS7?",
+      "revId": "f1d746d8c3ba86397817b831b5ae971ce1417048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
