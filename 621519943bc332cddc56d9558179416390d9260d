@@ -34,6 +34,24 @@
       "parentUuid": "f43aa41f_de363547",
       "revId": "621519943bc332cddc56d9558179416390d9260d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2108690a_d97a6671",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1041495
+      },
+      "writtenOn": "2021-09-21T06:58:17Z",
+      "side": 0,
+      "message": "Ah. Got it. I didn\u0027t realize there were multiple hashes for the same interface here. Will upload a new version that leaves this file alone.",
+      "parentUuid": "ba3b097a_e66490a2",
+      "revId": "621519943bc332cddc56d9558179416390d9260d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
