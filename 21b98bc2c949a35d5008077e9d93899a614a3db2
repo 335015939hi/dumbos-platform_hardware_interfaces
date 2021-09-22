@@ -16,6 +16,23 @@
       "message": "I haven\u0027t been involved with development of the HALs or tests for any power HAL version after 1.0. Maybe arabawy@ who seems to have been involved in adding 1.1?",
       "revId": "21b98bc2c949a35d5008077e9d93899a614a3db2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47cc05e8_6c0ac681",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-22T17:54:28Z",
+      "side": 1,
+      "message": "Hi Ahmed, do you have enough context to be the owner of VtsHalPowerV1_1TargetTest? The effect of this CL is that all bugs relating the issues with VtsHalPowerV1_1TargetTest will be filed to component 158088 and assigned to you. Are you okay with this?",
+      "revId": "21b98bc2c949a35d5008077e9d93899a614a3db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
