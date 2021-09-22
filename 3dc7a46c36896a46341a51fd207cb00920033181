@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4a32230_4877d4ad",
+        "filename": "radio/aidl/android/hardware/radio/DataRegStateResult.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-22T18:18:46Z",
+      "side": 0,
+      "message": "The getDataRegistrationStateResult and getVoiceRegistrationResult APIs stay the same, but just the structures DataRegStateResult and VoiceRegStateResult were removed. These were replaced by RegStateResult in IRadio 1.5. Updated the documentation referencing these structures.",
+      "parentUuid": "d2b4f58f_feed2520",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "3dc7a46c36896a46341a51fd207cb00920033181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4536e7fa_a6ac8a2c",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-22T17:19:35Z",
       "side": 0,
       "message": "these are intentionally dropped?",
+      "range": {
+        "startLine": 1562,
+        "startChar": 0,
+        "endLine": 1581,
+        "endChar": 94
+      },
+      "revId": "3dc7a46c36896a46341a51fd207cb00920033181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9029119_0e9cf2d0",
+        "filename": "radio/aidl/android/hardware/radio/IRadio.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 1581,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-22T18:18:46Z",
+      "side": 0,
+      "message": "Yes, setPreferredNetworkType and setPreferredNetworkTypeBitmap were replaced by setAllowedNetworkType and setAllowedNetworkTypeBitmap. The documentation for the allowed APIs mentions that the preferred APIs wouldn\u0027t be used after IRadio 1.5, so it should be safe to remove from the AIDL interface (IRadio 1.7).",
+      "parentUuid": "4536e7fa_a6ac8a2c",
       "range": {
         "startLine": 1562,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eada928_a9ffd077",
+        "filename": "radio/aidl/android/hardware/radio/IRadioResponse.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 2756,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-22T18:18:46Z",
+      "side": 0,
+      "message": "Yes, startLceService, stopLceService, and lceData indication were dropped from the interface. They were replaced by setLinkCapacityReportingCriteria/currentLinkCapacityEstimate.",
+      "parentUuid": "48644bdb_8267885e",
+      "range": {
+        "startLine": 2756,
+        "startChar": 4,
+        "endLine": 2756,
+        "endChar": 89
+      },
+      "revId": "3dc7a46c36896a46341a51fd207cb00920033181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1e29780_dab06c32",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-09-22T17:19:35Z",
       "side": 0,
       "message": "getVoiceRegistrationStateResponse was intentionally dropped from the interface when first converting to AIDL?\nIf so, need to update the comments in IndicationFilter.aidl.",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "3dc7a46c36896a46341a51fd207cb00920033181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50f4e833_9d65a87b",
+        "filename": "radio/aidl/android/hardware/radio/VoiceRegStateResult.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-22T18:18:46Z",
+      "side": 0,
+      "message": "VoiceRegStateResult and DataRegStateResult were replaced by RegStateResult.",
+      "parentUuid": "b1e29780_dab06c32",
       "range": {
         "startLine": 23,
         "startChar": 11,
