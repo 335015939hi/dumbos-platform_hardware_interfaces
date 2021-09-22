@@ -69,6 +69,24 @@
       "parentUuid": "14eff64e_b93d4653",
       "revId": "c2b07594ed92100f2df5242a69a4f73e73b3976e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acbd1342_642500a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2021-09-22T22:29:45Z",
+      "side": 1,
+      "message": "Would updating the parent OWNERS file to add the bug component information + remove trong/yim address your goals? I\u0027d prefer that option.",
+      "parentUuid": "0c0a6258_52d91f64",
+      "revId": "c2b07594ed92100f2df5242a69a4f73e73b3976e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
