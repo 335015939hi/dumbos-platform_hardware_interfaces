@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2b4f58f_feed2520",
+        "filename": "radio/aidl/android/hardware/radio/DataRegStateResult.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-22T17:19:35Z",
+      "side": 0,
+      "message": "getDataRegistrationStateResult was intentionally dropped from the interface when converting to AIDL?\nIf so, the comments in IndicationFilter.aidl and IRadioData.aidl need to be updated",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "3dc7a46c36896a46341a51fd207cb00920033181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4536e7fa_a6ac8a2c",
+        "filename": "radio/aidl/android/hardware/radio/IRadio.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 1581,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-22T17:19:35Z",
+      "side": 0,
+      "message": "these are intentionally dropped?",
+      "range": {
+        "startLine": 1562,
+        "startChar": 0,
+        "endLine": 1581,
+        "endChar": 94
+      },
+      "revId": "3dc7a46c36896a46341a51fd207cb00920033181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48644bdb_8267885e",
+        "filename": "radio/aidl/android/hardware/radio/IRadioResponse.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 2756,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-22T17:19:35Z",
+      "side": 0,
+      "message": "This and the stop* variant are intentionally dropped from the interface?",
+      "range": {
+        "startLine": 2756,
+        "startChar": 4,
+        "endLine": 2756,
+        "endChar": 89
+      },
+      "revId": "3dc7a46c36896a46341a51fd207cb00920033181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1e29780_dab06c32",
+        "filename": "radio/aidl/android/hardware/radio/VoiceRegStateResult.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-22T17:19:35Z",
+      "side": 0,
+      "message": "getVoiceRegistrationStateResponse was intentionally dropped from the interface when first converting to AIDL?\nIf so, need to update the comments in IndicationFilter.aidl.",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "3dc7a46c36896a46341a51fd207cb00920033181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
