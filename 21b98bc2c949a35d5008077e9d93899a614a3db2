@@ -33,6 +33,24 @@
       "message": "Hi Ahmed, do you have enough context to be the owner of VtsHalPowerV1_1TargetTest? The effect of this CL is that all bugs relating the issues with VtsHalPowerV1_1TargetTest will be filed to component 158088 and assigned to you. Are you okay with this?",
       "revId": "21b98bc2c949a35d5008077e9d93899a614a3db2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cee7b0e_19266f86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-22T17:55:20Z",
+      "side": 1,
+      "message": "Looped arabawy@ in.",
+      "parentUuid": "1576955e_50fb2563",
+      "revId": "21b98bc2c949a35d5008077e9d93899a614a3db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
