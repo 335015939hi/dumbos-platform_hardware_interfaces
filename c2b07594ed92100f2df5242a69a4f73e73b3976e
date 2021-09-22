@@ -33,6 +33,42 @@
       "message": "Can we just use the OWNERS file in the parent directory (sensors/common/vts/OWNERS)? I don\u0027t expect that we\u0027d want variation in who is permitted to \n\nIf there\u0027s a need to have a file here for some reason, I think it should only contain a \"file:\" reference to the one in the parent directory.",
       "revId": "c2b07594ed92100f2df5242a69a4f73e73b3976e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c0a6258_52d91f64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-22T21:35:57Z",
+      "side": 1,
+      "message": "I see two sets of owners in the parent OWNERS file, sensors team and VTS team. Are they all okay with being assigned to bugs relating to issues with module VtsHalSensorsV2_0TargetTest? The purpose of creating this new OWNERS file sensors/common/vts/2_X/OWNERS is to specify 1. who will triage bugs on VtsHalSensorsV2_0TargetTest and 2. which bug component these bugs should be filed to.\n\nBTW, I think the parent OWNERS file (hardware/interfaces/sensors/common/vts/OWNERS) contains obsolete information. yim@ is not on the team any more.",
+      "parentUuid": "7740de4c_bc61f44a",
+      "revId": "c2b07594ed92100f2df5242a69a4f73e73b3976e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a2f41b3_762234f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-22T21:35:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14eff64e_b93d4653",
+      "revId": "c2b07594ed92100f2df5242a69a4f73e73b3976e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
