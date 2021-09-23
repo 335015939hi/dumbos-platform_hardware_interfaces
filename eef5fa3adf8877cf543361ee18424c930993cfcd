@@ -1,0 +1,56 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000015629044",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1835817?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "e70544f2_84e7bbd2",
+        "filename": "neuralnetworks/aidl/android/hardware/neuralnetworks/OperationType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 5296,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-09-23T22:18:13Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 5296,
+        "startChar": 6,
+        "endLine": 5296,
+        "endChar": 7
+      },
+      "revId": "eef5fa3adf8877cf543361ee18424c930993cfcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000015629044",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1835817?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "b211ae8c_72a34bcf",
+        "filename": "neuralnetworks/aidl/android/hardware/neuralnetworks/OperationType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 5298,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-09-23T22:18:13Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 5298,
+        "startChar": 6,
+        "endLine": 5298,
+        "endChar": 7
+      },
+      "revId": "eef5fa3adf8877cf543361ee18424c930993cfcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
