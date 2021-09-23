@@ -16,6 +16,7 @@
 
 package android.hardware.radio.sim;
 
+import android.hardware.radio.config.SlotMapping;
 import android.hardware.radio.sim.AppStatus;
 import android.hardware.radio.sim.PinState;
 
@@ -61,7 +62,6 @@ parcelable CardStatus {
      * size <= RadioConst::CARD_MAX_APPS
      */
     AppStatus[] applications;
-    int physicalSlotId;
     /**
      * An Answer To Reset (ATR) is a message output by a Smart Card conforming to ISO/IEC 7816
      * standards, following electrical reset of the card's chip. The ATR conveys information about
@@ -86,4 +86,11 @@ parcelable CardStatus {
      * supports eUICC.
      */
     String eid;
+    /* SlotMapping:
+     * Maps the logical slots to the SlotMapping which consist of both physical slot id and port id.
+     * Logical slot is the slot that is seen by modem.
+     * Physical slot is the actual physical slot.
+     * PortId is an enumeration of the ports available on the UICC.
+     */
+    SlotMapping slotMap;
 }
