@@ -31,22 +31,9 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.radio.sim;
+package android.hardware.radio.config;
 @VintfStability
-parcelable CardStatus {
-  int cardState;
-  android.hardware.radio.sim.PinState universalPinState;
-  int gsmUmtsSubscriptionAppIndex;
-  int cdmaSubscriptionAppIndex;
-  int imsSubscriptionAppIndex;
-  android.hardware.radio.sim.AppStatus[] applications;
+parcelable SlotMapping {
   int physicalSlotId;
-  String atr;
-  String iccid;
-  String eid;
   int portId;
-  const int STATE_ABSENT = 0;
-  const int STATE_PRESENT = 1;
-  const int STATE_ERROR = 2;
-  const int STATE_RESTRICTED = 3;
 }
