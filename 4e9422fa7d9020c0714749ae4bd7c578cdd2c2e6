@@ -16,6 +16,24 @@
       "message": "Hi, can we please have an update? Thank you!!",
       "revId": "4e9422fa7d9020c0714749ae4bd7c578cdd2c2e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d834b24_f4b96669",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2021-09-23T16:11:22Z",
+      "side": 1,
+      "message": "Looks like this CL is a duplicate of aosp/1814066 and can be abandoned",
+      "parentUuid": "3d4a4ae0_12913422",
+      "revId": "4e9422fa7d9020c0714749ae4bd7c578cdd2c2e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
