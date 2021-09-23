@@ -86,4 +86,15 @@ parcelable CardStatus {
      * supports eUICC.
      */
     String eid;
+    /**
+     * The portId is just an enumeration of the ports available on the UICC.
+     * Example:
+     * if eUICC1 supports 2 ports, then the portId is numbered 0,1 and eUICC2 supports 4 ports,
+     * then the portId is numbered: 0,1,2,3. Each portId is unique within a UICC,
+     * but not necessarily unique across UICC’s.
+     *
+     * The port id is used for MEP(Multi-enabled profiles), for SEP(Single enabled profile) eUICC
+     * and non-eUICC, modem can just return the default port id 0.
+     */
+    int portId;
 }
