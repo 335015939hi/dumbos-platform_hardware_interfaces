@@ -93,6 +93,30 @@
       },
       "revId": "b52790a956bf919f8177a06e8b351badd31684c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15bff09a_c76eaea0",
+        "filename": "vibrator/aidl/default/apex/com.android.hardware.vibrator.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-24T02:41:39Z",
+      "side": 1,
+      "message": "I meant group too (these don\u0027t do anything, so they don\u0027t need the perms)",
+      "parentUuid": "df68ce24_73f8beba",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "b52790a956bf919f8177a06e8b351badd31684c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
