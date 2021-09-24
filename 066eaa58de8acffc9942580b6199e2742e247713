@@ -16,6 +16,23 @@
       "message": "Hi, can we please have an update? Thank you!!",
       "revId": "066eaa58de8acffc9942580b6199e2742e247713",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "226c5d0b_834cf731",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-24T17:14:59Z",
+      "side": 1,
+      "message": "Actually, if all owners in the parent OWNERS file (https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/keymaster/3.0/vts/OWNERS) are okay with being assigned to the bugs about this module, it might be more desirable to reuse it. And you won\u0027t be the single contact point. What do you think?\n\nI think yim@ and yuexima@ should probably be removed from there, I know they are not working on this project any more.\n",
+      "revId": "066eaa58de8acffc9942580b6199e2742e247713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
