@@ -159,6 +159,24 @@
       "parentUuid": "e8ecebd4_ed555f48",
       "revId": "7dc94d2ce69c0a25d982db81e5a95ee5bbb91bda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4f68c56_8df84f79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-24T00:49:57Z",
+      "side": 1,
+      "message": "Do you know when the push to AOSP will happen? This CL has merge conflicts that probably don\u0027t worth resolving if the push will eventually happen.",
+      "parentUuid": "32a33af8_9ce29be8",
+      "revId": "7dc94d2ce69c0a25d982db81e5a95ee5bbb91bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
