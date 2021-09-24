@@ -34,6 +34,24 @@
       "parentUuid": "a20b2143_364f7e55",
       "revId": "f1d746d8c3ba86397817b831b5ae971ce1417048",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eccae98d_edbb93b5",
+        "filename": "neuralnetworks/aidl/aidl_api/android.hardware.neuralnetworks/current/android/hardware/neuralnetworks/OperationType.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-09-24T09:40:56Z",
+      "side": 1,
+      "message": "OK PatchSet. I think it\u0027s there now.",
+      "parentUuid": "83312104_01a7cf78",
+      "revId": "f1d746d8c3ba86397817b831b5ae971ce1417048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
