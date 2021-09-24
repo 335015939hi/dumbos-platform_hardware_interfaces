@@ -38,6 +38,7 @@ typedef struct {
 
     uint8_t ephemeralPrivateKey[EIC_P256_PRIV_KEY_SIZE];
 
+    uint8_t _pad0[4];
     // The challenge generated with eicPresentationCreateAuthChallenge()
     uint64_t authChallenge;
 
@@ -55,6 +56,7 @@ typedef struct {
     // the public key of the previously pushed certificate.)
     //
     uint8_t readerPublicKey[EIC_PRESENTATION_MAX_READER_PUBLIC_KEY_SIZE];
+    uint8_t _pad1[7];
     size_t readerPublicKeySize;
 
     // This is set to true only if eicPresentationValidateRequestMessage() successfully

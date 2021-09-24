@@ -60,6 +60,7 @@ typedef struct {
 
     // Set to true if this is an update.
     bool isUpdate;
+    uint8_t _pad[2];
 } EicProvisioning;
 
 bool eicProvisioningInit(EicProvisioning* ctx, bool testCredential);
