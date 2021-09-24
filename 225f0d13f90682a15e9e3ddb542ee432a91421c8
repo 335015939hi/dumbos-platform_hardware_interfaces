@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b4f52ca_3d9772fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-24T03:04:08Z",
+      "side": 1,
+      "message": "nit: we should explain what exactly happens here. I note this refactors the class and also changes some of the polling logic. In the future, please try to do this kind of things in separate CLs.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "225f0d13f90682a15e9e3ddb542ee432a91421c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d6c3677_3949f571",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-24T03:04:08Z",
+      "side": 1,
+      "message": "looks like an improvement, and please don\u0027t wait for my review, now that there are new OWNERS here!",
+      "revId": "225f0d13f90682a15e9e3ddb542ee432a91421c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d19f2df_1c6dd48a",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-24T03:04:08Z",
+      "side": 1,
+      "message": "nit: out of curiosity, why not leave these as non-static \u0027m\u0027 variables? Since each instance of the class assumes ownership of these, I am not sure why they are global. Sure, it might not matter here, but if we have some unit test, we might want to instantiate multiple instances of this class.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 23
+      },
+      "revId": "225f0d13f90682a15e9e3ddb542ee432a91421c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
