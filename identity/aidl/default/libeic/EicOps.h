@@ -107,16 +107,12 @@ typedef struct EicHmacSha256Ctx EicHmacSha256Ctx;
 //
 #ifdef EIC_DEBUG
 void eicPrint(const char* format, ...);
-#else
-inline void eicPrint(const char*, ...) {}
 #endif
 
 // Dumps data as pretty-printed hex. Can be no-op.
 //
 #ifdef EIC_DEBUG
 void eicHexdump(const char* message, const uint8_t* data, size_t dataSize);
-#else
-inline void eicHexdump(const char*, const uint8_t*, size_t) {}
 #endif
 
 // Pretty-prints encoded CBOR. Can be no-op.
@@ -128,8 +124,6 @@ inline void eicHexdump(const char*, const uint8_t*, size_t) {}
 //
 #ifdef EIC_DEBUG
 void eicCborPrettyPrint(const uint8_t* cborData, size_t cborDataSize, size_t maxBStrSize);
-#else
-inline void eicCborPrettyPrint(const uint8_t*, size_t, size_t) {}
 #endif
 
 // Memory setting, see memset(3).
