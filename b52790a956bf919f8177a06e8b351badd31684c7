@@ -117,6 +117,30 @@
       },
       "revId": "b52790a956bf919f8177a06e8b351badd31684c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "772b71e7_b1fa9634",
+        "filename": "vibrator/aidl/default/apex/com.android.hardware.vibrator.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2021-09-24T16:16:37Z",
+      "side": 1,
+      "message": "Gotcha",
+      "parentUuid": "15bff09a_c76eaea0",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "b52790a956bf919f8177a06e8b351badd31684c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
