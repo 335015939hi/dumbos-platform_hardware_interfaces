@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "530b9400_fe995a37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1051483
+      },
+      "writtenOn": "2021-09-25T00:02:26Z",
+      "side": 1,
+      "message": "can we have this refer to the OWNERS in system/bt instead?",
+      "revId": "07a8d8477811cb7c0d99369235bb38af36280f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
