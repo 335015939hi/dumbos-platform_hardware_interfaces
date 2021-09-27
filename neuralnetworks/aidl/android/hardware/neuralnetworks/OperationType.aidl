@@ -5274,4 +5274,37 @@ enum OperationType {
      *      c_o = r_y if adj_y else c_y
      */
     BATCH_MATMUL = 102,
+
+    /**
+     * Packs N input tensors of rank R into one output tensor of rank R+1.
+     * The tensors are packed along a given axis.
+     *
+     * The input tensors must have identical {@link OperandType} and dimensions.
+     *
+     * For example, suppose there are N input tensors of shape (A, B, C).
+     * If axis is 0, the output tensor will have shape (N, A, B, C).
+     * If axis is 1, the output tensor will have shape (A, N, B, C).
+     *
+     * Supported tensor {@link OperandType}:
+     * * {@link OperandType::TENSOR_FLOAT16}
+     * * {@link OperandType::TENSOR_FLOAT32}
+     * * {@link OperandType::TENSOR_QUANT8_ASYMM}
+     * * {@link OperandType::TENSOR_QUANT8_ASYMM_SIGNED}
+     * * {@link OperandType::TENSOR_INT32}
+     * 
+     * Supported tensor rank: from 1
+     * 
+     * Inputs:
+     * * 0: A scalar of type {@link OperandType::INT32}, specifying
+     *      the axis along which to pack.  The valid range is [0, R+1).
+     * * 1 ~ N: Input tensors to be packed together.
+     *          For {@link OperandType::TENSOR_QUANT8_ASYMM} and
+     *          {@link OperandType::TENSOR_QUANT8_ASYMM_SIGNED} tensors,
+     *          the scales and zeroPoint must be the same for all input tensors,
+     *          and will be the same for the output tensor.
+     *
+     * Outputs:
+     * * 0: The packed tensor.
+     */
+    PACK = 103,
 }
