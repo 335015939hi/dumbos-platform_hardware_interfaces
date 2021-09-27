@@ -81,6 +81,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87f5b47f_af88eda9",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1518386
+      },
+      "writtenOn": "2021-09-27T09:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ec8b919_ad5e4b2e",
+      "range": {
+        "startLine": 433,
+        "startChar": 4,
+        "endLine": 433,
+        "endChar": 9
+      },
+      "revId": "f41da2b787c38ede79bc42a9c2359d08928203a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6936c811_5357c8fe",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1518386
+      },
+      "writtenOn": "2021-09-27T09:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca8841d2_ffa0dd5d",
+      "range": {
+        "startLine": 433,
+        "startChar": 24,
+        "endLine": 433,
+        "endChar": 26
+      },
+      "revId": "f41da2b787c38ede79bc42a9c2359d08928203a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "018b16f3_fd2546ac",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-09-06T17:17:27Z",
       "side": 1,
       "message": "table to 4 spaces",
+      "range": {
+        "startLine": 434,
+        "startChar": 0,
+        "endLine": 434,
+        "endChar": 4
+      },
+      "revId": "f41da2b787c38ede79bc42a9c2359d08928203a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "711effc5_43cc48ec",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1518386
+      },
+      "writtenOn": "2021-09-27T09:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "018b16f3_fd2546ac",
       "range": {
         "startLine": 434,
         "startChar": 0,
@@ -150,6 +222,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa004b5a_818d3a53",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1518386
+      },
+      "writtenOn": "2021-09-27T09:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9473918d_564376f0",
+      "range": {
+        "startLine": 448,
+        "startChar": 4,
+        "endLine": 448,
+        "endChar": 10
+      },
+      "revId": "f41da2b787c38ede79bc42a9c2359d08928203a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54eab8aa_0e454de4",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1518386
+      },
+      "writtenOn": "2021-09-27T09:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32c27572_6fc13baf",
+      "range": {
+        "startLine": 448,
+        "startChar": 24,
+        "endLine": 448,
+        "endChar": 26
+      },
+      "revId": "f41da2b787c38ede79bc42a9c2359d08928203a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4364a896_a4d59b47",
@@ -163,6 +283,30 @@
       "writtenOn": "2021-09-06T17:17:27Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 449,
+        "startChar": 0,
+        "endLine": 449,
+        "endChar": 4
+      },
+      "revId": "f41da2b787c38ede79bc42a9c2359d08928203a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5321c6e9_093847fb",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1518386
+      },
+      "writtenOn": "2021-09-27T09:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4364a896_a4d59b47",
       "range": {
         "startLine": 449,
         "startChar": 0,
@@ -196,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc854c27_f59d772a",
+        "filename": "tv/tuner/1.0/vts/functional/VtsHalTvTunerV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1518386
+      },
+      "writtenOn": "2021-09-27T09:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "770f05da_2fa33519",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "f41da2b787c38ede79bc42a9c2359d08928203a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73cbd993_56843228",
@@ -209,6 +377,30 @@
       "writtenOn": "2021-09-06T17:17:27Z",
       "side": 1,
       "message": "table to space",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 4
+      },
+      "revId": "f41da2b787c38ede79bc42a9c2359d08928203a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e3d4baf_8883e509",
+        "filename": "tv/tuner/1.0/vts/functional/VtsHalTvTunerV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1518386
+      },
+      "writtenOn": "2021-09-27T09:43:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73cbd993_56843228",
       "range": {
         "startLine": 41,
         "startChar": 0,
