@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a2cbd66_362c25f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2021-09-27T17:00:44Z",
+      "side": 1,
+      "message": "Please change tab to 4 spaces in all your files.",
+      "revId": "f8c2e73da0cc332e5582d7ee00936fb1338e2619",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a2c158c_3ab48543",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2021-09-27T17:00:44Z",
+      "side": 1,
+      "message": "Please change tab to 4 spaces.",
+      "range": {
+        "startLine": 434,
+        "startChar": 0,
+        "endLine": 434,
+        "endChar": 1
+      },
+      "revId": "f8c2e73da0cc332e5582d7ee00936fb1338e2619",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
