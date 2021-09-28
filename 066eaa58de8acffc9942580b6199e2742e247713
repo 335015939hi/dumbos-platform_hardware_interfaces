@@ -33,6 +33,42 @@
       "message": "Actually, if all owners in the parent OWNERS file (https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/keymaster/3.0/vts/OWNERS) are okay with being assigned to the bugs about this module, it might be more desirable to reuse it. And you won\u0027t be the single contact point. What do you think?\n\nI think yim@ and yuexima@ should probably be removed from there, I know they are not working on this project any more.\n",
       "revId": "066eaa58de8acffc9942580b6199e2742e247713",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ba7896e_37d2a80f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-28T01:24:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "226c5d0b_834cf731",
+      "revId": "066eaa58de8acffc9942580b6199e2742e247713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4ec6f33_be62e352",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-28T01:24:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dcc7289_fbbbe582",
+      "revId": "066eaa58de8acffc9942580b6199e2742e247713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
