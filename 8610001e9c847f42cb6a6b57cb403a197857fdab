@@ -16,6 +16,24 @@
       "message": "Hi, can we please have an update? Thank you!!",
       "revId": "8610001e9c847f42cb6a6b57cb403a197857fdab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b351064_b2b7b533",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-28T17:05:32Z",
+      "side": 1,
+      "message": "gentle ping",
+      "parentUuid": "dd78ffce_f6a5cbde",
+      "revId": "8610001e9c847f42cb6a6b57cb403a197857fdab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
