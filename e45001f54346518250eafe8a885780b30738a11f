@@ -16,6 +16,23 @@
       "message": "Do you know who is the best person on your team to give an owner review?",
       "revId": "e45001f54346518250eafe8a885780b30738a11f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a706ae12_d436e2c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410300
+      },
+      "writtenOn": "2021-09-29T04:08:43Z",
+      "side": 1,
+      "message": "Adding Guru for owners approval. ",
+      "revId": "e45001f54346518250eafe8a885780b30738a11f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
