@@ -95,6 +95,121 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "746a114a_6697bf91",
+        "filename": "radio/aidl/android/hardware/radio/config/SimPortInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-29T18:11:27Z",
+      "side": 1,
+      "message": "nit: \"This is the ICCID\"\nPlease also capitalize other usages of ICCID to keep it consistent through the documentation.",
+      "range": {
+        "startLine": 28,
+        "startChar": 7,
+        "endLine": 28,
+        "endChar": 24
+      },
+      "revId": "92c90fb360208c4d223e8568884546545f0a573a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89f8f87d_f9ef4903",
+        "filename": "radio/aidl/android/hardware/radio/config/SimPortInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-29T18:11:27Z",
+      "side": 1,
+      "message": "nit: Capitalize Logical",
+      "range": {
+        "startLine": 34,
+        "startChar": 7,
+        "endLine": 34,
+        "endChar": 14
+      },
+      "revId": "92c90fb360208c4d223e8568884546545f0a573a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c10205be_44aa6a65",
+        "filename": "radio/aidl/android/hardware/radio/config/SimSlotStatus.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-29T18:11:27Z",
+      "side": 1,
+      "message": "\"PortInfo contains the ICCID, logical slot ID, and port state\"",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 77
+      },
+      "revId": "92c90fb360208c4d223e8568884546545f0a573a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e10f5c9b_e850cb1f",
+        "filename": "radio/aidl/android/hardware/radio/config/SlotMapping.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-29T18:11:27Z",
+      "side": 1,
+      "message": "nit: capitalize",
+      "range": {
+        "startLine": 22,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "92c90fb360208c4d223e8568884546545f0a573a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb55579f_d1f1dced",
+        "filename": "radio/aidl/android/hardware/radio/config/SlotMapping.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-09-29T18:11:27Z",
+      "side": 1,
+      "message": "It would be better to split this into two sentences:\nIf eUICC1 supports 2 ports, portId is numbered 0,1.\nIf eUICC2 supports 4 ports, portId is numbered 0,1,2,3.",
+      "range": {
+        "startLine": 28,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "92c90fb360208c4d223e8568884546545f0a573a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83e22bb8_02ce0f72",
         "filename": "radio/aidl/android/hardware/radio/sim/CardStatus.aidl",
         "patchSetId": 5
