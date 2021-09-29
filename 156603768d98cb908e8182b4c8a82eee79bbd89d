@@ -22,6 +22,30 @@
       },
       "revId": "156603768d98cb908e8182b4c8a82eee79bbd89d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46c7b68c_a032d4fb",
+        "filename": "soundtrigger/2.1/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-29T01:12:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49d5dd84_da87a9e0",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "156603768d98cb908e8182b4c8a82eee79bbd89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
