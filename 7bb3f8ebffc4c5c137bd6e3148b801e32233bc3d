@@ -51,6 +51,24 @@
       "parentUuid": "37a0fdf4_a17bc7b9",
       "revId": "7bb3f8ebffc4c5c137bd6e3148b801e32233bc3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea456dd8_a5cef04a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-09-29T20:56:01Z",
+      "side": 1,
+      "message": "Yes, reusing one OWNERS file would be a good idea. And from 1.1 VTS egranata@ is also not working on radio stack anymore either. It would be just oscarazu@ and keunyoung@ (his manager).",
+      "parentUuid": "ce333382_e3c24c5a",
+      "revId": "7bb3f8ebffc4c5c137bd6e3148b801e32233bc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
