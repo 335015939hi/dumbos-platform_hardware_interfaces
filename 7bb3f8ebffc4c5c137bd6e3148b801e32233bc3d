@@ -33,6 +33,24 @@
       "message": "I\u0027m no longer an owner of the radio stack, oscarazu@ is.",
       "revId": "7bb3f8ebffc4c5c137bd6e3148b801e32233bc3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce333382_e3c24c5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-29T20:39:48Z",
+      "side": 1,
+      "message": "OWNERS file updated. I notice that there is a parent OWNERS file: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/broadcastradio/1.1/vts/OWNERS. Let me know if you want to reuse it. It looks outdated, since you said you are no longer an owner of the radio stack. And I know yuexima@ and yim@ is not on your team any more.",
+      "parentUuid": "37a0fdf4_a17bc7b9",
+      "revId": "7bb3f8ebffc4c5c137bd6e3148b801e32233bc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
