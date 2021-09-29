@@ -19,7 +19,7 @@ package android.hardware.radio.config;
 @VintfStability
 parcelable SlotMapping {
     /**
-     * physical slot id is the index of the slots
+     * physical slot id is the index of the slots.
      **/
     int physicalSlotId;
     /**
