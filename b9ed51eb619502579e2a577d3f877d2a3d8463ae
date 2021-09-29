@@ -22,6 +22,30 @@
       },
       "revId": "b9ed51eb619502579e2a577d3f877d2a3d8463ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "283644fc_faf6c166",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-09-29T06:49:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d4e3d27_aac8bb79",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 7
+      },
+      "revId": "b9ed51eb619502579e2a577d3f877d2a3d8463ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
