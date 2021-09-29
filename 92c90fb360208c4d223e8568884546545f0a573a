@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "755c96d8_91e0f666",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-29T16:52:41Z",
+      "side": 1,
+      "message": "portId is described twice. line 127 and here on 129.\nYou can remove the \"just\" in the description.",
+      "range": {
+        "startLine": 129,
+        "startChar": 7,
+        "endLine": 129,
+        "endChar": 85
+      },
+      "revId": "92c90fb360208c4d223e8568884546545f0a573a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "debf51b1_082fb595",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-29T16:52:41Z",
+      "side": 1,
+      "message": "this sentence is cut short.",
+      "range": {
+        "startLine": 130,
+        "startChar": 80,
+        "endLine": 131,
+        "endChar": 30
+      },
+      "revId": "92c90fb360208c4d223e8568884546545f0a573a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "335064aa_809c1a3f",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-29T16:52:41Z",
+      "side": 1,
+      "message": "is this supposed to be a list/array? Size currently doesn\u0027t make sense here.",
+      "range": {
+        "startLine": 168,
+        "startChar": 65,
+        "endLine": 168,
+        "endChar": 95
+      },
+      "revId": "92c90fb360208c4d223e8568884546545f0a573a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "463ca860_4ce20217",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-29T16:52:41Z",
+      "side": 1,
+      "message": "this doesn\u0027t make sense.",
+      "range": {
+        "startLine": 172,
+        "startChar": 18,
+        "endLine": 172,
+        "endChar": 48
+      },
+      "revId": "92c90fb360208c4d223e8568884546545f0a573a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83e22bb8_02ce0f72",
+        "filename": "radio/aidl/android/hardware/radio/sim/CardStatus.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-29T16:52:41Z",
+      "side": 1,
+      "message": "Should SlotMapping be used in this structure, and get rid of portId and physicalSlotId? That would get rid of this duplicated comment.\nOr should it use the logical slot set from setSimSlotsMapping?",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 15
+      },
+      "revId": "92c90fb360208c4d223e8568884546545f0a573a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
