@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d4e3d27_aac8bb79",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1121193
+      },
+      "writtenOn": "2021-09-29T06:42:38Z",
+      "side": 1,
+      "message": "nit： \nand please check the whole comments I see many instances like this..\n\nplease make sure it is formatted properly",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 7
+      },
+      "revId": "b9ed51eb619502579e2a577d3f877d2a3d8463ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
