@@ -16,6 +16,23 @@
       "message": "Hi, can we please have an update? Thank you!!",
       "revId": "8a6ea82cb154667aab63cba17a59227dbb7c7f8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef996207_93755bd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-09-29T20:24:09Z",
+      "side": 1,
+      "message": "I\u0027m no longer an owner of the radio stack, oscarazu@ is.",
+      "revId": "8a6ea82cb154667aab63cba17a59227dbb7c7f8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
