@@ -33,6 +33,42 @@
       "message": "I\u0027m no longer an owner of the radio stack, oscarazu@ is.",
       "revId": "8a6ea82cb154667aab63cba17a59227dbb7c7f8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7ce0043_b27e0b15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-29T20:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e1bf3df_72edf7d0",
+      "revId": "8a6ea82cb154667aab63cba17a59227dbb7c7f8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "544a9386_3716f5b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-29T20:34:44Z",
+      "side": 1,
+      "message": "I updated the OWNERS file. Who is the best person to do owner review? I see many owners suggested by gerrit.",
+      "parentUuid": "ef996207_93755bd8",
+      "revId": "8a6ea82cb154667aab63cba17a59227dbb7c7f8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
