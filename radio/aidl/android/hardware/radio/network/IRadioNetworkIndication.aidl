@@ -129,9 +129,11 @@ oneway interface IRadioNetworkIndication {
      *
      * @param type Type of radio indication
      * @param nitzTime NITZ time string in the form "yy/mm/dd,hh:mm:ss(+/-)tz,dt"
-     * @param receivedTime milliseconds since boot that the NITZ time was received
+     * @param receivedTime milliseconds since boot that RIL sent the NITZ time to the framework.
+     * @param age time in milliseconds when NITZ was cached in RIL and modem.
      */
-    void nitzTimeReceived(in RadioIndicationType type, in String nitzTime, in long receivedTime);
+    void nitzTimeReceived(in RadioIndicationType type, in String nitzTime,
+            in long receivedTime, in long age);
 
     /**
      * Report that Registration or a Location/Routing/Tracking Area update has failed.
