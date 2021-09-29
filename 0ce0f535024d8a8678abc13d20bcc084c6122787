@@ -1,0 +1,56 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000015775413",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1839796?revision\u003d4",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "8023d574_597fcd61",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-09-29T06:48:17Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 169,
+        "startChar": 93,
+        "endLine": 169,
+        "endChar": 94
+      },
+      "revId": "0ce0f535024d8a8678abc13d20bcc084c6122787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000015775413",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1839796?revision\u003d4",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "9a9798df_d3158e3e",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-09-29T06:48:17Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 171,
+        "startChar": 6,
+        "endLine": 171,
+        "endChar": 14
+      },
+      "revId": "0ce0f535024d8a8678abc13d20bcc084c6122787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
