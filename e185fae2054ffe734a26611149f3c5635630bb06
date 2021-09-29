@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b6cb862_a83c99d8",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-29T20:57:39Z",
+      "side": 0,
+      "message": "Why? The idea is that we want those to be no-op in production (where EIC_DEBUG is not set).",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 41
+      },
+      "revId": "e185fae2054ffe734a26611149f3c5635630bb06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

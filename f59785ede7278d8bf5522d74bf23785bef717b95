@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "793605cd_0e0a3193",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-29T20:57:39Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 88
+      },
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70bb85c4_d0d54e93",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-29T20:57:39Z",
+      "side": 1,
+      "message": "Can\u0027t you just adjust your include path so it includes the directory which has the EicOpsImpl.h for your platform.",
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fc8e615_f599ebe1",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-29T20:57:39Z",
+      "side": 1,
+      "message": "We should probably use uint32_t for this ... currently used values are YYYMM so we need more than 16 bits and less than 32.",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "812e4349_8ac61b64",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-09-29T20:57:39Z",
+      "side": 1,
+      "message": "Is this because you want to align the following uint64_t so it starts on a offset divisible by 8?",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
