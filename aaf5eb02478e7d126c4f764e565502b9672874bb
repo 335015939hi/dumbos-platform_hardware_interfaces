@@ -33,6 +33,24 @@
       "message": "Hi Steven, do you know who is the owner of this test now?",
       "revId": "aaf5eb02478e7d126c4f764e565502b9672874bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84298ab9_4ec8d43c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-09-30T23:13:35Z",
+      "side": 1,
+      "message": "You can consider all of the vibrator tests to have the same owners. Please see https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1793003 where I added the owners I know.",
+      "parentUuid": "e6d148f3_a23d1d85",
+      "revId": "aaf5eb02478e7d126c4f764e565502b9672874bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
