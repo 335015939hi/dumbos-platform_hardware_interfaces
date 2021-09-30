@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd4d0bd0_5835ce4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-30T22:39:13Z",
+      "side": 1,
+      "message": "Well actually, it\u0027s better to reuse your existing OWNERS file hardware/interfaces/radio/1.0/vts/OWNERS.\n\nSarah if you own hardware/interfaces/radio/* too then we should add you there.",
+      "revId": "08ea4a27906cacbe78a0ba3ad176ee8c63a91b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
