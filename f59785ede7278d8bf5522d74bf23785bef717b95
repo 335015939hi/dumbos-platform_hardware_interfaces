@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d124366_357b7775",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-30T06:01:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "65e265ca_d24182cc",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 88
+      },
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70bb85c4_d0d54e93",
@@ -79,6 +103,24 @@
       "side": 1,
       "message": "Yes\n\nI could add following to build.mk.\n\n# Include header files\nINC_DIRS +\u003d app/identity/\n\nThank you,\nJoseph.",
       "parentUuid": "70bb85c4_d0d54e93",
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5a5eec6_a004d1de",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-30T06:01:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68c182b5_24089b66",
       "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -130,6 +172,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c7f1936_545ad49f",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-30T06:01:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "000d9507_db6de792",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "812e4349_8ac61b64",
@@ -167,6 +233,30 @@
       "side": 1,
       "message": "Yes ~\n\nI found the nugget OS has \"CFLAGS_WARN +\u003d -Wpadded -Wno-error\u003dpadded\" in Makefile, so we will got warning message if detect the data is not 8 bytes alignment.\n\nI think if we don\u0027t add padding data here, compiler will auto add it right?",
       "parentUuid": "812e4349_8ac61b64",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "453c422e_1b4ddfa3",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-30T06:01:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e9ed1da1_8be1bb7b",
       "range": {
         "startLine": 41,
         "startChar": 4,
