@@ -22,6 +22,30 @@
       },
       "revId": "e185fae2054ffe734a26611149f3c5635630bb06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23199a42_d66d782b",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-30T05:59:26Z",
+      "side": 0,
+      "message": "Because I will encounter build error like following ...\napp/identity/libeic/EicOps.h:111:22: error: parameter name omitted\n  111 | inline void eicPrint(const char*, ...) {}\n  \nAnd could be fixed by adding unused parameter or just remove it.\n\ninline void eicPrint(const char* format __unused, ...) {}",
+      "parentUuid": "2b6cb862_a83c99d8",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 41
+      },
+      "revId": "e185fae2054ffe734a26611149f3c5635630bb06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

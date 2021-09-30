@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65e265ca_d24182cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-30T05:59:26Z",
+      "side": 1,
+      "message": "Nugget OS Makefile has \"CFLAGS_WARN +\u003d -Wpadded -Wno-error\u003dpadded\" to detect data that doesn\u0027t has 8 bytes alignment.\n\nIt is better to fix those WARN build log.\n\nThank you,\nJoseph.",
+      "parentUuid": "793605cd_0e0a3193",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 88
+      },
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70bb85c4_d0d54e93",
         "filename": "identity/aidl/default/libeic/EicOps.h",
         "patchSetId": 1
@@ -37,6 +61,24 @@
       "writtenOn": "2021-09-29T20:57:39Z",
       "side": 1,
       "message": "Can\u0027t you just adjust your include path so it includes the directory which has the EicOpsImpl.h for your platform.",
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68c182b5_24089b66",
+        "filename": "identity/aidl/default/libeic/EicOps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-30T05:59:26Z",
+      "side": 1,
+      "message": "Yes\n\nI could add following to build.mk.\n\n# Include header files\nINC_DIRS +\u003d app/identity/\n\nThank you,\nJoseph.",
+      "parentUuid": "70bb85c4_d0d54e93",
       "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "000d9507_db6de792",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-30T05:59:26Z",
+      "side": 1,
+      "message": "I think sizeof(int) in Nugget OS is 32 bits.\n\nI am okay to change it to uint32 here.",
+      "parentUuid": "6fc8e615_f599ebe1",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "812e4349_8ac61b64",
         "filename": "identity/aidl/default/libeic/EicPresentation.h",
         "patchSetId": 1
@@ -77,6 +143,30 @@
       "writtenOn": "2021-09-29T20:57:39Z",
       "side": 1,
       "message": "Is this because you want to align the following uint64_t so it starts on a offset divisible by 8?",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "f59785ede7278d8bf5522d74bf23785bef717b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9ed1da1_8be1bb7b",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2021-09-30T05:59:26Z",
+      "side": 1,
+      "message": "Yes ~\n\nI found the nugget OS has \"CFLAGS_WARN +\u003d -Wpadded -Wno-error\u003dpadded\" in Makefile, so we will got warning message if detect the data is not 8 bytes alignment.\n\nI think if we don\u0027t add padding data here, compiler will auto add it right?",
+      "parentUuid": "812e4349_8ac61b64",
       "range": {
         "startLine": 41,
         "startChar": 4,
