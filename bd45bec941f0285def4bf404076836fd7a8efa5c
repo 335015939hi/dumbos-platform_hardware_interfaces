@@ -33,6 +33,23 @@
       "message": "Hi Ahmed, do you have enough context to be the owner of VtsHalPowerV1_2TargetTest? The effect of this CL is that all bugs relating the issues with VtsHalPowerV1_2TargetTest will be filed to component 158088 and assigned to you. Are you okay with this?",
       "revId": "bd45bec941f0285def4bf404076836fd7a8efa5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8513c2d_2ef416bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-30T23:12:27Z",
+      "side": 1,
+      "message": "Hi Devin, do you know who owns the VTS tests under platform/hardware/interfaces/power/* ?",
+      "revId": "bd45bec941f0285def4bf404076836fd7a8efa5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
