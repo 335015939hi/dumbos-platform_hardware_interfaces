@@ -68,6 +68,24 @@
       "message": "Hi Devin, do you know who owns the VTS tests under platform/hardware/interfaces/power/* ?",
       "revId": "21b98bc2c949a35d5008077e9d93899a614a3db2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4c7fd66_cea430fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-09-30T23:23:20Z",
+      "side": 1,
+      "message": "bsschwar@ and wvw@ are the folks I know of.\nCan either of you offer the correct owners here?",
+      "parentUuid": "26fd54e0_d576c7b8",
+      "revId": "21b98bc2c949a35d5008077e9d93899a614a3db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
