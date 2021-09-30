@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00793380_f8df2a80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-09-30T19:05:46Z",
+      "side": 1,
+      "message": "Hi I updated this CL to reuse the existing OWNERS file. Could you take a look?",
+      "revId": "84cadeb7e9f97952bcc3ad52e96399cec613cf4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
