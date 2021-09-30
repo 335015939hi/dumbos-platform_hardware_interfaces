@@ -49,7 +49,21 @@ using ::android::hardware::radio::V1_0::RadioResponseInfo;
 using ::android::hardware::radio::V1_0::RadioResponseType;
 
 #define TIMEOUT_PERIOD 75
+<<<<<<< HEAD   (67103c Merge "Skip tests for single SIM devices" into android11-tes)
 #define RADIO_SERVICE_NAME "slot1"
+=======
+#define SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL_VERSION_AT_LEAST(__ver__) \
+    SKIP_TEST_IF_REQUEST_NOT_SUPPORTED_WITH_HAL(__ver__, radio_v1_2, radioRsp_v1_2)
+>>>>>>> CHANGE (07f1c2 Skip slot 2 for other radio modules in single sim mode)
+
+// HAL instance name for SIM slot 1 or single SIM device
+#define RADIO_SERVICE_SLOT1_NAME "slot1"
+
+// HAL instance name for SIM slot 2 on dual SIM device
+#define RADIO_SERVICE_SLOT2_NAME "slot2"
+
+// HAL instance name for SIM slot 3 on triple SIM device
+#define RADIO_SERVICE_SLOT3_NAME "slot3"
 
 class RadioHidlTest_v1_2;
 extern ::android::hardware::radio::V1_2::CardStatus cardStatus;
