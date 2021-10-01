@@ -22,6 +22,167 @@
       },
       "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03341233_d5a18fc6",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T16:44:36Z",
+      "side": 1,
+      "message": "this looks redundant to line 124 ?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 52
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86fc0806_c0f0e887",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T16:44:36Z",
+      "side": 1,
+      "message": "slots",
+      "range": {
+        "startLine": 136,
+        "startChar": 51,
+        "endLine": 136,
+        "endChar": 56
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f0b85e3_cc1a9fdc",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T16:44:36Z",
+      "side": 1,
+      "message": "has",
+      "range": {
+        "startLine": 137,
+        "startChar": 7,
+        "endLine": 137,
+        "endChar": 12
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "591a475b_e2c51704",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T16:44:36Z",
+      "side": 1,
+      "message": "recommend to move this one up, since it\u0027s the 1st example explained in 138 and follows that ordering (for clarity)",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 67
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28c0365f_92bea669",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T16:44:36Z",
+      "side": 1,
+      "message": "slots",
+      "range": {
+        "startLine": 145,
+        "startChar": 51,
+        "endLine": 145,
+        "endChar": 56
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80dde6ac_e973af08",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T16:44:36Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 147,
+        "startChar": 68,
+        "endLine": 147,
+        "endChar": 69
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1d1e22d_9ce6e823",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T16:44:36Z",
+      "side": 1,
+      "message": "id, need",
+      "range": {
+        "startLine": 167,
+        "startChar": 83,
+        "endLine": 167,
+        "endChar": 91
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
