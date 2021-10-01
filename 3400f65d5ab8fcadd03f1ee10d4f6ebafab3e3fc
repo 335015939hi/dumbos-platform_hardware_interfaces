@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02c38dd7_690a8fd9",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T17:49:44Z",
+      "side": 1,
+      "message": "misspelling in my earlier comment: numbere-\u003enumbered",
+      "parentUuid": "4de747ca_eb79ff7d",
+      "range": {
+        "startLine": 129,
+        "startChar": 80,
+        "endLine": 130,
+        "endChar": 14
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03341233_d5a18fc6",
         "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
         "patchSetId": 9
@@ -363,6 +387,54 @@
       "side": 1,
       "message": "When converting from HIDL -\u003e AIDL, we moved a lot of the enums that are specific to a certain class into the actual class instead of keeping them as their own class or creating a constants class. This was for a cleaner/smaller API surface and better readability.",
       "parentUuid": "24e192f2_c014f2f2",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 36
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b861d37_4726fe68",
+        "filename": "radio/aidl/android/hardware/radio/config/SimPortInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T17:49:44Z",
+      "side": 1,
+      "message": "OK thank you for the explanations!",
+      "parentUuid": "e61ec97c_fd2b1b64",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 36
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de9c7fda_864393d8",
+        "filename": "radio/aidl/android/hardware/radio/config/SimPortInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T17:49:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e61ec97c_fd2b1b64",
       "range": {
         "startLine": 37,
         "startChar": 0,
