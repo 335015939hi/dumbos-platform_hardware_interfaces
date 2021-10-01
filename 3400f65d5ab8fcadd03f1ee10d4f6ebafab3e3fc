@@ -321,6 +321,30 @@
       },
       "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddeb0fe5_4fb7e046",
+        "filename": "radio/aidl/android/hardware/radio/sim/CardStatus.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-10-01T17:23:24Z",
+      "side": 1,
+      "message": "I agree this confused me as well. \nI ended up assuming CardStatus objects are used with logical slots and this contained their physical slot/ports to know the mapping.\nIt seems there is more work here.",
+      "parentUuid": "b13c84a1_b40725c9",
+      "range": {
+        "startLine": 90,
+        "startChar": 1,
+        "endLine": 91,
+        "endChar": 54
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
