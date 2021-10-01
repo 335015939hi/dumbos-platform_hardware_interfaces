@@ -183,6 +183,144 @@
       },
       "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "279aad0a_43ba579b",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T17:18:45Z",
+      "side": 1,
+      "message": "I think we might be missing something here:\n\nSlotMapping only has physical slot ID + port ID so with this arrangement we can only set the mapping for the 1st logical slot ID.\n\nOriginally int[] was an int array where the index \u003d the logical slot index, and the value @ that index \u003d the physical slot ID. SO you\u0027ll need a similar array/vector type to represent multiple logical slots.",
+      "range": {
+        "startLine": 177,
+        "startChar": 46,
+        "endLine": 177,
+        "endChar": 65
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b375f69_09ae3dc7",
+        "filename": "radio/aidl/android/hardware/radio/config/SimPortInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T17:18:45Z",
+      "side": 1,
+      "message": "\"card\"  since CARD is not an acronym (I know this is a copy of types.hal but it really doesn\u0027t need to be capitalized)",
+      "range": {
+        "startLine": 22,
+        "startChar": 82,
+        "endLine": 22,
+        "endChar": 86
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "750065fb_220c1986",
+        "filename": "radio/aidl/android/hardware/radio/config/SimPortInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T17:18:45Z",
+      "side": 1,
+      "message": "the unique identifier (not sure why this is capitalized - I know it\u0027s a copy of types.hal)",
+      "range": {
+        "startLine": 22,
+        "startChar": 53,
+        "endLine": 22,
+        "endChar": 71
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48de0172_b015d8bb",
+        "filename": "radio/aidl/android/hardware/radio/config/SimPortInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T17:18:45Z",
+      "side": 1,
+      "message": "Curious but why do these need to be defined within here now? Do all the types now need to be defined in the aidl instead of a separate types.h file?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 36
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a22fab11_b49b8b18",
+        "filename": "radio/aidl/android/hardware/radio/config/SlotMapping.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T17:18:45Z",
+      "side": 1,
+      "message": "For clarity I think:  SlotPortMapping  is more fitting. This way folks won\u0027t confuse this with the logical\u003c\u003ephysical slot mapping which the \"slotMap\"field in setSimSlotsMapping use to refer to.",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b13c84a1_b40725c9",
+        "filename": "radio/aidl/android/hardware/radio/sim/CardStatus.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T17:18:45Z",
+      "side": 1,
+      "message": "SlotMapping only has physicalSlotId and portID\nWhy is there a reference to logical slots here? It might confuse people into thinking that this field indicates the mapping of logical\u003c\u003ephysicalSlot/port, but in fact all it has is info on the physicalSlotID/portID tied to this cardstatus.",
+      "range": {
+        "startLine": 90,
+        "startChar": 1,
+        "endLine": 91,
+        "endChar": 54
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
