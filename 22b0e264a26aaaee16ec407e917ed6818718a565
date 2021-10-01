@@ -34,6 +34,24 @@
       "parentUuid": "92ee9df1_c56f3570",
       "revId": "22b0e264a26aaaee16ec407e917ed6818718a565",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2d5d9c3_1bffb84f",
+        "filename": "vibrator/1.3/vts/functional/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-01T19:12:02Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c641d49e_82f1295f",
+      "revId": "22b0e264a26aaaee16ec407e917ed6818718a565",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
