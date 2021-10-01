@@ -16,6 +16,24 @@
       "message": "Hi Michael and Vince, do you also own other version of this test under hardware/interfaces/vibrator/* ?",
       "revId": "33e9848a66250a734bc8288465fedf65e3ddf773",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c166fcf2_68427811",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-01T21:26:11Z",
+      "side": 1,
+      "message": "For every HAL, we should have the same owners for all versions of that HAL. Even if some people worked on V1 and others worked on V2, everyone should be tagged as the owners for all versions.",
+      "parentUuid": "a49a00ee_e73d06aa",
+      "revId": "33e9848a66250a734bc8288465fedf65e3ddf773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
