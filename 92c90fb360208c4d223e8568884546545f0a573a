@@ -469,6 +469,30 @@
       },
       "revId": "92c90fb360208c4d223e8568884546545f0a573a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05cb6da1_3aa111a7",
+        "filename": "radio/aidl/android/hardware/radio/sim/CardStatus.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-01T14:30:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b69373e_b3537651",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 15
+      },
+      "revId": "92c90fb360208c4d223e8568884546545f0a573a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
