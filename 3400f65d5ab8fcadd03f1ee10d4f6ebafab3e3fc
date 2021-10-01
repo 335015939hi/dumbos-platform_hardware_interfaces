@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4de747ca_eb79ff7d",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-01T16:20:04Z",
+      "side": 1,
+      "message": "this sentence looks incomplete, is it missing something like: and if eUICC2 supports 4 ports, then the portID is numbere 0,1,2,3 ?",
+      "range": {
+        "startLine": 129,
+        "startChar": 80,
+        "endLine": 130,
+        "endChar": 14
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
