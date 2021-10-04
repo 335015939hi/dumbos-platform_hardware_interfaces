@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "657c1ff8_08f12769",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-04T18:18:58Z",
+      "side": 1,
+      "message": "nit: 2 and",
+      "range": {
+        "startLine": 158,
+        "startChar": 87,
+        "endLine": 158,
+        "endChar": 94
+      },
+      "revId": "45308ce246da77f50392d1208be489ddd1a45640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "884a70af_5e5407d4",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-04T18:18:58Z",
+      "side": 1,
+      "message": "nit: redundant and",
+      "range": {
+        "startLine": 162,
+        "startChar": 7,
+        "endLine": 162,
+        "endChar": 11
+      },
+      "revId": "45308ce246da77f50392d1208be489ddd1a45640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2579d25_40c3aec3",
+        "filename": "radio/aidl/android/hardware/radio/sim/CardStatus.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-04T18:18:58Z",
+      "side": 1,
+      "message": "nit: (sorry just saw this)\n\nAn enumeration is a complete, ordered listing of all the items in a collection hence the portID is not an \"enumeration of the ports available\". Also suggest to change from UICC-\u003eSIM just to keep it consistent with the earlier descriptions.\n\nSuggest to change this to something more straightforward:\nPortID is the ID (enumerated value) for the associated port",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 67
+      },
+      "revId": "45308ce246da77f50392d1208be489ddd1a45640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
