@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5e8c367_a1547025",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02c38dd7_690a8fd9",
+      "range": {
+        "startLine": 129,
+        "startChar": 80,
+        "endLine": 130,
+        "endChar": 14
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03341233_d5a18fc6",
@@ -61,6 +85,30 @@
       "writtenOn": "2021-10-01T16:44:36Z",
       "side": 1,
       "message": "this looks redundant to line 124 ?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 52
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "080024e9_7e0047f8",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03341233_d5a18fc6",
       "range": {
         "startLine": 133,
         "startChar": 0,
@@ -94,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d03fa41b_29456b6d",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86fc0806_c0f0e887",
+      "range": {
+        "startLine": 136,
+        "startChar": 51,
+        "endLine": 136,
+        "endChar": 56
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f0b85e3_cc1a9fdc",
@@ -107,6 +179,30 @@
       "writtenOn": "2021-10-01T16:44:36Z",
       "side": 1,
       "message": "has",
+      "range": {
+        "startLine": 137,
+        "startChar": 7,
+        "endLine": 137,
+        "endChar": 12
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b16b169_f4c29011",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f0b85e3_cc1a9fdc",
       "range": {
         "startLine": 137,
         "startChar": 7,
@@ -140,6 +236,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ccd8d4d_f48fd2e0",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "591a475b_e2c51704",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 67
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28c0365f_92bea669",
@@ -153,6 +273,30 @@
       "writtenOn": "2021-10-01T16:44:36Z",
       "side": 1,
       "message": "slots",
+      "range": {
+        "startLine": 145,
+        "startChar": 51,
+        "endLine": 145,
+        "endChar": 56
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1af0d934_0ae9181b",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28c0365f_92bea669",
       "range": {
         "startLine": 145,
         "startChar": 51,
@@ -186,6 +330,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e92b764_e05b54c7",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80dde6ac_e973af08",
+      "range": {
+        "startLine": 147,
+        "startChar": 68,
+        "endLine": 147,
+        "endChar": 69
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1d1e22d_9ce6e823",
@@ -199,6 +367,30 @@
       "writtenOn": "2021-10-01T16:44:36Z",
       "side": 1,
       "message": "id, need",
+      "range": {
+        "startLine": 167,
+        "startChar": 83,
+        "endLine": 167,
+        "endChar": 91
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6a79aa5_f8a453a4",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1d1e22d_9ce6e823",
       "range": {
         "startLine": 167,
         "startChar": 83,
@@ -256,6 +448,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85297214_8f9ab80f",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42bac9b0_3d4c9852",
+      "range": {
+        "startLine": 177,
+        "startChar": 46,
+        "endLine": 177,
+        "endChar": 65
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b375f69_09ae3dc7",
@@ -297,6 +513,54 @@
         "startChar": 53,
         "endLine": 22,
         "endChar": 71
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a6f2870_2583970b",
+        "filename": "radio/aidl/android/hardware/radio/config/SimPortInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "750065fb_220c1986",
+      "range": {
+        "startLine": 22,
+        "startChar": 53,
+        "endLine": 22,
+        "endChar": 71
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59020b48_87d78a88",
+        "filename": "radio/aidl/android/hardware/radio/config/SimPortInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b375f69_09ae3dc7",
+      "range": {
+        "startLine": 22,
+        "startChar": 82,
+        "endLine": 22,
+        "endChar": 86
       },
       "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -468,6 +732,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "948d5e27_60376cf3",
+        "filename": "radio/aidl/android/hardware/radio/config/SlotMapping.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a22fab11_b49b8b18",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b13c84a1_b40725c9",
@@ -529,6 +817,30 @@
       "side": 1,
       "message": "Sandeep can you please clean up the comment to avoid confusion?\nthis is only for physical slot and port.. \nvector of SlotMapping or PortSlotMapping is a mapping btw logical slot and physical slot + port.\n\nSlotMapping itself does not have a mapping with logical slot.",
       "parentUuid": "ddeb0fe5_4fb7e046",
+      "range": {
+        "startLine": 90,
+        "startChar": 1,
+        "endLine": 91,
+        "endChar": 54
+      },
+      "revId": "3400f65d5ab8fcadd03f1ee10d4f6ebafab3e3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15427650_168d55cd",
+        "filename": "radio/aidl/android/hardware/radio/sim/CardStatus.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-04T04:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "373b4113_414637bf",
       "range": {
         "startLine": 90,
         "startChar": 1,
