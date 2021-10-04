@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "744477b2_07aa20b0",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio.network/current/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1274073
+      },
+      "writtenOn": "2021-10-04T22:06:50Z",
+      "side": 1,
+      "message": "Can you provide more granular indications than networkStateChanged with payload?\n\ne.g. Instead of networkStateChanged (which the client has to follow with \"Registration State\" \"Data Registration State\" \"Operator Name\", etc, can we have registrationStateChanged/dataRegistrationStateChanged,operatorNameChanged with corresponding payload so the client doesn\u0027t need to explicitly query?",
+      "range": {
+        "startLine": 45,
+        "startChar": 14,
+        "endLine": 45,
+        "endChar": 33
+      },
+      "revId": "bca4e6c10415d2118ed2683c57f8b64958dedf61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
