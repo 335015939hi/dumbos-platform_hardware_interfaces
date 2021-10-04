@@ -68,6 +68,30 @@
       },
       "revId": "45308ce246da77f50392d1208be489ddd1a45640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c64f5ad5_8db9cdad",
+        "filename": "radio/aidl/android/hardware/radio/sim/CardStatus.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2021-10-04T18:23:02Z",
+      "side": 1,
+      "message": "Or maybe even just:\nPortID is the port\u0027s ID \n\n\n:D",
+      "parentUuid": "e2579d25_40c3aec3",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 67
+      },
+      "revId": "45308ce246da77f50392d1208be489ddd1a45640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
