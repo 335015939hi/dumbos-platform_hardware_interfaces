@@ -44,6 +44,7 @@ enum KeyPurpose {
     AGREE_KEY = 6,
 
     /* Usable as an attestation signing key.  Keys with this purpose must not have any other
-     * purpose. */
+     * purpose; if they do, key generation/import must be rejected with
+     * ErrorCode::INCOMPATIBLE_PURPOSE. */
     ATTEST_KEY = 7,
 }
