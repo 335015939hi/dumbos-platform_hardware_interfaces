@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1ada0a6_8d5c2598",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-05T22:32:21Z",
+      "side": 1,
+      "message": "I updated the OWNERS file of all tests under radio/* and dropped other CLs that update only one OWNERS file.",
+      "revId": "d0717e1fd4a3bfc06ead72f24ea420a44615a673",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
