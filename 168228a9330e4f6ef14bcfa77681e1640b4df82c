@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f257d54_39dca862",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1371,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-10-05T11:28:47Z",
+      "side": 1,
+      "message": "Nit: There seems to be a semantics change (from 10 bytes to 8), assuming this is intentional?",
+      "range": {
+        "startLine": 1371,
+        "startChar": 35,
+        "endLine": 1371,
+        "endChar": 36
+      },
+      "revId": "168228a9330e4f6ef14bcfa77681e1640b4df82c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
