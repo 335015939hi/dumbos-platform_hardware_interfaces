@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "877206b2_2e802616",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-05T02:59:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "657c1ff8_08f12769",
+      "range": {
+        "startLine": 158,
+        "startChar": 87,
+        "endLine": 158,
+        "endChar": 94
+      },
+      "revId": "45308ce246da77f50392d1208be489ddd1a45640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "884a70af_5e5407d4",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-04T18:18:58Z",
       "side": 1,
       "message": "nit: redundant and",
+      "range": {
+        "startLine": 162,
+        "startChar": 7,
+        "endLine": 162,
+        "endChar": 11
+      },
+      "revId": "45308ce246da77f50392d1208be489ddd1a45640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34c9c189_eb9509b5",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfig.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-05T02:59:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "884a70af_5e5407d4",
       "range": {
         "startLine": 162,
         "startChar": 7,
@@ -108,6 +156,30 @@
       "side": 1,
       "message": "Fixing spelling ion the 2 suggestions:\nPortId is the id (enumerated value) for the associated port\nPortId is the port\u0027s id",
       "parentUuid": "c64f5ad5_8db9cdad",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 67
+      },
+      "revId": "45308ce246da77f50392d1208be489ddd1a45640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2f26d20_47ac08a6",
+        "filename": "radio/aidl/android/hardware/radio/sim/CardStatus.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-10-05T02:59:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcb5ac0a_9a9f1d94",
       "range": {
         "startLine": 92,
         "startChar": 0,
