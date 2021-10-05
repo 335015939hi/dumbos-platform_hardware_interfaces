@@ -22,6 +22,30 @@
       },
       "revId": "168228a9330e4f6ef14bcfa77681e1640b4df82c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b34f63f5_6c2e0d88",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1371,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-10-05T12:06:01Z",
+      "side": 1,
+      "message": "Yeah, the previous version checked the size after inserting two \u0027-\u0027 characters -- now the size is checked before the inserts, it should be 2 smaller.",
+      "parentUuid": "1f257d54_39dca862",
+      "range": {
+        "startLine": 1371,
+        "startChar": 35,
+        "endLine": 1371,
+        "endChar": 36
+      },
+      "revId": "168228a9330e4f6ef14bcfa77681e1640b4df82c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
