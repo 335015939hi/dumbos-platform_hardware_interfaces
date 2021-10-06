@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa54d5e_c1a8d646",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-06T00:42:39Z",
+      "side": 1,
+      "message": "I notice that hardware/interfaces/vibrator/aidl/OWNERS exists on internal branches: https://source.corp.google.com/android/hardware/interfaces/vibrator/aidl/OWNERS. Will it be pushed to AOSP?",
+      "revId": "c2d93f376b7891eb900eea106459f85772dc1b04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
