@@ -888,8 +888,7 @@ enum Tag {
     STORAGE_KEY = TagType.BOOL | 722,
 
     /**
-     * OBSOLETE: Do not use. See IKeyMintOperation.updateAad instead.
-     * TODO(b/191738660): Remove in KeyMint v2.
+     * OBSOLETE: Do not use. See IKeyMintOperation.updateAad() instead.
      */
     ASSOCIATED_DATA = TagType.BYTES | 1000,
 
@@ -928,10 +927,8 @@ enum Tag {
     RESET_SINCE_ID_ROTATION = TagType.BOOL | 1004,
 
     /**
-     * OBSOLETE: Do not use. See the authToken parameter for IKeyMintDevice::begin and for
+     * OBSOLETE: Do not use. See the authToken parameter for IKeyMintDevice::begin() and for
      * IKeyMintOperation methods instead.
-     *
-     * TODO(b/191738660): Delete when keystore1 is deleted.
      */
     CONFIRMATION_TOKEN = TagType.BYTES | 1005,
 
