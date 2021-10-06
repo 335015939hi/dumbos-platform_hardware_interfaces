@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a3a86c1_af1588db",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-10-06T07:00:28Z",
+      "side": 1,
+      "message": "the framework?",
+      "range": {
+        "startLine": 132,
+        "startChar": 83,
+        "endLine": 132,
+        "endChar": 92
+      },
+      "revId": "a6fe6ffb3681d57f0e026789c7349b9253a3c8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d51c0340_3b708345",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-10-06T07:00:28Z",
+      "side": 1,
+      "message": "sent",
+      "range": {
+        "startLine": 132,
+        "startChar": 60,
+        "endLine": 132,
+        "endChar": 65
+      },
+      "revId": "a6fe6ffb3681d57f0e026789c7349b9253a3c8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f23c1e35_044d12a6",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-10-06T07:00:28Z",
+      "side": 1,
+      "message": "age seems a little vague. Would the below be better?\ncachedTime time in milliseconds when NITZ was cached in RIL and modem.",
+      "range": {
+        "startLine": 133,
+        "startChar": 14,
+        "endLine": 133,
+        "endChar": 79
+      },
+      "revId": "a6fe6ffb3681d57f0e026789c7349b9253a3c8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
