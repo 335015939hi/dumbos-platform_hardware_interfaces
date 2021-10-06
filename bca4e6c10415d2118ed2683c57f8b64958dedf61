@@ -22,6 +22,30 @@
       },
       "revId": "bca4e6c10415d2118ed2683c57f8b64958dedf61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "157193ce_e48f3ff7",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio.network/current/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-10-06T05:07:07Z",
+      "side": 1,
+      "message": "Please file a bug for this so we can add it as a new/updated API in T",
+      "parentUuid": "744477b2_07aa20b0",
+      "range": {
+        "startLine": 45,
+        "startChar": 14,
+        "endLine": 45,
+        "endChar": 33
+      },
+      "revId": "bca4e6c10415d2118ed2683c57f8b64958dedf61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
