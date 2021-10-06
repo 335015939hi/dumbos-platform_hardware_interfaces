@@ -86,6 +86,24 @@
       "parentUuid": "26fd54e0_d576c7b8",
       "revId": "21b98bc2c949a35d5008077e9d93899a614a3db2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0cca383_0cbb5644",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-06T23:28:52Z",
+      "side": 1,
+      "message": "bsschwar@ confirmed that wvw@ is the owner of power HAL version 1.1, 1.2 and 1.3.",
+      "parentUuid": "c4c7fd66_cea430fd",
+      "revId": "21b98bc2c949a35d5008077e9d93899a614a3db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
