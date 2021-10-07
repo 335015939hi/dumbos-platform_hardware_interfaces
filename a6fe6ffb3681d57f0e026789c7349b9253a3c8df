@@ -47,6 +47,102 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83767248_4d4f4cc2",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-10-07T02:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a3a86c1_af1588db",
+      "range": {
+        "startLine": 132,
+        "startChar": 83,
+        "endLine": 132,
+        "endChar": 92
+      },
+      "revId": "a6fe6ffb3681d57f0e026789c7349b9253a3c8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1b94d14_375f9256",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-10-07T02:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a3a86c1_af1588db",
+      "range": {
+        "startLine": 132,
+        "startChar": 83,
+        "endLine": 132,
+        "endChar": 92
+      },
+      "revId": "a6fe6ffb3681d57f0e026789c7349b9253a3c8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d595e258_4e64f127",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-10-07T02:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d51c0340_3b708345",
+      "range": {
+        "startLine": 132,
+        "startChar": 60,
+        "endLine": 132,
+        "endChar": 65
+      },
+      "revId": "a6fe6ffb3681d57f0e026789c7349b9253a3c8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85873ad0_0dd5c5f5",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-10-07T02:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d51c0340_3b708345",
+      "range": {
+        "startLine": 132,
+        "startChar": 60,
+        "endLine": 132,
+        "endChar": 65
+      },
+      "revId": "a6fe6ffb3681d57f0e026789c7349b9253a3c8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f23c1e35_044d12a6",
@@ -60,6 +156,54 @@
       "writtenOn": "2021-10-06T07:00:28Z",
       "side": 1,
       "message": "age seems a little vague. Would the below be better?\ncachedTime time in milliseconds when NITZ was cached in RIL and modem.",
+      "range": {
+        "startLine": 133,
+        "startChar": 14,
+        "endLine": 133,
+        "endChar": 79
+      },
+      "revId": "a6fe6ffb3681d57f0e026789c7349b9253a3c8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5ee6e2b_52d1916c",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-10-07T02:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f23c1e35_044d12a6",
+      "range": {
+        "startLine": 133,
+        "startChar": 14,
+        "endLine": 133,
+        "endChar": 79
+      },
+      "revId": "a6fe6ffb3681d57f0e026789c7349b9253a3c8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "799e5f1b_432485db",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-10-07T02:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f23c1e35_044d12a6",
       "range": {
         "startLine": 133,
         "startChar": 14,

@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25a0bc97_f885d4db",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-10-07T02:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95db644b_c316bc5d",
+      "range": {
+        "startLine": 132,
+        "startChar": 27,
+        "endLine": 132,
+        "endChar": 95
+      },
+      "revId": "09d1636bee9b3ec11ea32a9656ffddd0eca81c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc6fb1ee_3bae16f3",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-06T17:38:06Z",
       "side": 1,
       "message": "time in milliseconds indicating how long NITZ was cached in RIL and modem.This must track true age and should not be calculated using clocks that can stop ticking while the device is up. If it can not be guaranteed, there should not be any caching done at the modem and should fill in 0 for age",
+      "range": {
+        "startLine": 133,
+        "startChar": 18,
+        "endLine": 133,
+        "endChar": 77
+      },
+      "revId": "09d1636bee9b3ec11ea32a9656ffddd0eca81c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cdb06bb_656ac57b",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1435051
+      },
+      "writtenOn": "2021-10-07T02:37:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc6fb1ee_3bae16f3",
       "range": {
         "startLine": 133,
         "startChar": 18,
