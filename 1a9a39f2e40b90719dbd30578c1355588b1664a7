@@ -51,6 +51,24 @@
       "message": "Please add chengyouho@ and frankwoo@ into the owners.\nThanks",
       "revId": "1a9a39f2e40b90719dbd30578c1355588b1664a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78178239_a9ba347b",
+        "filename": "oemlock/1.0/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-07T01:11:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0868ffcf_a00c51ac",
+      "revId": "1a9a39f2e40b90719dbd30578c1355588b1664a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
