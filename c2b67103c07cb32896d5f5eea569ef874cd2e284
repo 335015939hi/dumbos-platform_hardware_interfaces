@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "525a6809_3de1d492",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-07T01:08:46Z",
+      "side": 1,
+      "message": "Actually, both 😊",
+      "parentUuid": "5c8defc9_5b806672",
+      "revId": "c2b67103c07cb32896d5f5eea569ef874cd2e284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15c3752c_1948f336",
@@ -66,6 +84,24 @@
       "writtenOn": "2021-10-07T00:49:17Z",
       "side": 1,
       "message": "Please add chengyouho@ and frankwoo@ into the owners.\nThanks",
+      "revId": "c2b67103c07cb32896d5f5eea569ef874cd2e284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe5743ac_1c8ceedf",
+        "filename": "weaver/1.0/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-07T01:08:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15c3752c_1948f336",
       "revId": "c2b67103c07cb32896d5f5eea569ef874cd2e284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
