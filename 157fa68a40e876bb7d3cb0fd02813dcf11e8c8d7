@@ -34,6 +34,23 @@
       "parentUuid": "3436767b_90008ea0",
       "revId": "157fa68a40e876bb7d3cb0fd02813dcf11e8c8d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5600ceb_61c45c4b",
+        "filename": "authsecret/1.0/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1329917
+      },
+      "writtenOn": "2021-10-07T00:51:29Z",
+      "side": 1,
+      "message": "Please add chengyouho@ and frankwoo@ into the owners.\nThanks",
+      "revId": "157fa68a40e876bb7d3cb0fd02813dcf11e8c8d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
