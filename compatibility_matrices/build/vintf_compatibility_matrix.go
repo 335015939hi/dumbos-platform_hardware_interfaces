@@ -31,6 +31,11 @@ type dependencyTag struct {
 	name string
 }
 
+// TODO(b/201696252): Evaluate whether licenses should be propagated through this dependency.
+func (t dependencyTag) PropagateLicenses() bool {
+	return false
+}
+
 var (
 	pctx = android.NewPackageContext("android/vintf")
 
