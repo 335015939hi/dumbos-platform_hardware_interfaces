@@ -16,6 +16,23 @@
       "message": "I updated the OWNERS file of all tests under radio/* and dropped other CLs that update only one OWNERS file.",
       "revId": "d0717e1fd4a3bfc06ead72f24ea420a44615a673",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebe6ff04_35a55548",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2021-10-08T19:47:54Z",
+      "side": 1,
+      "message": "retry presubmit due to b/202401255",
+      "revId": "d0717e1fd4a3bfc06ead72f24ea420a44615a673",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
