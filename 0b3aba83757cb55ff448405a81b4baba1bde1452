@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51d851d3_50d246b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-10-08T16:01:01Z",
+      "side": 1,
+      "message": "Presubmit failure: Making the first changes to a frozen AIDL interface causes the next non-frozen version to appear new and causes the hal_implementation_test to check for the latest implementation on cuttlefish.\nSo you\u0027ll want to bump the implementation of the default/example service that runs on cuttlefish.\n",
+      "revId": "0b3aba83757cb55ff448405a81b4baba1bde1452",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
