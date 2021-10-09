@@ -29,6 +29,9 @@
         <option name="native-test-device-path" value="/data/local/tmp" />
         <option name="module-name" value="VtsHalNeuralnetworksV1_2TargetTest" />
         <option name="native-test-timeout" value="20m" />
+<<<<<<< TARGET BRANCH (dd6cb8 Merge "camera vts : cast android_convertGralloc1To0Usage to )
         <option name="native-test-flag" value="--gtest_break_on_failure" />
+=======
+>>>>>>> SOURCE BRANCH (0e1004 Merge "Increase NNAPI VTS single-test timeout to 20m." into )
     </test>
 </configuration>
