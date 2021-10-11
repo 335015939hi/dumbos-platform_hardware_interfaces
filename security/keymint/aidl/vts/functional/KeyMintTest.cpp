@@ -1552,6 +1552,52 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationTags) {
 }
 
 /*
+ * NewKeyGenerationTest.EcdsaAttestationUniqueId
+ *
+ * Verifies that creation of an attested ECDSA key with a UNIQUE_ID included.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaAttestationUniqueId) {
+    auto challenge = "hello";
+    auto app_id = "foo";
+    auto subject = "cert subj 2";
+    vector<uint8_t> subject_der(make_name_from_str(subject));
+    uint64_t serial_int = 0x1010;
+    vector<uint8_t> serial_blob(build_serial_blob(serial_int));
+    const AuthorizationSetBuilder builder =
+            AuthorizationSetBuilder()
+                    .Authorization(TAG_NO_AUTH_REQUIRED)
+                    .Authorization(TAG_INCLUDE_UNIQUE_ID)
+                    .EcdsaSigningKey(EcCurve::P_256)
+                    .Digest(Digest::NONE)
+                    .AttestationChallenge(challenge)
+                    .AttestationApplicationId(app_id)
+                    .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                    .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                    .Authorization(TAG_CREATION_DATETIME, 1619621648000)
+                    .SetDefaultValidity();
+
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(builder, &key_blob, &key_characteristics));
+    ASSERT_GT(key_blob.size(), 0U);
+
+    EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
+    ASSERT_GT(cert_chain_.size(), 0);
+    verify_subject_and_serial(cert_chain_[0], serial_int, subject, /* self_signed = */ false);
+
+    AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
+    AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
+
+    // Check that the unique ID field in the extension is non-empty.
+    vector<uint8_t> unique_id;
+    EXPECT_TRUE(verify_attestation_record(challenge, app_id, sw_enforced, hw_enforced, SecLevel(),
+                                          cert_chain_[0].encodedCertificate, &unique_id));
+    EXPECT_GT(unique_id.size(), 0);
+
+    CheckedDeleteKey(&key_blob);
+}
+
+/*
  * NewKeyGenerationTest.EcdsaAttestationTagNoApplicationId
  *
  * Verifies that creation of an attested ECDSA key does not include APPLICATION_ID.
