@@ -191,8 +191,11 @@ TEST_P(WifiRttControllerHidlTest, Request2SidedRangeMeasurement) {
     const auto& status =
         HIDL_INVOKE(wifi_rtt_controller_, rangeRequest_1_4, cmdId, configs);
     EXPECT_EQ(WifiStatusCode::SUCCESS, status.code);
+<<<<<<< HEAD   (b96c79 Merge "wifi: remove wifi instance name string check" into an)
     // sleep for 2 seconds to wait for driver/firmware to complete RTT
     sleep(2);
+=======
+>>>>>>> BRANCH (869503 Merge "wifi: Added capability check in RTT tests" into andro)
 }
 /*
  * rangeRequest_1_4
