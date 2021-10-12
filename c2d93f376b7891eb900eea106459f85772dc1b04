@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6b65353_27446f36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-12T22:26:23Z",
+      "side": 1,
+      "message": "Already happened",
+      "parentUuid": "9aa54d5e_c1a8d646",
+      "revId": "c2d93f376b7891eb900eea106459f85772dc1b04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3ce9b1f_808aaa05",
@@ -55,6 +73,30 @@
       "side": 1,
       "message": "I notice that hardware/interfaces/vibrator/aidl/OWNERS exists on internal branches: https://source.corp.google.com/android/hardware/interfaces/vibrator/aidl/OWNERS. Will it be pushed to AOSP? 10/4 was the AOSP push day for sc. Now there will be a merge conflict issue.",
       "parentUuid": "b3ce9b1f_808aaa05",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 6
+      },
+      "revId": "c2d93f376b7891eb900eea106459f85772dc1b04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a88f231_27de9795",
+        "filename": "vibrator/aidl/OWNERS",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-12T22:26:23Z",
+      "side": 1,
+      "message": "Resovled",
+      "parentUuid": "8ebfbcf6_ef915307",
       "range": {
         "startLine": 2,
         "startChar": 0,
