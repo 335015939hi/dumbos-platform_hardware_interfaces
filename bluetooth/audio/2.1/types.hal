@@ -96,8 +96,13 @@ safe_union AudioCapabilities {
  * Used to configure a LC3 Hardware Encoding session.
  */
 struct Lc3CodecConfiguration {
-    /* This is also bitfield, specifying how the channels are ordered in the outgoing media packet.
-     * Bit meaning is defined in Bluetooth Assigned Numbers. */
+    /* The connection handle used for the unicast or the broadcast group. The minimum size should
+     * be 1. The handle order should corresponds the configured bit order of the audio channel
+     * allocation */
+    vec<uint16_t> handle;
+    /* Audio channel allocation is  a bit field, each enabled bit means that given audio direction,
+     * i.e. "left", or "right" is used. Ordering of audio channels comes from the least significant
+     * bit to the most significant bit. */
     uint32_t audioChannelAllocation;
     Lc3Parameters lc3Config;
 };
