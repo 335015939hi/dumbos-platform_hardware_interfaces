@@ -72,6 +72,7 @@ class SupplicantHidlTestBase
     : public ::testing::TestWithParam<std::tuple<std::string, std::string>> {
    public:
     virtual void SetUp() override {
+<<<<<<< HEAD   (7c491a Merge "Accept NONE as a response for setDataThrottling durin)
         // Stop Wi-Fi
         ASSERT_TRUE(stopWifiFramework());  // stop & wait for wifi to shutdown.
 
@@ -92,6 +93,28 @@ class SupplicantHidlTestBase
         stopSupplicant(wifi_v1_0_instance_name_);
         // Start Wi-Fi
         startWifiFramework();
+=======
+        // should always be v1.0 wifi
+        wifi_v1_0_instance_name_ = std::get<0>(GetParam());
+        supplicant_instance_name_ = std::get<1>(GetParam());
+        std::system("/system/bin/start");
+        ASSERT_TRUE(waitForFrameworkReady());
+
+        isP2pOn_ =
+            testing::deviceSupportsFeature("android.hardware.wifi.direct");
+        // Stop Framework
+        std::system("/system/bin/stop");
+        stopSupplicant(wifi_v1_0_instance_name_);
+        startSupplicantAndWaitForHidlService(wifi_v1_0_instance_name_,
+                                             supplicant_instance_name_);
+        LOG(INFO) << "SupplicantHidlTestBase isP2pOn_: " << isP2pOn_;
+    }
+
+    virtual void TearDown() override {
+        stopSupplicant(wifi_v1_0_instance_name_);
+        // Start Framework
+        std::system("/system/bin/start");
+>>>>>>> BRANCH (ec2350 Merge "wifi: wait for the framework to be ready before check)
     }
 
    protected:

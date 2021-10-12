@@ -114,8 +114,11 @@ class SupplicantStaNetworkHidlTest : public SupplicantHidlTestBaseV1_0 {
 
     sp<::android::hardware::wifi::supplicant::V1_3::ISupplicantStaNetwork>
         v1_3 = nullptr;
+<<<<<<< HEAD   (7c491a Merge "Accept NONE as a response for setDataThrottling durin)
     sp<::android::hardware::wifi::supplicant::V1_4::ISupplicantStaNetwork>
         v1_4 = nullptr;
+=======
+>>>>>>> BRANCH (ec2350 Merge "wifi: wait for the framework to be ready before check)
     // ISupplicantStaNetwork object used for all tests in this fixture.
     sp<ISupplicantStaNetwork> sta_network_;
     // SSID to use for various tests.

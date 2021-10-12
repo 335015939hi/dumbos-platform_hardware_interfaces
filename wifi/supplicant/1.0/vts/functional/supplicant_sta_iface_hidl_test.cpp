@@ -83,8 +83,11 @@ class SupplicantStaIfaceHidlTest : public SupplicantHidlTestBaseV1_0 {
 
    protected:
     bool isP2pOn_ = false;
+<<<<<<< HEAD   (7c491a Merge "Accept NONE as a response for setDataThrottling durin)
     sp<::android::hardware::wifi::supplicant::V1_4::ISupplicantStaIface> v1_4 =
         nullptr;
+=======
+>>>>>>> BRANCH (ec2350 Merge "wifi: wait for the framework to be ready before check)
     // ISupplicantStaIface object used for all tests in this fixture.
     sp<ISupplicantStaIface> sta_iface_;
     // MAC address to use for various tests.

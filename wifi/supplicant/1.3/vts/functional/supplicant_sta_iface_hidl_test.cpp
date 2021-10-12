@@ -64,11 +64,14 @@ class SupplicantStaIfaceHidlTest : public SupplicantHidlTestBaseV1_3 {
         sta_iface_ = getSupplicantStaIface_1_3(supplicant_);
         ASSERT_NE(sta_iface_.get(), nullptr);
 
+<<<<<<< HEAD   (7c491a Merge "Accept NONE as a response for setDataThrottling durin)
         /* Variable used to check the underlying HAL version. */
         sta_iface_v1_4_ = ::android::hardware::wifi::supplicant::V1_4::
             ISupplicantStaIface::castFrom(sta_iface_);
     }
 
+=======
+>>>>>>> BRANCH (ec2350 Merge "wifi: wait for the framework to be ready before check)
     int64_t pmkCacheExpirationTimeInSec;
     std::vector<uint8_t> serializedPmkCacheEntry;
 
@@ -114,8 +117,11 @@ class SupplicantStaIfaceHidlTest : public SupplicantHidlTestBaseV1_3 {
    protected:
     // ISupplicantStaIface object used for all tests in this fixture.
     sp<ISupplicantStaIface> sta_iface_;
+<<<<<<< HEAD   (7c491a Merge "Accept NONE as a response for setDataThrottling durin)
     sp<::android::hardware::wifi::supplicant::V1_4::ISupplicantStaIface>
         sta_iface_v1_4_ = nullptr;
+=======
+>>>>>>> BRANCH (ec2350 Merge "wifi: wait for the framework to be ready before check)
 
     bool isDppSupported() {
         uint32_t keyMgmtMask = 0;

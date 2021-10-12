@@ -282,6 +282,7 @@ TEST_P(SupplicantP2pIfaceHidlTest, Connect) {
         mac_addr_, ISupplicantP2pIface::WpsProvisionMethod::PBC,
         kTestConnectPin, false, false, kTestConnectGoIntent,
         [](const SupplicantStatus& status, const hidl_string& /* pin */) {
+<<<<<<< HEAD   (7c491a Merge "Accept NONE as a response for setDataThrottling durin)
             /*
              * Before R, auto-join is not enabled and it is not going to work
              * with fake values. After enabling auto-join, it will succeed
@@ -293,6 +294,10 @@ TEST_P(SupplicantP2pIfaceHidlTest, Connect) {
                 SupplicantStatusCode::SUCCESS != status.code) {
                 FAIL();
             }
+=======
+            // After enabling auto-join, it will succeed always.
+            EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
+>>>>>>> BRANCH (ec2350 Merge "wifi: wait for the framework to be ready before check)
         });
 }
 
@@ -304,6 +309,7 @@ TEST_P(SupplicantP2pIfaceHidlTest, CancelConnect) {
         mac_addr_, ISupplicantP2pIface::WpsProvisionMethod::PBC,
         kTestConnectPin, false, false, kTestConnectGoIntent,
         [](const SupplicantStatus& status, const hidl_string& /* pin */) {
+<<<<<<< HEAD   (7c491a Merge "Accept NONE as a response for setDataThrottling durin)
             /*
              * Before R, auto-join is not enabled and it is not going to work
              * with fake values. After enabling auto-join, it will succeed
@@ -315,15 +321,23 @@ TEST_P(SupplicantP2pIfaceHidlTest, CancelConnect) {
                 SupplicantStatusCode::SUCCESS != status.code) {
                 FAIL();
             }
+=======
+            // After enabling auto-join, it will succeed always.
+            EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
+>>>>>>> BRANCH (ec2350 Merge "wifi: wait for the framework to be ready before check)
         });
 
     p2p_iface_->cancelConnect([](const SupplicantStatus& status) {
+<<<<<<< HEAD   (7c491a Merge "Accept NONE as a response for setDataThrottling durin)
         LOG(INFO) << "ISupplicantP2pIface::cancelConnect() ret: "
                   << toString(status);
         if (SupplicantStatusCode::FAILURE_UNKNOWN != status.code &&
             SupplicantStatusCode::SUCCESS != status.code) {
             FAIL();
         }
+=======
+        EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
+>>>>>>> BRANCH (ec2350 Merge "wifi: wait for the framework to be ready before check)
     });
 }
 
