@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d52e4c7_bbbe852a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-12T18:00:02Z",
+      "side": 1,
+      "message": "replied to email, but noting here we can\u0027t change existing interfaces (note - this should fail to build)",
+      "revId": "b65f1c8e67057c598f28abe0326863ef4bb89a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
