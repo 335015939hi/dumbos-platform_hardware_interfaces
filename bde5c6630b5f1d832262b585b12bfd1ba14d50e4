@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e20db83_8dd0b7d2",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-10-12T10:33:58Z",
+      "side": 1,
+      "message": "Audio channel allocation is  a bit field, each enabled bit means that given audio direction, i.e. \"left\", or \"right\" is used.\nOrdering of audio channels comes from the least significant bit to the most significant bit.",
+      "range": {
+        "startLine": 101,
+        "startChar": 13,
+        "endLine": 101,
+        "endChar": 35
+      },
+      "revId": "bde5c6630b5f1d832262b585b12bfd1ba14d50e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c793eb3_0b8b58f0",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-10-12T10:33:58Z",
+      "side": 1,
+      "message": "My initial idea was that one would start multiple instances of encoder/ decoder. One for each channel",
+      "range": {
+        "startLine": 107,
+        "startChar": 7,
+        "endLine": 107,
+        "endChar": 28
+      },
+      "revId": "bde5c6630b5f1d832262b585b12bfd1ba14d50e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
