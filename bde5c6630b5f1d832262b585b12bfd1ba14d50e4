@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8310ba49_e8075803",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-12T11:03:17Z",
+      "side": 1,
+      "message": "Thanks. Revised.",
+      "parentUuid": "2e20db83_8dd0b7d2",
+      "range": {
+        "startLine": 101,
+        "startChar": 13,
+        "endLine": 101,
+        "endChar": 35
+      },
+      "revId": "bde5c6630b5f1d832262b585b12bfd1ba14d50e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c793eb3_0b8b58f0",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-12T10:33:58Z",
       "side": 1,
       "message": "My initial idea was that one would start multiple instances of encoder/ decoder. One for each channel",
+      "range": {
+        "startLine": 107,
+        "startChar": 7,
+        "endLine": 107,
+        "endChar": 28
+      },
+      "revId": "bde5c6630b5f1d832262b585b12bfd1ba14d50e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb132f0e_bf24e9ad",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-12T11:03:17Z",
+      "side": 1,
+      "message": "Thanks for the comment. Check the BAP audio configuration for CIS/BIS. The possible cases are\n1. one CIS/BIS with single audio channel \n2. one CIS/BIS with two audio channels\n3. two CISs/BISs with single audio channel\n\nIt looks like single audio Channel Allocation is enough with the multiple handle represents as the multiple instances of encoder or decoder. Fixed it in this version.\n\nCheck with Lukasz before, we start single BluetoothAudio Session for a group.",
+      "parentUuid": "3c793eb3_0b8b58f0",
       "range": {
         "startLine": 107,
         "startChar": 7,
