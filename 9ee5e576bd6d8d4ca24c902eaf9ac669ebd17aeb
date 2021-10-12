@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "143666a1_019dc372",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-12T22:20:09Z",
+      "side": 1,
+      "message": "I updated the CL as the AOSP push just happened, vibrator/aidl/OWNERS is now in sync with the internal branch. Vince and Steven could you review it again? Thanks",
+      "revId": "9ee5e576bd6d8d4ca24c902eaf9ac669ebd17aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
