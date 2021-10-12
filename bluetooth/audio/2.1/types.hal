@@ -92,13 +92,22 @@ safe_union AudioCapabilities {
     Lc3CodecCapabilities leAudioCapabilities;
 };
 
+struct LeAudioConfiguration {
+    /* The connection handle used for the unicast group or the broadcast group, it is 12 bits
+    * meaningful. */
+    uint16_t handle;
+    /* This is also bitfield, specifying how the channels are ordered in the outgoing media packet.
+     * Bit meaning is defined in Bluetooth Assigned Numbers. */
+    uint32_t audioChannelAllocation;
+};
+
 /**
  * Used to configure a LC3 Hardware Encoding session.
  */
 struct Lc3CodecConfiguration {
-    /* This is also bitfield, specifying how the channels are ordered in the outgoing media packet.
-     * Bit meaning is defined in Bluetooth Assigned Numbers. */
-    uint32_t audioChannelAllocation;
+    /* The connection handle and audio allocation map used for the unicast or the broadcast group.
+    * The minimum size should be 1 */
+    vec<LeAudioConfiguration> streamMap;
     Lc3Parameters lc3Config;
 };
 
