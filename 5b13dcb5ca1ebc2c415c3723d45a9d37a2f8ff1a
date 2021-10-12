@@ -16,6 +16,24 @@
       "message": "Should include arabawy@ in the OWNERS",
       "revId": "5b13dcb5ca1ebc2c415c3723d45a9d37a2f8ff1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fab15761_a950a219",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-12T22:08:38Z",
+      "side": 1,
+      "message": "This is resolved after AOSP push.",
+      "parentUuid": "3c11bddd_42cbaf74",
+      "revId": "5b13dcb5ca1ebc2c415c3723d45a9d37a2f8ff1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
