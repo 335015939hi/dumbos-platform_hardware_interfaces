@@ -16,6 +16,23 @@
       "message": "merge fix: ag/15659945 to AOSP.",
       "revId": "a662140c68b9909d03b419b6aa1ebc822bc59e0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39ecd2cf_2fd56e6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1168553
+      },
+      "writtenOn": "2021-10-12T19:34:01Z",
+      "side": 1,
+      "message": "Verified: https://android-build.googleplex.com/builds/abtd/run/L31800000951516654",
+      "revId": "a662140c68b9909d03b419b6aa1ebc822bc59e0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
