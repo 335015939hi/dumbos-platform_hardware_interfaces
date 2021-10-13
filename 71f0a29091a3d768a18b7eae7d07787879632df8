@@ -39,6 +39,30 @@
       },
       "revId": "71f0a29091a3d768a18b7eae7d07787879632df8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fb57cee_edeeb9e6",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-10-13T02:45:54Z",
+      "side": 1,
+      "message": "aaron, please fix",
+      "parentUuid": "dc51f312_4b133e8d",
+      "range": {
+        "startLine": 140,
+        "startChar": 42,
+        "endLine": 140,
+        "endChar": 45
+      },
+      "revId": "71f0a29091a3d768a18b7eae7d07787879632df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
