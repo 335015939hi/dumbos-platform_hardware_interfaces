@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a327fd5_3e4eec3e",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-10-13T15:46:35Z",
+      "side": 1,
+      "message": "nit: ageMs",
+      "range": {
+        "startLine": 134,
+        "startChar": 14,
+        "endLine": 134,
+        "endChar": 17
+      },
+      "revId": "1a502cd35c9f1bd51337be46a57f8a97c3ba155b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee3f7291_fe446dc7",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-10-13T15:46:35Z",
+      "side": 1,
+      "message": "must?",
+      "range": {
+        "startLine": 135,
+        "startChar": 43,
+        "endLine": 135,
+        "endChar": 49
+      },
+      "revId": "1a502cd35c9f1bd51337be46a57f8a97c3ba155b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8503c218_55b8827e",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-10-13T15:46:35Z",
+      "side": 1,
+      "message": "must?",
+      "range": {
+        "startLine": 136,
+        "startChar": 81,
+        "endLine": 136,
+        "endChar": 87
+      },
+      "revId": "1a502cd35c9f1bd51337be46a57f8a97c3ba155b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
