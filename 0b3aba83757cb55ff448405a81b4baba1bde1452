@@ -34,6 +34,24 @@
       "tag": "mailMessageId\u003d\u003cCAKGSGiBPXgfkpPEs9ZD6Tmx5FntV-iVDUzXC-Y-U_\u003dyPu+sXOg@mail.gmail.com\u003e",
       "revId": "0b3aba83757cb55ff448405a81b4baba1bde1452",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c2487c7_0f570745",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-10-14T16:05:43Z",
+      "side": 1,
+      "message": "That error is telling you to declare the matching version of the interface in the manifest that the service is serving. If it starts serving V2, then libvintf needs to know about it.\n\nis the one that needs to be updated in your CLs.\n\nThat is typically how it\u0027s done. It\u0027s not very useful to start serving version N+1 of an interface if there aren\u0027t any differences from version N.\n\nYou could do a quick check on your git_master change before adding it to the topic with `atest hal_implementation_test` against Cuttlefish but I would expect it to fail.",
+      "tag": "mailMessageId\u003d\u003cCAOELnJzWrJhMu098AVDkoU\u003dwgnjXvJW3sKo85BYwD+yP8SSYVw@mail.gmail.com\u003e",
+      "revId": "0b3aba83757cb55ff448405a81b4baba1bde1452",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
