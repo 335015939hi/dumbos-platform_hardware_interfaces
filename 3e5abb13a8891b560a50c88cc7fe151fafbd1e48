@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3f6a0eb_c5bc5994",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-10-14T09:16:32Z",
+      "side": 1,
+      "message": "Thanks for adding the positive tests!",
+      "revId": "3e5abb13a8891b560a50c88cc7fe151fafbd1e48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c935b9a_d9cfe422",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-10-14T09:16:32Z",
+      "side": 1,
+      "message": "Please add a comment saying this is an optional feature and so KeyMint can refuse attestation.",
+      "range": {
+        "startLine": 1595,
+        "startChar": 0,
+        "endLine": 1597,
+        "endChar": 9
+      },
+      "revId": "3e5abb13a8891b560a50c88cc7fe151fafbd1e48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
