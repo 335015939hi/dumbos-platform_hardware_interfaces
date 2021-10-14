@@ -16,6 +16,24 @@
       "message": "Presubmit failure: Making the first changes to a frozen AIDL interface causes the next non-frozen version to appear new and causes the hal_implementation_test to check for the latest implementation on cuttlefish.\nSo you\u0027ll want to bump the implementation of the default/example service that runs on cuttlefish.\n",
       "revId": "0b3aba83757cb55ff448405a81b4baba1bde1452",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdac8425_4bb3a00f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-10-14T15:43:18Z",
+      "side": 1,
+      "message": "Hi Devin,\n\nI was planning to bump android.hardware.neuralnetworks-V1-ndk to android.hardware.neuralnetworks-V2-ndk in but I encountered merge conflicts with git_master. Then I tried to make the change in git_master but I got the following error\n\nrather than standalone?\n\nDo I have to make the change in the same topic with\n\nThanks,\n\nIan",
+      "tag": "mailMessageId\u003d\u003cCAKGSGiBPXgfkpPEs9ZD6Tmx5FntV-iVDUzXC-Y-U_\u003dyPu+sXOg@mail.gmail.com\u003e",
+      "revId": "0b3aba83757cb55ff448405a81b4baba1bde1452",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
