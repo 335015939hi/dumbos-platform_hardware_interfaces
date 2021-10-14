@@ -33,6 +33,29 @@
       "message": "Hi, can we have an update on this CL? Thank You!!",
       "revId": "9ee5e576bd6d8d4ca24c902eaf9ac669ebd17aeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "425e5306_1a8ec73e",
+        "filename": "vibrator/aidl/OWNERS",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-14T22:27:56Z",
+      "side": 1,
+      "message": "this should use the same component as the others, this is not Pixel-specific",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "9ee5e576bd6d8d4ca24c902eaf9ac669ebd17aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
