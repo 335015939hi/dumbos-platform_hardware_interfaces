@@ -16,6 +16,23 @@
       "message": "I updated the CL as the AOSP push just happened, vibrator/aidl/OWNERS is now in sync with the internal branch. Vince and Steven could you review it again? Thanks",
       "revId": "9ee5e576bd6d8d4ca24c902eaf9ac669ebd17aeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8cfec6b_ed9e4ff8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1576875
+      },
+      "writtenOn": "2021-10-14T22:07:03Z",
+      "side": 1,
+      "message": "Hi, can we have an update on this CL? Thank You!!",
+      "revId": "9ee5e576bd6d8d4ca24c902eaf9ac669ebd17aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
