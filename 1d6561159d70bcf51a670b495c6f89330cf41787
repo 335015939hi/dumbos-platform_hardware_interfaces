@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4a78d37_ce36b5d6",
+        "filename": "wifi/1.4/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2021-10-14T04:29:26Z",
+      "side": 1,
+      "message": "all the other OWNERS also have arabawy@",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 9
+      },
+      "revId": "1d6561159d70bcf51a670b495c6f89330cf41787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
