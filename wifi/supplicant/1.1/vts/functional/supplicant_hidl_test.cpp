@@ -140,7 +140,10 @@ TEST_P(SupplicantHidlTest, RemoveP2pInterface) {
  */
 TEST_P(SupplicantHidlTest, Terminate) { supplicant_->terminate(); }
 
+<<<<<<< HEAD   (110dc0 Merge "Revert "wifi: remove wifi instance name string check")
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(SupplicantHidlTest);
+=======
+>>>>>>> BRANCH (f9a770 Merge "supplicant(vts): Stop adding empty instance for vendo)
 INSTANTIATE_TEST_CASE_P(
     PerInstance, SupplicantHidlTest,
     testing::Combine(
