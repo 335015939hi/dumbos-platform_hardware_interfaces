@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "803e48b2_95f6b5a2",
+        "filename": "bluetooth/audio/2.0/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-15T23:39:22Z",
+      "side": 1,
+      "message": "Shall I actually use the same info we used in aosp/1836657?",
+      "revId": "73086af30d2a97ac55daf48bdf0f32ca6f09b2e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
