@@ -144,7 +144,7 @@ class DvrCallback : public IDvrCallback {
 
     sp<IDvr> mDvr = nullptr;
 
-    // int mPidFilterOutputCount = 0;
+    int mPidFilterOutputCount = 0;
 };
 
 class DvrTests {
