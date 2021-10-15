@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71dcf4af_d192d470",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1542716
+      },
+      "writtenOn": "2021-10-15T11:49:03Z",
+      "side": 1,
+      "message": "FYI this is to prevent merge conflict. Downstream patch is ag/16062775",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "eb09dfecfc192e83f5621117d7947b9d793f28b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
