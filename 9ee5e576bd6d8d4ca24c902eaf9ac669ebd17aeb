@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ed48783_66812a96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-15T23:31:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8cfec6b_ed9e4ff8",
+      "revId": "9ee5e576bd6d8d4ca24c902eaf9ac669ebd17aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "425e5306_1a8ec73e",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-10-14T22:27:56Z",
       "side": 1,
       "message": "this should use the same component as the others, this is not Pixel-specific",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "9ee5e576bd6d8d4ca24c902eaf9ac669ebd17aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e496d14_5788dc2c",
+        "filename": "vibrator/aidl/OWNERS",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-15T23:31:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "425e5306_1a8ec73e",
       "range": {
         "startLine": 1,
         "startChar": 17,
