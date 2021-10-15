@@ -109,6 +109,30 @@
       },
       "revId": "16976180f309284b5b8d91f6c9a6b730ff567a0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d425454_87d64517",
+        "filename": "thermal/1.1/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-15T23:38:40Z",
+      "side": 1,
+      "message": "Do we already have one? I need to update the OWNERS for version 1.0 and 2.0.",
+      "parentUuid": "c5a3c451_2f452764",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "16976180f309284b5b8d91f6c9a6b730ff567a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
