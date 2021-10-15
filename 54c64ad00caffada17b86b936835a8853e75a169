@@ -16,6 +16,24 @@
       "message": "Hi, can we have an update on this CL? Thank You!!",
       "revId": "54c64ad00caffada17b86b936835a8853e75a169",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33878282_f1d555ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-15T23:35:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3474788_8530db17",
+      "revId": "54c64ad00caffada17b86b936835a8853e75a169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
