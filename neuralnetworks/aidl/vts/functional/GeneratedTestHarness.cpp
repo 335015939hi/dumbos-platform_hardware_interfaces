@@ -907,6 +907,19 @@ void GeneratedTestBase::SetUp() {
     const bool deviceIsResponsive =
             ndk::ScopedAStatus::fromStatus(AIBinder_ping(kDevice->asBinder().get())).isOk();
     ASSERT_TRUE(deviceIsResponsive);
+    SkipIfDriverOlderThanTestModel();
+}
+
+void GeneratedTestBase::SkipIfDriverOlderThanTestModel() {
+    int32_t device_version, model_version;
+    ASSERT_TRUE(kDevice->getInterfaceVersion(&device_version).isOk());
+    model_version = kTestModel.getAidlVersionInt();
+    if (device_version < model_version) {
+        LOG(INFO) << "Device interface version " << device_version
+                  << " is older than test model's minimum supported HAL version " << model_version
+                  << ". Skipping test.";
+        GTEST_SKIP();
+    }
 }
 
 std::vector<NamedModel> getNamedModels(const FilterFn& filter) {
