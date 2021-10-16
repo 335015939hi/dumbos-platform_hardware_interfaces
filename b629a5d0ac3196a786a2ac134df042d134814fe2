@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f32a832e_942cdb07",
+        "filename": "tv/tuner/1.0/vts/functional/DvrTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2021-10-16T17:42:38Z",
+      "side": 0,
+      "message": "Should we keep the logic to stopRecordThread() here? I think we could add \"{}\" to this code piece (and remove stopRecordThread() from it).\n\n{\n    android::Mutex::Autolock autoLock(mMsgLock);\n    while (mDataOutputBuffer.empty()) {\n        if (-ETIMEDOUT \u003d\u003d mMsgCondition.waitRelative(mMsgLock, WAIT_TIMEOUT)) {\n            EXPECT_TRUE(false) \u003c\u003c \"record output matching pid does not output within timeout\";\n            return;\n        }\n    }\n}",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 5
+      },
+      "revId": "b629a5d0ac3196a786a2ac134df042d134814fe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
