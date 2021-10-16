@@ -22,6 +22,30 @@
       },
       "revId": "b629a5d0ac3196a786a2ac134df042d134814fe2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8ab4c86_023d0d36",
+        "filename": "tv/tuner/1.0/vts/functional/DvrTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1432539
+      },
+      "writtenOn": "2021-10-16T18:18:36Z",
+      "side": 0,
+      "message": "Agreed. I\u0027ll revert to the condition and retest.",
+      "parentUuid": "f32a832e_942cdb07",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 5
+      },
+      "revId": "b629a5d0ac3196a786a2ac134df042d134814fe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
