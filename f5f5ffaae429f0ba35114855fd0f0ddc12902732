@@ -16,6 +16,24 @@
       "message": "Why is there 3 in the package name \"bluetooth.audio3\" ? Why not just \"bluetooth.audio\" ?\n",
       "revId": "f5f5ffaae429f0ba35114855fd0f0ddc12902732",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31c5a5f1_c763464e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-18T12:18:02Z",
+      "side": 1,
+      "message": "https://source.android.com/devices/architecture/aidl/aidl-hals#compare-hidl-aidl\n\nJust reference the other module to create aidl 3 after the latest hidl 2.3 version.\nI don\u0027t have the strong opinion to use 1 or 3. Let me confirm with Steven, and change the version.",
+      "parentUuid": "7c45e536_0e0d9cef",
+      "revId": "f5f5ffaae429f0ba35114855fd0f0ddc12902732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
