@@ -25,7 +25,20 @@ namespace health {
 namespace V2_0 {
 
 sp<IHealth> get_health_service() {
-    for (auto&& instanceName : {"default", "backup"}) {
+    // For the core and vendor variant, the "backup" instance points to healthd,
+    // which is removed.
+    // For the recovery variant, the "backup" instance has a different
+    // meaning. It points to android.hardware.health@2.0-impl-default.recovery
+    // which was assumed by OEMs to be always installed when a
+    // vendor-specific libhealthd is not necessary. Hence, its behavior
+    // is kept. See health/2.0/README.md.
+    for (auto&& instanceName :
+#ifdef __ANDROID_RECOVERY__
+         { "default", "backup" }
+#else
+         {"default"}
+#endif
+    ) {
         auto ret = IHealth::getService(instanceName);
         if (ret != nullptr) {
             return ret;
