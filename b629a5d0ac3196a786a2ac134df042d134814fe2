@@ -87,6 +87,24 @@
       "message": "I don\u0027t see recordThreadLoop use mMsgLock\nCan you elabrate where cause the deadlock ?",
       "revId": "b629a5d0ac3196a786a2ac134df042d134814fe2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cab031a_29c44e5a",
+        "filename": "tv/tuner/1.0/vts/functional/DvrTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2021-10-18T21:00:50Z",
+      "side": 0,
+      "message": "It\u0027s used in readRecordFMQ(), which is called by recordThreadLoop().",
+      "parentUuid": "72a740b4_b9aadeab",
+      "revId": "b629a5d0ac3196a786a2ac134df042d134814fe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
