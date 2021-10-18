@@ -105,6 +105,24 @@
       "parentUuid": "72a740b4_b9aadeab",
       "revId": "b629a5d0ac3196a786a2ac134df042d134814fe2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fb72443_9ca25245",
+        "filename": "tv/tuner/1.0/vts/functional/DvrTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1443524
+      },
+      "writtenOn": "2021-10-18T21:45:39Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "8cab031a_29c44e5a",
+      "revId": "b629a5d0ac3196a786a2ac134df042d134814fe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
