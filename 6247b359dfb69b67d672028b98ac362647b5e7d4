@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e2a6078_0c686c37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-18T17:00:20Z",
+      "side": 1,
+      "message": "No matter we need to extend hidl or add new aidl. I think we could start the review the parameters first. :)",
+      "revId": "6247b359dfb69b67d672028b98ac362647b5e7d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
