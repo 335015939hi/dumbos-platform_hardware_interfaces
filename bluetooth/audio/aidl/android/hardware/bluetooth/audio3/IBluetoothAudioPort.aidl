@@ -43,6 +43,13 @@ interface IBluetoothAudioPort {
     PresentationPosition getPresentationPosition();
 
     /**
+     * Get the audio presentation delay for the CIG/BIG.
+     *
+     * @return the audio presentation delay value
+     */
+    int getPresentationDelay();
+
+    /**
      * This indicates that the caller of this method has opened the data path
      * and wants to start an audio stream. The caller must wait for a
      * IBluetoothAudioProvider.streamStarted(Status) call.

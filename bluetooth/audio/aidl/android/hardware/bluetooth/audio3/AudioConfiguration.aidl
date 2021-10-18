@@ -27,5 +27,5 @@ import android.hardware.bluetooth.audio3.PcmParameters;
 union AudioConfiguration {
     PcmParameters pcmConfig;
     CodecConfiguration codecConfig;
-    Lc3CodecConfiguration leAudioCodecConfig;
+    Lc3CodecConfiguration[] leAudioCodecConfig;
 }

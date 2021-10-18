@@ -23,6 +23,10 @@ import android.hardware.bluetooth.audio3.Lc3Parameters;
  */
 @VintfStability
 parcelable Lc3CodecConfiguration {
+    /* The connection handle used for the unicast or the broadcast group. The minimum size should
+     * be 1. The handle order should corresponds the configured bit order of the audio channel
+     * allocation */
+    int[] handle;
     /*
      * This is also bitfield, specifying how the channels are ordered in the outgoing media packet.
      * Bit meaning is defined in Bluetooth Assigned Numbers.
