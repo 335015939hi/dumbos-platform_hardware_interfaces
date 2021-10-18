@@ -30,6 +30,7 @@ cc_library_static {
     local_include_dirs: ["include/nnapi/hal"],
     export_include_dirs: ["include"],
     static_libs: [
+        "libneuralnetworks_common_legacy_hal",
         "neuralnetworks_types",
         "neuralnetworks_utils_hal_1_0",
         "neuralnetworks_utils_hal_1_1",
