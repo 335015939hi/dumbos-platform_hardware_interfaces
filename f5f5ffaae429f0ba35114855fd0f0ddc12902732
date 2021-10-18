@@ -34,6 +34,24 @@
       "parentUuid": "7c45e536_0e0d9cef",
       "revId": "f5f5ffaae429f0ba35114855fd0f0ddc12902732",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3e28c5f_59d8d04a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-18T12:19:30Z",
+      "side": 1,
+      "message": "For aidl, only major version and would go with the package name.\n\n\n`HIDL uses major versions for incompatible changes and minor versions for compatible changes. In AIDL, backwards-compatible changes are done in place. AIDL has no explicit concept of major versions; instead, this is incorporated into package names. For instance, AIDL might use the package name bluetooth2.`",
+      "parentUuid": "31c5a5f1_c763464e",
+      "revId": "f5f5ffaae429f0ba35114855fd0f0ddc12902732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
