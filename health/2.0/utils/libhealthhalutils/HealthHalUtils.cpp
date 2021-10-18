@@ -25,7 +25,13 @@ namespace health {
 namespace V2_0 {
 
 sp<IHealth> get_health_service() {
-    for (auto&& instanceName : {"default", "backup"}) {
+    for (auto&& instanceName :
+#ifdef __ANDROID_RECOVERY__
+         { "default", "backup" }
+#else
+         {"default"}
+#endif
+    ) {
         auto ret = IHealth::getService(instanceName);
         if (ret != nullptr) {
             return ret;
