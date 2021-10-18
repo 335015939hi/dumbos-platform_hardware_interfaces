@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d96a4ad_01204239",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-18T20:56:03Z",
+      "side": 1,
+      "message": "Note: restrict automerge would have left internal branches in an inconsistent state",
+      "revId": "0e9328e2139f058f48d9619247684d1e86c65af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
