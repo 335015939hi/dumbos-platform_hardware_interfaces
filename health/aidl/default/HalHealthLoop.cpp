@@ -23,15 +23,15 @@
 
 namespace aidl::android::hardware::health {
 
+void HalHealthLoop::set_service(std::shared_ptr<IHealth> service) {
+    CHECK(service_ == nullptr);
+    service_ = std::move(service);
+}
+
 void HalHealthLoop::Init(struct healthd_config* config) {
-    // Retrieve healthd_config from the HAL.
-    HealthConfig health_config;
-    auto res = service_->getHealthConfig(&health_config);
-    CHECK(res.isOk());
-    convert(health_config, config);
-    // Leave screen_on empty because clients call Health::getScreenOn directly.
-    // Leave ignorePowerSupplyNames empty because it isn't
-    // used by clients of health HAL.
+    // HealthLoop only uses the periodic_chores_interval* fields. But for simplicity
+    // and future compatibility, copy everything.
+    *config = *service_->healthd_config();
 }
 
 void HalHealthLoop::Heartbeat(void) {

@@ -18,10 +18,16 @@
 
 #include <android-base/file.h>
 #include <android-base/logging.h>
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
 #include <android/hardware/health/translate-ndk.h>
 #include <health/utils.h>
 
 #include <health-impl/health-convert.h>
+#include <health-impl/DeathRecipient.h>
+#include <health-impl/LinkedCallback.h>
+
+using std::string_literals::operator""s;
 
 namespace aidl::android::hardware::health {
 
@@ -29,7 +35,7 @@ namespace aidl::android::hardware::health {
 // If you need to call healthd_board_init, construct the Health instance with
 // the healthd_config after calling healthd_board_init:
 class MyHealth : public Health {
-  public:
+  protected:
     MyHealth(std::unique_ptr<healthd_config>&& config) :
         Health(InitConfig(std::move(config))) {}
   private:
@@ -39,36 +45,11 @@ class MyHealth : public Health {
     }
 };
 */
-Health::Health(std::unique_ptr<healthd_config>&& config) : healthd_config_(std::move(config)) {
+Health::Health(const std::string& name, std::unique_ptr<struct healthd_config>&& config)
+    : HalHealthLoop(name),
+      healthd_config_(std::move(config)),
+      death_recipient_(std::make_unique<DeathRecipient>()) {
     battery_monitor_.init(healthd_config_.get());
-}
-
-//
-// Callbacks are not supported by the passthrough implementation.
-//
-
-ndk::ScopedAStatus Health::registerCallback(const std::shared_ptr<IHealthInfoCallback>&) {
-    return ndk::ScopedAStatus::fromServiceSpecificError(IHealth::STATUS_NOT_SUPPORTED);
-}
-
-ndk::ScopedAStatus Health::unregisterCallback(const std::shared_ptr<IHealthInfoCallback>&) {
-    return ndk::ScopedAStatus::fromServiceSpecificError(IHealth::STATUS_NOT_SUPPORTED);
-}
-
-ndk::ScopedAStatus Health::update() {
-    HealthInfo health_info;
-    auto res = getHealthInfo(&health_info);
-    if (res.isOk()) {
-        battery_monitor_.logValues();
-        return res;
-    }
-    LOG(DEBUG) << "Cannot call getHealthInfo for update(): " << res.getDescription();
-    // Propagate service specific errors. If there's none, report unknown error.
-    if (res.getServiceSpecificError() != 0) {
-        return res;
-    }
-    return ndk::ScopedAStatus::fromServiceSpecificErrorWithMessage(IHealth::STATUS_UNKNOWN,
-                                                                   res.getDescription().c_str());
 }
 
 //
@@ -99,15 +80,15 @@ static ndk::ScopedAStatus GetProperty(::android::BatteryMonitor* monitor, int id
     }
 }
 
-ndk::ScopedAStatus Health::getChargeCounter(int32_t* out) {
+ndk::ScopedAStatus Health::getChargeCounterUah(int32_t* out) {
     return GetProperty<int32_t>(&battery_monitor_, ::android::BATTERY_PROP_CHARGE_COUNTER, 0, out);
 }
 
-ndk::ScopedAStatus Health::getCurrentNow(int32_t* out) {
+ndk::ScopedAStatus Health::getCurrentNowMicroamps(int32_t* out) {
     return GetProperty<int32_t>(&battery_monitor_, ::android::BATTERY_PROP_CURRENT_NOW, 0, out);
 }
 
-ndk::ScopedAStatus Health::getCurrentAverage(int32_t* out) {
+ndk::ScopedAStatus Health::getCurrentAverageMicroamps(int32_t* out) {
     return GetProperty<int32_t>(&battery_monitor_, ::android::BATTERY_PROP_CURRENT_AVG, 0, out);
 }
 
@@ -115,7 +96,7 @@ ndk::ScopedAStatus Health::getCapacity(int32_t* out) {
     return GetProperty<int32_t>(&battery_monitor_, ::android::BATTERY_PROP_CAPACITY, 0, out);
 }
 
-ndk::ScopedAStatus Health::getEnergyCounter(int64_t* out) {
+ndk::ScopedAStatus Health::getEnergyCounterNwh(int64_t* out) {
     return GetProperty<int64_t>(&battery_monitor_, ::android::BATTERY_PROP_ENERGY_COUNTER, 0, out);
 }
 
@@ -190,26 +171,33 @@ binder_status_t Health::dump(int fd, const char**, uint32_t) {
     return STATUS_OK;
 }
 
-ndk::ScopedAStatus Health::getHealthConfig(HealthConfig* out) {
-    convert(healthd_config_.get(), out);
-    return ndk::ScopedAStatus::ok();
-}
-
 ndk::ScopedAStatus Health::shouldKeepScreenOn(bool* out) {
     if (!healthd_config_->screen_on) {
+        *out = true;
         return ndk::ScopedAStatus::fromServiceSpecificError(IHealth::STATUS_NOT_SUPPORTED);
     }
+
     HealthInfo health_info;
-    if (auto res = getHealthInfo(&health_info); !res.isOk()) {
-        return ndk::ScopedAStatus::fromServiceSpecificErrorWithMessage(
-                IHealth::STATUS_UNKNOWN,
-                ("Unable to call getHealthInfo: " + res.getDescription()).c_str());
+    auto res = getHealthInfo(&health_info);
+    if (!res.isOk()) {
+        *out = true;
+        return ndk::ScopedAStatus::fromServiceSpecificError(IHealth::STATUS_UNKNOWN);
     }
-    struct ::android::BatteryProperties props = {};
+
+    ::android::BatteryProperties props = {};
     convert(health_info, &props);
     *out = healthd_config_->screen_on(&props);
     return ndk::ScopedAStatus::ok();
 }
+
+namespace {
+bool IsDeadObjectLogged(const ndk::ScopedAStatus& ret) {
+    if (ret.isOk()) return false;
+    if (ret.getStatus() == ::STATUS_DEAD_OBJECT) return true;
+    LOG(ERROR) << "Cannot call healthInfoChanged on callback: " << ret.getDescription();
+    return false;
+}
+}  // namespace
 
 //
 // Subclass helpers / overrides
@@ -228,13 +216,129 @@ void Health::UpdateHealthInfo(HealthInfo* /* health_info */) {
 }
 
 //
-// Default implementation
+// Methods that handle callbacks.
 //
-std::shared_ptr<IHealth> GetDefaultPassthroughHealth() {
-    auto config = std::make_unique<healthd_config>();
-    ::android::hardware::health::InitHealthdConfig(config.get());
-    auto health = ndk::SharedRefBase::make<Health>(std::move(config));
-    return health;
+
+ndk::ScopedAStatus Health::registerCallback(
+        const std::shared_ptr<IHealthInfoCallback>& callback) {
+    if (callback == nullptr) {
+        return ndk::ScopedAStatus::ok();
+    }
+
+    {
+        std::lock_guard<decltype(callbacks_lock_)> lock(callbacks_lock_);
+        callbacks_.emplace_back(shared_from_this(), callback);
+        // unlock
+    }
+
+    HealthInfo health_info;
+    if (auto res = getHealthInfo(&health_info); !res.isOk()) {
+        LOG(WARNING) << "Cannot call getHealthInfo: " << res.getDescription();
+        // No health info to send, so return early.
+        return ndk::ScopedAStatus::ok();
+    }
+
+    if (auto res = callback->healthInfoChanged(health_info); IsDeadObjectLogged(res)) {
+        (void)unregisterCallback(callback);
+    }
+    return ndk::ScopedAStatus::ok();
 }
+
+ndk::ScopedAStatus Health::unregisterCallback(
+        const std::shared_ptr<IHealthInfoCallback>& callback) {
+    if (callback == nullptr) {
+        return ndk::ScopedAStatus::fromServiceSpecificError(IHealth::STATUS_NOT_FOUND);
+    }
+
+    std::lock_guard<decltype(callbacks_lock_)> lock(callbacks_lock_);
+
+    auto matches = [callback](const auto& linked) {
+        return linked.callback() == callback.get();  // compares shared_ptr
+    };
+    auto it = std::remove_if(callbacks_.begin(), callbacks_.end(), matches);
+    bool removed = (it != callbacks_.end());
+    callbacks_.erase(it, callbacks_.end());  // calls unlinkToDeath on deleted callbacks.
+    return removed ? ndk::ScopedAStatus::ok()
+                   : ndk::ScopedAStatus::fromServiceSpecificError(IHealth::STATUS_NOT_FOUND);
+}
+
+// TODO(b/177269435): Merge updateInternal() to update()
+ndk::ScopedAStatus Health::updateInternal() {
+    HealthInfo health_info;
+    auto res = getHealthInfo(&health_info);
+    if (res.isOk()) {
+        battery_monitor_.logValues();
+        return res;
+    }
+    LOG(DEBUG) << "Cannot call getHealthInfo for update(): " << res.getDescription();
+    // Propagate service specific errors. If there's none, report unknown error.
+    if (res.getServiceSpecificError() != 0) {
+        return res;
+    }
+    return ndk::ScopedAStatus::fromServiceSpecificErrorWithMessage(IHealth::STATUS_UNKNOWN,
+                                                                   res.getDescription().c_str());
+}
+
+ndk::ScopedAStatus Health::update() {
+    if (auto res = updateInternal(); !res.isOk()) {
+        return res;
+    }
+    HealthInfo health_info;
+    if (auto res = getHealthInfo(&health_info); !res.isOk()) {
+        return res;
+    }
+    OnHealthInfoChanged(health_info);
+    return ndk::ScopedAStatus::ok();
+}
+
+void Health::OnHealthInfoChanged(const HealthInfo& health_info) {
+    // Notify all callbacks
+    std::unique_lock<decltype(callbacks_lock_)> lock(callbacks_lock_);
+    // is_dead notifies a callback and return true if it is dead.
+    auto is_dead = [&](const auto& linked) {
+        auto res = linked.callback()->healthInfoChanged(health_info);
+        return IsDeadObjectLogged(res);
+    };
+    auto it = std::remove_if(callbacks_.begin(), callbacks_.end(), is_dead);
+    callbacks_.erase(it, callbacks_.end());  // calls unlinkToDeath on deleted callbacks.
+    lock.unlock();
+
+    // adjusts uevent / wakealarm periods
+    HalHealthLoop::OnHealthInfoChanged(health_info);
+}
+
+void Health::BinderEvent(uint32_t /*epevents*/) {
+    if (binder_fd_ >= 0) {
+        ABinderProcess_handlePolledCommands();
+    }
+}
+
+void Health::Init(struct healthd_config* config) {
+    set_service(shared_from_this());
+    // Set up epoll and get uevent / wake alarm periods
+    HalHealthLoop::Init(config);
+
+    LOG(INFO) << instance_name() << " instance initializing with healthd_config...";
+
+    binder_status_t status = ABinderProcess_setupPolling(&binder_fd_);
+
+    if (status == ::STATUS_OK && binder_fd_ >= 0) {
+        auto binder_event = [](auto* health_loop, uint32_t epevents) {
+            static_cast<Health*>(health_loop)->BinderEvent(epevents);
+        };
+        if (RegisterEvent(binder_fd_, binder_event, EVENT_NO_WAKEUP_FD) != 0) {
+            PLOG(ERROR) << instance_name() << " instance: Register for binder events failed";
+        }
+    }
+
+    std::string health_name = IHealth::descriptor + "/"s + instance_name();
+    CHECK_EQ(STATUS_OK, AServiceManager_addService(this->asBinder().get(), health_name.c_str()))
+            << instance_name() << ": Failed to register HAL";
+
+    LOG(INFO) << instance_name() << ": Hal init done";
+}
+
+// Unlike hwbinder, for binder, there's no need to explicitly call flushCommands()
+// in PrepareToWait(). See b/139697085.
 
 }  // namespace aidl::android::hardware::health

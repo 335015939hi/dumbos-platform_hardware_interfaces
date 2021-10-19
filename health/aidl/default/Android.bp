@@ -20,7 +20,7 @@ cc_defaults {
         "libcutils",
         "liblog",
         "libutils",
-        "android.hardware.health-unstable-ndk_platform",
+        "android.hardware.health-V1-ndk_platform",
 
         // TODO(b/177269435): remove when BatteryMonitor works with AIDL HealthInfo.
         "libhidlbase",
@@ -47,11 +47,11 @@ cc_library_static {
         "libbatterymonitor",
     ],
     srcs: [
+        "DeathRecipient.cpp",
         "health-convert.cpp",
-        "BinderHealth.cpp",
         "HalHealthLoop.cpp",
         "Health.cpp",
-        "LinkedCallback_DeathRecipient.cpp",
+        "LinkedCallback.cpp",
     ],
     visibility: [
         ":__subpackages__",

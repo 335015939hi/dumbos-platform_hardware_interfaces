@@ -25,13 +25,12 @@
 namespace aidl::android::hardware::health {
 
 // AIDL version of android::hardware::health::V2_1::implementation::HalHealthLoop.
-// An implementation of HealthLoop for using a given health HAL. This is useful
-// for services that opens the passthrough implementation and starts the HealthLoop
-// to periodically poll data from the implementation.
+// An implementation of HealthLoop for using a given health HAL.
 class HalHealthLoop : public ::android::hardware::health::HealthLoop {
   public:
-    HalHealthLoop(const std::string& name, std::shared_ptr<IHealth> service)
-        : instance_name_(name), service_(service) {}
+    HalHealthLoop(const std::string& name) : instance_name_(name) {}
+    // Must call set_service() before calling StartLoop().
+    void set_service(std::shared_ptr<IHealth> service);
 
   protected:
     virtual void Init(struct healthd_config* config) override;
