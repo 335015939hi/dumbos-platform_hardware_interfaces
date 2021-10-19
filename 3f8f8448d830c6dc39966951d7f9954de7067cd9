@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3091f1b_48fb0392",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-19T23:57:48Z",
+      "side": 1,
+      "message": "since these APEXes are specific to these example implementations, should we keep the APEX definition here? It seems like it is pretty coupled, but in a different git project. Are the APEX examples really cuttlefish-specific?",
+      "revId": "3f8f8448d830c6dc39966951d7f9954de7067cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
