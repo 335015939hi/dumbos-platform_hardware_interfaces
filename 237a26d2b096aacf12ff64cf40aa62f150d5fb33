@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60e0405a_f8312a52",
+        "filename": "cas/1.2/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1443524
+      },
+      "writtenOn": "2021-10-19T01:24:09Z",
+      "side": 1,
+      "message": "-chz left google.\n-nchalko isn\u0027t charge of this area.\n+ hgchen.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 14
+      },
+      "revId": "237a26d2b096aacf12ff64cf40aa62f150d5fb33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
