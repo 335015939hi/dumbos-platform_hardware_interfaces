@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "898492b8_bf75b44a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-10-19T18:36:10Z",
+      "side": 1,
+      "message": "Thanks for finding and fixing this!  I wonder why it wasn\u0027t seen earlier.  That change is from a while ago.",
+      "revId": "c780a2eeb41345d0d2fddfb9e9e173e2935e9dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bec2297b_c5b84f19",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-10-19T18:36:10Z",
+      "side": 1,
+      "message": "This seems more complex than it needs to be.  Can we simplify, based on the fact that we always know we have the same two items in the iov_array?\n\ntotal_bytes \u003d length + sizeof(type);",
+      "range": {
+        "startLine": 37,
+        "startChar": 23,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "c780a2eeb41345d0d2fddfb9e9e173e2935e9dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
