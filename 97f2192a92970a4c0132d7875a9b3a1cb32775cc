@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be0f68c3_15847d7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-19T00:20:53Z",
+      "side": 1,
+      "message": "Removed dshi@ as he is not on VTS team.",
+      "revId": "97f2192a92970a4c0132d7875a9b3a1cb32775cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
