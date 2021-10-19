@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f16a01f_726cb273",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-19T01:15:23Z",
+      "side": 1,
+      "message": "Reuse the OWNERS file I updated: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/sensors/common/vts/OWNERS",
+      "revId": "983cdbf0b7c2c89889f92c0e042ae30269fc44ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
