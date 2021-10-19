@@ -25,7 +25,7 @@ cc_binary {
     name: "android.hardware.power.stats-service.example",
     relative_install_path: "hw",
     init_rc: ["power.stats-default.rc"],
-    vintf_fragments: ["power.stats-default.xml"],
+    vintf_fragments: [":android.hardware.power.stats.xml"],
     vendor: true,
     shared_libs: [
         "libbase",
@@ -36,4 +36,9 @@ cc_binary {
         "main.cpp",
         "PowerStats.cpp",
     ],
+}
+
+filegroup {
+    name: "android.hardware.power.stats.xml",
+    srcs: ["power.stats-default.xml"],
 }

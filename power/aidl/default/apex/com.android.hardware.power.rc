@@ -1,0 +1,9 @@
+service vendor.power-default /apex/com.android.hardware.power/bin/hw/android.hardware.power-service.example
+    class hal
+    user nobody
+    group nobody
+
+service vendor.power.stats-default /apex/com.android.hardware.power/bin/hw/android.hardware.power.stats-service.example
+    class hal
+    user nobody
+    group nobody
