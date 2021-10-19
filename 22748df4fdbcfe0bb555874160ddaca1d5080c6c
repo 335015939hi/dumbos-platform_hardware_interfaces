@@ -16,6 +16,24 @@
       "message": "What is the reason for this change?",
       "revId": "22748df4fdbcfe0bb555874160ddaca1d5080c6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eca942fb_546de00e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-10-19T22:21:54Z",
+      "side": 1,
+      "message": "Right now, there\u0027s a library called neuralnetworks_utils_hal_common, which is intended to be a common library for the HIDL and AIDL utility code. However, this error handling is only used by the HIDL code, so I\u0027m moving it to the HIDL-specific library.",
+      "parentUuid": "b9b02caf_85219380",
+      "revId": "22748df4fdbcfe0bb555874160ddaca1d5080c6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
