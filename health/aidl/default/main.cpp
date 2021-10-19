@@ -14,26 +14,23 @@
  * limitations under the License.
  */
 
-#include "health-impl/BinderHealth.h"
 #include "health-impl/Health.h"
 
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 
-using aidl::android::hardware::health::BinderHealth;
+using aidl::android::hardware::health::Health;
 using aidl::android::hardware::health::GetDefaultPassthroughHealth;
 
 static constexpr const char* gInstanceName = "default";
 
 int main() {
+    // TODO(b/203246116): handle charger
     // make a default health service
-    // TODO(b/177269435): should dlopen the passthrough service
-    auto passthrough = GetDefaultPassthroughHealth();
-    CHECK(passthrough != nullptr)
-            << "Cannot find passthrough implementation of health AIDL HAL for instance "
-            << gInstanceName;
+    auto config = std::make_unique<healthd_config>();
+    ::android::hardware::health::InitHealthdConfig(config.get());
 
-    auto binder = ndk::SharedRefBase::make<BinderHealth>(gInstanceName, passthrough);
+    auto binder = ndk::SharedRefBase::make<Health>(gInstanceName, std::move(config));
     return binder->StartLoop();
 }

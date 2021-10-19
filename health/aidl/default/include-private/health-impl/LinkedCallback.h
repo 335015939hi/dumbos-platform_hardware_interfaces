@@ -20,20 +20,20 @@
 
 #include <aidl/android/hardware/health/IHealthInfoCallback.h>
 #include <android/binder_auto_utils.h>
-#include <health-impl/BinderHealth.h>
+#include <health-impl/Health.h>
 
 #include "DeathRecipient.h"
 
 namespace aidl::android::hardware::health {
 
-// A (BinderHealth, IHealthInfoCallback) tuple.
-// The life time of the BinderHealth service must be longer than this LinkedCallback object. This
+// A (Health, IHealthInfoCallback) tuple.
+// The life time of the Health service must be longer than this LinkedCallback object. This
 // is maintained by storing LinkedCallback objects in the associated service.
 class LinkedCallback {
   public:
     // Automatically linkToDeath upon construction with |this| as the cookie.
     // service->death_reciepient() should be from CreateDeathRecipient().
-    LinkedCallback(BinderHealth* service, std::shared_ptr<IHealthInfoCallback> callback);
+    LinkedCallback(Health* service, std::shared_ptr<IHealthInfoCallback> callback);
 
     // Automatically unlinkToDeath upon destruction. So, it is always safe to reinterpret_cast
     // the cookie back to the LinkedCallback object.
@@ -46,7 +46,7 @@ class LinkedCallback {
     void OnCallbackDied();
 
   private:
-    BinderHealth* service_;
+    Health* service_;
     std::shared_ptr<IHealthInfoCallback> callback_;
 };
 

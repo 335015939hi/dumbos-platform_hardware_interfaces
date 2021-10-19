@@ -26,27 +26,22 @@
 
 namespace aidl::android::hardware::health {
 
-// AIDL version of android::hardware::health::V2_1::implementation::Health.
-// Sample passthrough implementation of health HAL.
-class Health : public BnHealth {
+class DeathRecipient;
+
+// AIDL version of android::hardware::health::V2_1::implementation::Health and BinderHealth.
+// Sample implementation of health HAL.
+class Health : public std::enable_shared_from_this<Health>, public HalHealthLoop, public BnHealth {
   public:
     // Initialize with |config|.
     // A subclass may modify |config| before passing it to the parent constructor.
     // See implementation of Health for code samples.
-    Health(std::unique_ptr<healthd_config>&& config);
+    Health(const std::string& name, std::unique_ptr<healthd_config>&& config);
 
-    // This class does not handle callbacks, and subclasses of this class must
-    // not handle callbacks either. Callbacks should only be handled by BinderHealth.
     ndk::ScopedAStatus registerCallback(
-            const std::shared_ptr<IHealthInfoCallback>& callback) override final;
+            const std::shared_ptr<IHealthInfoCallback>& callback) override;
     ndk::ScopedAStatus unregisterCallback(
-            const std::shared_ptr<IHealthInfoCallback>& callback) override final;
-    ndk::ScopedAStatus update() override final;
-
-    // A subclass should not override this because this is a direct translation of
-    // the internal healthd_config to HealthConfig. Modify healthd_config in the constructor
-    // instead.
-    ndk::ScopedAStatus getHealthConfig(HealthConfig* out) override final;
+            const std::shared_ptr<IHealthInfoCallback>& callback) override;
+    ndk::ScopedAStatus update() override;
 
     // A subclass should not override this. Override UpdateHealthInfo instead.
     ndk::ScopedAStatus getHealthInfo(HealthInfo* out) override final;
@@ -72,7 +67,17 @@ class Health : public BnHealth {
     // A subclass may override these to provide a better implementation.
     binder_status_t dump(int fd, const char** args, uint32_t num_args) override;
 
+    // HalHealthLoop implementation.
+    void OnHealthInfoChanged(const HealthInfo& health_info) override;
+
+    // Expose to LinkedCallback for internal usage.
+    DeathRecipient* death_recipient() const { return death_recipient_.get(); }
+
   protected:
+    void Init(struct healthd_config* config) override;
+    // A subclass may override this if it wants to handle binder events differently.
+    virtual void BinderEvent(uint32_t epevents);
+
     // A subclass can override this to modify any health info object before
     // returning to clients. This is similar to healthd_board_battery_update().
     // By default, it does nothing.
@@ -80,6 +85,7 @@ class Health : public BnHealth {
     virtual void UpdateHealthInfo(HealthInfo* health_info);
 
   private:
+    ndk::ScopedAStatus updateInternal() override;
     bool unregisterCallbackInternal(std::shared_ptr<IHealthInfoCallback> callback);
 
     ::android::BatteryMonitor battery_monitor_;
@@ -87,16 +93,11 @@ class Health : public BnHealth {
 
     std::mutex callbacks_lock_;
     std::vector<std::shared_ptr<IHealthInfoCallback>> callbacks_;
-};
 
-// AIDL implementation of HIDL_FETCH_IHealth.
-// Passthrough implementation of the health service. Use default configuration.
-// It does not invoke callbacks unless update() is called explicitly. No
-// background thread is spawned to handle callbacks.
-//
-// The passthrough implementation is only allowed in recovery mode, charger, and
-// opened by the binder service.
-// If Android is booted normally, the binder service is used instead.
-std::shared_ptr<IHealth> GetDefaultPassthroughHealth();
+    std::unique_ptr<DeathRecipient> death_recipient_;
+    int binder_fd_ = -1;
+    std::mutex callbacks_lock_;
+    std::vector<LinkedCallback> callbacks_;
+};
 
 }  // namespace aidl::android::hardware::health

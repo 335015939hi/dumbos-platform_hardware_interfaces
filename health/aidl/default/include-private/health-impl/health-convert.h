@@ -25,16 +25,8 @@
 // of the conversion loses information, because these types have a different
 // set of information.
 
-namespace aidl {
-namespace android {
-namespace hardware {
-namespace health {
+namespace aidl::android::hardware::health {
 
 void convert(const HealthInfo& info, struct ::android::BatteryProperties* out);
-void convert(const struct healthd_config* hc, HealthConfig* out);
-void convert(const HealthConfig& c, struct healthd_config* hc);
 
-}  // namespace health
-}  // namespace hardware
-}  // namespace android
-}  // namespace aidl
+}  // namespace aidl::android::hardware::health

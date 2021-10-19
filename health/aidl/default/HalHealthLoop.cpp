@@ -23,7 +23,13 @@
 
 namespace aidl::android::hardware::health {
 
+void HalHealthLoop::set_service(std::shared_ptr<IHealth> service) const {
+    CHECK(service_ == nullptr);
+    service_ = std::move(service);
+}
+
 void HalHealthLoop::Init(struct healthd_config* config) {
+    CHECK(service_ != nullptr);
     // Retrieve healthd_config from the HAL.
     HealthConfig health_config;
     auto res = service_->getHealthConfig(&health_config);

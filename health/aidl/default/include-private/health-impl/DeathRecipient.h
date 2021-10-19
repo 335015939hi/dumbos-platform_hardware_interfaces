@@ -23,7 +23,7 @@
 namespace aidl::android::hardware::health {
 
 // Wrapper over LinkedCallback::OnCallbackDied.
-// This type is hidden from the public headers so that BinderHealth::death_recipient() does not
+// This type is hidden from the public headers so that Health::death_recipient() does not
 // expose the internal ScopedAIBinder_DeathRecipient to external clients.
 class DeathRecipient {
   public:
