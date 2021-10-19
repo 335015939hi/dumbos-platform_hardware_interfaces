@@ -70,6 +70,29 @@
       "parentUuid": "d3e28c5f_59d8d04a",
       "revId": "f5f5ffaae429f0ba35114855fd0f0ddc12902732",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d127d40_5a63a5bb",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio3/current/android/hardware/bluetooth/audio3/AacObjectType.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-10-19T07:10:32Z",
+      "side": 1,
+      "message": "uint8_t ?",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 18
+      },
+      "revId": "f5f5ffaae429f0ba35114855fd0f0ddc12902732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
