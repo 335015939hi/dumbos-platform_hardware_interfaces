@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccd9355f_dc071064",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1451908
+      },
+      "writtenOn": "2021-10-19T18:55:05Z",
+      "side": 1,
+      "message": "It is very hard to hit this case. In our platform, it was seen only while stressing the system when music is played through A2DP.",
+      "parentUuid": "898492b8_bf75b44a",
+      "revId": "c780a2eeb41345d0d2fddfb9e9e173e2935e9dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bec2297b_c5b84f19",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-10-19T18:36:10Z",
       "side": 1,
       "message": "This seems more complex than it needs to be.  Can we simplify, based on the fact that we always know we have the same two items in the iov_array?\n\ntotal_bytes \u003d length + sizeof(type);",
+      "range": {
+        "startLine": 37,
+        "startChar": 23,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "c780a2eeb41345d0d2fddfb9e9e173e2935e9dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b196eae_c67dd950",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1451908
+      },
+      "writtenOn": "2021-10-19T18:55:05Z",
+      "side": 1,
+      "message": "Inorder to make it generic and not change the rest of the code incase a new field needs to be added to iov_array, I am deriving the total_bytes from the iov_array itself instead of hardcoding it.\n\nBut, if it makes sense to simplify it, will do it.",
+      "parentUuid": "bec2297b_c5b84f19",
       "range": {
         "startLine": 37,
         "startChar": 23,
