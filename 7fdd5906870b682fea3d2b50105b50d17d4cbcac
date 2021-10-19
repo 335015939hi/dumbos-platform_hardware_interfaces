@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc77f271_701650a8",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-10-19T09:11:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25a7a9ef_a4164fa3",
+      "range": {
+        "startLine": 66,
+        "startChar": 7,
+        "endLine": 66,
+        "endChar": 19
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3911b3e_a0dd9449",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-02T20:49:03Z",
       "side": 1,
       "message": "(everywhere) Should these be range checked? I didn\u0027t look outside this directory, but I don\u0027t any code here which calls \u0027init\u0027, and ::init could fail, but these are IPC calls, so this would be OOR.",
+      "range": {
+        "startLine": 90,
+        "startChar": 33,
+        "endLine": 90,
+        "endChar": 52
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e9caf6b_98d4bc69",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-10-19T09:11:54Z",
+      "side": 1,
+      "message": "In the case where init fails, this method won\u0027t be called since no pointer was returned.\n\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/tv/cec/1.0/default/HdmiCec.cpp;l\u003d397",
+      "parentUuid": "d3911b3e_a0dd9449",
       "range": {
         "startLine": 90,
         "startChar": 33,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74223cfd_a40f8d3b",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-10-19T09:11:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd683f9d_f97f4d99",
+      "range": {
+        "startLine": 320,
+        "startChar": 4,
+        "endLine": 320,
+        "endChar": 31
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2234e95c_89914326",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-09-02T20:49:03Z",
       "side": 1,
       "message": "same nit: declare only when needed (we can save allocations in this case if L326 doesn\u0027t match, and it\u0027s more clear that L326 is searching the filename, not the filepath)",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 324,
+        "endChar": 48
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e029db74_9ee9f58a",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-10-19T09:11:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2234e95c_89914326",
       "range": {
         "startLine": 324,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70ad7d67_ae245940",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-10-19T09:11:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "79417955_cfd810c4",
+      "range": {
+        "startLine": 326,
+        "startChar": 12,
+        "endLine": 326,
+        "endChar": 24
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e369824_256fff88",
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5badbd7_63109c67",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-10-19T09:11:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e369824_256fff88",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 46
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bda88fc_de8a6e84",
@@ -152,6 +296,30 @@
       "writtenOn": "2021-09-02T20:49:03Z",
       "side": 1,
       "message": "now that we have \u0027using std::string\u0027 this is a bit strange",
+      "range": {
+        "startLine": 497,
+        "startChar": 46,
+        "endLine": 497,
+        "endChar": 52
+      },
+      "revId": "7fdd5906870b682fea3d2b50105b50d17d4cbcac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "987ef4ec_0a7ad1cc",
+        "filename": "tv/cec/1.0/default/HdmiCecDefault.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2021-10-19T09:11:54Z",
+      "side": 1,
+      "message": "Method is discarded.",
+      "parentUuid": "0bda88fc_de8a6e84",
       "range": {
         "startLine": 497,
         "startChar": 46,
