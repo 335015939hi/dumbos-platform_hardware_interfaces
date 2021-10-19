@@ -25,7 +25,7 @@ cc_binary {
     name: "android.hardware.power-service.example",
     relative_install_path: "hw",
     init_rc: ["power-default.rc"],
-    vintf_fragments: ["power-default.xml"],
+    vintf_fragments: [":android.hardware.power.xml"],
     vendor: true,
     shared_libs: [
         "libbase",
@@ -36,4 +36,9 @@ cc_binary {
         "main.cpp",
         "Power.cpp",
     ],
+}
+
+filegroup {
+    name: "android.hardware.power.xml",
+    srcs: ["power-default.xml"],
 }
