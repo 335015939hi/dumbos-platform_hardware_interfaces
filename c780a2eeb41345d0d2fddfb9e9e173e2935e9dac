@@ -105,6 +105,30 @@
       },
       "revId": "c780a2eeb41345d0d2fddfb9e9e173e2935e9dac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e39c4f90_965a5735",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2021-10-20T20:36:00Z",
+      "side": 1,
+      "message": "I was hoping that the logic below would also become simpler if we knew that the first iovec was always 1 byte, and there were only two of them.\n\nI\u0027ll leave it up to you whether you want to go back to your original code here or simplify the code in 38-75",
+      "parentUuid": "f98b6880_ebeffcc7",
+      "range": {
+        "startLine": 37,
+        "startChar": 23,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "c780a2eeb41345d0d2fddfb9e9e173e2935e9dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
