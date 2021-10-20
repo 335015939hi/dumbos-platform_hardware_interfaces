@@ -24,6 +24,7 @@ import android.hardware.wifi.hostapd.IHostapdCallback;
 import android.hardware.wifi.hostapd.Ieee80211ReasonCode;
 import android.hardware.wifi.hostapd.IfaceParams;
 import android.hardware.wifi.hostapd.NetworkParams;
+import android.hardware.wifi.hostapd.VendorElementsParams;
 
 /**
  * Top-level interface for managing SoftAPs.
@@ -38,12 +39,14 @@ interface IHostapd {
      *
      * @param ifaceParams AccessPoint Params for the access point.
      * @param nwParams Network Params for the access point.
+     * @param veParams Vendor Elements Params for the access point.
      * @throws ServiceSpecificException with one of the following values:
      *         |HostapdStatusCode.FAILURE_ARGS_INVALID|,
      *         |HostapdStatusCode.FAILURE_UNKNOWN|,
      *         |HostapdStatusCode.FAILURE_IFACE_EXISTS|
      */
-    void addAccessPoint(in IfaceParams ifaceParams, in NetworkParams nwParams);
+    void addAccessPoint(in IfaceParams ifaceParams, in NetworkParams nwParams,
+            in VendorElementsParams veParams);
 
     /**
      * Force one of the hotspot clients to disconnect.

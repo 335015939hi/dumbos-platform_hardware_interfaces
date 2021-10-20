@@ -33,11 +33,7 @@
 
 package android.hardware.wifi.hostapd;
 @VintfStability
-interface IHostapd {
-  void addAccessPoint(in android.hardware.wifi.hostapd.IfaceParams ifaceParams, in android.hardware.wifi.hostapd.NetworkParams nwParams, in android.hardware.wifi.hostapd.VendorElementsParams veParams);
-  void forceClientDisconnect(in String ifaceName, in byte[] clientAddress, in android.hardware.wifi.hostapd.Ieee80211ReasonCode reasonCode);
-  void registerCallback(in android.hardware.wifi.hostapd.IHostapdCallback callback);
-  void removeAccessPoint(in String ifaceName);
-  void setDebugParams(in android.hardware.wifi.hostapd.DebugLevel level);
-  oneway void terminate();
+parcelable VendorElementsParams {
+  String vendorElements;
+  String assocrespElements;
 }
