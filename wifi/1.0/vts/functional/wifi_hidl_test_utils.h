@@ -51,5 +51,8 @@ bool configureChipToSupportIfaceType(
     android::hardware::wifi::V1_0::ChipModeId* configured_mode_id);
 // Used to trigger IWifi.stop() at the end of every test.
 void stopWifi(const std::string& instance_name);
+<<<<<<< TARGET BRANCH (17fed4 wifi: Fix for DPP VTS test failures on 5GHz only devices am:)
 uint32_t getChipCapabilitiesLatest(
     const android::sp<android::hardware::wifi::V1_0::IWifiChip>& wifi_chip);
+=======
+>>>>>>> SOURCE BRANCH (7a0d9f [automerger skipped] Merge "vts: wifi: softap and p2p are op)
