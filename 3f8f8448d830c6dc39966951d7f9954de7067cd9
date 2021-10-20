@@ -16,6 +16,24 @@
       "message": "since these APEXes are specific to these example implementations, should we keep the APEX definition here? It seems like it is pretty coupled, but in a different git project. Are the APEX examples really cuttlefish-specific?",
       "revId": "3f8f8448d830c6dc39966951d7f9954de7067cd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c226a458_1c92b21f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2021-10-20T18:00:43Z",
+      "side": 1,
+      "message": "Yeah, they can go here. I put it in Cuttlefish originally since I was combining them into one APEX (Power and PowerStats) for simplicity, and wasn\u0027t sure if that applied generally.\n\nWDYT? Combining means less skeleton code. Keeping separate means better isolation for developers -- they can adb install an individual HAL\u0027s impl vAPEX without changing the other one.",
+      "parentUuid": "c3091f1b_48fb0392",
+      "revId": "3f8f8448d830c6dc39966951d7f9954de7067cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
