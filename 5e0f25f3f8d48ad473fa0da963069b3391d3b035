@@ -90,6 +90,23 @@
       "message": "I think this could be done codec specific configuration independent (union of CodecConfigurations): https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/bluetooth/audio/2.0/types.hal;drc\u003d5f0e90ece795705975b245bd076d9d98f84ed61f;l\u003d251",
       "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5d4210c_2c4af98c",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-10-20T16:47:20Z",
+      "side": 1,
+      "message": "Another thing is how to have different configurations here, cause audio server is feeding stack with one type of data per session and single configuration.\n\nPreviously session is set up with some configuration and this is returned to server via port (e.g. https://cs.android.com/android/platform/superproject/+/master:system/bt/audio_bluetooth_hw/stream_apis.cc;drc\u003d91db655fa054cefaf8a1f72fee6dace2a2722540;l\u003d319)",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
