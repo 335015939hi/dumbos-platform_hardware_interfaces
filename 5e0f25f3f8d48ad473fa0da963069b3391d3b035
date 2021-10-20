@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6bcc299_8e1a7ea9",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioPort.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-10-20T15:35:50Z",
+      "side": 1,
+      "message": "1",
+      "range": {
+        "startLine": 35,
+        "startChar": 41,
+        "endLine": 35,
+        "endChar": 42
+      },
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
