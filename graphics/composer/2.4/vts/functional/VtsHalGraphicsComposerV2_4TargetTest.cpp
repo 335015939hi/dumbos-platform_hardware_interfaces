@@ -73,6 +73,7 @@ class VtsDisplay {
 
     IComposerClient::Rect getFrameRect() const { return {0, 0, mDisplayWidth, mDisplayHeight}; }
 
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
     void setDimensions(int32_t displayWidth, int32_t displayHeight) {
         mDisplayWidth = displayWidth;
         mDisplayHeight = displayHeight;
@@ -82,6 +83,12 @@ class VtsDisplay {
     const Display mDisplay;
     int32_t mDisplayWidth;
     int32_t mDisplayHeight;
+=======
+  private:
+    const Display mDisplay;
+    const int32_t mDisplayWidth;
+    const int32_t mDisplayHeight;
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
 };
 
 class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
@@ -159,9 +166,15 @@ class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
 
     void execute() { mComposerClient->execute(mReader.get(), mWriter.get()); }
 
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
     NativeHandleWrapper allocate(int32_t width, int32_t height) {
         return mGralloc->allocate(
                 width, height, /*layerCount*/ 1,
+=======
+    const native_handle_t* allocate() {
+        return mGralloc->allocate(
+                /*width*/ 64, /*height*/ 64, /*layerCount*/ 1,
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
                 static_cast<common::V1_1::PixelFormat>(PixelFormat::RGBA_8888),
                 static_cast<uint64_t>(BufferUsage::CPU_WRITE_OFTEN | BufferUsage::CPU_READ_OFTEN));
     }
@@ -199,6 +212,7 @@ class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
                                        const std::vector<ContentType>& capabilities,
                                        const ContentType& contentType, const char* contentTypeStr);
 
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
     Error setActiveConfigWithConstraints(
             VtsDisplay& display, Config config,
             const IComposerClient::VsyncPeriodChangeConstraints& constraints,
@@ -224,6 +238,8 @@ class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
         display.setDimensions(displayWidth, displayHeight);
     }
 
+=======
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
   private:
     // use the slot count usually set by SF
     static constexpr uint32_t kBufferSlotCount = 64;
@@ -313,6 +329,7 @@ TEST_P(GraphicsComposerHidlTest, GetDisplayAttribute_2_4) {
                             EXPECT_TRUE(tmpError == Error::NONE || tmpError == Error::UNSUPPORTED);
                         });
             }
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
         }
     }
 }
@@ -366,6 +383,8 @@ TEST_P(GraphicsComposerHidlTest, GetDisplayAttribute_2_4_ConfigsInAGroupDifferOn
             }
             EXPECT_EQ(configGroupToDpiMap[configGroup].x, dpiX);
             EXPECT_EQ(configGroupToDpiMap[configGroup].y, dpiY);
+=======
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
         }
     }
 }
@@ -377,7 +396,11 @@ TEST_P(GraphicsComposerHidlTest, getDisplayVsyncPeriod_BadDisplay) {
 }
 
 TEST_P(GraphicsComposerHidlTest, getDisplayVsyncPeriod) {
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
     for (VtsDisplay& display : mDisplays) {
+=======
+    for (const auto& display : mDisplays) {
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
         for (Config config : mComposerClient->getDisplayConfigs(display.get())) {
             VsyncPeriodNanos expectedVsyncPeriodNanos = mComposerClient->getDisplayAttribute_2_4(
                     display.get(), config,
@@ -388,8 +411,13 @@ TEST_P(GraphicsComposerHidlTest, getDisplayVsyncPeriod) {
 
             constraints.desiredTimeNanos = systemTime();
             constraints.seamlessRequired = false;
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
             EXPECT_EQ(Error::NONE,
                       setActiveConfigWithConstraints(display, config, constraints, &timeline));
+=======
+            EXPECT_EQ(Error::NONE, mComposerClient->setActiveConfigWithConstraints(
+                                           display.get(), config, constraints, &timeline));
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
 
             if (timeline.refreshRequired) {
                 sendRefreshFrame(display, &timeline);
@@ -441,10 +469,18 @@ TEST_P(GraphicsComposerHidlTest, setActiveConfigWithConstraints_BadConfig) {
     constraints.seamlessRequired = false;
     constraints.desiredTimeNanos = systemTime();
 
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
     for (VtsDisplay& display : mDisplays) {
         Config invalidConfigId = GetInvalidConfigId(display.get());
         EXPECT_EQ(Error::BAD_CONFIG,
                   setActiveConfigWithConstraints(display, invalidConfigId, constraints, &timeline));
+=======
+    for (const auto& display : mDisplays) {
+        Config invalidConfigId = GetInvalidConfigId(display.get());
+        EXPECT_EQ(Error::BAD_CONFIG,
+                  mComposerClient->setActiveConfigWithConstraints(display.get(), invalidConfigId,
+                                                                  constraints, &timeline));
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
     }
 }
 
@@ -455,7 +491,11 @@ TEST_P(GraphicsComposerHidlTest, setActiveConfigWithConstraints_SeamlessNotAllow
     constraints.seamlessRequired = true;
     constraints.desiredTimeNanos = systemTime();
 
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
     for (VtsDisplay& display : mDisplays) {
+=======
+    for (const auto& display : mDisplays) {
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
         forEachTwoConfigs(display.get(), [&](Config config1, Config config2) {
             const auto configGroup1 = mComposerClient->getDisplayAttribute_2_4(
                     display.get(), config1,
@@ -464,10 +504,19 @@ TEST_P(GraphicsComposerHidlTest, setActiveConfigWithConstraints_SeamlessNotAllow
                     display.get(), config2,
                     IComposerClient::IComposerClient::Attribute::CONFIG_GROUP);
             if (configGroup1 != configGroup2) {
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
                 setActiveConfig(display, config1);
+=======
+                mComposerClient->setActiveConfig(display.get(), config1);
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
                 sendRefreshFrame(display, nullptr);
                 EXPECT_EQ(Error::SEAMLESS_NOT_ALLOWED,
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
                           setActiveConfigWithConstraints(display, config2, constraints, &timeline));
+=======
+                          mComposerClient->setActiveConfigWithConstraints(display.get(), config2,
+                                                                          constraints, &timeline));
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
             }
         });
     }
@@ -490,11 +539,32 @@ void GraphicsComposerHidlTest::sendRefreshFrame(const VtsDisplay& display,
     mComposerClient->setPowerMode(display.get(), V2_1::IComposerClient::PowerMode::ON);
     mComposerClient->setColorMode_2_3(display.get(), ColorMode::NATIVE, RenderIntent::COLORIMETRIC);
 
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
     IComposerClient::FRect displayCrop = display.getCrop();
     int32_t displayWidth = static_cast<int32_t>(std::ceilf(displayCrop.right - displayCrop.left));
     int32_t displayHeight = static_cast<int32_t>(std::ceilf(displayCrop.bottom - displayCrop.top));
+=======
+    auto handle = allocate();
+    ASSERT_NE(nullptr, handle);
+
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
     Layer layer;
     ASSERT_NO_FATAL_FAILURE(layer = mComposerClient->createLayer(display.get(), kBufferSlotCount));
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
+=======
+    mWriter->selectLayer(layer);
+    mWriter->setLayerCompositionType(IComposerClient::Composition::DEVICE);
+    mWriter->setLayerDisplayFrame(display.getFrameRect());
+    mWriter->setLayerPlaneAlpha(1);
+    mWriter->setLayerSourceCrop(display.getCrop());
+    mWriter->setLayerTransform(static_cast<Transform>(0));
+    mWriter->setLayerVisibleRegion(std::vector<IComposerClient::Rect>(1, display.getFrameRect()));
+    mWriter->setLayerZOrder(10);
+    mWriter->setLayerBlendMode(IComposerClient::BlendMode::NONE);
+    mWriter->setLayerSurfaceDamage(std::vector<IComposerClient::Rect>(1, display.getFrameRect()));
+    mWriter->setLayerBuffer(0, handle, -1);
+    mWriter->setLayerDataspace(Dataspace::UNKNOWN);
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
 
     {
         auto handle = allocate(displayWidth, displayHeight);
@@ -563,11 +633,18 @@ void GraphicsComposerHidlTest::waitForVsyncPeriodChange(Display display,
 }
 
 void GraphicsComposerHidlTest::Test_setActiveConfigWithConstraints(const TestParameters& params) {
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
     for (VtsDisplay& display : mDisplays) {
         forEachTwoConfigs(display.get(), [&](Config config1, Config config2) {
             setActiveConfig(display, config1);
+=======
+    for (const auto& display : mDisplays) {
+        forEachTwoConfigs(display.get(), [&](Config config1, Config config2) {
+            mComposerClient->setActiveConfig(display.get(), config1);
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
             sendRefreshFrame(display, nullptr);
 
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
             const auto vsyncPeriod1 = mComposerClient->getDisplayAttribute_2_4(
                     display.get(), config1,
                     IComposerClient::IComposerClient::Attribute::VSYNC_PERIOD);
@@ -580,6 +657,14 @@ void GraphicsComposerHidlTest::Test_setActiveConfigWithConstraints(const TestPar
             const auto configGroup2 = mComposerClient->getDisplayAttribute_2_4(
                     display.get(), config2,
                     IComposerClient::IComposerClient::Attribute::CONFIG_GROUP);
+=======
+            int32_t vsyncPeriod1 = mComposerClient->getDisplayAttribute_2_4(
+                    display.get(), config1,
+                    IComposerClient::IComposerClient::Attribute::VSYNC_PERIOD);
+            int32_t vsyncPeriod2 = mComposerClient->getDisplayAttribute_2_4(
+                    display.get(), config2,
+                    IComposerClient::IComposerClient::Attribute::VSYNC_PERIOD);
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
 
             if (vsyncPeriod1 == vsyncPeriod2) {
                 return;  // continue
@@ -594,8 +679,13 @@ void GraphicsComposerHidlTest::Test_setActiveConfigWithConstraints(const TestPar
             IComposerClient::VsyncPeriodChangeConstraints constraints = {
                     .desiredTimeNanos = systemTime() + params.delayForChange,
                     .seamlessRequired = false};
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
             EXPECT_EQ(Error::NONE,
                       setActiveConfigWithConstraints(display, config2, constraints, &timeline));
+=======
+            EXPECT_EQ(Error::NONE, mComposerClient->setActiveConfigWithConstraints(
+                                           display.get(), config2, constraints, &timeline));
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
 
             EXPECT_TRUE(timeline.newVsyncAppliedTimeNanos >= constraints.desiredTimeNanos);
             // Refresh rate should change within a reasonable time
@@ -799,6 +889,7 @@ TEST_P(GraphicsComposerHidlTest, getLayerGenericMetadataKeys) {
 }  // namespace hardware
 }  // namespace android
 
+<<<<<<< HEAD   (b52745 VTS - avoid same MAC for AP and STA am: 82a00e6657)
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
 
@@ -810,3 +901,7 @@ int main(int argc, char** argv) {
 
     return RUN_ALL_TESTS();
 }
+=======
+
+
+>>>>>>> BRANCH (685b5e composer: fix 2.4 vts for multi-display)
