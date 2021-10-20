@@ -70,6 +70,24 @@
       "parentUuid": "82f87cdf_73a97aaa",
       "revId": "3f8f8448d830c6dc39966951d7f9954de7067cd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30c1ff9f_1ace5aff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2021-10-20T22:58:36Z",
+      "side": 1,
+      "message": "I\u0027ll keep this combined for now then.\n\nRe: automatic packaging, I made two bugs:\n1. http://b/203706047: infer these fields from the dependency binaries, include automatically\n2. http://b/203700066: deduplicate init.rc files between standalone binaries and binaries inside APEX.\n\nI have possible solution for 2 in the form of genrules that I\u0027m using now in this current patchset: https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1863346/2..3",
+      "parentUuid": "640fe38d_b626ddc0",
+      "revId": "3f8f8448d830c6dc39966951d7f9954de7067cd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
