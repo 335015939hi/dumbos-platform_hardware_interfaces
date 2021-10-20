@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eddb724_36540157",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioPort.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-20T17:00:46Z",
+      "side": 1,
+      "message": "2.1 HIDL does not have IBluetoothAudioPort. It would come from 2.0.",
+      "parentUuid": "f6bcc299_8e1a7ea9",
+      "range": {
+        "startLine": 35,
+        "startChar": 41,
+        "endLine": 35,
+        "endChar": 42
+      },
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a432d6aa_da116419",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-10-20T15:39:04Z",
       "side": 1,
       "message": "Isn\u0027t \"getPresentationPosition\" from HAL 2.0 enough ?",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9974ef4d_fe1363bc",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioPort.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-20T17:00:46Z",
+      "side": 1,
+      "message": "I guess so, but need to confirm the usage more. Does the max transport latency and presentation delay would be changed during the session live cycle?",
+      "parentUuid": "a432d6aa_da116419",
       "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cd5d60a_53e78628",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-20T17:00:46Z",
+      "side": 1,
+      "message": "Yes, it could be used to bring the CIS/BIS handles.",
+      "parentUuid": "b5a7663f_bc633597",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "843eb164_dbd98deb",
@@ -71,6 +131,24 @@
       "writtenOn": "2021-10-20T15:39:04Z",
       "side": 1,
       "message": "I\u0027m wondering if those parameters should be separated struct/class since those are related to LE Audio, not codec strictly. Further they can be used for other codecs also.",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "053f8fef_ae50f916",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-20T17:00:46Z",
+      "side": 1,
+      "message": "This is brought from the HIDL 2.1 version. I\u0027m not sure the historical reasons on it, I guess the previous concept is that the parameters, Audio_Channel_Allocation,  is defied in the LC3 LTV requirements not, and we are not sure if the other codec have the same one.",
+      "parentUuid": "843eb164_dbd98deb",
       "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -105,6 +183,42 @@
       "writtenOn": "2021-10-20T16:47:20Z",
       "side": 1,
       "message": "Another thing is how to have different configurations here, cause audio server is feeding stack with one type of data per session and single configuration.\n\nPreviously session is set up with some configuration and this is returned to server via port (e.g. https://cs.android.com/android/platform/superproject/+/master:system/bt/audio_bluetooth_hw/stream_apis.cc;drc\u003d91db655fa054cefaf8a1f72fee6dace2a2722540;l\u003d319)",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b1211c8_5193b41b",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-20T17:00:46Z",
+      "side": 1,
+      "message": "We need to bring multiple audio codec configurations in a group.",
+      "parentUuid": "8ccd1ac1_5ee26de9",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af4e7a99_17db068a",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-20T17:00:46Z",
+      "side": 1,
+      "message": "The configuration may be setup in the bluetooth stack, I guess we may need some more work to support it.",
+      "parentUuid": "d5d4210c_2c4af98c",
       "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
