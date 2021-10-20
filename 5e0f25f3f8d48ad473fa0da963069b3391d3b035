@@ -22,6 +22,74 @@
       },
       "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a432d6aa_da116419",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioPort.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-10-20T15:39:04Z",
+      "side": 1,
+      "message": "Isn\u0027t \"getPresentationPosition\" from HAL 2.0 enough ?",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5a7663f_bc633597",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-10-20T15:39:04Z",
+      "side": 1,
+      "message": "unicast, broadcast group - you mean CIS and BIS connection handles ?",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "843eb164_dbd98deb",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-10-20T15:39:04Z",
+      "side": 1,
+      "message": "I\u0027m wondering if those parameters should be separated struct/class since those are related to LE Audio, not codec strictly. Further they can be used for other codecs also.",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ccd1ac1_5ee26de9",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-10-20T15:39:04Z",
+      "side": 1,
+      "message": "I think this could be done codec specific configuration independent (union of CodecConfigurations): https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/bluetooth/audio/2.0/types.hal;drc\u003d5f0e90ece795705975b245bd076d9d98f84ed61f;l\u003d251",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
