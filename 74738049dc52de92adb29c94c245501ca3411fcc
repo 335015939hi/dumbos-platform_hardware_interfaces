@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b688ce68_c5bb923b",
+        "filename": "health/aidl/android/hardware/health/BatteryCapacityLevel.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-21T23:55:58Z",
+      "side": 1,
+      "message": "No, this is a qualitative value by nature. The linear value (1~100) is at batteryLevel field. However, different devices may have different interpretations on what\u0027s critical, low, or normal.\n\n(This is from health 2.1 HAL, added by stayfan@)",
+      "parentUuid": "088cae1a_567fe095",
+      "range": {
+        "startLine": 27,
+        "startChar": 5,
+        "endLine": 27,
+        "endChar": 25
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f10a1bae_fca97946",
@@ -70,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03375d44_09f13762",
+        "filename": "health/aidl/android/hardware/health/BatteryStatus.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-21T23:55:58Z",
+      "side": 1,
+      "message": "This type is exposed in IHealth::getChargeStatus, so no",
+      "parentUuid": "662ac1b8_68dd25f3",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "660b3833_fc0d537e",
@@ -83,6 +131,24 @@
       "writtenOn": "2021-10-21T18:39:17Z",
       "side": 1,
       "message": "is there any plan to move any of the storage information into a linux kernel API?",
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47e1a9e0_c5a033fe",
+        "filename": "health/aidl/android/hardware/health/DiskStats.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-21T23:55:58Z",
+      "side": 1,
+      "message": "No",
+      "parentUuid": "660b3833_fc0d537e",
       "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -123,6 +189,30 @@
       "writtenOn": "2021-10-21T18:39:17Z",
       "side": 1,
       "message": "prefer EX_UNSUPPORTED_OPERATION ?",
+      "range": {
+        "startLine": 33,
+        "startChar": 14,
+        "endLine": 33,
+        "endChar": 34
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aafd4f03_d25b68bb",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-21T23:55:58Z",
+      "side": 1,
+      "message": "So, am I supposed not to invent status values for these?",
+      "parentUuid": "78604299_562ce502",
       "range": {
         "startLine": 33,
         "startChar": 14,
@@ -179,6 +269,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8219b6a9_b314ea2f",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-21T23:55:58Z",
+      "side": 1,
+      "message": "They are all in HealthInfo.\n\ngetHealthInfo is heavy-weighted and these are light-weighted. \n\nAlso, these are supposed to report the most-recent value for just that field, and getHealthInfo needs to update all information, then report it.\n\nThe HAL is the conversion from the 2.1 HAL, so I try to keep it aligned with the 2.1 HAL as much as possible. Technically, the framework already records HealthInfo from callbacks, so the framework can tell apps these values from the recorded HealthInfo. However, to the apps, these values may be outdated (as old as 600 seconds when not charging, if using the default HAL). So, these are a way for apps / the framework to read the realtime values, without fetching the whole struct.\n\nThe app API is at BatteryManager:\n\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/android/os/BatteryManager.java;l\u003d220;drc\u003d5d123b67756dffcfdebdb936ab2de2b29c799321",
+      "parentUuid": "9f3759f4_84acac55",
+      "range": {
+        "startLine": 96,
+        "startChar": 8,
+        "endLine": 96,
+        "endChar": 27
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f35c365f_2b48e213",
@@ -192,6 +306,30 @@
       "writtenOn": "2021-10-21T18:39:17Z",
       "side": 1,
       "message": "so, e.g. \u002733\u0027 \u003d 33%?",
+      "range": {
+        "startLine": 131,
+        "startChar": 16,
+        "endLine": 131,
+        "endChar": 26
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c84f38df_8a1b5493",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-21T23:55:58Z",
+      "side": 1,
+      "message": "yes\n\nI think the word \"percentage\" indicates this",
+      "parentUuid": "f35c365f_2b48e213",
       "range": {
         "startLine": 131,
         "startChar": 16,
@@ -244,6 +382,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a02428e4_cf3666d5",
+        "filename": "health/aidl/android/hardware/health/StorageAttribute.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-21T23:55:58Z",
+      "side": 1,
+      "message": "I double checked that the whole type isn\u0027t used on day 1:\n\nag/3467361\n\nSo yeah, I\u0027ll drop this whole type.",
+      "parentUuid": "83027fdc_09607a67",
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2872da68_75a745cb",
         "filename": "health/aidl/android/hardware/health/StorageInfo.aidl",
         "patchSetId": 14
@@ -255,6 +411,24 @@
       "writtenOn": "2021-10-21T18:39:17Z",
       "side": 1,
       "message": "for debugging?",
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4557e3c_112ee0ad",
+        "filename": "health/aidl/android/hardware/health/StorageInfo.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-21T23:55:58Z",
+      "side": 1,
+      "message": "Apparently it is for \"reporting\": https://cs.android.com/android/platform/superproject/+/master:system/core/storaged/storaged_info.cpp;l\u003d283;drc\u003db8c1147c4a543d0fd7d1c8670f7a31c206953a29\n\nThe name might suggest that this value is reported to some remote servers (unconfirmed). So let\u0027s keep this.",
+      "parentUuid": "2872da68_75a745cb",
       "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
