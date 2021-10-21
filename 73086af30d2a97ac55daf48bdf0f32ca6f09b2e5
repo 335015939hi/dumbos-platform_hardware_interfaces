@@ -16,6 +16,24 @@
       "message": "Shall I actually use the same info we used in aosp/1836657?",
       "revId": "73086af30d2a97ac55daf48bdf0f32ca6f09b2e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58a37c8b_e4ceba73",
+        "filename": "bluetooth/audio/2.0/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2021-10-21T02:21:45Z",
+      "side": 1,
+      "message": "please use \n\ninclude platform/system/bt:/OWNERS \n\ninstead so there is one source of truth",
+      "parentUuid": "803e48b2_95f6b5a2",
+      "revId": "73086af30d2a97ac55daf48bdf0f32ca6f09b2e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
