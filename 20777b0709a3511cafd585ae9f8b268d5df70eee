@@ -46,6 +46,30 @@
       },
       "revId": "20777b0709a3511cafd585ae9f8b268d5df70eee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4161f800_1be52453",
+        "filename": "neuralnetworks/aidl/vts/functional/ValidateModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-10-21T22:48:15Z",
+      "side": 1,
+      "message": "I see, then I think it is fine to keep it as is.",
+      "parentUuid": "af581b5b_59da7ef3",
+      "range": {
+        "startLine": 1319,
+        "startChar": 35,
+        "endLine": 1319,
+        "endChar": 39
+      },
+      "revId": "20777b0709a3511cafd585ae9f8b268d5df70eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
