@@ -1,0 +1,337 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4623578_5887b56f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "looks great!",
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be025218_f32598bd",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AacVariableBitRate.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "nit: could we use a boolean for this, for simplicity? (AIDL enums won\u0027t be enum class anyway)",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2cedfe6_710701ba",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AacVariableBitRate.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "though, I\u0027m curious, do you know why this is 0x80? Is that value important?",
+      "range": {
+        "startLine": 22,
+        "startChar": 14,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e02ef082_57e8de43",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/BitsPerSample.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "could we use byte or int for this instead? Instead of the enum, we could pass 16/24/32 directly, and it could be more extensible in the future. What do you think?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 1
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "589ef831_4c0dadc5",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Capabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "Are these non-Audio capabilities? Given that we have AudioCapabilities, should this be called some other kind of capabilities?",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e97fb734_371783e3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "nit: btw - this conversion must have just missed it, but nested types are supported now:\nhttps://android-review.googlesource.com/c/platform/system/tools/hidl/+/1859454\n\nYou could define \u0027capabilities\u0027 here if it is only used in this one place (or use it elsewhere, if you want to!)",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a543821_94842643",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "could you use EX_SERVICE_SPECIFIC to encode this (every AIDL function has a builtin Status)? (same elsewhere)",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 10
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1edf041c_f0ddc6e4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvidersFactory.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "nit: s/s//",
+      "range": {
+        "startLine": 36,
+        "startChar": 33,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4863881_b9d391a8",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Lc3FrameDuration.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "could this also be an int? Directly use \u0027int microseconds\u0027 and pass 10000 or 7500? WDYT?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f83b2462_ff980ee3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/PresentationPosition.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "same with this, could we use a service-specific exception instead?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b5cb79f_b999d628",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SampleRate.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "same, could we use raw int here?",
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d4ccc9d_11b30948",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SbcBlockLength.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "same, could we use raw int here?",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64719a5d_23535244",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SbcChannelMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "there are a couple of enums which include STEREO/DUAL/MONO, would it ever make sense to combine them?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86017227_e7322df1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SbcNumSubbands.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "same, could we use raw byte/int instead?",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77dcde05_3edac8a7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SourceMetadata.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-21T18:18:14Z",
+      "side": 1,
+      "message": "nit: this is to avoid the out parameter, right?\n\nConsider:\n\n`PlaybackTrackMetadata[] foo();`",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 35
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
