@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8ed4f4d_c6f8c566",
+        "filename": "neuralnetworks/aidl/vts/functional/ValidateModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-10-21T22:04:09Z",
+      "side": 1,
+      "message": "Looks like the \"nn\" namespace is omitted for \"countNumberOfConsumers\" but kept for \"unvalidatedConvert\", maybe keep them consistent?",
+      "range": {
+        "startLine": 1319,
+        "startChar": 35,
+        "endLine": 1319,
+        "endChar": 39
+      },
+      "revId": "20777b0709a3511cafd585ae9f8b268d5df70eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
