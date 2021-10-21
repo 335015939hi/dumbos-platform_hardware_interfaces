@@ -16,6 +16,29 @@
       "message": "Hi, Can we please get an update on this!! Thank you!!",
       "revId": "e0eefca2f855b590eeb627b31f386fcd65cdc418",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "080375bd_43459d88",
+        "filename": "bluetooth/1.1/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2021-10-21T02:21:36Z",
+      "side": 1,
+      "message": "please use \n\ninclude platform/system/bt:/OWNERS \n\ninstead so there is one source of truth",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 28
+      },
+      "revId": "e0eefca2f855b590eeb627b31f386fcd65cdc418",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
