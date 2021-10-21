@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016456511",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1862653?revision\u003d6",
+      "fixSuggestions": [
+        {
+          "fixId": "e9bc082a_7800e152",
+          "description": "Change to \"bluetooth/audio/2.2/types.hal\"",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/2.2/types.hal",
+              "range": {
+                "startLine": 64,
+                "startChar": 33,
+                "endLine": 64,
+                "endChar": 38
+              },
+              "replacement": "Config"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "60f1ea63_078d9da6",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-21T15:01:05Z",
+      "side": 1,
+      "message": "Common typo found: \"Cofig\" -- should it be \"Config\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 64,
+        "startChar": 33,
+        "endLine": 64,
+        "endChar": 38
+      },
+      "revId": "4216b2998e513a06abd895a6aa5ea7d965aeb7a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
