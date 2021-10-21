@@ -133,6 +133,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4831c8cc_3e9616ec",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-21T12:08:09Z",
+      "side": 1,
+      "message": "After offload sync, I would change to have the other clear data structure in the next version.",
+      "parentUuid": "cb544566_0ad8bad9",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "bbf327a8d8f9639f6781cc1a948414b143e2c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9ff6402_3b79224c",
         "filename": "bluetooth/audio/2.2/types.hal",
         "patchSetId": 4
