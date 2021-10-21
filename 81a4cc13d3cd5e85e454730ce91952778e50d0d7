@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa479354_a7305959",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-10-21T19:49:55Z",
+      "side": 1,
+      "message": "How about the actual implementation?",
+      "revId": "81a4cc13d3cd5e85e454730ce91952778e50d0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0e9c7cb_e1791ee2",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-10-21T19:49:55Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be a part of NetworkParams? Or IfaceParams?",
+      "range": {
+        "startLine": 49,
+        "startChar": 15,
+        "endLine": 49,
+        "endChar": 35
+      },
+      "revId": "81a4cc13d3cd5e85e454730ce91952778e50d0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bd1cb1d_a68c2f02",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/VendorElementsParams.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-10-21T19:49:55Z",
+      "side": 1,
+      "message": "You have a vendorElements field in VendorElementsParam struct. Shouldn\u0027t the latter be more generic? InformationElements, maybe?",
+      "range": {
+        "startLine": 31,
+        "startChar": 11,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "81a4cc13d3cd5e85e454730ce91952778e50d0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b15978_00d54194",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/VendorElementsParams.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2021-10-21T19:49:55Z",
+      "side": 1,
+      "message": "Serik: you can have multiple vendorElements/assocresp entries.\n\nOther reviewers - what should we have here (for a single element):\n- hex encoded string (4 - 314 characters long)\n- uint8_t array (2-257 byres long)\n- a standard structure (element id, length, oui and payload, see http://b/139204496#comment19)",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 10
+      },
+      "revId": "81a4cc13d3cd5e85e454730ce91952778e50d0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
