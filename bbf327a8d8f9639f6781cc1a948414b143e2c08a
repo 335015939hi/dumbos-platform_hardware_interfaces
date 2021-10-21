@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee642103_b5cd6728",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-21T07:56:25Z",
+      "side": 1,
+      "message": "Use this to identify the mode is unicast or broadcast, and the vendor may have the other enhancement mode would like to extend. Although we may have some hook to check it\u0027s the connected or connectionless, but adding one filed to make the usage more clear.",
+      "parentUuid": "8b7a0c41_ad693ddf",
+      "revId": "bbf327a8d8f9639f6781cc1a948414b143e2c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "365cf538_fd0ef2aa",
         "filename": "bluetooth/audio/2.2/types.hal",
         "patchSetId": 4
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "afc0a54f_72bda41d",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-21T07:56:25Z",
+      "side": 1,
+      "message": "I totally agree it\u0027s a great idea -\u003e \u003chandle, allocation\u003e, and then we don\u0027t need to care about the handle order. The mapping is more clear. \n\nI would change the type in the next version.",
+      "parentUuid": "365cf538_fd0ef2aa",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "bbf327a8d8f9639f6781cc1a948414b143e2c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9ff6402_3b79224c",
         "filename": "bluetooth/audio/2.2/types.hal",
         "patchSetId": 4
@@ -54,6 +96,30 @@
       "writtenOn": "2021-10-21T07:24:05Z",
       "side": 1,
       "message": "I would name it LeAudioCodecConfiguration. Especially, that inside we have audioChannelAllocation which is related to ISO and not Lc3",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 24
+      },
+      "revId": "bbf327a8d8f9639f6781cc1a948414b143e2c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca3fbc3b_ddf8eb94",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-21T07:56:25Z",
+      "side": 1,
+      "message": "I agree with you, but I could not find the comments about the previous design.\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1490526/8..9/bluetooth/audio/2.1/types.hal\n\nNeed to confirm with @jpawlowski for the previous design purpose.",
+      "parentUuid": "c9ff6402_3b79224c",
       "range": {
         "startLine": 51,
         "startChar": 4,
