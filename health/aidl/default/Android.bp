@@ -66,8 +66,49 @@ cc_binary {
     vintf_fragments: ["android.hardware.health-service.example.xml"],
     vendor: true,
     defaults: ["libhealth_aidl_common_defaults"],
-    static_libs: [
-        "libhealth_aidl_impl",
-    ],
     srcs: ["main.cpp"],
+
+    shared_libs: [
+        // common
+        "android.hardware.health-V1-ndk",
+        "libbase",
+        "libcutils",
+        "liblog",
+        "libutils",
+
+        // system charger only
+        "libpng",
+    ],
+
+    static_libs: [
+        // common
+        "libbatterymonitor",
+        "libcharger_sysprop",
+        "libhealth_aidl_impl",
+        "libhealthloop",
+
+        // system charger only
+        "libhealthd_draw",
+        "libhealthd_charger_ui",
+        "libminui",
+        "libsuspend",
+    ],
+
+    target: {
+        recovery: {
+            // No UI and libsuspend for recovery charger.
+            cflags: [
+                "-DCHARGER_FORCE_NO_UI=1",
+            ],
+            exclude_shared_libs: [
+                "libpng",
+            ],
+            exclude_static_libs: [
+                "libhealthd_draw",
+                "libhealthd_charger_ui",
+                "libminui",
+                "libsuspend",
+            ],
+        }
+    }
 }

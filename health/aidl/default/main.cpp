@@ -18,14 +18,48 @@
 
 #include <android-base/logging.h>
 #include <android/binder_interface_utils.h>
+#include <charger.sysprop.h>
 #include <health/utils.h>
+
+#ifndef CHARGER_FORCE_NO_UI
+#define CHARGER_FORCE_NO_UI 0
+#endif
 
 using aidl::android::hardware::health::Health;
 
 static constexpr const char* gInstanceName = "default";
+static constexpr std::string_view gChargerArg{"--charger"};
 
-int main() {
-    // TODO(b/203246116): handle charger
+namespace {
+int charger_nops() {
+    // FIXME
+    //    HalHealthLoop charger("charger", GetHealthServiceOrDefault());
+    //    return charger.StartLoop();
+    return 0;
+}
+
+int real_charger_main() {
+    // FIXME
+    //    android::ChargerHidl charger(GetHealthServiceOrDefault());
+    //    return charger.StartLoop();
+    return 0;
+}
+
+int charger_main(char** argv) {
+    android::base::InitLogging(argv, &android::base::KernelLogger);
+    if (CHARGER_FORCE_NO_UI || android::sysprop::ChargerProperties::no_ui().value_or(false)) {
+        return charger_nops();
+    } else {
+        return real_charger_main();
+    }
+}
+}  // namespace
+
+int main(int argc, char** argv) {
+    if (argc >= 2 && argv[1] == gChargerArg) {
+        return charger_main(argv);
+    }
+
     // make a default health service
     auto config = std::make_unique<healthd_config>();
     ::android::hardware::health::InitHealthdConfig(config.get());
