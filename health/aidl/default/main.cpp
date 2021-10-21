@@ -14,23 +14,46 @@
  * limitations under the License.
  */
 
-#include "health-impl/Health.h"
-
 #include <android-base/logging.h>
 #include <android/binder_interface_utils.h>
+#include <charger.sysprop.h>
+#include <health-impl/Charger.h>
+#include <health-impl/Health.h>
 #include <health/utils.h>
+
+#ifndef CHARGER_FORCE_NO_UI
+#define CHARGER_FORCE_NO_UI 0
+#endif
 
 using aidl::android::hardware::health::HalHealthLoop;
 using aidl::android::hardware::health::Health;
+using aidl::android::hardware::health::charger::ChargerCallback;
+using aidl::android::hardware::health::charger::LoopCallback;
 
 static constexpr const char* gInstanceName = "default";
+static constexpr std::string_view gChargerArg{"--charger"};
 
-int main() {
-    // TODO(b/203246116): handle charger
+int main(int argc, char** argv) {
     // make a default health service
     auto config = std::make_unique<healthd_config>();
     ::android::hardware::health::InitHealthdConfig(config.get());
     auto binder = ndk::SharedRefBase::make<Health>(gInstanceName, std::move(config));
+
+    if (argc >= 2 && argv[1] == gChargerArg) {
+        android::base::InitLogging(argv, &android::base::KernelLogger);
+        if (!CHARGER_FORCE_NO_UI && !android::sysprop::ChargerProperties::no_ui().value_or(false)) {
+            LOG(INFO) << "Starting charger mode.";
+            auto charger_callback = std::make_shared<ChargerCallback>(binder);
+            auto loop_callback = std::make_shared<LoopCallback>(binder, charger_callback);
+            auto hal_health_loop = std::make_shared<HalHealthLoop>(binder, loop_callback);
+            return hal_health_loop->StartLoop();
+        }
+
+        LOG(INFO) << "Starting charger mode without UI.";
+    } else {
+        LOG(INFO) << "Starting health HAL.";
+    }
+
     auto hal_health_loop = std::make_shared<HalHealthLoop>(binder, binder);
     return hal_health_loop->StartLoop();
 }
