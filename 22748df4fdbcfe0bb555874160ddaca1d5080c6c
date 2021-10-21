@@ -34,6 +34,29 @@
       "parentUuid": "b9b02caf_85219380",
       "revId": "22748df4fdbcfe0bb555874160ddaca1d5080c6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1723df48_0b3aef7d",
+        "filename": "neuralnetworks/1.0/utils/include/nnapi/hal/1.0/HandleError.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-10-21T22:29:06Z",
+      "side": 1,
+      "message": "I wonder why make this change?",
+      "range": {
+        "startLine": 56,
+        "startChar": 14,
+        "endLine": 56,
+        "endChar": 40
+      },
+      "revId": "22748df4fdbcfe0bb555874160ddaca1d5080c6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
