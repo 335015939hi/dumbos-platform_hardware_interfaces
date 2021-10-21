@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45098853_c388fc66",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioPort.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-21T02:52:02Z",
+      "side": 1,
+      "message": "The other consideration is that if the two functions have the different usage and concept, although the output values are the same, we would prefer to have different functions to handle them for the further scalability.",
+      "parentUuid": "9974ef4d_fe1363bc",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b5a7663f_bc633597",
         "filename": "bluetooth/audio/2.2/types.hal",
         "patchSetId": 3
@@ -219,6 +237,42 @@
       "side": 1,
       "message": "The configuration may be setup in the bluetooth stack, I guess we may need some more work to support it.",
       "parentUuid": "d5d4210c_2c4af98c",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "040a7d93_efebf1de",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-21T02:52:02Z",
+      "side": 1,
+      "message": "Get rid of it to check the aosp requirement first.",
+      "parentUuid": "af4e7a99_17db068a",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "443fe2dd_dad62c01",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-21T02:52:02Z",
+      "side": 1,
+      "message": "Get rid of it to check the aosp requirement first.",
+      "parentUuid": "2b1211c8_5193b41b",
       "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
