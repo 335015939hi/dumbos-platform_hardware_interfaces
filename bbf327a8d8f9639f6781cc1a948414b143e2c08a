@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5c5adcf_fa0ce4bf",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-10-21T08:13:57Z",
+      "side": 1,
+      "message": "Especially if there would be e.g. broadcast with 2 channels, one channel for lector in English and second in Spanish, both of them would be stereo (left + right).",
+      "parentUuid": "afc0a54f_72bda41d",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "bbf327a8d8f9639f6781cc1a948414b143e2c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9ff6402_3b79224c",
         "filename": "bluetooth/audio/2.2/types.hal",
         "patchSetId": 4
@@ -120,6 +144,30 @@
       "side": 1,
       "message": "I agree with you, but I could not find the comments about the previous design.\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1490526/8..9/bluetooth/audio/2.1/types.hal\n\nNeed to confirm with @jpawlowski for the previous design purpose.",
       "parentUuid": "c9ff6402_3b79224c",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 24
+      },
+      "revId": "bbf327a8d8f9639f6781cc1a948414b143e2c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "347e61a1_6713f678",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2021-10-21T08:13:57Z",
+      "side": 1,
+      "message": "btw. why not extend CodecConfiguration with another CodecSpecific (config) and add to CodecConfiguration struct for mapping ISO channel with audio locations e.g. \"audioChannelTransportMap\"",
+      "parentUuid": "ca3fbc3b_ddf8eb94",
       "range": {
         "startLine": 51,
         "startChar": 4,
