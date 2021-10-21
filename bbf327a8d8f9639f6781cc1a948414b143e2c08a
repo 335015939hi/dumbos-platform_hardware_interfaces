@@ -109,6 +109,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb544566_0ad8bad9",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-21T09:38:05Z",
+      "side": 1,
+      "message": "For the case Grzegorz mentioned, I think we need more about the subgroup id.",
+      "parentUuid": "e5c5adcf_fa0ce4bf",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "bbf327a8d8f9639f6781cc1a948414b143e2c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9ff6402_3b79224c",
         "filename": "bluetooth/audio/2.2/types.hal",
         "patchSetId": 4
@@ -168,6 +192,30 @@
       "side": 1,
       "message": "btw. why not extend CodecConfiguration with another CodecSpecific (config) and add to CodecConfiguration struct for mapping ISO channel with audio locations e.g. \"audioChannelTransportMap\"",
       "parentUuid": "ca3fbc3b_ddf8eb94",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 24
+      },
+      "revId": "bbf327a8d8f9639f6781cc1a948414b143e2c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22816f59_b35df202",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-21T09:38:05Z",
+      "side": 1,
+      "message": "In CodecConfiguration, there are parameters just for A2DP, not for LE audio. It\u0027s hard to combine together for now, or changing the naming of CodecConfiguration to A2dpCodecConfiguration would make more sense.\n\nWe may be able to do it in the AIDL version.",
+      "parentUuid": "347e61a1_6713f678",
       "range": {
         "startLine": 51,
         "startChar": 4,
