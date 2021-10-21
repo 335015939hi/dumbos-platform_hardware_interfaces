@@ -22,6 +22,30 @@
       },
       "revId": "20777b0709a3511cafd585ae9f8b268d5df70eee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af581b5b_59da7ef3",
+        "filename": "neuralnetworks/aidl/vts/functional/ValidateModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-10-21T22:45:19Z",
+      "side": 1,
+      "message": "Because this CL removes hal::utils::countNumberOfConsumers, and because of C++\u0027s Argument Dependent Lookup, this instance of countNumberOfConsumers is no longer ambiguous, so the nn:: can be removed from it. However, the nn:: is not able to be removed from unvalidatedConvert because it\u0027s still ambiguous.\n\nWould you prefer that I add nn:: back to countNumberOfConsumers for clarity/consistency?",
+      "parentUuid": "a8ed4f4d_c6f8c566",
+      "range": {
+        "startLine": 1319,
+        "startChar": 35,
+        "endLine": 1319,
+        "endChar": 39
+      },
+      "revId": "20777b0709a3511cafd585ae9f8b268d5df70eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
