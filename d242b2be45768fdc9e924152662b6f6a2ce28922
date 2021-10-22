@@ -16,6 +16,24 @@
       "message": "Wei - wait - I thought we were going to convert this to AIDL first, so that devices wouldn\u0027t have to add a HIDL implementation and then move to AIDL. Is that still the plan?",
       "revId": "d242b2be45768fdc9e924152662b6f6a2ce28922",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "062096fc_fbe6fd6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2021-10-22T06:06:44Z",
+      "side": 1,
+      "message": "let us chat offline.",
+      "parentUuid": "2b015993_4a9e7fee",
+      "revId": "d242b2be45768fdc9e924152662b6f6a2ce28922",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
