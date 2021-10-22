@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7b1139a_2175b590",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2021-10-22T12:05:12Z",
+      "side": 1,
+      "message": "It looks good to me. Minor comments only.",
+      "revId": "cefa7703b3acd6b36b6f6a1fa6fea02fdec39d99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9e7e136_a6cf357a",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2021-10-22T12:05:12Z",
+      "side": 1,
+      "message": "I think this is to say if broadcast streams have same configuration or not. I think, we could skip it and just let driver to check it",
+      "revId": "cefa7703b3acd6b36b6f6a1fa6fea02fdec39d99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dc1782a_a225061c",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2021-10-22T12:05:12Z",
+      "side": 1,
+      "message": "uint16_t is what we need",
+      "revId": "cefa7703b3acd6b36b6f6a1fa6fea02fdec39d99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ef34fa9_84de4280",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2021-10-22T12:05:12Z",
+      "side": 1,
+      "message": "uint16_t is what we need.",
+      "revId": "cefa7703b3acd6b36b6f6a1fa6fea02fdec39d99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
