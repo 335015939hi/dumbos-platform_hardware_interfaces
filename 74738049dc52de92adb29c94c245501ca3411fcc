@@ -224,6 +224,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf11104a_4513eb94",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-22T00:03:46Z",
+      "side": 1,
+      "message": "It can also be retrieved by apps directly:\n\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/android/os/BatteryManager.java;l\u003d107;drc\u003dmaster",
+      "parentUuid": "99076280_3dfffe56",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78604299_562ce502",
