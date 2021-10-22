@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a420fc1_8a6ccbff",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-22T00:02:35Z",
+      "side": 1,
+      "message": "I don\u0027t think so.\n\nI prefer to keep these as-is so they can be directly converted to the corresponding HIDL values by casting.",
+      "parentUuid": "f10a1bae_fca97946",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "662ac1b8_68dd25f3",
@@ -166,6 +190,30 @@
       "writtenOn": "2021-10-21T18:39:17Z",
       "side": 1,
       "message": "what is this used for btw? do we display the string, or?",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 29
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99076280_3dfffe56",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-22T00:02:35Z",
+      "side": 1,
+      "message": "We record them",
+      "parentUuid": "41e7f263_cf8f0eb9",
       "range": {
         "startLine": 93,
         "startChar": 0,
