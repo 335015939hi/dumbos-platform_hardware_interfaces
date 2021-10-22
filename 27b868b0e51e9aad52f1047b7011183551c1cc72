@@ -59,6 +59,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9e60d60_b08c506b",
+        "filename": "health/aidl/default/HalHealthLoop.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-22T06:24:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbf9afc7_9b2ff91a",
+      "revId": "27b868b0e51e9aad52f1047b7011183551c1cc72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b462c1d_798f9b85",
@@ -236,6 +254,30 @@
       "writtenOn": "2021-10-21T18:59:54Z",
       "side": 1,
       "message": "nit: explicit ownership possible? (wp\u003c\u003e or weak_ptr\u003c\u003e)",
+      "range": {
+        "startLine": 36,
+        "startChar": 25,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "27b868b0e51e9aad52f1047b7011183551c1cc72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3391d9c_5a742f0f",
+        "filename": "health/aidl/default/LinkedCallback.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-22T06:24:02Z",
+      "side": 1,
+      "message": "Will do.\n\nThough, even if I use weak_ptr, I would just do promote() then CHECK_NE(..., nullptr), because I expect the lifetime of service to be longer than the callback.\n\nIt really should be a class hidden from the exported include directory, but Health.h contains a vector of LinkedCallback, which requires the size of this class.",
+      "parentUuid": "588ac4b0_de63fd11",
       "range": {
         "startLine": 36,
         "startChar": 25,
