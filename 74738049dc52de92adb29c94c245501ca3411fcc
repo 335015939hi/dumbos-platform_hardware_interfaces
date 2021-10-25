@@ -166,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c6f564f_dcc77a18",
+        "filename": "health/aidl/android/hardware/health/BatteryStatus.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-25T20:57:58Z",
+      "side": 1,
+      "message": "That means 3 AIDL calls to replace 1 thing. I would refrain from doing this.",
+      "parentUuid": "2e67e4b5_26cddae0",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "660b3833_fc0d537e",
@@ -357,6 +381,30 @@
       "side": 1,
       "message": "The exception codes are used when they make sense, even for application layer errors (these are what you get if Java throws an exception).\n\nThe status_t types usually are for transport level errors, however, nothing enforces this.",
       "parentUuid": "16e9a0c8_6f63f5d1",
+      "range": {
+        "startLine": 33,
+        "startChar": 14,
+        "endLine": 33,
+        "endChar": 34
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ddc665b_9309e734",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-25T20:57:58Z",
+      "side": 1,
+      "message": "undertsood, I\u0027ll drop the two status codes in the next patchset.",
+      "parentUuid": "0d30fd47_f457b911",
       "range": {
         "startLine": 33,
         "startChar": 14,
