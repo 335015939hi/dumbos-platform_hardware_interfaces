@@ -137,6 +137,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef3deaa2_4d4a7ef1",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioPort.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-25T07:17:20Z",
+      "side": 1,
+      "message": "The two concept mean\n1. The delay value of the encoding data path to assistant the Audio/video synchronization.\n2. The delay value of the peerDelay which is used to handle the synchronization between multiple rx data.\n\nHowever, I believe the function have been removed in the patchset7. Instead, it would be the peerDelay with UnicastConfig.",
+      "parentUuid": "9f1b2698_31f94c29",
+      "revId": "5e0f25f3f8d48ad473fa0da963069b3391d3b035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5a7663f_bc633597",
