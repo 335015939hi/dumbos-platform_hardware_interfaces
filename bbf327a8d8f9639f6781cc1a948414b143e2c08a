@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a0a4ea3_e0f96fe0",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-25T10:56:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ee642103_b5cd6728",
+      "revId": "bbf327a8d8f9639f6781cc1a948414b143e2c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "365cf538_fd0ef2aa",
@@ -155,6 +173,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95696eda_02baa9d6",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-25T10:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4831c8cc_3e9616ec",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "bbf327a8d8f9639f6781cc1a948414b143e2c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9ff6402_3b79224c",
@@ -240,6 +282,30 @@
       "side": 1,
       "message": "In CodecConfiguration, there are parameters just for A2DP, not for LE audio. It\u0027s hard to combine together for now, or changing the naming of CodecConfiguration to A2dpCodecConfiguration would make more sense.\n\nWe may be able to do it in the AIDL version.",
       "parentUuid": "347e61a1_6713f678",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 24
+      },
+      "revId": "bbf327a8d8f9639f6781cc1a948414b143e2c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7b570a8_f79b295c",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-25T10:56:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "22816f59_b35df202",
       "range": {
         "startLine": 51,
         "startChar": 4,

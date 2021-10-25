@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9be1f0ec_7cec6c23",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-25T10:56:00Z",
+      "side": 1,
+      "message": "Sure. Remove it.",
+      "parentUuid": "e9e7e136_a6cf357a",
+      "revId": "cefa7703b3acd6b36b6f6a1fa6fea02fdec39d99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dc1782a_a225061c",
@@ -70,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5dfcf4d_a7cefb08",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-25T10:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4822e64b_8c27269a",
+      "revId": "cefa7703b3acd6b36b6f6a1fa6fea02fdec39d99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ef34fa9_84de4280",
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "Thanks for the finding. Will fix it in the next version.",
       "parentUuid": "0ef34fa9_84de4280",
+      "revId": "cefa7703b3acd6b36b6f6a1fa6fea02fdec39d99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7be2c81_2ca5ff8c",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-25T10:56:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67194b7d_a182bd07",
       "revId": "cefa7703b3acd6b36b6f6a1fa6fea02fdec39d99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
