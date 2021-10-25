@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ad43df8_1959e87a",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-25T21:46:35Z",
+      "side": 1,
+      "message": "note: I am keeping the value of these to be aligned with HIDL to avoid surprises. There are no other particular reasons to keep these values.",
+      "range": {
+        "startLine": 33,
+        "startChar": 31,
+        "endLine": 33,
+        "endChar": 32
+      },
+      "revId": "ee09add0fe46e5b12c8c69be1976bd53933b2d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
