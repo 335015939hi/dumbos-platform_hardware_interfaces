@@ -415,6 +415,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94fc76ca_fc46abd2",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-25T21:45:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ddc665b_9309e734",
+      "range": {
+        "startLine": 33,
+        "startChar": 14,
+        "endLine": 33,
+        "endChar": 34
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "694b254a_632fd62e",
@@ -428,6 +452,30 @@
       "writtenOn": "2021-10-21T18:39:17Z",
       "side": 1,
       "message": "prefer EX_ILLEGAL_ARGUMENT?",
+      "range": {
+        "startLine": 42,
+        "startChar": 14,
+        "endLine": 42,
+        "endChar": 30
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57a11e39_ba96960c",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-25T21:45:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "694b254a_632fd62e",
       "range": {
         "startLine": 42,
         "startChar": 14,
