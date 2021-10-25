@@ -190,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "408a42ec_93ca6f57",
+        "filename": "health/aidl/android/hardware/health/BatteryStatus.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-25T23:05:44Z",
+      "side": 1,
+      "message": "it could be a structure",
+      "parentUuid": "5c6f564f_dcc77a18",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "660b3833_fc0d537e",
