@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84130b36_ea33bb32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2021-10-25T19:14:44Z",
+      "side": 1,
+      "message": "Is \"v1\" synonymous with \"AIDL_V1\"?",
+      "range": {
+        "startLine": 13,
+        "startChar": 37,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "cf65ddab899191650f7a60b585847a4567b7ea89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f970a5be_5e9df356",
+        "filename": "neuralnetworks/aidl/vts/functional/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2021-10-25T19:14:44Z",
+      "side": 1,
+      "message": "(old) Why is there nothing for AIDL_V1?",
+      "revId": "cf65ddab899191650f7a60b585847a4567b7ea89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
