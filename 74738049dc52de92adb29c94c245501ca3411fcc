@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e67e4b5_26cddae0",
+        "filename": "health/aidl/android/hardware/health/BatteryStatus.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-25T16:22:40Z",
+      "side": 1,
+      "message": "nit: We could still split the implementation up, and then compute the value in clients. WDYT?",
+      "parentUuid": "03375d44_09f13762",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "660b3833_fc0d537e",
         "filename": "health/aidl/android/hardware/health/DiskStats.aidl",
         "patchSetId": 14
@@ -309,6 +333,30 @@
       "side": 1,
       "message": "My question is, should I return non service specific exceptions from the HAL? I thought those were reserved for transport level errors.",
       "parentUuid": "aafd4f03_d25b68bb",
+      "range": {
+        "startLine": 33,
+        "startChar": 14,
+        "endLine": 33,
+        "endChar": 34
+      },
+      "revId": "74738049dc52de92adb29c94c245501ca3411fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d30fd47_f457b911",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-25T16:22:40Z",
+      "side": 1,
+      "message": "The exception codes are used when they make sense, even for application layer errors (these are what you get if Java throws an exception).\n\nThe status_t types usually are for transport level errors, however, nothing enforces this.",
+      "parentUuid": "16e9a0c8_6f63f5d1",
       "range": {
         "startLine": 33,
         "startChar": 14,
