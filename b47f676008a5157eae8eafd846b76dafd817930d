@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5d51955_e78266eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-26T18:04:39Z",
+      "side": 1,
+      "message": "Waiting on https://android-review.googlesource.com/c/platform/system/tools/aidl/+/1870017",
+      "revId": "b47f676008a5157eae8eafd846b76dafd817930d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
