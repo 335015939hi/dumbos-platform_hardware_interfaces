@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac78d6f3_0eeff96c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-26T02:48:11Z",
+      "side": 1,
+      "message": "The error seems mysterious to me:\n\n\u003e error: hardware/interfaces/health/aidl/Android.bp:36:1: \"android.hardware.health-translate-ndk\" depends on undefined module \"android.hardware.health-V1-ndk_platform\"\n\nBut I thought I have defined it with aidl_interface?!",
+      "revId": "ee09add0fe46e5b12c8c69be1976bd53933b2d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8ad43df8_1959e87a",
