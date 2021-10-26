@@ -117,6 +117,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "567cb548_ab6c03e4",
+        "filename": "neuralnetworks/aidl/vts/functional/GeneratedTestHarness.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-10-26T17:53:27Z",
+      "side": 1,
+      "message": "Oh, it\u0027s used just above on line 912. Nevermind.",
+      "parentUuid": "4c1f1f94_9ef63e93",
+      "range": {
+        "startLine": 915,
+        "startChar": 24,
+        "endLine": 915,
+        "endChar": 54
+      },
+      "revId": "6f2a3ccd5b560424ffe593b0d504ba1ac6bf3e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bf8ea50_182f84fd",
