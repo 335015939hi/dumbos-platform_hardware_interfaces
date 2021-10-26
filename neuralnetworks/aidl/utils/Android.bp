@@ -49,6 +49,14 @@ cc_defaults {
 }
 
 cc_library_static {
+    name: "neuralnetworks_utils_hal_aidl",
+    defaults: ["neuralnetworks_utils_hal_aidl_defaults"],
+    shared_libs: [
+        "android.hardware.neuralnetworks-V1-ndk",
+    ],
+}
+
+cc_library_static {
     name: "neuralnetworks_utils_hal_aidl_v1",
     defaults: ["neuralnetworks_utils_hal_aidl_defaults"],
     shared_libs: [
