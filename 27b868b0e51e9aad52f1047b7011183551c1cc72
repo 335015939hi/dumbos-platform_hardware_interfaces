@@ -173,6 +173,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e4cd0219_02e21d7c",
+        "filename": "health/aidl/default/LinkedCallback.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-26T23:27:06Z",
+      "side": 1,
+      "message": "It could fail if the binder dies before linkToDeath is called, for instance. The registration of the callback should be rejected (perhaps, constructor -\u003e static function)",
+      "parentUuid": "7a828e7d_75ad8699",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "27b868b0e51e9aad52f1047b7011183551c1cc72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d04a75d3_8d8c699f",
         "filename": "health/aidl/default/LinkedCallback.cpp",
         "patchSetId": 10
@@ -208,6 +232,30 @@
       "side": 1,
       "message": "What\u0027s the suggestion to handle them?",
       "parentUuid": "d04a75d3_8d8c699f",
+      "range": {
+        "startLine": 38,
+        "startChar": 66,
+        "endLine": 38,
+        "endChar": 82
+      },
+      "revId": "27b868b0e51e9aad52f1047b7011183551c1cc72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d02880b_97b0edf1",
+        "filename": "health/aidl/default/LinkedCallback.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-26T23:27:06Z",
+      "side": 1,
+      "message": "This should only ever return DEAD_OBJECT or OK. Specifically, returning NAME_NOT_FOUND would indicate a bug.",
+      "parentUuid": "5dd358cf_f14e9168",
       "range": {
         "startLine": 38,
         "startChar": 66,
