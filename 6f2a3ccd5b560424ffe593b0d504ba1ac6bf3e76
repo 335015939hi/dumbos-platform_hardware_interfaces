@@ -95,6 +95,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c1f1f94_9ef63e93",
+        "filename": "neuralnetworks/aidl/vts/functional/GeneratedTestHarness.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2021-10-26T17:48:53Z",
+      "side": 1,
+      "message": "In the other CL in the same topic, IIRC.",
+      "parentUuid": "228436d5_805ab90d",
+      "range": {
+        "startLine": 915,
+        "startChar": 24,
+        "endLine": 915,
+        "endChar": 54
+      },
+      "revId": "6f2a3ccd5b560424ffe593b0d504ba1ac6bf3e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7bf8ea50_182f84fd",
         "filename": "neuralnetworks/aidl/vts/functional/GeneratedTestHarness.cpp",
         "patchSetId": 5
