@@ -197,6 +197,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "978d1a79_25672093",
+        "filename": "health/aidl/default/LinkedCallback.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-26T23:34:11Z",
+      "side": 1,
+      "message": "Understood, will do",
+      "parentUuid": "e4cd0219_02e21d7c",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "27b868b0e51e9aad52f1047b7011183551c1cc72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d04a75d3_8d8c699f",
         "filename": "health/aidl/default/LinkedCallback.cpp",
         "patchSetId": 10
@@ -256,6 +280,30 @@
       "side": 1,
       "message": "This should only ever return DEAD_OBJECT or OK. Specifically, returning NAME_NOT_FOUND would indicate a bug.",
       "parentUuid": "5dd358cf_f14e9168",
+      "range": {
+        "startLine": 38,
+        "startChar": 66,
+        "endLine": 38,
+        "endChar": 82
+      },
+      "revId": "27b868b0e51e9aad52f1047b7011183551c1cc72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7308b01_a04c3c1b",
+        "filename": "health/aidl/default/LinkedCallback.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-26T23:34:11Z",
+      "side": 1,
+      "message": "But in this case there\u0027s nothing I can do with DEAD_OBJECT or OK, right? (Other than probably log(warning)",
+      "parentUuid": "3d02880b_97b0edf1",
       "range": {
         "startLine": 38,
         "startChar": 66,
