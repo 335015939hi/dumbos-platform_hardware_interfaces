@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ddfdb7_6da8845e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-10-26T10:20:58Z",
+      "side": 1,
+      "message": "Yes, changed v1/v2 to AIDL_V1/AIDL_V2.",
+      "parentUuid": "84130b36_ea33bb32",
+      "range": {
+        "startLine": 13,
+        "startChar": 37,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "cf65ddab899191650f7a60b585847a4567b7ea89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f970a5be_5e9df356",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-10-25T19:14:44Z",
       "side": 1,
       "message": "(old) Why is there nothing for AIDL_V1?",
+      "revId": "cf65ddab899191650f7a60b585847a4567b7ea89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b014ac6_f1a0871b",
+        "filename": "neuralnetworks/aidl/vts/functional/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-10-26T10:20:58Z",
+      "side": 1,
+      "message": "Because there is no tests specifically for AIDL_V1 (https://cs.android.com/android/platform/superproject/+/master:packages/modules/NeuralNetworks/runtime/test/specs/?q\u003dpackages%2Fmodules%2FNeuralNetworks%2Fruntime%2Ftest%2Fspecs%2F). I guess tests for S are in HIDL V1_3.",
+      "parentUuid": "f970a5be_5e9df356",
       "revId": "cf65ddab899191650f7a60b585847a4567b7ea89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
