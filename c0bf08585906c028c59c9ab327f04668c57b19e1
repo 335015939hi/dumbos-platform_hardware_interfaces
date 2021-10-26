@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016576535",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1870876?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "e8e2d662_f87226e3",
+        "filename": "wifi/supplicant/aidl/aidl_api/android.hardware.wifi.supplicant/current/android/hardware/wifi/supplicant/WifiTechnology.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-26T21:01:51Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "c0bf08585906c028c59c9ab327f04668c57b19e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016576537",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1870876?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "f2db92a5_06608756",
+          "description": "Change to \"wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicant.aidl\"",
+          "replacements": [
+            {
+              "path": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicant.aidl",
+              "range": {
+                "startLine": 64,
+                "startChar": 51,
+                "endLine": 64,
+                "endChar": 57
+              },
+              "replacement": "UNKNOWN"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "9d788e3a_40dc2753",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicant.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-26T21:01:51Z",
+      "side": 1,
+      "message": "Common typo found: \"UNKOWN\" -- should it be \"UNKNOWN\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 64,
+        "startChar": 51,
+        "endLine": 64,
+        "endChar": 57
+      },
+      "revId": "c0bf08585906c028c59c9ab327f04668c57b19e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016576537",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1870876?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "e3653782_7888fe5b",
+          "description": "Change to \"wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicant.aidl\"",
+          "replacements": [
+            {
+              "path": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicant.aidl",
+              "range": {
+                "startLine": 117,
+                "startChar": 51,
+                "endLine": 117,
+                "endChar": 57
+              },
+              "replacement": "UNKNOWN"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "ab6d8678_47bbf0e1",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicant.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-26T21:01:51Z",
+      "side": 1,
+      "message": "Common typo found: \"UNKOWN\" -- should it be \"UNKNOWN\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 117,
+        "startChar": 51,
+        "endLine": 117,
+        "endChar": 57
+      },
+      "revId": "c0bf08585906c028c59c9ab327f04668c57b19e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016576537",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1870876?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "08239fed_df280f9d",
+          "description": "Change to \"wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicantP2pIface.aidl\"",
+          "replacements": [
+            {
+              "path": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicantP2pIface.aidl",
+              "range": {
+                "startLine": 239,
+                "startChar": 51,
+                "endLine": 239,
+                "endChar": 60
+              },
+              "replacement": "performing"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "f9b63afe_176deb82",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicantP2pIface.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-26T21:01:51Z",
+      "side": 1,
+      "message": "Common typo found: \"peforming\" -- should it be \"performing\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 239,
+        "startChar": 51,
+        "endLine": 239,
+        "endChar": 60
+      },
+      "revId": "c0bf08585906c028c59c9ab327f04668c57b19e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016576537",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1870876?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "fe5e9c9c_c0cb4db8",
+          "description": "Change to \"wifi/supplicant/aidl/android/hardware/wifi/supplicant/SupplicantStatusCode.aidl\"",
+          "replacements": [
+            {
+              "path": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/SupplicantStatusCode.aidl",
+              "range": {
+                "startLine": 30,
+                "startChar": 23,
+                "endLine": 30,
+                "endChar": 30
+              },
+              "replacement": "occurred"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "47045ee5_a31d47cf",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/SupplicantStatusCode.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-26T21:01:51Z",
+      "side": 1,
+      "message": "Common typo found: \"occured\" -- should it be \"occurred\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 30,
+        "startChar": 23,
+        "endLine": 30,
+        "endChar": 30
+      },
+      "revId": "c0bf08585906c028c59c9ab327f04668c57b19e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016576535",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1870876?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "f8b77f15_cb0b9b58",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/WifiTechnology.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-26T21:01:51Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 7
+      },
+      "revId": "c0bf08585906c028c59c9ab327f04668c57b19e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
