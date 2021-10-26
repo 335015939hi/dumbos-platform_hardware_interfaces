@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65a71dc8_f35b8888",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-10-26T04:01:55Z",
+      "side": 1,
+      "message": "Bypassing presubmit at the recommendation of the build cop because this is a revert",
+      "revId": "9864688dac22b2bf871ded164da40ec8fd25192a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
