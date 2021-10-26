@@ -49,6 +49,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d2d3a1b1_d613d372",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-10-26T17:58:06Z",
+      "side": 1,
+      "message": "Please read remaining comments before submitting.",
+      "revId": "6f2a3ccd5b560424ffe593b0d504ba1ac6bf3e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "04d1198b_7028a8f1",
         "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
         "patchSetId": 5
@@ -182,6 +199,29 @@
         "startChar": 4,
         "endLine": 918,
         "endChar": 17
+      },
+      "revId": "6f2a3ccd5b560424ffe593b0d504ba1ac6bf3e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a1eeaa6_5f5852a5",
+        "filename": "neuralnetworks/aidl/vts/functional/GeneratedTestHarness.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-10-26T17:58:06Z",
+      "side": 1,
+      "message": "I think it\u0027s cleaner/better to combine the LOG and the GTEST_SKIP:\n  GTEST_SKIP() \u003c\u003c \"...\";",
+      "range": {
+        "startLine": 923,
+        "startChar": 8,
+        "endLine": 923,
+        "endChar": 21
       },
       "revId": "6f2a3ccd5b560424ffe593b0d504ba1ac6bf3e76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
