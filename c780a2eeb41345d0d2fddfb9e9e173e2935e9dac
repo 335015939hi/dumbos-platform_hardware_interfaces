@@ -129,6 +129,30 @@
       },
       "revId": "c780a2eeb41345d0d2fddfb9e9e173e2935e9dac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "373941e3_95789b3a",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1451908
+      },
+      "writtenOn": "2021-10-27T18:24:45Z",
+      "side": 1,
+      "message": "As per our offile conversation, moved back to older implementation as any attempts to simplify the logic would look hacky and prone to errors.",
+      "parentUuid": "e39c4f90_965a5735",
+      "range": {
+        "startLine": 37,
+        "startChar": 23,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "c780a2eeb41345d0d2fddfb9e9e173e2935e9dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
