@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66620075_b8c77a3a",
+        "filename": "health/aidl/default/HalHealthLoop.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-27T03:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acb2ff67_7d1959e9",
+      "range": {
+        "startLine": 30,
+        "startChar": 30,
+        "endLine": 30,
+        "endChar": 34
+      },
+      "revId": "27b868b0e51e9aad52f1047b7011183551c1cc72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e435e705_f0b9905b",
@@ -493,6 +517,30 @@
       "writtenOn": "2021-10-21T18:59:54Z",
       "side": 1,
       "message": "nit: this requires you to only modify this object while you are holding onto LinkedCallback. Would you consider const std::shared_ptr\u003cT\u003e\u0026 instead?",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 23
+      },
+      "revId": "27b868b0e51e9aad52f1047b7011183551c1cc72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d624026_738e2b31",
+        "filename": "health/aidl/default/LinkedCallback.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-27T03:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12269ffa_5aed5a51",
       "range": {
         "startLine": 43,
         "startChar": 4,
