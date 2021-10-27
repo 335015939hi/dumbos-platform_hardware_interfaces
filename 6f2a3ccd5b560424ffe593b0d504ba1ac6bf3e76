@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5bea935_9595341c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-10-27T10:53:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f24fd431_463c30a8",
+      "range": {
+        "startLine": 13,
+        "startChar": 67,
+        "endLine": 13,
+        "endChar": 76
+      },
+      "revId": "6f2a3ccd5b560424ffe593b0d504ba1ac6bf3e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e1beaa1_6bfc4077",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-26T17:45:34Z",
       "side": 1,
       "message": "nit: line too long",
+      "range": {
+        "startLine": 14,
+        "startChar": 67,
+        "endLine": 14,
+        "endChar": 71
+      },
+      "revId": "6f2a3ccd5b560424ffe593b0d504ba1ac6bf3e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab1ba8a2_817323fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-10-27T10:53:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e1beaa1_6bfc4077",
       "range": {
         "startLine": 14,
         "startChar": 67,
@@ -77,6 +125,30 @@
       "writtenOn": "2021-10-26T17:45:34Z",
       "side": 1,
       "message": "Note: I talked about something similar to this with Xusong. We\u0027re probably going to need multiple different versions of the AIDL library, and kVersion\u0027s value will probably depend on what version of the library is being built. I don\u0027t think there\u0027s any actions we need to take (yet) for this CL for this, though.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 55
+      },
+      "revId": "6f2a3ccd5b560424ffe593b0d504ba1ac6bf3e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65fbdc80_adf33808",
+        "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-10-27T10:53:36Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "04d1198b_7028a8f1",
       "range": {
         "startLine": 32,
         "startChar": 0,
@@ -181,6 +253,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab054493_99c81848",
+        "filename": "neuralnetworks/aidl/vts/functional/GeneratedTestHarness.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-10-27T10:53:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bf8ea50_182f84fd",
+      "range": {
+        "startLine": 916,
+        "startChar": 12,
+        "endLine": 916,
+        "endChar": 26
+      },
+      "revId": "6f2a3ccd5b560424ffe593b0d504ba1ac6bf3e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "820c03aa_3f9e2a7b",
@@ -204,6 +300,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e24aa9fb_c1746872",
+        "filename": "neuralnetworks/aidl/vts/functional/GeneratedTestHarness.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-10-27T10:53:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "820c03aa_3f9e2a7b",
+      "range": {
+        "startLine": 918,
+        "startChar": 4,
+        "endLine": 918,
+        "endChar": 17
+      },
+      "revId": "6f2a3ccd5b560424ffe593b0d504ba1ac6bf3e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a1eeaa6_5f5852a5",
@@ -217,6 +337,30 @@
       "writtenOn": "2021-10-26T17:58:06Z",
       "side": 1,
       "message": "I think it\u0027s cleaner/better to combine the LOG and the GTEST_SKIP:\n  GTEST_SKIP() \u003c\u003c \"...\";",
+      "range": {
+        "startLine": 923,
+        "startChar": 8,
+        "endLine": 923,
+        "endChar": 21
+      },
+      "revId": "6f2a3ccd5b560424ffe593b0d504ba1ac6bf3e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1119b427_9ea6a80f",
+        "filename": "neuralnetworks/aidl/vts/functional/GeneratedTestHarness.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-10-27T10:53:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a1eeaa6_5f5852a5",
       "range": {
         "startLine": 923,
         "startChar": 8,
