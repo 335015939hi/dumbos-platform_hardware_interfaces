@@ -219,6 +219,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fa89975_4561b0e8",
+        "filename": "health/aidl/default/LinkedCallback.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-27T02:42:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "978d1a79_25672093",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "27b868b0e51e9aad52f1047b7011183551c1cc72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d04a75d3_8d8c699f",
@@ -314,6 +338,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0293e09d_213bd7a2",
+        "filename": "health/aidl/default/LinkedCallback.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-27T02:42:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7308b01_a04c3c1b",
+      "range": {
+        "startLine": 38,
+        "startChar": 66,
+        "endLine": 38,
+        "endChar": 82
+      },
+      "revId": "27b868b0e51e9aad52f1047b7011183551c1cc72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4451999e_37b48aca",
@@ -327,6 +375,30 @@
       "writtenOn": "2021-10-21T18:59:54Z",
       "side": 1,
       "message": "I think we really should have wp\u003c\u003e here for the lifetime, yeah",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 12
+      },
+      "revId": "27b868b0e51e9aad52f1047b7011183551c1cc72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9a3977f_12fe3e4a",
+        "filename": "health/aidl/default/LinkedCallback.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-27T02:42:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4451999e_37b48aca",
       "range": {
         "startLine": 42,
         "startChar": 4,
