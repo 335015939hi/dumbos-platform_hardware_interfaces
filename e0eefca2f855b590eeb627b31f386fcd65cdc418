@@ -39,6 +39,30 @@
       },
       "revId": "e0eefca2f855b590eeb627b31f386fcd65cdc418",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6786a92_b74506c6",
+        "filename": "bluetooth/1.1/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-10-27T00:26:08Z",
+      "side": 1,
+      "message": "Done. I updated bluetooth/1.0/vts/functional/OWNERS accordingly as well.",
+      "parentUuid": "080375bd_43459d88",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 28
+      },
+      "revId": "e0eefca2f855b590eeb627b31f386fcd65cdc418",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
