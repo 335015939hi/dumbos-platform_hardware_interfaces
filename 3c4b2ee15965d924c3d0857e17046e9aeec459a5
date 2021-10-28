@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8632b139_e77d252e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2021-10-28T16:10:35Z",
+      "side": 1,
+      "message": "Looks like what\u0027s changing is the operation DESCRIPTION not the operation NAME",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "3c4b2ee15965d924c3d0857e17046e9aeec459a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
