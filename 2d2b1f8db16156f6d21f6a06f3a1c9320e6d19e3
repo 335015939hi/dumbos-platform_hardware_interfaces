@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef727e0b_adfed61c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-10-29T15:57:13Z",
+      "side": 1,
+      "message": "Looks like this would need to go into internal master first because of current.txt. \nYou could drop the HIDL changes and just update the AIDL instead.",
+      "revId": "2d2b1f8db16156f6d21f6a06f3a1c9320e6d19e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
