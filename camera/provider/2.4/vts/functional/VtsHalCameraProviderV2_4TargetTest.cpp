@@ -939,6 +939,8 @@ public:
 
     static V3_2::DataspaceFlags getDataspace(PixelFormat format);
 
+    static V3_2::DataspaceFlags getDataspace(PixelFormat format);
+
     void processCaptureRequestInternal(uint64_t bufferusage, RequestTemplate reqTemplate,
                                        bool useSecureOnlyCameras);
 
@@ -6737,6 +6739,7 @@ Status CameraHidlTest::getSystemCameraKind(const camera_metadata_t* staticMeta,
     return ret;
 }
 
+<<<<<<< HEAD   (2b65ef Merge "Camera: Adjust VTS test to relax multi-camera require)
 void CameraHidlTest::getMultiResolutionStreamConfigurations(
         camera_metadata_ro_entry* multiResStreamConfigs, camera_metadata_ro_entry* streamConfigs,
         camera_metadata_ro_entry* maxResolutionStreamConfigs,
@@ -6759,6 +6762,8 @@ void CameraHidlTest::getMultiResolutionStreamConfigurations(
     ASSERT_TRUE(-ENOENT == retcode || 0 == retcode);
 }
 
+=======
+>>>>>>> BRANCH (855845 Camera: Set arbitrary dataspace for RAW streams)
 // Select an appropriate dataspace given a specific pixel format.
 V3_2::DataspaceFlags CameraHidlTest::getDataspace(PixelFormat format) {
     switch (format) {
