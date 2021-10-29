@@ -40,9 +40,15 @@ cc_test {
         "libpuresoftkeymasterdevice",
         "android.hardware.keymaster@4.0",
         "android.hardware.identity-support-lib",
+<<<<<<< HEAD   (d51ced [automerger skipped] wifi: Call terminate in VTS teardown am)
         "android.hardware.identity-V3-cpp",
         "android.hardware.keymaster-V3-cpp",
         "android.hardware.keymaster-V3-ndk_platform",
+=======
+        "android.hardware.identity-cpp",
+        "android.hardware.keymaster-cpp",
+        "android.hardware.keymaster-ndk_platform",
+>>>>>>> BRANCH (4bff38 Merge "identity: Fix attestation and documentation problems.)
         "libkeymaster4support",
         "libkeymaster4_1support",
     ],

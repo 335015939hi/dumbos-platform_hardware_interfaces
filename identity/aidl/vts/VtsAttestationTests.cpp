@@ -29,7 +29,11 @@
 #include <future>
 #include <map>
 
+<<<<<<< HEAD   (d51ced [automerger skipped] wifi: Call terminate in VTS teardown am)
 #include "Util.h"
+=======
+#include "VtsIdentityTestUtils.h"
+>>>>>>> BRANCH (4bff38 Merge "identity: Fix attestation and documentation problems.)
 
 namespace android::hardware::identity {
 

@@ -40,6 +40,9 @@ using ::std::vector;
 // The semantic tag for a bstr which includes Encoded CBOR (RFC 7049, section 2.4)
 const int kSemanticTagEncodedCbor = 24;
 
+// The semantic tag for a bstr which includes Encoded CBOR (RFC 7049, section 2.4)
+const int kSemanticTagEncodedCbor = 24;
+
 // ---------------------------------------------------------------------------
 // Miscellaneous utilities.
 // ---------------------------------------------------------------------------
@@ -223,11 +226,14 @@ optional<pair<size_t, size_t>> certificateFindSignature(const vector<uint8_t>& x
 //
 optional<pair<time_t, time_t>> certificateGetValidity(const vector<uint8_t>& x509Certificate);
 
+<<<<<<< HEAD   (d51ced [automerger skipped] wifi: Call terminate in VTS teardown am)
 // Looks for an extension with OID in |oidStr| which must be an stored as an OCTET STRING.
 //
 optional<vector<uint8_t>> certificateGetExtension(const vector<uint8_t>& x509Certificate,
                                                   const string& oidStr);
 
+=======
+>>>>>>> BRANCH (4bff38 Merge "identity: Fix attestation and documentation problems.)
 // Generates a X.509 certificate for |publicKey| (which must be in the format
 // returned by ecKeyPairGetPublicKey()).
 //

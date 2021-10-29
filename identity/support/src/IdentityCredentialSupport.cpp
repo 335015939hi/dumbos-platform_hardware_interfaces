@@ -640,6 +640,7 @@ bool parseAsn1Time(const ASN1_TIME* asn1Time, time_t* outTime) {
 optional<vector<vector<uint8_t>>> createAttestation(
         const EVP_PKEY* key, const vector<uint8_t>& applicationId, const vector<uint8_t>& challenge,
         uint64_t activeTimeMilliSeconds, uint64_t expireTimeMilliSeconds, bool isTestCredential) {
+<<<<<<< HEAD   (d51ced [automerger skipped] wifi: Call terminate in VTS teardown am)
     // Pretend to be implemented in a trusted environment just so we can pass
     // the VTS tests. Of course, this is a pretend-only game since hopefully no
     // relying party is ever going to trust our batch key and those keys above
@@ -681,6 +682,35 @@ optional<vector<vector<uint8_t>>> createAttestation(
     unsigned char* subjectPtr = subject.data();
 
     i2d_X509_NAME(subjectName.get(), &subjectPtr);
+=======
+    const keymaster_cert_chain_t* attestation_chain =
+            ::keymaster::getAttestationChain(KM_ALGORITHM_EC, nullptr);
+    if (attestation_chain == nullptr) {
+        LOG(ERROR) << "Error getting attestation chain";
+        return {};
+    }
+    if (expireTimeMilliSeconds == 0) {
+        if (attestation_chain->entry_count < 1) {
+            LOG(ERROR) << "Expected at least one entry in attestation chain";
+            return {};
+        }
+        keymaster_blob_t* bcBlob = &(attestation_chain->entries[0]);
+        const uint8_t* bcData = bcBlob->data;
+        auto bc = X509_Ptr(d2i_X509(nullptr, &bcData, bcBlob->data_length));
+        time_t bcNotAfter;
+        if (!parseAsn1Time(X509_get0_notAfter(bc.get()), &bcNotAfter)) {
+            LOG(ERROR) << "Error getting notAfter from batch certificate";
+            return {};
+        }
+        expireTimeMilliSeconds = bcNotAfter * 1000;
+    }
+    const keymaster_key_blob_t* attestation_signing_key =
+            ::keymaster::getAttestationKey(KM_ALGORITHM_EC, nullptr);
+    if (attestation_signing_key == nullptr) {
+        LOG(ERROR) << "Error getting attestation key";
+        return {};
+    }
+>>>>>>> BRANCH (4bff38 Merge "identity: Fix attestation and documentation problems.)
 
     ::keymaster::AuthorizationSet auth_set(
             ::keymaster::AuthorizationSetBuilder()
@@ -721,6 +751,7 @@ optional<vector<vector<uint8_t>>> createAttestation(
     // Only include TAG_IDENTITY_CREDENTIAL_KEY if it's not a test credential
     if (!isTestCredential) {
         hwEnforcedBuilder.Authorization(::keymaster::TAG_IDENTITY_CREDENTIAL_KEY);
+<<<<<<< HEAD   (d51ced [automerger skipped] wifi: Call terminate in VTS teardown am)
     }
     ::keymaster::AuthorizationSet hwEnforced(hwEnforcedBuilder);
 
@@ -730,9 +761,37 @@ optional<vector<vector<uint8_t>>> createAttestation(
     if (KM_ERROR_OK != error) {
         LOG(ERROR) << "Error generating attestation from EVP key: " << error;
         return {};
+=======
+>>>>>>> BRANCH (4bff38 Merge "identity: Fix attestation and documentation problems.)
     }
+<<<<<<< HEAD   (d51ced [automerger skipped] wifi: Call terminate in VTS teardown am)
 
     // translate certificate format from keymaster_cert_chain_t to vector<vector<uint8_t>>.
+=======
+    ::keymaster::AuthorizationSet hwEnforced(hwEnforcedBuilder);
+
+    keymaster_error_t error;
+    ::keymaster::CertChainPtr cert_chain_out;
+
+    // Pretend to be implemented in a trusted environment just so we can pass
+    // the VTS tests. Of course, this is a pretend-only game since hopefully no
+    // relying party is ever going to trust our batch key and those keys above
+    // it.
+    //
+    ::keymaster::PureSoftKeymasterContext context(KM_SECURITY_LEVEL_TRUSTED_ENVIRONMENT);
+
+    error = generate_attestation_from_EVP(key, swEnforced, hwEnforced, auth_set, context,
+                                          ::keymaster::kCurrentKeymasterVersion, *attestation_chain,
+                                          *attestation_signing_key,
+                                          "Android Identity Credential Key", &cert_chain_out);
+
+    if (KM_ERROR_OK != error || !cert_chain_out) {
+        LOG(ERROR) << "Error generate attestation from EVP key" << error;
+        return {};
+    }
+
+    // translate certificate format from keymaster_cert_chain_t to vector<uint8_t>.
+>>>>>>> BRANCH (4bff38 Merge "identity: Fix attestation and documentation problems.)
     vector<vector<uint8_t>> attestationCertificate;
     for (std::size_t i = 0; i < cert_chain_out.entry_count; i++) {
         attestationCertificate.insert(
@@ -2141,9 +2200,15 @@ optional<vector<uint8_t>> calcMac(const vector<uint8_t>& sessionTranscriptEncode
                     .add("DeviceAuthentication")
                     .add(std::move(sessionTranscriptItem))
                     .add(docType)
+<<<<<<< HEAD   (d51ced [automerger skipped] wifi: Call terminate in VTS teardown am)
                     .add(cppbor::SemanticTag(kSemanticTagEncodedCbor, deviceNameSpacesEncoded));
     vector<uint8_t> deviceAuthenticationBytes =
             cppbor::SemanticTag(kSemanticTagEncodedCbor, deviceAuthentication.encode()).encode();
+=======
+                    .add(cppbor::Semantic(kSemanticTagEncodedCbor, deviceNameSpacesEncoded));
+    vector<uint8_t> deviceAuthenticationBytes =
+            cppbor::Semantic(kSemanticTagEncodedCbor, deviceAuthentication.encode()).encode();
+>>>>>>> BRANCH (4bff38 Merge "identity: Fix attestation and documentation problems.)
     optional<vector<uint8_t>> calculatedMac =
             support::coseMac0(eMacKey, {},                 // payload
                               deviceAuthenticationBytes);  // detached content
