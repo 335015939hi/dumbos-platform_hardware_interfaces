@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10cdef14_9728ae6b",
+        "filename": "health/aidl/vts/functional/VtsHalHealthTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-29T21:22:13Z",
+      "side": 1,
+      "message": "InClosedRange -- yeah it is less necessary, but I think it makes the code cleaner. It is reused in many places in the test\n\nInOpenRange -- I\u0027ll drop in the next PS\n\nIsValidEnum -- I think this is necessary because\n\n```\nEXPECT_THAT(x, IsValidEnum\u003cT\u003e())\n```\n\nIs much simpler than\n\n```\nenum_range\u003cT\u003e range;\nEXPECT_THAT(x, AnyOfArray(range.begin(), range.end());\n```\n\nor \n```\nEXPECT_THAT(x, AnyOfArray(enum_range\u003cT\u003e().begin(), enum_range\u003cT\u003e().end());\n```",
+      "parentUuid": "8b66aa91_c5cf7e10",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 0
+      },
+      "revId": "f1a646febb0b5e505601f257af11587cd6dc8301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc9535ed_46d3c94a",
         "filename": "health/aidl/vts/functional/VtsHalHealthTargetTest.cpp",
         "patchSetId": 3
