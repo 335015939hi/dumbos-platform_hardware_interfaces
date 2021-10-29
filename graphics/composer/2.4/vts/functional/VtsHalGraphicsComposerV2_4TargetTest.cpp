@@ -754,4 +754,8 @@ int main(int argc, char** argv) {
     }
 
     return RUN_ALL_TESTS();
+<<<<<<< HEAD   (141ea5 [automerger skipped] Merge "Increase NNAPI VTS single-test t)
 }
+=======
+}
+>>>>>>> BRANCH (34fb8d Merge "Support waiting for surfaceflinger service to stop be)
