@@ -287,9 +287,18 @@ class MediaCasHidlTest : public testing::TestWithParam<std::string> {
 
     auto descramblerStatus = mService->createDescrambler(caSystemId);
     if (!descramblerStatus.isOk()) {
-        return ::testing::AssertionFailure();
+        if (mIsTestDescrambler) {
+            return ::testing::AssertionFailure();
+        } else {
+            ALOGI("Skip Descrambler test since it's not required in cas@1.2.");
+            return ::testing::AssertionSuccess();
+        }
     }
+<<<<<<< HEAD   (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
 
+=======
+    mIsTestDescrambler = true;
+>>>>>>> BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
     mDescramblerBase = descramblerStatus;
     return ::testing::AssertionResult(mDescramblerBase != nullptr);
 }
@@ -512,7 +521,11 @@ TEST_P(MediaCasHidlTest, TestClearKeyApis) {
     returnStatus = mMediaCas->setSessionPrivateData(streamSessionId, hidlPvtData);
     EXPECT_TRUE(returnStatus.isOk());
     EXPECT_EQ(Status::OK, returnStatus);
+<<<<<<< HEAD   (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
     if (mDescramblerBase != nullptr) {
+=======
+    if (mIsTestDescrambler) {
+>>>>>>> BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
         returnStatus = mDescramblerBase->setMediaCasSession(sessionId);
         EXPECT_TRUE(returnStatus.isOk());
         EXPECT_EQ(Status::OK, returnStatus);
@@ -562,7 +575,11 @@ TEST_P(MediaCasHidlTest, TestClearKeyApis) {
     EXPECT_TRUE(returnStatus.isOk());
     EXPECT_EQ(Status::OK, returnStatus);
 
+<<<<<<< HEAD   (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
     if (mDescramblerBase != nullptr) {
+=======
+    if (mIsTestDescrambler) {
+>>>>>>> BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
         EXPECT_FALSE(mDescramblerBase->requiresSecureDecoderComponent("video/avc"));
 
         sp<IDescrambler> descrambler;
@@ -612,7 +629,11 @@ TEST_P(MediaCasHidlTest, TestClearKeySessionClosedAfterRelease) {
     EXPECT_TRUE(returnStatus.isOk());
     EXPECT_EQ(Status::OK, returnStatus);
 
+<<<<<<< HEAD   (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
     if (mDescramblerBase != nullptr) {
+=======
+    if (mIsTestDescrambler) {
+>>>>>>> BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
         returnStatus = mDescramblerBase->setMediaCasSession(sessionId);
         EXPECT_TRUE(returnStatus.isOk());
         EXPECT_EQ(Status::ERROR_CAS_SESSION_NOT_OPENED, returnStatus);
@@ -678,7 +699,11 @@ TEST_P(MediaCasHidlTest, TestClearKeyErrors) {
     EXPECT_TRUE(returnStatus.isOk());
     EXPECT_EQ(Status::ERROR_CAS_UNKNOWN, returnStatus);
 
+<<<<<<< HEAD   (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
     if (mDescramblerBase != nullptr) {
+=======
+    if (mIsTestDescrambler) {
+>>>>>>> BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
         /*
          * Test MediaDescrambler error codes
          */
@@ -726,7 +751,11 @@ TEST_P(MediaCasHidlTest, TestClearKeyOobFails) {
     std::vector<uint8_t> sessionId;
     ASSERT_TRUE(openCasSession(&sessionId));
 
+<<<<<<< HEAD   (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
     if (mDescramblerBase != nullptr) {
+=======
+    if (mIsTestDescrambler) {
+>>>>>>> BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
         returnStatus = mDescramblerBase->setMediaCasSession(sessionId);
         EXPECT_TRUE(returnStatus.isOk());
         EXPECT_EQ(Status::OK, returnStatus);
@@ -738,7 +767,11 @@ TEST_P(MediaCasHidlTest, TestClearKeyOobFails) {
     EXPECT_TRUE(returnStatus.isOk());
     EXPECT_EQ(Status::OK, returnStatus);
 
+<<<<<<< HEAD   (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
     if (mDescramblerBase != nullptr) {
+=======
+    if (mIsTestDescrambler) {
+>>>>>>> BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
         sp<IDescrambler> descrambler = IDescrambler::castFrom(mDescramblerBase);
         ASSERT_NE(nullptr, descrambler.get());
 

@@ -311,6 +311,7 @@ class MediaCasHidlTest : public testing::TestWithParam<std::string> {
     sp<ICas> mMediaCas;
     sp<IDescramblerBase> mDescramblerBase;
     sp<MediaCasListener> mCasListener;
+    bool mIsTestDescrambler = false;
     typedef struct _OobInputTestParams {
         const SubSample* subSamples;
         uint32_t numSubSamples;
@@ -362,8 +363,13 @@ class MediaCasHidlTest : public testing::TestWithParam<std::string> {
 
     auto descramblerStatus = mService->createDescrambler(caSystemId);
     if (!descramblerStatus.isOk()) {
-        return ::testing::AssertionFailure();
+        ALOGI("Skip Descrambler test since it's not required in cas@1.2.");
+        return ::testing::AssertionSuccess();
     }
+<<<<<<< HEAD   (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
+=======
+    mIsTestDescrambler = true;
+>>>>>>> BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
 
     mDescramblerBase = descramblerStatus;
     return ::testing::AssertionResult(mDescramblerBase != nullptr);
@@ -520,7 +526,11 @@ TEST_P(MediaCasHidlTest, TestClearKeyApisWithSession) {
     EXPECT_TRUE(returnStatus.isOk());
     EXPECT_EQ(Status::OK, returnStatus);
 
+<<<<<<< HEAD   (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
     if (mDescramblerBase != nullptr) {
+=======
+    if (mIsTestDescrambler) {
+>>>>>>> BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
         returnStatus = mDescramblerBase->setMediaCasSession(sessionId);
         EXPECT_TRUE(returnStatus.isOk());
         EXPECT_EQ(Status::OK, returnStatus);
@@ -575,7 +585,11 @@ TEST_P(MediaCasHidlTest, TestClearKeyApisWithSession) {
     EXPECT_TRUE(returnStatus.isOk());
     EXPECT_EQ(Status::OK, returnStatus);
 
+<<<<<<< HEAD   (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
     if (mDescramblerBase != nullptr) {
+=======
+    if (mIsTestDescrambler) {
+>>>>>>> BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
         EXPECT_FALSE(mDescramblerBase->requiresSecureDecoderComponent("video/avc"));
 
         sp<IDescrambler> descrambler;
