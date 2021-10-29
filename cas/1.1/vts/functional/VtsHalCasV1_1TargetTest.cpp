@@ -328,8 +328,17 @@ class MediaCasHidlTest : public testing::TestWithParam<std::string> {
 
     auto descramblerStatus = mService->createDescrambler(caSystemId);
     if (!descramblerStatus.isOk()) {
-        return ::testing::AssertionFailure();
+        if (mIsTestDescrambler) {
+            return ::testing::AssertionFailure();
+        } else {
+            ALOGI("Skip Descrambler test since it's not required in cas@1.2.");
+            return ::testing::AssertionSuccess();
+        }
     }
+<<<<<<< TARGET BRANCH (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
+=======
+    mIsTestDescrambler = true;
+>>>>>>> SOURCE BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
 
     mDescramblerBase = descramblerStatus;
     return ::testing::AssertionResult(mDescramblerBase != nullptr);
@@ -486,7 +495,11 @@ TEST_P(MediaCasHidlTest, TestClearKeyApisWithSession) {
     EXPECT_TRUE(returnStatus.isOk());
     EXPECT_EQ(Status::OK, returnStatus);
 
+<<<<<<< TARGET BRANCH (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
     if (mDescramblerBase != nullptr) {
+=======
+    if (mIsTestDescrambler) {
+>>>>>>> SOURCE BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
         returnStatus = mDescramblerBase->setMediaCasSession(sessionId);
         EXPECT_TRUE(returnStatus.isOk());
         EXPECT_EQ(Status::OK, returnStatus);
@@ -538,7 +551,11 @@ TEST_P(MediaCasHidlTest, TestClearKeyApisWithSession) {
     EXPECT_TRUE(returnStatus.isOk());
     EXPECT_EQ(Status::OK, returnStatus);
 
+<<<<<<< TARGET BRANCH (e57d3f [automerger skipped] Gate gsm/cdma radio feature only for em)
     if (mDescramblerBase != nullptr) {
+=======
+    if (mIsTestDescrambler) {
+>>>>>>> SOURCE BRANCH (1e2f00 Merge "make descrambler test optional since it may be provid)
         EXPECT_FALSE(mDescramblerBase->requiresSecureDecoderComponent("video/avc"));
 
         sp<IDescrambler> descrambler;
