@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48731819_66fc51b2",
+        "filename": "bluetooth/audio/2.2/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-29T20:59:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0929beb9_313dab4b",
+      "range": {
+        "startLine": 11,
+        "startChar": 48,
+        "endLine": 11,
+        "endChar": 52
+      },
+      "revId": "84e87676499da7441d70025eee08a3981d5b8bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f3245ce_3ee4ab9d",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Same as the above reply. I closed it from bluetooth.audio@2.1, and not sure what\u0027s used for. I would prefer to fix all the issue for the aidl version.",
       "parentUuid": "8f3245ce_3ee4ab9d",
+      "range": {
+        "startLine": 24,
+        "startChar": 19,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "84e87676499da7441d70025eee08a3981d5b8bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fb1934f_753275c5",
+        "filename": "bluetooth/audio/2.2/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-10-29T20:59:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b42d59f4_102ededc",
       "range": {
         "startLine": 24,
         "startChar": 19,
