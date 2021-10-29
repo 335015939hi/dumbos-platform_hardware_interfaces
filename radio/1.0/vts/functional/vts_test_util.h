@@ -53,10 +53,13 @@ static constexpr const char* FEATURE_VOICE_CALL = "android.software.connectionse
 
 static constexpr const char* FEATURE_TELEPHONY = "android.hardware.telephony";
 
+<<<<<<< HEAD   (10ad6d [automerger skipped] Merge "identity: Fix attestation and do)
 static constexpr const char* FEATURE_TELEPHONY_GSM = "android.hardware.telephony.gsm";
 
 static constexpr const char* FEATURE_TELEPHONY_CDMA = "android.hardware.telephony.cdma";
 
+=======
+>>>>>>> BRANCH (616106 Skip emergency dialing VTS if device doesn't support radio)
 /*
  * Generate random serial number for radio test
  */
