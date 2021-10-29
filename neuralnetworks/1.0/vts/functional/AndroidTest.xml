@@ -29,6 +29,9 @@
         <option name="native-test-device-path" value="/data/local/tmp" />
         <option name="module-name" value="VtsHalNeuralnetworksV1_0TargetTest" />
         <option name="native-test-timeout" value="20m" />
+<<<<<<< HEAD   (adc74b Add AUDIO_FORMAT_MAT to the list of formats in XSD V6 am: e7)
         <option name="native-test-flag" value="--gtest_break_on_failure" />
+=======
+>>>>>>> BRANCH (b2bee2 Merge "Increase NNAPI VTS single-test timeout to 20m." into )
     </test>
 </configuration>
