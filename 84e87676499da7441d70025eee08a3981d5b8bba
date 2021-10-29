@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d262825_8b3f51e5",
+        "filename": "bluetooth/audio/2.2/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-29T19:55:36Z",
+      "side": 1,
+      "message": "should this be a passthrough implementation? This was mostly for legacy support - we usually only add services now",
+      "range": {
+        "startLine": 11,
+        "startChar": 48,
+        "endLine": 11,
+        "endChar": 52
+      },
+      "revId": "84e87676499da7441d70025eee08a3981d5b8bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f3245ce_3ee4ab9d",
+        "filename": "bluetooth/audio/2.2/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-10-29T19:55:36Z",
+      "side": 1,
+      "message": "what is this used for? I didn\u0027t see any includes for it",
+      "range": {
+        "startLine": 24,
+        "startChar": 19,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "84e87676499da7441d70025eee08a3981d5b8bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
