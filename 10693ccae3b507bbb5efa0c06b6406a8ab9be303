@@ -16,6 +16,24 @@
       "message": "tommychiu@: We\u0027d like to police the existing KeyMint spec text that says that ATTEST_KEY keys can\u0027t be used for any other purpose.\n\nWill the StrongBox impl need updating to pass these modified tests? (I\u0027m guessing: yes, it will need an update, cf. aosp/1842223)",
       "revId": "10693ccae3b507bbb5efa0c06b6406a8ab9be303",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee6a79fd_a24725c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-10-29T13:34:20Z",
+      "side": 1,
+      "message": "Thanks for the heads up. \nYes, StrongBox needs an update on this purpose. Will update it on the same bug.",
+      "parentUuid": "4f68e8f4_b5d63f42",
+      "revId": "10693ccae3b507bbb5efa0c06b6406a8ab9be303",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
