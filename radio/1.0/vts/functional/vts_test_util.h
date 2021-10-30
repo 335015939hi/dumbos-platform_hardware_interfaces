@@ -80,6 +80,7 @@ int GetRandomSerialNumber();
 bool deviceSupportsFeature(const char* feature);
 
 /*
+<<<<<<< HEAD   (688a9e [automerger skipped] composer: increase timeout for VTS am: )
  * Check if device is in SsSs (Single SIM Single Standby).
  */
 bool isSsSsEnabled();
@@ -123,3 +124,23 @@ class RadioResponseWaiter {
     /* Test code calls this function to wait for response */
     std::cv_status wait();
 };
+=======
+ * Check if device is in DSDS.
+ */
+bool isDsDsEnabled();
+
+/*
+ * Check if device is in TSTS.
+ */
+bool isTsTsEnabled();
+
+/*
+ * Check if voice status is in emergency only.
+ */
+bool isVoiceEmergencyOnly(RegState state);
+
+/*
+ * Check if voice status is in service.
+ */
+bool isVoiceInService(RegState state);
+>>>>>>> BRANCH (1b7eb2 Check emergency dialing result in DSDS or TSTS only if slot )

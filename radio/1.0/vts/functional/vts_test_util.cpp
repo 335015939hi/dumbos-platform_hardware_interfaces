@@ -18,8 +18,11 @@
 #include <vts_test_util.h>
 #include <iostream>
 #include "VtsCoreUtil.h"
+<<<<<<< HEAD   (688a9e [automerger skipped] composer: increase timeout for VTS am: )
 
 #define WAIT_TIMEOUT_PERIOD 75
+=======
+>>>>>>> BRANCH (1b7eb2 Check emergency dialing result in DSDS or TSTS only if slot )
 
 int GetRandomSerialNumber() {
     return rand();
@@ -83,6 +86,7 @@ bool deviceSupportsFeature(const char* feature) {
     return hasFeature;
 }
 
+<<<<<<< HEAD   (688a9e [automerger skipped] composer: increase timeout for VTS am: )
 bool isSsSsEnabled() {
     // Do not use checkSubstringInCommandOutput("getprop persist.radio.multisim.config", "")
     // until b/148904287 is fixed. We need exact matching instead of partial matching. (i.e.
@@ -138,3 +142,24 @@ std::cv_status RadioResponseWaiter::wait() {
     count_--;
     return status;
 }
+=======
+bool isDsDsEnabled() {
+    return testing::checkSubstringInCommandOutput("getprop persist.radio.multisim.config", "dsds");
+}
+
+bool isTsTsEnabled() {
+    return testing::checkSubstringInCommandOutput("getprop persist.radio.multisim.config", "tsts");
+}
+
+bool isVoiceInService(RegState state) {
+    return ::android::hardware::radio::V1_0::RegState::REG_HOME == state ||
+           ::android::hardware::radio::V1_0::RegState::REG_ROAMING == state;
+}
+
+bool isVoiceEmergencyOnly(RegState state) {
+    return ::android::hardware::radio::V1_0::RegState::NOT_REG_MT_NOT_SEARCHING_OP_EM == state ||
+           ::android::hardware::radio::V1_0::RegState::NOT_REG_MT_SEARCHING_OP_EM == state ||
+           ::android::hardware::radio::V1_0::RegState::REG_DENIED_EM == state ||
+           ::android::hardware::radio::V1_0::RegState::UNKNOWN_EM == state;
+}
+>>>>>>> BRANCH (1b7eb2 Check emergency dialing result in DSDS or TSTS only if slot )
