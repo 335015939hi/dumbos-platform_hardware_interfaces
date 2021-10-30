@@ -495,7 +495,11 @@ TEST_P(BroadcastRadioHalTest, TuneFailsWithInvalid) {
  *    invoked carrying a proper selector;
  *  - program changes exactly to what was requested.
  */
+<<<<<<< HEAD   (a38cb9 [automerger skipped] Check emergency dialing result in DSDS )
 TEST_P(BroadcastRadioHalTest, DabTune) {
+=======
+TEST_F(BroadcastRadioHalTest, DabTune) {
+>>>>>>> BRANCH (98b491 Fix VTS issue of BroadcastRadio v2.0 am: 20eb57563b)
     ASSERT_TRUE(openSession());
 
     ProgramSelector sel = {};
