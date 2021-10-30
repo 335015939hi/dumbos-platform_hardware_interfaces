@@ -31,6 +31,10 @@
     <test class="com.android.tradefed.testtype.GTest" >
         <option name="native-test-device-path" value="/data/local/tmp" />
         <option name="module-name" value="VtsHalGraphicsComposerV2_4TargetTest" />
+<<<<<<< HEAD   (50ad95 [automerger skipped] Merge "OMX VTS: free graphics buffers a)
         <option name="native-test-timeout" value="900000"/>
+=======
+        <option name="native-test-timeout" value="300000"/>
+>>>>>>> BRANCH (48894d composer: increase timeout for VTS)
     </test>
 </configuration>
