@@ -427,6 +427,9 @@ void FrontendTests::getFrontendIdByType(FrontendType feType, uint32_t& feId) {
 
 void FrontendTests::tuneTest(FrontendConfig frontendConf) {
     uint32_t feId;
+    if (frontendConf.type != FrontendType::DVBC)
+        GTEST_SKIP() << "Skipping this test since not DVBC.";
+
     getFrontendIdByType(frontendConf.type, feId);
     ASSERT_TRUE(feId != INVALID_ID);
     ASSERT_TRUE(openFrontendById(feId));
@@ -439,6 +442,8 @@ void FrontendTests::tuneTest(FrontendConfig frontendConf) {
 
 void FrontendTests::scanTest(FrontendConfig frontendConf, FrontendScanType scanType) {
     uint32_t feId;
+    if (frontendConf.type != FrontendType::DVBC)
+        GTEST_SKIP() << "Skipping this test since not DVBC.";
     getFrontendIdByType(frontendConf.type, feId);
     ASSERT_TRUE(feId != INVALID_ID);
     ASSERT_TRUE(openFrontendById(feId));
