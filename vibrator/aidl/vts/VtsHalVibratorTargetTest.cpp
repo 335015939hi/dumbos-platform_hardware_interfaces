@@ -208,8 +208,7 @@ TEST_P(VibratorAidl, OnThenOffBeforeTimeout) {
 }
 
 TEST_P(VibratorAidl, OnWithCallback) {
-    if (!(capabilities & IVibrator::CAP_ON_CALLBACK))
-        return;
+    if (!(capabilities & IVibrator::CAP_ON_CALLBACK)) return;
 
     std::promise<void> completionPromise;
     std::future<void> completionFuture{completionPromise.get_future()};
