@@ -1,3 +1,4 @@
+<<<<<<< HEAD   (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
 package {
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
@@ -7,6 +8,8 @@ package {
     default_applicable_licenses: ["hardware_interfaces_license"],
 }
 
+=======
+>>>>>>> BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 genrule {
     name: "tuner_frontend_input_es",
     srcs: ["tuner_frontend_input.es"],
