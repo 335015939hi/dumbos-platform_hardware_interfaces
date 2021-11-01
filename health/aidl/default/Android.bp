@@ -73,4 +73,7 @@ cc_binary {
         "libhealth_aidl_impl",
     ],
     srcs: ["main.cpp"],
+    overrides: [
+        "charger",
+    ],
 }
