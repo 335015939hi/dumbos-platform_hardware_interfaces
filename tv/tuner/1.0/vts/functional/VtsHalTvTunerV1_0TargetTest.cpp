@@ -249,6 +249,11 @@ void TunerRecordHidlTest::recordSingleFilterTestWithLnb(FilterConfig filterConf,
         mLnbId = (uint32_t*)malloc(sizeof(uint32_t));
         ASSERT_TRUE(mLnbTests.openLnbByName(lnbConf.name, *mLnbId));
     }
+<<<<<<< TARGET BRANCH (043842 [automerger skipped] vibrator: vts: correct the checking fla)
+=======
+    ASSERT_TRUE(mLnbTests.openLnbById(ids[0]));
+    mLnbId = &ids[0];
+>>>>>>> SOURCE BRANCH (517aab Fix a null pointer access in Tuner VTS)
     ASSERT_TRUE(mLnbTests.setLnbCallback());
     ASSERT_TRUE(mLnbTests.setVoltage(lnbConf.voltage));
     ASSERT_TRUE(mLnbTests.setTone(lnbConf.tone));
