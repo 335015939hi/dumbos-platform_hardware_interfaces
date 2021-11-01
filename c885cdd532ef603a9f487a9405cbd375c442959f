@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "803951ab_704657f2",
+        "filename": "health/aidl/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-11-01T21:59:16Z",
+      "side": 1,
+      "message": "I was wondering, why do we need this here Yifan?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 24
+      },
+      "revId": "c885cdd532ef603a9f487a9405cbd375c442959f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
