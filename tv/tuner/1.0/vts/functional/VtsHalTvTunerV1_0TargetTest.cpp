@@ -36,6 +36,8 @@ void TunerFilterHidlTest::configSingleFilterInDemuxTest(FilterConfig filterConf,
     uint32_t demuxId;
     sp<IDemux> demux;
     uint32_t filterId;
+    if (frontendConf.type != FrontendType::DVBC)
+        GTEST_SKIP() << "Skipping this test since not DVBC.";
 
     mFrontendTests.getFrontendIdByType(frontendConf.type, feId);
     ASSERT_TRUE(feId != INVALID_ID);
@@ -187,6 +189,22 @@ void TunerRecordHidlTest::recordSingleFilterTest(FilterConfig filterConf,
 
     uint32_t filterId;
     sp<IFilter> filter;
+<<<<<<< TARGET BRANCH (b5fc63 Fix closure of record thread am: 6bf77fdf16)
+=======
+
+    if (frontendConf.type != FrontendType::DVBC)
+        GTEST_SKIP() << "Skipping this test since not DVBC.";
+
+    mFrontendTests.getFrontendIdByType(frontendConf.type, feId);
+    ASSERT_TRUE(feId != INVALID_ID);
+    ASSERT_TRUE(mFrontendTests.openFrontendById(feId));
+    ASSERT_TRUE(mFrontendTests.setFrontendCallback());
+    if (mLnbId) {
+        ASSERT_TRUE(mFrontendTests.setLnb(*mLnbId));
+    }
+    ASSERT_TRUE(mDemuxTests.openDemux(demux, demuxId));
+    ASSERT_TRUE(mDemuxTests.setDemuxFrontendDataSource(feId));
+>>>>>>> SOURCE BRANCH (6c1a0a Skip test on VtsHalTvTunerV1_0TargetTest if tuner type unsup)
     mFilterTests.setDemux(demux);
     ASSERT_TRUE(mDvrTests.openDvrInDemux(dvrConf.type, dvrConf.bufferSize));
     ASSERT_TRUE(mDvrTests.configDvrRecord(dvrConf.settings));
@@ -286,6 +304,19 @@ void TunerRecordHidlTest::attachSingleFilterToRecordDvrTest(FilterConfig filterC
 
     uint32_t filterId;
     sp<IFilter> filter;
+<<<<<<< TARGET BRANCH (b5fc63 Fix closure of record thread am: 6bf77fdf16)
+=======
+
+    if (frontendConf.type != FrontendType::DVBC)
+        GTEST_SKIP() << "Skipping this test since not DVBC.";
+
+    mFrontendTests.getFrontendIdByType(frontendConf.type, feId);
+    ASSERT_TRUE(feId != INVALID_ID);
+    ASSERT_TRUE(mFrontendTests.openFrontendById(feId));
+    ASSERT_TRUE(mFrontendTests.setFrontendCallback());
+    ASSERT_TRUE(mDemuxTests.openDemux(demux, demuxId));
+    ASSERT_TRUE(mDemuxTests.setDemuxFrontendDataSource(feId));
+>>>>>>> SOURCE BRANCH (6c1a0a Skip test on VtsHalTvTunerV1_0TargetTest if tuner type unsup)
     mFilterTests.setDemux(demux);
 
     ASSERT_TRUE(mDvrTests.openDvrInDemux(dvrConf.type, dvrConf.bufferSize));
@@ -462,7 +493,13 @@ TEST_P(TunerDemuxHidlTest, openDemux) {
     uint32_t feId;
     uint32_t demuxId;
     sp<IDemux> demux;
+<<<<<<< TARGET BRANCH (b5fc63 Fix closure of record thread am: 6bf77fdf16)
     mFrontendTests.getFrontendIdByType(frontendMap[live.frontendId].type, feId);
+=======
+    mFrontendTests.getFrontendIdByType(frontendArray[defaultFrontend].type, feId);
+    if (frontendArray[DVBT].type != FrontendType::DVBC)
+        GTEST_SKIP() << "Skipping this test since not DVBC.";
+>>>>>>> SOURCE BRANCH (6c1a0a Skip test on VtsHalTvTunerV1_0TargetTest if tuner type unsup)
     ASSERT_TRUE(feId != INVALID_ID);
     ASSERT_TRUE(mFrontendTests.openFrontendById(feId));
     ASSERT_TRUE(mFrontendTests.setFrontendCallback());
@@ -487,6 +524,8 @@ TEST_P(TunerDemuxHidlTest, getAvSyncTime) {
     uint32_t pcrFilterId;
     uint32_t avSyncHwId;
     sp<IFilter> mediaFilter;
+    if (frontendArray[DVBT].type != FrontendType::DVBC)
+        GTEST_SKIP() << "Skipping this test since not DVBC.";
 
     mFrontendTests.getFrontendIdByType(frontendMap[live.frontendId].type, feId);
     ASSERT_TRUE(feId != INVALID_ID);
@@ -663,6 +702,15 @@ TEST_P(TunerDescramblerHidlTest, CreateDescrambler) {
     }
     uint32_t demuxId;
     sp<IDemux> demux;
+<<<<<<< TARGET BRANCH (b5fc63 Fix closure of record thread am: 6bf77fdf16)
+=======
+    mFrontendTests.getFrontendIdByType(frontendArray[defaultFrontend].type, feId);
+    if (frontendArray[DVBT].type != FrontendType::DVBC)
+        GTEST_SKIP() << "Skipping this test since not DVBC.";
+    ASSERT_TRUE(feId != INVALID_ID);
+    ASSERT_TRUE(mFrontendTests.openFrontendById(feId));
+    ASSERT_TRUE(mFrontendTests.setFrontendCallback());
+>>>>>>> SOURCE BRANCH (6c1a0a Skip test on VtsHalTvTunerV1_0TargetTest if tuner type unsup)
     ASSERT_TRUE(mDemuxTests.openDemux(demux, demuxId));
 
     if (descrambling.hasFrontendConnection) {
