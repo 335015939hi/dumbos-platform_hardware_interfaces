@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1515efb0_87b6df41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1561740
+      },
+      "writtenOn": "2021-11-01T19:57:28Z",
+      "side": 1,
+      "message": "Can skip the commit for Android S since there is a similar fixing.",
+      "revId": "b28ccc9bfdc57353c9bd945dd359d41bfd4c7d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
