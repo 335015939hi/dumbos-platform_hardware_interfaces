@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6896d96b_b5975684",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-11-01T13:36:00Z",
+      "side": 1,
+      "message": "I suggest detailing which tests:\n\n* Test that the UNIQUE_ID changes with the reset tag present.\n* Test that request to attest a key with a UNIQUE_ID but lacking to specify CREATION_DATETIME tag fails.",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "4af553371e5caa1d99d890546b7fe080d38c5c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1d9eea6_e6f18685",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-11-01T13:36:00Z",
+      "side": 1,
+      "message": "Can we be more strict about the error code here and not allow two different ones? \nINVALID_ARGUMENT seems the more accurate one.",
+      "range": {
+        "startLine": 1744,
+        "startChar": 16,
+        "endLine": 1744,
+        "endChar": 94
+      },
+      "revId": "4af553371e5caa1d99d890546b7fe080d38c5c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
