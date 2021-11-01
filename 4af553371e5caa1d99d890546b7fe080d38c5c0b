@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b3aa7df_d9698a5b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-01T14:44:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6896d96b_b5975684",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "4af553371e5caa1d99d890546b7fe080d38c5c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1d9eea6_e6f18685",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-01T13:36:00Z",
       "side": 1,
       "message": "Can we be more strict about the error code here and not allow two different ones? \nINVALID_ARGUMENT seems the more accurate one.",
+      "range": {
+        "startLine": 1744,
+        "startChar": 16,
+        "endLine": 1744,
+        "endChar": 94
+      },
+      "revId": "4af553371e5caa1d99d890546b7fe080d38c5c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d775a492_ee188daf",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-01T14:44:38Z",
+      "side": 1,
+      "message": "INVALID_ARGUMENT does indeed seem more accurate, but the existing reference implementation has used INVALID_KEY_BLOB for this error case since 2016 (https://cs.android.com/android/platform/superproject/+/master:system/keymaster/km_openssl/attestation_record.cpp;l\u003d1068), so it seemed only fair to allow it...",
+      "parentUuid": "a1d9eea6_e6f18685",
       "range": {
         "startLine": 1744,
         "startChar": 16,
