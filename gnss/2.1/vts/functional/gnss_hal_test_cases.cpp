@@ -254,7 +254,11 @@ TEST_P(GnssHalTest, TestGnssAntennaInfo) {
 TEST_P(GnssHalTest, TestGnssSvInfoFields) {
     gnss_cb_->location_cbq_.reset();
     gnss_cb_->sv_info_list_cbq_.reset();
+<<<<<<< TARGET BRANCH (c3c375 Merge "broadcastradio@2.0 VTS uses DAB frequency invalid in )
     StartAndCheckFirstLocation(/* min_interval_msec= */ 1000, /* low_power_mode= */ false);
+=======
+    StartAndCheckFirstLocation();
+>>>>>>> SOURCE BRANCH (41b8fd Ensure non-empty SvInfo is received)
     int location_called_count = gnss_cb_->location_cbq_.calledCount();
     ALOGD("Observed %d GnssSvStatus, while awaiting one location (%d received)",
           gnss_cb_->sv_info_list_cbq_.size(), location_called_count);
