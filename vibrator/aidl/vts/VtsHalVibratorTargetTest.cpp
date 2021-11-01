@@ -208,8 +208,12 @@ TEST_P(VibratorAidl, OnThenOffBeforeTimeout) {
 }
 
 TEST_P(VibratorAidl, OnWithCallback) {
+<<<<<<< HEAD   (499960 [automerger skipped] composer: VtsDisplay::setDimensions sho)
     if (!(capabilities & IVibrator::CAP_ON_CALLBACK))
         return;
+=======
+    if (!(capabilities & IVibrator::CAP_ON_CALLBACK)) return;
+>>>>>>> BRANCH (9edfd3 vibrator: vts: correct the checking flag when testing on() i)
 
     std::promise<void> completionPromise;
     std::future<void> completionFuture{completionPromise.get_future()};
