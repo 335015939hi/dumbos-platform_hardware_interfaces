@@ -70,6 +70,10 @@ void FilterCallback::filterThreadLoop(DemuxFilterEvent& /* event */) {
 }
 
 bool FilterCallback::readFilterEventData() {
+    if (mFilterMQ == NULL) {
+        ALOGW("[vts] FMQ is not configured and does not need to be tested.");
+        return true;
+    }
     bool result = false;
     DemuxFilterEvent filterEvent = mFilterEvent;
     ALOGW("[vts] reading from filter FMQ or buffer %d", mFilterId);

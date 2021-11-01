@@ -30,6 +30,9 @@
     <test class="com.android.tradefed.testtype.GTest" >
         <option name="native-test-device-path" value="/data/local/tmp" />
         <option name="module-name" value="VtsHalTvTunerV1_0TargetTest" />
+<<<<<<< HEAD   (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
         <option name="native-test-timeout" value="30m" />
+=======
+>>>>>>> BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
     </test>
 </configuration>
