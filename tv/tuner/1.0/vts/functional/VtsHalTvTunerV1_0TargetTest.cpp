@@ -62,7 +62,13 @@ void TunerFilterHidlTest::testTimeFilter(TimeFilterConfig filterConf) {
 
     ASSERT_TRUE(mDemuxTests.openDemux(demux, demuxId));
     ASSERT_TRUE(mDemuxTests.getDemuxCaps(caps));
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     ASSERT_TRUE(caps.bTimeFilter);
+=======
+    if (!caps.bTimeFilter) {
+        return;
+    }
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
     mFilterTests.setDemux(demux);
     ASSERT_TRUE(mFilterTests.openTimeFilterInDemux());
     ASSERT_TRUE(mFilterTests.setTimeStamp(filterConf.timeStamp));
@@ -74,6 +80,9 @@ void TunerFilterHidlTest::testTimeFilter(TimeFilterConfig filterConf) {
 
 void TunerBroadcastHidlTest::broadcastSingleFilterTest(FilterConfig filterConf,
                                                        FrontendConfig frontendConf) {
+    if (!frontendConf.enable) {
+        return;
+    }
     uint32_t feId;
     uint32_t demuxId;
     sp<IDemux> demux;
@@ -110,6 +119,7 @@ void TunerBroadcastHidlTest::broadcastSingleFilterTest(FilterConfig filterConf,
 void TunerBroadcastHidlTest::broadcastSingleFilterTestWithLnb(FilterConfig filterConf,
                                                               FrontendConfig frontendConf,
                                                               LnbConfig lnbConf) {
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (lnbConf.name.compare(emptyHardwareId) == 0) {
         vector<uint32_t> ids;
         ASSERT_TRUE(mLnbTests.getLnbIds(ids));
@@ -119,6 +129,12 @@ void TunerBroadcastHidlTest::broadcastSingleFilterTestWithLnb(FilterConfig filte
     } else {
         mLnbId = (uint32_t*)malloc(sizeof(uint32_t));
         ASSERT_TRUE(mLnbTests.openLnbByName(lnbConf.name, *mLnbId));
+=======
+    vector<uint32_t> ids;
+    ASSERT_TRUE(mLnbTests.getLnbIds(ids));
+    if (ids.size() == 0) {
+        return;
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
     }
     ASSERT_TRUE(mLnbTests.setLnbCallback());
     ASSERT_TRUE(mLnbTests.setVoltage(lnbConf.voltage));
@@ -158,6 +174,13 @@ void TunerPlaybackHidlTest::playbackSingleFilterTest(FilterConfig filterConf, Dv
 
 void TunerRecordHidlTest::recordSingleFilterTest(FilterConfig filterConf,
                                                  FrontendConfig frontendConf, DvrConfig dvrConf) {
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
+=======
+    if (!frontendConf.enable) {
+        return;
+    }
+    uint32_t feId;
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
     uint32_t demuxId;
     sp<IDemux> demux;
     ASSERT_TRUE(mDemuxTests.openDemux(demux, demuxId));
@@ -239,6 +262,7 @@ void TunerRecordHidlTest::recordSingleFilterTest(FilterConfig filterConf,
 void TunerRecordHidlTest::recordSingleFilterTestWithLnb(FilterConfig filterConf,
                                                         FrontendConfig frontendConf,
                                                         DvrConfig dvrConf, LnbConfig lnbConf) {
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (lnbConf.name.compare(emptyHardwareId) == 0) {
         vector<uint32_t> ids;
         ASSERT_TRUE(mLnbTests.getLnbIds(ids));
@@ -248,7 +272,18 @@ void TunerRecordHidlTest::recordSingleFilterTestWithLnb(FilterConfig filterConf,
     } else {
         mLnbId = (uint32_t*)malloc(sizeof(uint32_t));
         ASSERT_TRUE(mLnbTests.openLnbByName(lnbConf.name, *mLnbId));
+=======
+    vector<uint32_t> ids;
+    ASSERT_TRUE(mLnbTests.getLnbIds(ids));
+    if (ids.size() == 0) {
+        return;
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
     }
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
+=======
+    ASSERT_TRUE(mLnbTests.openLnbById(ids[0]));
+    *mLnbId = ids[0];
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
     ASSERT_TRUE(mLnbTests.setLnbCallback());
     ASSERT_TRUE(mLnbTests.setVoltage(lnbConf.voltage));
     ASSERT_TRUE(mLnbTests.setTone(lnbConf.tone));
@@ -316,6 +351,13 @@ void TunerRecordHidlTest::attachSingleFilterToRecordDvrTest(FilterConfig filterC
 void TunerDescramblerHidlTest::scrambledBroadcastTest(set<struct FilterConfig> mediaFilterConfs,
                                                       FrontendConfig frontendConf,
                                                       DescramblerConfig descConfig) {
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
+=======
+    if (!frontendConf.enable) {
+        return;
+    }
+    uint32_t feId;
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
     uint32_t demuxId;
     sp<IDemux> demux;
     ASSERT_TRUE(mDemuxTests.openDemux(demux, demuxId));
@@ -408,31 +450,65 @@ void TunerDescramblerHidlTest::scrambledBroadcastTest(set<struct FilterConfig> m
 
 TEST_P(TunerFrontendHidlTest, TuneFrontend) {
     description("Tune one Frontend with specific setting and check Lock event");
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (!live.hasFrontendConnection) {
         return;
     }
     mFrontendTests.tuneTest(frontendMap[live.frontendId]);
+=======
+    mFrontendTests.tuneTest(frontendArray[defaultFrontend]);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 TEST_P(TunerFrontendHidlTest, AutoScanFrontend) {
     description("Run an auto frontend scan with specific setting and check lock scanMessage");
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (!scan.hasFrontendConnection) {
         return;
     }
     mFrontendTests.scanTest(frontendMap[scan.frontendId], FrontendScanType::SCAN_AUTO);
+=======
+    mFrontendTests.scanTest(frontendScanArray[defaultScanFrontend], FrontendScanType::SCAN_AUTO);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 TEST_P(TunerFrontendHidlTest, BlindScanFrontend) {
     description("Run an blind frontend scan with specific setting and check lock scanMessage");
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (!scan.hasFrontendConnection) {
         return;
     }
     mFrontendTests.scanTest(frontendMap[scan.frontendId], FrontendScanType::SCAN_BLIND);
+=======
+    mFrontendTests.scanTest(frontendScanArray[defaultScanFrontend], FrontendScanType::SCAN_BLIND);
+}
+
+TEST_P(TunerLnbHidlTest, OpenLnbByName) {
+    description("Open and configure an Lnb with name then send a diseqc msg to it.");
+    vector<uint32_t> ids;
+    ASSERT_TRUE(mLnbTests.getLnbIds(ids));
+    if (ids.size() == 0) {
+        return;
+    }
+    ASSERT_TRUE(mLnbTests.openLnbByName(lnbArray[LNB_EXTERNAL].name));
+    ASSERT_TRUE(mLnbTests.setLnbCallback());
+    ASSERT_TRUE(mLnbTests.setVoltage(lnbArray[LNB_EXTERNAL].voltage));
+    ASSERT_TRUE(mLnbTests.setTone(lnbArray[LNB_EXTERNAL].tone));
+    ASSERT_TRUE(mLnbTests.setSatellitePosition(lnbArray[LNB_EXTERNAL].position));
+    ASSERT_TRUE(mLnbTests.sendDiseqcMessage(diseqcMsgArray[DISEQC_POWER_ON]));
+    ASSERT_TRUE(mLnbTests.closeLnb());
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 TEST_P(TunerLnbHidlTest, SendDiseqcMessageToLnb) {
     description("Open and configure an Lnb with specific settings then send a diseqc msg to it.");
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (!lnbLive.support) {
+=======
+    vector<uint32_t> ids;
+    ASSERT_TRUE(mLnbTests.getLnbIds(ids));
+    if (ids.size() == 0) {
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
         return;
     }
     if (lnbMap[lnbLive.lnbId].name.compare(emptyHardwareId) == 0) {
@@ -462,7 +538,11 @@ TEST_P(TunerDemuxHidlTest, openDemux) {
     uint32_t feId;
     uint32_t demuxId;
     sp<IDemux> demux;
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     mFrontendTests.getFrontendIdByType(frontendMap[live.frontendId].type, feId);
+=======
+    mFrontendTests.getFrontendIdByType(frontendArray[defaultFrontend].type, feId);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
     ASSERT_TRUE(feId != INVALID_ID);
     ASSERT_TRUE(mFrontendTests.openFrontendById(feId));
     ASSERT_TRUE(mFrontendTests.setFrontendCallback());
@@ -488,7 +568,11 @@ TEST_P(TunerDemuxHidlTest, getAvSyncTime) {
     uint32_t avSyncHwId;
     sp<IFilter> mediaFilter;
 
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     mFrontendTests.getFrontendIdByType(frontendMap[live.frontendId].type, feId);
+=======
+    mFrontendTests.getFrontendIdByType(frontendArray[defaultFrontend].type, feId);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
     ASSERT_TRUE(feId != INVALID_ID);
     ASSERT_TRUE(mFrontendTests.openFrontendById(feId));
     ASSERT_TRUE(mFrontendTests.setFrontendCallback());
@@ -519,7 +603,11 @@ TEST_P(TunerFilterHidlTest, StartFilterInDemux) {
         return;
     }
     // TODO use paramterized tests
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     configSingleFilterInDemuxTest(filterMap[live.videoFilterId], frontendMap[live.frontendId]);
+=======
+    configSingleFilterInDemuxTest(filterArray[TS_VIDEO0], frontendArray[defaultFrontend]);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 TEST_P(TunerFilterHidlTest, SetFilterLinkage) {
@@ -561,22 +649,31 @@ TEST_P(TunerFilterHidlTest, testTimeFilter) {
 
 TEST_P(TunerBroadcastHidlTest, BroadcastDataFlowVideoFilterTest) {
     description("Test Video Filter functionality in Broadcast use case.");
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (!live.hasFrontendConnection) {
         return;
     }
     broadcastSingleFilterTest(filterMap[live.videoFilterId], frontendMap[live.frontendId]);
+=======
+    broadcastSingleFilterTest(filterArray[TS_VIDEO1], frontendArray[defaultFrontend]);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 TEST_P(TunerBroadcastHidlTest, BroadcastDataFlowAudioFilterTest) {
     description("Test Audio Filter functionality in Broadcast use case.");
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (!live.hasFrontendConnection) {
         return;
     }
     broadcastSingleFilterTest(filterMap[live.audioFilterId], frontendMap[live.frontendId]);
+=======
+    broadcastSingleFilterTest(filterArray[TS_AUDIO0], frontendArray[defaultFrontend]);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 TEST_P(TunerBroadcastHidlTest, BroadcastDataFlowSectionFilterTest) {
     description("Test Section Filter functionality in Broadcast use case.");
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (!live.hasFrontendConnection) {
         return;
     }
@@ -584,14 +681,21 @@ TEST_P(TunerBroadcastHidlTest, BroadcastDataFlowSectionFilterTest) {
         return;
     }
     broadcastSingleFilterTest(filterMap[live.sectionFilterId], frontendMap[live.frontendId]);
+=======
+    broadcastSingleFilterTest(filterArray[TS_SECTION0], frontendArray[defaultFrontend]);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 TEST_P(TunerBroadcastHidlTest, IonBufferTest) {
     description("Test the av filter data bufferring.");
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (!live.hasFrontendConnection) {
         return;
     }
     broadcastSingleFilterTest(filterMap[live.videoFilterId], frontendMap[live.frontendId]);
+=======
+    broadcastSingleFilterTest(filterArray[TS_VIDEO0], frontendArray[defaultFrontend]);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 TEST_P(TunerBroadcastHidlTest, LnbBroadcastDataFlowVideoFilterTest) {
@@ -630,30 +734,45 @@ TEST_P(TunerPlaybackHidlTest, PlaybackDataFlowWithTsVideoFilterTest) {
 TEST_P(TunerRecordHidlTest, AttachFiltersToRecordTest) {
     description("Attach a single filter to the record dvr test.");
     // TODO use paramterized tests
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (!record.support) {
         return;
     }
     attachSingleFilterToRecordDvrTest(filterMap[record.recordFilterId],
                                       frontendMap[record.frontendId], dvrMap[record.dvrRecordId]);
+=======
+    attachSingleFilterToRecordDvrTest(filterArray[TS_RECORD0], frontendArray[defaultFrontend],
+                                      dvrArray[DVR_RECORD0]);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 TEST_P(TunerRecordHidlTest, RecordDataFlowWithTsRecordFilterTest) {
     description("Feed ts data from frontend to recording and test with ts record filter");
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (!record.support) {
         return;
     }
     recordSingleFilterTest(filterMap[record.recordFilterId], frontendMap[record.frontendId],
                            dvrMap[record.dvrRecordId]);
+=======
+    recordSingleFilterTest(filterArray[TS_RECORD0], frontendArray[defaultFrontend],
+                           dvrArray[DVR_RECORD0]);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 TEST_P(TunerRecordHidlTest, LnbRecordDataFlowWithTsRecordFilterTest) {
     description("Feed ts data from Fe with Lnb to recording and test with ts record filter");
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     if (!lnbRecord.support) {
         return;
     }
     recordSingleFilterTestWithLnb(filterMap[lnbRecord.recordFilterId],
                                   frontendMap[lnbRecord.frontendId], dvrMap[lnbRecord.dvrRecordId],
                                   lnbMap[lnbRecord.lnbId]);
+=======
+    recordSingleFilterTestWithLnb(filterArray[TS_RECORD0], frontendArray[DVBS],
+                                  dvrArray[DVR_RECORD0], lnbArray[LNB0]);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 TEST_P(TunerDescramblerHidlTest, CreateDescrambler) {
@@ -663,6 +782,13 @@ TEST_P(TunerDescramblerHidlTest, CreateDescrambler) {
     }
     uint32_t demuxId;
     sp<IDemux> demux;
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
+=======
+    mFrontendTests.getFrontendIdByType(frontendArray[defaultFrontend].type, feId);
+    ASSERT_TRUE(feId != INVALID_ID);
+    ASSERT_TRUE(mFrontendTests.openFrontendById(feId));
+    ASSERT_TRUE(mFrontendTests.setFrontendCallback());
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
     ASSERT_TRUE(mDemuxTests.openDemux(demux, demuxId));
 
     if (descrambling.hasFrontendConnection) {
@@ -689,10 +815,16 @@ TEST_P(TunerDescramblerHidlTest, ScrambledBroadcastDataFlowMediaFiltersTest) {
         return;
     }
     set<FilterConfig> filterConfs;
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     filterConfs.insert(static_cast<FilterConfig>(filterMap[descrambling.audioFilterId]));
     filterConfs.insert(static_cast<FilterConfig>(filterMap[descrambling.videoFilterId]));
     scrambledBroadcastTest(filterConfs, frontendMap[descrambling.frontendId],
                            descramblerMap[descrambling.descramblerId]);
+=======
+    filterConfs.insert(filterArray[TS_AUDIO0]);
+    filterConfs.insert(filterArray[TS_VIDEO1]);
+    scrambledBroadcastTest(filterConfs, frontendArray[defaultFrontend], descramblerArray[DESC_0]);
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 }
 
 INSTANTIATE_TEST_SUITE_P(

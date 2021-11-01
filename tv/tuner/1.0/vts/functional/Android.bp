@@ -65,6 +65,10 @@ cc_test {
         ":tuner_frontend_input_es",
         ":tuner_testing_dynamic_configuration_V1_0",
     ],
+    data: [
+        ":tuner_frontend_input_ts",
+        ":tuner_frontend_input_es",
+    ],
     test_suites: [
         "general-tests",
         "vts",

@@ -36,6 +36,11 @@ using android::hardware::tv::tuner::V1_0::FrontendType;
 using namespace std;
 using namespace android::media::tuner::testing::configuration::V1_0;
 
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
+=======
+const uint32_t FMQ_SIZE_512K = 0x80000;
+const uint32_t FMQ_SIZE_1M = 0x100000;
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 const uint32_t FMQ_SIZE_4M = 0x400000;
 const uint32_t FMQ_SIZE_16M = 0x1000000;
 
@@ -62,7 +67,109 @@ static LnbLiveHardwareConnections lnbLive;
 static LnbRecordHardwareConnections lnbRecord;
 static TimeFilterHardwareConnections timeFilter;
 
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
 /** Config all the frontends that would be used in the tests */
+=======
+typedef enum {
+    DVBT,
+    DVBS,
+    FRONTEND_MAX,
+} Frontend;
+
+typedef enum {
+    LNB0,
+    LNB_EXTERNAL,
+    LNB_MAX,
+} Lnb;
+
+typedef enum {
+    DISEQC_POWER_ON,
+    DISEQC_MAX,
+} Diseqc;
+
+typedef enum {
+    SCAN_DVBT,
+    SCAN_MAX,
+} FrontendScan;
+
+typedef enum {
+    DVR_RECORD0,
+    DVR_PLAYBACK0,
+    DVR_SOFTWARE_FE,
+    DVR_MAX,
+} Dvr;
+
+typedef enum {
+    DESC_0,
+    DESC_MAX,
+} Descrambler;
+
+struct FilterConfig {
+    uint32_t bufferSize;
+    DemuxFilterType type;
+    DemuxFilterSettings settings;
+    bool getMqDesc;
+
+    bool operator<(const FilterConfig& /*c*/) const { return false; }
+};
+
+struct TimeFilterConfig {
+    uint64_t timeStamp;
+};
+
+struct FrontendConfig {
+    bool enable;
+    bool isSoftwareFe;
+    FrontendType type;
+    FrontendSettings settings;
+    vector<FrontendStatusType> tuneStatusTypes;
+    vector<FrontendStatus> expectTuneStatuses;
+};
+
+struct LnbConfig {
+    string name;
+    LnbVoltage voltage;
+    LnbTone tone;
+    LnbPosition position;
+};
+
+struct ChannelConfig {
+    int32_t frontendId;
+    int32_t channelId;
+    std::string channelName;
+    DemuxTpid videoPid;
+    DemuxTpid audioPid;
+};
+
+struct DvrConfig {
+    DvrType type;
+    uint32_t bufferSize;
+    DvrSettings settings;
+    string playbackInputFile;
+};
+
+struct DescramblerConfig {
+    uint32_t casSystemId;
+    string provisionStr;
+    vector<uint8_t> hidlPvtData;
+};
+
+static FrontendConfig frontendArray[FILTER_MAX];
+static FrontendConfig frontendScanArray[SCAN_MAX];
+static LnbConfig lnbArray[LNB_MAX];
+static vector<uint8_t> diseqcMsgArray[DISEQC_MAX];
+static ChannelConfig channelArray[FRONTEND_MAX];
+static FilterConfig filterArray[FILTER_MAX];
+static TimeFilterConfig timeFilterArray[TIMER_MAX];
+static DemuxFilterType filterLinkageTypes[LINKAGE_DIR][FILTER_MAIN_TYPE_BIT_COUNT];
+static DvrConfig dvrArray[DVR_MAX];
+static DescramblerConfig descramblerArray[DESC_MAX];
+static vector<string> goldenOutputFiles;
+static int defaultFrontend = DVBT;
+static int defaultScanFrontend = SCAN_DVBT;
+
+/** Configuration array for the frontend tune test */
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 inline void initFrontendConfig() {
     // The test will use the internal default fe when default fe is connected to any data flow
     // without overriding in the xml config.
@@ -82,19 +189,124 @@ inline void initFrontendConfig() {
     status.isDemodLocked(true);
     vector<FrontendStatus> statuses;
     statuses.push_back(status);
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     frontendMap[defaultFeId].tuneStatusTypes = types;
     frontendMap[defaultFeId].expectTuneStatuses = statuses;
     frontendMap[defaultFeId].isSoftwareFe = true;
 
     // Read customized config
     TunerTestingConfigReader1_0::readFrontendConfig1_0(frontendMap);
+=======
+    frontendArray[DVBT].tuneStatusTypes = types;
+    frontendArray[DVBT].expectTuneStatuses = statuses;
+    frontendArray[DVBT].isSoftwareFe = true;
+    frontendArray[DVBT].enable = true;
+    frontendArray[DVBS].type = FrontendType::DVBS;
+    frontendArray[DVBS].enable = false;
+    frontendArray[DVBS].isSoftwareFe = true;
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 };
 
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
+=======
+/** Configuration array for the frontend scan test */
+inline void initFrontendScanConfig() {
+    frontendScanArray[SCAN_DVBT].type = FrontendType::DVBT;
+    frontendScanArray[SCAN_DVBT].settings.dvbt({
+            .frequency = 578000,
+            .transmissionMode = FrontendDvbtTransmissionMode::MODE_8K,
+            .bandwidth = FrontendDvbtBandwidth::BANDWIDTH_8MHZ,
+            .constellation = FrontendDvbtConstellation::AUTO,
+            .hierarchy = FrontendDvbtHierarchy::AUTO,
+            .hpCoderate = FrontendDvbtCoderate::AUTO,
+            .lpCoderate = FrontendDvbtCoderate::AUTO,
+            .guardInterval = FrontendDvbtGuardInterval::AUTO,
+            .isHighPriority = true,
+            .standard = FrontendDvbtStandard::T,
+    });
+};
+
+/** Configuration array for the Lnb test */
+inline void initLnbConfig() {
+    lnbArray[LNB0].voltage = LnbVoltage::VOLTAGE_12V;
+    lnbArray[LNB0].tone = LnbTone::NONE;
+    lnbArray[LNB0].position = LnbPosition::UNDEFINED;
+    lnbArray[LNB_EXTERNAL].name = "default_lnb_external";
+    lnbArray[LNB_EXTERNAL].voltage = LnbVoltage::VOLTAGE_5V;
+    lnbArray[LNB_EXTERNAL].tone = LnbTone::NONE;
+    lnbArray[LNB_EXTERNAL].position = LnbPosition::UNDEFINED;
+};
+
+/** Diseqc messages array for the Lnb test */
+inline void initDiseqcMsg() {
+    diseqcMsgArray[DISEQC_POWER_ON] = {0xE, 0x0, 0x0, 0x0, 0x0, 0x3};
+};
+
+/** Configuration array for the filter test */
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 inline void initFilterConfig() {
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
     // The test will use the internal default filter when default filter is connected to any
     // data flow without overriding in the xml config.
     string defaultAudioFilterId = "FILTER_AUDIO_DEFAULT";
     string defaultVideoFilterId = "FILTER_VIDEO_DEFAULT";
+=======
+    // TS VIDEO filter setting for default implementation testing
+    filterArray[TS_VIDEO0].type.mainType = DemuxFilterMainType::TS;
+    filterArray[TS_VIDEO0].type.subType.tsFilterType(DemuxTsFilterType::VIDEO);
+    filterArray[TS_VIDEO0].bufferSize = FMQ_SIZE_16M;
+    filterArray[TS_VIDEO0].settings.ts().tpid = 256;
+    filterArray[TS_VIDEO0].settings.ts().filterSettings.av({.isPassthrough = false});
+    filterArray[TS_VIDEO1].type.mainType = DemuxFilterMainType::TS;
+    filterArray[TS_VIDEO1].type.subType.tsFilterType(DemuxTsFilterType::VIDEO);
+    filterArray[TS_VIDEO1].bufferSize = FMQ_SIZE_16M;
+    filterArray[TS_VIDEO1].settings.ts().tpid = 256;
+    filterArray[TS_VIDEO1].settings.ts().filterSettings.av({.isPassthrough = false});
+    // TS AUDIO filter setting
+    filterArray[TS_AUDIO0].type.mainType = DemuxFilterMainType::TS;
+    filterArray[TS_AUDIO0].type.subType.tsFilterType(DemuxTsFilterType::AUDIO);
+    filterArray[TS_AUDIO0].bufferSize = FMQ_SIZE_16M;
+    filterArray[TS_AUDIO0].settings.ts().tpid = 256;
+    filterArray[TS_AUDIO0].settings.ts().filterSettings.av({.isPassthrough = false});
+    // TS PES filter setting
+    filterArray[TS_PES0].type.mainType = DemuxFilterMainType::TS;
+    filterArray[TS_PES0].type.subType.tsFilterType(DemuxTsFilterType::PES);
+    filterArray[TS_PES0].bufferSize = FMQ_SIZE_16M;
+    filterArray[TS_PES0].settings.ts().tpid = 256;
+    filterArray[TS_PES0].settings.ts().filterSettings.pesData({
+            .isRaw = false,
+            .streamId = 0xbd,
+    });
+    filterArray[TS_PES0].getMqDesc = true;
+    // TS PCR filter setting
+    filterArray[TS_PCR0].type.mainType = DemuxFilterMainType::TS;
+    filterArray[TS_PCR0].type.subType.tsFilterType(DemuxTsFilterType::PCR);
+    filterArray[TS_PCR0].bufferSize = FMQ_SIZE_16M;
+    filterArray[TS_PCR0].settings.ts().tpid = 256;
+    filterArray[TS_PCR0].settings.ts().filterSettings.noinit();
+    // TS filter setting
+    filterArray[TS_TS0].type.mainType = DemuxFilterMainType::TS;
+    filterArray[TS_TS0].type.subType.tsFilterType(DemuxTsFilterType::TS);
+    filterArray[TS_TS0].bufferSize = FMQ_SIZE_16M;
+    filterArray[TS_TS0].settings.ts().tpid = 256;
+    filterArray[TS_TS0].settings.ts().filterSettings.noinit();
+    // TS SECTION filter setting
+    filterArray[TS_SECTION0].type.mainType = DemuxFilterMainType::TS;
+    filterArray[TS_SECTION0].type.subType.tsFilterType(DemuxTsFilterType::SECTION);
+    filterArray[TS_SECTION0].bufferSize = FMQ_SIZE_16M;
+    filterArray[TS_SECTION0].settings.ts().tpid = 256;
+    filterArray[TS_SECTION0].settings.ts().filterSettings.section({
+            .isRaw = false,
+    });
+    filterArray[TS_SECTION0].getMqDesc = true;
+    // TS RECORD filter setting
+    filterArray[TS_RECORD0].type.mainType = DemuxFilterMainType::TS;
+    filterArray[TS_RECORD0].type.subType.tsFilterType(DemuxTsFilterType::RECORD);
+    filterArray[TS_RECORD0].settings.ts().tpid = 81;
+    filterArray[TS_RECORD0].settings.ts().filterSettings.record({
+            .scIndexType = DemuxRecordScIndexType::NONE,
+    });
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 
     filterMap[defaultVideoFilterId].type.mainType = DemuxFilterMainType::TS;
     filterMap[defaultVideoFilterId].type.subType.tsFilterType(DemuxTsFilterType::VIDEO);
@@ -112,7 +324,16 @@ inline void initFilterConfig() {
     TunerTestingConfigReader1_0::readFilterConfig1_0(filterMap);
 };
 
+<<<<<<< TARGET BRANCH (f5aab3 Fix DabTune VTS failure of BroadcastRadio v2.0 am: 85c1b4a26)
 /** Config all the dvrs that would be used in the tests */
+=======
+/** Configuration array for the timer filter test */
+inline void initTimeFilterConfig() {
+    timeFilterArray[TIMER0].timeStamp = 1;
+}
+
+/** Configuration array for the dvr test */
+>>>>>>> SOURCE BRANCH (708a5b Merge "Backporting Tuner VTS 1.0 test assets pusher and test)
 inline void initDvrConfig() {
     // Read customized config
     TunerTestingConfigReader1_0::readDvrConfig1_0(dvrMap);
