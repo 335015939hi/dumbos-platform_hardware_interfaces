@@ -71,15 +71,24 @@ class VtsDisplay {
 
     IComposerClient::Rect getFrameRect() const { return {0, 0, mDisplayWidth, mDisplayHeight}; }
 
+<<<<<<< HEAD   (95fee1 [automerger skipped] Don't assert while a callback is regist)
     void setDimensions(int32_t displayWidth, int32_t displayHeight) {
+=======
+    void setDimensions(int32_t displayWidth, int32_t displayHeight) const {
+>>>>>>> BRANCH (4a6548 composer: update VtsDisplay dimensions)
         mDisplayWidth = displayWidth;
         mDisplayHeight = displayHeight;
     }
 
   private:
     const Display mDisplay;
+<<<<<<< HEAD   (95fee1 [automerger skipped] Don't assert while a callback is regist)
     int32_t mDisplayWidth;
     int32_t mDisplayHeight;
+=======
+    mutable int32_t mDisplayWidth;
+    mutable int32_t mDisplayHeight;
+>>>>>>> BRANCH (4a6548 composer: update VtsDisplay dimensions)
 };
 
 class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
@@ -198,6 +207,7 @@ class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
                                        const ContentType& contentType, const char* contentTypeStr);
 
     Error setActiveConfigWithConstraints(
+<<<<<<< HEAD   (95fee1 [automerger skipped] Don't assert while a callback is regist)
             VtsDisplay& display, Config config,
             const IComposerClient::VsyncPeriodChangeConstraints& constraints,
             VsyncPeriodChangeTimeline* timeline) {
@@ -214,6 +224,24 @@ class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
     }
 
     void setActiveConfig(VtsDisplay& display, Config config) {
+=======
+            const VtsDisplay& display, Config config,
+            const IComposerClient::VsyncPeriodChangeConstraints& constraints,
+            VsyncPeriodChangeTimeline* timeline) {
+        const auto error = mComposerClient->setActiveConfigWithConstraints(display.get(), config,
+                                                                           constraints, timeline);
+        if (error == Error::NONE) {
+            const int32_t displayWidth = mComposerClient->getDisplayAttribute_2_4(
+                    display.get(), config, IComposerClient::Attribute::WIDTH);
+            const int32_t displayHeight = mComposerClient->getDisplayAttribute_2_4(
+                    display.get(), config, IComposerClient::Attribute::HEIGHT);
+            display.setDimensions(displayWidth, displayHeight);
+        }
+        return error;
+    }
+
+    void setActiveConfig(const VtsDisplay& display, Config config) {
+>>>>>>> BRANCH (4a6548 composer: update VtsDisplay dimensions)
         mComposerClient->setActiveConfig(display.get(), config);
         const int32_t displayWidth = mComposerClient->getDisplayAttribute_2_4(
                 display.get(), config, IComposerClient::Attribute::WIDTH);
@@ -470,6 +498,7 @@ void GraphicsComposerHidlTest::sendRefreshFrame(const VtsDisplay& display,
         ASSERT_EQ(0, mReader->mErrors.size());
     }
 
+<<<<<<< HEAD   (95fee1 [automerger skipped] Don't assert while a callback is regist)
     {
         auto handle = allocate(displayWidth, displayHeight);
         ASSERT_NE(nullptr, handle.get());
@@ -485,6 +514,10 @@ void GraphicsComposerHidlTest::sendRefreshFrame(const VtsDisplay& display,
         mWriter->presentDisplay();
         execute();
     }
+=======
+    mWriter->presentDisplay();
+    execute();
+>>>>>>> BRANCH (4a6548 composer: update VtsDisplay dimensions)
 
     ASSERT_NO_FATAL_FAILURE(mComposerClient->destroyLayer(display.get(), layer));
 }
