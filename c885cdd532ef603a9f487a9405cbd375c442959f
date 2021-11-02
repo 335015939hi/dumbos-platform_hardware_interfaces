@@ -22,6 +22,30 @@
       },
       "revId": "c885cdd532ef603a9f487a9405cbd375c442959f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78d87b7a_11250685",
+        "filename": "health/aidl/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-11-02T01:24:05Z",
+      "side": 1,
+      "message": "This is for recovery mode. The recovery version of the service does NOT link to any of the charger stuff, so ChargerModeMain isn\u0027t available.",
+      "parentUuid": "803951ab_704657f2",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 24
+      },
+      "revId": "c885cdd532ef603a9f487a9405cbd375c442959f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
