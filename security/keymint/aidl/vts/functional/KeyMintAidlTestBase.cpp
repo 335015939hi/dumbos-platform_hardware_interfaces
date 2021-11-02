@@ -129,7 +129,13 @@ ASN1_OCTET_STRING* get_attestation_record(X509* certificate) {
 
 bool avb_verification_enabled() {
     char value[PROPERTY_VALUE_MAX];
-    return property_get("ro.boot.vbmeta.device_state", value, "") != 0;
+    if (property_get("ro.boot.vbmeta.device_state", value, "") == 0) {
+        return false;
+    }
+    if (strcmp(value, "unlocked") == 0) {
+        return false;
+    }
+    return true;
 }
 
 char nibble2hex[16] = {'0', '1', '2', '3', '4', '5', '6', '7',
