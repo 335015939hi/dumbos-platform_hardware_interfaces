@@ -1,0 +1,28 @@
+{
+  "presubmit": [
+    {
+      "name": "VtsAidlKeyMintTargetTest",
+      "options": [
+        {
+          "include-annotation": "android.platform.test.annotations.RequiresDevice"
+        }
+      ]
+    },
+    {
+      "name": "VtsHalRemotelyProvisionedComponentTargetTest",
+      "options": [
+        {
+          "include-annotation": "android.platform.test.annotations.RequiresDevice"
+        }
+      ]
+    }
+  ],
+  "postsubmit": [
+    {
+      "name": "VtsAidlKeyMintTargetTest"
+    },
+    {
+      "name": "VtsHalRemotelyProvisionedComponentTargetTest"
+    }
+  ]
+}
