@@ -129,4 +129,9 @@ TEST_P(GeneratorsTest, ValidateConfigs) {
 
 // Target file names are the same for all versions, see 'HalAudioVx_0GeneratorTest.xml' test configs
 INSTANTIATE_TEST_SUITE_P(Generators, GeneratorsTest,
-                         ::testing::Values("apm_config_no_vx.xml", "apm_config_with_vx.xml"));
+                         ::testing::Values("apm_config_no_vx.xml", "apm_config_with_vx.xml"
+#if MAJOR_VERSION == 7
+                                           ,
+                                           "apm_config_b_204314749_7_0.xml"
+#endif
+                                           ));
