@@ -267,6 +267,15 @@ oneway interface IRadioVoice {
     void hangupWaitingOrBackground(in int serial);
 
     /**
+     * Query current Voice NR capability state
+     *
+     * @param serial Serial number of request.
+     *
+     * Response function is IRadioVoiceResponse.isVoNREnabledResponse()
+     */
+    void isVoNREnabled(in int serial);
+
+    /**
      * Send UDUB (user determined user busy) to ringing or waiting call answer)
      *
      * @param serial Serial number of request.
@@ -402,6 +411,16 @@ oneway interface IRadioVoice {
      * Response function is IRadioVoiceResponse.setTtyModeResponse()
      */
     void setTtyMode(in int serial, in TtyMode mode);
+
+    /**
+     * Set Voice NR capability
+     *
+     * @param serial Serial number of request.
+     * @param enable true for "enable vonr" and false for "disable vonr"
+     *
+     * Response function is IRadioVoiceResponse.setVoNREnabledResponse()
+     */
+    void setVoNREnabled(in int serial, in boolean isEnabled);
 
     /**
      * Start playing a DTMF tone. Continue playing DTMF tone until stopDtmf is received. If a
