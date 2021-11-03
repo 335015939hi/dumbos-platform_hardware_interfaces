@@ -34,6 +34,24 @@
       "parentUuid": "803e48b2_95f6b5a2",
       "revId": "73086af30d2a97ac55daf48bdf0f32ca6f09b2e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a263f4c_987b5998",
+        "filename": "bluetooth/audio/2.0/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-11-03T18:18:49Z",
+      "side": 1,
+      "message": "Just realized there is a parent OWNERS file: hardware/interfaces/bluetooth/audio/2.0/vts/OWNERS. I should reuse it.",
+      "parentUuid": "58a37c8b_e4ceba73",
+      "revId": "73086af30d2a97ac55daf48bdf0f32ca6f09b2e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
