@@ -16,6 +16,23 @@
       "message": "Verified strongbox implementation.",
       "revId": "b3b121493d2d8211ffa8765268395bed3473ae88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b286b0cd_da8a193a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-03T13:33:22Z",
+      "side": 1,
+      "message": "Similar to your aosp/1814097",
+      "revId": "b3b121493d2d8211ffa8765268395bed3473ae88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
