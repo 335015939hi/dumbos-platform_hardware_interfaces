@@ -33,6 +33,23 @@
       "message": "Similar to your aosp/1814097",
       "revId": "b3b121493d2d8211ffa8765268395bed3473ae88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a77ec300_ca42e830",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-03T17:53:47Z",
+      "side": 1,
+      "message": "I confess I\u0027m surprised by the earlier +2 from Treehugger on this CL -- I would have expected that devices with Trusty KeyMint in them would fail the tests due to incorrect certificates, because aosp/1876198 is not yet included.",
+      "revId": "b3b121493d2d8211ffa8765268395bed3473ae88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
