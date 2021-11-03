@@ -133,6 +133,30 @@
       },
       "revId": "16976180f309284b5b8d91f6c9a6b730ff567a0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5666d56d_30f14158",
+        "filename": "thermal/1.1/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-11-03T18:34:49Z",
+      "side": 1,
+      "message": "Any progress on creating a non-Pixel-specific component?",
+      "parentUuid": "4d425454_87d64517",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "16976180f309284b5b8d91f6c9a6b730ff567a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
