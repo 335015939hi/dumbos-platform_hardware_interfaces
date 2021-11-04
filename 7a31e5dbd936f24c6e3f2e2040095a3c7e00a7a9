@@ -52,6 +52,24 @@
       "parentUuid": "eb2fe1fd_40abe7fd",
       "revId": "7a31e5dbd936f24c6e3f2e2040095a3c7e00a7a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "010d2f19_3cab0e47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359095
+      },
+      "writtenOn": "2021-11-04T21:48:50Z",
+      "side": 1,
+      "message": "That\u0027s all in the plan. It doesn\u0027t make sense to make this an official policy yet. After I get the stuff I am working on finished, it will start to make sense to change policy.\n\nAt that point, we will implement some sort of presubmit, and then I can stop running the LSC.\n\nWhile running the LSC is a little bit of toil, it only takes up about a half-day a week at this point, and if I needed to, I could make that fortnightly easily enough.",
+      "parentUuid": "9fc2668d_32acee57",
+      "revId": "7a31e5dbd936f24c6e3f2e2040095a3c7e00a7a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
