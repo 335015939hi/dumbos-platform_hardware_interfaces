@@ -51,6 +51,8 @@ nn::GeneralResult<nn::Version> getAidlServiceFeatureLevel(IDevice* service) {
             return nn::Version::ANDROID_S;
         case 2:
             return nn::Version::FEATURE_LEVEL_6;
+        case 3:
+            return nn::Version::FEATURE_LEVEL_7;
     }
     return NN_ERROR() << "Unknown AIDL service version: " << aidlVersion;
 }
