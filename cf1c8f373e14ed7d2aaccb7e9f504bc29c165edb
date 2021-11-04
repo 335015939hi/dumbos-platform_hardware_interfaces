@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cf93668_6f4aa0ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-11-04T10:54:46Z",
+      "side": 1,
+      "message": "Can we include the freeze command in the commit message?",
+      "revId": "cf1c8f373e14ed7d2aaccb7e9f504bc29c165edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88f3223a_b60b52b4",
+        "filename": "neuralnetworks/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-11-04T10:54:46Z",
+      "side": 1,
+      "message": "Can we somehow get the diff between v1 and v2 so that we know what changed between versions? This could also apply to future version freeze. Maybe we can write a simple script to achieve this.",
+      "range": {
+        "startLine": 39,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "cf1c8f373e14ed7d2aaccb7e9f504bc29c165edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
