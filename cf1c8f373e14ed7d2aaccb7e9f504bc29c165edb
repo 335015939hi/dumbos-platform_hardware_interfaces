@@ -39,6 +39,30 @@
       },
       "revId": "cf1c8f373e14ed7d2aaccb7e9f504bc29c165edb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "787d90fc_7ea12b1f",
+        "filename": "neuralnetworks/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-11-04T15:40:03Z",
+      "side": 1,
+      "message": "You can diff them using the frozen aidl_api directories.\n```\n\u003cdiff tool\u003e neuralnetworks/aidl/aidl_api/android.hardware.neuralnetworks/1 neuralnetworks/aidl/aidl_api/android.hardware.neuralnetworks/2\n```\n\nNot sure what the best way would be to surface that in a review for reviewers.\nhttps://paste.googleplex.com/create/ if every one is ok with text diffs.",
+      "parentUuid": "88f3223a_b60b52b4",
+      "range": {
+        "startLine": 39,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "cf1c8f373e14ed7d2aaccb7e9f504bc29c165edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
