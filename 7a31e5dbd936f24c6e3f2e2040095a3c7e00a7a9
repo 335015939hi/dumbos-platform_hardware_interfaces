@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe7be09f_2a223d9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-04T19:44:39Z",
+      "side": 1,
+      "message": "Hi, is there anyway we can have a single \u0027package\u0027 entry with a license for all of hardware/interfaces? It should all be Apache 2.0 (right?). Do we need an entry in every build file?",
+      "revId": "7a31e5dbd936f24c6e3f2e2040095a3c7e00a7a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
