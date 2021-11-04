@@ -34,6 +34,24 @@
       "parentUuid": "fe7be09f_2a223d9f",
       "revId": "7a31e5dbd936f24c6e3f2e2040095a3c7e00a7a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fc2668d_32acee57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-04T21:42:26Z",
+      "side": 1,
+      "message": "Can we get a build-related warning or a pre-upload hint that warns against missing these in new Android.bp files? This seems like a lot of work for you.\n\nAlternatively, would it be possible to have a separate declaration that considers a BUILD file to be in the same package as the parent build file (or maybe even FR this in blaze/bazel).",
+      "parentUuid": "eb2fe1fd_40abe7fd",
+      "revId": "7a31e5dbd936f24c6e3f2e2040095a3c7e00a7a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
