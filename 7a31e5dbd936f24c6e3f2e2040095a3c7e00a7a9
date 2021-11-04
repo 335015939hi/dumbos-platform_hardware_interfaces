@@ -16,6 +16,24 @@
       "message": "Hi, is there anyway we can have a single \u0027package\u0027 entry with a license for all of hardware/interfaces? It should all be Apache 2.0 (right?). Do we need an entry in every build file?",
       "revId": "7a31e5dbd936f24c6e3f2e2040095a3c7e00a7a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb2fe1fd_40abe7fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1359095
+      },
+      "writtenOn": "2021-11-04T20:12:37Z",
+      "side": 1,
+      "message": "TL/DR; no\n\nThe license/license_kind feature was added to Soong with similar semantics and scope as bazel/blaze. In bazel/blaze, the existence of a BUILD file in a subdirectory defines an independent package carved out of the parent.",
+      "parentUuid": "fe7be09f_2a223d9f",
+      "revId": "7a31e5dbd936f24c6e3f2e2040095a3c7e00a7a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
