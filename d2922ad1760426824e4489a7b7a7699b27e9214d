@@ -69,6 +69,29 @@
       "parentUuid": "0a76539f_e779ddb3",
       "revId": "d2922ad1760426824e4489a7b7a7699b27e9214d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e065285_a573c744",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1723,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-11-04T09:34:00Z",
+      "side": 1,
+      "message": "To fullfil this criteria, you\u0027ll need to add `Authorization(TAG_CREATION_DATETIME)` to all the items in  DeviceUniqueAttestationTest as well, or those tests will fail with the same reason.",
+      "range": {
+        "startLine": 1722,
+        "startChar": 0,
+        "endLine": 1723,
+        "endChar": 46
+      },
+      "revId": "d2922ad1760426824e4489a7b7a7699b27e9214d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
