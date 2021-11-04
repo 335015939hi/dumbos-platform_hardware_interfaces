@@ -92,6 +92,30 @@
       },
       "revId": "d2922ad1760426824e4489a7b7a7699b27e9214d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92574e15_cb17e465",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1723,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-04T14:46:37Z",
+      "side": 1,
+      "message": "Thanks for spotting, done",
+      "parentUuid": "0e065285_a573c744",
+      "range": {
+        "startLine": 1722,
+        "startChar": 0,
+        "endLine": 1723,
+        "endChar": 46
+      },
+      "revId": "d2922ad1760426824e4489a7b7a7699b27e9214d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
