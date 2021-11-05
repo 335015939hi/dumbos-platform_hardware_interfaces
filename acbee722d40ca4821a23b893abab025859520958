@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "372c581f_bd0ba430",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-11-05T16:52:08Z",
+      "side": 1,
+      "message": "This seems easy for implementations to miss, these cases should be tested in VTS/CTS? I didn\u0027t find STATUS_FAILED with a quick look in the CTS CL in this topic.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 38
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
