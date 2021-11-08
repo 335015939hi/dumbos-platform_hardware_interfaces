@@ -81,6 +81,30 @@
       },
       "revId": "cf1c8f373e14ed7d2aaccb7e9f504bc29c165edb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd194586_c6817e3d",
+        "filename": "neuralnetworks/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-11-08T13:39:20Z",
+      "side": 1,
+      "message": "Thanks Devin.\n\nDavid - can you give a try with some tool like \u0027diff\u0027?",
+      "parentUuid": "787d90fc_7ea12b1f",
+      "range": {
+        "startLine": 39,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "cf1c8f373e14ed7d2aaccb7e9f504bc29c165edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
