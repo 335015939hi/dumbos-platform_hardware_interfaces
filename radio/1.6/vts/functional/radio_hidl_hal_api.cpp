@@ -627,7 +627,17 @@ TEST_P(RadioHidlTest_v1_6, setSimCardPower_1_6) {
     // setSimCardPower_1_6 does not return  until the request is handled. Just verify that we still
     // have CardState::PRESENT after turning the power back on
     if (radioRsp_v1_6->rspInfo.error == ::android::hardware::radio::V1_6::RadioError::NONE) {
+        /* Wait some time for resetting back to sim power on and then verify it */
         updateSimCardStatus();
+        auto startTime = std::chrono::system_clock::now();
+        while (cardStatus.base.base.base.cardState != CardState::PRESENT &&
+               std::chrono::duration_cast<chrono::seconds>(std::chrono::system_clock::now() -
+                                                           startTime)
+                        .count() < 80) {
+            /* Set 2 seconds as interval to check card status */
+            sleep(2);
+            updateSimCardStatus();
+        }
         EXPECT_EQ(CardState::PRESENT, cardStatus.base.base.base.cardState);
     }
 }
