@@ -498,11 +498,6 @@ TEST_P(EvsHidlTest, CameraStreamPerformance) {
                   << std::scientific << timeToFirstFrame * kNanoToMilliseconds
                   << " ms.";
 
-        // Check aspect ratio
-        unsigned width = 0, height = 0;
-        frameHandler->getFrameDimension(&width, &height);
-        EXPECT_GE(width, height);
-
         // Wait a bit, then ensure we get at least the required minimum number of frames
         sleep(5);
         nsecs_t end = systemTime(SYSTEM_TIME_MONOTONIC);
