@@ -22,6 +22,30 @@
       },
       "revId": "a8f55cacaa2b5e7338b3a16d578e4cba111a0a40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a5ef881_519be4a8",
+        "filename": "health/aidl/default/ChargerUtils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-11-08T20:33:36Z",
+      "side": 1,
+      "message": "Ack\n\nThis follows the same guideline in L29. If it can\u0027t lock, the resources are freed in the incorrect order.\n\nHowever, rather than crashing and breaking charger, I think it makes sense to just ignore the error and tries to proceed. After all, this is not a fatal error. Even if we don\u0027t call service_-\u003eOnInit() (which initializes the config to the proper paths), BatteryMonitor stills tries to use some defaults, which also probably works.",
+      "parentUuid": "a7513d65_38becbe2",
+      "range": {
+        "startLine": 38,
+        "startChar": 8,
+        "endLine": 38,
+        "endChar": 14
+      },
+      "revId": "a8f55cacaa2b5e7338b3a16d578e4cba111a0a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
