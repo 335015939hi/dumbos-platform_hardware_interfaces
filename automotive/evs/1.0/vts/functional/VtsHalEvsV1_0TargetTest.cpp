@@ -364,7 +364,11 @@ TEST_P(EvsHidlTest, CameraStreamPerformance) {
 TEST_P(EvsHidlTest, CameraStreamBuffering) {
     ALOGI("Starting CameraStreamBuffering test");
 
+<<<<<<< HEAD   (d2ab30 Audio: add system usage to audio policy engine schemas)
     // Arbitrary constant (should be > 1 and not too big)
+=======
+    // Arbitrary constant (should be > 1 and less than crazy)
+>>>>>>> CHANGE (7bc98c Update VtsHalEvsV1_*TargetTest)
     static const unsigned int kBuffersToHold = 2;
 
     // Get the camera list
