@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0069c000_7820549c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AacVariableBitRate.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "Same with the other reply.",
+      "parentUuid": "be025218_f32598bd",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2cedfe6_710701ba",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AacVariableBitRate.aidl",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2021-10-21T18:18:14Z",
       "side": 1,
       "message": "though, I\u0027m curious, do you know why this is 0x80? Is that value important?",
+      "range": {
+        "startLine": 22,
+        "startChar": 14,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd92403c_bbf9e16b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AacVariableBitRate.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "Same with the other reply.",
+      "parentUuid": "f2cedfe6_710701ba",
       "range": {
         "startLine": 22,
         "startChar": 14,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d49556b_54cfb3c0",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/BitsPerSample.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "Same with the other reply.",
+      "parentUuid": "e02ef082_57e8de43",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 1
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "589ef831_4c0dadc5",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Capabilities.aidl",
         "patchSetId": 3
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8d922ba_1ed62921",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Capabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "It is the union member inside the AudioCapabilities to bring the capabilities with different codecType. It would be more clear with the nested type. :)",
+      "parentUuid": "589ef831_4c0dadc5",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e97fb734_371783e3",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
         "patchSetId": 3
@@ -123,6 +219,30 @@
       "writtenOn": "2021-10-21T18:18:14Z",
       "side": 1,
       "message": "nit: btw - this conversion must have just missed it, but nested types are supported now:\nhttps://android-review.googlesource.com/c/platform/system/tools/hidl/+/1859454\n\nYou could define \u0027capabilities\u0027 here if it is only used in this one place (or use it elsewhere, if you want to!)",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56ad7413_3f22626a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "Great. Thanks. I used the latest hidl2aidl tool to do the conversion again.",
+      "parentUuid": "e97fb734_371783e3",
       "range": {
         "startLine": 29,
         "startChar": 4,
@@ -158,6 +278,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8add7dd3_055a44ad",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "I\u0027m not sure if I fully understand the build-in status meaning. Does it mean the interface doesn\u0027t need to return any status code and it could be handled in the implementation?",
+      "parentUuid": "0a543821_94842643",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 10
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1edf041c_f0ddc6e4",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvidersFactory.aidl",
         "patchSetId": 3
@@ -169,6 +313,30 @@
       "writtenOn": "2021-10-21T18:18:14Z",
       "side": 1,
       "message": "nit: s/s//",
+      "range": {
+        "startLine": 36,
+        "startChar": 33,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4fdac05_69e60027",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvidersFactory.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "Do you mean the \"s\" should be removed?",
+      "parentUuid": "1edf041c_f0ddc6e4",
       "range": {
         "startLine": 36,
         "startChar": 33,
@@ -204,6 +372,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eee4116e_95d0fbf7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Lc3FrameDuration.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "Same with the other reply.",
+      "parentUuid": "d4863881_b9d391a8",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f83b2462_ff980ee3",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/PresentationPosition.aidl",
         "patchSetId": 3
@@ -215,6 +407,30 @@
       "writtenOn": "2021-10-21T18:18:14Z",
       "side": 1,
       "message": "same with this, could we use a service-specific exception instead?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "486d8ae8_0947ecb4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/PresentationPosition.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "Same with the other reply.",
+      "parentUuid": "f83b2462_ff980ee3",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -267,6 +483,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d01ec1ee_458ec785",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SbcBlockLength.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "The previous concept may come from the Bluetooth specification bitfield definition. For the interface, we may be able to define our own and consider more about the expandability. I changed most of the type to be the raw data in the next version, but need Cheney\u0027s insight from the a2dp point of view.",
+      "parentUuid": "5d4ccc9d_11b30948",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "64719a5d_23535244",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SbcChannelMode.aidl",
         "patchSetId": 3
@@ -278,6 +518,30 @@
       "writtenOn": "2021-10-21T18:18:14Z",
       "side": 1,
       "message": "there are a couple of enums which include STEREO/DUAL/MONO, would it ever make sense to combine them?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32842bfc_ef7030e7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SbcChannelMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "We can\u0027t combine them. The different modes definition follows the Bluetooth A2DP specification.",
+      "parentUuid": "64719a5d_23535244",
       "range": {
         "startLine": 25,
         "startChar": 0,
@@ -313,6 +577,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "51ebd3c5_bc375110",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SbcNumSubbands.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "Same with the other reply.",
+      "parentUuid": "86017227_e7322df1",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77dcde05_3edac8a7",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SourceMetadata.aidl",
         "patchSetId": 3
@@ -324,6 +612,30 @@
       "writtenOn": "2021-10-21T18:18:14Z",
       "side": 1,
       "message": "nit: this is to avoid the out parameter, right?\n\nConsider:\n\n`PlaybackTrackMetadata[] foo();`",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 35
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3654670f_e6bc9b55",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SourceMetadata.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-08T05:48:12Z",
+      "side": 1,
+      "message": "It will be removed, and import the audio aidl parameter instead.",
+      "parentUuid": "77dcde05_3edac8a7",
       "range": {
         "startLine": 23,
         "startChar": 0,
