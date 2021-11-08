@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7513d65_38becbe2",
+        "filename": "health/aidl/default/ChargerUtils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2021-11-08T02:38:45Z",
+      "side": 1,
+      "message": "nit: Would it be better to return an error here?",
+      "range": {
+        "startLine": 38,
+        "startChar": 8,
+        "endLine": 38,
+        "endChar": 14
+      },
+      "revId": "a8f55cacaa2b5e7338b3a16d578e4cba111a0a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
