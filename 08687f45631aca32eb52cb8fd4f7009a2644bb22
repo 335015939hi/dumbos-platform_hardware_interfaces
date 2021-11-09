@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e750fbc_024533ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2021-11-09T03:06:11Z",
+      "side": 1,
+      "message": "We are working on the fix https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1884529",
+      "revId": "08687f45631aca32eb52cb8fd4f7009a2644bb22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
