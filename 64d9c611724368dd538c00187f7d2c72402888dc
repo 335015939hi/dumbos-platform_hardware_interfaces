@@ -208,6 +208,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1cfa8a75_6c44bc7f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Capabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-09T00:20:51Z",
+      "side": 1,
+      "message": "Nested type is supported now btw (b/182508839)!",
+      "parentUuid": "c8d922ba_1ed62921",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e97fb734_371783e3",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
         "patchSetId": 3
@@ -302,6 +326,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e442db0_a3896bac",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-09T00:20:51Z",
+      "side": 1,
+      "message": "Correct. The status/exception types are implicit. There were a bit more docs related to this updated recently: https://source.android.com/devices/architecture/aidl/aidl-backends#error_handling\n\nDoes that help?",
+      "parentUuid": "8add7dd3_055a44ad",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 10
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1edf041c_f0ddc6e4",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvidersFactory.aidl",
         "patchSetId": 3
@@ -337,6 +385,30 @@
       "side": 1,
       "message": "Do you mean the \"s\" should be removed?",
       "parentUuid": "1edf041c_f0ddc6e4",
+      "range": {
+        "startLine": 36,
+        "startChar": 33,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5093c64c_3600e847",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvidersFactory.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-09T00:20:51Z",
+      "side": 1,
+      "message": "yes - I mean this as the sed regex format",
+      "parentUuid": "e4fdac05_69e60027",
       "range": {
         "startLine": 36,
         "startChar": 33,
