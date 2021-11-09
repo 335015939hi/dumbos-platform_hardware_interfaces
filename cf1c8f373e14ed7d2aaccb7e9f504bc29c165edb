@@ -105,6 +105,30 @@
       },
       "revId": "cf1c8f373e14ed7d2aaccb7e9f504bc29c165edb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "573664b7_4db2a161",
+        "filename": "neuralnetworks/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1789250
+      },
+      "writtenOn": "2021-11-09T19:04:34Z",
+      "side": 1,
+      "message": "$ diff -r aidl/aidl_api/android.hardware.neuralnetworks/1/ aidl/aidl_api/android.hardware.neuralnetworks/2/\n\ndiff \u0027--color\u003dauto\u0027 -r aidl/aidl_api/android.hardware.neuralnetworks/1/android/hardware/neuralnetworks/OperationType.aidl aidl/aidl_api/android.hardware.neuralnetworks/2/android/hardware/neuralnetworks/OperationType.aidl\n138a139,140\n\u003e   BATCH_MATMUL \u003d 102,\n\u003e   PACK \u003d 103,\n\ndiff \u0027--color\u003dauto\u0027 -r aidl/aidl_api/android.hardware.neuralnetworks/1/.hash aidl/aidl_api/android.hardware.neuralnetworks/2/.hash\n1c1\n\u003c ae57b48403df6752d8d8d56d215c3e31db74935d\n---\n\u003e 04c95c94c96062e5faf35c00b4ae0e50a3f11d0d\n\nLooks good to me.",
+      "parentUuid": "cd194586_c6817e3d",
+      "range": {
+        "startLine": 39,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "cf1c8f373e14ed7d2aaccb7e9f504bc29c165edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
