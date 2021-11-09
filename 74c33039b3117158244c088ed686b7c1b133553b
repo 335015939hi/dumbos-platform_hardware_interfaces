@@ -57,6 +57,30 @@
       },
       "revId": "74c33039b3117158244c088ed686b7c1b133553b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6ab795d_3ccf070a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-09T09:54:17Z",
+      "side": 1,
+      "message": "Line 1666 checks that.",
+      "parentUuid": "c747f08d_9732d009",
+      "range": {
+        "startLine": 1674,
+        "startChar": 4,
+        "endLine": 1674,
+        "endChar": 49
+      },
+      "revId": "74c33039b3117158244c088ed686b7c1b133553b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
