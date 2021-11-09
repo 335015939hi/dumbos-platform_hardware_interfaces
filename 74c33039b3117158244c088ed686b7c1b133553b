@@ -36,6 +36,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6796d5b2_219b4704",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-09T12:31:04Z",
+      "side": 1,
+      "message": "\u003e Yes, I\u0027ve some strongbox related changes to fulfill this CL as well.\n\nAre the StrongBox changes in already? (i.e. to confirm: is it OK to submit this CL?)\n\n\u003e Another concern is b/202487002#comment12. Are we able to merged all related CLs to SC?\n\nDoes this extension to the tests make a difference one way or another?  I kind of assumed that a cross-merge to sc-v2-dev would be all or nothing.",
+      "revId": "74c33039b3117158244c088ed686b7c1b133553b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c747f08d_9732d009",
