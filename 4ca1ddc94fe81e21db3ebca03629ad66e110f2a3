@@ -16,6 +16,46 @@
       "message": "for API review",
       "revId": "4ca1ddc94fe81e21db3ebca03629ad66e110f2a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17d0fcf7_752eb892",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-11-09T05:15:45Z",
+      "side": 1,
+      "message": "Nit: seems that each BIS has its codec config, but won\u0027t they share the config like CIS does?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "4ca1ddc94fe81e21db3ebca03629ad66e110f2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9a30852_967e9fcd",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-11-09T05:15:45Z",
+      "side": 1,
+      "message": "Capabilities to indicate whether BIS / CIS are support or not?",
+      "revId": "4ca1ddc94fe81e21db3ebca03629ad66e110f2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
