@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de19f1dd_d72e533c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1282799
+      },
+      "writtenOn": "2021-11-09T03:19:38Z",
+      "side": 1,
+      "message": "corrected the typo",
+      "parentUuid": "22c74c95_f43b9997",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "5788f02c90a8dcc5558dd81f16c90da6294b08be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57363c28_bab428de",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-08T16:33:54Z",
       "side": 1,
       "message": "Should also mention and justify the 80 second timeout. \nThat is a lot of time for a failure. Can it be shortened?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 74
+      },
+      "revId": "5788f02c90a8dcc5558dd81f16c90da6294b08be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7804e13f_151a0657",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1282799
+      },
+      "writtenOn": "2021-11-09T03:19:38Z",
+      "side": 1,
+      "message": "timeout is set to 10s and add sleep(1)",
+      "parentUuid": "57363c28_bab428de",
       "range": {
         "startLine": 13,
         "startChar": 0,
