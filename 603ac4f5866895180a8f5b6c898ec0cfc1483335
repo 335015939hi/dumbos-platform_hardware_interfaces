@@ -16,6 +16,116 @@
       "message": "Hi Steven,\nCould you help me review it first?\nThis is the the first version of NFC HIDL to AIDL.",
       "revId": "603ac4f5866895180a8f5b6c898ec0cfc1483335",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "550d075b_f75a2a17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-09T00:42:05Z",
+      "side": 1,
+      "message": "I\u0027ve assigned Yifan as the ANAPIC contact for NFC - will take a brief look, but please reach out to him for full review.",
+      "parentUuid": "89c90376_f1e68869",
+      "revId": "603ac4f5866895180a8f5b6c898ec0cfc1483335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f2c36be_477265b7",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-09T00:42:05Z",
+      "side": 1,
+      "message": "will there be any plan to remove this? (support for HIDL NFC for launching devices)",
+      "range": {
+        "startLine": 415,
+        "startChar": 31,
+        "endLine": 415,
+        "endChar": 34
+      },
+      "revId": "603ac4f5866895180a8f5b6c898ec0cfc1483335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb3d6ac3_7f3e02c8",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-09T00:42:05Z",
+      "side": 1,
+      "message": "note - AIDL has builtin status, so you should be able to avoid specifying it in the interface. See also:\nhttps://source.android.com/devices/architecture/aidl/aidl-backends#error_handling",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 13
+      },
+      "revId": "603ac4f5866895180a8f5b6c898ec0cfc1483335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98fca04c_c9a0b7d6",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-09T00:42:05Z",
+      "side": 1,
+      "message": "what is the difference between this and regular closing btw?",
+      "range": {
+        "startLine": 49,
+        "startChar": 13,
+        "endLine": 49,
+        "endChar": 27
+      },
+      "revId": "603ac4f5866895180a8f5b6c898ec0cfc1483335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d591de0_9a9b8618",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-09T00:42:05Z",
+      "side": 1,
+      "message": "nit: for future proofing, would it make sense to pass an enumeration here? e.g.\n\nenum CloseType {\n    NORMAL,\n    POWER_OFF,\n};\nvoid close(CloseType type);",
+      "range": {
+        "startLine": 59,
+        "startChar": 14,
+        "endLine": 59,
+        "endChar": 34
+      },
+      "revId": "603ac4f5866895180a8f5b6c898ec0cfc1483335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
