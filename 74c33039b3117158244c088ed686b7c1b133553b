@@ -34,6 +34,29 @@
       "parentUuid": "aa8fba43_7034b383",
       "revId": "74c33039b3117158244c088ed686b7c1b133553b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c747f08d_9732d009",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-11-09T09:31:00Z",
+      "side": 1,
+      "message": "Can do in a follow-up CL, but do we have a check somewhere that this is not empty?",
+      "range": {
+        "startLine": 1674,
+        "startChar": 4,
+        "endLine": 1674,
+        "endChar": 49
+      },
+      "revId": "74c33039b3117158244c088ed686b7c1b133553b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
