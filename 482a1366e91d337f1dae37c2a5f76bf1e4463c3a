@@ -16,6 +16,23 @@
       "message": "A CP from master to CTS development branch for a quarterly release update.",
       "revId": "482a1366e91d337f1dae37c2a5f76bf1e4463c3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb80bb1_090320fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-11-09T18:58:12Z",
+      "side": 1,
+      "message": "Ross, could you please approve.",
+      "revId": "482a1366e91d337f1dae37c2a5f76bf1e4463c3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
