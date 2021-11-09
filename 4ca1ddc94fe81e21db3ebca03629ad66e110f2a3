@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3634e0f4_5584bda4",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-09T15:22:19Z",
+      "side": 1,
+      "message": "Yes, each BIS can have different codec configuration, but we don\u0027t have this flexibility for CIS. Only allow single audio configuration for a CIG.",
+      "parentUuid": "17d0fcf7_752eb892",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "4ca1ddc94fe81e21db3ebca03629ad66e110f2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9a30852_967e9fcd",
@@ -54,6 +78,24 @@
       "writtenOn": "2021-11-09T05:15:45Z",
       "side": 1,
       "message": "Capabilities to indicate whether BIS / CIS are support or not?",
+      "revId": "4ca1ddc94fe81e21db3ebca03629ad66e110f2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6502af42_44027798",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-09T15:22:19Z",
+      "side": 1,
+      "message": "We could fix it in the aidl version and go with the full feature plan. For aidl, the interface would be easier to extend.\n\nWe may need some more capabilities about support_codec_instance_count, support_audio_configuration_count, support_audio_source_count along with the GetOffloadCodecCapabilities enhancement.",
+      "parentUuid": "c9a30852_967e9fcd",
       "revId": "4ca1ddc94fe81e21db3ebca03629ad66e110f2a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
