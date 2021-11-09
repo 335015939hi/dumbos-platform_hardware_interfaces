@@ -22,6 +22,30 @@
       },
       "revId": "317179d4e4a29b1eb5b4ebac9e538bfc187daca0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcf4aa8a_71efe861",
+        "filename": "radio/aidl/android/hardware/radio/config/SimPortInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2021-11-09T07:58:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ad447e_bf0ec80d",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "317179d4e4a29b1eb5b4ebac9e538bfc187daca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
