@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f426e90_9993f507",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-11-10T21:41:09Z",
+      "side": 1,
+      "message": "[NO_ACLOUD_REPORT|505000|DEPENDENCY_ISSUE] Exception during AVD startup\nacloud errors: Could not get a valid instance name, check the gce driver\u0027s output.The instance may not have booted up at all. [gce-device-8 unknown:unknown unknown]\nOnly artifacts are tradefed host logs. I\u0027m not sure what the problem is, and I couldn\u0027t find relevant info with a quick Moma search so I\u0027m running again.",
+      "revId": "595d56b3a15a395f3a42f5d08640ec8200ec9746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
