@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72d163aa_9a43a89f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-10T07:02:00Z",
+      "side": 1,
+      "message": "Latest revision drops the test that expected a failure if no CREATION_DATETIME is specified in combination with INCLUDE_UNIQUE_ID.\n\nRequiring this behaviour would be problematic if Android (but not StrongBox) were downgraded back to S, as keystore2 in S does not populate CREATION_DATETIME.",
+      "revId": "13f2a40e44d621b60f17a6c72ec7e4c9a395cc0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
