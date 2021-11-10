@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b2c5ac0_8f4fd84a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1282800
+      },
+      "writtenOn": "2021-11-10T06:11:08Z",
+      "side": 1,
+      "message": "Motorola has verified this patch, it works. Detail see b/204158099",
+      "revId": "eedeaa748667e85c3c903460bd8706f2b9c1cb4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
