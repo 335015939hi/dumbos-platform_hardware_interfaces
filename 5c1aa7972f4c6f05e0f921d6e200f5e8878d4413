@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af6025d9_5f9d40d4",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1587742
+      },
+      "writtenOn": "2021-11-10T17:37:36Z",
+      "side": 1,
+      "message": "Can you please move sleep() function at line#616 above to line#603 (before if condition for both power Down and power up commands)\n\nThis shall avoid any issues in handling getICCStatus Response by XTS Thread.",
+      "range": {
+        "startLine": 616,
+        "startChar": 0,
+        "endLine": 616,
+        "endChar": 4
+      },
+      "revId": "5c1aa7972f4c6f05e0f921d6e200f5e8878d4413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
