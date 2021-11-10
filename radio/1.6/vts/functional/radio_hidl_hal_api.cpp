@@ -601,6 +601,9 @@ TEST_P(RadioHidlTest_v1_6, setSimCardPower_1_6) {
                                   ::android::hardware::radio::V1_6::RadioError::RADIO_NOT_AVAILABLE,
                                   ::android::hardware::radio::V1_6::RadioError::SIM_ERR}));
 
+    // Give some time for modem to fully power down the SIM card
+    sleep(MODEM_SET_SIM_POWER_DELAY_IN_SECONDS);
+
     // setSimCardPower_1_6 does not return  until the request is handled, and should not trigger
     // CardState::ABSENT when turning off power
     if (radioRsp_v1_6->rspInfo.error == ::android::hardware::radio::V1_6::RadioError::NONE) {
@@ -611,9 +614,6 @@ TEST_P(RadioHidlTest_v1_6, setSimCardPower_1_6) {
         // applications should be an empty vector of AppStatus
         EXPECT_EQ(0, cardStatus.applications.size());
     }
-
-    // Give some time for modem to fully power down the SIM card
-    sleep(MODEM_SET_SIM_POWER_DELAY_IN_SECONDS);
 
     /* Test setSimCardPower power up */
     serial = GetRandomSerialNumber();
