@@ -1,0 +1,3 @@
+service vendor.dice /vendor/bin/hw/android.hardware.security.dice-service.non-secure-software
+    class early_hal
+    user nobody
