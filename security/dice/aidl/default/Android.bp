@@ -1,0 +1,25 @@
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+rust_binary {
+    name: "android.hardware.security.dice-service.non-secure-software",
+    srcs: ["service.rs"],
+    relative_install_path: "hw",
+    vendor: true,
+    rustlibs: [
+        "android.hardware.security.dice-V1-rust",
+        "libdiced_open_dice_cbor",
+        "libdiced_sample_inputs",
+        "libdiced_vendor",
+        "libandroid_logger",
+        "libanyhow",
+        "libbinder_rs",
+        "liblog_rust",
+        "libserde",
+    ],
+    init_rc: ["android.hardware.security.dice-service.non-secure-software.rc"],
+    vintf_fragments: [
+        "android.hardware.security.dice-service.non-secure-software.xml",
+    ],
+}
