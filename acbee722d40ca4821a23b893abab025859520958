@@ -22,6 +22,121 @@
       },
       "revId": "acbee722d40ca4821a23b893abab025859520958",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "628188cc_d39d6fc2",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-11-11T21:25:24Z",
+      "side": 1,
+      "message": "must\n\nsame everywhere",
+      "range": {
+        "startLine": 64,
+        "startChar": 21,
+        "endLine": 64,
+        "endChar": 25
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aa08c48_835c3ca9",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-11-11T21:25:24Z",
+      "side": 1,
+      "message": "If the client sends a future CipherSuite that the old version of the HAL implementation does not understand, what would be returned by the HAL? Please specify.\n\n(I assume it is EX_UNSUPPORTED_OPERATION)",
+      "range": {
+        "startLine": 251,
+        "startChar": 48,
+        "endLine": 252,
+        "endChar": 34
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de32537f_251a9fb9",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-11-11T21:25:24Z",
+      "side": 1,
+      "message": "nit: The\n\nsame everywhere",
+      "range": {
+        "startLine": 260,
+        "startChar": 26,
+        "endLine": 260,
+        "endChar": 32
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35164735_93cac0ae",
+        "filename": "identity/aidl/android/hardware/identity/IPresentationSession.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-11-11T21:25:24Z",
+      "side": 1,
+      "message": "must\n\nsame everywhere",
+      "range": {
+        "startLine": 60,
+        "startChar": 7,
+        "endLine": 60,
+        "endChar": 11
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4b063bd_70775b4a",
+        "filename": "identity/aidl/android/hardware/identity/IPresentationSession.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-11-11T21:25:24Z",
+      "side": 1,
+      "message": "nit: just IWritableIdentityCredential.finishAddingEntries()\n\nor even {@link IWritableIdentityCredential#finishAddingEntries}\n\nor even @see IWritableIdentityCredential#finishAddingEntries",
+      "range": {
+        "startLine": 90,
+        "startChar": 47,
+        "endLine": 91,
+        "endChar": 39
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
