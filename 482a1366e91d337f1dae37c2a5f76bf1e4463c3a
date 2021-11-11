@@ -33,6 +33,23 @@
       "message": "Ross, could you please approve.",
       "revId": "482a1366e91d337f1dae37c2a5f76bf1e4463c3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c14c556_1e44a08f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-11-11T16:03:56Z",
+      "side": 1,
+      "message": "Ross, could you please approve. The vendor has verified that the patch solves their issue.",
+      "revId": "482a1366e91d337f1dae37c2a5f76bf1e4463c3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
