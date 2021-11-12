@@ -51,6 +51,98 @@
       "parentUuid": "2cd856cb_31bfc3e3",
       "revId": "595d56b3a15a395f3a42f5d08640ec8200ec9746",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8e0043e_8f78df0f",
+        "filename": "ir/aidl/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-12T00:36:51Z",
+      "side": 1,
+      "message": "nit: TODO(b/)",
+      "range": {
+        "startLine": 30,
+        "startChar": 19,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "595d56b3a15a395f3a42f5d08640ec8200ec9746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "739b15a5_c3ed8482",
+        "filename": "ir/aidl/android/hardware/ir/IConsumerIr.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-12T00:36:51Z",
+      "side": 1,
+      "message": "should it always be this? It seems like some other error could happen, other than this not being supported? In which case, maybe the process should crash? is that the idea?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 43
+      },
+      "revId": "595d56b3a15a395f3a42f5d08640ec8200ec9746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61b00116_9efbf5ec",
+        "filename": "ir/aidl/android/hardware/ir/IConsumerIr.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-12T00:36:51Z",
+      "side": 1,
+      "message": "in HZ?",
+      "range": {
+        "startLine": 34,
+        "startChar": 38,
+        "endLine": 34,
+        "endChar": 49
+      },
+      "revId": "595d56b3a15a395f3a42f5d08640ec8200ec9746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2f8f8c_6b43311c",
+        "filename": "ir/aidl/default/android.hardware.ir-service.example.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-12T00:36:51Z",
+      "side": 1,
+      "message": "pref: nobody/nobody if possible",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "595d56b3a15a395f3a42f5d08640ec8200ec9746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
