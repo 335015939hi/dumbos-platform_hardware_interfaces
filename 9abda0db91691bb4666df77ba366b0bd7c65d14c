@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f94dd932_45d4f120",
+        "filename": "radio/aidl/android/hardware/radio/voice/IRadioVoice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-11-12T03:30:09Z",
+      "side": 1,
+      "message": "enable state",
+      "range": {
+        "startLine": 270,
+        "startChar": 30,
+        "endLine": 270,
+        "endChar": 40
+      },
+      "revId": "9abda0db91691bb4666df77ba366b0bd7c65d14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9b514f0_fb624b93",
+        "filename": "radio/aidl/android/hardware/radio/voice/IRadioVoice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-11-12T03:30:09Z",
+      "side": 1,
+      "message": "enable state",
+      "range": {
+        "startLine": 416,
+        "startChar": 20,
+        "endLine": 416,
+        "endChar": 30
+      },
+      "revId": "9abda0db91691bb4666df77ba366b0bd7c65d14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8069278_7b31ae1b",
+        "filename": "radio/aidl/android/hardware/radio/voice/IRadioVoiceResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-11-12T03:30:09Z",
+      "side": 1,
+      "message": "this is not valid for this api",
+      "range": {
+        "startLine": 476,
+        "startChar": 9,
+        "endLine": 476,
+        "endChar": 37
+      },
+      "revId": "9abda0db91691bb4666df77ba366b0bd7c65d14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47972b18_44706aa6",
+        "filename": "radio/aidl/android/hardware/radio/voice/IRadioVoiceResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-11-12T03:30:09Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 480,
+        "startChar": 9,
+        "endLine": 480,
+        "endChar": 30
+      },
+      "revId": "9abda0db91691bb4666df77ba366b0bd7c65d14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e70f8b9_55ed0829",
+        "filename": "radio/aidl/android/hardware/radio/voice/IRadioVoiceResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-11-12T03:30:09Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 482,
+        "startChar": 9,
+        "endLine": 482,
+        "endChar": 32
+      },
+      "revId": "9abda0db91691bb4666df77ba366b0bd7c65d14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70a09d1b_493b33ff",
+        "filename": "radio/aidl/android/hardware/radio/voice/IRadioVoiceResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-11-12T03:30:09Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 483,
+        "startChar": 9,
+        "endLine": 483,
+        "endChar": 29
+      },
+      "revId": "9abda0db91691bb4666df77ba366b0bd7c65d14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec1d5670_ef1827f6",
+        "filename": "radio/aidl/android/hardware/radio/voice/IRadioVoiceResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-11-12T03:30:09Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 718,
+        "startChar": 9,
+        "endLine": 718,
+        "endChar": 30
+      },
+      "revId": "9abda0db91691bb4666df77ba366b0bd7c65d14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b15a57c9_93dbce77",
+        "filename": "radio/aidl/android/hardware/radio/voice/IRadioVoiceResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-11-12T03:30:09Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 720,
+        "startChar": 9,
+        "endLine": 720,
+        "endChar": 32
+      },
+      "revId": "9abda0db91691bb4666df77ba366b0bd7c65d14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85ece632_7dc71385",
+        "filename": "radio/aidl/android/hardware/radio/voice/IRadioVoiceResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-11-12T03:30:09Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 721,
+        "startChar": 9,
+        "endLine": 721,
+        "endChar": 29
+      },
+      "revId": "9abda0db91691bb4666df77ba366b0bd7c65d14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
