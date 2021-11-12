@@ -28,7 +28,7 @@
 namespace aidl::android::hardware::neuralnetworks::utils {
 
 constexpr auto kDefaultPriority = Priority::MEDIUM;
-constexpr auto kVersion = nn::Version::FEATURE_LEVEL_6;
+const auto kVersion = nn::Version::FEATURE_LEVEL_6;
 
 template <typename Type>
 nn::Result<void> validate(const Type& halObject) {
@@ -51,7 +51,7 @@ bool valid(const Type& halObject) {
 template <typename Type>
 nn::Result<void> compliantVersion(const Type& canonical) {
     const auto version = NN_TRY(nn::validate(canonical));
-    if (version > kVersion) {
+    if (!nn::compliantVersion(version, kVersion)) {
         return NN_ERROR() << "Insufficient version: " << version << " vs required " << kVersion;
     }
     return {};
