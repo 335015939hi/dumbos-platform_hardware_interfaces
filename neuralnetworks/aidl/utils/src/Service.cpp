@@ -50,7 +50,7 @@ nn::GeneralResult<nn::Version> getAidlServiceFeatureLevel(IDevice* service) {
     if (!version.has_value()) {
         return NN_ERROR() << "Unknown AIDL service version: " << aidlVersion;
     }
-    return version.value();
+    return nn::Version{.level = version.value(), .runtimeOnlyFeature = false};
 }
 
 }  // namespace

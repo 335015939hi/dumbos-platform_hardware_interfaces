@@ -30,7 +30,11 @@
 namespace android::hardware::neuralnetworks::V1_1::utils {
 
 constexpr auto kDefaultExecutionPreference = ExecutionPreference::FAST_SINGLE_ANSWER;
-constexpr auto kVersion = nn::Version::ANDROID_P;
+
+constexpr auto kVersion = nn::Version{
+        .level = nn::Version::Level::ANDROID_P,
+        .runtimeOnlyFeature = false,
+};
 
 template <typename Type>
 nn::Result<void> validate(const Type& halObject) {
@@ -53,7 +57,7 @@ bool valid(const Type& halObject) {
 template <typename Type>
 nn::Result<void> compliantVersion(const Type& canonical) {
     const auto version = NN_TRY(nn::validate(canonical));
-    if (version > kVersion) {
+    if (!nn::compliantVersion(version, kVersion)) {
         return NN_ERROR() << "Insufficient version: " << version << " vs required " << kVersion;
     }
     return {};
