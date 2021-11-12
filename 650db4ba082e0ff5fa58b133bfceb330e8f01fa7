@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4acd635c_2f07f18e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-11-12T04:46:09Z",
+      "side": 1,
+      "message": "Looks like you only support only 1 CIG and/or multiple BIS for output cases in the same time?",
+      "revId": "650db4ba082e0ff5fa58b133bfceb330e8f01fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4279894_b5bdc403",
