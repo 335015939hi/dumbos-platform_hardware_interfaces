@@ -28,7 +28,15 @@
 namespace aidl::android::hardware::neuralnetworks::utils {
 
 constexpr auto kDefaultPriority = Priority::MEDIUM;
+
+#if NN_AIDL_HAL_VERSION == 1
+const auto kVersion = nn::Version::ANDROID_S;
+#elif NN_AIDL_HAL_VERSION == 2
 const auto kVersion = nn::Version::FEATURE_LEVEL_6;
+#else
+#error NN_AIDL_HAL_VERSION is not specified or is not a valid version
+const auto kVersion = nn::Version::FEATURE_LEVEL_6;
+#endif  // NN_AIDL_HAL_VERSION
 
 template <typename Type>
 nn::Result<void> validate(const Type& halObject) {
