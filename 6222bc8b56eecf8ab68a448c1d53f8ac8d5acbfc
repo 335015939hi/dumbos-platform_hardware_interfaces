@@ -112,6 +112,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3ecc239_6756ef9e",
+        "filename": "broadcastradio/1.1/vts/functional/VtsHalBroadcastradioV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1101616
+      },
+      "writtenOn": "2021-11-12T16:46:40Z",
+      "side": 1,
+      "message": "To be clear, we should probably do:\n```\nGTEST_SKIP() \u003c\u003c \"[  SKIPPED ] This device class is not supported.\";\n```",
+      "parentUuid": "ff3faead_968ff0be",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 21
+      },
+      "revId": "6222bc8b56eecf8ab68a448c1d53f8ac8d5acbfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5dd236f9_8dc22fb6",
         "filename": "broadcastradio/1.1/vts/functional/VtsHalBroadcastradioV1_1TargetTest.cpp",
         "patchSetId": 1
