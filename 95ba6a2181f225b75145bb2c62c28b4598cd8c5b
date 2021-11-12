@@ -86,6 +86,24 @@
       "parentUuid": "afbdca98_df27e8fc",
       "revId": "95ba6a2181f225b75145bb2c62c28b4598cd8c5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee4d6ddf_a3f944bc",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_2.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-12T04:08:28Z",
+      "side": 1,
+      "message": "Add additional comment to make thing clear. codecConfig for A2dp hardware offload need to integrate with AIDL version soon. No need to change anything for HIDL 2.2",
+      "parentUuid": "aece23f9_a15cf342",
+      "revId": "95ba6a2181f225b75145bb2c62c28b4598cd8c5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
