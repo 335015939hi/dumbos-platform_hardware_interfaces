@@ -152,10 +152,10 @@ class DeviceTest : public ::testing::TestWithParam<nn::Version> {
 };
 
 std::string printDeviceTest(const testing::TestParamInfo<nn::Version>& info) {
-    switch (info.param) {
-        case nn::Version::ANDROID_S:
+    switch (info.param.level) {
+        case nn::Version::Level::ANDROID_S:
             return "v1";
-        case nn::Version::FEATURE_LEVEL_6:
+        case nn::Version::Level::FEATURE_LEVEL_6:
             return "v2";
         default:
             LOG(FATAL) << "Invalid AIDL version: " << info.param;

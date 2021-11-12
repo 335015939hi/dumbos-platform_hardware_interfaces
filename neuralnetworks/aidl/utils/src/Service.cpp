@@ -46,11 +46,11 @@ nn::GeneralResult<nn::Version> getAidlServiceFeatureLevel(IDevice* service) {
     aidlVersion = std::min(aidlVersion, IDevice::version);
 
     // Map stable AIDL versions to canonical versions.
-    auto version = aidlVersionToCanonicalVersion(aidlVersion);
+    auto version = aidlVersionToCanonicalVersionLevel(aidlVersion);
     if (!version.has_value()) {
         return NN_ERROR() << "Unknown AIDL service version: " << aidlVersion;
     }
-    return version.value();
+    return nn::Version{.level = version.value(), .runtimeOnlyFeatures = false};
 }
 
 }  // namespace
