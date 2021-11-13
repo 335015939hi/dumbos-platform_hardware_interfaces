@@ -76,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab0fe405_55850e22",
+        "filename": "ir/aidl/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-11-13T00:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8e0043e_8f78df0f",
+      "range": {
+        "startLine": 30,
+        "startChar": 19,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "595d56b3a15a395f3a42f5d08640ec8200ec9746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "739b15a5_c3ed8482",
@@ -89,6 +113,30 @@
       "writtenOn": "2021-11-12T00:36:51Z",
       "side": 1,
       "message": "should it always be this? It seems like some other error could happen, other than this not being supported? In which case, maybe the process should crash? is that the idea?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 43
+      },
+      "revId": "595d56b3a15a395f3a42f5d08640ec8200ec9746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0ad0e51_e1cc6d2f",
+        "filename": "ir/aidl/android/hardware/ir/IConsumerIr.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-11-13T00:18:21Z",
+      "side": 1,
+      "message": "It used to be a boolean, so I think having pass/fail is fine. \nThe only example of an error is when the client is passing an unsupported frequency in transmit().\nThis method doesn\u0027t have an expected failure as far as I can tell. EX_UNSUPPORTED_OPERATION really only applies to transmit().\n\nI don\u0027t see any general EX_* value that can be used for unexpected errors.\nSo, is it better to explicitly list other EX_* types, even though we don\u0027t know what types of errors might occur? Or say on success it returns OK and leave it at that?",
+      "parentUuid": "739b15a5_c3ed8482",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -122,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c950a4b3_23ae323d",
+        "filename": "ir/aidl/android/hardware/ir/IConsumerIr.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-11-13T00:18:21Z",
+      "side": 1,
+      "message": "Reworded",
+      "parentUuid": "61b00116_9efbf5ec",
+      "range": {
+        "startLine": 34,
+        "startChar": 38,
+        "endLine": 34,
+        "endChar": 49
+      },
+      "revId": "595d56b3a15a395f3a42f5d08640ec8200ec9746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e2f8f8c_6b43311c",
@@ -135,6 +207,30 @@
       "writtenOn": "2021-11-12T00:36:51Z",
       "side": 1,
       "message": "pref: nobody/nobody if possible",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "595d56b3a15a395f3a42f5d08640ec8200ec9746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a0f85cc_5b427a3a",
+        "filename": "ir/aidl/default/android.hardware.ir-service.example.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-11-13T00:18:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e2f8f8c_6b43311c",
       "range": {
         "startLine": 3,
         "startChar": 9,
