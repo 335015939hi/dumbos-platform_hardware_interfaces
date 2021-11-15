@@ -33,6 +33,24 @@
       "message": "Also include mattalexander@?",
       "revId": "acd7955b2159fa74fb8021e2f2eabad053b6aadb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5973a94_d0ed91a5",
+        "filename": "neuralnetworks/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-11-15T22:59:56Z",
+      "side": 1,
+      "message": "I tried adding mattalexander@, but it looks like they\u0027re not in the AOSP system yet. I plan to update the OWNERS file once they\u0027re added.",
+      "parentUuid": "8db5569e_1b5fa243",
+      "revId": "acd7955b2159fa74fb8021e2f2eabad053b6aadb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
