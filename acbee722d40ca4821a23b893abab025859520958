@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d7102ab_bc4222d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-11-15T17:36:41Z",
+      "side": 1,
+      "message": "Thanks for looking. New patch set coming up.",
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "372c581f_bd0ba430",
@@ -64,6 +81,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccc923d0_2327f819",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-11-15T17:36:41Z",
+      "side": 1,
+      "message": "Nice catch. Done everywhere.",
+      "parentUuid": "628188cc_d39d6fc2",
+      "range": {
+        "startLine": 64,
+        "startChar": 21,
+        "endLine": 64,
+        "endChar": 25
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a3fe9cb_9e473ccc",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-11-15T17:36:41Z",
+      "side": 1,
+      "message": "I\u0027ve added a VTS test for this. Good point.",
+      "parentUuid": "372c581f_bd0ba430",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 38
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8aa08c48_835c3ca9",
@@ -77,6 +142,30 @@
       "writtenOn": "2021-11-11T21:25:24Z",
       "side": 1,
       "message": "If the client sends a future CipherSuite that the old version of the HAL implementation does not understand, what would be returned by the HAL? Please specify.\n\n(I assume it is EX_UNSUPPORTED_OPERATION)",
+      "range": {
+        "startLine": 251,
+        "startChar": 48,
+        "endLine": 252,
+        "endChar": 34
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a8237be_66edf632",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-11-15T17:36:41Z",
+      "side": 1,
+      "message": "I\u0027ve specified this. It will fail with STATUS_CIPHER_SUITE_NOT_SUPPORTED.",
+      "parentUuid": "8aa08c48_835c3ca9",
       "range": {
         "startLine": 251,
         "startChar": 48,
@@ -110,6 +199,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "856c2c5e_05933897",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-11-15T17:36:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de32537f_251a9fb9",
+      "range": {
+        "startLine": 260,
+        "startChar": 26,
+        "endLine": 260,
+        "endChar": 32
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35164735_93cac0ae",
@@ -133,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "469c29a6_d3828dc9",
+        "filename": "identity/aidl/android/hardware/identity/IPresentationSession.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-11-15T17:36:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35164735_93cac0ae",
+      "range": {
+        "startLine": 60,
+        "startChar": 7,
+        "endLine": 60,
+        "endChar": 11
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4b063bd_70775b4a",
@@ -146,6 +283,30 @@
       "writtenOn": "2021-11-11T21:25:24Z",
       "side": 1,
       "message": "nit: just IWritableIdentityCredential.finishAddingEntries()\n\nor even {@link IWritableIdentityCredential#finishAddingEntries}\n\nor even @see IWritableIdentityCredential#finishAddingEntries",
+      "range": {
+        "startLine": 90,
+        "startChar": 47,
+        "endLine": 91,
+        "endChar": 39
+      },
+      "revId": "acbee722d40ca4821a23b893abab025859520958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0044c749_f532913b",
+        "filename": "identity/aidl/android/hardware/identity/IPresentationSession.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-11-15T17:36:41Z",
+      "side": 1,
+      "message": "OK. Done.",
+      "parentUuid": "f4b063bd_70775b4a",
       "range": {
         "startLine": 90,
         "startChar": 47,
