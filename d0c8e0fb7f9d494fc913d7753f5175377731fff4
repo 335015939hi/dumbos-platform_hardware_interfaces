@@ -16,6 +16,52 @@
       "message": "I restructured this CL after discussing it with team members. Xusong, would you mind re\u003dreviewing the simplified change?",
       "revId": "d0c8e0fb7f9d494fc913d7753f5175377731fff4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39672fa8_6d94eb46",
+        "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-11-15T22:48:51Z",
+      "side": 1,
+      "message": "Canonical?",
+      "range": {
+        "startLine": 33,
+        "startChar": 50,
+        "endLine": 33,
+        "endChar": 60
+      },
+      "revId": "d0c8e0fb7f9d494fc913d7753f5175377731fff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d79cdf4e_1aeb3abb",
+        "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-11-15T22:48:51Z",
+      "side": 1,
+      "message": "Should we just say \"Version\" or \"FeatureLevel\" instead of \"VersionLevel\"?",
+      "range": {
+        "startLine": 33,
+        "startChar": 60,
+        "endLine": 33,
+        "endChar": 72
+      },
+      "revId": "d0c8e0fb7f9d494fc913d7753f5175377731fff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
