@@ -16,6 +16,23 @@
       "message": "Would it be better to have a single OWNERS file in packages/modules/NeuralNetworks and \"include\" that file here instead?",
       "revId": "acd7955b2159fa74fb8021e2f2eabad053b6aadb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8db5569e_1b5fa243",
+        "filename": "neuralnetworks/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2021-11-15T22:55:45Z",
+      "side": 1,
+      "message": "Also include mattalexander@?",
+      "revId": "acd7955b2159fa74fb8021e2f2eabad053b6aadb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
