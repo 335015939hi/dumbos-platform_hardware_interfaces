@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48cd391c_199ad3cc",
+        "filename": "security/dice/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-11-15T05:10:28Z",
+      "side": 1,
+      "message": "Missing license header?",
+      "revId": "7aadaad171a44d65d3d6b95f4df7cf82d9653646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4d528ee_888197c4",
+        "filename": "security/dice/aidl/android/hardware/security/dice/Artifacts.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-11-15T05:10:28Z",
+      "side": 1,
+      "message": "Is there any particular reason to have this as an array of certificates, instead of having it as CBOR encoded BCC? https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl;l\u003d116",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "7aadaad171a44d65d3d6b95f4df7cf82d9653646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e2b0ef5_a800f11d",
+        "filename": "security/dice/aidl/android/hardware/security/dice/Certificate.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-11-15T05:10:28Z",
+      "side": 1,
+      "message": "This AIDL file won\u0027t be necessary if we have the third field of Artifacts.aidl as CBOR encoded BCC",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "7aadaad171a44d65d3d6b95f4df7cf82d9653646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "378b7c2a_0a893124",
+        "filename": "security/dice/aidl/android/hardware/security/dice/Config.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-11-15T05:10:28Z",
+      "side": 1,
+      "message": "Hope you plan to update this to be similar to https://cs.android.com/android/platform/superproject/+/master:external/open-dice/include/dice/android/bcc.h;l\u003d37, as we discussed.",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 12
+      },
+      "revId": "7aadaad171a44d65d3d6b95f4df7cf82d9653646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
