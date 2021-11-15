@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3bfdc3b_d169ef8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2021-11-15T08:11:35Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "550d075b_f75a2a17",
+      "revId": "603ac4f5866895180a8f5b6c898ec0cfc1483335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f2c36be_477265b7",
@@ -49,6 +67,30 @@
       "writtenOn": "2021-11-09T00:42:05Z",
       "side": 1,
       "message": "will there be any plan to remove this? (support for HIDL NFC for launching devices)",
+      "range": {
+        "startLine": 415,
+        "startChar": 31,
+        "endLine": 415,
+        "endChar": 34
+      },
+      "revId": "603ac4f5866895180a8f5b6c898ec0cfc1483335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2584d649_1c78de2d",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2021-11-15T08:11:35Z",
+      "side": 1,
+      "message": "We will keep it in Android T and notify vendors to update it.\nFollow new android 14 policy to remove old HIDLs.",
+      "parentUuid": "9f2c36be_477265b7",
       "range": {
         "startLine": 415,
         "startChar": 31,
@@ -82,6 +124,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94900b51_cf313b70",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2021-11-15T08:11:35Z",
+      "side": 1,
+      "message": "Got it, update to use builtin status.",
+      "parentUuid": "cb3d6ac3_7f3e02c8",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 13
+      },
+      "revId": "603ac4f5866895180a8f5b6c898ec0cfc1483335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98fca04c_c9a0b7d6",
@@ -105,6 +171,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e17de04_ea2417f1",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2021-11-15T08:11:35Z",
+      "side": 1,
+      "message": "Keep part of NFC functionality at device power off.\nFor example, enable NFC card emulation mode for device power off use cases.",
+      "parentUuid": "98fca04c_c9a0b7d6",
+      "range": {
+        "startLine": 49,
+        "startChar": 13,
+        "endLine": 49,
+        "endChar": 27
+      },
+      "revId": "603ac4f5866895180a8f5b6c898ec0cfc1483335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d591de0_9a9b8618",
@@ -118,6 +208,30 @@
       "writtenOn": "2021-11-09T00:42:05Z",
       "side": 1,
       "message": "nit: for future proofing, would it make sense to pass an enumeration here? e.g.\n\nenum CloseType {\n    NORMAL,\n    POWER_OFF,\n};\nvoid close(CloseType type);",
+      "range": {
+        "startLine": 59,
+        "startChar": 14,
+        "endLine": 59,
+        "endChar": 34
+      },
+      "revId": "603ac4f5866895180a8f5b6c898ec0cfc1483335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27f95cc2_b4239f1e",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2021-11-15T08:11:35Z",
+      "side": 1,
+      "message": "Got it, combine to one close.\nUpdate NfcCloseType DISABLE and HOST_SWITCHED_OFF for these two differnet close modes.",
+      "parentUuid": "8d591de0_9a9b8618",
       "range": {
         "startLine": 59,
         "startChar": 14,
