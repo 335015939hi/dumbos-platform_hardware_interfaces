@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b576d7d1_ed3a579a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-15T03:29:55Z",
+      "side": 1,
+      "message": "We don\u0027t have plan to support CIG \u0026 BIG at the same time now.\nOnly 1 CIG or 1 BIG in the current plan.",
+      "parentUuid": "4acd635c_2f07f18e",
+      "revId": "650db4ba082e0ff5fa58b133bfceb330e8f01fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4279894_b5bdc403",
