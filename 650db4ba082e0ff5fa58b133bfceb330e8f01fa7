@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5e74f2_07febea6",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-15T03:28:22Z",
+      "side": 1,
+      "message": "Sure. Ted is in the cc list. You could add your need in the other patch. The patch is to convert the existing parameter form hidl 2.0 - 2.2 to aidl. It would be clear for the owner who will do the further implementation that which parameter is added after HIDL 2.2.",
+      "parentUuid": "a4279894_b5bdc403",
+      "revId": "650db4ba082e0ff5fa58b133bfceb330e8f01fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea7f02f0_5708ee70",
@@ -65,6 +83,24 @@
       "writtenOn": "2021-11-12T04:42:37Z",
       "side": 1,
       "message": "Nit: Would you like to talk with Ted for adding LC3 here?",
+      "revId": "650db4ba082e0ff5fa58b133bfceb330e8f01fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef348193_9c80fd89",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecConfiguration.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-11-15T03:28:22Z",
+      "side": 1,
+      "message": "Same with the other reply.",
+      "parentUuid": "ea7f02f0_5708ee70",
       "revId": "650db4ba082e0ff5fa58b133bfceb330e8f01fa7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
