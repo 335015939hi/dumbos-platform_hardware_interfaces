@@ -141,5 +141,6 @@ cc_binary {
     srcs: ["main.cpp"],
     overrides: [
         "charger",
+        "charger.recovery",
     ],
 }

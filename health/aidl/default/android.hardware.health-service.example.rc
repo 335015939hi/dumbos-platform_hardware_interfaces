@@ -5,6 +5,14 @@ service vendor.health-default /vendor/bin/hw/android.hardware.health-service.exa
     capabilities WAKE_ALARM BLOCK_SUSPEND
     file /dev/kmsg w
 
+service vendor.health-recovery /system/bin/hw/android.hardware.health-service.example
+    class recovery_hal
+    seclabel u:r:hal_health_default:s0
+    user system
+    group system
+    capabilities WAKE_ALARM BLOCK_SUSPEND
+    file /dev/kmsg w
+
 service vendor.charger-default /vendor/bin/hw/android.hardware.health-service.example --charger
     class charger
     user system
