@@ -16,6 +16,24 @@
       "message": "Carter, could you please add the instructions on how to use this option from device.mk:\n\nThe default value is \u0027prefer32\u0027, in order to run the hardware audio service as 64 bit on a 32+64bit OS, please add the content below into \u0027device.mk\u0027:\n\nSOONG_CONFIG_NAMESPACES +\u003d android_hardware_audio\nSOONG_CONFIG_android_hardware_audio +\u003d \\\n\trun_64bit\n\nSOONG_CONFIG_android_hardware_audio_run_64bit :\u003d true",
       "revId": "9bd040069e00126c89ba1ac51682fe5a3dbcac89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee5b00b_16cddd68",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1870616
+      },
+      "writtenOn": "2021-11-16T00:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b07aac82_67e644d8",
+      "revId": "9bd040069e00126c89ba1ac51682fe5a3dbcac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
