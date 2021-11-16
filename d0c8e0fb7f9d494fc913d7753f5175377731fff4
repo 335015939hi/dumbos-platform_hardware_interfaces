@@ -62,6 +62,54 @@
       },
       "revId": "d0c8e0fb7f9d494fc913d7753f5175377731fff4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d758f5b_1a5eb8c6",
+        "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-11-16T00:07:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d79cdf4e_1aeb3abb",
+      "range": {
+        "startLine": 33,
+        "startChar": 60,
+        "endLine": 33,
+        "endChar": 72
+      },
+      "revId": "d0c8e0fb7f9d494fc913d7753f5175377731fff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a2e35de_96e9dadf",
+        "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-11-16T00:07:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39672fa8_6d94eb46",
+      "range": {
+        "startLine": 33,
+        "startChar": 50,
+        "endLine": 33,
+        "endChar": 60
+      },
+      "revId": "d0c8e0fb7f9d494fc913d7753f5175377731fff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
