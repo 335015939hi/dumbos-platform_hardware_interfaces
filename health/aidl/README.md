@@ -80,7 +80,9 @@ If you [determined](#determine) that the example health AIDL HAL service works
 for your device, install it with
 
 ```mk
-PRODUCT_PACKAGES += android.hardware.health-service.example
+PRODUCT_PACKAGES += \
+    android.hardware.health-service.example \
+    android.hardware.health-service.example.recovery \
 ```
 
 Then, delete any existing `service` with `class charger` in your device-specific
@@ -156,11 +158,31 @@ If your device does not support off-line charging mode, or does not have a UI
 for charger (`ro.charger.no_ui=true`), skip the invocation of
 `ChargerModeMain()` in `main()`.
 
+### Build system changes
+
+Install both the platform and recovery variant of the service. For example:
+
+```mk
+PRODUCT_PACKAGES += \
+    android.hardware.health-service.cuttlefish \
+    android.hardware.health-service.cuttlefish.recovery \
+```
+
 ### SELinux rules
 
 Add device specific permissions to the domain where the health HAL
 process is executed, especially if a device-specific `libhealthd` is used
 and/or device-specific storage related APIs are implemented.
+
+To support recovery mode, allow init to start the health HAL service.
+Example (assuming that your health AIDL service runs in domain
+`hal_health_tuna`:
+
+```text
+recovery_only(`
+  domain_trans(init, rootfs, hal_health_tuna)
+')
+```
 
 If you did not define a separate domain, the domain is likely
 `hal_health_default`. The device-specific rules for it is likely at
