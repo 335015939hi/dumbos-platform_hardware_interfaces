@@ -1669,6 +1669,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfb0af7c_7ecaee2c",
+        "filename": "identity/aidl/default/libeic/EicPresentation.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2021-11-17T14:49:40Z",
+      "side": 1,
+      "message": "Rewritten, now set to 0 which means unset.",
+      "parentUuid": "fa6f7505_85b029c9",
+      "range": {
+        "startLine": 25,
+        "startChar": 39,
+        "endLine": 25,
+        "endChar": 40
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38e1c467_49e5e284",
