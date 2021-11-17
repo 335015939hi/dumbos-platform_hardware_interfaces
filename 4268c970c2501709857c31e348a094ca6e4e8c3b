@@ -63,6 +63,24 @@
       "message": "If the Version:: members become constexpr as suggested elsewhere, then I think this can be changed back to constexpr. Similarly line 144.",
       "revId": "4268c970c2501709857c31e348a094ca6e4e8c3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "892567b6_ad789293",
+        "filename": "neuralnetworks/utils/common/test/ResilientDeviceTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-11-17T02:49:58Z",
+      "side": 1,
+      "message": "The other CL discusses why Version::ANDROID_OC_MR1 can\u0027t be constexpr. However, in the next PS, I\u0027ve explicitly constructed kFeatureLevel from Version so it can remain constexpr.",
+      "parentUuid": "9c549862_2625b5f2",
+      "revId": "4268c970c2501709857c31e348a094ca6e4e8c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
