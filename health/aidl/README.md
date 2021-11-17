@@ -63,8 +63,7 @@ Specifically:
 * You may ignore the `service` line. The name of the service does not matter.
 * If your service belongs to additional classes beside `charger`, you need a
   custom health AIDL service.
-* You may ignore the `seclabel` line. When the health AIDL service runs in
-  charger mode, its original SELinux domain is kept.
+* Modify the `seclabel` line. Replace `charger` with `charger_vendor`.
 * If your service has a different `user` (not `system`), you need a custom
   health AIDL service.
 * If your service belongs to additional `group`s beside
@@ -162,9 +161,26 @@ Add device specific permissions to the domain where the health HAL
 process is executed, especially if a device-specific `libhealthd` is used
 and/or device-specific storage related APIs are implemented.
 
+Example (assuming that your health AIDL service runs in domain
+`hal_health_tuna`:
+
+```text
+type hal_health_tuna, domain;
+hal_server_domain(hal_health_tuna, hal_health)
+type hal_health_tuna_exec, exec_type, vendor_file_type, file_type;
+
+# allow hal_health_tuna ...;
+```
+
 If you did not define a separate domain, the domain is likely
 `hal_health_default`. The device-specific rules for it is likely at
 `device/<manufacturer>/<device>/sepolicy/vendor/hal_health_default.te`.
+In this case, the aforementioned SELinux rules and types has already been
+defined. You only need to add device-specific permissions.
+
+```text
+# allow hal_health_default ...;
+```
 
 ### Implementing charger {#charger}
 
@@ -211,6 +227,8 @@ for an example:
 
 ```text
 service vendor.charger-tuna /vendor/bin/hw/android.hardware.health-service-tuna --charger
+    class charger
+    seclabel u:r:charger_vendor:s0
     # ...
 ```
 
@@ -286,8 +304,7 @@ permissions. Example (assuming that your health AIDL service runs in domain
 `hal_health_tuna`:
 
 ```text
-type hal_health_tuna, charger_type, domain;
-hal_server_domain(hal_health_default, hal_health)
+domain_trans(init, hal_health_tuna_exec, charger_vendor)
 ```
 
 [comment: TODO(b/170338625): explain recovery]: #
