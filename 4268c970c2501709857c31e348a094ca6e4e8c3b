@@ -81,6 +81,24 @@
       "parentUuid": "9c549862_2625b5f2",
       "revId": "4268c970c2501709857c31e348a094ca6e4e8c3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccf265ab_6d39d232",
+        "filename": "neuralnetworks/utils/common/test/ResilientDeviceTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-11-17T02:51:23Z",
+      "side": 1,
+      "message": "Sorry, in the next PS, this remains \"const\". We could make it constexpr by explicitly constructing a Version.",
+      "parentUuid": "892567b6_ad789293",
+      "revId": "4268c970c2501709857c31e348a094ca6e4e8c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
