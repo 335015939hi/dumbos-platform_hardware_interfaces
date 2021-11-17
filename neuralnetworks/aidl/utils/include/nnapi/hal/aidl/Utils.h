@@ -36,6 +36,8 @@ constexpr std::optional<nn::Version> aidlVersionToCanonicalVersion(int aidlVersi
             return nn::Version::ANDROID_S;
         case 2:
             return nn::Version::FEATURE_LEVEL_6;
+        case 3:
+            return nn::Version::FEATURE_LEVEL_7;
         default:
             return std::nullopt;
     }
