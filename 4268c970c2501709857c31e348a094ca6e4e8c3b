@@ -46,6 +46,23 @@
       },
       "revId": "4268c970c2501709857c31e348a094ca6e4e8c3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c549862_2625b5f2",
+        "filename": "neuralnetworks/utils/common/test/ResilientDeviceTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2021-11-17T00:28:17Z",
+      "side": 1,
+      "message": "If the Version:: members become constexpr as suggested elsewhere, then I think this can be changed back to constexpr. Similarly line 144.",
+      "revId": "4268c970c2501709857c31e348a094ca6e4e8c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
