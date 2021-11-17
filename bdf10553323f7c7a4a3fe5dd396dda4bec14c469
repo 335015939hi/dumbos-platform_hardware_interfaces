@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c746185_f86ac613",
+        "filename": "dumpstate/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-11-17T16:40:30Z",
+      "side": 1,
+      "message": "add \u0027separate_platform_variant: false,\u0027 here in the `ndk` section next to the `vndk` bit.\nThat should resolve the issues with the VNDK on git_master,",
+      "range": {
+        "startLine": 36,
+        "startChar": 13,
+        "endLine": 36,
+        "endChar": 14
+      },
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
