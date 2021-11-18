@@ -274,6 +274,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca8c54bf_abd99a7c",
+        "filename": "dumpstate/aidl/android/hardware/dumpstate/DumpstateStatus.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-18T11:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe347f84_4ab3a2fa",
+      "range": {
+        "startLine": 20,
+        "startChar": 37,
+        "endLine": 20,
+        "endChar": 56
+      },
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48d5d22d_98f8821c",
@@ -287,6 +311,30 @@
       "writtenOn": "2021-11-17T17:30:18Z",
       "side": 1,
       "message": "remove this and ALL of the \"//\" comments in these AIDL files. They are generated to help the developer understand what happened during the hidl2aidl tool conversion in case they want to make changes from it.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 33
+      },
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c4fbbde_5afafc98",
+        "filename": "dumpstate/aidl/android/hardware/dumpstate/IDumpstateDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-18T11:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48d5d22d_98f8821c",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -320,6 +368,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75c542ab_aff36809",
+        "filename": "dumpstate/aidl/android/hardware/dumpstate/IDumpstateDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-18T11:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38570058_7d38e80a",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 69
+      },
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4c8ac5e_5995647f",
@@ -343,6 +415,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7efdab67_077c1602",
+        "filename": "dumpstate/aidl/android/hardware/dumpstate/IDumpstateDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-18T11:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4c8ac5e_5995647f",
+      "range": {
+        "startLine": 47,
+        "startChar": 14,
+        "endLine": 47,
+        "endChar": 31
+      },
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "576817f6_5214cd89",
@@ -356,6 +452,24 @@
       "writtenOn": "2021-11-18T02:28:33Z",
       "side": 1,
       "message": "Maybe fork from existing HIDL equivalent?",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "060889eb_3c7897ae",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-18T11:04:47Z",
+      "side": 1,
+      "message": "I dont understand what you mean \"fork\" from existing HIDL equivalent.\nIt is forked or implemented referring to the HIDL implementation. However I used the file naming and file organization as done by other AIDL HALs, I feel from readability point of view, when the HAL tree has moved completely to AIDL, this will be more easier for the developers.\n\nLet me know if you think otherwise.",
+      "parentUuid": "576817f6_5214cd89",
       "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -426,6 +540,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "716cbe95_66ef3cab",
+        "filename": "dumpstate/aidl/default/Dumpstate.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-18T11:04:47Z",
+      "side": 1,
+      "message": "I dont understand what you mean \"fork\" from existing HIDL equivalent.\nI used the HIDL HAL for reference, but the #include\u0027s and APIs and init sequence is different enough that the final file has lot of changes vs equivalent HIDL file. I also looked at other AIDL HALs to make this AIDL HAL similar to them.",
+      "parentUuid": "ce362c1e_6d6d8d2e",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95f358d3_b1733f46",
         "filename": "dumpstate/aidl/default/dumpstate-default.rc",
         "patchSetId": 2
@@ -443,6 +575,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8c987a1_b4898ed6",
+        "filename": "dumpstate/aidl/default/dumpstate-default.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-18T11:04:47Z",
+      "side": 1,
+      "message": "I dont understand what you mean \"fork\" from existing HIDL equivalent.\nIt is forked or implemented referring to the HIDL implementation. However I used the file naming and file organization as done by other AIDL HALs, I feel from readability point of view, when the HAL tree has moved completely to AIDL, this will be more easier for the developers.\n\nLet me know if you think otherwise.",
+      "parentUuid": "95f358d3_b1733f46",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5745d515_4376a892",
         "filename": "dumpstate/aidl/vts/VtsHalDumpstateTargetTest.cpp",
         "patchSetId": 2
@@ -454,6 +604,24 @@
       "writtenOn": "2021-11-18T02:28:33Z",
       "side": 1,
       "message": "Definitely fork from existing HIDL equivalent",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c405607c_1afd3748",
+        "filename": "dumpstate/aidl/vts/VtsHalDumpstateTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-18T11:04:47Z",
+      "side": 1,
+      "message": "I dont understand what you mean \"fork\" from existing HIDL equivalent.\nI used the HIDL HAL for reference, but the #include\u0027s and APIs and init sequence is different enough that the final file has lot of changes vs equivalent HIDL file. I also looked at other AIDL HALs to make this AIDL HAL similar to them.\n\nFor VTS, I missed putting the files in a folder named \"vts/functional\", I will fix this.",
+      "parentUuid": "5745d515_4376a892",
       "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
