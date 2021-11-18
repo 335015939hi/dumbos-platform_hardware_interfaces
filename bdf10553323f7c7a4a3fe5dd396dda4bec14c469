@@ -236,6 +236,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de1724dc_d923f9a9",
+        "filename": "dumpstate/aidl/android/hardware/dumpstate/DumpstateMode.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-11-18T17:03:25Z",
+      "side": 1,
+      "message": "There is no types.hal(where DumpstateMode is defined) equivalent in AIDL. So anything defined by itself in types.hal will get its own file.\nIf a type definition is nested in another type in HIDL, it will also be nested in AIDL as of Oct 15th. Nested definitions are a new feature to AIDL and hidl2aidl.",
+      "parentUuid": "700ca8d5_a8d3bea9",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f0df50a_46f297f6",
         "filename": "dumpstate/aidl/android/hardware/dumpstate/DumpstateStatus.aidl",
         "patchSetId": 2
