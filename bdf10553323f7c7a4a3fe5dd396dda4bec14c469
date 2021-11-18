@@ -254,6 +254,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d75e17f4_c2ad287f",
+        "filename": "dumpstate/aidl/android/hardware/dumpstate/DumpstateMode.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-18T17:40:59Z",
+      "side": 1,
+      "message": "Its easy enough to do it by hand, I will nest the enums and update the CL tomorrow.",
+      "parentUuid": "de1724dc_d923f9a9",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f0df50a_46f297f6",
         "filename": "dumpstate/aidl/android/hardware/dumpstate/DumpstateStatus.aidl",
         "patchSetId": 2
@@ -265,6 +283,24 @@
       "writtenOn": "2021-11-18T02:28:33Z",
       "side": 1,
       "message": "Same here, consider nesting?",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78efbad6_2672b3ec",
+        "filename": "dumpstate/aidl/android/hardware/dumpstate/DumpstateStatus.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-18T17:40:59Z",
+      "side": 1,
+      "message": "will do in a update CL soon",
+      "parentUuid": "2f0df50a_46f297f6",
       "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
