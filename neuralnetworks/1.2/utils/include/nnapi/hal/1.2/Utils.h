@@ -40,10 +40,7 @@ constexpr auto kDefaultMesaureTiming = MeasureTiming::NO;
 constexpr auto kNoTiming = Timing{.timeOnDevice = std::numeric_limits<uint64_t>::max(),
                                   .timeInDriver = std::numeric_limits<uint64_t>::max()};
 
-constexpr auto kVersion = nn::Version{
-        .level = nn::Version::Level::ANDROID_Q,
-        .runtimeOnlyFeatures = false,
-};
+constexpr auto kVersion = nn::kVersionFeatureLevel3;
 
 template <typename Type>
 nn::Result<void> validate(const Type& halObject) {

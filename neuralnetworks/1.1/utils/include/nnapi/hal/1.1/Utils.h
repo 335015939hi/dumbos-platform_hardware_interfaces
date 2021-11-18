@@ -31,10 +31,7 @@ namespace android::hardware::neuralnetworks::V1_1::utils {
 
 constexpr auto kDefaultExecutionPreference = ExecutionPreference::FAST_SINGLE_ANSWER;
 
-constexpr auto kVersion = nn::Version{
-        .level = nn::Version::Level::ANDROID_P,
-        .runtimeOnlyFeatures = false,
-};
+constexpr auto kVersion = nn::kVersionFeatureLevel2;
 
 template <typename Type>
 nn::Result<void> validate(const Type& halObject) {

@@ -28,10 +28,7 @@
 
 namespace android::hardware::neuralnetworks::V1_0::utils {
 
-constexpr auto kVersion = nn::Version{
-        .level = nn::Version::Level::ANDROID_OC_MR1,
-        .runtimeOnlyFeatures = false,
-};
+constexpr auto kVersion = nn::kVersionFeatureLevel1;
 
 template <typename Type>
 nn::Result<void> validate(const Type& halObject) {

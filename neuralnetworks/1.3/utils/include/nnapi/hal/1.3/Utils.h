@@ -40,10 +40,7 @@ using V1_2::utils::kNoTiming;
 
 constexpr auto kDefaultPriority = Priority::MEDIUM;
 
-constexpr auto kVersion = nn::Version{
-        .level = nn::Version::Level::ANDROID_R,
-        .runtimeOnlyFeatures = false,
-};
+constexpr auto kVersion = nn::kVersionFeatureLevel4;
 
 template <typename Type>
 nn::Result<void> validate(const Type& halObject) {
