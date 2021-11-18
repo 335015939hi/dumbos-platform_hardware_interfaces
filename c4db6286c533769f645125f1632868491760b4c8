@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f198441d_bf6dc82e",
+        "filename": "usb/1.0/default/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2021-11-18T19:00:57Z",
+      "side": 1,
+      "message": "Having a new init.rc file for this APEX will definitely work, but I\u0027ve since realized that it can be dangerous because having two copies of the file (our new one and the existing one) means that it\u0027s easy for them to get out of sync.\n \nInstead, we can use a `genrule {}` here to reuse the existing init.rc for USB (https://source.corp.google.com/android/hardware/interfaces/usb/1.0/default/android.hardware.usb@1.0-service.rc), except replace its binary path with our new APEX path.\n\nExample genrule from change https://r.android.com/1863346: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/power/aidl/default/apex/Android.bp;drc\u003d0f956a6c1812b1629f095fcf2e9be125d96c156d;l\u003d30\n\n(note, that example actually combines two init.rcs! We wouldn\u0027t need that since this APEX is just for one binary)\n\nYou\u0027ll have to add an `filegroup` for the existing init.rc, then the genrule allows you to modify it and replace the `/vendor` path with an `/apex/\u003capexname\u003e/` path.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "c4db6286c533769f645125f1632868491760b4c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd93953a_2200fa98",
+        "filename": "usb/1.0/default/apex/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2021-11-18T19:00:57Z",
+      "side": 1,
+      "message": "nit: can you even out the indentation in this file, so all labels align? I think it may be easier to view in Gerrit if we use all spaces instead of tabs+spaces.",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 28
+      },
+      "revId": "c4db6286c533769f645125f1632868491760b4c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
