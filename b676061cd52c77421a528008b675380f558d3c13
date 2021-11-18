@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48f0d10a_395d5922",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1193375
+      },
+      "writtenOn": "2021-11-18T22:10:36Z",
+      "side": 1,
+      "message": "Change merged in master, now this cherry-pick to android12-tests-dev is all we need.\n       Thanks,\n             Blair",
+      "revId": "b676061cd52c77421a528008b675380f558d3c13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
