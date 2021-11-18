@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ba94f65_16c4a98a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-18T02:28:33Z",
+      "side": 1,
+      "message": "I\u0027d recommend forking a bunch of these files from their existing counterparts, I\u0027ve added file comments on the ones that seem most relevant to do",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "264fa4f3_7faeff6f",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-11-17T17:30:18Z",
       "side": 1,
       "message": "We can remove the hidl version here.\nThat would mean that devices launching with this release (Android T) will have to implement the AIDL version of dumpstate.\nDevices upgrading to the Android T framework can still keep their HIDL implementations.",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 10
+      },
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af73ee96_884664cb",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-18T02:28:33Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "264fa4f3_7faeff6f",
       "range": {
         "startLine": 210,
         "startChar": 0,
@@ -83,6 +124,40 @@
         "endLine": 42,
         "endChar": 20
       },
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "700ca8d5_a8d3bea9",
+        "filename": "dumpstate/aidl/android/hardware/dumpstate/DumpstateMode.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-18T02:28:33Z",
+      "side": 1,
+      "message": "Does the hidl2aidl tool automatically do this? imo this enum is uninteresting enough that it\u0027s reasonable to just nest inside IDumpstateDevice",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f0df50a_46f297f6",
+        "filename": "dumpstate/aidl/android/hardware/dumpstate/DumpstateStatus.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-18T02:28:33Z",
+      "side": 1,
+      "message": "Same here, consider nesting?",
       "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -181,6 +256,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "576817f6_5214cd89",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-18T02:28:33Z",
+      "side": 1,
+      "message": "Maybe fork from existing HIDL equivalent?",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "31c38777_e98dd0c0",
         "filename": "dumpstate/aidl/default/Dumpstate.cpp",
         "patchSetId": 2
@@ -198,6 +290,57 @@
         "endLine": 98,
         "endChar": 57
       },
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce362c1e_6d6d8d2e",
+        "filename": "dumpstate/aidl/default/Dumpstate.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-18T02:28:33Z",
+      "side": 1,
+      "message": "Maybe fork from existing HIDL equivalent?",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95f358d3_b1733f46",
+        "filename": "dumpstate/aidl/default/dumpstate-default.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-18T02:28:33Z",
+      "side": 1,
+      "message": "Definitely fork from existing HIDL equivalent",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5745d515_4376a892",
+        "filename": "dumpstate/aidl/vts/VtsHalDumpstateTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-18T02:28:33Z",
+      "side": 1,
+      "message": "Definitely fork from existing HIDL equivalent",
       "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
