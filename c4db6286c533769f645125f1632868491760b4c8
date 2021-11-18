@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "239e9530_6adb1ad4",
+        "filename": "usb/1.0/default/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2021-11-18T22:53:17Z",
+      "side": 1,
+      "message": "I had some doubts when I added the .rc. This makes more sense. Please refer to a new CL https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1895176\n\nEven if I did a commit --amend, gerrit still gave me a new CL. I will abandon this one.",
+      "parentUuid": "f198441d_bf6dc82e",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "c4db6286c533769f645125f1632868491760b4c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd93953a_2200fa98",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-18T19:00:57Z",
       "side": 1,
       "message": "nit: can you even out the indentation in this file, so all labels align? I think it may be easier to view in Gerrit if we use all spaces instead of tabs+spaces.",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 28
+      },
+      "revId": "c4db6286c533769f645125f1632868491760b4c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dd3a169_a95fdbe0",
+        "filename": "usb/1.0/default/apex/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2021-11-18T22:53:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd93953a_2200fa98",
       "range": {
         "startLine": 1,
         "startChar": 7,
