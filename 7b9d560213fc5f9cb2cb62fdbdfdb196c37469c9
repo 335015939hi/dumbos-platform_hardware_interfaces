@@ -39,6 +39,30 @@
       },
       "revId": "7b9d560213fc5f9cb2cb62fdbdfdb196c37469c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3863aa23_7abb38bb",
+        "filename": "neuralnetworks/aidl/utils/test/DeviceTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2021-11-18T21:02:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f959dcd_e2824ff1",
+      "range": {
+        "startLine": 154,
+        "startChar": 12,
+        "endLine": 154,
+        "endChar": 27
+      },
+      "revId": "7b9d560213fc5f9cb2cb62fdbdfdb196c37469c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
