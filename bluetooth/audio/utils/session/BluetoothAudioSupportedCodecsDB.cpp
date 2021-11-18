@@ -40,6 +40,11 @@ using ::android::hardware::bluetooth::audio::V2_0::SbcBlockLength;
 using ::android::hardware::bluetooth::audio::V2_0::SbcChannelMode;
 using ::android::hardware::bluetooth::audio::V2_0::SbcNumSubbands;
 using ::android::hardware::bluetooth::audio::V2_0::SbcParameters;
+using ::android::hardware::bluetooth::audio::V2_0::AptxAdaptiveParameters;
+using ::android::hardware::bluetooth::audio::V2_0::AptxAdaptiveChannelMode;
+using ::android::hardware::bluetooth::audio::V2_0::AptxMode;
+using ::android::hardware::bluetooth::audio::V2_0::AptxSinkBuffering;
+using ::android::hardware::bluetooth::audio::V2_0::AptxAdaptive_TTP;
 
 // Default Supported PCM Parameters
 static const PcmParameters kDefaultSoftwarePcmCapabilities = {
@@ -107,12 +112,47 @@ static const AptxParameters kDefaultOffloadAptxHdCapability = {
     .bitsPerSample = BitsPerSample::BITS_24,
 };
 
+
+// aptX Adaptive Default Sink Buffering and TTL
+static const AptxSinkBuffering kDefaultAptxAdaptiveSinkBuffering = {
+    .minSinkBuff_LL = 20,
+    .maxSinkBuff_LL = 50,
+    .minSinkBuff_HQ = 20,
+    .maxSinkBuff_HQ = 50,
+    .minSinkBuff_TWS = 20,
+    .maxSinkBuff_TWS = 50
+};
+
+static const AptxAdaptive_TTP kDefaultAptxAdaptive_TTP = {
+    .TTP_LL_low = 69,
+    .TTP_LL_high = 69,
+    .TTP_HQ_low = 200,
+    .TTP_HQ_high = 200,
+    .TTP_TWS_low = 200,
+    .TTP_TWS_high = 200
+};
+
+
+// aptX Adaptive: mSampleRate:(44100|48000), mBitsPerSample:(24),
+//          mChannelMode:(JOINT_STEREO)
+static const AptxAdaptiveParameters kDefaultOffloadAptxAdaptiveCapability = {
+    .sampleRate = static_cast<SampleRate>(SampleRate::RATE_44100 |
+                                          SampleRate::RATE_48000 |
+                                          SampleRate::RATE_96000),
+    .channelMode = static_cast<AptxAdaptiveChannelMode>(AptxAdaptiveChannelMode::JOINT_STEREO),
+    .bitsPerSample = BitsPerSample::BITS_24,
+    .aptxMode = AptxMode::HQ,
+    .sinkBuffering = kDefaultAptxAdaptiveSinkBuffering,
+    .ttp = kDefaultAptxAdaptive_TTP
+};
+
 const std::vector<CodecCapabilities> kDefaultOffloadA2dpCodecCapabilities = {
     {.codecType = CodecType::SBC, .capabilities = {}},
     {.codecType = CodecType::AAC, .capabilities = {}},
     {.codecType = CodecType::LDAC, .capabilities = {}},
     {.codecType = CodecType::APTX, .capabilities = {}},
-    {.codecType = CodecType::APTX_HD, .capabilities = {}}};
+    {.codecType = CodecType::APTX_HD, .capabilities = {}},
+    {.codecType = CodecType::APTX_ADAPTIVE, .capabilities = {}}};
 
 static bool IsSingleBit(uint32_t bitmasks, uint32_t bitfield) {
   bool single = false;
@@ -137,6 +177,8 @@ static bool IsOffloadLdacConfigurationValid(
 static bool IsOffloadAptxConfigurationValid(
     const CodecConfiguration::CodecSpecific& codec_specific);
 static bool IsOffloadAptxHdConfigurationValid(
+    const CodecConfiguration::CodecSpecific& codec_specific);
+static bool IsOffloadAptxAdaptiveConfigurationValid(
     const CodecConfiguration::CodecSpecific& codec_specific);
 
 static bool IsOffloadSbcConfigurationValid(
@@ -296,6 +338,46 @@ static bool IsOffloadAptxHdConfigurationValid(
   return false;
 }
 
+static bool IsOffloadAptxAdaptiveConfigurationValid(
+    const CodecConfiguration::CodecSpecific& codec_specific) {
+  const AptxAdaptiveParameters aptxAdaptive_data = codec_specific.aptxAdaptiveConfig();
+  LOG(WARNING) << __func__
+               << ": Sampling rate:" << static_cast<uint32_t>(aptxAdaptive_data.sampleRate);
+  LOG(WARNING) << __func__
+               << ": sample rate is isvalid:" << IsSingleBit(static_cast<uint32_t>(aptxAdaptive_data.sampleRate), 0xff);
+  LOG(WARNING) << __func__
+               << ": channel mode:" << static_cast<uint32_t>(aptxAdaptive_data.channelMode);
+  LOG(WARNING) << __func__
+               << ": channel mode is isvalid:" << IsSingleBit(static_cast<uint32_t>(aptxAdaptive_data.channelMode), 0x03);
+  LOG(WARNING) << __func__
+               << ": bits per sample:" << static_cast<uint32_t>(aptxAdaptive_data.bitsPerSample);
+  LOG(WARNING) << __func__
+               << ": bits per sample is isvalid:" << IsSingleBit(static_cast<uint32_t>(aptxAdaptive_data.bitsPerSample), 0x07);
+  LOG(WARNING) << __func__
+               << ": Default Sampling rate:" << static_cast<uint32_t>(kDefaultOffloadAptxAdaptiveCapability.sampleRate);
+  LOG(WARNING) << __func__
+               << ": Default channel mode:" << static_cast<uint32_t>(kDefaultOffloadAptxAdaptiveCapability.channelMode);
+  LOG(WARNING) << __func__
+               << ": Default bitspersample :" << static_cast<uint32_t>(kDefaultOffloadAptxAdaptiveCapability.bitsPerSample);
+
+  if (!IsSingleBit(static_cast<uint32_t>(aptxAdaptive_data.sampleRate), 0xff) ||
+      /*TODO bitfield has to be changed for channel mode*/
+      !IsSingleBit(static_cast<uint32_t>(aptxAdaptive_data.channelMode), 0xff) ||
+      !IsSingleBit(static_cast<uint32_t>(aptxAdaptive_data.bitsPerSample), 0x07)) {
+    LOG(WARNING) << __func__
+                 << ": Invalid CodecSpecific2=" << toString(codec_specific);
+    return false;
+  } else if ((aptxAdaptive_data.sampleRate &
+              kDefaultOffloadAptxAdaptiveCapability.sampleRate) &&
+             (aptxAdaptive_data.bitsPerSample &
+              kDefaultOffloadAptxAdaptiveCapability.bitsPerSample)) {
+    return true;
+  }
+  LOG(WARNING) << __func__
+               << ": Unsupported CodecSpecific=" << toString(codec_specific);
+  return false;
+}
+
 std::vector<PcmParameters> GetSoftwarePcmCapabilities() {
   return std::vector<PcmParameters>(1, kDefaultSoftwarePcmCapabilities);
 }
@@ -328,6 +410,10 @@ std::vector<CodecCapabilities> GetOffloadCodecCapabilities(
       case CodecType::APTX_HD:
         codec_capability.capabilities.aptxCapabilities(
             kDefaultOffloadAptxHdCapability);
+        break;
+      case CodecType::APTX_ADAPTIVE:
+        codec_capability.capabilities.aptxAdaptiveCapabilities(
+            kDefaultOffloadAptxAdaptiveCapability);
         break;
       case CodecType::UNKNOWN:
         codec_capability = {};
@@ -401,6 +487,11 @@ bool IsOffloadCodecConfigurationValid(const SessionType& session_type,
       return false;
     case CodecType::APTX_HD:
       if (IsOffloadAptxHdConfigurationValid(codec_specific)) {
+        return true;
+      }
+      return false;
+    case CodecType::APTX_ADAPTIVE:
+      if (IsOffloadAptxAdaptiveConfigurationValid(codec_specific)) {
         return true;
       }
       return false;

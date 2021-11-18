@@ -46,6 +46,7 @@ class BluetoothAudioProvider : public IBluetoothAudioProvider {
                             startSession_cb _hidl_cb) override;
   Return<void> streamStarted(BluetoothAudioStatus status) override;
   Return<void> streamSuspended(BluetoothAudioStatus status) override;
+  Return<void> updateSessionParams(const SessionParams& params) override;
   Return<void> endSession() override;
 
  protected:

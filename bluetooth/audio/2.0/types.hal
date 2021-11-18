@@ -57,6 +57,7 @@ enum CodecType : uint32_t {
     APTX = 0x04,
     APTX_HD = 0x08,
     LDAC = 0x10,
+    APTX_ADAPTIVE = 0x12,
 };
 
 enum SampleRate : uint32_t {
@@ -69,6 +70,7 @@ enum SampleRate : uint32_t {
     RATE_192000 = 0x20,
     RATE_16000 = 0x40,
     RATE_24000 = 0x80,
+    RATE_32000 = 0x80,
 };
 
 enum BitsPerSample : uint8_t {
@@ -128,6 +130,51 @@ enum AacVariableBitRate : uint8_t {
     DISABLED = 0x00,
 };
 
+enum AptxAdaptiveChannelMode : int32_t {
+    /** Channel Mode: 5 bits */
+    UNCHANGED = -1,
+    JOINT_STEREO = 0,
+    MONO = 1,
+    DUAL_MONO = 2,
+    TWS_STEREO = 4,
+    EARBUD = 8,
+    TWS_MONO = 10,
+    UNKNOWN = 0xFF,
+};
+
+enum AptxMode : uint32_t {
+    /** Aptx Adaptive Mode: 32 bits */
+    UNKNOWN = 0x00,
+    HQ = 0x1000,
+    LL = 0x2000,
+    ULL = 0x4000,
+    SCAN_CONTROL = 0x8000,
+};
+
+enum InputMode : uint32_t {
+    /** Aptx Adaptive Input Mode: 32 bits */
+    STEREO = 0x00,
+    DUAL_MONO = 0x01,
+};
+
+struct AptxSinkBuffering {
+    uint8_t minSinkBuff_LL;
+    uint8_t maxSinkBuff_LL;
+    uint8_t minSinkBuff_HQ;
+    uint8_t maxSinkBuff_HQ;
+    uint8_t minSinkBuff_TWS;
+    uint8_t maxSinkBuff_TWS;
+};
+
+struct AptxAdaptive_TTP {
+    uint8_t TTP_LL_low;
+    uint8_t TTP_LL_high;
+    uint8_t TTP_HQ_low;
+    uint8_t TTP_HQ_high;
+    uint8_t TTP_TWS_low;
+    uint8_t TTP_TWS_high;
+};
+
 enum LdacChannelMode : uint8_t {
     /** Channel Mode: 3 bits */
     UNKNOWN = 0x00,
@@ -145,6 +192,13 @@ enum LdacQualityIndex : uint8_t {
     QUALITY_LOW = 0x02,
     // Adaptive Bit Rate mode
     QUALITY_ABR = 0x7F,
+};
+
+enum SessionParamType : uint8_t {
+    UNKNOWN = 0x00,
+    MTU = 0x01,
+    BITRATE = 0x02,
+    SINK_LATENCY = 0x03,
 };
 
 /** Used for Software Encoding audio feed parameters */
@@ -197,6 +251,19 @@ struct AptxParameters {
     BitsPerSample bitsPerSample;
 };
 
+/** Used for Hardware Encoding AptX-Adaptive codec parameters */
+struct AptxAdaptiveParameters {
+    SampleRate sampleRate;
+    AptxAdaptiveChannelMode channelMode;
+    BitsPerSample bitsPerSample;
+    AptxMode aptxMode;
+    AptxSinkBuffering sinkBuffering;
+    AptxAdaptive_TTP ttp;
+    InputMode inputMode;
+    uint32_t inputFadeDuration;
+    uint8_t[25] aptxAdaptiveConfigStream;
+};
+
 /**
  * Used to specify the capabilities of the codecs supported by Hardware Encoding.
  * AptX and AptX-HD both use the AptxParameters field.
@@ -209,7 +276,27 @@ struct CodecCapabilities {
       AacParameters aacCapabilities;
       LdacParameters ldacCapabilities;
       AptxParameters aptxCapabilities;
+      AptxAdaptiveParameters aptxAdaptiveCapabilities;
     } capabilities;
+};
+
+struct SinkLatency {
+    uint64_t remoteDeviceAudioDelay;
+    uint64_t transmittedOctets;
+    TimeSpec transmittedOctetsTimeStamp;
+};
+
+/**
+ * Used for proactive update of Session Parameters to server
+ */
+struct SessionParams {
+    SessionParamType paramType;
+
+    union Param {
+      uint16_t mtu;
+      uint32_t encodedAudioBitrate;
+      SinkLatency sinkLatency;
+    } param;
 };
 
 /** Used to specify the capabilities of the different session types. */
@@ -242,6 +329,7 @@ struct CodecConfiguration {
         AacParameters aacConfig;
         LdacParameters ldacConfig;
         AptxParameters aptxConfig;
+        AptxAdaptiveParameters aptxAdaptiveConfig;
     } config;
 };
 

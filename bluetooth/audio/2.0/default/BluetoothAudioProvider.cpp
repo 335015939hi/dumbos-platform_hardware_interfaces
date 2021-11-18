@@ -114,6 +114,20 @@ Return<void> BluetoothAudioProvider::streamSuspended(
   return Void();
 }
 
+
+Return<void> BluetoothAudioProvider::updateSessionParams(
+    const SessionParams& params) {
+  if (stack_iface_) {
+    if (params.paramType != SessionParamType::UNKNOWN) {
+      BluetoothAudioSessionReport::OnSessionParamUpdate(session_type_, params.paramType, params);
+    }
+  } else {
+    LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_)
+                 << " has NO session";
+  }
+  return Void();
+}
+
 Return<void> BluetoothAudioProvider::endSession() {
   LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_);
 

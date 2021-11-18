@@ -39,6 +39,8 @@ using ::android::hardware::bluetooth::audio::V2_0::IBluetoothAudioPort;
 using ::android::hardware::bluetooth::audio::V2_0::PcmParameters;
 using ::android::hardware::bluetooth::audio::V2_0::SampleRate;
 using ::android::hardware::bluetooth::audio::V2_0::SessionType;
+using ::android::hardware::bluetooth::audio::V2_0::SessionParamType;
+using ::android::hardware::bluetooth::audio::V2_0::SessionParams;
 
 using BluetoothAudioStatus =
     ::android::hardware::bluetooth::audio::V2_0::Status;
@@ -76,6 +78,13 @@ struct PortStatusCallbacks {
   // bluetooth_audio module.
   // @param: cookie - indicates which bluetooth_audio output should handle
   std::function<void(uint16_t cookie)> session_changed_cb_;
+  // session_params_cb_ - when the Bluetooth stack updates the session
+  // parameters like mtu, bit rate, BluetoothAudioProvider will invoke this
+  // callback to notify to the bluetooth_audio module.
+  // @param: cookie - indicates which bluetooth_audio output should handle
+  // @param: session_param - indicates which session parameter is updated
+  std::function<void(uint16_t cookie, const SessionParams &session_params)>
+        session_params_cb_;
 };
 
 class BluetoothAudioSession {
@@ -129,6 +138,9 @@ class BluetoothAudioSession {
   // the result of startStream or suspendStream, and will invoke
   // control_result_cb_ to notify registered bluetooth_audio outputs
   void ReportControlStatus(bool start_resp, const BluetoothAudioStatus& status);
+
+  void OnSessionParamUpdate(const SessionParamType& paramType,
+                      const SessionParams& sessionParams);
 
   // The control function helps the bluetooth_audio module to register
   // PortStatusCallbacks
