@@ -16,6 +16,52 @@
       "message": "Address few more review comments, but you can hold further review until I address the remaining. I have few questions that needs clarifications though",
       "revId": "472fc69d1b75cb7711edd3fffc74d1cb835a2b60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d33abc80_3f8f488e",
+        "filename": "dumpstate/aidl/android/hardware/dumpstate/IDumpstateDevice.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-18T19:13:20Z",
+      "side": 1,
+      "message": "we can avoid needing a status type (AIDL has built-in status returns, see EX_SERVICE_SPECIFIC)",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 19
+      },
+      "revId": "472fc69d1b75cb7711edd3fffc74d1cb835a2b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58cf8482_476bf095",
+        "filename": "dumpstate/aidl/default/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-11-18T19:13:20Z",
+      "side": 1,
+      "message": "nit: the process name should be the default when using libbase",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 6
+      },
+      "revId": "472fc69d1b75cb7711edd3fffc74d1cb835a2b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
