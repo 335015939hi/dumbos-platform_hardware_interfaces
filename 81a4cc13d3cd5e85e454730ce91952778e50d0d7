@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f355821_57ef9c9e",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/IHostapd.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1368080
+      },
+      "writtenOn": "2021-11-18T08:43:18Z",
+      "side": 1,
+      "message": "+1, it should be a part of NetworkParams.",
+      "parentUuid": "d0e9c7cb_e1791ee2",
+      "range": {
+        "startLine": 49,
+        "startChar": 15,
+        "endLine": 49,
+        "endChar": 35
+      },
+      "revId": "81a4cc13d3cd5e85e454730ce91952778e50d0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bd1cb1d_a68c2f02",
         "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/VendorElementsParams.aidl",
         "patchSetId": 2
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e32883d_9a38f299",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/VendorElementsParams.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1368080
+      },
+      "writtenOn": "2021-11-18T08:43:18Z",
+      "side": 1,
+      "message": "Consider to use byte[] if it is the hexdump",
+      "parentUuid": "3bd1cb1d_a68c2f02",
+      "range": {
+        "startLine": 31,
+        "startChar": 11,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "81a4cc13d3cd5e85e454730ce91952778e50d0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8b15978_00d54194",
         "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/VendorElementsParams.aidl",
         "patchSetId": 2
@@ -77,6 +125,30 @@
       "writtenOn": "2021-10-21T19:49:55Z",
       "side": 1,
       "message": "Serik: you can have multiple vendorElements/assocresp entries.\n\nOther reviewers - what should we have here (for a single element):\n- hex encoded string (4 - 314 characters long)\n- uint8_t array (2-257 byres long)\n- a standard structure (element id, length, oui and payload, see http://b/139204496#comment19)",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 10
+      },
+      "revId": "81a4cc13d3cd5e85e454730ce91952778e50d0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "496ef137_a7f04ced",
+        "filename": "wifi/hostapd/aidl/android/hardware/wifi/hostapd/VendorElementsParams.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1368080
+      },
+      "writtenOn": "2021-11-18T08:43:18Z",
+      "side": 1,
+      "message": "IIUC, here we use this API to pass a hexdump raw information to hostapd and write it to hostapd.conf directly. So I think it is fine to keep string. (Similar design as SSID). But maybe consider to use byte[] to replace string if that is hexdump.\nAnd we should have a data structure in the framework as Tomasz mentioned.",
+      "parentUuid": "e8b15978_00d54194",
       "range": {
         "startLine": 40,
         "startChar": 4,
