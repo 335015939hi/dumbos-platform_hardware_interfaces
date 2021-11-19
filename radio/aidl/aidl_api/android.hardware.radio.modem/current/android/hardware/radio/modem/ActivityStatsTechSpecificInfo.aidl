@@ -33,8 +33,9 @@
 
 package android.hardware.radio.modem;
 @VintfStability
-parcelable ActivityStatsInfo {
-  int sleepModeTimeMs;
-  int idleModeTimeMs;
-  android.hardware.radio.modem.ActivityStatsTechSpecificInfo[] techSpecificInfo;
+parcelable ActivityStatsTechSpecificInfo {
+  android.hardware.radio.AccessNetwork rat;
+  android.hardware.radio.modem.FrequencyRange frequencyRange;
+  int[] txmModetimeMs;
+  int rxModeTimeMs;
 }

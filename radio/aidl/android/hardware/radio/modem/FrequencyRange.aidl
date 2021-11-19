@@ -16,21 +16,24 @@
 
 package android.hardware.radio.modem;
 
-import android.hardware.radio.modem.ActivityStatsTechSpecificInfo;
-
 @VintfStability
-parcelable ActivityStatsInfo {
+@Backing(type="int")
+enum FrequencyRange {
     /**
-     * Total time (in ms) when modem is in a low power or sleep state
+     * Indicates the frequency range is below 1GHz.
      */
-    int sleepModeTimeMs;
+    LOW = 1,
     /**
-     * Total time (in ms) when modem is awake but neither the transmitter nor receiver are
-     * active/awake
+     * Indicates the frequency range is between 1GHz and 3GHz.
      */
-    int idleModeTimeMs;
+    MID = 2,
     /**
-     * Tech-specific Activity Stats info
+     * Indicates the frequency range is between 3GHz and 6GHz.
      */
-    ActivityStatsTechSpecificInfo[] techSpecificInfo;
+    HIGH = 3,
+    /**
+     * Indicates the frequency range is above 6GHz (millimeter wave
+     * frequency).
+     */
+    MMWAVE = 4,
 }

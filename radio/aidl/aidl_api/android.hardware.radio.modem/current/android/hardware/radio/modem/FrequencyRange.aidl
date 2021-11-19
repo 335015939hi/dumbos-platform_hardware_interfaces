@@ -32,9 +32,10 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.modem;
-@VintfStability
-parcelable ActivityStatsInfo {
-  int sleepModeTimeMs;
-  int idleModeTimeMs;
-  android.hardware.radio.modem.ActivityStatsTechSpecificInfo[] techSpecificInfo;
+@Backing(type="int") @VintfStability
+enum FrequencyRange {
+  LOW = 1,
+  MID = 2,
+  HIGH = 3,
+  MMWAVE = 4,
 }
