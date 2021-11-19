@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017493758",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1895277?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "1fc5e941_e8759882",
+          "description": "Change to \"audio/core/all-versions/vts/functional/tests/apm_config_b_205808571_6_0.xml\"",
+          "replacements": [
+            {
+              "path": "audio/core/all-versions/vts/functional/tests/apm_config_b_205808571_6_0.xml",
+              "range": {
+                "startLine": 21,
+                "startChar": 83,
+                "endLine": 21,
+                "endChar": 88
+              },
+              "replacement": " e.g. "
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "62d39ce5_9c603a54",
+        "filename": "audio/core/all-versions/vts/functional/tests/apm_config_b_205808571_6_0.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-19T22:22:28Z",
+      "side": 1,
+      "message": "Common typo found: \" e.g \" -- should it be \" e.g. \"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 21,
+        "startChar": 83,
+        "endLine": 21,
+        "endChar": 88
+      },
+      "revId": "7c7589dab38efc27742ec07fad811e31f8117566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017493758",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1895277?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "0fb8c923_b9fe13f2",
+          "description": "Change to \"audio/core/all-versions/vts/functional/tests/apm_config_b_205808571_7_0.xml\"",
+          "replacements": [
+            {
+              "path": "audio/core/all-versions/vts/functional/tests/apm_config_b_205808571_7_0.xml",
+              "range": {
+                "startLine": 21,
+                "startChar": 83,
+                "endLine": 21,
+                "endChar": 88
+              },
+              "replacement": " e.g. "
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "843cd723_cd089455",
+        "filename": "audio/core/all-versions/vts/functional/tests/apm_config_b_205808571_7_0.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-19T22:22:28Z",
+      "side": 1,
+      "message": "Common typo found: \" e.g \" -- should it be \" e.g. \"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 21,
+        "startChar": 83,
+        "endLine": 21,
+        "endChar": 88
+      },
+      "revId": "7c7589dab38efc27742ec07fad811e31f8117566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
