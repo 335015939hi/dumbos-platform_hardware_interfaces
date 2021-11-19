@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fbad741_390c76e0",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-11-19T10:51:14Z",
+      "side": 1,
+      "message": "The interface has been frozen by Android Q. You must not change it.",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 431,
+        "endChar": 28
+      },
+      "revId": "b8e0eefc7b1de205fef87a519e3dc0c12faa57ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e1412a3_7ec7871d",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2021-11-19T10:51:14Z",
+      "side": 1,
+      "message": "Please check this. No more HIDL!!",
+      "range": {
+        "startLine": 907,
+        "startChar": 0,
+        "endLine": 907,
+        "endChar": 62
+      },
+      "revId": "b8e0eefc7b1de205fef87a519e3dc0c12faa57ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
