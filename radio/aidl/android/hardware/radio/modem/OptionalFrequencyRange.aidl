@@ -16,21 +16,13 @@
 
 package android.hardware.radio.modem;
 
-import android.hardware.radio.modem.ActivityStatsTechSpecificInfo;
+import android.hardware.radio.modem.FrequencyRange;
 
 @VintfStability
-parcelable ActivityStatsInfo {
+union OptionalFrequencyRange {
+    boolean noinit;
     /**
-     * Total time (in ms) when modem is in a low power or sleep state
+     * Mapping the frequency to a rough range.
      */
-    int sleepModeTimeMs;
-    /**
-     * Total time (in ms) when modem is awake but neither the transmitter nor receiver are
-     * active/awake
-     */
-    int idleModeTimeMs;
-    /**
-     * Tech-specific Activity Stats info
-     */
-    ActivityStatsTechSpecificInfo[] techSepcificInfo;
+    FrequencyRange value;
 }
