@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a097e70b_646d403f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-19T10:54:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7263fd48_df9d0348",
+      "revId": "472fc69d1b75cb7711edd3fffc74d1cb835a2b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d33abc80_3f8f488e",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b2b49ec_5d725408",
+        "filename": "dumpstate/aidl/android/hardware/dumpstate/IDumpstateDevice.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-19T10:54:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d33abc80_3f8f488e",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 19
+      },
+      "revId": "472fc69d1b75cb7711edd3fffc74d1cb835a2b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58cf8482_476bf095",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-11-18T19:13:20Z",
       "side": 1,
       "message": "nit: the process name should be the default when using libbase",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 6
+      },
+      "revId": "472fc69d1b75cb7711edd3fffc74d1cb835a2b60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4495a8b_4a83d653",
+        "filename": "dumpstate/aidl/default/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-19T10:54:09Z",
+      "side": 1,
+      "message": "I have tried to match what other AIDL\u0027s have done.\n\ne.g\nservice vendor.dumpstate-default /vendor/bin/hw/android.hardware.dumpstate-service.example\nservice vendor.gnss-default /vendor/bin/hw/android.hardware.gnss-service.example\nservice vendor.health-default /vendor/bin/hw/android.hardware.health-service.example\nservice vendor.light-default /vendor/bin/hw/android.hardware.lights-service.example\n\nI will mark as resolved, if further action is needed feel free to reopen this.",
+      "parentUuid": "58cf8482_476bf095",
       "range": {
         "startLine": 43,
         "startChar": 0,
