@@ -666,6 +666,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0fbd6ea5_97306d3b",
+        "filename": "dumpstate/aidl/default/Dumpstate.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-19T20:09:55Z",
+      "side": 1,
+      "message": "Ah - I mean `git mv` to prepend history from the HIDL files onto the new AIDL-related files.\n\nThat will also make the diffs significantly smaller on the files that are mostly-identical, like the .rc and test",
+      "parentUuid": "716cbe95_66ef3cab",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95f358d3_b1733f46",
         "filename": "dumpstate/aidl/default/dumpstate-default.rc",
         "patchSetId": 2
