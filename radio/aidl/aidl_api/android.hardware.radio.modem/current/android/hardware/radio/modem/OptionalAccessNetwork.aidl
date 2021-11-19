@@ -33,8 +33,7 @@
 
 package android.hardware.radio.modem;
 @VintfStability
-parcelable ActivityStatsInfo {
-  int sleepModeTimeMs;
-  int idleModeTimeMs;
-  android.hardware.radio.modem.ActivityStatsTechSpecificInfo[] techSepcificInfo;
+union OptionalAccessNetwork {
+  boolean noinit;
+  android.hardware.radio.AccessNetwork value;
 }

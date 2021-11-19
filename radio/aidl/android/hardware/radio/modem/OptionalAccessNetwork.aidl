@@ -16,21 +16,10 @@
 
 package android.hardware.radio.modem;
 
-import android.hardware.radio.modem.ActivityStatsTechSpecificInfo;
+import android.hardware.radio.AccessNetwork;
 
 @VintfStability
-parcelable ActivityStatsInfo {
-    /**
-     * Total time (in ms) when modem is in a low power or sleep state
-     */
-    int sleepModeTimeMs;
-    /**
-     * Total time (in ms) when modem is awake but neither the transmitter nor receiver are
-     * active/awake
-     */
-    int idleModeTimeMs;
-    /**
-     * Tech-specific Activity Stats info
-     */
-    ActivityStatsTechSpecificInfo[] techSepcificInfo;
+union OptionalAccessNetwork {
+    boolean noinit;
+    AccessNetwork value;
 }
