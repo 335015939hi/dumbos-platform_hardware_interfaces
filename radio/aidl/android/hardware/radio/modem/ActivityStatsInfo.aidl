@@ -16,6 +16,8 @@
 
 package android.hardware.radio.modem;
 
+import android.hardware.radio.modem.ActivityStatsTechSpecificInfo;
+
 @VintfStability
 parcelable ActivityStatsInfo {
     /**
@@ -28,17 +30,7 @@ parcelable ActivityStatsInfo {
      */
     int idleModeTimeMs;
     /**
-     * Each index represent total time (in ms) during which the transmitter is active/awake for a
-     * particular power range as shown below.
-     * index 0 = tx_power < 0dBm
-     * index 1 = 0dBm < tx_power < 5dBm
-     * index 2 = 5dBm < tx_power < 15dBm
-     * index 3 = 15dBm < tx_power < 20dBm
-     * index 4 = tx_power > 20dBm
+     * Technology specific activity stats info
      */
-    int[] txmModetimeMs;
-    /**
-     * Total time (in ms) for which receiver is active/awake and the transmitter is inactive
-     */
-    int rxModeTimeMs;
+    ActivityStatsTechSpecificInfo[] techSpecificInfo;
 }
