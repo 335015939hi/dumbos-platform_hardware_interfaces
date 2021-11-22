@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6630fe2d_3210605e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-22T05:39:22Z",
+      "side": 1,
+      "message": "Fixed a typo in documentation for .aidl file, so a new patchset was uploaded ",
+      "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
