@@ -886,6 +886,30 @@ TEST_P(NewKeyGenerationTest, Rsa) {
 }
 
 /*
+ * NewKeyGenerationTest.Rsa
+ *
+ * Verifies that keymint can returns an error while generating asymmetric key
+ * without providing NOT_BEFORE and NOT_AFTER parameters.
+ */
+TEST_P(NewKeyGenerationTest, RsaWithMissingValidity) {
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ASSERT_EQ(ErrorCode::MISSING_NOT_BEFORE, GenerateKey(AuthorizationSetBuilder()
+                                                                 .RsaSigningKey(2048, 65537)
+                                                                 .Digest(Digest::NONE)
+                                                                 .Padding(PaddingMode::NONE),
+                                                         &key_blob, &key_characteristics));
+
+    ASSERT_EQ(ErrorCode::MISSING_NOT_AFTER,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::NONE)
+                                  .Padding(PaddingMode::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_BEFORE, 0),
+                          &key_blob, &key_characteristics));
+}
+
+/*
  * NewKeyGenerationTest.RsaWithAttestation
  *
  * Verifies that keymint can generate all required RSA key sizes with attestation, and that the
@@ -1389,6 +1413,29 @@ TEST_P(NewKeyGenerationTest, Ecdsa) {
 
         CheckedDeleteKey(&key_blob);
     }
+}
+
+/*
+ * NewKeyGenerationTest.Ecdsa
+ *
+ * Verifies that keymint can returns an error while generating asymmetric key
+ * without providing NOT_BEFORE and NOT_AFTER parameters.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaWithMissingValidity) {
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ASSERT_EQ(
+            ErrorCode::MISSING_NOT_BEFORE,
+            GenerateKey(
+                    AuthorizationSetBuilder().EcdsaSigningKey(EcCurve::P_256).Digest(Digest::NONE),
+                    &key_blob, &key_characteristics));
+
+    ASSERT_EQ(ErrorCode::MISSING_NOT_AFTER,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_BEFORE, 0),
+                          &key_blob, &key_characteristics));
 }
 
 /*
