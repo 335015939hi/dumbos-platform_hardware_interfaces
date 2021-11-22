@@ -38,3 +38,23 @@ aidl_interface {
     },
     versions: ["1"],
 }
+
+// A cc_defaults that includes the latest KeyMint AIDL library.
+// Modules that depend on KeyMint directly can include this cc_defaults to avoid
+// managing dependency versions explicitly.
+cc_defaults {
+    name: "keymint_use_latest_hal_aidl_ndk",
+    static_libs: [
+        "android.hardware.security.keymint-V1-ndk",
+    ],
+}
+
+// A cc_defaults that includes the latest KeyMint AIDL library.
+// Modules that depend on KeyMint directly can include this cc_defaults to avoid
+// managing dependency versions explicitly.
+rust_defaults {
+    name: "keymint_use_latest_hal_aidl_rust",
+    static_libs: [
+        "android.hardware.security.keymint-V1-ndk",
+    ],
+}
