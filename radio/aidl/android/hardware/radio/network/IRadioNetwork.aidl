@@ -114,15 +114,6 @@ oneway interface IRadioNetwork {
     void getImsRegistrationState(in int serial);
 
     /**
-     * Request neighboring cell id in GSM network
-     *
-     * @param serial Serial number of request.
-     *
-     * Response function is IRadioNetworkResponse.getNeighboringCidsResponse()
-     */
-    void getNeighboringCids(in int serial);
-
-    /**
      * Query current network selection mode
      *
      * @param serial Serial number of request.
@@ -185,15 +176,6 @@ oneway interface IRadioNetwork {
      * Response function is IRadioNetworkResponse.isNrDualConnectivityEnabledResponse()
      */
     void isNrDualConnectivityEnabled(in int serial);
-
-    /**
-     * Pull LCE service for capacity information.
-     *
-     * @param serial Serial number of request.
-     *
-     * Response function is IRadioNetworkResponse.pullLceDataResponse()
-     */
-    void pullLceData(in int serial);
 
     /**
      * When response type received from a radio indication or radio response is
@@ -364,29 +346,22 @@ oneway interface IRadioNetwork {
             in IRadioNetworkIndication radioNetworkIndication);
 
     /**
-     * Sets the signal strength reporting criteria. The resulting reporting rules are the AND of all
-     * the supplied criteria. For each RAN the hysteresisDb and thresholds apply to only the
-     * following measured quantities:
-     * -GERAN    - RSSI
-     * -CDMA2000 - RSSI
-     * -UTRAN    - RSCP
-     * -EUTRAN   - RSRP/RSRQ/RSSNR
-     * -NGRAN    - SSRSRP/SSRSRQ/SSSINR
-     * Note that reporting criteria must be individually set for each RAN. For each RAN, if none of
-     * reporting criteria of any measurement is set enabled (see SignalThresholdInfo.isEnabled),
-     * the reporting criteria for this RAN is implementation-defined. For each RAN, if any reporting
-     * criteria of any measure is set enabled, the reporting criteria of the other measures in this
-     * RAN are set disabled (see SignalThresholdInfo.isEnabled) until they are set enabled.
+     * Sets or clears the signal strength reporting criteria for multiple RANs in one request.
+     *
+     * The reporting criteria are set individually for each combination of RAN and measurement type.
+     * For each RAN type, if no reporting criteria are set, then the reporting of SignalStrength for
+     * that RAN is implementation-defined. If any criteria are supplied for a RAN type, then
+     * SignalStrength is only reported as specified by those criteria. For any RAN types not defined
+     * by this HAL, reporting is implementation-defined.
      *
      * @param serial Serial number of request.
-     * @param signalThresholdInfo Signal threshold info including the threshold values,
-     *        hysteresisDb, hysteresisMs and isEnabled. See SignalThresholdInfo for details.
-     * @param accessNetwork The type of network for which to apply these thresholds.
+     * @param signalThresholdInfos Collection of SignalThresholdInfo specifying the reporting
+     *        criteria. See SignalThresholdInfo for details.
      *
      * Response function is IRadioNetworkResponse.setSignalStrengthReportingCriteriaResponse()
      */
-    void setSignalStrengthReportingCriteria(in int serial,
-            in SignalThresholdInfo signalThresholdInfo, in AccessNetwork accessNetwork);
+    void setSignalStrengthReportingCriteria(
+            in int serial, in SignalThresholdInfo[] signalThresholdInfos);
 
     /**
      * Enables/disables supplementary service related notifications from the network.

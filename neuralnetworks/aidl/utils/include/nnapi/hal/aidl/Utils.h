@@ -19,6 +19,7 @@
 
 #include "nnapi/hal/aidl/Conversions.h"
 
+#include <aidl/android/hardware/neuralnetworks/IDevice.h>
 #include <android-base/logging.h>
 #include <nnapi/Result.h>
 #include <nnapi/TypeUtils.h>
@@ -28,7 +29,19 @@
 namespace aidl::android::hardware::neuralnetworks::utils {
 
 constexpr auto kDefaultPriority = Priority::MEDIUM;
-constexpr auto kVersion = nn::Version::FEATURE_LEVEL_6;
+
+constexpr std::optional<nn::Version> aidlVersionToCanonicalVersion(int aidlVersion) {
+    switch (aidlVersion) {
+        case 1:
+            return nn::kVersionFeatureLevel5;
+        case 2:
+            return nn::kVersionFeatureLevel6;
+        default:
+            return std::nullopt;
+    }
+}
+
+constexpr auto kVersion = aidlVersionToCanonicalVersion(IDevice::version).value();
 
 template <typename Type>
 nn::Result<void> validate(const Type& halObject) {
@@ -51,7 +64,7 @@ bool valid(const Type& halObject) {
 template <typename Type>
 nn::Result<void> compliantVersion(const Type& canonical) {
     const auto version = NN_TRY(nn::validate(canonical));
-    if (version > kVersion) {
+    if (!nn::isCompliantVersion(version, kVersion)) {
         return NN_ERROR() << "Insufficient version: " << version << " vs required " << kVersion;
     }
     return {};
