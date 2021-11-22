@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86d13245_702219d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-22T09:09:59Z",
+      "side": 1,
+      "message": "FYI I\u0027ve tried this test on a Pixel6, and it passes for /default but fails for /strongbox.\n\nThe relevant part of the KeyMint spec is:\n\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl;l\u003d279-281\n\nbut I think this is/was new for KeyMint.\n\nFor KeyMaster, the ACTIVE_DATETIME and USAGE_EXPIRE_DATETIME / ORIGINATION_EXPIRE_DATETIME tags were used for populating the validity period instead [1].  In practice, there were also default values of 0 (epoch) / 9999-12-31T23:59:59Z if these tags were not specified.\n\n[1]: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/keymaster/4.0/IKeymasterDevice.hal;l\u003d665-670)\n\n",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df46f818_fb6f41e5",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-22T09:09:59Z",
+      "side": 1,
+      "message": "Update comment to match test name",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "712dcd1a_d0a614ca",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-22T09:09:59Z",
+      "side": 1,
+      "message": "nit: s/can returns/returns/",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d93157cc_a4dc46df",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-22T09:09:59Z",
+      "side": 1,
+      "message": "These parameters are missing both NOT_BEFORE and NOT_AFTER, so either error code is possible.  Probably better to change this case to include CERTIFICATE_NOT_AFTER so there\u0027s only one possible failure.",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f77867f2_0b04853f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-22T09:09:59Z",
+      "side": 1,
+      "message": "Update comment to match test name",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1ec38aa_5055b687",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-22T09:09:59Z",
+      "side": 1,
+      "message": "nit: s/can returns/returns/",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f77caf0b_ed0ad7ab",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-22T09:09:59Z",
+      "side": 1,
+      "message": "As above, add a CERTIFICATE_NOT_AFTER value.",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
