@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7bb3e70_de4c9ae5",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2021-11-23T07:07:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df46f818_fb6f41e5",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "712dcd1a_d0a614ca",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-11-22T09:09:59Z",
       "side": 1,
       "message": "nit: s/can returns/returns/",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c090e87_5b984328",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2021-11-23T07:07:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "712dcd1a_d0a614ca",
       "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -69,6 +105,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e85d95dc_f6c80381",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2021-11-23T07:07:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d93157cc_a4dc46df",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f77867f2_0b04853f",
@@ -82,6 +136,24 @@
       "writtenOn": "2021-11-22T09:09:59Z",
       "side": 1,
       "message": "Update comment to match test name",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7afa9ec_328d884d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2021-11-23T07:07:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f77867f2_0b04853f",
       "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -103,6 +175,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1ed51cb_1e921bd9",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2021-11-23T07:07:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1ec38aa_5055b687",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f77caf0b_ed0ad7ab",
@@ -116,6 +206,24 @@
       "writtenOn": "2021-11-22T09:09:59Z",
       "side": 1,
       "message": "As above, add a CERTIFICATE_NOT_AFTER value.",
+      "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f941fef_11b38489",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2021-11-23T07:07:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f77caf0b_ed0ad7ab",
       "revId": "aef42ba042e38deb6ba225f12de5d25237a161cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
