@@ -16,6 +16,121 @@
       "message": "Fixed a typo in documentation for .aidl file, so a new patchset was uploaded ",
       "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89ca7dd5_4e81864f",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-23T04:44:12Z",
+      "side": 1,
+      "message": "Suggest adding messages to the returned statuses and optionally getting rid of the direct log calls throughout",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 0
+      },
+      "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fed62902_60e8f1c3",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-23T04:44:12Z",
+      "side": 1,
+      "message": "Early return with message in the status",
+      "range": {
+        "startLine": 64,
+        "startChar": 12,
+        "endLine": 64,
+        "endChar": 17
+      },
+      "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "936c37ed_c3c8f2ab",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-23T04:44:12Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 69,
+        "startChar": 12,
+        "endLine": 69,
+        "endChar": 17
+      },
+      "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d521a78c_df3aa50e",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-23T04:44:12Z",
+      "side": 1,
+      "message": "Just return a ScopedAStatus here?\n\nThen calling code can just write `return dumpstateBoardImpl(...);`",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 18
+      },
+      "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "503910d0_e2f28736",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-23T04:44:12Z",
+      "side": 1,
+      "message": "Keep the example of the dumpstate utils stuff:\n```\n        // Shows an example on how to use the libdumpstateutil API.\n        DumpFileToFd(fd, \"cmdline\", \"/proc/self/cmdline\");\n```",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 0
+      },
+      "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

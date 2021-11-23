@@ -824,6 +824,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a59bcde2_689366e4",
+        "filename": "dumpstate/aidl/vts/VtsHalDumpstateTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2021-11-23T04:44:12Z",
+      "side": 1,
+      "message": "Yes, it appears git is sadly under-powered in this respect - apparently it (intentionally) does not support the concept of \"copy and explicitly keep file history\" with some diffs like piper does. There is still value in preserving the file history but not enough to justify quibbling over it for these files given their obvious relation to the previous HIDL v1.1.",
+      "parentUuid": "d8a18350_a5169b37",
+      "revId": "bdf10553323f7c7a4a3fe5dd396dda4bec14c469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f54b8aeb_8a548698",
