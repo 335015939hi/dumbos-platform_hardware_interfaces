@@ -24,6 +24,55 @@ namespace android {
 namespace bluetooth {
 namespace audio {
 
+using ::android::hardware::bluetooth::audio::V2_0::BitsPerSample;
+using ::android::hardware::bluetooth::audio::V2_1::CodecType;
+using ::android::hardware::bluetooth::audio::V2_1::Lc3FrameDuration;
+using ::android::hardware::bluetooth::audio::V2_2::AudioLocation;
+using ::android::hardware::bluetooth::audio::V2_2::LeAudioCodecCapabilities;
+using ::android::hardware::bluetooth::audio::V2_2::LeAudioMode;
+using SampleRate_2_1 = ::android::hardware::bluetooth::audio::V2_1::SampleRate;
+
+// Default Supported Codecs
+// LC3 16_1: sample rate: 16 kHz, frame duration: 7.5 ms, octets per frame: 30
+static const Lc3Parameters kLc3Capability_16_1 = {
+    .samplingFrequency = SampleRate_2_1::RATE_16000,
+    .frameDuration = Lc3FrameDuration::DURATION_7500US,
+    .octetsPerFrame = 30};
+
+// Default Supported Codecs
+// LC3 16_2: sample rate: 16 kHz, frame duration: 10 ms, octets per frame: 40
+static const Lc3Parameters kLc3Capability_16_2 = {
+    .samplingFrequency = SampleRate_2_1::RATE_16000,
+    .frameDuration = Lc3FrameDuration::DURATION_10000US,
+    .octetsPerFrame = 40};
+
+// Default Supported Codecs
+// LC3 48_4: sample rate: 48 kHz, frame duration: 10 ms, octets per frame: 120
+static const Lc3Parameters kLc3Capability_48_4 = {
+    .samplingFrequency = SampleRate_2_1::RATE_48000,
+    .frameDuration = Lc3FrameDuration::DURATION_10000US,
+    .octetsPerFrame = 120};
+
+const std::vector<LeAudioCodecCapabilities> kDefaultOffloadLeAudioCapabilities =
+    {{.codecType = CodecType::LC3,
+      .mode = LeAudioMode::UNICAST,
+      .supportedChannel = static_cast<AudioLocation>(
+          AudioLocation::FRONT_LEFT | AudioLocation::FRONT_RIGHT),
+      .supportedChannelCount = 2,
+      .capabilities = {kLc3Capability_16_1}},
+     {.codecType = CodecType::LC3,
+      .mode = LeAudioMode::UNICAST,
+      .supportedChannel = static_cast<AudioLocation>(
+          AudioLocation::FRONT_LEFT | AudioLocation::FRONT_RIGHT),
+      .supportedChannelCount = 2,
+      .capabilities = {kLc3Capability_16_2}},
+     {.codecType = CodecType::LC3,
+      .mode = LeAudioMode::UNICAST,
+      .supportedChannel = static_cast<AudioLocation>(
+          AudioLocation::FRONT_LEFT | AudioLocation::FRONT_RIGHT),
+      .supportedChannelCount = 2,
+      .capabilities = {kLc3Capability_48_4}}};
+
 using SessionType_2_1 =
     ::android::hardware::bluetooth::audio::V2_1::SessionType;
 
@@ -42,6 +91,17 @@ bool IsOffloadLeAudioConfigurationValid(
   // parameters
 
   return true;
+}
+
+std::vector<LeAudioCodecCapabilities> GetLeAudioOffloadCodecCapabilities(
+    const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+        session_type) {
+  if (session_type !=
+      SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH) {
+    return std::vector<LeAudioCodecCapabilities>(0);
+  }
+
+  return kDefaultOffloadLeAudioCapabilities;
 }
 
 }  // namespace audio
