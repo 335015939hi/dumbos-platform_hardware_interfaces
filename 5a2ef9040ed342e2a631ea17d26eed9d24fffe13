@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017630857",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1895248?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "9ebc4e75_9587cc97",
+          "description": "Change to \"radio/aidl/aidl_api/android.hardware.radio.modem/current/android/hardware/radio/modem/ActivityStatsInfo.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/aidl_api/android.hardware.radio.modem/current/android/hardware/radio/modem/ActivityStatsInfo.aidl",
+              "range": {
+                "startLine": 39,
+                "startChar": 67,
+                "endLine": 39,
+                "endChar": 75
+              },
+              "replacement": "Specific"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "9e4b52b9_b01c27ca",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio.modem/current/android/hardware/radio/modem/ActivityStatsInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-23T22:25:08Z",
+      "side": 1,
+      "message": "Common typo found: \"Sepcific\" -- should it be \"Specific\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 39,
+        "startChar": 67,
+        "endLine": 39,
+        "endChar": 75
+      },
+      "revId": "5a2ef9040ed342e2a631ea17d26eed9d24fffe13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017630857",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1895248?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "40730586_d0f9526f",
+          "description": "Change to \"radio/aidl/android/hardware/radio/modem/ActivityStatsInfo.aidl\"",
+          "replacements": [
+            {
+              "path": "radio/aidl/android/hardware/radio/modem/ActivityStatsInfo.aidl",
+              "range": {
+                "startLine": 35,
+                "startChar": 40,
+                "endLine": 35,
+                "endChar": 48
+              },
+              "replacement": "Specific"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "7a9e4e7e_8487c2a9",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-23T22:25:08Z",
+      "side": 1,
+      "message": "Common typo found: \"Sepcific\" -- should it be \"Specific\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 35,
+        "startChar": 40,
+        "endLine": 35,
+        "endChar": 48
+      },
+      "revId": "5a2ef9040ed342e2a631ea17d26eed9d24fffe13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
