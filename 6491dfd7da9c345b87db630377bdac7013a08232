@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d40a9e1_e775a959",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2021-11-23T09:23:58Z",
+      "side": 1,
+      "message": "Please also add \".SetDefaultValidity()\" for DeviceUniqueAttestationTest.\nOr strongbox will fail with the same error.\n\nAnd ack to David, the datetime setting for unique attestation is by \n```\n.Authorization(TAG_CREATION_DATETIME, 1619621648000)\n```\nShall we move to TAG_CERTIFICATE_NOT_{BEFORE,AFTER} as well?",
+      "revId": "6491dfd7da9c345b87db630377bdac7013a08232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
