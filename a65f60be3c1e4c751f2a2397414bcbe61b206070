@@ -62,6 +62,30 @@
       },
       "revId": "a65f60be3c1e4c751f2a2397414bcbe61b206070",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d58cad0_baadb7d8",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-11-23T19:40:32Z",
+      "side": 1,
+      "message": "I started with that, but changed to Digest::NONE because it felt more natural in terms of what happens to the input data before it gets fed to the signature algorithm.  \n\n(It also falls out better internally in the implementation - the same AIDL Digest value gets mapped to the same BoringSSL EVP_MD digest.)",
+      "parentUuid": "ea6dcfc1_8f3e40b2",
+      "range": {
+        "startLine": 321,
+        "startChar": 13,
+        "endLine": 321,
+        "endChar": 51
+      },
+      "revId": "a65f60be3c1e4c751f2a2397414bcbe61b206070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
