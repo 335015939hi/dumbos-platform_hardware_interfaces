@@ -19,11 +19,19 @@ package android.hardware.bluetooth.audio@2.2;
 import @2.1::Lc3Parameters;
 import @2.1::PcmParameters;
 import @2.0::CodecConfiguration;
+import @2.0::CodecCapabilities;
+import @2.1::CodecType;
 
 enum LeAudioMode : uint8_t {
     UNKNOWN = 0x00,
     UNICAST = 0x01,
     BROADCAST = 0x02,
+};
+
+enum AudioLocation : uint8_t {
+  UNKNOWN = 0,
+  FRONT_LEFT = 1,
+  FRONT_RIGHT = 2,
 };
 
 struct UnicastStreamMap {
@@ -69,4 +77,24 @@ safe_union AudioConfiguration {
     PcmParameters pcmConfig;
     CodecConfiguration codecConfig;
     LeAudioConfiguration leAudioConfig;
+};
+
+/** Used to specify the capabilities of the different session types */
+safe_union AudioCapabilities {
+    PcmParameters pcmCapabilities;
+    CodecCapabilities codecCapabilities;
+    LeAudioCodecCapabilities leAudioCapabilities;
+};
+
+/**
+ * Used to specify the le audio capabilities of the codecs supported by Hardware offload.
+ */
+struct LeAudioCodecCapabilities {
+    CodecType codecType;
+    LeAudioMode mode;
+    AudioLocation supportedChannel;
+    uint32_t channelCount;
+
+    // Should use safe union when there is more than one codec
+    Lc3Parameters capabilities;
 };
