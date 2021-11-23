@@ -16,6 +16,24 @@
       "message": "Please also add \".SetDefaultValidity()\" for DeviceUniqueAttestationTest.\nOr strongbox will fail with the same error.\n\nAnd ack to David, the datetime setting for unique attestation is by \n```\n.Authorization(TAG_CREATION_DATETIME, 1619621648000)\n```\nShall we move to TAG_CERTIFICATE_NOT_{BEFORE,AFTER} as well?",
       "revId": "6491dfd7da9c345b87db630377bdac7013a08232",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e75b761_b5c73479",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2021-11-23T10:33:00Z",
+      "side": 1,
+      "message": "Even though as per spec there should be error if date range is omitted, let us get back to this with confirmation from Shawn for the expected behavior.",
+      "parentUuid": "3d40a9e1_e775a959",
+      "revId": "6491dfd7da9c345b87db630377bdac7013a08232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
