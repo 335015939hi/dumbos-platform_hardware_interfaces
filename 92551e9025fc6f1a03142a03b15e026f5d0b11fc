@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a212d046_18485212",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410300
+      },
+      "writtenOn": "2021-11-23T19:12:25Z",
+      "side": 1,
+      "message": "Small nits, LGTM.\nQ\u003e Will this change be manually merged into android12-tests-dev branch as well ?",
+      "revId": "92551e9025fc6f1a03142a03b15e026f5d0b11fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a8ced6c_168b0f4c",
+        "filename": "automotive/evs/1.0/vts/functional/VtsHalEvsV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1410300
+      },
+      "writtenOn": "2021-11-23T19:12:25Z",
+      "side": 1,
+      "message": "Nit: Comment can be updated to \"not too big\" to accommodate inclusive language.",
+      "range": {
+        "startLine": 367,
+        "startChar": 45,
+        "endLine": 367,
+        "endChar": 60
+      },
+      "revId": "92551e9025fc6f1a03142a03b15e026f5d0b11fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54351a17_fab20f0d",
+        "filename": "automotive/evs/1.1/vts/functional/VtsHalEvsV1_1TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1410300
+      },
+      "writtenOn": "2021-11-23T19:12:25Z",
+      "side": 1,
+      "message": "Same, can be updated to \"not too big\"",
+      "range": {
+        "startLine": 498,
+        "startChar": 45,
+        "endLine": 498,
+        "endChar": 60
+      },
+      "revId": "92551e9025fc6f1a03142a03b15e026f5d0b11fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
