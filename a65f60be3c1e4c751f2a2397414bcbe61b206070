@@ -16,6 +16,52 @@
       "message": "How does this look as the API change for Curve 25519 support?\n\nSome things to highlight:\n\n- Requires support for TRUSTED_ENVIRONMENT, no support in STRONGBOX\n- Mandates a single purpose for keys, one of SIGN (Ed25519), ATTEST_KEY (Ed25519) or AGREE_KEY (X25519).  It seems to be theoretically possible to convert between Montgomery \u0026 twisted Edwards versions of the curve (https://blog.filippo.io/using-ed25519-keys-for-encryption/), but doesn\u0027t seem like a good idea in practice.\n- Mandates Digest::NONE for Ed25519 (as it internally digests)\n- Expects support for importing both PKCS#8 format keys (OIDs from https://datatracker.ietf.org/doc/html/rfc8410#section-3) and raw format keys.",
       "revId": "a65f60be3c1e4c751f2a2397414bcbe61b206070",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99fd18ac_c89498cb",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-11-23T18:00:37Z",
+      "side": 1,
+      "message": "While you\u0027re here, maybe specify that StrongBox must support P_256 and must not support any others.",
+      "range": {
+        "startLine": 307,
+        "startChar": 73,
+        "endLine": 308,
+        "endChar": 26
+      },
+      "revId": "a65f60be3c1e4c751f2a2397414bcbe61b206070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea6dcfc1_8f3e40b2",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-11-23T18:00:37Z",
+      "side": 1,
+      "message": "Might make more sens to specify that they must only support Digest SHA_2_512, since that is the digest they use. OTOH, that would require callers to actually specify a digest at the Java API layer, which is arguably redundant because there are no other options.\n\nPaul, WDYT?",
+      "range": {
+        "startLine": 321,
+        "startChar": 13,
+        "endLine": 321,
+        "endChar": 51
+      },
+      "revId": "a65f60be3c1e4c751f2a2397414bcbe61b206070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
