@@ -1,0 +1,69 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cac16763_01e5de07",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio.modem/current/android/hardware/radio/modem/ActivityStatsInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2021-11-23T17:38:15Z",
+      "side": 1,
+      "message": "\u003e Common typo found: \"Sepcific\" -- should it be \"Specific\"?\n\u003e Note: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.\n\nPlease fix.",
+      "parentUuid": "7c36a4a6_99509fbe",
+      "range": {
+        "startLine": 39,
+        "startChar": 67,
+        "endLine": 39,
+        "endChar": 75
+      },
+      "revId": "4fe5ec916a01bd1e1dcbf2be6f556a2351845809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2299c224_03cc77cd",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2021-11-23T17:38:15Z",
+      "side": 1,
+      "message": "Technology specific",
+      "revId": "4fe5ec916a01bd1e1dcbf2be6f556a2351845809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b45d0dd_006f9c4b",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2021-11-23T17:38:15Z",
+      "side": 1,
+      "message": "\u003e Common typo found: \"Sepcific\" -- should it be \"Specific\"?\n\u003e Note: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.\n\nPlease fix.",
+      "parentUuid": "0442641f_8a5903d0",
+      "range": {
+        "startLine": 35,
+        "startChar": 40,
+        "endLine": 35,
+        "endChar": 48
+      },
+      "revId": "4fe5ec916a01bd1e1dcbf2be6f556a2351845809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
