@@ -19,16 +19,21 @@
 #include <android/hardware/bluetooth/audio/2.2/types.h>
 
 #include "BluetoothAudioSupportedCodecsDB.h"
+#include "BluetoothAudioSupportedCodecsDB_2_1.h"
 
 namespace android {
 namespace bluetooth {
 namespace audio {
-
 bool IsOffloadLeAudioConfigurationValid(
     const ::android::hardware::bluetooth::audio::V2_1::SessionType&
         session_type,
     const ::android::hardware::bluetooth::audio::V2_2::LeAudioConfiguration&
         le_audio_codec_config);
+
+std::vector<hardware::bluetooth::audio::V2_2::LeAudioCodecCapabilities>
+GetLeAudioOffloadCodecCapabilities(
+    const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+        session_type);
 }  // namespace audio
 }  // namespace bluetooth
 }  // namespace android
