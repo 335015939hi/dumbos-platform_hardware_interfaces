@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fc0d8ce_3e106a9b",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-24T04:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89ca7dd5_4e81864f",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 0
+      },
+      "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fed62902_60e8f1c3",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-11-23T04:44:12Z",
       "side": 1,
       "message": "Early return with message in the status",
+      "range": {
+        "startLine": 64,
+        "startChar": 12,
+        "endLine": 64,
+        "endChar": 17
+      },
+      "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35e1fc83_50e10ead",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-24T04:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fed62902_60e8f1c3",
       "range": {
         "startLine": 64,
         "startChar": 12,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7134084_942c1aa9",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-24T04:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "936c37ed_c3c8f2ab",
+      "range": {
+        "startLine": 69,
+        "startChar": 12,
+        "endLine": 69,
+        "endChar": 17
+      },
+      "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d521a78c_df3aa50e",
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8be746e8_6ef56243",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-24T04:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d521a78c_df3aa50e",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 18
+      },
+      "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "503910d0_e2f28736",
@@ -123,6 +219,30 @@
       "writtenOn": "2021-11-23T04:44:12Z",
       "side": 1,
       "message": "Keep the example of the dumpstate utils stuff:\n```\n        // Shows an example on how to use the libdumpstateutil API.\n        DumpFileToFd(fd, \"cmdline\", \"/proc/self/cmdline\");\n```",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 0
+      },
+      "revId": "89bf927c298c46ef4eb52fd8089c00929fc0192e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2189926f_d4b3d249",
+        "filename": "dumpstate/aidl/default/Dumpstate.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-11-24T04:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "503910d0_e2f28736",
       "range": {
         "startLine": 105,
         "startChar": 0,
