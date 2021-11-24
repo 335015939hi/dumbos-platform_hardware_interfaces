@@ -92,6 +92,30 @@
       },
       "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1e7b0f3_da277ed4",
+        "filename": "radio/aidl/android/hardware/radio/modem/FrequencyRange.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2021-11-24T23:59:46Z",
+      "side": 1,
+      "message": "hmm..but if we have system API, that would be the problem when we want to report it there. So maybe still have the frequency as is. We don\u0027t want to define another SUB6/MMWAVE in the frameworks APIs.",
+      "parentUuid": "c0b83fb8_b95ecae8",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
