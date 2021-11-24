@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d96ec650_0826b19b",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio.modem/current/android/hardware/radio/modem/OptionalAccessNetwork.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2021-11-24T00:53:47Z",
+      "side": 1,
+      "message": "AIDL allows nullable. The workaround \u0027Optional\u0027 is not needed anymore.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 1
+      },
+      "revId": "5a2ef9040ed342e2a631ea17d26eed9d24fffe13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d18d12f2_e442a4b3",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2021-11-24T00:53:47Z",
+      "side": 1,
+      "message": "No optional anymore",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "5a2ef9040ed342e2a631ea17d26eed9d24fffe13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
