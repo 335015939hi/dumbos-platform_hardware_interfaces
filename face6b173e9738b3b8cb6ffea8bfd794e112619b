@@ -116,6 +116,30 @@
       },
       "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c122970d_f6b21132",
+        "filename": "radio/aidl/android/hardware/radio/modem/FrequencyRange.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2021-11-25T00:21:08Z",
+      "side": 1,
+      "message": "We are not planning to introduce new system APIs.. We will just have hide@ APIs so it should be fine i guess.",
+      "parentUuid": "a1e7b0f3_da277ed4",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
