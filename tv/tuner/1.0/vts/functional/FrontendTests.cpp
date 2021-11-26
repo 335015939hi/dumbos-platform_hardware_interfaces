@@ -110,6 +110,8 @@ wait:
             scanMsgLockedReceived = true;
             Result result = frontend->scan(config.settings, type);
             EXPECT_TRUE(result == Result::SUCCESS);
+            mMsgCondition.signal();
+            goto end;
         }
 
         if (mScanMessageType == FrontendScanMessageType::FREQUENCY) {
@@ -126,7 +128,7 @@ wait:
         mMsgCondition.signal();
         goto wait;
     }
-
+end:
     EXPECT_TRUE(scanMsgLockedReceived) << "Scan message LOCKED not received before END";
     if (type == FrontendScanType::SCAN_BLIND)
         EXPECT_TRUE(targetFrequencyReceived) << "frequency not received before LOCKED on blindScan";
