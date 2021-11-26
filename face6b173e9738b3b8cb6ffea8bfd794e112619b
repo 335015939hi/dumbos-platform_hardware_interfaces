@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "333e6c5e_e6c39dd2",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2021-11-26T08:48:42Z",
+      "side": 1,
+      "message": "It will hit the error \"Enum type cannot get nullable annotation\" when running \"m android.hardware.radio.modem-update-api\"\n\nShould we create another new parcelable to bundle AccessNetwork and FrequencyRange together?",
+      "parentUuid": "332fbf3b_8f91c467",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75582b93_028c2d71",
         "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
         "patchSetId": 4
