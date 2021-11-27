@@ -37,6 +37,18 @@ using AudioConfiguration_2_1 =
 ::android::hardware::bluetooth::audio::V2_2::AudioConfiguration
     BluetoothAudioSession_2_2::invalidOffloadAudioConfiguration = {};
 
+using ::android::hardware::audio::common::V5_0::AudioContentType;
+using ::android::hardware::audio::common::V5_0::AudioUsage;
+using ::android::hardware::audio::common::V5_0::PlaybackTrackMetadata;
+using ::android::hardware::audio::common::V5_0::SourceMetadata;
+using ::android::hardware::bluetooth::audio::V2_0::TimeSpec;
+
+static constexpr int kFmqSendTimeoutMs = 1000;  // 1000 ms timeout for sending
+static constexpr int kFmqReceiveTimeoutMs =
+    1000;                               // 1000 ms timeout for receiving
+static constexpr int kWritePollMs = 1;  // polled non-blocking interval
+static constexpr int kReadPollMs = 1;   // polled non-blocking interval
+
 namespace {
 bool is_2_0_session_type(
     const ::android::hardware::bluetooth::audio::V2_1::SessionType&
@@ -48,6 +60,11 @@ bool is_2_0_session_type(
   } else {
     return false;
   }
+}
+
+static inline timespec timespec_convert_from_hal(const TimeSpec& TS) {
+  return {.tv_sec = static_cast<long>(TS.tvSec),
+          .tv_nsec = static_cast<long>(TS.tvNSec)};
 }
 }  // namespace
 
@@ -72,7 +89,24 @@ bool BluetoothAudioSession_2_2::IsSessionReady() {
   }
 
   std::lock_guard<std::recursive_mutex> guard(audio_session->mutex_);
-  return audio_session->stack_iface_ != nullptr;
+  return stack_iface_ != nullptr;
+}
+
+bool BluetoothAudioSession_2_2::UpdateDataPath(
+    const DataMQ::Descriptor* dataMQ) {
+  if (dataMQ == nullptr) {
+    // usecase of reset by nullptr
+    mDataMQ = nullptr;
+    return true;
+  }
+  std::unique_ptr<DataMQ> tempDataMQ;
+  tempDataMQ.reset(new DataMQ(*dataMQ));
+  if (!tempDataMQ || !tempDataMQ->isValid()) {
+    mDataMQ = nullptr;
+    return false;
+  }
+  mDataMQ = std::move(tempDataMQ);
+  return true;
 }
 
 std::shared_ptr<BluetoothAudioSession>
@@ -126,6 +160,278 @@ BluetoothAudioSession_2_2::GetAudioConfig() {
     return kInvalidOffloadAudioConfiguration;
   } else {
     return kInvalidSoftwareAudioConfiguration;
+  }
+}
+
+// Those control functions are for the bluetooth_audio module to start, suspend,
+// stop stream, to check position, and to update metadata.
+bool BluetoothAudioSession_2_2::StartStream() {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (!IsSessionReady()) {
+    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+               << " has NO session";
+    return false;
+  }
+  auto hal_retval = stack_iface_->startStream();
+  if (!hal_retval.isOk()) {
+    LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
+                 << toString(session_type_2_1_) << " failed";
+    return false;
+  }
+  return true;
+}
+
+bool BluetoothAudioSession_2_2::SuspendStream() {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (!IsSessionReady()) {
+    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+               << " has NO session";
+    return false;
+  }
+  auto hal_retval = stack_iface_->suspendStream();
+  if (!hal_retval.isOk()) {
+    LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
+                 << toString(session_type_2_1_) << " failed";
+    return false;
+  }
+  return true;
+}
+
+void BluetoothAudioSession_2_2::StopStream() {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (!IsSessionReady()) {
+    return;
+  }
+  auto hal_retval = stack_iface_->stopStream();
+  if (!hal_retval.isOk()) {
+    LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
+                 << toString(session_type_2_1_) << " failed";
+  }
+}
+
+bool BluetoothAudioSession_2_2::GetPresentationPosition(
+    uint64_t* remote_delay_report_ns, uint64_t* total_bytes_readed,
+    timespec* data_position) {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (!IsSessionReady()) {
+    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+               << " has NO session";
+    return false;
+  }
+  bool retval = false;
+  auto hal_retval = stack_iface_->getPresentationPosition(
+      [&retval, &remote_delay_report_ns, &total_bytes_readed, &data_position](
+          BluetoothAudioStatus status,
+          const uint64_t& remoteDeviceAudioDelayNanos,
+          uint64_t transmittedOctets,
+          const TimeSpec& transmittedOctetsTimeStamp) {
+        if (status == BluetoothAudioStatus::SUCCESS) {
+          if (remote_delay_report_ns)
+            *remote_delay_report_ns = remoteDeviceAudioDelayNanos;
+          if (total_bytes_readed) *total_bytes_readed = transmittedOctets;
+          if (data_position)
+            *data_position =
+                timespec_convert_from_hal(transmittedOctetsTimeStamp);
+          retval = true;
+        }
+      });
+  if (!hal_retval.isOk()) {
+    LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
+                 << toString(session_type_2_1_) << " failed";
+    return false;
+  }
+  return retval;
+}
+
+void BluetoothAudioSession_2_2::UpdateTracksMetadata(
+    const struct source_metadata* source_metadata) {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (!IsSessionReady()) {
+    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+               << " has NO session";
+    return;
+  }
+
+  ssize_t track_count = source_metadata->track_count;
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+            << ", " << track_count << " track(s)";
+  if (session_type_2_1_ == SessionType_2_1::A2DP_SOFTWARE_ENCODING_DATAPATH ||
+      session_type_2_1_ == SessionType_2_1::A2DP_HARDWARE_OFFLOAD_DATAPATH) {
+    return;
+  }
+
+  struct playback_track_metadata* track = source_metadata->tracks;
+  SourceMetadata sourceMetadata;
+  PlaybackTrackMetadata* halMetadata;
+
+  sourceMetadata.tracks.resize(track_count);
+  halMetadata = sourceMetadata.tracks.data();
+  while (track_count && track) {
+    halMetadata->usage = static_cast<AudioUsage>(track->usage);
+    halMetadata->contentType =
+        static_cast<AudioContentType>(track->content_type);
+    halMetadata->gain = track->gain;
+    LOG(VERBOSE) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+                 << ", usage=" << toString(halMetadata->usage)
+                 << ", content=" << toString(halMetadata->contentType)
+                 << ", gain=" << halMetadata->gain;
+    --track_count;
+    ++track;
+    ++halMetadata;
+  }
+  auto hal_retval = stack_iface_->updateMetadata(sourceMetadata);
+  if (!hal_retval.isOk()) {
+    LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
+                 << toString(session_type_2_1_) << " failed";
+  }
+}
+
+// The control function writes stream to FMQ
+size_t BluetoothAudioSession_2_2::OutWritePcmData(const void* buffer,
+                                                  size_t bytes) {
+  if (buffer == nullptr || !bytes) return 0;
+  size_t totalWritten = 0;
+  int ms_timeout = kFmqSendTimeoutMs;
+  do {
+    std::unique_lock<std::recursive_mutex> lock(mutex_);
+    if (!IsSessionReady()) break;
+    size_t availableToWrite = mDataMQ->availableToWrite();
+    if (availableToWrite) {
+      if (availableToWrite > (bytes - totalWritten)) {
+        availableToWrite = bytes - totalWritten;
+      }
+
+      if (!mDataMQ->write(static_cast<const uint8_t*>(buffer) + totalWritten,
+                          availableToWrite)) {
+        ALOGE("FMQ datapath writting %zu/%zu failed", totalWritten, bytes);
+        return totalWritten;
+      }
+      totalWritten += availableToWrite;
+    } else if (ms_timeout >= kWritePollMs) {
+      lock.unlock();
+      usleep(kWritePollMs * 1000);
+      ms_timeout -= kWritePollMs;
+    } else {
+      ALOGD("data %zu/%zu overflow %d ms", totalWritten, bytes,
+            (kFmqSendTimeoutMs - ms_timeout));
+      return totalWritten;
+    }
+  } while (totalWritten < bytes);
+  return totalWritten;
+}
+
+// The control function reads stream from FMQ
+size_t BluetoothAudioSession_2_2::InReadPcmData(void* buffer, size_t bytes) {
+  if (buffer == nullptr || !bytes) return 0;
+  size_t totalRead = 0;
+  int ms_timeout = kFmqReceiveTimeoutMs;
+  do {
+    std::unique_lock<std::recursive_mutex> lock(mutex_);
+    if (!IsSessionReady()) break;
+    size_t availableToRead = mDataMQ->availableToRead();
+    if (availableToRead) {
+      if (availableToRead > (bytes - totalRead)) {
+        availableToRead = bytes - totalRead;
+      }
+      if (!mDataMQ->read(static_cast<uint8_t*>(buffer) + totalRead,
+                         availableToRead)) {
+        ALOGE("FMQ datapath reading %zu/%zu failed", totalRead, bytes);
+        return totalRead;
+      }
+      totalRead += availableToRead;
+    } else if (ms_timeout >= kReadPollMs) {
+      lock.unlock();
+      usleep(kReadPollMs * 1000);
+      ms_timeout -= kReadPollMs;
+      continue;
+    } else {
+      ALOGD("in data %zu/%zu overflow %d ms", totalRead, bytes,
+            (kFmqReceiveTimeoutMs - ms_timeout));
+      return totalRead;
+    }
+  } while (totalRead < bytes);
+  return totalRead;
+}
+
+// invoking the registered session_changed_cb_
+void BluetoothAudioSession_2_2::ReportSessionStatus() {
+  // This is locked already by OnSessionStarted / OnSessionEnded
+  if (observers_.empty()) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+              << " has NO port state observer";
+    return;
+  }
+  for (auto& observer : observers_) {
+    uint16_t cookie = observer.first;
+    std::shared_ptr<struct PortStatusCallbacks> cb = observer.second;
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+              << " notify to bluetooth_audio=0x"
+              << android::base::StringPrintf("%04x", cookie);
+    cb->session_changed_cb_(cookie);
+  }
+}
+
+// The report function is used to report that the Bluetooth stack has notified
+// the result of startStream or suspendStream, and will invoke
+// control_result_cb_ to notify registered bluetooth_audio outputs
+void BluetoothAudioSession_2_2::ReportControlStatus(
+    bool start_resp, const BluetoothAudioStatus& status) {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (observers_.empty()) {
+    LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+                 << " has NO port state observer";
+    return;
+  }
+  for (auto& observer : observers_) {
+    uint16_t cookie = observer.first;
+    std::shared_ptr<struct PortStatusCallbacks> cb = observer.second;
+    LOG(INFO) << __func__ << " - status=" << toString(status)
+              << " for SessionType=" << toString(session_type_2_1_)
+              << ", bluetooth_audio=0x"
+              << android::base::StringPrintf("%04x", cookie)
+              << (start_resp ? " started" : " suspended");
+    cb->control_result_cb_(cookie, start_resp, status);
+  }
+}
+
+// The control function helps the bluetooth_audio module to register
+// PortStatusCallbacks
+// @return: cookie - the assigned number to this bluetooth_audio output
+uint16_t BluetoothAudioSession_2_2::RegisterStatusCback(
+    const PortStatusCallbacks& cbacks) {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  uint16_t cookie = ObserversCookieGetInitValue_2_2(session_type_2_1_);
+  uint16_t cookie_upper_bound =
+      ObserversCookieGetUpperBound_2_2(session_type_2_1_);
+
+  while (cookie < cookie_upper_bound) {
+    if (observers_.find(cookie) == observers_.end()) {
+      break;
+    }
+    ++cookie;
+  }
+  if (cookie >= cookie_upper_bound) {
+    LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+               << " has " << observers_.size()
+               << " observers already (No Resource)";
+    return kObserversCookieUndefined;
+  }
+  std::shared_ptr<struct PortStatusCallbacks> cb =
+      std::make_shared<struct PortStatusCallbacks>();
+  *cb = cbacks;
+  observers_[cookie] = cb;
+  return cookie;
+}
+
+// The control function helps the bluetooth_audio module to unregister
+// PortStatusCallbacks
+// @param: cookie - indicates which bluetooth_audio output is
+void BluetoothAudioSession_2_2::UnregisterStatusCback(uint16_t cookie) {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (observers_.erase(cookie) != 1) {
+    LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+                 << " no such provider=0x"
+                 << android::base::StringPrintf("%04x", cookie);
   }
 }
 
@@ -213,11 +519,29 @@ void BluetoothAudioSession_2_2::OnSessionStarted(
                ? kInvalidOffloadAudioConfiguration
                : kInvalidSoftwareAudioConfiguration);
     } else {
-      audio_session->stack_iface_ = stack_iface;
+      stack_iface_ = stack_iface;
       LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_)
                 << ", AudioConfiguration=" << toString(audio_config);
-      audio_session->ReportSessionStatus();
+      ReportSessionStatus();
     };
+  }
+}
+
+// The report function is used to report that the Bluetooth stack has ended the
+// session, and will invoke session_changed_cb_ to notify registered
+// bluetooth_audio outputs
+void BluetoothAudioSession_2_2::OnSessionEnded() {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  bool toggled = IsSessionReady();
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_);
+  audio_config_2_2_ =
+      (session_type_2_1_ == SessionType_2_1::A2DP_HARDWARE_OFFLOAD_DATAPATH
+           ? kInvalidOffloadAudioConfiguration
+           : kInvalidSoftwareAudioConfiguration);
+  stack_iface_ = nullptr;
+  UpdateDataPath(nullptr);
+  if (toggled) {
+    ReportSessionStatus();
   }
 }
 

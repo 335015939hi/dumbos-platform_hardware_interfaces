@@ -48,7 +48,7 @@ class BluetoothAudioSessionControl_2_2 {
     std::shared_ptr<BluetoothAudioSession_2_2> session_ptr =
         BluetoothAudioSessionInstance_2_2::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
-      return session_ptr->GetAudioSession()->RegisterStatusCback(cbacks);
+      return session_ptr->RegisterStatusCback(cbacks);
     }
     return kObserversCookieUndefined;
   }
@@ -61,7 +61,7 @@ class BluetoothAudioSessionControl_2_2 {
     std::shared_ptr<BluetoothAudioSession_2_2> session_ptr =
         BluetoothAudioSessionInstance_2_2::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
-      session_ptr->GetAudioSession()->UnregisterStatusCback(cookie);
+      session_ptr->UnregisterStatusCback(cookie);
     }
   }
 
@@ -87,7 +87,7 @@ class BluetoothAudioSessionControl_2_2 {
     std::shared_ptr<BluetoothAudioSession_2_2> session_ptr =
         BluetoothAudioSessionInstance_2_2::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
-      return session_ptr->GetAudioSession()->StartStream();
+      return session_ptr->StartStream();
     }
     return false;
   }
@@ -96,7 +96,7 @@ class BluetoothAudioSessionControl_2_2 {
     std::shared_ptr<BluetoothAudioSession_2_2> session_ptr =
         BluetoothAudioSessionInstance_2_2::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
-      return session_ptr->GetAudioSession()->SuspendStream();
+      return session_ptr->SuspendStream();
     }
     return false;
   }
@@ -105,7 +105,7 @@ class BluetoothAudioSessionControl_2_2 {
     std::shared_ptr<BluetoothAudioSession_2_2> session_ptr =
         BluetoothAudioSessionInstance_2_2::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
-      session_ptr->GetAudioSession()->StopStream();
+      session_ptr->StopStream();
     }
   }
 
@@ -116,7 +116,7 @@ class BluetoothAudioSessionControl_2_2 {
     std::shared_ptr<BluetoothAudioSession_2_2> session_ptr =
         BluetoothAudioSessionInstance_2_2::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
-      return session_ptr->GetAudioSession()->GetPresentationPosition(
+      return session_ptr->GetPresentationPosition(
           remote_delay_report_ns, total_bytes_readed, data_position);
     }
     return false;
@@ -128,7 +128,7 @@ class BluetoothAudioSessionControl_2_2 {
     std::shared_ptr<BluetoothAudioSession_2_2> session_ptr =
         BluetoothAudioSessionInstance_2_2::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
-      session_ptr->GetAudioSession()->UpdateTracksMetadata(source_metadata);
+      session_ptr->UpdateTracksMetadata(source_metadata);
     }
   }
 
@@ -138,7 +138,7 @@ class BluetoothAudioSessionControl_2_2 {
     std::shared_ptr<BluetoothAudioSession_2_2> session_ptr =
         BluetoothAudioSessionInstance_2_2::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
-      return session_ptr->GetAudioSession()->OutWritePcmData(buffer, bytes);
+      return session_ptr->OutWritePcmData(buffer, bytes);
     }
     return 0;
   }
@@ -149,7 +149,7 @@ class BluetoothAudioSessionControl_2_2 {
     std::shared_ptr<BluetoothAudioSession_2_2> session_ptr =
         BluetoothAudioSessionInstance_2_2::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
-      return session_ptr->GetAudioSession()->InReadPcmData(buffer, bytes);
+      return session_ptr->InReadPcmData(buffer, bytes);
     }
     return 0;
   }
