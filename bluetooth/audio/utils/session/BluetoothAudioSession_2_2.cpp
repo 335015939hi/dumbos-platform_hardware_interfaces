@@ -72,7 +72,7 @@ bool BluetoothAudioSession_2_2::IsSessionReady() {
   }
 
   std::lock_guard<std::recursive_mutex> guard(audio_session->mutex_);
-  return audio_session->stack_iface_ != nullptr;
+  return stack_iface_ != nullptr;
 }
 
 std::shared_ptr<BluetoothAudioSession>
@@ -126,6 +126,122 @@ BluetoothAudioSession_2_2::GetAudioConfig() {
     return kInvalidOffloadAudioConfiguration;
   } else {
     return kInvalidSoftwareAudioConfiguration;
+  }
+}
+
+// Those control functions are for the bluetooth_audio module to start, suspend,
+// stop stream, to check position, and to update metadata.
+bool BluetoothAudioSession_2_2::StartStream() {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (!IsSessionReady()) {
+    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+               << " has NO session";
+    return false;
+  }
+  auto hal_retval = stack_iface_->startStream();
+  if (!hal_retval.isOk()) {
+    LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
+                 << toString(session_type_2_1_) << " failed";
+    return false;
+  }
+  return true;
+}
+
+bool BluetoothAudioSession_2_2::SuspendStream() {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (!IsSessionReady()) {
+    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+               << " has NO session";
+    return false;
+  }
+  auto hal_retval = stack_iface_->suspendStream();
+  if (!hal_retval.isOk()) {
+    LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
+                 << toString(session_type_2_1_) << " failed";
+    return false;
+  }
+  return true;
+}
+
+// invoking the registered session_changed_cb_
+void BluetoothAudioSession_2_2::ReportSessionStatus() {
+  // This is locked already by OnSessionStarted / OnSessionEnded
+  if (observers_.empty()) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+              << " has NO port state observer";
+    return;
+  }
+  for (auto& observer : observers_) {
+    uint16_t cookie = observer.first;
+    std::shared_ptr<struct PortStatusCallbacks> cb = observer.second;
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+              << " notify to bluetooth_audio=0x"
+              << android::base::StringPrintf("%04x", cookie);
+    cb->session_changed_cb_(cookie);
+  }
+}
+
+// The report function is used to report that the Bluetooth stack has notified
+// the result of startStream or suspendStream, and will invoke
+// control_result_cb_ to notify registered bluetooth_audio outputs
+void BluetoothAudioSession_2_2::ReportControlStatus(
+    bool start_resp, const BluetoothAudioStatus& status) {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (observers_.empty()) {
+    LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+                 << " has NO port state observer";
+    return;
+  }
+  for (auto& observer : observers_) {
+    uint16_t cookie = observer.first;
+    std::shared_ptr<struct PortStatusCallbacks> cb = observer.second;
+    LOG(INFO) << __func__ << " - status=" << toString(status)
+              << " for SessionType=" << toString(session_type_2_1_)
+              << ", bluetooth_audio=0x"
+              << android::base::StringPrintf("%04x", cookie)
+              << (start_resp ? " started" : " suspended");
+    cb->control_result_cb_(cookie, start_resp, status);
+  }
+}
+
+// The control function helps the bluetooth_audio module to register
+// PortStatusCallbacks
+// @return: cookie - the assigned number to this bluetooth_audio output
+uint16_t BluetoothAudioSession_2_2::RegisterStatusCback(
+    const PortStatusCallbacks& cbacks) {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  uint16_t cookie = ObserversCookieGetInitValue_2_2(session_type_2_1_);
+  uint16_t cookie_upper_bound =
+      ObserversCookieGetUpperBound_2_2(session_type_2_1_);
+
+  while (cookie < cookie_upper_bound) {
+    if (observers_.find(cookie) == observers_.end()) {
+      break;
+    }
+    ++cookie;
+  }
+  if (cookie >= cookie_upper_bound) {
+    LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+               << " has " << observers_.size()
+               << " observers already (No Resource)";
+    return kObserversCookieUndefined;
+  }
+  std::shared_ptr<struct PortStatusCallbacks> cb =
+      std::make_shared<struct PortStatusCallbacks>();
+  *cb = cbacks;
+  observers_[cookie] = cb;
+  return cookie;
+}
+
+// The control function helps the bluetooth_audio module to unregister
+// PortStatusCallbacks
+// @param: cookie - indicates which bluetooth_audio output is
+void BluetoothAudioSession_2_2::UnregisterStatusCback(uint16_t cookie) {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (observers_.erase(cookie) != 1) {
+    LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+                 << " no such provider=0x"
+                 << android::base::StringPrintf("%04x", cookie);
   }
 }
 
@@ -213,10 +329,10 @@ void BluetoothAudioSession_2_2::OnSessionStarted(
                ? kInvalidOffloadAudioConfiguration
                : kInvalidSoftwareAudioConfiguration);
     } else {
-      audio_session->stack_iface_ = stack_iface;
+      stack_iface_ = stack_iface;
       LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_)
                 << ", AudioConfiguration=" << toString(audio_config);
-      audio_session->ReportSessionStatus();
+      ReportSessionStatus();
     };
   }
 }
