@@ -129,6 +129,24 @@ BluetoothAudioSession_2_2::GetAudioConfig() {
   }
 }
 
+// Those control functions are for the bluetooth_audio module to start, suspend,
+// stop stream, to check position, and to update metadata.
+bool BluetoothAudioSession_2_2::StartStream() {
+  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (!IsSessionReady()) {
+    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+               << " has NO session";
+    return false;
+  }
+  auto hal_retval = audio_session->stack_iface_->startStream();
+  if (!hal_retval.isOk()) {
+    LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
+                 << toString(session_type_2_1_) << " failed";
+    return false;
+  }
+  return true;
+}
+
 bool BluetoothAudioSession_2_2::UpdateAudioConfig(
     const ::android::hardware::bluetooth::audio::V2_2::AudioConfiguration&
         audio_config) {
