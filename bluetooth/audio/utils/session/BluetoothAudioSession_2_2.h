@@ -48,6 +48,8 @@ class BluetoothAudioSession_2_2 {
   static ::android::hardware::bluetooth::audio::V2_2::AudioConfiguration
       invalidOffloadAudioConfiguration;
 
+  std::recursive_mutex mutex_;
+
  public:
   BluetoothAudioSession_2_2(
       const ::android::hardware::bluetooth::audio::V2_1::SessionType&
@@ -73,6 +75,10 @@ class BluetoothAudioSession_2_2 {
   // AudioConfiguration
   const ::android::hardware::bluetooth::audio::V2_2::AudioConfiguration
   GetAudioConfig();
+
+  // Those control functions are for the bluetooth_audio module to start,
+  // suspend, stop stream, to check position, and to update metadata.s
+  bool StartStream();
 
   static constexpr ::android::hardware::bluetooth::audio::V2_2::
       AudioConfiguration& kInvalidSoftwareAudioConfiguration =
