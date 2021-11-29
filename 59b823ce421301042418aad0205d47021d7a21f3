@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "935bd33b_40352fa3",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2021-11-29T16:13:19Z",
+      "side": 1,
+      "message": "dangit, I had a typo\n\nProbably worth fixing here. I can go fix it up in the other test.",
+      "range": {
+        "startLine": 85,
+        "startChar": 9,
+        "endLine": 85,
+        "endChar": 17
+      },
+      "revId": "59b823ce421301042418aad0205d47021d7a21f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
