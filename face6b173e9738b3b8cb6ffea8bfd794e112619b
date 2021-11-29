@@ -188,6 +188,30 @@
       },
       "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdba7303_6eb802cf",
+        "filename": "radio/aidl/android/hardware/radio/modem/FrequencyRange.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2021-11-29T22:22:19Z",
+      "side": 1,
+      "message": "@jackyu, can we just have SUB6 and MMWAVE and these will be hide@ within the FWK API ?",
+      "parentUuid": "c122970d_f6b21132",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
