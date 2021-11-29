@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9de46d49_c47417ab",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2021-11-29T22:51:29Z",
+      "side": 1,
+      "message": "Sarah, do you have any good suggestion?",
+      "parentUuid": "8572bf57_cf980ce4",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75582b93_028c2d71",
         "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
         "patchSetId": 4
@@ -204,6 +228,30 @@
       "side": 1,
       "message": "@jackyu, can we just have SUB6 and MMWAVE and these will be hide@ within the FWK API ?",
       "parentUuid": "c122970d_f6b21132",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "471a794b_e73b726e",
+        "filename": "radio/aidl/android/hardware/radio/modem/FrequencyRange.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2021-11-29T22:51:29Z",
+      "side": 1,
+      "message": "I would suggest we just re-use the existing APIs. It will be very confusing if we have two sets of APIs, one that has has low/mid/high/mmwave, one that has sub6/mmwave, regardless it\u0027s @hide or not.",
+      "parentUuid": "bdba7303_6eb802cf",
       "range": {
         "startLine": 22,
         "startChar": 0,
