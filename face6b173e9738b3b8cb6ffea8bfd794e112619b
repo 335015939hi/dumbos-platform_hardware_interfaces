@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c409c94d_3f5e50d7",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-11-29T23:39:50Z",
+      "side": 1,
+      "message": "Is it possible to use UNKNOWN for both? Otherwise adding INVALID to the enums could work if this is a separate case from unknown",
+      "parentUuid": "9de46d49_c47417ab",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75582b93_028c2d71",
         "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
         "patchSetId": 4
@@ -137,6 +161,29 @@
         "startChar": 4,
         "endLine": 33,
         "endChar": 18
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72a24763_cc0532e3",
+        "filename": "radio/aidl/android/hardware/radio/modem/FrequencyRange.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2021-11-29T23:39:50Z",
+      "side": 1,
+      "message": "If this is only used in ActivityStatsTechSpecificInfo, we can move it there instead of creating a new class:\nconst int FREQUENCY_RANGE_LOW \u003d 1;\nconst int FREQUENCY_RANGE_MID \u003d 2;\netc",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 19
       },
       "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
