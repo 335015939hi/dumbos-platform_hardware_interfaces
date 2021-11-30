@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e52943_636d0dfe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2021-11-30T07:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9066b17_ed948b41",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 16
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "332fbf3b_8f91c467",
@@ -145,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af673ef6_09aa2e31",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2021-11-30T07:56:55Z",
+      "side": 1,
+      "message": "I think we cam set UNKNOWN if the Activity statistics is RAT independent, Jaya, do you have any concerns on this?",
+      "parentUuid": "c409c94d_3f5e50d7",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75582b93_028c2d71",
         "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
         "patchSetId": 4
@@ -156,6 +204,30 @@
       "writtenOn": "2021-11-24T22:42:00Z",
       "side": 1,
       "message": "@nullable",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 18
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11ab1462_865f9b3f",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2021-11-30T07:56:55Z",
+      "side": 1,
+      "message": "Use FREQUENCY_RANGE_UNKNOWN instead",
+      "parentUuid": "75582b93_028c2d71",
       "range": {
         "startLine": 33,
         "startChar": 4,
@@ -179,6 +251,30 @@
       "writtenOn": "2021-11-29T23:39:50Z",
       "side": 1,
       "message": "If this is only used in ActivityStatsTechSpecificInfo, we can move it there instead of creating a new class:\nconst int FREQUENCY_RANGE_LOW \u003d 1;\nconst int FREQUENCY_RANGE_MID \u003d 2;\netc",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "face6b173e9738b3b8cb6ffea8bfd794e112619b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db701e67_dee9041d",
+        "filename": "radio/aidl/android/hardware/radio/modem/FrequencyRange.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2021-11-30T07:56:55Z",
+      "side": 1,
+      "message": "Agreed",
+      "parentUuid": "72a24763_cc0532e3",
       "range": {
         "startLine": 21,
         "startChar": 5,
