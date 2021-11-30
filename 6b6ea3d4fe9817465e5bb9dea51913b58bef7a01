@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21a00a11_697557c8",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2021-11-30T17:58:40Z",
+      "side": 1,
+      "message": "what about one line comment like /** ... */ - pls do for all one line comments",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 7
+      },
+      "revId": "6b6ea3d4fe9817465e5bb9dea51913b58bef7a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08cdf53b_fc123876",
         "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
         "patchSetId": 5
