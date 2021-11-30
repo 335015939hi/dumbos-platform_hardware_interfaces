@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e60e89c8_00440c24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2021-11-30T16:52:45Z",
+      "side": 1,
+      "message": "Hi Henry, please share your idea about how to pass it on S.",
+      "revId": "ca5405bc20b35efac468ff06674b69114ffc8868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ed49f2a_6e49e641",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2021-11-30T16:52:45Z",
+      "side": 1,
+      "message": "Your change will break the blind scan case.\n\nIn the bug, you mentioned that END message will be sent in your workaround implementation. I think we could add that END message handling to \"FrontendCallback::onEvent\" and this \"FrontendCallback::scanTest\" to exit the mMsgCondition wait.",
+      "range": {
+        "startLine": 133,
+        "startChar": 34,
+        "endLine": 133,
+        "endChar": 44
+      },
+      "revId": "ca5405bc20b35efac468ff06674b69114ffc8868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
