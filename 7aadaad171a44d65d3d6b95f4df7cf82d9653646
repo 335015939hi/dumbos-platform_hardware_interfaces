@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "952a906e_c1d90130",
+        "filename": "security/dice/aidl/android/hardware/security/dice/Artifacts.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-11-30T19:36:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4d528ee_888197c4",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "7aadaad171a44d65d3d6b95f4df7cf82d9653646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e2b0ef5_a800f11d",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-11-15T05:10:28Z",
       "side": 1,
       "message": "This AIDL file won\u0027t be necessary if we have the third field of Artifacts.aidl as CBOR encoded BCC",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "7aadaad171a44d65d3d6b95f4df7cf82d9653646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13c6e139_39272bdd",
+        "filename": "security/dice/aidl/android/hardware/security/dice/Certificate.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-11-30T19:36:58Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "9e2b0ef5_a800f11d",
       "range": {
         "startLine": 25,
         "startChar": 10,
