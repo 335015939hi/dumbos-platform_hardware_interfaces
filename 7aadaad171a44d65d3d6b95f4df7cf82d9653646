@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "881d3dd3_8445c294",
+        "filename": "security/dice/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-11-30T21:56:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48cd391c_199ad3cc",
+      "revId": "7aadaad171a44d65d3d6b95f4df7cf82d9653646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4d528ee_888197c4",
@@ -125,6 +143,30 @@
       "writtenOn": "2021-11-15T05:10:28Z",
       "side": 1,
       "message": "Hope you plan to update this to be similar to https://cs.android.com/android/platform/superproject/+/master:external/open-dice/include/dice/android/bcc.h;l\u003d37, as we discussed.",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 12
+      },
+      "revId": "7aadaad171a44d65d3d6b95f4df7cf82d9653646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c3cb690_79a21cb5",
+        "filename": "security/dice/aidl/android/hardware/security/dice/Config.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-11-30T21:56:04Z",
+      "side": 1,
+      "message": "I don\u0027t think I will. The current form is a little more flexible and in line with the DICE spec and lib open-dice api. This allows implementations without copying. Changing the format would be fairly intrusive to the current implementation.",
+      "parentUuid": "378b7c2a_0a893124",
       "range": {
         "startLine": 25,
         "startChar": 6,
