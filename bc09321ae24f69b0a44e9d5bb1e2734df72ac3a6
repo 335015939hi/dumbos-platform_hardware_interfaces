@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c477bc54_623c7b36",
+        "filename": "dumpstate/aidl/vts/functional/VtsHalDumpstateTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-01T05:34:37Z",
+      "side": 1,
+      "message": "I assume a failure in ToggleVerboseLogging is not fatal, because if any ASSERT_* in ToggleVerboseLogging failed, code below this line is still going to run.",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 25
+      },
+      "revId": "bc09321ae24f69b0a44e9d5bb1e2734df72ac3a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
