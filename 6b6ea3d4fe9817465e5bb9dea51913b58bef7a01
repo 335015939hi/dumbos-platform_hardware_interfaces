@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4da639fd_33cbad7c",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2021-12-01T05:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21a00a11_697557c8",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 7
+      },
+      "revId": "6b6ea3d4fe9817465e5bb9dea51913b58bef7a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08cdf53b_fc123876",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "Also, pls update that \n\"Set UNKNOWN if the Activity statistics when frequency range is not applicable\"",
       "parentUuid": "08cdf53b_fc123876",
+      "range": {
+        "startLine": 49,
+        "startChar": 51,
+        "endLine": 49,
+        "endChar": 56
+      },
+      "revId": "6b6ea3d4fe9817465e5bb9dea51913b58bef7a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaba798e_73f897e2",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2021-12-01T05:05:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f497e8f_108b8e95",
       "range": {
         "startLine": 49,
         "startChar": 51,
