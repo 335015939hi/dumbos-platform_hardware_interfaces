@@ -22,6 +22,30 @@
       },
       "revId": "bc09321ae24f69b0a44e9d5bb1e2734df72ac3a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e887271b_7df89204",
+        "filename": "dumpstate/aidl/vts/functional/VtsHalDumpstateTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1900005
+      },
+      "writtenOn": "2021-12-01T06:33:29Z",
+      "side": 1,
+      "message": "Yes, its not fatal, I would say",
+      "parentUuid": "c477bc54_623c7b36",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 25
+      },
+      "revId": "bc09321ae24f69b0a44e9d5bb1e2734df72ac3a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
