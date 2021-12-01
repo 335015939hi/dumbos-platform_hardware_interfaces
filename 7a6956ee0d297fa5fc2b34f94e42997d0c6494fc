@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "854162e6_ded884cb",
+        "filename": "health/utils/libhealthshim/test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-12-01T22:32:44Z",
+      "side": 1,
+      "message": "nit: use vectors with more than one element?",
+      "range": {
+        "startLine": 145,
+        "startChar": 44,
+        "endLine": 148,
+        "endChar": 15
+      },
+      "revId": "7a6956ee0d297fa5fc2b34f94e42997d0c6494fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
