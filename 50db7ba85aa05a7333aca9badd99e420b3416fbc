@@ -62,6 +62,30 @@
       },
       "revId": "50db7ba85aa05a7333aca9badd99e420b3416fbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db65ecd1_80d30a04",
+        "filename": "usb/1.0/default/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2021-12-02T21:01:12Z",
+      "side": 1,
+      "message": "Starting enforcing this in https://r.android.com/1908986",
+      "parentUuid": "e6187772_6510bb3f",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 21
+      },
+      "revId": "50db7ba85aa05a7333aca9badd99e420b3416fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
