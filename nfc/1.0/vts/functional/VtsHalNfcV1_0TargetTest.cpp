@@ -24,7 +24,7 @@
 #include <hardware/nfc.h>
 #include <hidl/GtestPrinter.h>
 #include <hidl/ServiceManagement.h>
-
+#include <cutils/properties.h>
 #include <VtsHalHidlTargetCallbackBase.h>
 
 using ::android::hardware::nfc::V1_0::INfc;
@@ -336,6 +336,9 @@ TEST_P(NfcHidlTest, WriteInvalidAndThenValidCommand) {
  * Repeat to send total of 1Mb data
  */
 TEST_P(NfcHidlTest, Bandwidth) {
+    char boardplatform[256];
+    property_get("ro.board.platform", boardplatform, "");
+
     std::vector<uint8_t> cmd = CORE_RESET_CMD;
     NfcData data = cmd;
     EXPECT_EQ(data.size(), nfc_->write(data));
@@ -378,6 +381,12 @@ TEST_P(NfcHidlTest, Bandwidth) {
     EXPECT_EQ((int)NfcStatus::OK, res.args->last_data_[3]);
     uint8_t conn_id = res.args->last_data_[6];
     uint32_t max_payload_size = res.args->last_data_[4];
+    if(strcmp(boardplatform,"mt6781")==0)
+    {
+        if (max_payload_size > 252){
+            max_payload_size = 252;
+        }
+    }
 
     for (int loops = 0; loops < NUMBER_LOOPS; loops++) {
         res.args->last_data_.resize(0);
