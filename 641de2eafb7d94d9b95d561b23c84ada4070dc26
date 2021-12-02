@@ -87,6 +87,30 @@
       },
       "revId": "641de2eafb7d94d9b95d561b23c84ada4070dc26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57e389dc_43045962",
+        "filename": "thermal/2.0/default/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2021-12-02T21:59:05Z",
+      "side": 1,
+      "message": "what was the failure? is there somewhere have the name hardcoded? or this makes thermal HAL gone?",
+      "parentUuid": "a1083cbe_6cbafe9c",
+      "range": {
+        "startLine": 44,
+        "startChar": 11,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "641de2eafb7d94d9b95d561b23c84ada4070dc26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
