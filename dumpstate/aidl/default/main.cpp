@@ -14,29 +14,23 @@
  * limitations under the License.
  */
 
+#include "Dumpstate.h"
+
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 
-#include "Storage.h"
-
-using aidl::android::hardware::health::storage::Storage;
-using std::string_literals::operator""s;
+using aidl::android::hardware::dumpstate::Dumpstate;
 
 int main() {
-    LOG(INFO) << "Health storage AIDL HAL starting...";
     ABinderProcess_setThreadPoolMaxThreadCount(0);
+    std::shared_ptr<Dumpstate> dumpstate = ndk::SharedRefBase::make<Dumpstate>();
 
-    // make a default storage service
-    auto storage = ndk::SharedRefBase::make<Storage>();
-    const std::string name = Storage::descriptor + "/default"s;
-    LOG(INFO) << "Health storage AIDL HAL registering...";
-    CHECK_EQ(STATUS_OK,
-             AServiceManager_registerLazyService(storage->asBinder().get(), name.c_str()));
+    const std::string instance = std::string() + Dumpstate::descriptor + "/default";
+    binder_status_t status =
+            AServiceManager_registerLazyService(dumpstate->asBinder().get(), instance.c_str());
+    CHECK(status == STATUS_OK);
 
-    LOG(INFO) << "Health storage AIDL HAL joining...";
     ABinderProcess_joinThreadPool();
-
-    LOG(ERROR) << "Health storage AIDL HAL join thread ends, exiting...";
-    return EXIT_FAILURE;  // should not reach
+    return EXIT_FAILURE;  // Unreachable
 }
