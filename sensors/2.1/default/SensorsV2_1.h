@@ -58,11 +58,8 @@ struct SensorsV2_1 : public Sensors {
     getSensorsList(V2_0::ISensors::getSensorsList_cb _hidl_cb) override {
       std::vector<V1_0::SensorInfo> sensors;
       for (const auto &sensor : mSensors) {
-        auto &info = sensor.second->getSensorInfo();
-        if (info.type != SensorType::HINGE_ANGLE) {
-          sensors.push_back(V2_1::implementation::convertToOldSensorInfo(
-              sensor.second->getSensorInfo()));
-        }
+          sensors.push_back(
+                  V2_1::implementation::convertToOldSensorInfo(sensor.second->getSensorInfo()));
       }
 
       // Call the HIDL callback with the SensorInfo
