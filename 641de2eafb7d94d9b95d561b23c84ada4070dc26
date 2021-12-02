@@ -63,6 +63,30 @@
       },
       "revId": "641de2eafb7d94d9b95d561b23c84ada4070dc26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1083cbe_6cbafe9c",
+        "filename": "thermal/2.0/default/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1902155
+      },
+      "writtenOn": "2021-12-02T20:42:39Z",
+      "side": 1,
+      "message": "Changing the name to `com.android.hardware.thermal.mock` caused `atest CtsThermalTestCases` to fail. Going to stick with `com.android.hardware.thermal`.",
+      "parentUuid": "3bd48c04_1d7b71d3",
+      "range": {
+        "startLine": 44,
+        "startChar": 11,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "641de2eafb7d94d9b95d561b23c84ada4070dc26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
