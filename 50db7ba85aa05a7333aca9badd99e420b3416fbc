@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5f789c5_06b43832",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-12-02T18:52:41Z",
+      "side": 1,
+      "message": "The double change ID thing is annoying when you have two lines for the \"Test:\" section.\nI don\u0027t know if it actually hurts anything, but I usually remove the one directly under the \"Test:\" line.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 52
+      },
+      "revId": "50db7ba85aa05a7333aca9badd99e420b3416fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6187772_6510bb3f",
+        "filename": "usb/1.0/default/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-12-02T18:52:41Z",
+      "side": 1,
+      "message": "is there something in the build for apex modules that checks if any of these binaries are in vendor to make sure this is false?",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 21
+      },
+      "revId": "50db7ba85aa05a7333aca9badd99e420b3416fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
