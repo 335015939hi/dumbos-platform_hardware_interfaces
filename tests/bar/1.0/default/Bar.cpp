@@ -145,6 +145,14 @@ Return<void> Bar::createHandles(uint32_t size, createHandles_cb _hidl_cb) {
     return mFoo->createHandles(size, _hidl_cb);
 }
 
+Return<void> Bar::createMyDmabufHandle(createMyDmabufHandle_cb _hidl_cb) {
+    return mFoo->createMyDmabufHandle(_hidl_cb);
+}
+
+Return<void> Bar::createDmabufHandles(uint32_t size, createDmabufHandles_cb _hidl_cb) {
+    return mFoo->createDmabufHandles(size, _hidl_cb);
+}
+
 Return<void> Bar::closeHandles() {
     return mFoo->closeHandles();
 }
@@ -167,6 +175,10 @@ Return<void> Bar::thisIsNew()  {
 Return<void> Bar::expectNullHandle(const hidl_handle& h, const Abc& xyz, expectNullHandle_cb _hidl_cb) {
     ALOGI("SERVER(Bar) h = %p, xyz.z = %p", h.getNativeHandle(), xyz.z.getNativeHandle());
     _hidl_cb(h == nullptr, xyz.z == nullptr);
+    return Void();
+}
+
+Return<void> Bar::sendAHandle(const hidl_handle& h) {
     return Void();
 }
 

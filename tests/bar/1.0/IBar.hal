@@ -38,4 +38,5 @@ interface IBar extends android.hardware.tests.foo@1.0::IFoo {
             generates (BitField bf, uint8_t first, uint8_t second, uint8_t third);
 
     haveAInterface(ISimple i) generates (ISimple i);
+    sendAHandle(handle h);
 };

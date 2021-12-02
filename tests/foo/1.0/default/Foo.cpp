@@ -2,6 +2,7 @@
 #define LOG_TAG "hidl_test"
 
 #include "Foo.h"
+#include <BufferAllocator/BufferAllocator.h>
 #include <android-base/logging.h>
 #include <hidl-test/FooHelper.h>
 #include <inttypes.h>
@@ -353,6 +354,25 @@ Return<void> Foo::createMyHandle(createMyHandle_cb _hidl_cb) {
     return Void();
 }
 
+Return<void> Foo::createMyDmabufHandle(createMyDmabufHandle_cb _hidl_cb) {
+    auto allocator = new BufferAllocator();
+
+    int fd = allocator->AllocSystem(true, 8192);
+    if (fd < 0) {
+        LOG(ERROR) << "Unable to allocate DMA-BUF";
+        return Void();
+    }
+
+    native_handle_t* nh = native_handle_create(1, 0);
+    nh->data[0] = fd;
+    MyHandle h;
+    h.guard = 666;
+    h.h = nh;
+    h.h.markNotUsedBySender();
+    _hidl_cb(h);
+    return Void();
+}
+
 Return<void> Foo::createHandles(uint32_t size, createHandles_cb _hidl_cb) {
     hidl_vec<hidl_handle> handles;
     handles.resize(size);
@@ -361,6 +381,17 @@ Return<void> Foo::createHandles(uint32_t size, createHandles_cb _hidl_cb) {
             handles[i] = h.h;
         });
     }
+    _hidl_cb(handles);
+    return Void();
+}
+
+Return<void> Foo::createDmabufHandles(uint32_t size, createDmabufHandles_cb _hidl_cb) {
+    hidl_vec<hidl_handle> handles;
+    handles.resize(size);
+    for (uint32_t i = 0; i < size; ++i) {
+        createMyDmabufHandle([&](const MyHandle& h) { handles[i] = h.h; });
+    }
+
     _hidl_cb(handles);
     return Void();
 }

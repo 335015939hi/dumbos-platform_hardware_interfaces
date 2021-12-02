@@ -52,6 +52,9 @@ struct Foo : public IFoo {
     virtual Return<void> sendVecVec(sendVecVec_cb _hidl_cb)  override;
     virtual Return<void> createMyHandle(createMyHandle_cb _hidl_cb)  override;
     virtual Return<void> createHandles(uint32_t size, createHandles_cb _hidl_cb)  override;
+    virtual Return<void> createMyDmabufHandle(createMyDmabufHandle_cb _hidl_cb) override;
+    virtual Return<void> createDmabufHandles(uint32_t size,
+                                             createDmabufHandles_cb _hidl_cb) override;
     virtual Return<void> closeHandles()  override;
     virtual Return<void> repeatWithFmq(const IFoo::WithFmq& withFmq,
                                        repeatWithFmq_cb _hidl_cb) override;

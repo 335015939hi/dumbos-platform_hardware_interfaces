@@ -214,7 +214,11 @@ interface IFoo {
     echoNullInterface(IFooCallback cb) generates (bool receivedNull, IFooCallback cb);
 
     createMyHandle() generates (MyHandle h);
+
+    createMyDmabufHandle() generates (MyHandle h);
     createHandles(uint32_t size) generates (vec<handle> handles);
+
+    createDmabufHandles(uint32_t size) generates (vec<handle> handles);
     closeHandles();
 
     repeatWithFmq(WithFmq withFmq) generates (WithFmq withFmq);

@@ -16,6 +16,12 @@ Return<void> Benchmark::sendVec(
     return Void();
 }
 
+Return<void> Benchmark::sendVecOfHandles(const ::android::hardware::hidl_vec<hidl_handle>& data,
+                                         sendVecOfHandles_cb _hidl_cb) {
+    _hidl_cb(data);
+    return Void();
+}
+
 IBenchmark* HIDL_FETCH_IBenchmark(const char* /* name */) {
     return new Benchmark();
 }

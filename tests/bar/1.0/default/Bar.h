@@ -55,6 +55,9 @@ struct Bar : public IBar {
     virtual Return<void> sendVecVec(sendVecVec_cb _hidl_cb)  override;
     virtual Return<void> createMyHandle(createMyHandle_cb _hidl_cb)  override;
     virtual Return<void> createHandles(uint32_t size, createHandles_cb _hidl_cb)  override;
+    virtual Return<void> createMyDmabufHandle(createMyDmabufHandle_cb _hidl_cb) override;
+    virtual Return<void> createDmabufHandles(uint32_t size,
+                                             createDmabufHandles_cb _hidl_cb) override;
     virtual Return<void> closeHandles()  override;
     virtual Return<void> repeatWithFmq(const IFoo::WithFmq& withFmq,
                                        repeatWithFmq_cb _hidl_cb) override;
@@ -72,7 +75,7 @@ struct Bar : public IBar {
     // Methods from ::android::hardware::tests::bar::V1_0::IBar follow.
     Return<void> thisIsNew()  override;
     Return<void> expectNullHandle(const hidl_handle& h, const Abc& xyz, expectNullHandle_cb _hidl_cb)  override;
-
+    Return<void> sendAHandle(const hidl_handle& h);
     Return<void> takeAMask(BitField bf, uint8_t first, const MyMask& second, uint8_t third,
             takeAMask_cb _hidl_cb) override;
     Return<sp<ISimple>> haveAInterface(const sp<ISimple> &in);

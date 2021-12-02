@@ -17,6 +17,8 @@ using ::android::hardware::hidl_vec;
 
 struct Benchmark : public IBenchmark {
   virtual Return<void> sendVec(const hidl_vec<uint8_t>& data, sendVec_cb _hidl_cb)  override;
+  virtual Return<void> sendVecOfHandles(const hidl_vec<hidl_handle>& handles,
+                                        sendVecOfHandles_cb _hidl_cb) override;
 };
 
 extern "C" IBenchmark* HIDL_FETCH_IBenchmark(const char* name);

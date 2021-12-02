@@ -18,4 +18,5 @@ package android.hardware.tests.libhwbinder@1.0;
 
 interface IBenchmark {
   sendVec(vec<uint8_t> data) generates (vec<uint8_t> data);
+  sendVecOfHandles(vec<handle> data) generates (vec<handle> data);
 };
