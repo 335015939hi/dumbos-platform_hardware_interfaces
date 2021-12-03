@@ -1,0 +1,74 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8195f2d_2056d94d",
+        "filename": "security/dice/aidl/vts/fuctional/dice_demote_test.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-12-03T21:20:54Z",
+      "side": 1,
+      "message": "\u003e Please remove the trailing whitespace.\n\nPlease fix.",
+      "parentUuid": "5f21ea23_25d0a570",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 8
+      },
+      "revId": "31fdc21a099c9c81fbbb3e374046e34245431b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e398c591_c574fefc",
+        "filename": "security/dice/aidl/vts/fuctional/dice_test.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-12-03T21:20:54Z",
+      "side": 1,
+      "message": "Can you please add b/204938506",
+      "range": {
+        "startLine": 80,
+        "startChar": 11,
+        "endLine": 80,
+        "endChar": 15
+      },
+      "revId": "31fdc21a099c9c81fbbb3e374046e34245431b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed9bfdac_68e221a3",
+        "filename": "security/dice/aidl/vts/fuctional/utils.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-12-03T21:20:54Z",
+      "side": 1,
+      "message": "Can you please add a comment to this function? It is not entirely clear to me by looking at the code.",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 24,
+        "endChar": 22
+      },
+      "revId": "31fdc21a099c9c81fbbb3e374046e34245431b9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
