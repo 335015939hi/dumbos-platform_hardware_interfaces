@@ -16,6 +16,24 @@
       "message": "Refer to the comment, this value is bitfield, do we still need to use array type? or we can change to use int?",
       "revId": "802c197c5f89625574feffc821f78005dadb8cc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c42aa400_77e3ca63",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioCapabilities.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-03T10:56:41Z",
+      "side": 1,
+      "message": "Yes, it was changed in the internal patch.\n\nUpdate the merged-in version here.",
+      "parentUuid": "38290885_7356705f",
+      "revId": "802c197c5f89625574feffc821f78005dadb8cc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
