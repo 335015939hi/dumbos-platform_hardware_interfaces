@@ -135,6 +135,30 @@
       },
       "revId": "641de2eafb7d94d9b95d561b23c84ada4070dc26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b843d4d_b6452f3b",
+        "filename": "thermal/2.0/default/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1902155
+      },
+      "writtenOn": "2021-12-03T17:28:46Z",
+      "side": 1,
+      "message": "Fixed. The new apex name is com.android.hardware.thermal.mock.",
+      "parentUuid": "5a2f7a6e_c48447a1",
+      "range": {
+        "startLine": 44,
+        "startChar": 11,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "641de2eafb7d94d9b95d561b23c84ada4070dc26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
