@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db19a56a_ca5b2b89",
+        "filename": "security/dice/aidl/default/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2021-12-03T21:01:03Z",
+      "side": 1,
+      "message": "Why do we have non-secure-software here instead of default?",
+      "range": {
+        "startLine": 6,
+        "startChar": 50,
+        "endLine": 6,
+        "endChar": 69
+      },
+      "revId": "2cb8424ac14f9b6079d75e541008c1120c4688d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
