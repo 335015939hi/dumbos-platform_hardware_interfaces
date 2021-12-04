@@ -137,6 +137,9 @@ class AmbientTempSensor : public OnChangeSensor {
 class LightSensor : public OnChangeSensor {
   public:
     LightSensor(int32_t sensorHandle, ISensorsEventCallback* callback);
+
+  protected:
+    std::vector<Event> readEvents() override;
 };
 
 class ProximitySensor : public OnChangeSensor {
