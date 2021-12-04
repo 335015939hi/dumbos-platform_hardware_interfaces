@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017981507",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1910539?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "a2831d1f_cfdf2579",
+          "description": "Change to \"sensors/common/default/2.X/multihal/tests/fake_subhal/Sensor.cpp\"",
+          "replacements": [
+            {
+              "path": "sensors/common/default/2.X/multihal/tests/fake_subhal/Sensor.cpp",
+              "range": {
+                "startLine": 276,
+                "startChar": 39,
+                "endLine": 276,
+                "endChar": 46
+              },
+              "replacement": "occurred"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "c70096e5_4debc70d",
+        "filename": "sensors/common/default/2.X/multihal/tests/fake_subhal/Sensor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-12-04T00:50:44Z",
+      "side": 1,
+      "message": "Common typo found: \"occured\" -- should it be \"occurred\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 276,
+        "startChar": 39,
+        "endLine": 276,
+        "endChar": 46
+      },
+      "revId": "f920c1c8cdf0df5c2dcdf146a97a0ca438c451d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017981507",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1910539?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "781f812f_88e816a2",
+          "description": "Change to \"sensors/common/default/2.X/multihal/tests/fake_subhal/Sensor.cpp\"",
+          "replacements": [
+            {
+              "path": "sensors/common/default/2.X/multihal/tests/fake_subhal/Sensor.cpp",
+              "range": {
+                "startLine": 708,
+                "startChar": 19,
+                "endLine": 708,
+                "endChar": 29
+              },
+              "replacement": "algorithm"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "7e3c74d8_43f70e21",
+        "filename": "sensors/common/default/2.X/multihal/tests/fake_subhal/Sensor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-12-04T00:50:44Z",
+      "side": 1,
+      "message": "Common typo found: \"alogorithm\" -- should it be \"algorithm\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 708,
+        "startChar": 19,
+        "endLine": 708,
+        "endChar": 29
+      },
+      "revId": "f920c1c8cdf0df5c2dcdf146a97a0ca438c451d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
