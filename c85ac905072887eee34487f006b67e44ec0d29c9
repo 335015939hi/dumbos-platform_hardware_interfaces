@@ -16,6 +16,23 @@
       "message": "Here is the version \"reusing\" v1.0. If this is not allowed to reuse 1.0, I will update the schema/api for v1.1 instead. ",
       "revId": "c85ac905072887eee34487f006b67e44ec0d29c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64567b2c_8408ccdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2021-12-06T18:31:11Z",
+      "side": 1,
+      "message": "To API reviewers: it\u0027s a backwards-compatible change for an XML-only interface, there are no associated HIDL interfaces.",
+      "revId": "c85ac905072887eee34487f006b67e44ec0d29c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
