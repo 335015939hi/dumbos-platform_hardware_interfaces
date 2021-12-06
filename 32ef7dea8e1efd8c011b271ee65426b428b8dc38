@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94c288e3_a9f6b15f",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-06T11:39:13Z",
+      "side": 1,
+      "message": "Do we need to import this?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 32
+      },
+      "revId": "32ef7dea8e1efd8c011b271ee65426b428b8dc38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59e05edd_46d2199b",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-06T11:39:13Z",
+      "side": 1,
+      "message": "Is it 2?",
+      "range": {
+        "startLine": 60,
+        "startChar": 31,
+        "endLine": 60,
+        "endChar": 32
+      },
+      "revId": "32ef7dea8e1efd8c011b271ee65426b428b8dc38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "020fbab0_b27ee8ff",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-06T11:39:13Z",
+      "side": 1,
+      "message": "Why do we need to add these using-declaration here? I can not find them we need in this file except for LeAudioCodecCapabilities.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 79
+      },
+      "revId": "32ef7dea8e1efd8c011b271ee65426b428b8dc38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
