@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33687c9c_dd2a09ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2021-12-06T16:35:34Z",
+      "side": 1,
+      "message": "Instead of changing it to set, I think we should always try to get the primary display instead",
+      "revId": "d27d75a96843a6461d0fabc0de67884c93b140fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
