@@ -151,6 +151,24 @@
       "message": "Would it be better to use \u00271.0\u0027?",
       "revId": "50db7ba85aa05a7333aca9badd99e420b3416fbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "680b4c65_6d49897d",
+        "filename": "usb/1.0/default/apex/manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2021-12-06T17:34:10Z",
+      "side": 1,
+      "message": "The APEX version field uses int64: https://cs.android.com/android/platform/superproject/+/master:system/apex/proto/apex_manifest.proto;drc\u003dca6a5f80893bf448a601102d0ff46b9db1ea7244;l\u003d29\n\nPerhaps dariofreni@ or @jiyong has context on this original decision?\n\nI think directly correlating the HAL version and APEX version may get messy, since users may want to increase the APEX version on implementation-detail updates, while keeping the HAL interface version the same.\n\nIt looks like some Mainline Module APEXes seem to use a version based on the platform SDK value, while others (including some Mainline Module APEXes, and other vendor APEXes) have been counting starting at 1: https://cs.android.com/search?q\u003df:apex_manifest.json%20version\u0026start\u003d11\n\n(BTW, this field is only really relevant when updating the APEX, and vendor APEX updates are not currently supported https://r.android.com/1908986)\n\nAre you fine with keeping 1 for now, for convention with other existing APEXes?",
+      "parentUuid": "b5341353_6fc191cc",
+      "revId": "50db7ba85aa05a7333aca9badd99e420b3416fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
