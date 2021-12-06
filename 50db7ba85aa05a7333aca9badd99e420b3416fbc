@@ -134,6 +134,23 @@
       },
       "revId": "50db7ba85aa05a7333aca9badd99e420b3416fbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5341353_6fc191cc",
+        "filename": "usb/1.0/default/apex/manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1373349
+      },
+      "writtenOn": "2021-12-06T02:53:36Z",
+      "side": 1,
+      "message": "Would it be better to use \u00271.0\u0027?",
+      "revId": "50db7ba85aa05a7333aca9badd99e420b3416fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
