@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c78c275_556ddf13",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioPort.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2021-12-06T23:15:09Z",
+      "side": 1,
+      "message": "Would IBluetoothAudioPort work when Android is the sink device?",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 22
+      },
+      "revId": "8d87eb7e5316b58fd8b2df0f89e8b19c6c3d231c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a926049a_ba9ea52b",
+        "filename": "bluetooth/audio/2.2/default/AudioPort_2_0_to_2_2_Wrapper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2021-12-06T23:15:09Z",
+      "side": 1,
+      "message": "this should be renamed to updateSourceMetadata() in AIDL",
+      "range": {
+        "startLine": 48,
+        "startChar": 15,
+        "endLine": 48,
+        "endChar": 29
+      },
+      "revId": "8d87eb7e5316b58fd8b2df0f89e8b19c6c3d231c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
