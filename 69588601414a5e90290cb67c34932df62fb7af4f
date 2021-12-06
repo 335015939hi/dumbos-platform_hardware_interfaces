@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc8a6934_bfad81e7",
+        "filename": "security/keymint/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2021-12-06T20:33:48Z",
+      "side": 1,
+      "message": "If all the prerequisite changes are done, but this CL ends up held up on a code\u003c-\u003efeedback loop, please consider breaking these changes out into a separate CL.\n\nIIUC, in master, we can depend on V+1 arbitrarily (without any actual changes to the aidl). This way, we\u0027re both unblocked to make aidl changes in master while you resolve feedback on this change.",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 49
+      },
+      "revId": "69588601414a5e90290cb67c34932df62fb7af4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
