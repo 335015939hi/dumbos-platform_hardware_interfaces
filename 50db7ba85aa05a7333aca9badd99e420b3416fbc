@@ -169,6 +169,24 @@
       "parentUuid": "b5341353_6fc191cc",
       "revId": "50db7ba85aa05a7333aca9badd99e420b3416fbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "264ad8b8_5c5748c6",
+        "filename": "usb/1.0/default/apex/manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1373349
+      },
+      "writtenOn": "2021-12-06T23:02:18Z",
+      "side": 1,
+      "message": "Yes, I am fine with keeping 1.",
+      "parentUuid": "680b4c65_6d49897d",
+      "revId": "50db7ba85aa05a7333aca9badd99e420b3416fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
