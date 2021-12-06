@@ -24,6 +24,7 @@
 namespace android {
 namespace bluetooth {
 namespace audio {
+
 using SessionType_2_1 =
     ::android::hardware::bluetooth::audio::V2_1::SessionType;
 using SessionType_2_0 =
@@ -82,6 +83,10 @@ BluetoothAudioSession_2_2::GetAudioSession() {
 std::shared_ptr<BluetoothAudioSession_2_1>
 BluetoothAudioSession_2_2::GetAudioSession_2_1() {
   return audio_session_2_1;
+}
+
+void BluetoothAudioSession_2_2::UpdateSinkMetadata(const struct sink_metadata*) {
+  // TODO: implement
 }
 
 // The control function is for the bluetooth_audio module to get the current
