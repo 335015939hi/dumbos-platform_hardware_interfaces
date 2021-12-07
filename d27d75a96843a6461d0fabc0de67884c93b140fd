@@ -16,6 +16,24 @@
       "message": "Instead of changing it to set, I think we should always try to get the primary display instead",
       "revId": "d27d75a96843a6461d0fabc0de67884c93b140fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48ee64f4_29eb659f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1176810
+      },
+      "writtenOn": "2021-12-07T08:39:01Z",
+      "side": 1,
+      "message": "current aosp code:\n----------------\n// assume the first display is primary and is never removed        \n    mPrimaryDisplay \u003d waitForFirstDisplay();\n\n    Display waitForFirstDisplay() {\n        while (true) {\n            std::vector\u003cDisplay\u003e displays \u003d mComposerCallback-\u003egetDisplays();\n            if (displays.empty()) {\n                usleep(5 * 1000);\n                continue;\n            }\n\n            return displays[0];\n        }\n    }\n -----------------\n Because getDisplays function is use unordered_set type to get displays, then displays[0] may be not zero and also not primary display, and also not first display, the first hotplug display id is 0.\n    primary display hotplug callback display id 0 is primary\n    previously, HWC_PRIMARY_DISPLAY is defined in hardware/libhardware/include/hardware/hwcomposer_defs.h\n    But now, only define PHYSICAL type in IComposerClient.hal\n    HWC HAL use HWC_PRIMARY_DISPLAY to flag primary display.\n  If use HWC_PRIMARY_DISPLAY, is also 0, to represent primary display. Please review https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1912718",
+      "parentUuid": "33687c9c_dd2a09ce",
+      "revId": "d27d75a96843a6461d0fabc0de67884c93b140fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
