@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "796fb273_a7423a4a",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-12-07T16:55:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99fd18ac_c89498cb",
+      "range": {
+        "startLine": 307,
+        "startChar": 73,
+        "endLine": 308,
+        "endChar": 26
+      },
+      "revId": "a65f60be3c1e4c751f2a2397414bcbe61b206070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea6dcfc1_8f3e40b2",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "I think there are arguments for both, but ISTR we decided to go for SHA_2_512 because if one day SHA3 (or SHA4) takes over the world and using anything else becomes unpopular, we might see a variant of Ed25519 specified that used a different hash function. In that case we\u0027ll end up with a wart if we don\u0027t specify SHA_2_512 here. OTOH it\u0027s very likely that this will never happen and we\u0027ll add extra complexity for nothing.",
       "parentUuid": "9d58cad0_baadb7d8",
+      "range": {
+        "startLine": 321,
+        "startChar": 13,
+        "endLine": 321,
+        "endChar": 51
+      },
+      "revId": "a65f60be3c1e4c751f2a2397414bcbe61b206070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b401663_9fdfd045",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-12-07T16:55:00Z",
+      "side": 1,
+      "message": "We did originally decide to go for SHA_2_512, but it was going to lead to a bunch of special cases in the implementation -- all the OpenSSL entrypoints that allow  Ed25519 require an empty digest.  I wouldn\u0027t normally want implementation details to affect API design, but Digest::NONE does fit if you think of it as \"what happens to the data before it reaches the specified signature algorithm\".\n\nBut shout if you\u0027re vehemently against Digest::NONE and I can change it.",
+      "parentUuid": "2f72f636_3cb3e2a4",
       "range": {
         "startLine": 321,
         "startChar": 13,

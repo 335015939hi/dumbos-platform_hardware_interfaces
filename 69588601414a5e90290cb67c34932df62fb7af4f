@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81fba361_26c9c2a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-12-07T16:55:00Z",
+      "side": 1,
+      "message": "PTAL - I\u0027ve added in the default version-bump stuff to this CL.",
+      "revId": "69588601414a5e90290cb67c34932df62fb7af4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc8a6934_bfad81e7",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-12-06T20:33:48Z",
       "side": 1,
       "message": "If all the prerequisite changes are done, but this CL ends up held up on a code\u003c-\u003efeedback loop, please consider breaking these changes out into a separate CL.\n\nIIUC, in master, we can depend on V+1 arbitrarily (without any actual changes to the aidl). This way, we\u0027re both unblocked to make aidl changes in master while you resolve feedback on this change.",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 49
+      },
+      "revId": "69588601414a5e90290cb67c34932df62fb7af4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "926a5a21_57d89ff8",
+        "filename": "security/keymint/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-12-07T16:55:00Z",
+      "side": 1,
+      "message": "Will do, or alternatively if you want/are able to jump ahead and bump the version for your stuff please go ahead and I\u0027ll rebase around it.",
+      "parentUuid": "cc8a6934_bfad81e7",
       "range": {
         "startLine": 48,
         "startChar": 9,
