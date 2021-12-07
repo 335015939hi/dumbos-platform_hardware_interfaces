@@ -129,8 +129,9 @@ class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
                 usleep(5 * 1000);
                 continue;
             }
-
-            return displays[0];
+            std::vector<Display>::iterator it =
+                find(displays.begin(), displays.end(), 0/*HWC_DISPLAY_PRIMARY*/);
+            return *it;
         }
     }
 };
