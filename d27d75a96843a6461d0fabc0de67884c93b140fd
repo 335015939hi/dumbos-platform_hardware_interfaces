@@ -34,6 +34,24 @@
       "parentUuid": "33687c9c_dd2a09ce",
       "revId": "d27d75a96843a6461d0fabc0de67884c93b140fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b455a3f_60818c49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2021-12-07T08:52:04Z",
+      "side": 1,
+      "message": "What I mean is that you can loop over the display list and find a physical or primary display, I don\u0027t necessarily think we need to assume primary display has an id 0",
+      "parentUuid": "48ee64f4_29eb659f",
+      "revId": "d27d75a96843a6461d0fabc0de67884c93b140fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
