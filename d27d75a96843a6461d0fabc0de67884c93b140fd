@@ -106,6 +106,24 @@
       "parentUuid": "4223a991_92112c3a",
       "revId": "d27d75a96843a6461d0fabc0de67884c93b140fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe63e528_04638d5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2021-12-07T17:13:58Z",
+      "side": 1,
+      "message": "I would prefer the solution in aosp/1912718, may I ask you to add our team to review it once you feel comfortable?",
+      "parentUuid": "d4f6f915_2dd4107f",
+      "revId": "d27d75a96843a6461d0fabc0de67884c93b140fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
