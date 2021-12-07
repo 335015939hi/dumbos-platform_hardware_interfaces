@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "549c98b6_fa9cab5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-07T01:40:24Z",
+      "side": 1,
+      "message": "Could you add aidl interface for your modification as well?",
+      "revId": "8d87eb7e5316b58fd8b2df0f89e8b19c6c3d231c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c78c275_556ddf13",
