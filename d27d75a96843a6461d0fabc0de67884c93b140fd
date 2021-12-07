@@ -70,6 +70,24 @@
       "parentUuid": "6b455a3f_60818c49",
       "revId": "d27d75a96843a6461d0fabc0de67884c93b140fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4223a991_92112c3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1176810
+      },
+      "writtenOn": "2021-12-07T17:05:42Z",
+      "side": 1,
+      "message": "what is primary display, need hwc hal impl tell vts composerclient or mark it. Now, mark display id 0 is primary display. There is not an interface to query primay display flag, do you want me to add an hal interface?",
+      "parentUuid": "26612ebd_81be704d",
+      "revId": "d27d75a96843a6461d0fabc0de67884c93b140fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
