@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e730d951_e767f6fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-12-07T08:26:11Z",
+      "side": 1,
+      "message": "I\u0027ll prepare one in separate CL, thanks for reminding!",
+      "parentUuid": "549c98b6_fa9cab5b",
+      "revId": "8d87eb7e5316b58fd8b2df0f89e8b19c6c3d231c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c78c275_556ddf13",
@@ -54,6 +72,30 @@
       "writtenOn": "2021-12-06T23:15:09Z",
       "side": 1,
       "message": "this should be renamed to updateSourceMetadata() in AIDL",
+      "range": {
+        "startLine": 48,
+        "startChar": 15,
+        "endLine": 48,
+        "endChar": 29
+      },
+      "revId": "8d87eb7e5316b58fd8b2df0f89e8b19c6c3d231c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "047ac8b5_a98e31b4",
+        "filename": "bluetooth/audio/2.2/default/AudioPort_2_0_to_2_2_Wrapper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-12-07T08:26:11Z",
+      "side": 1,
+      "message": "Will do",
+      "parentUuid": "a926049a_ba9ea52b",
       "range": {
         "startLine": 48,
         "startChar": 15,
