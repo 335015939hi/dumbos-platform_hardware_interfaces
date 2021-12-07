@@ -245,6 +245,30 @@
       },
       "revId": "8d87eb7e5316b58fd8b2df0f89e8b19c6c3d231c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ba12434_6a87d429",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_2.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-07T08:34:33Z",
+      "side": 1,
+      "message": "I see. We could clean it up in aidl.",
+      "parentUuid": "94eb08f6_15f8377f",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 75
+      },
+      "revId": "8d87eb7e5316b58fd8b2df0f89e8b19c6c3d231c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
