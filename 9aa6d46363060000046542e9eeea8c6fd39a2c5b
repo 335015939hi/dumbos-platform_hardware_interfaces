@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75ac1681_2bd0e8b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2021-12-07T17:56:31Z",
+      "side": 1,
+      "message": "tuner HAL",
+      "range": {
+        "startLine": 7,
+        "startChar": 31,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "9aa6d46363060000046542e9eeea8c6fd39a2c5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac36872b_5182a21f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2021-12-07T17:56:31Z",
+      "side": 1,
+      "message": "Please attach bug number in this commit. \"Bug: 208191849\".",
+      "revId": "9aa6d46363060000046542e9eeea8c6fd39a2c5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
