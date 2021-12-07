@@ -117,7 +117,9 @@ class GraphicsComposerHidlTest : public ::testing::TestWithParam<std::string> {
                 continue;
             }
 
-            return displays[0];
+            std::vector<Display>::iterator it =
+                find(displays.begin(), displays.end(), 0/*HWC_DISPLAY_PRIMARY*/);
+            return *it;
         }
     }
 };
