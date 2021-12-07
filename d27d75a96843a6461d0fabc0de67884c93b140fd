@@ -52,6 +52,24 @@
       "parentUuid": "48ee64f4_29eb659f",
       "revId": "d27d75a96843a6461d0fabc0de67884c93b140fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26612ebd_81be704d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1176810
+      },
+      "writtenOn": "2021-12-07T16:58:54Z",
+      "side": 1,
+      "message": "I know what your mean, current hal interface don\u0027t support query primary display, only support query physical or virtual display, qcom/mtk use HWC_DISPLAY_PRIMARY,  is also 0, to represent primary, through hotplug tell vts composerclient primary display id is 0, but due to use unordered_set query, displays[0] may be not 0.",
+      "parentUuid": "6b455a3f_60818c49",
+      "revId": "d27d75a96843a6461d0fabc0de67884c93b140fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
