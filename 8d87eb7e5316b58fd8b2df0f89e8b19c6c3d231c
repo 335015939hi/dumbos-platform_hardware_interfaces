@@ -45,6 +45,75 @@
       },
       "revId": "8d87eb7e5316b58fd8b2df0f89e8b19c6c3d231c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49d2ea65_35df5ab1",
+        "filename": "bluetooth/audio/2.2/default/AudioPort_2_0_to_2_2_Wrapper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-07T01:30:17Z",
+      "side": 1,
+      "message": "V2_2?",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 9
+      },
+      "revId": "8d87eb7e5316b58fd8b2df0f89e8b19c6c3d231c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc20a8bc_b2914aa0",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_2.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-07T01:30:17Z",
+      "side": 1,
+      "message": "nit: just curies, why not to use V7_0?",
+      "range": {
+        "startLine": 29,
+        "startChar": 42,
+        "endLine": 29,
+        "endChar": 46
+      },
+      "revId": "8d87eb7e5316b58fd8b2df0f89e8b19c6c3d231c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfdbee6b_9c5a5ea5",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_2.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-07T01:30:17Z",
+      "side": 1,
+      "message": "HEARING_AID_SOFTWARE_ENCODING_DATAPATH?",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 75
+      },
+      "revId": "8d87eb7e5316b58fd8b2df0f89e8b19c6c3d231c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
