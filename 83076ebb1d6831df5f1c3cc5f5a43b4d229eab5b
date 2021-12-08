@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "71cf0c56_bf501c73",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1013984
+      },
+      "writtenOn": "2021-12-08T19:09:38Z",
+      "side": 1,
+      "message": "I think that\u0027s better, as the URL / hosting side could change in the future, but the SHA won\u0027t.\n\nAlso, please include the related Bug:",
+      "parentUuid": "e350ebac_38fa8039",
+      "range": {
+        "startLine": 10,
+        "startChar": 17,
+        "endLine": 10,
+        "endChar": 97
+      },
+      "revId": "83076ebb1d6831df5f1c3cc5f5a43b4d229eab5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8c238560_b9b5d61a",
