@@ -472,11 +472,6 @@ TEST_P(EvsHidlTest, CameraStreamPerformance) {
                   << std::scientific << timeToFirstFrame * kNanoToMilliseconds
                   << " ms.";
 
-        // Check aspect ratio
-        unsigned width = 0, height = 0;
-        frameHandler->getFrameDimension(&width, &height);
-        EXPECT_GE(width, height);
-
         // Wait a bit, then ensure we get at least the required minimum number of frames
         sleep(5);
         nsecs_t end = systemTime(SYSTEM_TIME_MONOTONIC);
@@ -513,8 +508,13 @@ TEST_P(EvsHidlTest, CameraStreamPerformance) {
 TEST_P(EvsHidlTest, CameraStreamBuffering) {
     LOG(INFO) << "Starting CameraStreamBuffering test";
 
+<<<<<<< TARGET BRANCH (79e54b Merge "audio VTS: Consider only attached devices for stream )
     // Arbitrary constant (should be > 1 and not too big)
     static const unsigned int kBuffersToHold = 6;
+=======
+    // Arbitrary constant (should be > 1 and less than crazy)
+    static const unsigned int kBuffersToHold = 2;
+>>>>>>> SOURCE BRANCH (7bc98c Update VtsHalEvsV1_*TargetTest)
 
     // Get the camera list
     loadCameraList();
