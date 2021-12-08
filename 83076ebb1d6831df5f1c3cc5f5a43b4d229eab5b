@@ -16,6 +16,23 @@
       "message": "It will need owner code review+2.",
       "revId": "83076ebb1d6831df5f1c3cc5f5a43b4d229eab5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37c9ec6a_5d9977cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2021-12-08T18:31:00Z",
+      "side": 1,
+      "message": "Adding Guru and Felipe for +2 code owners.",
+      "revId": "83076ebb1d6831df5f1c3cc5f5a43b4d229eab5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
