@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0092a3a_087b1f3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1013984
+      },
+      "writtenOn": "2021-12-08T18:57:21Z",
+      "side": 1,
+      "message": "please use commit 7bc98ce6edb1f2ffd79af981c02e0e4ab61ff68a instead",
+      "range": {
+        "startLine": 10,
+        "startChar": 17,
+        "endLine": 10,
+        "endChar": 97
+      },
+      "revId": "83076ebb1d6831df5f1c3cc5f5a43b4d229eab5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8c238560_b9b5d61a",
