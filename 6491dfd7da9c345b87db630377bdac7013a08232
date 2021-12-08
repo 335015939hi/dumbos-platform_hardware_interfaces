@@ -34,6 +34,24 @@
       "parentUuid": "3d40a9e1_e775a959",
       "revId": "6491dfd7da9c345b87db630377bdac7013a08232",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b481d1c_1ceb14f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2021-12-08T09:31:54Z",
+      "side": 1,
+      "message": "We got a confirmation from Shawn that implantation should not use default values and has to be provided by user. So it has to be fixed in Strongbox implementation.\nAnd I have also added \".SetDefaultValidity()\" in DeviceUniquAttestationTest.",
+      "parentUuid": "7e75b761_b5c73479",
+      "revId": "6491dfd7da9c345b87db630377bdac7013a08232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
