@@ -16,6 +16,23 @@
       "message": "Work on strongbox with related changes.",
       "revId": "6a81a26263c8889d7a0ab8f86f8bc3daea771741",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f51794f_db07cf8b",
+        "filename": "security/keymint/aidl/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-12-08T15:45:17Z",
+      "side": 1,
+      "message": "I think it would be better to keep CREATION_DATETIME in the characteristics (as well as the CERT_NOT_{BEFORE,AFTER} implied by SetDefaultValidity()), as that better matches what will normally happen.  (Passim)",
+      "revId": "6a81a26263c8889d7a0ab8f86f8bc3daea771741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
