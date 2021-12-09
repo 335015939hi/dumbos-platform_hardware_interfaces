@@ -1,0 +1,342 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75bd2b10_90e3a4c1",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "If open fails, the other methods should all return errors, correct?\n\nIf this is correct, please specify in the doc what error would the other methods return.",
+      "range": {
+        "startLine": 44,
+        "startChar": 9,
+        "endLine": 44,
+        "endChar": 13
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc4f58c6_dbfea9d6",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "Would the resources be automatically closed if the client:\n\n- drops the reference to the HAL;\n- crashes\n\n? Please specify.\n\n(I would imagine the answer is yes, otherwise you have a resource leak)\n\nIf close() is called, and the client calls other methods, should other methods return error? Please specify what error would other methods return.",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 14
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81dec76a_69730556",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "This is a generic question to all byte[] things in AIDL. Is there a structure for the data being written? Is there a standard (e.g. RFC)? If not, should the implementation pass the data through and not attempt to interpret the data?",
+      "range": {
+        "startLine": 115,
+        "startChar": 17,
+        "endLine": 115,
+        "endChar": 23
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "254a7125_c855357e",
+        "filename": "nfc/aidl/android/hardware/nfc/INfcClientCallback.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 28,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f6e02d2_ea798711",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcCloseType.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "extra blank lines?",
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebf7a911_5460c1d8",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "Is this defined somewhere? Can you provide a link?",
+      "range": {
+        "startLine": 25,
+        "startChar": 55,
+        "endLine": 25,
+        "endChar": 71
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d76007_0c768be5",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "nit: please provide a link\n\nYou can put it in the doc of NfcConfig since it is mentioned for other fields too",
+      "range": {
+        "startLine": 31,
+        "startChar": 66,
+        "endLine": 31,
+        "endChar": 75
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06eb5bb5_63beccc2",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "nit: period at the end.",
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59ba752e_c745b09f",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "nit: period at the end",
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbf78f3a_a687ad3d",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "nit: period at the end",
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5bfec10_e179fb08",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "nit:\n\n1. this should start with /**\n2. copy the doc to before offHostRouteEse too (and change wording accordingly)",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 7
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc19a592_4b862720",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "nit: period at the end",
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d5caf65_88ea2e30",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcEvent.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "docs please",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 14
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e995ae5a_b8eb0128",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcStatus.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "docs please\n\nIs \"FAILED\" a generic error?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 16
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9603670_d4e97a6e",
+        "filename": "nfc/aidl/android/hardware/nfc/PresenceCheckAlgorithm.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "nit: link if possible",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 50
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed032291_dfc83c35",
+        "filename": "nfc/aidl/android/hardware/nfc/PresenceCheckAlgorithm.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:00:59Z",
+      "side": 1,
+      "message": "nit: Let",
+      "range": {
+        "startLine": 26,
+        "startChar": 10,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
