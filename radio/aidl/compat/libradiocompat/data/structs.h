@@ -31,6 +31,8 @@
 
 namespace android::hardware::radio::compat {
 
+std::map<hidl_string, ::aidl::android::hardware::radio::data::DataProfileInfo> mDataProfileInfos;
+
 V1_5::DataProfileInfo toHidl(const ::aidl::android::hardware::radio::data::DataProfileInfo& info);
 
 V1_5::LinkAddress toHidl(const ::aidl::android::hardware::radio::data::LinkAddress& addr);

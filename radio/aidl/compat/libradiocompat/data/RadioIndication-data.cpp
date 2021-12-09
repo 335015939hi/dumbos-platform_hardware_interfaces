@@ -82,8 +82,16 @@ Return<void> RadioIndication::pcoData(V1_0::RadioIndicationType type,
 Return<void> RadioIndication::unthrottleApn(V1_0::RadioIndicationType type,
                                             const hidl_string& apn) {
     LOG_CALL << type;
-    CHECK_CB(mDataCb);
-    mDataCb->unthrottleApn(toAidl(type), apn);
+    CHECK_CB(mDataCb)
+    // This is a best effort to match the APN to the DataProfileInfo that was sent in setupDataCall.
+    // For full functionality, use the AIDL API rather than the shim.
+    const ::aidl::android::hardware::radio::data::DataProfileInfo* dpi;
+    if (mDataProfileInfos.find(apn) == mDataProfileInfos.end()) {
+        dpi = new ::aidl::android::hardware::radio::data::DataProfileInfo{.apn = apn};
+    } else {
+        dpi = &mDataProfileInfos[apn];
+    }
+    mDataCb->unthrottleApn(toAidl(type), *dpi);
     return {};
 }
 
