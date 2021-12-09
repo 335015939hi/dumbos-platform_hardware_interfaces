@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cab9b0f4_1176c4b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2021-12-09T19:39:05Z",
+      "side": 1,
+      "message": "Unfortunately this won\u0027t work.  The change needs to be done specifically for T in the new AIDL HAL interface.",
+      "revId": "4d203668e6f5036ac878e086b9f2d66f64d6c1f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
