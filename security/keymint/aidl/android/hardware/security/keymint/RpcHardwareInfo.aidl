@@ -53,4 +53,14 @@ parcelable RpcHardwareInfo {
      * a passing implementation does not provide CURVE_NONE.
      */
     int supportedEekCurve = CURVE_NONE;
+
+    /**
+     * uniqueId is a string that identifies this IRemotelyProvisionedCopmonent implementation as
+     * distinct from all other IRemotelyProvisionedComponent implementations on this device. This
+     * identifeir must be consistent across reboots, as it is used to store and track provisioned
+     * keys in a persistent, on-device database.
+     *
+     * uniqueId may not be empty, and must not be any longer than 32 characters.
+     */
+    @utf8InCpp String uniqueId = "";
 }
