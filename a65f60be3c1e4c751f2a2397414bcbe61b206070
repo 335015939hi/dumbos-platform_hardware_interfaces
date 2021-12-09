@@ -158,6 +158,30 @@
       },
       "revId": "a65f60be3c1e4c751f2a2397414bcbe61b206070",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a07adb5_2cfb2b6f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2021-12-09T23:08:44Z",
+      "side": 1,
+      "message": "If the day ever comes that there\u0027s an alternative to SHA-512, we can just specify that Digest::NONE or Digest::SHA_2_512 mean Digest::SHA_2_512, and Digest::FOO means Digest::FOO.  i.e. \"none\" defaults to SHA-512.  That would be ugly, but not horrible, and given the low probability I think it makes sense to optimize for the expected case.",
+      "parentUuid": "9b401663_9fdfd045",
+      "range": {
+        "startLine": 321,
+        "startChar": 13,
+        "endLine": 321,
+        "endChar": 51
+      },
+      "revId": "a65f60be3c1e4c751f2a2397414bcbe61b206070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
