@@ -112,6 +112,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4f585335_f8ccae92",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcCloseType.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-09T09:01:15Z",
+      "side": 1,
+      "message": "(just a nit)",
+      "parentUuid": "5f6e02d2_ea798711",
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ebf7a911_5460c1d8",
         "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
         "patchSetId": 8
