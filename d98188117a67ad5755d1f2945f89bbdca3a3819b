@@ -1,0 +1,56 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000018220771",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1870876?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "658eb81d_ea296208",
+        "filename": "wifi/supplicant/aidl/aidl_api/android.hardware.wifi.supplicant/current/android/hardware/wifi/supplicant/WifiTechnology.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-12-09T16:58:34Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "d98188117a67ad5755d1f2945f89bbdca3a3819b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000018220771",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1870876?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "f6c1977e_1756abd2",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/WifiTechnology.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-12-09T16:58:34Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 7
+      },
+      "revId": "d98188117a67ad5755d1f2945f89bbdca3a3819b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
