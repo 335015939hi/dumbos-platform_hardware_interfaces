@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d667948_0e6fdc4a",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsInfo.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2021-12-09T19:18:18Z",
+      "side": 1,
+      "message": "Yes Different RATs like 2G, 3G, 4G and 5G.. also within 5G we have two more sub technologies called mmWave and SUB6 which is represented using FrequencyRange inside ActivityStatsTechSpecificInfo",
+      "parentUuid": "9f21201d_222582ff",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 46
+      },
+      "revId": "fb2fb870b3289f94264f0b7d7a5d2743c1d721b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "284ec9eb_c64226c2",
         "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
         "patchSetId": 8
