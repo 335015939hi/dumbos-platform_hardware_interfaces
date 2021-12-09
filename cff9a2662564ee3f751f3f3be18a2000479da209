@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d45ca0ce_aec82fac",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3155,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-12-09T13:02:51Z",
+      "side": 1,
+      "message": "s/currupt/corrupt/ throughout",
+      "revId": "cff9a2662564ee3f751f3f3be18a2000479da209",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
