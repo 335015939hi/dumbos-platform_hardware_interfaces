@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6bcfde3_683a6b25",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsInfo.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2021-12-09T20:26:32Z",
+      "side": 1,
+      "message": "Ok, will do",
+      "parentUuid": "78247114_fc8ffaee",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 46
+      },
+      "revId": "fb2fb870b3289f94264f0b7d7a5d2743c1d721b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "284ec9eb_c64226c2",
         "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
         "patchSetId": 8
