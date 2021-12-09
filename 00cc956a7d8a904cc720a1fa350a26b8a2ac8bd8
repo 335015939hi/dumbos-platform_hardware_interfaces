@@ -128,6 +128,30 @@
       },
       "revId": "00cc956a7d8a904cc720a1fa350a26b8a2ac8bd8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8403551a_90ab6775",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetwork.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-12-09T22:39:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "229e88b8_3c5f2349",
+      "range": {
+        "startLine": 424,
+        "startChar": 6,
+        "endLine": 427,
+        "endChar": 6
+      },
+      "revId": "00cc956a7d8a904cc720a1fa350a26b8a2ac8bd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
