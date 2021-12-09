@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "267cb082_055a4398",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-12-09T21:56:00Z",
+      "side": 1,
+      "message": "Need VTS tests as well",
+      "revId": "00cc956a7d8a904cc720a1fa350a26b8a2ac8bd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "797d4e2d_8da66815",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetwork.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-12-09T21:56:00Z",
+      "side": 1,
+      "message": "add details on what is the expected behavior in case of each USAGE setting",
+      "range": {
+        "startLine": 424,
+        "startChar": 6,
+        "endLine": 427,
+        "endChar": 6
+      },
+      "revId": "00cc956a7d8a904cc720a1fa350a26b8a2ac8bd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
