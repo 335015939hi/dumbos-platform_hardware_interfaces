@@ -63,6 +63,30 @@
       },
       "revId": "00cc956a7d8a904cc720a1fa350a26b8a2ac8bd8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85fa81f2_70bdc705",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetwork.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2021-12-09T22:00:42Z",
+      "side": 1,
+      "message": "We can always make it look like spec supercedes the definition like\n\nMaybe some thing like\n\nSets the usage setting in accordance with 3gpp 24.301 sec 4.3 and 3gpp 24.501 sec 4.3 like\n\n1) \n\n2)",
+      "parentUuid": "ec4bc8fb_3ffceffe",
+      "range": {
+        "startLine": 424,
+        "startChar": 6,
+        "endLine": 427,
+        "endChar": 6
+      },
+      "revId": "00cc956a7d8a904cc720a1fa350a26b8a2ac8bd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
