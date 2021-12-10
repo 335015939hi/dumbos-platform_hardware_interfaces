@@ -223,6 +223,15 @@ void KeyMintAidlTestBase::InitializeKeyMint(std::shared_ptr<IKeyMintDevice> keyM
     vendor_patch_level_ = getVendorPatchlevel();
 }
 
+int32_t KeyMintAidlTestBase::AidlVersion() {
+    int32_t version = 0;
+    auto status = keymint_->getInterfaceVersion(&version);
+    if (!status.isOk()) {
+        ADD_FAILURE() << "Failed to determine interface version";
+    }
+    return version;
+}
+
 void KeyMintAidlTestBase::SetUp() {
     if (AServiceManager_isDeclared(GetParam().c_str())) {
         ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
@@ -1304,7 +1313,8 @@ void verify_subject_and_serial(const Certificate& certificate,  //
     verify_subject(cert.get(), subject, self_signed);
 }
 
-bool verify_attestation_record(const string& challenge,                //
+bool verify_attestation_record(int32_t aidl_version,                   //
+                               const string& challenge,                //
                                const string& app_id,                   //
                                AuthorizationSet expected_sw_enforced,  //
                                AuthorizationSet expected_hw_enforced,  //
@@ -1342,7 +1352,14 @@ bool verify_attestation_record(const string& challenge,                //
     EXPECT_EQ(ErrorCode::OK, error);
     if (error != ErrorCode::OK) return false;
 
-    EXPECT_EQ(att_attestation_version, 100U);
+    if (aidl_version > 1) {
+        // Allow for KeyMint implementations that report one version behind
+        // their AIDL version.
+        EXPECT_TRUE(att_attestation_version == aidl_version * 100U ||
+                    att_attestation_version == (aidl_version - 1) * 100U);
+    } else {
+        EXPECT_EQ(att_attestation_version, aidl_version * 100U);
+    }
     vector<uint8_t> appId(app_id.begin(), app_id.end());
 
     // check challenge and app id only if we expects a non-fake certificate
@@ -1353,7 +1370,14 @@ bool verify_attestation_record(const string& challenge,                //
         expected_sw_enforced.push_back(TAG_ATTESTATION_APPLICATION_ID, appId);
     }
 
-    EXPECT_EQ(att_keymint_version, 100U);
+    if (aidl_version > 1) {
+        // Allow for KeyMint implementations that report one version behind
+        // their AIDL version.
+        EXPECT_TRUE(att_keymint_version == aidl_version * 100U ||
+                    att_keymint_version == (aidl_version - 1) * 100U);
+    } else {
+        EXPECT_EQ(att_keymint_version, aidl_version * 100U);
+    }
     EXPECT_EQ(security_level, att_keymint_security_level);
     EXPECT_EQ(security_level, att_attestation_security_level);
 
