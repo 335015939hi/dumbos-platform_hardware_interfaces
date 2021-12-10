@@ -1,4 +1,5 @@
 {
   "name": "com.android.hardware.sensors",
-  "version": 1
+  "version": 1,
+  "supportsRebootlessUpdate": true
 }
