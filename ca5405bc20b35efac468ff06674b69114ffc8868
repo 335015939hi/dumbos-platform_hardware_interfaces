@@ -39,6 +39,30 @@
       },
       "revId": "ca5405bc20b35efac468ff06674b69114ffc8868",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ba78459_067a0194",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1443524
+      },
+      "writtenOn": "2021-12-10T23:31:44Z",
+      "side": 1,
+      "message": "+1 on Hongguang\u0027s comment",
+      "parentUuid": "1ed49f2a_6e49e641",
+      "range": {
+        "startLine": 133,
+        "startChar": 34,
+        "endLine": 133,
+        "endChar": 44
+      },
+      "revId": "ca5405bc20b35efac468ff06674b69114ffc8868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
