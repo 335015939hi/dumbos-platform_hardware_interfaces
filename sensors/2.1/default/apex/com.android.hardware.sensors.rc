@@ -4,4 +4,7 @@ service vendor.sensors-hal-2-1-mock /apex/com.android.hardware.sensors/bin/hw/an
     class hal
     user system
     group system
+    namespace mnt
     rlimit rtprio 10 10
+
+# namespace mnt: see go/lyric:sideline-initrc-mount-isolation and https://r.android.com/1704017
