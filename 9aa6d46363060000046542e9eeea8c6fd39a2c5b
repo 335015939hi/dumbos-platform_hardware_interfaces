@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e0efea1_e8906b1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1889050
+      },
+      "writtenOn": "2021-12-10T07:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75ac1681_2bd0e8b0",
+      "range": {
+        "startLine": 7,
+        "startChar": 31,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "9aa6d46363060000046542e9eeea8c6fd39a2c5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac36872b_5182a21f",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-12-07T17:56:31Z",
       "side": 1,
       "message": "Please attach bug number in this commit. \"Bug: 208191849\".",
+      "revId": "9aa6d46363060000046542e9eeea8c6fd39a2c5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f24996de_777b4f45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1889050
+      },
+      "writtenOn": "2021-12-10T07:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac36872b_5182a21f",
       "revId": "9aa6d46363060000046542e9eeea8c6fd39a2c5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
