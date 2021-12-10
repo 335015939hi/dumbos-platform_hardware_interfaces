@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "135a8c96_e310ea39",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/EcCurve.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-10T23:44:46Z",
+      "side": 1,
+      "message": "what does \u0027P\u0027 mean here anyway and why do we use \u0027CURVE\u0027 now?",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 5
+      },
+      "revId": "c069a75302acbf3c71c4dac0f50435f95294f7fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
