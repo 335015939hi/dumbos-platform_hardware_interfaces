@@ -144,6 +144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47fbd256_d0df44c8",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsInfo.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2021-12-10T04:19:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6bcfde3_683a6b25",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 46
+      },
+      "revId": "fb2fb870b3289f94264f0b7d7a5d2743c1d721b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "284ec9eb_c64226c2",
@@ -157,6 +181,30 @@
       "writtenOn": "2021-12-09T18:24:27Z",
       "side": 1,
       "message": "nit: should one of these sides be \u003c\u003d?",
+      "range": {
+        "startLine": 48,
+        "startChar": 33,
+        "endLine": 48,
+        "endChar": 34
+      },
+      "revId": "fb2fb870b3289f94264f0b7d7a5d2743c1d721b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb8de8d_abdc7b6f",
+        "filename": "radio/aidl/android/hardware/radio/modem/ActivityStatsTechSpecificInfo.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2021-12-10T04:19:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "284ec9eb_c64226c2",
       "range": {
         "startLine": 48,
         "startChar": 33,
