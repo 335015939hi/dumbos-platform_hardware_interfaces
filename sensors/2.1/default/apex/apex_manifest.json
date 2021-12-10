@@ -1,4 +1,14 @@
 {
   "name": "com.android.hardware.sensors",
-  "version": 1
+  "version": 1,
+  "supportsRebootlessUpdate": true,
+  "services": [
+	  {
+		  "serviceName": "vendor.sensors-hal-2-1-mock",
+		  "providedHalInterfaces": [
+			  "android.hardware.sensors@2.0::ISensors/default",
+			  "android.hardware.sensors@2.1::ISensors/default"
+		  ]
+	  }
+  ]
 }
