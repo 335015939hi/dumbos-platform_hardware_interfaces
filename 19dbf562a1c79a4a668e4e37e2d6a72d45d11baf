@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d49396d_6942ee99",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/GroupCipherMask.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-11T01:15:31Z",
+      "side": 1,
+      "message": "nit: any reason this is out of order?\n\nWhat happen to bit 9~13?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d03ad94_1ce424f3",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/GsmRand.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-11T01:15:31Z",
+      "side": 1,
+      "message": "nit: but you know each row is 16 elements, right? Can this be a 1D array with number of elements to be a multiple of 16?\n\nEDIT: I take this back. I like having a parcelable to wrap the array like it is right now.",
+      "range": {
+        "startLine": 20,
+        "startChar": 39,
+        "endLine": 21,
+        "endChar": 35
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f102301_c006f2ab",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicant.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-11T01:15:31Z",
+      "side": 1,
+      "message": "This should trigger a \"mix oneway and non-oneway functions in an interface\" warning.\n\nThis is unusual, but I am assuming this is intentional based on the description of the function. Please confirm that this is intentional.",
+      "range": {
+        "startLine": 155,
+        "startChar": 4,
+        "endLine": 155,
+        "endChar": 10
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2662346_e548fbd4",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicantP2pNetwork.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-11T01:15:31Z",
+      "side": 1,
+      "message": "nit: isGroupOwner. Go is not really a good abbreviation of \"group owner\".",
+      "range": {
+        "startLine": 108,
+        "startChar": 12,
+        "endLine": 108,
+        "endChar": 16
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ac971b4_37d3ff66",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicantStaNetwork.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-11T01:15:31Z",
+      "side": 1,
+      "message": "Id",
+      "range": {
+        "startLine": 203,
+        "startChar": 23,
+        "endLine": 203,
+        "endChar": 25
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "999b2d4d_6b275303",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/NetworkRequestEapSimGsmAuthParams.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-11T01:15:31Z",
+      "side": 1,
+      "message": "doc?",
+      "range": {
+        "startLine": 22,
+        "startChar": 11,
+        "endLine": 22,
+        "endChar": 44
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "855ee695_a08812df",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/WpsDevPasswordId.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-11T01:15:31Z",
+      "side": 1,
+      "message": "nit: comment that 6 does not exist",
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
