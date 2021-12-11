@@ -22,6 +22,30 @@
       },
       "revId": "c069a75302acbf3c71c4dac0f50435f95294f7fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b006d3b8_9b82ae1c",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/EcCurve.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2021-12-11T00:02:19Z",
+      "side": 1,
+      "message": "These are very jargony, but well known to folks dealing with elliptic curves.\n\n\"P\" \u003d\u003d \"NIST Prime Curves\"\n\"curve 25519\" \u003d\u003d https://en.wikipedia.org/wiki/Curve25519\n\nSo yeah... the names are goofy. Our hope is to be consistently goofy :)",
+      "parentUuid": "135a8c96_e310ea39",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 5
+      },
+      "revId": "c069a75302acbf3c71c4dac0f50435f95294f7fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
