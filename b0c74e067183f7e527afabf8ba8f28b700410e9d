@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc18c986_fa270e3d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1099928
+      },
+      "writtenOn": "2021-12-13T23:34:45Z",
+      "side": 1,
+      "message": "This is not generally true. The `Display` type is an opaque handle that differs across HWC implementations, so this will break any HWC that does not use this constant to identify the primary display.\n\nWe should store `mDisplays` as `std::vector`, since the order of hotplug events during boot matters in determining the primary display.",
+      "range": {
+        "startLine": 13,
+        "startChar": 36,
+        "endLine": 13,
+        "endChar": 55
+      },
+      "revId": "b0c74e067183f7e527afabf8ba8f28b700410e9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
