@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b7147d_163bf079",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/GroupCipherMask.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-13T16:55:48Z",
+      "side": 1,
+      "message": "Yes, this is meant to match up with the definitions in wpa_supplicant. See cs.android.com/android/_/android/platform/external/wpa_supplicant_8/+/master:src/common/defs.h;l\u003d12",
+      "parentUuid": "3d49396d_6942ee99",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0d03ad94_1ce424f3",
@@ -72,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "941b9cda_ad092e2c",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicant.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-13T16:55:48Z",
+      "side": 1,
+      "message": "That is correct. We use the same convention in our hostapd AIDL interface.",
+      "parentUuid": "6f102301_c006f2ab",
+      "range": {
+        "startLine": 155,
+        "startChar": 4,
+        "endLine": 155,
+        "endChar": 10
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2662346_e548fbd4",
         "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicantP2pNetwork.aidl",
         "patchSetId": 2
@@ -83,6 +131,30 @@
       "writtenOn": "2021-12-11T01:15:31Z",
       "side": 1,
       "message": "nit: isGroupOwner. Go is not really a good abbreviation of \"group owner\".",
+      "range": {
+        "startLine": 108,
+        "startChar": 12,
+        "endLine": 108,
+        "endChar": 16
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "451304d3_59b758c4",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicantP2pNetwork.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-13T16:55:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f2662346_e548fbd4",
       "range": {
         "startLine": 108,
         "startChar": 12,
@@ -116,6 +188,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8ed58d8_88912e30",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicantStaNetwork.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-13T16:55:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2ac971b4_37d3ff66",
+      "range": {
+        "startLine": 203,
+        "startChar": 23,
+        "endLine": 203,
+        "endChar": 25
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "999b2d4d_6b275303",
@@ -139,6 +235,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78fd4929_9778e996",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/NetworkRequestEapSimGsmAuthParams.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-13T16:55:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "999b2d4d_6b275303",
+      "range": {
+        "startLine": 22,
+        "startChar": 11,
+        "endLine": 22,
+        "endChar": 44
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "855ee695_a08812df",
@@ -152,6 +272,24 @@
       "writtenOn": "2021-12-11T01:15:31Z",
       "side": 1,
       "message": "nit: comment that 6 does not exist",
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a87dda3d_9c89967c",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/WpsDevPasswordId.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-13T16:55:48Z",
+      "side": 1,
+      "message": "This matches up with the definition in wpa_supplicant. See cs.android.com/android/_/android/platform/external/wpa_supplicant_8/+/master:src/wps/wps_defs.h;l\u003d159",
+      "parentUuid": "855ee695_a08812df",
       "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
