@@ -16,6 +16,24 @@
       "message": "I think the branch should be android12-tests-dev",
       "revId": "ab4daa65c441ad644bcd4fbc5c0deb75e2f4ee36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d977ae9_5389e408",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2021-12-13T21:18:29Z",
+      "side": 1,
+      "message": "Did you reason the android12-tests-dev by the \"VTS - 12_r1\" in the bug description? If so, \nplease see https://b.corp.google.com/issues/199986032#comment22 and https://b.corp.google.com/issues/199986032#comment30 for the reason why it need go to android11-tests-dev",
+      "parentUuid": "54331fa2_818bb92b",
+      "revId": "ab4daa65c441ad644bcd4fbc5c0deb75e2f4ee36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
