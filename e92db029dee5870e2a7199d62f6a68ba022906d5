@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "254e11e4_0cb276a9",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AnqpData.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-13T18:01:08Z",
+      "side": 1,
+      "message": "would any of these be better as a string? and if not, are they needed as separate byte arrays (would byte[] work better as AnqpData)?\n\nAlso, should any of these be fixed-length? (see b/207087196 - soon)",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 8
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a9da0c4_ee6eb301",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-13T18:01:08Z",
+      "side": 1,
+      "message": "is \u00273\u0027 intentionally skipped?",
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78f6a222_cf1b1675",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/DppSuccessCode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-13T18:01:08Z",
+      "side": 1,
+      "message": "do we need a type for this?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "764a9662_cf262534",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ExtRadioWorkDefaults.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-13T18:01:08Z",
+      "side": 1,
+      "message": "Prefer:\n- For fields, we can explicitly set the default.\n- For method arguments, we can add a constant in the interface itself",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "086435f7_969da0fe",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicantP2pIfaceCallback.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-13T18:01:08Z",
+      "side": 1,
+      "message": "b\n\n(several more similar cases)",
+      "range": {
+        "startLine": 127,
+        "startChar": 14,
+        "endLine": 127,
+        "endChar": 15
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28d1183e_baec474f",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/IfaceParamSizeLimits.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-13T18:01:08Z",
+      "side": 1,
+      "message": "same, these could be constants (HIDL only had enums, not constants)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f252cbd6_4f3bf444",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/KeyMgmtMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-13T18:01:08Z",
+      "side": 1,
+      "message": "Is this supposed to be \u0027(1 \u003c\u003c 19) + 1\u0027?",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 11
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32c0143e_8fe81221",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/MacAddress.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-13T18:01:08Z",
+      "side": 1,
+      "message": "many times in the interface, we pass MacAddress without using this (using byte[] instead). Can we make this consistent?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cb5c82f_dbe8a29e",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ProtoMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-13T18:01:08Z",
+      "side": 1,
+      "message": "out of date comment",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 7
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9991f0c3_45de3518",
+        "filename": "wifi/supplicant/aidl/vts/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-13T18:01:08Z",
+      "side": 1,
+      "message": "you can move this file up to wifi/supplicant/ (see recent email thread \"Feel free to consolidate OWNERS files for .hal interfaces*!\") or wifi/supplicant/aidl/ if you want! or even wifi/ (might want to consolidate these in another CL)",
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

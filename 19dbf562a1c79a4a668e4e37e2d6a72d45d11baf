@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b7c9d76_3174a65b",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicant.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-13T18:01:08Z",
+      "side": 1,
+      "message": "Though - now that we are moving to AIDL, I wonder if we could make the lazy HAL protocol mandatory? (in that case, we shouldn\u0027t be seeing DEAD_OBJECT here, though you might have to look in more detail?) - could follow up",
+      "parentUuid": "941b9cda_ad092e2c",
+      "range": {
+        "startLine": 155,
+        "startChar": 4,
+        "endLine": 155,
+        "endChar": 10
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2662346_e548fbd4",
         "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicantP2pNetwork.aidl",
         "patchSetId": 2
