@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c247a79_2bae6f60",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AnqpData.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-14T18:31:53Z",
+      "side": 1,
+      "message": "\u003e I think we need to keep these as individual byte arrays to avoid breaking the parsing logic.\n\nWhat if these looked more like what the end result should be? We could have richer types here.",
+      "parentUuid": "73ecdb3e_1cd55055",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 8
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a9da0c4_ee6eb301",
         "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
         "patchSetId": 3
@@ -79,6 +103,24 @@
       "side": 1,
       "message": "Yes, this should match up with the definition in wpa_supplicant: cs.android.com/android/_/android/platform/external/wpa_supplicant_8/+/master:src/common/defs.h;l\u003d177",
       "parentUuid": "3a9da0c4_ee6eb301",
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fa64001_75e8448a",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-14T18:31:53Z",
+      "side": 1,
+      "message": "I noticed some of these enums have a comment like \u0027/* X is skipped */\u0027 or similar. Maybe it would be more clear if we had these everywhere?",
+      "parentUuid": "7367ab53_0dc1f735",
       "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -120,6 +162,30 @@
       "side": 1,
       "message": "I think so. It looks like the idea is that this gets sent to the callback ISupplicantStaIfaceCallback.onDppSuccess() to indicate what type of event succeeded.",
       "parentUuid": "78f6a222_cf1b1675",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25d9a0e5_889b2af9",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/DppSuccessCode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-14T18:31:53Z",
+      "side": 1,
+      "message": "Ack, though I wonder if this should be named something like \u0027DppStepType\u0027 or something else which makes it clear that it\u0027s the type of event/step happening which is succeeding?",
+      "parentUuid": "c253ff4a_a47920a7",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -271,6 +337,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3967c603_cd10f199",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/IfaceParamSizeLimits.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-14T18:31:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7592c0b0_93b06eb2",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f252cbd6_4f3bf444",
@@ -379,6 +469,30 @@
       "side": 1,
       "message": "If multi-dimensional arrays are not available yet, would it be possible to leave the MacAddress usage the same for now, and leave a TODO to convert to a 2D array when they are available?\n\nI think it might be easier to change the 2 usages of MacAddress than all the places where a byte[] is used to represent a Mac Address.",
       "parentUuid": "c9cc410f_77ad66f5",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c310b00_c18e0870",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/MacAddress.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-14T18:31:53Z",
+      "side": 1,
+      "message": "Sure, we can do things independently of that bug. I would reach out to Jooyung to understand the progress.",
+      "parentUuid": "11c89eec_efc934cb",
       "range": {
         "startLine": 25,
         "startChar": 0,
