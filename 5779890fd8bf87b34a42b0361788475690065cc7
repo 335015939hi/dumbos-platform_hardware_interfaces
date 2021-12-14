@@ -16,6 +16,24 @@
       "message": "- Why do you need to skip the test manually? Shouldn\u0027t the device not run that HAL instance in the first place?\n\n- Maybe add a helper library to reduce duplicated code?",
       "revId": "5779890fd8bf87b34a42b0361788475690065cc7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26b59bc6_11d9ed0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2021-12-14T01:23:05Z",
+      "side": 1,
+      "message": "This is a cherry pick of a merged CL.\n\n\u003e Why do you need to skip the test manually? Shouldn\u0027t the device not run that HAL instance in the first place? Maybe add a helper library to reduce duplicated code?\n\nAFAIK, there is not a way to determine if the HAL instance is for the second slot at the stage of running HAL instance. \"slot1\", \"slot2\" are the conditions that should be defined by radio layer to indicate which one is used for DSDS slot; b/201564407 is filed to handle this in a more stable to address it in the future I think.",
+      "parentUuid": "2b8edb9d_18f8f3bd",
+      "revId": "5779890fd8bf87b34a42b0361788475690065cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
