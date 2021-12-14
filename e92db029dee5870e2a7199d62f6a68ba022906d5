@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c16051b_c3b2c7bd",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AnqpData.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T23:46:35Z",
+      "side": 1,
+      "message": "I took a closer look at the parsers, and it looks like all of these buffers contain raw network data. For example, if you check out the comments at the top of the parser for venueName, the buffer contains 2 bytes of info data followed by a variable number of I18Name objects. Each I18Name object has a 1 byte length field, 3 byte language code, followed by a variable length string.\n\ncs.android.com/android/platform/superproject/+/master:packages/modules/Wifi/service/java/com/android/server/wifi/hotspot2/anqp/VenueNameElement.java;l\u003d30\n\nIt looks like the end data type is more complicated than a string for all of these. All of the parsers convert the byte buffer to some implementation of a framework AnqpElement object. Since the parsing logic and end data types already exist on the framework end, I think we should keep these all as byte buffers in the interface.",
+      "parentUuid": "1c247a79_2bae6f60",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 8
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a9da0c4_ee6eb301",
         "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
         "patchSetId": 3
@@ -121,6 +145,24 @@
       "side": 1,
       "message": "I noticed some of these enums have a comment like \u0027/* X is skipped */\u0027 or similar. Maybe it would be more clear if we had these everywhere?",
       "parentUuid": "7367ab53_0dc1f735",
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d506ca1f_01e3ea66",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T23:46:35Z",
+      "side": 1,
+      "message": "Most of these cases are defined somewhere in the wpa_supplicant source code. I added a comment to the top of this file, and all the similar files, to point to the file with the main definition.\n\nFor example, with this type, the reference definition would be here: cs.android.com/android/platform/superproject/+/master:external/wpa_supplicant_8/src/common/defs.h;l\u003d177",
+      "parentUuid": "0fa64001_75e8448a",
       "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -186,6 +228,30 @@
       "side": 1,
       "message": "Ack, though I wonder if this should be named something like \u0027DppStepType\u0027 or something else which makes it clear that it\u0027s the type of event/step happening which is succeeding?",
       "parentUuid": "c253ff4a_a47920a7",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ae10601_4dc66919",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/DppSuccessCode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T23:46:35Z",
+      "side": 1,
+      "message": "That makes sense, I renamed it to DppEventType.",
+      "parentUuid": "25d9a0e5_889b2af9",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -493,6 +559,30 @@
       "side": 1,
       "message": "Sure, we can do things independently of that bug. I would reach out to Jooyung to understand the progress.",
       "parentUuid": "11c89eec_efc934cb",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f14465_a6cf8c2c",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/MacAddress.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T23:46:35Z",
+      "side": 1,
+      "message": "Sounds good, I added a TODO with b/210705533 to MacAddress and GsmRand.",
+      "parentUuid": "6c310b00_c18e0870",
       "range": {
         "startLine": 25,
         "startChar": 0,

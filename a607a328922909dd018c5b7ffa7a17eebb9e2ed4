@@ -16,6 +16,24 @@
       "message": "question, is this part of the test command ?",
       "revId": "a607a328922909dd018c5b7ffa7a17eebb9e2ed4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eada1c89_79fc14a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T23:46:35Z",
+      "side": 1,
+      "message": "This is just to pass the Lint Inclusive Language check. We use \u0027HE\u0027 in the type WifiTechnology to refer to High Efficiency, and Lint was giving us a warning.",
+      "parentUuid": "70ecf2e9_9eb2cd04",
+      "revId": "a607a328922909dd018c5b7ffa7a17eebb9e2ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
