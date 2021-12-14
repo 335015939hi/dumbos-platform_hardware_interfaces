@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f8d84a0_0e55b62a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1176810
+      },
+      "writtenOn": "2021-12-14T23:41:04Z",
+      "side": 1,
+      "message": "use std::unordered_set type, mDisplays.begin(). mDisplays.end(), as getDisplays return value,  mDisplays[0], mDisplays[1]，....and.so on,which may not be same as the order of\nhotplug events during boot matters.\nPlease refer to https://en.cppreference.com/w/cpp/container/unordered_set",
+      "parentUuid": "458c613f_629e59e4",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 23
+      },
+      "revId": "041079628052eb17c457036f469c94444be97740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3a09de2_83b74835",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-12-14T21:54:21Z",
       "side": 1,
       "message": "Add Bug and Test lines.",
+      "revId": "041079628052eb17c457036f469c94444be97740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "441f9913_65c73841",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1176810
+      },
+      "writtenOn": "2021-12-14T23:41:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3a09de2_83b74835",
       "revId": "041079628052eb17c457036f469c94444be97740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
