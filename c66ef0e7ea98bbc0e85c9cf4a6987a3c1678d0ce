@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecf9406d_eca91847",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioProvidersFactory.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-14T05:21:14Z",
+      "side": 1,
+      "message": "Is it needed?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 31
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de03876e_a926538d",
+        "filename": "bluetooth/audio/2.2/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-14T05:21:14Z",
+      "side": 1,
+      "message": "Is it needed?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 76
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1296570_23993f8e",
+        "filename": "bluetooth/audio/2.2/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-14T05:21:14Z",
+      "side": 1,
+      "message": "Why do you need to add this? I can\u0027t find it in the following modification.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 72
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f8d4e9c_a4ca8937",
+        "filename": "bluetooth/audio/2.2/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-14T05:21:14Z",
+      "side": 1,
+      "message": "Would you like to add LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH in the patch together?",
+      "range": {
+        "startLine": 242,
+        "startChar": 32,
+        "endLine": 242,
+        "endChar": 75
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaec8324_33f6def5",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-14T05:21:14Z",
+      "side": 1,
+      "message": "Is it the comment for supportedChannel?\n\nPlease remove \"if bit N is set, HW Offloader supports N+1 channels at the same time. // Example: 0x27 \u003d 0b00100111: One, two, three or six channels supported.\", it\u0027s not suitable for the current interface design\n\n\nIf supportedChannel set left|right, supportedChannelCount is 1, it means the offload ADSP only support 1 connections with stereo audio configuration.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 77
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94d6c585_bb56f912",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-14T05:21:14Z",
+      "side": 1,
+      "message": "Do we need those?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 63
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98c1f754_4b6c3192",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-14T05:21:14Z",
+      "side": 1,
+      "message": "If we will not use the SampleRate_2_0 in this version, is it good to use SampleRate (remove_2_1) to keep it simple?",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 21
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdbe52f9_7dfbea90",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-14T05:21:14Z",
+      "side": 1,
+      "message": "add LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH together?",
+      "range": {
+        "startLine": 100,
+        "startChar": 23,
+        "endLine": 100,
+        "endChar": 66
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a9b2b25_847ec743",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-14T05:21:14Z",
+      "side": 1,
+      "message": "Could we remove #include \"BluetoothAudioSupportedCodecsDB_2_1.h\" from bluetooth/audio/2.2/default/BluetoothAudioProvidersFactory.cpp and add it here instead?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 44
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb3e2a35_e9407be4",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-14T05:21:14Z",
+      "side": 1,
+      "message": "Could we move this line to bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 65
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4e5aaca_da4841e5",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-14T05:21:14Z",
+      "side": 1,
+      "message": "Is it needed?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 76
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
