@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73ecdb3e_1cd55055",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AnqpData.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "It looks like the framework is expecting all of the fields to arrive as byte buffers. It then has a series of byte buffer parsers to convert each buffer into its equivalent in the framework. I think we need to keep these as individual byte arrays to avoid breaking the parsing logic.\n\nAlso, it looks like none of these fields are fixed length in the original HAL, but the fixed length feature would definitely be good for some other types like NetworkRequestEapSimUmtsAuthParams.",
+      "parentUuid": "254e11e4_0cb276a9",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 8
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a9da0c4_ee6eb301",
         "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
         "patchSetId": 3
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7367ab53_0dc1f735",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "Yes, this should match up with the definition in wpa_supplicant: cs.android.com/android/_/android/platform/external/wpa_supplicant_8/+/master:src/common/defs.h;l\u003d177",
+      "parentUuid": "3a9da0c4_ee6eb301",
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78f6a222_cf1b1675",
         "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/DppSuccessCode.aidl",
         "patchSetId": 3
@@ -54,6 +96,30 @@
       "writtenOn": "2021-12-13T18:01:08Z",
       "side": 1,
       "message": "do we need a type for this?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c253ff4a_a47920a7",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/DppSuccessCode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "I think so. It looks like the idea is that this gets sent to the callback ISupplicantStaIfaceCallback.onDppSuccess() to indicate what type of event succeeded.",
+      "parentUuid": "78f6a222_cf1b1675",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff042140_3baf12b7",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ExtRadioWorkDefaults.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "764a9662_cf262534",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "086435f7_969da0fe",
@@ -100,6 +190,30 @@
       "writtenOn": "2021-12-13T18:01:08Z",
       "side": 1,
       "message": "b\n\n(several more similar cases)",
+      "range": {
+        "startLine": 127,
+        "startChar": 14,
+        "endLine": 127,
+        "endChar": 15
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec847b82_e4fd3bb0",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicantP2pIfaceCallback.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "086435f7_969da0fe",
       "range": {
         "startLine": 127,
         "startChar": 14,
@@ -135,6 +249,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7592c0b0_93b06eb2",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/IfaceParamSizeLimits.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "It looks like we don\u0027t actually use any of these, so I deleted the file.\n\nHowever, we have a similar set of definitions in StaNetworkParamSizeLimits.aidl, so I moved those definitions to the ISupplicantStaNetwork interface.",
+      "parentUuid": "28d1183e_baec474f",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f252cbd6_4f3bf444",
         "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/KeyMgmtMask.aidl",
         "patchSetId": 3
@@ -146,6 +284,30 @@
       "writtenOn": "2021-12-13T18:01:08Z",
       "side": 1,
       "message": "Is this supposed to be \u0027(1 \u003c\u003c 19) + 1\u0027?",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 11
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3028706b_6cba0ed1",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/KeyMgmtMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "SAE_PK should be the same as SAE, and it looks like nobody uses KeyMgmtMask::SAE_PK anywhere. This should be safe to remove.",
+      "parentUuid": "f252cbd6_4f3bf444",
       "range": {
         "startLine": 72,
         "startChar": 0,
@@ -181,6 +343,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9cc410f_77ad66f5",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/MacAddress.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "I think there might actually be an easier fix, based on the bug you mentined (b/207087196). Do you know if multi-dimensional arrays are officially supported yet?\n\nIn that case, we could actually remove the MacAddress type and switch all 2 instances of MacAddress[] to byte[][]. This class was mostly a workaround for AIDL not supporting multi-dimensional arrays.",
+      "parentUuid": "32c0143e_8fe81221",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cb5c82f_dbe8a29e",
         "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ProtoMask.aidl",
         "patchSetId": 3
@@ -192,6 +378,30 @@
       "writtenOn": "2021-12-13T18:01:08Z",
       "side": 1,
       "message": "out of date comment",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 7
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86e23d71_90049234",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ProtoMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6cb5c82f_dbe8a29e",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -215,6 +425,24 @@
       "writtenOn": "2021-12-13T18:01:08Z",
       "side": 1,
       "message": "you can move this file up to wifi/supplicant/ (see recent email thread \"Feel free to consolidate OWNERS files for .hal interfaces*!\") or wifi/supplicant/aidl/ if you want! or even wifi/ (might want to consolidate these in another CL)",
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0910597_48095f44",
+        "filename": "wifi/supplicant/aidl/vts/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "Sounds good! There was only one other OWNERS file in supplicant, so I went ahead and merged them into one at the root.",
+      "parentUuid": "9991f0c3_45de3518",
       "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "df3316b6_b89b6044",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/GroupCipherMask.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4b7147d_163bf079",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0d03ad94_1ce424f3",
         "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/GsmRand.aidl",
         "patchSetId": 2
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Though - now that we are moving to AIDL, I wonder if we could make the lazy HAL protocol mandatory? (in that case, we shouldn\u0027t be seeing DEAD_OBJECT here, though you might have to look in more detail?) - could follow up",
       "parentUuid": "941b9cda_ad092e2c",
+      "range": {
+        "startLine": 155,
+        "startChar": 4,
+        "endLine": 155,
+        "endChar": 10
+      },
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71eba9e9_26e90b60",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/ISupplicant.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "That sounds correct, but would it be possible to follow up on this one later? I\u0027m not sure if this might have any effects, plus it might be worth doing the same for hostapd while we\u0027re at it.\n\nI can open up a bug for now if that works.",
+      "parentUuid": "6b7c9d76_3174a65b",
       "range": {
         "startLine": 155,
         "startChar": 4,
@@ -314,6 +362,24 @@
       "side": 1,
       "message": "This matches up with the definition in wpa_supplicant. See cs.android.com/android/_/android/platform/external/wpa_supplicant_8/+/master:src/wps/wps_defs.h;l\u003d159",
       "parentUuid": "855ee695_a08812df",
+      "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "506f8ace_7ce1f29a",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/WpsDevPasswordId.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-14T00:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a87dda3d_9c89967c",
       "revId": "19dbf562a1c79a4a668e4e37e2d6a72d45d11baf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
