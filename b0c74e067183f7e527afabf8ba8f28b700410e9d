@@ -22,6 +22,30 @@
       },
       "revId": "b0c74e067183f7e527afabf8ba8f28b700410e9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "276b9dba_2b05035a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1176810
+      },
+      "writtenOn": "2021-12-14T07:26:03Z",
+      "side": 1,
+      "message": "According to your suggestion, please review the below patch,\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1921757",
+      "parentUuid": "dc18c986_fa270e3d",
+      "range": {
+        "startLine": 13,
+        "startChar": 36,
+        "endLine": 13,
+        "endChar": 55
+      },
+      "revId": "b0c74e067183f7e527afabf8ba8f28b700410e9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
