@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b8edb9d_18f8f3bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-12-14T01:14:26Z",
+      "side": 1,
+      "message": "- Why do you need to skip the test manually? Shouldn\u0027t the device not run that HAL instance in the first place?\n\n- Maybe add a helper library to reduce duplicated code?",
+      "revId": "5779890fd8bf87b34a42b0361788475690065cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
