@@ -70,6 +70,30 @@
       },
       "revId": "b0c74e067183f7e527afabf8ba8f28b700410e9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c9649cc_9e0d8bbb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1099928
+      },
+      "writtenOn": "2021-12-14T21:53:28Z",
+      "side": 1,
+      "message": "For future patches, you can amend the commit and reupload, rather than create a new branch and upload as a separate CL.\n\nWe can continue review on 1921760, so feel free to abandon this one.",
+      "parentUuid": "7c3964a8_45ec5bfa",
+      "range": {
+        "startLine": 13,
+        "startChar": 36,
+        "endLine": 13,
+        "endChar": 55
+      },
+      "revId": "b0c74e067183f7e527afabf8ba8f28b700410e9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
