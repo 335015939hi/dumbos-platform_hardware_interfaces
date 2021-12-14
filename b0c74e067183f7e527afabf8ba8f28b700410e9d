@@ -46,6 +46,30 @@
       },
       "revId": "b0c74e067183f7e527afabf8ba8f28b700410e9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c3964a8_45ec5bfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1176810
+      },
+      "writtenOn": "2021-12-14T07:33:04Z",
+      "side": 1,
+      "message": "Done\n\nmaster分支:\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1921757\nandroid12-tests-dev分支:\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1921760",
+      "parentUuid": "276b9dba_2b05035a",
+      "range": {
+        "startLine": 13,
+        "startChar": 36,
+        "endLine": 13,
+        "endChar": 55
+      },
+      "revId": "b0c74e067183f7e527afabf8ba8f28b700410e9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
