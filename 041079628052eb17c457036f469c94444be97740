@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "933fee37_6d89b121",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1099928
+      },
+      "writtenOn": "2021-12-15T00:23:30Z",
+      "side": 1,
+      "message": "Right, I meant editing the commit message, so the problem is clear to someone reading Git history in the future, e.g. the \"timeout\" wording is confusing without context.",
+      "parentUuid": "dc2b28a5_4d020ef6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 23
+      },
+      "revId": "041079628052eb17c457036f469c94444be97740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3a09de2_83b74835",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
