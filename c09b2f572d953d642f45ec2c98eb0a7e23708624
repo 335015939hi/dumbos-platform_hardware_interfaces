@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19cb1732_eb123dc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-12-15T00:57:15Z",
+      "side": 1,
+      "message": "The dynamic-sized arrays will be switched to fixed-sized arrays later.",
+      "revId": "c09b2f572d953d642f45ec2c98eb0a7e23708624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
