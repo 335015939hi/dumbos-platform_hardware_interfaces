@@ -169,6 +169,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3cd96532_229cea16",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-15T01:29:27Z",
+      "side": 1,
+      "message": "These files aren\u0027t really tied to any HAL version or reflected in the HAL interface. We really should avoid mixing arbitrary values defined outside of the interface into the values we pass across the interface. The reason for this is that the interface here is versioned by the build system, but arbitrary changes may be made to external APIs w/o any oversight. We need to be very careful to pass only those things which we are defining in the interface - the interface will be used across very long time windows.\n\nMaybe remove the comments as such? Or change the wording to make it clear that these serve as a reference only?",
+      "parentUuid": "d506ca1f_01e3ea66",
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78f6a222_cf1b1675",
         "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/DppSuccessCode.aidl",
         "patchSetId": 3
@@ -252,6 +270,30 @@
       "side": 1,
       "message": "That makes sense, I renamed it to DppEventType.",
       "parentUuid": "25d9a0e5_889b2af9",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d93ce18_cc2cf7a7",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/DppSuccessCode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-15T01:29:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6ae10601_4dc66919",
       "range": {
         "startLine": 19,
         "startChar": 0,
