@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc2b28a5_4d020ef6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1176810
+      },
+      "writtenOn": "2021-12-15T00:02:09Z",
+      "side": 1,
+      "message": "\u003e use std::unordered_set type, mDisplays.begin(). mDisplays.end(), as getDisplays return value,  mDisplays[0], mDisplays[1]，....and.so on,which may not be same as the order of\n\n\u003d\u003d\u003e   std::vector\u003cDisplay\u003e(mDisplays.begin(), mDisplays.end()) elements order may not be same as the order of hotplug events.\n\n\u003e hotplug events during boot matters.\n\u003e Please refer to https://en.cppreference.com/w/cpp/container/unordered_set",
+      "parentUuid": "5f8d84a0_0e55b62a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 23
+      },
+      "revId": "041079628052eb17c457036f469c94444be97740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3a09de2_83b74835",
