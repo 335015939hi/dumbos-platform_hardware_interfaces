@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e102f7fb_61d320cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2021-12-15T12:29:15Z",
+      "side": 1,
+      "message": "PTAL - I needed to make the checks on the version number in the attestation extension allow for an earlier version, so that we don\u0027t have to upgrade everything (including prebuilts) at once.",
+      "revId": "24bb6d76990a779e14620d806f0f189962a836df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
