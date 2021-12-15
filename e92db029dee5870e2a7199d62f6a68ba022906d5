@@ -187,6 +187,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17a3722d_87365efa",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2021-12-15T21:16:41Z",
+      "side": 1,
+      "message": "Sounds good, I can update the wording to make that more clear. I\u0027ll make that change in a separate CL, but I added b/210904141 to track the issue.",
+      "parentUuid": "3cd96532_229cea16",
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78f6a222_cf1b1675",
         "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/DppSuccessCode.aidl",
         "patchSetId": 3
