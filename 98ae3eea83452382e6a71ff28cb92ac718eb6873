@@ -16,6 +16,23 @@
       "message": "Please help review.\nThanks a lot.",
       "revId": "98ae3eea83452382e6a71ff28cb92ac718eb6873",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50e3a65f_ec26fdb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1176810
+      },
+      "writtenOn": "2021-12-16T16:16:04Z",
+      "side": 1,
+      "message": "\u003e Patch Set 4: Code-Review+2\n\u003e \n\u003e By voting Code-Review+2 the following files are now code-owner approved by \u003cGERRIT_ACCOUNT_1388190\u003e:\n\u003e * graphics/composer/2.1/utils/vts/GraphicsComposerCallback.cpp\n\u003e * graphics/composer/2.1/utils/vts/include/composer-vts/2.1/GraphicsComposerCallback.h\n\u003e * graphics/composer/2.4/utils/vts/GraphicsComposerCallback.cpp\n\u003e * graphics/composer/2.4/utils/vts/include/composer-vts/2.4/GraphicsComposerCallback.h\n\u003e \nHow to merge this patch?\n\n\nThanks\n",
+      "revId": "98ae3eea83452382e6a71ff28cb92ac718eb6873",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
