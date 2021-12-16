@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af605e96_529fadad",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-12-16T14:46:56Z",
+      "side": 1,
+      "message": "Naming of this method is confusing because it seems that at least one test assumes StrongBox does _not_ support Curve 25519 even if it\u0027s a V2 KeyMint.",
+      "range": {
+        "startLine": 210,
+        "startChar": 26,
+        "endLine": 210,
+        "endChar": 47
+      },
+      "revId": "1cf64bbc5b9c2ad473287e5713a3cd171d646b39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2eb724f_6f579c88",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-12-16T14:46:56Z",
+      "side": 1,
+      "message": "Seems like this should be negated? If the StrongBox HAL does _not_ include Curve 25519 then it should be on the list of invalid curves.",
+      "range": {
+        "startLine": 1204,
+        "startChar": 12,
+        "endLine": 1204,
+        "endChar": 33
+      },
+      "revId": "1cf64bbc5b9c2ad473287e5713a3cd171d646b39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b2b515d_e4a83d3b",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1535,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-12-16T14:46:56Z",
+      "side": 1,
+      "message": "Why is this necessary, shouldn\u0027t HalIncludesCurve25519 cover it?",
+      "range": {
+        "startLine": 1533,
+        "startChar": 0,
+        "endLine": 1535,
+        "endChar": 5
+      },
+      "revId": "1cf64bbc5b9c2ad473287e5713a3cd171d646b39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28065b16_ba66b830",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3107,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2021-12-16T14:46:56Z",
+      "side": 1,
+      "message": "Why the digest change?",
+      "range": {
+        "startLine": 3107,
+        "startChar": 62,
+        "endLine": 3107,
+        "endChar": 74
+      },
+      "revId": "1cf64bbc5b9c2ad473287e5713a3cd171d646b39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
