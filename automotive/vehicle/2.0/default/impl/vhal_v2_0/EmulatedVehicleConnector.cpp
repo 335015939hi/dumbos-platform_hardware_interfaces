@@ -50,7 +50,7 @@ StatusCode EmulatedVehicleConnector::onSetProperty(const VehiclePropValue& value
         const auto& ret = mEmulatedUserHal.onSetProperty(value);
         if (!ret.ok()) {
             LOG(ERROR) << "onSetProperty(): HAL returned error: " << ret.error().message();
-            return StatusCode(ret.error().code());
+            return StatusCode(static_cast<int>(ret.error().code()));
         }
         auto updatedValue = ret.value().get();
         if (updatedValue != nullptr) {
