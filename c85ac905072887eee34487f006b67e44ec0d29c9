@@ -33,6 +33,29 @@
       "message": "To API reviewers: it\u0027s a backwards-compatible change for an XML-only interface, there are no associated HIDL interfaces.",
       "revId": "c85ac905072887eee34487f006b67e44ec0d29c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7f88255_cd962215",
+        "filename": "audio/policy/1.0/xml/api/current.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-16T23:53:45Z",
+      "side": 1,
+      "message": "we don\u0027t use this for anything besides the api versioning, right?",
+      "range": {
+        "startLine": 235,
+        "startChar": 22,
+        "endLine": 235,
+        "endChar": 37
+      },
+      "revId": "c85ac905072887eee34487f006b67e44ec0d29c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
