@@ -157,7 +157,7 @@ VehicleHal::VehiclePropValuePtr EmulatedVehicleHal::get(
                 const auto& ret = mEmulatedUserHal->onGetProperty(requestedPropValue);
                 if (!ret.ok()) {
                     ALOGE("get(): User HAL returned error: %s", ret.error().message().c_str());
-                    *outStatus = StatusCode(ret.error().code());
+                    *outStatus = StatusCode(static_cast<int>(ret.error().code()));
                 } else {
                     auto value = ret.value().get();
                     if (value != nullptr) {
