@@ -374,8 +374,14 @@ AssertionResult FrontendTests::tuneFrontend(FrontendConfig config, bool testWith
         result &= mDvrTests.openDvrInDemux(mDvrConfig.type, mDvrConfig.bufferSize) == success();
         result &= mDvrTests.configDvrPlayback(mDvrConfig.settings) == success();
         result &= mDvrTests.getDvrPlaybackMQDescriptor() == success();
+<<<<<<< HEAD   (35f07a [automerger skipped] Skip slot 2 for other radio modules in )
         mDvrTests.startPlaybackInputThread(mDvrConfig.playbackInputFile,
                                            mDvrConfig.settings.playback());
+=======
+        mDvrTests.startPlaybackInputThread(dvrConfig.playbackInputFile,
+                                           dvrConfig.settings.playback());
+        mDvrTests.startDvrPlayback();
+>>>>>>> BRANCH (0638fc Merge "VTS: fix some logic errors for tuner HAL vts [1/1]" i)
         if (!result) {
             ALOGW("[vts] Software frontend dvr configure failed.");
             return failure();
@@ -399,6 +405,7 @@ AssertionResult FrontendTests::stopTuneFrontend(bool testWithDemux) {
     status = mFrontend->stopTune();
     if (mIsSoftwareFe && testWithDemux) {
         mDvrTests.stopPlaybackThread();
+        mDvrTests.stopDvrPlayback();
         mDvrTests.closeDvrPlayback();
     }
     return AssertionResult(status == Result::SUCCESS);
