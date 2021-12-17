@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bb1ba55_7a9012ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-17T00:44:13Z",
+      "side": 1,
+      "message": "Thanks for the review. This one is cherry-pick patch and it pend on the audio aidl to get merged. We would have the follow-up CL to fix the further comment. :)",
+      "parentUuid": "48f5ac1c_e6df57ff",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf7137ad_72562ec8",
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "833dd9bf_228994d7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LdacQualityIndex.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-17T00:44:13Z",
+      "side": 1,
+      "message": "Make sense. Thanks for the suggestion.",
+      "parentUuid": "bf7137ad_72562ec8",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b9d4f5db_037e02a6",
         "filename": "compatibility_matrices/compatibility_matrix.current.xml",
         "patchSetId": 6
@@ -54,6 +96,30 @@
       "writtenOn": "2021-12-16T21:54:26Z",
       "side": 1,
       "message": "can you also remove this or file a bug to remove this?",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 10
+      },
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b43951e_c63bd78a",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-17T00:44:13Z",
+      "side": 1,
+      "message": "We have a bug, b/204585486, to track the remove task.",
+      "parentUuid": "b9d4f5db_037e02a6",
       "range": {
         "startLine": 134,
         "startChar": 0,
