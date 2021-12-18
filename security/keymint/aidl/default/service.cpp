@@ -49,7 +49,7 @@ int main() {
     ABinderProcess_setThreadPoolMaxThreadCount(0);
     // Add Keymint Service
     std::shared_ptr<AndroidKeyMintDevice> keyMint =
-            addService<AndroidKeyMintDevice>(SecurityLevel::SOFTWARE);
+            addService<AndroidKeyMintDevice>(SecurityLevel::STRONGBOX);
     // Add Secure Clock Service
     addService<AndroidSecureClock>(keyMint);
     // Add Shared Secret Service
