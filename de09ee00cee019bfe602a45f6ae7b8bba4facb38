@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75960e68_be74dd29",
+        "filename": "bluetooth/audio/2.2/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-12-20T10:30:04Z",
+      "side": 1,
+      "message": "encode/decode capabilities MUST be symmetric ?\nShould we get encoder /decoder capabilities separately?",
+      "range": {
+        "startLine": 239,
+        "startChar": 31,
+        "endLine": 241,
+        "endChar": 75
+      },
+      "revId": "de09ee00cee019bfe602a45f6ae7b8bba4facb38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
