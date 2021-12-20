@@ -260,6 +260,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c66efcf_20085cc8",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2021-12-20T09:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21128bad_536e93bd",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 77
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94d6c585_bb56f912",
@@ -307,6 +331,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1471bf7_182495c2",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2021-12-20T09:28:23Z",
+      "side": 1,
+      "message": "[Updated]\nThese are required, so I could just use the name AudioLocation, instead of adding the prefix.",
+      "parentUuid": "6936dca2_d8740b77",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 63
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98c1f754_4b6c3192",
@@ -344,6 +392,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "98c1f754_4b6c3192",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 21
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54e9afc2_d6b6c8c1",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2021-12-20T09:28:23Z",
+      "side": 1,
+      "message": "SampleRate_2_0 is included in BluetoothAudioSupportedCodecsDB_2_2.h, and would cause conflict, so use SampleRate_2_1 is required.",
+      "parentUuid": "fe1d7b67_8bffc4d3",
       "range": {
         "startLine": 33,
         "startChar": 6,
