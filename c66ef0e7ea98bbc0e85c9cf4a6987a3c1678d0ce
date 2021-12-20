@@ -238,6 +238,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21128bad_536e93bd",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2021-12-20T07:18:55Z",
+      "side": 1,
+      "message": "will remove the comment, and change the supportedChannelCount to channelCount",
+      "parentUuid": "d57b042c_004a02af",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 77
+      },
+      "revId": "c66ef0e7ea98bbc0e85c9cf4a6987a3c1678d0ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94d6c585_bb56f912",
         "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
         "patchSetId": 3
