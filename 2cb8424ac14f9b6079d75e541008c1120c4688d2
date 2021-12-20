@@ -22,6 +22,30 @@
       },
       "revId": "2cb8424ac14f9b6079d75e541008c1120c4688d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ee9733f_de978792",
+        "filename": "security/dice/aidl/default/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2021-12-20T22:22:48Z",
+      "side": 1,
+      "message": "I just cringe every time we call an implementation that does not actually implement the security model \"default\". Default kind of implies that it is okay to use. I just want to be clear that it is not.",
+      "parentUuid": "db19a56a_ca5b2b89",
+      "range": {
+        "startLine": 6,
+        "startChar": 50,
+        "endLine": 6,
+        "endChar": 69
+      },
+      "revId": "2cb8424ac14f9b6079d75e541008c1120c4688d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
