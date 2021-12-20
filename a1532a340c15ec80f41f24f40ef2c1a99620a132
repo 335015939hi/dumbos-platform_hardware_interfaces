@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c7a2608_65ffc3da",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-20T08:28:56Z",
+      "side": 1,
+      "message": "Sound good!",
+      "parentUuid": "2f5b7454_b34f062d",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 33
+      },
+      "revId": "a1532a340c15ec80f41f24f40ef2c1a99620a132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe1de1b5_f6aa7302",
         "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.h",
         "patchSetId": 5
