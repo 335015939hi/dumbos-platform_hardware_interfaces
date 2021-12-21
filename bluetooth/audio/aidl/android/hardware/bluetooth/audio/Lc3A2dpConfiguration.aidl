@@ -16,16 +16,35 @@
 
 package android.hardware.bluetooth.audio;
 
-import android.hardware.bluetooth.audio.A2dpCodecConfiguration;
-import android.hardware.bluetooth.audio.LeAudioConfiguration;
-import android.hardware.bluetooth.audio.PcmConfiguration;
+import android.hardware.bluetooth.audio.ChannelMode;
 
 /**
- * Used to configure either a Hardware or Software Encoding session based on session type
+ * Used for Hardware Encoding/Decoding LC3 codec configuration.
  */
 @VintfStability
-union AudioConfiguration {
-    PcmConfiguration pcmConfig;
-    A2dpCodecConfiguration a2dpCodecConfig;
-    LeAudioConfiguration leAudioConfig;
+parcelable Lc3A2dpConfiguration {
+    /*
+     * PCM is Input for encoder, Output for decoder
+     */
+    byte pcmBitDepth;
+    /*
+     * codec-specific parameters
+     */
+    int samplingFrequencyHz;
+    /*
+     * FrameDuration based on microseconds.
+     */
+    int frameDurationUs;
+    /*
+     * length in octets of a codec frame
+     */
+    int octetsPerFrame;
+    /*
+     * Number of blocks of codec frames per single SDU (Service Data Unit)
+     */
+    byte blocksPerSdu;
+    /*
+     * Channel mode for A2DP compatibility
+     */
+    ChannelMode channelMode;
 }

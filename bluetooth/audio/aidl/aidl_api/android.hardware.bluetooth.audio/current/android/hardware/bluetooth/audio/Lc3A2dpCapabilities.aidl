@@ -33,8 +33,11 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-union AudioConfiguration {
-  android.hardware.bluetooth.audio.PcmConfiguration pcmConfig;
-  android.hardware.bluetooth.audio.A2dpCodecConfiguration a2dpCodecConfig;
-  android.hardware.bluetooth.audio.LeAudioConfiguration leAudioConfig;
+parcelable Lc3A2dpCapabilities {
+  byte[] pcmBitDepth;
+  int[] samplingFrequencyHz;
+  int[] frameDurationUs;
+  int[] octetsPerFrame;
+  byte[] blocksPerSdu;
+  android.hardware.bluetooth.audio.ChannelMode channelMode;
 }
