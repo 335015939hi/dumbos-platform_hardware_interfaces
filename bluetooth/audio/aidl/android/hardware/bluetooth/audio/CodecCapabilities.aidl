@@ -19,6 +19,7 @@ package android.hardware.bluetooth.audio;
 import android.hardware.bluetooth.audio.AacCapabilities;
 import android.hardware.bluetooth.audio.AptxCapabilities;
 import android.hardware.bluetooth.audio.CodecType;
+import android.hardware.bluetooth.audio.Lc3A2dpCapabilities;
 import android.hardware.bluetooth.audio.LdacCapabilities;
 import android.hardware.bluetooth.audio.SbcCapabilities;
 
@@ -34,6 +35,7 @@ parcelable CodecCapabilities {
         AacCapabilities aacCapabilities;
         LdacCapabilities ldacCapabilities;
         AptxCapabilities aptxCapabilities;
+        Lc3A2dpCapabilities lc3Capabilities;
     }
     CodecType codecType;
     Capabilities capabilities;
