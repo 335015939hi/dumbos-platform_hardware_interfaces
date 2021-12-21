@@ -33,17 +33,18 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-parcelable CodecConfiguration {
+parcelable A2dpCodecConfiguration {
   android.hardware.bluetooth.audio.CodecType codecType;
   int encodedAudioBitrate;
   int peerMtu;
   boolean isScmstEnabled;
-  android.hardware.bluetooth.audio.CodecConfiguration.CodecSpecific config;
+  android.hardware.bluetooth.audio.A2dpCodecConfiguration.CodecSpecific config;
   @VintfStability
   union CodecSpecific {
     android.hardware.bluetooth.audio.SbcConfiguration sbcConfig;
     android.hardware.bluetooth.audio.AacConfiguration aacConfig;
     android.hardware.bluetooth.audio.LdacConfiguration ldacConfig;
     android.hardware.bluetooth.audio.AptxConfiguration aptxConfig;
+    android.hardware.bluetooth.audio.Lc3Configuration lc3Config;
   }
 }

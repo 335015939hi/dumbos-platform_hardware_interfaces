@@ -16,7 +16,7 @@
 
 package android.hardware.bluetooth.audio;
 
-import android.hardware.bluetooth.audio.CodecConfiguration;
+import android.hardware.bluetooth.audio.A2dpCodecConfiguration;
 import android.hardware.bluetooth.audio.LeAudioConfiguration;
 import android.hardware.bluetooth.audio.PcmConfiguration;
 
@@ -26,6 +26,6 @@ import android.hardware.bluetooth.audio.PcmConfiguration;
 @VintfStability
 union AudioConfiguration {
     PcmConfiguration pcmConfig;
-    CodecConfiguration codecConfig;
+    A2dpCodecConfiguration a2dpConfig;
     LeAudioConfiguration leAudioConfig;
 }
