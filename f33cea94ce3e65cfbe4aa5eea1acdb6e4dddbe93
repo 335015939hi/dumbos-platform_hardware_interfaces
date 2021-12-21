@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8354040c_a0c61e33",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_2.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2021-12-21T14:41:43Z",
+      "side": 1,
+      "message": "Why we don\u0027t need to handle A2DP offload case?",
+      "revId": "f33cea94ce3e65cfbe4aa5eea1acdb6e4dddbe93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
