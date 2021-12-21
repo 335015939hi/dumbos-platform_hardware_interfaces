@@ -22,6 +22,30 @@
       },
       "revId": "de09ee00cee019bfe602a45f6ae7b8bba4facb38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "756ab5a2_7cc6e3cb",
+        "filename": "bluetooth/audio/2.2/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2021-12-21T10:33:46Z",
+      "side": 1,
+      "message": "Encode decode could have different capability\nI redesign a way to include the encode/decode/encode+decode capability, and get these capability within one function.",
+      "parentUuid": "75960e68_be74dd29",
+      "range": {
+        "startLine": 239,
+        "startChar": 31,
+        "endLine": 241,
+        "endChar": 75
+      },
+      "revId": "de09ee00cee019bfe602a45f6ae7b8bba4facb38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
