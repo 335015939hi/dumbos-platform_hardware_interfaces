@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7064fa9_27a94ad0",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2021-12-22T02:03:00Z",
+      "side": 1,
+      "message": "Will move LeAudioMode from LeAudioCodecCapability to here. Only this param is the common part.",
+      "parentUuid": "36e863b2_f0f30f18",
+      "range": {
+        "startLine": 92,
+        "startChar": 7,
+        "endLine": 92,
+        "endChar": 31
+      },
+      "revId": "8e6d966c1b354b17d74b359bf603ff39a2d5b752",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b45342c_a3f837a1",
         "filename": "bluetooth/audio/2.2/types.hal",
         "patchSetId": 7
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-21T15:32:17Z",
       "side": 1,
       "message": "nit: LeAudioCodecCapability \u0026 LeAudioCodecCapabilities looks too similar.\n\nHow about to change LeAudioCodecCapabilities naming to represent the meaning that is encode/decode combination, such as ..pair, ..setting, or ..combined, etc.",
+      "range": {
+        "startLine": 100,
+        "startChar": 7,
+        "endLine": 100,
+        "endChar": 29
+      },
+      "revId": "8e6d966c1b354b17d74b359bf603ff39a2d5b752",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb70fc02_ecf3df90",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2021-12-22T02:03:00Z",
+      "side": 1,
+      "message": "Will rename LeAudioCodecCapabilities to LeAudioCodecCapabilitiesPair to avoid confuse",
+      "parentUuid": "5b45342c_a3f837a1",
       "range": {
         "startLine": 100,
         "startChar": 7,
