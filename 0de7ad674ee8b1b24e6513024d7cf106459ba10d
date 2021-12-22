@@ -16,6 +16,24 @@
       "message": "Flaky test: cts/framework/gce-presubmit-wm-cloud-tf-1",
       "revId": "0de7ad674ee8b1b24e6513024d7cf106459ba10d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a0f51f5_e801c118",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2021-12-22T18:25:36Z",
+      "side": 1,
+      "message": "Looks like the test is still in a flaky state so I need to retry...\nFLAKE: the retry blocking rate of this test is 60%\nCtsWindowManagerDeviceTestCases\n\u003e java.lang.AssertionError: The Window must not be in size compat mode",
+      "parentUuid": "169780e2_7bbbd42b",
+      "revId": "0de7ad674ee8b1b24e6513024d7cf106459ba10d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
