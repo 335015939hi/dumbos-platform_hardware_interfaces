@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6225f5a9_ddb8050d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-22T20:39:45Z",
+      "side": 1,
+      "message": "can this be added in hardware/interfaces/memtrack/OWNERS instead (consolidate OWNERS)",
+      "revId": "17629f154a7f534d845821c3a0154ddd627806d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
