@@ -16,6 +16,24 @@
       "message": "can this be added in hardware/interfaces/memtrack/OWNERS instead (consolidate OWNERS)",
       "revId": "17629f154a7f534d845821c3a0154ddd627806d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "760930be_175fd1de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-12-23T17:49:41Z",
+      "side": 1,
+      "message": "File moved.",
+      "parentUuid": "6225f5a9_ddb8050d",
+      "revId": "17629f154a7f534d845821c3a0154ddd627806d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
