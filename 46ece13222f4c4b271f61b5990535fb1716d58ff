@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55e5e51f_b552ccd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2021-12-23T21:34:55Z",
+      "side": 1,
+      "message": "Why does the bluetooth APEX need the radio HAL? Is it possible to cut this dependency (also - since it only uses the HIDL radio, it wouldn\u0027t be able to work w/ newer versions or the AIDL radio)",
+      "revId": "46ece13222f4c4b271f61b5990535fb1716d58ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
