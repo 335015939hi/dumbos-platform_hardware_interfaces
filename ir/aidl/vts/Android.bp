@@ -24,23 +24,17 @@ package {
 }
 
 cc_test {
-    name: "VtsHalHealthTargetTest",
+    name: "VtsHalIrTargetTest",
     defaults: [
         "VtsHalTargetTestDefaults",
         "use_libaidlvintf_gtest_helper_static",
     ],
-    srcs: [
-        "VtsHalHealthTargetTest.cpp",
-    ],
+    srcs: ["VtsHalIrTargetTest.cpp"],
     shared_libs: [
         "libbinder_ndk",
     ],
     static_libs: [
-        "android.hardware.health-V1-ndk",
-        "libgmock",
-    ],
-    header_libs: [
-        "libhealthtest_headers",
+        "android.hardware.ir-V1-ndk",
     ],
     test_suites: [
         "general-tests",
