@@ -16,6 +16,24 @@
       "message": "can we add the owners in hardware/interfaces/ir/OWNERS instead?",
       "revId": "e59785c713d197bc65508e94b7bccbcb705fbdd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e183afa_cd673a3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2021-12-23T17:52:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "484f0ade_3e0a1e79",
+      "revId": "e59785c713d197bc65508e94b7bccbcb705fbdd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
