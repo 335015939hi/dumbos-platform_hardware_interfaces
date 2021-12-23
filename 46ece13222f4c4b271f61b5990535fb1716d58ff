@@ -16,6 +16,24 @@
       "message": "Why does the bluetooth APEX need the radio HAL? Is it possible to cut this dependency (also - since it only uses the HIDL radio, it wouldn\u0027t be able to work w/ newer versions or the AIDL radio)",
       "revId": "46ece13222f4c4b271f61b5990535fb1716d58ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6772146f_f782aaaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1888950
+      },
+      "writtenOn": "2021-12-23T23:06:05Z",
+      "side": 1,
+      "message": "It is used here - https://source.corp.google.com/android/packages/modules/Bluetooth/android/app/Android.bp;l\u003d95.\nI removed it and saw no new errors. I am still working on the apex errors. So will keep this CL opens and abandon if I end up not needing it.",
+      "parentUuid": "55e5e51f_b552ccd8",
+      "revId": "46ece13222f4c4b271f61b5990535fb1716d58ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
