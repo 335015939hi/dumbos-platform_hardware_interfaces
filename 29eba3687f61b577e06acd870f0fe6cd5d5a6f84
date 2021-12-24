@@ -16,6 +16,24 @@
       "message": "Before we submit, do you mind if I revise this to apply to the 1.2 lib as well?",
       "revId": "29eba3687f61b577e06acd870f0fe6cd5d5a6f84",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae438c9d_426833a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071633
+      },
+      "writtenOn": "2021-12-24T01:16:42Z",
+      "side": 1,
+      "message": "Sure, thanks for catching this",
+      "parentUuid": "dc7d894e_7a0f05e2",
+      "revId": "29eba3687f61b577e06acd870f0fe6cd5d5a6f84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
