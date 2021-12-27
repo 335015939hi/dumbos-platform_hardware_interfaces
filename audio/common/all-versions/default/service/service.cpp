@@ -20,13 +20,17 @@
 #include <string>
 #include <vector>
 
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
 #include <binder/ProcessState.h>
 #include <cutils/properties.h>
 #include <hidl/HidlTransportSupport.h>
 #include <hidl/LegacySupport.h>
 #include <hwbinder/ProcessState.h>
+#include "BluetoothAudioProviderFactory.h"
 
 using namespace android::hardware;
+using ::aidl::android::hardware::bluetooth::audio::BluetoothAudioProviderFactory;
 using android::OK;
 
 using InterfacesList = std::vector<std::string>;
@@ -45,7 +49,7 @@ static bool registerPassthroughServiceImplementations(Iter first, Iter last) {
     return false;
 }
 
-int main(int /* argc */, char* /* argv */ []) {
+int main(int /* argc */, char* /* argv */[]) {
     signal(SIGPIPE, SIG_IGN);
 
     ::android::ProcessState::initWithDriver("/dev/vndbinder");
@@ -54,7 +58,7 @@ int main(int /* argc */, char* /* argv */ []) {
 
     const int32_t defaultValue = -1;
     int32_t value =
-        property_get_int32("persist.vendor.audio.service.hwbinder.size_kbyte", defaultValue);
+            property_get_int32("persist.vendor.audio.service.hwbinder.size_kbyte", defaultValue);
     if (value != defaultValue) {
         ALOGD("Configuring hwbinder with mmap size %d KBytes", value);
         ProcessState::initWithMmapSize(static_cast<size_t>(value) * 1024);
@@ -100,6 +104,7 @@ int main(int /* argc */, char* /* argv */ []) {
             "android.hardware.bluetooth.a2dp@1.0::IBluetoothAudioOffload"
         }
     };
+
     // clang-format on
 
     for (const auto& listIter : mandatoryInterfaces) {
@@ -116,5 +121,20 @@ int main(int /* argc */, char* /* argv */ []) {
                  "Could not register %s", interfaceFamilyName.c_str());
     }
 
+    // Setup AIDL interfaces
+    ABinderProcess_setThreadPoolMaxThreadCount(1);
+    ABinderProcess_startThreadPool();
+    {
+        auto bluetoothAudioProviderFactory =
+                ::ndk::SharedRefBase::make<BluetoothAudioProviderFactory>();
+        const std::string instance_name =
+                std::string() + BluetoothAudioProviderFactory::descriptor + "/default";
+        binder_status_t aidlStatus = AServiceManager_addService(
+                bluetoothAudioProviderFactory->asBinder().get(), instance_name.c_str());
+        ALOGW_IF(aidlStatus != STATUS_OK, "Could not register %s, status=%d", instance_name.c_str(),
+                 aidlStatus);
+    }
+
     joinRpcThreadpool();
+    ABinderProcess_joinThreadPool();
 }

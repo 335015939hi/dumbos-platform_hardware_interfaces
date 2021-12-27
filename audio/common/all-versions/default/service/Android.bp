@@ -52,10 +52,18 @@ cc_binary {
     shared_libs: [
         "libcutils",
         "libbinder",
+        "libbinder_ndk",
         "libhidlbase",
         "liblog",
         "libutils",
         "libhardware",
+
+        // Dependencies of Bluetooth Audio AIDL interfaces
+        "libbase",
+        "libbinder_ndk",
+        "libfmq",
+        "android.hardware.bluetooth.audio-V1-impl",
+        "android.hardware.bluetooth.audio-V1-ndk",
     ],
 
     defaults: [
