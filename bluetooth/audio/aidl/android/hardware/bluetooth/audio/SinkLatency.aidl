@@ -16,15 +16,23 @@
 
 package android.hardware.bluetooth.audio;
 
+
 @VintfStability
-@Backing(type="int")
-enum CodecType {
-    UNKNOWN,
-    SBC,
-    AAC,
-    APTX,
-    APTX_HD,
-    LDAC,
-    LC3,
-    APTX_ADAPTIVE,
-}
+parcelable SinkLatency {
+
+    @VintfStability
+    parcelable TimeSpec {
+        /**
+         * seconds
+         */
+        long tvSec;
+        /**
+         *  nanoseconds
+         */
+        long tvNSec;
+    }
+
+    long remoteDeviceAudioDelay;
+    long transmittedOctets;
+    TimeSpec transmittedOctetsTimeStamp;
+};

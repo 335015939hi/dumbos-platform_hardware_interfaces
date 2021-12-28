@@ -16,15 +16,19 @@
 
 package android.hardware.bluetooth.audio;
 
+/** Used for Hardware Encoding AptX-Adaptive codec parameters */
+/**
+ * Used for proactive update of Session Parameters to server
+ */
+
 @VintfStability
-@Backing(type="int")
-enum CodecType {
-    UNKNOWN,
-    SBC,
-    AAC,
-    APTX,
-    APTX_HD,
-    LDAC,
-    LC3,
-    APTX_ADAPTIVE,
-}
+parcelable SessionParams {
+    SessionParamType paramType;
+
+	  @VintfStability
+    union Param {
+      uint16_t mtu;
+      uint32_t encodedAudioBitrate;
+      SinkLatency sinkLatency;
+    } param;
+};

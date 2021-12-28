@@ -1,8 +1,3 @@
-/*
- * Copyright 2021 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -16,15 +11,16 @@
 
 package android.hardware.bluetooth.audio;
 
+
 @VintfStability
-@Backing(type="int")
-enum CodecType {
-    UNKNOWN,
-    SBC,
-    AAC,
-    APTX,
-    APTX_HD,
-    LDAC,
-    LC3,
-    APTX_ADAPTIVE,
+parcelable AptxAdaptiveCapabilities {
+  int[] sampleRateHz;
+  AptxAdaptiveChannelMode channelMode;
+  byte[] bitsPerSample;
+  AptxMode AptxMode;
+  AptXSinkBuffering sinkBuffering;
+  AptxAdaptive_TTP ttp;
+  InputMode inputMode;
+  int inputFadeDuration;
+  byte[25] aptxAdaptiveConfigStream;
 }

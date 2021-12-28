@@ -34,6 +34,7 @@ parcelable CodecConfiguration {
         AacConfiguration aacConfig;
         LdacConfiguration ldacConfig;
         AptxConfiguration aptxConfig;
+        AptxAdaptiveConfiguration aptxAdaptiveConfig;
     }
     CodecType codecType;
     /**

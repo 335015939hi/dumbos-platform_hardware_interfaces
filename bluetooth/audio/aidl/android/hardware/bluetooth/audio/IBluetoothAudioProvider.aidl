@@ -71,4 +71,11 @@ interface IBluetoothAudioProvider {
      * @param status true for SUCCESS or false for FAILURE
      */
     void streamSuspended(in boolean status);
+
+   /**
+     * Call to update Sesion Parameters in runtime
+     *
+     */
+		updateSessionParams(SessionParams sessionParams);
+
 }
