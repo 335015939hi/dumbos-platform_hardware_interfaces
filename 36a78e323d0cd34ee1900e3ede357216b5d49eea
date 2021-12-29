@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "374c7a28_730e131f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-12-29T19:33:48Z",
+      "side": 1,
+      "message": "Do not submit (will not compile) until ag/16459830 is CP\u0027d to AOSP.",
+      "revId": "36a78e323d0cd34ee1900e3ede357216b5d49eea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
