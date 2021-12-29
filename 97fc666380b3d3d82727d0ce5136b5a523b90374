@@ -38,6 +38,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "957c736d_ca6e5aa5",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-12-29T21:02:34Z",
+      "side": 1,
+      "message": "Should you have ParcelableHolder here too ?",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ed80b5_0c131439",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecConfiguration.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2021-12-29T21:02:34Z",
+      "side": 1,
+      "message": "Should you have pracelable holder here too ?",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf7137ad_72562ec8",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LdacQualityIndex.aidl",
         "patchSetId": 6
