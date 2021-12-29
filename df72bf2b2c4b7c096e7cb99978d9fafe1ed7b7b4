@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0548b00_32779917",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioProvider.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2021-12-29T02:40:36Z",
+      "side": 1,
+      "message": "typo connfiguration -\u003e configuration",
+      "revId": "df72bf2b2c4b7c096e7cb99978d9fafe1ed7b7b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
