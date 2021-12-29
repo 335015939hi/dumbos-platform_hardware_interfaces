@@ -278,18 +278,18 @@ ScopedAStatus RadioNetwork::supplyNetworkDepersonalization(int32_t ser, const st
     return ok();
 }
 
-// TODO(b/210498497): is there a cleaner way to send a response back to Android, even though these
-// methods must never be called?
 ScopedAStatus RadioNetwork::setUsageSetting(
         int32_t ser, ::aidl::android::hardware::radio::network::UsageSetting) {
     LOG_CALL << ser;
     LOG(ERROR) << "setUsageSetting is unsupported by HIDL HALs";
+    respond().setUsageSettingResponse(notSupported(ser));
     return ok();
 }
 
 ScopedAStatus RadioNetwork::getUsageSetting(int32_t ser) {
     LOG_CALL << ser;
     LOG(ERROR) << "getUsageSetting is unsupported by HIDL HALs";
+    respond().getUsageSettingResponse(notSupported(ser), -1 /* invalid usage setting */);
     return ok();
 }
 
