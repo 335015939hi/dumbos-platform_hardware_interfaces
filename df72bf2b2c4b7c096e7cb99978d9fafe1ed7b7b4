@@ -16,6 +16,24 @@
       "message": "typo connfiguration -\u003e configuration",
       "revId": "df72bf2b2c4b7c096e7cb99978d9fafe1ed7b7b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "484d67d4_7266fac3",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioProvider.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2021-12-30T00:53:17Z",
+      "side": 1,
+      "message": "Thanks. Done.",
+      "parentUuid": "e0548b00_32779917",
+      "revId": "df72bf2b2c4b7c096e7cb99978d9fafe1ed7b7b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
