@@ -40,6 +40,12 @@ prebuilt_etc {
     installable: false,
 }
 
+prebuilt_etc {
+    name: "com.android.hardware.usb.ko.rc",
+    src: "com.android.hardware.usb.ko.rc",
+    installable: false,
+}
+
 apex {
     name: "com.android.hardware.usb",
     manifest: "manifest.json",
@@ -51,9 +57,13 @@ apex {
     use_vndk_as_stable: true,
     binaries: ["android.hardware.usb@1.0-service"],
     prebuilts: [
+        "com.android.hardware.usb.ko.rc",
         "com.android.hardware.usb.rc",
         "android.hardware.usb.accessory.prebuilt.xml",
         "android.hardware.usb.host.prebuilt.xml",
     ],
     vintf_fragments: [":android.hardware.usb@1.0-service.xml"],
+    init_rc: [
+        "com.android.hardware.usb.ko.rc",
+    ],
 }

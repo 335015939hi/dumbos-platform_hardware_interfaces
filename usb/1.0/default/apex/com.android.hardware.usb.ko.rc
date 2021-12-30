@@ -1,0 +1,6 @@
+on early-boot
+    insmod /vendor_dlkm/lib/modules/gs_usb.ko
+    insmod /vendor_dlkm/lib/modules/usbip-core.ko
+
+on boot
+    enable vendor.usb-hal-1-0
