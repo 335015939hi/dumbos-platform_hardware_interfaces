@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad34d37a_ae8dd287",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2021-12-31T05:07:51Z",
+      "side": 1,
+      "message": "Seems the patchset got rebased when tried to create the dependent AIDL based AptX Adaptive codec change \nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1890097/",
+      "revId": "6290b84d4ff05238ccc28b340a24b482022a3a6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
