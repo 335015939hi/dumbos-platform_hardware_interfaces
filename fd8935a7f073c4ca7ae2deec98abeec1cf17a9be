@@ -33,6 +33,24 @@
       "message": "We need new API like below to update the session params dynamically as AudioConfiguration doesn\u0027t contains below session params.\n\nIBluetoothAudioProvider.hal\n80     /**\n81      * Call to update Sesion Parameters in runtime\n82      *\n83      */\n84     updateSessionParams(SessionParams sessionParams);\n\n\ntypes.hal\n216 enum SessionParamType : uint8_t {\n217     UNKNOWN \u003d 0x00,\n218     MTU \u003d 0x01,\n219     BITRATE \u003d 0x02,\n220     LATENCY \u003d 0x03,\n221 };\n\n323 struct Latency {\n324     uint64_t remoteDeviceAudioDelay;\n325     uint64_t transmittedOctets;\n326     TimeSpec transmittedOctetsTimeStamp;\n327 };\n328 \n329 /**\n330  * Used for proactive update of Session Parameters to server\n331  */\n332 struct SessionParams {\n333     SessionParamType paramType;\n334 \n335     union Param {\n336       uint16_t mtu;\n337       uint32_t audioBitrate;\n338       Latency latency;\n339     } param;\n340 };",
       "revId": "fd8935a7f073c4ca7ae2deec98abeec1cf17a9be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7c017ab_522ed33f",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioProvider.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-03T01:13:19Z",
+      "side": 1,
+      "message": "Which session types would be used for those parameters? Are they for a2dp or LE audio? \n\nThe AudioConfiguration could be one of the following types, and we only bring the AudioConfiguration as startSession.\nsafe_union AudioConfiguration {\n    PcmParameters pcmConfig;\n    CodecConfiguration codecConfig;\n    LeAudioConfiguration leAudioConfig;\n};\n\nI think all of the information should be included in AudioConfiguration, otherwise we need to extend the AudioConfiguration field.",
+      "parentUuid": "9302f470_2c2c13d5",
+      "revId": "fd8935a7f073c4ca7ae2deec98abeec1cf17a9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
