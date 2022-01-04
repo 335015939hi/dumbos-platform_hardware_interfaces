@@ -1,6 +1,161 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3964b338_57040657",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Left some comments about the compile issue and the aidl interface design concept.\nPlease take a look.\n\nAnd that I found you use \"AptX\", \"Aptx\" both in the commit. Could you revise all aptX to aptx, AptX to Aptx to make it consistent?",
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4da0281f_b508f87f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "/* - it would cause build break\n\nnit: Could you revise the header to the correct format and 2022? All the other new files as well.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95721a57_515b9f5b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Please add the import. \nimport android.hardware.bluetooth.audio.AptxAdaptiveChannelMode;\n\nSo for the following parameters.",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 25
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28f5681_2c2b536f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "int[]?",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 5
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da460bf0_19c47b3b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Could it be byte[]? Why need to force it to be 25?",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 25,
+        "endChar": 10
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "537d44dd_d458e752",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveConfiguration.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Please add the unit. s or ms or us?",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3a3956a_b0f542ae",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveConfiguration.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "byte[]?",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 25,
+        "endChar": 10
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fb9116b_1358a7af",
@@ -19,6 +174,167 @@
         "startChar": 11,
         "endLine": 20,
         "endChar": 12
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b19eba5_32b53cba",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXSinkBuffering.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Remove ;\n\nPlease review all the other files.",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 2
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0414d84_bb815f0f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "What\u0027s the difference with UNKNOWN?",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 13
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71146cd5_c6c404f5",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "What\u0027s the difference between MONO, DUAL_MONO and TWO_MONO?",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 8
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c497d52e_f4015d57",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Is it the same as TWS_STEREO or DUAL_MONO, TWO_MONO?",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 10
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba130600_67fe9281",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptive_TTP.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Please use the aidl supported type.\n\nhttps://source.android.com/devices/architecture/aidl/aidl-backends#types\n\nPlease modify the other files as well.",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "016ab7e6_1cc6dd08",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptive_TTP.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Could we remove \"TTP_\" because it is inside AptxAdaptive_TTP",
+      "range": {
+        "startLine": 21,
+        "startChar": 12,
+        "endLine": 21,
+        "endChar": 22
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed0dd0fb_1db2afae",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Could it be raw int? Why should it be 0x100, 0x200, to 0x8000?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 15
       },
       "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -111,6 +427,76 @@
         "startChar": 2,
         "endLine": 79,
         "endChar": 21
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7171151d_426219a1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Please add the return type.",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 21
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8268ea0b_159e8ac3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Could you use updateAudioConfiguration API added in the following change instead? (except for the latency. Follow the Cheney\u0027s other comment. Could you use the getPresentationPosition for latency instead?)\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1934259",
+      "parentUuid": "50d8cabe_9952ba0b",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 21
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1853fa89_dd6b5cfc",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/InputMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T06:57:13Z",
+      "side": 1,
+      "message": "Remove it.",
+      "range": {
+        "startLine": 21,
+        "startChar": 15,
+        "endLine": 21,
+        "endChar": 26
       },
       "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
