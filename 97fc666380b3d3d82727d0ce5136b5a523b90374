@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6ad1144_1e1f124b",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T10:56:11Z",
+      "side": 1,
+      "message": "The same with the other reply.",
+      "parentUuid": "957c736d_ca6e5aa5",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3ed80b5_0c131439",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "I would prefer to have ParcelableHolder for only particular codecs such as aptX (adaptive), and leave others as well defined. By limiting the ParcelableHolder on some particular codec, the audio HAL vendor can determine if they want those codec, and make the implementation more easier. The aptX developer (aosp/1890097) can also easily extend the codec.",
       "parentUuid": "d3ed80b5_0c131439",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b6ab1dd_fe85e1dc",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecConfiguration.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T10:56:11Z",
+      "side": 1,
+      "message": "Follow Cheney\u0027s suggestion. And it could be extended in the other patch if it really needed after discussion.",
+      "parentUuid": "200f0905_5eacc2a5",
       "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -135,6 +171,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2924ae8_3fa10f45",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LdacQualityIndex.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T10:56:11Z",
+      "side": 1,
+      "message": "Thanks for Josh to fix it.",
+      "parentUuid": "833dd9bf_228994d7",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9d4f5db_037e02a6",
@@ -172,6 +232,30 @@
       "side": 1,
       "message": "We have a bug, b/204585486, to track the remove task.",
       "parentUuid": "b9d4f5db_037e02a6",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 10
+      },
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16084669_f6643405",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T10:56:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0b43951e_c63bd78a",
       "range": {
         "startLine": 134,
         "startChar": 0,
