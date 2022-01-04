@@ -51,6 +51,24 @@
       "parentUuid": "9302f470_2c2c13d5",
       "revId": "fd8935a7f073c4ca7ae2deec98abeec1cf17a9be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cba1fce3_26d75a53",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioProvider.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1136338
+      },
+      "writtenOn": "2022-01-04T03:38:26Z",
+      "side": 1,
+      "message": "It is needed for both a2dp and LE Audio to update dynamically the changed params.\n\nCodecConfiguration ( part of AudioConfiguration) already have the \"uint16_t mtu;\" and \"uint32_t audioBitrate;\". \n\n\"Latency latency;\" param is missing from the CodecConfiguration. If we can add \"Latency latency\" param to CodecConfiguration, then there is no need for updateSessionParams API.\n\nBut, how would the server knows that out of below which has been changed by client ? \n\nsafe_union AudioConfiguration {\n    PcmParameters pcmConfig;\n    CodecConfiguration codecConfig;  // to add the Latency Param to it.\n    LeAudioConfiguration leAudioConfig;\n};\n\nBTW, updateSessionParams is added as part of https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1890097 . Please review this as well.",
+      "parentUuid": "a7c017ab_522ed33f",
+      "revId": "fd8935a7f073c4ca7ae2deec98abeec1cf17a9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
