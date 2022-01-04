@@ -69,6 +69,24 @@
       "parentUuid": "a7c017ab_522ed33f",
       "revId": "fd8935a7f073c4ca7ae2deec98abeec1cf17a9be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97beef3d_9518581f",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioProvider.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T07:20:51Z",
+      "side": 1,
+      "message": "I see. I left some comments in your commit. We could work on that patch for the A2DP requirement.\n\nFor configuration type, you could check the session type or get by getDiscriminator. Because the audio_config_ type is fixed as start session, so it would be filtered out by\naudioConfig.getDiscriminator() !\u003d audio_config_.getDiscriminator()",
+      "parentUuid": "cba1fce3_26d75a53",
+      "revId": "fd8935a7f073c4ca7ae2deec98abeec1cf17a9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
