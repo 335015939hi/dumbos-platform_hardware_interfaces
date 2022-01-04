@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e488c1b6_d6d39ee1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-01-04T22:44:09Z",
+      "side": 1,
+      "message": "yup, nice, thanks!",
+      "range": {
+        "startLine": 11,
+        "startChar": 14,
+        "endLine": 14,
+        "endChar": 0
+      },
+      "revId": "f05f5db007ea4b801e8d1585d140490c205d536c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a10c399f_7e9503ac",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-01-04T22:44:09Z",
+      "side": 1,
+      "message": "nit: for review, could these types of changes be split out, if not now, in general?",
+      "revId": "f05f5db007ea4b801e8d1585d140490c205d536c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5705717d_2c088444",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-01-04T22:44:09Z",
+      "side": 1,
+      "message": "Hey David, guess I am looking thoroughly w/ fresh eyes after a vacation. Sorry, happy to re-approve.\n\nWhat does this allow, that would have been impossible before, by calling IIdentityCredential multiple times?\n\nThe way I understand it is that IPresentationSession gives methods which are currently on IIdentityCredential which are now lifted, and can be used to create multiple credentials (presumably, this reduces the amount of work that needs to be done, since this flow only needs to be done).\n\nHowever, I\u0027m curious if you considered something like IIdentityCredential::duplicate (a method that will copy the object at any point). This would avoid needing to have multiple implementations of these methods.",
+      "range": {
+        "startLine": 265,
+        "startChar": 25,
+        "endLine": 265,
+        "endChar": 50
+      },
+      "revId": "f05f5db007ea4b801e8d1585d140490c205d536c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "222035ca_908ca50c",
+        "filename": "identity/aidl/android/hardware/identity/IPresentationSession.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-01-04T22:44:09Z",
+      "side": 1,
+      "message": "we should still make sure the other methods have defined return values",
+      "range": {
+        "startLine": 86,
+        "startChar": 7,
+        "endLine": 86,
+        "endChar": 21
+      },
+      "revId": "f05f5db007ea4b801e8d1585d140490c205d536c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
