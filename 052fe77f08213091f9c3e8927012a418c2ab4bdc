@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fb9116b_1358a7af",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXSinkBuffering.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-04T04:22:20Z",
+      "side": 1,
+      "message": "Please remove this redundant space.",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 12
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49dcf10c_788fd37d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-04T04:22:20Z",
+      "side": 1,
+      "message": "4 space indent?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a7f8b09_6fedec57",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-04T04:22:20Z",
+      "side": 1,
+      "message": "Instead of updateSessionParams(SINK_LATENCY), do you want to reuse this getPresentationPosition() API to query the latency?",
+      "range": {
+        "startLine": 41,
+        "startChar": 25,
+        "endLine": 41,
+        "endChar": 48
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbabdc7d_2f721e87",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-04T04:22:20Z",
+      "side": 1,
+      "message": "Please have a consistent indent.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 2
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50d8cabe_9952ba0b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-04T04:22:20Z",
+      "side": 1,
+      "message": "Looks like you are providing a way for the stack to update parameters dynamically, but does the A2DP suspend while updating?",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 21
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d10f5ab1_77f40b02",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionParams.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-04T04:22:20Z",
+      "side": 1,
+      "message": "Please have a consistent indent.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
