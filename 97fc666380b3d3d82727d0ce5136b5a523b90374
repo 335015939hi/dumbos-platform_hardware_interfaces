@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "200f0905_5eacc2a5",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecConfiguration.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-04T09:49:59Z",
+      "side": 1,
+      "message": "I would prefer to have ParcelableHolder for only particular codecs such as aptX (adaptive), and leave others as well defined. By limiting the ParcelableHolder on some particular codec, the audio HAL vendor can determine if they want those codec, and make the implementation more easier. The aptX developer (aosp/1890097) can also easily extend the codec.",
+      "parentUuid": "d3ed80b5_0c131439",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf7137ad_72562ec8",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LdacQualityIndex.aidl",
         "patchSetId": 6
