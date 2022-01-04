@@ -52,6 +52,24 @@
       "parentUuid": "6772146f_f782aaaf",
       "revId": "46ece13222f4c4b271f61b5990535fb1716d58ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19f29341_b537a02c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-01-04T23:38:35Z",
+      "side": 1,
+      "message": "I think there should be a separate abstraction layer for this. For instance, when we switch to AIDL soon.",
+      "parentUuid": "4d418a29_d6df3ab5",
+      "revId": "46ece13222f4c4b271f61b5990535fb1716d58ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
