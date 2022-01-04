@@ -242,7 +242,11 @@ TEST_P(RadioHidlTest_v1_6, getSlicingConfig) {
     if (getRadioHalCapabilities()) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
-                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
+                {::android::hardware::radio::V1_6::RadioError::NONE,
+                 ::android::hardware::radio::V1_6::RadioError::RADIO_NOT_AVAILABLE,
+                 ::android::hardware::radio::V1_6::RadioError::INTERNAL_ERR,
+                 ::android::hardware::radio::V1_6::RadioError::MODEM_ERR,
+                 ::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
     } else {
         ASSERT_TRUE(
                 CheckAnyOfErrors(radioRsp_v1_6->rspInfo.error,
@@ -450,7 +454,11 @@ TEST_P(RadioHidlTest_v1_6, setNrDualConnectivityState) {
     if (getRadioHalCapabilities()) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
-                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
+                {::android::hardware::radio::V1_6::RadioError::RADIO_NOT_AVAILABLE,
+                 ::android::hardware::radio::V1_6::RadioError::INTERNAL_ERR,
+                 ::android::hardware::radio::V1_6::RadioError::INVALID_STATE,
+                 ::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED,
+                 ::android::hardware::radio::V1_6::RadioError::NONE}));
     } else {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
@@ -477,7 +485,10 @@ TEST_P(RadioHidlTest_v1_6, isNrDualConnectivityEnabled) {
     if (getRadioHalCapabilities()) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
-                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
+                {::android::hardware::radio::V1_6::RadioError::RADIO_NOT_AVAILABLE,
+                 ::android::hardware::radio::V1_6::RadioError::INTERNAL_ERR,
+                 ::android::hardware::radio::V1_6::RadioError::NONE,
+                 ::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
     } else {
         ASSERT_TRUE(
                 CheckAnyOfErrors(radioRsp_v1_6->rspInfo.error,
@@ -503,8 +514,11 @@ TEST_P(RadioHidlTest_v1_6, setDataThrottling) {
     if (getRadioHalCapabilities()) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
-                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED,
-                 ::android::hardware::radio::V1_6::RadioError::NONE}));
+                {::android::hardware::radio::V1_6::RadioError::RADIO_NOT_AVAILABLE,
+                 ::android::hardware::radio::V1_6::RadioError::MODEM_ERR,
+                 ::android::hardware::radio::V1_6::RadioError::NONE,
+                 ::android::hardware::radio::V1_6::RadioError::INVALID_ARGUMENTS,
+                 ::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
     } else {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
@@ -526,8 +540,11 @@ TEST_P(RadioHidlTest_v1_6, setDataThrottling) {
     if (getRadioHalCapabilities()) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
-                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED,
-                 ::android::hardware::radio::V1_6::RadioError::NONE}));
+                {::android::hardware::radio::V1_6::RadioError::RADIO_NOT_AVAILABLE,
+                 ::android::hardware::radio::V1_6::RadioError::MODEM_ERR,
+                 ::android::hardware::radio::V1_6::RadioError::NONE,
+                 ::android::hardware::radio::V1_6::RadioError::INVALID_ARGUMENTS,
+                 ::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
     } else {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
@@ -549,8 +566,11 @@ TEST_P(RadioHidlTest_v1_6, setDataThrottling) {
     if (getRadioHalCapabilities()) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
-                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED,
-                 ::android::hardware::radio::V1_6::RadioError::NONE}));
+                {::android::hardware::radio::V1_6::RadioError::RADIO_NOT_AVAILABLE,
+                 ::android::hardware::radio::V1_6::RadioError::MODEM_ERR,
+                 ::android::hardware::radio::V1_6::RadioError::NONE,
+                 ::android::hardware::radio::V1_6::RadioError::INVALID_ARGUMENTS,
+                 ::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
     } else {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
@@ -571,8 +591,11 @@ TEST_P(RadioHidlTest_v1_6, setDataThrottling) {
     if (getRadioHalCapabilities()) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
-                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED,
-                 ::android::hardware::radio::V1_6::RadioError::NONE}));
+                {::android::hardware::radio::V1_6::RadioError::RADIO_NOT_AVAILABLE,
+                 ::android::hardware::radio::V1_6::RadioError::MODEM_ERR,
+                 ::android::hardware::radio::V1_6::RadioError::NONE,
+                 ::android::hardware::radio::V1_6::RadioError::INVALID_ARGUMENTS,
+                 ::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
     } else {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
