@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74e08055_3ef8f6b2",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-01-04T07:50:40Z",
+      "side": 1,
+      "message": "Yeah, in retrospect I don\u0027t think it\u0027s worth separating out the 2 distinct reasons why curve 25519 tests might get skipped.  Shifted to a single Curve25519Supported() method throughout.",
+      "parentUuid": "af605e96_529fadad",
+      "range": {
+        "startLine": 210,
+        "startChar": 26,
+        "endLine": 210,
+        "endChar": 47
+      },
+      "revId": "1cf64bbc5b9c2ad473287e5713a3cd171d646b39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2eb724f_6f579c88",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-16T14:46:56Z",
       "side": 1,
       "message": "Seems like this should be negated? If the StrongBox HAL does _not_ include Curve 25519 then it should be on the list of invalid curves.",
+      "range": {
+        "startLine": 1204,
+        "startChar": 12,
+        "endLine": 1204,
+        "endChar": 33
+      },
+      "revId": "1cf64bbc5b9c2ad473287e5713a3cd171d646b39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c669d113_7eca726d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-01-04T07:50:40Z",
+      "side": 1,
+      "message": "The aim was to avoid using an enum value that\u0027s undefined for the code under test -- a v1 StrongBox impl doesn\u0027t even have a definition of CURVE_25519.  But it\u0027s simpler just to include the value -- it should fail regardless, same as if an enum value of 99999 got sent in.",
+      "parentUuid": "a2eb724f_6f579c88",
       "range": {
         "startLine": 1204,
         "startChar": 12,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d1cc71_5521660c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1535,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-01-04T07:50:40Z",
+      "side": 1,
+      "message": "This was originally intended to have the two distinct reasons (is v1, is StrongBox) for skipping the test visible.  But it\u0027s simpler to just have a Curve25519Supporter().",
+      "parentUuid": "9b2b515d_e4a83d3b",
+      "range": {
+        "startLine": 1533,
+        "startChar": 0,
+        "endLine": 1535,
+        "endChar": 5
+      },
+      "revId": "1cf64bbc5b9c2ad473287e5713a3cd171d646b39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28065b16_ba66b830",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-12-16T14:46:56Z",
       "side": 1,
       "message": "Why the digest change?",
+      "range": {
+        "startLine": 3107,
+        "startChar": 62,
+        "endLine": 3107,
+        "endChar": 74
+      },
+      "revId": "1cf64bbc5b9c2ad473287e5713a3cd171d646b39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1695c7a3_33c53881",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3107,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-01-04T07:50:40Z",
+      "side": 1,
+      "message": "Curve 25519 requires Digest::NONE, so it seemed easier to make everything use the same digest. \n\nFixed to use (curve \u003d 25519 ? None : SHA-256).",
+      "parentUuid": "28065b16_ba66b830",
       "range": {
         "startLine": 3107,
         "startChar": 62,
