@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29117d93_c072efd7",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioProvider.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-04T07:52:23Z",
+      "side": 1,
+      "message": "Looks like the changing is from the Bluetooth stack, but would you like to check with Audio (HAL or service) if they can handle changes like this?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 61
+      },
+      "revId": "3f9f41f3c8b082fd8f4eaa19ff99560a78f23e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
