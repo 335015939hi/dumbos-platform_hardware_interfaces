@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73f57480_6566747c",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-04T04:23:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7fbad741_390c76e0",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 431,
+        "endChar": 28
+      },
+      "revId": "b8e0eefc7b1de205fef87a519e3dc0c12faa57ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e1412a3_7ec7871d",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-19T10:51:14Z",
       "side": 1,
       "message": "Please check this. No more HIDL!!",
+      "range": {
+        "startLine": 907,
+        "startChar": 0,
+        "endLine": 907,
+        "endChar": 62
+      },
+      "revId": "b8e0eefc7b1de205fef87a519e3dc0c12faa57ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94b8f2e0_5c969bc5",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-04T04:23:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8e1412a3_7ec7871d",
       "range": {
         "startLine": 907,
         "startChar": 0,
