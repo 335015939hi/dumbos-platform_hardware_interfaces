@@ -22,6 +22,30 @@
       },
       "revId": "3f9f41f3c8b082fd8f4eaa19ff99560a78f23e69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1b802c2_d9b199f8",
+        "filename": "bluetooth/audio/2.2/IBluetoothAudioProvider.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-04T08:36:15Z",
+      "side": 1,
+      "message": "It is needed by LE audio hardware offload, and verified with the audio driver could get the callback.\n\nIt\u0027s filtered by the LE audio hardware offload encode session in the default implementation for now. If we need more support with other session type, we would need more further work on it.",
+      "parentUuid": "29117d93_c072efd7",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 61
+      },
+      "revId": "3f9f41f3c8b082fd8f4eaa19ff99560a78f23e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
