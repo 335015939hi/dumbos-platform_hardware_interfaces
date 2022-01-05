@@ -47,6 +47,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7ccd62a_42f67bbe",
+        "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1121193
+      },
+      "writtenOn": "2022-01-05T06:35:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48cf4e2e_37ab3fe7",
+      "range": {
+        "startLine": 208,
+        "startChar": 17,
+        "endLine": 208,
+        "endChar": 26
+      },
+      "revId": "9fe9a3e87b9245bebc6c785861df2b511f020894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3e33bd6_a7faf9b2",
+        "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1121193
+      },
+      "writtenOn": "2022-01-05T06:35:33Z",
+      "side": 1,
+      "message": "will check",
+      "parentUuid": "2807e43c_7736b202",
+      "range": {
+        "startLine": 208,
+        "startChar": 11,
+        "endLine": 208,
+        "endChar": 16
+      },
+      "revId": "9fe9a3e87b9245bebc6c785861df2b511f020894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09c58b01_97170410",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-01-05T04:59:35Z",
       "side": 1,
       "message": "is this an extra \"Port\" at the end here?",
+      "range": {
+        "startLine": 209,
+        "startChar": 82,
+        "endLine": 209,
+        "endChar": 99
+      },
+      "revId": "9fe9a3e87b9245bebc6c785861df2b511f020894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2028b0a8_34860b3c",
+        "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1121193
+      },
+      "writtenOn": "2022-01-05T06:35:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09c58b01_97170410",
       "range": {
         "startLine": 209,
         "startChar": 82,
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b20a74b_d2ab773d",
+        "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1121193
+      },
+      "writtenOn": "2022-01-05T06:35:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50d865b3_9e385f2d",
+      "range": {
+        "startLine": 210,
+        "startChar": 75,
+        "endLine": 210,
+        "endChar": 83
+      },
+      "revId": "9fe9a3e87b9245bebc6c785861df2b511f020894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c135bd73_4baf88c5",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-01-05T04:59:35Z",
       "side": 1,
       "message": "if the",
+      "range": {
+        "startLine": 211,
+        "startChar": 12,
+        "endLine": 211,
+        "endChar": 16
+      },
+      "revId": "9fe9a3e87b9245bebc6c785861df2b511f020894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc0ceda9_49a671d6",
+        "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1121193
+      },
+      "writtenOn": "2022-01-05T06:35:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c135bd73_4baf88c5",
       "range": {
         "startLine": 211,
         "startChar": 12,
