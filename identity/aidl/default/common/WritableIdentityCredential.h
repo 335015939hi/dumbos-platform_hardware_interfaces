@@ -78,6 +78,10 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
             vector<uint8_t>* outCredentialData,
             vector<uint8_t>* outProofOfProvisioningSignature) override;
 
+    ndk::ScopedAStatus setRemotelyProvisionedAttestationKey(
+            const vector<uint8_t>& attestationKeyBlob,
+            const vector<uint8_t>& attestationCertificateChain) override;
+
   private:
     // Set by constructor.
     sp<SecureHardwareProvisioningProxy> hwProxy_;
@@ -109,6 +113,10 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
     vector<int32_t> entryAccessControlProfileIds_;
     vector<uint8_t> entryBytes_;
     set<string> allNameSpaces_;
+
+    // Remotely provisioned attestation data, set via setRemotelyProvisionedAttestationKey
+    vector<uint8_t> attestationKeyBlob_;
+    vector<vector<uint8_t>> attestationCertificateChain_;
 };
 
 }  // namespace aidl::android::hardware::identity
