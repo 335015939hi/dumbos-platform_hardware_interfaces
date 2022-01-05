@@ -18,6 +18,7 @@
 #define ANDROID_HARDWARE_IDENTITY_IDENTITYCREDENTIALSTORE_H
 
 #include <aidl/android/hardware/identity/BnIdentityCredentialStore.h>
+#include <aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.h>
 
 #include "SecureHardwareProxy.h"
 
@@ -49,6 +50,10 @@ class IdentityCredentialStore : public BnIdentityCredentialStore {
 
     ndk::ScopedAStatus createPresentationSession(
             CipherSuite cipherSuite, shared_ptr<IPresentationSession>* outSession) override;
+
+    ndk::ScopedAStatus getRemotelyProvisionedComponent(
+            shared_ptr<::aidl::android::hardware::security::keymint::IRemotelyProvisionedComponent>*
+                    outRemotelyProvisionedComponent) override;
 
   private:
     sp<SecureHardwareProxyFactory> hwProxyFactory_;
