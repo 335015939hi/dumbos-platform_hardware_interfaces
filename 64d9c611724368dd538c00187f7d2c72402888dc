@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e537b1ce_71d3067b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e looks great!",
+      "parentUuid": "c4623578_5887b56f",
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be025218_f32598bd",
@@ -113,6 +131,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebaa4233_e50915c4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AacVariableBitRate.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Ack",
+      "parentUuid": "9699c8e8_0894a741",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2cedfe6_710701ba",
@@ -184,6 +226,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f4b5c61_194c1e20",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AacVariableBitRate.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Ack",
+      "parentUuid": "9b69bbca_ae9325e5",
+      "range": {
+        "startLine": 22,
+        "startChar": 14,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e02ef082_57e8de43",
@@ -245,6 +311,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "3d49556b_54cfb3c0",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 1
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff6a1175_6b7c5d12",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/BitsPerSample.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Ack",
+      "parentUuid": "497d7a67_560bf0d7",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -350,6 +440,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecfe2e3a_66619adc",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Capabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Thanks, fixed.",
+      "parentUuid": "189f3335_e8a8816d",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e97fb734_371783e3",
@@ -387,6 +501,30 @@
       "side": 1,
       "message": "Great. Thanks. I used the latest hidl2aidl tool to do the conversion again.",
       "parentUuid": "e97fb734_371783e3",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5aa631b_c4ceca94",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Great. Thanks. I used the latest hidl2aidl tool to do the conversion again.",
+      "parentUuid": "56ad7413_3f22626a",
       "range": {
         "startLine": 29,
         "startChar": 4,
@@ -492,6 +630,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "925503df_9a0052c3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Yes, thanks the confirmation.",
+      "parentUuid": "7098e05d_c8c80222",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 10
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1edf041c_f0ddc6e4",
@@ -587,6 +749,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4c1ae77_e89336a7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvidersFactory.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e I think it doesn\u0027t cause a lot of issue now, but remove the `s` would increate the effort for the integration. It would be better to keep the same. :)",
+      "parentUuid": "f26f20c1_39aa0371",
+      "range": {
+        "startLine": 36,
+        "startChar": 33,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4863881_b9d391a8",
@@ -648,6 +834,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "eee4116e_95d0fbf7",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad9c6566_d89c3730",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Lc3FrameDuration.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Ack",
+      "parentUuid": "6f99ccaa_a92e6672",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -729,6 +939,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15c37b2b_ca0d0ff2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/PresentationPosition.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Ack",
+      "parentUuid": "1b874e57_60655812",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b5cb79f_b999d628",
@@ -760,6 +994,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "6b5cb79f_b999d628",
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "389ceb4b_0290268d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SampleRate.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Ack",
+      "parentUuid": "d111063d_8545a497",
       "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -835,6 +1087,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a3ad1ac_449535d5",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SbcBlockLength.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Ack",
+      "parentUuid": "eb5526d8_db7a6bd6",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64719a5d_23535244",
@@ -872,6 +1148,30 @@
       "side": 1,
       "message": "We can\u0027t combine them. The different modes definition follows the Bluetooth A2DP specification.",
       "parentUuid": "64719a5d_23535244",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "732ae07f_8ee16c57",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SbcChannelMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e We can\u0027t combine them. The different modes definition follows the Bluetooth A2DP specification.",
+      "parentUuid": "32842bfc_ef7030e7",
       "range": {
         "startLine": 25,
         "startChar": 0,
@@ -953,6 +1253,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a67b67e8_3501529c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SbcNumSubbands.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Ack",
+      "parentUuid": "698005c3_d2239acd",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77dcde05_3edac8a7",
@@ -990,6 +1314,30 @@
       "side": 1,
       "message": "It will be removed, and import the audio aidl parameter instead.",
       "parentUuid": "77dcde05_3edac8a7",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 35
+      },
+      "revId": "64d9c611724368dd538c00187f7d2c72402888dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec7c245a_7088f158",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SourceMetadata.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e It will be removed, and import the audio aidl parameter instead.",
+      "parentUuid": "3654670f_e6bc9b55",
       "range": {
         "startLine": 23,
         "startChar": 0,

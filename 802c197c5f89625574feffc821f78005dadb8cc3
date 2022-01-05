@@ -1,6 +1,42 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a408b4_e65f2108",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e ✔️ All files and artifacts have passed presubmit lint checks\n\u003e For more details see (https://android-build.googleplex.com/builds/treetop/android-review/1860894?revision\u003d5)\n\u003e \n\u003e Have a question? Found a bug? http://go/presubmit-lint-bug\n\nPlease fix.",
+      "parentUuid": "d7f90533_c6395349",
+      "revId": "802c197c5f89625574feffc821f78005dadb8cc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78e09011_cb140394",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e ✔️ All files and artifacts have passed presubmit lint checks\n\u003e For more details see (https://android-build.googleplex.com/builds/treetop/android-review/1860894?revision\u003d5)\n\u003e \n\u003e Have a question? Found a bug? http://go/presubmit-lint-bug\n\nPlease fix.",
+      "parentUuid": "7f514de1_077187f4",
+      "revId": "802c197c5f89625574feffc821f78005dadb8cc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38290885_7356705f",
@@ -32,6 +68,24 @@
       "side": 1,
       "message": "Yes, it was changed in the internal patch.\n\nUpdate the merged-in version here.",
       "parentUuid": "38290885_7356705f",
+      "revId": "802c197c5f89625574feffc821f78005dadb8cc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "374e8085_88adb43c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioCapabilities.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Yes, it was changed in the internal patch.\n\u003e \n\u003e Update the merged-in version here.",
+      "parentUuid": "c42aa400_77e3ca63",
       "revId": "802c197c5f89625574feffc821f78005dadb8cc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

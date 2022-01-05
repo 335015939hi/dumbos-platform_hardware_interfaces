@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43a78d60_5ca65b15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e ACK, thanks for verifying!",
+      "parentUuid": "56c4b70b_863d26b2",
+      "revId": "f5f5ffaae429f0ba35114855fd0f0ddc12902732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d127d40_5a63a5bb",
@@ -109,6 +127,30 @@
       "side": 1,
       "message": "When AIDL type is int, it\u0027s int32_t.",
       "parentUuid": "5d127d40_5a63a5bb",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 18
+      },
+      "revId": "f5f5ffaae429f0ba35114855fd0f0ddc12902732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea37f67d_2a2a96a8",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio3/current/android/hardware/bluetooth/audio3/AacObjectType.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e When AIDL type is int, it\u0027s int32_t.",
+      "parentUuid": "94131d42_7408b868",
       "range": {
         "startLine": 35,
         "startChar": 15,

@@ -53,6 +53,60 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5da062d_23a6a74c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e ✔️ All files and artifacts have passed presubmit lint checks\n\u003e For more details see (https://android-build.googleplex.com/builds/treetop/android-review/1860894?revision\u003d4)\n\u003e \n\u003e Have a question? Found a bug? http://go/presubmit-lint-bug\n\nPlease fix.",
+      "parentUuid": "332e1fa7_806e0ab7",
+      "revId": "650db4ba082e0ff5fa58b133bfceb330e8f01fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8569f53_64fc1d72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e te",
+      "parentUuid": "dd2363dd_39ba39d0",
+      "revId": "650db4ba082e0ff5fa58b133bfceb330e8f01fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0ce7521_a24deaa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e We don\u0027t have plan to support CIG \u0026 BIG at the same time now.\n\u003e Only 1 CIG or 1 BIG in the current plan.",
+      "parentUuid": "b576d7d1_ed3a579a",
+      "revId": "650db4ba082e0ff5fa58b133bfceb330e8f01fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4279894_b5bdc403",
@@ -88,6 +142,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed21a567_93c8c3a3",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Sure. Ted is in the cc list. You could add your need in the other patch. The patch is to convert the existing parameter form hidl 2.0 - 2.2 to aidl. It would be clear for the owner who will do the further implementation that which parameter is added after HIDL 2.2.",
+      "parentUuid": "8c5e74f2_07febea6",
+      "revId": "650db4ba082e0ff5fa58b133bfceb330e8f01fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea7f02f0_5708ee70",
@@ -119,6 +191,24 @@
       "side": 1,
       "message": "Same with the other reply.",
       "parentUuid": "ea7f02f0_5708ee70",
+      "revId": "650db4ba082e0ff5fa58b133bfceb330e8f01fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ac4a4f_f8395074",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecConfiguration.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Same with the other reply.",
+      "parentUuid": "ef348193_9c80fd89",
       "revId": "650db4ba082e0ff5fa58b133bfceb330e8f01fa7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

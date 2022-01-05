@@ -36,6 +36,78 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbab3469_39c6aa34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e ✔️ All files and artifacts have passed presubmit lint checks\n\u003e For more details see (https://android-build.googleplex.com/builds/treetop/android-review/1860894?revision\u003d6)\n\u003e \n\u003e Have a question? Found a bug? http://go/presubmit-lint-bug\n\nPlease fix.",
+      "parentUuid": "f95eeb21_a459f61b",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75514804_fb845988",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e ✔️ All files and artifacts have passed presubmit lint checks\n\u003e For more details see (https://android-build.googleplex.com/builds/treetop/android-review/1860894?revision\u003d6)\n\u003e \n\u003e Have a question? Found a bug? http://go/presubmit-lint-bug\n\nPlease fix.",
+      "parentUuid": "ce6015a6_d6536484",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3cb7243_6eaf20e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e ✔️ All files and artifacts have passed presubmit lint checks\n\u003e For more details see (https://android-build.googleplex.com/builds/treetop/android-review/1860894?revision\u003d6)\n\u003e \n\u003e Have a question? Found a bug? http://go/presubmit-lint-bug\n\nPlease fix.",
+      "parentUuid": "16aeab2b_2c2d0d83",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd1acfde_68aae74d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Thanks for the review. This one is cherry-pick patch and it pend on the audio aidl to get merged. We would have the follow-up CL to fix the further comment. :)",
+      "parentUuid": "0bb1ba55_7a9012ae",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "957c736d_ca6e5aa5",
@@ -67,6 +139,24 @@
       "side": 1,
       "message": "The same with the other reply.",
       "parentUuid": "957c736d_ca6e5aa5",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7695605f_1d342450",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e The same with the other reply.",
+      "parentUuid": "c6ad1144_1e1f124b",
       "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -120,6 +210,24 @@
       "side": 1,
       "message": "Follow Cheney\u0027s suggestion. And it could be extended in the other patch if it really needed after discussion.",
       "parentUuid": "200f0905_5eacc2a5",
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaa2ad5d_d1b3c988",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecConfiguration.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Follow Cheney\u0027s suggestion. And it could be extended in the other patch if it really needed after discussion.",
+      "parentUuid": "4b6ab1dd_fe85e1dc",
       "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -195,6 +303,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c0be57b_7d6a56f0",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LdacQualityIndex.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Thanks for Josh to fix it.",
+      "parentUuid": "a2924ae8_3fa10f45",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9d4f5db_037e02a6",
@@ -256,6 +388,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "0b43951e_c63bd78a",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 10
+      },
+      "revId": "97fc666380b3d3d82727d0ce5136b5a523b90374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "374c8d52_22415a95",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Ack",
+      "parentUuid": "16084669_f6643405",
       "range": {
         "startLine": 134,
         "startChar": 0,

@@ -16,6 +16,24 @@
       "message": "Seems the patchset got rebased when tried to create the dependent AIDL based AptX Adaptive codec change \nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1890097/",
       "revId": "6290b84d4ff05238ccc28b340a24b482022a3a6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05b0423e_e3fa25b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1931558
+      },
+      "writtenOn": "2022-01-05T13:10:04Z",
+      "side": 1,
+      "message": "\u003e Seems the patchset got rebased when tried to create the dependent AIDL based AptX Adaptive codec change \n\u003e https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1890097/",
+      "parentUuid": "ad34d37a_ae8dd287",
+      "revId": "6290b84d4ff05238ccc28b340a24b482022a3a6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
