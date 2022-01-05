@@ -17,6 +17,7 @@
 #define LOG_TAG "IdentityCredentialStore"
 
 #include <android-base/logging.h>
+#include <android/binder_manager.h>
 
 #include "IdentityCredential.h"
 #include "IdentityCredentialStore.h"
@@ -24,6 +25,8 @@
 #include "WritableIdentityCredential.h"
 
 namespace aidl::android::hardware::identity {
+
+using ::aidl::android::hardware::security::keymint::IRemotelyProvisionedComponent;
 
 ndk::ScopedAStatus IdentityCredentialStore::getHardwareInformation(
         HardwareInformation* hardwareInformation) {
@@ -33,6 +36,7 @@ ndk::ScopedAStatus IdentityCredentialStore::getHardwareInformation(
     hw.dataChunkSize = kGcmChunkSize;
     hw.isDirectAccess = false;
     hw.supportedDocTypes = {};
+    hw.isRemoteKeyProvisioningSupported = remotelyProvisionedComponentName_.has_value();
     *hardwareInformation = hw;
     return ndk::ScopedAStatus::ok();
 }
@@ -91,6 +95,25 @@ ndk::ScopedAStatus IdentityCredentialStore::createPresentationSession(
                 int(ret), "Error initializing PresentationSession"));
     }
     *outSession = session;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus IdentityCredentialStore::getRemotelyProvisionedComponent(
+        shared_ptr<IRemotelyProvisionedComponent>* outRemotelyProvisionedComponent) {
+    if (!remotelyProvisionedComponentName_) {
+        return ndk::ScopedAStatus(AStatus_fromExceptionCodeWithMessage(
+                EX_UNSUPPORTED_OPERATION, "Remote key provisioning is not supported"));
+    }
+
+    ndk::SpAIBinder binder(
+            AServiceManager_waitForService(remotelyProvisionedComponentName_->c_str()));
+    if (binder.get() == nullptr) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED,
+                "Unable to get remotely provisioned component"));
+    }
+
+    *outRemotelyProvisionedComponent = IRemotelyProvisionedComponent::fromBinder(binder);
     return ndk::ScopedAStatus::ok();
 }
 
