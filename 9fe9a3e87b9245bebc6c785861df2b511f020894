@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48cf4e2e_37ab3fe7",
+        "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2022-01-05T04:59:35Z",
+      "side": 1,
+      "message": "Multiple",
+      "range": {
+        "startLine": 208,
+        "startChar": 17,
+        "endLine": 208,
+        "endChar": 26
+      },
+      "revId": "9fe9a3e87b9245bebc6c785861df2b511f020894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2807e43c_7736b202",
+        "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2022-01-05T04:59:35Z",
+      "side": 1,
+      "message": "Might want to check w/ Aguibou how the spec prefers to refer to this. It\u0027s not officially referred as MEP-A in the spec so want to avoid confusion and use same terms.",
+      "range": {
+        "startLine": 208,
+        "startChar": 11,
+        "endLine": 208,
+        "endChar": 16
+      },
+      "revId": "9fe9a3e87b9245bebc6c785861df2b511f020894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09c58b01_97170410",
+        "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2022-01-05T04:59:35Z",
+      "side": 1,
+      "message": "is this an extra \"Port\" at the end here?",
+      "range": {
+        "startLine": 209,
+        "startChar": 82,
+        "endLine": 209,
+        "endChar": 99
+      },
+      "revId": "9fe9a3e87b9245bebc6c785861df2b511f020894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50d865b3_9e385f2d",
+        "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2022-01-05T04:59:35Z",
+      "side": 1,
+      "message": "remain",
+      "range": {
+        "startLine": 210,
+        "startChar": 75,
+        "endLine": 210,
+        "endChar": 83
+      },
+      "revId": "9fe9a3e87b9245bebc6c785861df2b511f020894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c135bd73_4baf88c5",
+        "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2022-01-05T04:59:35Z",
+      "side": 1,
+      "message": "if the",
+      "range": {
+        "startLine": 211,
+        "startChar": 12,
+        "endLine": 211,
+        "endChar": 16
+      },
+      "revId": "9fe9a3e87b9245bebc6c785861df2b511f020894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
