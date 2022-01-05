@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "363d189d_c9bfa353",
+        "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1121193
+      },
+      "writtenOn": "2022-01-05T22:01:24Z",
+      "side": 1,
+      "message": "confirmed with Aguibou, it is okay to use MEP-A(in SGP22 V3.0 Draft). If the spec get updated later we can change the doc.",
+      "parentUuid": "e3e33bd6_a7faf9b2",
+      "range": {
+        "startLine": 208,
+        "startChar": 11,
+        "endLine": 208,
+        "endChar": 16
+      },
+      "revId": "9fe9a3e87b9245bebc6c785861df2b511f020894",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "09c58b01_97170410",
         "filename": "radio/aidl/android/hardware/radio/sim/IRadioSim.aidl",
         "patchSetId": 2
