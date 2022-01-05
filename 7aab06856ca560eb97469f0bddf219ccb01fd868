@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ec97d66_9e8d0eb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-01-05T19:52:26Z",
+      "side": 1,
+      "message": "FYI: Aditya and Paul, since the VTS tests are planning to use the verifier library.",
+      "revId": "7aab06856ca560eb97469f0bddf219ccb01fd868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3847cf84_36126ef8",
+        "filename": "security/dice/aidl/vts/fuctional/dice_test.rs",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-01-05T19:52:26Z",
+      "side": 1,
+      "message": "Just for my information, can you please clarify a bit on how are you planning to use the parser/verifier library here?\nFYI: The verifier library will take a signature and the bcc as inputs and output the signature verification result and an array of certificate payloads in the bcc.",
+      "range": {
+        "startLine": 63,
+        "startChar": 16,
+        "endLine": 63,
+        "endChar": 46
+      },
+      "revId": "7aab06856ca560eb97469f0bddf219ccb01fd868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
