@@ -20,8 +20,9 @@
 
 #include <android-base/logging.h>
 
+#include "AudioPort_2_0_to_2_2_Wrapper.h"
 #include "BluetoothAudioSessionReport_2_2.h"
-#include "BluetoothAudioSupportedCodecsDB_2_1.h"
+#include "BluetoothAudioSupportedCodecsDB_2_2.h"
 
 namespace android {
 namespace hardware {
@@ -51,7 +52,7 @@ BluetoothAudioProvider::BluetoothAudioProvider()
       audio_config_({}) {}
 
 Return<void> BluetoothAudioProvider::startSession(
-    const sp<IBluetoothAudioPort>& hostIf,
+    const sp<V2_0::IBluetoothAudioPort>& hostIf,
     const V2_0::AudioConfiguration& audioConfig, startSession_cb _hidl_cb) {
   AudioConfiguration audioConfig_2_2;
 
@@ -67,11 +68,13 @@ Return<void> BluetoothAudioProvider::startSession(
     audioConfig_2_2.codecConfig(audioConfig.codecConfig());
   }
 
-  return startSession_2_2(hostIf, audioConfig_2_2, _hidl_cb);
+  sp<V2_2::IBluetoothAudioPort> hostIf_2_2 =
+      new AudioPort_2_0_to_2_2_Wrapper(hostIf);
+  return startSession_2_2(hostIf_2_2, audioConfig_2_2, _hidl_cb);
 }
 
 Return<void> BluetoothAudioProvider::startSession_2_1(
-    const sp<IBluetoothAudioPort>& hostIf,
+    const sp<V2_0::IBluetoothAudioPort>& hostIf,
     const V2_1::AudioConfiguration& audioConfig, startSession_cb _hidl_cb) {
   AudioConfiguration audioConfig_2_2;
   if (audioConfig.getDiscriminator() ==
@@ -92,11 +95,13 @@ Return<void> BluetoothAudioProvider::startSession_2_1(
     audioConfig_2_2.codecConfig(audioConfig.codecConfig());
   }
 
-  return startSession_2_2(hostIf, audioConfig_2_2, _hidl_cb);
+  sp<V2_2::IBluetoothAudioPort> hostIf_2_2 =
+      new AudioPort_2_0_to_2_2_Wrapper(hostIf);
+  return startSession_2_2(hostIf_2_2, audioConfig_2_2, _hidl_cb);
 }
 
 Return<void> BluetoothAudioProvider::startSession_2_2(
-    const sp<IBluetoothAudioPort>& hostIf,
+    const sp<V2_2::IBluetoothAudioPort>& hostIf,
     const AudioConfiguration& audioConfig, startSession_cb _hidl_cb) {
   if (hostIf == nullptr) {
     _hidl_cb(BluetoothAudioStatus::FAILURE, DataMQ::Descriptor());
@@ -177,6 +182,29 @@ Return<void> BluetoothAudioProvider::endSession() {
    */
   stack_iface_ = nullptr;
   audio_config_ = {};
+
+  return Void();
+}
+
+Return<void> BluetoothAudioProvider::updateAudioConfiguration(
+    const AudioConfiguration& audioConfig) {
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_);
+
+  if (stack_iface_ == nullptr) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << " has NO session";
+    return Void();
+  }
+
+  if (audioConfig.getDiscriminator() != audio_config_.getDiscriminator()) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << " audio config type is not match";
+    return Void();
+  }
+
+  audio_config_ = audioConfig;
+  BluetoothAudioSessionReport_2_2::ReportAudioConfigChanged(session_type_,
+                                                            audio_config_);
 
   return Void();
 }

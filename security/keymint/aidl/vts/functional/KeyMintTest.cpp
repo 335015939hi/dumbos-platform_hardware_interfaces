@@ -69,8 +69,11 @@ namespace aidl::android::hardware::security::keymint::test {
 
 namespace {
 
+// Whether to check that BOOT_PATCHLEVEL is populated.
+bool check_boot_pl = true;
+
 // The maximum number of times we'll attempt to verify that corruption
-// of an ecrypted blob results in an error. Retries are necessary as there
+// of an encrypted blob results in an error. Retries are necessary as there
 // is a small (roughly 1/256) chance that corrupting ciphertext still results
 // in valid PKCS7 padding.
 constexpr size_t kMaxPaddingCorruptionRetries = 8;
@@ -527,12 +530,17 @@ class NewKeyGenerationTest : public KeyMintAidlTestBase {
         EXPECT_TRUE(os_pl);
         EXPECT_EQ(*os_pl, os_patch_level());
 
-        // Should include vendor and boot patchlevels.
+        // Should include vendor patchlevel.
         auto vendor_pl = auths.GetTagValue(TAG_VENDOR_PATCHLEVEL);
         EXPECT_TRUE(vendor_pl);
         EXPECT_EQ(*vendor_pl, vendor_patch_level());
-        auto boot_pl = auths.GetTagValue(TAG_BOOT_PATCHLEVEL);
-        EXPECT_TRUE(boot_pl);
+
+        // Should include boot patchlevel (but there are some test scenarios where this is not
+        // possible).
+        if (check_boot_pl) {
+            auto boot_pl = auths.GetTagValue(TAG_BOOT_PATCHLEVEL);
+            EXPECT_TRUE(boot_pl);
+        }
 
         return auths;
     }
@@ -934,7 +942,7 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
-        EXPECT_TRUE(verify_attestation_record(challenge, app_id,  //
+        EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id,  //
                                               sw_enforced, hw_enforced, SecLevel(),
                                               cert_chain_[0].encodedCertificate));
 
@@ -1085,7 +1093,7 @@ TEST_P(NewKeyGenerationTest, RsaEncryptionWithAttestation) {
 
     AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
     AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
-    EXPECT_TRUE(verify_attestation_record(challenge, app_id,  //
+    EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id,  //
                                           sw_enforced, hw_enforced, SecLevel(),
                                           cert_chain_[0].encodedCertificate));
 
@@ -1307,7 +1315,7 @@ TEST_P(NewKeyGenerationTest, LimitedUsageRsaWithAttestation) {
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
-        EXPECT_TRUE(verify_attestation_record(challenge, app_id,  //
+        EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id,  //
                                               sw_enforced, hw_enforced, SecLevel(),
                                               cert_chain_[0].encodedCertificate));
 
@@ -1436,7 +1444,7 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestation) {
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
-        EXPECT_TRUE(verify_attestation_record(challenge, app_id,  //
+        EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id,  //
                                               sw_enforced, hw_enforced, SecLevel(),
                                               cert_chain_[0].encodedCertificate));
 
@@ -1515,8 +1523,9 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationTags) {
 
         // Verifying the attestation record will check for the specific tag because
         // it's included in the authorizations.
-        EXPECT_TRUE(verify_attestation_record(challenge, app_id, sw_enforced, hw_enforced,
-                                              SecLevel(), cert_chain_[0].encodedCertificate));
+        EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id, sw_enforced,
+                                              hw_enforced, SecLevel(),
+                                              cert_chain_[0].encodedCertificate));
 
         CheckedDeleteKey(&key_blob);
     }
@@ -1613,8 +1622,9 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
 
         // Verifying the attestation record will check for the specific tag because
         // it's included in the authorizations.
-        EXPECT_TRUE(verify_attestation_record(challenge, app_id, sw_enforced, hw_enforced,
-                                              SecLevel(), cert_chain_[0].encodedCertificate));
+        EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id, sw_enforced,
+                                              hw_enforced, SecLevel(),
+                                              cert_chain_[0].encodedCertificate));
 
         CheckedDeleteKey(&key_blob);
     }
@@ -1660,9 +1670,9 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationUniqueId) {
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics_);
 
         // Check that the unique ID field in the extension is non-empty.
-        EXPECT_TRUE(verify_attestation_record(challenge, app_id, sw_enforced, hw_enforced,
-                                              SecLevel(), cert_chain_[0].encodedCertificate,
-                                              unique_id));
+        EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id, sw_enforced,
+                                              hw_enforced, SecLevel(),
+                                              cert_chain_[0].encodedCertificate, unique_id));
         EXPECT_GT(unique_id->size(), 0);
         CheckedDeleteKey();
     };
@@ -1757,8 +1767,9 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationTagNoApplicationId) {
 
     AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
     AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
-    EXPECT_TRUE(verify_attestation_record(challenge, attest_app_id, sw_enforced, hw_enforced,
-                                          SecLevel(), cert_chain_[0].encodedCertificate));
+    EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, attest_app_id, sw_enforced,
+                                          hw_enforced, SecLevel(),
+                                          cert_chain_[0].encodedCertificate));
 
     // Check that the app id is not in the cert.
     string app_id = "clientid";
@@ -1911,7 +1922,7 @@ TEST_P(NewKeyGenerationTest, AttestationApplicationIDLengthProperlyEncoded) {
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
-        EXPECT_TRUE(verify_attestation_record(challenge, app_id,  //
+        EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id,  //
                                               sw_enforced, hw_enforced, SecLevel(),
                                               cert_chain_[0].encodedCertificate));
 
@@ -3143,6 +3154,58 @@ TEST_P(VerificationOperationsTest, HmacSigningKeyCannotVerify) {
     CheckedDeleteKey(&verification_key);
 }
 
+/*
+ * VerificationOperationsTest.HmacVerificationFailsForCorruptSignature
+ *
+ * Verifies HMAC signature verification should fails if message or signature is corrupted.
+ */
+TEST_P(VerificationOperationsTest, HmacVerificationFailsForCorruptSignature) {
+    string key_material = "HelloThisIsAKey";
+
+    vector<uint8_t> signing_key, verification_key;
+    vector<KeyCharacteristics> signing_key_chars, verification_key_chars;
+    EXPECT_EQ(ErrorCode::OK,
+              ImportKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .Authorization(TAG_ALGORITHM, Algorithm::HMAC)
+                                .Authorization(TAG_PURPOSE, KeyPurpose::SIGN)
+                                .Digest(Digest::SHA_2_256)
+                                .Authorization(TAG_MIN_MAC_LENGTH, 160),
+                        KeyFormat::RAW, key_material, &signing_key, &signing_key_chars));
+    EXPECT_EQ(ErrorCode::OK,
+              ImportKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .Authorization(TAG_ALGORITHM, Algorithm::HMAC)
+                                .Authorization(TAG_PURPOSE, KeyPurpose::VERIFY)
+                                .Digest(Digest::SHA_2_256)
+                                .Authorization(TAG_MIN_MAC_LENGTH, 160),
+                        KeyFormat::RAW, key_material, &verification_key, &verification_key_chars));
+
+    string message = "This is a message.";
+    string signature = SignMessage(
+            signing_key, message,
+            AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Authorization(TAG_MAC_LENGTH, 160));
+
+    AuthorizationSet begin_out_params;
+    ASSERT_EQ(ErrorCode::OK,
+              Begin(KeyPurpose::VERIFY, verification_key,
+                    AuthorizationSetBuilder().Digest(Digest::SHA_2_256), &begin_out_params));
+
+    string corruptMessage = "This is b message.";  // Corrupted message
+    string output;
+    EXPECT_EQ(ErrorCode::VERIFICATION_FAILED, Finish(corruptMessage, signature, &output));
+
+    ASSERT_EQ(ErrorCode::OK,
+              Begin(KeyPurpose::VERIFY, verification_key,
+                    AuthorizationSetBuilder().Digest(Digest::SHA_2_256), &begin_out_params));
+
+    signature[0] += 1;  // Corrupt a signature
+    EXPECT_EQ(ErrorCode::VERIFICATION_FAILED, Finish(message, signature, &output));
+
+    CheckedDeleteKey(&signing_key);
+    CheckedDeleteKey(&verification_key);
+}
+
 INSTANTIATE_KEYMINT_AIDL_TEST(VerificationOperationsTest);
 
 typedef KeyMintAidlTestBase ExportKeyTest;
@@ -3292,6 +3355,26 @@ TEST_P(ImportKeyTest, RsaPublicExponentMismatch) {
 }
 
 /*
+ * ImportKeyTest.RsaAttestMultiPurposeFail
+ *
+ * Verifies that importing an RSA key pair with purpose ATTEST_KEY+SIGN fails.
+ */
+TEST_P(ImportKeyTest, RsaAttestMultiPurposeFail) {
+    uint32_t key_size = 2048;
+    string key = rsa_2048_key;
+
+    ASSERT_EQ(ErrorCode::INCOMPATIBLE_PURPOSE,
+              ImportKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .RsaSigningKey(key_size, 65537)
+                                .AttestKey()
+                                .Digest(Digest::SHA_2_256)
+                                .Padding(PaddingMode::RSA_PSS)
+                                .SetDefaultValidity(),
+                        KeyFormat::PKCS8, key));
+}
+
+/*
  * ImportKeyTest.EcdsaSuccess
  *
  * Verifies that importing and using an ECDSA P-256 key pair works correctly.
@@ -3405,6 +3488,22 @@ TEST_P(ImportKeyTest, EcdsaCurveMismatch) {
               ImportKey(AuthorizationSetBuilder()
                                 .EcdsaSigningKey(EcCurve::P_224 /* Doesn't match key */)
                                 .Digest(Digest::NONE)
+                                .SetDefaultValidity(),
+                        KeyFormat::PKCS8, ec_256_key));
+}
+
+/*
+ * ImportKeyTest.EcdsaAttestMultiPurposeFail
+ *
+ * Verifies that importing and using an ECDSA P-256 key pair with purpose ATTEST_KEY+SIGN fails.
+ */
+TEST_P(ImportKeyTest, EcdsaAttestMultiPurposeFail) {
+    ASSERT_EQ(ErrorCode::INCOMPATIBLE_PURPOSE,
+              ImportKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .EcdsaSigningKey(EcCurve::P_256)
+                                .AttestKey()
+                                .Digest(Digest::SHA_2_256)
                                 .SetDefaultValidity(),
                         KeyFormat::PKCS8, ec_256_key));
 }
@@ -6558,7 +6657,7 @@ INSTANTIATE_KEYMINT_AIDL_TEST(TransportLimitTest);
 
 typedef KeyMintAidlTestBase KeyAgreementTest;
 
-int CurveToOpenSslCurveName(EcCurve curve) {
+static int EcdhCurveToOpenSslCurveName(EcCurve curve) {
     switch (curve) {
         case EcCurve::P_224:
             return NID_secp224r1;
@@ -6568,6 +6667,8 @@ int CurveToOpenSslCurveName(EcCurve curve) {
             return NID_secp384r1;
         case EcCurve::P_521:
             return NID_secp521r1;
+        case EcCurve::CURVE_25519:
+            return NID_X25519;
     }
 }
 
@@ -6589,7 +6690,7 @@ TEST_P(KeyAgreementTest, Ecdh) {
         for (auto localCurve : ValidCurves()) {
             // Generate EC key locally (with access to private key material)
             auto ecKey = EC_KEY_Ptr(EC_KEY_new());
-            int curveName = CurveToOpenSslCurveName(localCurve);
+            int curveName = EcdhCurveToOpenSslCurveName(localCurve);
             auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(curveName));
             ASSERT_NE(group, nullptr);
             ASSERT_EQ(EC_KEY_set_group(ecKey.get(), group.get()), 1);
@@ -6870,6 +6971,12 @@ int main(int argc, char** argv) {
                         dump_Attestations = true;
             } else {
                 std::cout << "NOT dumping attestations" << std::endl;
+            }
+            if (std::string(argv[i]) == "--skip_boot_pl_check") {
+                // Allow checks of BOOT_PATCHLEVEL to be disabled, so that the tests can
+                // be run in emulated environments that don't have the normal bootloader
+                // interactions.
+                aidl::android::hardware::security::keymint::test::check_boot_pl = false;
             }
         }
     }
