@@ -116,6 +116,30 @@
       },
       "revId": "1aad4dab0713dee26bf2842a0703a97b1fcebc53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c913eb99_b76dcd18",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/BroadcastConfiguration.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-06T06:49:39Z",
+      "side": 1,
+      "message": "byte: 8 bits\nchar: 16 bits\nhttps://source.android.com/devices/architecture/aidl/aidl-backends",
+      "parentUuid": "ff33bb61_237582ca",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 8
+      },
+      "revId": "1aad4dab0713dee26bf2842a0703a97b1fcebc53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
