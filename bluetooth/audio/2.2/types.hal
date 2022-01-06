@@ -90,9 +90,9 @@ safe_union AudioCapabilities {
  * Used to specify th le audio capabilities pair of the Hardware offload encode and decode.
  */
 struct LeAudioCodecCapabilitiesPair{
-    LeAudioMode mode;
-    LeAudioCodecCapability encodeCapability;
-    LeAudioCodecCapability decodeCapability;
+    LeAudioCodecCapability unicastEncodeCapability;
+    LeAudioCodecCapability unicastDecodeCapability;
+    vec<LeAudioCodecCapability> broadcastCapability;
 };
 
 /**
