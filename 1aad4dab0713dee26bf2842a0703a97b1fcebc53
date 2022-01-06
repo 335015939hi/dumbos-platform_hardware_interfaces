@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8204b41a_591af775",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/AacCapabilities.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-06T06:24:38Z",
+      "side": 1,
+      "message": "Is it bitmask, or should it be an array?",
+      "range": {
+        "startLine": 37,
+        "startChar": 48,
+        "endLine": 37,
+        "endChar": 49
+      },
+      "revId": "1aad4dab0713dee26bf2842a0703a97b1fcebc53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f44c84c9_00fcf3e6",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/AacCapabilities.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-06T06:24:38Z",
+      "side": 1,
+      "message": "Is it a bitmask or an array?",
+      "range": {
+        "startLine": 39,
+        "startChar": 46,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "1aad4dab0713dee26bf2842a0703a97b1fcebc53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
