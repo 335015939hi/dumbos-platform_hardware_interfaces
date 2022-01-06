@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f34e8a4d_1a8bb7d2",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-06T15:31:59Z",
+      "side": 1,
+      "message": "Setting? or Set?",
+      "range": {
+        "startLine": 92,
+        "startChar": 31,
+        "endLine": 92,
+        "endChar": 35
+      },
+      "revId": "cc2c11da084769b9db02c27e64c85f0085fcc199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37cc25ca_5be37175",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-06T15:31:59Z",
+      "side": 1,
+      "message": "nit: broadcastCapability",
+      "range": {
+        "startLine": 95,
+        "startChar": 46,
+        "endLine": 95,
+        "endChar": 47
+      },
+      "revId": "cc2c11da084769b9db02c27e64c85f0085fcc199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b22cc913_1ef2cd99",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-06T15:31:59Z",
+      "side": 1,
+      "message": "nit: for each stream",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 33
+      },
+      "revId": "cc2c11da084769b9db02c27e64c85f0085fcc199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1089361d_342c6ac8",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-06T15:31:59Z",
+      "side": 1,
+      "message": "It seems not relate with broadcast, could it be a separate patch?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 42
+      },
+      "revId": "cc2c11da084769b9db02c27e64c85f0085fcc199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96882145_d1174086",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-06T15:31:59Z",
+      "side": 1,
+      "message": "Should it contain broadcast capability?",
+      "range": {
+        "startLine": 130,
+        "startChar": 8,
+        "endLine": 130,
+        "endChar": 42
+      },
+      "revId": "cc2c11da084769b9db02c27e64c85f0085fcc199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
