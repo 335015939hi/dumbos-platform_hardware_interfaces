@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c633cda3_70057586",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-01-06T15:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f34e8a4d_1a8bb7d2",
+      "range": {
+        "startLine": 92,
+        "startChar": 31,
+        "endLine": 92,
+        "endChar": 35
+      },
+      "revId": "cc2c11da084769b9db02c27e64c85f0085fcc199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37cc25ca_5be37175",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-06T15:31:59Z",
       "side": 1,
       "message": "nit: broadcastCapability",
+      "range": {
+        "startLine": 95,
+        "startChar": 46,
+        "endLine": 95,
+        "endChar": 47
+      },
+      "revId": "cc2c11da084769b9db02c27e64c85f0085fcc199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2661c789_2970fd9a",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-01-06T15:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37cc25ca_5be37175",
       "range": {
         "startLine": 95,
         "startChar": 46,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1294d40_e7f7f71b",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-01-06T15:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b22cc913_1ef2cd99",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 33
+      },
+      "revId": "cc2c11da084769b9db02c27e64c85f0085fcc199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1089361d_342c6ac8",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d09c34_e81078ef",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-01-06T15:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1089361d_342c6ac8",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 42
+      },
+      "revId": "cc2c11da084769b9db02c27e64c85f0085fcc199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96882145_d1174086",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-01-06T15:31:59Z",
       "side": 1,
       "message": "Should it contain broadcast capability?",
+      "range": {
+        "startLine": 130,
+        "startChar": 8,
+        "endLine": 130,
+        "endChar": 42
+      },
+      "revId": "cc2c11da084769b9db02c27e64c85f0085fcc199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8836364f_9e6d2df6",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-01-06T15:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96882145_d1174086",
       "range": {
         "startLine": 130,
         "startChar": 8,
