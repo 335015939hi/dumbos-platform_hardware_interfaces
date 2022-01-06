@@ -3127,6 +3127,72 @@ TEST_P(SigningOperationsTest, EcdsaCurve25519) {
 }
 
 /*
+ * SigningOperationsTest.EcdsaCurve25519MaxSize
+ *
+ * Verifies that EDDSA operations with curve25519 police the  maximum message size.
+ */
+TEST_P(SigningOperationsTest, EcdsaCurve25519MaxSize) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    EcCurve curve = EcCurve::CURVE_25519;
+    ErrorCode error = GenerateKey(AuthorizationSetBuilder()
+                                          .Authorization(TAG_NO_AUTH_REQUIRED)
+                                          .EcdsaSigningKey(curve)
+                                          .Digest(Digest::NONE)
+                                          .SetDefaultValidity());
+    ASSERT_EQ(ErrorCode::OK, error) << "Failed to generate ECDSA key with curve " << curve;
+
+    size_t max_size = 16 * 1024;
+    auto params = AuthorizationSetBuilder().Digest(Digest::NONE);
+
+    for (size_t msg_size : {max_size - 1, max_size, max_size + 1}) {
+        SCOPED_TRACE(testing::Message() << "-abs-msg-size=" << msg_size);
+        string message(msg_size, 'a');
+
+        // Attempt to sign via Begin+Finish.
+        AuthorizationSet out_params;
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, key_blob_, params, &out_params));
+        EXPECT_TRUE(out_params.empty());
+
+        string signature;
+        auto result = Finish(message, &signature);
+        if (msg_size > max_size) {
+            EXPECT_EQ(result, ErrorCode::INVALID_INPUT_LENGTH);
+        } else {
+            EXPECT_EQ(result, ErrorCode::OK);
+            LocalVerifyMessage(message, signature, params);
+        }
+    }
+
+    for (size_t msg_size : {max_size - 1, max_size, max_size + 1}) {
+        SCOPED_TRACE(testing::Message() << "-inc-msg-size=" << msg_size);
+        string message(msg_size, 'a');
+
+        // Attempt to sign via Begin+Update (but never get to Finish)
+        AuthorizationSet out_params;
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, key_blob_, params, &out_params));
+        EXPECT_TRUE(out_params.empty());
+
+        string output;
+        auto result = Update(message, &output);
+        if (msg_size > max_size) {
+            EXPECT_EQ(result, ErrorCode::INVALID_INPUT_LENGTH);
+        } else {
+            EXPECT_EQ(result, ErrorCode::OK);
+            EXPECT_EQ(output.size(), 0);
+
+            string signature;
+            EXPECT_EQ(ErrorCode::OK, Finish({}, &signature));
+            LocalVerifyMessage(message, signature, params);
+        }
+    }
+
+    CheckedDeleteKey();
+}
+
+/*
  * SigningOperationsTest.EcdsaNoDigestHugeData
  *
  * Verifies that ECDSA operations support very large messages, even without digesting.  This
