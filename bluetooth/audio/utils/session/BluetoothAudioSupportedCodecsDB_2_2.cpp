@@ -32,7 +32,6 @@ using ::android::hardware::bluetooth::audio::V2_1::SampleRate;
 using ::android::hardware::bluetooth::audio::V2_2::AudioLocation;
 using ::android::hardware::bluetooth::audio::V2_2::LeAudioCodecCapabilitiesPair;
 using ::android::hardware::bluetooth::audio::V2_2::LeAudioCodecCapability;
-using ::android::hardware::bluetooth::audio::V2_2::LeAudioMode;
 using SessionType_2_1 =
     ::android::hardware::bluetooth::audio::V2_1::SessionType;
 
@@ -73,9 +72,13 @@ static AudioLocation monoAudio = AudioLocation::UNKNOWN;
 // Stores the supported setting of audio location, connected device, and the
 // channel count for each device
 std::vector<std::tuple<AudioLocation, uint8_t, uint8_t>>
-    supportedDeviceSetting = {std::make_tuple(stereoAudio, 2, 1),
-                              std::make_tuple(monoAudio, 1, 2),
-                              std::make_tuple(monoAudio, 1, 1)};
+    supportedDeviceSetting = {
+        // Stereo, two connected device, one for L one for R
+        std::make_tuple(stereoAudio, 2, 1),
+        // Stereo, one connected device for both L and R
+        std::make_tuple(stereoAudio, 1, 2),
+        // Mono
+        std::make_tuple(monoAudio, 1, 1)};
 
 bool IsOffloadLeAudioConfigurationValid(
     const ::android::hardware::bluetooth::audio::V2_1::SessionType&
@@ -118,29 +121,28 @@ std::vector<LeAudioCodecCapabilitiesPair> GetLeAudioOffloadCodecCapabilities(
     for (auto [audioLocation, deviceCnt, channelCount] :
          supportedDeviceSetting) {
       for (auto capability : supportedLc3CapabilityList) {
-        LeAudioCodecCapability lc3Capability = composeLc3Capability(
+        LeAudioCodecCapability lc3EncodeCapability = composeLc3Capability(
             audioLocation, deviceCnt, channelCount, capability);
-        LeAudioCodecCapability lc3MonoCapability =
+        LeAudioCodecCapability lc3DecodeCapability = composeLc3Capability(
+            audioLocation, deviceCnt, channelCount, capability);
+        LeAudioCodecCapability lc3MonoDecodeCapability =
             composeLc3Capability(monoAudio, 1, 1, capability);
 
         // Adds the capability for encode only
         kDefaultOffloadLeAudioCapabilities.push_back(
-            {.mode = LeAudioMode::UNICAST,
-             .encodeCapability = lc3Capability,
-             .decodeCapability = kInvalidLc3Capability});
+            {.unicastEncodeCapability = lc3EncodeCapability,
+             .unicastDecodeCapability = kInvalidLc3Capability});
 
         // Adds the capability for decode only
         kDefaultOffloadLeAudioCapabilities.push_back(
-            {.mode = LeAudioMode::UNICAST,
-             .encodeCapability = kInvalidLc3Capability,
-             .decodeCapability = lc3Capability});
+            {.unicastEncodeCapability = kInvalidLc3Capability,
+             .unicastDecodeCapability = lc3DecodeCapability});
 
         // Adds the capability for the case that encode and decode exist at the
         // same time
         kDefaultOffloadLeAudioCapabilities.push_back(
-            {.mode = LeAudioMode::UNICAST,
-             .encodeCapability = lc3Capability,
-             .decodeCapability = lc3MonoCapability});
+            {.unicastEncodeCapability = lc3EncodeCapability,
+             .unicastDecodeCapability = lc3MonoDecodeCapability});
       }
     }
   }
