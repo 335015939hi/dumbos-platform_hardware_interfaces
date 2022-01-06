@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8167020_5c71587e",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-06T12:44:18Z",
+      "side": 1,
+      "message": "Maybe we could consider to have UnicastCapability \u0026 BroadcastCapabilities.\n\nNot all the fields in LeAudioCodecCapability are suitable for broadcast.",
+      "range": {
+        "startLine": 95,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 2
+      },
+      "revId": "836ef065180af2aaa21c18300af58a823b3aeea8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
