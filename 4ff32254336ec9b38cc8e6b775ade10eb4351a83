@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e075681_c16b80b3",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-06T22:56:26Z",
+      "side": 1,
+      "message": "As long as it\u0027s diagnosable when we have a bug, that\u0027s all I care about.",
+      "parentUuid": "29a93fd2_d72b3b12",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 6
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4bc1011c_8d5f5e34",
         "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
         "patchSetId": 10
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I prefer it this way otherwise we\u0027d need to update it to \"In API version 4 and 5\" or \"In API version 4 or later\" next time we bump the version.",
       "parentUuid": "4bc1011c_8d5f5e34",
+      "range": {
+        "startLine": 255,
+        "startChar": 7,
+        "endLine": 255,
+        "endChar": 22
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba22bccb_80c9a8e0",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-06T22:56:26Z",
+      "side": 1,
+      "message": "Yeah, I see now. I didn\u0027t realize that the HAL is snapshotted at each version, so \"this\" definitely makes more sense.",
+      "parentUuid": "d144d28b_7671fc92",
       "range": {
         "startLine": 255,
         "startChar": 7,
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "AFAIK there are no tools actually working on the doc-blurb and I partially agree with you. I\u0027ve done it this way to because that\u0027s how the rest of the code works.",
       "parentUuid": "741ba679_e20cde0b",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 49
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4646edc6_179a5eb7",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-06T22:56:26Z",
+      "side": 1,
+      "message": "How about using the more informative comments I suggested then? Restating a variable name is not helpful to anyone.",
+      "parentUuid": "15ec5bc5_b4a4adf9",
       "range": {
         "startLine": 261,
         "startChar": 0,
@@ -518,6 +590,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acf9bd9f_85e154e3",
+        "filename": "identity/aidl/default/FakeSecureHardwareProxy.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-06T22:56:26Z",
+      "side": 1,
+      "message": "Ah, it wasn\u0027t clear to me that these functions should _only_ be called on an object that was just constructed.\n\nThe additional check for \"if (id_ !\u003d 0)\" on these functions makes the intended use a lot clearer. Thanks! (Flogging the dead horse: if we avoided the \"init method\" anti pattern we could instead have just made the code clear from the outset)",
+      "parentUuid": "78c9193c_57b20ce8",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 5
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a2f39b4_3df03277",
@@ -849,6 +945,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f9eb911_b85d24f1",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-06T22:56:26Z",
+      "side": 1,
+      "message": "It required me to do an extra few minutes of grepping and reading to sort it out. If it were a constant I could have read it right off the bat and not wondered \"is 0 what I think it is?\".\n\nEvery modern code editor has auto completion anyway. Easy to read code wins over brevity (for brevitiy\u0027s sake) any day.",
+      "parentUuid": "514e1f07_835d5f1e",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 63
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6e15f02e_e632c1fd",
         "filename": "identity/aidl/default/common/IdentityCredential.cpp",
         "patchSetId": 10
@@ -1166,6 +1286,30 @@
       "side": 1,
       "message": "The TA returns an empty vector is no digest was calculated and vector of length 32 if it was. Not sure about the old code path.",
       "parentUuid": "4667152f_c098a19e",
+      "range": {
+        "startLine": 967,
+        "startChar": 0,
+        "endLine": 967,
+        "endChar": 5
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7f70ce4_02629bbf",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-06T22:56:26Z",
+      "side": 1,
+      "message": "The old code had an explicit error:\n        if (!digestToBeMaced || digestToBeMaced.value().size() !\u003d 32) {\n            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(\n                    IIdentityCredentialStore::STATUS_INVALID_DATA,\n                    \"Error generating digestToBeMaced\"));\n        }\n        \nIMO it\u0027s a lot more obvious to return an error rather than empty output. Especially since we can include a string in the error so that the caller can more easily debug it when things break.",
+      "parentUuid": "8b1f0035_0a4a3b5a",
       "range": {
         "startLine": 967,
         "startChar": 0,
@@ -2024,6 +2168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e86b6523_a074e99a",
+        "filename": "identity/aidl/default/libeic/EicSession.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-06T22:56:26Z",
+      "side": 1,
+      "message": "The fact that it needs a comment is a bit of a code smell.\n\nA constant solves the problem nicely (and removes the need for comments).",
+      "parentUuid": "19b1a4a0_685223b6",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 38
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b91bbdf6_87bee131",
         "filename": "identity/aidl/default/libeic/EicSession.c",
         "patchSetId": 10
@@ -2059,6 +2227,30 @@
       "side": 1,
       "message": "I know that. The caller will have to make sure the arrays are of the right size and passing a length parameter will not help with that, it\u0027ll just add extra fluff.",
       "parentUuid": "b91bbdf6_87bee131",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 1
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79a5749d_eaaefcab",
+        "filename": "identity/aidl/default/libeic/EicSession.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-06T22:56:26Z",
+      "side": 1,
+      "message": "If you don\u0027t want to pass a length, then another solution is to define a struct that contains the array of the size you want.\n\nFair warning: you\u0027ll never convince me that assumed lengths of buffer/array parameters in C/C++ is fine :)",
+      "parentUuid": "c1c6cbe2_559d9952",
       "range": {
         "startLine": 81,
         "startChar": 0,
@@ -2294,6 +2486,30 @@
       "side": 1,
       "message": "Yes. I realize you don\u0027t like duplication but I actually prefer having this in the top of every test. That way the reader won\u0027t have to look at setup() when reading the test (and they probably want). It\u0027s more explicit this way and the cost here is outweighed by the benefit.",
       "parentUuid": "51fb0fdc_92001d5a",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 5
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8891f6b0_2b3fd9ef",
+        "filename": "identity/aidl/vts/PresentationSessionTests.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-06T22:56:26Z",
+      "side": 1,
+      "message": "But the entire test suite is always going to require API version 4 or up, right? Putting that in one spot is, IMO, _more_ readable (as it\u0027s a property of the entire suite), and this is exactly what setup is for.",
+      "parentUuid": "b56cc921_9f843e1e",
       "range": {
         "startLine": 130,
         "startChar": 0,
