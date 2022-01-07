@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64539d2e_8e972e6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-07T13:38:38Z",
+      "side": 1,
+      "message": "Sravan, the parent aidl interface patch have been merged. You could based on the latest version to fix the compile issue.",
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4da0281f_b508f87f",
