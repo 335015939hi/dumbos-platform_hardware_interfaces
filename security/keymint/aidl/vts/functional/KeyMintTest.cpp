@@ -1636,6 +1636,12 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
  * Verifies that creation of an attested ECDSA key with a UNIQUE_ID included.
  */
 TEST_P(NewKeyGenerationTest, EcdsaAttestationUniqueId) {
+    if (SecLevel() != SecurityLevel::STRONGBOX) {
+        // Per DEVICE_UNIQUE_ATTESTATION documentation in
+        // hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/Tag.aidl
+        GTEST_SKIP() << "Test applies to StrongBox only";
+    }
+
     auto get_unique_id = [this](const std::string& app_id, uint64_t datetime,
                                 vector<uint8_t>* unique_id, bool reset = false) {
         auto challenge = "hello";
