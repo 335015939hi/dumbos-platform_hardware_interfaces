@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbbd3863_79a52c30",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/BroadcastConfiguration.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-07T18:52:09Z",
+      "side": 1,
+      "message": "leAudioCodecConfig",
+      "range": {
+        "startLine": 36,
+        "startChar": 34,
+        "endLine": 36,
+        "endChar": 53
+      },
+      "revId": "a4dbaffaecd9f45a0c00919ed844ce2471361a3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
