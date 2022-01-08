@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,14 +18,17 @@ package android.hardware.bluetooth.audio;
 
 @VintfStability
 @Backing(type="int")
-enum CodecType {
-    UNKNOWN,
-    SBC,
-    AAC,
-    APTX,
-    APTX_HD,
-    LDAC,
-    LC3,
-    VENDOR,
-    APTX_ADAPTIVE,
+enum AptxAdaptiveChannelMode {
+    UNCHANGED = -1,
+    /* Joint Stereo - default mode */
+    JOINT_STEREO = 0,
+    /* Legacy Mono */
+    MONO = 1,
+    /* Split TX where we send the L to the L and R to the R */
+    DUAL_MONO = 2,
+    /* Stereo - For TWS+ where L and R are different links */
+    TWS_STEREO = 4,
+    /* TWS primary sink forward the stereo stream to a secondary sink */
+    EARBUD = 8,
+    UNKNOWN = 0xFF,
 }
