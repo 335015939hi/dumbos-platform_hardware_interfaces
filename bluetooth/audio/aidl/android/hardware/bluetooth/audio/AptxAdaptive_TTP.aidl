@@ -17,14 +17,11 @@
 package android.hardware.bluetooth.audio;
 
 @VintfStability
-@Backing(type="int")
-enum CodecType {
-    UNKNOWN,
-    SBC,
-    AAC,
-    APTX,
-    APTX_HD,
-    LDAC,
-    LC3,
-    APTX_ADAPTIVE,
+parcelable AptxAdaptive_TTP {
+    byte LL_low;
+    byte LL_high;
+    byte HQ_low;
+    byte HQ_high;
+    byte TWS_low;
+    byte TWS_high;
 }

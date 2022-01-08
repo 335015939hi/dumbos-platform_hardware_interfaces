@@ -18,13 +18,8 @@ package android.hardware.bluetooth.audio;
 
 @VintfStability
 @Backing(type="int")
-enum CodecType {
-    UNKNOWN,
-    SBC,
-    AAC,
-    APTX,
-    APTX_HD,
-    LDAC,
-    LC3,
-    APTX_ADAPTIVE,
+enum InputMode {
+    /** Aptx Adaptive Input Mode: 32 bits */
+    STEREO = 0x00,
+    DUAL_MONO = 0x01,
 }
