@@ -36,6 +36,7 @@ parcelable CodecCapabilities {
         LdacCapabilities ldacCapabilities;
         AptxCapabilities aptxCapabilities;
         Lc3Capabilities lc3Capabilities;
+        AptxAdaptiveCapabilities aptxAdaptiveCapabilities;
     }
     CodecType codecType;
     Capabilities capabilities;
