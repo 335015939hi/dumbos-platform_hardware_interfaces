@@ -354,6 +354,7 @@ BluetoothAudioCodecs::GetA2dpOffloadCodecCapabilities(
             .set<CodecCapabilities::Capabilities::lc3Capabilities>(
                 kDefaultOffloadLc3Capability);
         break;
+      case CodecType::APTX_ADAPTIVE:
       case CodecType::UNKNOWN:
       case CodecType::VENDOR:
         codec_capability = {};
@@ -420,6 +421,7 @@ bool BluetoothAudioCodecs::IsOffloadCodecConfigurationValid(
         return true;
       }
       break;
+    case CodecType::APTX_ADAPTIVE:
     case CodecType::UNKNOWN:
     case CodecType::VENDOR:
       break;
