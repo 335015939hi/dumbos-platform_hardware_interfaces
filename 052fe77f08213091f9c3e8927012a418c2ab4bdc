@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82ee517d_2d337831",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4da0281f_b508f87f",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95721a57_515b9f5b",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-01-04T06:57:13Z",
       "side": 1,
       "message": "Please add the import. \nimport android.hardware.bluetooth.audio.AptxAdaptiveChannelMode;\n\nSo for the following parameters.",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 25
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75547a46_62ff2936",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95721a57_515b9f5b",
       "range": {
         "startLine": 18,
         "startChar": 2,
@@ -106,6 +154,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65fbe159_91fc37e4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "As per spec:\nInputFadeDuration:\nValue must be between 1 – 256 inclusive so it should be int rather int[]",
+      "parentUuid": "d28f5681_2c2b536f",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 5
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da460bf0_19c47b3b",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
         "patchSetId": 3
@@ -117,6 +189,30 @@
       "writtenOn": "2022-01-04T06:57:13Z",
       "side": 1,
       "message": "Could it be byte[]? Why need to force it to be 25?",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 25,
+        "endChar": 10
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a54b251_66bd3fb5",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da460bf0_19c47b3b",
       "range": {
         "startLine": 25,
         "startChar": 2,
@@ -152,6 +248,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c25932b4_8d789cd3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveConfiguration.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "InputFadeDuration:\nValue must be between 1 – 256 inclusive\nIf needed might be renamed",
+      "parentUuid": "537d44dd_d458e752",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3a3956a_b0f542ae",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveConfiguration.aidl",
         "patchSetId": 3
@@ -163,6 +283,30 @@
       "writtenOn": "2022-01-04T06:57:13Z",
       "side": 1,
       "message": "byte[]?",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 25,
+        "endChar": 10
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fda0562_c4d4b045",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveConfiguration.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3a3956a_b0f542ae",
       "range": {
         "startLine": 25,
         "startChar": 2,
@@ -196,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e298926c_d5d3b969",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXSinkBuffering.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fb9116b_1358a7af",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 12
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b19eba5_32b53cba",
@@ -209,6 +377,30 @@
       "writtenOn": "2022-01-04T06:57:13Z",
       "side": 1,
       "message": "Remove ;\n\nPlease review all the other files.",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 2
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d003415_0cd7053d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXSinkBuffering.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b19eba5_32b53cba",
       "range": {
         "startLine": 27,
         "startChar": 1,
@@ -573,6 +765,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "723bc8cd_c364db1b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "instead of updateSessionParams(SINK_LATENCY) I think getPresentationPosition() might be used however some Apps frequently call getPresentationPosition resulting there is a Vendor to System queries to our BT Stack results some delays. Hence this mechanism was to proactive update latency during runtime to Vendor. As of now, I have removed updateSessionParams.",
+      "parentUuid": "3a7f8b09_6fedec57",
+      "range": {
+        "startLine": 41,
+        "startChar": 25,
+        "endLine": 41,
+        "endChar": 48
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bbabdc7d_2f721e87",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 3
@@ -664,6 +880,78 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d711940b_472b5868",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbabdc7d_2f721e87",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 2
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3540555_3760bb50",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7171151d_426219a1",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 21
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8364e509_4dca7d82",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "instead of updateSessionParams(SINK_LATENCY) I think getPresentationPosition() might be used however some Apps frequently call getPresentationPosition resulting there is a Vendor to System queries to our BT Stack results some delays. Hence this mechanism was to proactive update latency during runtime to Vendor. As of now, I have removed updateSessionParams.\n\nA2DP don\u0027t suspend while updating.",
+      "parentUuid": "8268ea0b_159e8ac3",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 21
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1853fa89_dd6b5cfc",
@@ -687,6 +975,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "977701a7_a799a130",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/InputMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1853fa89_dd6b5cfc",
+      "range": {
+        "startLine": 21,
+        "startChar": 15,
+        "endLine": 21,
+        "endChar": 26
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d10f5ab1_77f40b02",
@@ -700,6 +1012,30 @@
       "writtenOn": "2022-01-04T04:22:20Z",
       "side": 1,
       "message": "Please have a consistent indent.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0122fe7_62e30838",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionParams.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:21:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d10f5ab1_77f40b02",
       "range": {
         "startLine": 28,
         "startChar": 0,
