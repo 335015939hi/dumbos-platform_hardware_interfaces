@@ -244,6 +244,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "564d1de1_a14723a7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:13:15Z",
+      "side": 1,
+      "message": "UNCHANGED signify \"Do Not Change\" while UNKNOWN is something not part of all above channel types",
+      "parentUuid": "f0414d84_bb815f0f",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 13
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "71146cd5_c6c404f5",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
         "patchSetId": 3
@@ -267,6 +291,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e27cad9_63e31742",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:13:15Z",
+      "side": 1,
+      "message": "As per AptX Adaptive spec description:\nTrue Wireless mode\nMultiple such mode exists.\nTWS-Stereo (or TWS-Legacy Stereo) is when a stereo stream is sent\nto a master sink and the master sink forward the stereo stream to a\nslave sink.\nTWS-Legacy Mono is when a stereo stream is sent to a master sink\nand the master sink forward a mono stream (left or right channel) to a\nslave sink.\nTWS+ is where a source sends a left channel to a “left” sink and a right\nchannel to a “right” sink \n\nwhile other are normal modes",
+      "parentUuid": "71146cd5_c6c404f5",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 8
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c497d52e_f4015d57",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
         "patchSetId": 3
@@ -278,6 +326,30 @@
       "writtenOn": "2022-01-04T06:57:13Z",
       "side": 1,
       "message": "Is it the same as TWS_STEREO or DUAL_MONO, TWO_MONO?",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 10
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93c243e4_f0204d60",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:13:15Z",
+      "side": 1,
+      "message": "APTX_CHANNEL_EARBUD, the output data in each packet is interleaved (16-bit left, 16-right).",
+      "parentUuid": "c497d52e_f4015d57",
       "range": {
         "startLine": 28,
         "startChar": 4,
@@ -334,6 +406,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9503ff39_3557077c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptive_TTP.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:13:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "016ab7e6_1cc6dd08",
+      "range": {
+        "startLine": 21,
+        "startChar": 12,
+        "endLine": 21,
+        "endChar": 22
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ed6eb82_7fab42d6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptive_TTP.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:13:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba130600_67fe9281",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed0dd0fb_1db2afae",
@@ -359,6 +479,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ced8943b_44231127",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:13:15Z",
+      "side": 1,
+      "message": "These are spec defined values of AptX Adaptive modes.",
+      "parentUuid": "ed0dd0fb_1db2afae",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 15
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49dcf10c_788fd37d",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
         "patchSetId": 3
@@ -370,6 +514,30 @@
       "writtenOn": "2022-01-04T04:22:20Z",
       "side": 1,
       "message": "4 space indent?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d4d3deb_75fb6421",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-09T14:13:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49dcf10c_788fd37d",
       "range": {
         "startLine": 24,
         "startChar": 0,
