@@ -269,6 +269,29 @@
       },
       "revId": "b169740d34398f52a385d8179c0db99981baee88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "002af178_72b2bd13",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/InputMode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-10T11:05:18Z",
+      "side": 1,
+      "message": "Is this for only Aptx? If yes, please add Aptx Adaptive keywords on this type naming.",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 14
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
