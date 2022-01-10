@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4c99d4a_96b21760",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-10T09:52:28Z",
+      "side": 1,
+      "message": "Can you please add the bug id in the commit message?\n\nBug: ?",
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e686646_272f5d9f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-10T09:52:28Z",
+      "side": 1,
+      "message": "How can you present the capabilities if its value is -1, 0, 1, 2, 4, 8, and 10?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b3cf29a_ef0cff30",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-10T09:52:28Z",
+      "side": 1,
+      "message": "Isn\u0027t it the same with stereo or joint stereo (line #24)?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42ffb71d_97529ece",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptive_TTP.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-10T09:52:28Z",
+      "side": 1,
+      "message": "What does this _TTP stand for? Can it be presented by other readable words rather then abbreviation?",
+      "range": {
+        "startLine": 20,
+        "startChar": 23,
+        "endLine": 20,
+        "endChar": 27
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
