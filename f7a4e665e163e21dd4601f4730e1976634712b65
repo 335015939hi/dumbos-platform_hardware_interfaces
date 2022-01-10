@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dcef898_0e0c953a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-01-10T16:14:06Z",
+      "side": 1,
+      "message": "LGTM with one minor nit.",
+      "revId": "f7a4e665e163e21dd4601f4730e1976634712b65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b08b5af_defca11f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2238,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-01-10T16:14:06Z",
+      "side": 1,
+      "message": "Nit: Can we distinguish between unsupported key size and unsupported ec curve? I  realize the distinction may have been lost because the InvalidCurves() don\u0027t tell you why the curve was invalid.",
+      "range": {
+        "startLine": 2237,
+        "startChar": 8,
+        "endLine": 2238,
+        "endChar": 63
+      },
+      "revId": "f7a4e665e163e21dd4601f4730e1976634712b65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
