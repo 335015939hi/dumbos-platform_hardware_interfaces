@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0a702dd_5dec5093",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-10T20:13:26Z",
+      "side": 1,
+      "message": "It is, yeah.",
+      "parentUuid": "4e075681_c16b80b3",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 6
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bc1011c_8d5f5e34",
@@ -204,6 +228,30 @@
       "side": 1,
       "message": "How about using the more informative comments I suggested then? Restating a variable name is not helpful to anyone.",
       "parentUuid": "15ec5bc5_b4a4adf9",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 49
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c08ed6b_791d0096",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-10T20:13:26Z",
+      "side": 1,
+      "message": "I keep going back and forth on this. On the one hand yours is more informative, on the other hand it also takes longer to read... I think I\u0027ll keep it as is for consistency with the rest of the code. Let\u0027s revisit when do we a big major rev of the interface.",
+      "parentUuid": "4646edc6_179a5eb7",
       "range": {
         "startLine": 261,
         "startChar": 0,
@@ -967,6 +1015,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96b4a3ad_ba2ddd8d",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-10T20:13:26Z",
+      "side": 1,
+      "message": "OK. I\u0027ve added EIC_PRESENTATION_ID_UNSET to libeic for this.",
+      "parentUuid": "3f9eb911_b85d24f1",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 63
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e15f02e_e632c1fd",
@@ -1310,6 +1382,30 @@
       "side": 1,
       "message": "The old code had an explicit error:\n        if (!digestToBeMaced || digestToBeMaced.value().size() !\u003d 32) {\n            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(\n                    IIdentityCredentialStore::STATUS_INVALID_DATA,\n                    \"Error generating digestToBeMaced\"));\n        }\n        \nIMO it\u0027s a lot more obvious to return an error rather than empty output. Especially since we can include a string in the error so that the caller can more easily debug it when things break.",
       "parentUuid": "8b1f0035_0a4a3b5a",
+      "range": {
+        "startLine": 967,
+        "startChar": 0,
+        "endLine": 967,
+        "endChar": 5
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "732dad3c_b7e57552",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-10T20:13:26Z",
+      "side": 1,
+      "message": "So this API is a bit tricky. If digestToMaced is unset (e.g. std::nullopt) it means an error occured. Otherwise, if it\u0027s set and its length is zero it means no digest is calculated. If it\u0027s non-zero, it has to be 32. I\u0027ve updated the code with comments explaining this + adding the error path you identified as missing (nice catch!)",
+      "parentUuid": "c7f70ce4_02629bbf",
       "range": {
         "startLine": 967,
         "startChar": 0,
@@ -2190,6 +2286,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "881f8e7a_e147cb07",
+        "filename": "identity/aidl/default/libeic/EicSession.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-10T20:13:26Z",
+      "side": 1,
+      "message": "OK. I\u0027ve introduced EIC_KM_AUTH_CHALLENGE_UNSET for this.",
+      "parentUuid": "e86b6523_a074e99a",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 38
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b91bbdf6_87bee131",
@@ -2251,6 +2371,30 @@
       "side": 1,
       "message": "If you don\u0027t want to pass a length, then another solution is to define a struct that contains the array of the size you want.\n\nFair warning: you\u0027ll never convince me that assumed lengths of buffer/array parameters in C/C++ is fine :)",
       "parentUuid": "c1c6cbe2_559d9952",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 1
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b731df5_eb48d35f",
+        "filename": "identity/aidl/default/libeic/EicSession.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-10T20:13:26Z",
+      "side": 1,
+      "message": "I don\u0027t agree a length should be passed. Anyway, this is what the library is already doing and I like consistency. If we want to change this implementation detail (it has no API implications) in libeic it should be done in another CL.",
+      "parentUuid": "79a5749d_eaaefcab",
       "range": {
         "startLine": 81,
         "startChar": 0,
@@ -2510,6 +2654,30 @@
       "side": 1,
       "message": "But the entire test suite is always going to require API version 4 or up, right? Putting that in one spot is, IMO, _more_ readable (as it\u0027s a property of the entire suite), and this is exactly what setup is for.",
       "parentUuid": "b56cc921_9f843e1e",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 5
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73ca15d1_07b1f6f0",
+        "filename": "identity/aidl/vts/PresentationSessionTests.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-10T20:13:26Z",
+      "side": 1,
+      "message": "But in other test classes it\u0027s going to be in each test b/c some will run on all API versions and some won\u0027t. So now the poor reader has to check both Setup() and also each test to check which API versions it will run on. I don\u0027t think that\u0027s a good idea.",
+      "parentUuid": "8891f6b0_2b3fd9ef",
       "range": {
         "startLine": 130,
         "startChar": 0,

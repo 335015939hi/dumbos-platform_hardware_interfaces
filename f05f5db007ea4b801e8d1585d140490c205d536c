@@ -41,6 +41,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d87de7f8_e28773ad",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-10T20:13:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a10c399f_7e9503ac",
+      "revId": "f05f5db007ea4b801e8d1585d140490c205d536c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5705717d_2c088444",
@@ -64,6 +82,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee24000a_09a6b2e7",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-10T20:13:26Z",
+      "side": 1,
+      "message": "Hi, thanks for looking!\n\nIPresentationSession is a way to present multiple IIdentityCredential objects using the same session encryption ephemeral key and same session transcript. It\u0027s not to reduce work, it\u0027s to make sure they\u0027re using the same keys / transcript.\n\nI don\u0027t think IIdentityCredential::duplicate would work ... it would make the implementers life significantly harder as they\u0027d need to then support having two (or more) IIdentityCredential objects alive at the same time. This would double (or more) the amount of RAM needed in the Secure Area backing the HAL.\n\nToday we allow implementations which effectively only supports a single instance of IIdentityCredential ... only the latest created instance will have to work, it\u0027s fine for the HAL to return failures on previously created instances. If you\u0027re familiar with KeyMaster/KeyMint this is analogous to the \"operation slot\" constraints.",
+      "parentUuid": "5705717d_2c088444",
+      "range": {
+        "startLine": 265,
+        "startChar": 25,
+        "endLine": 265,
+        "endChar": 50
+      },
+      "revId": "f05f5db007ea4b801e8d1585d140490c205d536c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "222035ca_908ca50c",
@@ -77,6 +119,30 @@
       "writtenOn": "2022-01-04T22:44:09Z",
       "side": 1,
       "message": "we should still make sure the other methods have defined return values",
+      "range": {
+        "startLine": 86,
+        "startChar": 7,
+        "endLine": 86,
+        "endChar": 21
+      },
+      "revId": "f05f5db007ea4b801e8d1585d140490c205d536c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dca9cab_3315dff5",
+        "filename": "identity/aidl/android/hardware/identity/IPresentationSession.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-10T20:13:26Z",
+      "side": 1,
+      "message": "OK, I\u0027ll add \"Other methods will fail with STATUS_FAILED.\" here.\n\nBtw, the CL does contain changes to say that STATUS_FAILED if the method is called on an instance obtained via IPresentationSession.getCredential() (for those methods that aren\u0027t listed here).",
+      "parentUuid": "222035ca_908ca50c",
       "range": {
         "startLine": 86,
         "startChar": 7,
