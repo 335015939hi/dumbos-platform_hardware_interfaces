@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11fd5f5e_c0fbcec0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-11T11:13:39Z",
+      "side": 1,
+      "message": "Please rebase this change on https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1944805",
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "040aa9d9_42ed8c49",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveCapabilities.aidl",
         "patchSetId": 4
