@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0fb90d62_0fe64944",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-11T09:46:39Z",
+      "side": 1,
+      "message": "I think it\u0027s not necessary since A2DP is provided in context",
+      "parentUuid": "9d9aa81f_41caa81c",
+      "range": {
+        "startLine": 38,
+        "startChar": 28,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "1e228e84e15470277ac32eca6010b8bd8832c98c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ef3894fd_7acb83b6",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecConfiguration.aidl",
         "patchSetId": 1
