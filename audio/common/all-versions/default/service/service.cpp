@@ -124,7 +124,7 @@ int main(int /* argc */, char* /* argv */[]) {
     // Setup AIDL interfaces
     ABinderProcess_setThreadPoolMaxThreadCount(1);
     ABinderProcess_startThreadPool();
-    {
+    if (!property_get_bool("persist.vendor.bluetooth.audio.service.aidl.disabled", false)) {
         auto bluetoothAudioProviderFactory =
                 ::ndk::SharedRefBase::make<BluetoothAudioProviderFactory>();
         const std::string instance_name =
