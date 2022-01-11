@@ -111,6 +111,30 @@
       },
       "revId": "fd6a36d25bbfa83ae17040d04709b99856952b44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "270805d3_57bd932a",
+        "filename": "security/dice/aidl/android/hardware/security/dice/BccHandover.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2022-01-11T19:07:43Z",
+      "side": 1,
+      "message": "Oops. Thanks!",
+      "parentUuid": "8eb0813a_7749e4fb",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 26
+      },
+      "revId": "fd6a36d25bbfa83ae17040d04709b99856952b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
