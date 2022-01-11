@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b63b5dad_5dbf4e0a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-11T09:49:00Z",
+      "side": 1,
+      "message": "It would become lc3Capabilities.lc3Capabilities as this naming due to the following define.\n\nLc3A2dpCapabilities {\n    Lc3Capabilities lc3Capabilities;\n    /*\n     * Channel mode for compatibility(bitmask)\n     */\n    ChannelMode channelMode;\n}",
+      "parentUuid": "0fb90d62_0fe64944",
+      "range": {
+        "startLine": 38,
+        "startChar": 28,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "1e228e84e15470277ac32eca6010b8bd8832c98c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ef3894fd_7acb83b6",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecConfiguration.aidl",
         "patchSetId": 1
