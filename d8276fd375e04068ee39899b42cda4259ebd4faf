@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b79ad13_0a475f99",
+        "filename": "neuralnetworks/utils/adapter/aidl/include/nnapi/hal/aidl/PreparedModel.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-11T23:42:37Z",
+      "side": 1,
+      "message": "I wonder why do we record this?",
+      "revId": "d8276fd375e04068ee39899b42cda4259ebd4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91ec8a51_0d478dd1",
+        "filename": "neuralnetworks/utils/adapter/aidl/src/Buffer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-11T23:42:37Z",
+      "side": 1,
+      "message": "2021 or 2022?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "d8276fd375e04068ee39899b42cda4259ebd4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccdee255_f1ddd366",
+        "filename": "neuralnetworks/utils/adapter/aidl/src/Burst.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-11T23:42:37Z",
+      "side": 1,
+      "message": "2021 or 2022?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "d8276fd375e04068ee39899b42cda4259ebd4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f96f6491_2c406e1a",
+        "filename": "neuralnetworks/utils/adapter/aidl/src/Device.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-11T23:42:37Z",
+      "side": 1,
+      "message": "Should we return an error or let it crash with a CHECK?",
+      "range": {
+        "startLine": 117,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 9
+      },
+      "revId": "d8276fd375e04068ee39899b42cda4259ebd4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
