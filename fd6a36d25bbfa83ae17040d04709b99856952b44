@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0e5a0ce_7a20beb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-11T17:58:43Z",
+      "side": 1,
+      "message": "This means we can never decide, in a future API version, to use new sizes.\n\nIs that what we really want? e.g. for PQC we may decide to increase hash size to 384 or more. If this does come to pass, then we\u0027re going to have to make a more traumatic API change with fixed sizes vs variable sized arrays.",
+      "revId": "fd6a36d25bbfa83ae17040d04709b99856952b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
