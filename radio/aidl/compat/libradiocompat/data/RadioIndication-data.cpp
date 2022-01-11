@@ -85,4 +85,12 @@ Return<void> RadioIndication::unthrottleApn(V1_0::RadioIndicationType type,
     return {};
 }
 
+Return<void> RadioIndication::slicingConfigChanged(V1_0::RadioIndicationType type,
+                                                   const V1_6::SlicingConfig& slicingConfig) {
+    LOG_CALL << type;
+    CHECK_CB(mDataCb);
+    dataCb()->slicingConfigChanged(toAidl(type), slicingConfig);
+    return {};
+}
+
 }  // namespace android::hardware::radio::compat
