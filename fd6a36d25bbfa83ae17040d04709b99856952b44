@@ -16,6 +16,24 @@
       "message": "This means we can never decide, in a future API version, to use new sizes.\n\nIs that what we really want? e.g. for PQC we may decide to increase hash size to 384 or more. If this does come to pass, then we\u0027re going to have to make a more traumatic API change with fixed sizes vs variable sized arrays.",
       "revId": "fd6a36d25bbfa83ae17040d04709b99856952b44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09d83e6e_eb415ef1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2022-01-11T18:14:40Z",
+      "side": 1,
+      "message": "All the hash fields are already sufficiently sized for SHA 512. And the open dice profile spec is very specific about the sice of these fields. So not only would the API need to change, the canonical formats would also change.\n\nThe spec is not so clear on the CDI secrets, though. libopen-dice uses fixed size arrays of size 32 bytes.\n\nMaybe Andrew or Darren can comment on this choice.",
+      "parentUuid": "d0e5a0ce_7a20beb1",
+      "revId": "fd6a36d25bbfa83ae17040d04709b99856952b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
