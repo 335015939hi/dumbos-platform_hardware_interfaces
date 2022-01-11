@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09fa957a_0a812214",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-11T22:09:19Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 56,
+        "startChar": 67,
+        "endLine": 56,
+        "endChar": 74
+      },
+      "revId": "1eb12b29728adcbbe5b8694f671c67b8a624fe4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fb8cff3_24cab684",
+        "filename": "identity/aidl/default/libeic/EicPresentation.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-11T22:09:19Z",
+      "side": 1,
+      "message": "Why not include EicCommon.h?",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "1eb12b29728adcbbe5b8694f671c67b8a624fe4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

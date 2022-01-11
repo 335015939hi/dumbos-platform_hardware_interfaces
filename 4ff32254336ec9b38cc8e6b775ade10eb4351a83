@@ -2310,6 +2310,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb73674_d5e3d962",
+        "filename": "identity/aidl/default/libeic/EicSession.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-11T22:09:19Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "881f8e7a_e147cb07",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 38
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b91bbdf6_87bee131",
@@ -2395,6 +2419,30 @@
       "side": 1,
       "message": "I don\u0027t agree a length should be passed. Anyway, this is what the library is already doing and I like consistency. If we want to change this implementation detail (it has no API implications) in libeic it should be done in another CL.",
       "parentUuid": "79a5749d_eaaefcab",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 1
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7039c227_7d84c9c6",
+        "filename": "identity/aidl/default/libeic/EicSession.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-11T22:09:19Z",
+      "side": 1,
+      "message": "A struct could be the answer, then.\n  struct P256PublicKey { uint8_t keyBytes[EIC_P256_PUB_KEY_SIZE]; };\n  \nI won\u0027t hold up sign-off on this point, but I might go fix it myself later ;)",
+      "parentUuid": "5b731df5_eb48d35f",
       "range": {
         "startLine": 81,
         "startChar": 0,
