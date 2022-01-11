@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d9aa81f_41caa81c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-11T09:38:24Z",
+      "side": 1,
+      "message": "nit: lc3A2dpCapabilities",
+      "range": {
+        "startLine": 38,
+        "startChar": 28,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "1e228e84e15470277ac32eca6010b8bd8832c98c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef3894fd_7acb83b6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecConfiguration.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-11T09:38:24Z",
+      "side": 1,
+      "message": "nit: lc3A2dpConfig",
+      "range": {
+        "startLine": 38,
+        "startChar": 29,
+        "endLine": 38,
+        "endChar": 38
+      },
+      "revId": "1e228e84e15470277ac32eca6010b8bd8832c98c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
