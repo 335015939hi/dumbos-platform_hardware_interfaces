@@ -34,6 +34,24 @@
       "parentUuid": "d0e5a0ce_7a20beb1",
       "revId": "fd6a36d25bbfa83ae17040d04709b99856952b44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e634483_8fa0ec68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-01-11T18:19:12Z",
+      "side": 1,
+      "message": "Spec says 32-bytes for CDIs https://pigweed.googlesource.com/open-dice/+/refs/heads/main/docs/specification.md#computing-cdi-values",
+      "parentUuid": "09d83e6e_eb415ef1",
+      "revId": "fd6a36d25bbfa83ae17040d04709b99856952b44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
