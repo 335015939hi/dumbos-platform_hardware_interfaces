@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c18349d_532df40f",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-01-11T20:52:30Z",
+      "side": 1,
+      "message": "If there\u0027s a standard for it, byte[] is fine. And please don\u0027t have a parcelable to be just a wrapper over byte[].\n\nMy suggestion is to revert back to byte[] here, and paste the doc from NfcData you have right now:\n\n```\n    /**\n     * Packet to transmit Commands, Responses, Notifications, and Data\n     * Messages over NCI.\n     * Detailed format is defined in NFC Controller Interface (NCI) Technical Specification.\n     * https://nfc-forum.org/our-work/specification-releases/\n     */\n```",
+      "parentUuid": "488d2659_297acbe7",
+      "range": {
+        "startLine": 115,
+        "startChar": 17,
+        "endLine": 115,
+        "endChar": 23
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "254a7125_c855357e",
         "filename": "nfc/aidl/android/hardware/nfc/INfcClientCallback.aidl",
         "patchSetId": 8
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "Update a NfcData.aidl for write() and sendData().",
       "parentUuid": "254a7125_c855357e",
+      "range": {
+        "startLine": 28,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d9305f6_f62960ea",
+        "filename": "nfc/aidl/android/hardware/nfc/INfcClientCallback.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-01-11T20:52:30Z",
+      "side": 1,
+      "message": "see other comment",
+      "parentUuid": "b676288e_01a7d121",
       "range": {
         "startLine": 28,
         "startChar": 21,
