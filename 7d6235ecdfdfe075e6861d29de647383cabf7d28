@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "710edcb0_fe2fc25a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3167,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-01-11T11:02:48Z",
+      "side": 1,
+      "message": "Nit: Personally I\u0027m not a fan of loop + conditional combination in tests. Makes it harder to figure out under which combination of conditions the test failed.\n\nA minor suggestion is to break the condition of the msg_size \u003e max_size outside of the loop, so it\u0027s clear a failure is expected in this case and only in this case.",
+      "range": {
+        "startLine": 3149,
+        "startChar": 0,
+        "endLine": 3167,
+        "endChar": 5
+      },
+      "revId": "7d6235ecdfdfe075e6861d29de647383cabf7d28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
