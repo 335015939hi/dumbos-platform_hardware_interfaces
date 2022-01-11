@@ -39,6 +39,30 @@
       },
       "revId": "f7a4e665e163e21dd4601f4730e1976634712b65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b787655f_3a0c9e90",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2238,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-01-11T13:40:59Z",
+      "side": 1,
+      "message": "I think we have to allow either possibility here, because the same VTS test will be used against both v1 and v2 implementations of KeyMint.  The UNSUPPORTED_EC_CURVE is the more \"correct\" error code here, but any v1 implementations are clearly going to return UNSUPPORTED_KEY_SIZE here (given the old state of the VTS checks).",
+      "parentUuid": "9b08b5af_defca11f",
+      "range": {
+        "startLine": 2237,
+        "startChar": 8,
+        "endLine": 2238,
+        "endChar": 63
+      },
+      "revId": "f7a4e665e163e21dd4601f4730e1976634712b65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
