@@ -22,6 +22,30 @@
       },
       "revId": "534556391ae153b1e8fdd11b233e2dc6ecd1e530",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "436ee3c5_16cf7ac1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-01-12T19:31:02Z",
+      "side": 1,
+      "message": "The binderized canonical+adapter service is uploaded here: aosp/1937977. However, I\u0027m still not sure if we ultimately want to merge it, at least in its current form. For example, we probably still want to have a \"pure\" HIDL/AIDL implementation.\n\nFWIW, I have a follow up CL (which I\u0027m about to upload) that runs the canonical+adapter on the host. Would you prefer to see that CL uploaded before this CL is submitted?",
+      "parentUuid": "e2d629e6_2f2aecc9",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 49
+      },
+      "revId": "534556391ae153b1e8fdd11b233e2dc6ecd1e530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
