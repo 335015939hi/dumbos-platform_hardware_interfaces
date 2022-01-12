@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "376afb5f_1a285484",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2022-01-12T20:58:29Z",
+      "side": 1,
+      "message": "Please add VTS tests for this.\nYou can run VTS with acloud create --local-image \u0026\u0026 atest VtsHalRadioTargetTest, or I can also run the test locally for you if that doesn\u0027t work.",
+      "revId": "39585cae151acada6303bc76f702b3f5e222a323",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c78f8c_119f43b0",
+        "filename": "radio/aidl/compat/libradiocompat/data/RadioIndication-data.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2022-01-12T20:58:29Z",
+      "side": 1,
+      "message": "Should this be dataCb() like above?",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 11
+      },
+      "revId": "39585cae151acada6303bc76f702b3f5e222a323",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
