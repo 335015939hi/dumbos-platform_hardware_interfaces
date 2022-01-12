@@ -23,13 +23,62 @@ package {
     default_applicable_licenses: ["hardware_interfaces_license"],
 }
 
+// Copied from VtsHalTargetTestDefaults in hardware/interfaces/Android.bp.
+// This can be removed if/when libhidl_gtest_helper is host_supported.
+// VTS tests must link to HAL definition libraries statically.
+cc_defaults {
+    name: "NnVtsHalTargetTestDefaults",
+    defaults: [
+        "hidl_defaults",
+    ],
+
+    // Lists all dependencies that can *not* be expected on the device.
+    static_libs: [
+        "VtsHalHidlTestUtils",
+        "libhidl-gen-utils",
+    ],
+
+    target: {
+        android: {
+            header_libs: [
+                "libhidl_gtest_helper",
+            ],
+        },
+    },
+
+    // Lists all system dependencies that can be expected on the device.
+    shared_libs: [
+        "libbase",
+        // All the following are dependencies of any HAL definition library.
+        "libcutils",
+        "liblog",
+        "libhidlbase",
+        "libutils",
+    ],
+    cflags: [
+        "-O0",
+        "-g",
+    ],
+
+    require_root: true,
+}
+
+cc_defaults {
+    name: "neuralnetworks_aidl_vts_functional_defaults",
+    defaults: [
+        "NnVtsHalTargetTestDefaults",
+        "neuralnetworks_float16",
+    ],
+}
+
 cc_test {
     name: "VtsHalNeuralnetworksTargetTest",
     defaults: [
         "neuralnetworks_use_latest_utils_hal_aidl",
-        "neuralnetworks_vts_functional_defaults",
+        "neuralnetworks_aidl_vts_functional_defaults",
         "use_libaidlvintf_gtest_helper_static",
     ],
+    host_supported: true,
     srcs: [
         "BasicTests.cpp",
         "Callbacks.cpp",
@@ -46,18 +95,11 @@ cc_test {
     ],
     shared_libs: [
         "libbinder_ndk",
-        "libnativewindow",
-        "libvndksupport",
     ],
     static_libs: [
-        "android.hidl.allocator@1.0",
-        "android.hidl.memory@1.0",
         "libaidlcommonsupport",
-        "libgmock",
-        "libhidlmemory",
         "libneuralnetworks_common",
         "libneuralnetworks_generated_test_harness",
-        "libsync",
     ],
     whole_static_libs: [
         "neuralnetworks_generated_AIDL_V3_example",
@@ -73,6 +115,35 @@ cc_test {
     ],
     test_suites: [
         "general-tests",
-        "vts",
     ],
+    target: {
+        android: {
+            shared_libs: [
+                "libnativewindow",
+                "libvndksupport",
+            ],
+            static_libs: [
+                "libsync",
+            ],
+            test_suites: [
+                "vts",
+            ],
+        },
+        host: {
+            shared_libs: [
+                "libtextclassifier_hash",
+            ],
+            static_libs: [
+                "neuralnetworks_canonical_sample_driver",
+                "neuralnetworks_utils_hal_adapter_aidl",
+            ],
+            exclude_static_libs: [
+                "VtsHalHidlTestUtils",
+                "libaidlvintf_gtest_helper",
+            ],
+        },
+    },
+    test_options: {
+        unit_test: false,
+    },
 }
