@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cdb1c9c_aaf811a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2022-01-12T21:32:28Z",
+      "side": 1,
+      "message": "tracking it as bug mentioned in commit text",
+      "parentUuid": "376afb5f_1a285484",
+      "revId": "39585cae151acada6303bc76f702b3f5e222a323",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56c78f8c_119f43b0",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-01-12T20:58:29Z",
       "side": 1,
       "message": "Should this be dataCb() like above?",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 11
+      },
+      "revId": "39585cae151acada6303bc76f702b3f5e222a323",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "875a8280_76a94958",
+        "filename": "radio/aidl/compat/libradiocompat/data/RadioIndication-data.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2022-01-12T21:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56c78f8c_119f43b0",
       "range": {
         "startLine": 92,
         "startChar": 4,
