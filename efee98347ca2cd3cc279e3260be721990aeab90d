@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56da2cf6_71210536",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-01-12T21:54:41Z",
+      "side": 1,
+      "message": "Could you perhaps s/likely/historical/g here? Maybe even remove the next sentence w/ \u0027may\u0027? These are either the same or not, but the main concern with the previous wording is that it seemed to imply that old values which are not defined here are okay to be used in the interface. We want to make sure that only the values which are defined as part of the interface are actually used with the inteface.",
+      "range": {
+        "startLine": 22,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 13
+      },
+      "revId": "efee98347ca2cd3cc279e3260be721990aeab90d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
