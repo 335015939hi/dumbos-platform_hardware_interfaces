@@ -87,6 +87,30 @@
       },
       "revId": "013764027bc9c34a431a8e474aed2cc548876d36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7f25306_3df57d32",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-01-12T08:40:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "022513c9_55248fc0",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "013764027bc9c34a431a8e474aed2cc548876d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
