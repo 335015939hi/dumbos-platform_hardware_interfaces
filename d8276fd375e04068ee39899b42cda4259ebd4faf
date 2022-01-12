@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7e391ae_4dcb2774",
+        "filename": "neuralnetworks/utils/adapter/aidl/include/nnapi/hal/aidl/PreparedModel.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-12T18:49:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d9d0498a_4173a7a5",
+      "revId": "d8276fd375e04068ee39899b42cda4259ebd4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91ec8a51_0d478dd1",
@@ -167,6 +185,30 @@
       "side": 1,
       "message": "I would prefer to let it crash because allocate should always return a non-null value on success (note the NN_TRY will handle any failures reported by IDevice::allocate). This behavior can only be triggered by a faulty canonical implementation, so a caller wouldn\u0027t be able to exploit this.\n\nFWIW, I\u0027ve considered making the Shared* objects (SharedBuffer, SharedDevice, etc.) only constructible with a non-null pointer in the past, which would make this kind of CHECK redundant. As a general question, would you like to see that type of class behavior?",
       "parentUuid": "f96f6491_2c406e1a",
+      "range": {
+        "startLine": 117,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 9
+      },
+      "revId": "d8276fd375e04068ee39899b42cda4259ebd4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3975205d_b390aadc",
+        "filename": "neuralnetworks/utils/adapter/aidl/src/Device.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-12T18:49:06Z",
+      "side": 1,
+      "message": "\u003e I would prefer to let it crash ...\n\nAck\n\n\u003e ..., would you like to see that type of class behavior?\n\nI feel being able to construct a null Shared* object can sometimes be handy, but I cannot think of a concrete situation.",
+      "parentUuid": "ae49fba9_462f4630",
       "range": {
         "startLine": 117,
         "startChar": 4,
