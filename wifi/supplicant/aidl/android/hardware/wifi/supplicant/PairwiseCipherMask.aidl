@@ -19,7 +19,8 @@ package android.hardware.wifi.supplicant;
 /**
  * Possible mask of values for PairwiseCipher param.
  * See /external/wpa_supplicant_8/src/common/defs.h for
- * all possible values (starting at WPA_CIPHER_NONE).
+ * the likely values (starting at WPA_CIPHER_NONE),
+ * although the values here may differ from that definition.
  */
 @VintfStability
 @Backing(type="int")
