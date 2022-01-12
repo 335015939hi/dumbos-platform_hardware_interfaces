@@ -1271,6 +1271,7 @@ TEST_P(RadioHidlTest_v1_5, getBarringInfo) {
     EXPECT_EQ(serial, radioRsp_v1_5->rspInfo.serial);
 
     int32_t firstApiLevel = android::base::GetIntProperty<int32_t>("ro.product.first_api_level", 0);
+    int32_t boardApiLevel = android::base::GetIntProperty<int32_t>("ro.board.first_api_level", 0);
     // Allow devices shipping with Radio::1_5 and Android 11 to not support barring info.
     if (firstApiLevel > 0 && firstApiLevel <= 30) {
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_5->rspInfo.error,
@@ -1278,6 +1279,15 @@ TEST_P(RadioHidlTest_v1_5, getBarringInfo) {
         // Early exit for devices that don't support barring info.
         if (radioRsp_v1_5->rspInfo.error != RadioError::NONE) {
             return;
+        }
+    } else if(boardApiLevel > 0 && boardApiLevel <=30) {
+        // b/212384410 Some GRF targets lauched with S release but with vendor R release
+        // do not support getBarringInfo API. Allow these devices to not support barring info.
+        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_5->rspInfo.error,
+                                     {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));
+        // Early exit for devices that don't support barring info.
+        if (radioRsp_v1_5->rspInfo.error != RadioError::NONE) {
+          return;
         }
     }
 
