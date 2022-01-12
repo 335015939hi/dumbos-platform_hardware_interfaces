@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c799800_8eae61c2",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AnqpData.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2022-01-12T17:37:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c16051b_c3b2c7bd",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 8
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a9da0c4_ee6eb301",
@@ -199,6 +223,24 @@
       "side": 1,
       "message": "Sounds good, I can update the wording to make that more clear. I\u0027ll make that change in a separate CL, but I added b/210904141 to track the issue.",
       "parentUuid": "3cd96532_229cea16",
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64d9a912_4508bb6b",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2022-01-12T17:37:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17a3722d_87365efa",
       "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -534,6 +576,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b83f169e_35843def",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/KeyMgmtMask.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2022-01-12T17:37:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3028706b_6cba0ed1",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 11
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32c0143e_8fe81221",
@@ -653,6 +719,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cde85c3_6f1fce29",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/MacAddress.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2022-01-12T17:37:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f14465_a6cf8c2c",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cb5c82f_dbe8a29e",
@@ -731,6 +821,24 @@
       "side": 1,
       "message": "Sounds good! There was only one other OWNERS file in supplicant, so I went ahead and merged them into one at the root.",
       "parentUuid": "9991f0c3_45de3518",
+      "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83e3e209_d41f92b2",
+        "filename": "wifi/supplicant/aidl/vts/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2022-01-12T17:37:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0910597_48095f44",
       "revId": "e92db029dee5870e2a7199d62f6a68ba022906d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
