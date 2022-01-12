@@ -46,6 +46,30 @@
       },
       "revId": "534556391ae153b1e8fdd11b233e2dc6ecd1e530",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57797b55_267a8270",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-12T19:36:40Z",
+      "side": 1,
+      "message": "Testing the canonical+adapter on the host sounds good. I am fine with submitting this CL first.",
+      "parentUuid": "436ee3c5_16cf7ac1",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 49
+      },
+      "revId": "534556391ae153b1e8fdd11b233e2dc6ecd1e530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
