@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ffb7a41_e65143bd",
+        "filename": "neuralnetworks/aidl/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-01-12T21:45:54Z",
+      "side": 1,
+      "message": "This can be removed if/when aosp/1947313 is submitted.",
+      "range": {
+        "startLine": 30,
+        "startChar": 11,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "33d36e69603d980de47b542df99a46a2c3bf795d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
