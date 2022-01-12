@@ -63,6 +63,30 @@
       },
       "revId": "013764027bc9c34a431a8e474aed2cc548876d36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "022513c9_55248fc0",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-12T05:42:04Z",
+      "side": 1,
+      "message": "I see. Thanks for the explanation. Could you add more description in the commit message?",
+      "parentUuid": "c29ef8a9_4136b118",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "013764027bc9c34a431a8e474aed2cc548876d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
