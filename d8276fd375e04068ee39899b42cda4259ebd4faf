@@ -217,6 +217,30 @@
       },
       "revId": "d8276fd375e04068ee39899b42cda4259ebd4faf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04cd7965_38e710c6",
+        "filename": "neuralnetworks/utils/adapter/aidl/src/Device.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-01-12T19:43:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3975205d_b390aadc",
+      "range": {
+        "startLine": 117,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 9
+      },
+      "revId": "d8276fd375e04068ee39899b42cda4259ebd4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
