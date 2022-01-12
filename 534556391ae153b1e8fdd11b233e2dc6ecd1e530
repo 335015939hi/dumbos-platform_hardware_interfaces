@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2d629e6_2f2aecc9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-12T19:02:41Z",
+      "side": 1,
+      "message": "I wonder if this locally created binderized service will be uploaded and enabled in some build target (e.g. cuttlefish)? I am asking because I think the FL8 features would also need to modify the adapter here, so I wonder if we could make it easier to test the adapter.",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 49
+      },
+      "revId": "534556391ae153b1e8fdd11b233e2dc6ecd1e530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
