@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "995d00e3_965506f3",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-01-13T00:15:47Z",
+      "side": 1,
+      "message": "this is all duplicated code? \nCan you move the comment up to line 1276 and add this condition as an OR to remove the duplication?\n```\n   // Allow devices shipping with Radio::1_5 and Android 11 to not support barring info.\n   // b/212384410 Some GRF targets lauched with S release but with vendor R release\n    // do not support getBarringInfo API. Allow these devices to not support barring info.\n    if ((firstApiLevel \u003e 0 \u0026\u0026 firstApiLevel \u003c\u003d 30) ||\n        (boardApiLevel \u003e 0 \u0026\u0026 boardApiLevel \u003c\u003d 30)) {\n        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_5-\u003erspInfo.error,\n                                     {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));\n        // Early exit for devices that don\u0027t support barring info.\n        if (radioRsp_v1_5-\u003erspInfo.error !\u003d RadioError::NONE) {\n            return;\n        }\n    }\n    ```",
+      "range": {
+        "startLine": 1286,
+        "startChar": 8,
+        "endLine": 1291,
+        "endChar": 9
+      },
+      "revId": "cfe135a209384cdd7ebc5a3fb9bfaac55774de5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
