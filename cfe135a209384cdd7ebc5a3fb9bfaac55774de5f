@@ -46,6 +46,30 @@
       },
       "revId": "cfe135a209384cdd7ebc5a3fb9bfaac55774de5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "facae6de_6fbe0180",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-01-13T16:12:02Z",
+      "side": 1,
+      "message": "Unresolving until new patch is uploaded.",
+      "parentUuid": "5c438253_db22ac63",
+      "range": {
+        "startLine": 1286,
+        "startChar": 8,
+        "endLine": 1291,
+        "endChar": 9
+      },
+      "revId": "cfe135a209384cdd7ebc5a3fb9bfaac55774de5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
