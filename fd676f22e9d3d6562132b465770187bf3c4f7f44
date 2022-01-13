@@ -1,0 +1,133 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000019194952",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1946231?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "e60be81b_1598f9ee",
+          "description": "Change to \"bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp\"",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+              "range": {
+                "startLine": 839,
+                "startChar": 34,
+                "endLine": 839,
+                "endChar": 40
+              },
+              "replacement": "invalid"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "7a80631c_73009aa3",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-01-13T10:09:49Z",
+      "side": 1,
+      "message": "Common typo found: \"invlid\" -- should it be \"invalid\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 839,
+        "startChar": 34,
+        "endLine": 839,
+        "endChar": 40
+      },
+      "revId": "fd676f22e9d3d6562132b465770187bf3c4f7f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000019194952",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1946231?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "f592cf20_e5af4eed",
+          "description": "Change to \"bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp\"",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+              "range": {
+                "startLine": 1212,
+                "startChar": 32,
+                "endLine": 1212,
+                "endChar": 38
+              },
+              "replacement": "invalid"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "5a6cfbb4_5ee8c6e0",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-01-13T10:09:49Z",
+      "side": 1,
+      "message": "Common typo found: \"invlid\" -- should it be \"invalid\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 1212,
+        "startChar": 32,
+        "endLine": 1212,
+        "endChar": 38
+      },
+      "revId": "fd676f22e9d3d6562132b465770187bf3c4f7f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000019194952",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1946231?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "25af9a1c_6c165912",
+          "description": "Change to \"bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp\"",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+              "range": {
+                "startLine": 1322,
+                "startChar": 32,
+                "endLine": 1322,
+                "endChar": 38
+              },
+              "replacement": "invalid"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "fe5214da_c967cb0d",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1322,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-01-13T10:09:49Z",
+      "side": 1,
+      "message": "Common typo found: \"invlid\" -- should it be \"invalid\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 1322,
+        "startChar": 32,
+        "endLine": 1322,
+        "endChar": 38
+      },
+      "revId": "fd676f22e9d3d6562132b465770187bf3c4f7f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
