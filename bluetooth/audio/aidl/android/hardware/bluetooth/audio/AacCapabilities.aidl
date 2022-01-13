@@ -25,10 +25,10 @@ import android.hardware.bluetooth.audio.ChannelMode;
 @VintfStability
 parcelable AacCapabilities {
     /* bitfield */
-    AacObjectType objectType;
+    AacObjectType[] objectType;
     int[] sampleRateHz;
     /* bitfield */
-    ChannelMode channelMode;
+    ChannelMode[] channelMode;
     boolean variableBitRateSupported;
     byte[] bitsPerSample;
 }

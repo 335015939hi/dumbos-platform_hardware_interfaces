@@ -25,6 +25,6 @@ import android.hardware.bluetooth.audio.ChannelMode;
 parcelable AptxCapabilities {
     int[] sampleRateHz;
     /* bitfield */
-    ChannelMode channelMode;
+    ChannelMode[] channelMode;
     byte[] bitsPerSample;
 }
