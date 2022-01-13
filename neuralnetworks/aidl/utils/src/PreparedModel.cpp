@@ -57,18 +57,20 @@ nn::GeneralResult<std::pair<nn::Timing, nn::Timing>> convertFencedExecutionResul
 }  // namespace
 
 nn::GeneralResult<std::shared_ptr<const PreparedModel>> PreparedModel::create(
-        std::shared_ptr<aidl_hal::IPreparedModel> preparedModel) {
+        std::shared_ptr<aidl_hal::IPreparedModel> preparedModel, nn::Version featureLevel) {
     if (preparedModel == nullptr) {
         return NN_ERROR()
                << "aidl_hal::utils::PreparedModel::create must have non-null preparedModel";
     }
 
-    return std::make_shared<const PreparedModel>(PrivateConstructorTag{}, std::move(preparedModel));
+    return std::make_shared<const PreparedModel>(PrivateConstructorTag{}, std::move(preparedModel),
+                                                 featureLevel);
 }
 
 PreparedModel::PreparedModel(PrivateConstructorTag /*tag*/,
-                             std::shared_ptr<aidl_hal::IPreparedModel> preparedModel)
-    : kPreparedModel(std::move(preparedModel)) {}
+                             std::shared_ptr<aidl_hal::IPreparedModel> preparedModel,
+                             nn::Version featureLevel)
+    : kPreparedModel(std::move(preparedModel)), kFeatureLevel(featureLevel) {}
 
 nn::ExecutionResult<std::pair<std::vector<nn::OutputShape>, nn::Timing>> PreparedModel::execute(
         const nn::Request& request, nn::MeasureTiming measure,
