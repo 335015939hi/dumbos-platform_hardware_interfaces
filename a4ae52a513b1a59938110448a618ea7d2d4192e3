@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f85ae3a_17f748ee",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-13T15:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b36e8359_53ecd2d2",
+      "range": {
+        "startLine": 36,
+        "startChar": 45,
+        "endLine": 36,
+        "endChar": 49
+      },
+      "revId": "a4ae52a513b1a59938110448a618ea7d2d4192e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "623b142a_9fe8ac77",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-11T20:52:30Z",
       "side": 1,
       "message": "nit: consistency with L36",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "a4ae52a513b1a59938110448a618ea7d2d4192e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a41a7ed5_1c67b5cd",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-13T15:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "623b142a_9fe8ac77",
       "range": {
         "startLine": 38,
         "startChar": 12,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "735b910c_90f58fe2",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-13T15:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a914b5c0_7c723929",
+      "range": {
+        "startLine": 39,
+        "startChar": 7,
+        "endLine": 39,
+        "endChar": 13
+      },
+      "revId": "a4ae52a513b1a59938110448a618ea7d2d4192e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6945c2c3_a349ecb2",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-01-11T20:52:30Z",
       "side": 1,
       "message": "nit: must be",
+      "range": {
+        "startLine": 46,
+        "startChar": 51,
+        "endLine": 46,
+        "endChar": 54
+      },
+      "revId": "a4ae52a513b1a59938110448a618ea7d2d4192e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7490521e_7137b3e7",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-13T15:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6945c2c3_a349ecb2",
       "range": {
         "startLine": 46,
         "startChar": 51,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2be12c62_dcf2f6e2",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-13T15:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a84c116_16113e43",
+      "range": {
+        "startLine": 47,
+        "startChar": 48,
+        "endLine": 47,
+        "endChar": 54
+      },
+      "revId": "a4ae52a513b1a59938110448a618ea7d2d4192e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8802f75_010a7d3c",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-01-11T20:52:30Z",
       "side": 1,
       "message": "nit: must",
+      "range": {
+        "startLine": 48,
+        "startChar": 46,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "a4ae52a513b1a59938110448a618ea7d2d4192e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48fe8504_d459a439",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-13T15:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8802f75_010a7d3c",
       "range": {
         "startLine": 48,
         "startChar": 46,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03ba4c55_07361d73",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-13T15:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3b7a48b_9f5ac1cd",
+      "range": {
+        "startLine": 51,
+        "startChar": 68,
+        "endLine": 51,
+        "endChar": 72
+      },
+      "revId": "a4ae52a513b1a59938110448a618ea7d2d4192e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de35b4e3_e6007a96",
@@ -185,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6159caa_2f2e2cd9",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-13T15:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de35b4e3_e6007a96",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 28
+      },
+      "revId": "a4ae52a513b1a59938110448a618ea7d2d4192e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0376fba_e267391a",
@@ -198,6 +390,30 @@
       "writtenOn": "2022-01-11T20:52:30Z",
       "side": 1,
       "message": "nit: something like\n\n```\nIf verbose logging is not supported, the call must not have any effect on logging verbosity. However, isVerboseLoggingEnabled() must still return the value set by the last call to setEnableVerboseLogging().\n```",
+      "range": {
+        "startLine": 129,
+        "startChar": 7,
+        "endLine": 130,
+        "endChar": 14
+      },
+      "revId": "a4ae52a513b1a59938110448a618ea7d2d4192e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b156fa3_fd284010",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-13T15:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0376fba_e267391a",
       "range": {
         "startLine": 129,
         "startChar": 7,

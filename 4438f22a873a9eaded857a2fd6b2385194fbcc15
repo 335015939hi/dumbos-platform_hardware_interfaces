@@ -166,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3511fe99_b2b5897d",
+        "filename": "nfc/aidl/android/hardware/nfc/INfc.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-13T15:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c18349d_532df40f",
+      "range": {
+        "startLine": 115,
+        "startChar": 17,
+        "endLine": 115,
+        "endChar": 23
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "254a7125_c855357e",
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "see other comment",
       "parentUuid": "b676288e_01a7d121",
+      "range": {
+        "startLine": 28,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "4438f22a873a9eaded857a2fd6b2385194fbcc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "112f22cd_9148b2e9",
+        "filename": "nfc/aidl/android/hardware/nfc/INfcClientCallback.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-13T15:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d9305f6_f62960ea",
       "range": {
         "startLine": 28,
         "startChar": 21,
