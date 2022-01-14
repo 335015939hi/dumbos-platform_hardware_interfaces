@@ -68,6 +68,24 @@
       "parentUuid": "47721b44_27dcce27",
       "revId": "6bcfbf95810dce0ce472b555aeeb7ff67cad4ec0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a11f79de_505eb85d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6002,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-01-14T17:17:40Z",
+      "side": 1,
+      "message": "But isn\u0027t the decryption input here always the correct length (because the ciphertext just has its contents corrupted, not its length changes)?\n\nOr am I misunderstanding something?",
+      "parentUuid": "17f12867_88ba1740",
+      "revId": "6bcfbf95810dce0ce472b555aeeb7ff67cad4ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
