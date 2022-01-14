@@ -50,6 +50,24 @@
       "message": "I\u0027m concerned that allowing an implementation to return anything other than a single failure code for decryption failure might lead to a security problem -- if this is emitted for incorrect padding, does this open up the possibility of a padding oracle attack?",
       "revId": "6bcfbf95810dce0ce472b555aeeb7ff67cad4ec0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17f12867_88ba1740",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6002,
+      "author": {
+        "id": 1889125
+      },
+      "writtenOn": "2022-01-14T16:22:55Z",
+      "side": 1,
+      "message": "`INVALID_INPUT_LENGTH` is only emitted when the input length is not a multiple of the cipher block size. The error message is generated before attempting to decrypt the block and check the padding.",
+      "parentUuid": "47721b44_27dcce27",
+      "revId": "6bcfbf95810dce0ce472b555aeeb7ff67cad4ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
