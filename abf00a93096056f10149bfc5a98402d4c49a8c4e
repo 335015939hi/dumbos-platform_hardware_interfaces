@@ -16,6 +16,29 @@
       "message": "Clean Cherry Pick.",
       "revId": "abf00a93096056f10149bfc5a98402d4c49a8c4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62d6f1db_849ba29f",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2022-01-14T00:07:10Z",
+      "side": 1,
+      "message": "This must not be used alone. It could be overridden by ro.board.api_level.\nIf this is run on GSI-S or later versions, you may simple replace the \"ro.product.first_api_level\" from the original code with \"ro.vendor.api_level\" that has all the complicated property checks (aosp/1938280).",
+      "range": {
+        "startLine": 1274,
+        "startChar": 67,
+        "endLine": 1274,
+        "endChar": 93
+      },
+      "revId": "abf00a93096056f10149bfc5a98402d4c49a8c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
