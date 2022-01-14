@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2032ca43_4690eebc",
+        "filename": "graphics/composer/2.1/default/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1170688
+      },
+      "writtenOn": "2022-01-14T17:41:29Z",
+      "side": 1,
+      "message": "nit: Consider using a single file to track graphics team owners and then point to that file everywhere. see frameworks/base/MULTIUSER_OWNERS or https://source.corp.google.com/android/frameworks/base/core/java/android/app/OWNERS;l\u003d79?q\u003dwindowmanager%20owners\u0026sq\u003dpackage:%5Eandroid as an example",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 15
+      },
+      "revId": "7b957abe495da313ba7ec0611f92721aeae5529c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
