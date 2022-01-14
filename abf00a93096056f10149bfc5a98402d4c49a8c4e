@@ -39,6 +39,30 @@
       },
       "revId": "abf00a93096056f10149bfc5a98402d4c49a8c4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "693f792d_00ee4875",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2022-01-14T18:25:47Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me whether it is going to be run only on GSI-S or later. The tests apply to R+ HALs. If need be, I can submit a follow-up.",
+      "parentUuid": "62d6f1db_849ba29f",
+      "range": {
+        "startLine": 1274,
+        "startChar": 67,
+        "endLine": 1274,
+        "endChar": 93
+      },
+      "revId": "abf00a93096056f10149bfc5a98402d4c49a8c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
