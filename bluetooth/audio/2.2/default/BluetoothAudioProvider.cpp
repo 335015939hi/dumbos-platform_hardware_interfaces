@@ -48,7 +48,7 @@ void BluetoothAudioDeathRecipient::serviceDied(
 
 BluetoothAudioProvider::BluetoothAudioProvider()
     : death_recipient_(new BluetoothAudioDeathRecipient(this)),
-      session_type_(V2_1::SessionType::UNKNOWN),
+      session_type_(V2_2::SessionType::UNKNOWN),
       audio_config_({}) {}
 
 Return<void> BluetoothAudioProvider::startSession(

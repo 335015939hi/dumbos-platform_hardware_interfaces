@@ -34,8 +34,12 @@ using ::android::hardware::bluetooth::audio::V2_2::BroadcastCapability;
 using ::android::hardware::bluetooth::audio::V2_2::
     LeAudioCodecCapabilitiesSetting;
 using ::android::hardware::bluetooth::audio::V2_2::UnicastCapability;
+using SessionType_2_0 =
+    ::android::hardware::bluetooth::audio::V2_0::SessionType;
 using SessionType_2_1 =
     ::android::hardware::bluetooth::audio::V2_1::SessionType;
+using SessionType_2_2 =
+    ::android::hardware::bluetooth::audio::V2_2::SessionType;
 
 // Stores the list of offload supported capability
 std::vector<LeAudioCodecCapabilitiesSetting> kDefaultOffloadLeAudioCapabilities;
@@ -81,14 +85,74 @@ std::vector<std::tuple<AudioLocation, uint8_t, uint8_t>>
                               std::make_tuple(monoAudio, 1, 2),
                               std::make_tuple(monoAudio, 1, 1)};
 
+namespace {
+bool is_2_0_session_type(
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
+        session_type) {
+  if (session_type == SessionType_2_2::A2DP_SOFTWARE_ENCODING_DATAPATH ||
+      session_type == SessionType_2_2::A2DP_HARDWARE_OFFLOAD_DATAPATH ||
+      session_type == SessionType_2_2::HEARING_AID_SOFTWARE_ENCODING_DATAPATH) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+bool is_2_1_session_type(
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
+        session_type) {
+  if (session_type == SessionType_2_2::A2DP_SOFTWARE_ENCODING_DATAPATH ||
+      session_type == SessionType_2_2::A2DP_HARDWARE_OFFLOAD_DATAPATH ||
+      session_type == SessionType_2_2::HEARING_AID_SOFTWARE_ENCODING_DATAPATH ||
+      session_type == SessionType_2_2::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH ||
+      session_type == SessionType_2_2::LE_AUDIO_SOFTWARE_DECODED_DATAPATH ||
+      session_type ==
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+      session_type ==
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH
+      ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+}  // namespace
+
+std::vector<CodecCapabilities> GetOffloadCodecCapabilities(
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
+        session_type) {
+  if (is_2_0_session_type(session_type)) {
+    return GetOffloadCodecCapabilities(
+        static_cast<SessionType_2_0>(session_type));
+  }
+  if (is_2_1_session_type(session_type)) {
+    return GetOffloadCodecCapabilities(
+        static_cast<SessionType_2_1>(session_type));
+  }
+  return std::vector<CodecCapabilities>(0);
+}
+
+bool IsOffloadCodecConfigurationValid(
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
+        session_type,
+    const ::android::hardware::bluetooth::audio::V2_0::CodecConfiguration&
+        codec_config) {
+  if (is_2_0_session_type(session_type)) {
+    return IsOffloadCodecConfigurationValid(
+        static_cast<SessionType_2_0>(session_type), codec_config);
+  }
+
+  return false;
+}
+
 bool IsOffloadLeAudioConfigurationValid(
-    const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
         session_type,
     const ::android::hardware::bluetooth::audio::V2_2::LeAudioConfiguration&) {
   if (session_type !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
       session_type !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     return false;
   }
 
@@ -110,11 +174,11 @@ UnicastCapability composeUnicastLc3Capability(AudioLocation audioLocation,
 }
 
 std::vector<LeAudioCodecCapabilitiesSetting> GetLeAudioOffloadCodecCapabilities(
-    const SessionType_2_1& session_type) {
+    const SessionType_2_2& session_type) {
   if (session_type !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
       session_type !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     return std::vector<LeAudioCodecCapabilitiesSetting>(0);
   }
 

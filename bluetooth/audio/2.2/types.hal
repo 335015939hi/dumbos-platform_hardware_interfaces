@@ -21,6 +21,14 @@ import @2.1::PcmParameters;
 import @2.0::CodecConfiguration;
 import @2.0::CodecCapabilities;
 import @2.1::CodecType;
+import @2.1::SessionType;
+
+enum SessionType : @2.1::SessionType {
+    /** Used when encoded by Bluetooth Stack and broadcasting */
+    LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH,
+    /** Encoding is done by HW an there is control only */
+    LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
+};
 
 enum LeAudioMode : uint8_t {
     UNKNOWN = 0x00,

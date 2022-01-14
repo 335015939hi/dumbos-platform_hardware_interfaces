@@ -54,7 +54,7 @@ A2dpSoftwareAudioProvider::A2dpSoftwareAudioProvider()
       new DataMQ(kDataMqSize, /* EventFlag */ true));
   if (tempDataMQ && tempDataMQ->isValid()) {
     mDataMQ = std::move(tempDataMQ);
-    session_type_ = V2_1::SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH;
+    session_type_ = V2_2::SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH;
   } else {
     ALOGE_IF(!tempDataMQ, "failed to allocate data MQ");
     ALOGE_IF(tempDataMQ && !tempDataMQ->isValid(), "data MQ is invalid");
@@ -62,10 +62,14 @@ A2dpSoftwareAudioProvider::A2dpSoftwareAudioProvider()
 }
 
 bool A2dpSoftwareAudioProvider::isValid(const V2_0::SessionType& sessionType) {
-  return isValid(static_cast<V2_1::SessionType>(sessionType));
+  return isValid(static_cast<V2_2::SessionType>(sessionType));
 }
 
 bool A2dpSoftwareAudioProvider::isValid(const V2_1::SessionType& sessionType) {
+  return isValid(static_cast<V2_2::SessionType>(sessionType));
+}
+
+bool A2dpSoftwareAudioProvider::isValid(const V2_2::SessionType& sessionType) {
   return (sessionType == session_type_ && mDataMQ && mDataMQ->isValid());
 }
 

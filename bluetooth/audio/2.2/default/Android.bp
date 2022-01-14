@@ -20,6 +20,8 @@ cc_library_shared {
         "HearingAidAudioProvider.cpp",
         "LeAudioAudioProvider.cpp",
         "LeAudioOffloadAudioProvider.cpp",
+        "LeAudioBroadcastAudioProvider.cpp",
+        "LeAudioBroadcastOffloadAudioProvider.cpp",
     ],
     header_libs: ["libhardware_headers"],
     shared_libs: [

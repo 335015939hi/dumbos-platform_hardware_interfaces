@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,9 +27,9 @@ namespace audio {
 namespace V2_2 {
 namespace implementation {
 
-class LeAudioOffloadAudioProvider : public BluetoothAudioProvider {
+class LeAudioBroadcastOffloadAudioProvider : public BluetoothAudioProvider {
  public:
-  LeAudioOffloadAudioProvider();
+  LeAudioBroadcastOffloadAudioProvider();
 
   bool isValid(const V2_2::SessionType& sessionType) override;
   bool isValid(const V2_1::SessionType& sessionType) override;
@@ -45,16 +45,6 @@ class LeAudioOffloadAudioProvider : public BluetoothAudioProvider {
 
  private:
   Return<void> onSessionReady(startSession_cb _hidl_cb) override;
-};
-
-class LeAudioOffloadOutputAudioProvider : public LeAudioOffloadAudioProvider {
- public:
-  LeAudioOffloadOutputAudioProvider();
-};
-
-class LeAudioOffloadInputAudioProvider : public LeAudioOffloadAudioProvider {
- public:
-  LeAudioOffloadInputAudioProvider();
 };
 
 }  // namespace implementation
