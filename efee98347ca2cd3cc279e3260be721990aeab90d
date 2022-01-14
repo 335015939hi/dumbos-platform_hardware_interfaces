@@ -46,6 +46,30 @@
       },
       "revId": "efee98347ca2cd3cc279e3260be721990aeab90d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7425b35e_dcaf9b60",
+        "filename": "wifi/supplicant/aidl/android/hardware/wifi/supplicant/AuthAlgMask.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2022-01-14T23:46:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "791be080_aa58bc13",
+      "range": {
+        "startLine": 22,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 13
+      },
+      "revId": "efee98347ca2cd3cc279e3260be721990aeab90d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
