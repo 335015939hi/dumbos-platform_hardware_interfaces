@@ -38,6 +38,7 @@ class LeAudioAudioProvider : public BluetoothAudioProvider {
  public:
   LeAudioAudioProvider();
 
+  bool isValid(const V2_2::SessionType& sessionType) override;
   bool isValid(const V2_1::SessionType& sessionType) override;
   bool isValid(const V2_0::SessionType& sessionType) override;
 

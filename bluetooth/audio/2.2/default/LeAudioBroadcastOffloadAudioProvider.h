@@ -27,9 +27,9 @@ namespace audio {
 namespace V2_2 {
 namespace implementation {
 
-class LeAudioOffloadAudioProvider : public BluetoothAudioProvider {
+class LeAudioBroadcastOffloadAudioProvider : public BluetoothAudioProvider {
  public:
-  LeAudioOffloadAudioProvider();
+  LeAudioBroadcastOffloadAudioProvider();
 
   bool isValid(const V2_2::SessionType& sessionType) override;
   bool isValid(const V2_1::SessionType& sessionType) override;
@@ -45,16 +45,6 @@ class LeAudioOffloadAudioProvider : public BluetoothAudioProvider {
 
  private:
   Return<void> onSessionReady(startSession_cb _hidl_cb) override;
-};
-
-class LeAudioOffloadOutputAudioProvider : public LeAudioOffloadAudioProvider {
- public:
-  LeAudioOffloadOutputAudioProvider();
-};
-
-class LeAudioOffloadInputAudioProvider : public LeAudioOffloadAudioProvider {
- public:
-  LeAudioOffloadInputAudioProvider();
 };
 
 }  // namespace implementation

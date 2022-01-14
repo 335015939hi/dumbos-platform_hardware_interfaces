@@ -16,7 +16,7 @@
 
 #define LOG_TAG "BTAudioProviderLeAudio"
 
-#include "LeAudioAudioProvider.h"
+#include "LeAudioBroadcastAudioProvider.h"
 
 #include <android-base/logging.h>
 
@@ -40,35 +40,32 @@ using ::android::hardware::bluetooth::audio::V2_1::SampleRate;
 static constexpr uint32_t kBufferOutCount = 2;  // two frame buffer
 static constexpr uint32_t kBufferInCount = 2;   // two frame buffer
 
-LeAudioOutputAudioProvider::LeAudioOutputAudioProvider()
-    : LeAudioAudioProvider() {
+LeAudioBroadcastAudioProvider::LeAudioBroadcastAudioProvider()
+    : BluetoothAudioProvider(), mDataMQ(nullptr) {
   session_type_ = V2_2::SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH;
 }
 
-LeAudioInputAudioProvider::LeAudioInputAudioProvider()
-    : LeAudioAudioProvider() {
-  session_type_ = V2_2::SessionType::LE_AUDIO_SOFTWARE_DECODED_DATAPATH;
-}
-
-LeAudioAudioProvider::LeAudioAudioProvider()
-    : BluetoothAudioProvider(), mDataMQ(nullptr) {}
-
-bool LeAudioAudioProvider::isValid(const V2_0::SessionType& sessionType) {
+bool LeAudioBroadcastAudioProvider::isValid(
+    const V2_0::SessionType& sessionType) {
   LOG(ERROR) << __func__ << ", invalid session type for Le Audio provider: "
              << toString(sessionType);
 
   return false;
 }
 
-bool LeAudioAudioProvider::isValid(const V2_1::SessionType& sessionType) {
-  return isValid(static_cast<V2_2::SessionType>(sessionType));
+bool LeAudioBroadcastAudioProvider::isValid(
+    const V2_1::SessionType& sessionType) {
+  LOG(ERROR) << __func__ << ", invalid session type for Le Audio provider: "
+             << toString(sessionType);
+
+  return false;
 }
 
-bool LeAudioAudioProvider::isValid(const V2_2::SessionType& sessionType) {
+bool LeAudioBroadcastAudioProvider::isValid(const V2_2::SessionType& sessionType) {
   return (sessionType == session_type_);
 }
 
-Return<void> LeAudioAudioProvider::startSession_2_1(
+Return<void> LeAudioBroadcastAudioProvider::startSession_2_1(
     const sp<V2_0::IBluetoothAudioPort>& hostIf,
     const V2_1::AudioConfiguration& audioConfig, startSession_cb _hidl_cb) {
   if (audioConfig.getDiscriminator() !=
@@ -93,7 +90,7 @@ Return<void> LeAudioAudioProvider::startSession_2_1(
   return startSession_2_2(hostIf_2_2, audioConfig_2_2, _hidl_cb);
 }
 
-Return<void> LeAudioAudioProvider::startSession_2_2(
+Return<void> LeAudioBroadcastAudioProvider::startSession_2_2(
     const sp<V2_2::IBluetoothAudioPort>& hostIf,
     const AudioConfiguration& audioConfig, startSession_cb _hidl_cb) {
   /**
@@ -207,7 +204,7 @@ Return<void> LeAudioAudioProvider::startSession_2_2(
                                                   _hidl_cb);
 }
 
-Return<void> LeAudioAudioProvider::onSessionReady(startSession_cb _hidl_cb) {
+Return<void> LeAudioBroadcastAudioProvider::onSessionReady(startSession_cb _hidl_cb) {
   if (mDataMQ && mDataMQ->isValid()) {
     BluetoothAudioSessionReport_2_2::OnSessionStarted(
         session_type_, stack_iface_, mDataMQ->getDesc(), audio_config_);

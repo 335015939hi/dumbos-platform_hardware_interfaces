@@ -25,15 +25,26 @@ namespace android {
 namespace bluetooth {
 namespace audio {
 
+std::vector<::android::hardware::bluetooth::audio::V2_0::CodecCapabilities>
+GetOffloadCodecCapabilities(
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
+        session_type);
+
+bool IsOffloadCodecConfigurationValid(
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
+        session_type,
+    const ::android::hardware::bluetooth::audio::V2_0::CodecConfiguration&
+        codec_config);
+
 bool IsOffloadLeAudioConfigurationValid(
-    const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
         session_type,
     const ::android::hardware::bluetooth::audio::V2_2::LeAudioConfiguration&
         le_audio_codec_config);
 
 std::vector<hardware::bluetooth::audio::V2_2::LeAudioCodecCapabilitiesSetting>
 GetLeAudioOffloadCodecCapabilities(
-    const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
         session_type);
 }  // namespace audio
 }  // namespace bluetooth

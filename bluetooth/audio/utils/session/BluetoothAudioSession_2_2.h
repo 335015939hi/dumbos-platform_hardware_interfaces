@@ -29,12 +29,12 @@ namespace bluetooth {
 namespace audio {
 
 inline uint16_t ObserversCookieGetInitValue(
-    const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
         session_type) {
   return (static_cast<uint16_t>(session_type) << 8 & 0xff00);
 }
 inline uint16_t ObserversCookieGetUpperBound(
-    const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
         session_type) {
   return (static_cast<uint16_t>(session_type) << 8 & 0xff00) +
          kObserversCookieSize;
@@ -67,7 +67,7 @@ class BluetoothAudioSession_2_2 {
   std::shared_ptr<BluetoothAudioSession> audio_session;
   std::shared_ptr<BluetoothAudioSession_2_1> audio_session_2_1;
 
-  ::android::hardware::bluetooth::audio::V2_1::SessionType session_type_2_1_;
+  ::android::hardware::bluetooth::audio::V2_2::SessionType session_type_2_2_;
 
   // audio data configuration for both software and offloading
   ::android::hardware::bluetooth::audio::V2_2::AudioConfiguration
@@ -93,7 +93,7 @@ class BluetoothAudioSession_2_2 {
 
  public:
   BluetoothAudioSession_2_2(
-      const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+      const ::android::hardware::bluetooth::audio::V2_2::SessionType&
           session_type);
 
   // The function helps to check if this session is ready or not
@@ -168,13 +168,13 @@ class BluetoothAudioSessionInstance_2_2 {
  public:
   // The API is to fetch the specified session of A2DP / Hearing Aid
   static std::shared_ptr<BluetoothAudioSession_2_2> GetSessionInstance(
-      const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+      const ::android::hardware::bluetooth::audio::V2_2::SessionType&
           session_type);
 
  private:
   static std::unique_ptr<BluetoothAudioSessionInstance_2_2> instance_ptr;
   std::mutex mutex_;
-  std::unordered_map<::android::hardware::bluetooth::audio::V2_1::SessionType,
+  std::unordered_map<::android::hardware::bluetooth::audio::V2_2::SessionType,
                      std::shared_ptr<BluetoothAudioSession_2_2>>
       sessions_map_;
 };

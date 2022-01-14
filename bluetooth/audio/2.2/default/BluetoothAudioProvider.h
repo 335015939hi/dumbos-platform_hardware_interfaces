@@ -38,6 +38,7 @@ class BluetoothAudioProvider : public IBluetoothAudioProvider {
   BluetoothAudioProvider();
   ~BluetoothAudioProvider() = default;
 
+  virtual bool isValid(const V2_2::SessionType& sessionType) = 0;
   virtual bool isValid(const V2_1::SessionType& sessionType) = 0;
   virtual bool isValid(const V2_0::SessionType& sessionType) = 0;
 
@@ -59,7 +60,7 @@ class BluetoothAudioProvider : public IBluetoothAudioProvider {
  protected:
   sp<BluetoothAudioDeathRecipient> death_recipient_;
 
-  V2_1::SessionType session_type_;
+  V2_2::SessionType session_type_;
   AudioConfiguration audio_config_;
   sp<V2_2::IBluetoothAudioPort> stack_iface_;
 

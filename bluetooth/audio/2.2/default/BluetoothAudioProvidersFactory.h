@@ -24,6 +24,8 @@
 #include "HearingAidAudioProvider.h"
 #include "LeAudioAudioProvider.h"
 #include "LeAudioOffloadAudioProvider.h"
+#include "LeAudioBroadcastAudioProvider.h"
+#include "LeAudioBroadcastOffloadAudioProvider.h"
 
 namespace android {
 namespace hardware {
@@ -46,7 +48,7 @@ class BluetoothAudioProvidersFactory : public IBluetoothAudioProvidersFactory {
   Return<void> openProvider_2_1(const V2_1::SessionType sessionType,
                                 openProvider_2_1_cb _hidl_cb) override;
 
-  Return<void> openProvider_2_2(const V2_1::SessionType sessionType,
+  Return<void> openProvider_2_2(const V2_2::SessionType sessionType,
                                 openProvider_2_2_cb _hidl_cb) override;
 
   Return<void> getProviderCapabilities_2_1(
@@ -54,7 +56,7 @@ class BluetoothAudioProvidersFactory : public IBluetoothAudioProvidersFactory {
       getProviderCapabilities_2_1_cb _hidl_cb) override;
 
   Return<void> getProviderCapabilities_2_2(
-      const V2_1::SessionType sessionType,
+      const V2_2::SessionType sessionType,
       getProviderCapabilities_2_2_cb _hidl_cb) override;
 
  private:
@@ -67,6 +69,10 @@ class BluetoothAudioProvidersFactory : public IBluetoothAudioProvidersFactory {
       leaudio_offload_output_provider_instance_;
   static LeAudioOffloadInputAudioProvider
       leaudio_offload_input_provider_instance_;
+  static LeAudioBroadcastAudioProvider
+      leaudio_broadcast_provider_instance_;
+  static LeAudioBroadcastOffloadAudioProvider
+      leaudio_broadcast_offload_provider_instance_;
 };
 
 extern "C" IBluetoothAudioProvidersFactory*

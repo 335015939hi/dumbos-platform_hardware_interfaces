@@ -37,6 +37,8 @@ using PcmParameters_2_1 =
     ::android::hardware::bluetooth::audio::V2_1::PcmParameters;
 using SampleRate_2_1 = ::android::hardware::bluetooth::audio::V2_1::SampleRate;
 
+using SessionType_2_2 =
+    ::android::hardware::bluetooth::audio::V2_2::SessionType;
 using SessionType_2_1 =
     ::android::hardware::bluetooth::audio::V2_1::SessionType;
 using SessionType_2_0 =
@@ -69,11 +71,30 @@ using IBluetoothAudioPort_2_2 =
 
 namespace {
 bool is_2_0_session_type(
-    const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
         session_type) {
-  if (session_type == SessionType_2_1::A2DP_SOFTWARE_ENCODING_DATAPATH ||
-      session_type == SessionType_2_1::A2DP_HARDWARE_OFFLOAD_DATAPATH ||
-      session_type == SessionType_2_1::HEARING_AID_SOFTWARE_ENCODING_DATAPATH) {
+  if (session_type == SessionType_2_2::A2DP_SOFTWARE_ENCODING_DATAPATH ||
+      session_type == SessionType_2_2::A2DP_HARDWARE_OFFLOAD_DATAPATH ||
+      session_type == SessionType_2_2::HEARING_AID_SOFTWARE_ENCODING_DATAPATH) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+bool is_2_1_session_type(
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
+        session_type) {
+  if (session_type == SessionType_2_2::A2DP_SOFTWARE_ENCODING_DATAPATH ||
+      session_type == SessionType_2_2::A2DP_HARDWARE_OFFLOAD_DATAPATH ||
+      session_type == SessionType_2_2::HEARING_AID_SOFTWARE_ENCODING_DATAPATH ||
+      session_type == SessionType_2_2::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH ||
+      session_type == SessionType_2_2::LE_AUDIO_SOFTWARE_DECODED_DATAPATH ||
+      session_type ==
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+      session_type ==
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH
+      ) {
     return true;
   } else {
     return false;
@@ -82,16 +103,21 @@ bool is_2_0_session_type(
 }  // namespace
 
 BluetoothAudioSession_2_2::BluetoothAudioSession_2_2(
-    const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+    const ::android::hardware::bluetooth::audio::V2_2::SessionType&
         session_type)
     : audio_session(BluetoothAudioSessionInstance::GetSessionInstance(
           static_cast<SessionType_2_0>(session_type))),
       audio_session_2_1(
-          BluetoothAudioSessionInstance_2_1::GetSessionInstance(session_type)) {
+          BluetoothAudioSessionInstance_2_1::GetSessionInstance(
+          static_cast<SessionType_2_1>(session_type))) {
   if (is_2_0_session_type(session_type)) {
-    session_type_2_1_ = (SessionType_2_1::UNKNOWN);
+    session_type_2_2_ = SessionType_2_2::UNKNOWN;
   } else {
-    session_type_2_1_ = (session_type);
+    if (is_2_1_session_type(session_type)) {
+        session_type_2_2_ = SessionType_2_2::UNKNOWN;
+    } else {
+        session_type_2_2_ = session_type;
+    }
   }
   invalidSoftwareAudioConfiguration.pcmConfig(kInvalidPcmParameters);
   invalidOffloadAudioConfiguration.codecConfig(
@@ -100,10 +126,10 @@ BluetoothAudioSession_2_2::BluetoothAudioSession_2_2(
 }
 
 bool BluetoothAudioSession_2_2::IsSessionReady() {
-  if (session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
-      session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+  if (session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+      session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     return audio_session->IsSessionReady();
   }
 
@@ -124,16 +150,16 @@ void BluetoothAudioSession_2_2::UpdateSinkMetadata(
     const struct sink_metadata* sink_metadata) {
   std::lock_guard<std::recursive_mutex> guard(audio_session->mutex_);
   if (!IsSessionReady()) {
-    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_2_)
                << " has NO session";
     return;
   }
 
   ssize_t track_count = sink_metadata->track_count;
-  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_2_)
             << ", " << track_count << " track(s)";
-  if (session_type_2_1_ == SessionType_2_1::A2DP_SOFTWARE_ENCODING_DATAPATH ||
-      session_type_2_1_ == SessionType_2_1::A2DP_HARDWARE_OFFLOAD_DATAPATH) {
+  if (session_type_2_2_ == SessionType_2_2::A2DP_SOFTWARE_ENCODING_DATAPATH ||
+      session_type_2_2_ == SessionType_2_2::A2DP_HARDWARE_OFFLOAD_DATAPATH) {
     return;
   }
 
@@ -164,7 +190,7 @@ void BluetoothAudioSession_2_2::UpdateSinkMetadata(
   auto hal_retval = stack_iface_2_2_->updateSinkMetadata(sinkMetadata);
   if (!hal_retval.isOk()) {
     LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
-                 << toString(session_type_2_1_) << " failed";
+                 << toString(session_type_2_2_) << " failed";
   }
 }
 
@@ -176,7 +202,7 @@ BluetoothAudioSession_2_2::GetAudioConfig() {
   if (IsSessionReady()) {
     auto audio_config_discriminator = audio_config_2_2_.getDiscriminator();
     // If session is unknown it means it should be 2.0 type
-    if (session_type_2_1_ != SessionType_2_1::UNKNOWN) {
+    if (session_type_2_2_ != SessionType_2_2::UNKNOWN) {
       if ((audio_config_discriminator ==
                ::android::hardware::bluetooth::audio::V2_2::AudioConfiguration::
                    hidl_discriminator::pcmConfig &&
@@ -213,10 +239,10 @@ BluetoothAudioSession_2_2::GetAudioConfig() {
           .dataIntervalUs = 0};
     }
     return toConf;
-  } else if (session_type_2_1_ ==
-                 SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
-             session_type_2_1_ ==
-                 SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+  } else if (session_type_2_2_ ==
+                 SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+             session_type_2_2_ ==
+                 SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     return kInvalidLeOffloadAudioConfiguration;
   } else {
     return kInvalidSoftwareAudioConfiguration;
@@ -228,14 +254,14 @@ BluetoothAudioSession_2_2::GetAudioConfig() {
 bool BluetoothAudioSession_2_2::StartStream() {
   std::lock_guard<std::recursive_mutex> guard(audio_session->mutex_);
   if (!IsSessionReady()) {
-    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_2_)
                << " has NO session";
     return false;
   }
   auto hal_retval = audio_session->stack_iface_->startStream();
   if (!hal_retval.isOk()) {
     LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
-                 << toString(session_type_2_1_) << " failed";
+                 << toString(session_type_2_2_) << " failed";
     return false;
   }
   return true;
@@ -244,14 +270,14 @@ bool BluetoothAudioSession_2_2::StartStream() {
 bool BluetoothAudioSession_2_2::SuspendStream() {
   std::lock_guard<std::recursive_mutex> guard(audio_session->mutex_);
   if (!IsSessionReady()) {
-    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+    LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_2_2_)
                << " has NO session";
     return false;
   }
   auto hal_retval = audio_session->stack_iface_->suspendStream();
   if (!hal_retval.isOk()) {
     LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
-                 << toString(session_type_2_1_) << " failed";
+                 << toString(session_type_2_2_) << " failed";
     return false;
   }
   return true;
@@ -265,7 +291,7 @@ void BluetoothAudioSession_2_2::StopStream() {
   auto hal_retval = audio_session->stack_iface_->stopStream();
   if (!hal_retval.isOk()) {
     LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
-                 << toString(session_type_2_1_) << " failed";
+                 << toString(session_type_2_2_) << " failed";
   }
 }
 
@@ -273,20 +299,20 @@ bool BluetoothAudioSession_2_2::UpdateAudioConfig(
     const ::android::hardware::bluetooth::audio::V2_2::AudioConfiguration&
         audio_config) {
   bool is_software_session =
-      (session_type_2_1_ == SessionType_2_1::A2DP_SOFTWARE_ENCODING_DATAPATH ||
-       session_type_2_1_ ==
-           SessionType_2_1::HEARING_AID_SOFTWARE_ENCODING_DATAPATH ||
-       session_type_2_1_ ==
-           SessionType_2_1::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH ||
-       session_type_2_1_ ==
-           SessionType_2_1::LE_AUDIO_SOFTWARE_DECODED_DATAPATH);
+      (session_type_2_2_ == SessionType_2_2::A2DP_SOFTWARE_ENCODING_DATAPATH ||
+       session_type_2_2_ ==
+           SessionType_2_2::HEARING_AID_SOFTWARE_ENCODING_DATAPATH ||
+       session_type_2_2_ ==
+           SessionType_2_2::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH ||
+       session_type_2_2_ ==
+           SessionType_2_2::LE_AUDIO_SOFTWARE_DECODED_DATAPATH);
   bool is_offload_a2dp_session =
-      (session_type_2_1_ == SessionType_2_1::A2DP_HARDWARE_OFFLOAD_DATAPATH);
+      (session_type_2_2_ == SessionType_2_2::A2DP_HARDWARE_OFFLOAD_DATAPATH);
   bool is_offload_le_audio_session =
-      (session_type_2_1_ ==
-           SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
-       session_type_2_1_ ==
-           SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH);
+      (session_type_2_2_ ==
+           SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+       session_type_2_2_ ==
+           SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH);
   auto audio_config_discriminator = audio_config.getDiscriminator();
   bool is_software_audio_config =
       (is_software_session &&
@@ -318,7 +344,7 @@ void BluetoothAudioSession_2_2::OnSessionStarted(
     const sp<IBluetoothAudioPort> stack_iface, const DataMQ::Descriptor* dataMQ,
     const ::android::hardware::bluetooth::audio::V2_2::AudioConfiguration&
         audio_config) {
-  if (session_type_2_1_ == SessionType_2_1::UNKNOWN) {
+  if (session_type_2_2_ == SessionType_2_2::UNKNOWN) {
     ::android::hardware::bluetooth::audio::V2_0::AudioConfiguration config;
     if (audio_config.getDiscriminator() ==
         ::android::hardware::bluetooth::audio::V2_2::AudioConfiguration::
@@ -339,25 +365,25 @@ void BluetoothAudioSession_2_2::OnSessionStarted(
   } else {
     std::lock_guard<std::recursive_mutex> guard(audio_session->mutex_);
     if (stack_iface == nullptr) {
-      LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+      LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_2_2_)
                  << ", IBluetoothAudioPort Invalid";
     } else if (!UpdateAudioConfig(audio_config)) {
-      LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+      LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_2_2_)
                  << ", AudioConfiguration=" << toString(audio_config)
                  << " Invalid";
     } else if (!audio_session->UpdateDataPath(dataMQ)) {
-      LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+      LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_2_2_)
                  << " DataMQ Invalid";
       audio_config_2_2_ =
-          ((session_type_2_1_ ==
-                SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
-            session_type_2_1_ ==
-                SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH)
+          ((session_type_2_2_ ==
+                SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+            session_type_2_2_ ==
+                SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH)
                ? kInvalidLeOffloadAudioConfiguration
                : kInvalidSoftwareAudioConfiguration);
     } else {
       audio_session->stack_iface_ = stack_iface;
-      LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+      LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_2_)
                 << ", AudioConfiguration=" << toString(audio_config);
       ReportSessionStatus();
     };
@@ -370,17 +396,17 @@ void BluetoothAudioSession_2_2::OnSessionStarted(
 void BluetoothAudioSession_2_2::OnSessionEnded() {
   std::lock_guard<std::recursive_mutex> guard(audio_session->mutex_);
   bool toggled = IsSessionReady();
-  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_);
-  if (session_type_2_1_ == SessionType_2_1::UNKNOWN) {
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_2_);
+  if (session_type_2_2_ == SessionType_2_2::UNKNOWN) {
     audio_session->OnSessionEnded();
     return;
   }
 
   audio_config_2_2_ =
-      ((session_type_2_1_ ==
-            SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
-        session_type_2_1_ ==
-            SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH)
+      ((session_type_2_2_ ==
+            SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+        session_type_2_2_ ==
+            SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH)
            ? kInvalidLeOffloadAudioConfiguration
            : kInvalidSoftwareAudioConfiguration);
   audio_session->stack_iface_ = nullptr;
@@ -395,10 +421,10 @@ void BluetoothAudioSession_2_2::OnSessionEnded() {
 // @return: cookie - the assigned number to this bluetooth_audio output
 uint16_t BluetoothAudioSession_2_2::RegisterStatusCback(
     const PortStatusCallbacks_2_2& cbacks) {
-  if (session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
-      session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+  if (session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+      session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     PortStatusCallbacks cb = {
         .control_result_cb_ = cbacks.control_result_cb_,
         .session_changed_cb_ = cbacks.session_changed_cb_};
@@ -406,8 +432,8 @@ uint16_t BluetoothAudioSession_2_2::RegisterStatusCback(
   }
 
   std::lock_guard<std::recursive_mutex> guard(audio_session->mutex_);
-  uint16_t cookie = ObserversCookieGetInitValue(session_type_2_1_);
-  uint16_t cookie_upper_bound = ObserversCookieGetUpperBound(session_type_2_1_);
+  uint16_t cookie = ObserversCookieGetInitValue(session_type_2_2_);
+  uint16_t cookie_upper_bound = ObserversCookieGetUpperBound(session_type_2_2_);
 
   while (cookie < cookie_upper_bound) {
     if (observers_.find(cookie) == observers_.end()) {
@@ -416,7 +442,7 @@ uint16_t BluetoothAudioSession_2_2::RegisterStatusCback(
     ++cookie;
   }
   if (cookie >= cookie_upper_bound) {
-    LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+    LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_2_2_)
                << " has " << observers_.size()
                << " observers already (No Resource)";
     return kObserversCookieUndefined;
@@ -433,15 +459,15 @@ uint16_t BluetoothAudioSession_2_2::RegisterStatusCback(
 // @param: cookie - indicates which bluetooth_audio output is
 void BluetoothAudioSession_2_2::UnregisterStatusCback(uint16_t cookie) {
   std::lock_guard<std::recursive_mutex> guard(audio_session->mutex_);
-  if (session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
-      session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+  if (session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+      session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     audio_session->UnregisterStatusCback(cookie);
     return;
   }
   if (observers_.erase(cookie) != 1) {
-    LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+    LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_2_2_)
                  << " no such provider=0x"
                  << android::base::StringPrintf("%04x", cookie);
   }
@@ -450,22 +476,22 @@ void BluetoothAudioSession_2_2::UnregisterStatusCback(uint16_t cookie) {
 // invoking the registered session_changed_cb_
 void BluetoothAudioSession_2_2::ReportSessionStatus() {
   // This is locked already by OnSessionStarted / OnSessionEnded
-  if (session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
-      session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+  if (session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+      session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     audio_session->ReportSessionStatus();
     return;
   }
   if (observers_.empty()) {
-    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_2_)
               << " has NO port state observer";
     return;
   }
   for (auto& observer : observers_) {
     uint16_t cookie = observer.first;
     std::shared_ptr<struct PortStatusCallbacks_2_2> cb = observer.second;
-    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_2_2_)
               << " notify to bluetooth_audio=0x"
               << android::base::StringPrintf("%04x", cookie);
     cb->session_changed_cb_(cookie);
@@ -477,16 +503,16 @@ void BluetoothAudioSession_2_2::ReportSessionStatus() {
 // control_result_cb_ to notify registered bluetooth_audio outputs
 void BluetoothAudioSession_2_2::ReportControlStatus(
     bool start_resp, const BluetoothAudioStatus& status) {
-  if (session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
-      session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+  if (session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+      session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     audio_session->ReportControlStatus(start_resp, status);
     return;
   }
   std::lock_guard<std::recursive_mutex> guard(audio_session->mutex_);
   if (observers_.empty()) {
-    LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+    LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_2_2_)
                  << " has NO port state observer";
     return;
   }
@@ -494,7 +520,7 @@ void BluetoothAudioSession_2_2::ReportControlStatus(
     uint16_t cookie = observer.first;
     std::shared_ptr<struct PortStatusCallbacks_2_2> cb = observer.second;
     LOG(INFO) << __func__ << " - status=" << toString(status)
-              << " for SessionType=" << toString(session_type_2_1_)
+              << " for SessionType=" << toString(session_type_2_2_)
               << ", bluetooth_audio=0x"
               << android::base::StringPrintf("%04x", cookie)
               << (start_resp ? " started" : " suspended");
@@ -508,23 +534,23 @@ void BluetoothAudioSession_2_2::ReportControlStatus(
 void BluetoothAudioSession_2_2::ReportAudioConfigChanged(
     const ::android::hardware::bluetooth::audio::V2_2::AudioConfiguration&
         audio_config) {
-  if (session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
-      session_type_2_1_ !=
-          SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+  if (session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+      session_type_2_2_ !=
+          SessionType_2_2::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     return;
   }
   std::lock_guard<std::recursive_mutex> guard(audio_session->mutex_);
   audio_config_2_2_ = audio_config;
   if (observers_.empty()) {
-    LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_2_1_)
+    LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_2_2_)
                  << " has NO port state observer";
     return;
   }
   for (auto& observer : observers_) {
     uint16_t cookie = observer.first;
     std::shared_ptr<struct PortStatusCallbacks_2_2> cb = observer.second;
-    LOG(INFO) << __func__ << " for SessionType=" << toString(session_type_2_1_)
+    LOG(INFO) << __func__ << " for SessionType=" << toString(session_type_2_2_)
               << ", bluetooth_audio=0x"
               << android::base::StringPrintf("%04x", cookie);
     if (cb->audio_configuration_changed_cb_ != nullptr) {
@@ -541,7 +567,7 @@ std::unique_ptr<BluetoothAudioSessionInstance_2_2>
 // API to fetch the session of A2DP / Hearing Aid
 std::shared_ptr<BluetoothAudioSession_2_2>
 BluetoothAudioSessionInstance_2_2::GetSessionInstance(
-    const SessionType_2_1& session_type) {
+    const SessionType_2_2& session_type) {
   std::lock_guard<std::mutex> guard(instance_ptr->mutex_);
   if (!instance_ptr->sessions_map_.empty()) {
     auto entry = instance_ptr->sessions_map_.find(session_type);

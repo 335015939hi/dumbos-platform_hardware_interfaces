@@ -23,7 +23,7 @@
 #include <hidl/MQDescriptor.h>
 
 #include "BluetoothAudioSessionReport_2_2.h"
-#include "BluetoothAudioSupportedCodecsDB_2_1.h"
+#include "BluetoothAudioSupportedCodecsDB_2_2.h"
 
 namespace android {
 namespace hardware {
@@ -42,14 +42,18 @@ using DataMQ = MessageQueue<uint8_t, kSynchronizedReadWrite>;
 
 A2dpOffloadAudioProvider::A2dpOffloadAudioProvider()
     : BluetoothAudioProvider() {
-  session_type_ = V2_1::SessionType::A2DP_HARDWARE_OFFLOAD_DATAPATH;
+  session_type_ = V2_2::SessionType::A2DP_HARDWARE_OFFLOAD_DATAPATH;
 }
 
 bool A2dpOffloadAudioProvider::isValid(const V2_0::SessionType& sessionType) {
-  return isValid(static_cast<V2_1::SessionType>(sessionType));
+  return isValid(static_cast<V2_2::SessionType>(sessionType));
 }
 
 bool A2dpOffloadAudioProvider::isValid(const V2_1::SessionType& sessionType) {
+  return isValid(static_cast<V2_2::SessionType>(sessionType));
+}
+
+bool A2dpOffloadAudioProvider::isValid(const V2_2::SessionType& sessionType) {
   return (sessionType == session_type_);
 }
 

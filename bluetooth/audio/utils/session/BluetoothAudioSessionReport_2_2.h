@@ -27,7 +27,7 @@ class BluetoothAudioSessionReport_2_2 {
   // The API reports the Bluetooth stack has started the session, and will
   // inform registered bluetooth_audio outputs
   static void OnSessionStarted(
-      const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+      const ::android::hardware::bluetooth::audio::V2_2::SessionType&
           session_type,
       const sp<IBluetoothAudioPort> host_iface,
       const DataMQ::Descriptor* dataMQ,
@@ -43,7 +43,7 @@ class BluetoothAudioSessionReport_2_2 {
   // The API reports the Bluetooth stack has ended the session, and will
   // inform registered bluetooth_audio outputs
   static void OnSessionEnded(
-      const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+      const ::android::hardware::bluetooth::audio::V2_2::SessionType&
           session_type) {
     std::shared_ptr<BluetoothAudioSession_2_2> session_ptr =
         BluetoothAudioSessionInstance_2_2::GetSessionInstance(session_type);
@@ -54,7 +54,7 @@ class BluetoothAudioSessionReport_2_2 {
   // The API reports the Bluetooth stack has replied the result of startStream
   // or suspendStream, and will inform registered bluetooth_audio outputs
   static void ReportControlStatus(
-      const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+      const ::android::hardware::bluetooth::audio::V2_2::SessionType&
           session_type,
       const bool& start_resp, const BluetoothAudioStatus& status) {
     std::shared_ptr<BluetoothAudioSession_2_2> session_ptr =
@@ -66,7 +66,7 @@ class BluetoothAudioSessionReport_2_2 {
   // The API reports the Bluetooth stack has replied the changed of the audio
   // configuration, and will inform registered bluetooth_audio outputs
   static void ReportAudioConfigChanged(
-      const ::android::hardware::bluetooth::audio::V2_1::SessionType&
+      const ::android::hardware::bluetooth::audio::V2_2::SessionType&
           session_type,
       const ::android::hardware::bluetooth::audio::V2_2::AudioConfiguration&
           audio_config) {

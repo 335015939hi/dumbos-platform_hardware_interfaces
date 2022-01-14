@@ -16,7 +16,7 @@
 
 #define LOG_TAG "BTAudioProviderLeAudioOffload"
 
-#include "LeAudioOffloadAudioProvider.h"
+#include "LeAudioBroadcastOffloadAudioProvider.h"
 
 #include <android-base/logging.h>
 
@@ -39,22 +39,13 @@ using ::android::hardware::bluetooth::audio::V2_1::SampleRate;
 
 using DataMQ = MessageQueue<uint8_t, kSynchronizedReadWrite>;
 
-LeAudioOffloadOutputAudioProvider::LeAudioOffloadOutputAudioProvider()
-    : LeAudioOffloadAudioProvider() {
+LeAudioBroadcastOffloadAudioProvider::LeAudioBroadcastOffloadAudioProvider()
+    : BluetoothAudioProvider() {
   session_type_ =
-      V2_2::SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH;
+      V2_2::SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH;
 }
 
-LeAudioOffloadInputAudioProvider::LeAudioOffloadInputAudioProvider()
-    : LeAudioOffloadAudioProvider() {
-  session_type_ =
-      V2_2::SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH;
-}
-
-LeAudioOffloadAudioProvider::LeAudioOffloadAudioProvider()
-    : BluetoothAudioProvider() {}
-
-bool LeAudioOffloadAudioProvider::isValid(
+bool LeAudioBroadcastOffloadAudioProvider::isValid(
     const V2_0::SessionType& sessionType) {
   LOG(ERROR) << __func__
              << ", invalid session type for Offloaded Le Audio provider: "
@@ -63,17 +54,17 @@ bool LeAudioOffloadAudioProvider::isValid(
   return false;
 }
 
-bool LeAudioOffloadAudioProvider::isValid(
+bool LeAudioBroadcastOffloadAudioProvider::isValid(
     const V2_1::SessionType& sessionType) {
   return isValid(static_cast<V2_2::SessionType>(sessionType));
 }
 
-bool LeAudioOffloadAudioProvider::isValid(
+bool LeAudioBroadcastOffloadAudioProvider::isValid(
     const V2_2::SessionType& sessionType) {
   return (sessionType == session_type_);
 }
 
-Return<void> LeAudioOffloadAudioProvider::startSession_2_1(
+Return<void> LeAudioBroadcastOffloadAudioProvider::startSession_2_1(
     const sp<V2_0::IBluetoothAudioPort>& hostIf,
     const V2_1::AudioConfiguration& audioConfig, startSession_cb _hidl_cb) {
   if (audioConfig.getDiscriminator() !=
@@ -101,7 +92,7 @@ Return<void> LeAudioOffloadAudioProvider::startSession_2_1(
   return startSession_2_2(hostIf_2_2, audioConfig_2_2, _hidl_cb);
 }
 
-Return<void> LeAudioOffloadAudioProvider::startSession_2_2(
+Return<void> LeAudioBroadcastOffloadAudioProvider::startSession_2_2(
     const sp<V2_2::IBluetoothAudioPort>& hostIf,
     const AudioConfiguration& audioConfig, startSession_cb _hidl_cb) {
   /**
@@ -132,7 +123,7 @@ Return<void> LeAudioOffloadAudioProvider::startSession_2_2(
                                                   _hidl_cb);
 }
 
-Return<void> LeAudioOffloadAudioProvider::onSessionReady(
+Return<void> LeAudioBroadcastOffloadAudioProvider::onSessionReady(
     startSession_cb _hidl_cb) {
   BluetoothAudioSessionReport_2_2::OnSessionStarted(session_type_, stack_iface_,
                                                     nullptr, audio_config_);
