@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3d664e4_693a869b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-01-14T09:51:58Z",
+      "side": 1,
+      "message": "I\u0027d be interested to hear more details about the edge cases that induced these changes (possibly offline) -- it may be that there are other tests that could be extended too.",
+      "revId": "6bcfbf95810dce0ce472b555aeeb7ff67cad4ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a49e5fb6_8e6535a7",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5955,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-01-14T09:51:58Z",
+      "side": 1,
+      "message": "This text looks back-to-front relative to the test -- would you mind fixing while you\u0027re here?",
+      "revId": "6bcfbf95810dce0ce472b555aeeb7ff67cad4ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47721b44_27dcce27",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6002,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-01-14T09:51:58Z",
+      "side": 1,
+      "message": "I\u0027m concerned that allowing an implementation to return anything other than a single failure code for decryption failure might lead to a security problem -- if this is emitted for incorrect padding, does this open up the possibility of a padding oracle attack?",
+      "revId": "6bcfbf95810dce0ce472b555aeeb7ff67cad4ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
