@@ -2453,6 +2453,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "790845ee_bdea90bf",
+        "filename": "identity/aidl/default/libeic/EicSession.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-14T21:06:35Z",
+      "side": 1,
+      "message": "OK. FWIW I\u0027m not opposed to changing libeic and its API (it\u0027s not stable). Something we can look at for U maybe.",
+      "parentUuid": "7039c227_7d84c9c6",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 1
+      },
+      "revId": "4ff32254336ec9b38cc8e6b775ade10eb4351a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f5a2390_e0ab6fb5",
