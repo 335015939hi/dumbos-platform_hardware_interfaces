@@ -37,14 +37,14 @@ using ::android::hardware::bluetooth::audio::V2_2::UnicastCapability;
 using SessionType_2_1 =
     ::android::hardware::bluetooth::audio::V2_1::SessionType;
 
-// Stores the list of offload supported capability
-std::vector<LeAudioCodecCapabilitiesSetting> kDefaultOffloadLeAudioCapabilities;
-
 static const UnicastCapability kInvalidUnicastCapability = {
-    .codecType = CodecType::UNKNOWN};
+    .channelCountPerDevice = 0};
 
 static const BroadcastCapability kInvalidBroadcastCapability = {
-    .codecType = CodecType::UNKNOWN};
+    .channelCountPerStream = 0};
+
+// Stores the list of offload supported capability
+std::vector<LeAudioCodecCapabilitiesSetting> kDefaultOffloadLeAudioCapabilities;
 
 // Default Supported Codecs
 // LC3 16_1: sample rate: 16 kHz, frame duration: 7.5 ms, octets per frame: 30
@@ -102,8 +102,7 @@ UnicastCapability composeUnicastLc3Capability(AudioLocation audioLocation,
                                               uint8_t deviceCnt,
                                               uint8_t channelCount,
                                               Lc3Parameters capability) {
-  return UnicastCapability{.codecType = CodecType::LC3,
-                           .supportedChannel = audioLocation,
+  return UnicastCapability{.supportedChannel = audioLocation,
                            .deviceCount = deviceCnt,
                            .channelCountPerDevice = channelCount,
                            .capabilities = capability};
@@ -121,7 +120,7 @@ std::vector<LeAudioCodecCapabilitiesSetting> GetLeAudioOffloadCodecCapabilities(
   if (kDefaultOffloadLeAudioCapabilities.empty()) {
     for (auto [audioLocation, deviceCnt, channelCount] :
          supportedDeviceSetting) {
-      for (auto capability : supportedLc3CapabilityList) {
+      for (auto& capability : supportedLc3CapabilityList) {
         UnicastCapability lc3Capability = composeUnicastLc3Capability(
             audioLocation, deviceCnt, channelCount, capability);
         UnicastCapability lc3MonoDecodeCapability =
@@ -129,21 +128,27 @@ std::vector<LeAudioCodecCapabilitiesSetting> GetLeAudioOffloadCodecCapabilities(
 
         // Adds the capability for encode only
         kDefaultOffloadLeAudioCapabilities.push_back(
-            {.unicastEncodeCapability = lc3Capability,
+            {.unicastCodecType = CodecType::LC3,
+             .unicastEncodeCapability = lc3Capability,
              .unicastDecodeCapability = kInvalidUnicastCapability,
+             .broadcastCodecType = CodecType::UNKNOWN,
              .broadcastCapability = kInvalidBroadcastCapability});
 
         // Adds the capability for decode only
         kDefaultOffloadLeAudioCapabilities.push_back(
-            {.unicastEncodeCapability = kInvalidUnicastCapability,
+            {.unicastCodecType = CodecType::LC3,
+             .unicastEncodeCapability = kInvalidUnicastCapability,
              .unicastDecodeCapability = lc3Capability,
+             .broadcastCodecType = CodecType::UNKNOWN,
              .broadcastCapability = kInvalidBroadcastCapability});
 
         // Adds the capability for the case that encode and decode exist at the
         // same time
         kDefaultOffloadLeAudioCapabilities.push_back(
-            {.unicastEncodeCapability = lc3Capability,
+            {.unicastCodecType = CodecType::LC3,
+             .unicastEncodeCapability = lc3Capability,
              .unicastDecodeCapability = lc3MonoDecodeCapability,
+             .broadcastCodecType = CodecType::UNKNOWN,
              .broadcastCapability = kInvalidBroadcastCapability});
       }
     }

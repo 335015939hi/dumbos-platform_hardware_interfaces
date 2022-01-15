@@ -89,7 +89,9 @@ safe_union AudioCapabilities {
 /**
  * Used to specify the le audio capabilities for unicast and broadcast hardware offload.
  */
-struct LeAudioCodecCapabilitiesSetting{
+struct LeAudioCodecCapabilitiesSetting {
+    CodecType unicastCodecType;
+    CodecType broadcastCodecType;
     UnicastCapability unicastEncodeCapability;
     UnicastCapability unicastDecodeCapability;
     BroadcastCapability broadcastCapability;
@@ -99,7 +101,6 @@ struct LeAudioCodecCapabilitiesSetting{
  * Used to specify the le audio unicast codec capabilities for hardware offload.
  */
 struct UnicastCapability {
-    CodecType codecType;
     AudioLocation supportedChannel;
 
     // The number of connected device
@@ -116,7 +117,6 @@ struct UnicastCapability {
  * Used to specify the le audio broadcast codec capabilities for hardware offload.
  */
 struct BroadcastCapability {
-    CodecType codecType;
     AudioLocation supportedChannel;
 
     // Supported channel count for each stream
