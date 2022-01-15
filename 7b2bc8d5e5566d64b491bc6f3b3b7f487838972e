@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b39b284a_cfb3f2e2",
+        "filename": "health/utils/libhealthtest/include/health-test/TestUtils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-01-15T02:43:00Z",
+      "side": 1,
+      "message": "Would you modify VtsHalHealthTargetTest.cpp accordingly? The test will need to be updated eventually, otherwise it won\u0027t pass on devices with dock charging.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 66
+      },
+      "revId": "7b2bc8d5e5566d64b491bc6f3b3b7f487838972e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
