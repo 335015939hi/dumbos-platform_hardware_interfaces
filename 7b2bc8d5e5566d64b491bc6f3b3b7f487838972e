@@ -69,6 +69,30 @@
       },
       "revId": "7b2bc8d5e5566d64b491bc6f3b3b7f487838972e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "440f6fbe_4af90933",
+        "filename": "health/utils/libhealthtest/include/health-test/TestUtils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-01-15T12:15:56Z",
+      "side": 1,
+      "message": "It would need to move batteryInfo to to use AIDL HealthInfo or it will hit error.\nIn file included from hardware/interfaces/health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp:32:\nhardware/interfaces/health/utils/libhealthtest/include/health-test/TestUtils.h:115:73: error: no member named \u0027chargerDockOnline\u0027 in \u0027android::hardware::health::V1_0::HealthInfo\u0027\n\nwill do that check later",
+      "parentUuid": "b39b284a_cfb3f2e2",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 66
+      },
+      "revId": "7b2bc8d5e5566d64b491bc6f3b3b7f487838972e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
