@@ -33,6 +33,24 @@
       "message": "Any particular reason for this btw? It will be less performant - could also use underlying type in the fields and still use a bitfield if you want",
       "revId": "4dd1b26caf2aaeee25429bc369b75c1187a4fd43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ffb6564_ed8bb2b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-17T12:30:23Z",
+      "side": 1,
+      "message": "Implementation with array capabilities is simpler(especially in C++) and less ambiguous than bitfields. Capabilities shall not be passed frequently so I think the performance doesn\u0027t really matter.",
+      "parentUuid": "e386e48e_f2d0581a",
+      "revId": "4dd1b26caf2aaeee25429bc369b75c1187a4fd43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
