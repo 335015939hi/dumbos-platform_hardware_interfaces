@@ -514,7 +514,7 @@ TEST_P(SensorsHidlTest, CallInitializeTwice) {
     }
 
     constexpr useconds_t kCollectionTimeoutUs = 1000 * 1000;  // 1s
-    constexpr int32_t kNumEvents = 1;
+    constexpr int32_t kNumEvents = 0;
 
     // Create a new environment that calls initialize()
     std::unique_ptr<SensorsHidlEnvironmentTest> newEnv =
