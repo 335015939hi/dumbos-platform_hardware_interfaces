@@ -63,6 +63,30 @@
       },
       "revId": "abf00a93096056f10149bfc5a98402d4c49a8c4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c600f4_fed7bf1f",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2022-01-17T00:55:55Z",
+      "side": 1,
+      "message": "If the vendor implementation is updated, `ro.board.api_level` will show the updated version while `ro.board.first_api_level` is not changed.\nSo the code must look like:\nint32_t boardApiLevel \u003d android::base::GetIntProperty\u003cint32_t\u003e(\"ro.board.api_level\", android::base::GetIntProperty\u003cint32_t\u003e(\"ro.board.first_api_level\", 0));",
+      "parentUuid": "693f792d_00ee4875",
+      "range": {
+        "startLine": 1274,
+        "startChar": 67,
+        "endLine": 1274,
+        "endChar": 93
+      },
+      "revId": "abf00a93096056f10149bfc5a98402d4c49a8c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
