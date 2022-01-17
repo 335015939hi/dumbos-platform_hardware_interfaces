@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aefd2220_e9d8c3fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-17T16:23:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4c99d4a_96b21760",
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11fd5f5e_c0fbcec0",
@@ -58,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11d79c06_c4e56e2f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-17T16:23:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "040aa9d9_42ed8c49",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 43
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e686646_272f5d9f",
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99b47420_c1cecaf6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-17T16:23:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e686646_272f5d9f",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b8f25de_96e1ffc5",
@@ -94,6 +160,30 @@
       "writtenOn": "2022-01-10T09:56:12Z",
       "side": 1,
       "message": "Please use arrays(bitmask capabilities in other files will also be removed later)",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a17e91e8_f2a5182b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-17T16:23:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b8f25de_96e1ffc5",
       "range": {
         "startLine": 26,
         "startChar": 2,
@@ -140,6 +230,30 @@
       "writtenOn": "2022-01-10T10:12:04Z",
       "side": 1,
       "message": "Please include the full license comment.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 42
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eff6962_0ef267d8",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveConfiguration.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-17T16:23:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11a8dd8c_94370fa0",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -219,6 +333,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b31acdf7_1803b17a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptive_TTP.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-17T16:23:40Z",
+      "side": 1,
+      "message": "TTP -\u003e time_to_play",
+      "parentUuid": "42ffb71d_97529ece",
+      "range": {
+        "startLine": 20,
+        "startChar": 23,
+        "endLine": 20,
+        "endChar": 27
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b890546_342d20be",
@@ -232,6 +370,30 @@
       "writtenOn": "2022-01-10T10:12:04Z",
       "side": 1,
       "message": "Could we remove \"SinkBuff\"? It already under AptxSinkBuffering namespace.",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e1b41ab_e115454d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-17T16:23:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b890546_342d20be",
       "range": {
         "startLine": 21,
         "startChar": 9,
@@ -265,6 +427,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b7b2d5f_31ea2597",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-17T16:23:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c28c9b1e_56333d31",
+      "range": {
+        "startLine": 37,
+        "startChar": 37,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17df1da7_d212d73d",
@@ -278,6 +464,30 @@
       "writtenOn": "2022-01-10T10:12:04Z",
       "side": 1,
       "message": "nit: aptxAdaptiveConfig",
+      "range": {
+        "startLine": 37,
+        "startChar": 34,
+        "endLine": 37,
+        "endChar": 52
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f75e9bc_09e2b445",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecConfiguration.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-17T16:23:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17df1da7_d212d73d",
       "range": {
         "startLine": 37,
         "startChar": 34,

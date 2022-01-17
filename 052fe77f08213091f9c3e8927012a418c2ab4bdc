@@ -813,6 +813,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "527cc32b_e336f6fb",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-17T16:23:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ced8943b_44231127",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 15
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49dcf10c_788fd37d",
