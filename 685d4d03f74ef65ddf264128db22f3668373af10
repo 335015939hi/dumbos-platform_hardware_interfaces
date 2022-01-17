@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe857ff8_64f23b4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T03:10:03Z",
+      "side": 1,
+      "message": "+2 for merged first strategy to unblock the further HAL modification, review on this patch later and fix the error in the other patch.",
+      "revId": "685d4d03f74ef65ddf264128db22f3668373af10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
