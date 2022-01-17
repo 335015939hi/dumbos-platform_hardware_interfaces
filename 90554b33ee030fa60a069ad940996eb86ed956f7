@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6942b6c1_ec3416b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T15:53:45Z",
+      "side": 1,
+      "message": "Thanks for the patch :) \n\nI\u0027m wondering what\u0027s the benefit to have the broadcast session type? It would do the same thing with the le audio encoding data path. If we plan to have the multiple sessions, I am thinking two le audio encoding sessions might be the same as one le audio encoding session and one le audio broadcast encoding session.\n\nFor the offload, adsp only process the audio data, the unicast and broadcast concept could only keep in the bluetooth stack.",
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e1e3a0_6261dcc1",
+        "filename": "bluetooth/audio/2.2/default/A2dpSoftwareAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T15:53:45Z",
+      "side": 1,
+      "message": "return isValid(static_cast\u003cV2_2::SessionType\u003e(sessionType));?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 25
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be28fd9d_de0eca67",
+        "filename": "bluetooth/audio/2.2/default/LeAudioBroadcastAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T15:53:45Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 67
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab074e4a_28c0d7f9",
+        "filename": "bluetooth/audio/2.2/default/LeAudioBroadcastAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T15:53:45Z",
+      "side": 1,
+      "message": "LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH?",
+      "range": {
+        "startLine": 45,
+        "startChar": 37,
+        "endLine": 45,
+        "endChar": 72
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1ff91da_ef7f1362",
+        "filename": "bluetooth/audio/2.2/default/LeAudioBroadcastAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T15:53:45Z",
+      "side": 1,
+      "message": "LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH?",
+      "range": {
+        "startLine": 179,
+        "startChar": 42,
+        "endLine": 179,
+        "endChar": 77
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ff14534_eaef992e",
+        "filename": "bluetooth/audio/2.2/default/LeAudioBroadcastAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T15:53:45Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 34
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bd74303_d397626f",
+        "filename": "bluetooth/audio/2.2/default/LeAudioBroadcastOffloadAudioProvider.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T15:53:45Z",
+      "side": 1,
+      "message": "nit: 2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53046c5d_a2d1af7e",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T15:53:45Z",
+      "side": 1,
+      "message": "If we have broadcast session type, should we isolate UnicastConfig and BroadcastConfig?",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b3826fe_8fec8e8b",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T15:53:45Z",
+      "side": 1,
+      "message": "If we have broadcast session type, should we isolate UnicastCapability and BroadcastCapability? and how to represent the broadcast \u0026 unicast simultaneously HAL capabilities?",
+      "range": {
+        "startLine": 100,
+        "startChar": 7,
+        "endLine": 100,
+        "endChar": 38
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "943cea49_992b27ab",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_2.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T15:53:45Z",
+      "side": 1,
+      "message": "The logic would remove the le audio hardware offload support for HIDL 2.2. Could we only filter our 2_0 session type for now?",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 3
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d81c5dc1_06f631aa",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-17T15:53:45Z",
+      "side": 1,
+      "message": "It would break LE audio offload capability. LE audio offload is supported with HIDL 2.2.",
+      "range": {
+        "startLine": 124,
+        "startChar": 6,
+        "endLine": 124,
+        "endChar": 25
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
