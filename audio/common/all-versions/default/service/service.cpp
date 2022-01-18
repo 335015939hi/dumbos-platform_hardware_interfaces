@@ -20,8 +20,11 @@
 #include <string>
 #include <vector>
 
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
 #include <binder/ProcessState.h>
 #include <cutils/properties.h>
+#include <dlfcn.h>
 #include <hidl/HidlTransportSupport.h>
 #include <hidl/LegacySupport.h>
 #include <hwbinder/ProcessState.h>
@@ -30,6 +33,9 @@ using namespace android::hardware;
 using android::OK;
 
 using InterfacesList = std::vector<std::string>;
+
+const static std::string kBtAudioProviderFactoryFunctionName =
+        "createIBluetoothAudioProviderFactory";
 
 /** Try to register the provided factories in the provided order.
  *  If any registers successfully, do not register any other and return true.
@@ -43,6 +49,31 @@ static bool registerPassthroughServiceImplementations(Iter first, Iter last) {
         }
     }
     return false;
+}
+
+static bool registerExternalServiceImplementation(const std::string& libName,
+                                                  const std::string& funcName) {
+    constexpr int dlMode = RTLD_LAZY;
+    void* handle = nullptr;
+    dlerror();  // clear
+    auto libPath = libName + ".so";
+    handle = dlopen(libPath.c_str(), dlMode);
+    if (handle == nullptr) {
+        const char* error = dlerror();
+        ALOGE("Failed to dlopen %s: %s", libPath.c_str(),
+              error != nullptr ? error : "unknown error");
+        return false;
+    }
+    binder_status_t (*factoryFunction)();
+    *(void**)(&factoryFunction) = dlsym(handle, funcName.c_str());
+    if (!factoryFunction) {
+        const char* error = dlerror();
+        ALOGE("Factory function %s not found in libName %s: %s", funcName.c_str(), libPath.c_str(),
+              error != nullptr ? error : "unknown error");
+        dlclose(handle);
+        return false;
+    }
+    return ((*factoryFunction)() == STATUS_OK);
 }
 
 int main(int /* argc */, char* /* argv */ []) {
@@ -100,6 +131,10 @@ int main(int /* argc */, char* /* argv */ []) {
             "android.hardware.bluetooth.a2dp@1.0::IBluetoothAudioOffload"
         }
     };
+
+    const std::vector<std::string> optionalInterfaceSharedLibs = {
+        "android.hardware.bluetooth.audio-V1-impl",
+    };
     // clang-format on
 
     for (const auto& listIter : mandatoryInterfaces) {
@@ -116,5 +151,20 @@ int main(int /* argc */, char* /* argv */ []) {
                  "Could not register %s", interfaceFamilyName.c_str());
     }
 
+    // Setup AIDL interfaces
+    ABinderProcess_setThreadPoolMaxThreadCount(1);
+    ABinderProcess_startThreadPool();
+
+    for (const auto& library : optionalInterfaceSharedLibs) {
+        if (registerExternalServiceImplementation(library, kBtAudioProviderFactoryFunctionName)) {
+            ALOGI("%s() from %s success", kBtAudioProviderFactoryFunctionName.c_str(),
+                  library.c_str());
+        } else {
+            ALOGW("%s() from %s failed", kBtAudioProviderFactoryFunctionName.c_str(),
+                  library.c_str());
+        }
+    }
+
     joinRpcThreadpool();
+    ABinderProcess_joinThreadPool();
 }
