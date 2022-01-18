@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d535343c_74417fcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-18T14:25:37Z",
+      "side": 1,
+      "message": "which definition in particular you mean ? Sorry I didn\u0027t get this comment.",
+      "parentUuid": "ab2726ba_d6290fe8",
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4fe1658c_3f0aec13",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveConfiguration.aidl",
         "patchSetId": 6
@@ -31,6 +49,30 @@
       "writtenOn": "2022-01-18T02:46:23Z",
       "side": 1,
       "message": "What is the difference between AptxSinkBuffering and AptxAdaptiveTTP since they have very similar definitions?",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 17
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1117c626_535da44d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveConfiguration.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-18T14:25:37Z",
+      "side": 1,
+      "message": "Both are different as per spec:\n\nMinSinkBufferingXX represents the minimum buffering from reception of the packet by the sink to the rendering of the first audio sample of that packet. Each bit represents 1ms of audio. This value applies to any supported channel mode\n\nMaxSinkBufferingXX represents the maximum buffering from reception of the packet by the sink to the rendering of the first audio sample of that packet. Each bit represents 4ms of audio. This value applies to any supported channel mode\n\nTTP:\nTTP Offset Targets for low latency mode and high quality mode can be programmed by the host. Unless set by the host, the default values are used. Some implementation ignores those values.",
+      "parentUuid": "4fe1658c_3f0aec13",
       "range": {
         "startLine": 31,
         "startChar": 2,
@@ -89,6 +131,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f726a9e_f21cfde6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-18T14:25:37Z",
+      "side": 1,
+      "message": "As per Josh Wu comment\nPlease use arrays(bitmask capabilities in other files will also be removed later)\n\nUsing arrays while bitmask values are spec defined. Should I remove array ?",
+      "parentUuid": "9e9a933f_26cd50ad",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c714f910_f5124fc8",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
         "patchSetId": 6
@@ -112,6 +178,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40fc1b71_92e130ea",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-18T14:25:37Z",
+      "side": 1,
+      "message": "ULL -\u003e Ultra Low Latency\nSCAN_CONTROL -\u003e Disable Scan as part of LL/ULL\n\nYes. UNKNOWN is used as exception.",
+      "parentUuid": "c714f910_f5124fc8",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 26
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1e33bd55_5b7156f3",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
         "patchSetId": 6
@@ -123,6 +213,30 @@
       "writtenOn": "2022-01-18T02:32:10Z",
       "side": 1,
       "message": "I see there are five modes at the AptxMode definition, but why does it have only three groups here? Should the AptxMode and the AptxSinkBuffer be 1-1 mapping?",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d31804d_513f8191",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-18T14:25:37Z",
+      "side": 1,
+      "message": "No it\u0027s not have 1-1 mapping.",
+      "parentUuid": "1e33bd55_5b7156f3",
       "range": {
         "startLine": 22,
         "startChar": 13,
