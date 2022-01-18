@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2abf180_c87ecc91",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveTTP.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-18T02:32:10Z",
+      "side": 1,
+      "message": "Why does \"Time To Play\" have the difference of low or high? Can you have more detailed explanation on it?",
+      "range": {
+        "startLine": 21,
+        "startChar": 12,
+        "endLine": 22,
+        "endChar": 16
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c714f910_f5124fc8",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-18T02:32:10Z",
+      "side": 1,
+      "message": "I guess that HQ is high quality and LL means low latency, but what is ULL and SCAN_CONTROL?\n\nBtw, I guess that UNKNOWN is used for an exception, and is it correct? If it is used for normal cases, can you give more detailed explanation?",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 26
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e33bd55_5b7156f3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-18T02:32:10Z",
+      "side": 1,
+      "message": "I see there are five modes at the AptxMode definition, but why does it have only three groups here? Should the AptxMode and the AptxSinkBuffer be 1-1 mapping?",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
