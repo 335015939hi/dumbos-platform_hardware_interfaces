@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e87625f6_d8a8174d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-01-18T22:53:07Z",
+      "side": 1,
+      "message": "A couple contextless drive-by comments.  It\u0027s possible that we don\u0027t feel the need to make any changes here, but I figured I\u0027d just mention these as FYI.  Thanks!",
+      "revId": "1eb12b29728adcbbe5b8694f671c67b8a624fe4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09fa957a_0a812214",
@@ -43,6 +60,80 @@
         "startChar": 67,
         "endLine": 56,
         "endChar": 74
+      },
+      "revId": "1eb12b29728adcbbe5b8694f671c67b8a624fe4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "407f1d33_e6aed819",
+        "filename": "identity/aidl/default/FakeSecureHardwareProxy.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-01-18T22:53:07Z",
+      "side": 1,
+      "message": "Note that if someone creates a child class of FakeSecureHardwareProvisioningProxy, call it FakeChild, and it overrides shutdown() with its own implementation, but code destructs the instance via a FakeSecureHardwareProvisioningProxy pointer, then we won\u0027t invoke FakeChild::shutdown() here, because we don\u0027t use the dynamic/virtual binding in destructors (or constructors).\n\nThis might not be of any concern.  If we\u0027re worried, we could declare shutdown() \u0027final\u0027 in the header for this class, to prevent this situation.",
+      "revId": "1eb12b29728adcbbe5b8694f671c67b8a624fe4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "066cf751_5b195ccb",
+        "filename": "identity/aidl/default/FakeSecureHardwareProxy.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-01-18T22:53:07Z",
+      "side": 1,
+      "message": "Similar comment about not using dynamic binding for shutdown() in this destructor.",
+      "revId": "1eb12b29728adcbbe5b8694f671c67b8a624fe4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce735e69_0fe17ee7",
+        "filename": "identity/aidl/default/FakeSecureHardwareProxy.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-01-18T22:53:07Z",
+      "side": 1,
+      "message": "Similar comment about not using dynamic binding for shutdown() in this destructor.",
+      "revId": "1eb12b29728adcbbe5b8694f671c67b8a624fe4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "519be1b1_c3523a91",
+        "filename": "identity/aidl/default/common/PresentationSession.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-01-18T22:53:07Z",
+      "side": 1,
+      "message": "I definitely see in the code where, if initialize() returns with success, then \"id_\" and \"authChallenge_\" will be initialized.\n\nHowever, before initialize() is called, and in some of the error cases that initialize() returns, these two variables will be uninitialized memory.  Are we worried about calls into getSessionId() and/or getAuthChallenge(...) in those situations?\n\nI don\u0027t know the context of this code, but this seems to deal with some level of authentication.  I wonder if it might be worth initializing these two fields to known values, either 0 or UINT64_C(-1), in the constructor so we don\u0027t need to worry about any possible uninitialized usage.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 17
       },
       "revId": "1eb12b29728adcbbe5b8694f671c67b8a624fe4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
