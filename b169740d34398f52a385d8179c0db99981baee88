@@ -519,6 +519,30 @@
       },
       "revId": "b169740d34398f52a385d8179c0db99981baee88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b2e2bb1_b6a607fa",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/InputMode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-18T02:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "002af178_72b2bd13",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 14
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
