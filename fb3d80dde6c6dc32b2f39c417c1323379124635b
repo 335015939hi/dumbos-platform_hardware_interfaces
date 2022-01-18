@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9e9a933f_26cd50ad",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-18T02:38:48Z",
+      "side": 1,
+      "message": "Should it be still the bitmask if it is an array at AptxAdaptiveCapabilities::AptxMode[]?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c714f910_f5124fc8",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
         "patchSetId": 6
