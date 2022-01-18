@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab2726ba_d6290fe8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-18T02:43:00Z",
+      "side": 1,
+      "message": "I see other CLs have corresponding definitions under bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/, but do you need?",
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2abf180_c87ecc91",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveTTP.aidl",
         "patchSetId": 6
