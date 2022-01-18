@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3d9e0d9_1be30840",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-01-18T19:12:13Z",
+      "side": 1,
+      "message": "Hi Alice,\n\nThank You for the review!\n\nI remember this was important for simultaneous unicast and broadcast use case.\n\nAFAIK this is not possible to have multiple sessions with the same type running at the same time. https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/bluetooth/audio/utils/session/BluetoothAudioSession_2_2.h;drc\u003d3f9f41f3c8b082fd8f4eaa19ff99560a78f23e69;l\u003d175 would be the limitation.",
+      "parentUuid": "6942b6c1_ec3416b8",
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0e1e3a0_6261dcc1",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-01-17T15:53:45Z",
       "side": 1,
       "message": "return isValid(static_cast\u003cV2_2::SessionType\u003e(sessionType));?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 25
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e8866c2_e3e1d959",
+        "filename": "bluetooth/audio/2.2/default/A2dpSoftwareAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-01-18T19:12:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0e1e3a0_6261dcc1",
       "range": {
         "startLine": 69,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ea557f1_5f782ff9",
+        "filename": "bluetooth/audio/2.2/default/LeAudioBroadcastAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-01-18T19:12:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be28fd9d_de0eca67",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 67
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab074e4a_28c0d7f9",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-01-17T15:53:45Z",
       "side": 1,
       "message": "LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH?",
+      "range": {
+        "startLine": 45,
+        "startChar": 37,
+        "endLine": 45,
+        "endChar": 72
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d41f8221_7988482a",
+        "filename": "bluetooth/audio/2.2/default/LeAudioBroadcastAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-01-18T19:12:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab074e4a_28c0d7f9",
       "range": {
         "startLine": 45,
         "startChar": 37,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94d82c40_22905d50",
+        "filename": "bluetooth/audio/2.2/default/LeAudioBroadcastAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-01-18T19:12:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1ff91da_ef7f1362",
+      "range": {
+        "startLine": 179,
+        "startChar": 42,
+        "endLine": 179,
+        "endChar": 77
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ff14534_eaef992e",
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc022a8e_44abdfad",
+        "filename": "bluetooth/audio/2.2/default/LeAudioBroadcastAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-01-18T19:12:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ff14534_eaef992e",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 34
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bd74303_d397626f",
@@ -146,6 +284,30 @@
       "writtenOn": "2022-01-17T15:53:45Z",
       "side": 1,
       "message": "nit: 2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "776a57e2_168a4806",
+        "filename": "bluetooth/audio/2.2/default/LeAudioBroadcastOffloadAudioProvider.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-01-18T19:12:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bd74303_d397626f",
       "range": {
         "startLine": 2,
         "startChar": 13,
@@ -181,6 +343,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4ac7bc8_d948d14c",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-01-18T19:12:13Z",
+      "side": 1,
+      "message": "Wouldn\u0027t be enough if to set up proper mode since codec config is union ?",
+      "parentUuid": "53046c5d_a2d1af7e",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b3826fe_8fec8e8b",
         "filename": "bluetooth/audio/2.2/types.hal",
         "patchSetId": 1
@@ -192,6 +378,30 @@
       "writtenOn": "2022-01-17T15:53:45Z",
       "side": 1,
       "message": "If we have broadcast session type, should we isolate UnicastCapability and BroadcastCapability? and how to represent the broadcast \u0026 unicast simultaneously HAL capabilities?",
+      "range": {
+        "startLine": 100,
+        "startChar": 7,
+        "endLine": 100,
+        "endChar": 38
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df0565d0_587074cb",
+        "filename": "bluetooth/audio/2.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-01-18T19:12:13Z",
+      "side": 1,
+      "message": "Maybe I don\u0027t know exact purpose of this part of code, but isn\u0027t capability a part of session ?\n\nIf I understand correctly, each session have it\u0027s own capability.\n\ne.g. LeAudioCodecCapabilitiesSetting for HW LE Audio offload session\nPcmParameters for software encoded/decoded session\nCodecCapabilities non LE Audio session \n\n\"BluetoothAudioProvidersFactory::getProviderCapabilities_2_2(\n    const V2_2::SessionType sessionType,\n    getProviderCapabilities_2_2_cb _hidl_cb)\"",
+      "parentUuid": "2b3826fe_8fec8e8b",
       "range": {
         "startLine": 100,
         "startChar": 7,
@@ -225,6 +435,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c1cb4f9_0cdd5341",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession_2_2.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-01-18T19:12:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "943cea49_992b27ab",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 3
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d81c5dc1_06f631aa",
@@ -238,6 +472,30 @@
       "writtenOn": "2022-01-17T15:53:45Z",
       "side": 1,
       "message": "It would break LE audio offload capability. LE audio offload is supported with HIDL 2.2.",
+      "range": {
+        "startLine": 124,
+        "startChar": 6,
+        "endLine": 124,
+        "endChar": 25
+      },
+      "revId": "90554b33ee030fa60a069ad940996eb86ed956f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa186343_4c54a1f1",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSupportedCodecsDB_2_2.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-01-18T19:12:13Z",
+      "side": 1,
+      "message": "I don\u0027t see issue here - maybe I\u0027m not so into offload. Please could you explain ?\nI did the same here as it\u0027s for 2.1 sessions. 2.1 sessions e.g. unicast offload should call the same code as previously.",
+      "parentUuid": "d81c5dc1_06f631aa",
       "range": {
         "startLine": 124,
         "startChar": 6,
