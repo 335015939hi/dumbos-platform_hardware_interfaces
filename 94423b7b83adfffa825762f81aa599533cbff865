@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "363706c7_409b6c35",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-01-19T01:13:14Z",
+      "side": 1,
+      "message": "How does this work? I thought VTS exercises a driver, and there aren\u0027t any on the host? (Asking because I\u0027d like to know and because it would be good to explain it in the commit message.)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "94423b7b83adfffa825762f81aa599533cbff865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
