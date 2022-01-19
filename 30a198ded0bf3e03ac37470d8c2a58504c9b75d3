@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c2e4ac5_2ede1211",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1244622
+      },
+      "writtenOn": "2022-01-19T18:00:07Z",
+      "side": 1,
+      "message": "If this is specific to Android 12 only, pls use RESTRICT AUTOMERGE in the commit message.",
+      "revId": "30a198ded0bf3e03ac37470d8c2a58504c9b75d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
