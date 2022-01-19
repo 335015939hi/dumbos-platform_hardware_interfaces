@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab4c261d_042cd979",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-19T20:01:02Z",
+      "side": 1,
+      "message": "Looks like this belongs in CL:1954657 instead.",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 76
+      },
+      "revId": "cd6332ae0b0653481574facfa6cf9a899b8215f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
