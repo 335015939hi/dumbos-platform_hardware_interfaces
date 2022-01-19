@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d020764a_93fa097f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-19T19:55:31Z",
+      "side": 1,
+      "message": "Does it really make sense to keep this separate from CL:1954659? That is, I don\u0027t think the default implementation will actually build with this change by itself and I think this is a golden rule of splitting things into smaller changes... either way, it was confusing to me.",
+      "revId": "2ff20133bc8fa1e074722a9e194dbd8de15f9009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a9e276d_bf498097",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-19T19:55:31Z",
+      "side": 1,
+      "message": "Please add new paragraph with \"This field was adding in API version 4.\" at the bottom of this comment.",
+      "revId": "2ff20133bc8fa1e074722a9e194dbd8de15f9009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11517ebf_cf6159e6",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-19T19:55:31Z",
+      "side": 1,
+      "message": "This seems wrong.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 86
+      },
+      "revId": "2ff20133bc8fa1e074722a9e194dbd8de15f9009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6733b920_5ff7acde",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-19T19:55:31Z",
+      "side": 1,
+      "message": "In CL:1824772, Steven specifically asked for things like this to be done in a separate CL.",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 45
+      },
+      "revId": "2ff20133bc8fa1e074722a9e194dbd8de15f9009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47dce569_6b5cc6eb",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-19T19:55:31Z",
+      "side": 1,
+      "message": "Add comment to say this was added in API version 4.",
+      "revId": "2ff20133bc8fa1e074722a9e194dbd8de15f9009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
