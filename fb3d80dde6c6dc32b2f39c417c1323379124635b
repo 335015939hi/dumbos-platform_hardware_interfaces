@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05692f94_39dd0fb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-19T06:50:46Z",
+      "side": 1,
+      "message": "If you run `m android.hardware.bluetooth.audio-update-api`, it will generate a freezed version of AIDL and you need to upload it as well.\nFYI: https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1860894\n\nBTW, make sure you run the following tests:\n m android.hardware.bluetooth.audio-update-api\n m android.hardware.bluetooth.audio-V1-impl",
+      "parentUuid": "d535343c_74417fcb",
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4fe1658c_3f0aec13",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveConfiguration.aidl",
         "patchSetId": 6
