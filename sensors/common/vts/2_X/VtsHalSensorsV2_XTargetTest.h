@@ -560,6 +560,9 @@ TEST_P(SensorsHidlTest, CallInitializeTwice) {
 }
 
 TEST_P(SensorsHidlTest, CleanupConnectionsOnInitialize) {
+    if (mSensorHandles.size() == 0) {
+        return;
+    }
     activateAllSensors(true);
 
     // Verify that events are received
