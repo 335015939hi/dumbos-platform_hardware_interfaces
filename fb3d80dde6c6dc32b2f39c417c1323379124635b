@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3b2246c_659c1e4b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveConfiguration.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-19T02:44:08Z",
+      "side": 1,
+      "message": "I see, AptxSinkBuffering sounds like a latency requirement for the sink side. AptxAdaptiveTTP is similar to a time offset such as jitter at the source side?",
+      "parentUuid": "1117c626_535da44d",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 17
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2abf180_c87ecc91",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveTTP.aidl",
         "patchSetId": 6
@@ -96,6 +120,30 @@
       "writtenOn": "2022-01-18T02:32:10Z",
       "side": 1,
       "message": "Why does \"Time To Play\" have the difference of low or high? Can you have more detailed explanation on it?",
+      "range": {
+        "startLine": 21,
+        "startChar": 12,
+        "endLine": 22,
+        "endChar": 16
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75fd77ef_572cb668",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveTTP.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-19T02:44:08Z",
+      "side": 1,
+      "message": "Clarifying with AptxSinkBuffering. Please refer to AptxAdaptiveConfiguration. Ack",
+      "parentUuid": "b2abf180_c87ecc91",
       "range": {
         "startLine": 21,
         "startChar": 12,
@@ -155,6 +203,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4fc5de40_f50ee795",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-19T02:44:08Z",
+      "side": 1,
+      "message": "In order to show the capability, even if the definition here is bitmask value, I suppose you will add all supported values into AptxAdaptiveCapabilities::AptxMode[] array such as {AptxMode::HQ, AptxMode::LL, AptxMode::ULL}?",
+      "parentUuid": "3f726a9e_f21cfde6",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c714f910_f5124fc8",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
         "patchSetId": 6
@@ -202,6 +274,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a299a5c0_87e1ae37",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-19T02:44:08Z",
+      "side": 1,
+      "message": "Can you have more on *Disable Scan as part of LL/ULL*? Does this scan mean something like page / inquire / BLE scan? It sounds like that 0xA000 (LL | SCAN_CONTROL) or 0xC000 (ULL | SCAN_CONTROL) are valid values, and is my understanding correct?",
+      "parentUuid": "40fc1b71_92e130ea",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 26
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1e33bd55_5b7156f3",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
         "patchSetId": 6
@@ -237,6 +333,30 @@
       "side": 1,
       "message": "No it\u0027s not have 1-1 mapping.",
       "parentUuid": "1e33bd55_5b7156f3",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40451d13_ab114b16",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-19T02:44:08Z",
+      "side": 1,
+      "message": "How can we know what min/max it should use if this is not related to AptxMode? Say that at first I thought the value here is based on AptxMode:\nAptxMode::HQ \u003d\u003d\u003e {AptxSinkBuffering::min_HQ, AptxSinkBuffering::max_HQ}\nAptxMode::LL \u003d\u003d\u003e {AptxSinkBuffering::min_LL, AptxSinkBuffering::max_LL}\nAptxMode::ULL \u003d\u003d\u003e ???\n??? \u003d\u003d\u003e {AptxSinkBuffering::min_TWS, AptxSinkBuffering::max_TWS}\n\nCan you give some example to show how we use the value?",
+      "parentUuid": "9d31804d_513f8191",
       "range": {
         "startLine": 22,
         "startChar": 13,

@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51853fc5_ac8b1ab9",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-19T02:44:08Z",
+      "side": 1,
+      "message": "Suggest to remove this since it doesn\u0027t look like a bitmask value.",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 31
+      },
+      "revId": "8d4ee766503c397a49ef098fb73b2b70e775d8f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e77b5164_e3bb19d0",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-19T02:44:08Z",
+      "side": 1,
+      "message": "Can we use *primary / secondary* wording here?",
+      "range": {
+        "startLine": 30,
+        "startChar": 11,
+        "endLine": 30,
+        "endChar": 17
+      },
+      "revId": "8d4ee766503c397a49ef098fb73b2b70e775d8f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0fd4ae3_11272e70",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-19T02:44:08Z",
+      "side": 1,
+      "message": "These are still unclear for me, and can you give more explanation?\n\n* UNCHANGED: What does it stand for? What is the real mode if it is unchanged, but how to use it?\n* JOINT_STEREO / TWS_STEREO: What\u0027s the difference between them? Is JOINT_STEREO only for non-TWS headsets?\n* MONO / DUAL_MONO / TWS_MONO: What\u0027s the difference? Does TWS_MONO support DUAL_MONO?\n* EARBUD: Is the aptX frame only 16 bits length, or how can it be interleaved?\n\nIs there anything specific to QCOM TWS+ that the source side handles the earbuds left / right sides respectively?",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "8d4ee766503c397a49ef098fb73b2b70e775d8f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
