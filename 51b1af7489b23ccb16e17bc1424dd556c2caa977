@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c133d1d_adf874d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1141048
+      },
+      "writtenOn": "2022-01-19T00:17:06Z",
+      "side": 1,
+      "message": "nit, maybe use \u002712\u0027 or the API sdk level",
+      "range": {
+        "startLine": 7,
+        "startChar": 48,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "51b1af7489b23ccb16e17bc1424dd556c2caa977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c282356_47796f47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1141048
+      },
+      "writtenOn": "2022-01-19T00:17:06Z",
+      "side": 1,
+      "message": "Clean code removal.",
+      "revId": "51b1af7489b23ccb16e17bc1424dd556c2caa977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
