@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8beefe62_511ccd50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-20T05:12:24Z",
+      "side": 1,
+      "message": "Remove separate_platform_variant for b/161456198",
+      "revId": "913a3a93e26a2e01c6e558b1a2e47e55fc2c4da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
