@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "325baaa6_cc67153b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-20T06:58:50Z",
+      "side": 1,
+      "message": "Update OWNERs format to fullfill presubmit check.",
+      "revId": "dbc36e52e15bdde13056e808775f41dfa2260ff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
