@@ -16,6 +16,29 @@
       "message": "Hi Julien, would you be able to do a quick review of this CL? Thanks!",
       "revId": "eca13a6338fd14c0fe676d74e79cea3371f89d5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4190367_6c10aa01",
+        "filename": "neuralnetworks/aidl/vts/functional/AndroidTestHost.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2022-01-20T21:00:01Z",
+      "side": 1,
+      "message": "for host-side there is no root/unroot since that\u0027s device concept",
+      "range": {
+        "startLine": 20,
+        "startChar": 60,
+        "endLine": 20,
+        "endChar": 78
+      },
+      "revId": "eca13a6338fd14c0fe676d74e79cea3371f89d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
