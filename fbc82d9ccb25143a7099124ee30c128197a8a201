@@ -16,6 +16,24 @@
       "message": "I guess. It kinda breaks my personal development flow where I run \n\n adb shell stop vendor.identity-default \u0026\u0026 adb shell /vendor/bin/hw/android.hardware.identity-service.example\n \nin a terminal and then look at stdout/stderr in that shell window and Ctrl+C and rerun after e.g. \u0027m \u0026\u0026 adb sync\u0027. Now I have to look at \u0027adb logcat\u0027 in another terminal... no biggie. I guess.",
       "revId": "fbc82d9ccb25143a7099124ee30c128197a8a201",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dd1c676_3cb77ff6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-20T20:49:01Z",
+      "side": 1,
+      "message": "¿Por qué no los dos?",
+      "parentUuid": "a3d35e86_8514583c",
+      "revId": "fbc82d9ccb25143a7099124ee30c128197a8a201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
