@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63e35437_211b26f8",
+        "filename": "bluetooth/audio/aidl/default/HearingAidAudioProvider.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-21T10:44:12Z",
+      "side": 1,
+      "message": "nit: Yup, it works, but I\u0027m not really what\u0027s the benefit, and you use another way in the other profile provider. Maybe you could align all the implementation in each profile provider.",
+      "parentUuid": "d6d6cb20_9ca4bda7",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 39
+      },
+      "revId": "6ab53e76a3d1f7969c95668aa254987aeb818154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e871b261_ac32a69b",
