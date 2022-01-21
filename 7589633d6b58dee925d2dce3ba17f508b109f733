@@ -22,6 +22,30 @@
       },
       "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ee0db35_7b908d9d",
+        "filename": "neuralnetworks/aidl/android/hardware/neuralnetworks/PrepareModelConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-21T21:25:59Z",
+      "side": 1,
+      "message": "If I import IDevice and use IDevice::BYTE_SIZE_OF_CACHE_TOKEN here, I got the following compile error:\n\nERROR: hardware/interfaces/neuralnetworks/aidl/android/hardware/neuralnetworks/PrepareModelConfig.aidl:81.17-18: syntax error, unexpected $undefined\nERROR: hardware/interfaces/neuralnetworks/aidl/android/hardware/neuralnetworks/PrepareModelConfig.aidl: error while importing hardware/interfaces/neuralnetworks/aidl/android/hardware/neuralnetworks/PrepareModelConfig.aidl for android.hardware.neuralnetworks.PrepareModelConfig\n\nIf I use IDevice.BYTE_SIZE_OF_CACHE_TOKEN instead, I got:\n\nERROR: hardware/interfaces/neuralnetworks/aidl/android/hardware/neuralnetworks/PrepareModelConfig.aidl:81.1-9: Array size must be a positive number: IDevice.BYTE_SIZE_OF_CACHE_TOKEN\n\nAny idea how to resolve this?",
+      "parentUuid": "a0e61e38_c391884e",
+      "range": {
+        "startLine": 80,
+        "startChar": 9,
+        "endLine": 80,
+        "endChar": 11
+      },
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
