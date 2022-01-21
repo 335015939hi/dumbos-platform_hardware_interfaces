@@ -1,0 +1,119 @@
+From cd449fd70cdc33c22edfb9bff7fef1c7fd9a48a3 Mon Sep 17 00:00:00 2001
+From: Josh Wu <joshwu@google.com>
+Date: Wed, 12 Jan 2022 05:42:58 -0800
+Subject: [PATCH] Add Bluetooth Audio AIDL HAL VTS
+
+Test: atest VtsHalBluetoothAudioTargetTest
+Bug: 203490261
+Change-Id: I1583cec9eacb18cfb285b3d12ca876def61342bd
+---
+ bluetooth/audio/aidl/vts/Android.bp           | 33 +++++++++++
+ .../vts/VtsHalBluetoothAudioTargetTest.cpp    | 56 +++++++++++++++++++
+ 2 files changed, 89 insertions(+)
+ create mode 100644 bluetooth/audio/aidl/vts/Android.bp
+ create mode 100644 bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp
+
+diff --git a/bluetooth/audio/aidl/vts/Android.bp b/bluetooth/audio/aidl/vts/Android.bp
+new file mode 100644
+index 000000000..ea1870acc
+--- /dev/null
++++ b/bluetooth/audio/aidl/vts/Android.bp
+@@ -0,0 +1,33 @@
++package {
++    // See: http://go/android-license-faq
++    // A large-scale-change added 'default_applicable_licenses' to import
++    // all of the 'license_kinds' from "hardware_interfaces_license"
++    // to get the below license kinds:
++    //   SPDX-license-identifier-Apache-2.0
++    default_applicable_licenses: ["hardware_interfaces_license"],
++}
++
++cc_test {
++    name: "VtsHalBluetoothAudioTargetTest",
++    defaults: [
++        "VtsHalTargetTestDefaults",
++        "use_libaidlvintf_gtest_helper_static",
++    ],
++    srcs: ["VtsHalBluetoothAudioTargetTest.cpp"],
++    shared_libs: [
++        "android.hardware.common-V2-ndk",
++        "android.hardware.common.fmq-V1-ndk",
++        "libbase",
++        "libbinder_ndk",
++        "libcutils",
++        "libfmq",
++    ],
++    static_libs: [
++        "android.hardware.audio.common-V1-ndk",
++        "android.hardware.bluetooth.audio-V1-ndk",
++    ],
++    test_suites: [
++        "general-tests",
++        "vts",
++    ],
++}
+diff --git a/bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp b/bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp
+new file mode 100644
+index 000000000..26b6ff0e6
+--- /dev/null
++++ b/bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp
+@@ -0,0 +1,56 @@
++/*
++ * Copyright (C) 2019 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++#include <aidl/Gtest.h>
++#include <aidl/Vintf.h>
++#include <aidl/android/hardware/bluetooth/audio/IBluetoothAudioProviderFactory.h>
++#include <android/binder_auto_utils.h>
++#include <android/binder_manager.h>
++#include <android/binder_process.h>
++#include <binder/IServiceManager.h>
++#include <binder/ProcessState.h>
++
++#include <future>
++
++using aidl::android::hardware::bluetooth::audio::IBluetoothAudioProviderFactory;
++using android::ProcessState;
++using android::String16;
++using ndk::ScopedAStatus;
++using ndk::SpAIBinder;
++
++class BluetoothAudioProviderFactoryAidl
++    : public testing::TestWithParam<std::string> {
++ public:
++  virtual void SetUp() override {
++    factory_ = IBluetoothAudioProviderFactory::fromBinder(
++        SpAIBinder(AServiceManager_waitForService(GetParam().c_str())));
++    ASSERT_NE(factory_, nullptr);
++  }
++  std::shared_ptr<IBluetoothAudioProviderFactory> factory_;
++};
++
++GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(
++    BluetoothAudioProviderFactoryAidl);
++INSTANTIATE_TEST_SUITE_P(PerInstance, BluetoothAudioProviderFactoryAidl,
++                         testing::ValuesIn(android::getAidlHalInstanceNames(
++                             IBluetoothAudioProviderFactory::descriptor)),
++                         android::PrintInstanceNameToString);
++
++int main(int argc, char** argv) {
++  ::testing::InitGoogleTest(&argc, argv);
++  ABinderProcess_setThreadPoolMaxThreadCount(1);
++  ABinderProcess_startThreadPool();
++  return RUN_ALL_TESTS();
++}
+-- 
+2.34.1.575.g55b058a8bb-goog
+
