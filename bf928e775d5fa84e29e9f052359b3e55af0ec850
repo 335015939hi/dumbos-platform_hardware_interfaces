@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d6e2d30_41d0a2d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-01-21T17:29:45Z",
+      "side": 1,
+      "message": "+Ram FYI this would need to land in aidl composer vts as well",
+      "revId": "bf928e775d5fa84e29e9f052359b3e55af0ec850",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
