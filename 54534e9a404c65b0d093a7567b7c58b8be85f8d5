@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8749483f_966cc2aa",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/CodecCapabilities.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-21T04:30:38Z",
+      "side": 1,
+      "message": "Would you like to add vendor capabilities here?\n\nParcelableHolder vendorCapabilities;",
+      "revId": "54534e9a404c65b0d093a7567b7c58b8be85f8d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
