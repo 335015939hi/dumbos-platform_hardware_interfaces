@@ -46,6 +46,30 @@
       },
       "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "168ea515_a22a0d64",
+        "filename": "neuralnetworks/aidl/android/hardware/neuralnetworks/PrepareModelConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-01-21T23:19:11Z",
+      "side": 1,
+      "message": "It\u0027s a bug in the AIDL compiler! Sorry about that.\nhttps://android-review.googlesource.com/c/platform/system/tools/aidl/+/1957580\nWe can wait until the fix gets through if you want to use it.",
+      "parentUuid": "3ee0db35_7b908d9d",
+      "range": {
+        "startLine": 80,
+        "startChar": 9,
+        "endLine": 80,
+        "endChar": 11
+      },
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
