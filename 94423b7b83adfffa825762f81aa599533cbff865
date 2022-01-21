@@ -142,6 +142,30 @@
       },
       "revId": "94423b7b83adfffa825762f81aa599533cbff865",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c394f24_015b856d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-01-21T23:29:51Z",
+      "side": 1,
+      "message": "LGTM, thanks.",
+      "parentUuid": "cfbaedfa_4cf72ab4",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "94423b7b83adfffa825762f81aa599533cbff865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
