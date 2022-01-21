@@ -16,6 +16,24 @@
       "message": "btw - once we remove the new 2.2 HAL, we can move OWNERS to bluetooth/audio/OWNERS (no more need to have separate files)",
       "revId": "8b8b2d574367bc3d8d81115872e12ad887c7fee5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb708113_875ecd63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-21T19:06:18Z",
+      "side": 1,
+      "message": "Will do. Thanks 😊",
+      "parentUuid": "7b543680_e3ba5a09",
+      "revId": "8b8b2d574367bc3d8d81115872e12ad887c7fee5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
