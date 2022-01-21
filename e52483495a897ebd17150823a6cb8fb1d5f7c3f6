@@ -16,6 +16,29 @@
       "message": "Note: This AIDL HAL won\u0027t be loaded unless the implementation be added to device.mk(or manually push the binary)",
       "revId": "e52483495a897ebd17150823a6cb8fb1d5f7c3f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dcb1e91_0314bb5d",
+        "filename": "audio/common/all-versions/default/service/service.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-01-21T18:36:22Z",
+      "side": 1,
+      "message": "Does this sequence of function calls actually work? \u0027joinRpcThreadpool\u0027 never returns, see here: https://source.android.com/devices/architecture/hidl-cpp#creating-the-hal-server\n\nI think, \u0027ABinderProcess_joinThreadPool\u0027 must be called from a separate thread.",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 36
+      },
+      "revId": "e52483495a897ebd17150823a6cb8fb1d5f7c3f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
