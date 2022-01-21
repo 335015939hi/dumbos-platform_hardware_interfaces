@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38dc1e32_8084e2da",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioCodecs.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T15:14:18Z",
+      "side": 1,
+      "message": "Special Audio",
+      "parentUuid": "8c0045ca_240b95f5",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 60
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e96cf99_7f25b5e0",
@@ -116,6 +140,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f685d845_d0384b33",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T15:14:18Z",
+      "side": 1,
+      "message": "!not operator has a pretty bad readibility, and it can be optimized by compilers.",
+      "parentUuid": "d63e4573_12196c15",
+      "range": {
+        "startLine": 344,
+        "startChar": 27,
+        "endLine": 344,
+        "endChar": 37
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71539af8_5c4dc93e",
@@ -129,6 +177,30 @@
       "writtenOn": "2022-01-21T15:01:01Z",
       "side": 1,
       "message": "!bytes?",
+      "range": {
+        "startLine": 382,
+        "startChar": 27,
+        "endLine": 382,
+        "endChar": 32
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a6d752f_89614560",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T15:14:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "71539af8_5c4dc93e",
       "range": {
         "startLine": 382,
         "startChar": 27,
@@ -162,6 +234,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c165a0d_a67ea9b7",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T15:14:18Z",
+      "side": 1,
+      "message": "It\u0027s a trick. With parcelableHolder members, unions can be hardly copied and passed , and we also have some methods requiring AudioConfiguration\u0026 returned, so we added these AudioConfigurations as a return target.\n\nThe truth is that kInvalidPcm/CodecConfigs can be removed.",
+      "parentUuid": "08c326be_d07446c8",
+      "range": {
+        "startLine": 180,
+        "startChar": 2,
+        "endLine": 180,
+        "endChar": 61
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fd81fe4_1e8a0170",
@@ -175,6 +271,30 @@
       "writtenOn": "2022-01-21T15:01:01Z",
       "side": 1,
       "message": "What\u0027s the different with #178?",
+      "range": {
+        "startLine": 181,
+        "startChar": 2,
+        "endLine": 181,
+        "endChar": 59
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef97103c_e7eba1fc",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T15:14:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0fd81fe4_1e8a0170",
       "range": {
         "startLine": 181,
         "startChar": 2,
@@ -231,6 +351,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c83d86c_2f9990a5",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T15:14:18Z",
+      "side": 1,
+      "message": "Yes because each session(with unique session_type) has independent cookie table, but the middleware is shared between sessions.",
+      "parentUuid": "77feba69_c8aa7a23",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 26
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24bcd8c6_1d3b0e93",
@@ -254,6 +398,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f707662_9a040408",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T15:14:18Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1955928",
+      "parentUuid": "24bcd8c6_1d3b0e93",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 61
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd36cb9d_2b03cf24",
@@ -267,6 +435,30 @@
       "writtenOn": "2022-01-21T15:01:01Z",
       "side": 1,
       "message": "Please make sure the mode is UNICAST or get the Tag before setting it.",
+      "range": {
+        "startLine": 452,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 24
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b565c92_e94f4b8a",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T15:14:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fd36cb9d_2b03cf24",
       "range": {
         "startLine": 452,
         "startChar": 0,
@@ -348,6 +540,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3402ba24_f0760785",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware_2_2.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T15:14:18Z",
+      "side": 1,
+      "message": "One thing confused me is that audioConfigChanged is rarely invoked(has a null cb)?",
+      "parentUuid": "3a73992d_24ff800d",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 45
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f06e51a_be4387f2",
         "filename": "bluetooth/audio/utils/session/BluetoothAudioSession.cpp",
         "patchSetId": 15
@@ -382,6 +598,30 @@
       "writtenOn": "2022-01-21T15:01:01Z",
       "side": 1,
       "message": "Should the middleware handle InReadPcmData as well?",
+      "range": {
+        "startLine": 439,
+        "startChar": 30,
+        "endLine": 439,
+        "endChar": 43
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c14bd3d5_76ba1148",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T15:14:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e2f49c88_b8bb0913",
       "range": {
         "startLine": 439,
         "startChar": 30,
