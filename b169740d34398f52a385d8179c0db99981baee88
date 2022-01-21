@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7243e4d0_0114fc93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-21T15:33:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11fd5f5e_c0fbcec0",
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "040aa9d9_42ed8c49",
@@ -398,6 +416,30 @@
       "range": {
         "startLine": 20,
         "startChar": 23,
+        "endLine": 20,
+        "endChar": 27
+      },
+      "revId": "b169740d34398f52a385d8179c0db99981baee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4608505_b0d3f633",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptive_TTP.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-21T15:33:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3719bbc7_bc1f9ab1",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
         "endLine": 20,
         "endChar": 27
       },
