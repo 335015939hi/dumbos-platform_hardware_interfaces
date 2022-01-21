@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e61e38_c391884e",
+        "filename": "neuralnetworks/aidl/android/hardware/neuralnetworks/PrepareModelConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-01-21T21:05:40Z",
+      "side": 1,
+      "message": "I think you can use IDevice::BYTE_SIZE_OF_CACHE_TOKEN if you import IDevice.",
+      "range": {
+        "startLine": 80,
+        "startChar": 9,
+        "endLine": 80,
+        "endChar": 11
+      },
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
