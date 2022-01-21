@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35e1330f_47289120",
+        "filename": "identity/aidl/default/common/IdentityCredentialStore.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-21T00:38:37Z",
+      "side": 1,
+      "message": "@zeuthen: I parameterized the component here\n\nI felt this was better than a build flag, plus it allows the IRPC to be properly parameterized along with the \"is supported\" boolean",
+      "range": {
+        "startLine": 40,
+        "startChar": 28,
+        "endLine": 40,
+        "endChar": 73
+      },
+      "revId": "96d6480a5d0548358bbcfa13f4d76af52e7298e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
