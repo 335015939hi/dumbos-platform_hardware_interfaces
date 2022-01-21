@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad4590f9_5a118e4d",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProviderFactory.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-21T10:27:38Z",
+      "side": 1,
+      "message": "nit: why we need these headers?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 41
+      },
+      "revId": "6ab53e76a3d1f7969c95668aa254987aeb818154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22ce1ad3_e4c0c813",
+        "filename": "bluetooth/audio/aidl/default/HearingAidAudioProvider.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-21T10:27:38Z",
+      "side": 1,
+      "message": "nit: \n\n  *_aidl_return \u003d data_mq_-\u003edupeDesc();\n  BluetoothAudioSessionReport::OnSessionStarted(session_type_, stack_iface_,\n                                                _aidl_return, *audio_config_);",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 39
+      },
+      "revId": "6ab53e76a3d1f7969c95668aa254987aeb818154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e871b261_ac32a69b",
+        "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-21T10:27:38Z",
+      "side": 1,
+      "message": "BTAudioProviderLeAudioHW?",
+      "range": {
+        "startLine": 17,
+        "startChar": 17,
+        "endLine": 17,
+        "endChar": 41
+      },
+      "revId": "6ab53e76a3d1f7969c95668aa254987aeb818154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7141bd0f_7d0dd8ac",
+        "filename": "bluetooth/audio/aidl/default/LeAudioSoftwareAudioProvider.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-21T10:27:38Z",
+      "side": 1,
+      "message": "BTAudioProviderLeAudioSW?",
+      "range": {
+        "startLine": 17,
+        "startChar": 17,
+        "endLine": 17,
+        "endChar": 41
+      },
+      "revId": "6ab53e76a3d1f7969c95668aa254987aeb818154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "084d6cb3_58679ba5",
+        "filename": "bluetooth/audio/aidl/default/LeAudioSoftwareAudioProvider.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-21T10:27:38Z",
+      "side": 1,
+      "message": "Do we need to check if the sampleRate is valid?",
+      "range": {
+        "startLine": 87,
+        "startChar": 23,
+        "endLine": 87,
+        "endChar": 35
+      },
+      "revId": "6ab53e76a3d1f7969c95668aa254987aeb818154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc42c895_5c11471b",
+        "filename": "bluetooth/audio/aidl/default/LeAudioSoftwareAudioProvider.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-21T10:27:38Z",
+      "side": 1,
+      "message": "If the return value is 0, should we return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT)?",
+      "range": {
+        "startLine": 88,
+        "startChar": 6,
+        "endLine": 88,
+        "endChar": 59
+      },
+      "revId": "6ab53e76a3d1f7969c95668aa254987aeb818154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aff600cb_b8333f73",
+        "filename": "bluetooth/audio/aidl/default/LeAudioSoftwareAudioProvider.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-21T10:27:38Z",
+      "side": 1,
+      "message": "Please validate the value if it\u0027s valid.",
+      "range": {
+        "startLine": 89,
+        "startChar": 18,
+        "endLine": 89,
+        "endChar": 31
+      },
+      "revId": "6ab53e76a3d1f7969c95668aa254987aeb818154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
