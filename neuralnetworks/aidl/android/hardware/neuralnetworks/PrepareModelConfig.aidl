@@ -77,7 +77,7 @@ parcelable PrepareModelConfig {
      * indicating that caching information is not provided, this
      * token must be ignored.
      */
-    byte[] cacheToken;
+    byte[32] cacheToken;
     /**
      * A vector of token / value pairs represent vendor specific
      * compilation hints or metadata. The provided TokenValuePairs must not

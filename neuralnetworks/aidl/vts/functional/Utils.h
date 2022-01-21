@@ -22,6 +22,7 @@
 #include <gtest/gtest.h>
 
 #include <algorithm>
+#include <array>
 #include <iosfwd>
 #include <string>
 #include <utility>
@@ -48,6 +49,7 @@ inline constexpr int64_t kNoDeadline = -1;
 inline constexpr int64_t kOmittedTimeoutDuration = -1;
 inline constexpr int64_t kNoDuration = -1;
 inline const std::vector<uint8_t> kEmptyCacheToken(IDevice::BYTE_SIZE_OF_CACHE_TOKEN);
+inline const std::array<uint8_t, IDevice::BYTE_SIZE_OF_CACHE_TOKEN> kEmptyCacheTokenArray{};
 
 // Returns the amount of space needed to store a value of the specified type.
 //

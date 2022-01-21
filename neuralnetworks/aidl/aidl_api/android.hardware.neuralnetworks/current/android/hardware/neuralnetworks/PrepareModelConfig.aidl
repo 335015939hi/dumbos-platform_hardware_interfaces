@@ -39,7 +39,7 @@ parcelable PrepareModelConfig {
   long deadlineNs;
   ParcelFileDescriptor[] modelCache;
   ParcelFileDescriptor[] dataCache;
-  byte[] cacheToken;
+  byte[32] cacheToken;
   android.hardware.neuralnetworks.TokenValuePair[] compilationHints;
   android.hardware.neuralnetworks.ExtensionNameAndPrefix[] extensionNameToPrefix;
 }
