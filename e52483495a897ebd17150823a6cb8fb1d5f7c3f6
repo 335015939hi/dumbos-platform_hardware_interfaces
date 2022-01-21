@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f783c16_033f73c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T10:18:33Z",
+      "side": 1,
+      "message": "Note: This AIDL HAL won\u0027t be loaded unless the implementation be added to device.mk(or manually push the binary)",
+      "revId": "e52483495a897ebd17150823a6cb8fb1d5f7c3f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
