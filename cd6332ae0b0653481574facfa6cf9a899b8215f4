@@ -22,6 +22,30 @@
       },
       "revId": "cd6332ae0b0653481574facfa6cf9a899b8215f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83824e66_5607d16f",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-21T14:15:16Z",
+      "side": 1,
+      "message": "Done\n\n(editing commit history is hard)",
+      "parentUuid": "ab4c261d_042cd979",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 76
+      },
+      "revId": "cd6332ae0b0653481574facfa6cf9a899b8215f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
