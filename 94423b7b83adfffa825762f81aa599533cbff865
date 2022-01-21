@@ -118,6 +118,30 @@
       },
       "revId": "94423b7b83adfffa825762f81aa599533cbff865",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfbaedfa_4cf72ab4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-01-21T21:05:06Z",
+      "side": 1,
+      "message": "Done. PTAL",
+      "parentUuid": "38910004_9a4e78b6",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "94423b7b83adfffa825762f81aa599533cbff865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
