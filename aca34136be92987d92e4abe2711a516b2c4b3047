@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2aa1162_739b0a2f",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioCodecs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-21T08:40:00Z",
+      "side": 0,
+      "message": "nit: can be\n codec_capability.capabilities\n  .set\u003cCodecCapabilities::Capabilities::vendorCapabilities\u003e\n  .(kDefaultOffloadVendorCapability);\nOr even let capabilities be nullable so it will become std::optional type.\n\nBut it\u0027s also true this case won\u0027t appear in the default implementation.",
+      "range": {
+        "startLine": 359,
+        "startChar": 8,
+        "endLine": 359,
+        "endChar": 24
+      },
+      "revId": "aca34136be92987d92e4abe2711a516b2c4b3047",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
