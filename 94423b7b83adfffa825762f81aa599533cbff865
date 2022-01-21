@@ -70,6 +70,30 @@
       },
       "revId": "94423b7b83adfffa825762f81aa599533cbff865",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a73aec28_82fabaf9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-01-21T01:49:45Z",
+      "side": 1,
+      "message": "We have a canonical interface implementation (which is just the CPU \"driver\") that can be used on the host. Recently, I created an AIDL adapter utility library that can adapt a canonical interface to an AIDL interface [1], so now we also have an AIDL interface (still just the CPU \"driver\") implementation that can be used on the host.\n\nI made the existing VTS tests host supported in order to verify that this adapter class works properly. It should also be able to speed up our local testing.\n\n[1]: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/neuralnetworks/utils/adapter/aidl/",
+      "parentUuid": "1854993f_617a9f0e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "94423b7b83adfffa825762f81aa599533cbff865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
