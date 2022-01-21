@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72fc6cd2_551dd6f3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-21T11:48:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51853fc5_ac8b1ab9",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 31
+      },
+      "revId": "8d4ee766503c397a49ef098fb73b2b70e775d8f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e77b5164_e3bb19d0",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-19T02:44:08Z",
       "side": 1,
       "message": "Can we use *primary / secondary* wording here?",
+      "range": {
+        "startLine": 30,
+        "startChar": 11,
+        "endLine": 30,
+        "endChar": 17
+      },
+      "revId": "8d4ee766503c397a49ef098fb73b2b70e775d8f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "672c1900_6dbc4641",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-21T11:48:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e77b5164_e3bb19d0",
       "range": {
         "startLine": 30,
         "startChar": 11,

@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9231124_2313a3fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-21T11:48:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05692f94_39dd0fb1",
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fe1658c_3f0aec13",
@@ -233,6 +251,30 @@
       "side": 1,
       "message": "In order to show the capability, even if the definition here is bitmask value, I suppose you will add all supported values into AptxAdaptiveCapabilities::AptxMode[] array such as {AptxMode::HQ, AptxMode::LL, AptxMode::ULL}?",
       "parentUuid": "3f726a9e_f21cfde6",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c520500_6509f8a3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-21T11:48:09Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "4fc5de40_f50ee795",
       "range": {
         "startLine": 20,
         "startChar": 0,
