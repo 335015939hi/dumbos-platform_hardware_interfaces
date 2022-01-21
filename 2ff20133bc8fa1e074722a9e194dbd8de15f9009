@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "149d81bf_76bb93f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-21T14:11:30Z",
+      "side": 1,
+      "message": "Yeah, you\u0027re right -- it won\u0027t build. I didn\u0027t realize that this added pure virtual functions.\n\nI thought it was best practice to split aidl from implementation changes, which is why I did this. If it\u0027s common practice to submit together, that does make my life easier.",
+      "parentUuid": "d020764a_93fa097f",
+      "revId": "2ff20133bc8fa1e074722a9e194dbd8de15f9009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a9e276d_bf498097",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24349c8a_9683bcda",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-21T14:11:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a9e276d_bf498097",
+      "revId": "2ff20133bc8fa1e074722a9e194dbd8de15f9009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11517ebf_cf6159e6",
@@ -48,6 +84,30 @@
       "writtenOn": "2022-01-19T19:55:31Z",
       "side": 1,
       "message": "This seems wrong.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 86
+      },
+      "revId": "2ff20133bc8fa1e074722a9e194dbd8de15f9009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbf7ef2e_e92bf2f0",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-21T14:11:30Z",
+      "side": 1,
+      "message": "doh! merging is hard",
+      "parentUuid": "11517ebf_cf6159e6",
       "range": {
         "startLine": 110,
         "startChar": 0,
@@ -81,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b85d3e24_d608e03f",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-21T14:11:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6733b920_5ff7acde",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 45
+      },
+      "revId": "2ff20133bc8fa1e074722a9e194dbd8de15f9009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47dce569_6b5cc6eb",
@@ -94,6 +178,24 @@
       "writtenOn": "2022-01-19T19:55:31Z",
       "side": 1,
       "message": "Add comment to say this was added in API version 4.",
+      "revId": "2ff20133bc8fa1e074722a9e194dbd8de15f9009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e93e21fe_f626a1af",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-21T14:11:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47dce569_6b5cc6eb",
       "revId": "2ff20133bc8fa1e074722a9e194dbd8de15f9009",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
