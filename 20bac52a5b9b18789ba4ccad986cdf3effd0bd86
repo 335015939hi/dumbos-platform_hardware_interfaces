@@ -472,6 +472,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6ae9969_32cf8d6f",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSessionControl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-22T11:01:16Z",
+      "side": 1,
+      "message": "Done\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1955933/5/bluetooth/audio/utils/aidl_session/BluetoothAudioSessionControl.h",
+      "parentUuid": "70a1807c_b97c8294",
+      "range": {
+        "startLine": 85,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 5
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77feba69_c8aa7a23",
@@ -699,6 +723,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "9b565c92_e94f4b8a",
+      "range": {
+        "startLine": 452,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 24
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5984a9d3_3911ed1d",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-22T11:01:16Z",
+      "side": 1,
+      "message": "Where can find the fix?",
+      "parentUuid": "ebd6fcf5_8e2f40ad",
       "range": {
         "startLine": 452,
         "startChar": 0,
