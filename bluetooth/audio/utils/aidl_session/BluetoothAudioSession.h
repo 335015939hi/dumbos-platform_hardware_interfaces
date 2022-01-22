@@ -144,7 +144,7 @@ class BluetoothAudioSession {
    * The control function is for the bluetooth_audio module to get the current
    * AudioConfiguration
    ***/
-  const AudioConfiguration& GetAudioConfig();
+  const AudioConfiguration GetAudioConfig();
 
   /***
    * The report function is used to report that the Bluetooth stack has notified
