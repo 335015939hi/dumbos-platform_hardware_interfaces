@@ -89,9 +89,6 @@ class BluetoothAudioSession_2_2 {
   std::unordered_map<uint16_t, std::shared_ptr<struct PortStatusCallbacks_2_2>>
       observers_;
 
-  // invoking the registered session_changed_cb_
-  void ReportSessionStatus();
-
  public:
   BluetoothAudioSession_2_2(
       const ::android::hardware::bluetooth::audio::V2_1::SessionType&
@@ -138,6 +135,9 @@ class BluetoothAudioSession_2_2 {
   // the result of startStream or suspendStream, and will invoke
   // control_result_cb_ to notify registered bluetooth_audio outputs
   void ReportControlStatus(bool start_resp, const BluetoothAudioStatus& status);
+
+  // invoking the registered session_changed_cb_
+  void ReportSessionStatus();
 
   // The report function is used to report that the Bluetooth stack has notified
   // the audio configuration changed, and will invoke

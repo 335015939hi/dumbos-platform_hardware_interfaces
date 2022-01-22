@@ -37,12 +37,7 @@ class HidlToAidlMiddleware_2_0 {
 
   static bool IsSessionReady(const SessionType_2_0& session_type);
 
-  static uint16_t RegisterControlResultCback(
-      const SessionType_2_0& session_type,
-      const PortStatusCallbacks_2_0& cbacks);
-
-  static void UnregisterControlResultCback(const SessionType_2_0& session_type,
-                                           uint16_t cookie);
+  static void RegisterControlResultCback(const SessionType_2_0& session_type);
 
   static const AudioConfig_2_0 GetAudioConfig(
       const SessionType_2_0& session_type);

@@ -12,6 +12,7 @@ cc_library_shared {
     defaults: ["hidl_defaults"],
     vendor: true,
     srcs: [
+        "aidl_session/HidlToAidlMiddleware.cpp",
         "session/BluetoothAudioSession.cpp",
         "session/BluetoothAudioSession_2_1.cpp",
         "session/BluetoothAudioSession_2_2.cpp",
@@ -26,13 +27,15 @@ cc_library_shared {
         "android.hardware.bluetooth.audio@2.0",
         "android.hardware.bluetooth.audio@2.1",
         "android.hardware.bluetooth.audio@2.2",
+        "android.hardware.bluetooth.audio-V1-ndk",
         "libbase",
+        "libbinder_ndk",
+        "libbluetooth_audio_session_aidl",
         "libcutils",
         "libfmq",
         "libhidlbase",
         "liblog",
         "libutils",
-        "libbluetooth_audio_session_aidl",
     ],
 }
 
@@ -42,20 +45,16 @@ cc_library_shared {
     srcs: [
         "aidl_session/BluetoothAudioCodecs.cpp",
         "aidl_session/BluetoothAudioSession.cpp",
-        "aidl_session/HidlToAidlMiddleware.cpp",
     ],
     export_include_dirs: ["aidl_session/"],
     header_libs: ["libhardware_headers"],
     shared_libs: [
-        "android.hardware.bluetooth.audio@2.0",
-        "android.hardware.bluetooth.audio@2.1",
-        "android.hardware.bluetooth.audio@2.2",
+        "android.hardware.bluetooth.audio-V1-ndk",
         "libbase",
         "libcutils",
         "libbinder_ndk",
         "libfmq",
-        "liblog",
-        "android.hardware.bluetooth.audio-V1-ndk",
         "libhidlbase",
+        "liblog",
     ],
 }

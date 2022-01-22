@@ -103,8 +103,6 @@ class BluetoothAudioSession {
 
   bool UpdateDataPath(const DataMQ::Descriptor* dataMQ);
   bool UpdateAudioConfig(const AudioConfiguration& audio_config);
-  // invoking the registered session_changed_cb_
-  void ReportSessionStatus();
 
  public:
   BluetoothAudioSession(const SessionType& session_type);
@@ -129,6 +127,9 @@ class BluetoothAudioSession {
   // the result of startStream or suspendStream, and will invoke
   // control_result_cb_ to notify registered bluetooth_audio outputs
   void ReportControlStatus(bool start_resp, const BluetoothAudioStatus& status);
+
+  // invoking the registered session_changed_cb_
+  void ReportSessionStatus();
 
   // The control function helps the bluetooth_audio module to register
   // PortStatusCallbacks

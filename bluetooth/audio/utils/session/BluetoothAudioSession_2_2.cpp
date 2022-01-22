@@ -465,9 +465,10 @@ void BluetoothAudioSession_2_2::OnSessionEnded() {
 // @return: cookie - the assigned number to this bluetooth_audio output
 uint16_t BluetoothAudioSession_2_2::RegisterStatusCback(
     const PortStatusCallbacks_2_2& cbacks) {
-  if (HidlToAidlMiddleware_2_0::IsAidlAvailable())
-    return HidlToAidlMiddleware_2_2::RegisterControlResultCback(
-        raw_session_type_, cbacks);
+  if (HidlToAidlMiddleware_2_0::IsAidlAvailable()) {
+    // Middleware callbacks will use callbacks registered in HIDL sessions
+    HidlToAidlMiddleware_2_2::RegisterControlResultCback(raw_session_type_);
+  }
   if (session_type_2_1_ !=
           SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
       session_type_2_1_ !=

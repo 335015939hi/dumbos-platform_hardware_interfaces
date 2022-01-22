@@ -26,6 +26,8 @@
 
 #include "../aidl_session/BluetoothAudioSession.h"
 #include "../aidl_session/BluetoothAudioSessionControl.h"
+#include "../session/BluetoothAudioSession.h"
+#include "../session/BluetoothAudioSession_2_2.h"
 #include "HidlToAidlMiddleware_2_0.h"
 #include "HidlToAidlMiddleware_2_1.h"
 #include "HidlToAidlMiddleware_2_2.h"
@@ -87,11 +89,7 @@ using LeAudioConfig_2_2 =
 using LeAudioMode_2_2 =
     ::android::hardware::bluetooth::audio::V2_2::LeAudioMode;
 
-std::mutex legacy_callback_lock;
-std::unordered_map<
-    SessionType,
-    std::unordered_map<uint16_t, std::shared_ptr<PortStatusCallbacks_2_2>>>
-    legacy_callback_table;
+std::unordered_map<SessionType, bool> session_callback_registered;
 
 const static std::unordered_map<SessionType_2_1, SessionType>
     session_type_2_1_to_aidl_map{
@@ -109,6 +107,24 @@ const static std::unordered_map<SessionType_2_1, SessionType>
          SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH},
         {SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH,
          SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH},
+    };
+
+const static std::unordered_map<SessionType, SessionType_2_1>
+    session_type_aidl_to_2_1_map{
+        {SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH,
+         SessionType_2_1::A2DP_SOFTWARE_ENCODING_DATAPATH},
+        {SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
+         SessionType_2_1::A2DP_HARDWARE_OFFLOAD_DATAPATH},
+        {SessionType::HEARING_AID_SOFTWARE_ENCODING_DATAPATH,
+         SessionType_2_1::HEARING_AID_SOFTWARE_ENCODING_DATAPATH},
+        {SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH,
+         SessionType_2_1::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH},
+        {SessionType::LE_AUDIO_SOFTWARE_DECODING_DATAPATH,
+         SessionType_2_1::LE_AUDIO_SOFTWARE_DECODED_DATAPATH},
+        {SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
+         SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH},
+        {SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH,
+         SessionType_2_1::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH},
     };
 
 const static std::unordered_map<int32_t, SampleRate_2_0>
@@ -218,6 +234,13 @@ inline SessionType from_session_type_2_1(
 inline SessionType from_session_type_2_0(
     const SessionType_2_0& session_type_hidl) {
   return from_session_type_2_1(static_cast<SessionType_2_1>(session_type_hidl));
+}
+
+inline SessionType_2_1 to_session_type_2_1(
+    const SessionType& session_type_aidl) {
+  auto it = session_type_aidl_to_2_1_map.find(session_type_aidl);
+  if (it != session_type_aidl_to_2_1_map.end()) return it->second;
+  return SessionType_2_1::UNKNOWN;
 }
 
 inline HidlStatus to_hidl_status(const BluetoothAudioStatus& status) {
@@ -545,6 +568,47 @@ inline AudioConfig_2_2 to_hidl_audio_config_2_2(
   return hidl_audio_config;
 }
 
+static void control_result_callback(uint16_t cookie, bool start_resp,
+                                    BluetoothAudioStatus status) {
+  auto aidl_session_type = ObserversCookieGetSessionType(cookie);
+  auto hidl_session_status = to_hidl_status(status);
+  auto hidl_session_type = to_session_type_2_1(aidl_session_type);
+
+  auto hidl_session = ::android::bluetooth::audio::
+      BluetoothAudioSessionInstance_2_2::GetSessionInstance(hidl_session_type);
+  if (hidl_session != nullptr) {
+    hidl_session->ReportControlStatus(start_resp, hidl_session_status);
+  }
+}
+
+static void session_changed_callback(uint16_t cookie) {
+  auto aidl_session_type = ObserversCookieGetSessionType(cookie);
+  auto hidl_session_type = to_session_type_2_1(aidl_session_type);
+
+  auto hidl_session = ::android::bluetooth::audio::
+      BluetoothAudioSessionInstance_2_2::GetSessionInstance(hidl_session_type);
+  if (hidl_session != nullptr) {
+    hidl_session->ReportSessionStatus();
+  }
+}
+
+static void audio_config_changed_callback(uint16_t cookie) {
+  auto aidl_session_type = ObserversCookieGetSessionType(cookie);
+  auto hidl_session_type = to_session_type_2_1(aidl_session_type);
+
+  auto hidl_session = ::android::bluetooth::audio::
+      BluetoothAudioSessionInstance_2_2::GetSessionInstance(hidl_session_type);
+  if (hidl_session != nullptr) {
+    hidl_session->ReportAudioConfigChanged(hidl_session->GetAudioConfig());
+  }
+}
+
+PortStatusCallbacks port_status_callbacks{
+    .audio_configuration_changed_cb_ = audio_config_changed_callback,
+    .session_changed_cb_ = session_changed_callback,
+    .control_result_cb_ = control_result_callback,
+};
+
 /***
  *
  * 2.0
@@ -557,21 +621,10 @@ bool HidlToAidlMiddleware_2_0::IsSessionReady(
       from_session_type_2_0(session_type));
 }
 
-uint16_t HidlToAidlMiddleware_2_0::RegisterControlResultCback(
-    const SessionType_2_0& session_type,
-    const PortStatusCallbacks_2_0& cbacks) {
-  PortStatusCallbacks_2_2 callback_2_2{
-      .control_result_cb_ = cbacks.control_result_cb_,
-      .session_changed_cb_ = cbacks.session_changed_cb_,
-  };
+void HidlToAidlMiddleware_2_0::RegisterControlResultCback(
+    const SessionType_2_0& session_type) {
   return HidlToAidlMiddleware_2_2::RegisterControlResultCback(
-      static_cast<SessionType_2_1>(session_type), callback_2_2);
-}
-
-void HidlToAidlMiddleware_2_0::UnregisterControlResultCback(
-    const SessionType_2_0& session_type, uint16_t cookie) {
-  HidlToAidlMiddleware_2_2::UnregisterControlResultCback(
-      static_cast<SessionType_2_1>(session_type), cookie);
+      static_cast<SessionType_2_1>(session_type));
 }
 
 const AudioConfig_2_0 HidlToAidlMiddleware_2_0::GetAudioConfig(
@@ -657,73 +710,16 @@ bool HidlToAidlMiddleware_2_2::IsSessionReady(
       from_session_type_2_1(session_type));
 }
 
-uint16_t HidlToAidlMiddleware_2_2::RegisterControlResultCback(
-    const SessionType_2_1& session_type,
-    const PortStatusCallbacks_2_2& cbacks) {
+void HidlToAidlMiddleware_2_2::RegisterControlResultCback(
+    const SessionType_2_1& session_type) {
   LOG(INFO) << __func__ << ": " << toString(session_type);
   auto aidl_session_type = from_session_type_2_1(session_type);
-  // Pass the exact reference to the lambda
-  auto& session_legacy_callback_table =
-      legacy_callback_table[aidl_session_type];
-  PortStatusCallbacks aidl_callbacks{};
-  if (cbacks.control_result_cb_) {
-    aidl_callbacks.control_result_cb_ =
-        [&session_legacy_callback_table](uint16_t cookie, bool start_resp,
-                                         const BluetoothAudioStatus& status) {
-          if (session_legacy_callback_table.find(cookie) ==
-              session_legacy_callback_table.end()) {
-            LOG(ERROR) << __func__ << ": Unknown callback invoked!";
-            return;
-          }
-          auto& cback = session_legacy_callback_table[cookie];
-          cback->control_result_cb_(cookie, start_resp, to_hidl_status(status));
-        };
+  if (session_callback_registered[aidl_session_type]) {
+    return;
   }
-  if (cbacks.session_changed_cb_) {
-    aidl_callbacks.session_changed_cb_ =
-        [&session_legacy_callback_table](uint16_t cookie) {
-          if (session_legacy_callback_table.find(cookie) ==
-              session_legacy_callback_table.end()) {
-            LOG(ERROR) << __func__ << ": Unknown callback invoked!";
-            return;
-          }
-          auto& cback = session_legacy_callback_table[cookie];
-          cback->session_changed_cb_(cookie);
-        };
-  };
-  if (cbacks.audio_configuration_changed_cb_) {
-    aidl_callbacks.audio_configuration_changed_cb_ =
-        [&session_legacy_callback_table](uint16_t cookie) {
-          if (session_legacy_callback_table.find(cookie) ==
-              session_legacy_callback_table.end()) {
-            LOG(ERROR) << __func__ << ": Unknown callback invoked!";
-            return;
-          }
-          auto& cback = session_legacy_callback_table[cookie];
-          cback->audio_configuration_changed_cb_(cookie);
-        };
-  };
-  auto cookie = BluetoothAudioSessionControl::RegisterControlResultCback(
-      aidl_session_type, aidl_callbacks);
-  {
-    std::lock_guard<std::mutex> guard(legacy_callback_lock);
-    session_legacy_callback_table[cookie] =
-        std::make_shared<PortStatusCallbacks_2_2>(cbacks);
-  }
-  return cookie;
-}
-
-void HidlToAidlMiddleware_2_2::UnregisterControlResultCback(
-    const SessionType_2_1& session_type, uint16_t cookie) {
-  LOG(INFO) << __func__ << ": " << toString(session_type);
-  auto aidl_session_type = from_session_type_2_1(session_type);
-  BluetoothAudioSessionControl::UnregisterControlResultCback(aidl_session_type,
-                                                             cookie);
-  auto& session_callback_table = legacy_callback_table[aidl_session_type];
-  if (session_callback_table.find(cookie) != session_callback_table.end()) {
-    std::lock_guard<std::mutex> guard(legacy_callback_lock);
-    session_callback_table.erase(cookie);
-  }
+  BluetoothAudioSessionControl::RegisterControlResultCback(
+      aidl_session_type, port_status_callbacks);
+  session_callback_registered[aidl_session_type] = true;
 }
 
 const AudioConfig_2_2 HidlToAidlMiddleware_2_2::GetAudioConfig(

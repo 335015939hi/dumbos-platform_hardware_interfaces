@@ -205,9 +205,9 @@ bool BluetoothAudioSession::UpdateAudioConfig(
 // @return: cookie - the assigned number to this bluetooth_audio output
 uint16_t BluetoothAudioSession::RegisterStatusCback(
     const PortStatusCallbacks& cbacks) {
-  if (HidlToAidlMiddleware_2_0::IsAidlAvailable())
-    return HidlToAidlMiddleware_2_0::RegisterControlResultCback(session_type_,
-                                                                cbacks);
+  if (HidlToAidlMiddleware_2_0::IsAidlAvailable()) {
+    HidlToAidlMiddleware_2_0::RegisterControlResultCback(session_type_);
+  }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   uint16_t cookie = ObserversCookieGetInitValue(session_type_);
   uint16_t cookie_upper_bound = ObserversCookieGetUpperBound(session_type_);
