@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b8cf211_589b38a9",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-22T23:27:41Z",
+      "side": 1,
+      "message": "Does it work for session type 2.2? Le audio software also need this function. The same question for OutWritePcmData, GetPresentationPosition.",
+      "range": {
+        "startLine": 647,
+        "startChar": 6,
+        "endLine": 647,
+        "endChar": 41
+      },
+      "revId": "9880f6bb3cf86f6399476dcd5c85d8913302287d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
