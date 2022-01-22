@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "119e4fcc_be2c5641",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioCodecs.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-22T06:21:41Z",
+      "side": 1,
+      "message": "Could you rename it for A2DP only?",
+      "parentUuid": "38dc1e32_8084e2da",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 60
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4e96cf99_7f25b5e0",
         "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioCodecs.h",
         "patchSetId": 15
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "!not operator has a pretty bad readibility, and it can be optimized by compilers.",
       "parentUuid": "d63e4573_12196c15",
+      "range": {
+        "startLine": 344,
+        "startChar": 27,
+        "endLine": 344,
+        "endChar": 37
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bc1b198_6f72bc2a",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-22T06:21:41Z",
+      "side": 1,
+      "message": "I see, but size_t is unsigned, check if bytes \u003c 0 does not make sense. I think bytes \u003d\u003d 0 is better one.",
+      "parentUuid": "f685d845_d0384b33",
       "range": {
         "startLine": 344,
         "startChar": 27,
@@ -377,6 +425,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7fe72e5b_98b911ed",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-22T06:21:41Z",
+      "side": 1,
+      "message": "My question is that I didn\u0027t find a way to get the different cookie with the same session type. So I\u0027m curious how it works.",
+      "parentUuid": "4c83d86c_2f9990a5",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 26
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24bcd8c6_1d3b0e93",
         "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
         "patchSetId": 15
@@ -412,6 +484,30 @@
       "side": 1,
       "message": "https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1955928",
       "parentUuid": "24bcd8c6_1d3b0e93",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 61
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4445b749_6c0193b3",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-22T06:21:41Z",
+      "side": 1,
+      "message": "I mean just session_type_hidl_to_aidl_map because all the SessionType_2_0 could be case to SessionType_2_1, the same with SampleRate and so on. It looks clean.",
+      "parentUuid": "0f707662_9a040408",
       "range": {
         "startLine": 96,
         "startChar": 0,
@@ -576,6 +672,30 @@
       "side": 1,
       "message": "It\u0027s an issue derived from our 2.1 implementation - 2.1 utils reuses 2.0 utils, with casting SessionType(2.1) to SessionType(2.0). So there are many methods missing a 2.1 version.",
       "parentUuid": "3402ba24_f0760785",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 45
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5761fd44_bce2e9ad",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware_2_2.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-22T06:21:41Z",
+      "side": 1,
+      "message": "nit: It\u0027s a new callback added in HIDL 2.2 and will be used in LE audio offload. Maybe we could skip it because we would remove the file soon.",
+      "parentUuid": "ca5dfa8c_34031c21",
       "range": {
         "startLine": 41,
         "startChar": 0,
