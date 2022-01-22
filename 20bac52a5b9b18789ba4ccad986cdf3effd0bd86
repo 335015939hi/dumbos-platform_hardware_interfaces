@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65b472ed_79b4f29f",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioCodecs.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T09:28:09Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1955933",
+      "parentUuid": "119e4fcc_be2c5641",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 60
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e96cf99_7f25b5e0",
@@ -85,6 +109,30 @@
       "writtenOn": "2022-01-21T15:01:01Z",
       "side": 1,
       "message": "You could remove it. We didn\u0027t support offload in 2.1 default implementation.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 77
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4e1c4f5_054467b4",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioCodecs.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T09:28:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e96cf99_7f25b5e0",
       "range": {
         "startLine": 47,
         "startChar": 0,
@@ -118,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac07ea98_d8f75407",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T09:28:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "190fb9f0_6e6e347f",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 5
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8660ec04_9606d66e",
@@ -131,6 +203,30 @@
       "writtenOn": "2022-01-21T15:01:01Z",
       "side": 1,
       "message": "Please add handle for le offload",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 3
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8427807a_7c6b5a68",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T09:28:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8660ec04_9606d66e",
       "range": {
         "startLine": 94,
         "startChar": 0,
@@ -447,6 +543,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ef478a0_d64c4f29",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T09:28:09Z",
+      "side": 1,
+      "message": "I didn\u0027t notice that cookies are all unique. We can remove the redundant map or totally refactor callbacks.\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1955935",
+      "parentUuid": "7fe72e5b_98b911ed",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 26
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24bcd8c6_1d3b0e93",
@@ -565,6 +685,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebd6fcf5_8e2f40ad",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T09:28:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b565c92_e94f4b8a",
+      "range": {
+        "startLine": 452,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 24
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10015734_9609c9e7",
@@ -588,6 +732,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22fcc558_66a4b168",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T09:28:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10015734_9609c9e7",
+      "range": {
+        "startLine": 462,
+        "startChar": 24,
+        "endLine": 462,
+        "endChar": 46
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ceebcbd3_d14df1a4",
@@ -601,6 +769,30 @@
       "writtenOn": "2022-01-21T15:01:01Z",
       "side": 1,
       "message": "How about just set mode after you check the Tag.",
+      "range": {
+        "startLine": 471,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 3
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6df7b7f9_7e462e52",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T09:28:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ceebcbd3_d14df1a4",
       "range": {
         "startLine": 471,
         "startChar": 0,
@@ -790,6 +982,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "e2f49c88_b8bb0913",
+      "range": {
+        "startLine": 439,
+        "startChar": 30,
+        "endLine": 439,
+        "endChar": 43
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf1ee40d_6a5002a3",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T09:28:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c14bd3d5_76ba1148",
       "range": {
         "startLine": 439,
         "startChar": 30,
