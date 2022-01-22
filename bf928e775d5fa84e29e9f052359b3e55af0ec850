@@ -16,6 +16,23 @@
       "message": "+Ram FYI this would need to land in aidl composer vts as well",
       "revId": "bf928e775d5fa84e29e9f052359b3e55af0ec850",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba696da0_8fc61893",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1684060
+      },
+      "writtenOn": "2022-01-22T21:11:18Z",
+      "side": 1,
+      "message": "Hi, now I\u0027m thinking that better will be to use BufferUsage::COMPOSER_CLIENT_TARGET , some grallocs (like hikey) will resolve COMPOSER_OVERLAY to system ram and compose with GPU. What is your opinion?",
+      "revId": "bf928e775d5fa84e29e9f052359b3e55af0ec850",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
