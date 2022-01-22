@@ -757,6 +757,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51f3b5cd_c673f19e",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T13:09:56Z",
+      "side": 1,
+      "message": "I make the check before entering this method.\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1955933/5/bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp#514",
+      "parentUuid": "5984a9d3_3911ed1d",
+      "range": {
+        "startLine": 452,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 24
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10015734_9609c9e7",
