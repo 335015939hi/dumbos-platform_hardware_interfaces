@@ -46,6 +46,30 @@
       },
       "revId": "d3c9f69c0128838191decce78d5607bb329a86c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b7e55d5_bd6e4abf",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-22T23:10:45Z",
+      "side": 1,
+      "message": "I see. I am asking because your input parameter is leAudioConfig. From the function point of view, the input could be Broadcast mode. You still could keep the handle here, but I would recommend to add checker inside the function\n\nHowever, even you put this checker here, how do you handle the mismatch type issue? Is should be same, right?",
+      "parentUuid": "e1891dff_061612f9",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 67
+      },
+      "revId": "d3c9f69c0128838191decce78d5607bb329a86c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
