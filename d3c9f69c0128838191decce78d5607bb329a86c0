@@ -22,6 +22,30 @@
       },
       "revId": "d3c9f69c0128838191decce78d5607bb329a86c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1891dff_061612f9",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T16:52:56Z",
+      "side": 1,
+      "message": "Of course we can, but it means we can hardly know whether it succeeds even after invocation(since it returns LeAudioCodecConfig_2_1 value).",
+      "parentUuid": "eba24cee_3b9b08f9",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 67
+      },
+      "revId": "d3c9f69c0128838191decce78d5607bb329a86c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
