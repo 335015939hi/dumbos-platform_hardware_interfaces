@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64c80e5b_f472fa68",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-22T11:01:32Z",
+      "side": 1,
+      "message": "The logic might be similar as below,\nhidl_lc3_codec_config.audioChannelAllocation \u003d 0;\nfor (audo map: unicast_config.streamMap) {\n   hidl_lc3_codec_config.audioChannelAllocation |\u003d map.audioChannelAllocation;\n}",
+      "range": {
+        "startLine": 443,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 3
+      },
+      "revId": "75cf8f9a39ba71fdc83b0e41146625ceb325b5ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
