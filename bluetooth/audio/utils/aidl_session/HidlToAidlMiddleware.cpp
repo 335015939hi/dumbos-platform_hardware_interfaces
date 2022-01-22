@@ -211,13 +211,6 @@ const static std::unordered_map<LdacQualityIndex, LdacQualityIndex_2_0>
         {LdacQualityIndex::ABR, LdacQualityIndex_2_0::QUALITY_ABR},
     };
 
-const static std::unordered_map<LeAudioMode, LeAudioMode_2_2>
-    leaudio_mode_to_hidl_map{
-        {LeAudioMode::UNKNOWN, LeAudioMode_2_2::UNKNOWN},
-        {LeAudioMode::UNICAST, LeAudioMode_2_2::UNICAST},
-        {LeAudioMode::BROADCAST, LeAudioMode_2_2::BROADCAST},
-    };
-
 inline SessionType from_session_type_2_0(
     const SessionType_2_0& session_type_hidl) {
   auto it = session_type_2_0_to_aidl_map.find(session_type_hidl);
@@ -459,8 +452,10 @@ inline Lc3CodecConfig_2_1 to_hidl_leaudio_config_2_1(
   Lc3CodecConfig_2_1 hidl_lc3_codec_config;
   hidl_lc3_codec_config.lc3Config = to_hidl_lc3_config_2_1(le_codec_config);
 
-  hidl_lc3_codec_config.audioChannelAllocation =
-      unicast_config.streamMap.size();
+  if (unicast_config.streamMap.size() > 0) {
+    hidl_lc3_codec_config.audioChannelAllocation =
+        unicast_config.streamMap[0].audioChannelAllocation;
+  }
 
   return hidl_lc3_codec_config;
 }
@@ -468,13 +463,10 @@ inline Lc3CodecConfig_2_1 to_hidl_leaudio_config_2_1(
 inline LeAudioConfig_2_2 to_hidl_leaudio_config_2_2(
     const LeAudioConfiguration& leaudio_config) {
   LeAudioConfig_2_2 hidl_leaudio_config;
-  if (leaudio_mode_to_hidl_map.find(leaudio_config.mode) !=
-      leaudio_mode_to_hidl_map.end()) {
-    hidl_leaudio_config.mode = leaudio_mode_to_hidl_map.at(leaudio_config.mode);
-  }
 
   if (leaudio_config.modeConfig.getTag() ==
       LeAudioConfiguration::LeAudioModeConfig::unicastConfig) {
+    hidl_leaudio_config.mode = LeAudioMode_2_2::UNICAST;
     auto& unicast_config =
         leaudio_config.modeConfig
             .get<LeAudioConfiguration::LeAudioModeConfig::unicastConfig>();
@@ -497,6 +489,7 @@ inline LeAudioConfig_2_2 to_hidl_leaudio_config_2_2(
     }
   } else if (leaudio_config.modeConfig.getTag() ==
              LeAudioConfiguration::LeAudioModeConfig::broadcastConfig) {
+    hidl_leaudio_config.mode = LeAudioMode_2_2::BROADCAST;
     auto bcast_config =
         leaudio_config.modeConfig
             .get<LeAudioConfiguration::LeAudioModeConfig::broadcastConfig>();
@@ -529,10 +522,15 @@ inline AudioConfig_2_1 to_hidl_audio_config_2_1(
       hidl_audio_config.codecConfig(to_hidl_codec_config_2_0(
           audio_config.get<AudioConfiguration::a2dpConfig>()));
       break;
-    case AudioConfiguration::leAudioConfig:
-      hidl_audio_config.leAudioCodecConfig(to_hidl_leaudio_config_2_1(
-          audio_config.get<AudioConfiguration::leAudioConfig>()));
-      break;
+    case AudioConfiguration::leAudioConfig: {
+      auto& le_audio_config =
+          audio_config.get<AudioConfiguration::leAudioConfig>();
+      if (le_audio_config.modeConfig.getTag() ==
+          LeAudioConfiguration::LeAudioModeConfig::unicastConfig) {
+        hidl_audio_config.leAudioCodecConfig(to_hidl_leaudio_config_2_1(
+            audio_config.get<AudioConfiguration::leAudioConfig>()));
+      }
+    } break;
   }
   return hidl_audio_config;
 }
