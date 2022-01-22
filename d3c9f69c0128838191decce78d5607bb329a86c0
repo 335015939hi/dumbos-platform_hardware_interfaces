@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eba24cee_3b9b08f9",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-22T14:01:54Z",
+      "side": 1,
+      "message": "Could we move the checker into to_hidl_leaudio_config_2_1?",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 67
+      },
+      "revId": "d3c9f69c0128838191decce78d5607bb329a86c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
