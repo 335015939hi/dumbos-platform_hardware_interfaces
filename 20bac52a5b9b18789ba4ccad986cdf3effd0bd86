@@ -562,6 +562,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca5dfa8c_34031c21",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware_2_2.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T05:57:09Z",
+      "side": 1,
+      "message": "It\u0027s an issue derived from our 2.1 implementation - 2.1 utils reuses 2.0 utils, with casting SessionType(2.1) to SessionType(2.0). So there are many methods missing a 2.1 version.",
+      "parentUuid": "3402ba24_f0760785",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 45
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f06e51a_be4387f2",
@@ -575,6 +599,30 @@
       "writtenOn": "2022-01-21T15:01:01Z",
       "side": 1,
       "message": "Do we need to update audio_config_?\n    return HidlToAidlMiddleware_2_0::GetAudioConfig(session_type_);",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 73
+      },
+      "revId": "20bac52a5b9b18789ba4ccad986cdf3effd0bd86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba0fcb2d_1921019a",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T05:57:09Z",
+      "side": 1,
+      "message": "Middleware returns a value, but HidlSession returns a reference, so we need to return audio_config_.",
+      "parentUuid": "0f06e51a_be4387f2",
       "range": {
         "startLine": 253,
         "startChar": 0,
