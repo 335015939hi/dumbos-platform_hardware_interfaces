@@ -22,6 +22,30 @@
       },
       "revId": "75cf8f9a39ba71fdc83b0e41146625ceb325b5ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "978a658e_82cef286",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-01-22T13:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64c80e5b_f472fa68",
+      "range": {
+        "startLine": 443,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 3
+      },
+      "revId": "75cf8f9a39ba71fdc83b0e41146625ceb325b5ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
