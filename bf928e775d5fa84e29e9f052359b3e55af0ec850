@@ -33,6 +33,23 @@
       "message": "Hi, now I\u0027m thinking that better will be to use BufferUsage::COMPOSER_CLIENT_TARGET , some grallocs (like hikey) will resolve COMPOSER_OVERLAY to system ram and compose with GPU. What is your opinion?",
       "revId": "bf928e775d5fa84e29e9f052359b3e55af0ec850",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee925a8_28f7df7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1684060
+      },
+      "writtenOn": "2022-01-23T14:02:35Z",
+      "side": 1,
+      "message": "Since this still fixes VTS for majority of cases - let\u0027s merge this.",
+      "revId": "bf928e775d5fa84e29e9f052359b3e55af0ec850",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
