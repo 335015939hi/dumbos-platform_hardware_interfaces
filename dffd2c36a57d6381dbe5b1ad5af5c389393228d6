@@ -33,6 +33,42 @@
       "message": "Also maybe you want to move this file to one of the following?\n\ngraphics/common/OWNERS\ngraphics/common/aidl/OWNERS (If you don\u0027t want to own the HIDL interfaces)",
       "revId": "dffd2c36a57d6381dbe5b1ad5af5c389393228d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de5c993c_4395b216",
+        "filename": "graphics/common/aidl/android/hardware/graphics/common/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-01-24T20:00:27Z",
+      "side": 1,
+      "message": "moved to graphics/common/OWNERS.\n\ni think we can be on the hook for owning the hidl interfaces",
+      "parentUuid": "0b2af123_de66331d",
+      "revId": "dffd2c36a57d6381dbe5b1ad5af5c389393228d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cc27f34_dca8bdb5",
+        "filename": "graphics/common/aidl/android/hardware/graphics/common/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-01-24T20:00:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f73d0172_f6fa4dad",
+      "revId": "dffd2c36a57d6381dbe5b1ad5af5c389393228d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
