@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f73d0172_f6fa4dad",
+        "filename": "graphics/common/aidl/android/hardware/graphics/common/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-01-24T19:39:18Z",
+      "side": 1,
+      "message": "Please add a\n\n```\n# Bug component: xxx\n```\n\nline too\n\ne.g. https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/nfc/OWNERS",
+      "revId": "dffd2c36a57d6381dbe5b1ad5af5c389393228d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
