@@ -77,6 +77,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ddcd6292_4ddbac72",
+        "filename": "identity/aidl/default/EicOpsImpl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1632361
+      },
+      "writtenOn": "2022-01-24T18:12:47Z",
+      "side": 1,
+      "message": "nit: should we also add the validation checks for attestationKeyCert and its size here ?",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 4
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a85238ce_ce5b5af2",
         "filename": "identity/aidl/default/common/WritableIdentityCredential.h",
         "patchSetId": 2
