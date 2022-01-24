@@ -93,6 +93,30 @@
       },
       "revId": "7b2bc8d5e5566d64b491bc6f3b3b7f487838972e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f4ba287_a2731b8c",
+        "filename": "health/utils/libhealthtest/include/health-test/TestUtils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-01-24T18:59:36Z",
+      "side": 1,
+      "message": "You probably want to fork the IsBatteryStatusCorrect function to handle AIDL\u0027s HealthInfo, e.g. (untested)\n\n```\nif constexpr (is_same_type_v\u003cBatteryInfoType, android::hardware::health::HealthInfo\u003e) {\n  isConnected |\u003d batteryInfo.chargerDockOnline;\n}\n```",
+      "parentUuid": "440f6fbe_4af90933",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 66
+      },
+      "revId": "7b2bc8d5e5566d64b491bc6f3b3b7f487838972e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
