@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ada078cb_72ff2d72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-24T18:09:43Z",
+      "side": 1,
+      "message": "LGTM, only a couple of simple nits/questions/requests.",
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74c80f9e_3903ebc3",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-24T18:09:43Z",
+      "side": 1,
+      "message": "nit: spelling",
+      "range": {
+        "startLine": 56,
+        "startChar": 26,
+        "endLine": 56,
+        "endChar": 29
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "becc6e56_1f64c3e3",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-24T18:09:43Z",
+      "side": 1,
+      "message": "Should mention under which circumstances this can fail.\n\nFor example if |isRemoteKeyProvisioningSupported| is false I expect this to always fail with STATUS_FAILED.\n\nIs it allowed to fail if |isRemoteKeyProvisioningSupported| is true?",
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae59be68_02a0fc12",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-24T18:09:43Z",
+      "side": 1,
+      "message": "Should mention circumstances on which this can fail. Should probably always fail with STATUS_FAILED if |isRemoteKeyProvisioningSupported| is false.",
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a85238ce_ce5b5af2",
+        "filename": "identity/aidl/default/common/WritableIdentityCredential.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-24T18:09:43Z",
+      "side": 1,
+      "message": "Would it be cleaner if this was using optional\u003c\u003e? I mean, setRemotelyProvisionedAttestationKey() may not be called.\n\nAlso, s/set/if set/ in the comment maybe.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 57
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c609530_11853d42",
+        "filename": "identity/aidl/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-24T18:09:43Z",
+      "side": 1,
+      "message": "Maybe |remotelyProvisionedComponentName| instead? (I was scratching my head for 10-20 seconds and then realized it was a string not an instance.",
+      "range": {
+        "startLine": 52,
+        "startChar": 22,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -22,6 +22,30 @@
       },
       "revId": "96d6480a5d0548358bbcfa13f4d76af52e7298e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f478626_aca3ba5d",
+        "filename": "identity/aidl/default/common/IdentityCredentialStore.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-24T18:09:43Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "parentUuid": "35e1330f_47289120",
+      "range": {
+        "startLine": 40,
+        "startChar": 28,
+        "endLine": 40,
+        "endChar": 73
+      },
+      "revId": "96d6480a5d0548358bbcfa13f4d76af52e7298e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
