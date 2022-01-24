@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f030d04_86dcf4ee",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-01-24T19:51:53Z",
+      "side": 1,
+      "message": "I assume this means:\n\n```\nThe client should NOT interpret the content of the ID in any way. The client can only compare IDs.\n```\n\nIf so, please specify (in similar language) in the doc. We are usually very careful in passing non-structured data (like strings) across HAL interfaces",
+      "revId": "1fea12f3e71c6354b64ab9fd3fe71fb90cc949b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f8dd9093_32467040",
