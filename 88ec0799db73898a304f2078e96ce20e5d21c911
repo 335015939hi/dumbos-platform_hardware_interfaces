@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "702a5dea_5a5f8a95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1244622
+      },
+      "writtenOn": "2022-01-24T22:40:38Z",
+      "side": 1,
+      "message": "Pls confirm that the CL does not introduce regression (ref: go/ts-nextmilestones#no-regressions). If the CL is specific to API level 31, pls use RESTRICT AUTOMERGE in the first line of the commit message.\n",
+      "revId": "88ec0799db73898a304f2078e96ce20e5d21c911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
