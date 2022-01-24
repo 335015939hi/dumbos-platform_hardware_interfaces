@@ -68,7 +68,14 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
         if (key_blob_.size()) {
             CheckedDeleteKey();
         }
+
         AbortIfNeeded();
+
+        // Some test failures may crash the secure world. Pause to allow the secure world
+        // to recover and avoid spurious failures of subsequent tests.
+        if (HasFailure()) {
+            sleep(3);
+        }
     }
 
     void InitializeKeyMint(std::shared_ptr<IKeyMintDevice> keyMint);
