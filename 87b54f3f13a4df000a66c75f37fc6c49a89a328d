@@ -60,6 +60,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c24467f_94fd7fe1",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-01-24T19:47:10Z",
+      "side": 1,
+      "message": "+1\n\nor fail with EX_UNSUPPORTED_OPERATION. Up to you\n\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/native/libs/binder/ndk/include_ndk/android/binder_status.h;l\u003d102;drc\u003dmaster",
+      "parentUuid": "becc6e56_1f64c3e3",
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae59be68_02a0fc12",
         "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
         "patchSetId": 2
@@ -71,6 +89,52 @@
       "writtenOn": "2022-01-24T18:09:43Z",
       "side": 1,
       "message": "Should mention circumstances on which this can fail. Should probably always fail with STATUS_FAILED if |isRemoteKeyProvisioningSupported| is false.",
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba36cb84_9295235f",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-01-24T19:47:10Z",
+      "side": 1,
+      "message": "Specify the format of the key blob",
+      "range": {
+        "startLine": 351,
+        "startChar": 38,
+        "endLine": 351,
+        "endChar": 46
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6d40ded_423e1b67",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-01-24T19:47:10Z",
+      "side": 1,
+      "message": "Specify the format. Is it DER format?",
+      "range": {
+        "startLine": 354,
+        "startChar": 50,
+        "endLine": 354,
+        "endChar": 67
+      },
       "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
