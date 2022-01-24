@@ -16,6 +16,29 @@
       "message": "Update OWNERs format to fullfill presubmit check.",
       "revId": "dbc36e52e15bdde13056e808775f41dfa2260ff8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fa67b3c_9859d8a6",
+        "filename": "nfc/aidl/default/Nfc.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-01-24T18:45:49Z",
+      "side": 1,
+      "message": "Note that we never reach either of these \u0027return\u0027 statements.  While there\u0027s no bug here, future readers of the code might get confused and think this function unconditionally returns ok() in some paths.\n\nLooking at how the Nfc::close() function below is styled, I\u0027ve put up a follow-up that copies that style and removes these never-reached \u0027return\u0027s: https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1959367",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 36
+      },
+      "revId": "dbc36e52e15bdde13056e808775f41dfa2260ff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
