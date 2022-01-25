@@ -16,6 +16,24 @@
       "message": "CL needs owner CR+2.",
       "revId": "a84a1266bf674aeb056927b2cdae2a55acbf1f88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c0c0286_269e0ecc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-01-25T00:00:35Z",
+      "side": 1,
+      "message": "Thanks, Ross! Eric will give it, he is in EMEA TZ.",
+      "parentUuid": "047a3836_99966ba4",
+      "revId": "a84a1266bf674aeb056927b2cdae2a55acbf1f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
