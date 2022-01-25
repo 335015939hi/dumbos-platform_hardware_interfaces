@@ -226,6 +226,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c53e5493_11700dec",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-01-25T01:52:01Z",
+      "side": 1,
+      "message": "Or use the word \"Opaque\" as you did in CL:1923317",
+      "parentUuid": "2c06d761_6d129ffe",
+      "range": {
+        "startLine": 351,
+        "startChar": 38,
+        "endLine": 351,
+        "endChar": 46
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e6d40ded_423e1b67",
         "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
         "patchSetId": 2
