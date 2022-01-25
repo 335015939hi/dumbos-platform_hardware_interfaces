@@ -39,6 +39,30 @@
       },
       "revId": "dbc36e52e15bdde13056e808775f41dfa2260ff8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0304f2f2_e93ee9ea",
+        "filename": "nfc/aidl/default/Nfc.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2022-01-25T08:07:44Z",
+      "side": 1,
+      "message": "LGTM! Thanks!",
+      "parentUuid": "3fa67b3c_9859d8a6",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 36
+      },
+      "revId": "dbc36e52e15bdde13056e808775f41dfa2260ff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
