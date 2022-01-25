@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd3f821f_f65b01b0",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-25T00:17:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74c80f9e_3903ebc3",
+      "range": {
+        "startLine": 56,
+        "startChar": 26,
+        "endLine": 56,
+        "endChar": 29
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "becc6e56_1f64c3e3",
@@ -76,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d0eef2d_b42c1cb7",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-25T00:17:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c24467f_94fd7fe1",
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae59be68_02a0fc12",
@@ -93,6 +135,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f00aaf9e_09558611",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-25T00:17:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae59be68_02a0fc12",
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba36cb84_9295235f",
@@ -106,6 +166,30 @@
       "writtenOn": "2022-01-24T19:47:10Z",
       "side": 1,
       "message": "Specify the format of the key blob",
+      "range": {
+        "startLine": 351,
+        "startChar": 38,
+        "endLine": 351,
+        "endChar": 46
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf6ce05c_407f45d0",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-25T00:17:52Z",
+      "side": 1,
+      "message": "The format is vendor-specific. I added a note indicating where to match up the key blob with the IKeyMintDevice.",
+      "parentUuid": "ba36cb84_9295235f",
       "range": {
         "startLine": 351,
         "startChar": 38,
@@ -141,6 +225,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c323573_e4af7e05",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-25T00:17:52Z",
+      "side": 1,
+      "message": "The comment later states \"This parameter must contain a concatenated chain of DER-encoded X.509 certificates\"\n\nShould I reorganize to get the wording tighter?",
+      "parentUuid": "e6d40ded_423e1b67",
+      "range": {
+        "startLine": 354,
+        "startChar": 50,
+        "endLine": 354,
+        "endChar": 67
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ddcd6292_4ddbac72",
         "filename": "identity/aidl/default/EicOpsImpl.cc",
         "patchSetId": 2
@@ -152,6 +260,30 @@
       "writtenOn": "2022-01-24T18:12:47Z",
       "side": 1,
       "message": "nit: should we also add the validation checks for attestationKeyCert and its size here ?",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 4
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05adb9d3_6c2d5a62",
+        "filename": "identity/aidl/default/EicOpsImpl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-25T00:17:52Z",
+      "side": 1,
+      "message": "I was thinking originally that an empty cert chain doesn\u0027t hurt.\n\nBut it turns out it does -- we definitely need a non-empty cert chain.",
+      "parentUuid": "ddcd6292_4ddbac72",
       "range": {
         "startLine": 278,
         "startChar": 0,
@@ -185,6 +317,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da33246d_f9eedc31",
+        "filename": "identity/aidl/default/common/WritableIdentityCredential.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-25T00:17:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a85238ce_ce5b5af2",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 57
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c609530_11853d42",
@@ -198,6 +354,30 @@
       "writtenOn": "2022-01-24T18:09:43Z",
       "side": 1,
       "message": "Maybe |remotelyProvisionedComponentName| instead? (I was scratching my head for 10-20 seconds and then realized it was a string not an instance.",
+      "range": {
+        "startLine": 52,
+        "startChar": 22,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "87b54f3f13a4df000a66c75f37fc6c49a89a328d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4334842f_dca5c175",
+        "filename": "identity/aidl/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-25T00:17:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c609530_11853d42",
       "range": {
         "startLine": 52,
         "startChar": 22,
