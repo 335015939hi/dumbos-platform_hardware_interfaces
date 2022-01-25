@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9dbf2f0_c69bf4fb",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-01-25T01:49:37Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 275,
+        "startChar": 70,
+        "endLine": 275,
+        "endChar": 75
+      },
+      "revId": "b5b69f0e009388fccb000a9a8aac5a38dbbd2726",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
