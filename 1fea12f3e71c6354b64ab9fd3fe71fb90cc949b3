@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24ef0b8c_732e7f3e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-25T00:18:40Z",
+      "side": 1,
+      "message": "Ah, right. Good point!\n\nIt\u0027s definitely an opaque id.",
+      "parentUuid": "8f030d04_86dcf4ee",
+      "revId": "1fea12f3e71c6354b64ab9fd3fe71fb90cc949b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "889809a1_063d1ce2",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-01-24T19:52:48Z",
       "side": 1,
       "message": "nit: Drop this\n\nSince you said it cannot be empty, it is kinda strange that it has an empty value as a default value.",
+      "range": {
+        "startLine": 65,
+        "startChar": 30,
+        "endLine": 65,
+        "endChar": 35
+      },
+      "revId": "1fea12f3e71c6354b64ab9fd3fe71fb90cc949b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7e52276_309ddbe7",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-25T00:18:40Z",
+      "side": 1,
+      "message": "Good point.\n\nI had this here for back compat. I think @nullable is the correct way to indicate that the value may be missing. There\u0027s a VTS test for newer vendor code to ensure it\u0027s not empty.",
+      "parentUuid": "889809a1_063d1ce2",
       "range": {
         "startLine": 65,
         "startChar": 30,
