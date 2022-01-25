@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "323bcd0e_8fcc4ea2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-25T20:32:53Z",
+      "side": 1,
+      "message": "Thanks for the comments, Yifan.\n\nSince it\u0027s just wording, I can easily tweak that after the IC deadline.",
+      "revId": "b5b69f0e009388fccb000a9a8aac5a38dbbd2726",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b9dbf2f0_c69bf4fb",
         "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
         "patchSetId": 7
