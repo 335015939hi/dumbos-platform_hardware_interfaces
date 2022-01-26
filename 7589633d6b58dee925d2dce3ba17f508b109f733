@@ -1,6 +1,69 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3e9e2c8_67f47686",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-01-26T00:33:28Z",
+      "side": 1,
+      "message": "(Reviewed .aidl changes, skimmed the rest.)",
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7783678_267fbc73",
+        "filename": "neuralnetworks/aidl/android/hardware/neuralnetworks/IPreparedModel.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-01-26T00:33:28Z",
+      "side": 1,
+      "message": "Nit: I think we typically say \"client\" not \"user\" in our AIDL specification (although IDevice says both).\n\nSimilarly line 232, 259.",
+      "range": {
+        "startLine": 207,
+        "startChar": 41,
+        "endLine": 207,
+        "endChar": 45
+      },
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc0c8fb0_5c5a6143",
+        "filename": "neuralnetworks/aidl/android/hardware/neuralnetworks/IPreparedModel.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-01-26T00:33:28Z",
+      "side": 1,
+      "message": "I think \"will\" is too strong. This is a recommendation, not a requirement; we\u0027ll get correct behavior if we use createReusableExecution for a single-time execution, albeit the other choices presented here are very likely to be more efficient/performant.\n\nSimilarly line 232, 259.",
+      "range": {
+        "startLine": 210,
+        "startChar": 55,
+        "endLine": 210,
+        "endChar": 59
+      },
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0e61e38_c391884e",
@@ -91,6 +154,29 @@
         "startChar": 9,
         "endLine": 80,
         "endChar": 11
+      },
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c0e08d2_68214022",
+        "filename": "neuralnetworks/aidl/vts/functional/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-01-26T00:33:28Z",
+      "side": 1,
+      "message": "Why a leading \"k\"? I\u0027m not used to seeing this on functions. Similarly line 52.",
+      "range": {
+        "startLine": 51,
+        "startChar": 34,
+        "endLine": 51,
+        "endChar": 35
       },
       "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
