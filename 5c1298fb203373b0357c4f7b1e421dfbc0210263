@@ -22,6 +22,30 @@
       },
       "revId": "5c1298fb203373b0357c4f7b1e421dfbc0210263",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5de531e_d98dd2d8",
+        "filename": "sensors/common/default/2.X/multihal/HalProxy.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1895426
+      },
+      "writtenOn": "2022-01-26T22:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83ddcf63_d876e81e",
+      "range": {
+        "startLine": 253,
+        "startChar": 12,
+        "endLine": 253,
+        "endChar": 17
+      },
+      "revId": "5c1298fb203373b0357c4f7b1e421dfbc0210263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
