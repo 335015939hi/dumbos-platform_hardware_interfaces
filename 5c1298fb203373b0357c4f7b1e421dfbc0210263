@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83ddcf63_d876e81e",
+        "filename": "sensors/common/default/2.X/multihal/HalProxy.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2022-01-26T17:07:22Z",
+      "side": 1,
+      "message": "Suggest printing out the result code since another subhal init failure will override the error result of a previous one now making it harder to debug without the code.",
+      "range": {
+        "startLine": 253,
+        "startChar": 12,
+        "endLine": 253,
+        "endChar": 17
+      },
+      "revId": "5c1298fb203373b0357c4f7b1e421dfbc0210263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
