@@ -251,7 +251,6 @@ Return<Result> HalProxy::initializeCommon(
         if (currRes != Result::OK) {
             result = currRes;
             ALOGE("Subhal '%s' failed to initialize.", mSubHalList[i]->getName().c_str());
-            break;
         }
     }
 
