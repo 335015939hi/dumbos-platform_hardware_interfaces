@@ -226,6 +226,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa85b1a4_528d911f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-27T04:23:56Z",
+      "side": 1,
+      "message": "Regarding the capabilities, should it be array to represent the capabilities for multiple values. Or you would always have the unique inputFadeDuration capabilities?",
+      "parentUuid": "05a1bad4_6462ab20",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 5
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da460bf0_19c47b3b",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
         "patchSetId": 3
@@ -356,6 +380,30 @@
       "side": 1,
       "message": "It\u0027s unit is in ms. for adaptive Encoder 2.1 CAPI we use a value of 240 for the duration",
       "parentUuid": "38f8abae_6a3ad5b8",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c529dc6_613ba761",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveConfiguration.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-27T04:23:56Z",
+      "side": 1,
+      "message": "Please change the name to present the unit, such as inputFadeDurationMs.",
+      "parentUuid": "5ab61ed0_d60aad91",
       "range": {
         "startLine": 24,
         "startChar": 6,
