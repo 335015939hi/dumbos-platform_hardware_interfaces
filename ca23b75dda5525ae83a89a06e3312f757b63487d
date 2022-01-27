@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a17e8cf7_1353a058",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-27T18:17:05Z",
+      "side": 1,
+      "message": "Yes, please remove those unused values, and I think that the receiver can compare the value caller set and the current if it is unchanged.\n\nI see it is removed. acked.",
+      "parentUuid": "bf1b662b_7d2a1097",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed668a14_fd9796d4",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Consider to rename DUAL_MONO to TWS_MONO since it looks like for TWS+ MONO.\n\u003cSagar\u003e I think DUAL_MONO is still OK if needed can rename it.\n\nDual Mono: 2 stream L \u0026 R in a single channel (TWS)\nStereo TWS: 2 stream L \u0026 R in 2 channels (TWS+)",
       "parentUuid": "ed668a14_fd9796d4",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "057b038b_ef56451a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-27T18:17:05Z",
+      "side": 1,
+      "message": "Thanks for clarifying, and can you also update the comment to your CL? Your last replying here seems to be different from what you comment about DUAL_MONO inside the code?\n\n\u003e /* Split TX where we send the L to the L and R to the R */\nIt sounds like two channels, isn\u0027t it?\n\u003e Dual Mono: 2 stream L \u0026 R in a single channel (TWS)\nBased on the replying, I think the naming DUAL_MONO is ok.",
+      "parentUuid": "824bcbf2_80c8b6b7",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -183,6 +231,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f18bfa9_253cbdc1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-27T18:17:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f83329fa_d85fd2ef",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 15
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3259d96c_0bdc447d",
@@ -220,6 +292,30 @@
       "side": 1,
       "message": "It\u0027s not kind of related with mode directly.\nIf TWS kind of device is there then it will provide those values as well along with LL and HQ mode.\n\nTo simplify, with type of devices for\nLegacy devices -\u003e {minLL, maxLL, minHQ, maxHQ, forbidden values for TWS} \nTWS devices -\u003e {minLL, maxLL, minHQ, maxHQ, minTWS, maxTWS (proper values updates for TWS also)}\n\nWe provide all values initially irrespective of mode. And at run time mode change encoder accordingly adapt to these values without restarting itself as we update all these values beforehand itself to encoder to finetune itself based on type of scenarios.",
       "parentUuid": "3259d96c_0bdc447d",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f651f391_22bbaa1f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-27T18:17:05Z",
+      "side": 1,
+      "message": "My question is how can the encoder or sink determine if it is TWS or not? It is clear to know if it is HQ, LL, or ULL by AptxMode, but should it check AptxAdaptiveChannelMode for TWS?\n\nBtw, I think here the TWS means TWS+ which phone side handles L/R two channel links?",
+      "parentUuid": "f2026928_39f8b10b",
       "range": {
         "startLine": 25,
         "startChar": 0,
