@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0a1679e_d661a587",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveConfiguration.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-27T10:30:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a3b2246c_659c1e4b",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 17
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2abf180_c87ecc91",
@@ -380,6 +404,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93d522ec_010e204a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxMode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-27T10:30:13Z",
+      "side": 1,
+      "message": "In LL/ULL mode we disable page / inquire / BLE scan for Gaming.\nRemoved SCAN_CONTROL as we don\u0027t need to update encoder.",
+      "parentUuid": "a299a5c0_87e1ae37",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 26
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e33bd55_5b7156f3",
@@ -441,6 +489,30 @@
       "side": 1,
       "message": "How can we know what min/max it should use if this is not related to AptxMode? Say that at first I thought the value here is based on AptxMode:\nAptxMode::HQ \u003d\u003d\u003e {AptxSinkBuffering::min_HQ, AptxSinkBuffering::max_HQ}\nAptxMode::LL \u003d\u003d\u003e {AptxSinkBuffering::min_LL, AptxSinkBuffering::max_LL}\nAptxMode::ULL \u003d\u003d\u003e ???\n??? \u003d\u003d\u003e {AptxSinkBuffering::min_TWS, AptxSinkBuffering::max_TWS}\n\nCan you give some example to show how we use the value?",
       "parentUuid": "9d31804d_513f8191",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41e0a5a3_e5ded6af",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-27T10:30:13Z",
+      "side": 1,
+      "message": "Actually it\u0027s\n\nAptxMode::HQ \u003d\u003d\u003e {AptxSinkBuffering::min_HQ, AptxSinkBuffering::max_HQ} TWS ones are 0,0\nAptxMode::LL \u003d\u003d\u003e {AptxSinkBuffering::min_LL, AptxSinkBuffering::max_LL} TWS ones are 0,0\nAptxMode::ULL \u003d\u003d\u003e {AptxSinkBuffering::min_LL, AptxSinkBuffering::max_LL} TWS ones are 0,0\nWhile for TWS devices it\u0027s having\nSome default values of HQ, LL and non zero values of TWS min/max.",
+      "parentUuid": "40451d13_ab114b16",
       "range": {
         "startLine": 22,
         "startChar": 13,
