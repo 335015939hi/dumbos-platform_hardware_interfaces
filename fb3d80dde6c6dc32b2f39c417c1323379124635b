@@ -521,6 +521,30 @@
       },
       "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5b5d12b_1b7e3759",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-27T11:01:42Z",
+      "side": 1,
+      "message": "\u003e Actually it\u0027s\n\u003e \n\u003e AptxMode::HQ \u003d\u003d\u003e {AptxSinkBuffering::min_LL, AptxSinkBuffering::max_LL, AptxSinkBuffering::min_HQ, AptxSinkBuffering::max_HQ} TWS ones are set to forbidden values\n\u003e AptxMode::LL \u003d\u003d\u003e {AptxSinkBuffering::min_LL, AptxSinkBuffering::max_LL, AptxSinkBuffering::min_HQ, AptxSinkBuffering::max_HQ} TWS ones are set to forbidden values\n\u003e AptxMode::ULL \u003d\u003d\u003e {AptxSinkBuffering::min_LL, AptxSinkBuffering::max_LL, AptxSinkBuffering::min_HQ, AptxSinkBuffering::max_HQ} TWS ones are set to forbidden values. \n\u003e While for TWS devices it\u0027s having\n\u003e Some default values of HQ, LL and non valid zero values of TWS min/max.",
+      "parentUuid": "41e0a5a3_e5ded6af",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "fb3d80dde6c6dc32b2f39c417c1323379124635b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
