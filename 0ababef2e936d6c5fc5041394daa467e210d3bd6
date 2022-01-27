@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01af9c71_9607fc29",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-01-27T07:25:00Z",
+      "side": 1,
+      "message": "I\u0027m not keen on this, I\u0027m afraid -- it\u0027s going to add a bunch of delay for anyone who\u0027s working on VTS failures that don\u0027t involve crashes in the secure world (and that includes me for a lot of the time).\n\nWhat\u0027s the background for the change?  Is this something you could just patch in locally as needed instead?\n\nAlternatively, would a non-default command line option (`VtsAidlKeyMintTargetTest --pause_on_failure_secs\u003d3`) be a possibility?",
+      "revId": "0ababef2e936d6c5fc5041394daa467e210d3bd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
