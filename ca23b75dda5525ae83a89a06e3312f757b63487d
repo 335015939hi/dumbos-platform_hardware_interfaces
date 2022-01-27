@@ -137,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2c0b9ee_09a019e2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-27T15:09:40Z",
+      "side": 1,
+      "message": "Yes at the moment it\u0027s looks similar to JOINT_STERO one detail response from our codec team \n\nAPTX_CHANNEL_EARBUD \u003d TWS+ - so in that mode, the Encoder produced two separately encoded streams that could be transported to two independent destinations (the earbuds), and BT SoC responsible for deinterleaving the output packet and sending in two separate transport channels . Currently this implementation is no more used now so APTX_CHANNEL_STEREO is a substitute.",
+      "parentUuid": "e1cd0456_fbce0cf8",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 15
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3259d96c_0bdc447d",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
         "patchSetId": 13
