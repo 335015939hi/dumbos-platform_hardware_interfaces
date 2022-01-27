@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "361e21c5_d9c78d45",
+        "filename": "neuralnetworks/aidl/android/hardware/neuralnetworks/IPreparedModel.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-27T22:31:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7783678_267fbc73",
+      "range": {
+        "startLine": 207,
+        "startChar": 41,
+        "endLine": 207,
+        "endChar": 45
+      },
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc0c8fb0_5c5a6143",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-01-26T00:33:28Z",
       "side": 1,
       "message": "I think \"will\" is too strong. This is a recommendation, not a requirement; we\u0027ll get correct behavior if we use createReusableExecution for a single-time execution, albeit the other choices presented here are very likely to be more efficient/performant.\n\nSimilarly line 232, 259.",
+      "range": {
+        "startLine": 210,
+        "startChar": 55,
+        "endLine": 210,
+        "endChar": 59
+      },
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dadf63c_2a3c3890",
+        "filename": "neuralnetworks/aidl/android/hardware/neuralnetworks/IPreparedModel.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-27T22:31:30Z",
+      "side": 1,
+      "message": "I reworded to \"is preferred\". PTAL.",
+      "parentUuid": "bc0c8fb0_5c5a6143",
       "range": {
         "startLine": 210,
         "startChar": 55,
@@ -172,6 +220,30 @@
       "writtenOn": "2022-01-26T00:33:28Z",
       "side": 1,
       "message": "Why a leading \"k\"? I\u0027m not used to seeing this on functions. Similarly line 52.",
+      "range": {
+        "startLine": 51,
+        "startChar": 34,
+        "endLine": 51,
+        "endChar": 35
+      },
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fd57ce5_db80780b",
+        "filename": "neuralnetworks/aidl/vts/functional/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-01-27T22:31:30Z",
+      "side": 1,
+      "message": "I think this is a global constant but not a function?",
+      "parentUuid": "1c0e08d2_68214022",
       "range": {
         "startLine": 51,
         "startChar": 34,
