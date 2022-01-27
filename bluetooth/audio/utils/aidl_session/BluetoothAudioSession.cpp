@@ -21,6 +21,7 @@
 #include <android-base/stringprintf.h>
 #include <android/binder_manager.h>
 
+#include "AidlToHidlMiddleware.h"
 #include "BluetoothAudioSession.h"
 
 namespace aidl {
@@ -86,6 +87,9 @@ void BluetoothAudioSession::OnSessionEnded() {
  ***/
 
 const AudioConfiguration BluetoothAudioSession::GetAudioConfig() {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::GetAudioConfig(session_type_);
+  }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     switch (session_type_) {
@@ -129,6 +133,9 @@ void BluetoothAudioSession::ReportAudioConfigChanged(
 }
 
 bool BluetoothAudioSession::IsSessionReady() {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::IsSessionReady(session_type_);
+  }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
 
   bool is_mq_valid =
@@ -149,6 +156,9 @@ bool BluetoothAudioSession::IsSessionReady() {
 
 uint16_t BluetoothAudioSession::RegisterStatusCback(
     const PortStatusCallbacks& callbacks) {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::RegisterStatusCback(session_type_, callbacks);
+  }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   uint16_t cookie = ObserversCookieGetInitValue(session_type_);
   uint16_t cookie_upper_bound = ObserversCookieGetUpperBound(session_type_);
@@ -173,6 +183,9 @@ uint16_t BluetoothAudioSession::RegisterStatusCback(
 }
 
 void BluetoothAudioSession::UnregisterStatusCback(uint16_t cookie) {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::UnregisterStatusCback(session_type_, cookie);
+  }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (observers_.erase(cookie) != 1) {
     LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_)
@@ -188,6 +201,9 @@ void BluetoothAudioSession::UnregisterStatusCback(uint16_t cookie) {
  ***/
 
 bool BluetoothAudioSession::StartStream() {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::StartStream(session_type_);
+  }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
@@ -204,6 +220,9 @@ bool BluetoothAudioSession::StartStream() {
 }
 
 bool BluetoothAudioSession::SuspendStream() {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::SuspendStream(session_type_);
+  }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
@@ -220,6 +239,9 @@ bool BluetoothAudioSession::SuspendStream() {
 }
 
 void BluetoothAudioSession::StopStream() {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::StopStream(session_type_);
+  }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     return;
@@ -310,6 +332,9 @@ void BluetoothAudioSession::ReportSessionStatus() {
 
 size_t BluetoothAudioSession::OutWritePcmData(const void* buffer,
                                               size_t bytes) {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::OutWritePcmData(session_type_, buffer, bytes);
+  }
   if (buffer == nullptr || bytes <= 0) {
     return 0;
   }
@@ -348,6 +373,9 @@ size_t BluetoothAudioSession::OutWritePcmData(const void* buffer,
 }
 
 size_t BluetoothAudioSession::InReadPcmData(void* buffer, size_t bytes) {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::InReadPcmData(session_type_, buffer, bytes);
+  }
   if (buffer == nullptr || bytes <= 0) {
     return 0;
   }
@@ -412,6 +440,10 @@ void BluetoothAudioSession::ReportControlStatus(bool start_resp,
 
 bool BluetoothAudioSession::GetPresentationPosition(
     PresentationPosition& presentation_position) {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::GetPresentationPosition(session_type_,
+                                                         presentation_position);
+  }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
@@ -430,6 +462,10 @@ bool BluetoothAudioSession::GetPresentationPosition(
 
 void BluetoothAudioSession::UpdateSourceMetadata(
     const struct source_metadata& source_metadata) {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::UpdateSourceMetadata(session_type_,
+                                                      source_metadata);
+  }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
@@ -471,6 +507,10 @@ void BluetoothAudioSession::UpdateSourceMetadata(
 
 void BluetoothAudioSession::UpdateSinkMetadata(
     const struct sink_metadata& sink_metadata) {
+  if (!IsAidlAvailable()) {
+    return AidlToHidlMiddleware::UpdateSinkMetadata(session_type_,
+                                                    sink_metadata);
+  }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
