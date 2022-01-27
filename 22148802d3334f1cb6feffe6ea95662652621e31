@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d9f3be7_05dd0278",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-27T22:48:32Z",
+      "side": 1,
+      "message": "\"up to\" or \"at least\"?\n\n\"up to\" implies a maximum, but I think you really want to specify a minimum?",
+      "range": {
+        "startLine": 442,
+        "startChar": 37,
+        "endLine": 442,
+        "endChar": 42
+      },
+      "revId": "22148802d3334f1cb6feffe6ea95662652621e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b7d2fd5_47ad358f",
+        "filename": "identity/aidl/vts/DeleteCredentialTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-27T22:48:32Z",
+      "side": 1,
+      "message": "I have to ask... why the arithmetic? `challenge[n] \u003d n;` is simpler.\n\nIMO, hard-coding it is even better (as in identity/aidl/vts/VtsAttestationTests.cpp)",
+      "range": {
+        "startLine": 152,
+        "startChar": 25,
+        "endLine": 152,
+        "endChar": 33
+      },
+      "revId": "22148802d3334f1cb6feffe6ea95662652621e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
