@@ -125,14 +125,24 @@ TEST_P(ProveOwnershipTests, proveOwnership) {
                                 credentialData_, &credential)
                         .isOk());
 
-    vector<uint8_t> challenge = {17, 18};
+    // Implementations must support at least 32 bytes.
+    vector<uint8_t> challenge(32);
+    for (size_t n = 0; n < challenge.size(); n++) {
+        challenge[n] = n * 2 + 1;
+    }
     vector<uint8_t> proofOfOwnershipSignature;
     ASSERT_TRUE(credential->proveOwnership(challenge, &proofOfOwnershipSignature).isOk());
     optional<vector<uint8_t>> proofOfOwnership =
             support::coseSignGetPayload(proofOfOwnershipSignature);
     ASSERT_TRUE(proofOfOwnership);
     string cborPretty = cppbor::prettyPrint(proofOfOwnership.value(), 32, {});
-    EXPECT_EQ("['ProofOfOwnership', 'org.iso.18013-5.2019.mdl', {0x11, 0x12}, true, ]", cborPretty);
+    EXPECT_EQ(
+            "['ProofOfOwnership', 'org.iso.18013-5.2019.mdl', {"
+            "0x01, 0x03, 0x05, 0x07, 0x09, 0x0b, 0x0d, 0x0f, "
+            "0x11, 0x13, 0x15, 0x17, 0x19, 0x1b, 0x1d, 0x1f, "
+            "0x21, 0x23, 0x25, 0x27, 0x29, 0x2b, 0x2d, 0x2f, "
+            "0x31, 0x33, 0x35, 0x37, 0x39, 0x3b, 0x3d, 0x3f}, true, ]",
+            cborPretty);
     EXPECT_TRUE(support::coseCheckEcDsaSignature(proofOfOwnershipSignature, {},  // Additional data
                                                  credentialPubKey_));
 }
