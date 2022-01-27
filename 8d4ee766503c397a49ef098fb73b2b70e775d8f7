@@ -116,6 +116,30 @@
       },
       "revId": "8d4ee766503c397a49ef098fb73b2b70e775d8f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94fbf3ba_8d8bc1a9",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-27T08:09:40Z",
+      "side": 1,
+      "message": "UNCHANGED:  APTX_CHANNEL_UNCHANGED value may indicate that the caller may want to change one or more aptX Configuration values but wants the Channel Mode to remain at its existing value – this saves the API user from having to recover the current value and fill it in. A default setting when the channel configuration is unknown\n\nJOINT_STEREO / TWS_STEREO: Two channels processed together in a single stream\nMONO / DUAL_MONO / TWS_MONO: \nMONO:A mono channel in a single stream\nDUAL_MONO: Two mono channels in multiplexed streams (TWS) \nEARBUD: Two mono channels in interleaved streams (TWS+)\n\nIs there anything specific to QCOM TWS+ that the source side handles the earbuds left / right sides respectively?\nYes, TWS+ L and R are having different connection.",
+      "parentUuid": "a0fd4ae3_11272e70",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "8d4ee766503c397a49ef098fb73b2b70e775d8f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
