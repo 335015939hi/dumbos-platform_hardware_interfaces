@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f83329fa_d85fd2ef",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-27T16:25:45Z",
+      "side": 1,
+      "message": "Based on updates I removed UNCHANGED (no definite use case) and EARBUD (no support now due to implementation deprecation)in the latest patch sets.",
+      "parentUuid": "f2c0b9ee_09a019e2",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 15
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3259d96c_0bdc447d",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
         "patchSetId": 13
