@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf1b662b_7d2a1097",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-27T13:52:51Z",
+      "side": 1,
+      "message": "The reply above is I got from our encoder team.\nYour point is correct.\nWe don\u0027t get this usually from caller. This value was there in spec hence we kept. Should we remove it in case usage of not there ?",
+      "parentUuid": "37567b13_72ead381",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed668a14_fd9796d4",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
         "patchSetId": 13
@@ -54,6 +78,30 @@
       "writtenOn": "2022-01-27T11:53:37Z",
       "side": 1,
       "message": "Consider to rename DUAL_MONO to TWS_MONO since it looks like for TWS+ MONO.\n\nBtw, what\u0027s the difference between DUAL_MONO and TWS_STEREO since we send L data to L earbud and R data to R earbud in both modes? Do we send the same data to both L and R earbud when TWS_STEREO?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "824bcbf2_80c8b6b7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-27T13:52:51Z",
+      "side": 1,
+      "message": "Consider to rename DUAL_MONO to TWS_MONO since it looks like for TWS+ MONO.\n\u003cSagar\u003e I think DUAL_MONO is still OK if needed can rename it.\n\nDual Mono: 2 stream L \u0026 R in a single channel (TWS)\nStereo TWS: 2 stream L \u0026 R in 2 channels (TWS+)",
+      "parentUuid": "ed668a14_fd9796d4",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -100,6 +148,30 @@
       "writtenOn": "2022-01-27T11:53:37Z",
       "side": 1,
       "message": "According your comment, you are based on AptxMode to choose the min/max value. I don\u0027t see there is TWS in the AptxMode, but how can you know to use TWs min/max value?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2026928_39f8b10b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-27T13:52:51Z",
+      "side": 1,
+      "message": "It\u0027s not kind of related with mode directly.\nIf TWS kind of device is there then it will provide those values as well along with LL and HQ mode.\n\nTo simplify, with type of devices for\nLegacy devices -\u003e {minLL, maxLL, minHQ, maxHQ, forbidden values for TWS} \nTWS devices -\u003e {minLL, maxLL, minHQ, maxHQ, minTWS, maxTWS (proper values updates for TWS also)}\n\nWe provide all values initially irrespective of mode. And at run time mode change encoder accordingly adapt to these values without restarting itself as we update all these values beforehand itself to encoder to finetune itself based on type of scenarios.",
+      "parentUuid": "3259d96c_0bdc447d",
       "range": {
         "startLine": 25,
         "startChar": 0,
