@@ -272,6 +272,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a6af660_e47bbfc6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptXAdaptiveCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-27T09:45:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c0dd9e3f_e04d6e45",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 5
+      },
+      "revId": "052fe77f08213091f9c3e8927012a418c2ab4bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da460bf0_19c47b3b",
