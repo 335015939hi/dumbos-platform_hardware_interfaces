@@ -12,6 +12,7 @@ cc_library_shared {
     defaults: ["hidl_defaults"],
     vendor: true,
     srcs: [
+        "aidl_session/AidlToHidlMiddleware.cpp",
         "aidl_session/HidlToAidlMiddleware.cpp",
         "session/BluetoothAudioSession.cpp",
         "session/BluetoothAudioSession_2_1.cpp",
