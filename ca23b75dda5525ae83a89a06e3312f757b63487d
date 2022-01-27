@@ -16,6 +16,98 @@
       "message": "Hello Alice, Cheney, Josh Wu\nPlease review latest patchsets with comments to see if this can be picked in tonight\u0027s merge.",
       "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37567b13_72ead381",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-27T11:53:37Z",
+      "side": 1,
+      "message": "\u003e UNCHANGED:  APTX_CHANNEL_UNCHANGED value may indicate that the caller may want to change one or more aptX Configuration values but wants the Channel Mode to remain at its existing value – this saves the API user from having to recover the current value and fill it in. A default setting when the channel configuration is unknown\n\nIt doesn\u0027t make sense that why the caller doesn\u0027t need to specify the channel mode, but how does this save API users to fill it in? The caller can only update the configuration with structure AptxAdaptiveConfiguration, but won\u0027t this make a mismatch between the caller and the receiver? Why doesn\u0027t the caller know the current channel mode?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed668a14_fd9796d4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-27T11:53:37Z",
+      "side": 1,
+      "message": "Consider to rename DUAL_MONO to TWS_MONO since it looks like for TWS+ MONO.\n\nBtw, what\u0027s the difference between DUAL_MONO and TWS_STEREO since we send L data to L earbud and R data to R earbud in both modes? Do we send the same data to both L and R earbud when TWS_STEREO?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1cd0456_fbce0cf8",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-27T11:53:37Z",
+      "side": 1,
+      "message": "Isn\u0027t it redundant? EARBUD looks the same with either JOINT_STEREO or MONO which L/R side data is handled by the headset itself, and when do you use this channel mode?",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 15
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3259d96c_0bdc447d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-27T11:53:37Z",
+      "side": 1,
+      "message": "According your comment, you are based on AptxMode to choose the min/max value. I don\u0027t see there is TWS in the AptxMode, but how can you know to use TWs min/max value?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
