@@ -186,6 +186,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a481285_e67ce314",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-28T04:50:59Z",
+      "side": 1,
+      "message": "Could TWS_STEREO be renamed to DUAL_STEREO? It would be more consistent with DUAL_MONO, and clear.",
+      "parentUuid": "057b038b_ef56451a",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1cd0456_fbce0cf8",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
         "patchSetId": 13
