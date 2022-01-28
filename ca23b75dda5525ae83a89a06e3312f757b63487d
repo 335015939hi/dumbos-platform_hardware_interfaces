@@ -160,6 +160,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc8959d4_3ea49546",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-28T04:18:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "057b038b_ef56451a",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1cd0456_fbce0cf8",
@@ -316,6 +340,30 @@
       "side": 1,
       "message": "My question is how can the encoder or sink determine if it is TWS or not? It is clear to know if it is HQ, LL, or ULL by AptxMode, but should it check AptxAdaptiveChannelMode for TWS?\n\nBtw, I think here the TWS means TWS+ which phone side handles L/R two channel links?",
       "parentUuid": "f2026928_39f8b10b",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b82eec40_3042bc60",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxSinkBuffering.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-28T04:18:39Z",
+      "side": 1,
+      "message": "My question is how can the encoder or sink determine if it is TWS or not? It is clear to know if it is HQ, LL, or ULL by AptxMode, but should it check AptxAdaptiveChannelMode for TWS?\n\u003cReply\u003e Yes for encoder based on channel mode it should determine regarding TWS thing and make appropriate usage as below. \nAlso there are corresponding TTP values from remote negotiated corresponding to TTP_LL, TTP_HQ, TTP_TWS.\n\nBelow is detailed response from our encoder team wrt variable usage:\nBeyond range checking of the min and max values to ensure they are within an acceptable range (between 20 and 256), the encoder doesn\u0027t use the TWS values at all. To keep the calculated ttpadjust value within limits that don\u0027t exceed what the sink can handle. \n\n\nBtw, I think here the TWS means TWS+ which phone side handles L/R two channel links?\n\u003cReply\u003e Yes",
+      "parentUuid": "f651f391_22bbaa1f",
       "range": {
         "startLine": 25,
         "startChar": 0,
