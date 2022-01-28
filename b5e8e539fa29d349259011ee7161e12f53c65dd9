@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d767b52_bec5a9b2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-01-28T08:20:55Z",
+      "side": 1,
+      "message": "Do they both have two ACL links, and are the L/R earbuds handled by phone (TWS+)? According to your comment, I thought DUAL_MONO was for TWS that phone send L/R data separated in on ACL, and earbuds needs to handle its L/R side. DUAL_STEREO (the older name was TWS_STEREO) is for TWs+ that the phone side sends data in two ACL for L/R earbuds. If it is the case, please rename DUAL_STEREO to TWS_STEREO again. We don\u0027t use the same prefix on different things.",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "b5e8e539fa29d349259011ee7161e12f53c65dd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
