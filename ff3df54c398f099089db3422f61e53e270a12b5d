@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51ebdbc0_86f44e58",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-01-28T16:59:28Z",
+      "side": 1,
+      "message": "This code looks suspicious.  At best, we have duplicate code misleading readers on what error message we\u0027re logging.  At worst, we\u0027re failing to check a different error condition here.\n\nSpecifically, we\u0027re checking \"!attestationCertChain\" twice in a row.  The second check will always be false, so we\u0027ll never report \"Error create attestation from key and challenge\".\n\nI don\u0027t have enough context to know if we just want to delete one of these duplicate checks, or if one of the checks needs to change what it\u0027s looking for.",
+      "range": {
+        "startLine": 912,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 32
+      },
+      "revId": "ff3df54c398f099089db3422f61e53e270a12b5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
