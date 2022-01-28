@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d60872a_74b6f8f3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveTTP.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-01-28T20:58:14Z",
+      "side": 1,
+      "message": "Yes. Please do it. It would be better for the readability. \n\nCould you please leave the comment to explain what\u0027s the content about \"time to play\" as well?",
+      "parentUuid": "a9b88113_7c0a6a8d",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "cd2560b4d35314bc563ac3a91fc6c62a622b962b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "530ede8f_35d4919f",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveTTP.aidl",
         "patchSetId": 14
