@@ -17,12 +17,15 @@
 #include <iterator>
 #include <tuple>
 
+#include <aidl/android/hardware/security/keymint/RpcHardwareInfo.h>
 #include <android-base/properties.h>
 #include <cppbor.h>
 #include <json/json.h>
 #include <openssl/base64.h>
 #include <openssl/rand.h>
 #include <remote_prov/remote_prov_utils.h>
+
+using aidl::android::hardware::security::keymint::RpcHardwareInfo;
 
 namespace aidl::android::hardware::security::keymint::remote_prov {
 
@@ -86,15 +89,24 @@ ErrMsgOr<EekChain> generateEekChain(size_t length, const bytevec& eekId) {
     return EekChain{eekChain.encode(), pub_key, priv_key};
 }
 
-bytevec getProdEekChain() {
+bytevec getProdEekChain(uint32_t curve) {
     bytevec prodEek;
-    prodEek.reserve(1 + sizeof(kCoseEncodedRootCert) + sizeof(kCoseEncodedGeekCert));
-
+    prodEek.reserve(1 +
+                    std::max(sizeof(kCoseEncodedRootCert) + sizeof(kCoseEncodedGeekCert),
+                             sizeof(kCoseEncodedRootCertP256) + sizeof(kCoseEncodedGeekCertP256)));
     // In CBOR encoding, 0x82 indicates an array of two items
     prodEek.push_back(0x82);
-    prodEek.insert(prodEek.end(), std::begin(kCoseEncodedRootCert), std::end(kCoseEncodedRootCert));
-    prodEek.insert(prodEek.end(), std::begin(kCoseEncodedGeekCert), std::end(kCoseEncodedGeekCert));
-
+    if (curve == RpcHardwareInfo::CURVE_25519) {
+        prodEek.insert(prodEek.end(), std::begin(kCoseEncodedRootCert),
+                       std::end(kCoseEncodedRootCert));
+        prodEek.insert(prodEek.end(), std::begin(kCoseEncodedGeekCert),
+                       std::end(kCoseEncodedGeekCert));
+    } else {
+        prodEek.insert(prodEek.end(), std::begin(kCoseEncodedRootCertP256),
+                       std::end(kCoseEncodedRootCertP256));
+        prodEek.insert(prodEek.end(), std::begin(kCoseEncodedGeekCertP256),
+                       std::end(kCoseEncodedGeekCertP256));
+    }
     return prodEek;
 }
 

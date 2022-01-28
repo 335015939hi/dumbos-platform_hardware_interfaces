@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <aidl/android/hardware/security/keymint/RpcHardwareInfo.h>
 #include <android-base/properties.h>
 #include <cppbor_parse.h>
 #include <gmock/gmock.h>
@@ -57,7 +58,7 @@ TEST(RemoteProvUtilsTest, GenerateEekChain) {
 }
 
 TEST(RemoteProvUtilsTest, GetProdEekChain) {
-    auto chain = getProdEekChain();
+    auto chain = getProdEekChain(RpcHardwareInfo::CURVE_25519);
 
     auto validation_result = validateAndExtractEekPubAndId(
             /*testMode=*/false, KeymasterBlob(chain.data(), chain.size()));
