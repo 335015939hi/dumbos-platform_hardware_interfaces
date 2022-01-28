@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "727d4fa4_d1f3e4a6",
+        "filename": "neuralnetworks/aidl/android/hardware/neuralnetworks/IPreparedModel.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-01-28T00:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dadf63c_2a3c3890",
+      "range": {
+        "startLine": 210,
+        "startChar": 55,
+        "endLine": 210,
+        "endChar": 59
+      },
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0e61e38_c391884e",
@@ -244,6 +268,30 @@
       "side": 1,
       "message": "I think this is a global constant but not a function?",
       "parentUuid": "1c0e08d2_68214022",
+      "range": {
+        "startLine": 51,
+        "startChar": 34,
+        "endLine": 51,
+        "endChar": 35
+      },
+      "revId": "7589633d6b58dee925d2dce3ba17f508b109f733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "948a8e97_1ff3380f",
+        "filename": "neuralnetworks/aidl/vts/functional/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-01-28T00:49:23Z",
+      "side": 1,
+      "message": "Sorry, misread this (distracted by the parenthesized/bracketed initializers on line 51/52).",
+      "parentUuid": "6fd57ce5_db80780b",
       "range": {
         "startLine": 51,
         "startChar": 34,

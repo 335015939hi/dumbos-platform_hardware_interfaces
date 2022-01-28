@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "200d1df4_6d7cfb8d",
+        "filename": "neuralnetworks/aidl/android/hardware/neuralnetworks/IPreparedModel.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-01-28T00:49:23Z",
+      "side": 1,
+      "message": "\"must\"? also line 261.",
+      "range": {
+        "startLine": 234,
+        "startChar": 55,
+        "endLine": 234,
+        "endChar": 59
+      },
+      "revId": "e9c90dda421129fc119e8ffe14559c6706fc323d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
