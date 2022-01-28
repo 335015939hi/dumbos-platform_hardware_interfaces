@@ -232,6 +232,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f872a53c_ada048b3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveChannelMode.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-28T08:59:18Z",
+      "side": 1,
+      "message": "Based on Cheney\u0027s subsequent comment kept TWS_STEREO only.",
+      "parentUuid": "5cb3a804_424c3f0b",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "ca23b75dda5525ae83a89a06e3312f757b63487d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1cd0456_fbce0cf8",
