@@ -18,6 +18,7 @@
 
 #include <AndroidRemotelyProvisionedComponentDevice.h>
 #include <aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.h>
+#include <aidl/android/hardware/security/keymint/RpcHardwareInfo.h>
 #include <aidl/android/hardware/security/keymint/SecurityLevel.h>
 #include <android/binder_manager.h>
 #include <cppbor_parse.h>
@@ -276,6 +277,14 @@ class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
   protected:
     CertificateRequestTest() : eekId_(string_to_bytevec("eekid")), challenge_(randomBytes(32)) {
         generateTestEekChain(3);
+        get_curve();
+    }
+
+    void get_curve() {
+        RpcHardwareInfo info;
+        auto status = provisionable_->getHardwareInfo(&info);
+        ASSERT_TRUE(status.isOk());
+        curve_ = info.supportedEekCurve;
     }
 
     void generateTestEekChain(size_t eekLength) {
@@ -372,6 +381,7 @@ class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
     bytevec challenge_;
     std::vector<MacedPublicKey> keysToSign_;
     cppbor::Array cborKeysToSign_;
+    uint32_t curve_;
 };
 
 /**
@@ -447,7 +457,7 @@ TEST_P(CertificateRequestTest, DISABLED_EmptyRequest_prodMode) {
     DeviceInfo deviceInfo;
     ProtectedData protectedData;
     auto status = provisionable_->generateCertificateRequest(
-            testMode, {} /* keysToSign */, getProdEekChain(), challenge_, &deviceInfo,
+            testMode, {} /* keysToSign */, getProdEekChain(curve_), challenge_, &deviceInfo,
             &protectedData, &keysToSignMac);
     EXPECT_TRUE(status.isOk());
 }
@@ -488,7 +498,7 @@ TEST_P(CertificateRequestTest, DISABLED_NonEmptyRequest_prodMode) {
     DeviceInfo deviceInfo;
     ProtectedData protectedData;
     auto status = provisionable_->generateCertificateRequest(
-            testMode, keysToSign_, getProdEekChain(), challenge_, &deviceInfo, &protectedData,
+            testMode, keysToSign_, getProdEekChain(curve_), challenge_, &deviceInfo, &protectedData,
             &keysToSignMac);
     EXPECT_TRUE(status.isOk());
 }
@@ -523,7 +533,7 @@ TEST_P(CertificateRequestTest, NonEmptyRequestCorruptMac_prodMode) {
     DeviceInfo deviceInfo;
     ProtectedData protectedData;
     auto status = provisionable_->generateCertificateRequest(
-            testMode, {keyWithCorruptMac}, getProdEekChain(), challenge_, &deviceInfo,
+            testMode, {keyWithCorruptMac}, getProdEekChain(curve_), challenge_, &deviceInfo,
             &protectedData, &keysToSignMac);
     ASSERT_FALSE(status.isOk()) << status.getMessage();
     EXPECT_EQ(status.getServiceSpecificError(), BnRemotelyProvisionedComponent::STATUS_INVALID_MAC);
@@ -537,7 +547,7 @@ TEST_P(CertificateRequestTest, NonEmptyCorruptEekRequest_prodMode) {
     bool testMode = false;
     generateKeys(testMode, 4 /* numKeys */);
 
-    auto prodEekChain = getProdEekChain();
+    auto prodEekChain = getProdEekChain(curve_);
     auto [parsedChain, _, parseErr] = cppbor::parse(prodEekChain);
     ASSERT_NE(parsedChain, nullptr) << parseErr;
     ASSERT_NE(parsedChain->asArray(), nullptr);
@@ -568,7 +578,7 @@ TEST_P(CertificateRequestTest, NonEmptyIncompleteEekRequest_prodMode) {
 
     // Build an EEK chain that omits the first self-signed cert.
     auto truncatedChain = cppbor::Array();
-    auto [chain, _, parseErr] = cppbor::parse(getProdEekChain());
+    auto [chain, _, parseErr] = cppbor::parse(getProdEekChain(curve_));
     ASSERT_TRUE(chain);
     auto eekChain = chain->asArray();
     ASSERT_NE(eekChain, nullptr);
