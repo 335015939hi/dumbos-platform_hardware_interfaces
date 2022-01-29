@@ -166,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f07a936_884ab995",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveTTP.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-01-29T10:49:59Z",
+      "side": 1,
+      "message": "TTP:\nTTP Offset Targets for low latency mode and high quality mode can be programmed by the host. Unless set by the host, the default values are used. Some implementation ignores those values.",
+      "parentUuid": "9d60872a_74b6f8f3",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "cd2560b4d35314bc563ac3a91fc6c62a622b962b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "530ede8f_35d4919f",
