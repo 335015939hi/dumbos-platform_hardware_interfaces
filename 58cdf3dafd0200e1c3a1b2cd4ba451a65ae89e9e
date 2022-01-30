@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb9426c2_d823d9e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2022-01-30T04:34:33Z",
+      "side": 1,
+      "message": "Adding use_vndk_as_stable\u003dtrue fixed the cause of the previous revert (http://b/209031120). See successful builds: https://android-build.googleplex.com/builds/abtd/run/L77400000952828114\n\nCreated http://b/216847402 to investigate further, now that I\u0027ve isolated the cause.",
+      "revId": "58cdf3dafd0200e1c3a1b2cd4ba451a65ae89e9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
