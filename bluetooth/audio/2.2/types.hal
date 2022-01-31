@@ -34,6 +34,11 @@ enum AudioLocation : uint8_t {
   FRONT_RIGHT = 2,
 };
 
+enum LatencyMode : uint8_t {
+    FREE = 1,
+    LOW_LATENCY = 2,
+};
+
 struct UnicastStreamMap {
     /* The connection handle used for a unicast or a broadcast group. */
     uint16_t streamHandle;
