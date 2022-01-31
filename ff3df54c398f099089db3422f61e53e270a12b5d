@@ -22,6 +22,30 @@
       },
       "revId": "ff3df54c398f099089db3422f61e53e270a12b5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a71e010f_8debaaf4",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-01-31T16:15:25Z",
+      "side": 1,
+      "message": "Nice catch!\n\nThe second check is redundant. I\u0027ll remove it in a cleanup change.",
+      "parentUuid": "51ebdbc0_86f44e58",
+      "range": {
+        "startLine": 912,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 32
+      },
+      "revId": "ff3df54c398f099089db3422f61e53e270a12b5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
