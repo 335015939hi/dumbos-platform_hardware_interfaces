@@ -19,8 +19,15 @@
 
 #include <VtsCoreUtil.h>
 #include <android-base/logging.h>
+#include <android/hardware/wifi/1.0/IWifi.h>
+#include <hidl/ServiceManagement.h>
+#include <wifi_hidl_test_utils.h>
+#include <wifi_hidl_test_utils_1_5.h>
 #include <wifi_system/supplicant_manager.h>
 
+using aidl::android::hardware::wifi::supplicant::IfaceInfo;
+using aidl::android::hardware::wifi::supplicant::ISupplicant;
+using aidl::android::hardware::wifi::supplicant::ISupplicantP2pIface;
 using aidl::android::hardware::wifi::supplicant::ISupplicantStaIface;
 using aidl::android::hardware::wifi::supplicant::KeyMgmtMask;
 using android::wifi_system::SupplicantManager;
@@ -35,6 +42,14 @@ std::string getP2pIfaceName() {
     std::array<char, PROPERTY_VALUE_MAX> buffer;
     property_get("wifi.direct.interface", buffer.data(), "p2p0");
     return std::string(buffer.data());
+}
+
+std::string getWifiInstanceName() {
+    const std::vector<std::string> instances =
+        android::hardware::getAllHalInstanceNames(
+            ::android::hardware::wifi::V1_0::IWifi::descriptor);
+    EXPECT_NE(0, instances.size());
+    return instances.size() != 0 ? instances[0] : "";
 }
 
 bool keyMgmtSupported(std::shared_ptr<ISupplicantStaIface> iface,
@@ -84,9 +99,54 @@ bool waitForSupplicantStart() { return waitForSupplicantState(true); }
 
 bool waitForSupplicantStop() { return waitForSupplicantState(false); }
 
+// Helper function to initialize the driver and firmware to STA mode
+// using the vendor HAL HIDL interface.
+void initilializeDriverAndFirmware() {
+    // Skip if wifi instance is not set.
+    std::string wifi_instance_name = getWifiInstanceName();
+    if (wifi_instance_name == "") {
+        return;
+    }
+    if (getWifi(wifi_instance_name) != nullptr) {
+        LOG(INFO) << "Configuring chip";
+        android::sp<::android::hardware::wifi::V1_0::IWifiChip> wifi_chip =
+            getWifiChip(wifi_instance_name);
+        ::android::hardware::wifi::V1_0::ChipModeId mode_id;
+        EXPECT_TRUE(configureChipToSupportIfaceType(
+            wifi_chip, ::android::hardware::wifi::V1_0::IfaceType::STA,
+            &mode_id));
+        LOG(INFO) << "Chip has been configured";
+    } else {
+        LOG(WARNING) << __func__ << ": Vendor HAL not supported";
+    }
+}
+
+// Helper function to deinitialize the driver and firmware
+// using the vendor HAL HIDL interface.
+void deInitilializeDriverAndFirmware() {
+    // Skip if wifi instance is not set.
+    std::string wifi_instance_name = getWifiInstanceName();
+    if (wifi_instance_name == "") {
+        return;
+    }
+    if (getWifi(wifi_instance_name) != nullptr) {
+        stopWifi(wifi_instance_name);
+    } else {
+        LOG(WARNING) << __func__ << ": Vendor HAL not supported";
+    }
+}
+
+void startSupplicant() {
+    initilializeDriverAndFirmware();
+    SupplicantManager supplicant_manager;
+    ASSERT_TRUE(supplicant_manager.StartSupplicant());
+    ASSERT_TRUE(supplicant_manager.IsSupplicantRunning());
+}
+
 void stopSupplicant() {
     SupplicantManager supplicant_manager;
     ASSERT_TRUE(supplicant_manager.StopSupplicant());
+    deInitilializeDriverAndFirmware();
     ASSERT_FALSE(supplicant_manager.IsSupplicantRunning());
 }
 
@@ -107,6 +167,29 @@ void initializeService() {
     std::system("/system/bin/start");
     ASSERT_TRUE(waitForFrameworkReady());
     stopSupplicant();
+    startSupplicant();
+}
+
+void addStaIface(const std::shared_ptr<ISupplicant> supplicant) {
+    ASSERT_TRUE(supplicant.get());
+    std::shared_ptr<ISupplicantStaIface> iface;
+    ASSERT_TRUE(supplicant->addStaInterface(getStaIfaceName(), &iface).isOk());
+}
+
+void addP2pIface(const std::shared_ptr<ISupplicant> supplicant) {
+    ASSERT_TRUE(supplicant.get());
+    std::shared_ptr<ISupplicantP2pIface> iface;
+    ASSERT_TRUE(supplicant->addP2pInterface(getP2pIfaceName(), &iface).isOk());
+}
+
+std::shared_ptr<ISupplicant> getSupplicant(const char* supplicant_name) {
+    std::shared_ptr<ISupplicant> supplicant = ISupplicant::fromBinder(
+        ndk::SpAIBinder(AServiceManager_waitForService(supplicant_name)));
+    addStaIface(supplicant);
+    if (testing::deviceSupportsFeature("android.hardware.wifi.direct")) {
+        addP2pIface(supplicant);
+    }
+    return supplicant;
 }
 
 #endif  // SUPPLICANT_TEST_UTILS_H
