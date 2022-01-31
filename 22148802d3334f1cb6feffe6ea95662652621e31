@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb3a40a3_77efae58",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-31T15:28:00Z",
+      "side": 1,
+      "message": "Nice catch. Fixed here and elsewhere.",
+      "parentUuid": "7d9f3be7_05dd0278",
+      "range": {
+        "startLine": 442,
+        "startChar": 37,
+        "endLine": 442,
+        "endChar": 42
+      },
+      "revId": "22148802d3334f1cb6feffe6ea95662652621e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b7d2fd5_47ad358f",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-27T22:48:32Z",
       "side": 1,
       "message": "I have to ask... why the arithmetic? `challenge[n] \u003d n;` is simpler.\n\nIMO, hard-coding it is even better (as in identity/aidl/vts/VtsAttestationTests.cpp)",
+      "range": {
+        "startLine": 152,
+        "startChar": 25,
+        "endLine": 152,
+        "endChar": 33
+      },
+      "revId": "22148802d3334f1cb6feffe6ea95662652621e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4931a288_c6fdc8ac",
+        "filename": "identity/aidl/vts/DeleteCredentialTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-01-31T15:28:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b7d2fd5_47ad358f",
       "range": {
         "startLine": 152,
         "startChar": 25,
