@@ -131,6 +131,15 @@ void BluetoothAudioProvider::binderDiedCallbackAidl(void* ptr) {
   provider->endSession();
 }
 
+ndk::ScopedAStatus BluetoothAudioProvider::setLowLatencyModeAllowed(bool allowed) {
+  LOG(ERROR) << __func__ << " Allowed: aaaaaaa aidl" << allowed ;
+  auto provider = static_cast<BluetoothAudioProvider*>(ptr);
+  if (provider == nullptr) {
+    LOG(ERROR) << __func__ << ": Null AudioProvider HAL died";
+    return;
+  }
+  provider->setLowLatencyModeAllowed(allowed);
+}
 }  // namespace audio
 }  // namespace bluetooth
 }  // namespace hardware
