@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf2df3f9_3aa237ed",
+        "filename": "identity/aidl/vts/src/com/android/tests/security/identity/IdentityCredentialImplementedTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-02-01T17:49:39Z",
+      "side": 1,
+      "message": "nit: fail would be better here",
+      "range": {
+        "startLine": 40,
+        "startChar": 12,
+        "endLine": 40,
+        "endChar": 21
+      },
+      "revId": "6f9fd4c0ea7705a95c88f5079a8a095e3c0db9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "643983da_f1c8007f",
+        "filename": "identity/aidl/vts/src/com/android/tests/security/identity/IdentityCredentialImplementedTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-02-01T17:49:39Z",
+      "side": 1,
+      "message": "nit: should be final",
+      "range": {
+        "startLine": 54,
+        "startChar": 15,
+        "endLine": 54,
+        "endChar": 42
+      },
+      "revId": "6f9fd4c0ea7705a95c88f5079a8a095e3c0db9c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
