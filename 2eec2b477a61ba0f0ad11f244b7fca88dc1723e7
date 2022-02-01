@@ -70,6 +70,24 @@
       "parentUuid": "41579ed0_00e0fe97",
       "revId": "2eec2b477a61ba0f0ad11f244b7fca88dc1723e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d324472_aea4ca4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1051483
+      },
+      "writtenOn": "2022-02-01T23:05:24Z",
+      "side": 1,
+      "message": "looking through the code, there have been many revs of the radio HAL since 1.0 but SAP hasn\u0027t changed so we\u0027ve been ok to keep referring to the 1.0 version of SAP.\n\nthere aren\u0027t any systemAPIs or sdk interfaces that are available for SAP at this moment in time, unfortunately",
+      "parentUuid": "e41b2a10_6aeeab09",
+      "revId": "2eec2b477a61ba0f0ad11f244b7fca88dc1723e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
