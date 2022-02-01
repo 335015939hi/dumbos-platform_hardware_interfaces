@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4db9f5a9_d1e86584",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-02-01T22:36:55Z",
+      "side": 1,
+      "message": "It\u0027s been a while since I\u0027ve stared at docs, and I\u0027ve forgotten what \"CWT\" is.\n\nMind spelling it out in the commit message?",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "eda79dca8077053e9e71088a9da7f3134b10c7d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
