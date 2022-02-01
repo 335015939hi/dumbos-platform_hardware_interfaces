@@ -52,6 +52,24 @@
       "parentUuid": "5040efee_452acf18",
       "revId": "2eec2b477a61ba0f0ad11f244b7fca88dc1723e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e41b2a10_6aeeab09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1051483
+      },
+      "writtenOn": "2022-02-01T22:55:46Z",
+      "side": 1,
+      "message": "for more context, this is for the SAP (sim access profile), mostly used on high end cars in Europe, which allows the car to use your sim\u0027s credentials to make calls on your behalf (for better audio than old-school Bluetooth handsfree)",
+      "parentUuid": "41579ed0_00e0fe97",
+      "revId": "2eec2b477a61ba0f0ad11f244b7fca88dc1723e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
