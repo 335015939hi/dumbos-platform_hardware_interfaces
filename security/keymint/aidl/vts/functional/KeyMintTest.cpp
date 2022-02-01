@@ -1496,6 +1496,91 @@ TEST_P(NewKeyGenerationTest, RsaMissingParams) {
 }
 
 /*
+ * NewKeyGenerationTest.RsaZenHotdog
+ *
+ * What did the Zen master say to the NYC hotdog vendor?
+ * "Make me one with everything."
+ *
+ * Creates a key with as many different tags attached as possible.
+ */
+TEST_P(NewKeyGenerationTest, RsaZenHotdog) {
+    auto key_size = (SecLevel() == SecurityLevel::STRONGBOX) ? 2048 : 4096;
+
+    auto challenge = "Attestation challenge value that really quite substantially long";
+    auto attest_app_id =
+            "This is a long application ID that will be encoded into the attestation extension";
+    auto subject = "This is a long certificate subject";
+    vector<uint8_t> subject_der(make_name_from_str(subject));
+    uint64_t serial_int = 999999999;
+    vector<uint8_t> serial_blob(build_serial_blob(serial_int));
+    uint64_t datetime = 1619621648000;  // Wed Apr 28 14:54:08 2021 in ms since epoch
+
+    auto builder = AuthorizationSetBuilder()
+                           .RsaSigningKey(key_size, 65537)
+                           .Digest(Digest::NONE)
+                           .Digest(Digest::SHA_2_256)
+                           .Padding(PaddingMode::NONE)
+                           .Padding(PaddingMode::RSA_PSS)
+                           .Padding(PaddingMode::RSA_PKCS1_1_5_SIGN)
+                           .Authorization(TAG_PURPOSE, KeyPurpose::ENCRYPT)
+                           .Authorization(TAG_PURPOSE, KeyPurpose::DECRYPT)
+                           .AttestationApplicationId(attest_app_id)
+                           .AttestationChallenge(challenge)
+                           .Authorization(TAG_NO_AUTH_REQUIRED)
+                           .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                           .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                           .Authorization(TAG_INCLUDE_UNIQUE_ID)
+                           .Authorization(TAG_CREATION_DATETIME, datetime)
+                           .SetDefaultValidity();
+
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        // StrongBox rejects long values (>64 bytes) for APPLICATION_ID / APPLICATION_DATA.
+        AidlBuf app_id("0123456789012345678901234567890123456789012345678901234567890123");
+        AidlBuf app_data("0123456789012345678901234567890123456789012345678901234567890123");
+        builder.Authorization(TAG_APPLICATION_ID, app_id)
+                .Authorization(TAG_APPLICATION_DATA, app_data);
+    } else {
+        AidlBuf app_id(
+                "This is a long application ID that will be bound into the encrypted keyblob");
+        AidlBuf app_data(
+                "This is long chunk of application specific data that will be bound into the "
+                "encrypted keyblob");
+        builder.Authorization(TAG_APPLICATION_ID, app_id)
+                .Authorization(TAG_APPLICATION_DATA, app_data);
+        builder.Digest(Digest::SHA1)
+                .Digest(Digest::SHA_2_224)
+                .Digest(Digest::SHA_2_256)
+                .Digest(Digest::SHA_2_384)
+                .Digest(Digest::SHA_2_512);
+    }
+
+    for (bool add_attest_ids : {false, true}) {
+        if (add_attest_ids) {
+            add_tag_from_prop(&builder, TAG_ATTESTATION_ID_BRAND, "ro.product.brand");
+            add_tag_from_prop(&builder, TAG_ATTESTATION_ID_DEVICE, "ro.product.device");
+            add_tag_from_prop(&builder, TAG_ATTESTATION_ID_PRODUCT, "ro.product.name");
+            add_tag_from_prop(&builder, TAG_ATTESTATION_ID_SERIAL, "ro.serial");
+            add_tag_from_prop(&builder, TAG_ATTESTATION_ID_MANUFACTURER, "ro.product.manufacturer");
+            add_tag_from_prop(&builder, TAG_ATTESTATION_ID_MODEL, "ro.product.model");
+        }
+
+        vector<uint8_t> key_blob;
+        vector<KeyCharacteristics> key_characteristics;
+        auto result = GenerateKey(builder, &key_blob, &key_characteristics);
+        if (add_attest_ids && result == ErrorCode::CANNOT_ATTEST_IDS) {
+            break;
+        }
+        ASSERT_EQ(ErrorCode::OK, result) << "Failed keygen with params: " << builder;
+
+        EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
+        ASSERT_GT(cert_chain_.size(), 0);
+        verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
+
+        CheckedDeleteKey(&key_blob);
+    }
+}
+
+/*
  * NewKeyGenerationTest.Ecdsa
  *
  * Verifies that keymint can generate all required EC curves, and that the resulting keys
