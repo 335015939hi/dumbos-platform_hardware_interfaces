@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a850f3_8069c3c6",
+        "filename": "wifi/supplicant/aidl/vts/functional/supplicant_test_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2022-02-01T21:16:16Z",
+      "side": 1,
+      "message": "Can we add the declaration of these 2 functions to supplicant_hidl_test_utils.h,  and call it directly?  (The implementation is already in supplicant_hidl_test_utils.cpp)\nThat way we can avoid the duplicate code in both hidl/aidl vts.",
+      "range": {
+        "startLine": 104,
+        "startChar": 5,
+        "endLine": 104,
+        "endChar": 34
+      },
+      "revId": "855ac1afeaf5cd33444e1473cd3a351ed9ed8898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
