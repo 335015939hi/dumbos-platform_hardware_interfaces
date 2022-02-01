@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4641b19f_eb375885",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-02-01T22:55:05Z",
+      "side": 1,
+      "message": "nit: static objects that heap allocate are problematic\n\nSuggest making these into functions that return the constants to avoid the issue.\n\nAlso, no need to make them static -- they\u0027re in an anonymous namespace already.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 78
+      },
+      "revId": "efe899b8cf7c65b4a887ac85cb9b31d09970b394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "517d9354_f3ab48c1",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-02-01T22:55:05Z",
+      "side": 1,
+      "message": "shouldn\u0027t we be checking att_id_state on v1?",
+      "range": {
+        "startLine": 422,
+        "startChar": 11,
+        "endLine": 422,
+        "endChar": 19
+      },
+      "revId": "efe899b8cf7c65b4a887ac85cb9b31d09970b394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
