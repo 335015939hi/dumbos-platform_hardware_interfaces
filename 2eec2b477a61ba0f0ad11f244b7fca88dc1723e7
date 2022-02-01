@@ -16,6 +16,24 @@
       "message": "Should the bluetooth stack be using the radio interface? Is this used for types, or actual communication?",
       "revId": "2eec2b477a61ba0f0ad11f244b7fca88dc1723e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5040efee_452acf18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1888950
+      },
+      "writtenOn": "2022-02-01T22:41:55Z",
+      "side": 1,
+      "message": "It is used for sending messages FWIACT. https://paste.googleplex.com/6581892045340672",
+      "parentUuid": "bb1ffd86_834b8634",
+      "revId": "2eec2b477a61ba0f0ad11f244b7fca88dc1723e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
