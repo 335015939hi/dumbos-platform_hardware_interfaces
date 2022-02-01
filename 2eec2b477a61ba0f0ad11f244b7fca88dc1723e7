@@ -88,6 +88,24 @@
       "parentUuid": "e41b2a10_6aeeab09",
       "revId": "2eec2b477a61ba0f0ad11f244b7fca88dc1723e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fefcf169_91816df7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-01T23:19:37Z",
+      "side": 1,
+      "message": "The radio HAL is moving to AIDL this year, so we will need some change to the APIs used.",
+      "parentUuid": "3d324472_aea4ca4a",
+      "revId": "2eec2b477a61ba0f0ad11f244b7fca88dc1723e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
