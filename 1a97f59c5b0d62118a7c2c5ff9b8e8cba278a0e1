@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f786520f_e202e4bd",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2022-02-02T21:54:49Z",
+      "side": 1,
+      "message": "typo: initialize\n\n(same on the deInitialize)",
+      "range": {
+        "startLine": 47,
+        "startChar": 5,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "1a97f59c5b0d62118a7c2c5ff9b8e8cba278a0e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
