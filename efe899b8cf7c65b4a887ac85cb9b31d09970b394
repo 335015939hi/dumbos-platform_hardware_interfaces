@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3424c39c_65bab6a9",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-02-02T21:48:51Z",
+      "side": 1,
+      "message": "I\u0027d personally just do this: `return {\"green\", \"yellow\", \"orange\"}`\n\nBut this is fine.",
+      "parentUuid": "592c6ce3_4ea5e538",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 78
+      },
+      "revId": "efe899b8cf7c65b4a887ac85cb9b31d09970b394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "517d9354_f3ab48c1",
         "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
         "patchSetId": 2
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Yes, although the broader question still stands; do you think replacing that with the more generic \"fuses\" is fine? I can\u0027t even remember the original reasoning that prompted adding att_id_state.",
       "parentUuid": "517d9354_f3ab48c1",
+      "range": {
+        "startLine": 422,
+        "startChar": 11,
+        "endLine": 422,
+        "endChar": 19
+      },
+      "revId": "efe899b8cf7c65b4a887ac85cb9b31d09970b394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be74489d_bcc6612c",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-02-02T21:48:51Z",
+      "side": 1,
+      "message": "based on offline convo, I think we\u0027re fine.",
+      "parentUuid": "439c294a_161e87f6",
       "range": {
         "startLine": 422,
         "startChar": 11,
