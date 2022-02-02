@@ -46,6 +46,30 @@
       },
       "revId": "855ac1afeaf5cd33444e1473cd3a351ed9ed8898",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e14e457_a8bc00fd",
+        "filename": "wifi/supplicant/aidl/vts/functional/supplicant_test_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2022-02-02T18:05:00Z",
+      "side": 1,
+      "message": "Great, thanks!",
+      "parentUuid": "a99b9350_c666c8f0",
+      "range": {
+        "startLine": 104,
+        "startChar": 5,
+        "endLine": 104,
+        "endChar": 34
+      },
+      "revId": "855ac1afeaf5cd33444e1473cd3a351ed9ed8898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
