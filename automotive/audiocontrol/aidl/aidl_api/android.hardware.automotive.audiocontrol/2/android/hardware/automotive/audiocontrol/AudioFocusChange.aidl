@@ -16,17 +16,14 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.automotive.audiocontrol;
-@VintfStability
-interface IAudioControl {
-  /**
-   * @deprecated use {@link android.hardware.automotive.audiocontrol.PlaybackTrackMetadata} instead.
-   */
-  oneway void onAudioFocusChange(in String usage, in int zoneId, in android.hardware.automotive.audiocontrol.AudioFocusChange focusChange);
-  oneway void onDevicesToDuckChange(in android.hardware.automotive.audiocontrol.DuckingInfo[] duckingInfos);
-  oneway void onDevicesToMuteChange(in android.hardware.automotive.audiocontrol.MutingInfo[] mutingInfos);
-  oneway void registerFocusListener(in android.hardware.automotive.audiocontrol.IFocusListener listener);
-  oneway void setBalanceTowardRight(in float value);
-  oneway void setFadeTowardFront(in float value);
-  oneway void onHalAudioFocusChange(in android.hardware.automotive.audiocontrol.PlaybackTrackMetadata playbackMetaData, in int zoneId, in android.hardware.automotive.audiocontrol.AudioFocusChange focusChange);
-  oneway void registerCallback(in android.hardware.automotive.audiocontrol.IAudioControlCallback callback);
+@Backing(type="int") @VintfStability
+enum AudioFocusChange {
+  NONE = 0,
+  GAIN = 1,
+  GAIN_TRANSIENT = 2,
+  GAIN_TRANSIENT_MAY_DUCK = 3,
+  GAIN_TRANSIENT_EXCLUSIVE = 4,
+  LOSS = -1,
+  LOSS_TRANSIENT = -2,
+  LOSS_TRANSIENT_CAN_DUCK = -3,
 }
