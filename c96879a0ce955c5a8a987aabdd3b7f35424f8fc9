@@ -22,6 +22,30 @@
       },
       "revId": "c96879a0ce955c5a8a987aabdd3b7f35424f8fc9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22598e73_5fd2dc8b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-02-02T19:48:28Z",
+      "side": 0,
+      "message": "Will do. Going to update the g3docs all at once with a couple of other changes I\u0027ve made in the HAL spec.",
+      "parentUuid": "0fee695f_a2d9e7a2",
+      "range": {
+        "startLine": 172,
+        "startChar": 46,
+        "endLine": 172,
+        "endChar": 60
+      },
+      "revId": "c96879a0ce955c5a8a987aabdd3b7f35424f8fc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
