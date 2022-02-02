@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "592c6ce3_4ea5e538",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-02-02T20:05:34Z",
+      "side": 1,
+      "message": "Think I fixed it up suitably. Let me know if I misinterpreted.",
+      "parentUuid": "4641b19f_eb375885",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 78
+      },
+      "revId": "efe899b8cf7c65b4a887ac85cb9b31d09970b394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "517d9354_f3ab48c1",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-01T22:55:05Z",
       "side": 1,
       "message": "shouldn\u0027t we be checking att_id_state on v1?",
+      "range": {
+        "startLine": 422,
+        "startChar": 11,
+        "endLine": 422,
+        "endChar": 19
+      },
+      "revId": "efe899b8cf7c65b4a887ac85cb9b31d09970b394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439c294a_161e87f6",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-02-02T20:05:34Z",
+      "side": 1,
+      "message": "Yes, although the broader question still stands; do you think replacing that with the more generic \"fuses\" is fine? I can\u0027t even remember the original reasoning that prompted adding att_id_state.",
+      "parentUuid": "517d9354_f3ab48c1",
       "range": {
         "startLine": 422,
         "startChar": 11,
