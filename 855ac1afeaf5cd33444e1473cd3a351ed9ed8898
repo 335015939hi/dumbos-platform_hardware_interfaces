@@ -22,6 +22,30 @@
       },
       "revId": "855ac1afeaf5cd33444e1473cd3a351ed9ed8898",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a99b9350_c666c8f0",
+        "filename": "wifi/supplicant/aidl/vts/functional/supplicant_test_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2022-02-02T01:51:39Z",
+      "side": 1,
+      "message": "Done. This actually let me remove some other functions that I\u0027d copied from there, so this file should be shorter than in the original patchset.\n\nI also had to rename stopSupplicant() to stopSupplicantService() here to avoid a linker error.",
+      "parentUuid": "f9a850f3_8069c3c6",
+      "range": {
+        "startLine": 104,
+        "startChar": 5,
+        "endLine": 104,
+        "endChar": 34
+      },
+      "revId": "855ac1afeaf5cd33444e1473cd3a351ed9ed8898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
