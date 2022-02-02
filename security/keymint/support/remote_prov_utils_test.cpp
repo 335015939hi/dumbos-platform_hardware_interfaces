@@ -14,8 +14,12 @@
  * limitations under the License.
  */
 
+#include "cppbor.h"
+#include "keymaster/cppcose/cppcose.h"
+#include <aidl/android/hardware/security/keymint/RpcHardwareInfo.h>
 #include <android-base/properties.h>
 #include <cppbor_parse.h>
+#include <cstdint>
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <keymaster/android_keymaster_utils.h>
@@ -23,9 +27,6 @@
 #include <keymaster/remote_provisioning_utils.h>
 #include <openssl/curve25519.h>
 #include <remote_prov/remote_prov_utils.h>
-#include <cstdint>
-#include "cppbor.h"
-#include "keymaster/cppcose/cppcose.h"
 
 namespace aidl::android::hardware::security::keymint::remote_prov {
 namespace {
@@ -35,13 +36,13 @@ using ::keymaster::validateAndExtractEekPubAndId;
 using ::testing::ElementsAreArray;
 
 TEST(RemoteProvUtilsTest, GenerateEekChainInvalidLength) {
-    ASSERT_FALSE(generateEekChain(1, /*eekId=*/{}));
+    ASSERT_FALSE(generateEekChain(RpcHardwareInfo::CURVE_25519, 1, /*eekId=*/{}));
 }
 
 TEST(RemoteProvUtilsTest, GenerateEekChain) {
     bytevec kTestEekId = {'t', 'e', 's', 't', 'I', 'd', 0};
     for (size_t length : {2, 3, 31}) {
-        auto get_eek_result = generateEekChain(length, kTestEekId);
+        auto get_eek_result = generateEekChain(RpcHardwareInfo::CURVE_25519, length, kTestEekId);
         ASSERT_TRUE(get_eek_result) << get_eek_result.message();
 
         auto& [chain, pubkey, privkey] = *get_eek_result;
@@ -57,7 +58,7 @@ TEST(RemoteProvUtilsTest, GenerateEekChain) {
 }
 
 TEST(RemoteProvUtilsTest, GetProdEekChain) {
-    auto chain = getProdEekChain();
+    auto chain = getProdEekChain(RpcHardwareInfo::CURVE_25519);
 
     auto validation_result = validateAndExtractEekPubAndId(
             /*testMode=*/false, KeymasterBlob(chain.data(), chain.size()));
