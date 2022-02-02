@@ -1,0 +1,133 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000020039389",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1969799?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "8491c3db_4063088c",
+          "description": "Change to \"security/keymint/support/remote_prov_utils.cpp\"",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 48,
+                "startChar": 22,
+                "endLine": 48,
+                "endChar": 28
+              },
+              "replacement": "in case"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "152cf37e_add854d1",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-02-02T23:15:36Z",
+      "side": 1,
+      "message": "Common typo found: \"incase\" -- should it be \"in case\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 48,
+        "startChar": 22,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "5f7ee878301dc703e34a18d0f2b586ecc71e7eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000020039389",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1969799?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "c73fc7a7_8260c21a",
+          "description": "Change to \"security/keymint/support/remote_prov_utils.cpp\"",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 97,
+                "startChar": 56,
+                "endLine": 97,
+                "endChar": 65
+              },
+              "replacement": "coordinate"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "6f822284_72dd69ba",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-02-02T23:15:36Z",
+      "side": 1,
+      "message": "Common typo found: \"cordinate\" -- should it be \"coordinate\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 97,
+        "startChar": 56,
+        "endLine": 97,
+        "endChar": 65
+      },
+      "revId": "5f7ee878301dc703e34a18d0f2b586ecc71e7eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000020039389",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1969799?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "1df47947_25c5d114",
+          "description": "Change to \"security/keymint/support/remote_prov_utils.cpp\"",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 100,
+                "startChar": 56,
+                "endLine": 100,
+                "endChar": 65
+              },
+              "replacement": "coordinate"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "bc554e70_ac1ec288",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-02-02T23:15:36Z",
+      "side": 1,
+      "message": "Common typo found: \"cordinate\" -- should it be \"coordinate\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 100,
+        "startChar": 56,
+        "endLine": 100,
+        "endChar": 65
+      },
+      "revId": "5f7ee878301dc703e34a18d0f2b586ecc71e7eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
