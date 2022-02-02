@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <aidl/android/hardware/security/keymint/RpcHardwareInfo.h>
 #include <android-base/properties.h>
 #include <cppbor_parse.h>
 #include <gmock/gmock.h>
@@ -35,13 +36,13 @@ using ::keymaster::validateAndExtractEekPubAndId;
 using ::testing::ElementsAreArray;
 
 TEST(RemoteProvUtilsTest, GenerateEekChainInvalidLength) {
-    ASSERT_FALSE(generateEekChain(1, /*eekId=*/{}));
+    ASSERT_FALSE(generateEekChain(CURVE_25519, 1, /*eekId=*/{}));
 }
 
 TEST(RemoteProvUtilsTest, GenerateEekChain) {
     bytevec kTestEekId = {'t', 'e', 's', 't', 'I', 'd', 0};
     for (size_t length : {2, 3, 31}) {
-        auto get_eek_result = generateEekChain(length, kTestEekId);
+        auto get_eek_result = generateEekChain(CURVE_25519, length, kTestEekId);
         ASSERT_TRUE(get_eek_result) << get_eek_result.message();
 
         auto& [chain, pubkey, privkey] = *get_eek_result;
