@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b0f4522_d627d459",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-02-02T22:19:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3424c39c_65bab6a9",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 78
+      },
+      "revId": "efe899b8cf7c65b4a887ac85cb9b31d09970b394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "517d9354_f3ab48c1",
