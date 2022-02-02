@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,10 +18,13 @@ package android.hardware.automotive.audiocontrol;
 
 import android.hardware.automotive.audiocontrol.AudioFocusChange;
 
+import android.hardware.audio.common.PlaybackTrackMetadata;
+
 /**
  * Callback interface for audio focus listener.
  *
  * For typical configuration, the listener the car audio service.
+ *
  */
 @VintfStability
 interface IFocusListener {
@@ -32,6 +35,10 @@ interface IFocusListener {
      * In response, IAudioControl#onAudioFocusChange will be called with focusChange status. This
      * interaction is oneway to avoid blocking HAL so that it is not required to wait for a response
      * before stopping audio playback.
+     *
+     * Deprecated in API 2 to allow generic interface callback listener.
+     * Use {@link android.hardware.automotive.audiocontrol.IFocusListener#abandonHalAudioFocus}
+     * instead
      *
      * @param usage The audio usage for which the HAL is abandoning focus {@code AttributeUsage}.
      * See {@code audioUsage} in audio_policy_configuration.xsd for the list of allowed values.
@@ -47,6 +54,10 @@ interface IFocusListener {
      * interaction is oneway to avoid blocking HAL so that it is not required to wait for a response
      * before playing audio.
      *
+     * Deprecated in API 2 to allow generic interface callback listener.
+     * Use {@link android.hardware.automotive.audiocontrol.IFocusListener#requestHalAudioFocus}
+     * instead
+     *
      * @param usage The audio usage associated with the focus request {@code AttributeUsage}. See
      * {@code audioUsage} in audio_policy_configuration.xsd for the list of allowed values.
      * @param zoneId The identifier for the audio zone where the HAL is requesting focus
@@ -54,4 +65,28 @@ interface IFocusListener {
      * following: GAIN, GAIN_TRANSIENT, GAIN_TRANSIENT_MAY_DUCK, GAIN_TRANSIENT_EXCLUSIVE.
      */
     oneway void requestAudioFocus(in String usage, in int zoneId, in AudioFocusChange focusGain);
+
+    /**
+     * Used to indicate that the audio output stream associated with
+     * {@link android.hardware.audio.common.PlaybackTrackMetadata} has released
+     * the focus.
+     *
+     * @param playbackMetaData The output stream metadata associated with the focus request
+     * @param zoneId The identifier for the audio zone that the HAL abandoning focus
+     */
+    oneway void abandonAudioFocusV2(in PlaybackTrackMetadata playbackMetaData, in int zoneId);
+
+    /**
+     * Used to indicate that the audio output stream associated with
+     * {@link android.hardware.audio.common.PlaybackTrackMetadata} has taken
+     * the focus.
+     *
+     * @param playbackMetaData The output stream metadata associated with the focus request
+     * @param zoneId The identifier for the audio zone that the HAL abandoning focus
+     * @param focusGain The focus type requested.
+     *                  This must be one of the
+     *                  {@link android.hardware.automotive.audiocontrol.AudioFocusChange} constants
+     */
+    oneway void requestAudioFocusV2(in PlaybackTrackMetadata playbackMetaData,
+          in int zoneId, in AudioFocusChange focusGain);
 }

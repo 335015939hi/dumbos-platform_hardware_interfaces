@@ -33,9 +33,9 @@
 
 package android.hardware.automotive.audiocontrol;
 @VintfStability
-interface IFocusListener {
-  oneway void abandonAudioFocus(in String usage, in int zoneId);
-  oneway void requestAudioFocus(in String usage, in int zoneId, in android.hardware.automotive.audiocontrol.AudioFocusChange focusGain);
-  oneway void abandonAudioFocusV2(in android.hardware.audio.common.PlaybackTrackMetadata playbackMetaData, in int zoneId);
-  oneway void requestAudioFocusV2(in android.hardware.audio.common.PlaybackTrackMetadata playbackMetaData, in int zoneId, in android.hardware.automotive.audiocontrol.AudioFocusChange focusGain);
+parcelable AudioGainConfigInfo {
+  int zoneId;
+  String devicePortAddress;
+  int devicePortHandleId;
+  int volumeIndex;
 }

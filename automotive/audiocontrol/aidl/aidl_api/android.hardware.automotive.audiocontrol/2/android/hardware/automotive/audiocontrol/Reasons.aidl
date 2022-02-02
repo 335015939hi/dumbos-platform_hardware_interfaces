@@ -32,10 +32,16 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.automotive.audiocontrol;
-@VintfStability
-interface IFocusListener {
-  oneway void abandonAudioFocus(in String usage, in int zoneId);
-  oneway void requestAudioFocus(in String usage, in int zoneId, in android.hardware.automotive.audiocontrol.AudioFocusChange focusGain);
-  oneway void abandonAudioFocusV2(in android.hardware.audio.common.PlaybackTrackMetadata playbackMetaData, in int zoneId);
-  oneway void requestAudioFocusV2(in android.hardware.audio.common.PlaybackTrackMetadata playbackMetaData, in int zoneId, in android.hardware.automotive.audiocontrol.AudioFocusChange focusGain);
+@Backing(type="int") @VintfStability
+enum Reasons {
+  CYBER_MASTER_MUTE = 1,
+  REMOTE_MUTE = 2,
+  TCU_MUTE = 4,
+  ADAS_DUCKING = 8,
+  NAV_DUCKING = 16,
+  PROJECTION_DUCKING = 32,
+  THERMAL_LIMITATION = 64,
+  SUSPEND_EXIT_VOL_LIMITATION = 128,
+  EXTERNAL_AMP_VOL_FEEDBACK = 256,
+  OTHER = -2147483648,
 }
