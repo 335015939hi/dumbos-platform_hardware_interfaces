@@ -32,10 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.automotive.audiocontrol;
-@VintfStability
-interface IFocusListener {
-  oneway void abandonAudioFocus(in String usage, in int zoneId);
-  oneway void requestAudioFocus(in String usage, in int zoneId, in android.hardware.automotive.audiocontrol.AudioFocusChange focusGain);
-  oneway void abandonHalAudioFocus(in android.hardware.automotive.audiocontrol.PlaybackTrackMetadataExt playbackMetaDataExt);
-  oneway void requestHalAudioFocus(in android.hardware.automotive.audiocontrol.PlaybackTrackMetadataExt playbackMetaDataExt, in android.hardware.automotive.audiocontrol.AudioFocusChange focusGain);
+@JavaDerive(equals=true, toString=true) @VintfStability
+parcelable PlaybackTrackMetadataExt {
+  int zoneId;
+  android.hardware.audio.common.PlaybackTrackMetadata playbackTrackMetadata;
 }
