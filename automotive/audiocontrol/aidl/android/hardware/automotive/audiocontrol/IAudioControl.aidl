@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,9 @@ package android.hardware.automotive.audiocontrol;
 import android.hardware.automotive.audiocontrol.AudioFocusChange;
 import android.hardware.automotive.audiocontrol.DuckingInfo;
 import android.hardware.automotive.audiocontrol.MutingInfo;
+import android.hardware.automotive.audiocontrol.PlaybackTrackMetadata;
 import android.hardware.automotive.audiocontrol.IFocusListener;
+import android.hardware.automotive.audiocontrol.IAudioControlCallback;
 
 /**
  * Interacts with the car's audio subsystem to manage audio sources and volumes
@@ -36,8 +38,11 @@ interface IAudioControl {
      * The HAL is not required to wait for an callback of AUDIOFOCUS_GAIN before playing audio, nor
      * is it required to stop playing audio in the event of a AUDIOFOCUS_LOSS callback is received.
      *
+     * This method was deprecated in API 2 to allow getting rid of usages limitation.
+     *
      * @param usage The audio usage associated with the focus change {@code AttributeUsage}. See
      * {@code audioUsage} in audio_policy_configuration.xsd for the list of allowed values.
+     * @deprecated use {@link android.hardware.automotive.audiocontrol.PlaybackTrackMetadata} instead.
      * @param zoneId The identifier for the audio zone that the HAL is playing the stream in
      * @param focusChange the AudioFocusChange that has occurred.
      */
@@ -74,6 +79,10 @@ interface IAudioControl {
      * a listener is already registered, the existing one should be unregistered and replaced with
      * the new listener.
      *
+     * This method was deprecated in API 2 with introduction of
+     * {@link android.hardware.automotive.audiocontrol.IAudioControlCallback} callback.
+     * Use registerCallback instead.
+     *
      * @param listener the listener interface.
      */
     oneway void registerFocusListener(in IFocusListener listener);
@@ -99,4 +108,36 @@ interface IAudioControl {
      * range.
      */
     oneway void setFadeTowardFront(in float value);
+
+    /**
+     * Notifies HAL of changes in audio focus status for focuses requested or abandoned by the HAL.
+     *
+     * This will be called in response to IFocusListener's requestAudioFocus and
+     * abandonAudioFocus, as well as part of any change in focus being held by the HAL due focus
+     * request from other activities or services.
+     *
+     * The HAL is not required to wait for an callback of AUDIOFOCUS_GAIN before playing audio, nor
+     * is it required to stop playing audio in the event of a AUDIOFOCUS_LOSS callback is received.
+     *
+     * @param playbackMetaData The output stream metadata associated with the focus request
+     * @param zoneId The identifier for the audio zone that the HAL is playing the stream in
+     * @param focusChange the AudioFocusChange that has occurred.
+     */
+    oneway void onHalAudioFocusChange(in PlaybackTrackMetadata playbackMetaData,
+        in int zoneId, in AudioFocusChange focusChange);
+
+    /**
+     * Registers callback to be used by HAL for
+     *      - requesting and abandoning audio focus.
+     *      - reporting unexpected gain(s) changed and the reason(s) why
+     *
+     * It is expected that there will only ever be a single focus listener registered. If the
+     * observer dies, the HAL implementation must unregister observer automatically. If called when
+     * a listener is already registered, the existing one should be unregistered and replaced with
+     * the new listener.
+     *
+     * @param callback The {@link android.hardware.automotive.audiocontrol.IAudioControlCallback}
+     *                 interface.
+     */
+    oneway void registerCallback(in IAudioControlCallback callback);
 }
