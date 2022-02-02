@@ -20,6 +20,114 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c636307b_8bd208f9",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-02T20:31:20Z",
+      "side": 1,
+      "message": "Note that port info is hidden from car audio service, so we may not be able to access from the car service side.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 17
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0a2b867_3b59908a",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/DuckingInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-02T20:31:20Z",
+      "side": 1,
+      "message": "Will this information be provided per device? If so, can this have multiple tracks playing at the same time for the a device?",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f290ac9_bdbedbb7",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IAudioControlCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-02T20:31:20Z",
+      "side": 1,
+      "message": "This is also being done in IFocusListener, maybe we can split this from the gain calls and have two different APIs.",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24eb8c22_4847b1d1",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IAudioControlCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-02T20:31:20Z",
+      "side": 1,
+      "message": "Not sure if audio gain info is visible from the car audio service.\n\nAlso which direction is the gain change going? From HAL to car audio service or the other way around? The name seems to imply from car audio service to HAL.",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7c0311b_7528f61b",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-02T20:31:20Z",
+      "side": 1,
+      "message": "The content looks a lot like audio attributes, not sure if we can use that instead.",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4ca6925_f708fb18",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/Reasons.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-02T20:31:20Z",
+      "side": 1,
+      "message": "Too specific maybe consider changing the name to projection on some similar generic name.",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "91919f6b_193d7bac",
         "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
         "patchSetId": 4
@@ -77,6 +185,30 @@
       "writtenOn": "2022-02-02T20:21:47Z",
       "side": 1,
       "message": "how is this passed to IAudioControl? If we are assuming close integration with audio HAL, it should be defined how this will be passed. Also we need to define invalid case.",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b125446_db883aaa",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-02T20:31:20Z",
+      "side": 1,
+      "message": "I think in the current mainline work port handle is not visible to car audio service, so we would need some type of API to access the from a built in library.",
+      "parentUuid": "bb7cd9d2_dd310e2c",
       "range": {
         "startLine": 44,
         "startChar": 8,
