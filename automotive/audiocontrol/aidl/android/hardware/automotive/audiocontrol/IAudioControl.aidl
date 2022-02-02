@@ -79,6 +79,10 @@ interface IAudioControl {
      * a listener is already registered, the existing one should be unregistered and replaced with
      * the new listener.
      *
+     * This method was deprecated in API 2 with introduction of
+     * {@link android.hardware.automotive.audiocontrol.IAudioControlCallback} callback.
+     * Use registerCallback instead.
+     *
      * @param listener the listener interface.
      */
     oneway void registerFocusListener(in IFocusListener listener);

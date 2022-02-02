@@ -22,12 +22,11 @@ import android.hardware.automotive.audiocontrol.PlaybackTrackMetadata;
 
 /**
  * Interface definition for a callback to be invoked
- *      - when the audio focus of the system is updated
- *      - when the gain(s) of the device port(s) is(are) updated
+ *      - when the audio focus of the system is updated at HAL layer.
+ *      - when the gain(s) of the device port(s) is(are) updated at HAL layer.
  */
 @VintfStability
 oneway interface IAudioControlCallback {
-
     /**
      * Used to indicate that the audio output stream associated with playbackMetaData has released
      * the focus.
@@ -50,9 +49,17 @@ oneway interface IAudioControlCallback {
     void requestAudioFocus(in PlaybackTrackMetadata playbackMetaData, in int zoneId,
           in AudioFocusChange focusGain);
 
-
     /**
-     * Used to indicated the one or more audio device port gains have changed unexpectidely.
+     * Used to indicated the one or more audio device port gains have changed unexpectidely, i.e.
+     * initiated by HAL, not by CarAudioService.
+     * This is the counter part of the
+     *      {@link android.hardware.automotive.audiocontrol.onDevicesToDuckChange} and
+     *      {@link android.hardware.automotive.audiocontrol.onDevicesToMuteChange} APIs.
+     *
+     * Flexibility is given to OEM to mute/duck in HAL or in CarAudioService.
+     * For critical use cases (i.e. when regulation is required), better to handle mute/duck in
+     * HAL layer and informs upper layer.
+     * Non critical use case may report gain and focus and CarAudioService to decide of duck/mute.
      *
      * @param reasons One or more reasons that triggered the given gains changed.
      *                This must be one or more of the

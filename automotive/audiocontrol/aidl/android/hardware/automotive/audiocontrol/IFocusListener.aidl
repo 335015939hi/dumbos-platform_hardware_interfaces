@@ -21,10 +21,11 @@ import android.hardware.automotive.audiocontrol.AudioFocusChange;
 /**
  * Callback interface for audio focus listener.
  *
- * This interface was deprecated in API 2 to allow generic interface callback listener.
- * User {@link android.hardware.automotive.audiocontrol.IAudioControlCallback} instead
- *
  * For typical configuration, the listener the car audio service.
+ *
+ * This interface was deprecated in API 2 to allow generic interface callback listener.
+ * Use {@link android.hardware.automotive.audiocontrol.IAudioControlCallback} instead
+ *
  */
 @VintfStability
 interface IFocusListener {
