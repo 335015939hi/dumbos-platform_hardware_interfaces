@@ -16,6 +16,24 @@
       "message": "HIDL 2.2 will be removed by Feb. 18 so you may want to modify AIDL instead of HIDL. If you still want to make changes to HIDL, please also apply them to AIDL.",
       "revId": "cc0cd5eadf108f527895767f38b32c51affa928f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fc95122_36e85c94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581454
+      },
+      "writtenOn": "2022-02-03T21:00:00Z",
+      "side": 1,
+      "message": "Submitting it now will allow folks on the audio side to start using it for the next couple weeks before the HIDL removal.\n(and every week counts for Android T)",
+      "parentUuid": "fdada694_97dd97fd",
+      "revId": "cc0cd5eadf108f527895767f38b32c51affa928f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
