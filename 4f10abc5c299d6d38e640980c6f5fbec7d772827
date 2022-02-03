@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c318379_714d2fe1",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-03T23:46:03Z",
+      "side": 1,
+      "message": "Any useful information that we could access to identify the device is helpful, bus address is definitely accessible. If you could work with core audio team to land a change to expose port API that would also help.\n\nOtherwise lets just limit to device address.",
+      "parentUuid": "dc5f820e_41cf278d",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 17
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0a2b867_3b59908a",
         "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/DuckingInfo.aidl",
         "patchSetId": 4
@@ -114,6 +138,24 @@
       "side": 1,
       "message": "I keep the same semantic as usages holding focus, so it is not provided per device in this case",
       "parentUuid": "a0a2b867_3b59908a",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22f7b2bb_d6176d48",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/DuckingInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-03T23:46:03Z",
+      "side": 1,
+      "message": "OK, so the usage holding focus will correspond to the track also holding focus?\n\nI think we can find the track information from audio playback configuration on the car audio service end.",
+      "parentUuid": "0333d830_18e0f9ee",
       "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -155,6 +197,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72a45088_7a36e0f8",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IAudioControlCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-03T23:46:03Z",
+      "side": 1,
+      "message": "It may be best to split them, keep gain separate from audio focus. If you need a separate focus request call with more information that is fine too we should probably add that to IFocusListener.",
+      "parentUuid": "4d172aac_b4efe0b3",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24eb8c22_4847b1d1",
         "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IAudioControlCallback.aidl",
         "patchSetId": 4
@@ -184,6 +244,24 @@
       "side": 1,
       "message": "for this API, as it is a callback: AudioControl -\u003e CarAudioService\nThe \"downstream\" aka CarAudioService -\u003e AudioControl is ensured with 1.0 aidl on\nonDevicesToDuckChange \u0026 onDevicesToMuteChange.\n\nSo, back to your first point, the gain info reported could be limited to address \u0026 index (in UI). AudioHAL will shall be able to convert (",
       "parentUuid": "24eb8c22_4847b1d1",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cd5334e_689802df",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IAudioControlCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-03T23:46:03Z",
+      "side": 1,
+      "message": "OK, it may be useful to document that once we have the implementation.\n\nSee my other comment about port.",
+      "parentUuid": "21ae1d47_5869f084",
       "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -225,6 +303,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d4ca278_b5bb23f1",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-03T23:46:03Z",
+      "side": 1,
+      "message": "We would like to keep them separate in case the want to expand it in the future, but let me check internally what is the best approach.",
+      "parentUuid": "c88fcf43_85be7fad",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c4ca6925_f708fb18",
         "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/Reasons.aidl",
         "patchSetId": 4
@@ -254,6 +350,24 @@
       "side": 1,
       "message": "I propose SMARTPHONE_PROJECTION_DUCKING to remove **evil** carplay :-)",
       "parentUuid": "c4ca6925_f708fb18",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88bff910_d5ce12c9",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/Reasons.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-03T23:46:03Z",
+      "side": 1,
+      "message": "That which shall not be named, is also an option.\n\nI think projection_ducking maybe good enough since there maybe technology in the future that uses this but is is not an smart phone.\n\nI wonder if the same could be said for the other names:\nMASTER_MUTE\nREMOTE_MUTE\nSYSTEM_MUTE\nSYSTEM_DUCKING\nNAV_DUCKING\nPROJECTION_DUCKING\n....",
+      "parentUuid": "04beb9e7_40c9dae8",
       "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -389,6 +503,30 @@
       "side": 1,
       "message": "all introspecton API in AudioManager are hidden currently.\nI could limit the scope to DeviceAddress or even BUS_ADDRESS?",
       "parentUuid": "9b125446_db883aaa",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e15a3a0_7a5581f0",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-03T23:46:03Z",
+      "side": 1,
+      "message": "Address is valid, but maybe core team could expose it as a system API. I made a similar point elsewhere.",
+      "parentUuid": "7d426810_a593a779",
       "range": {
         "startLine": 44,
         "startChar": 8,
