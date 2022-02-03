@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef472229_b2c0ad0c",
+        "filename": "audio/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1888950
+      },
+      "writtenOn": "2022-02-03T22:17:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fea70f62_01aea6e0",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 1
+      },
+      "revId": "0dd3394d62b7db6651828de495c2cf9a2ee87149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35d0da57_7ad5e68b",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-03T21:00:43Z",
       "side": 1,
       "message": "likewise",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 1
+      },
+      "revId": "0dd3394d62b7db6651828de495c2cf9a2ee87149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9d65a88_88f36dc6",
+        "filename": "bluetooth/audio/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1888950
+      },
+      "writtenOn": "2022-02-03T22:17:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35d0da57_7ad5e68b",
       "range": {
         "startLine": 50,
         "startChar": 0,
