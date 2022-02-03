@@ -69,6 +69,30 @@
       },
       "revId": "594aadecec0a181faebcd83b4de7b88b483fe2e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcda71ef_8e69a17d",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-02-03T01:13:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f9a154b4_5a093f73",
+      "range": {
+        "startLine": 521,
+        "startChar": 8,
+        "endLine": 521,
+        "endChar": 17
+      },
+      "revId": "594aadecec0a181faebcd83b4de7b88b483fe2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
