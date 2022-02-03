@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "51f25f2f_503b6cf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-02-03T23:26:14Z",
+      "side": 1,
+      "message": "Steven, there was recently some more information that -1 might not actually be returned. Is there any way we can tell if -1 should be handled for the NNAPI?",
+      "revId": "7182955c49aab50158c32d2be37d2004d6cf6950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26ffe998_1c15083b",
         "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
         "patchSetId": 1
@@ -26,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "031e1feb_68976630",
+        "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-02-03T23:26:14Z",
+      "side": 1,
+      "message": "aidlVersionToCanonicalVersion is also used in aidl/utils/src/Service.cpp to convert the result of getInterfaceVersion to nn::Version.",
+      "parentUuid": "26ffe998_1c15083b",
+      "range": {
+        "startLine": 33,
+        "startChar": 37,
+        "endLine": 33,
+        "endChar": 66
+      },
+      "revId": "7182955c49aab50158c32d2be37d2004d6cf6950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "359495cb_ee4a2a37",
         "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
         "patchSetId": 1
@@ -37,6 +78,30 @@
       "writtenOn": "2022-02-03T23:18:59Z",
       "side": 1,
       "message": "Why is this relevant? The only reference to aidlVersionToCanonicalVersion I see is on line 52 which doesn\u0027t use getInterfaceVersion.",
+      "range": {
+        "startLine": 36,
+        "startChar": 47,
+        "endLine": 36,
+        "endChar": 66
+      },
+      "revId": "7182955c49aab50158c32d2be37d2004d6cf6950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d03f33f1_2619de38",
+        "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-02-03T23:26:14Z",
+      "side": 1,
+      "message": "aidlVersionToCanonicalVersion is also used in aidl/utils/src/Service.cpp to convert the result of getInterfaceVersion to nn::Version. It\u0027s also possible that IDevice::version has the same \"problem\" of possibly having -1.\n\nSteven, do you know if IDevice::version can be -1 as well?",
+      "parentUuid": "359495cb_ee4a2a37",
       "range": {
         "startLine": 36,
         "startChar": 47,
