@@ -32,6 +32,10 @@ constexpr auto kDefaultPriority = Priority::MEDIUM;
 
 constexpr std::optional<nn::Version> aidlVersionToCanonicalVersion(int aidlVersion) {
     switch (aidlVersion) {
+        case -1:
+            // V1 of the HAL doesn't implement getInterfaceVersion, so -1 indicates that the version
+            // is unknown. Because this behavior is specific to V1 interfaces, -1 here indicates a
+            // V1 interface, so fallthrough to the same as "case 1".
         case 1:
             return nn::kVersionFeatureLevel5;
         case 2:
