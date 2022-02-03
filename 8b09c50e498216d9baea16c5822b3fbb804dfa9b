@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2ea725e_4a1139fd",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-02-03T11:29:53Z",
+      "side": 1,
+      "message": "Can we move this data to \"option\" field?\nIIUC strongbox didn\u0027t receive this info from any path during system bootup so it cannot provide it from secure world.",
+      "range": {
+        "startLine": 41,
+        "startChar": 16,
+        "endLine": 41,
+        "endChar": 26
+      },
+      "revId": "8b09c50e498216d9baea16c5822b3fbb804dfa9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
