@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74044892_861276a7",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/MacedPublicKey.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-02-03T18:49:45Z",
+      "side": 1,
+      "message": "This looks wrong, too.\n\nIt looks like `6` is ED25519.",
+      "range": {
+        "startLine": 41,
+        "startChar": 15,
+        "endLine": 41,
+        "endChar": 54
+      },
+      "revId": "e5723ed0e71f7d746206c9f50477924b85d23c01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
