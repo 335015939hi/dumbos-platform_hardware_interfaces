@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000020065006",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1967405?revision\u003d5",
+      "fixSuggestions": [
+        {
+          "fixId": "e21c2b75_0ec2345c",
+          "description": "Change to \"automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl\"",
+          "replacements": [
+            {
+              "path": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl",
+              "range": {
+                "startLine": 25,
+                "startChar": 70,
+                "endLine": 25,
+                "endChar": 78
+              },
+              "replacement": "formatted"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "f3dc575b_4dad32a3",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-02-03T15:09:48Z",
+      "side": 1,
+      "message": "Common typo found: \"formated\" -- should it be \"formatted\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 25,
+        "startChar": 70,
+        "endLine": 25,
+        "endChar": 78
+      },
+      "revId": "096682c7a25feb8d90e2c05db1f6e9874880eac4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
