@@ -37,7 +37,7 @@ parcelable MacedPublicKey {
      *
      *     PublicKey = {               // COSE_Key
      *         1 : 2,                  // Key type : EC2
-     *         3 : -8                  // Algorithm : ES256
+     *         3 : -7,                 // Algorithm : ES256
      *         -1 : 6,                 // Curve : P256
      *         -2 : bstr               // X coordinate, little-endian
      *         -3 : bstr               // Y coordinate, little-endian
