@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ffe998_1c15083b",
+        "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-02-03T23:18:59Z",
+      "side": 1,
+      "message": "(old) Should this be in an anonymous namespace? I don\u0027t see it referenced outside this file.",
+      "range": {
+        "startLine": 33,
+        "startChar": 37,
+        "endLine": 33,
+        "endChar": 66
+      },
+      "revId": "7182955c49aab50158c32d2be37d2004d6cf6950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "359495cb_ee4a2a37",
+        "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-02-03T23:18:59Z",
+      "side": 1,
+      "message": "Why is this relevant? The only reference to aidlVersionToCanonicalVersion I see is on line 52 which doesn\u0027t use getInterfaceVersion.",
+      "range": {
+        "startLine": 36,
+        "startChar": 47,
+        "endLine": 36,
+        "endChar": 66
+      },
+      "revId": "7182955c49aab50158c32d2be37d2004d6cf6950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
