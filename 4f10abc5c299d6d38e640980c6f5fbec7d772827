@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ce0423c_85f6159d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "Please ignore others, just this one matters, will isolate this one.",
+      "parentUuid": "8e752823_3d209cd4",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c636307b_8bd208f9",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-02-02T20:31:20Z",
       "side": 1,
       "message": "Note that port info is hidden from car audio service, so we may not be able to access from the car service side.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 17
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc5f820e_41cf278d",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "All list ports API are hidden from AudioManager. Shall we limit to address of bus device to reports gain info?",
+      "parentUuid": "c636307b_8bd208f9",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -60,6 +102,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0333d830_18e0f9ee",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/DuckingInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "I keep the same semantic as usages holding focus, so it is not provided per device in this case",
+      "parentUuid": "a0a2b867_3b59908a",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f290ac9_bdbedbb7",
         "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IAudioControlCallback.aidl",
         "patchSetId": 4
@@ -71,6 +131,24 @@
       "writtenOn": "2022-02-02T20:31:20Z",
       "side": 1,
       "message": "This is also being done in IFocusListener, maybe we can split this from the gain calls and have two different APIs.",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d172aac_b4efe0b3",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IAudioControlCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "yes, it was my point during the last week prez, shall I make the callback specific to gains or take benefic to aggregate all callbacks in one interface. I am fully open on this point",
+      "parentUuid": "7f290ac9_bdbedbb7",
       "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -94,6 +172,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21ae1d47_5869f084",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IAudioControlCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "for this API, as it is a callback: AudioControl -\u003e CarAudioService\nThe \"downstream\" aka CarAudioService -\u003e AudioControl is ensured with 1.0 aidl on\nonDevicesToDuckChange \u0026 onDevicesToMuteChange.\n\nSo, back to your first point, the gain info reported could be limited to address \u0026 index (in UI). AudioHAL will shall be able to convert (",
+      "parentUuid": "24eb8c22_4847b1d1",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a7c0311b_7528f61b",
         "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl",
         "patchSetId": 4
@@ -105,6 +201,24 @@
       "writtenOn": "2022-02-02T20:31:20Z",
       "side": 1,
       "message": "The content looks a lot like audio attributes, not sure if we can use that instead.",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c88fcf43_85be7fad",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "yes, it is. I was wondering if Eric / JM made attributes available in common aidl, but still not. \nI wanted to use AudioHAL Metadata aidl but I feel it is a bad idea to import aidl from other hal, is it?\n\nShall I rename audioattributes instead?",
+      "parentUuid": "a7c0311b_7528f61b",
       "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -128,6 +242,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04beb9e7_40c9dae8",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/Reasons.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "I propose SMARTPHONE_PROJECTION_DUCKING to remove **evil** carplay :-)",
+      "parentUuid": "c4ca6925_f708fb18",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "91919f6b_193d7bac",
         "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
         "patchSetId": 4
@@ -139,6 +271,30 @@
       "writtenOn": "2022-02-02T20:21:47Z",
       "side": 1,
       "message": "need definition on where zone id is defined. If we intend the same zone id with car audio service, it should be explained.",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 15
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a530888_41d0a5cc",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "yes, it is the same as car audio service",
+      "parentUuid": "91919f6b_193d7bac",
       "range": {
         "startLine": 28,
         "startChar": 3,
@@ -221,6 +377,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d426810_a593a779",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "all introspecton API in AudioManager are hidden currently.\nI could limit the scope to DeviceAddress or even BUS_ADDRESS?",
+      "parentUuid": "9b125446_db883aaa",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cccd5b93_0f5e8367",
         "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IAudioControl.aidl",
         "patchSetId": 4
@@ -232,6 +412,30 @@
       "writtenOn": "2022-02-02T20:21:47Z",
       "side": 1,
       "message": "ControlCallback",
+      "range": {
+        "startLine": 142,
+        "startChar": 24,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c0c8e72_0f9284bc",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IAudioControl.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cccd5b93_0f5e8367",
       "range": {
         "startLine": 142,
         "startChar": 24,
@@ -267,6 +471,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f87adb3_dcbc6b67",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IAudioControlCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "I added a PlaybackMetaDateExt to keep \"pure\" PlaybackMetaData\". The idea is to reuse android.media aidl common definition is available",
+      "parentUuid": "e41755c9_eb790ac4",
+      "range": {
+        "startLine": 37,
+        "startChar": 27,
+        "endLine": 37,
+        "endChar": 83
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0bc544eb_e35d02f6",
         "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl",
         "patchSetId": 4
@@ -278,6 +506,30 @@
       "writtenOn": "2022-02-02T20:21:47Z",
       "side": 1,
       "message": "I would expect more generic key-value pair in format like key\u003dvalue rather than tag only. Also better to use more generic name space like com.google.XX.",
+      "range": {
+        "startLine": 39,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "015b4a9b_76297c56",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bc544eb_e35d02f6",
       "range": {
         "startLine": 39,
         "startChar": 5,
@@ -301,6 +553,30 @@
       "writtenOn": "2022-02-02T20:21:47Z",
       "side": 1,
       "message": "need explanation for meaning of all enums.",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e308a7b7_15b603a8",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/Reasons.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-03T13:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae4ec36e_e99d1703",
       "range": {
         "startLine": 26,
         "startChar": 4,
