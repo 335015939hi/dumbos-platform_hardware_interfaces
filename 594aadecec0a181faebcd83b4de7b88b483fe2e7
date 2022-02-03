@@ -22,6 +22,29 @@
       },
       "revId": "594aadecec0a181faebcd83b4de7b88b483fe2e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a154b4_5a093f73",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-02-03T00:52:11Z",
+      "side": 1,
+      "message": "nit: consider comparing pretty-printed strings if possible\n\nThat will make test output a little nicer.",
+      "range": {
+        "startLine": 521,
+        "startChar": 8,
+        "endLine": 521,
+        "endChar": 17
+      },
+      "revId": "594aadecec0a181faebcd83b4de7b88b483fe2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
