@@ -321,6 +321,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9780bc7e_4ca7e788",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-02-03T23:52:44Z",
+      "side": 1,
+      "message": "There is \na VINTF-stable https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/android/hardware/audio/common/PlaybackTrackMetadata.aidl.\n\n\u0027AudioAttributes\u0027 is in the SDK. There is no direct corresponding class in the HAL definition, and PlaybackTrackMetadata is the closest one.",
+      "parentUuid": "7d4ca278_b5bb23f1",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c4ca6925_f708fb18",
         "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/Reasons.aidl",
         "patchSetId": 4
