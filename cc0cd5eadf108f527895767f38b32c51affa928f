@@ -34,6 +34,23 @@
       "parentUuid": "fdada694_97dd97fd",
       "revId": "cc0cd5eadf108f527895767f38b32c51affa928f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbae9719_595855f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581454
+      },
+      "writtenOn": "2022-02-03T21:11:38Z",
+      "side": 1,
+      "message": "Hi Steven, could you please help us take a look at the HAL change? We are adding an API from bluetooth to audio. Thanks.",
+      "revId": "cc0cd5eadf108f527895767f38b32c51affa928f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
