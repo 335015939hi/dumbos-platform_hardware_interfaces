@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f64a4523_e1d12e34",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/DuckingInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-04T20:50:37Z",
+      "side": 1,
+      "message": "The zone info would be repeated here and in PlaybackTrackMetadataExt.\nMay be best to just use android.hardware.audio.common.PlaybackTrackMetadata here instead.\n\nIf there is no need for PlaybackTrackMetadataExt we can just remove it.",
+      "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "657a0eaa_d720d1b6",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IFocusListener.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-04T20:50:37Z",
+      "side": 1,
+      "message": "I don\u0027t think we need the HAL on the name here, the AudioControl class is for communicating with the HAL.\n\nCan we use the same name as above: abandonAudioFocus, abandonAudioFocus?\n\nSince PlaybackTrackMetadataExt is just wrapping PlaybackTrackMetadata and zone id, lets remove it and change the signature as abandonHalAudioFocus(PlaybackTrackMetadata, zoneId). Same for request API.",
+      "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0c39c6a_f4bd2141",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/current/android/hardware/automotive/audiocontrol/DuckingInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-04T20:50:37Z",
+      "side": 1,
+      "message": "The zone information would be repeated in the ducking info and the playback track meta data ext. Maybe refactor to use",
+      "range": {
+        "startLine": 41,
+        "startChar": 53,
+        "endLine": 41,
+        "endChar": 77
+      },
+      "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bb4a6d0_9a4f87b2",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/current/android/hardware/automotive/audiocontrol/IAudioControl.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-04T20:50:37Z",
+      "side": 1,
+      "message": "Do we want to have gain API the other direction also, maybe OEMs just decide to change gain callback directly from here instead.\n\n@Keung-Young any thoughts on this?",
+      "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3f8f15e_1d4067b0",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/current/android/hardware/automotive/audiocontrol/IAudioGainCallback.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-04T20:50:37Z",
+      "side": 1,
+      "message": "If we don\u0027t use the port information maybe consider just calling it onAudioDeviceGainChange.",
+      "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
