@@ -133,6 +133,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97785800_05089991",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-02-04T18:52:20Z",
+      "side": 1,
+      "message": "SDK APIs are Jean-Michel\u0027s and Eric\u0027s jurisdiction, I normally only deal with HAL APIs. One technical issue with SDK APIs is that they do not correspond 1:1 to HAL APIs, and they can not be changed arbitrarily, thus some translation is needed if we want to plumb a data path from HAL to SDK.",
+      "parentUuid": "a3276cef_998d467a",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 17
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0a2b867_3b59908a",
         "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/DuckingInfo.aidl",
         "patchSetId": 4
@@ -411,6 +435,24 @@
       "side": 1,
       "message": "Many thanks Mikhail for your answer. I would be highly tempted to use it. \nSo, importing vintf-stable import from one hal to another is not a \"bad\" practice? \nI always prevent myself from \"copy-paste\" as far as I can...",
       "parentUuid": "9780bc7e_4ca7e788",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ddac3da_8c8afc6e",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-02-04T18:52:20Z",
+      "side": 1,
+      "message": "It\u0027s a good practice, I think. Since these interfaces are stable, they can only be changed in a backwards-compatible way, so any further changes done for some particular service will not affect other services.",
+      "parentUuid": "73c01962_ec87e7f7",
       "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
