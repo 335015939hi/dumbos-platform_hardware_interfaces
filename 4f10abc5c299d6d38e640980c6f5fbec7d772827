@@ -109,6 +109,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3276cef_998d467a",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-04T08:08:18Z",
+      "side": 1,
+      "message": "Agree with you. There are so many nice introspection API, all are hidden... As far as we(CarAudioService) need to deal with Audio Patch or HwAudioSource, having a knowledge on device port is a must have.\n@Mikhail, what is your view on this? Could we negociate for a public API, of course with MODIFY_AUDIO_ROUTING permission as a prerequisite?",
+      "parentUuid": "6c318379_714d2fe1",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 17
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0a2b867_3b59908a",
         "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/DuckingInfo.aidl",
         "patchSetId": 4
@@ -162,6 +186,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d88d794f_2144f556",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/DuckingInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-04T08:08:18Z",
+      "side": 1,
+      "message": "yes, definitely, I use this or even i can retrieve the AudioProductStrategy from attributes/metadata (I know you do not use it for now, but it is \"nice\" to use...) Hope I can convince you in our following activities on CarAudioService / Workshop :-)",
+      "parentUuid": "22f7b2bb_d6176d48",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f290ac9_bdbedbb7",
         "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IAudioControlCallback.aidl",
         "patchSetId": 4
@@ -209,6 +251,24 @@
       "side": 1,
       "message": "It may be best to split them, keep gain separate from audio focus. If you need a separate focus request call with more information that is fine too we should probably add that to IFocusListener.",
       "parentUuid": "4d172aac_b4efe0b3",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c443f934_ed6b7f08",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IAudioControlCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-04T08:08:18Z",
+      "side": 1,
+      "message": "Ok, let s go for the split. I was really opened on this, as I met both practice in AOSP (for example AudioPolicy callback aggregates, AudioManager exposes several, no guidelines GO for split)",
+      "parentUuid": "72a45088_7a36e0f8",
       "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -339,6 +399,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73c01962_ec87e7f7",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/PlaybackTrackMetadata.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-04T08:08:18Z",
+      "side": 1,
+      "message": "Many thanks Mikhail for your answer. I would be highly tempted to use it. \nSo, importing vintf-stable import from one hal to another is not a \"bad\" practice? \nI always prevent myself from \"copy-paste\" as far as I can...",
+      "parentUuid": "9780bc7e_4ca7e788",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c4ca6925_f708fb18",
         "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/Reasons.aidl",
         "patchSetId": 4
@@ -386,6 +464,24 @@
       "side": 1,
       "message": "That which shall not be named, is also an option.\n\nI think projection_ducking maybe good enough since there maybe technology in the future that uses this but is is not an smart phone.\n\nI wonder if the same could be said for the other names:\nMASTER_MUTE\nREMOTE_MUTE\nSYSTEM_MUTE\nSYSTEM_DUCKING\nNAV_DUCKING\nPROJECTION_DUCKING\n....",
       "parentUuid": "04beb9e7_40c9dae8",
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdbbdd38_7495e359",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/Reasons.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-04T08:08:18Z",
+      "side": 1,
+      "message": "Agree!",
+      "parentUuid": "88bff910_d5ce12c9",
       "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -545,6 +641,30 @@
       "side": 1,
       "message": "Address is valid, but maybe core team could expose it as a system API. I made a similar point elsewhere.",
       "parentUuid": "7d426810_a593a779",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ac44c1f_719ece0d",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-04T08:08:18Z",
+      "side": 1,
+      "message": "yes, we need Mikhail / Eric and maybe JM Trivi for API \"unhidden\" if he is not too busy preparing his Tiramisu (... Android of course)",
+      "parentUuid": "8e15a3a0_7a5581f0",
       "range": {
         "startLine": 44,
         "startChar": 8,
