@@ -124,6 +124,23 @@
       "parentUuid": "fefcf169_91816df7",
       "revId": "2eec2b477a61ba0f0ad11f244b7fca88dc1723e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd1f3db4_afc8f1be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2022-02-04T02:23:08Z",
+      "side": 1,
+      "message": "I think we should have a discussion..  many questions.\n\nHIDL is deprecated and AIDL should be used.  Why only adding this to the 5-year old version.  Why should we give BT access to the HAL at all - shouldn\u0027t we have a system API BT uses?  ETC\n",
+      "revId": "2eec2b477a61ba0f0ad11f244b7fca88dc1723e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
