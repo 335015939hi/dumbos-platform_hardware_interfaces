@@ -181,6 +181,30 @@
       },
       "revId": "7182955c49aab50158c32d2be37d2004d6cf6950",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a230f686_f334e80f",
+        "filename": "neuralnetworks/aidl/utils/include/nnapi/hal/aidl/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-04T19:35:26Z",
+      "side": 1,
+      "message": "Hey - do see the updated thread - it seems it\u0027s only old/outdated code that doesn\u0027t. If we don\u0027t hit nullopt now, maybe ignore for now?",
+      "parentUuid": "ba51ed02_3b5b2dc5",
+      "range": {
+        "startLine": 36,
+        "startChar": 47,
+        "endLine": 36,
+        "endChar": 66
+      },
+      "revId": "7182955c49aab50158c32d2be37d2004d6cf6950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
