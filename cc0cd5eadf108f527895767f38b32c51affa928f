@@ -51,6 +51,23 @@
       "message": "Hi Steven, could you please help us take a look at the HAL change? We are adding an API from bluetooth to audio. Thanks.",
       "revId": "cc0cd5eadf108f527895767f38b32c51affa928f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3afdb4b_c3be39c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-04T06:19:16Z",
+      "side": 1,
+      "message": "Hi Chen,\n\nbluetooth.audio@2.2 HIDL removal patch was ready and verified last week. We plan to remove the default implementation and the client integration next week (after LNY) and start run the test. \nhttps://android-review.googlesource.com/q/topic:remove_hidl22\nOnly interface would been kept until Feb. 18.\n\nPlease prepare the bluetooth.audio aidl patch for this as well to avoid removing task impact your work.\n\nAll the task for bluetooth.audio aidl work could be start last week. The interface, the default implementation and the client integration have been merged in aosp.\n\nThanks 😊",
+      "revId": "cc0cd5eadf108f527895767f38b32c51affa928f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
