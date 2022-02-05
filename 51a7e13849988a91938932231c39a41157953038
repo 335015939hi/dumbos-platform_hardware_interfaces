@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8d581bf_133b0460",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-02-05T03:26:01Z",
+      "side": 1,
+      "message": "@smoreland: I will upstream the CL that removes IStreamIn.hal after submitting this topic. ",
+      "revId": "51a7e13849988a91938932231c39a41157953038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
