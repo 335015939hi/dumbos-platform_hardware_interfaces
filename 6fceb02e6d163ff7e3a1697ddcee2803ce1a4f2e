@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b9f01a1_60b57c5a",
+        "filename": "automotive/audiocontrol/aidl/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T19:15:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aaaaed0_8d0d98bc",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "6fceb02e6d163ff7e3a1697ddcee2803ce1a4f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2991823f_01035a8d",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-07T17:54:56Z",
       "side": 1,
       "message": "We don\u0027t freeze vintf interfaces manually on AOSP. Is there a reason for freezing it like this now?\nIf not, please remove the \"2\" and remove the entire \"automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2\" directory.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 6
+      },
+      "revId": "6fceb02e6d163ff7e3a1697ddcee2803ce1a4f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fc1ad3f_1ce374d2",
+        "filename": "automotive/audiocontrol/aidl/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T19:15:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2991823f_01035a8d",
       "range": {
         "startLine": 29,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aebcfc6f_29902c8b",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IAudioControl.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T19:15:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca817975_57f6f06a",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "6fceb02e6d163ff7e3a1697ddcee2803ce1a4f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb7aca0a_e6220c89",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79f833eb_fb2a1149",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IAudioControl.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T19:15:14Z",
+      "side": 1,
+      "message": "definitely... we used to use it as a bitfield... but cleaner to manage an array for sure",
+      "parentUuid": "fb7aca0a_e6220c89",
+      "range": {
+        "startLine": 171,
+        "startChar": 47,
+        "endLine": 171,
+        "endChar": 50
+      },
+      "revId": "6fceb02e6d163ff7e3a1697ddcee2803ce1a4f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4085e223_e992be3e",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-02-07T17:54:56Z",
       "side": 1,
       "message": "no need to change this for a change to the file. It should remain 2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "6fceb02e6d163ff7e3a1697ddcee2803ce1a4f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5f60f99_ef19f43f",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IFocusListener.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T19:15:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4085e223_e992be3e",
       "range": {
         "startLine": 2,
         "startChar": 17,
