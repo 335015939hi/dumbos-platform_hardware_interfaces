@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afeb3d7f_fc2f5d4a",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IAudioControl.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T17:18:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1260843_1ccd7f9e",
+      "range": {
+        "startLine": 153,
+        "startChar": 16,
+        "endLine": 153,
+        "endChar": 36
+      },
+      "revId": "0ec1b1358261154c58eda9e6f47d23fb23852714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c974420_1b7b5c64",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-02-07T16:46:02Z",
       "side": 1,
       "message": "rename to FORCED_MASTER_MUTE. There may be other reason for triggering this as well and CYBER_* does not sound generic enough.",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "0ec1b1358261154c58eda9e6f47d23fb23852714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ded0825_b947ac6d",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/Reasons.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T17:18:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c974420_1b7b5c64",
       "range": {
         "startLine": 31,
         "startChar": 4,
