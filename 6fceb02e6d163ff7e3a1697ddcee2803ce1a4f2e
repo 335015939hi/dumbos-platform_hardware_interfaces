@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aaaaed0_8d0d98bc",
+        "filename": "automotive/audiocontrol/aidl/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-02-07T17:54:56Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "6fceb02e6d163ff7e3a1697ddcee2803ce1a4f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2991823f_01035a8d",
+        "filename": "automotive/audiocontrol/aidl/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-02-07T17:54:56Z",
+      "side": 1,
+      "message": "We don\u0027t freeze vintf interfaces manually on AOSP. Is there a reason for freezing it like this now?\nIf not, please remove the \"2\" and remove the entire \"automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2\" directory.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 6
+      },
+      "revId": "6fceb02e6d163ff7e3a1697ddcee2803ce1a4f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca817975_57f6f06a",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IAudioControl.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-02-07T17:54:56Z",
+      "side": 1,
+      "message": "same comment here, no need to change the date. Same for the rest of the files. We add that date when the file is created, and never update it.",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "6fceb02e6d163ff7e3a1697ddcee2803ce1a4f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb7aca0a_e6220c89",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IAudioControl.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-02-07T17:54:56Z",
+      "side": 1,
+      "message": "can this be an array of the Reasons type?",
+      "range": {
+        "startLine": 171,
+        "startChar": 47,
+        "endLine": 171,
+        "endChar": 50
+      },
+      "revId": "6fceb02e6d163ff7e3a1697ddcee2803ce1a4f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4085e223_e992be3e",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IFocusListener.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-02-07T17:54:56Z",
+      "side": 1,
+      "message": "no need to change this for a change to the file. It should remain 2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "6fceb02e6d163ff7e3a1697ddcee2803ce1a4f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebd0d00b_7a5beb90",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IFocusListener.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-02-07T17:54:56Z",
+      "side": 1,
+      "message": "nit: Maybe \"version 2\" is better. \"API 2\" makes me think there is another interface somewhere. This is used in a few files.",
+      "range": {
+        "startLine": 39,
+        "startChar": 21,
+        "endLine": 39,
+        "endChar": 24
+      },
+      "revId": "6fceb02e6d163ff7e3a1697ddcee2803ce1a4f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
