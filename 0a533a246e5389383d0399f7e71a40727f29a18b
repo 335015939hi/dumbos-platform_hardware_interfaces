@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e09d0a52_0f9e5e77",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/DuckingInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T09:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f64a4523_e1d12e34",
+      "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "657a0eaa_d720d1b6",
         "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IFocusListener.aidl",
         "patchSetId": 6
@@ -31,6 +49,24 @@
       "writtenOn": "2022-02-04T20:50:37Z",
       "side": 1,
       "message": "I don\u0027t think we need the HAL on the name here, the AudioControl class is for communicating with the HAL.\n\nCan we use the same name as above: abandonAudioFocus, abandonAudioFocus?\n\nSince PlaybackTrackMetadataExt is just wrapping PlaybackTrackMetadata and zone id, lets remove it and change the signature as abandonHalAudioFocus(PlaybackTrackMetadata, zoneId). Same for request API.",
+      "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "057ff582_33325aa7",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/2/android/hardware/automotive/audiocontrol/IFocusListener.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T09:14:34Z",
+      "side": 1,
+      "message": "Could not override aidl interface, so I was trying to change the name to get rid of it. \nLet s append it with V2?",
+      "parentUuid": "657a0eaa_d720d1b6",
       "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -75,6 +111,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c093825d_014e79e6",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/current/android/hardware/automotive/audiocontrol/IAudioControl.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T09:14:34Z",
+      "side": 1,
+      "message": "IMHO, not bad idea to have symetric API, but it would duplicate API AM#setAudioPortConfig and this new one. However, the reason could be added in the API, hence making adding value to provide such API.",
+      "parentUuid": "5bb4a6d0_9a4f87b2",
+      "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f3f8f15e_1d4067b0",
@@ -88,6 +142,24 @@
       "writtenOn": "2022-02-04T20:50:37Z",
       "side": 1,
       "message": "If we don\u0027t use the port information maybe consider just calling it onAudioDeviceGainChange.",
+      "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f2beb80_37cbce5c",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/current/android/hardware/automotive/audiocontrol/IAudioGainCallback.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T09:14:34Z",
+      "side": 1,
+      "message": "Sure, I was already tempted to rename but did not do it yet.",
+      "parentUuid": "f3f8f15e_1d4067b0",
       "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

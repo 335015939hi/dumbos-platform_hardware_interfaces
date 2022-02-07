@@ -598,6 +598,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5146d8f8_a48074fb",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T09:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33f6b614_eb233dc9",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "4f10abc5c299d6d38e640980c6f5fbec7d772827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb7cd9d2_dd310e2c",
