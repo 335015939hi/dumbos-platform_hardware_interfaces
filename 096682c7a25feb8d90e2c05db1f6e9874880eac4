@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb04d4eb_01bd10f2",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/current/android/hardware/automotive/audiocontrol/AudioGainConfigInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T13:48:33Z",
+      "side": 1,
+      "message": "BTW, AudioDeviceInfo#getId() is not hidden on code search, so I do not see any blocker to use it?",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 24
+      },
+      "revId": "096682c7a25feb8d90e2c05db1f6e9874880eac4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
