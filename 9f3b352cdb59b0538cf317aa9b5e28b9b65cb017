@@ -16,6 +16,24 @@
       "message": "We probably should do something like this? https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp;drc\u003d1320f88af26ff5cca2dfa3970dc25b638866fdbe;l\u003d324",
       "revId": "9f3b352cdb59b0538cf317aa9b5e28b9b65cb017",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6076163_6e42b148",
+        "filename": "media/omx/1.0/vts/functional/store/VtsHalMediaOmxV1_0TargetStoreTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2022-02-07T18:02:36Z",
+      "side": 1,
+      "message": "Wonsik, \nI looked at some of those cases where if the first_api_level isn\u0027t set, the sdk version is read.\n\nand in cts where we read first_api_level, we don\u0027t default to sdk version.\nhttps://cs.android.com/android/platform/superproject/+/master:cts/tests/video/src/android/video/cts/CodecPerformanceTestBase.java;l\u003d99\n\nSince these tests will not be backported to any older versions, I thought simpler/cleaner option would be to set default to Android T as effectively any device running these tests from now on will at least be Android T and we would be somewhat consistent with CTS as well in the meantime (i.e. not reading sdk version as fallback)\n\nPlease let me if you prefer doing it like CameraProvider VTS does and I will update this.",
+      "parentUuid": "15ded37d_68e128b2",
+      "revId": "9f3b352cdb59b0538cf317aa9b5e28b9b65cb017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
