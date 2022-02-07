@@ -120,6 +120,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05337b20_2d5612c0",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-07T19:53:34Z",
+      "side": 1,
+      "message": "Please do add a link here. We should have it for the release.",
+      "parentUuid": "a5859a84_62d269f0",
+      "revId": "6d530e7340dfb890273e6dc5829bc2ae46437b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "86c6f7c2_d5d1780e",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveConfiguration.aidl",
         "patchSetId": 18
