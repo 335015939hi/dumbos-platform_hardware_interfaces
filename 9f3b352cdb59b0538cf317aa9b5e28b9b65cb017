@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15ded37d_68e128b2",
+        "filename": "media/omx/1.0/vts/functional/store/VtsHalMediaOmxV1_0TargetStoreTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2022-02-07T17:56:23Z",
+      "side": 1,
+      "message": "We probably should do something like this? https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp;drc\u003d1320f88af26ff5cca2dfa3970dc25b638866fdbe;l\u003d324",
+      "revId": "9f3b352cdb59b0538cf317aa9b5e28b9b65cb017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
