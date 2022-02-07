@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1260843_1ccd7f9e",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/IAudioControl.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2022-02-07T16:48:55Z",
+      "side": 1,
+      "message": "onAudioFocusChangeWithMetaData",
+      "range": {
+        "startLine": 153,
+        "startChar": 16,
+        "endLine": 153,
+        "endChar": 36
+      },
+      "revId": "0ec1b1358261154c58eda9e6f47d23fb23852714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c974420_1b7b5c64",
         "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/Reasons.aidl",
         "patchSetId": 8
