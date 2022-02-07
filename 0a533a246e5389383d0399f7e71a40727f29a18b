@@ -94,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35235a86_27bd9de4",
+        "filename": "automotive/audiocontrol/aidl/aidl_api/android.hardware.automotive.audiocontrol/current/android/hardware/automotive/audiocontrol/DuckingInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-07T09:22:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0c39c6a_f4bd2141",
+      "range": {
+        "startLine": 41,
+        "startChar": 53,
+        "endLine": 41,
+        "endChar": 77
+      },
+      "revId": "0a533a246e5389383d0399f7e71a40727f29a18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bb4a6d0_9a4f87b2",
