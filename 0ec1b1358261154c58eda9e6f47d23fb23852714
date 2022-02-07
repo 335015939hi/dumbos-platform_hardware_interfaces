@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "546a5064_892bd903",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2022-02-07T16:58:32Z",
+      "side": 1,
+      "message": "Removed topic as we should land only this CL.",
+      "revId": "0ec1b1358261154c58eda9e6f47d23fb23852714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1260843_1ccd7f9e",
