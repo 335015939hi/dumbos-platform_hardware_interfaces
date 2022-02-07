@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c974420_1b7b5c64",
+        "filename": "automotive/audiocontrol/aidl/android/hardware/automotive/audiocontrol/Reasons.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2022-02-07T16:46:02Z",
+      "side": 1,
+      "message": "rename to FORCED_MASTER_MUTE. There may be other reason for triggering this as well and CYBER_* does not sound generic enough.",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "0ec1b1358261154c58eda9e6f47d23fb23852714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
