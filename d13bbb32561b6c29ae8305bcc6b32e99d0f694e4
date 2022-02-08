@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "577ff10b_b30fb015",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-08T08:02:25Z",
+      "side": 1,
+      "message": "It seems not work.",
+      "parentUuid": "8fc3761b_7cece6de",
+      "revId": "d13bbb32561b6c29ae8305bcc6b32e99d0f694e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea002f7e_139a4aa7",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveCapabilities.aidl",
         "patchSetId": 19
