@@ -93,6 +93,30 @@
       },
       "revId": "a4c4c61eed7abfda3b7414e7e4cd383d414dfeb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a84c730_7020640e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LatencyMode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-08T18:47:58Z",
+      "side": 1,
+      "message": "could we document here or maybe follow-up with a conversation with the audio team, if we can share types here (rather than having a copy)? If it is the same type, we can maybe save on conversion. WDYT?",
+      "parentUuid": "9a85f87e_1482b5d9",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 8
+      },
+      "revId": "a4c4c61eed7abfda3b7414e7e4cd383d414dfeb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
