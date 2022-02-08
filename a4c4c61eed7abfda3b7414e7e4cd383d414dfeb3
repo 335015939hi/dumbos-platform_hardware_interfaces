@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40565d75_9dc4aaaa",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-02-08T07:40:43Z",
+      "side": 1,
+      "message": "Nit: when does this API be used? A2DP codec is generally changed by A2dpService.setCodecConfigPreference(), but will it cause a ping-pong issue such as:\n\nA2dpService.setCodecConfigPreference() --\u003e Stack and Remote --\u003e Reporting to Audio service / HAL --\u003e IBluetoothAudioPort.setCodecType()?",
+      "range": {
+        "startLine": 96,
+        "startChar": 9,
+        "endLine": 96,
+        "endChar": 21
+      },
+      "revId": "a4c4c61eed7abfda3b7414e7e4cd383d414dfeb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "959940b6_f1d6c06e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LatencyMode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-02-08T07:40:43Z",
+      "side": 1,
+      "message": "Nit: \"FREE\" is unclear for me, but what does it stand for?",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 8
+      },
+      "revId": "a4c4c61eed7abfda3b7414e7e4cd383d414dfeb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
