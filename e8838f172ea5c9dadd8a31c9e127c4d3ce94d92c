@@ -22,6 +22,30 @@
       },
       "revId": "e8838f172ea5c9dadd8a31c9e127c4d3ce94d92c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79678b64_ffa890d7",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-02-08T06:30:32Z",
+      "side": 1,
+      "message": "Hi Tommy Chiu,\n As suggested, renamed the variable and the comment to specify these variables are for Ecdsa Curve P256.",
+      "parentUuid": "9b1f24ed_6f6c80f6",
+      "range": {
+        "startLine": 56,
+        "startChar": 25,
+        "endLine": 56,
+        "endChar": 50
+      },
+      "revId": "e8838f172ea5c9dadd8a31c9e127c4d3ce94d92c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
