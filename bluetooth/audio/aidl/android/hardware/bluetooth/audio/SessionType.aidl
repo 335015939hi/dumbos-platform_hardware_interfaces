@@ -48,4 +48,12 @@ enum SessionType {
      * Decoding is done by HW an there is control only
      */
     LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH,
+    /**
+     * Used when encoded by Bluetooth Stack and streaming to LE Audio broadcast
+     */
+    LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH,
+    /**
+     * Encoding of broadcast audio is done by HW an there is control only
+     */
+    LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
 }
