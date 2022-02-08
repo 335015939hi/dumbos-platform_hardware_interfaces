@@ -117,6 +117,30 @@
       },
       "revId": "a4c4c61eed7abfda3b7414e7e4cd383d414dfeb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "523470bd_df96c432",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LatencyMode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1581454
+      },
+      "writtenOn": "2022-02-08T18:51:30Z",
+      "side": 1,
+      "message": "They haven\u0027t started calling bt functions for spatial audio yet. They may use the type defined here once they started.",
+      "parentUuid": "3a84c730_7020640e",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 8
+      },
+      "revId": "a4c4c61eed7abfda3b7414e7e4cd383d414dfeb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
