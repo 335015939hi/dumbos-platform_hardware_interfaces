@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bac5e042_d59f204d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveCapabilities.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-02-08T18:10:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8a25d44_85b3f136",
+      "revId": "6d530e7340dfb890273e6dc5829bc2ae46437b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44121272_5916214c",
@@ -136,6 +154,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "faf96179_875a254e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-02-08T18:10:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05337b20_2d5612c0",
+      "revId": "6d530e7340dfb890273e6dc5829bc2ae46437b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86c6f7c2_d5d1780e",
@@ -173,6 +209,30 @@
       "side": 1,
       "message": "Capabilities in general is having set of configs while a configuration is a unique value. While some of overlap are there in existing structure as well like for SBC codec so kept same for Aptx Adaptive also.",
       "parentUuid": "86c6f7c2_d5d1780e",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 36
+      },
+      "revId": "6d530e7340dfb890273e6dc5829bc2ae46437b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0d3700d_0355b3c6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-02-08T18:10:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96adaf8c_526632f8",
       "range": {
         "startLine": 26,
         "startChar": 11,

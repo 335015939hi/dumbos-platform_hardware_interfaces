@@ -140,6 +140,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57da40ed_4ec184a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-02-08T18:10:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1768fb9d_f2c7eff3",
+      "revId": "d13bbb32561b6c29ae8305bcc6b32e99d0f694e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea002f7e_139a4aa7",
@@ -153,6 +171,30 @@
       "writtenOn": "2022-02-08T04:06:16Z",
       "side": 1,
       "message": "It is unclear about what the aptxAdaptiveConfigStream is used for, so please also have the standard document.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 36
+      },
+      "revId": "d13bbb32561b6c29ae8305bcc6b32e99d0f694e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf049a60_c1ffdd69",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveCapabilities.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-02-08T18:10:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea002f7e_139a4aa7",
       "range": {
         "startLine": 36,
         "startChar": 0,
