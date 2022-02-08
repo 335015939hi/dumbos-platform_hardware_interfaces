@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "514d9ea0_aaf8be81",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-02-08T17:22:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "43a8fc9d_0a43ea3b",
+      "range": {
+        "startLine": 17,
+        "startChar": 7,
+        "endLine": 17,
+        "endChar": 10
+      },
+      "revId": "2017926d30a5bdb2c25613503966675fde22719f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e201c82d_6224a2b5",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Definitely, this is the purpose of the following CL (expected EOD, since deadline is tomorrow)",
       "parentUuid": "e201c82d_6224a2b5",
+      "range": {
+        "startLine": 18,
+        "startChar": 20,
+        "endLine": 18,
+        "endChar": 29
+      },
+      "revId": "2017926d30a5bdb2c25613503966675fde22719f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "400db158_53c1c1f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-02-08T17:22:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b980a2d6_b48435b4",
       "range": {
         "startLine": 18,
         "startChar": 20,
