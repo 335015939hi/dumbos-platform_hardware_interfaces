@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f545478_2c2534e9",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-02-08T15:18:23Z",
+      "side": 1,
+      "message": "Just want to clarify, this request takes effect on not only the \"key\" of the map, but also the CBOR header.\n\nEx, in below CBOR encoding\n```\n   70                                   # text(16)\n      626F6F745F70617463685F6C6576656C  # \"boot_patch_level\"\n   65                                   # text(5)\n      6272616E64                        # \"brand\"\n```\n\n\"boot_patch_level\" is expected behind \"brand\" though its ascii is smaller than \"brand\".",
+      "range": {
+        "startLine": 521,
+        "startChar": 48,
+        "endLine": 521,
+        "endChar": 60
+      },
+      "revId": "8c255e69bf3edf5bbfc6ddc5910f1fb91a228e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
