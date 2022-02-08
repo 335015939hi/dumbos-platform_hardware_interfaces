@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a40e9851_e4f11290",
+        "filename": "automotive/audiocontrol/aidl/default/AudioControl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-08T18:03:04Z",
+      "side": 1,
+      "message": "Nit,I don\u0027t think we need this.",
+      "revId": "9293a57d6670ed24f74ab3c5b9d688022990fc41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1dd572d_d018f9c0",
+        "filename": "automotive/audiocontrol/aidl/default/AudioControl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-08T18:03:04Z",
+      "side": 1,
+      "message": "Nit \"Fired\", to match rest of file.",
+      "range": {
+        "startLine": 520,
+        "startChar": 17,
+        "endLine": 520,
+        "endChar": 22
+      },
+      "revId": "9293a57d6670ed24f74ab3c5b9d688022990fc41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
