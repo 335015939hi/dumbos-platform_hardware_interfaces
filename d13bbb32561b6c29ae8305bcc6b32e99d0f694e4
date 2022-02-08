@@ -124,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1768fb9d_f2c7eff3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2022-02-08T09:58:14Z",
+      "side": 1,
+      "message": "Alice can you please check if this can be picked up now ?",
+      "parentUuid": "f1896e26_62c240d4",
+      "revId": "d13bbb32561b6c29ae8305bcc6b32e99d0f694e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea002f7e_139a4aa7",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveCapabilities.aidl",
         "patchSetId": 19
