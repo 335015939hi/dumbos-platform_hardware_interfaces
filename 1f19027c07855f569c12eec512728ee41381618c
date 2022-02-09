@@ -16,6 +16,24 @@
       "message": "Calling constructor here also defines session type for such provider:\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/bluetooth/audio/aidl/default/LeAudioSoftwareAudioProvider.cpp;drc\u003d98d7e083bd737d6b77a8ce215f78281662881aca;l\u003d48\n\nit would be SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH we should maybe provide to constructor session type ?",
       "revId": "1f19027c07855f569c12eec512728ee41381618c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf5acc65_4ea6d276",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProviderFactory.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-09T13:44:01Z",
+      "side": 1,
+      "message": "Grzegorz, I added the follow-up patch for this. Does it work?",
+      "parentUuid": "ea95f2c0_0035fa67",
+      "revId": "1f19027c07855f569c12eec512728ee41381618c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
