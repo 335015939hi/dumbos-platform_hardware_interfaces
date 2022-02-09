@@ -46,6 +46,30 @@
       },
       "revId": "e8838f172ea5c9dadd8a31c9e127c4d3ce94d92c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6445406_f09c6ae3",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-02-09T10:51:29Z",
+      "side": 1,
+      "message": "Thank you!\nI just found this patch is somewhat similar to aosp/1964400. \nMaybe you can levarage that one (or the other way around 😊)",
+      "parentUuid": "79678b64_ffa890d7",
+      "range": {
+        "startLine": 56,
+        "startChar": 25,
+        "endLine": 56,
+        "endChar": 50
+      },
+      "revId": "e8838f172ea5c9dadd8a31c9e127c4d3ce94d92c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
