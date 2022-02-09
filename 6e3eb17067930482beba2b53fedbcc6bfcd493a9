@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4187af9f_40463ed8",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioBroadcastConfiguration.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-09T00:14:07Z",
+      "side": 1,
+      "message": "nit: please remove \u0027unicast\u0027",
+      "range": {
+        "startLine": 27,
+        "startChar": 44,
+        "endLine": 27,
+        "endChar": 51
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8cbc994_4a2dc05e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-09T00:14:07Z",
+      "side": 1,
+      "message": "How about rename to `StreamMap` to map its upper level naming, LeAudioConfiguration.",
+      "range": {
+        "startLine": 25,
+        "startChar": 15,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f15a72f_804379f4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-09T00:14:07Z",
+      "side": 1,
+      "message": "nit: please remove `broadcast`",
+      "range": {
+        "startLine": 27,
+        "startChar": 52,
+        "endLine": 27,
+        "endChar": 66
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "670dbfc5_ff66f260",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-09T00:14:07Z",
+      "side": 1,
+      "message": "nit: could we modify the doc to indicate it\u0027s for unicast or about the connected le audio device.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 48
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dccb8372_74327b3a",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-09T00:14:07Z",
+      "side": 1,
+      "message": "nit: It looks good to make the build pass. However, the function wouldn\u0027t be used, and should be clean up later.",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 0
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e560fe74_e4ba3e02",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-09T00:14:07Z",
+      "side": 1,
+      "message": "nit: We could drop this function because it would be used for HAL 2.1 about offload.",
+      "range": {
+        "startLine": 440,
+        "startChar": 1,
+        "endLine": 462,
+        "endChar": 1
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72e2bb49_59595124",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-09T00:14:07Z",
+      "side": 1,
+      "message": "nit: it wouldn\u0027t be used, we would review and cleanup all the offload support for HIDL 2.1 later.",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 527,
+        "endChar": 12
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2df4a559_abe80b93",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-09T00:14:07Z",
+      "side": 1,
+      "message": "Please drop this part. The function would be removed soon.\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1959014/5/bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 551,
+        "endChar": 12
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
