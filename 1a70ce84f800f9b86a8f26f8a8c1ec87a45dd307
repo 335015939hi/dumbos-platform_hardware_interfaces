@@ -16,6 +16,24 @@
       "message": "nit: Maybe RECONFIGURATION as we suspend in order to reconfigure? Then updateConfiguration",
       "revId": "1a70ce84f800f9b86a8f26f8a8c1ec87a45dd307",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6ce95e1_ec3eddd2",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/BluetoothAudioStatus.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-09T11:24:21Z",
+      "side": 1,
+      "message": "Sure. Modified.",
+      "parentUuid": "c5b95349_cb117978",
+      "revId": "1a70ce84f800f9b86a8f26f8a8c1ec87a45dd307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
