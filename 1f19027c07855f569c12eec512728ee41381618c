@@ -34,6 +34,24 @@
       "parentUuid": "ea95f2c0_0035fa67",
       "revId": "1f19027c07855f569c12eec512728ee41381618c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57296bf8_d0717906",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProviderFactory.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2022-02-09T14:18:02Z",
+      "side": 1,
+      "message": "Yes, looks fine - thanks! +1 for this CL then.\nbtw. AIDL version simplifies a lot of this version related changes.",
+      "parentUuid": "bf5acc65_4ea6d276",
+      "revId": "1f19027c07855f569c12eec512728ee41381618c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
