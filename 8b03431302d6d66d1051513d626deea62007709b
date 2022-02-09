@@ -56,6 +56,30 @@
       },
       "revId": "8b03431302d6d66d1051513d626deea62007709b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66b08174_0999dc59",
+        "filename": "automotive/audiocontrol/aidl/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-09T08:26:18Z",
+      "side": 1,
+      "message": "Since i import android.media.audio.common, I got error message :\n\"...is compiling against system API. In order to fix this, consider adjusting sdk_version: OR platform_apis: property of the source or target module so that target module is built with the same or smaller API set when compared to the source\"",
+      "parentUuid": "e507960d_276560b5",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "8b03431302d6d66d1051513d626deea62007709b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
