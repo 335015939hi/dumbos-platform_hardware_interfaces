@@ -33,6 +33,29 @@
       "message": "We should land this CL first before API completion. Dropping the topic..",
       "revId": "8b03431302d6d66d1051513d626deea62007709b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e507960d_276560b5",
+        "filename": "automotive/audiocontrol/aidl/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2022-02-09T02:28:18Z",
+      "side": 1,
+      "message": "this is problematic for car module and will not build. We need to make it buildable in internal tree and submit in AOSP as Merged-In",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "8b03431302d6d66d1051513d626deea62007709b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
