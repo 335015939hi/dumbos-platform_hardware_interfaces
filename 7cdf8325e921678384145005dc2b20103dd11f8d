@@ -1,4 +1,27 @@
 {
-  "comments": [],
-  "submitRequirementResults": []
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1abeb7c4_51a4be9c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-02-09T15:29:23Z",
+      "side": 1,
+      "message": "Do we need another API to indicate if the BT stack/currently connected device support latency mode switching?\nOtherwise the audio HAL does not know how to respond to the initial query by the audio framework to know if the feature is supported. Or it it conveyed with the session configuration data? Or do we mandate that each time the session is stopped, the BT stack reset the state with allowing low latency mode again when it support mode switching?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 54
+      },
+      "revId": "7cdf8325e921678384145005dc2b20103dd11f8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
 }
