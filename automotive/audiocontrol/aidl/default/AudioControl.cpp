@@ -252,7 +252,8 @@ binder_status_t AudioControl::cmdHelp(int fd) const {
             "--audioGainCallback <ZONE_ID> <REASON_1>[,<REASON_N> ...]"
             "<DEVICE_ADDRESS_1> <GAIN_INDEX_1> [<DEVICE_ADDRESS_N> <GAIN_INDEX_N> ...]: fire audio "
             "gain callback for audio zone ID (int), the given reasons (csv int) for given pairs "
-            "of device address (string) and gain index (int) \n");
+            "of device address (string) and gain index (int) \n"
+            "Note: reason 0 is interpreted as a reset, thus reports empty reasons vector.\n");
 
     dprintf(fd,
             "Note on <METADATA>: <USAGE,CONTENT_TYPE[,TAGS]>  specified as where (int)usage, "
@@ -487,10 +488,21 @@ binder_status_t AudioControl::cmdOnAudioDeviceGainsChanged(
     while (getline(csvReasonsLiteral, reasonLiteral, ',')) {
         int reason;
         if (!safelyParseInt(reasonLiteral, &reason)) {
-            dprintf(fd, "Invalid Reason(s) provided %s\n", reasonLiteral.c_str());
+            dprintf(fd, "Non-integer Reason(s) provided %s\n", reasonLiteral.c_str());
             return STATUS_BAD_VALUE;
         }
-        reasons.push_back(static_cast<Reasons>(reason));
+        if (reason == 0) {
+            // 0 is interpreted as none (empty)
+            continue;
+        }
+        auto reasonIt = std::find(::ndk::enum_range<Reasons>().begin(),
+                                  ::ndk::enum_range<Reasons>().end(),
+                                  static_cast<Reasons>(reason));
+        if (reasonIt == ::ndk::enum_range<Reasons>().end()) {
+            dprintf(fd, "Invalid Reason(s) provided %s, not part of enum\n", reasonLiteral.c_str());
+            return STATUS_BAD_VALUE;
+        }
+        reasons.push_back(*reasonIt);
     }
 
     std::vector<AudioGainConfigInfo> agcis {};
