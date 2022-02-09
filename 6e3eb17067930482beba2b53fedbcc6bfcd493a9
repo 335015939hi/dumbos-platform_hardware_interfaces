@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9c979e7_bc3ec68f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioBroadcastConfiguration.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2022-02-09T00:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4187af9f_40463ed8",
+      "range": {
+        "startLine": 27,
+        "startChar": 44,
+        "endLine": 27,
+        "endChar": 51
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8cbc994_4a2dc05e",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-09T00:14:07Z",
       "side": 1,
       "message": "How about rename to `StreamMap` to map its upper level naming, LeAudioConfiguration.",
+      "range": {
+        "startLine": 25,
+        "startChar": 15,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf8a477f_b6c30727",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2022-02-09T00:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8cbc994_4a2dc05e",
       "range": {
         "startLine": 25,
         "startChar": 15,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f3dacf8_2a307989",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2022-02-09T00:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f15a72f_804379f4",
+      "range": {
+        "startLine": 27,
+        "startChar": 52,
+        "endLine": 27,
+        "endChar": 66
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "670dbfc5_ff66f260",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-02-09T00:14:07Z",
       "side": 1,
       "message": "nit: could we modify the doc to indicate it\u0027s for unicast or about the connected le audio device.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 48
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e495e41_f3bb91b7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2022-02-09T00:59:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "670dbfc5_ff66f260",
       "range": {
         "startLine": 39,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "646688a7_1208714e",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2022-02-09T00:59:19Z",
+      "side": 1,
+      "message": "This is an orthogonal change on top of this API change. Let\u0027s do this in another CL.",
+      "parentUuid": "dccb8372_74327b3a",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 0
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e560fe74_e4ba3e02",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-02-09T00:14:07Z",
       "side": 1,
       "message": "nit: We could drop this function because it would be used for HAL 2.1 about offload.",
+      "range": {
+        "startLine": 440,
+        "startChar": 1,
+        "endLine": 462,
+        "endChar": 1
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edd24365_d7bedf94",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2022-02-09T00:59:19Z",
+      "side": 1,
+      "message": "This is an orthogonal change on top of this API change. Let\u0027s do this in another CL.",
+      "parentUuid": "e560fe74_e4ba3e02",
       "range": {
         "startLine": 440,
         "startChar": 1,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b5fb858_8550d597",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2022-02-09T00:59:19Z",
+      "side": 1,
+      "message": "This is an orthogonal change on top of this API change. Let\u0027s do this in another CL.",
+      "parentUuid": "72e2bb49_59595124",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 527,
+        "endChar": 12
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2df4a559_abe80b93",
@@ -175,6 +343,30 @@
       "writtenOn": "2022-02-09T00:14:07Z",
       "side": 1,
       "message": "Please drop this part. The function would be removed soon.\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1959014/5/bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 551,
+        "endChar": 12
+      },
+      "revId": "6e3eb17067930482beba2b53fedbcc6bfcd493a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "021cf6f2_a1a1e922",
+        "filename": "bluetooth/audio/utils/aidl_session/HidlToAidlMiddleware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2022-02-09T00:59:19Z",
+      "side": 1,
+      "message": "could we keep it in this CL and remove it in that follow up CL? Trying to be consistent within this change.",
+      "parentUuid": "2df4a559_abe80b93",
       "range": {
         "startLine": 548,
         "startChar": 0,
