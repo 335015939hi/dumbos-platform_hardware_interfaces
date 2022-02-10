@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7d6e7e3_8a48613c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-02-10T18:01:20Z",
+      "side": 1,
+      "message": "Upstream good stuff that causes conflicts when merging through sc-v2.",
+      "revId": "87edc66e1f7423bb604128c6feb6d35379a63f15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
