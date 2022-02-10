@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8de2d28a_95655c17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2022-02-10T22:15:06Z",
+      "side": 1,
+      "message": "I assume there is no critical issue left. We have landed the same change in internal already. So this will land as it is.",
+      "revId": "a7e6cd0b735bd1bef65caada90545089850ddeee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
