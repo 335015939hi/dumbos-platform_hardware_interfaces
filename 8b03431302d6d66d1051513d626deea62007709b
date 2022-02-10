@@ -80,6 +80,30 @@
       },
       "revId": "8b03431302d6d66d1051513d626deea62007709b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af9a2bae_96616044",
+        "filename": "automotive/audiocontrol/aidl/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2022-02-10T17:21:09Z",
+      "side": 1,
+      "message": "there should be other changes to fix this. But let\u0027s leave it as it is as internal CL has proper fix. This is ok for AOSP.",
+      "parentUuid": "66b08174_0999dc59",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "8b03431302d6d66d1051513d626deea62007709b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
