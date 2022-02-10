@@ -16,6 +16,41 @@
       "message": "Should we modify it on aidl?",
       "revId": "62f2cf5b45a69a6f81306c97faf69652e1c93f39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "566c14ce_21713270",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-02-10T05:02:00Z",
+      "side": 1,
+      "message": "create patch aosp/1977702 to modify the aidl part",
+      "parentUuid": "b0dadc8c_7d223728",
+      "revId": "62f2cf5b45a69a6f81306c97faf69652e1c93f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1377e1ce_cf9657fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-02-10T05:02:00Z",
+      "side": 1,
+      "message": "i",
+      "revId": "62f2cf5b45a69a6f81306c97faf69652e1c93f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
