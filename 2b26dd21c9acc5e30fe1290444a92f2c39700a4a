@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bd4ac24_55c0ffbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-02-10T19:47:40Z",
+      "side": 1,
+      "message": "Thanks! This looks almost good, just one comment. Sorry for not spotting this before.",
+      "revId": "2b26dd21c9acc5e30fe1290444a92f2c39700a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5ef79f9_af59f652",
+        "filename": "audio/common/all-versions/default/service/service.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-02-10T19:47:40Z",
+      "side": 1,
+      "message": "I think, the factory function name should be paired with the library name. This array is named \u0027optionalInterfaceSharedLibs\u0027 not \u0027optionalBluetooth...Libs\u0027, suggesting that there could be libraries for other subsystems.",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 6
+      },
+      "revId": "2b26dd21c9acc5e30fe1290444a92f2c39700a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
