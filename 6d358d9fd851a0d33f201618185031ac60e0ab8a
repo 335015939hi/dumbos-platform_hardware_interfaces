@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee36801a_a100c8af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-10T12:48:29Z",
+      "side": 1,
+      "message": "Why we need the aidl to hidl middleware? What case would you like to handle?",
+      "revId": "6d358d9fd851a0d33f201618185031ac60e0ab8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
