@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "110d67a5_3a9f4823",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1408266
+      },
+      "writtenOn": "2022-02-11T20:06:37Z",
+      "side": 1,
+      "message": "Hi Janis, this is to follow up on b/203142164. I updated the OWNERS files in your VTS test code base. Could you take a look?",
+      "revId": "9f312c99a7dfb67f94658fc0023f32795e40e819",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
