@@ -851,4 +851,81 @@ interface IKeyMintDevice {
      */
     KeyCharacteristics[] getKeyCharacteristics(
             in byte[] keyBlob, in byte[] appId, in byte[] appData);
+
+    /**
+     * Returns a 16-byte random challenge nonce, used to prove freshness when exchanging root of
+     * trust data.
+     *
+     * This method must only be implemented by StrongBox KeyMint.  TEE KeyMint implementations must
+     * return ErrorCode::UNIMPLEMENTED.  StrongBox KeyMint implementations MAY return UNIMPLEMENTED,
+     * to indicate that they have an alternative mechanism for getting the data.  If the StrongBox
+     * implementation returns UNIMPLEMENTED, the client should not call `getRootofTrust()` or
+     * `sendRootOfTrust()`.
+     */
+    byte[] getRootOfTrustChallenge();
+
+    /**
+     * Returns the TEE KeyMint Root of Trust data.
+     *
+     * This method must only be implemented by TEE KeyMint.  StrongBox KeyMint implementations must
+     * return ErrorCode::UNIMPLEMENTED.
+     *
+     *
+     * The returned data is an encoded COSE_Mac0 structure, denoted MacedRootOfTrust in the
+     * following CDDL schema:
+     *
+     *     MacedRootOfTrust = [               // COSE_Mac0 (untagged)
+     *         protected: bstr .cbor {
+     *             1 : 5,                     // Algorithm : HMAC-256
+     *         },
+     *         unprotected : {},
+     *         payload : bstr .cbor RootOfTrust,
+     *         tag : bstr HMAC-256(K_mac, MAC_structure)
+     *     ]
+     *
+     *     MAC_structure = [
+     *         context : "MAC0",
+     *         protected : bstr .cboor {
+     *             1 : 5,                     // Algorithm : HMAC-256
+     *         },
+     *         external_aad : bstr .size 32   // Value of challenge argument
+     *         payload : bstr .cbor RootOfTrust,
+     *     ]
+     *
+     *     RootOfTrust = [
+     *         verifiedBootKey : bstr .size 32,
+     *         deviceLocked : bool,
+     *         verifiedBootState : &VerifiedBootState,
+     *         verifiedBootHash : bstr .size 32,
+     *     ]
+     *
+     *     VerifiedBootState = (
+     *         Verified : 0,
+     *         SelfSigned : 1,
+     *         Unverified : 2,
+     *         Failed : 3
+     *     )
+     */
+    byte[] getRootOfTrust(byte[] challenge);
+
+    /**
+     * Delivers the TEE KeyMint Root of Trust data to StrongBox KeyMint.  See `getRootOfTrust()`
+     * above for specification of the data format and cryptographic security structure.
+     *
+     * The implementation must verify the MAC on the RootOfTrust data.  If it is valid, and if this
+     * is the first time since reboot that StrongBox KeyMint has received this data, it must store
+     * the RoT data for use in key attestation requests, then return ErrorCode::ERROR_OK.
+     *
+     * If the MAC on the Root of Trust data and challenge is incorrect, the implementation must
+     * return ErrorCode::VERIFICATION_FAILED.
+     *
+     * If the RootOfTrust data has already been received since the last boot, the implementation
+     * must validate the data and return ErrorCode::VERIFICATION_FAILED or ErrorCode::ERROR_OK
+     * according to the result, but must not store the data for use in key attestation requests,
+     * even if verification succeeds.
+     *
+     * This method must only be implemented by StrongBox KeyMint.  TEE KeyMint implementations must
+     * return ErrorCode::UNIMPLEMENTED.
+     */
+    void sendRootOfTrust(byte[] rootOfTrust);
 }
