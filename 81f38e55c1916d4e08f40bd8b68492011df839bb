@@ -1,4 +1,21 @@
 {
-  "comments": [],
-  "submitRequirementResults": []
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40fcc996_c5b8ded6",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-02-11T14:48:18Z",
+      "side": 1,
+      "message": "The ternary conditional operator (?:) has a pretty low precedence, lower than the \u003c\u003c operator.  So this code isn\u0027t going to do quite what we want.\n\nFor example, the code:\n\n  bool b \u003d true;\n  std::cout \u003c\u003c b ? \"yes\" : \"no\";\n\noutputs \"1\" (directly outputting the bool value), not \"yes\".\n\nI\u0027ve put up a follow-up fix: https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1982346",
+      "revId": "81f38e55c1916d4e08f40bd8b68492011df839bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
 }
