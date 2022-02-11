@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9081a2f9_dd2025df",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-11T21:32:01Z",
+      "side": 1,
+      "message": "consider byte[16]?",
+      "range": {
+        "startLine": 865,
+        "startChar": 4,
+        "endLine": 865,
+        "endChar": 10
+      },
+      "revId": "e05f2012f1e9fc91bb6087125fe808541f04d53f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
