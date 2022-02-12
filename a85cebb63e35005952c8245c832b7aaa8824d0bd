@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dfb0fbb_8f40c878",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-02-12T00:13:23Z",
+      "side": 1,
+      "message": "Note: This is a NEW change, not an upstream of an existing CL! I\u0027ve noticed the discrepancy between the enums in system/audio-hal-enums.h and XSD and fixing it here.",
+      "revId": "a85cebb63e35005952c8245c832b7aaa8824d0bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
