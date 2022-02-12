@@ -16,6 +16,23 @@
       "message": "Follow-up to https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1978294\n\nNote that the repo upload hooks wanted the \" - allowed\u003d\" put onto the next line for whatever style this code is using, so I made that change as well.",
       "revId": "42d931a271ba66c868f8005d4d3463f0977e4438",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21e017a1_24341fc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-02-12T00:44:26Z",
+      "side": 1,
+      "message": "Just needs OWNERs",
+      "revId": "42d931a271ba66c868f8005d4d3463f0977e4438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
