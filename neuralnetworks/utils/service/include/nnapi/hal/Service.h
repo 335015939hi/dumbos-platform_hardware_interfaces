@@ -24,24 +24,17 @@
 
 namespace android::hardware::neuralnetworks::service {
 
-struct SharedDeviceAndUpdatability {
-    nn::SharedDevice device;
-    bool isDeviceUpdatable = false;
-};
-
 /**
  * @brief Get the NNAPI sAIDL services declared in the VINTF.
  *
  * @pre maxVersionAllowed.level >= Version::Level::FEATURE_LEVEL_5
  * @pre !maxVersionAllowed.runtimeOnlyFeatures
  *
- * @param includeUpdatableDrivers Allow updatable drivers to be used.
  * @param maxVersionAllowed Maximum version of driver allowed to be used. Any driver version
  *     exceeding this must be clamped to `maxVersionAllowed`.
  * @return A list of devices and whether each device is updatable or not.
  */
-std::vector<SharedDeviceAndUpdatability> getDevices(bool includeUpdatableDrivers,
-                                                    nn::Version maxVersionAllowed);
+std::vector<nn::SharedDevice> getDevices(nn::Version maxVersionAllowed);
 
 }  // namespace android::hardware::neuralnetworks::service
 

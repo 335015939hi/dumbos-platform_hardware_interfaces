@@ -51,7 +51,7 @@ namespace aidl_hal = ::aidl::android::hardware::neuralnetworks;
 using getDeviceFn = std::add_pointer_t<nn::GeneralResult<nn::SharedDevice>(const std::string&)>;
 
 void getHidlDevicesForVersion(const std::string& descriptor, getDeviceFn getDevice,
-                              std::vector<SharedDeviceAndUpdatability>* devices,
+                              std::vector<nn::SharedDevice>* devices,
                               std::unordered_set<std::string>* registeredDevices) {
     CHECK(devices != nullptr);
     CHECK(registeredDevices != nullptr);
@@ -63,7 +63,7 @@ void getHidlDevicesForVersion(const std::string& descriptor, getDeviceFn getDevi
             if (maybeDevice.has_value()) {
                 auto device = std::move(maybeDevice).value();
                 CHECK(device != nullptr);
-                devices->push_back({.device = std::move(device)});
+                devices->push_back(std::move(device));
             } else {
                 LOG(ERROR) << "getDevice(" << name << ") failed with " << maybeDevice.error().code
                            << ": " << maybeDevice.error().message;
@@ -72,9 +72,9 @@ void getHidlDevicesForVersion(const std::string& descriptor, getDeviceFn getDevi
     }
 }
 
-void getAidlDevices(std::vector<SharedDeviceAndUpdatability>* devices,
+void getAidlDevices(std::vector<nn::SharedDevice>* devices,
                     std::unordered_set<std::string>* registeredDevices,
-                    bool includeUpdatableDrivers, nn::Version maxVersionAllowed) {
+                    nn::Version maxVersionAllowed) {
     CHECK(devices != nullptr);
     CHECK(registeredDevices != nullptr);
 
@@ -91,21 +91,12 @@ void getAidlDevices(std::vector<SharedDeviceAndUpdatability>* devices,
     }
 
     for (const auto& name : names) {
-        bool isDeviceUpdatable = false;
-        if (__builtin_available(android __NNAPI_AIDL_MIN_ANDROID_API__, *)) {
-            const auto instance = std::string(aidl_hal::IDevice::descriptor) + '/' + name;
-            isDeviceUpdatable = AServiceManager_isUpdatableViaApex(instance.c_str());
-        }
-        if (isDeviceUpdatable && !includeUpdatableDrivers) {
-            continue;
-        }
         if (const auto [it, unregistered] = registeredDevices->insert(name); unregistered) {
             auto maybeDevice = aidl_hal::utils::getDevice(name, maxVersionAllowed);
             if (maybeDevice.has_value()) {
                 auto device = std::move(maybeDevice).value();
                 CHECK(device != nullptr);
-                devices->push_back(
-                        {.device = std::move(device), .isDeviceUpdatable = isDeviceUpdatable});
+                devices->push_back(std::move(device));
             } else {
                 LOG(ERROR) << "getDevice(" << name << ") failed with " << maybeDevice.error().code
                            << ": " << maybeDevice.error().message;
@@ -116,15 +107,14 @@ void getAidlDevices(std::vector<SharedDeviceAndUpdatability>* devices,
 
 }  // namespace
 
-std::vector<SharedDeviceAndUpdatability> getDevices(bool includeUpdatableDrivers,
-                                                    nn::Version maxVersionAllowed) {
-    std::vector<SharedDeviceAndUpdatability> devices;
+std::vector<nn::SharedDevice> getDevices(nn::Version maxVersionAllowed) {
+    std::vector<nn::SharedDevice> devices;
     std::unordered_set<std::string> registeredDevices;
 
     CHECK_GE(maxVersionAllowed.level, nn::Version::Level::FEATURE_LEVEL_5);
     CHECK(!maxVersionAllowed.runtimeOnlyFeatures);
 
-    getAidlDevices(&devices, &registeredDevices, includeUpdatableDrivers, maxVersionAllowed);
+    getAidlDevices(&devices, &registeredDevices, maxVersionAllowed);
 
     getHidlDevicesForVersion(V1_3::IDevice::descriptor, &V1_3::utils::getDevice, &devices,
                              &registeredDevices);
