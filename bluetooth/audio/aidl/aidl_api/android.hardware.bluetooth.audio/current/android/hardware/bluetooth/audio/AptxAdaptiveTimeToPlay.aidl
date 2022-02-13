@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,13 +33,11 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-parcelable UnicastConfiguration {
-  android.hardware.bluetooth.audio.UnicastConfiguration.UnicastStreamMap[] streamMap;
-  int peerDelay;
-  android.hardware.bluetooth.audio.LeAudioCodecConfiguration leAudioCodecConfig;
-  @VintfStability
-  parcelable UnicastStreamMap {
-    char streamHandle;
-    int audioChannelAllocation;
-  }
+parcelable AptxAdaptiveTimeToPlay {
+  byte lowLowLatency;
+  byte highLowLatency;
+  byte lowHighQuality;
+  byte highHighQuality;
+  byte lowTws;
+  byte highTws;
 }

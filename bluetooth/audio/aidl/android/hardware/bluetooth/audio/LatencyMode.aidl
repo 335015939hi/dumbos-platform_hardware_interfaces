@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
 package android.hardware.bluetooth.audio;
 
 @VintfStability
-@Backing(type="byte")
-enum LeAudioMode {
+@Backing(type="int")
+enum LatencyMode {
     UNKNOWN,
-    UNICAST,
-    BROADCAST,
+    LOW_LATENCY,
+    FREE,
 }

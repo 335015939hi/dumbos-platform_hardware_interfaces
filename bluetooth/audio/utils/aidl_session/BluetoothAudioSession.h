@@ -20,6 +20,7 @@
 #include <aidl/android/hardware/audio/common/SourceMetadata.h>
 #include <aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.h>
 #include <aidl/android/hardware/bluetooth/audio/IBluetoothAudioProviderFactory.h>
+#include <aidl/android/hardware/bluetooth/audio/LatencyMode.h>
 #include <aidl/android/hardware/bluetooth/audio/SessionType.h>
 #include <fmq/AidlMessageQueue.h>
 #include <hardware/audio.h>
@@ -91,6 +92,15 @@ struct PortStatusCallbacks {
    * @param: cookie - indicates which bluetooth_audio output should handle
    ***/
   std::function<void(uint16_t cookie)> audio_configuration_changed_cb_;
+  /***
+   * low_latency_mode_allowed_cb_ - when the Bluetooth stack low latency mode
+   * allowed or disallowed, the BluetoothAudioProvider will invoke
+   * this callback to report to the bluetooth_audio module.
+   * @param: cookie - indicates which bluetooth_audio output should handle
+   * @param: allowed - indicates if low latency mode is allowed
+   ***/
+  std::function<void(uint16_t cookie, bool allowed)>
+      low_latency_mode_allowed_cb_;
 };
 
 class BluetoothAudioSession {
@@ -155,6 +165,13 @@ class BluetoothAudioSession {
   void ReportAudioConfigChanged(const AudioConfiguration& audio_config);
 
   /***
+   * The report function is used to report that the Bluetooth stack has notified
+   * the low latency mode allowed changed, and will invoke
+   * low_latency_mode_allowed_changed_cb to notify registered bluetooth_audio
+   * outputs
+   ***/
+  void ReportLowLatencyModeAllowedChanged(bool allowed);
+  /***
    * Those control functions are for the bluetooth_audio module to start,
    * suspend, stop stream, to check position, and to update metadata.
    ***/
@@ -164,6 +181,8 @@ class BluetoothAudioSession {
   bool GetPresentationPosition(PresentationPosition& presentation_position);
   void UpdateSourceMetadata(const struct source_metadata& source_metadata);
   void UpdateSinkMetadata(const struct sink_metadata& sink_metadata);
+  void SetLatencyMode(LatencyMode latency_mode);
+  void SetCodecType(CodecType codec_type);
 
   // The control function writes stream to FMQ
   size_t OutWritePcmData(const void* buffer, size_t bytes);

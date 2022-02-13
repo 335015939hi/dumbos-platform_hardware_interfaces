@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,13 +32,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@VintfStability
-parcelable BroadcastConfiguration {
-  android.hardware.bluetooth.audio.BroadcastConfiguration.BroadcastStreamMap[] streamMap;
-  @VintfStability
-  parcelable BroadcastStreamMap {
-    char streamHandle;
-    int audioChannelAllocation;
-    android.hardware.bluetooth.audio.LeAudioCodecConfiguration leAudioCodecConfig;
-  }
+@Backing(type="int") @VintfStability
+enum AptxAdaptiveChannelMode {
+  JOINT_STEREO = 0,
+  MONO = 1,
+  DUAL_MONO = 2,
+  TWS_STEREO = 4,
+  UNKNOWN = 255,
 }
