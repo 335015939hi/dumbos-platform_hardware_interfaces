@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa3b8fec_4a1f8760",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-02-14T12:31:05Z",
+      "side": 1,
+      "message": "By calling [DiceCoseEncodePublicKey()](https://googleplex-polygon-android.googlesource.com/trusty/lib/+/refs/heads/mirror-aosp-master/lib/hwbcc/common/swbcc.c#437) to construct this structure, there\u0027s an extra \"[KeyOps](https://source.corp.google.com/android/external/open-dice/src/cbor_cert_op.c;rcl\u003df6d325ff51274a2c5fa0776e67680549ee961efc;l\u003d67)\" entry which is not listed on line#190/197.\n\nShall we update the HAL?",
+      "range": {
+        "startLine": 117,
+        "startChar": 15,
+        "endLine": 117,
+        "endChar": 45
+      },
+      "revId": "314b21f39a4cffeb811f98682b055d248edd41f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
