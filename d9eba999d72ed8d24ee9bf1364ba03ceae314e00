@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8a2cd41_32bd091e",
+        "filename": "bluetooth/audio/aidl/vts/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-15T08:04:51Z",
+      "side": 1,
+      "message": "nit: would you plan to remove V1?",
+      "range": {
+        "startLine": 19,
+        "startChar": 9,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
