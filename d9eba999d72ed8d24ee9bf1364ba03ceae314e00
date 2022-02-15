@@ -22,6 +22,30 @@
       },
       "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d51c11d0_64dc2208",
+        "filename": "bluetooth/audio/aidl/vts/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-15T08:11:32Z",
+      "side": 1,
+      "message": "It\u0027s a naming policy of AIDL - though AIDL interfaces themselves do not require a specified version, version number is necessary when they are dependencies of non-interface modules.",
+      "parentUuid": "f8a2cd41_32bd091e",
+      "range": {
+        "startLine": 19,
+        "startChar": 9,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
