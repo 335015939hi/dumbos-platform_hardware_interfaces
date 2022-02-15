@@ -46,6 +46,236 @@
       },
       "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e5113b_baac4785",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-15T08:35:37Z",
+      "side": 1,
+      "message": "Should we add CodecType::APTX_ADAPTIVE?",
+      "range": {
+        "startLine": 85,
+        "startChar": 27,
+        "endLine": 85,
+        "endChar": 43
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ceb9db6_da3d1584",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-15T08:35:37Z",
+      "side": 1,
+      "message": "Should we add aptxAdaptive?",
+      "range": {
+        "startLine": 102,
+        "startChar": 5,
+        "endLine": 102,
+        "endChar": 24
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de6f1f12_9abb02c3",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-15T08:35:37Z",
+      "side": 1,
+      "message": "please add SessionType::LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH",
+      "range": {
+        "startLine": 212,
+        "startChar": 11,
+        "endLine": 212,
+        "endChar": 60
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eed01b0e_af2006d3",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-15T08:35:37Z",
+      "side": 1,
+      "message": "Please move this one to after line#212",
+      "range": {
+        "startLine": 267,
+        "startChar": 6,
+        "endLine": 267,
+        "endChar": 70
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9990d7ad_cd53d294",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-15T08:35:37Z",
+      "side": 1,
+      "message": "Please move this one to after line#260",
+      "range": {
+        "startLine": 268,
+        "startChar": 24,
+        "endLine": 268,
+        "endChar": 77
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93d38e08_22ba9a94",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-15T08:35:37Z",
+      "side": 1,
+      "message": "Please add LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH here",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 70
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da5b6916_edb2561a",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-15T08:35:37Z",
+      "side": 1,
+      "message": "Please add \n    LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH,\n    LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH,",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 63
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98c48b3b_4dfdfcbd",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-15T08:35:37Z",
+      "side": 1,
+      "message": "LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH would be almost the same with LeAudioOutputSoftware. Could you add the one for broadcast or add todo here? Thanks.",
+      "range": {
+        "startLine": 980,
+        "startChar": 7,
+        "endLine": 980,
+        "endChar": 54
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1e7a787_1bcee537",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-15T08:35:37Z",
+      "side": 1,
+      "message": "It would be return false only as both encoding and decoding capabilities not support. So under this logic, the GetUnicastLc3SupportedList in line#1184 may return empty if only Input supported.\n\nSuggest to modify the function to IsOffloadOutputSupported and IsOffloadInputSupported?",
+      "range": {
+        "startLine": 1179,
+        "startChar": 7,
+        "endLine": 1179,
+        "endChar": 25
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b272a702_57e7f125",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-15T08:35:37Z",
+      "side": 1,
+      "message": "Could you please help to add todo for broadcast offload VTS test case here? Thanks.",
+      "range": {
+        "startLine": 1330,
+        "startChar": 0,
+        "endLine": 1330,
+        "endChar": 45
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
