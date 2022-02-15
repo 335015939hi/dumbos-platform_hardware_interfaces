@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07e17eb3_3b774a1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-15T06:08:38Z",
+      "side": 1,
+      "message": "Having to cherry pick this internally, will let know once we merge it internally.",
+      "revId": "d38d185539be59c3f59935855dd0de25a5149b43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a411c9e_73c6e40e",
+        "filename": "automotive/audiocontrol/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-02-15T06:08:38Z",
+      "side": 1,
+      "message": "I had to add this to internal file, not sure if you had any issues on your sid :         \"android.media.audio.common.types-V1-cpp\",",
+      "revId": "d38d185539be59c3f59935855dd0de25a5149b43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
