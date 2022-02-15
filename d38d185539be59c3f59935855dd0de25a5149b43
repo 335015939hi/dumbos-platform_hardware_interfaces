@@ -33,6 +33,24 @@
       "message": "I had to add this to internal file, not sure if you had any issues on your sid :         \"android.media.audio.common.types-V1-cpp\",",
       "revId": "d38d185539be59c3f59935855dd0de25a5149b43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9c10c81_0e7471bf",
+        "filename": "automotive/audiocontrol/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-02-15T16:00:34Z",
+      "side": 1,
+      "message": "I did not have to add it, surely because aosp/master has some divergences with your internal master. Sorry for this.",
+      "parentUuid": "6a411c9e_73c6e40e",
+      "revId": "d38d185539be59c3f59935855dd0de25a5149b43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
