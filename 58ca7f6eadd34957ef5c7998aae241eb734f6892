@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e0e6e93_3cd6246a",
+        "filename": "neuralnetworks/aidl/utils/src/Service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-02-15T03:15:36Z",
+      "side": 1,
+      "message": "Yes; thanks for pointing this out. I\u0027ve fixed this problem, and verified the next PS properly clamps the values. I\u0027ve added a new \"Test:\" line in the commit message explaining this.",
+      "parentUuid": "ed23a013_1cdf0a21",
+      "range": {
+        "startLine": 84,
+        "startChar": 38,
+        "endLine": 84,
+        "endChar": 53
+      },
+      "revId": "58ca7f6eadd34957ef5c7998aae241eb734f6892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81c0d019_b84857af",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d764bdf7_3853247f",
+        "filename": "neuralnetworks/utils/service/include/nnapi/hal/Service.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-02-15T03:15:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81c0d019_b84857af",
+      "range": {
+        "startLine": 33,
+        "startChar": 24,
+        "endLine": 33,
+        "endChar": 29
+      },
+      "revId": "58ca7f6eadd34957ef5c7998aae241eb734f6892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c704fef8_336a1d70",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-02-15T00:17:41Z",
       "side": 1,
       "message": "Why make this a prerequisite rather than passing nn::Version::Level instead?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 46
+      },
+      "revId": "58ca7f6eadd34957ef5c7998aae241eb734f6892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44f69364_32bd0651",
+        "filename": "neuralnetworks/utils/service/include/nnapi/hal/Service.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-02-15T03:15:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c704fef8_336a1d70",
       "range": {
         "startLine": 36,
         "startChar": 0,
