@@ -19,6 +19,7 @@ package android.hardware.bluetooth.audio;
 import android.hardware.bluetooth.audio.AudioConfiguration;
 import android.hardware.bluetooth.audio.BluetoothAudioStatus;
 import android.hardware.bluetooth.audio.IBluetoothAudioPort;
+import android.hardware.bluetooth.audio.LatencyMode;
 import android.hardware.common.fmq.MQDescriptor;
 import android.hardware.common.fmq.SynchronizedReadWrite;
 
@@ -59,6 +60,30 @@ interface IBluetoothAudioProvider {
     MQDescriptor<byte, SynchronizedReadWrite> startSession(
             in IBluetoothAudioPort hostIf, in AudioConfiguration audioConfig);
 
+    /**
+     * This method indicates that the Bluetooth stack is ready to stream audio.
+     * It registers an instance of IBluetoothAudioPort with and provides the
+     * current negotiated codec to the Audio HAL. After this method is called,
+     * the Audio HAL can invoke IBluetoothAudioPort.startStream().
+     *
+     * Note: endSession() must be called to unregister this IBluetoothAudioPort
+     *
+     * @param hostIf An instance of IBluetoothAudioPort for stream control
+     * @param audioConfig The audio configuration negotiated with the remote
+     *    device. The PCM parameters are set if software based encoding,
+     *    otherwise the correct codec configuration is used for hardware
+     *    encoding.
+     * @param supportedLatencyModes latency modes supported by the active
+     * remote device
+     *
+     * @return The fast message queue for audio data from/to this
+     *    provider. Audio data will be in PCM format as specified by the
+     *    audioConfig.pcmConfig parameter. Invalid if streaming is offloaded
+     *    from/to hardware or on failure
+     */
+    MQDescriptor<byte, SynchronizedReadWrite> startSessionWithLatencyModes(
+            in IBluetoothAudioPort hostIf, in AudioConfiguration audioConfig,
+            in LatencyMode[] supportedLatencyModes);
     /**
      * Callback for IBluetoothAudioPort.startStream()
      *
