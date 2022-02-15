@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b991d20_172ad21f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-02-15T10:38:45Z",
+      "side": 1,
+      "message": "Given the AIDL interface is new in TM and not used yet by any client isn\u0027t it simpler to add the argument to startSession() as opposed to adding a new method?",
+      "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
