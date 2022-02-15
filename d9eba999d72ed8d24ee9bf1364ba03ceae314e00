@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26c51535_2cad80ab",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-15T09:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6e5113b_baac4785",
+      "range": {
+        "startLine": 85,
+        "startChar": 27,
+        "endLine": 85,
+        "endChar": 43
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ceb9db6_da3d1584",
@@ -84,6 +108,30 @@
       "writtenOn": "2022-02-15T08:35:37Z",
       "side": 1,
       "message": "Should we add aptxAdaptive?",
+      "range": {
+        "startLine": 102,
+        "startChar": 5,
+        "endLine": 102,
+        "endChar": 24
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "740e031d_907ea725",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-15T09:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ceb9db6_da3d1584",
       "range": {
         "startLine": 102,
         "startChar": 5,
@@ -117,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b51106c_145fa48c",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-15T09:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de6f1f12_9abb02c3",
+      "range": {
+        "startLine": 212,
+        "startChar": 11,
+        "endLine": 212,
+        "endChar": 60
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eed01b0e_af2006d3",
@@ -130,6 +202,30 @@
       "writtenOn": "2022-02-15T08:35:37Z",
       "side": 1,
       "message": "Please move this one to after line#212",
+      "range": {
+        "startLine": 267,
+        "startChar": 6,
+        "endLine": 267,
+        "endChar": 70
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e053e62_cbd70bee",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-15T09:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eed01b0e_af2006d3",
       "range": {
         "startLine": 267,
         "startChar": 6,
@@ -163,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d34df9b_4b88d70f",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-15T09:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9990d7ad_cd53d294",
+      "range": {
+        "startLine": 268,
+        "startChar": 24,
+        "endLine": 268,
+        "endChar": 77
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93d38e08_22ba9a94",
@@ -176,6 +296,30 @@
       "writtenOn": "2022-02-15T08:35:37Z",
       "side": 1,
       "message": "Please add LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH here",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 70
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5f9ca63_c608a28f",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-15T09:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93d38e08_22ba9a94",
       "range": {
         "startLine": 293,
         "startChar": 0,
@@ -209,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8204c6f_3082ea2b",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-15T09:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da5b6916_edb2561a",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 63
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98c48b3b_4dfdfcbd",
@@ -222,6 +390,30 @@
       "writtenOn": "2022-02-15T08:35:37Z",
       "side": 1,
       "message": "LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH would be almost the same with LeAudioOutputSoftware. Could you add the one for broadcast or add todo here? Thanks.",
+      "range": {
+        "startLine": 980,
+        "startChar": 7,
+        "endLine": 980,
+        "endChar": 54
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9ead795_eac2b5f2",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-15T09:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98c48b3b_4dfdfcbd",
       "range": {
         "startLine": 980,
         "startChar": 7,
@@ -255,6 +447,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0135b6ca_e33bb73c",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-15T09:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1e7a787_1bcee537",
+      "range": {
+        "startLine": 1179,
+        "startChar": 7,
+        "endLine": 1179,
+        "endChar": 25
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b272a702_57e7f125",
@@ -268,6 +484,30 @@
       "writtenOn": "2022-02-15T08:35:37Z",
       "side": 1,
       "message": "Could you please help to add todo for broadcast offload VTS test case here? Thanks.",
+      "range": {
+        "startLine": 1330,
+        "startChar": 0,
+        "endLine": 1330,
+        "endChar": 45
+      },
+      "revId": "d9eba999d72ed8d24ee9bf1364ba03ceae314e00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "394cbbd1_456299be",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-15T09:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b272a702_57e7f125",
       "range": {
         "startLine": 1330,
         "startChar": 0,
