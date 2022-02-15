@@ -16,6 +16,24 @@
       "message": "Given the AIDL interface is new in TM and not used yet by any client isn\u0027t it simpler to add the argument to startSession() as opposed to adding a new method?",
       "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40c5aa99_b436ec53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581454
+      },
+      "writtenOn": "2022-02-15T18:41:12Z",
+      "side": 1,
+      "message": "I did that initially. Then I found that startSession() is widely used by LE audio inferfaces (subclass of audio interface we are working on). For example https://source.corp.google.com/aosp-master/packages/modules/Bluetooth/system/audio_hal_interface/le_audio_software.cc;l\u003d374?q\u003dstartsession\u0026sq\u003dpackage:%5Eaosp-master$\n\nChanging startSession() would end up with a bigger blast radius and let LE audio input useless parameters.",
+      "parentUuid": "7b991d20_172ad21f",
+      "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
