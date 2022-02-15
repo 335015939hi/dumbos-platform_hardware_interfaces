@@ -19,6 +19,7 @@ package android.hardware.bluetooth.audio;
 import android.hardware.bluetooth.audio.AudioConfiguration;
 import android.hardware.bluetooth.audio.BluetoothAudioStatus;
 import android.hardware.bluetooth.audio.IBluetoothAudioPort;
+import android.hardware.bluetooth.audio.LatencyMode;
 import android.hardware.common.fmq.MQDescriptor;
 import android.hardware.common.fmq.SynchronizedReadWrite;
 
@@ -57,7 +58,8 @@ interface IBluetoothAudioProvider {
      *    from/to hardware or on failure
      */
     MQDescriptor<byte, SynchronizedReadWrite> startSession(
-            in IBluetoothAudioPort hostIf, in AudioConfiguration audioConfig);
+            in IBluetoothAudioPort hostIf, in AudioConfiguration audioConfig,
+            in LatencyMode[] supportedLatencyModes);
 
     /**
      * Callback for IBluetoothAudioPort.startStream()

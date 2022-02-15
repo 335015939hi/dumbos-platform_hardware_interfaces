@@ -34,11 +34,16 @@ BluetoothAudioProvider::BluetoothAudioProvider() {
 
 ndk::ScopedAStatus BluetoothAudioProvider::startSession(
     const std::shared_ptr<IBluetoothAudioPort>& host_if,
-    const AudioConfiguration& audio_config, DataMQDesc* _aidl_return) {
+    const AudioConfiguration& audio_config,
+    std::vector<LatencyMode> latencyModeAllowed,
+    DataMQDesc* _aidl_return) {
   if (host_if == nullptr) {
     *_aidl_return = DataMQDesc();
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
   }
+  LOG(INFO) << __func__ << " aaaaaaaaaa 2222222" << latencyModeAllowed.size();
+
+  latency_mode_allowed_ = latencyModeAllowed_;
   audio_config_ = std::make_unique<AudioConfiguration>(audio_config);
   stack_iface_ = host_if;
 
