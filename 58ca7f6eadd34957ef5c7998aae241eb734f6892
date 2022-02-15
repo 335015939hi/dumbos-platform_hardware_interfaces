@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed23a013_1cdf0a21",
+        "filename": "neuralnetworks/aidl/utils/src/Service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-02-15T00:17:41Z",
+      "side": 1,
+      "message": "Does this find the greater of the two versions rather than the lesser of the two versions?\n\nhttps://osscs.corp.google.com/android/platform/superproject/+/master:packages/modules/NeuralNetworks/common/include/nnapi/Validation.h;l\u003d32-34;drc\u003d824ea6685855435ac194741242ed1f203e0f2742",
+      "range": {
+        "startLine": 84,
+        "startChar": 38,
+        "endLine": 84,
+        "endChar": 53
+      },
+      "revId": "58ca7f6eadd34957ef5c7998aae241eb734f6892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81c0d019_b84857af",
+        "filename": "neuralnetworks/utils/service/include/nnapi/hal/Service.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-02-15T00:17:41Z",
+      "side": 1,
+      "message": "I thought this retrieves both sAIDL and HIDL services?",
+      "range": {
+        "startLine": 33,
+        "startChar": 24,
+        "endLine": 33,
+        "endChar": 29
+      },
+      "revId": "58ca7f6eadd34957ef5c7998aae241eb734f6892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c704fef8_336a1d70",
+        "filename": "neuralnetworks/utils/service/include/nnapi/hal/Service.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2022-02-15T00:17:41Z",
+      "side": 1,
+      "message": "Why make this a prerequisite rather than passing nn::Version::Level instead?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 46
+      },
+      "revId": "58ca7f6eadd34957ef5c7998aae241eb734f6892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
