@@ -33,6 +33,23 @@
       "message": "That\u0027s what I mean \"out of scope\": I don\u0027t think other audio sessions will use this interface and it takes additional effort to maintain this binder interface.",
       "revId": "c92270e1d65af7fb173da090e8801ae6401f1812",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83466483_6197d37a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-16T07:30:20Z",
+      "side": 1,
+      "message": "-1. If you really need a new argument, you should add another one instead of extending the existed one.",
+      "revId": "c92270e1d65af7fb173da090e8801ae6401f1812",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
