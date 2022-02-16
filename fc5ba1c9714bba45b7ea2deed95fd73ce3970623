@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c4e3df3_25f34280",
+        "filename": "audio/common/all-versions/default/service/service.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-02-16T19:50:05Z",
+      "side": 1,
+      "message": "This mimics previous lists, however here semantics is different. In the previous lists the first entry is a human-readable description, then goes the list of interfaces.\n\nFor this array I was suggesting to have a list of pairs of the library name and the factory function. Since the factory function is specific to each library, we can not just use the same function name for every library. So I was thinking of something like this:\n\n  const std::vector\u003cstd::pair\u003cstd::string, std::string\u003e\u003e optionalInterfaceSharedLibs \u003d {\n        {\n            { \"android.hardware.bluetooth.audio-impl\", \"createIBluetoothAudioProviderFactory\" },\n        },\n        \nDoes that make sense to you?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 6
+      },
+      "revId": "fc5ba1c9714bba45b7ea2deed95fd73ce3970623",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
