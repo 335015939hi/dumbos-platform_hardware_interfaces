@@ -16,6 +16,23 @@
       "message": "+Alice, Cheney",
       "revId": "c92270e1d65af7fb173da090e8801ae6401f1812",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c895bdfd_e45be74a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-16T06:38:36Z",
+      "side": 1,
+      "message": "That\u0027s what I mean \"out of scope\": I don\u0027t think other audio sessions will use this interface and it takes additional effort to maintain this binder interface.",
+      "revId": "c92270e1d65af7fb173da090e8801ae6401f1812",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
