@@ -70,6 +70,24 @@
       "parentUuid": "dad69632_315cf1f4",
       "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9de596ea_63ed720f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-02-16T08:19:59Z",
+      "side": 1,
+      "message": "Alice,\nWe have added a dedicated API at the Audio HAL to control latency mode.\nSee the HIDL HAL V7.1\nhttps://source.corp.google.com/android/hardware/interfaces/audio/7.1/\n\nThis change is specific to spatial audio for now but can also be used for LE audio gaming mode in the future with an extended control logic in the audio framework",
+      "parentUuid": "89e02a26_f66827b4",
+      "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
