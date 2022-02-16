@@ -48,7 +48,7 @@ interface IBluetoothAudioPort {
      * and wants to start an audio stream. The caller must wait for a
      * IBluetoothAudioProvider.streamStarted(Status) call.
      */
-    void startStream();
+    void startStream(in boolean isLowLatency);
 
     /**
      * This indicates that the caller of this method wants to stop the audio
