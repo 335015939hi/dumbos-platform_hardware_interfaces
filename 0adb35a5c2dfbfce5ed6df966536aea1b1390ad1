@@ -52,6 +52,24 @@
       "parentUuid": "40c5aa99_b436ec53",
       "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e02a26_f66827b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-16T07:00:32Z",
+      "side": 1,
+      "message": "Give some insight for le audio, the audio configuration would based on the metadata update from the audio framework (sw) or audio HAL (offload). So if the le audio would need to change to the low latency mode, it would be get the updateSourceMetadata and end up the result. It might be similar with gaming mode.\n\nFor a2dp, I\u0027m not really sure. Do you to consider to put the parameter inside the a2dp audio configuration. It\u0027s the input parameter brought with startSession.",
+      "parentUuid": "dad69632_315cf1f4",
+      "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
