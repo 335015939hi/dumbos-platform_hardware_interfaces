@@ -85,6 +85,24 @@
       "message": "Chen,\n\nDo you plan another CL to add arguments to IBluetoothAudioPort.startStream() as discussed in ag/16844754 for the audio HAL to indicate the desired behavior when starting the stream and help with initial codec and buffer size selection?\n",
       "revId": "c92270e1d65af7fb173da090e8801ae6401f1812",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bd7b369_9f56c648",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581454
+      },
+      "writtenOn": "2022-02-16T19:14:07Z",
+      "side": 1,
+      "message": "Resolved offline",
+      "parentUuid": "b37bb22f_ad7b71be",
+      "revId": "c92270e1d65af7fb173da090e8801ae6401f1812",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
