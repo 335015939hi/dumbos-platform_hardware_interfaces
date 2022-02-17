@@ -88,6 +88,24 @@
       "parentUuid": "89e02a26_f66827b4",
       "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d9e0229_82bf4ef6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-17T00:28:41Z",
+      "side": 1,
+      "message": "I see. For the le audio, we would keep the session alive, only restart the session as unicast and broadcast switch. If the new config would change, it would go through the audio configuration update procedure. So I would recommend to put the supportedLatencyModes into the AudioConfiguration. \n\n1. It is also brought as startSession, the audio configuration is the input parameter as well.\n2. It would not need to add all the handle for hearing aid and le audio unicast and broadcast, in case they don\u0027t need this parameter.\n3. If A2DP would like to have the dynamic change audio configuration improvement further. Inside the audio configuration, we don\u0027t need to restart the session as the latency mode change.",
+      "parentUuid": "9de596ea_63ed720f",
+      "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
