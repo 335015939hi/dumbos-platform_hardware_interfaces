@@ -106,6 +106,24 @@
       "parentUuid": "9de596ea_63ed720f",
       "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55f9dae6_b7b4cd41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-02-17T08:45:22Z",
+      "side": 1,
+      "message": "One problem is that AudioConfiguration is a union. If we can change this to a struct then thats fine but it seemed to involve a more complex change.\nI did not know about the \"restart session\" or the audio configuration update procedure. Can you share more about this?",
+      "parentUuid": "6d9e0229_82bf4ef6",
+      "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
