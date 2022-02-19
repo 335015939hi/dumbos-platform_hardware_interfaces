@@ -124,6 +124,24 @@
       "parentUuid": "6d9e0229_82bf4ef6",
       "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40aa2994_200b6350",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-19T08:09:46Z",
+      "side": 1,
+      "message": "Sorry for the later reply. I\u0027m not clear for supportedLatencyModes, so maybe my thinking is the wrong direction. Is supportedLatencyModes a capabilities by device and may not be changed during the device connections?\n\nIf yes, maybe AudioCapabilities is another choice. It would be more match the concept, and we could change the strut from union.\nhttps://source.corp.google.com/android/hardware/interfaces/bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioCapabilities.aidl\n\nIf supportedLatencyModes would be changed dynamically, le audio and a2dp session behavior is different, and then I guess they might not be used for le audio.\n\nFor a2dp, bt host negotiate the codec config and then start the session with one would be used. Once codec config changed, a2dp would do the session restart.\n\nFor le audio, bt host start session as le audio connected, as the config change. The session would not be restarted, we have the callback function to notify the audio configuration change to the offload driver for offload case, sw case would handle it inside the stack. We only restart the session as unicast and broadcast handover.",
+      "parentUuid": "55f9dae6_b7b4cd41",
+      "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
