@@ -160,6 +160,24 @@
       "parentUuid": "40aa2994_200b6350",
       "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72bb4a63_f33ae418",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-02-21T15:18:42Z",
+      "side": 1,
+      "message": "The latency here and AudioCapabilities could be two different things, and I prefer to keep the current design.\nThe AudioCapabilities is either PcmCapabilities, CodecCapabilities, or LeAudioCodecCapabilitiesSetting, and they are about data format which the latency also stands for the datapath buffer size.Besides, it is out of design to report the AudioCapabilities from Bluetooth stack to Bluetooth Audio HAL, but how can you send the supportedLatencyModes within AudioCapabilities to the audio HAL?",
+      "parentUuid": "0fc12547_c391ad38",
+      "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
