@@ -142,6 +142,24 @@
       "parentUuid": "55f9dae6_b7b4cd41",
       "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fc12547_c391ad38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-02-21T14:34:43Z",
+      "side": 1,
+      "message": "The fact that a headset supports variable latency mode does not change while the headset is connected.\nIf there is a better mechanism to indicate this headset capability I am OK with using it.",
+      "parentUuid": "40aa2994_200b6350",
+      "revId": "0adb35a5c2dfbfce5ed6df966536aea1b1390ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
