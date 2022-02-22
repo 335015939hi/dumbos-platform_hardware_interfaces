@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e62f62c3_79740a01",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-02-22T04:43:54Z",
+      "side": 1,
+      "message": "Capitalization Nit: RpcHardwareInfo",
+      "range": {
+        "startLine": 104,
+        "startChar": 36,
+        "endLine": 104,
+        "endChar": 51
+      },
+      "revId": "595c2b3396fca0b85e732352b4c78781832f765e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

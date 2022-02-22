@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f9bf8c7_4c62366c",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-02-22T04:43:54Z",
+      "side": 1,
+      "message": "Good point.",
+      "parentUuid": "50f19230_152c7dce",
+      "range": {
+        "startLine": 134,
+        "startChar": 24,
+        "endLine": 134,
+        "endChar": 34
+      },
+      "revId": "ecbfc651b7ba903194083d805a0e9725197fe1ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f91340b_d4f6f95a",
@@ -112,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f41e3e8a_3589ea59",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-02-22T04:43:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f91340b_d4f6f95a",
+      "range": {
+        "startLine": 136,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 17
+      },
+      "revId": "ecbfc651b7ba903194083d805a0e9725197fe1ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b27c6e3d_2443c5af",
@@ -146,6 +194,30 @@
         "id": 1833664
       },
       "writtenOn": "2022-02-02T21:52:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b27c6e3d_2443c5af",
+      "range": {
+        "startLine": 31,
+        "startChar": 25,
+        "endLine": 31,
+        "endChar": 45
+      },
+      "revId": "ecbfc651b7ba903194083d805a0e9725197fe1ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0549fc6_4815f709",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-02-22T04:43:54Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "b27c6e3d_2443c5af",
