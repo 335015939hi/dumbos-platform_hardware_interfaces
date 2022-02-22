@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a15bbef6_1a1e6695",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1869221
+      },
+      "writtenOn": "2022-02-22T22:41:10Z",
+      "side": 1,
+      "message": "Hi Felipe, we could not submit the last CL since the branch was read-only. This is the same changes to add a fuzzer as (https://partner-android-review.googlesource.com/c/platform/hardware/interfaces/+/1924657)\n\nCan you please review as a code owner?\n\nThanks",
+      "revId": "3921199e0580ca5039fdac05b085d557a1c4771a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
