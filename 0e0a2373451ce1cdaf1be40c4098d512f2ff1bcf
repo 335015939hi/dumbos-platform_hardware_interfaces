@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c433d948_053919b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1869221
+      },
+      "writtenOn": "2022-02-22T22:42:37Z",
+      "side": 1,
+      "message": "Hi code owners, can you please review this CL to add fuzz testing?\n\nThank you",
+      "revId": "0e0a2373451ce1cdaf1be40c4098d512f2ff1bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
