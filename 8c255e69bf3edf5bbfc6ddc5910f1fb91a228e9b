@@ -22,6 +22,30 @@
       },
       "revId": "8c255e69bf3edf5bbfc6ddc5910f1fb91a228e9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98365de6_72db817b",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-02-22T00:51:04Z",
+      "side": 1,
+      "message": "Resolved offline.",
+      "parentUuid": "3f545478_2c2534e9",
+      "range": {
+        "startLine": 521,
+        "startChar": 48,
+        "endLine": 521,
+        "endChar": 60
+      },
+      "revId": "8c255e69bf3edf5bbfc6ddc5910f1fb91a228e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
