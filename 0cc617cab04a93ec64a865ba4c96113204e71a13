@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee134037_aedbc3b3",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-02-23T17:04:43Z",
+      "side": 1,
+      "message": "Ah yes, b/220834466.",
+      "parentUuid": "b23e511a_4c36bf57",
+      "revId": "0cc617cab04a93ec64a865ba4c96113204e71a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5345c4bc_065bb2f4",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Interesting... are you thinking this is a way to simplify factory provisioning, or something else?  The IDs shouldn\u0027t change so a one-time provisioning in the factory is good.  Actually, maybe we should go the other direction (send SE-based IDs to the TEE), since the SE is generally harder for attackers to manipulate?",
       "parentUuid": "5345c4bc_065bb2f4",
+      "revId": "0cc617cab04a93ec64a865ba4c96113204e71a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbe7d72f_6d9acfc6",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-02-23T17:04:43Z",
+      "side": 1,
+      "message": "Nah, I just guessed wrong at what the underlying aim was.",
+      "parentUuid": "2486030f_b4a2f389",
       "revId": "0cc617cab04a93ec64a865ba4c96113204e71a13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
