@@ -16,6 +16,23 @@
       "message": "Hi Seth and David,\n\nCould you help to review if we can export extractDerSubjectFromCertificate() for mDL oem hal using?\n\nI need this API to extract subject name from a X509 certificate.\n\nThank you,\nJoseph.",
       "revId": "5341ebba50d1c846d17f9c7e1e759203b5ddc100",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd6d074f_5bfa6d9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-02-23T16:34:47Z",
+      "side": 1,
+      "message": "LGTM, but I recall @zeuthen saying he wanted to deprecate this library at some point. If that\u0027s the plan, there may be a better home we can move this utility into.",
+      "revId": "5341ebba50d1c846d17f9c7e1e759203b5ddc100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
