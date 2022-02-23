@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b23e511a_4c36bf57",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-02-23T15:50:13Z",
+      "side": 1,
+      "message": "We\u0027ve decided to standardize on SHA-256 of the key, so yes.  I need to figure out where else we need to document this.  But this definition (and the rest of the test, which I\u0027m going to try to finish today) should act as a forcing function so that all KeyMint2 implementations use SHA-256 (or at least, something that is 32 bytes).",
+      "parentUuid": "c4f9e0e0_59cc9bcf",
+      "revId": "0cc617cab04a93ec64a865ba4c96113204e71a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5345c4bc_065bb2f4",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2486030f_b4a2f389",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-02-23T15:50:13Z",
+      "side": 1,
+      "message": "Interesting... are you thinking this is a way to simplify factory provisioning, or something else?  The IDs shouldn\u0027t change so a one-time provisioning in the factory is good.  Actually, maybe we should go the other direction (send SE-based IDs to the TEE), since the SE is generally harder for attackers to manipulate?",
+      "parentUuid": "5345c4bc_065bb2f4",
+      "revId": "0cc617cab04a93ec64a865ba4c96113204e71a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6dacffe6_29436c57",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
         "patchSetId": 5
@@ -48,6 +84,24 @@
       "writtenOn": "2022-02-23T10:17:05Z",
       "side": 1,
       "message": "Would it make sense to also include `OS_VERSION` and `OS_PATCHLEVEL` here? (cf. the Trusty `SetBootParamsRequest` message: https://android.googlesource.com/trusty/app/keymaster/+/refs/heads/master/trusty_keymaster_messages.h#132)  Or can the HAL service safely provide those at start-of-day?",
+      "revId": "0cc617cab04a93ec64a865ba4c96113204e71a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c59cb3a_4cd97fcf",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-02-23T15:50:13Z",
+      "side": 1,
+      "message": "Heh.  I actually included those in the first iteration, but Manish pointed out that those are retrieved from system properties, and actually have to come from properties, because of GSI.",
+      "parentUuid": "6dacffe6_29436c57",
       "revId": "0cc617cab04a93ec64a865ba4c96113204e71a13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
