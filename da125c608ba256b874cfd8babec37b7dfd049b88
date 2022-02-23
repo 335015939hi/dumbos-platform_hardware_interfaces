@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f2793b4_ad3894aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2022-02-23T08:29:44Z",
+      "side": 1,
+      "message": "I think the title does not match what it actually is: removing BtAudio HIDL from compatibility_matrices?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "da125c608ba256b874cfd8babec37b7dfd049b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
