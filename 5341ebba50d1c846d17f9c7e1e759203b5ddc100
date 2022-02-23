@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "488d011f_2a8b9615",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2022-02-23T07:41:10Z",
+      "side": 1,
+      "message": "Hi Seth and David,\n\nCould you help to review if we can export extractDerSubjectFromCertificate() for mDL oem hal using?\n\nI need this API to extract subject name from a X509 certificate.\n\nThank you,\nJoseph.",
+      "revId": "5341ebba50d1c846d17f9c7e1e759203b5ddc100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
