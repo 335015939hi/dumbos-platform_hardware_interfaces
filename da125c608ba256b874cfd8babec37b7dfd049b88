@@ -22,7 +22,30 @@
       },
       "revId": "da125c608ba256b874cfd8babec37b7dfd049b88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1762f14f_0c2fc96b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-02-23T10:53:36Z",
+      "side": 1,
+      "message": "The tile is what we would like to do. We deprecated the bluetooth.audio HIDL HAL to make the AIDL mandatory for Android T. It didn\u0027t remove all bluetooth.audio HIDL HAL from compatibility_matrices. We only deprecate it in the current one.",
+      "parentUuid": "1f2793b4_ad3894aa",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "da125c608ba256b874cfd8babec37b7dfd049b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
-  ],
-  "submitRequirementResults": []
+  ]
 }
