@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4f9e0e0_59cc9bcf",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-02-23T10:17:05Z",
+      "side": 1,
+      "message": "Is this guaranteed to be exactly 32 bytes?  \n\n(I\u0027ve seen code that copes with smaller sizes (https://android.googlesource.com/trusty/app/keymaster/+/refs/heads/master/trusty_keymaster_context.cpp#854) but I don\u0027t know if it happens in practice.)",
+      "revId": "0cc617cab04a93ec64a865ba4c96113204e71a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5345c4bc_065bb2f4",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-02-23T10:17:05Z",
+      "side": 1,
+      "message": "Idle thought: given that device ID attestation is going to become mandatory (http://b/203089832), might it be helpful for the TEE to also send over the various `ATTESTATION_ID_{BRAND,DEVICE,PRODUCT,...}` values to StrongBox?",
+      "revId": "0cc617cab04a93ec64a865ba4c96113204e71a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dacffe6_29436c57",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-02-23T10:17:05Z",
+      "side": 1,
+      "message": "Would it make sense to also include `OS_VERSION` and `OS_PATCHLEVEL` here? (cf. the Trusty `SetBootParamsRequest` message: https://android.googlesource.com/trusty/app/keymaster/+/refs/heads/master/trusty_keymaster_messages.h#132)  Or can the HAL service safely provide those at start-of-day?",
+      "revId": "0cc617cab04a93ec64a865ba4c96113204e71a13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
