@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5c68d614_e2a5fb0a",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-24T00:11:23Z",
+      "side": 1,
+      "message": "see also libbinder_random_parcel. We should fuzz this at a really low level, without needing to construct any structures.",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 18
+      },
+      "revId": "0e0a2373451ce1cdaf1be40c4098d512f2ff1bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecc10ca5_5f6c8cf1",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-02-24T00:11:23Z",
+      "side": 1,
+      "message": "we should be running everything in random orders",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 25
+      },
+      "revId": "0e0a2373451ce1cdaf1be40c4098d512f2ff1bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b99dc838_2c5babfc",
         "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.h",
         "patchSetId": 5
