@@ -16,6 +16,23 @@
       "message": "please try to get this in today - approving after API freeze - looks like this just missed",
       "revId": "0a68a920ccbf94ff86ed509aedcf29b92fdce51e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58211a94_a5f7ccdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581454
+      },
+      "writtenOn": "2022-02-24T19:37:53Z",
+      "side": 1,
+      "message": "Bypass presubmit because\n1) the patchset 5 had been PV +2ed. The new revision just have comment change. The build error is on master branch.\n2) the CL need to merged ASAP to catched API freeze",
+      "revId": "0a68a920ccbf94ff86ed509aedcf29b92fdce51e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
