@@ -2,6 +2,7 @@
     <hal format="aidl">
         <name>android.hardware.security.keymint</name>
         <fqname>IKeyMintDevice/default</fqname>
+        <version>2</version>
     </hal>
     <hal format="aidl">
         <name>android.hardware.security.keymint</name>
