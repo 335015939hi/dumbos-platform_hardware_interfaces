@@ -16,6 +16,24 @@
       "message": "Does this need to get \u003cversion\u003e2\u003c/version\u003e too?",
       "revId": "65f602094b62f5e9c76598e4811ce48def6c97a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a79960f_d6086049",
+        "filename": "security/keymint/aidl/default/android.hardware.security.keymint-service.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-02-28T15:23:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d946fa1_3d376d1e",
+      "revId": "65f602094b62f5e9c76598e4811ce48def6c97a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
