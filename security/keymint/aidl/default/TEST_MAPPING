@@ -2,6 +2,9 @@
   "presubmit" : [
     {
       "name" : "vts_treble_vintf_framework_test"
+    },
+    {
+      "name" : "VtsAidlKeyMintTargetTest"
     }
   ]
 }
