@@ -400,7 +400,9 @@ TEST_P(TunerDemuxHidlTest, openDemux) {
     mFrontendTests.getFrontendIdByType(frontendArray[defaultFrontend].type, feId);
     if (frontendArray[DVBT].type != FrontendType::DVBC)
         GTEST_SKIP() << "Skipping this test since not DVBC.";
-    ASSERT_TRUE(feId != INVALID_ID);
+    if (feId == INVALID_ID) {
+        return;
+    }
     ASSERT_TRUE(mFrontendTests.openFrontendById(feId));
     ASSERT_TRUE(mFrontendTests.setFrontendCallback());
     ASSERT_TRUE(mDemuxTests.openDemux(demux, demuxId));
