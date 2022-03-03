@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21849768_acd737d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1869221
+      },
+      "writtenOn": "2022-03-03T22:45:56Z",
+      "side": 1,
+      "message": "ping for Ayushi. Although I would assume no crashes discovered yet, since it has only been ran locally so far.",
+      "parentUuid": "bd01dc1a_f920980c",
+      "revId": "0e0a2373451ce1cdaf1be40c4098d512f2ff1bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c68d614_e2a5fb0a",
         "filename": "automotive/sv/1.0/default/tests/fuzzer/Android.bp",
         "patchSetId": 5
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "Removed \u0027libbinder\u0027 dependency as it wasn\u0027t really required",
       "parentUuid": "5c68d614_e2a5fb0a",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 18
+      },
+      "revId": "0e0a2373451ce1cdaf1be40c4098d512f2ff1bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f6c5b5f_e6cf7744",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1869221
+      },
+      "writtenOn": "2022-03-03T22:45:56Z",
+      "side": 1,
+      "message": "Ayushi can you resolve this if it\u0027s done? I didn\u0027t want to click done for you in case you left it open for a reason.",
+      "parentUuid": "b7437ed3_722b8331",
       "range": {
         "startLine": 33,
         "startChar": 9,
