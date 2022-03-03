@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9664a789_4b25c127",
+        "filename": "automotive/can/1.0/default/tests/fuzzer/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1013984
+      },
+      "writtenOn": "2022-03-03T22:52:08Z",
+      "side": 1,
+      "message": "this is AOSP code, we shouldn\u0027t have links to internal sites",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 41
+      },
+      "revId": "8fbe33dfbe964d912f37921a4a1e316d03079449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
