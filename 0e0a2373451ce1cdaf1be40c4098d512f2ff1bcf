@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca8e53c5_e6a6d513",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-04T03:25:52Z",
+      "side": 1,
+      "message": "Hi, it did not discover any crashes so far.",
+      "parentUuid": "21849768_acd737d6",
+      "revId": "0e0a2373451ce1cdaf1be40c4098d512f2ff1bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c68d614_e2a5fb0a",
         "filename": "automotive/sv/1.0/default/tests/fuzzer/Android.bp",
         "patchSetId": 5
@@ -114,6 +132,30 @@
       "side": 1,
       "message": "Ayushi can you resolve this if it\u0027s done? I didn\u0027t want to click done for you in case you left it open for a reason.",
       "parentUuid": "b7437ed3_722b8331",
+      "range": {
+        "startLine": 33,
+        "startChar": 9,
+        "endLine": 33,
+        "endChar": 18
+      },
+      "revId": "0e0a2373451ce1cdaf1be40c4098d512f2ff1bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46b8dfac_edad5f9a",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-04T03:25:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f6c5b5f_e6cf7744",
       "range": {
         "startLine": 33,
         "startChar": 9,
