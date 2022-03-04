@@ -46,6 +46,30 @@
       },
       "revId": "d65dc06ddc44d82e664ea19dc28b7d44d46aa656",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dd9e0c7_c752a14d",
+        "filename": "neuralnetworks/utils/adapter/hidl/src/PreparedModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-03-04T00:16:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a2fe4584_e72f10d2",
+      "range": {
+        "startLine": 383,
+        "startChar": 4,
+        "endLine": 383,
+        "endChar": 9
+      },
+      "revId": "d65dc06ddc44d82e664ea19dc28b7d44d46aa656",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
