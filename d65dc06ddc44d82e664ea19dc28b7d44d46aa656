@@ -22,6 +22,30 @@
       },
       "revId": "d65dc06ddc44d82e664ea19dc28b7d44d46aa656",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2fe4584_e72f10d2",
+        "filename": "neuralnetworks/utils/adapter/hidl/src/PreparedModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-03-04T00:15:26Z",
+      "side": 1,
+      "message": "This was fixing a clang-tidy warning that I have setup locally. Specifically, \"cb\" accepts \"burstContext\" as a const reference, meaning std::move has no end effect. By default, I like to have objects as const, so I made this const once \"std::move\" was removed.",
+      "parentUuid": "a51c5214_f0720a26",
+      "range": {
+        "startLine": 383,
+        "startChar": 4,
+        "endLine": 383,
+        "endChar": 9
+      },
+      "revId": "d65dc06ddc44d82e664ea19dc28b7d44d46aa656",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
