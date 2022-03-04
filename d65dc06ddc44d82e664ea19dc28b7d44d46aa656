@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a51c5214_f0720a26",
+        "filename": "neuralnetworks/utils/adapter/hidl/src/PreparedModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1347854
+      },
+      "writtenOn": "2022-03-04T00:13:23Z",
+      "side": 1,
+      "message": "I wonder why make this change?",
+      "range": {
+        "startLine": 383,
+        "startChar": 4,
+        "endLine": 383,
+        "endChar": 9
+      },
+      "revId": "d65dc06ddc44d82e664ea19dc28b7d44d46aa656",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
