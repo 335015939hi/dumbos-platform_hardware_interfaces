@@ -55,6 +55,11 @@ LeAudioSoftwareInputAudioProvider::LeAudioSoftwareInputAudioProvider()
   session_type_ = SessionType::LE_AUDIO_SOFTWARE_DECODING_DATAPATH;
 }
 
+LeAudioSoftwareBroadcastAudioProvider::LeAudioSoftwareBroadcastAudioProvider()
+    : LeAudioSoftwareAudioProvider() {
+  session_type_ = SessionType::LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH;
+}
+
 LeAudioSoftwareAudioProvider::LeAudioSoftwareAudioProvider()
     : BluetoothAudioProvider(), data_mq_(nullptr) {}
 
@@ -64,7 +69,10 @@ bool LeAudioSoftwareAudioProvider::isValid(const SessionType& sessionType) {
 
 ndk::ScopedAStatus LeAudioSoftwareAudioProvider::startSession(
     const std::shared_ptr<IBluetoothAudioPort>& host_if,
-    const AudioConfiguration& audio_config, DataMQDesc* _aidl_return) {
+    const AudioConfiguration& audio_config,
+    const std::vector<LatencyMode>& latency_modes,
+    DataMQDesc* _aidl_return) {
+  latency_modes_ = latency_modes;
   if (audio_config.getTag() != AudioConfiguration::pcmConfig) {
     LOG(WARNING) << __func__ << " - Invalid Audio Configuration="
                  << audio_config.toString();
@@ -78,7 +86,9 @@ ndk::ScopedAStatus LeAudioSoftwareAudioProvider::startSession(
   }
 
   uint32_t buffer_modifier = 0;
-  if (session_type_ == SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH)
+  if (session_type_ == SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH ||
+      session_type_ ==
+          SessionType::LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH)
     buffer_modifier = kBufferOutCount;
   else if (session_type_ == SessionType::LE_AUDIO_SOFTWARE_DECODING_DATAPATH)
     buffer_modifier = kBufferInCount;
@@ -112,8 +122,8 @@ ndk::ScopedAStatus LeAudioSoftwareAudioProvider::startSession(
   }
   data_mq_ = std::move(temp_data_mq);
 
-  return BluetoothAudioProvider::startSession(host_if, audio_config,
-                                              _aidl_return);
+  return BluetoothAudioProvider::startSession(
+      host_if, audio_config, latency_modes, _aidl_return);
 }
 
 ndk::ScopedAStatus LeAudioSoftwareAudioProvider::onSessionReady(
