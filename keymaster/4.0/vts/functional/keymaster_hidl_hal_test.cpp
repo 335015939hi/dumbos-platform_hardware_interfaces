@@ -28,6 +28,7 @@
 #include <openssl/x509.h>
 
 #include <cutils/properties.h>
+#include <sys/system_properties.h>
 
 #include <keymasterV4_0/attestation_record.h>
 #include <keymasterV4_0/key_param_output.h>
@@ -497,9 +498,33 @@ bool verify_attestation_record(const string& challenge, const string& app_id,
     EXPECT_EQ(ErrorCode::OK, error);
 
     if (avb_verification_enabled()) {
-        EXPECT_NE(property_get("ro.boot.vbmeta.digest", property_value, ""), 0);
-        string prop_string(property_value);
-        EXPECT_EQ(prop_string.size(), 64);
+        const prop_info *pi = __system_property_find("ro.boot.vbmeta.digest");
+        string prop_string;
+        if (pi != nullptr) {
+            __system_property_read_callback(
+                pi,
+                [](void*cookie, const char*, const char *value, unsigned) {
+                    auto prop_string = reinterpret_cast<std::string *>(cookie);
+                    *prop_string     = value;
+                },
+                &prop_string);
+        }
+
+        char alg_string[PROPERTY_VALUE_MAX] = {};
+        uint32_t exp_length = 0;
+        EXPECT_NE(property_get("ro.boot.vbmeta.hash_alg", alg_string, ""), 0);
+		if (!strcmp(alg_string, "sha512")) {
+            exp_length = 128;
+        } else if (!strcmp(alg_string, "sha384")) {
+            exp_length = 96;
+        } else if (!strcmp(alg_string, "sha256")) {
+            exp_length = 64;
+        } else if (!strcmp(alg_string, "sha224")) {
+            exp_length = 56;
+        } else {
+            exp_length = 64;
+        }
+        EXPECT_EQ(prop_string.size(), exp_length);
         EXPECT_EQ(prop_string, bin2hex(verified_boot_hash));
 
         EXPECT_NE(property_get("ro.boot.vbmeta.device_state", property_value, ""), 0);
