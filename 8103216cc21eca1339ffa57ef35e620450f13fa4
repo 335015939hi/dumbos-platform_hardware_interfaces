@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d684408_c76136f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-03-07T22:27:01Z",
+      "side": 1,
+      "message": "why?\n\nideally we can move these ownership files up several directories (bluetooth/OWNERS) for instance. See email thread \"Feel free to consolidate OWNERS files for .hal interfaces*!\" The only blocker before was HIDL, but now that we\u0027re moving to AIDL, teams should be able to have one OWNERS files.\n\nCould the testing team infra use the owners plugin so it can compute the proper ownership? Or could it use the lca OWNERS file?",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 12,
+        "endChar": 43
+      },
+      "revId": "8103216cc21eca1339ffa57ef35e620450f13fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f7f83e4_717509ce",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
