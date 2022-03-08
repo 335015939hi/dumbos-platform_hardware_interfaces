@@ -239,7 +239,7 @@ enum Tag {
      * milliseconds since Jan 1, 1970.  If a key with this tag is used prior to the specified date
      * and time, IKeyMintDevice::begin() must return ErrorCode::KEY_NOT_YET_VALID;
      *
-     * Need not be hardware-enforced.
+     * Cannot be hardware-enforced.
      */
     ACTIVE_DATETIME = TagType.DATE | 400,
 
@@ -251,7 +251,7 @@ enum Tag {
      *
      * The value is a 64-bit integer representing milliseconds since January 1, 1970.
      *
-     * Need not be hardware-enforced.
+     * Cannot be hardware-enforced.
      */
     ORIGINATION_EXPIRE_DATETIME = TagType.DATE | 401,
 
@@ -263,7 +263,7 @@ enum Tag {
      *
      * The value is a 64-bit integer representing milliseconds since January 1, 1970.
      *
-     * Need not be hardware-enforced.
+     * Cannot be hardware-enforced.
      */
     USAGE_EXPIRE_DATETIME = TagType.DATE | 402,
 

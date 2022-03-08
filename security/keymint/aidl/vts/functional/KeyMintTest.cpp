@@ -1842,6 +1842,14 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationTags) {
             EXPECT_TRUE(hw_enforced.Contains(tag.tag) || sw_enforced.Contains(tag.tag))
                     << tag << " not in hw:" << hw_enforced << " nor sw:" << sw_enforced;
         }
+        // Some date/time tags cannot be hardware enforced, but this was only made clear in the
+        // KeyMint spec as of v2.
+        if ((AidlVersion() >= 2) &&
+            ((tag.tag == TAG_ACTIVE_DATETIME) || (tag.tag == TAG_ORIGINATION_EXPIRE_DATETIME) ||
+             (tag.tag == TAG_USAGE_EXPIRE_DATETIME))) {
+            EXPECT_TRUE(!hw_enforced.Contains(tag.tag))
+                    << "datetime tag " << tag << " unexpectedly in hw:" << hw_enforced;
+        }
 
         // Verifying the attestation record will check for the specific tag because
         // it's included in the authorizations.

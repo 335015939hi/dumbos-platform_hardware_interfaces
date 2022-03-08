@@ -214,12 +214,7 @@ bool KeyMintAidlTestBase::Curve25519Supported() {
     }
 
     // Curve 25519 was included in version 2 of the KeyMint interface.
-    int32_t version = 0;
-    auto status = keymint_->getInterfaceVersion(&version);
-    if (!status.isOk()) {
-        ADD_FAILURE() << "Failed to determine interface version";
-    }
-    return version >= 2;
+    return AidlVersion() >= 2;
 }
 
 ErrorCode KeyMintAidlTestBase::GetReturnErrorCode(const Status& result) {
