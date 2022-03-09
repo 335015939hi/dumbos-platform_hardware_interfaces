@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53406d88_0f917cfe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-03-09T17:28:46Z",
+      "side": 1,
+      "message": "Why doesn\u0027t radio/1.0/vts/OWNERS apply to all subdirectories (like functional/)?\n\nradio/OWNERS will work for most of the cases, but I was assuming it wasn\u0027t going to work since radio/1.0/vts/OWNERS doesn\u0027t seem to work on subdirectories.",
+      "parentUuid": "cf4dfaec_797a800e",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 12,
+        "endChar": 43
+      },
+      "revId": "8103216cc21eca1339ffa57ef35e620450f13fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f7f83e4_717509ce",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
