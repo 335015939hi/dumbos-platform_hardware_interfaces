@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf4dfaec_797a800e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1442286
+      },
+      "writtenOn": "2022-03-09T17:14:06Z",
+      "side": 1,
+      "message": "you can put the OWNERS file in the upper level, This would make all modules in subdirectory fall back to the upper level owners.\n\nIn this example hardware/interfaces/OWNERS will be collected as OWNERS. The rule is that we\u0027ll fallback as same in owners plugin.\n\nModule level OWNERS provides more accurate acl, but if it\u0027s not needed.\n\nFor example, lots of these cases are just including radio/1.0/vts/OWNERS\n\nwhy not just place this OWNERS under radio/OWNERS and you don\u0027t need OWNERS in sub dir, nor do you need include.\n\nIn dir where these owners don\u0027t apply you can still add OWNERS files",
+      "parentUuid": "8d684408_c76136f2",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 12,
+        "endChar": 43
+      },
+      "revId": "8103216cc21eca1339ffa57ef35e620450f13fa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f7f83e4_717509ce",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
