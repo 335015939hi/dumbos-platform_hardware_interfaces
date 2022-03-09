@@ -135,6 +135,6 @@ struct JsonOutput {
  *     "csr": <base64 CBOR CSR>
  *   }
  */
-JsonOutput jsonEncodeCsrWithBuild(const cppbor::Array& csr);
+JsonOutput jsonEncodeCsrWithBuild(const char* instance_name, const cppbor::Array& csr);
 
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
