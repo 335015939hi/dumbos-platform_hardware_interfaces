@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c98a56e1_feb2b1b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-03-09T06:51:12Z",
+      "side": 1,
+      "message": "Looks good, but you also need to remove broadcast radio from Cuttlefish VINTF (TH correctly detects build breakage because there\u0027s a duplicate).",
+      "revId": "ac92c82d2d3a277eea2788d2fa4ce38d5ba9e241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
