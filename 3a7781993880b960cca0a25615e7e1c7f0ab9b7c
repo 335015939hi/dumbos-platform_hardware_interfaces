@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf1406ae_70ce8cbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-03-09T20:16:48Z",
+      "side": 1,
+      "message": "I hope we\u0027re all in agreement that we do actually want a chain that\u0027s valid? It\u0027s otherwise rather tricky to validate it and find out which key was used to sign it.",
+      "revId": "3a7781993880b960cca0a25615e7e1c7f0ab9b7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
