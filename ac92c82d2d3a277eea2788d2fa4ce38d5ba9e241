@@ -16,6 +16,24 @@
       "message": "Looks good, but you also need to remove broadcast radio from Cuttlefish VINTF (TH correctly detects build breakage because there\u0027s a duplicate).",
       "revId": "ac92c82d2d3a277eea2788d2fa4ce38d5ba9e241",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaaf2644_2630905b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1939845
+      },
+      "writtenOn": "2022-03-10T14:01:46Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/device/google/cuttlefish/+/2020178\n\nHopefully this does the trick. I saw one in hikey as well but hopefully no one cares about that 😄",
+      "parentUuid": "c98a56e1_feb2b1b5",
+      "revId": "ac92c82d2d3a277eea2788d2fa4ce38d5ba9e241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
