@@ -46,6 +46,30 @@
       },
       "revId": "f8fb088cf524d5524b802feb9a9ed529b4faf026",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a60ddb47_dd438ec5",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-03-10T05:44:51Z",
+      "side": 1,
+      "message": "good idea! Updated",
+      "parentUuid": "e264d5f2_d0b38788",
+      "range": {
+        "startLine": 139,
+        "startChar": 34,
+        "endLine": 139,
+        "endChar": 45
+      },
+      "revId": "f8fb088cf524d5524b802feb9a9ed529b4faf026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
