@@ -34,6 +34,23 @@
       "parentUuid": "c98a56e1_feb2b1b5",
       "revId": "ac92c82d2d3a277eea2788d2fa4ce38d5ba9e241",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edd0cd20_bc92cdd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-03-11T18:04:45Z",
+      "side": 1,
+      "message": "Merge conflict resolved in ag/17165429 and other changes in that topic. Waiting for approval.",
+      "revId": "ac92c82d2d3a277eea2788d2fa4ce38d5ba9e241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
