@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d4a87c2_f9c537a6",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-14T09:18:43Z",
+      "side": 1,
+      "message": "Now that the tests are split out into individual block modes, this final tag can only be included for the specific GCM mode test.  For CBC/ECB/CTR there is no tag, and setting TAG_MIN_MAC_LENGTH is invalid.",
+      "revId": "19a4ca17eab8a914436d23b4ca9e968765259def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
