@@ -39,6 +39,30 @@
       },
       "revId": "7aab06856ca560eb97469f0bddf219ccb01fd868",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c39fbdc5_ce61fa27",
+        "filename": "security/dice/aidl/vts/fuctional/dice_test.rs",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2022-03-14T22:40:03Z",
+      "side": 1,
+      "message": "It was my understanding from our conversations, that the library would check the signature and format and provide the payload in a structured way for so that it can be checked against an expectation that the verifier might have.",
+      "parentUuid": "3847cf84_36126ef8",
+      "range": {
+        "startLine": 63,
+        "startChar": 16,
+        "endLine": 63,
+        "endChar": 46
+      },
+      "revId": "7aab06856ca560eb97469f0bddf219ccb01fd868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
