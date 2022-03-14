@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1633de4b_5f37db66",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-03-14T23:55:03Z",
+      "side": 1,
+      "message": "Why the callback would be null? and why we still store the null callback in obvservers_? Is it expected?",
+      "range": {
+        "startLine": 434,
+        "startChar": 0,
+        "endLine": 436,
+        "endChar": 5
+      },
+      "revId": "edc5c74c15374d6114a0f3ea03599e4e5234355b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
