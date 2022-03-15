@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78b2182c_e5647347",
+        "filename": "security/dice/aidl/default/android.hardware.security.dice-service.non-secure-software.rc",
+        "patchSetId": 14
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-03-15T19:28:27Z",
+      "side": 1,
+      "message": "dependent",
+      "range": {
+        "startLine": 6,
+        "startChar": 33,
+        "endLine": 6,
+        "endChar": 41
+      },
+      "revId": "86124738cd468e5fb9306ef043ffe87598ca295b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
