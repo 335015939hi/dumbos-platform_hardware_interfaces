@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d500ff2f_f31280f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2022-03-15T18:34:27Z",
+      "side": 1,
+      "message": "RadioAccessNetwork was supposed to be all the access networks that are radio types (ie. everything except for IWLAN). However, we combined it in AIDL to just include both since it was better to have a single type to use for everything.",
+      "parentUuid": "6dc8e024_81e33e27",
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0135101d_8c70d6db",
@@ -94,6 +112,30 @@
       "writtenOn": "2022-03-15T18:14:17Z",
       "side": 1,
       "message": "nit: worth spelling out IWLAN explicitly. Up to you.",
+      "range": {
+        "startLine": 123,
+        "startChar": 8,
+        "endLine": 123,
+        "endChar": 16
+      },
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0334ce36_22acfbb1",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2022-03-15T18:34:27Z",
+      "side": 1,
+      "message": "Yes, please specify IWLAN",
+      "parentUuid": "65f01d21_bf1c8ea1",
       "range": {
         "startLine": 123,
         "startChar": 8,
