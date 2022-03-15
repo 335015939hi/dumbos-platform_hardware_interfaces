@@ -768,7 +768,7 @@ TEST_P(AttestKeyTest, EcdsaAttestationID) {
         vector<Certificate> attested_key_cert_chain;
         auto result = GenerateKey(builder, attest_key, &attested_key_blob,
                                   &attested_key_characteristics, &attested_key_cert_chain);
-        if (result == ErrorCode::CANNOT_ATTEST_IDS) {
+        if (result == ErrorCode::CANNOT_ATTEST_IDS && !isDeviceIdAttestationRequired()) {
             continue;
         }
 
@@ -839,7 +839,8 @@ TEST_P(AttestKeyTest, EcdsaAttestationMismatchID) {
         auto result = GenerateKey(builder, attest_key, &attested_key_blob,
                                   &attested_key_characteristics, &attested_key_cert_chain);
 
-        ASSERT_TRUE(result == ErrorCode::CANNOT_ATTEST_IDS || result == ErrorCode::INVALID_TAG)
+        ASSERT_TRUE((result == ErrorCode::CANNOT_ATTEST_IDS && !isDeviceIdAttestationRequired()) ||
+                    result == ErrorCode::INVALID_TAG)
                 << "result = " << result;
     }
     CheckedDeleteKey(&attest_key.keyBlob);

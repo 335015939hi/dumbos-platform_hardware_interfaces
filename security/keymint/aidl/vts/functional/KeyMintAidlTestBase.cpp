@@ -207,6 +207,15 @@ uint32_t KeyMintAidlTestBase::boot_patch_level() {
     return boot_patch_level(key_characteristics_);
 }
 
+bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
+    int32_t version = 0;
+    auto status = keymint_->getInterfaceVersion(&version);
+    if (!status.isOk()) {
+        return false;
+    }
+    return version >= 2;
+}
+
 bool KeyMintAidlTestBase::Curve25519Supported() {
     // Strongbox never supports curve 25519.
     if (SecLevel() == SecurityLevel::STRONGBOX) {

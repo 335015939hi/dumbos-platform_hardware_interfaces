@@ -1927,8 +1927,8 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
         if (SecLevel() == SecurityLevel::STRONGBOX) {
             if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
         }
-        if (result == ErrorCode::CANNOT_ATTEST_IDS) {
-            // Device ID attestation is optional; KeyMint may not support it at all.
+        if (result == ErrorCode::CANNOT_ATTEST_IDS && !isDeviceIdAttestationRequired()) {
+            // From KeyMint version 2 it is mandatory to support DeviceId attestation.
             continue;
         }
         ASSERT_EQ(result, ErrorCode::OK);
