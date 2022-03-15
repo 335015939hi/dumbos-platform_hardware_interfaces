@@ -106,9 +106,29 @@ aidl::RadioAccessSpecifier toAidl(const V1_5::RadioAccessSpecifier& spec) {
     };
 }
 
+V1_5::RadioAccessNetworks toRadioAccessNetworks(AccessNetwork val) {
+    switch (val) {
+        case AccessNetwork::UNKNOWN:
+            return V1_5::RadioAccessNetworks::UNKNOWN;
+        case AccessNetwork::GERAN:
+            return V1_5::RadioAccessNetworks::GERAN;
+        case AccessNetwork::UTRAN:
+            return V1_5::RadioAccessNetworks::UTRAN;
+        case AccessNetwork::EUTRAN:
+            return V1_5::RadioAccessNetworks::EUTRAN;
+        case AccessNetwork::CDMA2000:
+            return V1_5::RadioAccessNetworks::CDMA2000;
+        case AccessNetwork::NGRAN:
+            return V1_5::RadioAccessNetworks::NGRAN;
+        default:
+            return V1_5::RadioAccessNetworks::UNKNOWN;
+    }
+}
+
 V1_5::RadioAccessSpecifier toHidl(const aidl::RadioAccessSpecifier& spec) {
     return {
-            .radioAccessNetwork = V1_5::RadioAccessNetworks{spec.accessNetwork},
+            .radioAccessNetwork =
+                    V1_5::RadioAccessNetworks{toRadioAccessNetworks(spec.accessNetwork)},
             .bands = toHidl(spec.bands),
             .channels = spec.channels,
     };
