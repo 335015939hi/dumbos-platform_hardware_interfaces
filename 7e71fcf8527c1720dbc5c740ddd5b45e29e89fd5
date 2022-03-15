@@ -16,6 +16,23 @@
       "message": "On the plus side, this does seem to catch KeyMint VTS failures -- the failing tests are ImportWrappedKey not working on Cuttlefish.\n\nOn the minus side, that means we can\u0027t check this in until CF gets a clean VtsAidlKeyMintTargetTest run...",
       "revId": "7e71fcf8527c1720dbc5c740ddd5b45e29e89fd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "974c0052_b3de7656",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-03-15T17:15:14Z",
+      "side": 1,
+      "message": "As long as TreeHugger is happy, I\u0027m happy 👍",
+      "revId": "7e71fcf8527c1720dbc5c740ddd5b45e29e89fd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
