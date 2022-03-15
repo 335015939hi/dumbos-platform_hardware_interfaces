@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0135101d_8c70d6db",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-03-15T18:28:31Z",
+      "side": 1,
+      "message": "You need to convert this one as well. How about `fromRadioAccessNetwork`?",
+      "range": {
+        "startLine": 103,
+        "startChar": 29,
+        "endLine": 103,
+        "endChar": 42
+      },
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58e13ce7_8395bead",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-03-15T18:28:31Z",
+      "side": 1,
+      "message": "You also need to use it in setNetworkSelectionModeManual.",
+      "range": {
+        "startLine": 109,
+        "startChar": 26,
+        "endLine": 109,
+        "endChar": 47
+      },
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "65f01d21_bf1c8ea1",
         "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
         "patchSetId": 1
@@ -54,6 +100,30 @@
       "writtenOn": "2022-03-15T18:14:17Z",
       "side": 1,
       "message": "no need to cast.\n```\n.radioAccessNetwork \u003d toHidl(spec.accessNetwork),\n```",
+      "range": {
+        "startLine": 131,
+        "startChar": 20,
+        "endLine": 131,
+        "endChar": 46
+      },
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c795351f_684ddeeb",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-03-15T18:28:31Z",
+      "side": 1,
+      "message": "Correction:\n```\n.radioAccessNetwork \u003d toRadioAccessNetworks(spec.accessNetwork),\n```",
+      "parentUuid": "38248b57_4f2d16bd",
       "range": {
         "startLine": 131,
         "startChar": 20,
