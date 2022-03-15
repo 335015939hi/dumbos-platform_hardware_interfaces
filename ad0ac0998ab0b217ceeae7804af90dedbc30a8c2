@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "683791de_899f1c4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-03-15T18:14:17Z",
+      "side": 1,
+      "message": "Please hold on a moment, I\u0027m checking something :)",
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65f01d21_bf1c8ea1",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-03-15T18:14:17Z",
+      "side": 1,
+      "message": "nit: worth spelling out IWLAN explicitly. Up to you.",
+      "range": {
+        "startLine": 123,
+        "startChar": 8,
+        "endLine": 123,
+        "endChar": 16
+      },
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38248b57_4f2d16bd",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-03-15T18:14:17Z",
+      "side": 1,
+      "message": "no need to cast.\n```\n.radioAccessNetwork \u003d toHidl(spec.accessNetwork),\n```",
+      "range": {
+        "startLine": 131,
+        "startChar": 20,
+        "endLine": 131,
+        "endChar": 46
+      },
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
