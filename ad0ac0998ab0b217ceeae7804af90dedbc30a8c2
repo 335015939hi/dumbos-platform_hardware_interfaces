@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dc8e024_81e33e27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-03-15T18:30:31Z",
+      "side": 1,
+      "message": "General question: what\u0027s the difference between RadioAccessNetworks and AccessNetworks? HIDL has both, AIDL has only the latter.",
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0135101d_8c70d6db",
