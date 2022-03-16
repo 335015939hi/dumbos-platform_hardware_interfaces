@@ -61,7 +61,8 @@ parcelable KeyCreationResult {
      * the non-attestation case, whether the key can self-sign.
      *
      * 1.  Asymmetric key attestation with factory key.  If Tag::ATTESTATION_CHALLENGE is provided
-     *     and the `attestationKey` parameter on the generate/import call is null, the returned
+     *     and the `attestationKey` parameter on the generate/import call is null, and if the
+     *     KeyMint implementation supports factory-provisioned attestation keys, the returned
      *     certificate chain must contain an attestation certificate signed with a factory-
      *     provisioned attestation key, and the full certificate chain for that factory-provisioned
      *     attestation key.  Tag::ATTESTATION_APPLICATION_ID must also be provided when the
