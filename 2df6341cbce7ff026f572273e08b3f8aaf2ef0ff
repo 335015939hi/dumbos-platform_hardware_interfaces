@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1079f38e_acd83819",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-03-16T16:41:53Z",
+      "side": 1,
+      "message": "LGTM conditional on default case for both switch-es.",
+      "revId": "2df6341cbce7ff026f572273e08b3f8aaf2ef0ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67f11b93_104074b8",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-03-16T16:41:53Z",
+      "side": 1,
+      "message": "Ouch, but you also need that default case too! Same with fromRadioAccessNetwork.",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 10
+      },
+      "revId": "2df6341cbce7ff026f572273e08b3f8aaf2ef0ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
