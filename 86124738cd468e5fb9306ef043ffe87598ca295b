@@ -3,6 +3,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ffc4d83d_970b352d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-03-16T07:01:26Z",
+      "side": 1,
+      "message": "Is this correct?",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "86124738cd468e5fb9306ef043ffe87598ca295b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d9712e6_4f49f78b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-03-16T07:01:26Z",
+      "side": 1,
+      "message": "Added few nits and clarification questions.",
+      "revId": "86124738cd468e5fb9306ef043ffe87598ca295b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "590b3c28_65f9fbac",
+        "filename": "security/dice/aidl/default/android.hardware.security.dice-service.non-secure-software.rc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-03-16T07:01:26Z",
+      "side": 1,
+      "message": "Nit: comma",
+      "range": {
+        "startLine": 4,
+        "startChar": 80,
+        "endLine": 4,
+        "endChar": 81
+      },
+      "revId": "86124738cd468e5fb9306ef043ffe87598ca295b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78b2182c_e5647347",
         "filename": "security/dice/aidl/default/android.hardware.security.dice-service.non-secure-software.rc",
         "patchSetId": 14
@@ -19,6 +82,52 @@
         "startChar": 33,
         "endLine": 6,
         "endChar": 41
+      },
+      "revId": "86124738cd468e5fb9306ef043ffe87598ca295b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12cd590f_2e799aae",
+        "filename": "security/dice/aidl/default/android.hardware.security.dice-service.non-secure-software.rc",
+        "patchSetId": 14
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-03-16T07:01:26Z",
+      "side": 1,
+      "message": "Just for my information, can you please briefly clarify how the state can be preserved? Is it by persisting?",
+      "range": {
+        "startLine": 7,
+        "startChar": 51,
+        "endLine": 7,
+        "endChar": 60
+      },
+      "revId": "86124738cd468e5fb9306ef043ffe87598ca295b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "038b493e_f039e731",
+        "filename": "security/dice/aidl/default/android.hardware.security.dice-service.non-secure-software.rc",
+        "patchSetId": 14
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-03-16T07:01:26Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 7,
+        "startChar": 48,
+        "endLine": 7,
+        "endChar": 50
       },
       "revId": "86124738cd468e5fb9306ef043ffe87598ca295b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"

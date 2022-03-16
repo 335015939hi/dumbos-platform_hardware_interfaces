@@ -46,6 +46,30 @@
       },
       "revId": "2cb8424ac14f9b6079d75e541008c1120c4688d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5882a598_f00f0c77",
+        "filename": "security/dice/aidl/default/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-03-16T07:01:26Z",
+      "side": 1,
+      "message": "Sorry, I have forgotten. Can you please remind how to make it secure?\n(In addition to initializing with the actual DICE artifacts instead of the sample ones)",
+      "parentUuid": "4ee9733f_de978792",
+      "range": {
+        "startLine": 6,
+        "startChar": 50,
+        "endLine": 6,
+        "endChar": 69
+      },
+      "revId": "2cb8424ac14f9b6079d75e541008c1120c4688d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
