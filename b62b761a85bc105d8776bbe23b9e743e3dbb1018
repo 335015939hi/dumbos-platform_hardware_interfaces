@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adc0fbf7_cc24db7c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-16T08:08:48Z",
+      "side": 1,
+      "message": "nit: comment should be a complete sentence",
+      "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00a58a33_97a7bcbc",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-16T08:08:48Z",
+      "side": 1,
+      "message": "Probably need to exit \u0026 return the error if this fails",
+      "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede71243_c9a87feb",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-16T08:08:48Z",
+      "side": 1,
+      "message": "Might be nice to have a comment here to explain why the chain extension is needed (which is presumably to make sure that a valid signature chain is returned).",
+      "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fafa394_236d7703",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-16T08:08:48Z",
+      "side": 1,
+      "message": "nit: \"implementations which do not...\"",
+      "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b11a718_c22a2e08",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-16T08:08:48Z",
+      "side": 1,
+      "message": "Rather than copy-pasting the `AuthorizationSetBuilder` generation, could you put it in a local variable \u0026 re-use?  (Passim)",
+      "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
