@@ -312,6 +312,25 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     return GenerateKey(key_desc, attest_key, &key_blob_, &key_characteristics_, &cert_chain_);
 }
 
+ErrorCode KeyMintAidlTestBase::GenerateKeyWithSelfSignedAttestKey(
+        const AuthorizationSet& attest_key_desc, const AuthorizationSet& key_desc,
+        vector<uint8_t>* key_blob, vector<KeyCharacteristics>* key_characteristics,
+        vector<Certificate>* cert_chain) {
+    AttestationKey attest_key;
+    vector<Certificate> attest_cert_chain;
+    vector<KeyCharacteristics> attest_key_characteristics;
+    // self-signed certificate
+    auto error = GenerateKey(attest_key_desc, std::nullopt, &attest_key.keyBlob,
+                             &attest_key_characteristics, &attest_cert_chain);
+    EXPECT_EQ(error, ErrorCode::OK);
+
+    attest_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
+    error = GenerateKey(key_desc, attest_key, key_blob, key_characteristics, cert_chain);
+    EXPECT_EQ(error, ErrorCode::OK);
+    cert_chain->push_back(attest_cert_chain[0]);
+    return error;
+}
+
 ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                                          const string& key_material, vector<uint8_t>* key_blob,
                                          vector<KeyCharacteristics>* key_characteristics) {
