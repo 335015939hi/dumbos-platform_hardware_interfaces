@@ -76,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a76d162_46757e7b",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2022-03-16T08:38:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0135101d_8c70d6db",
+      "range": {
+        "startLine": 103,
+        "startChar": 29,
+        "endLine": 103,
+        "endChar": 42
+      },
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58e13ce7_8395bead",
@@ -89,6 +113,30 @@
       "writtenOn": "2022-03-15T18:28:31Z",
       "side": 1,
       "message": "You also need to use it in setNetworkSelectionModeManual.",
+      "range": {
+        "startLine": 109,
+        "startChar": 26,
+        "endLine": 109,
+        "endChar": 47
+      },
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1419017_f381ab3a",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2022-03-16T08:38:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58e13ce7_8395bead",
       "range": {
         "startLine": 109,
         "startChar": 26,
@@ -146,6 +194,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ccad783_af53a2bf",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2022-03-16T08:38:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0334ce36_22acfbb1",
+      "range": {
+        "startLine": 123,
+        "startChar": 8,
+        "endLine": 123,
+        "endChar": 16
+      },
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38248b57_4f2d16bd",
@@ -183,6 +255,30 @@
       "side": 1,
       "message": "Correction:\n```\n.radioAccessNetwork \u003d toRadioAccessNetworks(spec.accessNetwork),\n```",
       "parentUuid": "38248b57_4f2d16bd",
+      "range": {
+        "startLine": 131,
+        "startChar": 20,
+        "endLine": 131,
+        "endChar": 46
+      },
+      "revId": "ad0ac0998ab0b217ceeae7804af90dedbc30a8c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "715683a5_fed3c28f",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2022-03-16T08:38:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c795351f_684ddeeb",
       "range": {
         "startLine": 131,
         "startChar": 20,
