@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c981158_4c5b718a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2022-03-16T15:43:48Z",
+      "side": 1,
+      "message": "It is the RebootTargetPreparer in the test config file VtsAidlDiceDemoteTargetTest.xml.",
+      "parentUuid": "b7b43a62_1cf6e26a",
+      "range": {
+        "startLine": 11,
+        "startChar": 63,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "21244fc19217720fa2a233f63503d3d404ceee12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01917ee7_edf95ab6",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-16T07:36:30Z",
       "side": 1,
       "message": "Can you please clarify how the device restart mentioned in the commit message takes effect in this test?",
+      "range": {
+        "startLine": 23,
+        "startChar": 8,
+        "endLine": 23,
+        "endChar": 12
+      },
+      "revId": "21244fc19217720fa2a233f63503d3d404ceee12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "176bad62_0fab3025",
+        "filename": "security/dice/aidl/vts/functional/dice_demote_test.rs",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2022-03-16T15:43:48Z",
+      "side": 1,
+      "message": "See response above.",
+      "parentUuid": "01917ee7_edf95ab6",
       "range": {
         "startLine": 23,
         "startChar": 8,
