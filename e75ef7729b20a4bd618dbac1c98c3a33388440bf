@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53673f8e_e92edc23",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-03-16T21:32:41Z",
+      "side": 1,
+      "message": "Maybe also mention this fixes a broken test?",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "e75ef7729b20a4bd618dbac1c98c3a33388440bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36ffbfa6_c5146e14",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-03-16T21:32:41Z",
+      "side": 1,
+      "message": "nit: just one assert was changed, AFAICT.",
+      "range": {
+        "startLine": 11,
+        "startChar": 51,
+        "endLine": 11,
+        "endChar": 63
+      },
+      "revId": "e75ef7729b20a4bd618dbac1c98c3a33388440bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b325cc92_9f287836",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-03-16T21:32:41Z",
+      "side": 1,
+      "message": "I",
+      "revId": "e75ef7729b20a4bd618dbac1c98c3a33388440bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
