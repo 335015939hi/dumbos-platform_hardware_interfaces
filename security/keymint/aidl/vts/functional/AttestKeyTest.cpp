@@ -289,17 +289,18 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
     AttestationKey attest_key;
     vector<KeyCharacteristics> attest_key_characteristics;
     vector<Certificate> attest_key_cert_chain;
-    auto result = GenerateAttestKey(AuthorizationSetBuilder()
-                                            .RsaKey(2048, 65537)
-                                            .AttestKey()
-                                            .AttestationChallenge(challenge)
-                                            .AttestationApplicationId(app_id)
-                                            .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
-                                            .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
-                                            .Authorization(TAG_NO_AUTH_REQUIRED)
-                                            .SetDefaultValidity(),
-                                    {} /* attestation signing key */, &attest_key.keyBlob,
-                                    &attest_key_characteristics, &attest_key_cert_chain);
+    auto result =
+              GenerateAttestKey(AuthorizationSetBuilder()
+                                        .RsaKey(2048, 65537)
+                                        .AttestKey()
+                                        .AttestationChallenge(challenge)
+                                        .AttestationApplicationId(app_id)
+                                        .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                                        .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                                        .SetDefaultValidity(),
+                                {} /* attestation signing key */, &attest_key.keyBlob,
+                                &attest_key_characteristics, &attest_key_cert_chain);
     // Strongbox may not support factory provisioned attestation key.
     if (SecLevel() == SecurityLevel::STRONGBOX) {
         if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
