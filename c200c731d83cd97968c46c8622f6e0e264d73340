@@ -102,6 +102,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe5e36c6_d318d27c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-17T14:19:58Z",
+      "side": 1,
+      "message": "\u003e ro.product.first_api_level (not ro.vendor.api_level).\n\nWe should check this: smoreland@ recently pointed out that \"ro.vendor.api_level is the VSR API level which takes into account the chipset, when applicable\". \n\nhttps://source.corp.google.com/android/system/core/init/property_service.cpp;l\u003d1032;rcl\u003dc0fb27f809a789b7f2fdeec4f6360aa6f0791569",
+      "parentUuid": "86d3a082_2ba38f0a",
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "73edea07_55667814",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 1
