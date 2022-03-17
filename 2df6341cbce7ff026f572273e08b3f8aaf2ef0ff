@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92272acf_2c5ed1d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2022-03-17T02:52:40Z",
+      "side": 1,
+      "message": "Fixed by next patchset",
+      "parentUuid": "1079f38e_acd83819",
+      "revId": "2df6341cbce7ff026f572273e08b3f8aaf2ef0ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67f11b93_104074b8",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-03-16T16:41:53Z",
       "side": 1,
       "message": "Ouch, but you also need that default case too! Same with fromRadioAccessNetwork.",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 10
+      },
+      "revId": "2df6341cbce7ff026f572273e08b3f8aaf2ef0ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea801889_c5a91750",
+        "filename": "radio/aidl/compat/libradiocompat/network/structs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2022-03-17T02:52:40Z",
+      "side": 1,
+      "message": "oops, my oversight. Fixed by next patchset",
+      "parentUuid": "67f11b93_104074b8",
       "range": {
         "startLine": 127,
         "startChar": 4,
