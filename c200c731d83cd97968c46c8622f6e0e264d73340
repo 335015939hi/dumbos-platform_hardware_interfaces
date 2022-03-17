@@ -84,6 +84,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86d3a082_2ba38f0a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-03-17T13:52:19Z",
+      "side": 1,
+      "message": "I second David\u0027s suggestion, we should check the device\u0027s first API level:\nro.product.first_api_level (not ro.vendor.api_level).\nIt will cover devices shipped with T.\n\nFor the sake of coverage, I suggest we OR the two conditions:\n(1) device shipped with T (as determined from looking at ro.product.first_api_level)\n(2) Devices with KeyMint 2.\nOtherwise we will not have any devices currently running the tests (until Pixel 2022 devices come online).\n\nI agree there may be an issue with devices upgrading to T and having their KeyMint version updated, but I would prefer having test coverage now and granting exceptions to such devices later (as it\u0027s uncommon for OEMs to update their KeyMint version).",
+      "parentUuid": "d48a2b9d_c2ae07dc",
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "73edea07_55667814",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 1
@@ -112,6 +130,24 @@
       "writtenOn": "2022-03-17T12:33:41Z",
       "side": 1,
       "message": "IIUC the comment isn\u0027t quite complete -- KeyMint\u003e\u003d2 implies first_api_version\u003e\u003d33 which implies device ID attestation being mandatory.",
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a67a823_630d48ce",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1931,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-03-17T13:52:19Z",
+      "side": 1,
+      "message": "In addition to what David said, the linter complains about mis-spelling of \u0027mandatory\u0027.",
+      "parentUuid": "52a41b9d_379fff4a",
       "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
