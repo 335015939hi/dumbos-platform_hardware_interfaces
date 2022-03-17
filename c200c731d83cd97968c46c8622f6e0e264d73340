@@ -66,6 +66,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d48a2b9d_c2ae07dc",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-17T12:52:06Z",
+      "side": 1,
+      "message": "More generally, would it make sense (and be possible) to change this check to cover the first API level rather than the KeyMint version?\n\nAIUI:\na) ID attestation is mandatory for devices that first ship with T\nb) KeyMint v2 is first present in T\n\nThis function checks for b) -- if a device reports KeyMint v2, then a) is assumed to be true and ID attestation is mandated.  \n\nBut would it be better/more direct just to check a) via something like `get_property(\"ro.vendor.api_level\") \u003e\u003d 33`?  \n\nThat would cover a device that first shipped with T but had KeyMint v1 in it (which should support ID attestation). \n\n(OTOH, what about a device that first shipped with S, but which has its KeyMint upgraded to v2 on upgrade to T -- is that required to support ID attestation or not?)",
+      "parentUuid": "030de5b6_31e0951e",
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "73edea07_55667814",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 1
