@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5edb32bb_0532e721",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-17T12:33:41Z",
+      "side": 1,
+      "message": "s/compulsion/require/ maybe?\n\nAlso, nit: ideally keep the first line of commit messages shorter (http://go/commit-change#headline)",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b364c142_2b5a3872",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-17T12:33:41Z",
+      "side": 1,
+      "message": "\"expted\" ?",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "030de5b6_31e0951e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-17T12:33:41Z",
+      "side": 1,
+      "message": "Need a comment here (or in the .h file) to explain the versioning requirements",
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73edea07_55667814",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-17T12:33:41Z",
+      "side": 1,
+      "message": "Better to reduce copypasta \u0026 just have `AidlVersion() \u003e\u003d 2`",
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52a41b9d_379fff4a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1931,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-17T12:33:41Z",
+      "side": 1,
+      "message": "IIUC the comment isn\u0027t quite complete -- KeyMint\u003e\u003d2 implies first_api_version\u003e\u003d33 which implies device ID attestation being mandatory.",
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
