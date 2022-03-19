@@ -51,6 +51,24 @@
       "parentUuid": "6a411c9e_73c6e40e",
       "revId": "d38d185539be59c3f59935855dd0de25a5149b43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c46b0574_460ca14e",
+        "filename": "automotive/audiocontrol/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-03-19T05:43:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9c10c81_0e7471bf",
+      "revId": "d38d185539be59c3f59935855dd0de25a5149b43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
