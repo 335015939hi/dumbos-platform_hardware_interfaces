@@ -31,7 +31,6 @@
 #include <remote_prov/remote_prov_utils.h>
 
 #include <keymaster/cppcose/cppcose.h>
-#include <keymint_support/attestation_record.h>
 #include <keymint_support/key_param_output.h>
 #include <keymint_support/keymint_utils.h>
 #include <keymint_support/openssl_utils.h>
@@ -1551,8 +1550,6 @@ bool verify_attestation_record(int32_t aidl_version,                   //
     EXPECT_EQ(security_level, att_keymint_security_level);
     EXPECT_EQ(security_level, att_attestation_security_level);
 
-
-    char property_value[PROPERTY_VALUE_MAX] = {};
     // TODO(b/136282179): When running under VTS-on-GSI the TEE-backed
     // keymint implementation will report YYYYMM dates instead of YYYYMMDD
     // for the BOOT_PATCH_LEVEL.
@@ -1612,6 +1609,27 @@ bool verify_attestation_record(int32_t aidl_version,                   //
     error = parse_root_of_trust(attest_rec->data, attest_rec->length, &verified_boot_key,
                                 &verified_boot_state, &device_locked, &verified_boot_hash);
     EXPECT_EQ(ErrorCode::OK, error);
+    verify_root_of_trust(verified_boot_key, device_locked, verified_boot_state, verified_boot_hash);
+
+    att_sw_enforced.Sort();
+    expected_sw_enforced.Sort();
+    EXPECT_EQ(filtered_tags(expected_sw_enforced), filtered_tags(att_sw_enforced));
+
+    att_hw_enforced.Sort();
+    expected_hw_enforced.Sort();
+    EXPECT_EQ(filtered_tags(expected_hw_enforced), filtered_tags(att_hw_enforced));
+
+    if (unique_id != nullptr) {
+        *unique_id = att_unique_id;
+    }
+
+    return true;
+}
+
+void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_locked,
+                          VerifiedBoot verified_boot_state,
+                          const vector<uint8_t>& verified_boot_hash) {
+    char property_value[PROPERTY_VALUE_MAX] = {};
 
     if (avb_verification_enabled()) {
         EXPECT_NE(property_get("ro.boot.vbmeta.digest", property_value, ""), 0);
@@ -1660,20 +1678,6 @@ bool verify_attestation_record(int32_t aidl_version,                   //
         EXPECT_EQ(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
                             verified_boot_key.size()));
     }
-
-    att_sw_enforced.Sort();
-    expected_sw_enforced.Sort();
-    EXPECT_EQ(filtered_tags(expected_sw_enforced), filtered_tags(att_sw_enforced));
-
-    att_hw_enforced.Sort();
-    expected_hw_enforced.Sort();
-    EXPECT_EQ(filtered_tags(expected_hw_enforced), filtered_tags(att_hw_enforced));
-
-    if (unique_id != nullptr) {
-        *unique_id = att_unique_id;
-    }
-
-    return true;
 }
 
 string bin2hex(const vector<uint8_t>& data) {

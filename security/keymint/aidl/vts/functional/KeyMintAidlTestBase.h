@@ -31,6 +31,7 @@
 #include <aidl/android/hardware/security/keymint/IKeyMintDevice.h>
 #include <aidl/android/hardware/security/keymint/MacedPublicKey.h>
 
+#include <keymint_support/attestation_record.h>
 #include <keymint_support/authorization_set.h>
 #include <keymint_support/openssl_utils.h>
 
@@ -372,6 +373,10 @@ bool verify_attestation_record(int aidl_version,                       //
                                SecurityLevel security_level,
                                const vector<uint8_t>& attestation_cert,
                                vector<uint8_t>* unique_id = nullptr);
+void verify_root_of_trust(const vector<uint8_t>& verified_boot_key,  //
+                          bool device_locked,                        //
+                          VerifiedBoot verified_boot_state,          //
+                          const vector<uint8_t>& verified_boot_hash);
 
 string bin2hex(const vector<uint8_t>& data);
 X509_Ptr parse_cert_blob(const vector<uint8_t>& blob);
