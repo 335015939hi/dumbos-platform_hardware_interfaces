@@ -40,6 +40,7 @@ class SecureElementProvisioningTest : public testing::Test {
   protected:
     static void SetUpTestSuite() {
         auto params = ::android::getAidlHalInstanceNames(IKeyMintDevice::descriptor);
+        std::cerr << "Starting to enumerate instances" << std::endl;
         for (auto& param : params) {
             ASSERT_TRUE(AServiceManager_isDeclared(param.c_str()))
                     << "IKeyMintDevice instance " << param << " found but not declared.";
@@ -48,13 +49,88 @@ class SecureElementProvisioningTest : public testing::Test {
             ASSERT_NE(keymint, nullptr) << "Failed to get IKeyMintDevice instance " << param;
 
             KeyMintHardwareInfo info;
+
             ASSERT_TRUE(keymint->getHardwareInfo(&info).isOk());
+            std::cerr << "Found keymint with security level: " << info.securityLevel
+                      << " Name: " << info.keyMintName << "Version: " << info.versionNumber
+                      << " Author: " << info.keyMintAuthorName << std::endl;
+
             ASSERT_EQ(keymints_.count(info.securityLevel), 0)
                     << "There must be exactly one IKeyMintDevice with security level "
                     << info.securityLevel;
 
             keymints_[info.securityLevel] = std::move(keymint);
         }
+        std::cerr << "Finished enumerating instances" << std::endl;
+    }
+
+    void validateMacedRootOfTrust(const vector<uint8_t>& rootOfTrust) {
+        const auto [macItem, macEndPos, macErrMsg] = cppbor::parse(rootOfTrust);
+        ASSERT_TRUE(macItem) << "Root of trust parsing failed: " << macErrMsg;
+        ASSERT_TRUE(macItem->asArray());
+        ASSERT_EQ(macItem->asArray()->size(), 4);
+
+        const auto& protectedItem = macItem->asArray()->get(0);
+        ASSERT_TRUE(protectedItem);
+        ASSERT_TRUE(protectedItem->asBstr());
+        const auto [protMap, protEndPos, protErrMsg] = cppbor::parse(protectedItem->asBstr());
+        ASSERT_TRUE(protMap);
+        ASSERT_TRUE(protMap->asMap());
+        ASSERT_EQ(protMap->asMap()->size(), 1);
+
+        const auto& algorithm = protMap->asMap()->get(1 /* Algorithm */);
+        ASSERT_TRUE(algorithm);
+        ASSERT_TRUE(algorithm->asInt());
+        ASSERT_EQ(algorithm->asInt()->value(), 5 /* HMAC-SHA-256 */);
+
+        const auto& unprotItem = macItem->asArray()->get(1);
+        ASSERT_TRUE(unprotItem);
+        ASSERT_TRUE(unprotItem->asMap());
+        ASSERT_EQ(unprotItem->asMap()->size(), 0);
+
+        const auto& payload = macItem->asArray()->get(2);
+        ASSERT_TRUE(payload);
+        ASSERT_TRUE(payload->asBstr());
+        validateRootOfTrust(payload->asBstr()->value());
+
+        const auto& tag = macItem->asArray()->get(3);
+        ASSERT_TRUE(tag);
+        ASSERT_TRUE(tag->asBstr());
+        ASSERT_EQ(tag->asBstr()->value().size(), 32);
+        // Cannot validate tag correctness.  Only the secure side has the necessary key.
+    }
+
+    void validateRootOfTrust(const vector<uint8_t>& payload) {
+        const auto [rot, rotPos, rotErrMsg] = cppbor::parse(payload);
+        ASSERT_TRUE(rot);
+        ASSERT_TRUE(rot->asArray());
+
+        const auto& vbKey = rot->asArray()->get(0);
+        ASSERT_TRUE(vbKey);
+        ASSERT_TRUE(vbKey->asBstr());
+        ASSERT_EQ(vbKey->asBstr()->value().size(), 32);
+        // TODO validate vbKey content
+
+        const auto& deviceLocked = rot->asArray()->get(1);
+        ASSERT_TRUE(deviceLocked);
+        ASSERT_TRUE(deviceLocked->asBool());
+        // TODO validate deviceLocked content.
+
+        const auto& verifiedBootState = rot->asArray()->get(2);
+        ASSERT_TRUE(verifiedBootState);
+        ASSERT_TRUE(verifiedBootState->asInt());
+        // TODO validate verified boot state.
+
+        const auto& verifiedBootHash = rot->asArray()->get(3);
+        ASSERT_TRUE(verifiedBootHash);
+        ASSERT_TRUE(verifiedBootHash->asBstr());
+        ASSERT_EQ(verifiedBootHash->asBstr()->value().size(), 32);
+        // TODO validate verifiedBootHash content.
+
+        const auto& bootPatchLevel = rot->asArray()->get(4);
+        ASSERT_TRUE(bootPatchLevel);
+        ASSERT_TRUE(bootPatchLevel->asInt());
+        // TODO validate bootPatchLevel value.
     }
 
     static map<SecurityLevel, shared_ptr<IKeyMintDevice>> keymints_;
@@ -79,29 +155,19 @@ TEST_F(SecureElementProvisioningTest, TeeOnly) {
 
     vector<uint8_t> rootOfTrust1;
     Status result = tee->getRootOfTrust(challenge1, &rootOfTrust1);
-
-    // TODO: Remove the next line to require TEEs to succeed.
-    if (!result.isOk()) return;
-
     ASSERT_TRUE(result.isOk());
-
-    // TODO:  Parse and validate rootOfTrust1 here
+    validateMacedRootOfTrust(rootOfTrust1);
 
     vector<uint8_t> rootOfTrust2;
     result = tee->getRootOfTrust(challenge2, &rootOfTrust2);
     ASSERT_TRUE(result.isOk());
-
-    // TODO:  Parse and validate rootOfTrust2 here
-
+    validateMacedRootOfTrust(rootOfTrust2);
     ASSERT_NE(rootOfTrust1, rootOfTrust2);
 
     vector<uint8_t> rootOfTrust3;
     result = tee->getRootOfTrust(challenge1, &rootOfTrust3);
     ASSERT_TRUE(result.isOk());
-
     ASSERT_EQ(rootOfTrust1, rootOfTrust3);
-
-    // TODO:  Parse and validate rootOfTrust3 here
 }
 
 TEST_F(SecureElementProvisioningTest, TeeDoesNotImplementStrongBoxMethods) {
@@ -204,7 +270,7 @@ TEST_F(SecureElementProvisioningTest, ProvisioningTest) {
     result = tee->getRootOfTrust(challenge, &rootOfTrust);
     ASSERT_TRUE(result.isOk());
 
-    // TODO: Verify COSE_Mac0 structure and content here.
+    validateMacedRootOfTrust(rootOfTrust);
 
     result = sb->sendRootOfTrust(rootOfTrust);
     ASSERT_TRUE(result.isOk());
@@ -238,6 +304,8 @@ TEST_F(SecureElementProvisioningTest, InvalidProvisioningTest) {
     vector<uint8_t> rootOfTrust;
     result = tee->getRootOfTrust(challenge, &rootOfTrust);
     ASSERT_TRUE(result.isOk());
+
+    validateMacedRootOfTrust(rootOfTrust);
 
     vector<uint8_t> corruptedRootOfTrust = rootOfTrust;
     corruptedRootOfTrust[corruptedRootOfTrust.size() / 2]++;
