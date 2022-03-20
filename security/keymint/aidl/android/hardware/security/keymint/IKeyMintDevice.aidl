@@ -873,7 +873,7 @@ interface IKeyMintDevice {
      * The returned data is an encoded COSE_Mac0 structure, denoted MacedRootOfTrust in the
      * following CDDL schema.  Note that K_mac is the shared HMAC key used for auth tokens, etc.:
      *
-     *     MacedRootOfTrust = [               ; COSE_Mac0 (untagged)
+     *     MacedRootOfTrust = [               ; COSE_Mac0 (tagged)
      *         protected: bstr .cbor {
      *             1 : 5,                     ; Algorithm : HMAC-256
      *         },
@@ -891,7 +891,7 @@ interface IKeyMintDevice {
      *         payload : bstr .cbor RootOfTrust,
      *     ]
      *
-     *     RootOfTrust = [
+     *     RootOfTrust = #6.1000 [            ; Tag 1000 indicates RoT v1.
      *         verifiedBootKey : bstr .size 32,
      *         deviceLocked : bool,
      *         verifiedBootState : &VerifiedBootState,

@@ -57,6 +57,82 @@ class SecureElementProvisioningTest : public testing::Test {
         }
     }
 
+    void validateMacedRootOfTrust(const vector<uint8_t>& rootOfTrust) {
+        const auto [macItem, macEndPos, macErrMsg] = cppbor::parse(rootOfTrust);
+        ASSERT_TRUE(macItem) << "Root of trust parsing failed: " << macErrMsg;
+        ASSERT_EQ(macItem->semanticTagCount(), 1) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_EQ(macItem->semanticTag(0), cppcose::kCoseMac0SemanticTag)
+                << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_TRUE(macItem->asArray()) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_EQ(macItem->asArray()->size(), 4) << "RoT: " << bin2hex(rootOfTrust);
+
+        const auto& protectedItem = macItem->asArray()->get(0);
+        ASSERT_TRUE(protectedItem) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_TRUE(protectedItem->asBstr()) << "RoT: " << bin2hex(rootOfTrust);
+        const auto [protMap, protEndPos, protErrMsg] = cppbor::parse(protectedItem->asBstr());
+        ASSERT_TRUE(protMap) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_TRUE(protMap->asMap()) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_EQ(protMap->asMap()->size(), 1) << "RoT: " << bin2hex(rootOfTrust);
+
+        const auto& algorithm = protMap->asMap()->get(1 /* Algorithm */);
+        ASSERT_TRUE(algorithm) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_TRUE(algorithm->asInt()) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_EQ(algorithm->asInt()->value(), 5 /* HMAC-SHA-256 */)
+                << "RoT: " << bin2hex(rootOfTrust);
+
+        const auto& unprotItem = macItem->asArray()->get(1);
+        ASSERT_TRUE(unprotItem) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_TRUE(unprotItem->asMap()) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_EQ(unprotItem->asMap()->size(), 0) << "RoT: " << bin2hex(rootOfTrust);
+
+        const auto& payload = macItem->asArray()->get(2);
+        ASSERT_TRUE(payload) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_TRUE(payload->asBstr()) << "RoT: " << bin2hex(rootOfTrust);
+        validateRootOfTrust(payload->asBstr()->value());
+
+        const auto& tag = macItem->asArray()->get(3);
+        ASSERT_TRUE(tag) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_TRUE(tag->asBstr()) << "RoT: " << bin2hex(rootOfTrust);
+        ASSERT_EQ(tag->asBstr()->value().size(), 32) << "RoT: " << bin2hex(rootOfTrust);
+        // Cannot validate tag correctness.  Only the secure side has the necessary key.
+    }
+
+    void validateRootOfTrust(const vector<uint8_t>& payload) {
+        const auto [rot, rotPos, rotErrMsg] = cppbor::parse(payload);
+        ASSERT_TRUE(rot) << "RoT payload: " << bin2hex(payload);
+        ASSERT_EQ(rot->semanticTagCount(), 1) << "RoT payload: " << bin2hex(payload);
+        ASSERT_EQ(rot->semanticTag(), 1000) << "RoT payload: " << bin2hex(payload);
+        ASSERT_TRUE(rot->asArray()) << "RoT payload: " << bin2hex(payload);
+
+        const auto& vbKey = rot->asArray()->get(0);
+        ASSERT_TRUE(vbKey) << "RoT payload: " << bin2hex(payload);
+        ASSERT_TRUE(vbKey->asBstr()) << "RoT payload: " << bin2hex(payload);
+        ASSERT_EQ(vbKey->asBstr()->value().size(), 32) << "RoT payload: " << bin2hex(payload);
+        // TODO validate vbKey content
+
+        const auto& deviceLocked = rot->asArray()->get(1);
+        ASSERT_TRUE(deviceLocked) << "RoT payload: " << bin2hex(payload);
+        ASSERT_TRUE(deviceLocked->asBool()) << "RoT payload: " << bin2hex(payload);
+        // TODO validate deviceLocked content.
+
+        const auto& verifiedBootState = rot->asArray()->get(2);
+        ASSERT_TRUE(verifiedBootState) << "RoT payload: " << bin2hex(payload);
+        ASSERT_TRUE(verifiedBootState->asInt()) << "RoT payload: " << bin2hex(payload);
+        // TODO validate verified boot state.
+
+        const auto& verifiedBootHash = rot->asArray()->get(3);
+        ASSERT_TRUE(verifiedBootHash) << "RoT payload: " << bin2hex(payload);
+        ASSERT_TRUE(verifiedBootHash->asBstr()) << "RoT payload: " << bin2hex(payload);
+        ASSERT_EQ(verifiedBootHash->asBstr()->value().size(), 32)
+                << "RoT payload: " << bin2hex(payload);
+        // TODO validate verifiedBootHash content.
+
+        const auto& bootPatchLevel = rot->asArray()->get(4);
+        ASSERT_TRUE(bootPatchLevel) << "RoT payload: " << bin2hex(payload);
+        ASSERT_TRUE(bootPatchLevel->asInt()) << "RoT payload: " << bin2hex(payload);
+        // TODO validate bootPatchLevel value.
+    }
+
     int32_t AidlVersion(shared_ptr<IKeyMintDevice> keymint) {
         int32_t version = 0;
         auto status = keymint->getInterfaceVersion(&version);
@@ -96,29 +172,19 @@ TEST_F(SecureElementProvisioningTest, TeeOnly) {
 
     vector<uint8_t> rootOfTrust1;
     Status result = tee->getRootOfTrust(challenge1, &rootOfTrust1);
-
-    // TODO: Remove the next line to require TEEs to succeed.
-    if (!result.isOk()) return;
-
-    ASSERT_TRUE(result.isOk());
-
-    // TODO:  Parse and validate rootOfTrust1 here
+    ASSERT_TRUE(result.isOk()) << "getRootOfTrust returned " << result.getServiceSpecificError();
+    validateMacedRootOfTrust(rootOfTrust1);
 
     vector<uint8_t> rootOfTrust2;
     result = tee->getRootOfTrust(challenge2, &rootOfTrust2);
     ASSERT_TRUE(result.isOk());
-
-    // TODO:  Parse and validate rootOfTrust2 here
-
+    validateMacedRootOfTrust(rootOfTrust2);
     ASSERT_NE(rootOfTrust1, rootOfTrust2);
 
     vector<uint8_t> rootOfTrust3;
     result = tee->getRootOfTrust(challenge1, &rootOfTrust3);
     ASSERT_TRUE(result.isOk());
-
     ASSERT_EQ(rootOfTrust1, rootOfTrust3);
-
-    // TODO:  Parse and validate rootOfTrust3 here
 }
 
 TEST_F(SecureElementProvisioningTest, TeeDoesNotImplementStrongBoxMethods) {
@@ -252,7 +318,7 @@ TEST_F(SecureElementProvisioningTest, ProvisioningTest) {
     result = tee->getRootOfTrust(challenge, &rootOfTrust);
     ASSERT_TRUE(result.isOk());
 
-    // TODO: Verify COSE_Mac0 structure and content here.
+    validateMacedRootOfTrust(rootOfTrust);
 
     result = sb->sendRootOfTrust(rootOfTrust);
     ASSERT_TRUE(result.isOk());
@@ -295,6 +361,8 @@ TEST_F(SecureElementProvisioningTest, InvalidProvisioningTest) {
     vector<uint8_t> rootOfTrust;
     result = tee->getRootOfTrust(challenge, &rootOfTrust);
     ASSERT_TRUE(result.isOk());
+
+    validateMacedRootOfTrust(rootOfTrust);
 
     vector<uint8_t> corruptedRootOfTrust = rootOfTrust;
     corruptedRootOfTrust[corruptedRootOfTrust.size() / 2]++;
