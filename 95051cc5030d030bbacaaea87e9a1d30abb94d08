@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2df2b934_c46b1c37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-21T08:19:16Z",
+      "side": 1,
+      "message": "Aside: I think this would be included by something like aosp/1879916, but that CL ran into problems post-submit -- I think some kind of restriction to devices that are known to have a working KeyMint is needed.",
+      "revId": "95051cc5030d030bbacaaea87e9a1d30abb94d08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
