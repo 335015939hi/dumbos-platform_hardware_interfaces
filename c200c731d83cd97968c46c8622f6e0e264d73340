@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7143a17_b9434559",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-03-21T20:22:18Z",
+      "side": 1,
+      "message": "Updated commit message please verify. let me know if it still need to modify.",
+      "parentUuid": "5edb32bb_0532e721",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b364c142_2b5a3872",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "This is also corrected as expected in patchset 2.",
       "parentUuid": "b364c142_2b5a3872",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29198bda_eccfe78f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-03-21T20:22:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94b91f8a_05209f87",
       "range": {
         "startLine": 9,
         "startChar": 51,
@@ -142,6 +190,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c5826f4_dc1a8945",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-03-21T20:22:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe5e36c6_d318d27c",
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73edea07_55667814",
@@ -155,6 +221,24 @@
       "writtenOn": "2022-03-17T12:33:41Z",
       "side": 1,
       "message": "Better to reduce copypasta \u0026 just have `AidlVersion() \u003e\u003d 2`",
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b714f52c_4e5f05ea",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-03-21T20:22:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73edea07_55667814",
       "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -208,6 +292,24 @@
       "side": 1,
       "message": "The Lint error is already taken care in patchset 2.",
       "parentUuid": "8a67a823_630d48ce",
+      "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94ac4c9d_26c31c57",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1931,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-03-21T20:22:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7705bf05_6c8ac83a",
       "revId": "c200c731d83cd97968c46c8622f6e0e264d73340",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
