@@ -13,7 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+<<<<<<< HEAD   (0dc66a VtsHalBluetoothV1_0: Turn off/on BT for all users)
 
+=======
+>>>>>>> BRANCH (c78a2e Fill signalType in GnssClock.referenceSignalTypeForIsb)
 package {
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
