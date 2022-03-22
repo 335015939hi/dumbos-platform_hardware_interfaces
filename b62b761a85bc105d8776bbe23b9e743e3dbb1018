@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbb580e0_83c1a1e7",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-03-22T20:46:39Z",
+      "side": 1,
+      "message": "Updated the comment.",
+      "parentUuid": "adc0fbf7_cc24db7c",
+      "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00a58a33_97a7bcbc",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-03-16T08:08:48Z",
       "side": 1,
       "message": "Probably need to exit \u0026 return the error if this fails",
+      "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52229238_77e95636",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-03-22T20:46:39Z",
+      "side": 1,
+      "message": "Updated the code to return error if fails.",
+      "parentUuid": "00a58a33_97a7bcbc",
       "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ad0ef63_c1daadec",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-03-22T20:46:39Z",
+      "side": 1,
+      "message": "Added comment: \"Append the attest_cert_chain to the attested cert_chain to yield a valid cert chain.\"",
+      "parentUuid": "ede71243_c9a87feb",
+      "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fafa394_236d7703",
@@ -69,6 +123,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc6af932_8356a6b7",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-03-22T20:46:39Z",
+      "side": 1,
+      "message": "Updated the comment.",
+      "parentUuid": "9fafa394_236d7703",
+      "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b11a718_c22a2e08",
@@ -82,6 +154,24 @@
       "writtenOn": "2022-03-16T08:08:48Z",
       "side": 1,
       "message": "Rather than copy-pasting the `AuthorizationSetBuilder` generation, could you put it in a local variable \u0026 re-use?  (Passim)",
+      "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c91b9e66_0f96ce08",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-03-22T20:46:39Z",
+      "side": 1,
+      "message": "Used a local variable for builder and re-used it. Applied this change in all the places.",
+      "parentUuid": "9b11a718_c22a2e08",
       "revId": "b62b761a85bc105d8776bbe23b9e743e3dbb1018",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
