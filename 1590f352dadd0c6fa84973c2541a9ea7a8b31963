@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76ccfb1c_f502b52c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-03-23T22:04:37Z",
+      "side": 1,
+      "message": "Overall LGTM, let me sync-up with David tomorrow to ensure he agrees with my suggestion.",
+      "revId": "1590f352dadd0c6fa84973c2541a9ea7a8b31963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22ffcd16_f142966e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-03-23T22:04:37Z",
+      "side": 1,
+      "message": "Please add a sentence saying that if the KeyMint implementation does *not* support factory-provisioned keys, it *must* return ATTESTATION_KEYS_NOT_PROVISIONED",
+      "range": {
+        "startLine": 65,
+        "startChar": 11,
+        "endLine": 65,
+        "endChar": 79
+      },
+      "revId": "1590f352dadd0c6fa84973c2541a9ea7a8b31963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
