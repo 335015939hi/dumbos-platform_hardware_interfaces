@@ -16,6 +16,24 @@
       "message": "nit: s/Keymint/KeyMint/",
       "revId": "258d843f832561de075ffae7c9a29926bf117c9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd3ea27d_0d4d5a21",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-03-23T14:59:24Z",
+      "side": 1,
+      "message": "Corrected Keymint to KeyMint.",
+      "parentUuid": "3fb276f0_b2e57a24",
+      "revId": "258d843f832561de075ffae7c9a29926bf117c9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
