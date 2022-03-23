@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb276f0_b2e57a24",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-23T09:56:55Z",
+      "side": 1,
+      "message": "nit: s/Keymint/KeyMint/",
+      "revId": "258d843f832561de075ffae7c9a29926bf117c9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
