@@ -34,6 +34,24 @@
       "parentUuid": "408aa10e_3c4b9137",
       "revId": "5aa8933d36e488f993cdf9adcb82b4fb56810656",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "557d9a86_ce236387",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-23T03:54:55Z",
+      "side": 1,
+      "message": "Hi Steven,\nThe fuzzer has been updated based on your inputs. Please have a look at it.",
+      "parentUuid": "721bd246_9387cca3",
+      "revId": "5aa8933d36e488f993cdf9adcb82b4fb56810656",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
