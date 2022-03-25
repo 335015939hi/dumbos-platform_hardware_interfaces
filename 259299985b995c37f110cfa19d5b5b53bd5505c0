@@ -16,6 +16,24 @@
       "message": "I still suspect this should be `ro.vendor.api_level`.",
       "revId": "259299985b995c37f110cfa19d5b5b53bd5505c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4c020f8_c1a939f2",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-03-25T14:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f611a392_d65324eb",
+      "revId": "259299985b995c37f110cfa19d5b5b53bd5505c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
