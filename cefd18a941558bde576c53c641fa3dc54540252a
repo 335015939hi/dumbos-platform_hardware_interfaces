@@ -16,6 +16,24 @@
       "message": "Looks like this still needs an owners vote and a qualcomm vote.",
       "revId": "cefd18a941558bde576c53c641fa3dc54540252a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d9f48c2_7fd9507e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-03-25T18:43:21Z",
+      "side": 1,
+      "message": "Should this be checking ro.vendor.api_level instead of these two other properties?\nhttps://b.corp.google.com/issues/200258600\nLooks like it should be supported in Android 12 GSI which will be used for VTS.\nhttps://mail.google.com/mail/u/0/?source\u003dsync\u0026tf\u003d1\u0026view\u003dpt\u0026th\u003d17e4ec26c4a65bbc\u0026search\u003dall\u0026msg",
+      "parentUuid": "cbca59a8_06880815",
+      "revId": "cefd18a941558bde576c53c641fa3dc54540252a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
