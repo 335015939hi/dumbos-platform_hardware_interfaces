@@ -1,0 +1,66 @@
+From d2f90e671a8c19b62713453419fd142ed057126d Mon Sep 17 00:00:00 2001
+From: Alice Kuo <aliceypkuo@google.com>
+Date: Mon, 28 Mar 2022 13:28:43 +0800
+Subject: [PATCH] Add A2dp decode session type
+
+Bug: 206601670
+Test: make build
+Change-Id: I54d8037eeb09312c9f1fb75d2167cc50ac7cae8c
+---
+ .../hardware/bluetooth/audio/SessionType.aidl  | 18 ++++++++++--------
+ .../hardware/bluetooth/audio/SessionType.aidl  |  8 ++++++++
+ 2 files changed, 18 insertions(+), 8 deletions(-)
+
+diff --git a/bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/SessionType.aidl b/bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/SessionType.aidl
+index baec9c2..d247b0b 100644
+--- a/bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/SessionType.aidl
++++ b/bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/SessionType.aidl
+@@ -36,12 +36,14 @@ package android.hardware.bluetooth.audio;
+ enum SessionType {
+   UNKNOWN = 0,
+   A2DP_SOFTWARE_ENCODING_DATAPATH = 1,
+-  A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH = 2,
+-  HEARING_AID_SOFTWARE_ENCODING_DATAPATH = 3,
+-  LE_AUDIO_SOFTWARE_ENCODING_DATAPATH = 4,
+-  LE_AUDIO_SOFTWARE_DECODING_DATAPATH = 5,
+-  LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH = 6,
+-  LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH = 7,
+-  LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH = 8,
+-  LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH = 9,
++  A2DP_SOFTWARE_DECODING_DATAPATH = 2,
++  A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH = 3,
++  A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH = 4,
++  HEARING_AID_SOFTWARE_ENCODING_DATAPATH = 5,
++  LE_AUDIO_SOFTWARE_ENCODING_DATAPATH = 6,
++  LE_AUDIO_SOFTWARE_DECODING_DATAPATH = 7,
++  LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH = 8,
++  LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH = 9,
++  LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH = 10,
++  LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH = 11,
+ }
+diff --git a/bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionType.aidl b/bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionType.aidl
+index 95beee7..c122529 100644
+--- a/bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionType.aidl
++++ b/bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionType.aidl
+@@ -24,10 +24,18 @@ enum SessionType {
+      * A2DP legacy that AVDTP media is encoded by Bluetooth Stack
+      */
+     A2DP_SOFTWARE_ENCODING_DATAPATH,
++    /**
++     * A2DP legacy that AVDTP media is decoded by Bluetooth Stack
++     */
++    A2DP_SOFTWARE_DECODING_DATAPATH,
+     /**
+      * The encoding of AVDTP media is done by HW and there is control only
+      */
+     A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
++    /**
++     * The decoding of AVDTP media is done by HW and there is control only
++     */
++    A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH,
+     /**
+      * Used when encoded by Bluetooth Stack and streaming to Hearing Aid
+      */
+-- 
+2.35.1.1021.g381101b075-goog
+
