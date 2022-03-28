@@ -52,6 +52,23 @@
       "parentUuid": "6d9f48c2_7fd9507e",
       "revId": "cefd18a941558bde576c53c641fa3dc54540252a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "914fe064_2e4dcb63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1244622
+      },
+      "writtenOn": "2022-03-28T19:13:05Z",
+      "side": 1,
+      "message": "Sai, please provide the QC code-review. Thanks.",
+      "revId": "cefd18a941558bde576c53c641fa3dc54540252a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
