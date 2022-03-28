@@ -34,6 +34,24 @@
       "parentUuid": "cbca59a8_06880815",
       "revId": "cefd18a941558bde576c53c641fa3dc54540252a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bba87024_175d8c90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-03-28T17:36:43Z",
+      "side": 1,
+      "message": "Since this is a cherry-pick and involves older branches, this is fine!\n\nStill need Qualcomm vote.",
+      "parentUuid": "6d9f48c2_7fd9507e",
+      "revId": "cefd18a941558bde576c53c641fa3dc54540252a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
