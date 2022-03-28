@@ -25,9 +25,17 @@ enum SessionType {
      */
     A2DP_SOFTWARE_ENCODING_DATAPATH,
     /**
+     * A2DP legacy that AVDTP media is decoded by Bluetooth Stack
+     */
+    A2DP_SOFTWARE_DECODING_DATAPATH,
+    /**
      * The encoding of AVDTP media is done by HW and there is control only
      */
     A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
+    /**
+     * The decoding of AVDTP media is done by HW and there is control only
+     */
+    A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH,
     /**
      * Used when encoded by Bluetooth Stack and streaming to Hearing Aid
      */
