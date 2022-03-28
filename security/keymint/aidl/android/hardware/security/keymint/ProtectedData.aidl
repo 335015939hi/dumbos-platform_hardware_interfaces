@@ -106,7 +106,7 @@ parcelable ProtectedData {
      *     ]
      *
      *     SignedMacAad = [
-     *         challenge : bstr,
+     *         challenge : bstr .size (0..64),          // Max size of 64 bytes
      *         VerifiedDeviceInfo,
      *         tag: bstr                 // This is the tag from COSE_Mac0 of
      *                                   // KeysToCertify, to tie the key set to
