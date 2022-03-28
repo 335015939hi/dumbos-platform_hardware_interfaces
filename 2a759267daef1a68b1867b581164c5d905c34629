@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d817dc7d_3efbe611",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-03-28T20:09:41Z",
+      "side": 1,
+      "message": "This is the kind of programming error we want to detect with the fuzzer, since these calls can be made in any order by an external process. Please check w/ Google team about getting a fix for this.",
+      "parentUuid": "a20a0ce5_8b9295f3",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6bdea67d_d3eae4eb",
         "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
         "patchSetId": 7
@@ -255,6 +279,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f46c41c_e6ca9e0a",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-03-28T20:09:41Z",
+      "side": 1,
+      "message": "We shouldn\u0027t care about the implementation in order to write the fuzzer. It could be changed in the future or we could reuse the fuzzer on another piece of software.",
+      "parentUuid": "48d4164a_8365db2f",
+      "range": {
+        "startLine": 110,
+        "startChar": 41,
+        "endLine": 110,
+        "endChar": 47
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e69a5fb2_7e68fdfc",
         "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
         "patchSetId": 7
@@ -290,6 +338,30 @@
       "side": 1,
       "message": "A new thread (mCaptureThread) is created from startStream(), which is joined in stopStream(). If in the randomized order of API execution, stopStream() is not called after invoking startStream(), thread memory would leak and a point would reach where no more threads could be created, leading to fuzzer abort. This usually happens within 10 mins of fuzzer run.",
       "parentUuid": "e69a5fb2_7e68fdfc",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 63
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "438e5f16_9c016861",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-03-28T20:09:41Z",
+      "side": 1,
+      "message": "Please do comment to this effect here, but could we fix this in the implementation itself so that this isn\u0027t required?",
+      "parentUuid": "df3aaf34_30c1f4c4",
       "range": {
         "startLine": 117,
         "startChar": 0,
@@ -349,6 +421,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8fbd7eb_ad657dea",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-03-28T20:09:41Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "2538cff9_753742d6",
+      "range": {
+        "startLine": 123,
+        "startChar": 26,
+        "endLine": 123,
+        "endChar": 40
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ea1d660_b3987b76",
         "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
         "patchSetId": 7
@@ -384,6 +480,30 @@
       "side": 1,
       "message": "\u0027mStream\u0027 is initialized in startStream(), which is used in SurroundView3dSession::set3dConfig(). A NPD is observed in SurroundView3dSession::set3dConfig() if startStream() is not called before invoking it.",
       "parentUuid": "3ea1d660_b3987b76",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 48
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc1bb898_c0d95f5b",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-03-28T20:09:41Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "a295e610_b271e34b",
       "range": {
         "startLine": 134,
         "startChar": 0,
@@ -678,6 +798,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4802d4fb_e86392f7",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-03-28T20:09:41Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "bdfe7102_ad2d371c",
+      "range": {
+        "startLine": 227,
+        "startChar": 20,
+        "endLine": 227,
+        "endChar": 32
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "831dad83_82768199",
         "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
         "patchSetId": 7
@@ -713,6 +857,30 @@
       "side": 1,
       "message": "A new thread (mCaptureThread) is created from startStream(), which is joined in stopStream(). If in the randomized order of API execution, stopStream() is not called after invoking startStream(), thread memory would leak and a point would reach where no more threads could be created, leading to fuzzer abort. This usually happens within 10 mins of fuzzer run.",
       "parentUuid": "831dad83_82768199",
+      "range": {
+        "startLine": 233,
+        "startChar": 26,
+        "endLine": 234,
+        "endChar": 35
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "733ea2b5_0e779090",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-03-28T20:09:41Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "cae6148f_63def2b0",
       "range": {
         "startLine": 233,
         "startChar": 26,
