@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b9dc1ff_a8acad28",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc3e9eaf_743e0d1f",
+      "range": {
+        "startLine": 30,
+        "startChar": 41,
+        "endLine": 30,
+        "endChar": 42
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c176799a_1b7e96ad",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-23T21:44:22Z",
       "side": 1,
       "message": "what happens if we don\u0027t always call this first?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a20a0ce5_8b9295f3",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "\u0027mStream\u0027 is initialized in startStream(), which is used in SurroundView2dSession::set2dConfig(). A NPD is observed in SurroundView2dSession::set2dConfig() if startStream() is not called before invoking it.",
+      "parentUuid": "c176799a_1b7e96ad",
       "range": {
         "startLine": 53,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eea8f129_48755382",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bdea67d_d3eae4eb",
+      "range": {
+        "startLine": 65,
+        "startChar": 83,
+        "endLine": 66,
+        "endChar": 100
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "843a6360_a9346117",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-03-23T21:44:22Z",
       "side": 1,
       "message": "cameraIds.size() \u003e 0 \u0026\u0026 provider.ConsumeBool()\n\n(make sure we try random length string even if there are camera IDs)",
+      "range": {
+        "startLine": 95,
+        "startChar": 32,
+        "endLine": 95,
+        "endChar": 52
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86b49385_7bec9100",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "843a6360_a9346117",
       "range": {
         "startLine": 95,
         "startChar": 32,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "48d4164a_8365db2f",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "doneWithFrames() function takes the argument of type \u0027SvFramesDesc\u0027 but does not do anything with it. So, even if we initialize this randomly, it would not execute any different code path.\n\nReference: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/automotive/sv/1.0/default/SurroundView2dSession.cpp;l\u003d101;bpv\u003d0;bpt\u003d1",
+      "parentUuid": "e61afe14_387de122",
+      "range": {
+        "startLine": 110,
+        "startChar": 41,
+        "endLine": 110,
+        "endChar": 47
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e69a5fb2_7e68fdfc",
         "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
         "patchSetId": 7
@@ -146,6 +266,30 @@
       "writtenOn": "2022-03-23T21:44:22Z",
       "side": 1,
       "message": "what happens if we don\u0027t always call these at the end?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 63
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df3aaf34_30c1f4c4",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "A new thread (mCaptureThread) is created from startStream(), which is joined in stopStream(). If in the randomized order of API execution, stopStream() is not called after invoking startStream(), thread memory would leak and a point would reach where no more threads could be created, leading to fuzzer abort. This usually happens within 10 mins of fuzzer run.",
+      "parentUuid": "e69a5fb2_7e68fdfc",
       "range": {
         "startLine": 117,
         "startChar": 0,
@@ -181,6 +325,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2538cff9_753742d6",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "Mainly 2 methods of SurroundViewService are called - start3dSession(), stop3dSession().\nstart3dSession() assigns value to surroundView3dSession, which is then used in invoking functions from the lambda construct.\n\nIf the methods from lambda construct are invoked without calling start3dSession(), it would lead to NPD in fuzzer",
+      "parentUuid": "f80005b6_62b6bb07",
+      "range": {
+        "startLine": 123,
+        "startChar": 26,
+        "endLine": 123,
+        "endChar": 40
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ea1d660_b3987b76",
         "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
         "patchSetId": 7
@@ -192,6 +360,30 @@
       "writtenOn": "2022-03-23T21:44:22Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 48
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a295e610_b271e34b",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "\u0027mStream\u0027 is initialized in startStream(), which is used in SurroundView3dSession::set3dConfig(). A NPD is observed in SurroundView3dSession::set3dConfig() if startStream() is not called before invoking it.",
+      "parentUuid": "3ea1d660_b3987b76",
       "range": {
         "startLine": 134,
         "startChar": 0,
@@ -225,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7917bd4_f68c3a29",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4b0a56b_f30166db",
+      "range": {
+        "startLine": 144,
+        "startChar": 42,
+        "endLine": 144,
+        "endChar": 43
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c0acc53_b564bce6",
@@ -238,6 +454,30 @@
       "writtenOn": "2022-03-23T21:44:22Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 154,
+        "startChar": 75,
+        "endLine": 155,
+        "endChar": 94
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f956a5f2_cc9635b1",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c0acc53_b564bce6",
       "range": {
         "startLine": 154,
         "startChar": 75,
@@ -271,6 +511,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "baf23933_c62eaf56",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6f8b59_bff6d3f8",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 65
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffe36890_4cada441",
@@ -294,6 +558,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b48c83e3_b63fedf5",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffe36890_4cada441",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 47
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2854ec8_cd61e0c5",
@@ -307,6 +595,30 @@
       "writtenOn": "2022-03-23T21:44:22Z",
       "side": 1,
       "message": "nit: the functions inside of this could be moved into the outer array of lambdas - any reason to have it nested?",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 84
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be62e84f_72ea42b0",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2854ec8_cd61e0c5",
       "range": {
         "startLine": 194,
         "startChar": 0,
@@ -342,6 +654,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bdfe7102_ad2d371c",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "doneWithFrames() function takes the argument of type \u0027SvFramesDesc\u0027 but does not do anything with it. So, even if we initialize this randomly, it would not execute any different code path.\n\nReference: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/automotive/sv/1.0/default/SurroundView3dSession.cpp;l\u003d112",
+      "parentUuid": "5f85b7b9_6f571640",
+      "range": {
+        "startLine": 227,
+        "startChar": 20,
+        "endLine": 227,
+        "endChar": 32
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "831dad83_82768199",
         "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
         "patchSetId": 7
@@ -365,6 +701,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cae6148f_63def2b0",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "A new thread (mCaptureThread) is created from startStream(), which is joined in stopStream(). If in the randomized order of API execution, stopStream() is not called after invoking startStream(), thread memory would leak and a point would reach where no more threads could be created, leading to fuzzer abort. This usually happens within 10 mins of fuzzer run.",
+      "parentUuid": "831dad83_82768199",
+      "range": {
+        "startLine": 233,
+        "startChar": 26,
+        "endLine": 234,
+        "endChar": 35
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "efd5f113_f815bf2d",
         "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
         "patchSetId": 7
@@ -376,6 +736,30 @@
       "writtenOn": "2022-03-23T21:44:22Z",
       "side": 1,
       "message": "this will never happen in Android",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 5
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "366e211a_2ebe48cc",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-03-28T04:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efd5f113_f815bf2d",
       "range": {
         "startLine": 345,
         "startChar": 0,
