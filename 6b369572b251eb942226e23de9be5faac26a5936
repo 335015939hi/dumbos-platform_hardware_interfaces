@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "945cc1df_8a00bf82",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-03-28T20:03:03Z",
+      "side": 1,
+      "message": "is there anything we can test here? Is support for these optional or not? (we should make them optional if possible - will clarify in email thread)",
+      "revId": "6b369572b251eb942226e23de9be5faac26a5936",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
