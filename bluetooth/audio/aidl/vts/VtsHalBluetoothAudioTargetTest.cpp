@@ -250,6 +250,9 @@ class BluetoothAudioProviderFactoryAidl
                     AudioCapabilities::leAudioCapabilities);
         }
       } break;
+      case SessionType::A2DP_SOFTWARE_DECODING_DATAPATH:
+      case SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH:
+        break;
     }
   }
 
