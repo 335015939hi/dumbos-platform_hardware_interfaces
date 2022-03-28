@@ -72,6 +72,17 @@ ndk::ScopedAStatus BluetoothAudioProvider::endSession() {
   return ndk::ScopedAStatus::ok();
 }
 
+ndk::ScopedAStatus BluetoothAudioProvider::endSessionAfterCrash() {
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_);
+
+  BluetoothAudioSessionReport::OnSessionEnded(session_type_);
+
+  stack_iface_ = nullptr;
+  audio_config_ = nullptr;
+
+  return ndk::ScopedAStatus::ok();
+}
+
 ndk::ScopedAStatus BluetoothAudioProvider::streamStarted(
     BluetoothAudioStatus status) {
   LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
@@ -147,7 +158,7 @@ void BluetoothAudioProvider::binderDiedCallbackAidl(void* ptr) {
     LOG(ERROR) << __func__ << ": Null AudioProvider HAL died";
     return;
   }
-  provider->endSession();
+  provider->endSessionAfterCrash();
 }
 
 }  // namespace audio

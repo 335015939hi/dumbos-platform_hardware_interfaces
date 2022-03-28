@@ -44,6 +44,7 @@ class BluetoothAudioProvider : public BnBluetoothAudioProvider {
       const std::vector<LatencyMode>& latency_modes,
       DataMQDesc* _aidl_return);
   ndk::ScopedAStatus endSession();
+  ndk::ScopedAStatus endSessionAfterCrash();
   ndk::ScopedAStatus streamStarted(BluetoothAudioStatus status);
   ndk::ScopedAStatus streamSuspended(BluetoothAudioStatus status);
   ndk::ScopedAStatus updateAudioConfiguration(
