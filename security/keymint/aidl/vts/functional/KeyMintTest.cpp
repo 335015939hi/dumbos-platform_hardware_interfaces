@@ -2417,8 +2417,8 @@ TEST_P(NewKeyGenerationTest, EcdsaDefaultSize) {
 /*
  * NewKeyGenerationTest.EcdsaInvalidCurve
  *
- * Verifies that specifying an invalid curve for EC key generation returns
- * UNSUPPORTED_KEY_SIZE.
+ * Verifies that specifying an invalid curve or no curve for EC key generation returns
+ * UNSUPPORTED_KEY_SIZE or UNSUPPORTED_EC_CURVE.
  */
 TEST_P(NewKeyGenerationTest, EcdsaInvalidCurve) {
     for (auto curve : InvalidCurves()) {
@@ -2440,6 +2440,14 @@ TEST_P(NewKeyGenerationTest, EcdsaInvalidCurve) {
                                   .SigningKey()
                                   .Digest(Digest::NONE)
                                   .SetDefaultValidity()));
+
+    /* If EC_CURVE not provided, generateKey
+     * must return ErrorCode::UNSUPPORTED_KEY_SIZE or ErrorCode::UNSUPPORTED_EC_CURVE.
+     */
+    auto result = GenerateKey(
+            AuthorizationSetBuilder().EcdsaKey(256).Digest(Digest::NONE).SetDefaultValidity());
+    ASSERT_TRUE(result == ErrorCode::UNSUPPORTED_KEY_SIZE ||
+                result == ErrorCode::UNSUPPORTED_EC_CURVE);
 }
 
 /*
