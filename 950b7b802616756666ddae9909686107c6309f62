@@ -16,6 +16,24 @@
       "message": "default: error? if something is missed?",
       "revId": "950b7b802616756666ddae9909686107c6309f62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bb626b7_80e36fa3",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-03-29T07:13:08Z",
+      "side": 0,
+      "message": "Thanks for the reminder. Added.",
+      "parentUuid": "669229ee_50f7c718",
+      "revId": "950b7b802616756666ddae9909686107c6309f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
