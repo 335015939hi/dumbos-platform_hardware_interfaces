@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e691e3c3_42e39292",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2443,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-03-30T15:54:13Z",
+      "side": 1,
+      "message": "Unfortunately, we\u0027re likely to need a HAL version check here, because we can\u0027t insist that devices that passed the VTS test as of Android S get their KeyMint code updated.\n\nSo could we:\n\n- move this check to a test of its own\n- include an initial check/skip like:\n```\n    if (AidlVersion() \u003c 2) {\n       GTEST_SKIP()  \u003c\u003c \"Requiring EC_CURVE only strict since KeyMint v2\";\n    }\n```    \n- add a comment, something like \"The KeyMint V1 spec required that EC_CURVE be specified for EC keys. However, this was not checked at the time so we can only be strict about checking this for implementations of KeyMint version 2 and above.\" (cf. aosp/2033925)",
+      "revId": "c7e42089e07532165c2c8efdb5dff0d16617ebae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
