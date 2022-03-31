@@ -70,6 +70,30 @@
       },
       "revId": "adcceec9ad9734941cb5fa8b2783833927d53818",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44adaa0d_7bf1f1f4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionType.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-03-31T00:58:42Z",
+      "side": 1,
+      "message": "It didn\u0027t break tm-dev. It broke the topic that is pending. https://googleplex-android-review.git.corp.google.com/q/topic:aidl_freeze_tm\n\nTo fix the error, I need to re-freeze the API. That\u0027s doable, but wanted to check if this change is intended to land on TM first, because I\u0027ve thought that this is too late to make such an HAL interface change.",
+      "parentUuid": "4802d7fc_432a268a",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 0
+      },
+      "revId": "adcceec9ad9734941cb5fa8b2783833927d53818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
