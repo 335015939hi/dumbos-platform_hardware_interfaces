@@ -118,6 +118,30 @@
       },
       "revId": "adcceec9ad9734941cb5fa8b2783833927d53818",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b26bf6f8_a5659caf",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionType.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-03-31T01:04:01Z",
+      "side": 1,
+      "message": "Ack. Thanks for confirming!",
+      "parentUuid": "385c8879_321040c6",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 0
+      },
+      "revId": "adcceec9ad9734941cb5fa8b2783833927d53818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
