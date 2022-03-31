@@ -1,0 +1,4 @@
+service vendor.boot-default /vendor/bin/hw/android.hardware.boot-service.default
+    class hal
+    user system
+    group system
