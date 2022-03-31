@@ -46,6 +46,30 @@
       },
       "revId": "adcceec9ad9734941cb5fa8b2783833927d53818",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4802d7fc_432a268a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionType.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-03-31T00:54:29Z",
+      "side": 1,
+      "message": "Why did it break the tm-dev build?",
+      "parentUuid": "046ef2ea_a393e8c4",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 0
+      },
+      "revId": "adcceec9ad9734941cb5fa8b2783833927d53818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
