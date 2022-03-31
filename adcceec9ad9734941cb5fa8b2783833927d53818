@@ -94,6 +94,30 @@
       },
       "revId": "adcceec9ad9734941cb5fa8b2783833927d53818",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "385c8879_321040c6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionType.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-03-31T01:02:32Z",
+      "side": 1,
+      "message": "I see. It is for Android T. I check with Steven about it before I made the change.",
+      "parentUuid": "44adaa0d_7bf1f1f4",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 0
+      },
+      "revId": "adcceec9ad9734941cb5fa8b2783833927d53818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
