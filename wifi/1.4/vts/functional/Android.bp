@@ -13,7 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+<<<<<<< HEAD   (cefd18 VTS: Check for "ro.board.first_api_level" in GetBarringInfo()
 
+=======
+>>>>>>> BRANCH (c78a2e Fill signalType in GnssClock.referenceSignalTypeForIsb)
 package {
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
