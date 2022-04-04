@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01bdcdc4_202e385a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-04T07:49:28Z",
+      "side": 1,
+      "message": "Thanks for adding these checks.",
+      "revId": "775c9d90fcde0b6340174429afcec14855f46143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a64c119d_376d9c87",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-04T07:49:28Z",
+      "side": 1,
+      "message": "This test doesn\u0027t seem version-specific, but then I\u0027m not completely sure what the test is checking for...",
+      "revId": "775c9d90fcde0b6340174429afcec14855f46143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef1e7b98_47e896c5",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-04T07:49:28Z",
+      "side": 1,
+      "message": "This is copy-pasted everywhere, so would be better encapsulated as a function. (However, the comments below may make this unnecessary anyway.)",
+      "revId": "775c9d90fcde0b6340174429afcec14855f46143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69a76f00_37d9c621",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-04T07:49:28Z",
+      "side": 1,
+      "message": "What happens if TEE is v2 but SB is v1?\n\nI think the check above should be dropped, and instead just check `AidlVersion(tee) \u003c 2` here.\n\nIn fact, I think all of these precondition checks could be made simpler (which I should have done in my previous modification here), to just look for and check the devices used in each test.  Something like:\n\n```\nTEST_F(SecureElementProvisioningTest, TeeOnly) {\n    auto tee \u003d keymints_.find(SecurityLevel::TRUSTED_ENVIRONMENT)-\u003esecond;\n    if (tee \u003d\u003d nullptr) {\n        GTEST_SKIP() \u003c\u003c \"Test not applicable to device with no TEE KeyMint devices\";\n    }\n    if (AidlVersion(tee) \u003c 2) {\n        GTEST_SKIP() \u003c\u003c \"Test not applicable to TEE KeyMint device before v2\";\n    }\n    ...\n```\n\nWDYT?",
+      "revId": "775c9d90fcde0b6340174429afcec14855f46143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8a83ea9_71fc5b5e",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-04T07:49:28Z",
+      "side": 1,
+      "message": "This test does need to check the version of both devices, but I think it will be clearer to check them individually, so the \"skip reason\" can be identical for (say) all tests that are skipped because SB is v1.\n\n(Similarly for other tests below that rely on both TEE and SB being v2)",
+      "revId": "775c9d90fcde0b6340174429afcec14855f46143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
