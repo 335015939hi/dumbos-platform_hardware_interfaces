@@ -136,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b415ef9_7b2bf122",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-05T07:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d817dc7d_3efbe611",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bdea67d_d3eae4eb",
@@ -301,6 +325,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfae52bc_4330e926",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-05T07:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f46c41c_e6ca9e0a",
+      "range": {
+        "startLine": 110,
+        "startChar": 41,
+        "endLine": 110,
+        "endChar": 47
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e69a5fb2_7e68fdfc",
@@ -362,6 +410,30 @@
       "side": 1,
       "message": "Please do comment to this effect here, but could we fix this in the implementation itself so that this isn\u0027t required?",
       "parentUuid": "df3aaf34_30c1f4c4",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 63
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee234f6b_01a0afe8",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-05T07:11:06Z",
+      "side": 1,
+      "message": "stopStream() and stop2dSession() are now called in the lambda construct.\nAdditionally, stopStream() is called after the while loop (in case it is not already called before in the randomized order), to ensure that the threads do not leak.",
+      "parentUuid": "438e5f16_9c016861",
       "range": {
         "startLine": 117,
         "startChar": 0,
@@ -443,6 +515,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d016386_c57581bc",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-05T07:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8fbd7eb_ad657dea",
+      "range": {
+        "startLine": 123,
+        "startChar": 26,
+        "endLine": 123,
+        "endChar": 40
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ea1d660_b3987b76",
@@ -504,6 +600,30 @@
       "side": 1,
       "message": "same",
       "parentUuid": "a295e610_b271e34b",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 48
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e4b1455_e7f6beba",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-05T07:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc1bb898_c0d95f5b",
       "range": {
         "startLine": 134,
         "startChar": 0,
@@ -820,6 +940,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "647b2b28_5a39ac11",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-05T07:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4802d4fb_e86392f7",
+      "range": {
+        "startLine": 227,
+        "startChar": 20,
+        "endLine": 227,
+        "endChar": 32
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "831dad83_82768199",
@@ -881,6 +1025,30 @@
       "side": 1,
       "message": "same",
       "parentUuid": "cae6148f_63def2b0",
+      "range": {
+        "startLine": 233,
+        "startChar": 26,
+        "endLine": 234,
+        "endChar": 35
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "875bfc2c_42b47ded",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-05T07:11:06Z",
+      "side": 1,
+      "message": "stopStream() and stop3dSession() are now called in the lambda construct.\nAdditionally, stopStream() is called after the while loop (in case it is not already called before in the randomized order), to ensure that the threads do not leak.",
+      "parentUuid": "733ea2b5_0e779090",
       "range": {
         "startLine": 233,
         "startChar": 26,

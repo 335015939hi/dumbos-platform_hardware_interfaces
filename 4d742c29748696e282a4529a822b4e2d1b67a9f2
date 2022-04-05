@@ -22,6 +22,30 @@
       },
       "revId": "4d742c29748696e282a4529a822b4e2d1b67a9f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4b9ac82_5ea1610e",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-05T07:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "492ed7eb_7f3ffc83",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 9
+      },
+      "revId": "4d742c29748696e282a4529a822b4e2d1b67a9f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

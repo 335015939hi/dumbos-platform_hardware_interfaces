@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e351e6b5_f1ded447",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-05T07:11:06Z",
+      "side": 1,
+      "message": "With this patchset, following NPD issues in the source code shall be uncovered:\n1. Missing NULL check for \u0027mStream\u0027 in SurroundView2dSession::set2dConfig(): https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/automotive/sv/1.0/default/SurroundView2dSession.cpp;l\u003d129;bpv\u003d0;bpt\u003d1\n2. Missing NULL check for \u0027mStream\u0027 in SurroundView3dSession::set3dConfig(): https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/automotive/sv/1.0/default/SurroundView3dSession.cpp;l\u003d137;bpv\u003d0;bpt\u003d0\n\nAlso, there are two direct leaks in the source code:\n1. In SurroundView3dSession::SurroundView3dSession(), memory for framesRecord.frames.svBuffers[0].hardwareBuffer.nativeHandle is allocated but not freed - https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/automotive/sv/1.0/default/SurroundView3dSession.cpp;l\u003d48;bpv\u003d0;bpt\u003d0\n2. In SurroundView2dSession::SurroundView2dSession(), memory for framesRecord.frames.svBuffers[0].hardwareBuffer.nativeHandle is allocated but not freed - https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/automotive/sv/1.0/default/SurroundView2dSession.cpp;l\u003d38;bpv\u003d0;bpt\u003d0",
+      "revId": "19f4098f9ec9e2a257c43874e05d3143d3a7737e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
