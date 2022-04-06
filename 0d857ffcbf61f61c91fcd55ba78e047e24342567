@@ -16,6 +16,23 @@
       "message": "Hi Harish, can you please help review this change?",
       "revId": "0d857ffcbf61f61c91fcd55ba78e047e24342567",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8f18e96_7824f5fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2022-04-06T19:35:03Z",
+      "side": 1,
+      "message": "Assuming that TV devices that launched with Android S are allowed to use OMX video codecs in T is the updated requirement, change looks good to me.\n\nWonsik,\nCan you please review if the above understanding is correct?\n ",
+      "revId": "0d857ffcbf61f61c91fcd55ba78e047e24342567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
