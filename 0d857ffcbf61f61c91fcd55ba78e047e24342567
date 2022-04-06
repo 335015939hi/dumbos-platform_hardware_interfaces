@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bcad0af9_da7b985a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1946571
+      },
+      "writtenOn": "2022-04-06T21:36:51Z",
+      "side": 1,
+      "message": "Thanks for the review. That is correct, we want Android S launched devices to be able to use OMX in T for Android TV.",
+      "parentUuid": "e8f18e96_7824f5fe",
+      "revId": "0d857ffcbf61f61c91fcd55ba78e047e24342567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77da4682_df7f5f13",
         "filename": "media/omx/1.0/vts/functional/store/VtsHalMediaOmxV1_0TargetStoreTest.cpp",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2022-04-06T19:36:03Z",
       "side": 1,
       "message": "nit: on Android TV devices that launched with Android S",
+      "range": {
+        "startLine": 392,
+        "startChar": 42,
+        "endLine": 392,
+        "endChar": 78
+      },
+      "revId": "0d857ffcbf61f61c91fcd55ba78e047e24342567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a9c382d_53196128",
+        "filename": "media/omx/1.0/vts/functional/store/VtsHalMediaOmxV1_0TargetStoreTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1946571
+      },
+      "writtenOn": "2022-04-06T21:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77da4682_df7f5f13",
       "range": {
         "startLine": 392,
         "startChar": 42,
