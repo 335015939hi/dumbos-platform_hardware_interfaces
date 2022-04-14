@@ -514,9 +514,39 @@ TEST_P(BroadcastRadioHalTest, DabTune) {
 
     ASSERT_TRUE(openSession());
 
+    auto stnList = getProgramList();
+    if (!stnList) {
+        printSkipped("Empty Station List, tune cannot be performed.");
+        return;
+    }
+
     ProgramSelector sel = {};
+    uint64_t dabSidExt = 0;
+    uint64_t dabEns = 0;
     uint64_t freq = config[config.size() / 2].frequency;
-    sel.primaryId = make_identifier(IdentifierType::DAB_FREQUENCY,freq);
+    bool dabStnPresent = false;
+
+    for ( auto&& programInfo : *stnList ) {
+        if ((utils::hasId(programInfo.selector, IdentifierType::DAB_FREQUENCY)) &&
+            (freq == utils::getId(programInfo.selector, IdentifierType::DAB_FREQUENCY))) {
+            dabSidExt = utils::getId(programInfo.selector, IdentifierType::DAB_SID_EXT, 0);
+            dabEns = utils::getId(programInfo.selector, IdentifierType::DAB_ENSEMBLE, 0);
+            sel.primaryId = make_identifier(IdentifierType::DAB_SID_EXT, dabSidExt);
+	        hidl_vec<ProgramIdentifier> secondaryIds = {
+                make_identifier(IdentifierType::DAB_ENSEMBLE, dabEns),
+		        make_identifier(IdentifierType::DAB_FREQUENCY, freq)
+            };
+	        sel.secondaryIds = secondaryIds;
+	        dabStnPresent = true;
+	        break;
+        }
+	    continue;
+    }
+
+    if (!dabStnPresent) {
+        printSkipped("No DAB stations in the list, tune cannot be performed");
+	    return;
+    }
 
     std::this_thread::sleep_for(gTuneWorkaround);
 
