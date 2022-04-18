@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd2b819d_f5e00c7e",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-18T05:54:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9d1482eb_83fbbf80",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 5
+      },
+      "revId": "19f4098f9ec9e2a257c43874e05d3143d3a7737e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c372a35_7ed56cfa",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-04-13T23:53:39Z",
       "side": 1,
       "message": "we could also invoke both of these together",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 84
+      },
+      "revId": "19f4098f9ec9e2a257c43874e05d3143d3a7737e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58492beb_fdb196f0",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-18T05:54:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5c372a35_7ed56cfa",
       "range": {
         "startLine": 321,
         "startChar": 0,

@@ -444,6 +444,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc10854c_329359ea",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-18T05:54:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee234f6b_01a0afe8",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 63
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f80005b6_62b6bb07",
@@ -1049,6 +1073,30 @@
       "side": 1,
       "message": "stopStream() and stop3dSession() are now called in the lambda construct.\nAdditionally, stopStream() is called after the while loop (in case it is not already called before in the randomized order), to ensure that the threads do not leak.",
       "parentUuid": "733ea2b5_0e779090",
+      "range": {
+        "startLine": 233,
+        "startChar": 26,
+        "endLine": 234,
+        "endChar": 35
+      },
+      "revId": "2a759267daef1a68b1867b581164c5d905c34629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "055e3809_5dd74674",
+        "filename": "automotive/sv/1.0/default/tests/fuzzer/AutomotiveSvV1_0Fuzzer.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2022-04-18T05:54:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "875bfc2c_42b47ded",
       "range": {
         "startLine": 233,
         "startChar": 26,
