@@ -37,7 +37,7 @@ cc_library_headers {
 
 cc_library_shared {
     name: "camera.device@3.5-impl",
-    defaults: ["hidl_defaults"],
+    defaults: ["android_hardware_camera_device_config_defaults"],
     proprietary: true,
     vendor: true,
     srcs: [
@@ -72,7 +72,7 @@ cc_library_shared {
 
 cc_library_shared {
     name: "camera.device@3.5-external-impl",
-    defaults: ["hidl_defaults"],
+    defaults: ["android_hardware_camera_device_config_defaults"],
     proprietary: true,
     vendor: true,
     srcs: [

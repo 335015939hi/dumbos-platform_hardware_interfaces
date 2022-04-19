@@ -9,7 +9,7 @@ package {
 
 cc_library_shared {
     name: "camera.device@3.3-impl",
-    defaults: ["hidl_defaults"],
+    defaults: ["android_hardware_camera_device_config_defaults"],
     proprietary: true,
     srcs: [
         "CameraDevice.cpp",
