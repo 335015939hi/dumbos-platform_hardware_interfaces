@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2fd129f_693081c6",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-19T17:42:25Z",
+      "side": 1,
+      "message": "Why not specify a floor, like `16..64`?\n\nIMO should have at least 16 bytes for a challenge. However, I could probably be convinced 8 bytes is ok.",
+      "range": {
+        "startLine": 109,
+        "startChar": 39,
+        "endLine": 109,
+        "endChar": 44
+      },
+      "revId": "0bd43a805d14b92b5b1abf02c21005b0b08cc97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
