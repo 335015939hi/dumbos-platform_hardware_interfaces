@@ -353,4 +353,14 @@ enum StandardMetadataType {
      * If this is unset when encoded into a byte stream, the byte stream is empty.
      */
     SMPTE2094_40 = 21,
+
+    /**
+     * Can be used to get or set the current VkImageLayout.
+     *
+     * This metadata is a uint64_t.
+     *
+     * When it is encoded into a byte stream, it is first cast to a uint64_t and then represented in
+     * the byte stream by 8 bytes written in little endian.
+     */
+    VULKAN_IMAGE_LAYOUT = 22,
 }
