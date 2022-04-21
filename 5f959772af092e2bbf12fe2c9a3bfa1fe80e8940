@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ce4478c_ee9e9d7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-04-21T01:17:30Z",
+      "side": 1,
+      "message": "how does this interact w/ the HAL boundary and backwards compatibility?",
+      "revId": "5f959772af092e2bbf12fe2c9a3bfa1fe80e8940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
