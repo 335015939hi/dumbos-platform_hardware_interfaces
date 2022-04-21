@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56ffecd6_870fbe5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-04-21T04:09:59Z",
+      "side": 1,
+      "message": "In general, the fix looks to be in a correct direction, just requires some cleanup.\n\nBut this brings up another problem, that\u0027s not possible to tune to arbitrary DAB channel. Maybe that\u0027s fine, let\u0027s just sync with the new owners.",
+      "revId": "e7aa18edb70cd5062c1d9a297fcfa9698c6b31c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
