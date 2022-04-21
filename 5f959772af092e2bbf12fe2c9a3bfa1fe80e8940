@@ -16,6 +16,24 @@
       "message": "how does this interact w/ the HAL boundary and backwards compatibility?",
       "revId": "5f959772af092e2bbf12fe2c9a3bfa1fe80e8940",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f81228c_614f04f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010050
+      },
+      "writtenOn": "2022-04-21T05:41:54Z",
+      "side": 1,
+      "message": "Technically this is only changing the legacy HAL files, not the HIDL interface. Since the legacy HAL isn\u0027t an official HAL interface, it doesn\u0027t break anything we guarantee. And it only turns on if there\u0027s that config flag set.\n\nBut it seems like something would need to translate between 64- and 32-bit usages in the legacy HAL wrapper, and I don\u0027t see any changes for that here. It\u0027s possible automatic type conversion happens to just work, but that seems a bit risky.\n\nThat said, since this depends on changing the legacy HAL headers, and we haven\u0027t touched those in years, I\u0027m not sure we really want to accept changes here.",
+      "parentUuid": "9ce4478c_ee9e9d7b",
+      "revId": "5f959772af092e2bbf12fe2c9a3bfa1fe80e8940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
