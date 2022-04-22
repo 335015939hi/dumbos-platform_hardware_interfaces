@@ -70,6 +70,24 @@
       "parentUuid": "fe5ee2b1_d3d58d32",
       "revId": "e7aa18edb70cd5062c1d9a297fcfa9698c6b31c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "826843f6_e2382787",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-04-22T20:07:59Z",
+      "side": 1,
+      "message": "Tomasz and Mr Natajee. \nThanks for the explanation, I guess it makes sense to skip the test if there are no DAB services in the station list.\n\nGoing back to test expectation, starting at line 488.\n\nCan we still select a config from the list while still accomplishing this:\n *  - if it is supported, the method succeeds;\n *  - after a successful tune call, onCurrentProgramInfoChanged callback is\n *    invoked carrying a proper selector;\n *  - program changes exactly to what was requested.\n \n It would be OK to add extra code as long as we are keeping up with the expectations above.",
+      "parentUuid": "8407c127_2f109f65",
+      "revId": "e7aa18edb70cd5062c1d9a297fcfa9698c6b31c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
