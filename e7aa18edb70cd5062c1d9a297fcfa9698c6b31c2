@@ -52,6 +52,24 @@
       "parentUuid": "7b0ab082_e8081076",
       "revId": "e7aa18edb70cd5062c1d9a297fcfa9698c6b31c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8407c127_2f109f65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948640
+      },
+      "writtenOn": "2022-04-22T18:54:39Z",
+      "side": 1,
+      "message": "Dear, Mr. Oscar, Mr. Tomasz.\n\nPlease find our understanding, and conclusions below; please do correct me if I made a mistake with my understanding.\n\nCan we iterate though the config list and select one that is available instead?\n- Yes, this can be done; however, we may need to write additional code to support it: Retrieve the station-list, get the first DAB service in the list, retrieve DAB_SID_EXT, DAB_ENSEMBLE, and DAB_FREQUENCY from the list item, thence create a ProgramSelector and send tune-request. However, doing this would remove the necessity to get an arbitrary value from the config list; we can just get the list item, create a tune-request, and validate the received Station Information against one of the information in the tune-request, be it DAB_SID_EXT/DAB_ENSEMBLE/DAB_FREQUENCY.\n\nWe did not want to change the test-case expectation/format, hence, we kept the line where the test-case gets the frequency value randomly from the config list; this poses another problem though, we may have DAB services in the station list, but if the services are not on the same frequency, which we got randomly in the aforementioned step, then we end skipping the test-case altogether.\n\n------\n\nUnlike AM/FM, DAB services cannot be tuned using frequency alone; it requires a proper ServiceID, and EnsembleID. Frequency in this case, is just a path on which the Ensemble shall be transmitted. This is the reason why the following two steps are taken:\n\n- Randomly get the first DAB service that is being transmitted on the same frequency that the test-case retrieves randomly. [ In my opinion, kind of limitation ]\n- If there is an empty station-list, or if there are no services on the same frequency that we get randomly, then the test-case shall be skipped.\n\n------\n\nI do not think we can test DAB tune if there are no DAB services in the station list Sir.\n\nPlease do let me know if I need to add any further information.\n\nThank You.",
+      "parentUuid": "fe5ee2b1_d3d58d32",
+      "revId": "e7aa18edb70cd5062c1d9a297fcfa9698c6b31c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
