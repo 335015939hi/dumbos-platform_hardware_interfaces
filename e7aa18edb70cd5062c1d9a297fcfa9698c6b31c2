@@ -16,6 +16,24 @@
       "message": "In general, the fix looks to be in a correct direction, just requires some cleanup.\n\nBut this brings up another problem, that\u0027s not possible to tune to arbitrary DAB channel. Maybe that\u0027s fine, let\u0027s just sync with the new owners.",
       "revId": "e7aa18edb70cd5062c1d9a297fcfa9698c6b31c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b0ab082_e8081076",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2022-04-22T18:23:40Z",
+      "side": 1,
+      "message": "Tomasz, is there an expectation that it should be able tune to a arbitrary DAB channel?\nCan we iterate through the config list and select one that is available instead?\n\nAlso I notice that the we would skip if the station list is empty, if the DAB is supported do we want to make sure we can test it.",
+      "parentUuid": "56ffecd6_870fbe5a",
+      "revId": "e7aa18edb70cd5062c1d9a297fcfa9698c6b31c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
