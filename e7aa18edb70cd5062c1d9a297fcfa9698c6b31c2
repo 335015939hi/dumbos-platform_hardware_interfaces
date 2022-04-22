@@ -34,6 +34,24 @@
       "parentUuid": "56ffecd6_870fbe5a",
       "revId": "e7aa18edb70cd5062c1d9a297fcfa9698c6b31c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe5ee2b1_d3d58d32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-04-22T18:36:30Z",
+      "side": 1,
+      "message": "Some \"physical\" radio receivers let users tune to arbitrary DAB channel, but I\u0027m not sure if it makes sense at all. E.g. if it\u0027s possible to receive sound data if metadata is damaged enough to make channel metadata unreadable. Otherwise, I don\u0027t think it makes sense support direct tuning without station ID and picking one from the scan list is fine.\n\nHow would you test it this way with empty station list?",
+      "parentUuid": "7b0ab082_e8081076",
+      "revId": "e7aa18edb70cd5062c1d9a297fcfa9698c6b31c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
