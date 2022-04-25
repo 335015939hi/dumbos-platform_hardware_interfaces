@@ -1406,6 +1406,50 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestationAppIdIgnored) {
 }
 
 /*
+ * NewKeyGenerationTest.emptyAppIdAppData
+ *
+ * Verifies that specifying empty APPLICATION_ID and APPLICATION_DATA for
+ * key generation returns INVALID_TAG.
+ */
+TEST_P(NewKeyGenerationTest, emptyAppIdAppData) {
+    auto base_builder = AuthorizationSetBuilder()
+                                .Digest(Digest::NONE)
+                                .Padding(PaddingMode::NONE)
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .Authorization(TAG_APPLICATION_ID, "")
+                                .Authorization(TAG_APPLICATION_DATA, "")
+                                .SetDefaultValidity();
+    vector<Algorithm> algorithms = {Algorithm::RSA, Algorithm::EC, Algorithm::HMAC, Algorithm::AES,
+                                    Algorithm::TRIPLE_DES};
+    for (auto alg : algorithms) {
+        AuthorizationSetBuilder builder(base_builder);
+        switch (alg) {
+            case Algorithm::RSA:
+                builder.RsaSigningKey(2048, 65537);
+                break;
+            case Algorithm::EC:
+                builder.EcdsaSigningKey(EcCurve::P_256);
+                break;
+            case Algorithm::HMAC:
+                builder.HmacKey(256)
+                        .Digest(Digest::SHA_2_256)
+                        .Authorization(TAG_MIN_MAC_LENGTH, 128);
+                break;
+            case Algorithm::AES:
+                builder.AesEncryptionKey(128).BlockMode(BlockMode::ECB);
+                break;
+            case Algorithm::TRIPLE_DES:
+                builder.TripleDesEncryptionKey(168).BlockMode(BlockMode::ECB);
+                break;
+            default:
+                ADD_FAILURE() << "Invalid Algorithm " << uint32_t(alg);
+                break;
+        }
+        ASSERT_EQ(ErrorCode::INVALID_TAG, GenerateKey(builder, std::nullopt));
+    }
+}
+
+/*
  * NewKeyGenerationTest.LimitedUsageRsa
  *
  * Verifies that KeyMint can generate all required RSA key sizes with limited usage, and that the
@@ -4479,6 +4523,58 @@ TEST_P(ImportKeyTest, HmacKeySuccess) {
     string message = "Hello World!";
     string signature = MacMessage(message, Digest::SHA_2_256, 256);
     VerifyMessage(message, signature, AuthorizationSetBuilder().Digest(Digest::SHA_2_256));
+}
+
+/*
+ * ImportKeyTest.emptyAppIdAppData
+ *
+ * Verifies that specifying empty APPLICATION_ID and APPLICATION_DATA for
+ * importKey returns INVALID_TAG.
+ */
+TEST_P(ImportKeyTest, emptyAppIdAppData) {
+    auto base_builder = AuthorizationSetBuilder()
+                                .Digest(Digest::NONE)
+                                .Padding(PaddingMode::NONE)
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .Authorization(TAG_APPLICATION_ID, "")
+                                .Authorization(TAG_APPLICATION_DATA, "")
+                                .SetDefaultValidity();
+    vector<Algorithm> algorithms = {Algorithm::RSA, Algorithm::EC, Algorithm::HMAC, Algorithm::AES,
+                                    Algorithm::TRIPLE_DES};
+    ErrorCode result;
+    string symKey = hex2str("a49d7564199e97cb529d2c9d97bf2f98");                   // 128 bits
+    string tdesKey = hex2str("a49d7564199e97cb529d2c9d97bf2f98d35edf57ba1f7358");  // 192 bits
+    for (auto alg : algorithms) {
+        AuthorizationSetBuilder builder(base_builder);
+        switch (alg) {
+            case Algorithm::RSA:
+                builder.RsaSigningKey(2048, 65537);
+                result = ImportKey(builder, KeyFormat::PKCS8, rsa_2048_key);
+                break;
+            case Algorithm::EC:
+                builder.EcdsaSigningKey(EcCurve::P_256);
+                result = ImportKey(builder, KeyFormat::PKCS8, ec_256_key);
+                break;
+            case Algorithm::HMAC:
+                builder.HmacKey(128)
+                        .Digest(Digest::SHA_2_256)
+                        .Authorization(TAG_MIN_MAC_LENGTH, 128);
+                result = ImportKey(builder, KeyFormat::RAW, symKey);
+                break;
+            case Algorithm::AES:
+                builder.AesEncryptionKey(128).BlockMode(BlockMode::ECB);
+                result = ImportKey(builder, KeyFormat::RAW, symKey);
+                break;
+            case Algorithm::TRIPLE_DES:
+                builder.TripleDesEncryptionKey(168).BlockMode(BlockMode::ECB);
+                result = ImportKey(builder, KeyFormat::RAW, tdesKey);
+                break;
+            default:
+                ADD_FAILURE() << "Invalid Algorithm " << uint32_t(alg);
+                break;
+        }
+        ASSERT_EQ(ErrorCode::INVALID_TAG, result);
+    }
 }
 
 INSTANTIATE_KEYMINT_AIDL_TEST(ImportKeyTest);
