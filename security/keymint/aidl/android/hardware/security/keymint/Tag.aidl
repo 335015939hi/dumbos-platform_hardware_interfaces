@@ -505,6 +505,9 @@ enum Tag {
      * getKeyCharacteristics() must provide the same value to the clientId parameter, and calls to
      * begin() must provide this tag and the same associated data as part of the inParams set.  If
      * the correct data is not provided, the method must return ErrorCode::INVALID_KEY_BLOB.
+     * If this tag is provided in KeyParameters, then it must not have empty value i.e. zero length.
+     * If it is empty, then the calls to generateKey(), importKey(), importWrappedKey(),
+     * begin() and upgradeKey() must return ErrorCode::INVALID_TAG.
      *
      * The content of this tag must be bound to the key cryptographically, meaning it must not be
      * possible for an adversary who has access to all of the secure world secrets but does not have
@@ -525,7 +528,10 @@ enum Tag {
      * that is necessary during all uses of the key.  In particular, calls to begin() and
      * exportKey() must provide the same value to the appData parameter, and calls to begin must
      * provide this tag and the same associated data as part of the inParams set.  If the correct
-     * data is not provided, the method must return ErrorCode::INVALID_KEY_BLOB.
+     * data is not provided, the method must return ErrorCode::INVALID_KEY_BLOB. If this tag is
+     * provided in KeyParameters, then it must not have empty value i.e. zero length. If it is
+     * empty, then the calls to generateKey(), importKey(), importWrappedKey(), begin() and
+     * upgradeKey() must return ErrorCode::INVALID_TAG.
      *
      * The content of this tag must be bound to the key cryptographically, meaning it must not be
      * possible for an adversary who has access to all of the secure world secrets but does not have
