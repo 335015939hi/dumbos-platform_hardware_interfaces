@@ -477,6 +477,12 @@ bool matching_rp_instance(const string& km_name,
     return false;
 }
 
+bool is_gsi() {
+    char property_value[PROPERTY_VALUE_MAX] = {};
+    EXPECT_NE(property_get("ro.product.system.name", property_value, ""), 0);
+    return !strcmp(property_value, "mainline");
+}
+
 }  // namespace
 
 class NewKeyGenerationTest : public KeyMintAidlTestBase {
@@ -519,9 +525,18 @@ class NewKeyGenerationTest : public KeyMintAidlTestBase {
         auto os_ver = auths.GetTagValue(TAG_OS_VERSION);
         EXPECT_TRUE(os_ver);
         EXPECT_EQ(*os_ver, os_version());
-        auto os_pl = auths.GetTagValue(TAG_OS_PATCHLEVEL);
+        auto os_pl = auths.GetTagValue(TAG_OS_PATCHLEVEL); // vbmeta.img patch level
         EXPECT_TRUE(os_pl);
-        EXPECT_EQ(*os_pl, os_patch_level());
+
+        if (is_gsi()) {
+            // In general, TAG_OS_PATCHLEVEL should be equal to os_patch_level()
+            // reported from the system.img in use. But it is allowed to boot a
+            // GSI system.img with newer patch level, which means TAG_OS_PATCHLEVEL
+            // might be less than or equal to os_patch_level() in this case.
+            EXPECT_LE(*os_pl, os_patch_level()); // system.img patch level
+        } else {
+            EXPECT_EQ(*os_pl, os_patch_level()); // system.img patch level
+        }
 
         if (check_patchLevels) {
             // Should include vendor and boot patchlevels.
