@@ -70,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7da621be_79eb6adb",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-04-25T22:47:13Z",
+      "side": 1,
+      "message": "Removed the version check from this test.",
+      "parentUuid": "a64c119d_376d9c87",
+      "revId": "775c9d90fcde0b6340174429afcec14855f46143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef1e7b98_47e896c5",
@@ -83,6 +101,24 @@
       "writtenOn": "2022-04-04T07:49:28Z",
       "side": 1,
       "message": "This is copy-pasted everywhere, so would be better encapsulated as a function. (However, the comments below may make this unnecessary anyway.)",
+      "revId": "775c9d90fcde0b6340174429afcec14855f46143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eee14a03_647e68fa",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-04-25T22:47:13Z",
+      "side": 1,
+      "message": "As suggested in the below comment. Removed this loop and only checking for the device used in the test.",
+      "parentUuid": "ef1e7b98_47e896c5",
       "revId": "775c9d90fcde0b6340174429afcec14855f46143",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -104,6 +140,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c07a9f8_8eeefc3e",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-04-25T22:47:13Z",
+      "side": 1,
+      "message": "Agreed. Updated the code in the similar way.",
+      "parentUuid": "69a76f00_37d9c621",
+      "revId": "775c9d90fcde0b6340174429afcec14855f46143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8a83ea9_71fc5b5e",
@@ -117,6 +171,24 @@
       "writtenOn": "2022-04-04T07:49:28Z",
       "side": 1,
       "message": "This test does need to check the version of both devices, but I think it will be clearer to check them individually, so the \"skip reason\" can be identical for (say) all tests that are skipped because SB is v1.\n\n(Similarly for other tests below that rely on both TEE and SB being v2)",
+      "revId": "775c9d90fcde0b6340174429afcec14855f46143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af44ab77_306ca943",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-04-25T22:47:13Z",
+      "side": 1,
+      "message": "As suggested check is made individually.",
+      "parentUuid": "d8a83ea9_71fc5b5e",
       "revId": "775c9d90fcde0b6340174429afcec14855f46143",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
