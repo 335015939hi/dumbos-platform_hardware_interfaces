@@ -24,7 +24,13 @@ package android.hardware.security.keymint;
 @VintfStability
 parcelable ProtectedData {
     /**
-     * ProtectedData is a COSE_Encrypt structure, specified by the following CDDL
+     * ProtectedData is a COSE_Encrypt structure, encrypted with an AES key that is agreed upon
+     * using Elliptic-curve Diffie-Hellman. The contents of the structure are specified by the
+     * following CDDL [RFC8610].
+     *
+     * Notes:
+     *   - None of the CBOR in ProtectedData uses CBOR tags. If an implementation includes
+     *     tags, parsers may reject the data.
      *
      *     ProtectedData = [               // COSE_Encrypt
      *         protected: bstr .cbor {
@@ -34,13 +40,18 @@ parcelable ProtectedData {
      *             5 : bstr .size 12       // IV
      *         },
      *         ciphertext: bstr,           // AES-GCM-256(K, .cbor ProtectedDataPayload)
+     *                                     // Where the encryption key 'K' is derived as follows:
+     *                                     // ikm = ECDH(EEK_pub, Ephemeral_priv)
+     *                                     // salt = bstr .size 0
+     *                                     // info = .cbor Context (see below)
+     *                                     // K = HKDF-SHA-256(ikm, salt, info)
      *         recipients : [
      *             [                       // COSE_Recipient
      *                 protected : bstr .cbor {
      *                     1 : -25         // Algorithm : ECDH-ES + HKDF-256
      *                 },
      *                 unprotected : {
-     *                     -1 : PubKeyX25519 / PubKeyEcdhP256  // Of the sender
+     *                     -1 : PubKeyX25519 / PubKeyEcdhP256  // Ephemeral_pub
      *                     4 : bstr,       // KID : EEK ID
      *                 },
      *                 ciphertext : nil
@@ -48,14 +59,14 @@ parcelable ProtectedData {
      *         ]
      *     ]
      *
-     *     K = HKDF-256(ECDH(EEK_pub, Ephemeral_priv), Context)
-     *
-     *     Context = [                     // COSE_KDF_Context
+     *     // The COSE_KDF_Context that is used to derive the ProtectedData encryption key with
+     *     // HKDF. See details on use in ProtectedData comments above.
+     *     Context = [
      *         AlgorithmID : 3             // AES-GCM 256
      *         PartyUInfo : [
      *             identity : bstr "client"
      *             nonce : bstr .size 0,
-     *             other : bstr            // Ephemeral pubkey
+     *             other : bstr            // Ephemeral_pub
      *         ],
      *         PartyVInfo : [
      *             identity : bstr "server",
@@ -68,11 +79,17 @@ parcelable ProtectedData {
      *         ]
      *     ]
      *
+     *     // The data that is encrypted and included in ProtectedData ciphertext (see above).
      *     ProtectedDataPayload [
      *         SignedMac,
      *         Bcc,
      *         ? AdditionalDKSignatures,
      *     ]
+     *
+     *     // AdditionalDKSignatures allows the platform to provide additional certifications
+     *     // for the DK_pub. For example, this could be provided by the hardware vendor, who
+     *     // certifies all of their devices. The SignerName is a free-form string describing
+     *     // who generated the signature.
      *     AdditionalDKSignatures = {
      *         + SignerName => DKCertChain
      *     }
@@ -80,18 +97,44 @@ parcelable ProtectedData {
      *     SignerName = tstr
      *
      *     DKCertChain = [
-     *         2* Certificate                      // Root -> Leaf.  Root is the vendor
-     *                                             // self-signed cert, leaf contains DK_pub
+     *         PubKeyEd25519 / PubKeyECDSA256,    // The root key for the chain
+     *         + Certificate                      // A certificate chain for the DK_pub. At least
+     *                                            // one intermediate signing certificate is
+     *                                            // recommended, allowing the private root to be
+     *                                            // kept offline.
      *     ]
      *
-     *     Certificate = COSE_Sign1 of a public key
+     *     CertificatePayload = {             // CWT
+     *         1 : tstr,                      // Issuer
+     *         2 : tstr,                      // Subject
+     *     }
      *
+     *     CertificateInput = [
+     *         context: "Signature1",
+     *         protected: bstr .cbor {
+     *             1 : AlgorithmEdDSA / AlgorithmES256,  // Algorithm
+     *         },
+     *         external_aad: bstr .size 0,
+     *         payload: bstr .cbor CertificatePayload
+     *     ]
+     *
+     *     Certificate = [                                // COSE_Sign1
+     *         bstr .cbor {                               // Protected params
+     *             1 : AlgorithmEdDSA / AlgorithmES256,   // Algorithm
+     *         },
+     *         {},                                        // Unprotected params
+     *         bstr .cbor PubKeyEd25519 / bstr .cbor PubKeyECDSA256,
+     *         bstr // PureEd25519(k, bstr .cbor Certificate) /
+     *              // ECDSA(k, bstr .cbor Certificate)
+     *     ]
+     *
+     *     // The SignedMac
      *     SignedMac = [                                  // COSE_Sign1
      *         bstr .cbor {                               // Protected params
      *             1 : AlgorithmEdDSA / AlgorithmES256,   // Algorithm
      *         },
-     *         {},                   // Unprotected params
-     *         bstr .size 32,                  // MAC key
+     *         {},                                        // Unprotected params
+     *         bstr .size 32,                             // Payload: MAC key
      *         bstr // PureEd25519(KM_priv, bstr .cbor SignedMac_structure) /
      *              // ECDSA(KM_priv, bstr .cbor SignedMac_structure)
      *     ]
