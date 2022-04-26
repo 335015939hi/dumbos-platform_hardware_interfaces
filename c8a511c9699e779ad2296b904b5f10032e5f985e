@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de5a05a5_94717102",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-26T05:51:43Z",
+      "side": 1,
+      "message": "AIUI, if a device boots a newer OS via GSI, the KeyMint HAL service should read the OS patchlevel from the new system at start of day, and send it to the KeyMint trusted application for subsequent use.  \n\nE.g. for Cuttlefish: \nhttps://cs.android.com/android/platform/superproject/+/master:device/google/cuttlefish/guest/hals/keymint/remote/remote_keymaster.cpp?q\u003dRemoteKeymaster::Initialize\n\n(However, note that that emulator code also sets the boot information -- on a real device, boot info should travel directly from the bootloader to the KeyMint TA.)\n\nThat means that the OS patchlevel values should be consistent throughout, and no test change is needed.",
+      "revId": "c8a511c9699e779ad2296b904b5f10032e5f985e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
