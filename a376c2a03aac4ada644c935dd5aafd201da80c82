@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "848f667c_45aaf600",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-26T00:07:22Z",
+      "side": 1,
+      "message": "I started going down a rabbit hole here trying to define certificates.\n\nI\u0027m still not happy with this and I think it needs work. e.g. we really should make the first entry some sort of identifier for the format of the rest of the data. This would allow for x.509 certs or other schemes.",
+      "range": {
+        "startLine": 101,
+        "startChar": 17,
+        "endLine": 101,
+        "endChar": 28
+      },
+      "revId": "a376c2a03aac4ada644c935dd5aafd201da80c82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
