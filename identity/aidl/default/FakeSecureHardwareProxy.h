@@ -131,6 +131,14 @@ class FakeSecureHardwareSessionProxy : public SecureHardwareSessionProxy {
     // method does.
     //
     uint32_t id_ = 0;
+
+    // On the HAL side we keep track of the random auth challenge which generated in
+    // eicSessionInit().
+    uint64_t authChallenge_;
+
+    // On the HAL side we keep track of the ephemeral ecdsa private key which generated in
+    // eicSessionInit().
+    vector<uint8_t> ephemeralPrivateKey_;
 };
 
 // This implementation uses libEmbeddedIC in-process.
