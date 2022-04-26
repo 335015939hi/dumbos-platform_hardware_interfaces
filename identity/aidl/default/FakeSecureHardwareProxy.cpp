@@ -311,7 +311,10 @@ bool FakeSecureHardwareSessionProxy::initialize() {
         LOG(WARNING) << "Proxy is already initialized";
         return false;
     }
-    bool initialized = eicSessionInit(&ctx_);
+
+    ephemeralPrivateKey_.resize(EIC_P256_PRIV_KEY_SIZE);
+    bool initialized = eicSessionInit(&ctx_, &authChallenge_,
+                                      ephemeralPrivateKey_.data());
     if (!initialized) {
         return false;
     }
@@ -370,11 +373,7 @@ optional<uint64_t> FakeSecureHardwareSessionProxy::getAuthChallenge() {
         return std::nullopt;
     }
 
-    uint64_t authChallenge;
-    if (!eicSessionGetAuthChallenge(&ctx_, &authChallenge)) {
-        return std::nullopt;
-    }
-    return authChallenge;
+    return authChallenge_;
 }
 
 optional<vector<uint8_t>> FakeSecureHardwareSessionProxy::getEphemeralKeyPair() {
@@ -382,11 +381,7 @@ optional<vector<uint8_t>> FakeSecureHardwareSessionProxy::getEphemeralKeyPair() 
         return std::nullopt;
     }
 
-    vector<uint8_t> priv(EIC_P256_PRIV_KEY_SIZE);
-    if (!eicSessionGetEphemeralKeyPair(&ctx_, priv.data())) {
-        return std::nullopt;
-    }
-    return priv;
+    return ephemeralPrivateKey_;
 }
 
 bool FakeSecureHardwareSessionProxy::setReaderEphemeralPublicKey(

@@ -43,16 +43,12 @@ typedef struct {
 
 } EicSession;
 
-bool eicSessionInit(EicSession* ctx);
+bool eicSessionInit(EicSession* ctx, uint64_t *authChallenge,
+                    uint8_t* ephemeralPrivateKey);
 
 bool eicSessionShutdown(EicSession* ctx);
 
 bool eicSessionGetId(EicSession* ctx, uint32_t* outId);
-
-bool eicSessionGetAuthChallenge(EicSession* ctx, uint64_t* outAuthChallenge);
-
-bool eicSessionGetEphemeralKeyPair(EicSession* ctx,
-                                   uint8_t ephemeralPrivateKey[EIC_P256_PRIV_KEY_SIZE]);
 
 bool eicSessionSetReaderEphemeralPublicKey(
         EicSession* ctx, const uint8_t readerEphemeralPublicKey[EIC_P256_PUB_KEY_SIZE]);

@@ -34,7 +34,8 @@ EicSession* eicSessionGetForId(uint32_t sessionId) {
     return NULL;
 }
 
-bool eicSessionInit(EicSession* ctx) {
+bool eicSessionInit(EicSession* ctx, uint64_t *authChallenge,
+                    uint8_t* ephemeralPrivateKey) {
     eicMemSet(ctx, '\0', sizeof(EicSession));
 
     if (!eicNextId(&gSessionLastIdAssigned)) {
@@ -44,16 +45,18 @@ bool eicSessionInit(EicSession* ctx) {
     ctx->id = gSessionLastIdAssigned;
 
     do {
-        if (!eicOpsRandom((uint8_t*)&(ctx->authChallenge), sizeof(ctx->authChallenge))) {
+        if (!eicOpsRandom((uint8_t*)authChallenge, sizeof(*authChallenge))) {
             eicDebug("Failed generating random challenge");
             return false;
         }
-    } while (ctx->authChallenge == EIC_KM_AUTH_CHALLENGE_UNSET);
+    } while (*authChallenge == EIC_KM_AUTH_CHALLENGE_UNSET);
 
     if (!eicOpsCreateEcKey(ctx->ephemeralPrivateKey, ctx->ephemeralPublicKey)) {
         eicDebug("Error creating ephemeral key-pair");
         return false;
     }
+    eicMemCpy(ephemeralPrivateKey, ctx->ephemeralPrivateKey,
+              sizeof(ctx->ephemeralPrivateKey));
 
     gSessionCurrent = ctx;
     eicDebug("Initialized session with id %" PRIu32, ctx->id);
@@ -73,17 +76,6 @@ bool eicSessionShutdown(EicSession* ctx) {
 
 bool eicSessionGetId(EicSession* ctx, uint32_t* outId) {
     *outId = ctx->id;
-    return true;
-}
-
-bool eicSessionGetAuthChallenge(EicSession* ctx, uint64_t* outAuthChallenge) {
-    *outAuthChallenge = ctx->authChallenge;
-    return true;
-}
-
-bool eicSessionGetEphemeralKeyPair(EicSession* ctx,
-                                   uint8_t ephemeralPrivateKey[EIC_P256_PRIV_KEY_SIZE]) {
-    eicMemCpy(ephemeralPrivateKey, ctx->ephemeralPrivateKey, EIC_P256_PRIV_KEY_SIZE);
     return true;
 }
 
