@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "294c87f7_f96ea2a7",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-26T23:57:53Z",
+      "side": 1,
+      "message": "Perhaps we just drop this and move this comment above?\n\nThen we say \"Degenerate BCC has no BccEntries\" and also update the doc in IRemotelyProvisionedComponent.aidl?\n\nThat way, for anyone who\u0027s already implemented it, it\u0027s fine. But new implementations won\u0027t have to worry about a self-signed BccEntry?",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 72
+      },
+      "revId": "6665bb0878ff5e63d05abf3e6f3810ebd506a667",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
