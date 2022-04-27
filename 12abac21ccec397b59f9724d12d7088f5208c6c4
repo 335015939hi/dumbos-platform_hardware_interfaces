@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "039fa44c_01bef7f0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-27T17:49:37Z",
+      "side": 1,
+      "message": "Technically salt is null, but I think this would imply a Salt value of 0x40? I might err on the side of caution and reduce this to salt \u003d `null` here rather than trying to CDDL\u0027ify it.",
+      "range": {
+        "startLine": 46,
+        "startChar": 46,
+        "endLine": 46,
+        "endChar": 65
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d83dfccb_808a56ec",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-27T17:49:37Z",
+      "side": 1,
+      "message": "My only argument against rearranging these fields to the top would be due to the fact",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 68
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae15a39c_31151802",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-27T17:49:37Z",
+      "side": 1,
+      "message": "Code Descriptor is optional.",
+      "range": {
+        "startLine": 147,
+        "startChar": 15,
+        "endLine": 147,
+        "endChar": 23
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "686ab487_d462a7f7",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-27T17:49:37Z",
+      "side": 1,
+      "message": "Given that `Configuration Hash` is generated directly from `Configuration Descriptor`, and only `Configuration Descriptor` is required in open-DICE, maybe we should just go ahead and make `Configuration Hash` optional here as well.\n\nThoughts?",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 83
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d738d6e6_9d068358",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-27T17:49:37Z",
+      "side": 1,
+      "message": "Each of these fields within the Descriptor map is optional, depending on if they make sense for a given stage. If none are applicable for a given stage, `Configuration Descriptor` may be an empty map.",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 69
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0ec5eee_25a4814e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-27T17:49:37Z",
+      "side": 1,
+      "message": "Authority hash should be required.",
+      "range": {
+        "startLine": 154,
+        "startChar": 15,
+        "endLine": 154,
+        "endChar": 16
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

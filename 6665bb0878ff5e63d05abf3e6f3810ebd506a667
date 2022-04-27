@@ -22,6 +22,30 @@
       },
       "revId": "6665bb0878ff5e63d05abf3e6f3810ebd506a667",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4250b633_cbd044eb",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-27T17:49:37Z",
+      "side": 1,
+      "message": "I would avoid changing it at this point just because every TEE vendor already had to implement it this way for S, and changing it around in T just adds churn and more version tracking in the VTS tests.",
+      "parentUuid": "294c87f7_f96ea2a7",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 72
+      },
+      "revId": "6665bb0878ff5e63d05abf3e6f3810ebd506a667",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
