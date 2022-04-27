@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2b7b056_79cab7bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-27T10:17:15Z",
+      "side": 1,
+      "message": "Presumably this is forced because of the signature of `IKeyMintDevice::getKeyCharacteristics` ?\n\n```\nKeyCharacteristics[] getKeyCharacteristics(in byte[] keyBlob, in byte[] appId, in byte[] appData);\n```\n\ndoesn\u0027t use the `Tag` mechanism, and has no way to distinguish between `appId` / `appData` values that are absent, vs values that are present but of zero length.",
+      "revId": "ad091346c9c338e7781b5300de50f7685f9c0a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01747925_3e86fbf7",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-27T10:17:15Z",
+      "side": 1,
+      "message": "If you\u0027re adding a requirement to the spec, please also add a VTS test that checks the requirement.",
+      "revId": "ad091346c9c338e7781b5300de50f7685f9c0a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
