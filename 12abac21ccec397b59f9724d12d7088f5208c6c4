@@ -137,6 +137,29 @@
       },
       "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d703d390_6937428f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-27T18:37:32Z",
+      "side": 1,
+      "message": "I would say this section is what should be split off into a separate CL, but the rest should all be kept.",
+      "range": {
+        "startLine": 181,
+        "startChar": 11,
+        "endLine": 187,
+        "endChar": 12
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
