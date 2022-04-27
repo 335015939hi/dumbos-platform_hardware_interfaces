@@ -21,6 +21,7 @@
 #include <aidl/android/hardware/bluetooth/audio/Lc3Configuration.h>
 #include <aidl/android/hardware/bluetooth/audio/LeAudioCodecCapabilitiesSetting.h>
 #include <aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.h>
+#include <aidl/android/hardware/bluetooth/audio/OpusConfiguration.h>
 #include <aidl/android/hardware/bluetooth/audio/PcmCapabilities.h>
 #include <aidl/android/hardware/bluetooth/audio/PcmConfiguration.h>
 #include <aidl/android/hardware/bluetooth/audio/SessionType.h>
@@ -72,6 +73,8 @@ class BluetoothAudioCodecs {
   static bool IsOffloadAptxHdConfigurationValid(
       const CodecConfiguration::CodecSpecific& codec_specific);
   static bool IsOffloadLc3ConfigurationValid(
+      const CodecConfiguration::CodecSpecific& codec_specific);
+  static bool IsOffloadOpusConfigurationValid(
       const CodecConfiguration::CodecSpecific& codec_specific);
 };
 
