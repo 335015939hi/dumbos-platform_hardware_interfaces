@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2d46ea6b_fbadfd97",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-27T21:20:39Z",
+      "side": 1,
+      "message": "Ah, yeah. It\u0027s not something we can actually express in CDDL.",
+      "parentUuid": "039fa44c_01bef7f0",
+      "range": {
+        "startLine": 46,
+        "startChar": 46,
+        "endLine": 46,
+        "endChar": 65
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d83dfccb_808a56ec",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
         "patchSetId": 4
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ffe5d8e_8fd0405a",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-27T21:20:39Z",
+      "side": 1,
+      "message": "incomplete thought?\n\nYeah, they\u0027re out of order... But these are always required even for degenerate BCC.",
+      "parentUuid": "d83dfccb_808a56ec",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 68
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae15a39c_31151802",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
         "patchSetId": 4
@@ -60,6 +108,30 @@
       "writtenOn": "2022-04-27T17:49:37Z",
       "side": 1,
       "message": "Code Descriptor is optional.",
+      "range": {
+        "startLine": 147,
+        "startChar": 15,
+        "endLine": 147,
+        "endChar": 23
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "489514cb_a5cc0212",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-27T21:20:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae15a39c_31151802",
       "range": {
         "startLine": 147,
         "startChar": 15,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5a3b3cd_ba5c3758",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-27T21:20:39Z",
+      "side": 1,
+      "message": "Based on my read of Open Profile, Configuration Hash should not be omitted if it\u0027s mixed into the derivation of CDI. I think we\u0027re always mixing in H(Configuration Descriptor), so technically it\u0027s required for our implementation.\n\nHowever, it all seems like a bit of a wash. It\u0027s impossible to verify _what_ gets mixed into the CDI so I really don\u0027t see a purpose for carrying hashes in this data structure.",
+      "parentUuid": "686ab487_d462a7f7",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 83
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d738d6e6_9d068358",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
         "patchSetId": 4
@@ -106,6 +202,30 @@
       "writtenOn": "2022-04-27T17:49:37Z",
       "side": 1,
       "message": "Each of these fields within the Descriptor map is optional, depending on if they make sense for a given stage. If none are applicable for a given stage, `Configuration Descriptor` may be an empty map.",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 69
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c3e91e9_c8ae4618",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-27T21:20:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d738d6e6_9d068358",
       "range": {
         "startLine": 150,
         "startChar": 0,
@@ -141,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "78c4ce50_63129a1b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-27T21:20:39Z",
+      "side": 1,
+      "message": "Given that we don\u0027t care about authority, I thought we\u0027d be ok without it (despite the fact that open profile requires it).",
+      "parentUuid": "b0ec5eee_25a4814e",
+      "range": {
+        "startLine": 154,
+        "startChar": 15,
+        "endLine": 154,
+        "endChar": 16
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d703d390_6937428f",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
         "patchSetId": 4
@@ -152,6 +296,30 @@
       "writtenOn": "2022-04-27T18:37:32Z",
       "side": 1,
       "message": "I would say this section is what should be split off into a separate CL, but the rest should all be kept.",
+      "range": {
+        "startLine": 181,
+        "startChar": 11,
+        "endLine": 187,
+        "endChar": 12
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb0d59ed_fde1c0ff",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-27T21:20:39Z",
+      "side": 1,
+      "message": "I simplified quite a bit. I think we need a type id now, else we\u0027re going to have difficulty dealing with things like X.509 cert chains in the future.\n\nUnless the intent is to use X.509 today, and I misinterpreted what `Certificate` was?",
+      "parentUuid": "d703d390_6937428f",
       "range": {
         "startLine": 181,
         "startChar": 11,
