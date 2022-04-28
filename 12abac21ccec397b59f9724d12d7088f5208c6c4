@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8482a6aa_de1d948f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-28T17:01:44Z",
+      "side": 1,
+      "message": "Ah, yeah.\n\nMy stance will always firmly be: \"if the bytes have to match exactly, use `bstr .cbor`\". Relying on canonicalization leads only to pain.",
+      "parentUuid": "e5c321ac_ca578bf0",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 68
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae15a39c_31151802",
@@ -321,6 +345,30 @@
       "side": 1,
       "message": "Why would we not care about authority? In this case I expect vendors to either insert the public key tied to Secure Boot or a fingerprint of that public key, either way.",
       "parentUuid": "78c4ce50_63129a1b",
+      "range": {
+        "startLine": 154,
+        "startChar": 15,
+        "endLine": 154,
+        "endChar": 16
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "112fc4c4_9500b380",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-04-28T17:01:44Z",
+      "side": 1,
+      "message": "Sure, but we\u0027re looking at code hashes and trust is ultimately in the root keys. In that case, it seems like authority doesn\u0027t matter. Unless, perhaps, there\u0027s a plan to start using authority in authorization policies?\n\nNote that I\u0027ve made it required to comply with Open Profile.\n\nThis would be a fun discussion to carry on off-CL.",
+      "parentUuid": "9753a328_f767674f",
       "range": {
         "startLine": 154,
         "startChar": 15,
