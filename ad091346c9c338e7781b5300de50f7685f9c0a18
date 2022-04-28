@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97e627ea_2c4a0342",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-28T06:02:26Z",
+      "side": 1,
+      "message": "Thanks for confirming -- could you update the commit message to include the rationale please.",
+      "parentUuid": "7662f6a5_ea5a1b02",
+      "revId": "ad091346c9c338e7781b5300de50f7685f9c0a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01747925_3e86fbf7",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
         "patchSetId": 2

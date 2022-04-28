@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abe6ff5a_7f76d212",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-28T06:02:26Z",
+      "side": 1,
+      "message": "Thinking about this raises a bunch more questions I\u0027m afraid...\n\n- If a KeyMint V1 implementation fails this test, we can\u0027t really require them to change code that already passed VTS, so this test would need a HAL version check. \n- Are you planning to cherry-pick this across in to `tm-dev`?  If not, the same consideration applies to KeyMint V2 implementations.\n\nMore significantly, what is the status of this test for our existing KeyMint implementation (Pixel 6/Trusty, Pixel 6/StrongBox, Cuttlefish)?\n \nIf our existing KeyMint implementations fail this check, what are your plans for updating them so they pass?",
+      "revId": "4cf47cae9e1c3e0b56a7bfa7fcbe86734785b05b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70453b5b_6baf7479",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-28T06:02:26Z",
+      "side": 1,
+      "message": "nit: Test names start with a capital letter (here and in comment, and below))",
+      "revId": "4cf47cae9e1c3e0b56a7bfa7fcbe86734785b05b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d29c30b_99307f13",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-28T06:02:26Z",
+      "side": 1,
+      "message": "nit: it\u0027s nice to disambiguate test outputs for different arms by including some `SCOPED_TRACE(testing::Message()) \u003c\u003c ..` calls.",
+      "revId": "4cf47cae9e1c3e0b56a7bfa7fcbe86734785b05b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
