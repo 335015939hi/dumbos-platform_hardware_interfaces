@@ -237,6 +237,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a5aea04_baa23f09",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-28T17:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5a3b3cd_ba5c3758",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 83
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d738d6e6_9d068358",
@@ -379,6 +403,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dac4e3e0_54d42923",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-28T17:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "112fc4c4_9500b380",
+      "range": {
+        "startLine": 154,
+        "startChar": 15,
+        "endLine": 154,
+        "endChar": 16
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d703d390_6937428f",
@@ -416,6 +464,30 @@
       "side": 1,
       "message": "I simplified quite a bit. I think we need a type id now, else we\u0027re going to have difficulty dealing with things like X.509 cert chains in the future.\n\nUnless the intent is to use X.509 today, and I misinterpreted what `Certificate` was?",
       "parentUuid": "d703d390_6937428f",
+      "range": {
+        "startLine": 181,
+        "startChar": 11,
+        "endLine": 187,
+        "endChar": 12
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "915f8039_a06fc6ab",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-28T17:57:21Z",
+      "side": 1,
+      "message": "Discussed offline.",
+      "parentUuid": "cb0d59ed_fde1c0ff",
       "range": {
         "startLine": 181,
         "startChar": 11,
