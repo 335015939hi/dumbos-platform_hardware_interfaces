@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d4a38f6_c7338506",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1632361
+      },
+      "writtenOn": "2022-04-28T18:17:58Z",
+      "side": 1,
+      "message": "Hi David, replied to your comment as per my understanding. I think we will also require Shawn\u0027s input here to resolve them though.",
+      "revId": "4cf47cae9e1c3e0b56a7bfa7fcbe86734785b05b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abe6ff5a_7f76d212",
@@ -14,6 +31,24 @@
       "writtenOn": "2022-04-28T06:02:26Z",
       "side": 1,
       "message": "Thinking about this raises a bunch more questions I\u0027m afraid...\n\n- If a KeyMint V1 implementation fails this test, we can\u0027t really require them to change code that already passed VTS, so this test would need a HAL version check. \n- Are you planning to cherry-pick this across in to `tm-dev`?  If not, the same consideration applies to KeyMint V2 implementations.\n\nMore significantly, what is the status of this test for our existing KeyMint implementation (Pixel 6/Trusty, Pixel 6/StrongBox, Cuttlefish)?\n \nIf our existing KeyMint implementations fail this check, what are your plans for updating them so they pass?",
+      "revId": "4cf47cae9e1c3e0b56a7bfa7fcbe86734785b05b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f546547e_5c1a4581",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1632361
+      },
+      "writtenOn": "2022-04-28T18:17:58Z",
+      "side": 1,
+      "message": "Hi David, why should we not require them to update the implementations? I think that unless they are ignoring these tags today in generateKey() etc, they will actually fail to decrypt the keyblobs in getKeyCharacteristics - which is not good. I think respective teams will modify their implementations if on their own once we update the vts, isn\u0027t it ?",
+      "parentUuid": "abe6ff5a_7f76d212",
       "revId": "4cf47cae9e1c3e0b56a7bfa7fcbe86734785b05b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
