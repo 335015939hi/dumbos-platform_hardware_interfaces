@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5c321ac_ca578bf0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-28T04:18:30Z",
+      "side": 1,
+      "message": "Huh, that is strange. I think the rest of my comment got dropped somehow - at least I have memories of completing this thought.\n\n\"My only argument against rearranging these fields to the top would be due to the fact that it throws off canonical ordering. However, it simplifies the messaging, and this gets boiled down to a bstr before signing, unlike DeviceInfo. Therefore canonicalization actually shouldn\u0027t matter at all. Therefore I don\u0027t really  have a strong opinion either way I suppose.\"",
+      "parentUuid": "0ffe5d8e_8fd0405a",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 68
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae15a39c_31151802",
@@ -273,6 +297,30 @@
       "side": 1,
       "message": "Given that we don\u0027t care about authority, I thought we\u0027d be ok without it (despite the fact that open profile requires it).",
       "parentUuid": "b0ec5eee_25a4814e",
+      "range": {
+        "startLine": 154,
+        "startChar": 15,
+        "endLine": 154,
+        "endChar": 16
+      },
+      "revId": "12abac21ccec397b59f9724d12d7088f5208c6c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9753a328_f767674f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-04-28T04:18:30Z",
+      "side": 1,
+      "message": "Why would we not care about authority? In this case I expect vendors to either insert the public key tied to Secure Boot or a fingerprint of that public key, either way.",
+      "parentUuid": "78c4ce50_63129a1b",
       "range": {
         "startLine": 154,
         "startChar": 15,
