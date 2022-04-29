@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c92f813d_c1040581",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-04-29T07:47:13Z",
+      "side": 1,
+      "message": "Updating the implementations to comply with a newly-imposed restriction is work for the respective teams (which is to say: me and tommychiu@), and adds complication because the tests still have to be version-gated as described above.\n\nI think it would be better to just document reality and change the Tag text to say something like:\n\n\"Note that a key with a zero-length APPLICATION_ID cannot have its key characteristics retrieved using getKeyCharacteristics() due to a historical limitation of the API.\"",
+      "parentUuid": "f546547e_5c1a4581",
+      "revId": "4cf47cae9e1c3e0b56a7bfa7fcbe86734785b05b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70453b5b_6baf7479",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 3
