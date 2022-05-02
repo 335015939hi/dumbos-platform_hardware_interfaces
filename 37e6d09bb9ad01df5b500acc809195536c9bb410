@@ -16,6 +16,24 @@
       "message": "I think we can get by with reverting only this CL, not the other CL in the topic.",
       "revId": "37e6d09bb9ad01df5b500acc809195536c9bb410",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84b8fff6_02141d7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-05-02T18:33:47Z",
+      "side": 1,
+      "message": "Also needs the \"Merged-In:\" so this revert only goes to the branches that the original CL went to.",
+      "parentUuid": "4fe680f5_ea96cda2",
+      "revId": "37e6d09bb9ad01df5b500acc809195536c9bb410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
