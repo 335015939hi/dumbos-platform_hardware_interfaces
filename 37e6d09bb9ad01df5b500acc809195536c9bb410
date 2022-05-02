@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fe680f5_ea96cda2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-05-02T18:04:56Z",
+      "side": 1,
+      "message": "I think we can get by with reverting only this CL, not the other CL in the topic.",
+      "revId": "37e6d09bb9ad01df5b500acc809195536c9bb410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
