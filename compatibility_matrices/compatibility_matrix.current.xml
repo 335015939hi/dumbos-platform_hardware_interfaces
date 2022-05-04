@@ -354,6 +354,7 @@
         <interface>
             <name>IRemotelyProvisionedComponent</name>
             <instance>default</instance>
+            <instance>strongbox</instance>
         </interface>
     </hal>
     <hal format="aidl" optional="true">
