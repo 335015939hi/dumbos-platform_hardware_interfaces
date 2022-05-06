@@ -65,9 +65,7 @@ struct Libxml2Global {
     ~Libxml2Global() {
         // TODO: check if all those cleanup are needed
         xmlSetGenericErrorFunc(nullptr, nullptr);
-        xmlSchemaCleanupTypes();
         xmlCleanupParser();
-        xmlCleanupThreads();
     }
 
     const std::string& getErrors() { return errors; }
