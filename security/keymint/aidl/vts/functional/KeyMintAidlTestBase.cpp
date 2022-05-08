@@ -17,6 +17,7 @@
 #include "KeyMintAidlTestBase.h"
 
 #include <chrono>
+#include <fstream>
 #include <unordered_set>
 #include <vector>
 
@@ -207,6 +208,14 @@ uint32_t KeyMintAidlTestBase::boot_patch_level() {
     return boot_patch_level(key_characteristics_);
 }
 
+/**
+ * An API to determine device IDs attestation is required or not,
+ * which is mandatory for KeyMint version 2 or first_api_level 33 or greater.
+ */
+bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
+    return AidlVersion() >= 2 || property_get_int32("ro.vendor.api_level", 0) >= 33;
+}
+
 bool KeyMintAidlTestBase::Curve25519Supported() {
     // Strongbox never supports curve 25519.
     if (SecLevel() == SecurityLevel::STRONGBOX) {
@@ -310,6 +319,30 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
 ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
                                            const optional<AttestationKey>& attest_key) {
     return GenerateKey(key_desc, attest_key, &key_blob_, &key_characteristics_, &cert_chain_);
+}
+
+ErrorCode KeyMintAidlTestBase::GenerateKeyWithSelfSignedAttestKey(
+        const AuthorizationSet& attest_key_desc, const AuthorizationSet& key_desc,
+        vector<uint8_t>* key_blob, vector<KeyCharacteristics>* key_characteristics,
+        vector<Certificate>* cert_chain) {
+    AttestationKey attest_key;
+    vector<Certificate> attest_cert_chain;
+    vector<KeyCharacteristics> attest_key_characteristics;
+    // Generate a key with self signed attestation.
+    auto error = GenerateKey(attest_key_desc, std::nullopt, &attest_key.keyBlob,
+                             &attest_key_characteristics, &attest_cert_chain);
+    if (error != ErrorCode::OK) {
+        return error;
+    }
+
+    attest_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
+    // Generate a key, by passing the above self signed attestation key as attest key.
+    error = GenerateKey(key_desc, attest_key, key_blob, key_characteristics, cert_chain);
+    if (error == ErrorCode::OK) {
+        // Append the attest_cert_chain to the attested cert_chain to yield a valid cert chain.
+        cert_chain->push_back(attest_cert_chain[0]);
+    }
+    return error;
 }
 
 ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
@@ -663,6 +696,81 @@ string KeyMintAidlTestBase::MacMessage(const string& message, Digest digest, siz
     return SignMessage(
             key_blob_, message,
             AuthorizationSetBuilder().Digest(digest).Authorization(TAG_MAC_LENGTH, mac_length));
+}
+
+void KeyMintAidlTestBase::CheckAesIncrementalEncryptOperation(BlockMode block_mode,
+                                                              int message_size) {
+    auto builder = AuthorizationSetBuilder()
+                           .Authorization(TAG_NO_AUTH_REQUIRED)
+                           .AesEncryptionKey(128)
+                           .BlockMode(block_mode)
+                           .Padding(PaddingMode::NONE);
+    if (block_mode == BlockMode::GCM) {
+        builder.Authorization(TAG_MIN_MAC_LENGTH, 128);
+    }
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(builder));
+
+    for (int increment = 1; increment <= message_size; ++increment) {
+        string message(message_size, 'a');
+        auto params = AuthorizationSetBuilder().BlockMode(block_mode).Padding(PaddingMode::NONE);
+        if (block_mode == BlockMode::GCM) {
+            params.Authorization(TAG_MAC_LENGTH, 128) /* for GCM */;
+        }
+
+        AuthorizationSet output_params;
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &output_params));
+
+        string ciphertext;
+        string to_send;
+        for (size_t i = 0; i < message.size(); i += increment) {
+            EXPECT_EQ(ErrorCode::OK, Update(message.substr(i, increment), &ciphertext));
+        }
+        EXPECT_EQ(ErrorCode::OK, Finish(to_send, &ciphertext))
+                << "Error sending " << to_send << " with block mode " << block_mode;
+
+        switch (block_mode) {
+            case BlockMode::GCM:
+                EXPECT_EQ(message.size() + 16, ciphertext.size());
+                break;
+            case BlockMode::CTR:
+                EXPECT_EQ(message.size(), ciphertext.size());
+                break;
+            case BlockMode::CBC:
+            case BlockMode::ECB:
+                EXPECT_EQ(message.size() + message.size() % 16, ciphertext.size());
+                break;
+        }
+
+        auto iv = output_params.GetTagValue(TAG_NONCE);
+        switch (block_mode) {
+            case BlockMode::CBC:
+            case BlockMode::GCM:
+            case BlockMode::CTR:
+                ASSERT_TRUE(iv) << "No IV for block mode " << block_mode;
+                EXPECT_EQ(block_mode == BlockMode::GCM ? 12U : 16U, iv->get().size());
+                params.push_back(TAG_NONCE, iv->get());
+                break;
+
+            case BlockMode::ECB:
+                EXPECT_FALSE(iv) << "ECB mode should not generate IV";
+                break;
+        }
+
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params))
+                << "Decrypt begin() failed for block mode " << block_mode;
+
+        string plaintext;
+        for (size_t i = 0; i < ciphertext.size(); i += increment) {
+            EXPECT_EQ(ErrorCode::OK, Update(ciphertext.substr(i, increment), &plaintext));
+        }
+        ErrorCode error = Finish(to_send, &plaintext);
+        ASSERT_EQ(ErrorCode::OK, error) << "Decryption failed for block mode " << block_mode
+                                        << " and increment " << increment;
+        if (error == ErrorCode::OK) {
+            ASSERT_EQ(message, plaintext) << "Decryption didn't match for block mode " << block_mode
+                                          << " and increment " << increment;
+        }
+    }
 }
 
 void KeyMintAidlTestBase::CheckHmacTestVector(const string& key, const string& message,
@@ -1353,6 +1461,11 @@ void verify_subject(const X509* cert,       //
     OPENSSL_free(cert_issuer);
 }
 
+bool is_gsi_image() {
+    std::ifstream ifs("/system/system_ext/etc/init/init.gsi.rc");
+    return ifs.good();
+}
+
 vector<uint8_t> build_serial_blob(const uint64_t serial_int) {
     BIGNUM_Ptr serial(BN_new());
     EXPECT_TRUE(BN_set_u64(serial.get(), serial_int));
@@ -1544,7 +1657,7 @@ bool verify_attestation_record(int32_t aidl_version,                   //
         EXPECT_EQ(verified_boot_state, VerifiedBoot::FAILED);
     } else {
         EXPECT_EQ(verified_boot_state, VerifiedBoot::UNVERIFIED);
-        EXPECT_NE(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
+        EXPECT_EQ(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
                             verified_boot_key.size()));
     }
 

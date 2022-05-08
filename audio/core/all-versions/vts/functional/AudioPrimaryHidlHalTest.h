@@ -34,6 +34,7 @@
 
 #include <hwbinder/IPCThreadState.h>
 
+#include <android-base/expected.h>
 #include <android-base/logging.h>
 #include <system/audio_config.h>
 
@@ -130,6 +131,33 @@ class HidlTest : public ::testing::Test {
     using IDevice = ::android::hardware::audio::CPP_VERSION::IDevice;
     using IDevicesFactory = ::android::hardware::audio::CPP_VERSION::IDevicesFactory;
 
+    static android::base::expected<std::vector<std::string>, std::string> getAllFactoryInstances() {
+        using ::android::hardware::audio::CPP_VERSION::IDevicesFactory;
+        const std::string factoryDescriptor = IDevicesFactory::descriptor;
+        // Make sure that the instance is the exact minor version.
+        // Using a 7.1 factory for 7.0 test is not always possible because
+        // 7.1 can be configured via the XML config to use features that are
+        // absent in 7.0.
+        auto instances = ::android::hardware::getAllHalInstanceNames(factoryDescriptor);
+        if (instances.empty()) return instances;
+        // Use the default instance for checking the implementation version.
+        auto defaultInstance = IDevicesFactory::getService("default");
+        if (defaultInstance == nullptr) {
+            return ::android::base::unexpected("Failed to obtain IDevicesFactory/default");
+        }
+        std::string actualDescriptor;
+        auto intDescRet = defaultInstance->interfaceDescriptor(
+                [&](const auto& descriptor) { actualDescriptor = descriptor; });
+        if (!intDescRet.isOk()) {
+            return ::android::base::unexpected("Failed to obtain interface descriptor: " +
+                                               intDescRet.description());
+        }
+        if (factoryDescriptor == actualDescriptor)
+            return instances;
+        else
+            return {};
+    }
+
     virtual ~HidlTest() = default;
     // public access to avoid annoyances when using this method in template classes
     // derived from test classes
@@ -174,9 +202,11 @@ const PolicyConfig& getCachedPolicyConfig() {
 }
 
 TEST(CheckConfig, audioPolicyConfigurationValidation) {
-    const auto factories = ::android::hardware::getAllHalInstanceNames(
-            ::android::hardware::audio::CPP_VERSION::IDevicesFactory::descriptor);
-    if (factories.size() == 0) {
+    const auto factories = HidlTest::getAllFactoryInstances();
+    if (!factories.ok()) {
+        FAIL() << factories.error();
+    }
+    if (factories.value().size() == 0) {
         GTEST_SKIP() << "Skipping audioPolicyConfigurationValidation because no factory instances "
                         "are found.";
     }
@@ -205,11 +235,11 @@ static inline std::string DeviceParameterToString(
 const std::vector<DeviceParameter>& getDeviceParameters() {
     static std::vector<DeviceParameter> parameters = [] {
         std::vector<DeviceParameter> result;
-        const auto factories = ::android::hardware::getAllHalInstanceNames(
-                ::android::hardware::audio::CPP_VERSION::IDevicesFactory::descriptor);
+        const auto factories = HidlTest::getAllFactoryInstances();
+        if (!factories.ok()) return result;
         const auto devices = getCachedPolicyConfig().getModulesWithDevicesNames();
         result.reserve(devices.size());
-        for (const auto& factoryName : factories) {
+        for (const auto& factoryName : factories.value()) {
             for (const auto& deviceName : devices) {
                 if (DeviceManager::getInstance().get(factoryName, deviceName) != nullptr) {
                     result.emplace_back(factoryName, deviceName);
@@ -224,9 +254,9 @@ const std::vector<DeviceParameter>& getDeviceParameters() {
 const std::vector<DeviceParameter>& getDeviceParametersForFactoryTests() {
     static std::vector<DeviceParameter> parameters = [] {
         std::vector<DeviceParameter> result;
-        const auto factories = ::android::hardware::getAllHalInstanceNames(
-                ::android::hardware::audio::CPP_VERSION::IDevicesFactory::descriptor);
-        for (const auto& factoryName : factories) {
+        const auto factories = HidlTest::getAllFactoryInstances();
+        if (!factories.ok()) return result;
+        for (const auto& factoryName : factories.value()) {
             result.emplace_back(factoryName,
                                 DeviceManager::getInstance().getPrimary(factoryName) != nullptr
                                         ? DeviceManager::kPrimaryDevice
@@ -1209,23 +1239,30 @@ class InputStreamTest
     : public OpenStreamTest<::android::hardware::audio::CORE_TYPES_CPP_VERSION::IStreamIn> {
     void SetUp() override {
         ASSERT_NO_FATAL_FAILURE(OpenStreamTest::SetUp());  // setup base
+        auto flags = getInputFlags();
 #if MAJOR_VERSION <= 6
         address.device = AudioDevice::IN_DEFAULT;
 #elif MAJOR_VERSION >= 7
         auto maybeSourceAddress = getCachedPolicyConfig().getSourceDeviceForMixPort(
                 getDeviceName(), getMixPortName());
+        auto& metadata = initMetadata.tracks[0];
         if (maybeSourceAddress.has_value() &&
             !xsd::isTelephonyDevice(maybeSourceAddress.value().deviceType)) {
             address = maybeSourceAddress.value();
-            auto& metadata = initMetadata.tracks[0];
             metadata.source = toString(xsd::AudioSource::AUDIO_SOURCE_UNPROCESSED);
             metadata.channelMask = getConfig().base.channelMask;
         } else {
             address.deviceType = toString(xsd::AudioDevice::AUDIO_DEVICE_IN_DEFAULT);
         }
-#endif
+#if MAJOR_VERSION == 7 && MINOR_VERSION >= 1
+        auto flagsIt = std::find(flags.begin(), flags.end(),
+                                 toString(xsd::AudioInOutFlag::AUDIO_INPUT_FLAG_ULTRASOUND));
+        if (flagsIt != flags.end()) {
+            metadata.source = toString(xsd::AudioSource::AUDIO_SOURCE_ULTRASOUND);
+        }
+#endif  // 7.1
+#endif  // MAJOR_VERSION >= 7
         const AudioConfig& config = getConfig();
-        auto flags = getInputFlags();
         testOpen(
                 [&](AudioIoHandle handle, AudioConfig config, auto cb) {
                     return getDevice()->openInputStream(handle, address, config, flags,

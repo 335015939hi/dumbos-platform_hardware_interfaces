@@ -79,6 +79,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t vendor_patch_level() { return vendor_patch_level_; }
     uint32_t boot_patch_level(const vector<KeyCharacteristics>& key_characteristics);
     uint32_t boot_patch_level();
+    bool isDeviceIdAttestationRequired();
 
     bool Curve25519Supported();
 
@@ -95,6 +96,21 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
                           vector<Certificate>* cert_chain);
     ErrorCode GenerateKey(const AuthorizationSet& key_desc,
                           const optional<AttestationKey>& attest_key = std::nullopt);
+
+    // Generate key for implementations which do not support factory attestation.
+    ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
+                                                 const AuthorizationSet& key_desc,
+                                                 vector<uint8_t>* key_blob,
+                                                 vector<KeyCharacteristics>* key_characteristics,
+                                                 vector<Certificate>* cert_chain);
+
+    ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
+                                                 const AuthorizationSet& key_desc,
+                                                 vector<uint8_t>* key_blob,
+                                                 vector<KeyCharacteristics>* key_characteristics) {
+        return GenerateKeyWithSelfSignedAttestKey(attest_key_desc, key_desc, key_blob,
+                                                  key_characteristics, &cert_chain_);
+    }
 
     ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                         const string& key_material, vector<uint8_t>* key_blob,
@@ -168,6 +184,8 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     string SignMessage(const string& message, const AuthorizationSet& params);
 
     string MacMessage(const string& message, Digest digest, size_t mac_length);
+
+    void CheckAesIncrementalEncryptOperation(BlockMode block_mode, int message_size);
 
     void CheckHmacTestVector(const string& key, const string& message, Digest digest,
                              const string& expected_mac);
@@ -335,6 +353,9 @@ void add_tag_from_prop(AuthorizationSetBuilder* tags, TypedTag<TagType::BYTES, t
         tags->Authorization(ttag, prop_value.data(), prop_value.size());
     }
 }
+
+// Indicate whether the test is running on a GSI image.
+bool is_gsi_image();
 
 vector<uint8_t> build_serial_blob(const uint64_t serial_int);
 void verify_subject(const X509* cert, const string& subject, bool self_signed);

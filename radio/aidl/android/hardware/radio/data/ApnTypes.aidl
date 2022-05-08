@@ -18,6 +18,7 @@ package android.hardware.radio.data;
 
 @VintfStability
 @Backing(type="int")
+@JavaDerive(toString=true)
 enum ApnTypes {
     /**
      * None
@@ -73,4 +74,16 @@ enum ApnTypes {
      * APN type for XCAP
      */
     XCAP = 1 << 11,
+    /**
+     * APN type for VSIM.
+     */
+    VSIM = 1 << 12,
+    /**
+     * APN type for BIP.
+     */
+    BIP = 1 << 13,
+    /**
+     * APN type for ENTERPRISE
+     */
+    ENTERPRISE = 1 << 14
 }
