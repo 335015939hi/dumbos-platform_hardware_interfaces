@@ -7482,7 +7482,6 @@ class KeyAgreementTest : public KeyMintAidlTestBase {
             uint8_t privKeyData[32];
             uint8_t pubKeyData[32];
             X25519_keypair(pubKeyData, privKeyData);
-            *localPublicKey = vector<uint8_t>(pubKeyData, pubKeyData + 32);
             *localPrivKey = EVP_PKEY_Ptr(EVP_PKEY_new_raw_private_key(
                     EVP_PKEY_X25519, nullptr, privKeyData, sizeof(privKeyData)));
         } else {
@@ -7494,16 +7493,15 @@ class KeyAgreementTest : public KeyMintAidlTestBase {
             ASSERT_EQ(EC_KEY_generate_key(ecKey.get()), 1);
             *localPrivKey = EVP_PKEY_Ptr(EVP_PKEY_new());
             ASSERT_EQ(EVP_PKEY_set1_EC_KEY(localPrivKey->get(), ecKey.get()), 1);
-
-            // Get encoded form of the public part of the locally generated key...
-            unsigned char* p = nullptr;
-            int localPublicKeySize = i2d_PUBKEY(localPrivKey->get(), &p);
-            ASSERT_GT(localPublicKeySize, 0);
-            *localPublicKey =
-                    vector<uint8_t>(reinterpret_cast<const uint8_t*>(p),
-                                    reinterpret_cast<const uint8_t*>(p + localPublicKeySize));
-            OPENSSL_free(p);
         }
+
+        // Get encoded form of the public part of the locally generated key...
+        unsigned char* p = nullptr;
+        int localPublicKeySize = i2d_PUBKEY(localPrivKey->get(), &p);
+        ASSERT_GT(localPublicKeySize, 0);
+        *localPublicKey = vector<uint8_t>(reinterpret_cast<const uint8_t*>(p),
+                                          reinterpret_cast<const uint8_t*>(p + localPublicKeySize));
+        OPENSSL_free(p);
     }
 
     void GenerateKeyMintEcKey(EcCurve curve, EVP_PKEY_Ptr* kmPubKey) {
