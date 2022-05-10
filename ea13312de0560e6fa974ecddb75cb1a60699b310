@@ -22,6 +22,30 @@
       },
       "revId": "ea13312de0560e6fa974ecddb75cb1a60699b310",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f274123_b24b4ff5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1946265
+      },
+      "writtenOn": "2022-05-10T22:14:56Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with bpfix, but it doesn\u0027t handle the deletion of the clang property (this property has been default to true since 2018 and is being deleted).\n\nI ran the following command in platform/build/blueprint/bpmodify: \ngo run bpmodify.go -w -m\u003dmodulename1,modulenamex  -remove-property\u003dtrue -property\u003dpropertyname platform/filepath/Android.bp\n\nif you use -d instead -w you get a diff of changes, -l lists files that will be changed if you called on multiple files, -w actually edits the file, if you don\u0027t include one of -w,-d,-l the changed file is printed to stdout",
+      "parentUuid": "118435c9_9c1c6aae",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 69
+      },
+      "revId": "ea13312de0560e6fa974ecddb75cb1a60699b310",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
