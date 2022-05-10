@@ -16,6 +16,24 @@
       "message": "tommychiu@: On StrongBox this new test complains about imported keys unexpectedly having the CREATION_DATETIME Tag -- any thoughts?  Does the test need to be tweaked in some way?\n\nhttps://paste.googleplex.com/4938432028606464",
       "revId": "812a9d10f94ae13557c46d87e4ce54efc58c26eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "547832a5_162c1b14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-05-10T12:47:05Z",
+      "side": 1,
+      "message": "I think that\u0027s a bug in strongbox (b/232074554).\nWe\u0027ll need to fix it",
+      "parentUuid": "18c8c130_b4eef825",
+      "revId": "812a9d10f94ae13557c46d87e4ce54efc58c26eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
