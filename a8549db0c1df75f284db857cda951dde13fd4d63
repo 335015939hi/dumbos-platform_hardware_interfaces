@@ -16,6 +16,24 @@
       "message": "This seems like a great addition to the test coverage.\n\nOne question though: what\u0027s the result of running this test against the existing KeyMint implementations (Pixel 6/Trusty, Pixel 6/StrongBox, Cuttlefish)?  Do they all pass all cases?",
       "revId": "a8549db0c1df75f284db857cda951dde13fd4d63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb20aba4_09efc386",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-05-10T05:10:34Z",
+      "side": 1,
+      "message": "This test is passed in Cuttlefish. I don\u0027t have a Pixel 6 device. I will get the result from Pixel 4a device and update you.",
+      "parentUuid": "380286fa_f2fb5ea9",
+      "revId": "a8549db0c1df75f284db857cda951dde13fd4d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
