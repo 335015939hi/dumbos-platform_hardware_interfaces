@@ -46,6 +46,30 @@
       },
       "revId": "ea13312de0560e6fa974ecddb75cb1a60699b310",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c862251_22c76844",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-05-10T22:16:11Z",
+      "side": 1,
+      "message": "I mean, for any automated change, always share the exact command used to do the change in the commit message.",
+      "parentUuid": "6f274123_b24b4ff5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 69
+      },
+      "revId": "ea13312de0560e6fa974ecddb75cb1a60699b310",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
