@@ -345,7 +345,9 @@ ErrorCode KeyMintAidlTestBase::GenerateKeyWithSelfSignedAttestKey(
 }
 
 ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
-                                         const string& key_material, vector<uint8_t>* key_blob,
+                                         const string& key_material,
+                                         const optional<AttestationKey>& attest_key,
+                                         vector<uint8_t>* key_blob,
                                          vector<KeyCharacteristics>* key_characteristics) {
     Status result;
 
@@ -356,7 +358,7 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFo
     KeyCreationResult creationResult;
     result = keymint_->importKey(key_desc.vector_data(), format,
                                  vector<uint8_t>(key_material.begin(), key_material.end()),
-                                 {} /* attestationSigningKeyBlob */, &creationResult);
+                                 attest_key, &creationResult);
 
     if (result.isOk()) {
         EXPECT_PRED2(KeyCharacteristicsBasicallyValid, SecLevel(),
@@ -380,6 +382,13 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFo
     }
 
     return GetReturnErrorCode(result);
+}
+
+ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
+                                         const string& key_material, vector<uint8_t>* key_blob,
+                                         vector<KeyCharacteristics>* key_characteristics) {
+    return ImportKey(key_desc, format, key_material, {} /* attestationSigningKeyBlob */, key_blob,
+                     key_characteristics);
 }
 
 ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
@@ -1240,6 +1249,10 @@ vector<uint32_t> KeyMintAidlTestBase::InvalidKeySizes(Algorithm algorithm) {
         }
     }
     return {};
+}
+
+vector<Algorithm> KeyMintAidlTestBase::ValidAlgorithms() {
+    return {Algorithm::RSA, Algorithm::EC, Algorithm::HMAC, Algorithm::AES, Algorithm::TRIPLE_DES};
 }
 
 vector<BlockMode> KeyMintAidlTestBase::ValidBlockModes(Algorithm algorithm) {

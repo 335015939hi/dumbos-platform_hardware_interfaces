@@ -2303,6 +2303,49 @@ TEST_P(NewKeyGenerationTest, EcdsaIgnoreAppId) {
 }
 
 /*
+ * NewKeyGenerationTest.AttestationChallengeTooLong
+ *
+ * Verifies that key generation fails with correct error code when the attestation
+ * challenge length is more than 128 bytes.
+ */
+TEST_P(NewKeyGenerationTest, AttestationChallengeTooLong) {
+    string challenge(129, 'a');
+    AttestationKey attest_key;
+    vector<KeyCharacteristics> attest_key_characteristics;
+    vector<Certificate> attest_key_cert_chain;
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .EcdsaKey(EcCurve::P_256)
+                                                 .AttestKey()
+                                                 .SetDefaultValidity(),
+                                         {} /* attestation signing key */, &attest_key.keyBlob,
+                                         &attest_key_characteristics, &attest_key_cert_chain));
+    attest_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
+
+    auto base_builder = AuthorizationSetBuilder()
+                                .Digest(Digest::NONE)
+                                .Padding(PaddingMode::NONE)
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .AttestationChallenge(challenge)
+                                .SetDefaultValidity();
+
+    for (auto alg : ValidAlgorithms()) {
+        SCOPED_TRACE(testing::Message() << "Algorithm-" << alg);
+        AuthorizationSetBuilder builder(base_builder);
+        switch (alg) {
+            case Algorithm::RSA:
+                builder.RsaSigningKey(2048, 65537);
+                break;
+            case Algorithm::EC:
+                builder.EcdsaSigningKey(EcCurve::P_256);
+                break;
+            default:
+                continue;
+        }
+        ASSERT_EQ(ErrorCode::INVALID_INPUT_LENGTH, GenerateKey(builder, attest_key));
+    }
+}
+
+/*
  * NewKeyGenerationTest.AttestationApplicationIDLengthProperlyEncoded
  *
  * Verifies that the Attestation Application ID software enforced tag has a proper length encoding.
@@ -4479,6 +4522,55 @@ TEST_P(ImportKeyTest, HmacKeySuccess) {
     string message = "Hello World!";
     string signature = MacMessage(message, Digest::SHA_2_256, 256);
     VerifyMessage(message, signature, AuthorizationSetBuilder().Digest(Digest::SHA_2_256));
+}
+
+/*
+ * ImportKeyTest.AttestationChallengeTooLong
+ *
+ * Verifies that key generation fails with correct error code when the attestation
+ * challenge length is more than 128 bytes.
+ */
+TEST_P(ImportKeyTest, AttestationChallengeTooLong) {
+    string challenge(129, 'a');
+    string key_material;
+    AttestationKey attest_key;
+    vector<KeyCharacteristics> attest_key_characteristics;
+    vector<Certificate> attest_key_cert_chain;
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .EcdsaKey(EcCurve::P_256)
+                                                 .AttestKey()
+                                                 .SetDefaultValidity(),
+                                         {} /* attestation signing key */, &attest_key.keyBlob,
+                                         &attest_key_characteristics, &attest_key_cert_chain));
+    attest_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
+
+    auto base_builder = AuthorizationSetBuilder()
+                                .Digest(Digest::NONE)
+                                .Padding(PaddingMode::NONE)
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .AttestationChallenge(challenge)
+                                .SetDefaultValidity();
+
+    for (auto alg : ValidAlgorithms()) {
+        SCOPED_TRACE(testing::Message() << "Algorithm-" << alg);
+        AuthorizationSetBuilder builder(base_builder);
+        switch (alg) {
+            case Algorithm::RSA:
+                builder.RsaSigningKey(2048, 65537);
+                key_material = rsa_2048_key;
+                break;
+            case Algorithm::EC:
+                builder.EcdsaSigningKey(EcCurve::P_256);
+                key_material = ec_256_key;
+                break;
+            default:
+                continue;
+        }
+
+        ASSERT_EQ(ErrorCode::INVALID_INPUT_LENGTH,
+                  ImportKey(builder, KeyFormat::PKCS8, key_material, attest_key, &key_blob_,
+                            &key_characteristics_));
+    }
 }
 
 INSTANTIATE_KEYMINT_AIDL_TEST(ImportKeyTest);

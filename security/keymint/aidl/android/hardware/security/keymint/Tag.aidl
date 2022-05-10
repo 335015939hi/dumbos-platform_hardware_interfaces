@@ -647,7 +647,8 @@ enum Tag {
     /**
      * Tag::ATTESTATION_CHALLENGE is used to deliver a "challenge" value to the attested key
      * generation/import methods, which must place the value in the KeyDescription SEQUENCE of the
-     * attestation extension.
+     * attestation extension. The length of the challange must not exceed 128 bytes. Otherwise,
+     * generation/import methods must return KMError::INVALID_INPUT_LENGTH.
      *
      * Must never appear in KeyCharacteristics.
      */
