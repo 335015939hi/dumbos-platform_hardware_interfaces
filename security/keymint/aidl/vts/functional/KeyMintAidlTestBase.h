@@ -117,6 +117,9 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
                         vector<KeyCharacteristics>* key_characteristics);
     ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                         const string& key_material);
+    ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
+                        const string& key_material, const optional<AttestationKey>& attest_key,
+                        vector<uint8_t>* key_blob, vector<KeyCharacteristics>* key_characteristics);
 
     ErrorCode ImportWrappedKey(string wrapped_key, string wrapping_key,
                                const AuthorizationSet& wrapping_key_desc, string masking_key,
@@ -301,6 +304,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     vector<BlockMode> ValidBlockModes(Algorithm algorithm);
     vector<PaddingMode> ValidPaddingModes(Algorithm algorithm, BlockMode blockMode);
     vector<PaddingMode> InvalidPaddingModes(Algorithm algorithm, BlockMode blockMode);
+    vector<Algorithm> ValidAlgorithms();
 
     vector<EcCurve> ValidCurves();
     vector<EcCurve> InvalidCurves();
