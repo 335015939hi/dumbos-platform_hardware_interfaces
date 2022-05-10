@@ -197,6 +197,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b799edbe_f70e05ba",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2328,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-05-10T10:14:20Z",
+      "side": 1,
+      "message": "This needs an attestion application ID to be specified as well, or else it\u0027s invalid in more than one way.\n\n(For expected-failure tests, it\u0027s a good idea to manually run the test without the invalid input and confirm that OK is produced, and only then change the test to have the invalid input.)",
+      "revId": "1df3affac470c8de7e5bcd4ca4831f76486a6299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec7424bb_41ac5b1b",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 2
