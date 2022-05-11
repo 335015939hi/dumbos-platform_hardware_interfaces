@@ -52,6 +52,24 @@
       "parentUuid": "547832a5_162c1b14",
       "revId": "812a9d10f94ae13557c46d87e4ce54efc58c26eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2bce108_b0c71c4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-05-11T09:52:38Z",
+      "side": 1,
+      "message": "I\u0027m OK to submit this CL to AOSP. Thanks for the query.",
+      "parentUuid": "603cbb34_29681dcb",
+      "revId": "812a9d10f94ae13557c46d87e4ce54efc58c26eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
