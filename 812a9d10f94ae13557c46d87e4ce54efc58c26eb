@@ -34,6 +34,24 @@
       "parentUuid": "18c8c130_b4eef825",
       "revId": "812a9d10f94ae13557c46d87e4ce54efc58c26eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "603cbb34_29681dcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-05-11T08:39:55Z",
+      "side": 1,
+      "message": "tommychiu@: just to confirm, are you happy for this extra test to go into AOSP?  (I\u0027m assuming we will *not* cp to tm-dev). Or would you prefer we wait on b/232074554?",
+      "parentUuid": "547832a5_162c1b14",
+      "revId": "812a9d10f94ae13557c46d87e4ce54efc58c26eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
