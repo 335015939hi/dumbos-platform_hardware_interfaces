@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ec3fbe1_520eb38c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1598788
+      },
+      "writtenOn": "2022-05-11T08:02:01Z",
+      "side": 1,
+      "message": "arm64-v8a VtsHalVibratorTargetTest\n----------------------------------\nVtsHalVibratorTargetTest (36 Tests)\n[1/36] Vibrator/VibratorAidl#OnThenOffBeforeTimeout/TOP_LEVEL_VIBRATOR_0: PASSED (1.015s)\n[2/36] Vibrator/VibratorAidl#OnWithCallback/TOP_LEVEL_VIBRATOR_0: PASSED (305ms)\n[3/36] Vibrator/VibratorAidl#OnCallbackNotSupported/TOP_LEVEL_VIBRATOR_0: PASSED (1ms)\n[4/36] Vibrator/VibratorAidl#ValidateEffect/TOP_LEVEL_VIBRATOR_0: PASSED (1.088s)\n[5/36] Vibrator/VibratorAidl#ValidateEffectWithCallback/TOP_LEVEL_VIBRATOR_0: PASSED (776ms)\n[6/36] Vibrator/VibratorAidl#ValidateEffectWithCallbackNotSupported/TOP_LEVEL_VIBRATOR_0: PASSED (1ms)\n[7/36] Vibrator/VibratorAidl#InvalidEffectsUnsupported/TOP_LEVEL_VIBRATOR_0: PASSED (12ms)\n[8/36] Vibrator/VibratorAidl#ChangeVibrationAmplitude/TOP_LEVEL_VIBRATOR_0: PASSED (2.010s)\n[9/36] Vibrator/VibratorAidl#AmplitudeOutsideRangeFails/TOP_LEVEL_VIBRATOR_0: PASSED (1ms)\n[10/36] Vibrator/VibratorAidl#AmplitudeReturnsUnsupportedMatchingCapabilities/TOP_LEVEL_VIBRATOR_0: PASSED (0ms)\n[11/36] Vibrator/VibratorAidl#ChangeVibrationExternalControl/TOP_LEVEL_VIBRATOR_0: PASSED (2.036s)\n[12/36] Vibrator/VibratorAidl#ExternalAmplitudeControl/TOP_LEVEL_VIBRATOR_0: PASSED (91ms)\n[13/36] Vibrator/VibratorAidl#ExternalControlUnsupportedMatchingCapabilities/TOP_LEVEL_VIBRATOR_0: PASSED (3ms)\n[14/36] Vibrator/VibratorAidl#GetSupportedPrimitives/TOP_LEVEL_VIBRATOR_0: PASSED (2ms)\n[15/36] Vibrator/VibratorAidl#GetPrimitiveDuration/TOP_LEVEL_VIBRATOR_0: PASSED (4ms)\n[16/36] Vibrator/VibratorAidl#ComposeValidPrimitives/TOP_LEVEL_VIBRATOR_0: PASSED (8ms)\n[17/36] Vibrator/VibratorAidl#ComposeUnsupportedPrimitives/TOP_LEVEL_VIBRATOR_0: PASSED (6ms)\n[18/36] Vibrator/VibratorAidl#ComposeScaleBoundary/TOP_LEVEL_VIBRATOR_0: PASSED (37ms)\n[19/36] Vibrator/VibratorAidl#ComposeDelayBoundary/TOP_LEVEL_VIBRATOR_0: PASSED (11ms)\n[20/36] Vibrator/VibratorAidl#ComposeSizeBoundary/TOP_LEVEL_VIBRATOR_0: PASSED (8ms)\n[21/36] Vibrator/VibratorAidl#ComposeCallback/TOP_LEVEL_VIBRATOR_0: PASSED (1.302s)\n[22/36] Vibrator/VibratorAidl#AlwaysOn/TOP_LEVEL_VIBRATOR_0: PASSED (28ms)\n[23/36] Vibrator/VibratorAidl#GetResonantFrequency/TOP_LEVEL_VIBRATOR_0: PASSED (1ms)\n[24/36] Vibrator/VibratorAidl#GetQFactor/TOP_LEVEL_VIBRATOR_0: PASSED (1ms)\n[25/36] Vibrator/VibratorAidl#GetFrequencyResolution/TOP_LEVEL_VIBRATOR_0: PASSED (1ms)\n[26/36] Vibrator/VibratorAidl#GetFrequencyMinimum/TOP_LEVEL_VIBRATOR_0: PASSED (1ms)\n[27/36] Vibrator/VibratorAidl#GetBandwidthAmplitudeMap/TOP_LEVEL_VIBRATOR_0: PASSED (4ms)\n[28/36] Vibrator/VibratorAidl#GetPwlePrimitiveDurationMax/TOP_LEVEL_VIBRATOR_0: PASSED (1ms)\n[29/36] Vibrator/VibratorAidl#GetPwleCompositionSizeMax/TOP_LEVEL_VIBRATOR_0: PASSED (1ms)\n[30/36] Vibrator/VibratorAidl#GetSupportedBraking/TOP_LEVEL_VIBRATOR_0: PASSED (0ms)\n[31/36] Vibrator/VibratorAidl#ComposeValidPwle/TOP_LEVEL_VIBRATOR_0: PASSED (15ms)\n[32/36] Vibrator/VibratorAidl#ComposeValidPwleWithCallback/TOP_LEVEL_VIBRATOR_0: PASSED (32.896s)\n[33/36] Vibrator/VibratorAidl#ComposePwleSegmentBoundary/TOP_LEVEL_VIBRATOR_0: PASSED (16ms)\n[34/36] Vibrator/VibratorAidl#ComposePwleAmplitudeParameterBoundary/TOP_LEVEL_VIBRATOR_0: PASSED (16ms)\n[35/36] Vibrator/VibratorAidl#ComposePwleFrequencyParameterBoundary/TOP_LEVEL_VIBRATOR_0: PASSED (15ms)\n[36/36] Vibrator/VibratorAidl#ComposePwleSegmentDurationBoundary/TOP_LEVEL_VIBRATOR_0: PASSED (7ms)\n\nSummary (Test executed with 1 devices.)\n-------\narm64-v8a VtsHalVibratorTargetTest: Passed: 36, Failed: 0, Ignored: 0, Assumption Failed: 0,    \n\nAll tests passed!",
+      "revId": "22cb901d1a1740c68757551b07cf40849b415598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
