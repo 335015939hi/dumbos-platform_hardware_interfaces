@@ -16,6 +16,23 @@
       "message": "Will need to merge a fix downstream first.",
       "revId": "988a884594599d110c1a285d5dd86b39a985b7a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "565763e5_6c68bb2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-05-12T08:06:47Z",
+      "side": 1,
+      "message": "OK with addition of \"Merged-In\" once merged downstream",
+      "revId": "988a884594599d110c1a285d5dd86b39a985b7a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
