@@ -35,7 +35,7 @@ using ::android::hardware::dumpstate::V1_1::IDumpstateDevice;
 
 using ::android::os::dumpstate::DumpFileToFd;
 
-const char kVerboseLoggingProperty[] = "persist.dumpstate.verbose_logging.enabled";
+const char kVerboseLoggingProperty[] = "persist.vendor.dumpstate.verbose_logging.enabled";
 
 struct DumpstateDevice : public IDumpstateDevice {
     // 1.1

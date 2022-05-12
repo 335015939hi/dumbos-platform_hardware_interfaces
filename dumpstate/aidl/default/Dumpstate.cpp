@@ -27,7 +27,7 @@ namespace android {
 namespace hardware {
 namespace dumpstate {
 
-const char kVerboseLoggingProperty[] = "persist.dumpstate.verbose_logging.enabled";
+const char kVerboseLoggingProperty[] = "persist.vendor.dumpstate.verbose_logging.enabled";
 
 ndk::ScopedAStatus Dumpstate::dumpstateBoard(const std::vector<::ndk::ScopedFileDescriptor>& in_fds,
                                              IDumpstateDevice::DumpstateMode in_mode,
