@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "662a3827_0f0d1bd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1598788
+      },
+      "writtenOn": "2022-05-16T10:16:29Z",
+      "side": 1,
+      "message": "http://go/forrest-run/L77000000954536449\nTag: git_master: cf_x86_64_phone-userdebug,test_suites_x86_64\n\n2 build(s): 0 failed. 0 cancelled. 2 passed.\n1 test(s): 0 failed. 0 cancelled. 1 passed.",
+      "revId": "f1b4dd3f1d98e09dc595862e1a707f02d02dd19b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
