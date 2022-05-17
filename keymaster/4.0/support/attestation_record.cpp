@@ -303,6 +303,7 @@ static ErrorCode extract_auth_list(const KM_AUTH_LIST* record, AuthorizationSet*
     copyAuthTag(record->trusted_confirmation_required, TAG_TRUSTED_CONFIRMATION_REQUIRED,
                 auth_list);
     copyAuthTag(record->unlocked_device_required, TAG_UNLOCKED_DEVICE_REQUIRED, auth_list);
+    copyAuthTag(record->allow_while_on_body, TAG_ALLOW_WHILE_ON_BODY, auth_list);
 
     return ErrorCode::OK;
 }

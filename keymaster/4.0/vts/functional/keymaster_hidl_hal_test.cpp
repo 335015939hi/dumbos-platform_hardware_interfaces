@@ -361,7 +361,8 @@ bool tag_in_list(const KeyParameter& entry) {
     // Attestations don't contain everything in key authorization lists, so we need to filter
     // the key lists to produce the lists that we expect to match the attestations.
     auto tag_list = {
-        Tag::INCLUDE_UNIQUE_ID, Tag::BLOB_USAGE_REQUIREMENTS, Tag::EC_CURVE, Tag::HARDWARE_TYPE,
+            Tag::INCLUDE_UNIQUE_ID, Tag::BLOB_USAGE_REQUIREMENTS, Tag::EC_CURVE,
+            Tag::HARDWARE_TYPE,     Tag::USER_SECURE_ID,
     };
     return std::find(tag_list.begin(), tag_list.end(), entry.tag) != tag_list.end();
 }
@@ -4315,6 +4316,86 @@ TEST_P(AddEntropyTest, AddLargeEntropy) {
 INSTANTIATE_KEYMASTER_HIDL_TEST(AddEntropyTest);
 
 typedef KeymasterHidlTest AttestationTest;
+
+/*
+ * AttestationTest.RsaAttestationRecord
+ *
+ * Verifies that attestation record have correct tags.
+ */
+TEST_P(AttestationTest, RsaAttestationRecord) {
+    uint32_t authTypePass = static_cast<uint32_t>(HardwareAuthenticatorType::PASSWORD);
+    uint32_t authTypeFingerPrint = static_cast<uint32_t>(HardwareAuthenticatorType::FINGERPRINT);
+    HardwareAuthenticatorType authType =
+            static_cast<HardwareAuthenticatorType>(authTypePass | authTypeFingerPrint);
+    uint64_t fakeUserSecureId = 57472738807102;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::SHA_2_256)
+                                  .Authorization(TAG_ALLOW_WHILE_ON_BODY)
+                                  .Authorization(TAG_USER_SECURE_ID, fakeUserSecureId)
+                                  .Authorization(TAG_USER_AUTH_TYPE, authType)
+                                  .Authorization(TAG_AUTH_TIMEOUT, 100)
+                                  .Padding(PaddingMode::RSA_PKCS1_1_5_SIGN)
+                                  .Authorization(TAG_ACTIVE_DATETIME, 1619621648000)
+                                  .Authorization(TAG_ORIGINATION_EXPIRE_DATETIME, 1619621648000)
+                                  .Authorization(TAG_USAGE_EXPIRE_DATETIME, 1619621999000)
+                                  .Authorization(TAG_TRUSTED_CONFIRMATION_REQUIRED)
+                                  .Authorization(TAG_UNLOCKED_DEVICE_REQUIRED)
+                                  .Authorization(TAG_INCLUDE_UNIQUE_ID)));
+
+    hidl_vec<hidl_vec<uint8_t>> cert_chain;
+    ASSERT_EQ(ErrorCode::OK,
+              AttestKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, HidlBuf("challenge"))
+                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, HidlBuf("foo")),
+                        &cert_chain));
+    EXPECT_GE(cert_chain.size(), 2U);
+    EXPECT_TRUE(verify_attestation_record("challenge", "foo", key_characteristics_.softwareEnforced,
+                                          key_characteristics_.hardwareEnforced, SecLevel(),
+                                          cert_chain[0]));
+}
+
+/*
+ * AttestationTest.EcAttestationRecord
+ *
+ * Verifies that attestation record have correct tags.
+ */
+TEST_P(AttestationTest, EcAttestationRecord) {
+    uint32_t authTypePass = static_cast<uint32_t>(HardwareAuthenticatorType::PASSWORD);
+    uint32_t authTypeFingerPrint = static_cast<uint32_t>(HardwareAuthenticatorType::FINGERPRINT);
+    HardwareAuthenticatorType authType =
+            static_cast<HardwareAuthenticatorType>(authTypePass | authTypeFingerPrint);
+    uint64_t fakeUserSecureId = 57472738807102;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::SHA_2_256)
+                                  .Authorization(TAG_ALLOW_WHILE_ON_BODY)
+                                  .Authorization(TAG_USER_SECURE_ID, fakeUserSecureId)
+                                  .Authorization(TAG_USER_AUTH_TYPE, authType)
+                                  .Authorization(TAG_AUTH_TIMEOUT, 100)
+                                  .Padding(PaddingMode::RSA_PKCS1_1_5_SIGN)
+                                  .Authorization(TAG_ACTIVE_DATETIME, 1619621648000)
+                                  .Authorization(TAG_ORIGINATION_EXPIRE_DATETIME, 1619621648000)
+                                  .Authorization(TAG_USAGE_EXPIRE_DATETIME, 1619621999000)
+                                  .Authorization(TAG_TRUSTED_CONFIRMATION_REQUIRED)
+                                  .Authorization(TAG_UNLOCKED_DEVICE_REQUIRED)
+                                  .Authorization(TAG_INCLUDE_UNIQUE_ID)));
+
+    hidl_vec<hidl_vec<uint8_t>> cert_chain;
+    ASSERT_EQ(ErrorCode::OK,
+              AttestKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, HidlBuf("challenge"))
+                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, HidlBuf("foo")),
+                        &cert_chain));
+    EXPECT_GE(cert_chain.size(), 2U);
+    EXPECT_TRUE(verify_attestation_record("challenge", "foo", key_characteristics_.softwareEnforced,
+                                          key_characteristics_.hardwareEnforced, SecLevel(),
+                                          cert_chain[0]));
+}
 
 /*
  * AttestationTest.RsaAttestation
