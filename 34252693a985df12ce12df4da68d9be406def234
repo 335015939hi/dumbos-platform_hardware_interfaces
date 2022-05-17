@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0980cd6b_178fe32e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-05-17T03:21:01Z",
+      "side": 1,
+      "message": "We have the same change on tm-dev (ag/16548639).\nWill this impect automerger or any functionality?",
+      "revId": "34252693a985df12ce12df4da68d9be406def234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
