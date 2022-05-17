@@ -22,6 +22,7 @@ cc_defaults {
         "TimeFilter.cpp",
         "Tuner.cpp",
         "service.cpp",
+        "MpegPacket.cpp",
     ],
 
     compile_multilib: "first",

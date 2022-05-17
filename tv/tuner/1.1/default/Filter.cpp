@@ -145,6 +145,7 @@ Return<Result> Filter::start() {
     // All the filter event callbacks in start are for testing purpose.
     switch (mType.mainType) {
         case DemuxFilterMainType::TS:
+			ALOGD("Anburaj Filter Start mainType TS"); // Anbu -Testing
             mCallback->onFilterEvent(createMediaEvent());
             mCallback->onFilterEvent(createTsRecordEvent());
             mCallback->onFilterEvent(createTemiEvent());
@@ -548,6 +549,7 @@ void Filter::updateRecordOutput(vector<uint8_t> data) {
 }
 
 Result Filter::startFilterHandler() {
+	ALOGD("startFilterHandler begin");
     std::lock_guard<std::mutex> lock(mFilterOutputLock);
     switch (mType.mainType) {
         case DemuxFilterMainType::TS:
