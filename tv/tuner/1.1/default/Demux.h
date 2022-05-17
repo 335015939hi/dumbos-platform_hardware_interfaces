@@ -25,6 +25,8 @@
 #include "Frontend.h"
 #include "TimeFilter.h"
 #include "Tuner.h"
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -99,6 +101,7 @@ class Demux : public IDemux {
     void sendFrontendInputToRecord(vector<uint8_t> data);
     void sendFrontendInputToRecord(vector<uint8_t> data, uint16_t pid, uint64_t pts);
     bool startRecordFilterDispatcher();
+	bool readpacket(vector<uint8_t>& rawpacket, ifstream& s); // Anbu -testing
 
   private:
     // Tuner service
