@@ -1,0 +1,64 @@
+// This is the expected build file, but it may not be right in all cases
+
+aidl_interface {
+    name: "android.hardware.tv.cec",
+    vendor_available: true,
+    srcs: ["android/hardware/tv/cec/*.aidl"],
+    stability: "vintf",
+    backend: {
+        cpp: {
+            // FIXME should this be disabled?
+            // prefer NDK backend which can be used anywhere
+            // If you disable this, you also need to delete the C++
+            // translate code.
+            enabled: true,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+        ndk: {
+            vndk: {
+                enabled: true,
+            },
+        },
+    },
+}
+
+cc_library {
+    name: "android.hardware.tv.cec-translate-cpp",
+    srcs: ["translate/android/hardware/tv/cec/translate-cpp.cpp"],
+    shared_libs: [
+        "libbinder",
+        "libhidlbase",
+        "android.hardware.tv.cec-V1-cpp",
+        "libutils",
+        "android.hardware.tv.cec@1.0",
+        "android.hardware.tv.cec@1.1",
+    ],
+    export_include_dirs: ["include"],
+}
+
+cc_library {
+    name: "android.hardware.tv.cec-translate-ndk",
+    vendor_available: true,
+    srcs: ["translate/android/hardware/tv/cec/translate-ndk.cpp"],
+    shared_libs: [
+        "libbinder_ndk",
+        "libhidlbase",
+        "android.hardware.tv.cec-V1-ndk",
+        "android.hardware.tv.cec@1.0",
+        "android.hardware.tv.cec@1.1",
+    ],
+    export_include_dirs: ["include"],
+}
+
+java_library {
+    name: "android.hardware.tv.cec-translate-java",
+    srcs: ["translate/android/hardware/tv/cec/Translate.java"],
+    libs: [
+        "android.hardware.tv.cec-V1-java",
+        "android.hardware.tv.cec-V1.0-java",
+        "android.hardware.tv.cec-V1.1-java",
+    ],
+    sdk_version: "module_current",
+}
