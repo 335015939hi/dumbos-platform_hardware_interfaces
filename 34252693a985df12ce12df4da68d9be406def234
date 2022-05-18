@@ -34,6 +34,24 @@
       "parentUuid": "0980cd6b_178fe32e",
       "revId": "34252693a985df12ce12df4da68d9be406def234",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2271e78_d3aaa89d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-05-18T18:32:36Z",
+      "side": 1,
+      "message": "I added \"Merged-In: I9824d4eb776f38bfbc73e539f801105ba6f8c30f\"  below the Change-Id in the commit message.",
+      "parentUuid": "216ba2c3_09d54b13",
+      "revId": "34252693a985df12ce12df4da68d9be406def234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
