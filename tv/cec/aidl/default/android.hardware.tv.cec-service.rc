@@ -1,0 +1,4 @@
+service vendor.cec-default /vendor/bin/hw/android.hardware.tv.cec-service
+    class hal
+    user system
+    group system
