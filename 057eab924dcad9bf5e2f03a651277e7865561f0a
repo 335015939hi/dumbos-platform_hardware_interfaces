@@ -46,6 +46,30 @@
       },
       "revId": "057eab924dcad9bf5e2f03a651277e7865561f0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "570eb456_7e5e865b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-05-20T12:27:21Z",
+      "side": 1,
+      "message": "Oh, interesting. I\u0027ll abandon this then.\n\nFWIW bcc_validator currently requires key_ops to contain verify iff it is present.",
+      "parentUuid": "b53bde09_78a21750",
+      "range": {
+        "startLine": 214,
+        "startChar": 19,
+        "endLine": 214,
+        "endChar": 22
+      },
+      "revId": "057eab924dcad9bf5e2f03a651277e7865561f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
