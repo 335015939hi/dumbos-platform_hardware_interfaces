@@ -211,6 +211,7 @@ parcelable ProtectedData {
      *     PubKeyEd25519 = {                // COSE_Key
      *         1 : 1,                       // Key type : octet key pair
      *         3 : AlgorithmEdDSA,          // Algorithm : EdDSA
+     *         4 : [2],                     // Key ops : verify
      *         -1 : 6,                      // Curve : Ed25519
      *         -2 : bstr                    // X coordinate, little-endian
      *     }
@@ -225,6 +226,7 @@ parcelable ProtectedData {
      *     PubKeyECDSA256 = {               // COSE_Key
      *         1 : 2,                       // Key type : EC2
      *         3 : AlgorithmES256,          // Algorithm : ECDSA w/ SHA-256
+     *         4 : [2],                     // Key ops : verify
      *         -1 : 1,                      // Curve: P256
      *         -2 : bstr,                   // X coordinate
      *         -3 : bstr                    // Y coordinate
