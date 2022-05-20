@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "560033c1_a0985a80",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-05-20T11:24:14Z",
+      "side": 1,
+      "message": "I assume it\u0027s always exactly this, and doesn\u0027t vary by context?\nIs this also true of the other two PubKey types here?",
+      "range": {
+        "startLine": 214,
+        "startChar": 19,
+        "endLine": 214,
+        "endChar": 22
+      },
+      "revId": "057eab924dcad9bf5e2f03a651277e7865561f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
