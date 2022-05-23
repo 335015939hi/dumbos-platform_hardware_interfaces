@@ -137,7 +137,10 @@ enum OperationType {
   FILL = 100,
   RANK = 101,
   BATCH_MATMUL = 102,
+<<<<<<< HEAD   (ace4b2 Merge "VtsHalBluetoothV1_1: Turn off/on BT at RunCommandTarg)
   PACK = 103,
   MIRROR_PAD = 104,
   REVERSE = 105,
+=======
+>>>>>>> BRANCH (b0cf0d AIDL interface changes for NNAPI feature level 6.)
 }

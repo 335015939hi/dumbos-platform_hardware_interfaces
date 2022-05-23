@@ -70,6 +70,10 @@ cc_test {
         "VtsHalNeuralNetworksV1_0_utils",
         "VtsHalNeuralNetworksV1_2_utils",
         "VtsHalNeuralNetworksV1_3_utils",
+<<<<<<< HEAD   (ace4b2 Merge "VtsHalBluetoothV1_1: Turn off/on BT at RunCommandTarg)
+=======
+        "android.hardware.neuralnetworks-V2-ndk_platform",
+>>>>>>> BRANCH (b0cf0d AIDL interface changes for NNAPI feature level 6.)
         "android.hardware.neuralnetworks@1.0",
         "android.hardware.neuralnetworks@1.1",
         "android.hardware.neuralnetworks@1.2",

@@ -403,7 +403,11 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.neuralnetworks</name>
+<<<<<<< HEAD   (ace4b2 Merge "VtsHalBluetoothV1_1: Turn off/on BT at RunCommandTarg)
         <version>1-4</version>
+=======
+        <version>1-2</version>
+>>>>>>> BRANCH (b0cf0d AIDL interface changes for NNAPI feature level 6.)
         <interface>
             <name>IDevice</name>
             <regex-instance>.*</regex-instance>

@@ -30,7 +30,20 @@ cc_library_static {
     local_include_dirs: ["include/nnapi/hal"],
     export_include_dirs: ["include"],
     cflags: ["-Wthread-safety"],
+<<<<<<< HEAD   (ace4b2 Merge "VtsHalBluetoothV1_1: Turn off/on BT at RunCommandTarg)
     static_libs: ["neuralnetworks_types"],
+=======
+    static_libs: [
+        "libarect",
+        "neuralnetworks_types",
+    ],
+    shared_libs: [
+        "android.hardware.neuralnetworks-V2-ndk_platform",
+        "libhidlbase",
+        "libnativewindow",
+        "libbinder_ndk",
+    ],
+>>>>>>> BRANCH (b0cf0d AIDL interface changes for NNAPI feature level 6.)
 }
 
 cc_test {
