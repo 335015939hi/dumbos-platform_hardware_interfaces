@@ -38,6 +38,9 @@ aidl_interface {
     versions: [
         "1",
         "2",
+<<<<<<< HEAD   (03abd0 [automerger skipped] Add FL6 spec tests to AIDL VTS. am: 5dd)
         "3",
+=======
+>>>>>>> BRANCH (96e9ee Freeze neuralnetworks AIDL version as v2 for FL6)
     ],
 }
