@@ -5327,6 +5327,7 @@ enum OperationType {
      * * 0: The packed tensor.
      */
     PACK = 103,
+<<<<<<< HEAD   (7890f1 [automerger skipped] AIDL interface changes for NNAPI featur)
 
     /**
      * Pads a tensor with mirrored values.
@@ -5408,4 +5409,6 @@ enum OperationType {
      *      the scales and zeroPoint must be the same as input0.
      */
     REVERSE = 105,
+=======
+>>>>>>> BRANCH (a8cf3a Add PACK operation to NNAPI feature level 6.)
 }

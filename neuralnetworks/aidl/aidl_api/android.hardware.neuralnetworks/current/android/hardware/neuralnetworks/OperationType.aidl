@@ -138,6 +138,9 @@ enum OperationType {
   RANK = 101,
   BATCH_MATMUL = 102,
   PACK = 103,
+<<<<<<< HEAD   (7890f1 [automerger skipped] AIDL interface changes for NNAPI featur)
   MIRROR_PAD = 104,
   REVERSE = 105,
+=======
+>>>>>>> BRANCH (a8cf3a Add PACK operation to NNAPI feature level 6.)
 }
