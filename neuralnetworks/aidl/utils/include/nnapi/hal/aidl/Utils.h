@@ -31,6 +31,7 @@
 namespace aidl::android::hardware::neuralnetworks::utils {
 
 constexpr auto kDefaultPriority = Priority::MEDIUM;
+<<<<<<< TARGET BRANCH (b2fd7a [automerger skipped] Add PACK operation to NNAPI feature lev)
 
 constexpr std::optional<nn::Version> aidlVersionToCanonicalVersion(int aidlVersion) {
     switch (aidlVersion) {
@@ -48,6 +49,9 @@ constexpr std::optional<nn::Version> aidlVersionToCanonicalVersion(int aidlVersi
 }
 
 constexpr auto kVersion = aidlVersionToCanonicalVersion(IDevice::version).value();
+=======
+constexpr auto kVersion = nn::Version::FEATURE_LEVEL_6;
+>>>>>>> SOURCE BRANCH (5dde02 Add FL6 spec tests to AIDL VTS.)
 
 template <typename Type>
 nn::Result<void> validate(const Type& halObject) {
