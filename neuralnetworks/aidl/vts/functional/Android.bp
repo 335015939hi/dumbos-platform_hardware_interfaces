@@ -58,7 +58,10 @@ cc_test {
         "libneuralnetworks_generated_test_harness",
     ],
     whole_static_libs: [
+<<<<<<< HEAD   (2276e9 [automerger skipped] Add PACK operation to NNAPI feature lev)
         "neuralnetworks_generated_AIDL_V3_example",
+=======
+>>>>>>> BRANCH (5dde02 Add FL6 spec tests to AIDL VTS.)
         "neuralnetworks_generated_AIDL_V2_example",
         "neuralnetworks_generated_V1_0_example",
         "neuralnetworks_generated_V1_1_example",
