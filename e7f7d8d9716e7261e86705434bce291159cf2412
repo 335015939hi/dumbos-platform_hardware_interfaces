@@ -16,6 +16,24 @@
       "message": "Actually, I\u0027m not sure this is the correct branch for this change, let me find which one this can be sent to.",
       "revId": "e7f7d8d9716e7261e86705434bce291159cf2412",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e89c4b6e_f1ec5da4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1659539
+      },
+      "writtenOn": "2022-05-23T17:34:49Z",
+      "side": 1,
+      "message": "The AOSP master branch should be enough to include this change in the next release. Please cherry-pick this change into master and then add us for review.",
+      "parentUuid": "e7ab4888_eac8d5d8",
+      "revId": "e7f7d8d9716e7261e86705434bce291159cf2412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
