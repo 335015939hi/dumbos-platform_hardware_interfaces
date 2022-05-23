@@ -45,6 +45,10 @@ cc_defaults {
         "neuralnetworks_utils_hal_common",
     ],
     shared_libs: [
+<<<<<<< HEAD   (ace4b2 Merge "VtsHalBluetoothV1_1: Turn off/on BT at RunCommandTarg)
+=======
+        "android.hardware.neuralnetworks-V2-ndk_platform",
+>>>>>>> BRANCH (b0cf0d AIDL interface changes for NNAPI feature level 6.)
         "libbinder_ndk",
     ],
     target: {
@@ -113,6 +117,12 @@ cc_test {
         "test/*.cpp",
     ],
     static_libs: [
+<<<<<<< HEAD   (ace4b2 Merge "VtsHalBluetoothV1_1: Turn off/on BT at RunCommandTarg)
+=======
+        "android.hardware.common-V2-ndk_platform",
+        "android.hardware.graphics.common-V2-ndk_platform",
+        "android.hardware.neuralnetworks-V2-ndk_platform",
+>>>>>>> BRANCH (b0cf0d AIDL interface changes for NNAPI feature level 6.)
         "libaidlcommonsupport",
         "libgmock",
         "neuralnetworks_types",

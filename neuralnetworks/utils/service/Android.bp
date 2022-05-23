@@ -44,4 +44,15 @@ cc_library_static {
         "neuralnetworks_utils_hal_1_3",
         "neuralnetworks_utils_hal_common",
     ],
+<<<<<<< HEAD   (ace4b2 Merge "VtsHalBluetoothV1_1: Turn off/on BT at RunCommandTarg)
+=======
+    shared_libs: [
+        "android.hardware.neuralnetworks-V2-ndk_platform",
+        "android.hardware.neuralnetworks@1.0",
+        "android.hardware.neuralnetworks@1.1",
+        "android.hardware.neuralnetworks@1.2",
+        "android.hardware.neuralnetworks@1.3",
+        "libbinder_ndk",
+    ],
+>>>>>>> BRANCH (b0cf0d AIDL interface changes for NNAPI feature level 6.)
 }

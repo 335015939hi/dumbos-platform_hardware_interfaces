@@ -5278,6 +5278,7 @@ enum OperationType {
      *      c_o = r_y if adj_y else c_y
      */
     BATCH_MATMUL = 102,
+<<<<<<< HEAD   (ace4b2 Merge "VtsHalBluetoothV1_1: Turn off/on BT at RunCommandTarg)
 
     /**
      * Packs N input tensors (N >= 1) of rank R into one output tensor of rank R+1.
@@ -5408,4 +5409,6 @@ enum OperationType {
      *      the scales and zeroPoint must be the same as input0.
      */
     REVERSE = 105,
+=======
+>>>>>>> BRANCH (b0cf0d AIDL interface changes for NNAPI feature level 6.)
 }

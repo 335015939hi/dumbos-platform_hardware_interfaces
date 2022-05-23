@@ -53,6 +53,14 @@ cc_test {
         "libbinder_ndk",
     ],
     static_libs: [
+<<<<<<< HEAD   (ace4b2 Merge "VtsHalBluetoothV1_1: Turn off/on BT at RunCommandTarg)
+=======
+        "android.hardware.common-V2-ndk_platform",
+        "android.hardware.graphics.common-V2-ndk_platform",
+        "android.hardware.neuralnetworks-V2-ndk_platform",
+        "android.hidl.allocator@1.0",
+        "android.hidl.memory@1.0",
+>>>>>>> BRANCH (b0cf0d AIDL interface changes for NNAPI feature level 6.)
         "libaidlcommonsupport",
         "libneuralnetworks_common",
         "libneuralnetworks_generated_test_harness",
