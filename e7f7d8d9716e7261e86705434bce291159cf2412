@@ -34,6 +34,23 @@
       "parentUuid": "e7ab4888_eac8d5d8",
       "revId": "e7f7d8d9716e7261e86705434bce291159cf2412",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd4abd45_04676a8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1804658
+      },
+      "writtenOn": "2022-05-24T00:55:14Z",
+      "side": 1,
+      "message": "Tested and ran the case on my device, vibration could stop automatically after testing ChangeVibrationAmplitude",
+      "revId": "e7f7d8d9716e7261e86705434bce291159cf2412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
