@@ -46,6 +46,7 @@ static const PcmParameters kDefaultSoftwarePcmCapabilities = {
     .sampleRate = static_cast<SampleRate>(
         SampleRate::RATE_44100 | SampleRate::RATE_48000 |
         SampleRate::RATE_88200 | SampleRate::RATE_96000 |
+        SampleRate::RATE_192000 |
         SampleRate::RATE_16000 | SampleRate::RATE_24000),
     .channelMode =
         static_cast<ChannelMode>(ChannelMode::MONO | ChannelMode::STEREO),
@@ -342,6 +343,7 @@ bool IsSoftwarePcmConfigurationValid(const PcmParameters& pcm_config) {
        pcm_config.sampleRate != SampleRate::RATE_48000 &&
        pcm_config.sampleRate != SampleRate::RATE_88200 &&
        pcm_config.sampleRate != SampleRate::RATE_96000 &&
+       pcm_config.sampleRate != SampleRate::RATE_192000 &&
        pcm_config.sampleRate != SampleRate::RATE_16000 &&
        pcm_config.sampleRate != SampleRate::RATE_24000) ||
       (pcm_config.bitsPerSample != BitsPerSample::BITS_16 &&
