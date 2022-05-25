@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa7c82d0_9734eab9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-05-25T17:02:44Z",
+      "side": 1,
+      "message": "I think that any complete implementation of KeyMint is unlikely to fail the `begin` step, so the difference between `EXPECT` and `ASSERT` doesn\u0027t matter.  \n\nBut when testing a partially-implemented KeyMint it\u0027s helpful not to have the test harness crashing (typically on a `nullptr` dereference soon after).",
+      "parentUuid": "332cc7ff_8742be61",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "7fc26b99d3b3836a078b6de4057a99bebf300528",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3f6eddd_621292ed",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-25T16:49:25Z",
       "side": 1,
       "message": "Shouldn\u0027t we do the same for the subsequent steps as well?",
+      "range": {
+        "startLine": 6206,
+        "startChar": 4,
+        "endLine": 6206,
+        "endChar": 13
+      },
+      "revId": "7fc26b99d3b3836a078b6de4057a99bebf300528",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "381e5862_7492d514",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6206,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-05-25T17:02:44Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep the scope of changes smaller; if the later `EXPECT`s cause problems later, we can tweak them then.",
+      "parentUuid": "e3f6eddd_621292ed",
       "range": {
         "startLine": 6206,
         "startChar": 4,
