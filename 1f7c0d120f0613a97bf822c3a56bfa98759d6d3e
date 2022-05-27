@@ -22,6 +22,30 @@
       },
       "revId": "1f7c0d120f0613a97bf822c3a56bfa98759d6d3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a4c510_6971fb96",
+        "filename": "identity/aidl/vts/AndroidTest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2022-05-27T06:33:08Z",
+      "side": 1,
+      "message": "Sure",
+      "parentUuid": "ad833565_d8ebcf99",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 56
+      },
+      "revId": "1f7c0d120f0613a97bf822c3a56bfa98759d6d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
