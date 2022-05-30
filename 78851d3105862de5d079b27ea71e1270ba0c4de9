@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a75878ea_2108fc10",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-05-30T15:10:51Z",
+      "side": 1,
+      "message": "If this is now tagged should it have `#6.17` before the `[` ?",
+      "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a844676_b6fc3161",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-05-30T15:10:51Z",
+      "side": 1,
+      "message": "Tag value 1000 is in an IANA-controlled range (https://datatracker.ietf.org/doc/html/rfc8949#section-9.2) that is \"assigned by Specification Required\" (https://datatracker.ietf.org/doc/html/rfc8126#section-4.6).\n\nA value (\u003e32768, avoiding the ones already assigned in https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml) in the \"First Come First Served\" (https://datatracker.ietf.org/doc/html/rfc8126#section-4.4) range would be preferable, along with a registration of the value.",
+      "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0325a8d1_c7946725",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-05-30T15:10:51Z",
+      "side": 1,
+      "message": "Could you reduce the repeated code by just putting a `SCOPED_TRACE(testing::Message \u003c\u003c \"RoT: \" \u003c\u003c bin2hex(rootOfTrust));` at the start of the method?",
+      "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff41cabe_9b9dd18b",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-05-30T15:10:51Z",
+      "side": 1,
+      "message": "Are there any helpful constants for these magic numbers anywhere? \n\n(cf. https://cs.android.com/android/platform/superproject/+/master:external/rust/crates/coset/src/iana/mod.rs?q\u003dHMAC_256_256, but that\u0027s Rust)",
+      "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4679f4ed_b60df366",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-05-30T15:10:51Z",
+      "side": 1,
+      "message": "Could maybe convert the existing checks to a re-usable method: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp;l\u003d1616-1662 ?",
+      "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
