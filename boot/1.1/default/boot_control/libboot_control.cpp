@@ -135,7 +135,7 @@ void InitDefaultBootloaderControl(BootControl* control, bootloader_control* boot
     int first_missing_slot = -1;
     for (unsigned int slot = 0; slot < kMaxNumSlots; ++slot) {
       std::string partition_path = base_path + kSlotSuffixes[slot];
-      struct stat part_stat;
+      struct stat part_stat {};
       int err = stat(partition_path.c_str(), &part_stat);
       if (!err) {
         last_existing_slot = slot;
@@ -212,7 +212,7 @@ bool BootControl::Init() {
     return false;
   }
 
-  bootloader_control boot_ctrl;
+  bootloader_control boot_ctrl{};
   if (!LoadBootloaderControl(device.c_str(), &boot_ctrl)) {
     LOG(ERROR) << "Failed to load bootloader control block";
     return false;
@@ -285,7 +285,7 @@ bool BootControl::SetActiveBootSlot(unsigned int slot) {
     return false;
   }
 
-  bootloader_control bootctrl;
+  bootloader_control bootctrl{};
   if (!LoadBootloaderControl(misc_device_, &bootctrl)) return false;
 
   // Set every other slot with a lower priority than the new "active" slot.
