@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62fc609e_614f5fef",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-05-31T20:12:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a75878ea_2108fc10",
+      "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a844676_b6fc3161",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-05-30T15:10:51Z",
       "side": 1,
       "message": "Tag value 1000 is in an IANA-controlled range (https://datatracker.ietf.org/doc/html/rfc8949#section-9.2) that is \"assigned by Specification Required\" (https://datatracker.ietf.org/doc/html/rfc8126#section-4.6).\n\nA value (\u003e32768, avoiding the ones already assigned in https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml) in the \"First Come First Served\" (https://datatracker.ietf.org/doc/html/rfc8126#section-4.4) range would be preferable, along with a registration of the value.",
+      "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ac4cb25_c1b4f38b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-05-31T20:12:13Z",
+      "side": 1,
+      "message": "Registration is clearly not necessary. The reasons for this tag are to prevent confusion if we decide to apply the auth token HMAC key to some other COSE_Mac0, and for versioning.  I suppose it\u0027s reasonable to use the first-come-first-served range.  I\u0027ll pick 40000 + version number.",
+      "parentUuid": "8a844676_b6fc3161",
       "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e7ac99d_7236eaa3",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-05-31T20:12:13Z",
+      "side": 1,
+      "message": "Good idea. Done.",
+      "parentUuid": "0325a8d1_c7946725",
+      "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff41cabe_9b9dd18b",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-05-30T15:10:51Z",
       "side": 1,
       "message": "Are there any helpful constants for these magic numbers anywhere? \n\n(cf. https://cs.android.com/android/platform/superproject/+/master:external/rust/crates/coset/src/iana/mod.rs?q\u003dHMAC_256_256, but that\u0027s Rust)",
+      "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "625d8af2_ec619b2e",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-05-31T20:12:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff41cabe_9b9dd18b",
       "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
