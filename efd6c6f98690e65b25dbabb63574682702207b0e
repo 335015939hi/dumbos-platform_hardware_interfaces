@@ -16,6 +16,24 @@
       "message": "please add ref bug to the CL",
       "revId": "efd6c6f98690e65b25dbabb63574682702207b0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03bb1a43_6da1d946",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-05-31T20:14:20Z",
+      "side": 1,
+      "message": "Sorry, bug has been added. It has not been triaged though, in case there is a triage list for test backports to go through.",
+      "parentUuid": "12148bb6_1825b7c7",
+      "revId": "efd6c6f98690e65b25dbabb63574682702207b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
