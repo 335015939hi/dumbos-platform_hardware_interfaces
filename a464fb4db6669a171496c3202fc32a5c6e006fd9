@@ -70,6 +70,24 @@
       "parentUuid": "3ddfb766_be60774f",
       "revId": "a464fb4db6669a171496c3202fc32a5c6e006fd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78c61c89_ff145ae7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1804658
+      },
+      "writtenOn": "2022-06-01T08:28:24Z",
+      "side": 1,
+      "message": "Sure, thank you. Will check with Nathan who can help to approve the change from Qualcomm side.",
+      "parentUuid": "7bee86cd_61699e36",
+      "revId": "a464fb4db6669a171496c3202fc32a5c6e006fd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
