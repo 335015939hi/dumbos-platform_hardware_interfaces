@@ -16,6 +16,24 @@
       "message": "Any reason not to cp your test change to aosp/master?",
       "revId": "ee705690788780600f8e01c7492feb7416a7b1e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9cd4b14_3b9a1585",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-06-01T04:23:41Z",
+      "side": 1,
+      "message": "I even don\u0027t remember I had this patch. 😂\nBut anyway thanks for that.",
+      "parentUuid": "53c09100_9d858728",
+      "revId": "ee705690788780600f8e01c7492feb7416a7b1e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
