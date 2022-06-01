@@ -143,6 +143,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c586f249_80c0fdef",
+        "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-06-01T07:14:54Z",
+      "side": 1,
+      "message": "Does this now need to depend on a cppcose CL that\u0027s not yet uploaded?",
+      "parentUuid": "625d8af2_ec619b2e",
+      "revId": "78851d3105862de5d079b27ea71e1270ba0c4de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4679f4ed_b60df366",
         "filename": "security/keymint/aidl/vts/functional/SecureElementProvisioningTest.cpp",
         "patchSetId": 2
