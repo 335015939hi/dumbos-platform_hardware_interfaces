@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0918ea31_905d76d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-02T23:39:32Z",
+      "side": 1,
+      "message": "out of date?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "4a77a9118919aa35f91fb22f412e070c4f122f66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b65797a_fbc13547",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-02T23:39:32Z",
+      "side": 1,
+      "message": "Test",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 5
+      },
+      "revId": "4a77a9118919aa35f91fb22f412e070c4f122f66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "736dc9e2_f09b8fe6",
+        "filename": "boot/stable/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-02T23:39:32Z",
+      "side": 1,
+      "message": "Could this be in an \u0027aidl\u0027 directory instead of \u0027stable\u0027? (I think this is the convention)",
+      "revId": "4a77a9118919aa35f91fb22f412e070c4f122f66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bf1e0e8_b3bef07b",
+        "filename": "boot/stable/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-02T23:39:32Z",
+      "side": 1,
+      "message": "oh - we can actually avoid this option - see b/234181591. I should have mentioned earlier",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "4a77a9118919aa35f91fb22f412e070c4f122f66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c1ce176_f231f87e",
+        "filename": "boot/stable/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-02T23:39:32Z",
+      "side": 1,
+      "message": "clean up these comments",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "4a77a9118919aa35f91fb22f412e070c4f122f66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
