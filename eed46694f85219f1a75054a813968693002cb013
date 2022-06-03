@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f518233_a62b0a7d",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-03T22:25:54Z",
+      "side": 1,
+      "message": "Specify what service specific error will be thrown. In particular, what will the service specific error code be? Is it 0 or some constant value that you will need to define in the interface?",
+      "range": {
+        "startLine": 87,
+        "startChar": 15,
+        "endLine": 87,
+        "endChar": 38
+      },
+      "revId": "eed46694f85219f1a75054a813968693002cb013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2510e91e_bac1ece0",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-03T22:25:54Z",
+      "side": 1,
+      "message": "Same here; what is the error code?\n\nIn particular, do you want to distinguish the error code thrown here against the error code thrown from slot functions above? If not, then both of them can be 0. If yes, then you need to define two error codes.",
+      "range": {
+        "startLine": 112,
+        "startChar": 32,
+        "endLine": 112,
+        "endChar": 37
+      },
+      "revId": "eed46694f85219f1a75054a813968693002cb013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46be0bbd_432e92de",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-03T22:25:54Z",
+      "side": 1,
+      "message": "Esp. here; there can be two errors:\n\n- The slot is an invalid slot; or\n- the command itself fails.\n\nSo I would suggest defining two error codes to distinguish the two cases.\n\nOr, you can use IllegalArgumentException for the invalid slot case (and same everywhere).",
+      "revId": "eed46694f85219f1a75054a813968693002cb013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
