@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0556d0b_04b22aca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-06-03T12:14:52Z",
+      "side": 1,
+      "message": "The HAL service must read the system properties during boot and use those, so if GSI changes them it will be using the changed values. If a HAL is doing something else, it\u0027s wrong and must e fixed.",
+      "revId": "5661bfef7c57b42f92bd8c34b54165aea11f795c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
