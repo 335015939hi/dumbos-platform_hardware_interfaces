@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3e6ee09_47bd3881",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-03T18:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b71df92_8ea1aff1",
+      "revId": "772267bdd5f695ff00d348b26315e2c0993321cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14def4c5_45020395",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-06-03T17:46:38Z",
       "side": 1,
       "message": "Yes -- because the name of the function is \"getSnapshotMergeStatus\"\n\nSo delete this",
+      "revId": "772267bdd5f695ff00d348b26315e2c0993321cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43d7902d_bf830d3e",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-03T18:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14def4c5_45020395",
       "revId": "772267bdd5f695ff00d348b26315e2c0993321cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -58,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ea3b444_e55e27f6",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-03T18:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c19fa87_c1d4d4f4",
+      "range": {
+        "startLine": 95,
+        "startChar": 68,
+        "endLine": 95,
+        "endChar": 80
+      },
+      "revId": "772267bdd5f695ff00d348b26315e2c0993321cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5324b96a_66ef828f",
@@ -75,6 +135,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44813bae_ae71d81d",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-03T18:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5324b96a_66ef828f",
+      "revId": "772267bdd5f695ff00d348b26315e2c0993321cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36853a4b_75385804",
@@ -88,6 +166,24 @@
       "writtenOn": "2022-06-03T17:46:38Z",
       "side": 1,
       "message": "This can be void too, and throws error status on error like other functions above.",
+      "revId": "772267bdd5f695ff00d348b26315e2c0993321cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2140a30_07f8ad26",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-03T18:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36853a4b_75385804",
       "revId": "772267bdd5f695ff00d348b26315e2c0993321cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
