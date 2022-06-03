@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee2f47e8_c033aea0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-06-03T12:05:04Z",
+      "side": 1,
+      "message": "It doesn\u0027t make sense for it to be repeated. We can\u0027t change it from ENUM_REP to ENUM, though.",
+      "range": {
+        "startLine": 189,
+        "startChar": 7,
+        "endLine": 189,
+        "endChar": 55
+      },
+      "revId": "f691899fb876c57a136f9a10ded6622152a1816b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
