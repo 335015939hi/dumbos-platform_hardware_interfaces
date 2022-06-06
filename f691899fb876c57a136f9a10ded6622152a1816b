@@ -22,6 +22,30 @@
       },
       "revId": "f691899fb876c57a136f9a10ded6622152a1816b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b560aca9_81b745a7",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-06-06T05:54:15Z",
+      "side": 1,
+      "message": "Doesn\u0027t it work the same as `DIGEST` -- can be repeated in key characteristics as a range of allowed values, but must be specified at most once as a parameter for an operation using the key?\n\n(Not quite the same though, because a set of key characteristics without `MGF_DIGEST` has the implicit SHA1 default described below).",
+      "parentUuid": "ee2f47e8_c033aea0",
+      "range": {
+        "startLine": 189,
+        "startChar": 7,
+        "endLine": 189,
+        "endChar": 55
+      },
+      "revId": "f691899fb876c57a136f9a10ded6622152a1816b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
