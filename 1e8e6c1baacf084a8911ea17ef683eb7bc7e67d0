@@ -22,6 +22,30 @@
       },
       "revId": "1e8e6c1baacf084a8911ea17ef683eb7bc7e67d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53030f13_c876b334",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4818,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-06-06T15:17:11Z",
+      "side": 1,
+      "message": "Good catch. Fixed.",
+      "parentUuid": "14424ba6_b89c06ff",
+      "range": {
+        "startLine": 4818,
+        "startChar": 0,
+        "endLine": 4818,
+        "endChar": 6
+      },
+      "revId": "1e8e6c1baacf084a8911ea17ef683eb7bc7e67d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
