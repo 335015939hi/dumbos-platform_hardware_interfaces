@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cad6ad2_d8af081d",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-06T16:26:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f518233_a62b0a7d",
+      "range": {
+        "startLine": 87,
+        "startChar": 15,
+        "endLine": 87,
+        "endChar": 38
+      },
+      "revId": "eed46694f85219f1a75054a813968693002cb013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2510e91e_bac1ece0",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10c30bce_e4ba7905",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-06T16:26:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2510e91e_bac1ece0",
+      "range": {
+        "startLine": 112,
+        "startChar": 32,
+        "endLine": 112,
+        "endChar": 37
+      },
+      "revId": "eed46694f85219f1a75054a813968693002cb013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46be0bbd_432e92de",
@@ -60,6 +108,24 @@
       "writtenOn": "2022-06-03T22:25:54Z",
       "side": 1,
       "message": "Esp. here; there can be two errors:\n\n- The slot is an invalid slot; or\n- the command itself fails.\n\nSo I would suggest defining two error codes to distinguish the two cases.\n\nOr, you can use IllegalArgumentException for the invalid slot case (and same everywhere).",
+      "revId": "eed46694f85219f1a75054a813968693002cb013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3910744c_bdc1016e",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-06T16:26:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46be0bbd_432e92de",
       "revId": "eed46694f85219f1a75054a813968693002cb013",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
