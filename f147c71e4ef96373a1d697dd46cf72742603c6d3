@@ -70,6 +70,30 @@
       },
       "revId": "f147c71e4ef96373a1d697dd46cf72742603c6d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b40af50_72729f8c",
+        "filename": "boot/aidl/android/hardware/boot/IBootControl.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-06T23:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f213946_92cc5a7f",
+      "range": {
+        "startLine": 87,
+        "startChar": 38,
+        "endLine": 87,
+        "endChar": 40
+      },
+      "revId": "f147c71e4ef96373a1d697dd46cf72742603c6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
