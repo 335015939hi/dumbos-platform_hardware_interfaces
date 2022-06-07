@@ -34,6 +34,7 @@ using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
 using ::android::hardware::wifi::V1_0::ChipModeId;
+using ::android::hardware::wifi::V1_0::IWifi;
 using ::android::hardware::wifi::V1_0::IWifiChip;
 using ::android::hardware::wifi::supplicant::V1_0::ISupplicant;
 using ::android::hardware::wifi::supplicant::V1_0::ISupplicantIface;
@@ -48,6 +49,29 @@ using ::android::wifi_system::InterfaceTool;
 using ::android::wifi_system::SupplicantManager;
 
 namespace {
+
+bool waitForWifiHalStop(const std::string& wifi_instance_name) {
+    int count = 50; /* wait at most 5 seconds for completion */
+    sp<IWIFI> wifi = getWifi(wifi_instance_name);
+    while (count-- > 0) {
+        if (wifi != nullptr && !wifi->isStarted()) {
+            return true;
+        }
+        usleep(100000);
+	wifi = getWifi(wifi_instance_name);
+    }
+    if wifi != nullptr() {
+	LOG(ERROR) << "IWIFI not stopped";
+        return false;
+    } else {
+        LOG(ERROR) << "IWIFI is still";
+        return true;
+
+    }	    
+
+}	
+
+
 bool waitForSupplicantState(bool is_running) {
     SupplicantManager supplicant_manager;
     int count = 50; /* wait at most 5 seconds for completion */
@@ -113,10 +137,10 @@ bool startWifiFramework() {
     return waitForSupplicantStart();  // wait for wifi to start.
 }
 
-bool stopWifiFramework() {
+bool stopWifiFramework(const std::string& wifi_instance_name) {
     std::system("svc wifi disable");
     std::system("cmd wifi set-scan-always-available disabled");
-    return waitForSupplicantStop();  // wait for wifi to shutdown.
+    return waitForSupplicantStop() && waitForWifiHalStop(wifi_instance_name);  // wait for wifi to shutdown.
 }
 
 void stopSupplicant() { stopSupplicant(""); }
