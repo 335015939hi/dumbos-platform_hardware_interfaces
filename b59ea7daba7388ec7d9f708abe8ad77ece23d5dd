@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba088051_44b2ba2c",
+        "filename": "tv/cec/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-06-07T13:26:19Z",
+      "side": 1,
+      "message": "There are many FIXMEs in this CL. Please resolve all.\n\nIn this case, maybe remove the cpp backend and translate code if not needed.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 30
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df11aeb8_4aa45ef2",
+        "filename": "tv/cec/aidl/aidl_api/android.hardware.tv.cec/current/android/hardware/tv/cec/IHdmiCec.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-06-07T13:26:19Z",
+      "side": 1,
+      "message": "Please take a look at the following doc where I\u0027ve summarised the proposal:\n\nhttps://docs.google.com/document/d/1X2OAIWeMkXrf8ExAqeJHjeFDEJ_a5XhX06SUqcmREAo",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 77
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff116377_9acc5597",
+        "filename": "tv/cec/aidl/translate/android/hardware/tv/cec/Translate.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-06-07T13:26:19Z",
+      "side": 1,
+      "message": "V1_0.HdmiPortInfo.physicalAddress is an uint16_t.\nCan we make it the same type in AIDL and remove the conversion checks?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 9
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a81274b_81f23144",
+        "filename": "tv/cec/aidl/translate/android/hardware/tv/cec/Translate.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-06-07T13:26:19Z",
+      "side": 1,
+      "message": "body in V1_1 is a uint8_t.\n\nCan we make it the same type in AIDL and remove the checks?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 17
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71b3f336_6ba063d4",
+        "filename": "tv/cec/aidl/translate/android/hardware/tv/cec/translate-ndk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-06-07T13:26:19Z",
+      "side": 1,
+      "message": "As far as I can tell in HAL 1.0 the HotplugEvent.portId is an uint32_t.\nCan you confirm and in this case adjust the checks?\n\nAlternatively, could we make the new HotplugEvent.portId in AIDL also uint32_t?",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 5
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
