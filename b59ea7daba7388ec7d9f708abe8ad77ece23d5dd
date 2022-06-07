@@ -49,6 +49,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5cc630d1_7c1a13a4",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecLogicalAddress.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-06-07T13:52:02Z",
+      "side": 1,
+      "message": "Maybe sort by int value",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddfb77c0_74a03be7",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/HdmiPortInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-06-07T13:52:02Z",
+      "side": 1,
+      "message": "Please add a comment:\n\n // Should start from 1 which corresponds to HDMI \"port 1\".",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff116377_9acc5597",
         "filename": "tv/cec/aidl/translate/android/hardware/tv/cec/Translate.java",
         "patchSetId": 1
