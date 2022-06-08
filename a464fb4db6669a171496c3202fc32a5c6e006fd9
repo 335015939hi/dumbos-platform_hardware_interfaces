@@ -105,6 +105,24 @@
       "message": "Hi Fenglin, this patch seems ready to submit now, please feel free to submit it if it\u0027s all good from your side as well.",
       "revId": "a464fb4db6669a171496c3202fc32a5c6e006fd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7613750_e8ca48ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1804658
+      },
+      "writtenOn": "2022-06-08T00:34:01Z",
+      "side": 1,
+      "message": "Hi Lais, I don\u0027t have the permission to submit the change. It doesn\u0027t allow me to click the \"submit\" button but just pops out a message and tells me that I don\u0027t have permission.",
+      "parentUuid": "dbb80dc5_85ceb446",
+      "revId": "a464fb4db6669a171496c3202fc32a5c6e006fd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
