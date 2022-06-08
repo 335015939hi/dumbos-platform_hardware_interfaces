@@ -86,6 +86,41 @@
       "message": "Thanks.\nFollowing change is pushed to master: https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2104024",
       "revId": "e7f7d8d9716e7261e86705434bce291159cf2412",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13febf0a_40ffab23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1659539
+      },
+      "writtenOn": "2022-06-08T14:35:30Z",
+      "side": 1,
+      "message": "Please consider abandoning/deleting this change since aosp/2104024 has been submitted already in master.",
+      "parentUuid": "22be835c_39e706f4",
+      "revId": "e7f7d8d9716e7261e86705434bce291159cf2412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0e3afe5_78cf900b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1659539
+      },
+      "writtenOn": "2022-06-08T14:35:30Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "e7f7d8d9716e7261e86705434bce291159cf2412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
