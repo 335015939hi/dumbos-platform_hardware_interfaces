@@ -65,12 +65,6 @@ Return<Result> Frontend::tune(const FrontendSettings& /* settings */) {
         return Result::INVALID_STATE;
     }
 
-	ALOGD("%s> Def-tunerhal tune begin api %d",  __FUNCTION__, mId);   // Anbu - for testing
-
-	// Anbu - for testing
-	if (mIsLocked) {
-		return Result::SUCCESS;
-	}
     mTunerService->frontendStartTune(mId);
     mCallback->onEvent(FrontendEventType::LOCKED);
     mIsLocked = true;
