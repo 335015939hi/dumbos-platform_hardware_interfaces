@@ -17,16 +17,7 @@
 #define LOG_TAG "android.hardware.tv.tuner@1.1-Demux"
 
 #include "Demux.h"
-#include <errno.h>
 #include <utils/Log.h>
-#include <MpegPacket.cpp>
-
-
-const uint32_t MPEG_PAYLOAD_SIZE = 184;
-const uint32_t MPEG_HEADER_SIZE = 4;
-const uint32_t MPEG_PACKET_SIZE = MPEG_HEADER_SIZE + MPEG_PAYLOAD_SIZE;
-vector<uint8_t> rawpacket(MPEG_PACKET_SIZE,0);  
-
 
 namespace android {
 namespace hardware {
@@ -350,37 +341,15 @@ void* Demux::__threadLoopFrontend(void* user) {
 }
 
 void Demux::frontendInputThreadLoop() {
-	vector<MpegPacket*> packets; // Anbu -testing
-
     if (!mFrontendInputThreadRunning) {
         return;
-    }	
-	//ifstream input("/mnt/sdcard/stream-dvbt.ts", std::ios::binary | ios::in);
-	//ifstream input("/sdcard/Android/data/stream-dvbt.ts", std::ios::binary | ios::in);
-	std::ifstream input;
+    }
 
-	//input.open("/sdcard/Android/data/stream-dvbt.ts", ios::in |ios::binary );
-	//input.open("/storage/emulated/0/Android/data/stream-dvbt.ts", ios::in |std::ios::binary );
-	input.open("/product/stream-dvbt.ts", ios::in |std::ios::binary );
-
-	if(!input) {
-		ALOGW("Could not open file ");
-		ALOGW("Error code open: %s", strerror(errno));
-	}
-	else {
-		ALOGD("TS file opened ");
-	}
     std::lock_guard<std::mutex> lock(mFrontendInputThreadLock);
     if (!mDvrPlayback) {
         ALOGW("[Demux] No software Frontend input configured. Ending Frontend thread loop.");
-		while (readpacket(rawpacket, input))
-		{
-			MpegPacket* packet = new MpegPacket(rawpacket);
-			packets.push_back(packet);
-			ALOGW("[Demux] Inside read raw packet.");			
-		}
         mFrontendInputThreadRunning = false;
-        //return;
+        return;
     }
 
     while (mFrontendInputThreadRunning) {
@@ -411,17 +380,6 @@ void Demux::frontendInputThreadLoop() {
 
     mFrontendInputThreadRunning = false;
     ALOGW("[Demux] Frontend Input thread end.");
-}
-
-bool Demux::readpacket(vector<uint8_t>& rawpacket, ifstream& s) {
-    uint8_t byte = 0x00;
-    while (s.good() && byte != 0x47) {
-        s.read((char*)&byte, 1);
-    }
-    if (!s.good()) return false;
-    rawpacket[0] = 0x47;
-    s.read((char*)&rawpacket[1], MPEG_PACKET_SIZE - 1);
-    return (bool)s;
 }
 
 void Demux::stopFrontendInput() {
