@@ -23,6 +23,7 @@ cc_defaults {
         "Tuner.cpp",
         "service.cpp",
         "MpegPacket.cpp",
+        "PAT.cpp",
     ],
 
     compile_multilib: "first",

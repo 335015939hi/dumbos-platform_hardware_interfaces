@@ -25,8 +25,7 @@
 #include "Frontend.h"
 #include "TimeFilter.h"
 #include "Tuner.h"
-#include <iostream>
-#include <fstream>
+#include <PAT.h>
 
 using namespace std;
 
@@ -49,6 +48,21 @@ class Filter;
 class Frontend;
 class TimeFilter;
 class Tuner;
+
+template <class T> class Tables {
+		vector<T*> tables;
+	
+	public:
+		void add(T* i);
+		vector<T*>& get();
+		
+		size_t size();
+	
+		T& operator[](unsigned idx);
+		const T& operator[](unsigned idx) const;
+		Tables();
+		void cleanup();
+};
 
 class Demux : public IDemux {
   public:
@@ -101,7 +115,6 @@ class Demux : public IDemux {
     void sendFrontendInputToRecord(vector<uint8_t> data);
     void sendFrontendInputToRecord(vector<uint8_t> data, uint16_t pid, uint64_t pts);
     bool startRecordFilterDispatcher();
-	bool readpacket(vector<uint8_t>& rawpacket, ifstream& s); // Anbu -testing
 
   private:
     // Tuner service

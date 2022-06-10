@@ -22,8 +22,6 @@
 #include "Descrambler.h"
 #include "Frontend.h"
 #include "Lnb.h"
-#include <iostream>
-#include <fstream>
 
 namespace android {
 namespace hardware {
@@ -56,6 +54,15 @@ Tuner::Tuner() {
     };
     mFrontendStatusCaps[0] = statusCaps;
 
+    statusCaps = {
+            static_cast<FrontendStatusType>(V1_1::FrontendStatusTypeExt1_1::MODULATIONS),
+            static_cast<FrontendStatusType>(V1_1::FrontendStatusTypeExt1_1::INTERLEAVINGS),
+            static_cast<FrontendStatusType>(V1_1::FrontendStatusTypeExt1_1::BANDWIDTH),
+            static_cast<FrontendStatusType>(V1_1::FrontendStatusTypeExt1_1::GUARD_INTERVAL),
+            static_cast<FrontendStatusType>(V1_1::FrontendStatusTypeExt1_1::TRANSMISSION_MODE),
+    };
+    mFrontendStatusCaps[1] = statusCaps;
+
     //mLnbs.resize(2);
     //mLnbs[0] = new Lnb(0);
     //mLnbs[1] = new Lnb(1);	
@@ -65,6 +72,10 @@ Tuner::~Tuner() {}
 
 Return<void> Tuner::getFrontendIds(getFrontendIds_cb _hidl_cb) {
     ALOGV("%s", __FUNCTION__);
+
+	ALOGD("%s> Def-tunerhal Tuner getFrontendIds ",  __FUNCTION__);   // Anbu - for testing
+	_hidl_cb(Result::SUCCESS, 1);
+	return Void();
 
     vector<FrontendId> frontendIds;
     frontendIds.resize(mFrontendSize);
@@ -204,6 +215,7 @@ Return<void> Tuner::getFrontendDtmbCapabilities(uint32_t frontendId,
 }
 
 void Tuner::setFrontendAsDemuxSource(uint32_t frontendId, uint32_t demuxId) {
+	return; //Anbu - for testing
     mFrontendToDemux[frontendId] = demuxId;
     if (mFrontends[frontendId] != nullptr && mFrontends[frontendId]->isLocked()) {
         mDemuxes[demuxId]->startFrontendInputLoop();
@@ -235,6 +247,7 @@ void Tuner::frontendStopTune(uint32_t frontendId) {
 }
 
 void Tuner::frontendStartTune(uint32_t frontendId) {
+	return;  // Anbu -for testing
     map<uint32_t, uint32_t>::iterator it = mFrontendToDemux.find(frontendId);
     uint32_t demuxId;
     if (it != mFrontendToDemux.end()) {

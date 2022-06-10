@@ -48,6 +48,8 @@ const uint32_t BUFFER_SIZE_16M = 0x1000000;
 
 class Demux;
 class Dvr;
+class MpegPacket;
+class SDT;
 
 class Filter : public V1_1::IFilter {
   public:
@@ -151,6 +153,7 @@ class Filter : public V1_1::IFilter {
      * If a specific filter's writing loop is still running
      */
     bool mFilterThreadRunning;
+    bool mFilterTsExtractThrdRunning;
     bool mKeepFetchingDataFromFrontend;
 
     /**
@@ -159,7 +162,8 @@ class Filter : public V1_1::IFilter {
      */
     const uint16_t SECTION_WRITE_COUNT = 10;
 
-    bool DEBUG_FILTER = false;
+    bool DEBUG_FILTER = true;//false; // Anbu - testing
+    std::ifstream input; // Anbu -for testing
 
     /**
      * Filter handlers to handle the data filtering.
@@ -173,6 +177,8 @@ class Filter : public V1_1::IFilter {
     Result startPcrFilterHandler();
     Result startTemiFilterHandler();
     Result startFilterLoop();
+	Result startTsextractorLoop();
+	
 
     void deleteEventFlag();
     bool writeDataToFilterMQ(const std::vector<uint8_t>& data);
@@ -188,7 +194,10 @@ class Filter : public V1_1::IFilter {
     void startTsFilter(vector<uint8_t> data);
     bool startFilterDispatcher();
     static void* __threadLoopFilter(void* user);
+	static void* __threadLoopTsExtractor(void* user);
     void filterThreadLoop();
+	void tsextractorThreadLoop();
+	bool readpacket(vector<uint8_t>& rawpacket, ifstream& s);
 
     int createAvIonFd(int size);
     uint8_t* getIonBuffer(int fd, int size);
@@ -210,6 +219,7 @@ class Filter : public V1_1::IFilter {
     DemuxFilterEvent createTemiEvent();
     V1_1::DemuxFilterEventExt createMonitorEvent();
     V1_1::DemuxFilterEventExt createRestartEvent();
+	void mergePackets(vector<MpegPacket*>& packets);
     /**
      * Lock to protect writes to the FMQs
      */
