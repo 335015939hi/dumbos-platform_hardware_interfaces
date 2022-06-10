@@ -33,6 +33,23 @@
       "message": "Steve, could you please help with DrNo approval for this cherry-pick of a fix from master into a gsi branch?\nThanks!",
       "revId": "3dd83976a87ea0420aca7ad9f3c49dfbd9ed59fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f294805_161d8fb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-10T20:47:04Z",
+      "side": 1,
+      "message": "This HAL has no visible effect besides the logs, so that is the only way it can be debugged or we can see what would happen. Do we need to hide them?",
+      "revId": "3dd83976a87ea0420aca7ad9f3c49dfbd9ed59fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
