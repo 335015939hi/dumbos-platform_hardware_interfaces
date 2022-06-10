@@ -27,6 +27,8 @@
 #include "Tuner.h"
 #include <iostream>
 #include <fstream>
+#include <PAT.h>
+
 
 using namespace std;
 
@@ -49,6 +51,21 @@ class Filter;
 class Frontend;
 class TimeFilter;
 class Tuner;
+
+template <class T> class Tables {
+		vector<T*> tables;
+	
+	public:
+		void add(T* i);
+		vector<T*>& get();
+		
+		size_t size();
+	
+		T& operator[](unsigned idx);
+		const T& operator[](unsigned idx) const;
+		Tables();
+		void cleanup();
+};
 
 class Demux : public IDemux {
   public:

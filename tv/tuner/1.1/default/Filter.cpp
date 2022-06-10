@@ -39,6 +39,28 @@ Filter::Filter(DemuxFilterType type, uint64_t filterId, uint32_t bufferSize,
     mBufferSize = bufferSize;
     mDemux = demux;
 
+	ALOGD("Inside Filter constructor filterid:%llu %d", mFilterId, mBufferSize);
+
+#if 1
+	if (0 == mFilterId)  // Anbu - for testing
+	{
+		//std::ifstream input;
+		input.open("/product/stream-dvbt.ts", ios::in |std::ios::binary );
+
+		if(!input) {
+		ALOGW("Could not open file ");
+		ALOGW("Error code open: %s", strerror(errno));
+		}
+		else {
+		ALOGD("TS file opened ");
+		}
+
+		input.unsetf(std::ios::skipws);
+
+		startTsextractorLoop();
+	}
+#endif
+
     switch (mType.mainType) {
         case DemuxFilterMainType::TS:
             if (mType.subType.tsFilterType() == DemuxTsFilterType::AUDIO ||
@@ -80,6 +102,7 @@ Filter::Filter(DemuxFilterType type, uint64_t filterId, uint32_t bufferSize,
 
 Filter::~Filter() {
     mFilterThreadRunning = false;
+	ALOGD("ANBU> Filter destructor");
     std::lock_guard<std::mutex> lock(mFilterThreadLock);
 }
 
@@ -115,13 +138,66 @@ Return<void> Filter::getQueueDesc(getQueueDesc_cb _hidl_cb) {
     return Void();
 }
 
+void Filter::mergePackets(vector<MpegPacket*>& packets){
+    map<uint16_t,MpegPacket*> headPackets;
+    vector<MpegPacket*> mergedpackets;
+    
+    for (auto packet: packets)
+    {        
+        if (packet->getPUSI()){
+			ALOGD("%s> mergePacket PUSI field", __FUNCTION__);
+            headPackets[packet->getPID()] = packet;
+            mergedpackets.push_back(packet);
+        }
+        else{
+            //merge payloads
+            ALOGD("%s> mergePacket no PUSI field", __FUNCTION__);
+            if ( headPackets.find(packet->getPID()) != headPackets.end() ) {
+                MpegPacket* firstSeqPacket= headPackets[packet->getPID()];
+                if (firstSeqPacket!=nullptr)
+                   firstSeqPacket->appendToPayload(packet->getPayload());
+            }
+        }
+    }  
+    packets=mergedpackets;
+}
+
 Return<Result> Filter::configure(const DemuxFilterSettings& settings) {
     ALOGV("%s", __FUNCTION__);
 
+	ALOGD("%s> Filter configure %d", __FUNCTION__, mType.mainType);
     mFilterSettings = settings;
     switch (mType.mainType) {
         case DemuxFilterMainType::TS:
+			ALOGD("%s> Filter configure case 1", __FUNCTION__);
             mTpid = settings.ts().tpid;
+		    if( SDT_PID == mTpid )   // Anbu - for testing
+		    {
+		    	std::vector<uint8_t> rawpacket(MPEG_PACKET_SIZE,0);
+				
+				while (readpacket(rawpacket, input))
+    			{
+					ALOGD("[Filter] readpacket byte case4: ");
+					MpegPacket* packet = new MpegPacket(rawpacket);
+					packets.push_back(packet);
+					
+					ALOGW("[Filter] Inside read raw packet.");
+					ALOGW("[Filter] Inside read raw packet loop end.");
+    			}
+				input.close();
+				mergePackets(packets);
+
+				for (auto packet : packets)
+				{
+					if (packet->getPID() == SDT_PID)
+					{
+						ALOGD("[Filter] readpacket byte case5**: ");
+						updateFilterOutput(packet->getPayload());
+						startFilterHandler();
+					}
+				}
+		    } 	
+			ALOGD("%s> Filter configure case 2 %d %x", __FUNCTION__, mTpid, mTpid);
             break;
         case DemuxFilterMainType::MMTP:
             break;
@@ -141,20 +217,24 @@ Return<Result> Filter::configure(const DemuxFilterSettings& settings) {
 
 Return<Result> Filter::start() {
     ALOGV("%s", __FUNCTION__);
+	ALOGD("Anburaj Filter Start %d", mType.mainType ); // Anbu -Testing
     mFilterThreadRunning = true;
     // All the filter event callbacks in start are for testing purpose.
     switch (mType.mainType) {
         case DemuxFilterMainType::TS:
 			ALOGD("Anburaj Filter Start mainType TS"); // Anbu -Testing
-            mCallback->onFilterEvent(createMediaEvent());
-            mCallback->onFilterEvent(createTsRecordEvent());
-            mCallback->onFilterEvent(createTemiEvent());
+			mCallback->onFilterEvent(createSectionEvent());
+            //mCallback->onFilterEvent(createMediaEvent());
+            //mCallback->onFilterEvent(createTsRecordEvent());
+            //mCallback->onFilterEvent(createTemiEvent());
             // clients could still pass 1.0 callback
             if (mCallback_1_1 != NULL) {
+				ALOGD("Anburaj Filter Start mainType TS CASE1"); 
                 mCallback_1_1->onFilterEvent_1_1(createTsRecordEvent(), createTsRecordEventExt());
             }
             break;
         case DemuxFilterMainType::MMTP:
+			ALOGD("Anburaj Filter Start mainType MMTP"); // Anbu -Testing
             mCallback->onFilterEvent(createDownloadEvent());
             mCallback->onFilterEvent(createMmtpRecordEvent());
             if (mCallback_1_1 != NULL) {
@@ -379,12 +459,69 @@ void* Filter::__threadLoopFilter(void* user) {
     return 0;
 }
 
+Result Filter::startTsextractorLoop() {
+    pthread_create(&mFilterThread, NULL, __threadLoopTsExtractor, this);
+    pthread_setname_np(mFilterThread, "tsfile_extractor_loop");
+
+    return Result::SUCCESS;
+}
+
+void* Filter::__threadLoopTsExtractor(void* user) {
+    Filter* const self = static_cast<Filter*>(user);
+    self->tsextractorThreadLoop();
+    return 0;
+}
+
+void Filter::tsextractorThreadLoop() {
+	ALOGD("[Filter] TSextractor filterThreadLoop %llu.", mFilterId);
+	return;
+
+#if 0
+	std::vector<uint8_t> rawpacket(MPEG_PACKET_SIZE,0);
+	
+	std::lock_guard<std::mutex> lock(mFilterThreadLock);
+	
+    while (readpacket(rawpacket, input))
+    {
+			ALOGD("[Filter] readpacket byte case4: ");
+			MpegPacket* packet = new MpegPacket(rawpacket);
+			packets.push_back(packet);
+			for (auto packet : packets)
+			{
+				if (packet->getPID() == SDT_PID)
+				{
+					ALOGD("[Filter] readpacket byte case5**: ");
+					updateFilterOutput(packet->getPayload());
+					startFilterHandler();
+				}
+			}
+			ALOGW("[Filter] Inside read raw packet.");
+		ALOGW("[Filter] Inside read raw packet loop end.");
+    }
+    
+    ALOGD("[Filter] tsextractor thread ended.");
+#endif
+}
+
+bool Filter::readpacket(vector<uint8_t>& rawpacket, ifstream& s) {
+    uint8_t byte = 0x00;
+    while (s.good() && byte != 0x47) {
+        s.read((char*)&byte, 1);
+		ALOGD("[Demux] readpacket byte: %d", byte);
+    }
+    if (!s.good()) return false;
+    rawpacket[0] = 0x47;
+    s.read((char*)&rawpacket[1], MPEG_PACKET_SIZE - 1);
+    return (bool)s;
+}
+
 void Filter::filterThreadLoop() {
     if (!mFilterThreadRunning) {
         return;
     }
     std::lock_guard<std::mutex> lock(mFilterThreadLock);
     ALOGD("[Filter] filter %" PRIu64 " threadLoop start.", mFilterId);
+	ALOGD("[Filter] filterThreadLoop %llu.", mFilterId);
 
     // For the first time of filter output, implementation needs to send the filter
     // Event Callback without waiting for the DATA_CONSUMED to init the process.
@@ -397,20 +534,26 @@ void Filter::filterThreadLoop() {
             continue;
         }
 
+		ALOGD("[Filter] filterThreadLoop case1");
+
         // After successfully write, send a callback and wait for the read to be done
         if (mCallback_1_1 != nullptr) {
+			ALOGD("[Filter] filterThreadLoop case2");
             if (mConfigured) {
                 DemuxFilterEvent emptyEvent;
                 V1_1::DemuxFilterEventExt startEvent;
                 startEvent.events.resize(1);
+				ALOGD("[Filter] filterThreadLoop case3");
                 startEvent.events[0].startId(mStartId++);
                 mCallback_1_1->onFilterEvent_1_1(emptyEvent, startEvent);
                 mConfigured = false;
             }
             mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
             mFilterEventExt.events.resize(0);
+			ALOGD("[Filter] filterThreadLoop case4");
         } else if (mCallback != nullptr) {
             mCallback->onFilterEvent(mFilterEvent);
+			ALOGD("[Filter] filterThreadLoop case5");
         } else {
             ALOGD("[Filter] filter callback is not configured yet.");
             mFilterThreadRunning = false;
@@ -418,11 +561,15 @@ void Filter::filterThreadLoop() {
         }
         mFilterEvent.events.resize(0);
 
+		ALOGD("[Filter] filterThreadLoop case6");
+
         freeAvHandle();
         mFilterStatus = DemuxFilterStatus::DATA_READY;
         if (mCallback != nullptr) {
+			ALOGD("[Filter] filterThreadLoop case7");
             mCallback->onFilterStatus(mFilterStatus);
         } else if (mCallback_1_1 != nullptr) {
+			ALOGD("[Filter] filterThreadLoop case8");
             mCallback_1_1->onFilterStatus(mFilterStatus);
         }
         break;
@@ -433,9 +580,11 @@ void Filter::filterThreadLoop() {
         // We do not wait for the last round of written data to be read to finish the thread
         // because the VTS can verify the reading itself.
         for (int i = 0; i < SECTION_WRITE_COUNT; i++) {
+			ALOGD("[Filter] filterThreadLoop case9 %d", i);
             if (!mFilterThreadRunning) {
                 break;
             }
+			ALOGD("[Filter] filterThreadLoop case10 %d %d", mFilterThreadRunning, mIsUsingFMQ);
             while (mFilterThreadRunning && mIsUsingFMQ) {
                 status_t status = mFilterEventFlag->wait(
                         static_cast<uint32_t>(DemuxQueueNotifyBits::DATA_CONSUMED), &efState,
@@ -449,16 +598,21 @@ void Filter::filterThreadLoop() {
 
             maySendFilterStatusCallback();
 
+			ALOGD("[Filter] filterThreadLoop case11 %d", mFilterThreadRunning);
+
             while (mFilterThreadRunning) {
                 std::lock_guard<std::mutex> lock(mFilterEventLock);
                 if (mFilterEvent.events.size() == 0 && mFilterEventExt.events.size() == 0) {
                     continue;
                 }
+				ALOGD("[Filter] filterThreadLoop case12");
                 // After successfully write, send a callback and wait for the read to be done
                 if (mCallback_1_1 != nullptr) {
+					ALOGD("[Filter] filterThreadLoop case13");
                     mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
                     mFilterEventExt.events.resize(0);
                 } else if (mCallback != nullptr) {
+					ALOGD("[Filter] filterThreadLoop case14");
                     mCallback->onFilterEvent(mFilterEvent);
                 }
                 mFilterEvent.events.resize(0);
@@ -557,6 +711,7 @@ Result Filter::startFilterHandler() {
                 case DemuxTsFilterType::UNDEFINED:
                     break;
                 case DemuxTsFilterType::SECTION:
+					ALOGD("startFilterHandler SECTION begin");
                     startSectionFilterHandler();
                     break;
                 case DemuxTsFilterType::PES:
@@ -599,6 +754,7 @@ Result Filter::startFilterHandler() {
 
 Result Filter::startSectionFilterHandler() {
     if (mFilterOutput.empty()) {
+		ALOGD("startFilterHandler SECTION EMPTY");
         return Result::SUCCESS;
     }
     if (!writeSectionsAndCreateEvent(mFilterOutput)) {
@@ -803,13 +959,17 @@ bool Filter::writeSectionsAndCreateEvent(vector<uint8_t> data) {
         return false;
     }
     int size = mFilterEvent.events.size();
+	ALOGD("[Filter] writeSectionsAndCreateEvent size %d", size);
     mFilterEvent.events.resize(size + 1);
     DemuxFilterSectionEvent secEvent;
     secEvent = {
             // temp dump meta data
-            .tableId = 0,
-            .version = 1,
-            .sectionNum = 1,
+            //.tableId = 0,
+            //.version = 1,
+            //.sectionNum = 1,
+            .tableId = data[0],
+            .version = static_cast<uint16_t>((data[5] >> 1) & 0x1f),
+            .sectionNum = data[6],
             .dataLength = static_cast<uint16_t>(data.size()),
     };
     mFilterEvent.events[size].section(secEvent);
@@ -818,9 +978,12 @@ bool Filter::writeSectionsAndCreateEvent(vector<uint8_t> data) {
 
 bool Filter::writeDataToFilterMQ(const std::vector<uint8_t>& data) {
     std::lock_guard<std::mutex> lock(mWriteLock);
+	ALOGD("[Filter] writeDataToFilterMQ %s %d", data.data(), data.size());
     if (mFilterMQ->write(data.data(), data.size())) {
+		ALOGD("[Filter] writeDataToFilterMQ success");  // Anbu - for testing
         return true;
     }
+	ALOGD("[Filter] writeDataToFilterMQ failure");
     return false;
 }
 
