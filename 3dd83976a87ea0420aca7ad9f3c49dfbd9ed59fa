@@ -50,6 +50,24 @@
       "message": "This HAL has no visible effect besides the logs, so that is the only way it can be debugged or we can see what would happen. Do we need to hide them?",
       "revId": "3dd83976a87ea0420aca7ad9f3c49dfbd9ed59fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eda6e7f_3ccb670f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1598788
+      },
+      "writtenOn": "2022-06-13T02:52:18Z",
+      "side": 1,
+      "message": "Someone filed a bug to let me reduce the log amount during haptics...\nI think we can keep some key logs to INFO level for debugging purpose.",
+      "parentUuid": "2f294805_161d8fb2",
+      "revId": "3dd83976a87ea0420aca7ad9f3c49dfbd9ed59fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
