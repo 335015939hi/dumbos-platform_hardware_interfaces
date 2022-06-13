@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2845a347_f5a94a04",
+        "filename": "tv/cec/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-06-13T11:07:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ba088051_44b2ba2c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 30
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df11aeb8_4aa45ef2",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-07T13:26:19Z",
       "side": 1,
       "message": "Please take a look at the following doc where I\u0027ve summarised the proposal:\n\nhttps://docs.google.com/document/d/1X2OAIWeMkXrf8ExAqeJHjeFDEJ_a5XhX06SUqcmREAo",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 77
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "261649c8_d4dbe993",
+        "filename": "tv/cec/aidl/aidl_api/android.hardware.tv.cec/current/android/hardware/tv/cec/IHdmiCec.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-06-13T11:07:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df11aeb8_4aa45ef2",
       "range": {
         "startLine": 48,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cc766d6_78646f12",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecLogicalAddress.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-06-13T11:07:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cc630d1_7c1a13a4",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddfb77c0_74a03be7",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-06-07T13:52:02Z",
       "side": 1,
       "message": "Please add a comment:\n\n // Should start from 1 which corresponds to HDMI \"port 1\".",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5034afa_a3482eaa",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/HdmiPortInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-06-13T11:07:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddfb77c0_74a03be7",
       "range": {
         "startLine": 27,
         "startChar": 4,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d0b99d5_2c6e92d4",
+        "filename": "tv/cec/aidl/translate/android/hardware/tv/cec/Translate.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-06-13T11:07:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ff116377_9acc5597",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 9
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a81274b_81f23144",
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e0b4d8e_c1f1a1e2",
+        "filename": "tv/cec/aidl/translate/android/hardware/tv/cec/Translate.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-06-13T11:07:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8a81274b_81f23144",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 17
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71b3f336_6ba063d4",
@@ -152,6 +296,30 @@
       "writtenOn": "2022-06-07T13:26:19Z",
       "side": 1,
       "message": "As far as I can tell in HAL 1.0 the HotplugEvent.portId is an uint32_t.\nCan you confirm and in this case adjust the checks?\n\nAlternatively, could we make the new HotplugEvent.portId in AIDL also uint32_t?",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 5
+      },
+      "revId": "b59ea7daba7388ec7d9f708abe8ad77ece23d5dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39b34ff6_0dd73f4f",
+        "filename": "tv/cec/aidl/translate/android/hardware/tv/cec/translate-ndk.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-06-13T11:07:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "71b3f336_6ba063d4",
       "range": {
         "startLine": 404,
         "startChar": 0,
