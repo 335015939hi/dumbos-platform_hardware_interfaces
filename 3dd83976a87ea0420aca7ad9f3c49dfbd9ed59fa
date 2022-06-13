@@ -68,6 +68,24 @@
       "parentUuid": "2f294805_161d8fb2",
       "revId": "3dd83976a87ea0420aca7ad9f3c49dfbd9ed59fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84a3aa13_3a6316a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-13T22:15:47Z",
+      "side": 1,
+      "message": "Which bug is that? Can we fix this test independently from that since it is a separate issue? If we save some logspam, but we can no longer see the vibrator effect on the emulator, it\u0027s probably not worth it. Maybe we can rate limit a log or see which log is causing the issue?",
+      "parentUuid": "0eda6e7f_3ccb670f",
+      "revId": "3dd83976a87ea0420aca7ad9f3c49dfbd9ed59fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
