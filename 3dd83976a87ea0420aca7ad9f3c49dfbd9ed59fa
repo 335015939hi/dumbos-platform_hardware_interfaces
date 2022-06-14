@@ -86,6 +86,24 @@
       "parentUuid": "0eda6e7f_3ccb670f",
       "revId": "3dd83976a87ea0420aca7ad9f3c49dfbd9ed59fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6464201_5f0d5023",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1598788
+      },
+      "writtenOn": "2022-06-14T01:36:32Z",
+      "side": 1,
+      "message": "This one b/224650717.\nYep, I can separate the log decision into another bug and patch to see how many logs  we need to keep for debugging purpose.",
+      "parentUuid": "84a3aa13_3a6316a7",
+      "revId": "3dd83976a87ea0420aca7ad9f3c49dfbd9ed59fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
