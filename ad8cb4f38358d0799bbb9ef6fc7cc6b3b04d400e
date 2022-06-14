@@ -16,6 +16,29 @@
       "message": "I\u0027ve removed the translate code, since we do not use unsigned int in aidl.",
       "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "391bce55_7e72f96c",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecLogicalAddress.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-06-14T12:55:54Z",
+      "side": 1,
+      "message": "Please fix.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
