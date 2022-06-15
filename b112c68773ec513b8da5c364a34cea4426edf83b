@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cdd9a8b_fd83e725",
+        "filename": "boot/1.1/default/boot_control/include/private/boot_control_definition.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-15T16:37:40Z",
+      "side": 1,
+      "message": "nit: This belongs to a separate change?",
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5feac97b_fe65c09e",
+        "filename": "boot/1.1/default/boot_control/libboot_control.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-15T16:37:40Z",
+      "side": 1,
+      "message": "nit: This belongs to a separate change?",
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8bcea47_a94240d9",
+        "filename": "boot/aidl/default/BootControl.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-15T16:37:40Z",
+      "side": 1,
+      "message": "either this should be a switch-case, or there needs to be a static_cast that checks each value of HIDL 1.1 MergeStatus or AIDL MergeStatus.",
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f352032_b5efc380",
+        "filename": "boot/aidl/default/BootControl.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-15T16:37:40Z",
+      "side": 1,
+      "message": "nit: unnecessary",
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32ade8f5_4852e65b",
+        "filename": "boot/aidl/default/BootControl.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-15T16:37:40Z",
+      "side": 1,
+      "message": "COMMAND_FAILED",
+      "range": {
+        "startLine": 81,
+        "startChar": 66,
+        "endLine": 81,
+        "endChar": 68
+      },
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e9ba183_e9879bfb",
+        "filename": "boot/aidl/default/BootControl.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-15T16:37:40Z",
+      "side": 1,
+      "message": "same here; please static_assert all values",
+      "range": {
+        "startLine": 111,
+        "startChar": 38,
+        "endLine": 112,
+        "endChar": 36
+      },
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
