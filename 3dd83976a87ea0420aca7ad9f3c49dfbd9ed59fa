@@ -104,6 +104,24 @@
       "parentUuid": "84a3aa13_3a6316a7",
       "revId": "3dd83976a87ea0420aca7ad9f3c49dfbd9ed59fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "323371ca_7fd98e2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1598788
+      },
+      "writtenOn": "2022-06-15T02:53:55Z",
+      "side": 1,
+      "message": "Hi Steven,\n\nI\u0027ve update this patch and rollback the log level.\n\nCould you help the Dr.No-review?",
+      "parentUuid": "e6464201_5f0d5023",
+      "revId": "3dd83976a87ea0420aca7ad9f3c49dfbd9ed59fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
