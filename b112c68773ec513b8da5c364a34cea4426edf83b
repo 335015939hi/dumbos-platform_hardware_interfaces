@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "509ddc50_e40d099d",
+        "filename": "boot/1.1/default/boot_control/include/private/boot_control_definition.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-15T16:51:39Z",
+      "side": 1,
+      "message": "It\u0027s needed for AIDL implementation to compile.This header file uses types defined in bootloader_message.h, therefore it should include bootloader_message.h. Otherwise users of this header would need to manually include bootloader_message.h before boot_control_definition.h, and that\u0027s gross.",
+      "parentUuid": "3cdd9a8b_fd83e725",
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5feac97b_fe65c09e",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-06-15T16:37:40Z",
       "side": 1,
       "message": "nit: This belongs to a separate change?",
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb09f2df_d77a58f9",
+        "filename": "boot/1.1/default/boot_control/libboot_control.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-15T16:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5feac97b_fe65c09e",
       "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe4466d0_ede91f47",
+        "filename": "boot/aidl/default/BootControl.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-15T16:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8bcea47_a94240d9",
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f352032_b5efc380",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-06-15T16:37:40Z",
       "side": 1,
       "message": "nit: unnecessary",
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "faa36fc9_6bd7a5da",
+        "filename": "boot/aidl/default/BootControl.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-15T16:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f352032_b5efc380",
       "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -92,6 +164,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cfd4b3f_1d80b213",
+        "filename": "boot/aidl/default/BootControl.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-15T16:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32ade8f5_4852e65b",
+      "range": {
+        "startLine": 81,
+        "startChar": 66,
+        "endLine": 81,
+        "endChar": 68
+      },
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e9ba183_e9879bfb",
@@ -105,6 +201,30 @@
       "writtenOn": "2022-06-15T16:37:40Z",
       "side": 1,
       "message": "same here; please static_assert all values",
+      "range": {
+        "startLine": 111,
+        "startChar": 38,
+        "endLine": 112,
+        "endChar": 36
+      },
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78784b9e_389596be",
+        "filename": "boot/aidl/default/BootControl.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-15T16:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e9ba183_e9879bfb",
       "range": {
         "startLine": 111,
         "startChar": 38,
