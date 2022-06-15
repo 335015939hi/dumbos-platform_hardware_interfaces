@@ -39,6 +39,30 @@
       },
       "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e472ad52_76b5e631",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecLogicalAddress.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-06-15T04:48:36Z",
+      "side": 1,
+      "message": "Unregistered and broadcast share the same logical address. If the device cannot take a device specific address or FREE_USE (0xE), it may use 0xF. So 0xF as initiator is to be treated as UNREGISTERED and 0xF as destination is to be treated as BROADCAST.",
+      "parentUuid": "391bce55_7e72f96c",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
