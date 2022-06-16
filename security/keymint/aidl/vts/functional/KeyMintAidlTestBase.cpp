@@ -1466,7 +1466,7 @@ int get_vsr_api_level() {
         api_level = ::android::base::GetIntProperty("ro.board.first_api_level", -1);
     }
     if (api_level == -1) {
-        api_level = ::android::base::GetIntProperty("ro.vndk.version", -1);
+        api_level = ::android::base::GetIntProperty("ro.vendor.api_level", -1);
     }
     // We really should have a VSR API level by now.  But on cuttlefish, and perhaps other weird
     // devices, we may not.  So, we use the SDK first or current API level if needed.  If this goes
