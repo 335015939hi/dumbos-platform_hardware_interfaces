@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b147c3d4_b2d21111",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1061057
+      },
+      "writtenOn": "2022-06-16T01:50:34Z",
+      "side": 1,
+      "message": "Would you please also cherry pick the CL to android12L-gsi?",
+      "revId": "32557e606636e29e87826986748a6b3ed210cbf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
