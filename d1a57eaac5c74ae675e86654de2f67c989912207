@@ -16,6 +16,23 @@
       "message": "Thanks!",
       "revId": "d1a57eaac5c74ae675e86654de2f67c989912207",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca9638a2_013a29ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-16T01:30:58Z",
+      "side": 1,
+      "message": "Can we rollback the log changes, as discussed in the GSI CL?",
+      "revId": "d1a57eaac5c74ae675e86654de2f67c989912207",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
