@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb1a5bb5_3abdd910",
+        "filename": "boot/1.1/default/boot_control/include/private/boot_control_definition.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-17T00:41:11Z",
+      "side": 1,
+      "message": "I see. Please consider splitting this into a different change and rebase this change on top of it. This makes each change focus on one job.",
+      "parentUuid": "509ddc50_e40d099d",
+      "revId": "b112c68773ec513b8da5c364a34cea4426edf83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5feac97b_fe65c09e",

@@ -16,6 +16,29 @@
       "message": "ping : )",
       "revId": "121bec542e2f6b3c23c9ad5209545f21cf8b1897",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "035baf77_b6f13747",
+        "filename": "boot/aidl/default/BootControl.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-17T00:41:11Z",
+      "side": 1,
+      "message": "nit: ToAidlMergeStatus for UpperCamelCase. Abbreviation is one word.",
+      "range": {
+        "startLine": 48,
+        "startChar": 31,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "121bec542e2f6b3c23c9ad5209545f21cf8b1897",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
