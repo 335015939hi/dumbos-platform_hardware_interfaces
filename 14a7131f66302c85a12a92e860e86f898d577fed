@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57a132ed_a6e42c68",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1528,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-06-17T02:56:06Z",
+      "side": 1,
+      "message": "This works fine (so far) since it\u0027s still in the supporting size (64byte).\nIt\u0027d be batter to have some definition/restriction on such \"vector\" parameters. There\u0027s always somewhat resource limitation for an embedded chip.",
+      "range": {
+        "startLine": 1528,
+        "startChar": 20,
+        "endLine": 1528,
+        "endChar": 31
+      },
+      "revId": "14a7131f66302c85a12a92e860e86f898d577fed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
