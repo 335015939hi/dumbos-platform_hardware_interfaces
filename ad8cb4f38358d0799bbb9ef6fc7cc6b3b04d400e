@@ -20,6 +20,144 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "78027b90_379760bd",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "will we remove this?",
+      "range": {
+        "startLine": 609,
+        "startChar": 0,
+        "endLine": 616,
+        "endChar": 10
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51263209_c82a9b78",
+        "filename": "tv/cec/aidl/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "let\u0027s remove this (see b/234181591)",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b500a00_e0953bc4",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecDeviceType.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "nit: byte",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b9258b3_f8cc3ea7",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecDeviceType.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "we should avoid this, since it will be impossible to change if we add new entries in the future.\n\nTo work around it, see \u0027ndk::enum_range\u003cCecDeviceType\u003e\u0027",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18814ebf_d11f52b2",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecLogicalAddress.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "nit: byte",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64a9d075_7439407e",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecLogicalAddress.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "consider:\n\n    @Backing(type\u003d\"byte\")\n    enum CecAddressType { TV, RECORDER, TUNER, ... }\n\n    parcelable CecLogicalAddress {\n        CecAddressType type;\n        byte count;\n    }\n\nThis will use less space and avoid needing extensions if we have more numbers in the future.",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 11
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "391bce55_7e72f96c",
         "filename": "tv/cec/aidl/android/hardware/tv/cec/CecLogicalAddress.aidl",
         "patchSetId": 4
@@ -84,6 +222,184 @@
         "startChar": 0,
         "endLine": 38,
         "endChar": 19
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e329cbf9_4cf6e7c3",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecMessage.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "nit: is this import necessary?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bf1b6f9_a252d70d",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecMessage.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "nit: consider: \u0027byte[15]\u0027 or \u0027byte[MaxLength::MESSAGE_BODY]\u0027 (though extra bytes would have to be zero)",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 1
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1e95168_5a3eb68b",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/HdmiPortType.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "nit: byte",
+      "range": {
+        "startLine": 23,
+        "startChar": 15,
+        "endLine": 23,
+        "endChar": 18
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0463251_ac4f41f8",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/HotplugEvent.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "nit: define where used to save a file",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e4bad5b_6e40e637",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/IHdmiCec.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "nit: you can also use an enum here if you want\n\n    enum SendMessageResult { SUCCESS, NACK, BUSY, FAIL };\n    SendMessageResult sendMessage(in CecMessage message);",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 36
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50b25644_10ffda75",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/IHdmiCec.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "maybe comment: would setCallback(nullptr) be used for deregistration",
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fed99383_3cc41f69",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/IHdmiCecCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "nit: can factor out to interface\n\noneway interface ... {\n    void ...",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "461b86dd_abb43abd",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/MaxLength.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-17T19:22:58Z",
+      "side": 1,
+      "message": "use \u0027const ...\u0027 instead?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
       },
       "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
