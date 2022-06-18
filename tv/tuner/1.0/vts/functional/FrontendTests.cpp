@@ -417,15 +417,25 @@ AssertionResult FrontendTests::closeFrontend() {
 
 void FrontendTests::getFrontendIdByType(FrontendType feType, uint32_t& feId) {
     ASSERT_TRUE(getFrontendIds());
+<<<<<<< TARGET BRANCH (bbecb4 Merge "KeyMint VTS: cope with ATTEST_KEY +/- SIGN" into andr)
     for (size_t i = 0; i < mFeIds.size(); i++) {
         ASSERT_TRUE(getFrontendInfo(mFeIds[i]));
         if (mFrontendInfo.type != feType) {
             continue;
+=======
+    if (mFeIds.size() > 0) {
+        for (size_t i = 0; i < mFeIds.size(); i++) {
+            ASSERT_TRUE(getFrontendInfo(mFeIds[i]));
+            if (mFrontendInfo.type != feType) {
+                continue;
+            }
+            feId = mFeIds[i];
+            return;
+>>>>>>> SOURCE BRANCH (680779 Merge "vts: fix some tunerhal vts fail without frontend devi)
         }
-        feId = mFeIds[i];
-        return;
+    } else {
+        feId = INVALID_ID;
     }
-    feId = INVALID_ID;
 }
 
 void FrontendTests::tuneTest(FrontendConfig frontendConf) {
