@@ -18,6 +18,11 @@ aidl_interface {
         java: {
             platform_apis: true,
         },
+        ndk: {
+            vndk: {
+                enabled: true,
+            },
+        },
         rust: {
             enabled: true,
             apex_available: [

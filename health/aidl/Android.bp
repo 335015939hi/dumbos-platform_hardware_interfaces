@@ -36,6 +36,11 @@ aidl_interface {
             enabled: true,
             sdk_version: "module_current",
         },
+        ndk: {
+            vndk: {
+                enabled: true,
+            },
+        },
     },
 }
 
