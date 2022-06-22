@@ -33,6 +33,23 @@
       "message": "The device can implement @1.1 and do nothing for the new methods. The @1.1 VTS test cases will skip checking the new methods if the device does not enable virtual a/b.\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp;drc\u003db2018887d741a68235decdfa01753f23f6263621;l\u003d56",
       "revId": "3f0cf9603db69b3c0b694d7d37d6bf329882cb79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03fd724b_14fb86ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-22T19:50:27Z",
+      "side": 1,
+      "message": "Please see response in bug.",
+      "revId": "3f0cf9603db69b3c0b694d7d37d6bf329882cb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
