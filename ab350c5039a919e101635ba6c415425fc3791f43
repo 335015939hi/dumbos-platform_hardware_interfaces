@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87b63532_7a1a7cc7",
+        "filename": "security/keymint/RKP_CHANGELOG.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-06-24T20:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "807f1298_d0381d44",
+      "range": {
+        "startLine": 3,
+        "startChar": 14,
+        "endLine": 3,
+        "endChar": 33
+      },
+      "revId": "ab350c5039a919e101635ba6c415425fc3791f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7f00511_f50b8873",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8050960a_1fcbf76b",
+        "filename": "security/keymint/RKP_CHANGELOG.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-06-24T20:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7f00511_f50b8873",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 29
+      },
+      "revId": "ab350c5039a919e101635ba6c415425fc3791f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0cc1c12_74947583",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-06-24T16:00:23Z",
       "side": 1,
       "message": "Maybe not advertise this just yet?\n\nElse we are kind of asking for questions about \"what will be in it?\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "ab350c5039a919e101635ba6c415425fc3791f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ac50457_ed4a9760",
+        "filename": "security/keymint/RKP_CHANGELOG.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-06-24T20:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0cc1c12_74947583",
       "range": {
         "startLine": 9,
         "startChar": 0,
