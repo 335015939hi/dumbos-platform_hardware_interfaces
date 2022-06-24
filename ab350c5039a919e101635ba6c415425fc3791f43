@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "807f1298_d0381d44",
+        "filename": "security/keymint/RKP_CHANGELOG.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-06-24T16:00:23Z",
+      "side": 1,
+      "message": "s/is meant to provide/provides/",
+      "range": {
+        "startLine": 3,
+        "startChar": 14,
+        "endLine": 3,
+        "endChar": 33
+      },
+      "revId": "ab350c5039a919e101635ba6c415425fc3791f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7f00511_f50b8873",
+        "filename": "security/keymint/RKP_CHANGELOG.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-06-24T16:00:23Z",
+      "side": 1,
+      "message": "nit: format with backticks?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 29
+      },
+      "revId": "ab350c5039a919e101635ba6c415425fc3791f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0cc1c12_74947583",
+        "filename": "security/keymint/RKP_CHANGELOG.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-06-24T16:00:23Z",
+      "side": 1,
+      "message": "Maybe not advertise this just yet?\n\nElse we are kind of asking for questions about \"what will be in it?\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "ab350c5039a919e101635ba6c415425fc3791f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
