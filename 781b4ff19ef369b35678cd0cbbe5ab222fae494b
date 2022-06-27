@@ -22,6 +22,30 @@
       },
       "revId": "781b4ff19ef369b35678cd0cbbe5ab222fae494b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd485fdb_0c17e08a",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-27T23:51:46Z",
+      "side": 1,
+      "message": "Code search doesn\u0027t yield any users for this API, so I don\u0027t know how you\u0027ll do error handling in client code. From this function itself, it is not wrong to return nullptr here. Feel free to ignore this comment.",
+      "parentUuid": "70b884a9_ca0cc185",
+      "range": {
+        "startLine": 336,
+        "startChar": 19,
+        "endLine": 336,
+        "endChar": 26
+      },
+      "revId": "781b4ff19ef369b35678cd0cbbe5ab222fae494b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
