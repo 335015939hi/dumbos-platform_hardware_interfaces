@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c612f21f_e6493b52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-06-27T15:17:09Z",
+      "side": 1,
+      "message": "As long as we have merges going into sc-v2-dev-plus-aosp, I don\u0027t think we can take this change.\n\nI would expect that branch to get shutdown soon, as sc-v2 has shipped. I\u0027m not sure why that branch is still alive, to be honest.",
+      "revId": "8d39cdb942533a03029456f76a07b381c354d164",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
