@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70b884a9_ca0cc185",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-06-27T23:49:57Z",
+      "side": 1,
+      "message": "nit: What happens next? Does this crash the process etc.?\n\nYou might want to consider LOG(FATAL) here. same below for HIDL",
+      "range": {
+        "startLine": 336,
+        "startChar": 19,
+        "endLine": 336,
+        "endChar": 26
+      },
+      "revId": "781b4ff19ef369b35678cd0cbbe5ab222fae494b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
