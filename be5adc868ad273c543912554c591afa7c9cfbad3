@@ -22,6 +22,30 @@
       },
       "revId": "be5adc868ad273c543912554c591afa7c9cfbad3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3102228c_f31181c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-06-28T00:43:34Z",
+      "side": 1,
+      "message": "When this change was introduced, a similar change was present on tm-dev (ag/16548639) and at that time Aosp was an upstream of tm-dev. So to avoid the merge conflict Merged-In is added. But now ¨ Merged-In ¨ is not required as Aosp is not an upstream of tm-dev. So removing merged-in.",
+      "parentUuid": "e7e4e1ec_477878da",
+      "range": {
+        "startLine": 12,
+        "startChar": 11,
+        "endLine": 12,
+        "endChar": 52
+      },
+      "revId": "be5adc868ad273c543912554c591afa7c9cfbad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
