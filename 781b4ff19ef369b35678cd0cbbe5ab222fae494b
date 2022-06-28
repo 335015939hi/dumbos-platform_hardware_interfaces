@@ -46,6 +46,30 @@
       },
       "revId": "781b4ff19ef369b35678cd0cbbe5ab222fae494b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f9d670b_861d506b",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-06-28T00:07:22Z",
+      "side": 1,
+      "message": "It\u0027s up to the caller what to do with a nullptr. update_verifier will immediately reboot the device, but update_engine_sideload will return an error message to the caller, saying OTA failed. Vold will log an ERROR message and carry on.",
+      "parentUuid": "cd485fdb_0c17e08a",
+      "range": {
+        "startLine": 336,
+        "startChar": 19,
+        "endLine": 336,
+        "endChar": 26
+      },
+      "revId": "781b4ff19ef369b35678cd0cbbe5ab222fae494b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
