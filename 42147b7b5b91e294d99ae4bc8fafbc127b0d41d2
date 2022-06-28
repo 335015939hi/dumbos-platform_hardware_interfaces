@@ -16,6 +16,23 @@
       "message": "Gently ping for the review",
       "revId": "42147b7b5b91e294d99ae4bc8fafbc127b0d41d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f0daa90_7dbcffae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1244622
+      },
+      "writtenOn": "2022-06-28T17:39:43Z",
+      "side": 1,
+      "message": "Cp to `cp-stage-aosp-tm-ts-dev-needed` branch when it\u0027s open.",
+      "revId": "42147b7b5b91e294d99ae4bc8fafbc127b0d41d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
