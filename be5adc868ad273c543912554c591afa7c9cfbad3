@@ -46,6 +46,30 @@
       },
       "revId": "be5adc868ad273c543912554c591afa7c9cfbad3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "706b07e3_1f2d2f75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-06-28T00:51:06Z",
+      "side": 1,
+      "message": "Got it! \nThat CL\u0027s change id is `I8524699786fde888f753687f6fc3a825f5028f5d`. That\u0027s the one to use in `Merged-In` here so automerger knows what to avoid (assuming that\u0027s what we wanted).",
+      "parentUuid": "3102228c_f31181c7",
+      "range": {
+        "startLine": 12,
+        "startChar": 11,
+        "endLine": 12,
+        "endChar": 52
+      },
+      "revId": "be5adc868ad273c543912554c591afa7c9cfbad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
