@@ -613,7 +613,7 @@ bool matching_rp_instance(const string& km_name,
 class NewKeyGenerationTest : public KeyMintAidlTestBase {
   protected:
     void CheckBaseParams(const vector<KeyCharacteristics>& keyCharacteristics) {
-        AuthorizationSet auths = CheckCommonParams(keyCharacteristics);
+        AuthorizationSet auths = CheckCommonParams(keyCharacteristics, KeyOrigin::GENERATED);
         EXPECT_TRUE(auths.Contains(TAG_PURPOSE, KeyPurpose::SIGN));
 
         // Check that some unexpected tags/values are NOT present.
@@ -622,20 +622,21 @@ class NewKeyGenerationTest : public KeyMintAidlTestBase {
     }
 
     void CheckSymmetricParams(const vector<KeyCharacteristics>& keyCharacteristics) {
-        AuthorizationSet auths = CheckCommonParams(keyCharacteristics);
+        AuthorizationSet auths = CheckCommonParams(keyCharacteristics, KeyOrigin::GENERATED);
         EXPECT_TRUE(auths.Contains(TAG_PURPOSE, KeyPurpose::ENCRYPT));
         EXPECT_TRUE(auths.Contains(TAG_PURPOSE, KeyPurpose::DECRYPT));
 
         EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::SIGN));
     }
 
-    AuthorizationSet CheckCommonParams(const vector<KeyCharacteristics>& keyCharacteristics) {
+    AuthorizationSet CheckCommonParams(const vector<KeyCharacteristics>& keyCharacteristics,
+                                       const KeyOrigin expectedKeyOrigin) {
         // TODO(swillden): Distinguish which params should be in which auth list.
         AuthorizationSet auths;
         for (auto& entry : keyCharacteristics) {
             auths.push_back(AuthorizationSet(entry.authorizations));
         }
-        EXPECT_TRUE(auths.Contains(TAG_ORIGIN, KeyOrigin::GENERATED));
+        EXPECT_TRUE(auths.Contains(TAG_ORIGIN, expectedKeyOrigin));
 
         // Verify that App data, ROT and auth timeout are NOT included.
         EXPECT_FALSE(auths.Contains(TAG_ROOT_OF_TRUST));
@@ -1102,9 +1103,9 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
                 << "Key size " << key_size << "missing";
         EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
 
+        ASSERT_GT(cert_chain_.size(), 0);
         verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
-        ASSERT_GT(cert_chain_.size(), 0);
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
@@ -1178,6 +1179,7 @@ TEST_P(NewKeyGenerationTest, DISABLED_RsaWithRpkAttestation) {
         EXPECT_FALSE(ChainSignaturesAreValid(cert_chain_));
 
         // The signature over the attested key should correspond to the P256 public key.
+        ASSERT_GT(cert_chain_.size(), 0);
         X509_Ptr key_cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
         ASSERT_TRUE(key_cert.get());
         EVP_PKEY_Ptr signing_pubkey;
@@ -1265,9 +1267,9 @@ TEST_P(NewKeyGenerationTest, RsaEncryptionWithAttestation) {
             << "Key size " << key_size << "missing";
     EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
 
+    ASSERT_GT(cert_chain_.size(), 0);
     verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
     EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
-    ASSERT_GT(cert_chain_.size(), 0);
 
     AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
     AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
@@ -1317,9 +1319,9 @@ TEST_P(NewKeyGenerationTest, RsaWithSelfSign) {
                 << "Key size " << key_size << "missing";
         EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
 
+        ASSERT_EQ(cert_chain_.size(), 1);
         verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
-        ASSERT_EQ(cert_chain_.size(), 1);
 
         CheckedDeleteKey(&key_blob);
     }
@@ -1398,6 +1400,7 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestationAppIdIgnored) {
             << "Key size " << key_size << "missing";
     EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
 
+    ASSERT_GT(cert_chain_.size(), 0);
     verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
     EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
     ASSERT_EQ(cert_chain_.size(), 1);
@@ -2228,8 +2231,8 @@ TEST_P(NewKeyGenerationTest, EcdsaSelfSignAttestation) {
         EXPECT_TRUE(crypto_params.Contains(TAG_EC_CURVE, curve)) << "Curve " << curve << "missing";
 
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
-        verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
         ASSERT_EQ(cert_chain_.size(), 1);
+        verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
@@ -2445,6 +2448,29 @@ TEST_P(NewKeyGenerationTest, EcdsaInvalidCurve) {
                                   .SigningKey()
                                   .Digest(Digest::NONE)
                                   .SetDefaultValidity()));
+}
+
+/*
+ * NewKeyGenerationTest.EcdsaMissingCurve
+ *
+ * Verifies that EC key generation fails if EC_CURVE not specified after KeyMint V2.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaMissingCurve) {
+    if (AidlVersion() < 2) {
+        /*
+         * The KeyMint V1 spec required that EC_CURVE be specified for EC keys.
+         * However, this was not checked at the time so we can only be strict about checking this
+         * for implementations of KeyMint version 2 and above.
+         */
+        GTEST_SKIP() << "Requiring EC_CURVE only strict since KeyMint v2";
+    }
+    /* If EC_CURVE not provided, generateKey
+     * must return ErrorCode::UNSUPPORTED_KEY_SIZE or ErrorCode::UNSUPPORTED_EC_CURVE.
+     */
+    auto result = GenerateKey(
+            AuthorizationSetBuilder().EcdsaKey(256).Digest(Digest::NONE).SetDefaultValidity());
+    ASSERT_TRUE(result == ErrorCode::UNSUPPORTED_KEY_SIZE ||
+                result == ErrorCode::UNSUPPORTED_EC_CURVE);
 }
 
 /*
@@ -3776,7 +3802,7 @@ typedef KeyMintAidlTestBase ExportKeyTest;
 // TODO(seleneh) add ExportKey to GenerateKey
 // check result
 
-class ImportKeyTest : public KeyMintAidlTestBase {
+class ImportKeyTest : public NewKeyGenerationTest {
   public:
     template <TagType tag_type, Tag tag, typename ValueT>
     void CheckCryptoParam(TypedTag<tag_type, tag> ttag, ValueT expected) {
@@ -4484,6 +4510,65 @@ TEST_P(ImportKeyTest, HmacKeySuccess) {
     string message = "Hello World!";
     string signature = MacMessage(message, Digest::SHA_2_256, 256);
     VerifyMessage(message, signature, AuthorizationSetBuilder().Digest(Digest::SHA_2_256));
+}
+
+/*
+ * ImportKeyTest.GetKeyCharacteristics
+ *
+ * Verifies that imported keys have the correct characteristics.
+ */
+TEST_P(ImportKeyTest, GetKeyCharacteristics) {
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    auto base_builder = AuthorizationSetBuilder()
+                                .Padding(PaddingMode::NONE)
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .SetDefaultValidity();
+    vector<Algorithm> algorithms = {Algorithm::RSA, Algorithm::EC, Algorithm::HMAC, Algorithm::AES,
+                                    Algorithm::TRIPLE_DES};
+    ErrorCode result;
+    string symKey = hex2str("a49d7564199e97cb529d2c9d97bf2f98");                   // 128 bits
+    string tdesKey = hex2str("a49d7564199e97cb529d2c9d97bf2f98d35edf57ba1f7358");  // 192 bits
+    for (auto alg : algorithms) {
+        SCOPED_TRACE(testing::Message() << "Algorithm-" << alg);
+        AuthorizationSetBuilder builder(base_builder);
+        switch (alg) {
+            case Algorithm::RSA:
+                builder.RsaSigningKey(2048, 65537).Digest(Digest::NONE);
+
+                result = ImportKey(builder, KeyFormat::PKCS8, rsa_2048_key, &key_blob,
+                                   &key_characteristics);
+                break;
+            case Algorithm::EC:
+                builder.EcdsaSigningKey(EcCurve::P_256).Digest(Digest::NONE);
+                result = ImportKey(builder, KeyFormat::PKCS8, ec_256_key, &key_blob,
+                                   &key_characteristics);
+                break;
+            case Algorithm::HMAC:
+                builder.HmacKey(128)
+                        .Digest(Digest::SHA_2_256)
+                        .Authorization(TAG_MIN_MAC_LENGTH, 128);
+                result =
+                        ImportKey(builder, KeyFormat::RAW, symKey, &key_blob, &key_characteristics);
+                break;
+            case Algorithm::AES:
+                builder.AesEncryptionKey(128).BlockMode(BlockMode::ECB);
+                result =
+                        ImportKey(builder, KeyFormat::RAW, symKey, &key_blob, &key_characteristics);
+                break;
+            case Algorithm::TRIPLE_DES:
+                builder.TripleDesEncryptionKey(168).BlockMode(BlockMode::ECB);
+                result = ImportKey(builder, KeyFormat::RAW, tdesKey, &key_blob,
+                                   &key_characteristics);
+                break;
+            default:
+                ADD_FAILURE() << "Invalid Algorithm " << uint32_t(alg);
+                continue;
+        }
+        ASSERT_EQ(ErrorCode::OK, result);
+        CheckCharacteristics(key_blob, key_characteristics);
+        CheckCommonParams(key_characteristics, KeyOrigin::IMPORTED);
+    }
 }
 
 INSTANTIATE_KEYMINT_AIDL_TEST(ImportKeyTest);
@@ -5754,6 +5839,49 @@ TEST_P(EncryptionOperationsTest, AesCbcRoundTripSuccess) {
 }
 
 /*
+ * EncryptionOperationsTest.AesCbcZeroInputSuccessb
+ *
+ * Verifies that keymaster generates correct output on zero-input with
+ * NonePadding mode
+ */
+TEST_P(EncryptionOperationsTest, AesCbcZeroInputSuccess) {
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .AesEncryptionKey(128)
+                                                 .BlockMode(BlockMode::CBC)
+                                                 .Padding(PaddingMode::NONE, PaddingMode::PKCS7)));
+
+    // Zero input message
+    string message = "";
+    for (auto padding : {PaddingMode::NONE, PaddingMode::PKCS7}) {
+        auto params = AuthorizationSetBuilder().BlockMode(BlockMode::CBC).Padding(padding);
+        AuthorizationSet out_params;
+        string ciphertext1 = EncryptMessage(message, params, &out_params);
+        vector<uint8_t> iv1 = CopyIv(out_params);
+        if (padding == PaddingMode::NONE)
+            EXPECT_EQ(message.size(), ciphertext1.size()) << "PaddingMode: " << padding;
+        else
+            EXPECT_EQ(message.size(), ciphertext1.size() - 16) << "PaddingMode: " << padding;
+
+        out_params.Clear();
+
+        string ciphertext2 = EncryptMessage(message, params, &out_params);
+        vector<uint8_t> iv2 = CopyIv(out_params);
+        if (padding == PaddingMode::NONE)
+            EXPECT_EQ(message.size(), ciphertext2.size()) << "PaddingMode: " << padding;
+        else
+            EXPECT_EQ(message.size(), ciphertext2.size() - 16) << "PaddingMode: " << padding;
+
+        // IVs should be random
+        EXPECT_NE(iv1, iv2) << "PaddingMode: " << padding;
+
+        params.push_back(TAG_NONCE, iv1);
+        string plaintext = DecryptMessage(ciphertext1, params);
+        EXPECT_EQ(message, plaintext) << "PaddingMode: " << padding;
+    }
+}
+
+/*
  * EncryptionOperationsTest.AesCallerNonce
  *
  * Verifies that AES caller-provided nonces work correctly.
@@ -6120,7 +6248,7 @@ TEST_P(EncryptionOperationsTest, AesGcmAadNoData) {
 
     // Encrypt
     AuthorizationSet begin_out_params;
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &begin_out_params));
     string ciphertext;
     AuthorizationSet finish_out_params;
     ASSERT_EQ(ErrorCode::OK, UpdateAad(aad));
@@ -6163,7 +6291,7 @@ TEST_P(EncryptionOperationsTest, AesGcmMultiPartAad) {
                                 .Authorization(TAG_MAC_LENGTH, tag_bits);
     AuthorizationSet begin_out_params;
 
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
 
     // No data, AAD only.
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foo"));
@@ -6179,7 +6307,7 @@ TEST_P(EncryptionOperationsTest, AesGcmMultiPartAad) {
     begin_params.push_back(begin_out_params);
 
     // Decrypt
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foofoo"));
     string plaintext;
     EXPECT_EQ(ErrorCode::OK, Finish(ciphertext, &plaintext));
@@ -6206,7 +6334,7 @@ TEST_P(EncryptionOperationsTest, AesGcmAadOutOfOrder) {
                                 .Authorization(TAG_MAC_LENGTH, 128);
     AuthorizationSet begin_out_params;
 
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
 
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foo"));
     string ciphertext;
@@ -6240,7 +6368,7 @@ TEST_P(EncryptionOperationsTest, AesGcmBadAad) {
 
     // Encrypt
     AuthorizationSet begin_out_params;
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foobar"));
     string ciphertext;
     EXPECT_EQ(ErrorCode::OK, Finish(message, &ciphertext));
@@ -6249,7 +6377,7 @@ TEST_P(EncryptionOperationsTest, AesGcmBadAad) {
     begin_params.push_back(begin_out_params);
 
     // Decrypt.
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params, &begin_out_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad("barfoo"));
     string plaintext;
     EXPECT_EQ(ErrorCode::VERIFICATION_FAILED, Finish(ciphertext, &plaintext));
@@ -6276,7 +6404,7 @@ TEST_P(EncryptionOperationsTest, AesGcmWrongNonce) {
 
     // Encrypt
     AuthorizationSet begin_out_params;
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foobar"));
     string ciphertext;
     AuthorizationSet finish_out_params;
@@ -6286,7 +6414,7 @@ TEST_P(EncryptionOperationsTest, AesGcmWrongNonce) {
     begin_params.push_back(TAG_NONCE, AidlBuf("123456789012"));
 
     // Decrypt.
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params, &begin_out_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foobar"));
     string plaintext;
     EXPECT_EQ(ErrorCode::VERIFICATION_FAILED, Finish(ciphertext, &plaintext));
@@ -6318,7 +6446,7 @@ TEST_P(EncryptionOperationsTest, AesGcmCorruptTag) {
 
     // Encrypt
     AuthorizationSet begin_out_params;
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &begin_out_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad(aad));
     string ciphertext;
     EXPECT_EQ(ErrorCode::OK, Finish(message, &ciphertext));
@@ -6330,7 +6458,7 @@ TEST_P(EncryptionOperationsTest, AesGcmCorruptTag) {
     params.push_back(begin_out_params);
 
     // Decrypt.
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad(aad));
     string plaintext;
     EXPECT_EQ(ErrorCode::VERIFICATION_FAILED, Finish(ciphertext, &plaintext));
@@ -6443,7 +6571,7 @@ TEST_P(EncryptionOperationsTest, TripleDesEcbPkcs7PaddingCorrupted) {
     for (size_t i = 0; i < kMaxPaddingCorruptionRetries; ++i) {
         ++ciphertext[ciphertext.size() / 2];
 
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
         string plaintext;
         EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext));
         ErrorCode error = Finish(&plaintext);
@@ -6715,7 +6843,7 @@ TEST_P(EncryptionOperationsTest, TripleDesEcbCbcNoPaddingWrongInputSize) {
         auto begin_params =
                 AuthorizationSetBuilder().BlockMode(blockMode).Padding(PaddingMode::NONE);
         AuthorizationSet output_params;
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &output_params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &output_params));
         string ciphertext;
         EXPECT_EQ(ErrorCode::INVALID_INPUT_LENGTH, Finish(message, "", &ciphertext));
 
@@ -6794,7 +6922,7 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcPkcs7PaddingCorrupted) {
     for (size_t i = 0; i < kMaxPaddingCorruptionRetries; ++i) {
         SCOPED_TRACE(testing::Message() << "i = " << i);
         ++ciphertext[ciphertext.size() / 2];
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
         string plaintext;
         EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext));
         ErrorCode error = Finish(&plaintext);
@@ -6826,7 +6954,7 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcIncrementalNoPadding) {
     AuthorizationSet input_params =
             AuthorizationSetBuilder().BlockMode(BlockMode::CBC).Padding(PaddingMode::NONE);
     AuthorizationSet output_params;
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, input_params, &output_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, input_params, &output_params));
 
     string ciphertext;
     for (size_t i = 0; i < message.size(); i += increment)
@@ -6840,7 +6968,7 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcIncrementalNoPadding) {
     input_params.push_back(TAG_PADDING, PaddingMode::NONE);
     output_params.Clear();
 
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, input_params, &output_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, input_params, &output_params));
     string plaintext;
     for (size_t i = 0; i < ciphertext.size(); i += increment)
         EXPECT_EQ(ErrorCode::OK, Update(ciphertext.substr(i, increment), &plaintext));
@@ -6957,7 +7085,7 @@ TEST_P(UsageCountLimitTest, TestSingleUseAes) {
     } else {
         // Usage count limit tag is enforced by keystore, keymint does nothing.
         EXPECT_TRUE(keystore_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U));
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
     }
 }
 
@@ -7004,7 +7132,7 @@ TEST_P(UsageCountLimitTest, TestLimitedUseAes) {
     } else {
         // Usage count limit tag is enforced by keystore, keymint does nothing.
         EXPECT_TRUE(keystore_auths.Contains(TAG_USAGE_COUNT_LIMIT, 3U));
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
     }
 }
 
@@ -7050,7 +7178,7 @@ TEST_P(UsageCountLimitTest, TestSingleUseRsa) {
     } else {
         // Usage count limit tag is enforced by keystore, keymint does nothing.
         EXPECT_TRUE(keystore_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U));
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
     }
 }
 
@@ -7097,7 +7225,7 @@ TEST_P(UsageCountLimitTest, TestLimitUseRsa) {
     } else {
         // Usage count limit tag is enforced by keystore, keymint does nothing.
         EXPECT_TRUE(keystore_auths.Contains(TAG_USAGE_COUNT_LIMIT, 3U));
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
     }
 }
 
@@ -7410,7 +7538,7 @@ TEST_P(ClearOperationsTest, TooManyOperations) {
         EXPECT_EQ(ErrorCode::OK, Abort(op_handles[j]))
                 << "Aboort failed for i = " << j << std::endl;
     }
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, key_blob_, params, &out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, key_blob_, params, &out_params));
     AbortIfNeeded();
 }
 
@@ -7435,7 +7563,7 @@ TEST_P(TransportLimitTest, LargeFinishInput) {
                 AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::NONE);
 
         AuthorizationSet out_params;
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, cipher_params, &out_params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, cipher_params, &out_params));
 
         string plain_message = std::string(1 << msg_size, 'x');
         string encrypted_message;
@@ -7446,7 +7574,7 @@ TEST_P(TransportLimitTest, LargeFinishInput) {
                 << "Encrypt finish returned OK, but did not consume all of the given input";
         cipher_params.push_back(out_params);
 
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, cipher_params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, cipher_params));
 
         string decrypted_message;
         rc = Finish(encrypted_message, &decrypted_message);
@@ -7482,7 +7610,6 @@ class KeyAgreementTest : public KeyMintAidlTestBase {
             uint8_t privKeyData[32];
             uint8_t pubKeyData[32];
             X25519_keypair(pubKeyData, privKeyData);
-            *localPublicKey = vector<uint8_t>(pubKeyData, pubKeyData + 32);
             *localPrivKey = EVP_PKEY_Ptr(EVP_PKEY_new_raw_private_key(
                     EVP_PKEY_X25519, nullptr, privKeyData, sizeof(privKeyData)));
         } else {
@@ -7494,16 +7621,15 @@ class KeyAgreementTest : public KeyMintAidlTestBase {
             ASSERT_EQ(EC_KEY_generate_key(ecKey.get()), 1);
             *localPrivKey = EVP_PKEY_Ptr(EVP_PKEY_new());
             ASSERT_EQ(EVP_PKEY_set1_EC_KEY(localPrivKey->get(), ecKey.get()), 1);
-
-            // Get encoded form of the public part of the locally generated key...
-            unsigned char* p = nullptr;
-            int localPublicKeySize = i2d_PUBKEY(localPrivKey->get(), &p);
-            ASSERT_GT(localPublicKeySize, 0);
-            *localPublicKey =
-                    vector<uint8_t>(reinterpret_cast<const uint8_t*>(p),
-                                    reinterpret_cast<const uint8_t*>(p + localPublicKeySize));
-            OPENSSL_free(p);
         }
+
+        // Get encoded form of the public part of the locally generated key...
+        unsigned char* p = nullptr;
+        int localPublicKeySize = i2d_PUBKEY(localPrivKey->get(), &p);
+        ASSERT_GT(localPublicKeySize, 0);
+        *localPublicKey = vector<uint8_t>(reinterpret_cast<const uint8_t*>(p),
+                                          reinterpret_cast<const uint8_t*>(p + localPublicKeySize));
+        OPENSSL_free(p);
     }
 
     void GenerateKeyMintEcKey(EcCurve curve, EVP_PKEY_Ptr* kmPubKey) {
@@ -7598,6 +7724,9 @@ TEST_P(KeyAgreementTest, Ecdh) {
     //
     for (auto curve : ValidCurves()) {
         for (auto localCurve : ValidCurves()) {
+            SCOPED_TRACE(testing::Message()
+                         << "local-curve-" << localCurve << "-keymint-curve-" << curve);
+
             // Generate EC key locally (with access to private key material)
             EVP_PKEY_Ptr localPrivKey;
             vector<uint8_t> localPublicKey;
@@ -7611,7 +7740,7 @@ TEST_P(KeyAgreementTest, Ecdh) {
             if (curve != localCurve) {
                 // If the keys are using different curves KeyMint should fail with
                 // ErrorCode:INVALID_ARGUMENT. Check that.
-                EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::AGREE_KEY, AuthorizationSetBuilder()));
+                ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::AGREE_KEY, AuthorizationSetBuilder()));
                 string ZabFromKeyMintStr;
                 EXPECT_EQ(ErrorCode::INVALID_ARGUMENT,
                           Finish(string(localPublicKey.begin(), localPublicKey.end()),
@@ -7751,7 +7880,7 @@ TEST_P(KeyAgreementTest, EcdhCurve25519Mismatch) {
         vector<uint8_t> encodedPublicKey;
         GenerateLocalEcKey(localCurve, &privKey, &encodedPublicKey);
 
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::AGREE_KEY, AuthorizationSetBuilder()));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::AGREE_KEY, AuthorizationSetBuilder()));
         string ZabFromKeyMintStr;
         EXPECT_EQ(ErrorCode::INVALID_ARGUMENT,
                   Finish(string(encodedPublicKey.begin(), encodedPublicKey.end()),
@@ -7946,6 +8075,18 @@ TEST_P(UnlockedDeviceRequiredTest, DISABLED_KeysBecomeUnusable) {
 }
 
 INSTANTIATE_KEYMINT_AIDL_TEST(UnlockedDeviceRequiredTest);
+
+using VsrRequirementTest = KeyMintAidlTestBase;
+
+TEST_P(VsrRequirementTest, Vsr13Test) {
+    int vsr_api_level = get_vsr_api_level();
+    if (vsr_api_level < 33) {
+        GTEST_SKIP() << "Applies only to VSR API level 33, this device is: " << vsr_api_level;
+    }
+    EXPECT_GE(AidlVersion(), 2) << "VSR 13+ requires KeyMint version 2";
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(VsrRequirementTest);
 
 }  // namespace aidl::android::hardware::security::keymint::test
 
