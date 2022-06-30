@@ -2016,8 +2016,7 @@ TEST_P(EvsHidlTest, CameraUseStreamConfigToDisplay) {
             // Stream configurations are found in metadata
             RawStreamConfig *ptr = reinterpret_cast<RawStreamConfig *>(streamCfgs.data.i32);
             for (unsigned offset = 0; offset < streamCfgs.count; offset += kStreamCfgSz) {
-                if (ptr->direction == ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_OUTPUT &&
-                    ptr->format == HAL_PIXEL_FORMAT_RGBA_8888) {
+                if (ptr->direction == ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_OUTPUT) {
 
                     if (ptr->width * ptr->height > maxArea &&
                         ptr->framerate >= minReqFps) {
