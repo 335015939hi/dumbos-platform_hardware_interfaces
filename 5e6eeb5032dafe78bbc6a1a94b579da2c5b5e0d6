@@ -16,6 +16,24 @@
       "message": "Test? did you verify you see these?",
       "revId": "5e6eeb5032dafe78bbc6a1a94b579da2c5b5e0d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc6bd095_4f32f3cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1133258
+      },
+      "writtenOn": "2022-06-30T00:11:42Z",
+      "side": 1,
+      "message": "Added a test filed.\nYes I verified with capturing the trace logs and see the trace tags on supplicant and hostapd process.",
+      "parentUuid": "18519b06_03df6de3",
+      "revId": "5e6eeb5032dafe78bbc6a1a94b579da2c5b5e0d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
