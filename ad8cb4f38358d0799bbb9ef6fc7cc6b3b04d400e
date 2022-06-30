@@ -465,6 +465,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "404a0ed6_79e4bfee",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecMessage.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-30T00:17:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a86dd0fc_f7cf933a",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 1
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1e95168_5a3eb68b",
@@ -561,6 +585,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "697db240_669d35f5",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/HotplugEvent.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-30T00:17:23Z",
+      "side": 1,
+      "message": "e.g.:\n\n    interface ... {\n\n        parcelable HotplugEvent {\n            boolean connected;\n            int portId;\n        }\n        HotplugEvent onEvent...;\n    }",
+      "parentUuid": "c86f6def_84276b9d",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1e4bad5b_6e40e637",
         "filename": "tv/cec/aidl/android/hardware/tv/cec/IHdmiCec.aidl",
         "patchSetId": 4
@@ -637,6 +685,24 @@
       "side": 1,
       "message": "The framework doesn\u0027t handle deregistration of the callback at the moment, it only replaces a callback with a newer one if the setCallback is called twice. As a part of the changes to the framework, we could add it and then add the comment here. Adding it now might be misleading.",
       "parentUuid": "50b25644_10ffda75",
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6f95388_5a8b3906",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/IHdmiCec.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-06-30T00:17:23Z",
+      "side": 1,
+      "message": "This is about the implementation requirements. We should define all the behaviors of the interface. Otherwise, we may have to deal with different implementations in the future.",
+      "parentUuid": "395fcbfa_2483ac7b",
       "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
