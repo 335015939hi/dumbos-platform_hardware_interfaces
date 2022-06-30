@@ -535,6 +535,11 @@
             <xs:enumeration value="AUDIO_CHANNEL_IN_3POINT0POINT2"/>
             <xs:enumeration value="AUDIO_CHANNEL_IN_3POINT1POINT2"/>
             <xs:enumeration value="AUDIO_CHANNEL_IN_5POINT1"/>
+            <xs:enumeration value="AUDIO_CHANNEL_IN_5POINT1POINT2"/>
+            <xs:enumeration value="AUDIO_CHANNEL_IN_5POINT1POINT4"/>
+            <xs:enumeration value="AUDIO_CHANNEL_IN_7POINT1"/>
+            <xs:enumeration value="AUDIO_CHANNEL_IN_7POINT1POINT2"/>
+            <xs:enumeration value="AUDIO_CHANNEL_IN_7POINT1POINT4"/>
             <xs:enumeration value="AUDIO_CHANNEL_IN_VOICE_UPLINK_MONO"/>
             <xs:enumeration value="AUDIO_CHANNEL_IN_VOICE_DNLINK_MONO"/>
             <xs:enumeration value="AUDIO_CHANNEL_IN_VOICE_CALL_MONO"/>
