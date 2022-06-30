@@ -37,7 +37,12 @@ package android.audio.policy.configuration.V7_0 {
     enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_3POINT0POINT2;
     enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_3POINT1POINT2;
     enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_5POINT1;
+    enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_5POINT1POINT2;
+    enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_5POINT1POINT4;
     enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_6;
+    enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_7POINT1;
+    enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_7POINT1POINT2;
+    enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_7POINT1POINT4;
     enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_FRONT_BACK;
     enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_MONO;
     enum_constant public static final android.audio.policy.configuration.V7_0.AudioChannelMask AUDIO_CHANNEL_IN_STEREO;
