@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30246d15_9957bc9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-07-01T13:30:57Z",
+      "side": 1,
+      "message": "Can we please have a bit more verbose commit message?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "a65826f389375a3c75c3f773adecdbe78b8cb060",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "658e9e09_a0c040d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-07-01T13:30:57Z",
+      "side": 1,
+      "message": "Is there a bug number to associate?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "a65826f389375a3c75c3f773adecdbe78b8cb060",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea6f24fa_3c2ecdeb",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 5228,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-07-01T13:30:57Z",
+      "side": 1,
+      "message": "Per OOB discussion, should go, because we are specifying the MGF_DIGEST",
+      "range": {
+        "startLine": 5228,
+        "startChar": 4,
+        "endLine": 5228,
+        "endChar": 51
+      },
+      "revId": "a65826f389375a3c75c3f773adecdbe78b8cb060",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
