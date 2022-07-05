@@ -73,10 +73,6 @@ static constexpr ProgramType kStandardProgramTypes[] = {
     ProgramType::AM,  ProgramType::FM,   ProgramType::AM_HD, ProgramType::FM_HD,
     ProgramType::DAB, ProgramType::DRMO, ProgramType::SXM};
 
-static void printSkipped(std::string msg) {
-    std::cout << "[  SKIPPED ] " << msg << std::endl;
-}
-
 struct TunerCallbackMock : public ITunerCallback {
     TunerCallbackMock() { EXPECT_CALL(*this, hardwareFailure()).Times(0); }
 
@@ -137,7 +133,7 @@ void BroadcastRadioHalTest::SetUp() {
     ASSERT_TRUE(onConnect.waitForCall(kConnectModuleTimeout));
 
     if (connectResult == Result::INVALID_ARGUMENTS) {
-        printSkipped("This device class is not supported.");
+        GTEST_SKIP() << "[  SKIPPED ] This device class is not supported.";
         skipped = true;
         return;
     }
@@ -320,7 +316,7 @@ TEST_P(BroadcastRadioHalTest, TuneFromProgramList) {
     } while (nextBand());
     if (HasFailure()) return;
     if (!foundAny) {
-        printSkipped("Program list is empty.");
+        GTEST_SKIP() << "[  SKIPPED ] Program list is empty.";
         return;
     }
 
@@ -446,7 +442,7 @@ TEST_P(BroadcastRadioHalTest, OobImagesOnly) {
     } while (nextBand());
 
     if (imageIds.size() == 0) {
-        printSkipped("No images found");
+        GTEST_SKIP() << "[  SKIPPED ] No images found";
         return;
     }
 
