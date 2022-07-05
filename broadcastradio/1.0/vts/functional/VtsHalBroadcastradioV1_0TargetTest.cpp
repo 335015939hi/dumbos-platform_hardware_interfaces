@@ -52,10 +52,10 @@ using ::android::hardware::broadcastradio::V1_0::Properties;
 using ::android::hardware::broadcastradio::V1_0::Result;
 using ::android::hardware::broadcastradio::V1_0::vts::RadioClassFromString;
 
-#define RETURN_IF_SKIPPED \
-    if (skipped) { \
-        std::cout << "[  SKIPPED ] This device class is not supported. " << std::endl; \
-        return; \
+#define RETURN_IF_SKIPPED                                                   \
+    if (skipped) {                                                          \
+        GTEST_SKIP() << "[  SKIPPED ] This device class is not supported."; \
+        return;                                                             \
     }
 
 // The main test class for Broadcast Radio HIDL HAL.
