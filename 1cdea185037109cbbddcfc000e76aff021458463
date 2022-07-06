@@ -56,6 +56,24 @@
       "message": "we are currently using 1.0 but the failure for vts test is because the case requires 1.3 or higher. in the requirement as followed:\n\n    Automotive device implementations launching with Android 12 or higher\n\n    [G-0-570] MUST support Media DRM HAL version 1.4.\n    [G-0-571] MUST support Widevine CDM version 16.\n    \n    But for the sustenance it is not a mandated in the document.\n",
       "revId": "1cdea185037109cbbddcfc000e76aff021458463",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73061be4_c9879d3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-07-06T16:10:03Z",
+      "side": 1,
+      "message": "That quote is from Android 12 requirements and compatibility_matrix.5.xml is for Android 10.\nhttps://docs.partner.android.com/gms/policies/vsr/vsr-11#hal-interface discusses the requirement for DRM HAL to be @1.3 only.\n\nThe implementation needs to be changed from @1.0 to @1.3 like the VTS test failure is suggesting.",
+      "parentUuid": "e4d68fb7_4e0bbbe5",
+      "revId": "1cdea185037109cbbddcfc000e76aff021458463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
