@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8db64fc4_595e2238",
+        "filename": "tests/extension/vibrator/aidl/default/CustomVibrator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1944400
+      },
+      "writtenOn": "2022-07-06T22:58:28Z",
+      "side": 1,
+      "message": "This is cryptic to me. Does it mean that it is only OK to call those functions from within `createBinder`?  That doesn\u0027t seem clear from the documentation on those functions.",
+      "range": {
+        "startLine": 35,
+        "startChar": 33,
+        "endLine": 36,
+        "endChar": 32
+      },
+      "revId": "2988f3a1fe956f344dd5c1d76642e0806c036a5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
