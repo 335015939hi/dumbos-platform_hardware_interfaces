@@ -188,6 +188,12 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
 
     void CheckAesIncrementalEncryptOperation(BlockMode block_mode, int message_size);
 
+    void CheckEncryptOneByteAtATime(const bool& is_stream_cipher,
+                                    const bool& is_authenticated_cipher, const string& key,
+                                    BlockMode block_mode, PaddingMode padding_mode,
+                                    const string& iv, const string& plaintext,
+                                    const string& exp_cipher_text);
+
     void CheckHmacTestVector(const string& key, const string& message, Digest digest,
                              const string& expected_mac);
 

@@ -772,6 +772,97 @@ void KeyMintAidlTestBase::CheckAesIncrementalEncryptOperation(BlockMode block_mo
     }
 }
 
+void KeyMintAidlTestBase::CheckEncryptOneByteAtATime(const bool& is_stream_cipher,
+                                                     const bool& is_authenticated_cipher,
+                                                     const string& key, BlockMode block_mode,
+                                                     PaddingMode padding_mode, const string& iv,
+                                                     const string& plaintext,
+                                                     const string& exp_cipher_text) {
+    auto auth_set = AuthorizationSetBuilder()
+                            .Authorization(TAG_NO_AUTH_REQUIRED)
+                            .AesEncryptionKey(key.size() * 8)
+                            .BlockMode(block_mode)
+                            .Padding(padding_mode);
+    if (iv.size() > 0) auth_set.Authorization(TAG_CALLER_NONCE);
+    if (is_authenticated_cipher) auth_set.Authorization(TAG_MIN_MAC_LENGTH, 128);
+    ASSERT_EQ(ErrorCode::OK, ImportKey(auth_set, KeyFormat::RAW, key));
+
+    auto params = AuthorizationSetBuilder().BlockMode(block_mode).Padding(padding_mode);
+    if (iv.size() > 0) params.Authorization(TAG_NONCE, iv.data(), iv.size());
+    if (is_authenticated_cipher) params.Authorization(TAG_MAC_LENGTH, 128);
+
+    AuthorizationSet output_params;
+    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &output_params));
+
+    if (is_stream_cipher) {
+        string actual_ciphertext;
+        for (int plaintext_index = 0; plaintext_index < plaintext.size(); plaintext_index++) {
+            string ciphertext;
+            EXPECT_EQ(ErrorCode::OK, Update(plaintext.substr(plaintext_index, 1), &ciphertext));
+            actual_ciphertext.append(ciphertext);
+            // Some StrongBox implementations cannot support 1:1 input:output lengths, so
+            // we relax this API restriction for them.
+            if (SecLevel() != SecurityLevel::STRONGBOX) {
+                EXPECT_EQ(1, ciphertext.size()) << "plaintext index: " << plaintext_index;
+                EXPECT_EQ(exp_cipher_text[plaintext_index], ciphertext[0])
+                        << "plaintext index: " << plaintext_index;
+            }
+        }
+        string to_send;
+        string ciphertext;
+        EXPECT_EQ(ErrorCode::OK, Finish(to_send, &ciphertext)) << "Error in finish call.";
+        if (SecLevel() != SecurityLevel::STRONGBOX) {
+            string expected_final_output;
+            if (is_authenticated_cipher) {
+                expected_final_output = exp_cipher_text.substr(plaintext.size());
+            }
+            EXPECT_EQ(expected_final_output, ciphertext);
+        }
+        // StrongBox doesn't require 1:1 in:out, so just compare the full ciphertext. We perform
+        // this check on non-StrongBox implementations as well to ensure the test logic is
+        // exercised on non-StrongBox platforms.
+        actual_ciphertext.append(ciphertext);
+        EXPECT_EQ(exp_cipher_text, actual_ciphertext);
+    } else {
+        // Assert that a block of output is produced once a full block of input is provided.
+        // Every input block produces an output block.
+        int ciphertext_index = 0;
+        int blockSize = 16;
+        bool compare_output = true;
+        string additional_information;
+        int vendor_api_level = property_get_int32("ro.vendor.api_level", 0);
+        if (SecLevel() == SecurityLevel::STRONGBOX) {
+            // This is known to be broken on older vendor implementations.
+            if (33 > vendor_api_level) {
+                compare_output = false;
+            } else {
+                additional_information = " (b/194134359) ";
+            }
+        }
+        for (int plaintext_index = 0; plaintext_index < plaintext.size(); plaintext_index++) {
+            string ciphertext;
+            EXPECT_EQ(ErrorCode::OK, Update(plaintext.substr(plaintext_index, 1), &ciphertext));
+            if (compare_output) {
+                if ((plaintext_index % blockSize) == blockSize - 1) {
+                    // Cipher.update is expected to have output a new block
+                    EXPECT_EQ(exp_cipher_text.substr(ciphertext_index, blockSize), ciphertext)
+                            << "plaintext index: " << plaintext_index << additional_information;
+                } else {
+                    // Cipher.update is expected to have produced no output
+                    EXPECT_EQ(0, ciphertext.size())
+                            << "plaintext index: " << plaintext_index << additional_information;
+                }
+            }
+            ciphertext_index += ciphertext.size();
+        }
+        string to_send;
+        string ciphertext;
+        EXPECT_EQ(ErrorCode::OK, Finish(to_send, &ciphertext)) << "Error in finish call.";
+        EXPECT_EQ(exp_cipher_text.substr(ciphertext_index), ciphertext);
+    }
+    AbortIfNeeded();
+}
+
 void KeyMintAidlTestBase::CheckHmacTestVector(const string& key, const string& message,
                                               Digest digest, const string& expected_mac) {
     SCOPED_TRACE("CheckHmacTestVector");
