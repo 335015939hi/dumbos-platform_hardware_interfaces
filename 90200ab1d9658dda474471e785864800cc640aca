@@ -52,6 +52,24 @@
       "parentUuid": "fab8ba86_a9086c78",
       "revId": "90200ab1d9658dda474471e785864800cc640aca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf9e7c0d_56af351c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-07-06T17:35:56Z",
+      "side": 1,
+      "message": "Devices launched with Q (targeting compatibility_matrix 4) and upgrading to S don\u0027t need to target compatibility_matrix 5 (or 6 which is S). \nThey can remain targeting their initial compat matrix so the vendor HAL implementations don\u0027t need to change.\nIf the device bumps the target compatibility matrix, then it needs to bump all of the required HAL versions.",
+      "parentUuid": "3bf6501e_539778fc",
+      "revId": "90200ab1d9658dda474471e785864800cc640aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
