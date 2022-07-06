@@ -16,6 +16,23 @@
       "message": "Please make sure to update commit message with [MergedIn]",
       "revId": "5022def5660e26d7d4de78b40dce61e1512997c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adc927f1_3c5a5416",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1143404
+      },
+      "writtenOn": "2022-07-06T17:08:35Z",
+      "side": 1,
+      "message": "Since it is not merged in master\n",
+      "revId": "5022def5660e26d7d4de78b40dce61e1512997c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
