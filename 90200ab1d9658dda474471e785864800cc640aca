@@ -16,6 +16,24 @@
       "message": "[VSR-3.2-010.003] **\u003ca name\u003d\"VSR-3.2-010\"\u003e[VSR-3.2-010]\u003c/a\u003e** android.hardware.drm@1.3 (android.hardware.drm@1.0-2 is no longer supported for launching DEVICEs)\n\nif the device is under sustenance program instead of launching then it should not block from supporting 1.0.",
       "revId": "90200ab1d9658dda474471e785864800cc640aca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fab8ba86_a9086c78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-07-06T16:28:37Z",
+      "side": 1,
+      "message": "I\u0027m not sure what a sustenance program is.\n\nIf the device is targeting the compatibility_matrix.5.xml (Android 10 launching matrix) then it will be blocked from using @1.0.",
+      "parentUuid": "2728b819_5f2ba89c",
+      "revId": "90200ab1d9658dda474471e785864800cc640aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
