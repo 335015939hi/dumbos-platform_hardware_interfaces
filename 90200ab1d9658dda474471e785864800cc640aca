@@ -34,6 +34,24 @@
       "parentUuid": "2728b819_5f2ba89c",
       "revId": "90200ab1d9658dda474471e785864800cc640aca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bf6501e_539778fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1955742
+      },
+      "writtenOn": "2022-07-06T16:39:35Z",
+      "side": 1,
+      "message": "i mean upgrade device not a launch device.\ndevice is already launched with Q and now the device is getting upgraded to S directly",
+      "parentUuid": "fab8ba86_a9086c78",
+      "revId": "90200ab1d9658dda474471e785864800cc640aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
