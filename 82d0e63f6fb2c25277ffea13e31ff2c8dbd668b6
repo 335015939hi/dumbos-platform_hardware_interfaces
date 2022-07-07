@@ -1,0 +1,254 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb6f50e0_730fedac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "Please could you give a more specific source location here so it\u0027s easy to correlate back to where these tests came from?",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49bce62d_e8c4d467",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "s/cypher/cipher/",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8949b115_2e48b444",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "It would be nicer to deduce `is_stream_cipher` and `is_authenticated_cipher` from `block_mode` and skip two anonymous bool arguments.",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caf16ffe_b8e009ad",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "be nice to add a comment here, equivalent to l.827-828",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66ffdd05_2e8cf0cb",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "Is this check needed given the overall check on line 825?",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a62a8b3_29e1518e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "There\u0027s a `Finish(string* output)` overload which would be better here (can then drop `to_send`)",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca5aeba7_8af48169",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "The extra log message doesn\u0027t add any information, so drop it.",
+      "range": {
+        "startLine": 813,
+        "startChar": 66,
+        "endLine": 813,
+        "endChar": 89
+      },
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6e11d3f_688e36e0",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "I found this comment a little confusing, because it\u0027s not attached to any StrongBox-specific code.  Maybe something like:\n\n\"Regardless of how the completed ciphertext got accumulated, it should match the expected ciphertext.\"",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "150b818e_8a180c2c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "For completeness we should check this regardless -- can we accumulate `actual_ciphertext` in both arms (stream/block) and move this check to the end of the function so it\u0027s always executed?",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fe5cfd5_bad81d24",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "nit: `vendor_api_level \u003c 33` feels more natural",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d29a6fb_492b568e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "nit: comment is showing it\u0027s copypasta nature a bit -- there\u0027s no `Cipher.update` here.",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f64f2670_59612114",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "As with the stream case, I\u0027d be tempted to just check the size here and leave the content-comparison for a final check at the end.",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "657f81c6_e7b929b0",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "The extra log message doesn\u0027t add any information, so drop it.",
+      "range": {
+        "startLine": 860,
+        "startChar": 67,
+        "endLine": 860,
+        "endChar": 87
+      },
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8062df2_fc92020d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-07T10:36:09Z",
+      "side": 1,
+      "message": "`Finish(\u0026ciphertext)` as above.",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
