@@ -324,12 +324,19 @@ class BootControlClientHIDL final : public BootControlClient {
 };
 
 std::unique_ptr<BootControlClient> BootControlClient::WaitForService() {
-    const auto instance_name =
-            std::string(::aidl::android::hardware::boot::IBootControl::descriptor) + "/default";
+    char instance_name[256];
+    const int printed =
+            snprintf(instance_name, sizeof(instance_name), "%s/%s",
+                     ::aidl::android::hardware::boot::IBootControl::descriptor, "default");
+    if (printed >= sizeof(instance_name)) {
+        LOG(ERROR) << "Insufficient stack space for instance name, required: " << printed
+                   << ", actual: " << sizeof(instance_name);
+        return nullptr;
+    }
 
-    if (AServiceManager_isDeclared(instance_name.c_str())) {
+    if (AServiceManager_isDeclared(instance_name)) {
         auto module = ::aidl::android::hardware::boot::IBootControl::fromBinder(
-                ndk::SpAIBinder(AServiceManager_waitForService(instance_name.c_str())));
+                ndk::SpAIBinder(AServiceManager_waitForService(instance_name)));
         if (module == nullptr) {
             LOG(ERROR) << "AIDL " << instance_name
                        << " is declared but waitForService returned nullptr.";
