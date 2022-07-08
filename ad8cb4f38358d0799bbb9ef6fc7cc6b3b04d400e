@@ -607,6 +607,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e76672a_9a8e3e15",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/HotplugEvent.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-07-08T11:57:38Z",
+      "side": 1,
+      "message": "Removed the structure.",
+      "parentUuid": "697db240_669d35f5",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e4bad5b_6e40e637",
@@ -703,6 +727,24 @@
       "side": 1,
       "message": "This is about the implementation requirements. We should define all the behaviors of the interface. Otherwise, we may have to deal with different implementations in the future.",
       "parentUuid": "395fcbfa_2483ac7b",
+      "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aae588c8_d2f44590",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/IHdmiCec.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-07-08T11:57:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6f95388_5a8b3906",
       "revId": "ad8cb4f38358d0799bbb9ef6fc7cc6b3b04d400e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

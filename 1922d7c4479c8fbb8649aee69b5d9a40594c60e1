@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "440e836b_d6dc2ce1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-07-08T11:57:38Z",
+      "side": 1,
+      "message": "I have split the AIDL into two, one for the CEC (CEC control and messaging) and HDMI (hardware events). Please take a look.",
+      "revId": "1922d7c4479c8fbb8649aee69b5d9a40594c60e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1b0ab85_2e0ba79a",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/CecMessage.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-07-08T11:57:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "797e4f39_d5afac48",
+      "range": {
+        "startLine": 36,
+        "startChar": 39,
+        "endLine": 36,
+        "endChar": 62
+      },
+      "revId": "da1cc83b2557159095b9e8500bf5e07c4b972ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "232c302d_c74853f1",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-30T00:17:23Z",
       "side": 1,
       "message": "actually, this is kind of heavy weight to have an object here. Do we intend to have more fields in the future? If we do, it\u0027s worth it. If not, we could flatten the object here (will save objects in Java)",
+      "range": {
+        "startLine": 37,
+        "startChar": 23,
+        "endLine": 37,
+        "endChar": 45
+      },
+      "revId": "da1cc83b2557159095b9e8500bf5e07c4b972ea2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ce458f8_f02da969",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/IHdmiCecCallback.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-07-08T11:57:38Z",
+      "side": 1,
+      "message": "Removed the structure.",
+      "parentUuid": "232c302d_c74853f1",
       "range": {
         "startLine": 37,
         "startChar": 23,
