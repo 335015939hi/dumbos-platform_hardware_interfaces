@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a6dacb2d_bd6ba08c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T20:28:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca961bd2_c26aca15",
+      "revId": "7824e32fb2555ff67a625b55aaae3ed808bce234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9a111853_e7c9d937",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -48,6 +66,30 @@
       "writtenOn": "2022-07-11T16:15:27Z",
       "side": 1,
       "message": "nit: drop the first part of this comment and move the second part next to what it describes (line 884)",
+      "range": {
+        "startLine": 847,
+        "startChar": 9,
+        "endLine": 848,
+        "endChar": 22
+      },
+      "revId": "7824e32fb2555ff67a625b55aaae3ed808bce234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bdafb95_a3f4fdf1",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T20:28:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5900bc3_26a95242",
       "range": {
         "startLine": 847,
         "startChar": 9,
