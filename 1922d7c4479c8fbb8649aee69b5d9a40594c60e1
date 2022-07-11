@@ -128,6 +128,30 @@
       },
       "revId": "1922d7c4479c8fbb8649aee69b5d9a40594c60e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8a9809e_f332f7d1",
+        "filename": "tv/hdmi/aidl/android/hardware/tv/hdmi/HdmiPortInfo.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-07-11T14:40:54Z",
+      "side": 1,
+      "message": "Can we add a comment here specifying what this address is, what the values can be, and/or where it comes from?",
+      "parentUuid": "a62713cf_cf5d5078",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "1922d7c4479c8fbb8649aee69b5d9a40594c60e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
