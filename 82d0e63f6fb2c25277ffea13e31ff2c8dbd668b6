@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b91e530_4363ce3f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "In CTS test case is defined in BaseCipherTestBase class and there are more than 18 test classes overriding BaseCipherTestBase class (Including default and strongbox test cases). Hence I mentioned as \"For reference CTS test BlockCipherTestBase#testKatEncryptOneByteAtATime\nfor all it\u0027s derived classes eg. AES128CBCNoPaddingCipherTest,\nAES128CBCPKCS7PaddingCipherTest etc.\"\nPlease let me know if wording needs any correction.",
+      "parentUuid": "fb6f50e0_730fedac",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49bce62d_e8c4d467",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-07-07T10:36:09Z",
       "side": 1,
       "message": "s/cypher/cipher/",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "655b8899_3a376ba8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49bce62d_e8c4d467",
       "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4f467d8_dbe0f615",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8949b115_2e48b444",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "caf16ffe_b8e009ad",
@@ -69,6 +123,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6180dd1d_2a2021fc",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caf16ffe_b8e009ad",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66ffdd05_2e8cf0cb",
@@ -82,6 +154,24 @@
       "writtenOn": "2022-07-07T10:36:09Z",
       "side": 1,
       "message": "Is this check needed given the overall check on line 825?",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89f96726_02147326",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "66ffdd05_2e8cf0cb",
       "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -126,6 +216,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "272989a9_3f5f4c6c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca5aeba7_8af48169",
+      "range": {
+        "startLine": 813,
+        "startChar": 66,
+        "endLine": 813,
+        "endChar": 89
+      },
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5a1fb7a_fc9536c3",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a62a8b3_29e1518e",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6e11d3f_688e36e0",
@@ -139,6 +271,24 @@
       "writtenOn": "2022-07-07T10:36:09Z",
       "side": 1,
       "message": "I found this comment a little confusing, because it\u0027s not attached to any StrongBox-specific code.  Maybe something like:\n\n\"Regardless of how the completed ciphertext got accumulated, it should match the expected ciphertext.\"",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c75f506c_9d797b89",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6e11d3f_688e36e0",
       "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -160,6 +310,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b7c8719_6a831f01",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "150b818e_8a180c2c",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fe5cfd5_bad81d24",
@@ -173,6 +341,24 @@
       "writtenOn": "2022-07-07T10:36:09Z",
       "side": 1,
       "message": "nit: `vendor_api_level \u003c 33` feels more natural",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fe410b1_42ef9ed4",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fe5cfd5_bad81d24",
       "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -194,6 +380,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e358eba9_5414f568",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d29a6fb_492b568e",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f64f2670_59612114",
@@ -207,6 +411,24 @@
       "writtenOn": "2022-07-07T10:36:09Z",
       "side": 1,
       "message": "As with the stream case, I\u0027d be tempted to just check the size here and leave the content-comparison for a final check at the end.",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e8c8374_ed3d0bb7",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f64f2670_59612114",
       "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -247,6 +469,48 @@
       "writtenOn": "2022-07-07T10:36:09Z",
       "side": 1,
       "message": "`Finish(\u0026ciphertext)` as above.",
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af24c3f8_d5db847f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "657f81c6_e7b929b0",
+      "range": {
+        "startLine": 860,
+        "startChar": 67,
+        "endLine": 860,
+        "endChar": 87
+      },
+      "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b6dd6e1_8a69b6ed",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-11T14:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8062df2_fc92020d",
       "revId": "82d0e63f6fb2c25277ffea13e31ff2c8dbd668b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
