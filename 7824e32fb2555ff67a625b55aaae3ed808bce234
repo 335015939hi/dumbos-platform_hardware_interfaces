@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a111853_e7c9d937",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-11T16:17:47Z",
+      "side": 1,
+      "message": "tommychiu@: FYI, this copies the cipher size requirement tests from CTS to VTS.  It *should* be testing the exact same things, please shout if that doesn\u0027t seem to be the case...",
+      "revId": "7824e32fb2555ff67a625b55aaae3ed808bce234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5900bc3_26a95242",
