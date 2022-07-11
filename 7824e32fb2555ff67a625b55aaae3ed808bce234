@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca961bd2_c26aca15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-11T16:15:27Z",
+      "side": 1,
+      "message": "super-nit: s/it\u0027s/its/",
+      "revId": "7824e32fb2555ff67a625b55aaae3ed808bce234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5900bc3_26a95242",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-11T16:15:27Z",
+      "side": 1,
+      "message": "nit: drop the first part of this comment and move the second part next to what it describes (line 884)",
+      "range": {
+        "startLine": 847,
+        "startChar": 9,
+        "endLine": 848,
+        "endChar": 22
+      },
+      "revId": "7824e32fb2555ff67a625b55aaae3ed808bce234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
