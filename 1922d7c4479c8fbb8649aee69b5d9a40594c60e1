@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03f665c3_164b2871",
+        "filename": "tv/cec/aidl/android/hardware/tv/cec/IHdmiCec.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-07-11T06:17:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a5db95f_83f7afac",
+      "range": {
+        "startLine": 113,
+        "startChar": 15,
+        "endLine": 113,
+        "endChar": 39
+      },
+      "revId": "1922d7c4479c8fbb8649aee69b5d9a40594c60e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c7174ea_507fcaea",
@@ -72,6 +96,30 @@
       "writtenOn": "2022-07-08T23:03:09Z",
       "side": 1,
       "message": "Should this address value follow some scheme or definition?",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "1922d7c4479c8fbb8649aee69b5d9a40594c60e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a62713cf_cf5d5078",
+        "filename": "tv/hdmi/aidl/android/hardware/tv/hdmi/HdmiPortInfo.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-07-11T06:17:18Z",
+      "side": 1,
+      "message": "Yes, it should be value within the range 0x0000 through 0xFFFF.",
+      "parentUuid": "5c7174ea_507fcaea",
       "range": {
         "startLine": 30,
         "startChar": 8,
