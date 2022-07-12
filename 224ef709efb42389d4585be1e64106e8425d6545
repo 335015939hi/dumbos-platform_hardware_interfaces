@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a9b8a108_6530b4eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-12T13:22:08Z",
+      "side": 1,
+      "message": "The aim here was to just to copy tests from CTS to VTS to make them easier to run.\n\nPrashant, do the DES variants added here have existing equivalents in the CTS tests?  \n - If they do, is StrongBox passing CTS but not passing these?\n - If they don\u0027t, I don\u0027t think we should be adding new requirements here.\n \nFor 2, I wouldn\u0027t expect the keymaster VTS tests to get updated, as the behaviour is already covered in CTS.",
+      "parentUuid": "66b2a388_48d5cc03",
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a58329e_aefe427b",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 3
