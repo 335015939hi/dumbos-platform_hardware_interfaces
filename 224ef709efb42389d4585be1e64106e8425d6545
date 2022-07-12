@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c5eabf8_3190ae68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-12T09:38:51Z",
+      "side": 1,
+      "message": "1. Yes DES tests are also added, and I tested them on Pixel 6 Pro where those are passed for both default as well as StrongBox.\n\n2. I am not sure whether this patch should apply to Keymaster(4) or not @David could you comment on this?",
+      "parentUuid": "1ede4867_374b4d46",
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a58329e_aefe427b",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 3
@@ -49,6 +67,30 @@
       "writtenOn": "2022-07-12T06:24:44Z",
       "side": 1,
       "message": "DESedeCBCPKCS7PaddingOneByteAtATime?",
+      "range": {
+        "startLine": 6038,
+        "startChar": 28,
+        "endLine": 6038,
+        "endChar": 63
+      },
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21380dac_666cad5e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 6038,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-12T09:38:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a58329e_aefe427b",
       "range": {
         "startLine": 6038,
         "startChar": 28,
@@ -82,6 +124,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "153e48ec_270673fc",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 6051,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-12T09:38:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68803b80_0ad996fe",
+      "range": {
+        "startLine": 6051,
+        "startChar": 28,
+        "endLine": 6051,
+        "endChar": 60
+      },
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed95e606_8f0636ce",
@@ -95,6 +161,30 @@
       "writtenOn": "2022-07-12T06:24:44Z",
       "side": 1,
       "message": "DESedeECBPKCS7PaddingOneByteAtATime?",
+      "range": {
+        "startLine": 6063,
+        "startChar": 28,
+        "endLine": 6063,
+        "endChar": 63
+      },
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fe5eb51_2882d81a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 6063,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-12T09:38:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed95e606_8f0636ce",
       "range": {
         "startLine": 6063,
         "startChar": 28,
