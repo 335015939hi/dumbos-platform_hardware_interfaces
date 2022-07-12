@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58b56ff9_0947a724",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-07-12T06:24:44Z",
+      "side": 1,
+      "message": "Strongbox has some failures on the DES test.\nSince b/194134359 refers to AES mainly, are we treating DES in similar way?",
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a58329e_aefe427b",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 6038,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-07-12T06:24:44Z",
+      "side": 1,
+      "message": "DESedeCBCPKCS7PaddingOneByteAtATime?",
+      "range": {
+        "startLine": 6038,
+        "startChar": 28,
+        "endLine": 6038,
+        "endChar": 63
+      },
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68803b80_0ad996fe",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 6051,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-07-12T06:24:44Z",
+      "side": 1,
+      "message": "DESedeECBNoPaddingOneByteAtATime?",
+      "range": {
+        "startLine": 6051,
+        "startChar": 28,
+        "endLine": 6051,
+        "endChar": 60
+      },
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed95e606_8f0636ce",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 6063,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-07-12T06:24:44Z",
+      "side": 1,
+      "message": "DESedeECBPKCS7PaddingOneByteAtATime?",
+      "range": {
+        "startLine": 6063,
+        "startChar": 28,
+        "endLine": 6063,
+        "endChar": 63
+      },
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
