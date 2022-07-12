@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ede4867_374b4d46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-07-12T08:13:51Z",
+      "side": 1,
+      "message": "And one more question is that do we need this patch apply to keymaster(4) as well?",
+      "parentUuid": "58b56ff9_0947a724",
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a58329e_aefe427b",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 3
