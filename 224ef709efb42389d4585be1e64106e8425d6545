@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9786c7f3_53e854f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-07-13T04:03:56Z",
+      "side": 1,
+      "message": "Not sure if my understanding is correct (short of java knowledge), but the DES test seems not really do the one-by-one update like AES?\n\nDES: input patterns - [testUpdateWithEmptyInputReturnsCorrectValue](https://source.corp.google.com/android/cts/tests/tests/keystore/src/android/keystore/cts/DESedeCipherTestBase.java;l\u003d120)\nAES: input patterns - [BlockCipherTestBase::testKatDecryptOneByteAtATime](https://source.corp.google.com/android/cts/tests/tests/keystore/src/android/keystore/cts/BlockCipherTestBase.java;l\u003d886)",
+      "parentUuid": "cfddca8e_39efd904",
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a58329e_aefe427b",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 3
