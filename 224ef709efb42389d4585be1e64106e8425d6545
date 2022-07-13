@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5d9f10f_7f975fb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2022-07-13T08:11:01Z",
+      "side": 1,
+      "message": "Yes you are correct CTS for DES does not use a one-by-one byte test case as AES.\nI don\u0027t know why it does like that, but when I used a one-by-one encryption test in VTS it worked for me. But anyways if it is not supported in CTS I will remove those from this CL.",
+      "parentUuid": "9786c7f3_53e854f3",
+      "revId": "224ef709efb42389d4585be1e64106e8425d6545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a58329e_aefe427b",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 3
