@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6b16de4_c68ba14d",
+        "filename": "cas/aidl/aidl_api/android.hardware.cas/current/android/hardware/cas/IMediaCasService.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-07-15T19:16:26Z",
+      "side": 1,
+      "message": "Please import classes in the beginning of the file and avoid long type names. The same for other files.",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "cb80dab56ca2ca64e67fe1471130cc79cad8f7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
