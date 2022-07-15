@@ -47,6 +47,8 @@ int qemu_pipe_open(const char* pipeName);
 
 // Send a framed message |buff| of |len| bytes through the |fd| descriptor.
 // This really adds a 4-hexchar prefix describing the payload size.
+// If the frame is larger than 64k, it uses a binary encoding of the 4 bytes, with
+// the high byte set and in the first byte and network byte order.
 // Returns 0 on success, and -1 on error.
 int qemu_pipe_frame_send(int fd, const void* buff, size_t len);
 
