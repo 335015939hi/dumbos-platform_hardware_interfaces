@@ -22,16 +22,24 @@
 #include <string.h>
 #include <unistd.h>
 
+#include <arpa/inet.h>
+
 #include <android-base/file.h>
 
 using android::base::ReadFully;
 using android::base::WriteFully;
+
+#define LOG_TAG "QemuPipe"
+#include <log/log.h>
+#define LOGQ(...) ALOGD(__VA_ARGS__)
 
 // Define QEMU_PIPE_DEBUG if you want to print error messages when an error
 // occurs during pipe operations. The macro should simply take a printf-style
 // formatting string followed by optional arguments.
 #ifndef QEMU_PIPE_DEBUG
 #define QEMU_PIPE_DEBUG(...) (void)0
+#else
+#define QEMU_PIPE_DEBUG LOGQ
 #endif
 
 int qemu_pipe_open(const char* pipeName) {
@@ -68,7 +76,13 @@ int qemu_pipe_open(const char* pipeName) {
 
 int qemu_pipe_frame_send(int fd, const void* buff, size_t len) {
     char header[5];
-    snprintf(header, sizeof(header), "%04zx", len);
+    if (len > 64 * 1024) {
+        QEMU_PIPE_DEBUG("sending binary frame header: %d", len);
+        uint32_t network = htonl(len | 0x80000000);
+        memcpy(header, &network, 4);
+    } else {
+        snprintf(header, sizeof(header), "%04zx", len);
+    }
     if (!WriteFully(fd, header, 4)) {
         QEMU_PIPE_DEBUG("Can't write qemud frame header: %s", strerror(errno));
         return -1;
