@@ -80,6 +80,9 @@ std::vector<uint8_t> PipeComm::read() {
 int PipeComm::write(const std::vector<uint8_t>& data) {
     int retVal = 0;
 
+    std::lock_guard<std::mutex> lock(mPipeWriteLock);
+
+    ALOGV("%s:  sending bytes to qemu %lu", __FUNCTION__, data.size());
     if (mPipeFd != -1) {
         retVal = qemu_pipe_frame_send(mPipeFd, data.data(), data.size());
     }
@@ -87,6 +90,8 @@ int PipeComm::write(const std::vector<uint8_t>& data) {
     if (retVal < 0) {
         retVal = -errno;
         ALOGE("%s:  send_cmd: (fd=%d): ERROR: %s", __FUNCTION__, mPipeFd, strerror(errno));
+    } else {
+        ALOGD("%s:  send_cmd: (fd=%d): len %lu", __FUNCTION__, mPipeFd, data.size());
     }
 
     return retVal;
