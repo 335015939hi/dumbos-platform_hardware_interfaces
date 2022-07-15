@@ -16,6 +16,24 @@
       "message": "Hi Michael, please note that vendor APIs are frozen for T, we can\u0027t change them. For the AIDL version which is expected in Android U we are removing the direction attribute on channel masks, thus AIDL HAL will support these input masks naturally. We will still need to add them to legacy \"system/audio*\" headers, though.",
       "revId": "d3199a8b7c0ca636b23307e616f23e174bd2dcf0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b7f4b95_58ce39ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1692997
+      },
+      "writtenOn": "2022-07-15T01:31:10Z",
+      "side": 1,
+      "message": "Hi Mikhail, \n\nThanks for letting me know that these will be naturally supported as a result of dropping the in/out direction in AIDL. Yes, we will be targeting them for Android U. In this case, does it mean I can abandon this changelist?\n\nThanks, Michael",
+      "parentUuid": "c664bb68_c411f17c",
+      "revId": "d3199a8b7c0ca636b23307e616f23e174bd2dcf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
