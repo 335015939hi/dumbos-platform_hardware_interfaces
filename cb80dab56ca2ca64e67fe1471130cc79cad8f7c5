@@ -39,6 +39,29 @@
       },
       "revId": "cb80dab56ca2ca64e67fe1471130cc79cad8f7c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18eef446_725d65d7",
+        "filename": "cas/aidl/android/hardware/cas/IDescrambler.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-07-15T19:30:54Z",
+      "side": 1,
+      "message": "This new parcelable can be removed. Please check my comments to the doc.\nAlso, please create a separate file for new parcelable definitions instead of in-line.",
+      "range": {
+        "startLine": 30,
+        "startChar": 15,
+        "endLine": 30,
+        "endChar": 29
+      },
+      "revId": "cb80dab56ca2ca64e67fe1471130cc79cad8f7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
