@@ -34,6 +34,24 @@
       "parentUuid": "c664bb68_c411f17c",
       "revId": "d3199a8b7c0ca636b23307e616f23e174bd2dcf0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ddd6d71_67104d08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-07-15T17:37:25Z",
+      "side": 1,
+      "message": "This particular one is not going to be submitted for sure, so yes.\n\nFor the rest, let\u0027s wait for Android T sources to be pushed to AOSP, this should happen soon together with the official release. Then I\u0027ll upload any changes related to audio interfaces that I\u0027ve done internally based on T, and then we can sort out your changes. Hope this plan works for you.",
+      "parentUuid": "8b7f4b95_58ce39ea",
+      "revId": "d3199a8b7c0ca636b23307e616f23e174bd2dcf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
