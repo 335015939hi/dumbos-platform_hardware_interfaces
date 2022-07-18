@@ -88,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c81a8c5_161155a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2022-07-18T15:47:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72206e30_8fa36e12",
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4636949b_63dc704d",
@@ -173,6 +191,30 @@
       "side": 1,
       "message": "Regardless, these changes are needed to make the current version work. Even if Ford was to apply these changes themselves.",
       "parentUuid": "6535d7f6_b316e6e9",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5815c2ed_e958a5f0",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/qemu_pipe.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2022-07-18T15:47:51Z",
+      "side": 1,
+      "message": "If you merge this change, you will have to repeat this process in\n\nhttps://android.googlesource.com/device/generic/goldfish/+/refs/heads/master/qemud",
+      "parentUuid": "c6496a1a_4f7d4a3f",
       "range": {
         "startLine": 51,
         "startChar": 38,
