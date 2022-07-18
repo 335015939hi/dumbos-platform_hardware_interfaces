@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "638c8b90_fc930d12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2022-07-18T01:31:08Z",
+      "side": 1,
+      "message": "Unresolve",
+      "parentUuid": "389a4c28_6adf1c2a",
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4636949b_63dc704d",
         "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/qemu_pipe.cpp",
         "patchSetId": 2
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "https://b.corp.google.com/issues/175046060#comment6",
       "parentUuid": "4636949b_63dc704d",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6535d7f6_b316e6e9",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/qemu_pipe.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2022-07-18T01:31:08Z",
+      "side": 1,
+      "message": "b/188204722",
+      "parentUuid": "a4cf20e7_da059ec1",
       "range": {
         "startLine": 51,
         "startChar": 38,
