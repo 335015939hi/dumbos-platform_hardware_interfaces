@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "601349ab_0b87ecd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2022-07-18T01:22:42Z",
+      "side": 1,
+      "message": "\n\nhttps://b.corp.google.com/issues/175046060#comment6",
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4636949b_63dc704d",
@@ -31,6 +48,30 @@
       "writtenOn": "2022-07-18T01:19:39Z",
       "side": 1,
       "message": "I thought this code is retired. We are going to retire /dev/qemu_pipe.",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4cf20e7_da059ec1",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/qemu_pipe.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2022-07-18T01:22:42Z",
+      "side": 1,
+      "message": "https://b.corp.google.com/issues/175046060#comment6",
+      "parentUuid": "4636949b_63dc704d",
       "range": {
         "startLine": 51,
         "startChar": 38,
