@@ -295,6 +295,30 @@
       },
       "revId": "deefc899bf52f755f342a51b2bcc802874912330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a30aa0a_1006fb31",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/qemu_pipe.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1928706
+      },
+      "writtenOn": "2022-07-18T16:47:19Z",
+      "side": 1,
+      "message": "Provided in https://android-review.googlesource.com/c/device/generic/goldfish/+/2154629",
+      "parentUuid": "04f1a57f_e7592a9f",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
