@@ -223,6 +223,30 @@
       },
       "revId": "deefc899bf52f755f342a51b2bcc802874912330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9006f43_f20514a3",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/qemu_pipe.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1928706
+      },
+      "writtenOn": "2022-07-18T16:03:44Z",
+      "side": 1,
+      "message": "I will make similar changes there.",
+      "parentUuid": "5815c2ed_e958a5f0",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
