@@ -271,6 +271,30 @@
       },
       "revId": "deefc899bf52f755f342a51b2bcc802874912330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04f1a57f_e7592a9f",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/qemu_pipe.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1928706
+      },
+      "writtenOn": "2022-07-18T16:09:48Z",
+      "side": 1,
+      "message": "never mind, need to fix the client side. on it.",
+      "parentUuid": "35cb990a_4e38ed28",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
