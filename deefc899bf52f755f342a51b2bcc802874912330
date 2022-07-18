@@ -71,6 +71,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0e8eb76_e2683b9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1928706
+      },
+      "writtenOn": "2022-07-18T14:20:08Z",
+      "side": 1,
+      "message": "I don\u0027t understand the -2 code review - as these are valid changes against master - regardless of any outstanding proposed refactorings.",
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4636949b_63dc704d",
