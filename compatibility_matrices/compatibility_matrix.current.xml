@@ -361,6 +361,7 @@
         <interface>
             <name>IRemotelyProvisionedComponent</name>
             <instance>default</instance>
+            <instance>strongbox</instance>
         </interface>
     </hal>
     <hal format="aidl" optional="true">
@@ -689,6 +690,14 @@
         <version>1</version>
         <interface>
             <name>IWeaver</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.wifi</name>
+        <version>1</version>
+        <interface>
+            <name>IWifi</name>
             <instance>default</instance>
         </interface>
     </hal>
