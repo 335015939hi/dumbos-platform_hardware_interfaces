@@ -52,6 +52,24 @@
       "parentUuid": "8b7f4b95_58ce39ea",
       "revId": "d3199a8b7c0ca636b23307e616f23e174bd2dcf0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e097845_98472798",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1692997
+      },
+      "writtenOn": "2022-07-18T21:43:57Z",
+      "side": 1,
+      "message": "Hi Mikhail, your plan works for me. I\u0027ll wait for your signal before continuing on with getting my other changelists in.",
+      "parentUuid": "7ddd6d71_67104d08",
+      "revId": "d3199a8b7c0ca636b23307e616f23e174bd2dcf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
