@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72206e30_8fa36e12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1928706
+      },
+      "writtenOn": "2022-07-18T14:18:15Z",
+      "side": 1,
+      "message": "I don\u0027t think that is correct. It doesn\u0027t matter. As it is now, if the client sends a message \u003e 64k the emulator will crash. It is no different after these changes - i.e. if the emulator side doesn\u0027t understand the binary encoding it will reject the packet as a invalid header - and most likely crash because the stream will still be corrupted.\n\nThis is the reason it only encodes binary when with message is \u003e 64k - to retain compatibility with older emulators.",
+      "parentUuid": "638c8b90_fc930d12",
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4636949b_63dc704d",
         "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/qemu_pipe.cpp",
         "patchSetId": 2
@@ -114,6 +132,30 @@
       "side": 1,
       "message": "b/188204722",
       "parentUuid": "a4cf20e7_da059ec1",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "deefc899bf52f755f342a51b2bcc802874912330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6496a1a_4f7d4a3f",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/qemu_pipe.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1928706
+      },
+      "writtenOn": "2022-07-18T14:18:15Z",
+      "side": 1,
+      "message": "Regardless, these changes are needed to make the current version work. Even if Ford was to apply these changes themselves.",
+      "parentUuid": "6535d7f6_b316e6e9",
       "range": {
         "startLine": 51,
         "startChar": 38,
