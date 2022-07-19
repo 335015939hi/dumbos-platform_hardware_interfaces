@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aaa6e0a_90fb1ddf",
+        "filename": "cas/aidl/aidl_api/android.hardware.cas/current/android/hardware/cas/IMediaCasService.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-07-19T06:24:54Z",
+      "side": 1,
+      "message": "This is a auto-generated file, intended aidl file have these classes imported.",
+      "parentUuid": "c6b16de4_c68ba14d",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "cb80dab56ca2ca64e67fe1471130cc79cad8f7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18eef446_725d65d7",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-07-15T19:30:54Z",
       "side": 1,
       "message": "This new parcelable can be removed. Please check my comments to the doc.\nAlso, please create a separate file for new parcelable definitions instead of in-line.",
+      "range": {
+        "startLine": 30,
+        "startChar": 15,
+        "endLine": 30,
+        "endChar": 29
+      },
+      "revId": "cb80dab56ca2ca64e67fe1471130cc79cad8f7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73601e42_9ae1bd0f",
+        "filename": "cas/aidl/android/hardware/cas/IDescrambler.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-07-19T06:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18eef446_725d65d7",
       "range": {
         "startLine": 30,
         "startChar": 15,
