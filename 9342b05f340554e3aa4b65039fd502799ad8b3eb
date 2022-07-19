@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71c68c30_4092e506",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-07-19T15:43:55Z",
+      "side": 1,
+      "message": "This needs a default/example implementation running on Cuttlefish(presubmit failure) and some VTS tests.",
+      "revId": "9342b05f340554e3aa4b65039fd502799ad8b3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
