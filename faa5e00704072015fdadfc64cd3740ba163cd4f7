@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09034726_45ce4428",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1206463
+      },
+      "writtenOn": "2022-07-20T08:14:26Z",
+      "side": 1,
+      "message": "Hi Shawn \u0026 David,\n\nWe found some AttestKeyTest cases fail on android 12.1 due to below VTS update:\n\ncommit 0ac2a4e5c363f2a575b1be29ed4af5c5cc926235\nAuthor: David Drysdale \u003cdrysdale@google.com\u003e\nDate:   Mon Nov 1 17:13:27 2021 +0000\n\n    KeyMint VTS: don\u0027t combine ATTEST_KEY with SIGN\n\n    Update the VTS tests so that attestation keys are not created with\n    another purpose.\n\n    Bug: 197096139\n    Test: VtsAidlKeyMintTargetTest\n    Merged-In: Ib6e4ad98cbe5c3015138854679b11fa0e683ade9\n    Change-Id: Ib6e4ad98cbe5c3015138854679b11fa0e683ade9\n    Ignore-AOSP-First: cross-merge from aosp/master\n\nSo we need to backport this CL to 12.1 branch to make the cases pass, could you help review this CL?\n\nThanks!",
+      "revId": "faa5e00704072015fdadfc64cd3740ba163cd4f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
