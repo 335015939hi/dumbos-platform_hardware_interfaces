@@ -769,16 +769,6 @@ TEST_P(RadioNetworkTest, setLinkCapacityReportingCriteria_Geran) {
  */
 TEST_P(RadioNetworkTest, setSystemSelectionChannels) {
     serial = GetRandomSerialNumber();
-    ndk::ScopedAStatus res = radio_network->getSystemSelectionChannels(serial);
-    EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
-    EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
-    if (radioRsp_network->specifiers.size() == 0) {
-        // TODO (b/189255895): Throw an error once getSystemSelectionChannels is functional.
-        ALOGI("Skipped the test due to empty system selection channels.");
-        GTEST_SKIP();
-    }
-    std::vector<RadioAccessSpecifier> originalSpecifiers = radioRsp_network->specifiers;
 
     RadioAccessSpecifierBands bandP900 =
             RadioAccessSpecifierBands::make<RadioAccessSpecifierBands::geranBands>(
@@ -791,8 +781,8 @@ TEST_P(RadioNetworkTest, setSystemSelectionChannels) {
     RadioAccessSpecifier specifier850 = {
             .accessNetwork = AccessNetwork::GERAN, .bands = band850, .channels = {128, 129}};
 
-    serial = GetRandomSerialNumber();
-    res = radio_network->setSystemSelectionChannels(serial, true, {specifierP900, specifier850});
+    ndk::ScopedAStatus res =
+            radio_network->setSystemSelectionChannels(serial, true, {specifierP900, specifier850});
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
@@ -805,8 +795,8 @@ TEST_P(RadioNetworkTest, setSystemSelectionChannels) {
 
     if (radioRsp_network->rspInfo.error == RadioError::NONE) {
         serial = GetRandomSerialNumber();
-        res = radio_network->setSystemSelectionChannels(serial, false,
-                                                        {specifierP900, specifier850});
+        ndk::ScopedAStatus res = radio_network->setSystemSelectionChannels(
+                serial, false, {specifierP900, specifier850});
         ASSERT_OK(res);
         EXPECT_EQ(std::cv_status::no_timeout, wait());
         EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
@@ -815,12 +805,6 @@ TEST_P(RadioNetworkTest, setSystemSelectionChannels) {
               toString(radioRsp_network->rspInfo.error).c_str());
         EXPECT_EQ(RadioError::NONE, radioRsp_network->rspInfo.error);
     }
-
-    serial = GetRandomSerialNumber();
-    res = radio_network->setSystemSelectionChannels(serial, true, originalSpecifiers);
-    EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
-    EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
 }
 
 /*

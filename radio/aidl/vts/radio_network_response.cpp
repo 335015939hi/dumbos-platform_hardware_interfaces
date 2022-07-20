@@ -109,9 +109,8 @@ ndk::ScopedAStatus RadioNetworkResponse::getSignalStrengthResponse(
 }
 
 ndk::ScopedAStatus RadioNetworkResponse::getSystemSelectionChannelsResponse(
-        const RadioResponseInfo& info, const std::vector<RadioAccessSpecifier>& specifiers) {
+        const RadioResponseInfo& info, const std::vector<RadioAccessSpecifier>& /*specifier*/) {
     rspInfo = info;
-    this->specifiers = specifiers;
     parent_network.notify(info.serial);
     return ndk::ScopedAStatus::ok();
 }
