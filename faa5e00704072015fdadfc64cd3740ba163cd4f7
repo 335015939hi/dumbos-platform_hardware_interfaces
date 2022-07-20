@@ -88,6 +88,24 @@
       "parentUuid": "3f9d40c1_c809c2f9",
       "revId": "faa5e00704072015fdadfc64cd3740ba163cd4f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65172ce5_be5e5b38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1206463
+      },
+      "writtenOn": "2022-07-20T11:56:54Z",
+      "side": 1,
+      "message": "And do you think it\u0027s necessary to merge the commit to android12L-dev also? It would be better if the release code would sync with the test code.",
+      "parentUuid": "5b4c60f1_cc97ddcf",
+      "revId": "faa5e00704072015fdadfc64cd3740ba163cd4f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
