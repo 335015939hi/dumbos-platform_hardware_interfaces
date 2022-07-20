@@ -34,6 +34,24 @@
       "parentUuid": "09034726_45ce4428",
       "revId": "faa5e00704072015fdadfc64cd3740ba163cd4f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6597ef1_45a70e01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1206463
+      },
+      "writtenOn": "2022-07-20T09:39:31Z",
+      "side": 1,
+      "message": "Thanks David for your reply!\n\nI made a cherry-pick to android12L-dev here: https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2159063\n\nActually I\u0027m a little confused about these release/dev/test branches. I found the issues based on the VTS package built from android-vts-12.1_r2 tag, which branch should I push this CL to so I can get them fixed in next android-vts-12.1_r3 tag?",
+      "parentUuid": "2c09eb95_1e575bf3",
+      "revId": "faa5e00704072015fdadfc64cd3740ba163cd4f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
