@@ -52,6 +52,24 @@
       "parentUuid": "2c09eb95_1e575bf3",
       "revId": "faa5e00704072015fdadfc64cd3740ba163cd4f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f9d40c1_c809c2f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-07-20T10:02:00Z",
+      "side": 1,
+      "message": "That tag appears to be for a commit on the `android12L-tests-release` branch, so I *think* that a newer release will contain this fix anyway.\n\n```\n% git branch --all --contains android-vts-12.1_r2\n  remotes/aosp/android12L-tests-release\n% git log -n3 --oneline aosp/android12L-tests-release -- security/keymint/aidl/vts/functional/AttestKeyTest.cpp\n3803a10f9baa [conflict] Merge \"KeyMint VTS: cope with ATTEST_KEY +/- SIGN\" into android12-tests-dev am: bbecb4563f\nead5f3e7a530 KeyMint VTS: cope with ATTEST_KEY +/- SIGN\n0ac2a4e5c363 KeyMint VTS: don\u0027t combine ATTEST_KEY with SIGN\n```",
+      "parentUuid": "f6597ef1_45a70e01",
+      "revId": "faa5e00704072015fdadfc64cd3740ba163cd4f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
