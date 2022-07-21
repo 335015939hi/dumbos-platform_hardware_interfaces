@@ -249,6 +249,14 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="false">
+        <name>android.hardware.gatekeeper</name>
+        <version>1</version>
+        <interface>
+            <name>IGatekeeper</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.gnss</name>
         <version>2</version>
