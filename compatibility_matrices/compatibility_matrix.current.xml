@@ -196,9 +196,9 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="false">
+    <hal format="aidl" optional="false">
         <name>android.hardware.gatekeeper</name>
-        <version>1.0</version>
+        <version>1</version>
         <interface>
             <name>IGatekeeper</name>
             <instance>default</instance>
