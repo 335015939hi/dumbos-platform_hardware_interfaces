@@ -1,0 +1,18 @@
+
+
+//######################################
+// media_profiles_V1_0.dtd
+
+package {
+    // See: http://go/android-license-faq
+    default_applicable_licenses: [
+        "hardware_interfaces_license",
+    ],
+}
+
+prebuilt_etc {
+
+    name: "media_profiles_V1_0.dtd",
+    src: "media_profiles.dtd",
+
+}

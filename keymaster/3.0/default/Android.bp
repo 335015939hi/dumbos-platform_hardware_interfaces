@@ -1,0 +1,49 @@
+
+
+package {
+    // See: http://go/android-license-faq
+    default_applicable_licenses: [
+        "hardware_interfaces_license",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.keymaster@3.0-impl",
+    proprietary: true,
+    relative_install_path: "hw",
+    srcs: ["KeymasterDevice.cpp"],
+
+    shared_libs: [
+        "liblog",
+        "libsoftkeymasterdevice",
+        "libcrypto",
+        "libkeymaster_portable",
+        "libpuresoftkeymasterdevice",
+        "libkeymaster3device",
+        "libhidlbase",
+        "libutils",
+        "libhardware",
+        "android.hardware.keymaster@3.0",
+    ],
+
+}
+
+cc_binary {
+    name: "android.hardware.keymaster@3.0-service",
+    relative_install_path: "hw",
+    proprietary: true,
+    init_rc: ["android.hardware.keymaster@3.0-service.rc"],
+    srcs: ["service.cpp"],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+        "libbase",
+        "libutils",
+        "libhardware",
+        "libhidlbase",
+        "android.hardware.keymaster@3.0",
+    ],
+
+}
