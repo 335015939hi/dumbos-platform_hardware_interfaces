@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8daa7433_5635ede3",
+        "filename": "gatekeeper/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-07-25T23:12:09Z",
+      "side": 1,
+      "message": "Can we remove this? see b/234181591",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 10
+      },
+      "revId": "6387e5eded52350330030da8af3931a5b0beff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd2a0576_31634cea",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/GatekeeperResponse.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-07-25T23:12:09Z",
+      "side": 1,
+      "message": "nit: timeoutMs",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 15
+      },
+      "revId": "6387e5eded52350330030da8af3931a5b0beff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf19cff9_fe8469bc",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/GatekeeperResponse.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-07-25T23:12:09Z",
+      "side": 1,
+      "message": "can we confirm who the reader/writers of this are?",
+      "range": {
+        "startLine": 36,
+        "startChar": 29,
+        "endLine": 36,
+        "endChar": 54
+      },
+      "revId": "6387e5eded52350330030da8af3931a5b0beff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc720b50_066b2d35",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/IGatekeeper.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-07-25T23:12:09Z",
+      "side": 1,
+      "message": "AIDL calls include an error code (EX_SERVICE_SPECIFIC). So, these don\u0027t need to be specified. Usually HAL implementors move the enumeration error type into constants here if it\u0027s still needed.",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 22
+      },
+      "revId": "6387e5eded52350330030da8af3931a5b0beff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
