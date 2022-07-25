@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33d9ab76_2292b69e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-07-25T23:13:06Z",
+      "side": 1,
+      "message": "nit: include \u0027vts\u0027 in commit name, since it collides with the other",
+      "range": {
+        "startLine": 7,
+        "startChar": 44,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "4b501b237984249a681374d67074f7c9780e0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "350b9791_a2888e2d",
+        "filename": "gatekeeper/aidl/vts/OWNERS",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-07-25T23:13:06Z",
+      "side": 1,
+      "message": "you can consolidate these OWNERS files to hardware/interfaces/gatekeeper/OWNERS if you\u0027d like!",
+      "revId": "4b501b237984249a681374d67074f7c9780e0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
