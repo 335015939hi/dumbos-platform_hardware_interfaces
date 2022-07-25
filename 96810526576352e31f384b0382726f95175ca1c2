@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "22d129b5_388302bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-07-25T22:04:56Z",
+      "side": 1,
+      "message": "is this sufficient? I see some devices install this, but I\u0027m not sure if they\u0027re exercised by TH",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 16
+      },
+      "revId": "96810526576352e31f384b0382726f95175ca1c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9bb04e21_fcf6d8f6",
         "filename": "keymaster/3.0/default/Android.bp",
         "patchSetId": 1
