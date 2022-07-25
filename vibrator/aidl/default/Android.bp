@@ -89,5 +89,7 @@ cc_fuzz {
         cc: [
             "smoreland@google.com",
         ],
+        fuzz_on_haiku_host: false,
+        fuzz_on_haiku_device: false,
     },
 }
