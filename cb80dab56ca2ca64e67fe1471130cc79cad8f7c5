@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d09c634d_774901d3",
+        "filename": "cas/aidl/aidl_api/android.hardware.cas/current/android/hardware/cas/IMediaCasService.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-07-26T14:42:34Z",
+      "side": 1,
+      "message": "I see the same behavior even with latest t-fs.\nI don\u0027t see imports in aidl files in aidl_api folders of other modules as well.",
+      "parentUuid": "bb93985e_f64c8763",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "cb80dab56ca2ca64e67fe1471130cc79cad8f7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18eef446_725d65d7",
