@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "138ea23f_253df914",
+        "filename": "light/aidl/default/Lights.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1956970
+      },
+      "writtenOn": "2022-07-28T00:30:14Z",
+      "side": 1,
+      "message": "Fixed in patchset 2",
+      "parentUuid": "246c02b9_330d5676",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "759e92c792a0f4e9fa62f29ede0dc528f0df4872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8bdb8d2_238698f8",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "490a606e_42e70494",
+        "filename": "light/aidl/default/Lights.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1956970
+      },
+      "writtenOn": "2022-07-28T00:30:14Z",
+      "side": 1,
+      "message": "Fixed in patchset 2",
+      "parentUuid": "c8bdb8d2_238698f8",
+      "range": {
+        "startLine": 38,
+        "startChar": 25,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "759e92c792a0f4e9fa62f29ede0dc528f0df4872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f00317c_367e8104",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-07-28T00:13:48Z",
       "side": 1,
       "message": "can simplify this to `lights-\u003epush_back({i, i});`",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 33
+      },
+      "revId": "759e92c792a0f4e9fa62f29ede0dc528f0df4872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e9cd980_adeda291",
+        "filename": "light/aidl/default/Lights.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1956970
+      },
+      "writtenOn": "2022-07-28T00:30:14Z",
+      "side": 1,
+      "message": "Fixed in patchset 2",
+      "parentUuid": "8f00317c_367e8104",
       "range": {
         "startLine": 41,
         "startChar": 8,
