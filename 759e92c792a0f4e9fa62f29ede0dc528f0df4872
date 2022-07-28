@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "246c02b9_330d5676",
+        "filename": "light/aidl/default/Lights.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-07-28T00:13:48Z",
+      "side": 1,
+      "message": "CPP has fancy ways of declaring a global like this and we have some conventions.\n`static constexpr int kNumDefaultLights \u003d 3;`\n`static` says we are only allowed to use this in this translation unit (basically this file).\n`constexpr` tells the compiler it can figure this out at compile time - leads to optimizations.\n`k` I actually don\u0027t know what the \u0027k\u0027 stands for now that I think about it... but it\u0027s always there on these defined values.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "759e92c792a0f4e9fa62f29ede0dc528f0df4872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8bdb8d2_238698f8",
+        "filename": "light/aidl/default/Lights.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-07-28T00:13:48Z",
+      "side": 1,
+      "message": "start at 0 if we are checking `id \u003c 0` above for the invalid id input. (Will also need to change the `i \u003e numDefaultLights` with this change to `\u003e\u003d`). \nOr change that to `if(id \u003c\u003d 0` and leave this at 1.",
+      "range": {
+        "startLine": 38,
+        "startChar": 25,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "759e92c792a0f4e9fa62f29ede0dc528f0df4872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f00317c_367e8104",
+        "filename": "light/aidl/default/Lights.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-07-28T00:13:48Z",
+      "side": 1,
+      "message": "can simplify this to `lights-\u003epush_back({i, i});`",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 33
+      },
+      "revId": "759e92c792a0f4e9fa62f29ede0dc528f0df4872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
