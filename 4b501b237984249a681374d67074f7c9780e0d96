@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66f3d6eb_a691f285",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-07-28T14:32:01Z",
+      "side": 1,
+      "message": "Updated the commit message.",
+      "parentUuid": "33d9ab76_2292b69e",
+      "range": {
+        "startLine": 7,
+        "startChar": 44,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "4b501b237984249a681374d67074f7c9780e0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "350b9791_a2888e2d",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-07-25T23:13:06Z",
       "side": 1,
       "message": "you can consolidate these OWNERS files to hardware/interfaces/gatekeeper/OWNERS if you\u0027d like!",
+      "revId": "4b501b237984249a681374d67074f7c9780e0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48bbfdbd_727c7e48",
+        "filename": "gatekeeper/aidl/vts/OWNERS",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-07-28T14:32:01Z",
+      "side": 1,
+      "message": "Moved the OWNERS file to hardware/interfaces/gatekeeper/OWNERS.",
+      "parentUuid": "350b9791_a2888e2d",
       "revId": "4b501b237984249a681374d67074f7c9780e0d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
