@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "236796e4_2241ac0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-07-28T23:17:52Z",
+      "side": 1,
+      "message": "Yea, the intent is to save a little bit of allocation.",
+      "parentUuid": "5c8ffde5_693bac68",
+      "revId": "eb2ee9aa1cf43e79f40c3ef1f0939bc730827174",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26ad3f50_b6626e53",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-07-28T23:09:16Z",
       "side": 1,
       "message": "check result?",
+      "range": {
+        "startLine": 328,
+        "startChar": 4,
+        "endLine": 328,
+        "endChar": 12
+      },
+      "revId": "eb2ee9aa1cf43e79f40c3ef1f0939bc730827174",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0c4f9ee_36f8d279",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-07-28T23:17:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26ad3f50_b6626e53",
       "range": {
         "startLine": 328,
         "startChar": 4,
