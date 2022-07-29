@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54112d49_1305efb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1632361
+      },
+      "writtenOn": "2022-07-29T18:54:07Z",
+      "side": 1,
+      "message": "few commments added. ",
+      "revId": "48f80b9c27fd5a4f62b3f5275fe8bf90cc0d1a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c085895a_a0e9d14d",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1632361
+      },
+      "writtenOn": "2022-07-29T18:54:07Z",
+      "side": 1,
+      "message": "Put comment that we copied this code from VTS and modifications made.",
+      "revId": "48f80b9c27fd5a4f62b3f5275fe8bf90cc0d1a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9b6e97f_a57efe48",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1632361
+      },
+      "writtenOn": "2022-07-29T18:54:07Z",
+      "side": 1,
+      "message": "Plesse use result variable. Follow same patter and also follow conditional operation rather than if (if possible).",
+      "revId": "48f80b9c27fd5a4f62b3f5275fe8bf90cc0d1a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "392d9cf8_f346acfe",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1632361
+      },
+      "writtenOn": "2022-07-29T18:54:07Z",
+      "side": 1,
+      "message": "Fix for both TEE and SB.",
+      "revId": "48f80b9c27fd5a4f62b3f5275fe8bf90cc0d1a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b670e9ce_fbdc5b2a",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1632361
+      },
+      "writtenOn": "2022-07-29T18:54:07Z",
+      "side": 1,
+      "message": "if it is failing for TEE, then let\u0027s fix for both together.",
+      "revId": "48f80b9c27fd5a4f62b3f5275fe8bf90cc0d1a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b019013d_cb8da429",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1632361
+      },
+      "writtenOn": "2022-07-29T18:54:07Z",
+      "side": 1,
+      "message": "If it is failing for TEE as well, then let\u0027s just fix for both.",
+      "revId": "48f80b9c27fd5a4f62b3f5275fe8bf90cc0d1a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
