@@ -16,22 +16,31 @@
 
 #define LOG_TAG "keymint_benchmark"
 
+#include <iostream>
+
 #include <base/command_line.h>
 #include <benchmark/benchmark.h>
-#include <iostream>
 
 #include <aidl/Vintf.h>
 #include <aidl/android/hardware/security/keymint/ErrorCode.h>
 #include <aidl/android/hardware/security/keymint/IKeyMintDevice.h>
 #include <android/binder_manager.h>
 #include <binder/IServiceManager.h>
+
 #include <keymint_support/authorization_set.h>
+#include <keymint_support/openssl_utils.h>
+#include <openssl/curve25519.h>
+#include <openssl/x509.h>
 
 #define SMALL_MESSAGE_SIZE 64
 #define MEDIUM_MESSAGE_SIZE 1024
 #define LARGE_MESSAGE_SIZE 131072
 
 namespace aidl::android::hardware::security::keymint::test {
+
+// Overhead for PKCS#1 v1.5 signature padding of undigested messages.  Digested messages have
+// additional overhead, for the digest algorithmIdentifier required by PKCS#1.
+const size_t kPkcs1UndigestedSignaturePaddingOverhead = 11;
 
 ::std::ostream& operator<<(::std::ostream& os, const keymint::AuthorizationSet& set);
 
@@ -119,6 +128,22 @@ class KeyMintBenchmarkTest {
         return {};
     }
 
+    string getAlgorithmString(string transform) {
+        if (transform.find("AES") != string::npos) {
+            return "AES";
+        } else if (transform.find("Hmac") != string::npos) {
+            return "HMAC";
+        } else if (transform.find("DESede") != string::npos) {
+            return "TRIPLE_DES";
+        } else if (transform.find("RSA") != string::npos) {
+            return "RSA";
+        } else if (transform.find("EC") != string::npos) {
+            return "EC";
+        }
+        std::cerr << "Can't find algorithm for " << transform << std::endl;
+        return "";
+    }
+
     Digest getDigest(string transform) {
         if (transform.find("MD5") != string::npos) {
             return Digest::MD5;
@@ -135,11 +160,42 @@ class KeyMintBenchmarkTest {
             return Digest::SHA_2_512;
         } else if (transform.find("RSA") != string::npos &&
                    transform.find("OAEP") != string::npos) {
-            return Digest::SHA1;
+            if (securityLevel_ == SecurityLevel::STRONGBOX) {
+                return Digest::SHA_2_256;
+            } else {
+                return Digest::SHA1;
+            }
         } else if (transform.find("Hmac") != string::npos) {
             return Digest::SHA_2_256;
         }
         return Digest::NONE;
+    }
+
+    string getDigestString(string transform) {
+        if (transform.find("MD5") != string::npos) {
+            return "MD5";
+        } else if (transform.find("SHA1") != string::npos ||
+                   transform.find("SHA-1") != string::npos) {
+            return "SHA1";
+        } else if (transform.find("SHA224") != string::npos) {
+            return "SHA_2_224";
+        } else if (transform.find("SHA256") != string::npos) {
+            return "SHA_2_256";
+        } else if (transform.find("SHA384") != string::npos) {
+            return "SHA_2_384";
+        } else if (transform.find("SHA512") != string::npos) {
+            return "SHA_2_512";
+        } else if (transform.find("RSA") != string::npos &&
+                   transform.find("OAEP") != string::npos) {
+            if (securityLevel_ == SecurityLevel::STRONGBOX) {
+                return "SHA_2_256";
+            } else {
+                return "SHA1";
+            }
+        } else if (transform.find("Hmac") != string::npos) {
+            return "SHA_2_256";
+        }
+        return "";
     }
 
     optional<EcCurve> getCurveFromLength(int keySize) {
@@ -261,6 +317,305 @@ class KeyMintBenchmarkTest {
         return GetReturnErrorCode(result);
     }
 
+    /* Copied the function LocalRsaEncryptMessage from
+     * hardware/interfaces/security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp in VTS.
+     * Replaced asserts with the condition check and return false in case of failure condition.
+     * Require return value to skip the benchmark test case from further execcution incase
+     * LocalRsaEncryptMessage fails.
+     */
+    optional<string> LocalRsaEncryptMessage(const string& message, const AuthorizationSet& params) {
+        // Retrieve the public key from the leaf certificate.
+        if (cert_chain_.empty()) {
+            std::cerr << "Local RSA encrypt Error: invalid cert_chain_" << std::endl;
+            return "Failure";
+        }
+        X509_Ptr key_cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+        EVP_PKEY_Ptr pub_key(X509_get_pubkey(key_cert.get()));
+        RSA_Ptr rsa(EVP_PKEY_get1_RSA(const_cast<EVP_PKEY*>(pub_key.get())));
+
+        // Retrieve relevant tags.
+        Digest digest = Digest::NONE;
+        Digest mgf_digest = Digest::SHA1;
+        PaddingMode padding = PaddingMode::NONE;
+
+        auto digest_tag = params.GetTagValue(TAG_DIGEST);
+        if (digest_tag.has_value()) digest = digest_tag.value();
+        auto pad_tag = params.GetTagValue(TAG_PADDING);
+        if (pad_tag.has_value()) padding = pad_tag.value();
+        auto mgf_tag = params.GetTagValue(TAG_RSA_OAEP_MGF_DIGEST);
+        if (mgf_tag.has_value()) mgf_digest = mgf_tag.value();
+
+        const EVP_MD* md = openssl_digest(digest);
+        const EVP_MD* mgf_md = openssl_digest(mgf_digest);
+
+        // Set up encryption context.
+        EVP_PKEY_CTX_Ptr ctx(EVP_PKEY_CTX_new(pub_key.get(), /* engine= */ nullptr));
+        if (EVP_PKEY_encrypt_init(ctx.get()) <= 0) {
+            std::cerr << "Local RSA encrypt Error: Encryption init failed" << std::endl;
+            return "Failure";
+        }
+
+        int rc = -1;
+        switch (padding) {
+            case PaddingMode::NONE:
+                rc = EVP_PKEY_CTX_set_rsa_padding(ctx.get(), RSA_NO_PADDING);
+                break;
+            case PaddingMode::RSA_PKCS1_1_5_ENCRYPT:
+                rc = EVP_PKEY_CTX_set_rsa_padding(ctx.get(), RSA_PKCS1_PADDING);
+                break;
+            case PaddingMode::RSA_OAEP:
+                rc = EVP_PKEY_CTX_set_rsa_padding(ctx.get(), RSA_PKCS1_OAEP_PADDING);
+                break;
+            default:
+                break;
+        }
+        if (rc <= 0) {
+            std::cerr << "Local RSA encrypt Error: Set padding failed" << std::endl;
+            return "Failure";
+        }
+        if (padding == PaddingMode::RSA_OAEP) {
+            if (!EVP_PKEY_CTX_set_rsa_oaep_md(ctx.get(), md)) {
+                std::cerr << "Local RSA encrypt Error: Set digest failed: " << ERR_peek_last_error()
+                          << std::endl;
+                return "Failure";
+            }
+            if (!EVP_PKEY_CTX_set_rsa_mgf1_md(ctx.get(), mgf_md)) {
+                std::cerr << "Local RSA encrypt Error: Set digest failed: " << ERR_peek_last_error()
+                          << std::endl;
+                return "Failure";
+            }
+        }
+
+        // Determine output size.
+        size_t outlen;
+        if (EVP_PKEY_encrypt(ctx.get(), nullptr /* out */, &outlen,
+                             reinterpret_cast<const uint8_t*>(message.data()),
+                             message.size()) <= 0) {
+            std::cerr << "Local RSA encrypt Error: Determine output size failed: "
+                      << ERR_peek_last_error() << std::endl;
+            return "Failure";
+        }
+
+        // Left-zero-pad the input if necessary.
+        const uint8_t* to_encrypt = reinterpret_cast<const uint8_t*>(message.data());
+        size_t to_encrypt_len = message.size();
+
+        std::unique_ptr<string> zero_padded_message;
+        if (padding == PaddingMode::NONE && to_encrypt_len < outlen) {
+            zero_padded_message.reset(new string(outlen, '\0'));
+            memcpy(zero_padded_message->data() + (outlen - to_encrypt_len), message.data(),
+                   message.size());
+            to_encrypt = reinterpret_cast<const uint8_t*>(zero_padded_message->data());
+            to_encrypt_len = outlen;
+        }
+
+        // Do the encryption.
+        string output(outlen, '\0');
+        if (EVP_PKEY_encrypt(ctx.get(), reinterpret_cast<uint8_t*>(output.data()), &outlen,
+                             to_encrypt, to_encrypt_len) <= 0) {
+            std::cerr << "Local RSA encrypt Error: Encryption failed: " << ERR_peek_last_error()
+                      << std::endl;
+            return "Failure";
+        }
+        return output;
+    }
+
+    /* Copied the function LocalVerifyMessage from
+     * hardware/interfaces/security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp in VTS.
+     * Replaced asserts with the condition check and return false in case of failure condition.
+     * Require return value to skip the benchmark test case from further execcution incase
+     * LocalVerifyMessage fails.
+     */
+    bool LocalVerifyMessage(const string& message, const string& signature,
+                            const AuthorizationSet& params) {
+        Status result;
+        // Retrieve the public key from the leaf certificate.
+        if (cert_chain_.size() <= 0) {
+            std::cerr << "Local verify message Error: Invalid certificate chain" << std::endl;
+            return false;
+        }
+        X509_Ptr key_cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+        if (!key_cert.get()) {
+            std::cerr << "Local verify message Error: Invalid certificate" << std::endl;
+            return false;
+        }
+        EVP_PKEY_Ptr pub_key(X509_get_pubkey(key_cert.get()));
+        if (!pub_key.get()) {
+            std::cerr << "Local verify message Error: Invalid public key" << std::endl;
+            return false;
+        }
+        Digest digest = params.GetTagValue(TAG_DIGEST).value();
+        PaddingMode padding = PaddingMode::NONE;
+        auto tag = params.GetTagValue(TAG_PADDING);
+        if (tag.has_value()) {
+            padding = tag.value();
+        }
+
+        if (digest == Digest::NONE) {
+            switch (EVP_PKEY_id(pub_key.get())) {
+                case EVP_PKEY_ED25519: {
+                    if (64 != signature.size()) {
+                        std::cerr << "Local verify message Error: Invalid signature size: "
+                                  << signature.size() << std::endl;
+                        return false;
+                    }
+                    uint8_t pub_keydata[32];
+                    size_t pub_len = sizeof(pub_keydata);
+                    if (1 != EVP_PKEY_get_raw_public_key(pub_key.get(), pub_keydata, &pub_len)) {
+                        std::cerr << "Local verify message Error: Invalid public key" << std::endl;
+                        return false;
+                    }
+                    if (sizeof(pub_keydata) != pub_len) {
+                        std::cerr << "Local verify message Error: Invalid public key size"
+                                  << std::endl;
+                        return false;
+                    }
+                    if (ED25519_verify(reinterpret_cast<const uint8_t*>(message.data()),
+                                       message.size(),
+                                       reinterpret_cast<const uint8_t*>(signature.data()),
+                                       pub_keydata) != 1) {
+                        std::cerr << "Local verify message Error: Verify failed" << std::endl;
+                        return false;
+                    }
+                    break;
+                }
+
+                case EVP_PKEY_EC: {
+                    vector<uint8_t> data((EVP_PKEY_bits(pub_key.get()) + 7) / 8);
+                    size_t data_size = std::min(data.size(), message.size());
+                    memcpy(data.data(), message.data(), data_size);
+                    EC_KEY_Ptr ecdsa(EVP_PKEY_get1_EC_KEY(pub_key.get()));
+                    if (!ecdsa.get()) {
+                        std::cerr << "Local verify message Error: Invalid public key" << std::endl;
+                        return false;
+                    }
+
+                    if (1 != ECDSA_verify(0, reinterpret_cast<const uint8_t*>(data.data()),
+                                          data_size,
+                                          reinterpret_cast<const uint8_t*>(signature.data()),
+                                          signature.size(), ecdsa.get())) {
+                        std::cerr << "Local verify message Error: Verify failed" << std::endl;
+                        return false;
+                    }
+                    break;
+                }
+                case EVP_PKEY_RSA: {
+                    vector<uint8_t> data(EVP_PKEY_size(pub_key.get()));
+                    size_t data_size = std::min(data.size(), message.size());
+                    memcpy(data.data(), message.data(), data_size);
+
+                    RSA_Ptr rsa(EVP_PKEY_get1_RSA(const_cast<EVP_PKEY*>(pub_key.get())));
+                    if (!rsa.get()) {
+                        std::cerr << "Local verify message Error: Invalid public key" << std::endl;
+                        return false;
+                    }
+
+                    size_t key_len = RSA_size(rsa.get());
+                    int openssl_padding = RSA_NO_PADDING;
+                    switch (padding) {
+                        case PaddingMode::NONE:
+                            if (key_len != signature.size()) {
+                                std::cerr << "Local verify message Error: Invalid public key length"
+                                          << std::endl;
+                                return false;
+                            }
+                            openssl_padding = RSA_NO_PADDING;
+                            break;
+                        case PaddingMode::RSA_PKCS1_1_5_SIGN:
+                            if ((data_size + kPkcs1UndigestedSignaturePaddingOverhead) > key_len) {
+                                std::cerr << "Local verify message Error: Invalid input length"
+                                          << std::endl;
+                                return false;
+                            }
+                            openssl_padding = RSA_PKCS1_PADDING;
+                            break;
+                        default:
+                            std::cerr << "Local verify message Error: Unsupported RSA padding mode"
+                                      << std::endl;
+                            return false;
+                    }
+
+                    vector<uint8_t> decrypted_data(key_len);
+                    int bytes_decrypted = RSA_public_decrypt(
+                            signature.size(), reinterpret_cast<const uint8_t*>(signature.data()),
+                            decrypted_data.data(), rsa.get(), openssl_padding);
+                    if (bytes_decrypted <= 0) {
+                        std::cerr << "Local verify message Error: verify failed" << std::endl;
+                        return false;
+                    }
+
+                    const uint8_t* compare_pos = decrypted_data.data();
+                    size_t bytes_to_compare = bytes_decrypted;
+                    uint8_t zero_check_result = 0;
+                    if (padding == PaddingMode::NONE && data_size < bytes_to_compare) {
+                        // If the data is short, for "unpadded" signing we zero-pad to the left.  So
+                        // during verification we should have zeros on the left of the decrypted
+                        // data. Do a constant-time check.
+                        const uint8_t* zero_end = compare_pos + bytes_to_compare - data_size;
+                        while (compare_pos < zero_end) zero_check_result |= *compare_pos++;
+                        if (0 != zero_check_result) {
+                            std::cerr << "Local verify message Error: Verify failed " << std::endl;
+                            return false;
+                        }
+                        bytes_to_compare = data_size;
+                    }
+                    if (0 != memcmp(compare_pos, data.data(), bytes_to_compare)) {
+                        std::cerr << "Local verify message Error: Verify failed " << std::endl;
+                        return false;
+                    }
+                    break;
+                }
+                default:
+                    std::cerr << "Local verify message Error: Unknown public key type" << std::endl;
+                    return false;
+            }
+        } else {
+            EVP_MD_CTX digest_ctx;
+            EVP_MD_CTX_init(&digest_ctx);
+            EVP_PKEY_CTX* pkey_ctx;
+            const EVP_MD* md = openssl_digest(digest);
+            if (md == nullptr) {
+                std::cerr << "Local verify message Error: Invalid digest" << std::endl;
+                return false;
+            }
+            if (1 != EVP_DigestVerifyInit(&digest_ctx, &pkey_ctx, md, nullptr, pub_key.get())) {
+                std::cerr << "Local verify message Error: Digest verify init failed" << std::endl;
+                return false;
+            }
+            if (padding == PaddingMode::RSA_PSS) {
+                if (EVP_PKEY_CTX_set_rsa_padding(pkey_ctx, RSA_PKCS1_PSS_PADDING) <= 0) {
+                    std::cerr << "Local verify message Error: Set RSA padding failed" << std::endl;
+                    return false;
+                }
+                if (EVP_PKEY_CTX_set_rsa_pss_saltlen(pkey_ctx, EVP_MD_size(md)) <= 0) {
+                    std::cerr << "Local verify message Error: Set RSA salt length failed"
+                              << std::endl;
+                    return false;
+                }
+                if (EVP_PKEY_CTX_set_rsa_mgf1_md(pkey_ctx, md) <= 0) {
+                    std::cerr << "Local verify message Error: Set RSA mgf failed" << std::endl;
+                    return false;
+                }
+            }
+
+            if (1 != EVP_DigestVerifyUpdate(&digest_ctx,
+                                            reinterpret_cast<const uint8_t*>(message.data()),
+                                            message.size())) {
+                std::cerr << "Local verify message Error: Digest verify update failed" << std::endl;
+                return false;
+            }
+
+            if (1 != EVP_DigestVerifyFinal(&digest_ctx,
+                                           reinterpret_cast<const uint8_t*>(signature.data()),
+                                           signature.size())) {
+                std::cerr << "Local verify message Error: Digest verify final failed" << std::endl;
+                return false;
+            }
+            EVP_MD_CTX_cleanup(&digest_ctx);
+        }
+        return true;
+    }
+
     SecurityLevel securityLevel_;
     string name_;
 
@@ -268,12 +623,13 @@ class KeyMintBenchmarkTest {
     ErrorCode GenerateKey(const AuthorizationSet& key_desc,
                           const optional<AttestationKey>& attest_key = std::nullopt) {
         key_blob_.clear();
+        cert_chain_.clear();
         KeyCreationResult creationResult;
         Status result = keymint_->generateKey(key_desc.vector_data(), attest_key, &creationResult);
         if (result.isOk()) {
             key_blob_ = std::move(creationResult.keyBlob);
+            cert_chain_ = std::move(creationResult.certificateChain);
             creationResult.keyCharacteristics.clear();
-            creationResult.certificateChain.clear();
         }
         return GetReturnErrorCode(result);
     }
@@ -336,6 +692,11 @@ class KeyMintBenchmarkTest {
         }
 
         return ErrorCode::UNKNOWN_ERROR;
+    }
+
+    X509_Ptr parse_cert_blob(const vector<uint8_t>& blob) {
+        const uint8_t* p = blob.data();
+        return X509_Ptr(d2i_X509(nullptr /* allocate new */, &p, blob.size()));
     }
 
     std::shared_ptr<IKeyMintOperation> op_;
@@ -402,7 +763,50 @@ static void addDefaultLabel(benchmark::State& state) {
 /*
  * ============= KeyGen TESTS ==================
  */
+
+static bool isValidSBKeySize(string transform, int keySize) {
+    std::optional<Algorithm> algorithm = keymintTest->getAlgorithm(transform);
+    bool result = false;
+    switch (algorithm.value()) {
+        case Algorithm::AES:
+            if (keySize == 128 || keySize == 256) {
+                result = true;
+            }
+            break;
+        case Algorithm::HMAC:
+            if (keySize % 8 == 0 && keySize >= 64 && keySize <= 512) {
+                result = true;
+            }
+            break;
+        case Algorithm::TRIPLE_DES:
+            if (keySize == 168) {
+                result = true;
+            }
+            break;
+        case Algorithm::RSA:
+            if (keySize == 2048) {
+                result = true;
+            }
+            break;
+        case Algorithm::EC:
+            if (keySize == 256) {
+                result = true;
+            }
+            break;
+    }
+    return result;
+}
+
 static void keygen(benchmark::State& state, string transform, int keySize) {
+    // Skip the test for unsupported key size in StrongBox
+    if (keymintTest->securityLevel_ == SecurityLevel::STRONGBOX &&
+        !isValidSBKeySize(transform, keySize)) {
+        state.SkipWithError(("Skipped for STRONGBOX: Keysize: " + std::to_string(keySize) +
+                             " is not supported in StrongBox for algorithm: " +
+                             keymintTest->getAlgorithmString(transform))
+                                    .c_str());
+        return;
+    }
     addDefaultLabel(state);
     for (auto _ : state) {
         if (!keymintTest->GenerateKey(transform, keySize)) {
@@ -438,8 +842,24 @@ BENCHMARK_KM(keygen, Hmac, 512);
 /*
  * ============= SIGNATURE TESTS ==================
  */
-
 static void sign(benchmark::State& state, string transform, int keySize, int msgSize) {
+    // Skip the test for unsupported key size or unsupported digest in StrongBox
+    if (keymintTest->securityLevel_ == SecurityLevel::STRONGBOX) {
+        if (!isValidSBKeySize(transform, keySize)) {
+            state.SkipWithError(("Skipped for STRONGBOX: Keysize: " + std::to_string(keySize) +
+                                 " is not supported in StrongBox for algorithm: " +
+                                 keymintTest->getAlgorithmString(transform))
+                                        .c_str());
+            return;
+        }
+        if (keymintTest->getDigest(transform) != Digest::SHA_2_256) {
+            state.SkipWithError(
+                    ("Skipped for STRONGBOX: Digest: " + keymintTest->getDigestString(transform) +
+                     " is not supported in StrongBox")
+                            .c_str());
+            return;
+        }
+    }
     addDefaultLabel(state);
     if (!keymintTest->GenerateKey(transform, keySize, true)) {
         state.SkipWithError(
@@ -469,6 +889,23 @@ static void sign(benchmark::State& state, string transform, int keySize, int msg
 }
 
 static void verify(benchmark::State& state, string transform, int keySize, int msgSize) {
+    // Skip the test for unsupported key size or unsupported digest in StrongBox
+    if (keymintTest->securityLevel_ == SecurityLevel::STRONGBOX) {
+        if (!isValidSBKeySize(transform, keySize)) {
+            state.SkipWithError(("Skipped for STRONGBOX: Keysize: " + std::to_string(keySize) +
+                                 " is not supported in StrongBox for algorithm: " +
+                                 keymintTest->getAlgorithmString(transform))
+                                        .c_str());
+            return;
+        }
+        if (keymintTest->getDigest(transform) != Digest::SHA_2_256) {
+            state.SkipWithError(
+                    ("Skipped for STRONGBOX: Digest: " + keymintTest->getDigestString(transform) +
+                     " is not supported in StrongBox")
+                            .c_str());
+            return;
+        }
+    }
     addDefaultLabel(state);
     if (!keymintTest->GenerateKey(transform, keySize, true)) {
         state.SkipWithError(
@@ -494,18 +931,27 @@ static void verify(benchmark::State& state, string transform, int keySize, int m
         in_params = keymintTest->getOperationParams(transform, false);
     }
     for (auto _ : state) {
-        state.PauseTiming();
-        error = keymintTest->Begin(KeyPurpose::VERIFY, in_params, &out_params);
-        if (error != ErrorCode::OK) {
-            state.SkipWithError(
-                    ("Verify begin error, " + std::to_string(keymintTest->getError())).c_str());
-            return;
-        }
-        state.ResumeTiming();
-        if (!keymintTest->Process(message, *signature)) {
-            state.SkipWithError(
-                    ("Verify error, " + std::to_string(keymintTest->getError())).c_str());
-            break;
+        if ((keymintTest->getAlgorithm(transform).value() == Algorithm::RSA) ||
+            (keymintTest->getAlgorithm(transform).value() == Algorithm::EC)) {
+            // Public key operations not supported, doing local verify
+            if (false == keymintTest->LocalVerifyMessage(message, *signature, in_params)) {
+                state.SkipWithError("Local Verify failed ");
+                return;
+            }
+        } else {
+            state.PauseTiming();
+            error = keymintTest->Begin(KeyPurpose::VERIFY, in_params, &out_params);
+            if (error != ErrorCode::OK) {
+                state.SkipWithError(
+                        ("Verify begin error, " + std::to_string(keymintTest->getError())).c_str());
+                return;
+            }
+            state.ResumeTiming();
+            if (!keymintTest->Process(message, *signature)) {
+                state.SkipWithError(
+                        ("Verify error, " + std::to_string(keymintTest->getError())).c_str());
+                break;
+            }
         }
     }
 }
@@ -542,9 +988,11 @@ BENCHMARK_KM_SIGNATURE_ALL_ECDSA_KEYS(SHA512withECDSA);
     BENCHMARK_KM_SIGNATURE_ALL_MSGS(transform, 3072)   \
     BENCHMARK_KM_SIGNATURE_ALL_MSGS(transform, 4096)
 
+BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(SHA256withRSA);
 BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(MD5withRSA);
 BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(SHA1withRSA);
 BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(SHA224withRSA);
+BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(SHA256withRSA);
 BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(SHA384withRSA);
 BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(SHA512withRSA);
 
@@ -553,6 +1001,7 @@ BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(SHA1withRSA/PSS);
 BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(SHA224withRSA/PSS);
 BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(SHA384withRSA/PSS);
 BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(SHA512withRSA/PSS);
+
 // clang-format on
 
 /*
@@ -560,6 +1009,15 @@ BENCHMARK_KM_SIGNATURE_ALL_RSA_KEYS(SHA512withRSA/PSS);
  */
 
 static void encrypt(benchmark::State& state, string transform, int keySize, int msgSize) {
+    // Skip the test for unsupported key size in StrongBox
+    if (keymintTest->securityLevel_ == SecurityLevel::STRONGBOX &&
+        (!isValidSBKeySize(transform, keySize))) {
+        state.SkipWithError(("Skipped for STRONGBOX: Keysize: " + std::to_string(keySize) +
+                             " is not supported in StrongBox for algorithm: " +
+                             keymintTest->getAlgorithmString(transform))
+                                    .c_str());
+        return;
+    }
     addDefaultLabel(state);
     if (!keymintTest->GenerateKey(transform, keySize)) {
         state.SkipWithError(
@@ -571,24 +1029,43 @@ static void encrypt(benchmark::State& state, string transform, int keySize, int 
     string message = keymintTest->GenerateMessage(msgSize);
 
     for (auto _ : state) {
-        state.PauseTiming();
-        auto error = keymintTest->Begin(KeyPurpose::ENCRYPT, in_params, &out_params);
-        if (error != ErrorCode::OK) {
-            state.SkipWithError(
-                    ("Encryption begin error, " + std::to_string(keymintTest->getError())).c_str());
-            return;
-        }
-        out_params.Clear();
-        state.ResumeTiming();
-        if (!keymintTest->Process(message)) {
-            state.SkipWithError(
-                    ("Encryption error, " + std::to_string(keymintTest->getError())).c_str());
-            break;
+        if (keymintTest->getAlgorithm(transform).value() == Algorithm::RSA) {
+            // Public key operations not supported, doing local Encryption
+            auto ciphertext = keymintTest->LocalRsaEncryptMessage(message, in_params);
+            if ((keySize / 8) != (*ciphertext).size()) {
+                state.SkipWithError("Local Encryption falied");
+                return;
+            }
+        } else {
+            state.PauseTiming();
+            auto error = keymintTest->Begin(KeyPurpose::ENCRYPT, in_params, &out_params);
+            if (error != ErrorCode::OK) {
+                state.SkipWithError(
+                        ("Encryption begin error, " + std::to_string(keymintTest->getError()))
+                                .c_str());
+                return;
+            }
+            out_params.Clear();
+            state.ResumeTiming();
+            if (!keymintTest->Process(message)) {
+                state.SkipWithError(
+                        ("Encryption error, " + std::to_string(keymintTest->getError())).c_str());
+                break;
+            }
         }
     }
 }
 
 static void decrypt(benchmark::State& state, string transform, int keySize, int msgSize) {
+    // Skip the test for unsupported key size in StrongBox
+    if (keymintTest->securityLevel_ == SecurityLevel::STRONGBOX &&
+        (!isValidSBKeySize(transform, keySize))) {
+        state.SkipWithError(("Skipped for STRONGBOX: Keysize: " + std::to_string(keySize) +
+                             " is not supported in StrongBox for algorithm: " +
+                             keymintTest->getAlgorithmString(transform))
+                                    .c_str());
+        return;
+    }
     addDefaultLabel(state);
     if (!keymintTest->GenerateKey(transform, keySize)) {
         state.SkipWithError(
@@ -598,23 +1075,34 @@ static void decrypt(benchmark::State& state, string transform, int keySize, int 
     AuthorizationSet out_params;
     AuthorizationSet in_params = keymintTest->getOperationParams(transform);
     string message = keymintTest->GenerateMessage(msgSize);
-    auto error = keymintTest->Begin(KeyPurpose::ENCRYPT, in_params, &out_params);
-    if (error != ErrorCode::OK) {
-        state.SkipWithError(
-                ("Encryption begin error, " + std::to_string(keymintTest->getError())).c_str());
-        return;
+    optional<string> encryptedMessage;
+
+    if (keymintTest->getAlgorithm(transform).value() == Algorithm::RSA) {
+        // Public key operation not supported, doing local Encryption
+        encryptedMessage = keymintTest->LocalRsaEncryptMessage(message, in_params);
+        if ((keySize / 8) != (*encryptedMessage).size()) {
+            state.SkipWithError("Local Encryption falied");
+            return;
+        }
+    } else {
+        auto error = keymintTest->Begin(KeyPurpose::ENCRYPT, in_params, &out_params);
+        if (error != ErrorCode::OK) {
+            state.SkipWithError(
+                    ("Encryption begin error, " + std::to_string(keymintTest->getError())).c_str());
+            return;
+        }
+        encryptedMessage = keymintTest->Process(message);
+        if (!encryptedMessage) {
+            state.SkipWithError(
+                    ("Encryption error, " + std::to_string(keymintTest->getError())).c_str());
+            return;
+        }
+        in_params.push_back(out_params);
+        out_params.Clear();
     }
-    auto encryptedMessage = keymintTest->Process(message);
-    if (!encryptedMessage) {
-        state.SkipWithError(
-                ("Encryption error, " + std::to_string(keymintTest->getError())).c_str());
-        return;
-    }
-    in_params.push_back(out_params);
-    out_params.Clear();
     for (auto _ : state) {
         state.PauseTiming();
-        error = keymintTest->Begin(KeyPurpose::DECRYPT, in_params, &out_params);
+        auto error = keymintTest->Begin(KeyPurpose::DECRYPT, in_params, &out_params);
         if (error != ErrorCode::OK) {
             state.SkipWithError(
                     ("Decryption begin error, " + std::to_string(keymintTest->getError())).c_str());
