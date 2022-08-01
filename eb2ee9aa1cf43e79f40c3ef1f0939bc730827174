@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9252c57_5f807d65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-08-01T22:42:42Z",
+      "side": 1,
+      "message": "could we save this in all HALs, if we are going to add it here? It is temporary allocation (that is, the stack or heap space could be dropped after registration as well).",
+      "parentUuid": "236796e4_2241ac0f",
+      "revId": "eb2ee9aa1cf43e79f40c3ef1f0939bc730827174",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26ad3f50_b6626e53",
         "filename": "boot/aidl/client/BootControlClient.cpp",
         "patchSetId": 2
