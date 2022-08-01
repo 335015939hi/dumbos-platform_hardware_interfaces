@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "991c7b18_2ea3fc61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-08-01T22:48:31Z",
+      "side": 1,
+      "message": "aidl::android::hardware::boot::IBootControl::descriptor is generated code which I cannot control. So some form of allocation is necessary.",
+      "parentUuid": "b9252c57_5f807d65",
+      "revId": "eb2ee9aa1cf43e79f40c3ef1f0939bc730827174",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26ad3f50_b6626e53",
