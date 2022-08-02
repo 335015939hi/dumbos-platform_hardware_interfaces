@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39ad07dd_e4d076a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-08-02T00:11:11Z",
+      "side": 1,
+      "message": "Right, I originally wrote the code to generate this in \u0027system/tools/aidl/generate_ndk.cpp\u0027 😊 we can edit it!\n\nAdding \u0027/default\u0027 to .ro.data for this would be difficult (see also \u0027StaticString16\u0027) because we need to support other instance names as well. Maybe once std::string has constexpr support, we could do this.\n\nThough, I\u0027m thinking, what if we move the stuff you wrote here to save this allocation into frameworks/native/libs/binder/ndk/include_cpp as a helper method?",
+      "parentUuid": "991c7b18_2ea3fc61",
+      "revId": "eb2ee9aa1cf43e79f40c3ef1f0939bc730827174",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26ad3f50_b6626e53",
         "filename": "boot/aidl/client/BootControlClient.cpp",
         "patchSetId": 2
