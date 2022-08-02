@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67919236_3cfdce25",
+        "filename": "boot/aidl/vts/functional/VtsHalBootAidlTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-08-02T23:12:27Z",
+      "side": 1,
+      "message": "can you make this parameterized on the instance name so it will only run if it is installed and will also run on other instances, if they are declared (even if our framework doesn\u0027t use them, others might)?\n\n(see getAidlHalInstanceNames in other hardware/interfaces tests)",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 86
+      },
+      "revId": "c968abadd45e48f6e6d2b6985be241166873835a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
