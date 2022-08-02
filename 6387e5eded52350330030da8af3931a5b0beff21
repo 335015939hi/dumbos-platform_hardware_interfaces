@@ -168,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ab91181_24cd0bab",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/GatekeeperResponse.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-08-02T21:28:04Z",
+      "side": 1,
+      "message": "gatekeeperd expects this format to be either in password_handle_t or hw_token_t based on the api.\n1. In the Enroll case, it is password_handle_t. ( https://cs.android.com/android/platform/superproject/+/master:system/gatekeeper/include/gatekeeper/password_handle.h;drc\u003dd959f926cfb5776684a809b3da0fd6bec5f57337;l\u003d33)\n2. In the Verify case, it is  hw_token_t. (https://cs.android.com/android/platform/superproject/+/master:hardware/libhardware/include/hardware/hw_auth_token.h;drc\u003dd959f926cfb5776684a809b3da0fd6bec5f57337;l\u003d47 )\nas the gatekeeperd expects in the above two formats. It should be the same on all devices.",
+      "parentUuid": "4ba06647_a520f006",
+      "range": {
+        "startLine": 36,
+        "startChar": 29,
+        "endLine": 36,
+        "endChar": 54
+      },
+      "revId": "6387e5eded52350330030da8af3931a5b0beff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc720b50_066b2d35",
         "filename": "gatekeeper/aidl/android/hardware/gatekeeper/IGatekeeper.aidl",
         "patchSetId": 3
