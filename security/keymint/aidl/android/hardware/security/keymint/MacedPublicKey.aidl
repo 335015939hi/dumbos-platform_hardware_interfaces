@@ -41,8 +41,6 @@ parcelable MacedPublicKey {
      *         -1 : 1,                 // Curve : P256
      *         -2 : bstr,              // X coordinate, little-endian
      *         -3 : bstr,              // Y coordinate, little-endian
-     *         ? -70000 : nil          // Presence indicates this is a test key.  If set, K_mac is
-     *                                 // all zeros.
      *     },
      *
      *     MAC_structure = [
@@ -51,9 +49,6 @@ parcelable MacedPublicKey {
      *         external_aad : bstr .size 0,
      *         payload : bstr .cbor PublicKey
      *     ]
-     *
-     * if a non-P256 public key were contained, the contents of the PublicKey map would change a
-     * little; see RFC 8152 for details.
      */
     byte[] macedKey;
 }
