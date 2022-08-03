@@ -151,6 +151,14 @@ ErrMsgOr<bytevec> corrupt_sig_chain(const bytevec& encodedEekChain, int which) {
     return corruptChain.encode();
 }
 
+ErrMsgOr<uint32_t> getVersion() {
+    int32_t version;
+    if (!provisionable_->getInterfaceVersion(&version).isOk()) {
+        return "Failed to get version.";
+    }
+    return version;
+}
+
 string device_suffix(const string& name) {
     size_t pos = name.find('/');
     if (pos == string::npos) {
