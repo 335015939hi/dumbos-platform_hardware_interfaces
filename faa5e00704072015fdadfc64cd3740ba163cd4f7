@@ -106,6 +106,23 @@
       "parentUuid": "5b4c60f1_cc97ddcf",
       "revId": "faa5e00704072015fdadfc64cd3740ba163cd4f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61b0358e_8174c514",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1206463
+      },
+      "writtenOn": "2022-08-08T01:00:48Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1: Code-Review+2\n\u003e \n\u003e By voting Code-Review+2 the following files are now code-owner approved by \u003cGERRIT_ACCOUNT_1043663\u003e:\n\u003e * security/keymint/aidl/vts/functional/AttestKeyTest.cpp\n\u003e \n\nThanks Shawn for the review!\nCould you help submit this CL as I don\u0027t have the permission to do that.",
+      "revId": "faa5e00704072015fdadfc64cd3740ba163cd4f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
