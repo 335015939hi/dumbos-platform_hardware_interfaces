@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "021dc4c5_b7abe1d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "super nit: mind spelling this out?",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "394f85ae_e71044c5",
+        "filename": "security/keymint/RKP_CHANGELOG.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "deprecated or removed?\n\nLooks like it\u0027s no longer supported in v3 at all.",
+      "range": {
+        "startLine": 22,
+        "startChar": 25,
+        "endLine": 22,
+        "endChar": 35
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03e5bdaa_76f608b0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "suggest `s/CDI_public_key/public key/`\n\nWe have not yet defined CDI.",
+      "range": {
+        "startLine": 37,
+        "startChar": 34,
+        "endLine": 37,
+        "endChar": 48
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55228d75_e7c16eb0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "Suggest moving this below, as I don\u0027t think we have defined CDI yet (I suggest defining it below, so we can move the definition of CDI_Leaf_* down there).",
+      "range": {
+        "startLine": 40,
+        "startChar": 61,
+        "endLine": 41,
+        "endChar": 56
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "009c65cb_50258058",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "suggest instead: \"...to produce a Compound Device Identifier, or CDI, which is used as the secret key material for the next stage. From the CDI, a key pair, CDI_public_key and CDI_private_key, is derived and certified for the next stage.\"",
+      "range": {
+        "startLine": 52,
+        "startChar": 90,
+        "endLine": 53,
+        "endChar": 33
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6abbf460_dc5bc743",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "nit: `s/signed as part of the/included in the signed/`\n\nAs stated, it could be misinterpreted as a separate signature.",
+      "range": {
+        "startLine": 135,
+        "startChar": 90,
+        "endLine": 136,
+        "endChar": 42
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14b1a53c_c367e2ef",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "nit: `s/structure/Certificate Signing Request`",
+      "range": {
+        "startLine": 138,
+        "startChar": 34,
+        "endLine": 138,
+        "endChar": 43
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f88c5c61_fb1b9db7",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "Should be `AdditionalUdsSignatures`, I think\n\nSince I\u0027m commenting, how about `AdditionalUdsCerts` instead, since these are X.509 certificates.\n\nOr even just `UdsCerts`? AFAICT, these are the _only_ UDS certs, so the word \"Additional\" is a little misleading.",
+      "range": {
+        "startLine": 142,
+        "startChar": 10,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4de3c39_5cd2d9c0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "Should this be `DiceCertChain`?",
+      "range": {
+        "startLine": 195,
+        "startChar": 7,
+        "endLine": 195,
+        "endChar": 10
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5963e27_9a7d78ec",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "Super nit: Should this be `Root + 1` or something?\n\nThis implies to me that there\u0027s a root cert, but there shouldn\u0027t be one.",
+      "range": {
+        "startLine": 197,
+        "startChar": 46,
+        "endLine": 197,
+        "endChar": 50
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56f129fb_3f90905e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "If we\u0027re using SHA256, then we should define how to do the 0-padding for Open Profile, fixed-length 64-bit fields.",
+      "range": {
+        "startLine": 203,
+        "startChar": 67,
+        "endLine": 203,
+        "endChar": 89
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a89bf4e_f1b2565d",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-08T22:40:35Z",
+      "side": 1,
+      "message": "`s/by IRemotelyProvisionedComponent.aidl/above`.",
+      "range": {
+        "startLine": 212,
+        "startChar": 29,
+        "endLine": 212,
+        "endChar": 66
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
