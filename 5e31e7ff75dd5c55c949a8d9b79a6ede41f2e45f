@@ -187,6 +187,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cefe9d04_99d2bd76",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1937166
+      },
+      "writtenOn": "2022-08-09T00:29:34Z",
+      "side": 1,
+      "message": "we are using `UDS_Pub`, `UDS_Public` and `UDS_Public_Key` interchangeably. We should probably stick to a single term for consistency.",
+      "range": {
+        "startLine": 171,
+        "startChar": 17,
+        "endLine": 171,
+        "endChar": 31
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9601f7a2_7b6a055f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1937166
+      },
+      "writtenOn": "2022-08-09T00:29:34Z",
+      "side": 1,
+      "message": "s/DK_pub/UDS_pub\n\nor UDS_Public_Key if we decide to go with that.",
+      "range": {
+        "startLine": 194,
+        "startChar": 52,
+        "endLine": 194,
+        "endChar": 58
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4de3c39_5cd2d9c0",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
