@@ -22,6 +22,30 @@
       },
       "revId": "27477f6f18d9fca9198f6d40577ca6a27ad845a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "710d27a3_ed585f0f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-08-09T21:07:30Z",
+      "side": 1,
+      "message": "\":inputconstants_aidl\" -\u003e \"android/os/IInputConstants.aidl\"",
+      "parentUuid": "fc02e6b6_e2ef1e2e",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "27477f6f18d9fca9198f6d40577ca6a27ad845a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
