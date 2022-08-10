@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1624eb24_60a72c11",
+        "filename": "security/keymint/RKP_CHANGELOG.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-10T20:45:50Z",
+      "side": 1,
+      "message": "Since this is an API doc, I\u0027ll nitpick that one every time 😊",
+      "parentUuid": "83279e8b_03cfd4fd",
+      "range": {
+        "startLine": 22,
+        "startChar": 25,
+        "endLine": 22,
+        "endChar": 35
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03e5bdaa_76f608b0",
@@ -602,6 +626,30 @@
       "side": 1,
       "message": "Possibly. Should we also just go ahead and allow 64-byte* fields?",
       "parentUuid": "56f129fb_3f90905e",
+      "range": {
+        "startLine": 203,
+        "startChar": 67,
+        "endLine": 203,
+        "endChar": 89
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0914470_0348c32e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-10T20:45:50Z",
+      "side": 1,
+      "message": "Open Profile for DICE already specifies all input values for chain derivation are 64 bytes.\n\ne.g. `codeHash - Required. This is the exact 64-byte code input value used to compute CDI values.`\n\nAre we not padding such fields out to 64 bytes already?",
+      "parentUuid": "ab728690_5e70a309",
       "range": {
         "startLine": 203,
         "startChar": 67,
