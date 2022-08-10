@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6d80b32_35dfb8b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "021dc4c5_b7abe1d6",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "394f85ae_e71044c5",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-08-08T22:40:35Z",
       "side": 1,
       "message": "deprecated or removed?\n\nLooks like it\u0027s no longer supported in v3 at all.",
+      "range": {
+        "startLine": 22,
+        "startChar": 25,
+        "endLine": 22,
+        "endChar": 35
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83279e8b_03cfd4fd",
+        "filename": "security/keymint/RKP_CHANGELOG.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Sorry, in my head the two terms mean the same thing. But yes, removed is the accurate term, technically speaking.",
+      "parentUuid": "394f85ae_e71044c5",
       "range": {
         "startLine": 22,
         "startChar": 25,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef5b23da_fc6f8815",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03e5bdaa_76f608b0",
+      "range": {
+        "startLine": 37,
+        "startChar": 34,
+        "endLine": 37,
+        "endChar": 48
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55228d75_e7c16eb0",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-08-08T22:40:35Z",
       "side": 1,
       "message": "Suggest moving this below, as I don\u0027t think we have defined CDI yet (I suggest defining it below, so we can move the definition of CDI_Leaf_* down there).",
+      "range": {
+        "startLine": 40,
+        "startChar": 61,
+        "endLine": 41,
+        "endChar": 56
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce3bc6fd_8f46dcb0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55228d75_e7c16eb0",
       "range": {
         "startLine": 40,
         "startChar": 61,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78861310_9d41c5ab",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "009c65cb_50258058",
+      "range": {
+        "startLine": 52,
+        "startChar": 90,
+        "endLine": 53,
+        "endChar": 33
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6abbf460_dc5bc743",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-08-08T22:40:35Z",
       "side": 1,
       "message": "nit: `s/signed as part of the/included in the signed/`\n\nAs stated, it could be misinterpreted as a separate signature.",
+      "range": {
+        "startLine": 135,
+        "startChar": 90,
+        "endLine": 136,
+        "endChar": 42
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f2d8da3_a3123a86",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6abbf460_dc5bc743",
       "range": {
         "startLine": 135,
         "startChar": 90,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5619cb0d_da744ed0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14b1a53c_c367e2ef",
+      "range": {
+        "startLine": 138,
+        "startChar": 34,
+        "endLine": 138,
+        "endChar": 43
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f88c5c61_fb1b9db7",
@@ -175,6 +343,30 @@
       "writtenOn": "2022-08-08T22:40:35Z",
       "side": 1,
       "message": "Should be `AdditionalUdsSignatures`, I think\n\nSince I\u0027m commenting, how about `AdditionalUdsCerts` instead, since these are X.509 certificates.\n\nOr even just `UdsCerts`? AFAICT, these are the _only_ UDS certs, so the word \"Additional\" is a little misleading.",
+      "range": {
+        "startLine": 142,
+        "startChar": 10,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d00ec79a_6100062c",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f88c5c61_fb1b9db7",
       "range": {
         "startLine": 142,
         "startChar": 10,
@@ -208,6 +400,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71d54e5e_afdd4140",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cefe9d04_99d2bd76",
+      "range": {
+        "startLine": 171,
+        "startChar": 17,
+        "endLine": 171,
+        "endChar": 31
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9601f7a2_7b6a055f",
@@ -221,6 +437,30 @@
       "writtenOn": "2022-08-09T00:29:34Z",
       "side": 1,
       "message": "s/DK_pub/UDS_pub\n\nor UDS_Public_Key if we decide to go with that.",
+      "range": {
+        "startLine": 194,
+        "startChar": 52,
+        "endLine": 194,
+        "endChar": 58
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "609977b8_93d64e49",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9601f7a2_7b6a055f",
       "range": {
         "startLine": 194,
         "startChar": 52,
@@ -254,6 +494,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17da622d_50524962",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4de3c39_5cd2d9c0",
+      "range": {
+        "startLine": 195,
+        "startChar": 7,
+        "endLine": 195,
+        "endChar": 10
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5963e27_9a7d78ec",
@@ -267,6 +531,30 @@
       "writtenOn": "2022-08-08T22:40:35Z",
       "side": 1,
       "message": "Super nit: Should this be `Root + 1` or something?\n\nThis implies to me that there\u0027s a root cert, but there shouldn\u0027t be one.",
+      "range": {
+        "startLine": 197,
+        "startChar": 46,
+        "endLine": 197,
+        "endChar": 50
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74967f86_caf9ff68",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5963e27_9a7d78ec",
       "range": {
         "startLine": 197,
         "startChar": 46,
@@ -302,6 +590,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab728690_5e70a309",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Possibly. Should we also just go ahead and allow 64-byte* fields?",
+      "parentUuid": "56f129fb_3f90905e",
+      "range": {
+        "startLine": 203,
+        "startChar": 67,
+        "endLine": 203,
+        "endChar": 89
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a89bf4e_f1b2565d",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
@@ -313,6 +625,30 @@
       "writtenOn": "2022-08-08T22:40:35Z",
       "side": 1,
       "message": "`s/by IRemotelyProvisionedComponent.aidl/above`.",
+      "range": {
+        "startLine": 212,
+        "startChar": 29,
+        "endLine": 212,
+        "endChar": 66
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eb48b8a_27f71b37",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T01:28:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a89bf4e_f1b2565d",
       "range": {
         "startLine": 212,
         "startChar": 29,
