@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd177de4_09db36b6",
+        "filename": "security/keymint/RKP_CHANGELOG.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T21:46:26Z",
+      "side": 1,
+      "message": "To be clear, I agree with the nitpicking.",
+      "parentUuid": "1624eb24_60a72c11",
+      "range": {
+        "startLine": 22,
+        "startChar": 25,
+        "endLine": 22,
+        "endChar": 35
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03e5bdaa_76f608b0",
@@ -650,6 +674,30 @@
       "side": 1,
       "message": "Open Profile for DICE already specifies all input values for chain derivation are 64 bytes.\n\ne.g. `codeHash - Required. This is the exact 64-byte code input value used to compute CDI values.`\n\nAre we not padding such fields out to 64 bytes already?",
       "parentUuid": "ab728690_5e70a309",
+      "range": {
+        "startLine": 203,
+        "startChar": 67,
+        "endLine": 203,
+        "endChar": 89
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cda2c14e_ba3c60ce",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-10T21:46:26Z",
+      "side": 1,
+      "message": "Nope. It\u0027s a lot of memory pressure for some of our SoC vendor partners as they build the chain in the early parts of boot, so we cut down the req to 32 bytes.",
+      "parentUuid": "e0914470_0348c32e",
       "range": {
         "startLine": 203,
         "startChar": 67,
