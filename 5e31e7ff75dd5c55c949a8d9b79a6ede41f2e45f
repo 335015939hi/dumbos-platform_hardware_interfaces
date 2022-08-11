@@ -734,6 +734,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f530375_173e8162",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-11T15:29:16Z",
+      "side": 1,
+      "message": "I started looking into updating the open profile spec to support this, and the wording is complicated.\n\nThe spec has now been uploaded as a draft document to TCG, so I think the next best step is trying to tackle it there.",
+      "parentUuid": "3a745ccd_d84135c8",
+      "range": {
+        "startLine": 203,
+        "startChar": 67,
+        "endLine": 203,
+        "endChar": 89
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a89bf4e_f1b2565d",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
