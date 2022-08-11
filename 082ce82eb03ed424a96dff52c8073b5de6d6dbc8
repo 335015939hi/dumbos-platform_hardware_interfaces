@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bac95453_66f62591",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-08-11T12:03:01Z",
+      "side": 1,
+      "message": "This comment is unhelpful -- where specifically was it copied from, and what modifications were made?\n\nMore generally, can this be moved / refactored into a common library rather than copy-pasted?",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "421a4a0c_a7abb709",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-08-11T12:03:01Z",
+      "side": 1,
+      "message": "The `? true : false` seems unnecessary (passim).",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44305f01_ae48ff26",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-08-11T12:03:01Z",
+      "side": 1,
+      "message": "BTW this is not correct for a curve 25519 key (which is size 256 but not supported by StrongBox)",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f4b3ad2_1e05ef28",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-08-11T12:03:01Z",
+      "side": 1,
+      "message": "nit: s/strong box/StrongBox/ (Passim).",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb52606a_6759624b",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-08-11T12:03:01Z",
+      "side": 1,
+      "message": "It would be nice to include the reason for skipping here. (Passim)",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62caa9ea_53e15bb5",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-08-11T12:03:01Z",
+      "side": 1,
+      "message": "- s/public/public key/\n- This isn\u0027t StrongBox specific -- the tests should (now) do local verify for all security levels\n- nit: start sentence with capital letter",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38da3570_e73189a4",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-08-11T12:03:01Z",
+      "side": 1,
+      "message": "nit: this line feels like it should below between SHA224 and SHA384",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad73113_8bcadb02",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-08-11T12:03:01Z",
+      "side": 1,
+      "message": "This isn\u0027t StrongBox specific -- the tests should (now) do local RSA encrypt for all security levels. (Passim)",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
