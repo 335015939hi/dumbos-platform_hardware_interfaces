@@ -154,6 +154,29 @@
       },
       "revId": "a72211733edcd45e8613361dc6293c673a050930",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92b11c6b_787f6419",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-11T20:26:57Z",
+      "side": 1,
+      "message": "I think this should be a separate function from `generateCertificateRequest` (per the email thread with IDL-discuss).",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 4
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

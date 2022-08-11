@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f591a03_c6f044de",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-11T20:26:57Z",
+      "side": 0,
+      "message": "For back compat, let\u0027s keep this. It\u0027s just ignored by V3 components.",
+      "range": {
+        "startLine": 142,
+        "startChar": 36,
+        "endLine": 142,
+        "endChar": 55
+      },
+      "revId": "5d88e95b36451e03c2374d2abcdee5a5dbe8981e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b66211ac_b34b2292",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-11T20:26:57Z",
+      "side": 0,
+      "message": "I think we\u0027re stuck with this for back compat reasons.",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 24
+      },
+      "revId": "5d88e95b36451e03c2374d2abcdee5a5dbe8981e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
