@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0676e13_17d9213e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2022-08-11T19:05:10Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be CDI_leaf_priv? (because we coined UDS to be the \"root keypair\" above.)",
+      "range": {
+        "startLine": 69,
+        "startChar": 61,
+        "endLine": 69,
+        "endChar": 74
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0848eea_940053a9",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2022-08-11T19:05:10Z",
+      "side": 1,
+      "message": "For my understanding, what does this imply? Does the server have knowledge of the UDS keys which allows it to trust the message originating/signed by UDS_priv?",
+      "range": {
+        "startLine": 71,
+        "startChar": 24,
+        "endLine": 71,
+        "endChar": 91
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "efa3a946_c697c077",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 2
@@ -36,6 +82,29 @@
         "startChar": 10,
         "endLine": 93,
         "endChar": 56
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e293177_3c28621b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2022-08-11T19:05:10Z",
+      "side": 1,
+      "message": "First time usage, say \"RKP daemon (RKPD) service ..\"",
+      "range": {
+        "startLine": 93,
+        "startChar": 51,
+        "endLine": 93,
+        "endChar": 55
       },
       "revId": "a72211733edcd45e8613361dc6293c673a050930",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
