@@ -16,6 +16,75 @@
       "message": "LGTM, just one question about padding that I think we can answer later.",
       "revId": "a72211733edcd45e8613361dc6293c673a050930",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efa3a946_c697c077",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-08-11T01:30:17Z",
+      "side": 1,
+      "message": "Does this just mean that the mean DICE chain is accessible to rkpd because it\u0027s returned by generateCertificateRequest(), but the chain doesn\u0027t get shared further than that, at least not to apps, within Android?",
+      "range": {
+        "startLine": 93,
+        "startChar": 10,
+        "endLine": 93,
+        "endChar": 56
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2d06b35_e712b266",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-08-11T01:30:17Z",
+      "side": 1,
+      "message": "Is this CDI_Leaf_Priv? If it said somewhere which key is used here, I didn\u0027t read it properly.",
+      "range": {
+        "startLine": 151,
+        "startChar": 55,
+        "endLine": 151,
+        "endChar": 65
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e2b45fc_e2b6f2b9",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-08-11T01:30:17Z",
+      "side": 1,
+      "message": "At least one of these is required?",
+      "range": {
+        "startLine": 176,
+        "startChar": 11,
+        "endLine": 176,
+        "endChar": 12
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
