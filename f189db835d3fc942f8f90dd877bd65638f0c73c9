@@ -16,6 +16,23 @@
       "message": "Jamieson, could you please review this CL?  Thanks!",
       "revId": "f189db835d3fc942f8f90dd877bd65638f0c73c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d84f7a6f_cc679656",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2022-08-12T15:57:04Z",
+      "side": 1,
+      "message": "Sorry, please ignore my request to review this CL.  This will be done by aosp/2182380.",
+      "revId": "f189db835d3fc942f8f90dd877bd65638f0c73c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
