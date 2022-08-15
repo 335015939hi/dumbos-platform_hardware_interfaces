@@ -16,6 +16,24 @@
       "message": "Might as well also change the commit message to make the Inclusive Language check happy.",
       "revId": "97c37e561d1e3abc8bb374b7b3d2bc7a2abe0b38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c6e3903_79fbab2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956970
+      },
+      "writtenOn": "2022-08-15T17:39:50Z",
+      "side": 1,
+      "message": "Ah, I didn\u0027t realize it was checking the commit message too. I was wondering why it still said there was a language issue. Fixed it.",
+      "parentUuid": "556a2ffc_19b89e0f",
+      "revId": "97c37e561d1e3abc8bb374b7b3d2bc7a2abe0b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
