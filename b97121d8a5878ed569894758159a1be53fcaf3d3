@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bd3215a_b88197cc",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2612,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-08-15T21:47:34Z",
+      "side": 1,
+      "message": "Do we need to add HMAC Digest?\nSame for other places with just Digest.",
+      "range": {
+        "startLine": 2612,
+        "startChar": 44,
+        "endLine": 2612,
+        "endChar": 45
+      },
+      "revId": "b97121d8a5878ed569894758159a1be53fcaf3d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eef42b34_a22133f5",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4418,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-08-15T21:47:34Z",
+      "side": 1,
+      "message": "Do we need to indicate this is about an AES key?",
+      "range": {
+        "startLine": 4418,
+        "startChar": 44,
+        "endLine": 4418,
+        "endChar": 58
+      },
+      "revId": "b97121d8a5878ed569894758159a1be53fcaf3d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd8d227b_a25de8bf",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4486,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-08-15T21:47:34Z",
+      "side": 1,
+      "message": "Do we need to indicate this is about an 3-DES key?",
+      "range": {
+        "startLine": 4486,
+        "startChar": 44,
+        "endLine": 4486,
+        "endChar": 60
+      },
+      "revId": "b97121d8a5878ed569894758159a1be53fcaf3d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43c80079_c4f015fc",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5163,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-08-15T21:47:34Z",
+      "side": 1,
+      "message": "Do we need to indicate that this is related to RsaOaep?",
+      "range": {
+        "startLine": 5163,
+        "startChar": 44,
+        "endLine": 5163,
+        "endChar": 50
+      },
+      "revId": "b97121d8a5878ed569894758159a1be53fcaf3d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
