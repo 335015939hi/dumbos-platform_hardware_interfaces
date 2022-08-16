@@ -321,6 +321,30 @@
       },
       "revId": "a72211733edcd45e8613361dc6293c673a050930",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3f1369c_9e46866c",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-16T18:04:35Z",
+      "side": 1,
+      "message": "ooh! ok. I got added to the attention set and thought this was ready to go.",
+      "parentUuid": "d2d86dd1_7673fac3",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 4
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
