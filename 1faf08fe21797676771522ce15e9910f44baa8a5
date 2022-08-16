@@ -22,6 +22,30 @@
       },
       "revId": "1faf08fe21797676771522ce15e9910f44baa8a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c18f8ff3_5655c48c",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-16T23:26:18Z",
+      "side": 1,
+      "message": "Argh, I was going to stack this on top of the current change. Yes, thanks.",
+      "parentUuid": "ac664c21_c0115476",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 1
+      },
+      "revId": "1faf08fe21797676771522ce15e9910f44baa8a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
