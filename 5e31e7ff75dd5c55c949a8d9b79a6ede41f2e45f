@@ -852,6 +852,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d499af8d_bec8fde4",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-16T23:28:37Z",
+      "side": 1,
+      "message": "Would everyone be happy if I altered this to:\n\n\"All hashes are either 32 or 64 bytes in size. We recommend using SHA256 or SHA512.\"\n\nThat way SoC vendors can be fully compliant with open-DICE if they want to be, without needing to alter open-DICE?",
+      "parentUuid": "5f530375_173e8162",
+      "range": {
+        "startLine": 203,
+        "startChar": 67,
+        "endLine": 203,
+        "endChar": 89
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a89bf4e_f1b2565d",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
