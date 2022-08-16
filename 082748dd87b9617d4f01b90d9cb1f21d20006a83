@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f5b49d5_9236e269",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/MacedPublicKey.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-16T22:10:44Z",
+      "side": 0,
+      "message": "We should probably mark `-70000` as reserved now.",
+      "range": {
+        "startLine": 44,
+        "startChar": 17,
+        "endLine": 44,
+        "endChar": 25
+      },
+      "revId": "082748dd87b9617d4f01b90d9cb1f21d20006a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
