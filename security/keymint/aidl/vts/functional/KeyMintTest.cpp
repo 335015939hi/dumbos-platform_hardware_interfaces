@@ -741,6 +741,7 @@ TEST_P(NewKeyGenerationTest, AesInvalidSize) {
 
     for (auto block_mode : ValidBlockModes(Algorithm::AES)) {
         for (auto padding_mode : ValidPaddingModes(Algorithm::AES, block_mode)) {
+            SCOPED_TRACE(testing::Message() << "AES-unknown-" << block_mode << "-" << padding_mode);
             vector<uint8_t> key_blob;
             vector<KeyCharacteristics> key_characteristics;
             // No key size specified
@@ -994,6 +995,7 @@ TEST_P(NewKeyGenerationTest, TripleDesInvalidSize) {
  */
 TEST_P(NewKeyGenerationTest, Rsa) {
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -1066,6 +1068,7 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
     vector<uint8_t> serial_blob(build_serial_blob(serial_int));
 
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         auto builder = AuthorizationSetBuilder()
@@ -1148,6 +1151,7 @@ TEST_P(NewKeyGenerationTest, DISABLED_RsaWithRpkAttestation) {
     attestation_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
 
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         auto challenge = "hello";
         auto app_id = "foo";
 
@@ -1295,6 +1299,7 @@ TEST_P(NewKeyGenerationTest, RsaWithSelfSign) {
     vector<uint8_t> serial_blob(build_serial_blob(serial_int));
 
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK,
@@ -1416,6 +1421,7 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestationAppIdIgnored) {
  */
 TEST_P(NewKeyGenerationTest, LimitedUsageRsa) {
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -1466,6 +1472,7 @@ TEST_P(NewKeyGenerationTest, LimitedUsageRsaWithAttestation) {
     vector<uint8_t> serial_blob(build_serial_blob(serial_int));
 
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         auto builder = AuthorizationSetBuilder()
@@ -1535,6 +1542,7 @@ TEST_P(NewKeyGenerationTest, LimitedUsageRsaWithAttestation) {
  */
 TEST_P(NewKeyGenerationTest, NoInvalidRsaSizes) {
     for (auto key_size : InvalidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
@@ -1569,6 +1577,7 @@ TEST_P(NewKeyGenerationTest, RsaNoDefaultSize) {
  */
 TEST_P(NewKeyGenerationTest, RsaMissingParams) {
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         ASSERT_EQ(ErrorCode::OK,
                   GenerateKey(
                           AuthorizationSetBuilder().RsaKey(key_size, 65537).SetDefaultValidity()));
@@ -1584,6 +1593,7 @@ TEST_P(NewKeyGenerationTest, RsaMissingParams) {
  */
 TEST_P(NewKeyGenerationTest, Ecdsa) {
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -1709,6 +1719,7 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestation) {
     vector<uint8_t> serial_blob(build_serial_blob(serial_int));
 
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         auto builder = AuthorizationSetBuilder()
@@ -2211,6 +2222,7 @@ TEST_P(NewKeyGenerationTest, EcdsaSelfSignAttestation) {
     vector<uint8_t> serial_blob(build_serial_blob(serial_int));
 
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK,
@@ -2282,6 +2294,7 @@ TEST_P(NewKeyGenerationTest, EcdsaIgnoreAppId) {
     auto app_id = "foo";
 
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -2323,6 +2336,7 @@ TEST_P(NewKeyGenerationTest, AttestationApplicationIDLengthProperlyEncoded) {
     std::vector<uint32_t> app_id_lengths{143, 258};
 
     for (uint32_t length : app_id_lengths) {
+        SCOPED_TRACE(testing::Message() << "app_id_len=" << length);
         const string app_id(length, 'a');
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
@@ -2377,6 +2391,7 @@ TEST_P(NewKeyGenerationTest, AttestationApplicationIDLengthProperlyEncoded) {
  */
 TEST_P(NewKeyGenerationTest, LimitedUsageEcdsa) {
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -2430,6 +2445,7 @@ TEST_P(NewKeyGenerationTest, EcdsaDefaultSize) {
  */
 TEST_P(NewKeyGenerationTest, EcdsaInvalidCurve) {
     for (auto curve : InvalidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         auto result = GenerateKey(AuthorizationSetBuilder()
@@ -2507,6 +2523,7 @@ TEST_P(NewKeyGenerationTest, EcdsaAllValidCurves) {
         digest = Digest::SHA_2_512;
     }
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         EXPECT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .EcdsaSigningKey(curve)
                                                      .Digest(digest)
@@ -2524,6 +2541,7 @@ TEST_P(NewKeyGenerationTest, EcdsaAllValidCurves) {
  */
 TEST_P(NewKeyGenerationTest, Hmac) {
     for (auto digest : ValidDigests(false /* withNone */, true /* withMD5 */)) {
+        SCOPED_TRACE(testing::Message() << "Digest::" << digest);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         constexpr size_t key_size = 128;
@@ -2557,6 +2575,7 @@ TEST_P(NewKeyGenerationTest, HmacNoAttestation) {
     auto app_id = "foo";
 
     for (auto digest : ValidDigests(false /* withNone */, true /* withMD5 */)) {
+        SCOPED_TRACE(testing::Message() << "Digest::" << digest);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         constexpr size_t key_size = 128;
@@ -2590,6 +2609,7 @@ TEST_P(NewKeyGenerationTest, HmacNoAttestation) {
  */
 TEST_P(NewKeyGenerationTest, LimitedUsageHmac) {
     for (auto digest : ValidDigests(false /* withNone */, true /* withMD5 */)) {
+        SCOPED_TRACE(testing::Message() << "Digest::" << digest);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         constexpr size_t key_size = 128;
@@ -2628,6 +2648,7 @@ TEST_P(NewKeyGenerationTest, LimitedUsageHmac) {
  */
 TEST_P(NewKeyGenerationTest, HmacCheckKeySizes) {
     for (size_t key_size = 0; key_size <= 512; ++key_size) {
+        SCOPED_TRACE(testing::Message() << "HMAC-" << key_size);
         if (key_size < 64 || key_size % 8 != 0) {
             // To keep this test from being very slow, we only test a random fraction of
             // non-byte key sizes.  We test only ~10% of such cases. Since there are 392 of
@@ -2670,6 +2691,7 @@ TEST_P(NewKeyGenerationTest, HmacCheckKeySizes) {
  */
 TEST_P(NewKeyGenerationTest, HmacCheckMinMacLengths) {
     for (size_t min_mac_length = 0; min_mac_length <= 256; ++min_mac_length) {
+        SCOPED_TRACE(testing::Message() << "MIN_MAC_LENGTH=" << min_mac_length);
         if (min_mac_length < 64 || min_mac_length % 8 != 0) {
             // To keep this test from being very long, we only test a random fraction of
             // non-byte lengths.  We test only ~10% of such cases. Since there are 172 of them,
@@ -2826,6 +2848,7 @@ TEST_P(SigningOperationsTest, RsaAllPaddingsAndDigests) {
     for (auto padding :
          {PaddingMode::NONE, PaddingMode::RSA_PSS, PaddingMode::RSA_PKCS1_1_5_SIGN}) {
         for (auto digest : ValidDigests(true /* withNone */, true /* withMD5 */)) {
+            SCOPED_TRACE(testing::Message() << "RSA padding=" << padding << " digest=" << digest);
             if (padding == PaddingMode::NONE && digest != Digest::NONE) {
                 // Digesting only makes sense with padding.
                 continue;
@@ -3541,6 +3564,7 @@ TEST_P(SigningOperationsTest, AesEcbSign) {
  */
 TEST_P(SigningOperationsTest, HmacAllDigests) {
     for (auto digest : ValidDigests(false /* withNone */, false /* withMD5 */)) {
+        SCOPED_TRACE(testing::Message() << "Digest::" << digest);
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .Authorization(TAG_NO_AUTH_REQUIRED)
                                                      .HmacKey(128)
@@ -4391,6 +4415,7 @@ TEST_P(ImportKeyTest, AesFailure) {
     string key = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     uint32_t bitlen = key.size() * 8;
     for (uint32_t key_size : {bitlen - 1, bitlen + 1, bitlen - 8, bitlen + 8}) {
+        SCOPED_TRACE(testing::Message() << "import-key-size=" << key_size);
         // Explicit key size doesn't match that of the provided key.
         auto result = ImportKey(AuthorizationSetBuilder()
                                         .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -4458,6 +4483,7 @@ TEST_P(ImportKeyTest, TripleDesFailure) {
     string key = hex2str("a49d7564199e97cb529d2c9d97bf2f98d35edf57ba1f7358");
     uint32_t bitlen = key.size() * 7;
     for (uint32_t key_size : {bitlen - 1, bitlen + 1, bitlen - 8, bitlen + 8}) {
+        SCOPED_TRACE(testing::Message() << "import-key-size=" << key_size);
         // Explicit key size doesn't match that of the provided key.
         auto result = ImportKey(AuthorizationSetBuilder()
                                         .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -4943,6 +4969,7 @@ typedef KeyMintAidlTestBase EncryptionOperationsTest;
  */
 TEST_P(EncryptionOperationsTest, RsaNoPaddingSuccess) {
     for (uint64_t exponent : ValidExponents()) {
+        SCOPED_TRACE(testing::Message() << "RSA exponent=" << exponent);
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .Authorization(TAG_NO_AUTH_REQUIRED)
                                                      .RsaEncryptionKey(2048, exponent)
@@ -5133,6 +5160,7 @@ TEST_P(EncryptionOperationsTest, RsaOaepWithMGFDigestSuccess) {
     string message = "Hello";
 
     for (auto digest : digests) {
+        SCOPED_TRACE(testing::Message() << "digest-" << digest);
         auto params = AuthorizationSetBuilder()
                               .Authorization(TAG_RSA_OAEP_MGF_DIGEST, digest)
                               .Digest(Digest::SHA_2_256)
@@ -5166,6 +5194,79 @@ TEST_P(EncryptionOperationsTest, RsaOaepWithMGFDigestSuccess) {
         EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
         EXPECT_EQ(0U, result.size());
     }
+}
+
+/*
+ * EncryptionOperationsTest.RsaOaepMGFDigestDefaultSuccess
+ *
+ * Verifies that RSA-OAEP decryption operations work when no MGF digest is
+ * specified, defaulting to SHA-1.
+ */
+TEST_P(EncryptionOperationsTest, RsaOaepMGFDigestDefaultSuccess) {
+    size_t key_size = 2048;
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .RsaEncryptionKey(key_size, 65537)
+                                                 .Padding(PaddingMode::RSA_OAEP)
+                                                 .Digest(Digest::SHA_2_256)
+                                                 .SetDefaultValidity()));
+
+    // Do local RSA encryption using the default MGF digest of SHA-1.
+    string message = "Hello";
+    auto params =
+            AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP);
+    string ciphertext = LocalRsaEncryptMessage(message, params);
+    EXPECT_EQ(key_size / 8, ciphertext.size());
+
+    // Do KeyMint RSA decryption also using the default MGF digest of SHA-1.
+    string plaintext = DecryptMessage(ciphertext, params);
+    EXPECT_EQ(message, plaintext) << "RSA-OAEP failed with default digest";
+
+    // Decrypting corrupted ciphertext should fail.
+    size_t offset_to_corrupt = random() % ciphertext.size();
+    char corrupt_byte;
+    do {
+        corrupt_byte = static_cast<char>(random() % 256);
+    } while (corrupt_byte == ciphertext[offset_to_corrupt]);
+    ciphertext[offset_to_corrupt] = corrupt_byte;
+
+    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
+    string result;
+    EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext, &result));
+    EXPECT_EQ(0U, result.size());
+}
+
+/*
+ * EncryptionOperationsTest.RsaOaepMGFDigestDefaultFail
+ *
+ * Verifies that RSA-OAEP decryption operations fail when no MGF digest is
+ * specified on begin (thus defaulting to SHA-1), but the key characteristics
+ * has an explicit set of values for MGF_DIGEST that do not contain SHA-1.
+ */
+TEST_P(EncryptionOperationsTest, RsaOaepMGFDigestDefaultFail) {
+    size_t key_size = 2048;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .Authorization(TAG_RSA_OAEP_MGF_DIGEST, Digest::SHA_2_256)
+                                  .RsaEncryptionKey(key_size, 65537)
+                                  .Padding(PaddingMode::RSA_OAEP)
+                                  .Digest(Digest::SHA_2_256)
+                                  .SetDefaultValidity()));
+
+    // Do local RSA encryption using the default MGF digest of SHA-1.
+    string message = "Hello";
+    auto params =
+            AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP);
+    string ciphertext = LocalRsaEncryptMessage(message, params);
+    EXPECT_EQ(key_size / 8, ciphertext.size());
+
+    // begin() params do not include MGF_DIGEST, so a default of SHA1 is assumed.
+    // Key characteristics *do* include values for MGF_DIGEST, so the SHA1 value
+    // is checked against those values, and found absent.
+    auto result = Begin(KeyPurpose::DECRYPT, params);
+    EXPECT_TRUE(result == ErrorCode::UNSUPPORTED_MGF_DIGEST ||
+                result == ErrorCode::INCOMPATIBLE_MGF_DIGEST);
 }
 
 /*
@@ -5480,6 +5581,7 @@ TEST_P(EncryptionOperationsTest, AesWrongPurpose) {
  */
 TEST_P(EncryptionOperationsTest, AesEcbCbcNoPaddingWrongInputSize) {
     for (BlockMode blockMode : {BlockMode::ECB, BlockMode::CBC}) {
+        SCOPED_TRACE(testing::Message() << "AES-" << blockMode);
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .Authorization(TAG_NO_AUTH_REQUIRED)
                                                      .AesEncryptionKey(128)
@@ -5699,6 +5801,328 @@ TEST_P(EncryptionOperationsTest, AesGcmIncremental) {
     CheckAesIncrementalEncryptOperation(BlockMode::GCM, 240);
 }
 
+/*
+ * EncryptionOperationsTest.Aes128CBCNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128CBCNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("7E3D723C09A9852B24F584F9D916F6A8");
+    string kat_iv = hex2str("944AE274D983892EADE422274858A96A");
+    string kat_plaintext =
+            hex2str("044E15899A080AADEB6778F64323B64D2CBCBADB338DF93B9AC459D4F41029"
+                    "809FFF37081C22EF278F896AB213A2A631");
+    string kat_ciphertext =
+            hex2str("B419293FCBD686F2913D1CF947E510D42FAFEDE5593C98AFD6AEE272596A"
+                    "56FE42C22F2A5E3B6A02BA9D8D0DE1E9A810");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes128CBCPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128CBCPKCS7PaddingOneByteAtATime) {
+    string kat_key = hex2str("F16E698472578E919D92806262C5169F");
+    string kat_iv = hex2str("EF743540F8421ACA128A3247521F3E7D");
+    string kat_plaintext =
+            hex2str("5BEBF33569D90BF5E853814E12E7C7AA5758013F755773E29F4A25EC26EEB7"
+                    "65F7F2DC251F7DC62AEFCA1E8A5A11A1DCD44F0BD8FB593A5AE3");
+    string kat_ciphertext =
+            hex2str("3197CF6DB9466188B5FED375329324EE7D6092A8C0E41DFAF49E3724271427"
+                    "896D56A6243C0D59D6639722AF93CD53449BDDABF9C5F153EBDBFED9ED98C8CC37");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::PKCS7, kat_iv,
+                                  kat_plaintext, kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes128CTRNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CTR/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128CTRNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("4713a7b2f93efe809b42ecc45213ef9f");
+    string kat_iv = hex2str("ebfa19b0ebf3d57feabd4c4bd04bea01");
+    string kat_plaintext =
+            hex2str("6d2c07e1fc86f99c6e2a8f6567828b4262a9c23d0f3ed8ab32482283c79796"
+                    "f0adba1bcd3736084996452a917fae98005aebe61f9e91c3");
+    string kat_ciphertext =
+            hex2str("345deb1d67b95e600e05cad4c32ec381aadb3e2c1ec7e0fb956dc38e6860cf"
+                    "0553535566e1b12fa9f87d29266ca26df427233df035df28");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CTR, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes128ECBNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128ECBNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("7DA2467F068854B3CB36E5C333A16619");
+    string kat_plaintext =
+            hex2str("9A07C9575AD9CE209DF9F3953965CEBE8208587C7AE575A1904BF25048946D"
+                    "7B6168A9A27BCE554BEA94EF26E6C742A0");
+    string kat_ciphertext =
+            hex2str("8C47E49420FC92AC4CA2C601BC3F8AC31D01B260B7B849F2B8EEDFFFED8F36"
+                    "C31CBDA0D22F95C9C2A48C347E8C77AC82");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::NONE, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes128ECBPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128ECBPKCS7PaddingOneByteAtATime) {
+    string kat_key = hex2str("C3BE04BCCB3D99B85290F113FE7AF194");
+    string kat_plaintext =
+            hex2str("348C213FD8DF3F990C20C5ACBF07B34B6264AE245784A5A6176DBFB1C2E7DD"
+                    "27E52CC92B8EEE40614F05B507B355F6354A2705BD86");
+    string kat_ciphertext =
+            hex2str("07CD05C41FEDEDDC5DB4B3E35E676153184A119AA4DFDDC290616F1FA60093"
+                    "1DE6BEA9BDB90D1D733899946F8C8E5C0C4383F99F5D88E27F3EBC0C6E52759ED3");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::PKCS7, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes128GCMNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/GCM/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128GCMNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("ba76354f0aed6e8d91f45c4ff5a062db");
+    string kat_iv = hex2str("b79437ae08ff355d7d8a4d0f");
+    string kat_plaintext =
+            hex2str("6d7596a8fd56ceaec61de7940984b7736fec44f572afc3c8952e4dc6541e2b"
+                    "c6a702c440a37610989543f63fedb047ca2173bc18581944");
+    string kat_ciphertext =
+            hex2str("b3f6799e8f9326f2df1e80fcd2cb16d78c9dc7cc14bb677862dc6c639b3a63"
+                    "38d24b312d3989e5920b5dbfc976765efbfe57bb385940a7a43bdf05bddae3c9d6a2fb"
+                    "bdfcc0cba0");
+
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::GCM, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192CBCNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192CBCNoPaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("be8cc4e25cce46e5d55725e2391f7d3cf59ed60062f5a43b");
+    string kat_iv = hex2str("80a199aab0eee77e7762ddf3b3a32f40");
+    string kat_plaintext =
+            hex2str("064f9200e0df37d4711af4a69d11addf9e1c345d9d8195f9f1f715019ce96a"
+                    "167f2497c994bd496eb80bfb2ba2c9d5af");
+    string kat_ciphertext =
+            hex2str("859b90becaa85e95a71e104efbd7a3b723bcbf4eb39865544a05d9e90b6fe5"
+                    "72c134552f3a138e726fbe493b3a839598");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192CBCPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192CBCPKCS7PaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("68969215ec41e4df7d23de0e806f458f52aff492bd7c5263");
+    string kat_iv = hex2str("e61d13dfbf0533289f0e7950209da418");
+    string kat_plaintext =
+            hex2str("8d4c1cac27511ee2d82409a7f378e7e402b0eb189c1eaa5c506eb72a9074"
+                    "b170");
+    string kat_ciphertext =
+            hex2str("e70bcd62c595dc1b2b8c197bb91a7447e1be2cbcf3fdc69e7e991faf0f57cf"
+                    "4e3884138ff403a41fd99818708ada301c");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::PKCS7, kat_iv,
+                                  kat_plaintext, kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192CTRNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CTR/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192CTRNoPaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("5e2036e790d38815c90beb67a1c9e5aa0e167ef082927317");
+    string kat_iv = hex2str("df0694959b89054156962d68a226965c");
+    string kat_plaintext =
+            hex2str("6ed2781c99e03e45314d6019932220c2c98130c53f9f67ad10ac519adf50e9"
+                    "28091e09cdbbd3b42b");
+    string kat_ciphertext =
+            hex2str("e427b6666502e05b82d0b20ae50e862b1936d71266fc49178ac984e71571f2"
+                    "2ae0f90f0c19f42b4a");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CTR, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192ECBNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192ECBNoPaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("3cab83fb338ba985fbfe74c5e9d2e900adb570b1d67faf92");
+    string kat_plaintext =
+            hex2str("2cc64c335a13fb838f3c6aad0a6b47297ca90bb886ddb059200f0b41740c"
+                    "44ab");
+    string kat_ciphertext =
+            hex2str("9c5c825328f5ee0aa24947e374d3f9165f484b39dd808c790d7a12964810"
+                    "2453");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::NONE, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192ECBPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192ECBPKCS7PaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("d57f4e5446f736c16476ec4db5decc7b1bf3936e4f7e4618");
+    string kat_plaintext =
+            hex2str("b115777f1ee7a43a07daa6401e59c46b7a98213a8747eabfbe3ca4ec93524d"
+                    "e2c7");
+    string kat_ciphertext =
+            hex2str("1e92cd20da08bb5fa174a7a69879d4fc25a155e6af06d75b26c5b450d273c8"
+                    "bb7e3a889dd4a9589098b44acf1056e7aa");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::PKCS7, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192GCMNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/GCM/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192GCMNoPaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("21339fc1d011abca65d50ce2365230603fd47d07e8830f6e");
+    string kat_iv = hex2str("d5fb1469a8d81dd75286a418");
+    string kat_plaintext =
+            hex2str("cf776dedf53a828d51a0073db3ef0dd1ee19e2e9e243ce97e95841bb9ad4e3"
+                    "ff52");
+    string kat_ciphertext =
+            hex2str("3a0d48278111d3296bc663df8a5dbeb2474ea47fd85b608f8d9375d9dcf7de"
+                    "1413ad70fb0e1970669095ad77ebb5974ae8");
+
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::GCM, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256CBCNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256CBCNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("dd2f20dc6b98c100bac919120ff95eb5d96003f8229987b283a1e777b0cd5c30");
+    string kat_iv = hex2str("23b4d85239fb90db93b07a981e90a170");
+    string kat_plaintext =
+            hex2str("2fbe5d46dca5cea433e550d8b291740ab9551c2a2d37680d7fb7b993225f58"
+                    "494cb53caca353e4b637ba05687be20f8d");
+    string kat_ciphertext =
+            hex2str("5aba24fc316936c8369061ee8fe463e4faed04288e204456626b988c0e376b"
+                    "6047da1e4fd7c4e1cf2656097f75ae8685");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256CBCPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256CBCPKCS7PaddingOneByteAtATime) {
+    string kat_key = hex2str("03ab2510520f5cfebfab0a17a7f8324c9634911f6fc59e586f85346bb38ac88a");
+    string kat_iv = hex2str("9af96967195bb0184f129beffa8241ae");
+    string kat_plaintext =
+            hex2str("2d6944653ac14988a772a2730b7c5bfa99a21732ae26f40cdc5b3a2874c794"
+                    "2545a82b73c48078b9dae62261c65909");
+    string kat_ciphertext =
+            hex2str("26b308f7e1668b55705a79c8b3ad10e244655f705f027f390a5c34e4536f51"
+                    "9403a71987b95124073d69f2a3cb95b0ab");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::PKCS7, kat_iv,
+                                  kat_plaintext, kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256CTRNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CTR/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256CTRNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("928b380a8fed4b4b4cfeb56e0c66a4cb0f9ff58d61ac68bcfd0e3fbd910a684f");
+    string kat_iv = hex2str("0b678a5249e6eeda461dfb4776b6c58e");
+    string kat_plaintext =
+            hex2str("f358de57543b297e997cba46fb9100553d6abd65377e55b9aac3006400ead1"
+                    "1f6db3c884");
+    string kat_ciphertext =
+            hex2str("a07a35fbd1776ad81462e1935f542337add60962bf289249476817b6ddd532"
+                    "a7be30d4c3");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CTR, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256ECBNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256ECBNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("fa4622d9cf6485075daedd33d2c4fffdf859e2edb7f7df4f04603f7e647fae90");
+    string kat_plaintext =
+            hex2str("96ccabbe0c68970d8cdee2b30ab43c2d61cc50ee68271e77571e72478d713a"
+                    "31a476d6806b8116089c6ec50bb543200f");
+    string kat_ciphertext =
+            hex2str("0e81839e9dfbfe3b503d619e676abe5ac80fac3f245d8f09b9134b1b32a67d"
+                    "c83e377faf246288931136bef2a07c0be4");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::NONE, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256ECBPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256ECBPKCS7PaddingOneByteAtATime) {
+    string kat_key = hex2str("bf3f07c68467fead0ca8e2754500ab514258abf02eb7e615a493bcaaa45d5ee1");
+    string kat_plaintext =
+            hex2str("af0757e49018dad628f16998628a407db5f28291bef3bc2e4d8a5a31fb238e"
+                    "6f");
+    string kat_ciphertext =
+            hex2str("21ec3011074bf1ef140643d47130326c5e183f61237c69bc77551ca207d71f"
+                    "c2b90cfac6c8d2d125e5cd9ff353dee0df");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::PKCS7, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256GCMNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/GCM/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256GCMNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("7972140d831eedac75d5ea515c9a4c3bb124499a90b5f317ac1a685e88fae395");
+    string kat_iv = hex2str("a66c5252808d823dd4151fed");
+    string kat_plaintext =
+            hex2str("c2b9dabf3a55adaa94e8c0d1e77a84a3435aee23b2c3c4abb587b09a9c2afb"
+                    "f0");
+    string kat_ciphertext =
+            hex2str("a960619314657b2afb96b93bebb372bffd09e19d53e351f17d1ba2611f9dc3"
+                    "3c9c92d563e8fd381254ac262aa2a4ea0d");
+
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::GCM, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
 struct AesCtrSp80038aTestVector {
     const char* key;
     const char* nonce;
@@ -5854,6 +6278,7 @@ TEST_P(EncryptionOperationsTest, AesCbcZeroInputSuccess) {
     // Zero input message
     string message = "";
     for (auto padding : {PaddingMode::NONE, PaddingMode::PKCS7}) {
+        SCOPED_TRACE(testing::Message() << "AES padding=" << padding);
         auto params = AuthorizationSetBuilder().BlockMode(BlockMode::CBC).Padding(padding);
         AuthorizationSet out_params;
         string ciphertext1 = EncryptMessage(message, params, &out_params);
@@ -6522,6 +6947,7 @@ TEST_P(EncryptionOperationsTest, TripleDesEcbPkcs7Padding) {
                                                  .Padding(PaddingMode::PKCS7)));
 
     for (size_t i = 0; i < 32; ++i) {
+        SCOPED_TRACE(testing::Message() << "msg size=" << i);
         string message(i, 'a');
         auto inParams =
                 AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::PKCS7);
@@ -6832,6 +7258,7 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcNotAuthorized) {
  */
 TEST_P(EncryptionOperationsTest, TripleDesEcbCbcNoPaddingWrongInputSize) {
     for (BlockMode blockMode : {BlockMode::ECB, BlockMode::CBC}) {
+        SCOPED_TRACE(testing::Message() << "BlockMode::" << blockMode);
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .TripleDesEncryptionKey(168)
                                                      .BlockMode(blockMode)
@@ -6890,6 +7317,7 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcNoPaddingKeyWithPkcs7Padding) {
 
     // Try various message lengths; all should fail.
     for (size_t i = 0; i <= 32; i++) {
+        SCOPED_TRACE(testing::Message() << "i = " << i);
         auto begin_params =
                 AuthorizationSetBuilder().BlockMode(BlockMode::CBC).Padding(PaddingMode::PKCS7);
         EXPECT_EQ(ErrorCode::INCOMPATIBLE_PADDING_MODE, Begin(KeyPurpose::ENCRYPT, begin_params));
@@ -7559,6 +7987,7 @@ TEST_P(TransportLimitTest, LargeFinishInput) {
                                                  .Padding(PaddingMode::NONE)));
 
     for (int msg_size = 8 /* 256 bytes */; msg_size <= 11 /* 2 KiB */; msg_size++) {
+        SCOPED_TRACE(testing::Message() << "msg_size = " << msg_size);
         auto cipher_params =
                 AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::NONE);
 
@@ -7872,6 +8301,7 @@ TEST_P(KeyAgreementTest, EcdhCurve25519Mismatch) {
     GenerateKeyMintEcKey(curve, &kmPubKey);
 
     for (auto localCurve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "local-curve-" << localCurve);
         if (localCurve == curve) {
             continue;
         }
