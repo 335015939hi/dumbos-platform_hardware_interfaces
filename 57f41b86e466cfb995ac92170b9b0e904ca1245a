@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64d75269_d2ec752e",
+        "filename": "tv/cec/aidl/default/HdmiCecMock.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-08-16T12:21:29Z",
+      "side": 1,
+      "message": "in line 36 the vector is being resized to x\u003d(size + 1)\nin line 37 the vector is being accessed at [x].\nthe last valid index of the vector is [x - 1]",
+      "parentUuid": "a1f78b29_bc6d9293",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 30
+      },
+      "revId": "57f41b86e466cfb995ac92170b9b0e904ca1245a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f29c981_0d49246a",
         "filename": "tv/cec/aidl/default/HdmiCecMock.cpp",
         "patchSetId": 11
@@ -449,6 +473,30 @@
       "side": 1,
       "message": "Yes, that is a potential issue, but there is no way to get the original state before the test begins. Hence, this approach. If the defaults change, we will need to update the test.",
       "parentUuid": "70f703bc_a0df06ba",
+      "range": {
+        "startLine": 155,
+        "startChar": 4,
+        "endLine": 155,
+        "endChar": 42
+      },
+      "revId": "57f41b86e466cfb995ac92170b9b0e904ca1245a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c970ce19_c7c92300",
+        "filename": "tv/cec/aidl/vts/functional/VtsHalTvCecAidlTargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-08-16T12:21:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4f4f8af2_da55bc7b",
       "range": {
         "startLine": 155,
         "startChar": 4,
