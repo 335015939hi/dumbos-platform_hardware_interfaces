@@ -876,6 +876,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a966ac53_241001c3",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-08-16T23:45:11Z",
+      "side": 1,
+      "message": "How about this?\n\n\"SHA256 and SHA512 are acceptable hash algorithms. The digest bstr values in the payload are the digest values without any padding. Note that for SHA256, this implies the digest bstr is 32 bytes. This is an intentional, minor deviation from Open Profile for DICE, which specifies all digests are 64 bytes.\"",
+      "parentUuid": "d499af8d_bec8fde4",
+      "range": {
+        "startLine": 203,
+        "startChar": 67,
+        "endLine": 203,
+        "endChar": 89
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a89bf4e_f1b2565d",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
