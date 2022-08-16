@@ -16,6 +16,24 @@
       "message": "This needs a default/example implementation running on Cuttlefish(presubmit failure) and some VTS tests.",
       "revId": "9342b05f340554e3aa4b65039fd502799ad8b3eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e59fc243_3b69405a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-08-16T08:32:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71c68c30_4092e506",
+      "revId": "9342b05f340554e3aa4b65039fd502799ad8b3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
