@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b2db2e45_7b184d9e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-16T17:24:54Z",
+      "side": 1,
+      "message": "Argh, good catch. Thanks.",
+      "parentUuid": "a0676e13_17d9213e",
+      "range": {
+        "startLine": 69,
+        "startChar": 61,
+        "endLine": 69,
+        "endChar": 74
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e0848eea_940053a9",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2022-08-11T19:05:10Z",
       "side": 1,
       "message": "For my understanding, what does this imply? Does the server have knowledge of the UDS keys which allows it to trust the message originating/signed by UDS_priv?",
+      "range": {
+        "startLine": 71,
+        "startChar": 24,
+        "endLine": 71,
+        "endChar": 91
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ded74f3_7e341738",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-16T17:24:54Z",
+      "side": 1,
+      "message": "The server has a giant database of UDS_Pub\u0027s, which are uploaded by the OEMs during manufacture time.",
+      "parentUuid": "e0848eea_940053a9",
       "range": {
         "startLine": 71,
         "startChar": 24,
@@ -105,6 +153,54 @@
         "startChar": 51,
         "endLine": 93,
         "endChar": 55
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1de9ebfc_263a2d12",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-16T17:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e293177_3c28621b",
+      "range": {
+        "startLine": 93,
+        "startChar": 51,
+        "endLine": 93,
+        "endChar": 55
+      },
+      "revId": "a72211733edcd45e8613361dc6293c673a050930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d1ab822_4712ddd3",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-16T17:24:54Z",
+      "side": 1,
+      "message": "Correct. So long as applications cannot get access to this info, it\u0027s all good.",
+      "parentUuid": "efa3a946_c697c077",
+      "range": {
+        "startLine": 93,
+        "startChar": 10,
+        "endLine": 93,
+        "endChar": 56
       },
       "revId": "a72211733edcd45e8613361dc6293c673a050930",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
