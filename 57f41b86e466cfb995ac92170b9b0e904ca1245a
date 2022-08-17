@@ -201,6 +201,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "729236fa_65e22712",
+        "filename": "tv/cec/aidl/default/HdmiCecMock.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-08-17T04:24:12Z",
+      "side": 1,
+      "message": "Yes, that is correct. It should be size. I have replaced this with a vector function, so there should be no error.",
+      "parentUuid": "64d75269_d2ec752e",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 30
+      },
+      "revId": "57f41b86e466cfb995ac92170b9b0e904ca1245a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f29c981_0d49246a",
