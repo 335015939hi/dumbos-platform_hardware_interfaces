@@ -900,6 +900,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4847c8a4_8a3e88f9",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-08-17T18:02:02Z",
+      "side": 1,
+      "message": "There doesn\u0027t appear to be another way to tell which digest algorithm is used other than the size of the digest so being specific here feels important. Seth\u0027s wording helps to keep it stricter. Until we get to fix the spec, LGTM.",
+      "parentUuid": "a966ac53_241001c3",
+      "range": {
+        "startLine": 203,
+        "startChar": 67,
+        "endLine": 203,
+        "endChar": 89
+      },
+      "revId": "5e31e7ff75dd5c55c949a8d9b79a6ede41f2e45f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a89bf4e_f1b2565d",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
