@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cce38e78_50e9f808",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-08-17T18:54:57Z",
+      "side": 1,
+      "message": "do we care about `printed \u003c 0`?",
+      "range": {
+        "startLine": 331,
+        "startChar": 8,
+        "endLine": 331,
+        "endChar": 40
+      },
+      "revId": "0a9267a060fbc3de36dd4801445a002c49d8681c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
