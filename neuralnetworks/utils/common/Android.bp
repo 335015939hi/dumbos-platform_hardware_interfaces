@@ -30,7 +30,20 @@ cc_library_static {
     local_include_dirs: ["include/nnapi/hal"],
     export_include_dirs: ["include"],
     cflags: ["-Wthread-safety"],
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
     static_libs: ["neuralnetworks_types"],
+=======
+    static_libs: [
+        "libarect",
+        "neuralnetworks_types",
+    ],
+    shared_libs: [
+        "android.hardware.neuralnetworks-V2-ndk_platform",
+        "libhidlbase",
+        "libnativewindow",
+        "libbinder_ndk",
+    ],
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
 }
 
 cc_test {

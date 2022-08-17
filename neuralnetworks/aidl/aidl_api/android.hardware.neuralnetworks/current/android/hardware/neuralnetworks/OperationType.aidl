@@ -138,6 +138,9 @@ enum OperationType {
   RANK = 101,
   BATCH_MATMUL = 102,
   PACK = 103,
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
   MIRROR_PAD = 104,
   REVERSE = 105,
+=======
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
 }

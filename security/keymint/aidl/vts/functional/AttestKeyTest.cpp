@@ -255,6 +255,7 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
     AttestationKey attest_key;
     vector<KeyCharacteristics> attest_key_characteristics;
     vector<Certificate> attest_key_cert_chain;
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
     auto result = GenerateAttestKey(AuthorizationSetBuilder()
                                             .RsaKey(2048, 65537)
                                             .AttestKey()
@@ -271,6 +272,20 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
         if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
     }
     ASSERT_EQ(ErrorCode::OK, result);
+=======
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateAttestKey(AuthorizationSetBuilder()
+                                        .RsaKey(2048, 65537)
+                                        .AttestKey()
+                                        .AttestationChallenge(challenge)
+                                        .AttestationApplicationId(app_id)
+                                        .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                                        .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                                        .SetDefaultValidity(),
+                                {} /* attestation signing key */, &attest_key.keyBlob,
+                                &attest_key_characteristics, &attest_key_cert_chain));
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
 
     EXPECT_GT(attest_key_cert_chain.size(), 1);
     verify_subject_and_serial(attest_key_cert_chain[0], serial_int, subject, false);
@@ -359,6 +374,7 @@ TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
             attest_key_opt = attest_key;
         }
 
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
         auto result = GenerateAttestKey(AuthorizationSetBuilder()
                                                 .RsaKey(2048, 65537)
                                                 .AttestKey()
@@ -375,6 +391,20 @@ TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
             if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
         }
         ASSERT_EQ(ErrorCode::OK, result);
+=======
+        EXPECT_EQ(ErrorCode::OK,
+                  GenerateAttestKey(AuthorizationSetBuilder()
+                                            .RsaKey(2048, 65537)
+                                            .AttestKey()
+                                            .AttestationChallenge("foo")
+                                            .AttestationApplicationId("bar")
+                                            .Authorization(TAG_NO_AUTH_REQUIRED)
+                                            .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                                            .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                                            .SetDefaultValidity(),
+                                    attest_key_opt, &key_blob_list[i],
+                                    &attested_key_characteristics, &cert_chain_list[i]));
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
@@ -436,6 +466,7 @@ TEST_P(AttestKeyTest, EcAttestKeyChaining) {
             attest_key_opt = attest_key;
         }
 
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
         auto result = GenerateAttestKey(AuthorizationSetBuilder()
                                                 .EcdsaKey(EcCurve::P_256)
                                                 .AttestKey()
@@ -452,6 +483,20 @@ TEST_P(AttestKeyTest, EcAttestKeyChaining) {
             if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
         }
         ASSERT_EQ(ErrorCode::OK, result);
+=======
+        EXPECT_EQ(ErrorCode::OK,
+                  GenerateAttestKey(AuthorizationSetBuilder()
+                                            .EcdsaKey(EcCurve::P_256)
+                                            .AttestKey()
+                                            .AttestationChallenge("foo")
+                                            .AttestationApplicationId("bar")
+                                            .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                                            .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                                            .Authorization(TAG_NO_AUTH_REQUIRED)
+                                            .SetDefaultValidity(),
+                                    attest_key_opt, &key_blob_list[i],
+                                    &attested_key_characteristics, &cert_chain_list[i]));
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
@@ -541,6 +586,7 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
         }
         ErrorCode result;
         if ((i & 0x1) == 1) {
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
             result = GenerateAttestKey(AuthorizationSetBuilder()
                                                .EcdsaKey(EcCurve::P_256)
                                                .AttestKey()
@@ -552,7 +598,22 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
                                                .SetDefaultValidity(),
                                        attest_key_opt, &key_blob_list[i],
                                        &attested_key_characteristics, &cert_chain_list[i]);
+=======
+            EXPECT_EQ(ErrorCode::OK,
+                      GenerateAttestKey(AuthorizationSetBuilder()
+                                                .EcdsaKey(EcCurve::P_256)
+                                                .AttestKey()
+                                                .AttestationChallenge("foo")
+                                                .AttestationApplicationId("bar")
+                                                .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                                                .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                .SetDefaultValidity(),
+                                        attest_key_opt, &key_blob_list[i],
+                                        &attested_key_characteristics, &cert_chain_list[i]));
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
         } else {
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
             result = GenerateAttestKey(AuthorizationSetBuilder()
                                                .RsaKey(2048, 65537)
                                                .AttestKey()
@@ -564,6 +625,20 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
                                                .SetDefaultValidity(),
                                        attest_key_opt, &key_blob_list[i],
                                        &attested_key_characteristics, &cert_chain_list[i]);
+=======
+            EXPECT_EQ(ErrorCode::OK,
+                      GenerateAttestKey(AuthorizationSetBuilder()
+                                                .RsaKey(2048, 65537)
+                                                .AttestKey()
+                                                .AttestationChallenge("foo")
+                                                .AttestationApplicationId("bar")
+                                                .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                                                .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                .SetDefaultValidity(),
+                                        attest_key_opt, &key_blob_list[i],
+                                        &attested_key_characteristics, &cert_chain_list[i]));
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
         }
         // Strongbox may not support factory provisioned attestation key.
         if (SecLevel() == SecurityLevel::STRONGBOX) {

@@ -31,6 +31,7 @@
 namespace aidl::android::hardware::neuralnetworks::utils {
 
 constexpr auto kDefaultPriority = Priority::MEDIUM;
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
 
 constexpr std::optional<nn::Version> aidlVersionToCanonicalVersion(int aidlVersion) {
     switch (aidlVersion) {
@@ -48,6 +49,9 @@ constexpr std::optional<nn::Version> aidlVersionToCanonicalVersion(int aidlVersi
 }
 
 constexpr auto kVersion = aidlVersionToCanonicalVersion(IDevice::version).value();
+=======
+constexpr auto kVersion = nn::Version::FEATURE_LEVEL_6;
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
 
 template <typename Type>
 nn::Result<void> validate(const Type& halObject) {

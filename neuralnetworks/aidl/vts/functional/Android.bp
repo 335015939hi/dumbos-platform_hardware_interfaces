@@ -53,12 +53,23 @@ cc_test {
         "libbinder_ndk",
     ],
     static_libs: [
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
+=======
+        "android.hardware.common-V2-ndk_platform",
+        "android.hardware.graphics.common-V2-ndk_platform",
+        "android.hardware.neuralnetworks-V2-ndk_platform",
+        "android.hidl.allocator@1.0",
+        "android.hidl.memory@1.0",
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
         "libaidlcommonsupport",
         "libneuralnetworks_common",
         "libneuralnetworks_generated_test_harness",
     ],
     whole_static_libs: [
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
         "neuralnetworks_generated_AIDL_V3_example",
+=======
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
         "neuralnetworks_generated_AIDL_V2_example",
         "neuralnetworks_generated_V1_0_example",
         "neuralnetworks_generated_V1_1_example",
