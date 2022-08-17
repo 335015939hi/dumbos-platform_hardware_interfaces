@@ -28,6 +28,12 @@
 // These helper functions should be modified to return vectors if we support
 // multiple instances.
 android::sp<android::hardware::wifi::V1_4::IWifiChip> getWifiChip_1_4(
+<<<<<<< HEAD   (17ca27 Merge "Remove keymaster HIDL entry in compat matrix.")
     const std::string& instance_name);
 android::sp<android::hardware::wifi::V1_4::IWifiApIface> getWifiApIface_1_4(
     const std::string& instance_name);
+=======
+        const std::string& instance_name);
+android::sp<android::hardware::wifi::V1_4::IWifiApIface> getWifiApIface_1_4(
+        const std::string& instance_name);
+>>>>>>> BRANCH (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
