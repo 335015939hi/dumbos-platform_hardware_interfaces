@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3766bdc_8eb3824b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2022-08-17T14:12:40Z",
+      "side": 1,
+      "message": "We\u0027ve concluded to remove a color format check because no test case uses it for any verification.  Please review.  Thanks!",
+      "revId": "e6bb228dc663ab7f10882c6d60a5deb884376dd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
