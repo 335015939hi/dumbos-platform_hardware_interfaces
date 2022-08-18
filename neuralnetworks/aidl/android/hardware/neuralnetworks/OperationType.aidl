@@ -5327,6 +5327,7 @@ enum OperationType {
      * * 0: The packed tensor.
      */
     PACK = 103,
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
 
     /**
      * Pads a tensor with mirrored values.
@@ -5408,4 +5409,6 @@ enum OperationType {
      *      the scales and zeroPoint must be the same as input0.
      */
     REVERSE = 105,
+=======
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
 }

@@ -476,7 +476,11 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.neuralnetworks</name>
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
         <version>1-4</version>
+=======
+        <version>1-2</version>
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
         <interface>
             <name>IDevice</name>
             <regex-instance>.*</regex-instance>

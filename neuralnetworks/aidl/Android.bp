@@ -35,6 +35,7 @@ aidl_interface {
             min_sdk_version: "30",
         },
     },
+<<<<<<< HEAD   (f9daf0 Merge "Camera: Import gralloc buffers before metadata querie)
     versions_with_info: [
         {
             version: "1",
@@ -67,4 +68,10 @@ aidl_interface {
 
     ],
 
+=======
+    versions: [
+        "1",
+        "2",
+    ],
+>>>>>>> BRANCH (9fc37c Merge "Fix VTS PlaybackDataFlowWithTsVideoFilterTest sometim)
 }
