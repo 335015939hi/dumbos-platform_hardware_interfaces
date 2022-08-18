@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22b43a2f_1ea5101c",
+        "filename": "confirmationui/OWNERS",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-08-18T23:32:49Z",
+      "side": 1,
+      "message": "delete this - no longer applicable\n\nalso consider adding yourself?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 14
+      },
+      "revId": "833e65ab15505ccdd9679414478b3ab76afc6382",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb120b7a_6509d744",
+        "filename": "confirmationui/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-08-18T23:32:49Z",
+      "side": 1,
+      "message": "do we need the platform API?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 10
+      },
+      "revId": "833e65ab15505ccdd9679414478b3ab76afc6382",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48444771_2b2d5a45",
+        "filename": "confirmationui/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-08-18T23:32:49Z",
+      "side": 1,
+      "message": "is this needed or is it causing an error, curious",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "833e65ab15505ccdd9679414478b3ab76afc6382",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
