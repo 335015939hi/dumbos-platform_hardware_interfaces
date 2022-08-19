@@ -262,6 +262,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ce4e6e2_d97a0e5f",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/GatekeeperResponse.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-08-19T21:14:19Z",
+      "side": 1,
+      "message": "Made the changes and uploaded the patch.",
+      "parentUuid": "0d0979f9_cb2cb9c3",
+      "range": {
+        "startLine": 36,
+        "startChar": 29,
+        "endLine": 36,
+        "endChar": 54
+      },
+      "revId": "6387e5eded52350330030da8af3931a5b0beff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc720b50_066b2d35",
