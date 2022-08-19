@@ -34,4 +34,5 @@
 package android.hardware.audio.core;
 @VintfStability
 interface IConfig {
+  android.media.audio.common.AudioHalEngineConfig getEngineConfig();
 }
