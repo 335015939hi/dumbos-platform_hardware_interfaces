@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0acff391_b521da87",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1500783
+      },
+      "writtenOn": "2022-08-19T18:42:55Z",
+      "side": 1,
+      "message": "Just one question..... Is this for use when importing keys from the factory?",
+      "range": {
+        "startLine": 52,
+        "startChar": 15,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
