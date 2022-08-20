@@ -37,16 +37,16 @@ using namespace ::android::audio::policy::configuration::CPP_VERSION;
 }
 
 static constexpr audio_channel_mask_t kInvalidHalChannelMask = AUDIO_CHANNEL_INVALID;
-static constexpr audio_content_type_t kInvalidHalContentType =
+static const     audio_content_type_t kInvalidHalContentType =
         static_cast<audio_content_type_t>(0xFFFFFFFFU);
-static constexpr audio_devices_t kInvalidHalDevice = static_cast<audio_devices_t>(0xFFFFFFFFU);
-static constexpr audio_input_flags_t kInvalidInputFlags =
+static const     audio_devices_t kInvalidHalDevice = static_cast<audio_devices_t>(0xFFFFFFFFU);
+static const     audio_input_flags_t kInvalidInputFlags =
         static_cast<audio_input_flags_t>(0xFFFFFFFFU);
-static constexpr audio_output_flags_t kInvalidOutputFlags =
+static const     audio_output_flags_t kInvalidOutputFlags =
         static_cast<audio_output_flags_t>(0xFFFFFFFFU);
 // AUDIO_SOURCE_INVALID is framework-only.
 static constexpr audio_source_t kInvalidHalSource = static_cast<audio_source_t>(-1);
-static constexpr audio_usage_t kInvalidHalUsage = static_cast<audio_usage_t>(0xFFFFFFFFU);
+static const     audio_usage_t kInvalidHalUsage = static_cast<audio_usage_t>(0xFFFFFFFFU);
 
 static bool isInputFlag(xsd::AudioInOutFlag flag) {
     return toString(flag).find("_INPUT_FLAG_") != std::string::npos;
