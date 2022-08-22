@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "323fee09_634baaad",
+        "filename": "confirmationui/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-08-22T22:09:29Z",
+      "side": 1,
+      "message": "Ack (wonder if \u0027java:  { disabled: true }\u0027 would also work)",
+      "parentUuid": "8bb30e72_57a0df00",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 10
+      },
+      "revId": "833e65ab15505ccdd9679414478b3ab76afc6382",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48444771_2b2d5a45",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "confirmationUI depends on KeyMint for HardwareAuthToken. So if skip ndk:{}, I get this below error while generating aidl_api (m android.hardware.confirmationui-update-api):\n\nhardware/interfaces/confirmationui/aidl/Android.bp:19:1: dependency \"android.hardware.security.keymint-V2-ndk\" of \"android.hardware.confirmationui-V1-ndk\" missing variant",
       "parentUuid": "48444771_2b2d5a45",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "833e65ab15505ccdd9679414478b3ab76afc6382",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66a7dad5_2584537b",
+        "filename": "confirmationui/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-08-22T22:09:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "47bace79_13c325ab",
       "range": {
         "startLine": 32,
         "startChar": 0,
