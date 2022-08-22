@@ -16,6 +16,23 @@
       "message": "Dear, All.\n\nAs suggested, the routine \u0027DabTune\u0027 is changed as follows:\n  - Check for a configuration that is present in the station list, create a tune-request, and perform the test-case.\n\nI request you to review the same, and let us know your opinions, and suggestions.\n  \nThank You.",
       "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e11bf849_6935a388",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2022-08-22T15:38:42Z",
+      "side": 1,
+      "message": "Oscar is the new owner of broadcast radio stack now.",
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
