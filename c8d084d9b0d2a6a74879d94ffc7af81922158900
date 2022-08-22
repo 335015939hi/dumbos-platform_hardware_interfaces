@@ -22,6 +22,75 @@
       },
       "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4482dbf2_e9778454",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-08-22T05:02:41Z",
+      "side": 1,
+      "message": "`generateCertificateRequestV2`?",
+      "range": {
+        "startLine": 145,
+        "startChar": 7,
+        "endLine": 145,
+        "endChar": 33
+      },
+      "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09314e1f_58da6eb8",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-08-22T05:02:41Z",
+      "side": 1,
+      "message": "Can we have some more detail on the size of such binary input?\nEx,\n```\nImplementations may impose a size limit on this field, and return INVALID_ARGUMENT for values that are too large.\nHowever, this limit must be at least 64-byte, i.e. values of size up to 128-byte must be acceptable\n```",
+      "range": {
+        "startLine": 152,
+        "startChar": 38,
+        "endLine": 152,
+        "endChar": 49
+      },
+      "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "835bf954_83d76748",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-08-22T05:02:41Z",
+      "side": 1,
+      "message": "I know it can be possibility \"no-limit\" on the numbers.\nBut is there a reasonable range (10 ~ 20?) that we can specify for vendors?",
+      "range": {
+        "startLine": 185,
+        "startChar": 24,
+        "endLine": 185,
+        "endChar": 33
+      },
+      "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
