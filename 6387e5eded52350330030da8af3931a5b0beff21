@@ -312,6 +312,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1947ea09_ad94a646",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/GatekeeperResponse.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-08-22T23:21:03Z",
+      "side": 1,
+      "message": "Gatekeeper daemon was only interested in the secure_user_id value from this data blob. So added a new entry(\"long secureUserId\") in GatekeeperEnrollResponse.aidl so that gatekeeper daemon does not require to parse this data blob any more and it simply passes this opaque blob as it is to the upper layers in the enroll() call.\nThis same opaque blob is passed back to gatekeeper aidl implementations in the verify() call as password_handle.",
+      "parentUuid": "6ab6ce9f_cb4094ce",
+      "range": {
+        "startLine": 36,
+        "startChar": 29,
+        "endLine": 36,
+        "endChar": 54
+      },
+      "revId": "6387e5eded52350330030da8af3931a5b0beff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc720b50_066b2d35",
         "filename": "gatekeeper/aidl/android/hardware/gatekeeper/IGatekeeper.aidl",
         "patchSetId": 3
