@@ -288,6 +288,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ab6ce9f_cb4094ce",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/GatekeeperResponse.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-08-22T22:08:41Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be changed here. Is it in another CL?",
+      "parentUuid": "2ce4e6e2_d97a0e5f",
+      "range": {
+        "startLine": 36,
+        "startChar": 29,
+        "endLine": 36,
+        "endChar": 54
+      },
+      "revId": "6387e5eded52350330030da8af3931a5b0beff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc720b50_066b2d35",
         "filename": "gatekeeper/aidl/android/hardware/gatekeeper/IGatekeeper.aidl",
         "patchSetId": 3
