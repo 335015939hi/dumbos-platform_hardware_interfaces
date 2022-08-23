@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f31e49dd_6f2f85c3",
+        "filename": "tv/cec/aidl/aidl_api/android.hardware.tv.cec/1/.hash",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-08-23T11:39:28Z",
+      "side": 1,
+      "message": "How about using 1.0 in the file path, instead of 1? That seems to be the convention.",
+      "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dcd53775_84eda721",
         "filename": "tv/cec/aidl/default/HdmiCecMock.cpp",
         "patchSetId": 14
@@ -43,6 +60,23 @@
         "endLine": 75,
         "endChar": 33
       },
+      "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bff91890_5b5f9572",
+        "filename": "tv/hdmi/aidl/vts/functional/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-08-23T11:39:28Z",
+      "side": 1,
+      "message": "See Lint comment: please add an OWNERS file. You can link to the OWNERS file of the HAL itself. Just like we link to the frameworks/base owners for CTS.",
       "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
