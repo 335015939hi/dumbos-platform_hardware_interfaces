@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcd53775_84eda721",
+        "filename": "tv/cec/aidl/default/HdmiCecMock.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-08-23T09:04:29Z",
+      "side": 1,
+      "message": "bufSize could be used here.",
+      "range": {
+        "startLine": 181,
+        "startChar": 13,
+        "endLine": 181,
+        "endChar": 44
+      },
+      "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8baf7509_c456508e",
+        "filename": "tv/hdmi/aidl/default/HdmiMock.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-08-23T09:04:29Z",
+      "side": 1,
+      "message": "// Style comment please.",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 33
+      },
+      "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

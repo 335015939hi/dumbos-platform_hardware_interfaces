@@ -227,6 +227,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8628df21_98fd7bf6",
+        "filename": "tv/cec/aidl/default/HdmiCecMock.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-08-23T09:04:29Z",
+      "side": 1,
+      "message": "I think what you want here is simply:\nmLogicalAddresses.push_back(addr)\nThis statement will automatically resize the vector.\nOtherwise what you get is an uninitialized value at mLogicalAddresses[size].\nThe \u0027addr\u0027 will actually be at [size + 1].\nMaybe what you meant is vector::reserve but it\u0027s not needed in this case.",
+      "parentUuid": "729236fa_65e22712",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 30
+      },
+      "revId": "57f41b86e466cfb995ac92170b9b0e904ca1245a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f29c981_0d49246a",
         "filename": "tv/cec/aidl/default/HdmiCecMock.cpp",
         "patchSetId": 11
