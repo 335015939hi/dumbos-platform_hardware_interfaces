@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea0dced7_ea13aefe",
+        "filename": "neuralnetworks/aidl/vts/functional/ValidateModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-08-24T23:36:50Z",
+      "side": 1,
+      "message": "Do we know how many of our models exceed this size? I would recommend locally adding a running count to log how many models exceed this limit and viewing the result after the test run via logcat:\n\n```\nstatic size_t totalSeenModels \u003d 0;\nstatic size_t modelsThatExceedSize \u003d 0;\n\ntotalSeenModels++;\nif (representationSize \u003e kHalfMaxIPCSize) {\n    modelsThatExceedSize++\n}\nLOG(INFO) \u003c\u003c \"[TAG] \" \u003c\u003c modelsThatExceedSize \u003c\u003c \"/\" \u003c\u003c totalSeenModels \u003c\u003c \" exceed kHalfMaxIPCSize\";\n```",
+      "range": {
+        "startLine": 333,
+        "startChar": 24,
+        "endLine": 333,
+        "endChar": 39
+      },
+      "revId": "939060367235481f90b1ac003f81b40439df1c56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
