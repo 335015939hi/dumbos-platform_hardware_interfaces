@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f3c84e3_8c83bbe2",
+        "filename": "tv/hdmi/aidl/Android.bp",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-08-24T15:35:06Z",
+      "side": 1,
+      "message": "Is this intentionally frozen?\nWe automatically freeze all of the interfaces in the tree on the release branch during API-Freeze. Teams typically don\u0027t need to freeze them themselves.\n\nSo we can remove these lines in the Android.bp files, and remove all of the `aidl_api/.*/1/` directories like `tv/hdmi/aidl/aidl_api/android.hardware.tv.hdmi/1` and 1tv/cec/aidl/aidl_api/android.hardware.tv.cec/1`\n\nThen use `*-update-api` to update the `current` and don\u0027t use the `*freeze-api` targets.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 6
+      },
+      "revId": "5b8aa1fdd8bf9110d4e884c77be014d38ed26947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

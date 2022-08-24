@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a1a3d72_c6ee182a",
+        "filename": "tv/cec/aidl/aidl_api/android.hardware.tv.cec/1/.hash",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-08-24T15:35:06Z",
+      "side": 1,
+      "message": "This is generated with `android.hardware.tv.cec-freeze-api`, and `/1/` is correct for the first frozen version.\nBut I think this should not be frozen right now, so these shouldn\u0027t exist.",
+      "parentUuid": "f31e49dd_6f2f85c3",
+      "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcd53775_84eda721",
