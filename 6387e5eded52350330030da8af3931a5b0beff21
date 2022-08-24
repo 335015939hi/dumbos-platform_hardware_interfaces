@@ -334,6 +334,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "644e1e0b_f666254b",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/GatekeeperResponse.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-08-24T00:13:33Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "1947ea09_ad94a646",
+      "range": {
+        "startLine": 36,
+        "startChar": 29,
+        "endLine": 36,
+        "endChar": 54
+      },
+      "revId": "6387e5eded52350330030da8af3931a5b0beff21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc720b50_066b2d35",
