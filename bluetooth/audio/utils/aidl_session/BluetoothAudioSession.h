@@ -102,6 +102,13 @@ struct PortStatusCallbacks {
    ***/
   std::function<void(uint16_t cookie, bool allowed)>
       low_latency_mode_allowed_cb_;
+  /***
+   * soft_audio_configuration_changed_cb_ - when the Bluetooth stack change
+   * the streamMap during the streaming, the BluetoothAudioProvider will invoke
+   * this callback to report to the bluetooth_audio module.
+   * @param: cookie - indicates which bluetooth_audio output should handle
+   ***/
+  std::function<void(uint16_t cookie)> soft_audio_configuration_changed_cb_;
 };
 
 class BluetoothAudioSession {
@@ -212,6 +219,8 @@ class BluetoothAudioSession {
   // saving those registered bluetooth_audio's callbacks
   std::unordered_map<uint16_t, std::shared_ptr<struct PortStatusCallbacks>>
       observers_;
+  // saving those steaming state with the cookie
+  std::unordered_map<uint16_t, bool> is_streaming_;
 
   bool UpdateDataPath(const DataMQDesc* mq_desc);
   bool UpdateAudioConfig(const AudioConfiguration& audio_config);
