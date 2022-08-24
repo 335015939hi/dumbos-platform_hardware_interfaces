@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b514bc69_c7b0815c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-08-24T23:41:51Z",
+      "side": 1,
+      "message": "What happens when an old version of the HAL is installed on the device, but the new APEX is installed?",
+      "revId": "2591c3d0cf4c5621745dd9e06957f67256201fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
