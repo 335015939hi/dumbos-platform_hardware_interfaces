@@ -129,7 +129,11 @@ void BluetoothAudioSession::ReportAudioConfigChanged(
     LOG(INFO) << __func__ << " for SessionType=" << toString(session_type_)
               << ", bluetooth_audio=0x"
               << ::android::base::StringPrintf("%04x", cookie);
-    if (cb->audio_configuration_changed_cb_ != nullptr) {
+    if (is_streaming_[cookie]) {
+      if (cb->soft_audio_configuration_changed_cb_ != nullptr) {
+        cb->soft_audio_configuration_changed_cb_(cookie);
+      }
+    } else if (cb->audio_configuration_changed_cb_ != nullptr) {
       cb->audio_configuration_changed_cb_(cookie);
     }
   }
@@ -427,6 +431,13 @@ void BluetoothAudioSession::ReportControlStatus(bool start_resp,
               << ", bluetooth_audio=0x"
               << ::android::base::StringPrintf("%04x", cookie)
               << (start_resp ? " started" : " suspended");
+    if (status == BluetoothAudioStatus::SUCCESS) {
+      if (start_resp) {
+        is_streaming_[cookie] = true;
+      } else {
+        is_streaming_[cookie] = false;
+      }
+    }
     callback->control_result_cb_(cookie, start_resp, status);
   }
 }
