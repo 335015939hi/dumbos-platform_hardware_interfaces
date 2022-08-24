@@ -16,6 +16,29 @@
       "message": "Devin, could you please approve.",
       "revId": "00603d14b3ae15167536b018e2104c7fed389d2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d17cc8fe_284f6ea8",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-08-24T15:01:36Z",
+      "side": 1,
+      "message": "nit: What do you think about moving the `debug::setUp` call outside of `AudioCoreModule::setUp` and into the test cases that require it?\n\nI imagine tests may change in the future and some may begin relying on the debugging to be enabled(intentionally or unintentionally) and these comments may not be added to those test cases.\n\nSubmit this CL as-is either way! Can follow up if you want.",
+      "range": {
+        "startLine": 937,
+        "startChar": 0,
+        "endLine": 937,
+        "endChar": 89
+      },
+      "revId": "00603d14b3ae15167536b018e2104c7fed389d2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
