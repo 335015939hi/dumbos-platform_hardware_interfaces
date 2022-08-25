@@ -46,6 +46,30 @@
       },
       "revId": "939060367235481f90b1ac003f81b40439df1c56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc7511b0_775aec8c",
+        "filename": "neuralnetworks/aidl/vts/functional/ValidateModel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2022-08-25T22:54:44Z",
+      "side": 1,
+      "message": "Thanks for running this test! It might be a good idea to summarize this finding in the commit message, but I\u0027ll leave that decision up to you.",
+      "parentUuid": "c06ae4fd_8b246a43",
+      "range": {
+        "startLine": 333,
+        "startChar": 24,
+        "endLine": 333,
+        "endChar": 39
+      },
+      "revId": "939060367235481f90b1ac003f81b40439df1c56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
