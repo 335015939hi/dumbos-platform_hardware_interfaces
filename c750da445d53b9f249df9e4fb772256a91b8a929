@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d38a7836_b9aeaf07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2022-08-25T05:57:46Z",
+      "side": 1,
+      "message": "A trivial cherry-pick from aosp/master.",
+      "revId": "c750da445d53b9f249df9e4fb772256a91b8a929",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
