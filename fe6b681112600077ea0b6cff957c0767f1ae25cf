@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9250a35b_8eafc515",
+        "filename": "cas/aidl/android/hardware/cas/DestinationBuffer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-08-25T18:19:20Z",
+      "side": 1,
+      "message": "Please add an empty line between variable definition and comments of the next defined variable. Same for other files.",
+      "revId": "fe6b681112600077ea0b6cff957c0767f1ae25cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f3e1d6a_d259b186",
+        "filename": "cas/aidl/android/hardware/cas/SharedBuffer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-08-25T18:19:20Z",
+      "side": 1,
+      "message": "maybe keep the original name heapbase?",
+      "range": {
+        "startLine": 31,
+        "startChar": 11,
+        "endLine": 31,
+        "endChar": 17
+      },
+      "revId": "fe6b681112600077ea0b6cff957c0767f1ae25cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
