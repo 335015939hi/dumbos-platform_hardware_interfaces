@@ -84,6 +84,23 @@
       "message": "Dear, Team.\n\nCan you please let me know what should be, or what will be the next steps regarding this change?\n\nThank You.",
       "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89c63977_939f7426",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1222074
+      },
+      "writtenOn": "2022-08-25T21:31:39Z",
+      "side": 1,
+      "message": "Hi, this is waiting for owner code review approval. @Dan Shi could you please help review. Thanks ",
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
