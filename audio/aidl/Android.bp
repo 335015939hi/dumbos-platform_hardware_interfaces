@@ -33,7 +33,7 @@ aidl_interface {
         "android/hardware/audio/common/SourceMetadata.aidl",
     ],
     imports: [
-        "android.media.audio.common.types",
+        "android.media.audio.common.types-V1",
     ],
     stability: "vintf",
     backend: {
@@ -41,16 +41,54 @@ aidl_interface {
             enabled: true,
         },
         java: {
-            platform_apis: true,
+            sdk_version: "module_current",
+            min_sdk_version: "31",
+            apex_available: [
+                "//apex_available:platform",
+                "com.android.car.framework",
+            ],
         },
         ndk: {
             apex_available: [
                 "//apex_available:platform",
-                "com.android.bluetooth",
+                "com.android.btservices",
             ],
             min_sdk_version: "31",
         },
     },
-    versions: [
+    versions_with_info: [
+        {
+            version: "1",
+            imports: ["android.media.audio.common.types-V1"],
+        },
     ],
+
+}
+
+aidl_interface {
+    name: "android.hardware.audio.core",
+    vendor_available: true,
+    srcs: [
+        "android/hardware/audio/core/AudioPatch.aidl",
+        "android/hardware/audio/core/AudioRoute.aidl",
+        "android/hardware/audio/core/IConfig.aidl",
+        "android/hardware/audio/core/IModule.aidl",
+        "android/hardware/audio/core/IStreamIn.aidl",
+        "android/hardware/audio/core/IStreamOut.aidl",
+        "android/hardware/audio/core/ModuleDebug.aidl",
+    ],
+    imports: [
+        "android.hardware.audio.common-V1",
+        "android.media.audio.common.types-V1",
+    ],
+    stability: "vintf",
+    backend: {
+        // The C++ backend is disabled transitively due to use of FMQ.
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            platform_apis: true,
+        },
+    },
 }
