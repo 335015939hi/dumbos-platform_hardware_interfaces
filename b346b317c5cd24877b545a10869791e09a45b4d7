@@ -67,6 +67,23 @@
       "message": "CL needs code review vote from test owner",
       "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce343f64_7b5c062f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948640
+      },
+      "writtenOn": "2022-08-25T11:43:57Z",
+      "side": 1,
+      "message": "Dear, Team.\n\nCan you please let me know what should be, or what will be the next steps regarding this change?\n\nThank You.",
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
