@@ -46,6 +46,30 @@
       },
       "revId": "5b8aa1fdd8bf9110d4e884c77be014d38ed26947",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "029ddfad_b68e3fe4",
+        "filename": "tv/hdmi/aidl/Android.bp",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-08-26T15:41:17Z",
+      "side": 1,
+      "message": "hal_implementation_test expects all HAL interfaces to be served on Cuttlefish so we cant test/verify the interface with VTS tests and an implementation. \nThis is done by installing the aidl/default/ services (`android.hardware.tv.hdmi-service` and `android.hardware.tv.cec-service`) on Cuttlefish.\n\nIt looks like other TV HALs are installed on only the tv version of Cuttlefish, and they are exempted from hal_implementation_test (because that test is not TV specific). So you\u0027ll want something like https://googleplex-android-review.git.corp.google.com/c/device/google/cuttlefish/+/15166594",
+      "parentUuid": "26d27a38_f1bc3ead",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 6
+      },
+      "revId": "5b8aa1fdd8bf9110d4e884c77be014d38ed26947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
