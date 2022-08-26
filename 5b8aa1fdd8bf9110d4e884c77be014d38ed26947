@@ -22,6 +22,30 @@
       },
       "revId": "5b8aa1fdd8bf9110d4e884c77be014d38ed26947",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26d27a38_f1bc3ead",
+        "filename": "tv/hdmi/aidl/Android.bp",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-08-26T11:37:17Z",
+      "side": 1,
+      "message": "I have removed the version, but the hal_implementation_test module (in device/google/cuttlefish/tests/hal), run for presubmit still fails. I ran this test without my changes and I see it fails for some other modules as well (like android.hardware.light). The error I get is that there is no implementation for the aidl files submitted. Does implementation here refer to the cpp and java files generated during a build?",
+      "parentUuid": "6f3c84e3_8c83bbe2",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 6
+      },
+      "revId": "5b8aa1fdd8bf9110d4e884c77be014d38ed26947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
