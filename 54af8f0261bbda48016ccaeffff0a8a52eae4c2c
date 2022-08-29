@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc34d1cc_a8aea33b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042384
+      },
+      "writtenOn": "2022-08-29T22:51:02Z",
+      "side": 1,
+      "message": "kVendorRndisConfig should work inspite of redundant linking. Makes sense to remove the redundant linking though.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "54af8f0261bbda48016ccaeffff0a8a52eae4c2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
