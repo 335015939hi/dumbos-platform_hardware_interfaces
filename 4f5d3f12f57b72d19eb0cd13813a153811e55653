@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "351105b4_a25622a5",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-08-30T14:59:35Z",
+      "side": 1,
+      "message": "nit: remove extra line",
+      "range": {
+        "startLine": 115,
+        "startChar": 7,
+        "endLine": 115,
+        "endChar": 10
+      },
+      "revId": "4f5d3f12f57b72d19eb0cd13813a153811e55653",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
