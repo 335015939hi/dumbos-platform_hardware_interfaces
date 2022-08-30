@@ -29,7 +29,7 @@ import android.hardware.security.keymint.RpcHardwareInfo;
  * validate the request and create certificates.
  *
  * This interface does not provide any way to use the generated and certified key pairs. It's
- * intended to be implemented by a HAL service that does other things with keys (e.g. Keymint).
+ * intended to be implemented by a HAL service that does other things with keys (e.g. KeyMint).
  *
  * The root of trust for secure provisioning is something called the "Boot Certificate Chain", or
  * BCC. The BCC is a chain of public key certificates, represented as COSE_Sign1 objects containing
@@ -74,7 +74,7 @@ import android.hardware.security.keymint.RpcHardwareInfo;
  * While a proper BCC, as described above, reflects the complete boot sequence from boot ROM to the
  * secure area image of the IRemotelyProvisionedComponent, it's also possible to use a "degenerate"
  * BCC which consists only of a single, self-signed certificate containing the public key of a
- * hardware-bound key pair. This is an appopriate solution for devices which haven't implemented
+ * hardware-bound key pair. This is an appropriate solution for devices which haven't implemented
  * everything necessary to produce a proper BCC, but can derive a unique key pair in the secure
  * area.  In this degenerate case, DK_pub is the same as KM_pub.
  *
@@ -158,7 +158,7 @@ interface IRemotelyProvisionedComponent {
      *        If testMode is false, the keysToCertify array must not contain any keys flagged as
      *        test keys. Otherwise, the method must return STATUS_TEST_KEY_IN_PRODUCTION_REQUEST.
      *
-     * @param in endpointEncryptionKey contains an X22519 public key which will be used to encrypt
+     * @param in endpointEncryptionKey contains an X25519 public key which will be used to encrypt
      *        the BCC. For flexibility, this is represented as a certificate chain, represented as a
      *        CBOR array of COSE_Sign1 objects, ordered from root to leaf. The leaf contains the
      *        X25519 encryption key, each other element is an Ed25519 key signing the next in the
@@ -185,7 +185,7 @@ interface IRemotelyProvisionedComponent {
      *                 -2 : bstr                      // Ed25519 public key
      *            }
      *
-     *            SignatureKeyP256 = {
+     *            SignatureKeyP256 = {                       // COSE_Key
      *                 1 : 2,                         // Key type : EC2
      *                 3 : AlgorithmES256,            // Algorithm
      *                 -1 : 1,                        // Curve: P256
@@ -249,7 +249,7 @@ interface IRemotelyProvisionedComponent {
      *        in the chain, which implies that it must not attempt to validate the signature.
      *
      *        If testMode is false, the method must validate the chain signatures, and must verify
-     *        that the public key in the root certifictate is in its pre-configured set of
+     *        that the public key in the root certificate is in its pre-configured set of
      *        authorized EEK root keys. If the public key is not in the database, or if signature
      *        verification fails, the method must return STATUS_INVALID_EEK.
      *
@@ -263,7 +263,7 @@ interface IRemotelyProvisionedComponent {
      * @param out ProtectedData contains the encrypted BCC and the ephemeral MAC key used to
      *        authenticate the keysToSign (see keysToSignMac output argument).
      *
-     * @return The of KeysToSign in the CertificateRequest structure. Specifically, it contains:
+     * @return The MAC of KeysToSign in the CertificateRequest structure. Specifically, it contains:
      *
      *            HMAC-256(EK_mac, .cbor KeysToMacStructure)
      *
