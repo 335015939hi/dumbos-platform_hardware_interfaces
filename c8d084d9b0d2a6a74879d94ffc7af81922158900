@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1135a070_72a8fb78",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-30T21:38:40Z",
+      "side": 1,
+      "message": "Uploading them from the factory, yeah. Though when we have DICE, this will also be used to figure out which certificate is actually being requested.",
+      "parentUuid": "0acff391_b521da87",
+      "range": {
+        "startLine": 52,
+        "startChar": 15,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4482dbf2_e9778454",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0f62e27_71742563",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-30T21:38:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4482dbf2_e9778454",
+      "range": {
+        "startLine": 145,
+        "startChar": 7,
+        "endLine": 145,
+        "endChar": 33
+      },
+      "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09314e1f_58da6eb8",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-08-22T05:02:41Z",
       "side": 1,
       "message": "Can we have some more detail on the size of such binary input?\nEx,\n```\nImplementations may impose a size limit on this field, and return INVALID_ARGUMENT for values that are too large.\nHowever, this limit must be at least 64-byte, i.e. values of size up to 128-byte must be acceptable\n```",
+      "range": {
+        "startLine": 152,
+        "startChar": 38,
+        "endLine": 152,
+        "endChar": 49
+      },
+      "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5134de7c_441aab93",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-30T21:38:40Z",
+      "side": 1,
+      "message": "Thanks, also added the CDDL clarification on the challenge size.",
+      "parentUuid": "09314e1f_58da6eb8",
       "range": {
         "startLine": 152,
         "startChar": 38,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd725e28_fca17176",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-30T21:38:40Z",
+      "side": 1,
+      "message": "For this new version, I\u0027m planning to add a VTS test which ensures the underlying implementation can generate up to 100 at a time (or more). It should be possible to build a HAL server/client which can persist a signature context between requests until the entire bundle has been processed, right? This would also be a lot more performant than doing (num_keys/10) signing round trips to the backend services.",
+      "parentUuid": "835bf954_83d76748",
+      "range": {
+        "startLine": 185,
+        "startChar": 24,
+        "endLine": 185,
+        "endChar": 33
+      },
+      "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a0b40c0_78eaf061",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
         "patchSetId": 7
@@ -106,6 +202,30 @@
       "writtenOn": "2022-08-22T22:01:24Z",
       "side": 1,
       "message": "implementations of old versions should still need to reference the docs here?",
+      "range": {
+        "startLine": 20,
+        "startChar": 16,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f8846a5_32808734",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-08-30T21:38:40Z",
+      "side": 1,
+      "message": "Guessing this applies to the other places where I chucked out old docs that applied to v1/v2? I had just assumed vendors would reference the branch corresponding to the relevant release for a particular version of a HAL. I can undo these documentation deletions and clearly delineate the versions instead.",
+      "parentUuid": "0a0b40c0_78eaf061",
       "range": {
         "startLine": 20,
         "startChar": 16,
