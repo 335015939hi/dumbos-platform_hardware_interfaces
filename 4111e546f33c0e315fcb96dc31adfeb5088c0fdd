@@ -163,6 +163,24 @@
       "parentUuid": "bff91890_5b5f9572",
       "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf2e7bc0_ae184e8a",
+        "filename": "tv/hdmi/aidl/vts/functional/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-08-30T12:51:49Z",
+      "side": 1,
+      "message": "I don\u0027t think you\u0027ve added the OWNERS file.",
+      "parentUuid": "53919d63_33a3c7bf",
+      "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
