@@ -249,6 +249,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aac2877_05cd1227",
+        "filename": "tv/cec/aidl/default/HdmiCecMock.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-08-30T11:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8628df21_98fd7bf6",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 30
+      },
+      "revId": "57f41b86e466cfb995ac92170b9b0e904ca1245a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f29c981_0d49246a",

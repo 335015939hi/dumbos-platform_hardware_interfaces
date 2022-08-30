@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bef1bdab_50fa195a",
+        "filename": "tv/cec/aidl/default/HdmiCecMock.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-08-30T11:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcd53775_84eda721",
+      "range": {
+        "startLine": 181,
+        "startChar": 13,
+        "endLine": 181,
+        "endChar": 44
+      },
+      "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8baf7509_c456508e",
@@ -82,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa65cc97_55bc1453",
+        "filename": "tv/hdmi/aidl/default/HdmiMock.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-08-30T11:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8baf7509_c456508e",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 33
+      },
+      "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bff91890_5b5f9572",
@@ -95,6 +143,24 @@
       "writtenOn": "2022-08-23T11:39:28Z",
       "side": 1,
       "message": "See Lint comment: please add an OWNERS file. You can link to the OWNERS file of the HAL itself. Just like we link to the frameworks/base owners for CTS.",
+      "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53919d63_33a3c7bf",
+        "filename": "tv/hdmi/aidl/vts/functional/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-08-30T11:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff91890_5b5f9572",
       "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
