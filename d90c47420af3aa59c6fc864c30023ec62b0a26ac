@@ -16,6 +16,24 @@
       "message": "Something\u0027s wrong here - the setThreadPoolMaxThreadCount call will always crash because the thread pool has already been started by line 54. Should that startThreadPool call have been removed? Am I missing something?",
       "revId": "d90c47420af3aa59c6fc864c30023ec62b0a26ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "508c22a5_ff873a5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-08-31T19:25:25Z",
+      "side": 1,
+      "message": "Hey Theodore! Thanks for pointing this out! You are right that the thread pool is being started twice, that\u0027s because `ABinderProcess_...` functions are C wrappers for methods of `android::ProcessState`. I suppose, you are talking about this check:\n\n```\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/native/libs/binder/ProcessState.cpp;l\u003d411;drc\u003db763b1493a1c54746cf5580cd7894474d987d4d1\n\nstatus_t ProcessState::setThreadPoolMaxThreadCount(size_t maxThreads) {\n    LOG_ALWAYS_FATAL_IF(mThreadPoolStarted \u0026\u0026 maxThreads \u003c mMaxThreads,\n           \"Binder threadpool cannot be shrunk after starting\");\n```        \n\nIt seems to me that it\u0027s not firing because it accesses `mThreadPoolStarted` w/o taking `mLock` and it gets a stale value.\n\nWhen reviewing this, I have missed the fact about the nature of `ABinderProcess_...`. I was supposing that we are starting thread pools for different Binder namespaces.",
+      "parentUuid": "08ad1d73_1f05769d",
+      "revId": "d90c47420af3aa59c6fc864c30023ec62b0a26ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": []
