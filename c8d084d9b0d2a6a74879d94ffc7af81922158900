@@ -258,6 +258,30 @@
       },
       "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c252c19c_8a289f75",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-08-31T08:14:10Z",
+      "side": 1,
+      "message": "A related question - WRT in-market devices, if it\u0027s DK_pub had been collected in the factory by generateCertificateRequest, does that mean it shall keep in v2 HAL in the future?",
+      "parentUuid": "4f8846a5_32808734",
+      "range": {
+        "startLine": 20,
+        "startChar": 16,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
