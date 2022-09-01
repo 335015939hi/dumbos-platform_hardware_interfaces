@@ -34,6 +34,24 @@
       "parentUuid": "728a62b7_b8c43f3b",
       "revId": "c30749411230e074f4691de3918c5a79777c5318",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "715f97c0_07bb99a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1320020
+      },
+      "writtenOn": "2022-09-01T03:36:15Z",
+      "side": 1,
+      "message": "maybe it is better to use libbinder_ndk directly from discussion here. \nhttps://groups.google.com/a/google.com/g/android-idl-discuss/c/C5Ntt2nsEyY/m/3CKSfqO1AwAJ\nwill trigger test build to see if it is working.",
+      "parentUuid": "fe70f2dc_5b7916d3",
+      "revId": "c30749411230e074f4691de3918c5a79777c5318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
