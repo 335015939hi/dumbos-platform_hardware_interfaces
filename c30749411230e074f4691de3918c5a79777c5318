@@ -16,6 +16,24 @@
       "message": "As I remember that android.hardware.audio.service will be able to use binder with both line. without this, android.hardware.audio.service only have vndbinder and unable to use binder to communicate with other AIDL service.\nprevious discussion: https://groups.google.com/a/google.com/g/android-idl-discuss/c/qBjN8C8tdOM/m/hpfI7KAYBQAJ ",
       "revId": "c30749411230e074f4691de3918c5a79777c5318",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe70f2dc_5b7916d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1463403
+      },
+      "writtenOn": "2022-09-01T01:51:28Z",
+      "side": 1,
+      "message": "Makes sense, but I don\u0027t think this actually does that? To my knowledge, the choice of binder driver is a global variable set by the initWithDriver call here. I don\u0027t know how you\u0027d actually use two binder drivers at once. ABinderProcess_startThreadPool just calls `ProcessState::self()-\u003estartThreadPool();`: https://cs.android.com/android/platform/superproject/+/master:frameworks/native/libs/binder/ndk/process.cpp;l\u003d27;drc\u003dccb82fc35f23c190724fd7a82141cbd6c4fb69a9\n\nI feel like I must be getting something wrong though, since this code has been submitted for six months. But I can\u0027t get the the android.hardware.audio.service to run at all with it.",
+      "parentUuid": "728a62b7_b8c43f3b",
+      "revId": "c30749411230e074f4691de3918c5a79777c5318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
