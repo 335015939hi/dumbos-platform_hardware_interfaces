@@ -52,6 +52,24 @@
       "parentUuid": "fe70f2dc_5b7916d3",
       "revId": "c30749411230e074f4691de3918c5a79777c5318",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0bea59e_e4d3424f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1320020
+      },
+      "writtenOn": "2022-09-01T05:40:39Z",
+      "side": 1,
+      "message": "I tested with ag/19772450 and audio hal can communicate with other AIDL service.\nHow about to use this CL? should I modify this CL or upload the new one?",
+      "parentUuid": "715f97c0_07bb99a5",
+      "revId": "c30749411230e074f4691de3918c5a79777c5318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
