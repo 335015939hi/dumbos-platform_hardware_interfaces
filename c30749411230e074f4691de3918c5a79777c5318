@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "728a62b7_b8c43f3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1320020
+      },
+      "writtenOn": "2022-09-01T01:46:27Z",
+      "side": 1,
+      "message": "As I remember that android.hardware.audio.service will be able to use binder with both line. without this, android.hardware.audio.service only have vndbinder and unable to use binder to communicate with other AIDL service.\nprevious discussion: https://groups.google.com/a/google.com/g/android-idl-discuss/c/qBjN8C8tdOM/m/hpfI7KAYBQAJ ",
+      "revId": "c30749411230e074f4691de3918c5a79777c5318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
