@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69d8af3d_559e86b1",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2022-09-01T00:53:40Z",
+      "side": 1,
+      "message": "Could we check if only the streamMap is changed here instead of using is_streaming_ boolean?",
+      "range": {
+        "startLine": 132,
+        "startChar": 8,
+        "endLine": 132,
+        "endChar": 29
+      },
+      "revId": "045d3f652db226b08049fe3a87781635a1d80ac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eee1f99_a7f042c9",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2022-09-01T00:53:40Z",
+      "side": 1,
+      "message": "per QC comment, using is_streaming_ boolean to gate the soft callback seems risky. Could we check the content of the audio configuration to  make sure only streamMap has changed instead?",
+      "range": {
+        "startLine": 434,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 5
+      },
+      "revId": "045d3f652db226b08049fe3a87781635a1d80ac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8d4fa4d_4c4d270f",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2022-09-01T00:53:40Z",
+      "side": 1,
+      "message": "QC is asking for a getter in this interface so that Audio HAL can query the current audio configuration? Could we add one?",
+      "revId": "045d3f652db226b08049fe3a87781635a1d80ac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
