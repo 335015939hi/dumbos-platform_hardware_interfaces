@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1773642c_759e81b8",
+        "filename": "audio/aidl/default/EffectMain.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-09-01T23:29:28Z",
+      "side": 1,
+      "message": "I think for now one thread should be enough.\nhttps://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/19750857/6/audio/aidl/default/EffectMain.cpp#b26",
+      "parentUuid": "8983fac5_68d5c39c",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 51
+      },
+      "revId": "c23916b96f77bbe12dac37872b4caa9824760c16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72033b23_13301a00",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9b3d511_5569f5e1",
+        "filename": "audio/aidl/default/android.hardware.audio.effect.service-aidl.example.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-09-01T23:29:28Z",
+      "side": 1,
+      "message": "Updating with CL:\nhttps://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/19750857/6/audio/aidl/default/android.hardware.audio.effect.service-aidl.example.rc",
+      "parentUuid": "72033b23_13301a00",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 102
+      },
+      "revId": "c23916b96f77bbe12dac37872b4caa9824760c16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2262568b_15b8f2e8",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-08-31T23:20:45Z",
       "side": 1,
       "message": "if HIDL audio effects and AIDL audio effects are both optional false, VINTF correctly decides that one or the other can be used, since the \u0027name\u0027 is the same, or should we switch both to optional?",
+      "range": {
+        "startLine": 40,
+        "startChar": 33,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "c23916b96f77bbe12dac37872b4caa9824760c16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aaa19fa_37b99dc6",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-09-01T23:29:28Z",
+      "side": 1,
+      "message": "Updating both to optional:\nhttps://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/19750857/6/compatibility_matrices/compatibility_matrix.current.xml",
+      "parentUuid": "2262568b_15b8f2e8",
       "range": {
         "startLine": 40,
         "startChar": 33,
