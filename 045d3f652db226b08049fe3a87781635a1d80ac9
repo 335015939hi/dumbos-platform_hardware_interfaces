@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d8da370_64000364",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-09-01T15:50:18Z",
+      "side": 1,
+      "message": "Add the check logic to make sure the soft_audio_configuration callback being invoked as expected.",
+      "parentUuid": "69d8af3d_559e86b1",
+      "range": {
+        "startLine": 132,
+        "startChar": 8,
+        "endLine": 132,
+        "endChar": 29
+      },
+      "revId": "045d3f652db226b08049fe3a87781635a1d80ac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7eee1f99_a7f042c9",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c20c36c7_e7c7b7e4",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-09-01T15:50:18Z",
+      "side": 1,
+      "message": "The lc3 codec config shouldn\u0027t be changed during streaming. Add the error handle and msg to drop the unexpected update.",
+      "parentUuid": "7eee1f99_a7f042c9",
+      "range": {
+        "startLine": 434,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 5
+      },
+      "revId": "045d3f652db226b08049fe3a87781635a1d80ac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8d4fa4d_4c4d270f",
@@ -60,6 +108,24 @@
       "writtenOn": "2022-09-01T00:53:40Z",
       "side": 1,
       "message": "QC is asking for a getter in this interface so that Audio HAL can query the current audio configuration? Could we add one?",
+      "revId": "045d3f652db226b08049fe3a87781635a1d80ac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "034a066a_50d84d1a",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-09-01T15:50:18Z",
+      "side": 1,
+      "message": "We already have getter via BluetoothAudioSessionControl.GetAudioConfig for whole audio configuration.",
+      "parentUuid": "c8d4fa4d_4c4d270f",
       "revId": "045d3f652db226b08049fe3a87781635a1d80ac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
