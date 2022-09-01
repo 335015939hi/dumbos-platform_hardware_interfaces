@@ -185,7 +185,13 @@ struct Effect : public IEffect {
     using GetSupportedConfigsSuccessCallback =
         std::function<void(uint32_t supportedConfigs, void* configsData)>;
 
+<<<<<<< HEAD   (61d21dd88de602d366e561a4079e25dbdcc05d12 audio: Add checks to HIDL -> effect_param_t conversion)
     static constexpr effect_handle_t kInvalidEffectHandle = nullptr;
+||||||| BASE   (44c3a78ff196ab518c05086f28bdb27cdf7df405 Merge "DO NOT MERGE Add missing WINDOW_MOVE properties to De)
+=======
+    // Sets the limit on the maximum size of vendor-provided data structures.
+    static constexpr size_t kMaxDataSize = 1 << 20;
+>>>>>>> CHANGE (8e3480edfe9933306f82c1656deb8e6b7090273c audio: Add checks to effects feature configs retrieval)
 
     static const char* sContextResultOfCommand;
     static const char* sContextCallToCommand;
