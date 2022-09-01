@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46b1418d_3393f36f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-09-01T02:12:03Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "1cc8267aac4e207b6769c96e085c468f023ce1f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "332460fb_e6f93533",
+        "filename": "boot/aidl/default/android.hardware.boot-service.default_recovery.rc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-09-01T02:12:03Z",
+      "side": 1,
+      "message": "nit: curious, is this needed or is it for completeness? or should we also add it to the normal .rc file?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 61
+      },
+      "revId": "1cc8267aac4e207b6769c96e085c468f023ce1f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
