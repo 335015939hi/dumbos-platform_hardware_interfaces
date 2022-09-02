@@ -39,6 +39,30 @@
       },
       "revId": "1cc8267aac4e207b6769c96e085c468f023ce1f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8783eb4e_cf004ed2",
+        "filename": "boot/aidl/default/android.hardware.boot-service.default_recovery.rc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2022-09-02T17:51:49Z",
+      "side": 1,
+      "message": "It\u0027s needed. Without it, servicemanager wouldn\u0027t be able to find boot control HAL server.",
+      "parentUuid": "332460fb_e6f93533",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 61
+      },
+      "revId": "1cc8267aac4e207b6769c96e085c468f023ce1f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
