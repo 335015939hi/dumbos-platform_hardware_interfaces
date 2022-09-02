@@ -167,9 +167,9 @@ static float getFrequencyMaximumHz(sp<IVibrator> vibrator, int32_t capabilities)
         EXPECT_TRUE(isUnknownOrUnsupported(status)) << status;
     }
 
-    float freqMaximumHz =
-        (bandwidthAmplitudeMap.size() * getFrequencyResolutionHz(vibrator, capabilities)) +
-        getFrequencyMinimumHz(vibrator, capabilities);
+    float freqMaximumHz = ((bandwidthAmplitudeMap.size() - 1) *
+                           getFrequencyResolutionHz(vibrator, capabilities)) +
+                          getFrequencyMinimumHz(vibrator, capabilities);
     return freqMaximumHz;
 }
 
@@ -196,7 +196,7 @@ static ActivePwle composeValidActivePwle(sp<IVibrator> vibrator, int32_t capabil
     active.startFrequency = frequencyHz;
     active.endAmplitude = (getAmplitudeMin() + getAmplitudeMax()) / 2;
     active.endFrequency = frequencyHz;
-    active.duration = 1000;
+    vibrator->getPwlePrimitiveDurationMax(&(active.duration));
 
     return active;
 }
@@ -332,6 +332,7 @@ TEST_P(VibratorAidl, ChangeVibrationAmplitude) {
         sleep(1);
         EXPECT_EQ(Status::EX_NONE, vibrator->setAmplitude(1.0f).exceptionCode());
         sleep(1);
+        EXPECT_TRUE(vibrator->off().isOk());
     }
 }
 
@@ -417,6 +418,9 @@ TEST_P(VibratorAidl, GetPrimitiveDuration) {
 
             if (isPrimitiveSupported) {
                 EXPECT_EQ(Status::EX_NONE, status.exceptionCode());
+                if (primitive != CompositePrimitive::NOOP) {
+                    ASSERT_GT(duration, 0) << toString(primitive) << " " << duration;
+                }
             } else {
                 EXPECT_TRUE(isUnknownOrUnsupported(status)) << status;
             }
@@ -440,7 +444,7 @@ TEST_P(VibratorAidl, ComposeValidPrimitives) {
 
             effect.delayMs = std::rand() % (maxDelay + 1);
             effect.primitive = primitive;
-            effect.scale = static_cast<float>(std::rand()) / RAND_MAX;
+            effect.scale = static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX);
             composite.emplace_back(effect);
 
             if (composite.size() == maxSize) {
@@ -756,7 +760,9 @@ TEST_P(VibratorAidl, ComposeValidPwleWithCallback) {
     std::future<void> completionFuture{completionPromise.get_future()};
     sp<CompletionCallback> callback =
         new CompletionCallback([&completionPromise] { completionPromise.set_value(); });
-    uint32_t durationMs = 2100;  // Sum of 2 active and 1 braking below
+    int32_t segmentDurationMaxMs;
+    vibrator->getPwlePrimitiveDurationMax(&segmentDurationMaxMs);
+    uint32_t durationMs = segmentDurationMaxMs * 2 + 100;  // Sum of 2 active and 1 braking below
     //TODO(b/187207798): revert back to conservative timeout values once
     //latencies have been fixed
     std::chrono::milliseconds timeout{durationMs * 4};
@@ -860,7 +866,7 @@ TEST_P(VibratorAidl, ComposePwleSegmentDurationBoundary) {
     if (capabilities & IVibrator::CAP_COMPOSE_PWLE_EFFECTS) {
         ActivePwle active = composeValidActivePwle(vibrator, capabilities);
 
-        int segmentDurationMaxMs;
+        int32_t segmentDurationMaxMs;
         vibrator->getPwlePrimitiveDurationMax(&segmentDurationMaxMs);
         active.duration = segmentDurationMaxMs + 10;  // Segment duration greater than allowed
 

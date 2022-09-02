@@ -31,6 +31,7 @@
 #include <aidl/android/hardware/security/keymint/IKeyMintDevice.h>
 #include <aidl/android/hardware/security/keymint/MacedPublicKey.h>
 
+#include <keymint_support/attestation_record.h>
 #include <keymint_support/authorization_set.h>
 #include <keymint_support/openssl_utils.h>
 
@@ -79,6 +80,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t vendor_patch_level() { return vendor_patch_level_; }
     uint32_t boot_patch_level(const vector<KeyCharacteristics>& key_characteristics);
     uint32_t boot_patch_level();
+    bool isDeviceIdAttestationRequired();
 
     bool Curve25519Supported();
 
@@ -185,6 +187,10 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     string MacMessage(const string& message, Digest digest, size_t mac_length);
 
     void CheckAesIncrementalEncryptOperation(BlockMode block_mode, int message_size);
+
+    void AesCheckEncryptOneByteAtATime(const string& key, BlockMode block_mode,
+                                       PaddingMode padding_mode, const string& iv,
+                                       const string& plaintext, const string& exp_cipher_text);
 
     void CheckHmacTestVector(const string& key, const string& message, Digest digest,
                              const string& expected_mac);
@@ -341,6 +347,11 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     string name_;
     string author_;
     long challenge_;
+
+  private:
+    void CheckEncryptOneByteAtATime(BlockMode block_mode, const int block_size,
+                                    PaddingMode padding_mode, const string& iv,
+                                    const string& plaintext, const string& exp_cipher_text);
 };
 
 // If the given property is available, add it to the tag set under the given tag ID.
@@ -353,13 +364,22 @@ void add_tag_from_prop(AuthorizationSetBuilder* tags, TypedTag<TagType::BYTES, t
     }
 }
 
+// Return the VSR API level for this device.
+int get_vsr_api_level();
+
+// Indicate whether the test is running on a GSI image.
+bool is_gsi_image();
+
 vector<uint8_t> build_serial_blob(const uint64_t serial_int);
 void verify_subject(const X509* cert, const string& subject, bool self_signed);
 void verify_serial(X509* cert, const uint64_t expected_serial);
 void verify_subject_and_serial(const Certificate& certificate,  //
                                const uint64_t expected_serial,  //
                                const string& subject, bool self_signed);
-
+void verify_root_of_trust(const vector<uint8_t>& verified_boot_key,  //
+                          bool device_locked,                        //
+                          VerifiedBoot verified_boot_state,          //
+                          const vector<uint8_t>& verified_boot_hash);
 bool verify_attestation_record(int aidl_version,                       //
                                const string& challenge,                //
                                const string& app_id,                   //

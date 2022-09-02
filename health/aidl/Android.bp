@@ -36,12 +36,14 @@ aidl_interface {
             enabled: true,
             sdk_version: "module_current",
         },
-        ndk: {
-            vndk: {
-                enabled: true,
-            },
-        },
     },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+
 }
 
 cc_library {

@@ -27,6 +27,7 @@
 #include <openssl/mem.h>
 #include <openssl/x509.h>
 
+#include <android-base/properties.h>
 #include <cutils/properties.h>
 
 #include <keymasterV4_0/attestation_record.h>
@@ -384,6 +385,31 @@ std::string make_string(const uint8_t (&a)[N]) {
 bool avb_verification_enabled() {
     char value[PROPERTY_VALUE_MAX];
     return property_get("ro.boot.vbmeta.device_state", value, "") != 0;
+}
+
+int get_vsr_api_level() {
+    int vendor_api_level = ::android::base::GetIntProperty("ro.vendor.api_level", -1);
+    if (vendor_api_level != -1) {
+        return vendor_api_level;
+    }
+
+    // Android S and older devices do not define ro.vendor.api_level
+    vendor_api_level = ::android::base::GetIntProperty("ro.board.api_level", -1);
+    if (vendor_api_level == -1) {
+        vendor_api_level = ::android::base::GetIntProperty("ro.board.first_api_level", -1);
+    }
+
+    int product_api_level = ::android::base::GetIntProperty("ro.product.first_api_level", -1);
+    if (product_api_level == -1) {
+        product_api_level = ::android::base::GetIntProperty("ro.build.version.sdk", -1);
+        EXPECT_NE(product_api_level, -1) << "Could not find ro.build.version.sdk";
+    }
+
+    // VSR API level is the minimum of vendor_api_level and product_api_level.
+    if (vendor_api_level == -1 || vendor_api_level > product_api_level) {
+        return product_api_level;
+    }
+    return vendor_api_level;
 }
 
 bool is_gsi() {
@@ -2866,8 +2892,8 @@ TEST_P(EncryptionOperationsTest, AesEcbPkcs7PaddingCorrupted) {
 
         EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
         string plaintext;
-        ErrorCode error = Finish(message, &plaintext);
-        if (error == ErrorCode::INVALID_INPUT_LENGTH) {
+        ErrorCode error = Finish(ciphertext, &plaintext);
+        if (error == ErrorCode::INVALID_ARGUMENT) {
             // This is the expected error, we can exit the test now.
             return;
         } else {
@@ -3102,6 +3128,49 @@ TEST_P(EncryptionOperationsTest, AesCbcRoundTripSuccess) {
     params.push_back(TAG_NONCE, iv1);
     string plaintext = DecryptMessage(ciphertext1, params);
     EXPECT_EQ(message, plaintext);
+}
+
+/*
+ * EncryptionOperationsTest.AesCbcZeroInputSuccessb
+ *
+ * Verifies that keymaster generates correct output on zero-input with
+ * NonePadding mode
+ */
+TEST_P(EncryptionOperationsTest, AesCbcZeroInputSuccess) {
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .AesEncryptionKey(128)
+                                                 .BlockMode(BlockMode::CBC)
+                                                 .Padding(PaddingMode::NONE, PaddingMode::PKCS7)));
+
+    // Zero input message
+    string message = "";
+    for (auto padding : {PaddingMode::NONE, PaddingMode::PKCS7}) {
+        auto params = AuthorizationSetBuilder().BlockMode(BlockMode::CBC).Padding(padding);
+        AuthorizationSet out_params;
+        string ciphertext1 = EncryptMessage(message, params, &out_params);
+        HidlBuf iv1 = CopyIv(out_params);
+        if (padding == PaddingMode::NONE)
+            EXPECT_EQ(message.size(), ciphertext1.size()) << "PaddingMode: " << padding;
+        else
+            EXPECT_EQ(message.size(), ciphertext1.size() - 16) << "PaddingMode: " << padding;
+
+        out_params.Clear();
+
+        string ciphertext2 = EncryptMessage(message, params, &out_params);
+        HidlBuf iv2 = CopyIv(out_params);
+        if (padding == PaddingMode::NONE)
+            EXPECT_EQ(message.size(), ciphertext2.size()) << "PaddingMode: " << padding;
+        else
+            EXPECT_EQ(message.size(), ciphertext2.size() - 16) << "PaddingMode: " << padding;
+
+        // IVs should be random
+        EXPECT_NE(iv1, iv2) << "PaddingMode: " << padding;
+
+        params.push_back(TAG_NONCE, iv1);
+        string plaintext = DecryptMessage(ciphertext1, params);
+        EXPECT_EQ(message, plaintext) << "PaddingMode: " << padding;
+    }
 }
 
 /*
@@ -4789,6 +4858,18 @@ TEST_P(TransportLimitTest, LargeFinishInput) {
 }
 
 INSTANTIATE_KEYMASTER_HIDL_TEST(TransportLimitTest);
+
+using VsrRequirementTest = KeymasterHidlTest;
+
+TEST_P(VsrRequirementTest, Vsr13Test) {
+    int vsr_api_level = get_vsr_api_level();
+    if (vsr_api_level < 33) {
+        GTEST_SKIP() << "Applies only to VSR API level 33, this device is: " << vsr_api_level;
+    }
+    FAIL() << "VSR 13+ requires KeyMint version 2";
+}
+
+INSTANTIATE_KEYMASTER_HIDL_TEST(VsrRequirementTest);
 
 }  // namespace test
 }  // namespace V4_0

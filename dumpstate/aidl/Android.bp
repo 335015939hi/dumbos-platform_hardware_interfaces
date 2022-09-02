@@ -33,10 +33,12 @@ aidl_interface {
         java: {
             enabled: false,
         },
-        ndk: {
-            vndk: {
-                enabled: true,
-            },
-        },
     },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+
 }

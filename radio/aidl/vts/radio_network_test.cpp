@@ -592,6 +592,89 @@ TEST_P(RadioNetworkTest, setSignalStrengthReportingCriteria_NGRAN_SSSINR) {
 }
 
 /*
+ * Test IRadioNetwork.setSignalStrengthReportingCriteria() for multi-RANs per request
+ */
+TEST_P(RadioNetworkTest, setSignalStrengthReportingCriteria_multiRansPerRequest) {
+    SignalThresholdInfo signalThresholdInfoGeran;
+    signalThresholdInfoGeran.signalMeasurement = SignalThresholdInfo::SIGNAL_MEASUREMENT_TYPE_RSSI;
+    signalThresholdInfoGeran.hysteresisMs = 5000;
+    signalThresholdInfoGeran.hysteresisDb = 2;
+    signalThresholdInfoGeran.thresholds = {-109, -103, -97, -89};
+    signalThresholdInfoGeran.isEnabled = true;
+    signalThresholdInfoGeran.ran = AccessNetwork::GERAN;
+
+    SignalThresholdInfo signalThresholdInfoUtran;
+    signalThresholdInfoUtran.signalMeasurement = SignalThresholdInfo::SIGNAL_MEASUREMENT_TYPE_RSCP;
+    signalThresholdInfoUtran.hysteresisMs = 5000;
+    signalThresholdInfoUtran.hysteresisDb = 2;
+    signalThresholdInfoUtran.thresholds = {-110, -97, -73, -49, -25};
+    signalThresholdInfoUtran.isEnabled = true;
+    signalThresholdInfoUtran.ran = AccessNetwork::UTRAN;
+
+    SignalThresholdInfo signalThresholdInfoEutran;
+    signalThresholdInfoEutran.signalMeasurement = SignalThresholdInfo::SIGNAL_MEASUREMENT_TYPE_RSRP;
+    signalThresholdInfoEutran.hysteresisMs = 5000;
+    signalThresholdInfoEutran.hysteresisDb = 2;
+    signalThresholdInfoEutran.thresholds = {-128, -108, -88, -68};
+    signalThresholdInfoEutran.isEnabled = true;
+    signalThresholdInfoEutran.ran = AccessNetwork::EUTRAN;
+
+    SignalThresholdInfo signalThresholdInfoCdma2000;
+    signalThresholdInfoCdma2000.signalMeasurement =
+            SignalThresholdInfo::SIGNAL_MEASUREMENT_TYPE_RSSI;
+    signalThresholdInfoCdma2000.hysteresisMs = 5000;
+    signalThresholdInfoCdma2000.hysteresisDb = 2;
+    signalThresholdInfoCdma2000.thresholds = {-105, -90, -75, -65};
+    signalThresholdInfoCdma2000.isEnabled = true;
+    signalThresholdInfoCdma2000.ran = AccessNetwork::CDMA2000;
+
+    SignalThresholdInfo signalThresholdInfoNgran;
+    signalThresholdInfoNgran.signalMeasurement =
+            SignalThresholdInfo::SIGNAL_MEASUREMENT_TYPE_SSRSRP;
+    signalThresholdInfoNgran.hysteresisMs = 5000;
+    signalThresholdInfoNgran.hysteresisDb = 0;
+    signalThresholdInfoNgran.thresholds = {-105, -90, -75, -65};
+    signalThresholdInfoNgran.isEnabled = true;
+    signalThresholdInfoNgran.ran = AccessNetwork::NGRAN;
+
+    const static std::vector<SignalThresholdInfo> candidateSignalThresholdInfos = {
+            signalThresholdInfoGeran, signalThresholdInfoUtran, signalThresholdInfoEutran,
+            signalThresholdInfoCdma2000, signalThresholdInfoNgran};
+
+    std::vector<SignalThresholdInfo> supportedSignalThresholdInfos;
+    for (size_t i = 0; i < candidateSignalThresholdInfos.size(); i++) {
+        serial = GetRandomSerialNumber();
+        ndk::ScopedAStatus res = radio_network->setSignalStrengthReportingCriteria(
+                serial, {candidateSignalThresholdInfos[i]});
+        ASSERT_OK(res);
+        EXPECT_EQ(std::cv_status::no_timeout, wait());
+        if (radioRsp_network->rspInfo.error == RadioError::NONE) {
+            supportedSignalThresholdInfos.push_back(signalThresholdInfoGeran);
+        } else {
+            // Refer to IRadioNetworkResponse#setSignalStrengthReportingCriteriaResponse
+            ASSERT_TRUE(CheckAnyOfErrors(
+                    radioRsp_network->rspInfo.error,
+                    {RadioError::INVALID_ARGUMENTS, RadioError::RADIO_NOT_AVAILABLE}));
+        }
+    }
+
+    ASSERT_FALSE(supportedSignalThresholdInfos.empty());
+
+    serial = GetRandomSerialNumber();
+    ndk::ScopedAStatus res = radio_network->setSignalStrengthReportingCriteria(
+            serial, supportedSignalThresholdInfos);
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
+
+    ALOGI("setSignalStrengthReportingCriteria_multiRansPerRequest, rspInfo.error = %s\n",
+          toString(radioRsp_network->rspInfo.error).c_str());
+
+    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error, {RadioError::NONE}));
+}
+
+/*
  * Test IRadioNetwork.setLinkCapacityReportingCriteria() invalid hysteresisDlKbps
  */
 TEST_P(RadioNetworkTest, setLinkCapacityReportingCriteria_invalidHysteresisDlKbps) {
@@ -686,6 +769,16 @@ TEST_P(RadioNetworkTest, setLinkCapacityReportingCriteria_Geran) {
  */
 TEST_P(RadioNetworkTest, setSystemSelectionChannels) {
     serial = GetRandomSerialNumber();
+    ndk::ScopedAStatus res = radio_network->getSystemSelectionChannels(serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
+    if (radioRsp_network->specifiers.size() == 0) {
+        // TODO (b/189255895): Throw an error once getSystemSelectionChannels is functional.
+        ALOGI("Skipped the test due to empty system selection channels.");
+        GTEST_SKIP();
+    }
+    std::vector<RadioAccessSpecifier> originalSpecifiers = radioRsp_network->specifiers;
 
     RadioAccessSpecifierBands bandP900 =
             RadioAccessSpecifierBands::make<RadioAccessSpecifierBands::geranBands>(
@@ -698,8 +791,8 @@ TEST_P(RadioNetworkTest, setSystemSelectionChannels) {
     RadioAccessSpecifier specifier850 = {
             .accessNetwork = AccessNetwork::GERAN, .bands = band850, .channels = {128, 129}};
 
-    ndk::ScopedAStatus res =
-            radio_network->setSystemSelectionChannels(serial, true, {specifierP900, specifier850});
+    serial = GetRandomSerialNumber();
+    res = radio_network->setSystemSelectionChannels(serial, true, {specifierP900, specifier850});
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
@@ -712,8 +805,8 @@ TEST_P(RadioNetworkTest, setSystemSelectionChannels) {
 
     if (radioRsp_network->rspInfo.error == RadioError::NONE) {
         serial = GetRandomSerialNumber();
-        ndk::ScopedAStatus res = radio_network->setSystemSelectionChannels(
-                serial, false, {specifierP900, specifier850});
+        res = radio_network->setSystemSelectionChannels(serial, false,
+                                                        {specifierP900, specifier850});
         ASSERT_OK(res);
         EXPECT_EQ(std::cv_status::no_timeout, wait());
         EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
@@ -722,6 +815,12 @@ TEST_P(RadioNetworkTest, setSystemSelectionChannels) {
               toString(radioRsp_network->rspInfo.error).c_str());
         EXPECT_EQ(RadioError::NONE, radioRsp_network->rspInfo.error);
     }
+
+    serial = GetRandomSerialNumber();
+    res = radio_network->setSystemSelectionChannels(serial, true, originalSpecifiers);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_network->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_network->rspInfo.serial);
 }
 
 /*

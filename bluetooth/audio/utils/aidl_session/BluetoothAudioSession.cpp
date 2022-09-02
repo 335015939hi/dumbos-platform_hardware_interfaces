@@ -92,6 +92,7 @@ const AudioConfiguration BluetoothAudioSession::GetAudioConfig() {
   if (!IsSessionReady()) {
     switch (session_type_) {
       case SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH:
+      case SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH:
         return AudioConfiguration(CodecConfiguration{});
       case SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH:
       case SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH:
@@ -110,7 +111,9 @@ void BluetoothAudioSession::ReportAudioConfigChanged(
   if (session_type_ !=
           SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
       session_type_ !=
-          SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+          SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH &&
+      session_type_ !=
+          SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH) {
     return;
   }
   std::lock_guard<std::recursive_mutex> guard(mutex_);
@@ -143,6 +146,7 @@ bool BluetoothAudioSession::IsSessionReady() {
            SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH ||
        session_type_ ==
            SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+       session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH ||
        (data_mq_ != nullptr && data_mq_->isValid()));
   return stack_iface_ != nullptr && is_mq_valid && audio_config_ != nullptr;
 }
@@ -267,14 +271,19 @@ bool BluetoothAudioSession::UpdateAudioConfig(
        session_type_ == SessionType::LE_AUDIO_SOFTWARE_DECODING_DATAPATH ||
        session_type_ == SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH ||
        session_type_ ==
-           SessionType::LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH);
+           SessionType::LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH ||
+       session_type_ == SessionType::A2DP_SOFTWARE_DECODING_DATAPATH);
   bool is_offload_a2dp_session =
-      (session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH);
-  bool is_offload_le_audio_session =
+      (session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+       session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH);
+  bool is_offload_le_audio_unicast_session =
       (session_type_ ==
            SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
        session_type_ ==
            SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH);
+  bool is_offload_le_audio_broadcast_session =
+      (session_type_ ==
+       SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH);
   auto audio_config_tag = audio_config.getTag();
   bool is_software_audio_config =
       (is_software_session &&
@@ -282,11 +291,15 @@ bool BluetoothAudioSession::UpdateAudioConfig(
   bool is_a2dp_offload_audio_config =
       (is_offload_a2dp_session &&
        audio_config_tag == AudioConfiguration::a2dpConfig);
-  bool is_le_audio_offload_audio_config =
-      (is_offload_le_audio_session &&
+  bool is_le_audio_offload_unicast_audio_config =
+      (is_offload_le_audio_unicast_session &&
        audio_config_tag == AudioConfiguration::leAudioConfig);
+  bool is_le_audio_offload_broadcast_audio_config =
+      (is_offload_le_audio_broadcast_session &&
+       audio_config_tag == AudioConfiguration::leAudioBroadcastConfig);
   if (!is_software_audio_config && !is_a2dp_offload_audio_config &&
-      !is_le_audio_offload_audio_config) {
+      !is_le_audio_offload_unicast_audio_config &&
+      !is_le_audio_offload_broadcast_audio_config) {
     return false;
   }
   audio_config_ = std::make_unique<AudioConfiguration>(audio_config);
@@ -468,7 +481,9 @@ void BluetoothAudioSession::UpdateSourceMetadata(
   LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_) << ","
             << track_count << " track(s)";
   if (session_type_ == SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH ||
-      session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH) {
+      session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+      session_type_ == SessionType::A2DP_SOFTWARE_DECODING_DATAPATH ||
+      session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     return;
   }
 
@@ -509,7 +524,9 @@ void BluetoothAudioSession::UpdateSinkMetadata(
   LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_) << ","
             << track_count << " track(s)";
   if (session_type_ == SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH ||
-      session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH) {
+      session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+      session_type_ == SessionType::A2DP_SOFTWARE_DECODING_DATAPATH ||
+      session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     return;
   }
 

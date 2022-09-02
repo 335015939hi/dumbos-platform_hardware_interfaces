@@ -17,6 +17,7 @@
 #include "KeyMintAidlTestBase.h"
 
 #include <chrono>
+#include <fstream>
 #include <unordered_set>
 #include <vector>
 
@@ -30,7 +31,6 @@
 #include <remote_prov/remote_prov_utils.h>
 
 #include <keymaster/cppcose/cppcose.h>
-#include <keymint_support/attestation_record.h>
 #include <keymint_support/key_param_output.h>
 #include <keymint_support/keymint_utils.h>
 #include <keymint_support/openssl_utils.h>
@@ -205,6 +205,14 @@ uint32_t KeyMintAidlTestBase::boot_patch_level(
 
 uint32_t KeyMintAidlTestBase::boot_patch_level() {
     return boot_patch_level(key_characteristics_);
+}
+
+/**
+ * An API to determine device IDs attestation is required or not,
+ * which is mandatory for KeyMint version 2 or first_api_level 33 or greater.
+ */
+bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
+    return AidlVersion() >= 2 || property_get_int32("ro.vendor.api_level", 0) >= 33;
 }
 
 bool KeyMintAidlTestBase::Curve25519Supported() {
@@ -764,6 +772,100 @@ void KeyMintAidlTestBase::CheckAesIncrementalEncryptOperation(BlockMode block_mo
     }
 }
 
+void KeyMintAidlTestBase::AesCheckEncryptOneByteAtATime(const string& key, BlockMode block_mode,
+                                                        PaddingMode padding_mode, const string& iv,
+                                                        const string& plaintext,
+                                                        const string& exp_cipher_text) {
+    bool is_authenticated_cipher = (block_mode == BlockMode::GCM);
+    auto auth_set = AuthorizationSetBuilder()
+                            .Authorization(TAG_NO_AUTH_REQUIRED)
+                            .AesEncryptionKey(key.size() * 8)
+                            .BlockMode(block_mode)
+                            .Padding(padding_mode);
+    if (iv.size() > 0) auth_set.Authorization(TAG_CALLER_NONCE);
+    if (is_authenticated_cipher) auth_set.Authorization(TAG_MIN_MAC_LENGTH, 128);
+    ASSERT_EQ(ErrorCode::OK, ImportKey(auth_set, KeyFormat::RAW, key));
+
+    CheckEncryptOneByteAtATime(block_mode, 16 /*block_size*/, padding_mode, iv, plaintext,
+                               exp_cipher_text);
+}
+
+void KeyMintAidlTestBase::CheckEncryptOneByteAtATime(BlockMode block_mode, const int block_size,
+                                                     PaddingMode padding_mode, const string& iv,
+                                                     const string& plaintext,
+                                                     const string& exp_cipher_text) {
+    bool is_stream_cipher = (block_mode == BlockMode::CTR || block_mode == BlockMode::GCM);
+    bool is_authenticated_cipher = (block_mode == BlockMode::GCM);
+    auto params = AuthorizationSetBuilder().BlockMode(block_mode).Padding(padding_mode);
+    if (iv.size() > 0) params.Authorization(TAG_NONCE, iv.data(), iv.size());
+    if (is_authenticated_cipher) params.Authorization(TAG_MAC_LENGTH, 128);
+
+    AuthorizationSet output_params;
+    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &output_params));
+
+    string actual_ciphertext;
+    if (is_stream_cipher) {
+        // Assert that a 1 byte of output is produced for 1 byte of input.
+        // Every input byte produces an output byte.
+        for (int plaintext_index = 0; plaintext_index < plaintext.size(); plaintext_index++) {
+            string ciphertext;
+            EXPECT_EQ(ErrorCode::OK, Update(plaintext.substr(plaintext_index, 1), &ciphertext));
+            // Some StrongBox implementations cannot support 1:1 input:output lengths, so
+            // we relax this API restriction for them.
+            if (SecLevel() != SecurityLevel::STRONGBOX) {
+                EXPECT_EQ(1, ciphertext.size()) << "plaintext index: " << plaintext_index;
+            }
+            actual_ciphertext.append(ciphertext);
+        }
+        string ciphertext;
+        EXPECT_EQ(ErrorCode::OK, Finish(&ciphertext));
+        if (SecLevel() != SecurityLevel::STRONGBOX) {
+            string expected_final_output;
+            if (is_authenticated_cipher) {
+                expected_final_output = exp_cipher_text.substr(plaintext.size());
+            }
+            EXPECT_EQ(expected_final_output, ciphertext);
+        }
+        actual_ciphertext.append(ciphertext);
+    } else {
+        // Assert that a block of output is produced once a full block of input is provided.
+        // Every input block produces an output block.
+        bool compare_output = true;
+        string additional_information;
+        int vendor_api_level = property_get_int32("ro.vendor.api_level", 0);
+        if (SecLevel() == SecurityLevel::STRONGBOX) {
+            // This is known to be broken on older vendor implementations.
+            if (vendor_api_level < 33) {
+                compare_output = false;
+            } else {
+                additional_information = " (b/194134359) ";
+            }
+        }
+        for (int plaintext_index = 0; plaintext_index < plaintext.size(); plaintext_index++) {
+            string ciphertext;
+            EXPECT_EQ(ErrorCode::OK, Update(plaintext.substr(plaintext_index, 1), &ciphertext));
+            if (compare_output) {
+                if ((plaintext_index % block_size) == block_size - 1) {
+                    // Update is expected to have output a new block
+                    EXPECT_EQ(block_size, ciphertext.size())
+                            << "plaintext index: " << plaintext_index << additional_information;
+                } else {
+                    // Update is expected to have produced no output
+                    EXPECT_EQ(0, ciphertext.size())
+                            << "plaintext index: " << plaintext_index << additional_information;
+                }
+            }
+            actual_ciphertext.append(ciphertext);
+        }
+        string ciphertext;
+        EXPECT_EQ(ErrorCode::OK, Finish(&ciphertext));
+        actual_ciphertext.append(ciphertext);
+    }
+    // Regardless of how the completed ciphertext got accumulated, it should match the expected
+    // ciphertext.
+    EXPECT_EQ(exp_cipher_text, actual_ciphertext);
+}
+
 void KeyMintAidlTestBase::CheckHmacTestVector(const string& key, const string& message,
                                               Digest digest, const string& expected_mac) {
     SCOPED_TRACE("CheckHmacTestVector");
@@ -968,12 +1070,24 @@ string KeyMintAidlTestBase::LocalRsaEncryptMessage(const string& message,
         return "Failure";
     }
     X509_Ptr key_cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+    if (key_cert.get() == nullptr) {
+        ADD_FAILURE() << "Failed to parse cert";
+        return "Failure";
+    }
     EVP_PKEY_Ptr pub_key(X509_get_pubkey(key_cert.get()));
+    if (pub_key.get() == nullptr) {
+        ADD_FAILURE() << "Failed to retrieve public key";
+        return "Failure";
+    }
     RSA_Ptr rsa(EVP_PKEY_get1_RSA(const_cast<EVP_PKEY*>(pub_key.get())));
+    if (rsa.get() == nullptr) {
+        ADD_FAILURE() << "Failed to retrieve RSA public key";
+        return "Failure";
+    }
 
     // Retrieve relevant tags.
     Digest digest = Digest::NONE;
-    Digest mgf_digest = Digest::NONE;
+    Digest mgf_digest = Digest::SHA1;
     PaddingMode padding = PaddingMode::NONE;
 
     auto digest_tag = params.GetTagValue(TAG_DIGEST);
@@ -1452,6 +1566,36 @@ void verify_subject(const X509* cert,       //
     OPENSSL_free(cert_issuer);
 }
 
+int get_vsr_api_level() {
+    int vendor_api_level = ::android::base::GetIntProperty("ro.vendor.api_level", -1);
+    if (vendor_api_level != -1) {
+        return vendor_api_level;
+    }
+
+    // Android S and older devices do not define ro.vendor.api_level
+    vendor_api_level = ::android::base::GetIntProperty("ro.board.api_level", -1);
+    if (vendor_api_level == -1) {
+        vendor_api_level = ::android::base::GetIntProperty("ro.board.first_api_level", -1);
+    }
+
+    int product_api_level = ::android::base::GetIntProperty("ro.product.first_api_level", -1);
+    if (product_api_level == -1) {
+        product_api_level = ::android::base::GetIntProperty("ro.build.version.sdk", -1);
+        EXPECT_NE(product_api_level, -1) << "Could not find ro.build.version.sdk";
+    }
+
+    // VSR API level is the minimum of vendor_api_level and product_api_level.
+    if (vendor_api_level == -1 || vendor_api_level > product_api_level) {
+        return product_api_level;
+    }
+    return vendor_api_level;
+}
+
+bool is_gsi_image() {
+    std::ifstream ifs("/system/system_ext/etc/init/init.gsi.rc");
+    return ifs.good();
+}
+
 vector<uint8_t> build_serial_blob(const uint64_t serial_int) {
     BIGNUM_Ptr serial(BN_new());
     EXPECT_TRUE(BN_set_u64(serial.get(), serial_int));
@@ -1481,6 +1625,60 @@ void verify_subject_and_serial(const Certificate& certificate,  //
 
     verify_serial(cert.get(), expected_serial);
     verify_subject(cert.get(), subject, self_signed);
+}
+
+void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_locked,
+                          VerifiedBoot verified_boot_state,
+                          const vector<uint8_t>& verified_boot_hash) {
+    char property_value[PROPERTY_VALUE_MAX] = {};
+
+    if (avb_verification_enabled()) {
+        EXPECT_NE(property_get("ro.boot.vbmeta.digest", property_value, ""), 0);
+        string prop_string(property_value);
+        EXPECT_EQ(prop_string.size(), 64);
+        EXPECT_EQ(prop_string, bin2hex(verified_boot_hash));
+
+        EXPECT_NE(property_get("ro.boot.vbmeta.device_state", property_value, ""), 0);
+        if (!strcmp(property_value, "unlocked")) {
+            EXPECT_FALSE(device_locked);
+        } else {
+            EXPECT_TRUE(device_locked);
+        }
+
+        // Check that the device is locked if not debuggable, e.g., user build
+        // images in CTS. For VTS, debuggable images are used to allow adb root
+        // and the device is unlocked.
+        if (!property_get_bool("ro.debuggable", false)) {
+            EXPECT_TRUE(device_locked);
+        } else {
+            EXPECT_FALSE(device_locked);
+        }
+    }
+
+    // Verified boot key should be all 0's if the boot state is not verified or self signed
+    std::string empty_boot_key(32, '\0');
+    std::string verified_boot_key_str((const char*)verified_boot_key.data(),
+                                      verified_boot_key.size());
+    EXPECT_NE(property_get("ro.boot.verifiedbootstate", property_value, ""), 0);
+    if (!strcmp(property_value, "green")) {
+        EXPECT_EQ(verified_boot_state, VerifiedBoot::VERIFIED);
+        EXPECT_NE(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
+                            verified_boot_key.size()));
+    } else if (!strcmp(property_value, "yellow")) {
+        EXPECT_EQ(verified_boot_state, VerifiedBoot::SELF_SIGNED);
+        EXPECT_NE(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
+                            verified_boot_key.size()));
+    } else if (!strcmp(property_value, "orange")) {
+        EXPECT_EQ(verified_boot_state, VerifiedBoot::UNVERIFIED);
+        EXPECT_EQ(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
+                            verified_boot_key.size()));
+    } else if (!strcmp(property_value, "red")) {
+        EXPECT_EQ(verified_boot_state, VerifiedBoot::FAILED);
+    } else {
+        EXPECT_EQ(verified_boot_state, VerifiedBoot::UNVERIFIED);
+        EXPECT_EQ(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
+                            verified_boot_key.size()));
+    }
 }
 
 bool verify_attestation_record(int32_t aidl_version,                   //
@@ -1537,8 +1735,6 @@ bool verify_attestation_record(int32_t aidl_version,                   //
     EXPECT_EQ(security_level, att_keymint_security_level);
     EXPECT_EQ(security_level, att_attestation_security_level);
 
-
-    char property_value[PROPERTY_VALUE_MAX] = {};
     // TODO(b/136282179): When running under VTS-on-GSI the TEE-backed
     // keymint implementation will report YYYYMM dates instead of YYYYMMDD
     // for the BOOT_PATCH_LEVEL.
@@ -1598,54 +1794,7 @@ bool verify_attestation_record(int32_t aidl_version,                   //
     error = parse_root_of_trust(attest_rec->data, attest_rec->length, &verified_boot_key,
                                 &verified_boot_state, &device_locked, &verified_boot_hash);
     EXPECT_EQ(ErrorCode::OK, error);
-
-    if (avb_verification_enabled()) {
-        EXPECT_NE(property_get("ro.boot.vbmeta.digest", property_value, ""), 0);
-        string prop_string(property_value);
-        EXPECT_EQ(prop_string.size(), 64);
-        EXPECT_EQ(prop_string, bin2hex(verified_boot_hash));
-
-        EXPECT_NE(property_get("ro.boot.vbmeta.device_state", property_value, ""), 0);
-        if (!strcmp(property_value, "unlocked")) {
-            EXPECT_FALSE(device_locked);
-        } else {
-            EXPECT_TRUE(device_locked);
-        }
-
-        // Check that the device is locked if not debuggable, e.g., user build
-        // images in CTS. For VTS, debuggable images are used to allow adb root
-        // and the device is unlocked.
-        if (!property_get_bool("ro.debuggable", false)) {
-            EXPECT_TRUE(device_locked);
-        } else {
-            EXPECT_FALSE(device_locked);
-        }
-    }
-
-    // Verified boot key should be all 0's if the boot state is not verified or self signed
-    std::string empty_boot_key(32, '\0');
-    std::string verified_boot_key_str((const char*)verified_boot_key.data(),
-                                      verified_boot_key.size());
-    EXPECT_NE(property_get("ro.boot.verifiedbootstate", property_value, ""), 0);
-    if (!strcmp(property_value, "green")) {
-        EXPECT_EQ(verified_boot_state, VerifiedBoot::VERIFIED);
-        EXPECT_NE(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
-                            verified_boot_key.size()));
-    } else if (!strcmp(property_value, "yellow")) {
-        EXPECT_EQ(verified_boot_state, VerifiedBoot::SELF_SIGNED);
-        EXPECT_NE(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
-                            verified_boot_key.size()));
-    } else if (!strcmp(property_value, "orange")) {
-        EXPECT_EQ(verified_boot_state, VerifiedBoot::UNVERIFIED);
-        EXPECT_EQ(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
-                            verified_boot_key.size()));
-    } else if (!strcmp(property_value, "red")) {
-        EXPECT_EQ(verified_boot_state, VerifiedBoot::FAILED);
-    } else {
-        EXPECT_EQ(verified_boot_state, VerifiedBoot::UNVERIFIED);
-        EXPECT_EQ(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
-                            verified_boot_key.size()));
-    }
+    verify_root_of_trust(verified_boot_key, device_locked, verified_boot_state, verified_boot_hash);
 
     att_sw_enforced.Sort();
     expected_sw_enforced.Sort();
