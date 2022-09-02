@@ -306,6 +306,30 @@
       },
       "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3601055_f74856ea",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/ProtectedData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-02T16:45:26Z",
+      "side": 1,
+      "message": "@Tommy: The DK_pub (or UDS_pub to use DICE terminology) is the anchor of trust. Devices can freely upgrade to new versions of the HAL with different schemas, there is no limitation applied to what version the UDS_pub was collected.\n\n@Steven: Understood. Fixed.",
+      "parentUuid": "ee2efcea_66d78ffe",
+      "range": {
+        "startLine": 20,
+        "startChar": 16,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "c8d084d9b0d2a6a74879d94ffc7af81922158900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
