@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed25a7fb_462c3dbb",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-02T17:35:59Z",
+      "side": 1,
+      "message": "Super nitpick: `s/MACs on/MAC for/`",
+      "range": {
+        "startLine": 307,
+        "startChar": 62,
+        "endLine": 307,
+        "endChar": 66
+      },
+      "revId": "137ffac4c53a6c7ac4e385c268cafb30947008e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
