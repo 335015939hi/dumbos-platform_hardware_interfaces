@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92b2b794_6ca89d5e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-09-03T05:19:25Z",
+      "side": 1,
+      "message": "nit: Is it \"The KeysToSign in the CertificateRequest structure.\" ?",
+      "range": {
+        "startLine": 273,
+        "startChar": 19,
+        "endLine": 273,
+        "endChar": 21
+      },
+      "revId": "137ffac4c53a6c7ac4e385c268cafb30947008e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed25a7fb_462c3dbb",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 10
@@ -19,6 +42,29 @@
         "startChar": 62,
         "endLine": 307,
         "endChar": 66
+      },
+      "revId": "137ffac4c53a6c7ac4e385c268cafb30947008e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3fa82d4_8cc1651a",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-09-03T05:19:25Z",
+      "side": 1,
+      "message": "Just a question. Why can\u0027t we return a cbor array of public keys (in CoseKey) instead of keysToSign.",
+      "range": {
+        "startLine": 344,
+        "startChar": 11,
+        "endLine": 344,
+        "endChar": 21
       },
       "revId": "137ffac4c53a6c7ac4e385c268cafb30947008e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
