@@ -52,7 +52,7 @@ aidl_interface {
             version: "4",
             imports: [
                 "android.hardware.keymaster-V3",
-                "android.hardware.security.keymint-V2",
+                "android.hardware.security.keymint-V3",
             ],
         },
 
