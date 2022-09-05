@@ -181,6 +181,24 @@
       "parentUuid": "53919d63_33a3c7bf",
       "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "424139e4_c0af1fa6",
+        "filename": "tv/hdmi/aidl/vts/functional/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1551378
+      },
+      "writtenOn": "2022-09-05T08:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf2e7bc0_ae184e8a",
+      "revId": "4111e546f33c0e315fcb96dc31adfeb5088c0fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
