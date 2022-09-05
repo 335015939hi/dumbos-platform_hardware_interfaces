@@ -16,6 +16,23 @@
       "message": "Hi Ram, could you PTAL this one? thanks. this is a ship blocking issue to mtk.",
       "revId": "10750526a6c9c05b6730263494ed6fbb2fa9949a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a609b85b_47009c9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1965317
+      },
+      "writtenOn": "2022-09-05T23:29:58Z",
+      "side": 1,
+      "message": "Is the patch ready to merge? thanks",
+      "revId": "10750526a6c9c05b6730263494ed6fbb2fa9949a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
