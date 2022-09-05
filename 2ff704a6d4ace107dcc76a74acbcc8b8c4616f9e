@@ -16,6 +16,23 @@
       "message": "Alec, please take a look at this.",
       "revId": "2ff704a6d4ace107dcc76a74acbcc8b8c4616f9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4168afb7_37a8752d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1352498
+      },
+      "writtenOn": "2022-09-05T02:42:05Z",
+      "side": 1,
+      "message": "Need Owner\u0027s approval for the CL.\n\n@Chris, could you please help on this one?",
+      "revId": "2ff704a6d4ace107dcc76a74acbcc8b8c4616f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
