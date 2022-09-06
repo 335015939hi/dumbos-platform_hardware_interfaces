@@ -3,6 +3,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03b5dbe3_83e74438",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1443525
+      },
+      "writtenOn": "2022-09-06T21:45:36Z",
+      "side": 1,
+      "message": "A similar getter is needed for updated audio config received during streaming which can hold onto stream map",
+      "revId": "62de2aa3b863d7c3943506a29887ef753b9de3e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7de59402_d3fc0022",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1443525
+      },
+      "writtenOn": "2022-09-06T21:45:36Z",
+      "side": 1,
+      "message": "why did we remove BROADCAST from here?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 4
+      },
+      "revId": "62de2aa3b863d7c3943506a29887ef753b9de3e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6654009_418fb731",
         "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
         "patchSetId": 3
@@ -26,6 +66,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf68331a_2dffd38f",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1443525
+      },
+      "writtenOn": "2022-09-06T21:45:36Z",
+      "side": 1,
+      "message": "should do this only when is_streaming_ is false. Otherwise, should hold onto the stream map",
+      "revId": "62de2aa3b863d7c3943506a29887ef753b9de3e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "21130e09_4743cca6",
         "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
         "patchSetId": 3
@@ -37,6 +94,30 @@
       "writtenOn": "2022-09-06T20:42:01Z",
       "side": 1,
       "message": "is_streaming_ \u003d start_resp ?",
+      "range": {
+        "startLine": 469,
+        "startChar": 4,
+        "endLine": 473,
+        "endChar": 5
+      },
+      "revId": "62de2aa3b863d7c3943506a29887ef753b9de3e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70e0a018_82194bcd",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1443525
+      },
+      "writtenOn": "2022-09-06T21:45:36Z",
+      "side": 1,
+      "message": "If status is BluetoothAudioStatus::RECONFIGURATION, is_streaming_ should be set to false as well",
+      "parentUuid": "21130e09_4743cca6",
       "range": {
         "startLine": 469,
         "startChar": 4,
