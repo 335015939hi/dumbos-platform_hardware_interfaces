@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a01c9795_a124bf58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-09-07T23:37:14Z",
+      "side": 1,
+      "message": "How does this change make the test stop earlier? I\u0027m not sure how checkTypeAttId would stop the test earlier than checkType would.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "dfe56ee3de13da233a44317a189bcb54d82d7d14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63191bc5_77dce0d0",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-09-07T23:37:14Z",
+      "side": 1,
+      "message": "Notion of EVT/DVT is pixel specific (I think?).",
+      "range": {
+        "startLine": 468,
+        "startChar": 29,
+        "endLine": 468,
+        "endChar": 32
+      },
+      "revId": "dfe56ee3de13da233a44317a189bcb54d82d7d14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
