@@ -73,6 +73,10 @@ std::set<std::string> getAllowedAttIdStates() {
     return {"locked", "open"};
 }
 
+std::set<std::string> getAttestationIdEntrySet() {
+    return {"brand", "manufacturer", "product", "model", "device"};
+}
+
 bytevec string_to_bytevec(const char* s) {
     const uint8_t* p = reinterpret_cast<const uint8_t*>(s);
     return bytevec(p, p + strlen(s));
@@ -459,9 +463,26 @@ class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
         }
     }
 
+    bool checkTypeAttId(const cppbor::Map* devInfo, uint8_t majorType, std::string entryName) {
+        const auto& val = devInfo->get(entryName);
+        if (!val) return false;
+        EXPECT_EQ(val->type(), majorType) << entryName << " has the wrong type.";
+        switch (majorType) {
+            case cppbor::TSTR:
+                EXPECT_GT(val->asTstr()->value().size(), 0);
+                break;
+            case cppbor::BSTR:
+                EXPECT_GT(val->asBstr()->value().size(), 0);
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+
     void checkType(const cppbor::Map* devInfo, uint8_t majorType, std::string entryName) {
         const auto& val = devInfo->get(entryName);
-        ASSERT_TRUE(val) << entryName << " does not exist";
+        ASSERT_TRUE(val) << entryName << " does not exist.";
         ASSERT_EQ(val->type(), majorType) << entryName << " has the wrong type.";
         switch (majorType) {
             case cppbor::TSTR:
@@ -485,14 +506,23 @@ class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
         provisionable_->getHardwareInfo(&info);
         ASSERT_EQ(version->asUint()->value(), info.versionNumber);
         std::set<std::string> allowList;
+        std::string missingEntries = "";
         switch (version->asUint()->value()) {
             // These fields became mandated in version 2.
             case 2:
-                checkType(deviceInfo, cppbor::TSTR, "brand");
-                checkType(deviceInfo, cppbor::TSTR, "manufacturer");
-                checkType(deviceInfo, cppbor::TSTR, "product");
-                checkType(deviceInfo, cppbor::TSTR, "model");
-                checkType(deviceInfo, cppbor::TSTR, "device");
+                for (auto attId : getAttestationIdEntrySet()) {
+                    if (!checkTypeAttId(deviceInfo, cppbor::TSTR, attId)) {
+                        missingEntries += attId + ", ";
+                    }
+                }
+
+                EXPECT_EQ("", missingEntries)
+                        << missingEntries
+                        << "are missing from DeviceInfo. If this test is being run against an "
+                           "early proto or EVT build, this error is probably WAI and indicates "
+                           "that Device IDs were not provisioned in the factory. If this error is "
+                           "returned on a DVT or later build revision, then something is likely "
+                           "wrong with the factory  provisioning process.";
                 // TODO: Refactor the KeyMint code that validates these fields and include it here.
                 checkType(deviceInfo, cppbor::TSTR, "vb_state");
                 allowList = getAllowedVbStates();
