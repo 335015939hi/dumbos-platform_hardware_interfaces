@@ -33,6 +33,23 @@
       "message": "Is the patch ready to merge? thanks",
       "revId": "10750526a6c9c05b6730263494ed6fbb2fa9949a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a432135b_f26042d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1352498
+      },
+      "writtenOn": "2022-09-07T07:36:53Z",
+      "side": 1,
+      "message": "r",
+      "revId": "10750526a6c9c05b6730263494ed6fbb2fa9949a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
