@@ -461,7 +461,12 @@ class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
 
     void checkType(const cppbor::Map* devInfo, uint8_t majorType, std::string entryName) {
         const auto& val = devInfo->get(entryName);
-        ASSERT_TRUE(val) << entryName << " does not exist";
+        EXPECT_TRUE(val) << entryName
+                         << " does not exist. If this test is being run against an early proto or "
+                            "EVT build, this error is probably WAI and indicates that Device IDs "
+                            "were not provisioned in the factory. If this error is returned on a "
+                            "DVT or later build revision, then something is likely wrong with the "
+                            "factory  provisioning process.";
         ASSERT_EQ(val->type(), majorType) << entryName << " has the wrong type.";
         switch (majorType) {
             case cppbor::TSTR:
