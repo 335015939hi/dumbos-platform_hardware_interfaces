@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc342684_69fe992a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1377410
+      },
+      "writtenOn": "2022-09-08T20:21:57Z",
+      "side": 1,
+      "message": "Why is automerge restrict required?\nIf it is to stop from automerging back to aosp-master, the last line (cherry picked from ..) should take care of it.",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "0f0188f0aeb2614ccf0a9ec028ee1f48e00b16de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "723d9f9d_9a311e13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1377410
+      },
+      "writtenOn": "2022-09-08T20:21:57Z",
+      "side": 1,
+      "message": "Just a nit. But since this is just a cherry-pick, LGTM",
+      "revId": "0f0188f0aeb2614ccf0a9ec028ee1f48e00b16de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
