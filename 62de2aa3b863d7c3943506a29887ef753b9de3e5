@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22de5e8c_c2c0a417",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-09-08T16:07:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03b5dbe3_83e74438",
+      "revId": "62de2aa3b863d7c3943506a29887ef753b9de3e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7de59402_d3fc0022",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-09-06T21:45:36Z",
       "side": 1,
       "message": "why did we remove BROADCAST from here?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 4
+      },
+      "revId": "62de2aa3b863d7c3943506a29887ef753b9de3e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ccf8399_bb1726fd",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-09-08T16:07:15Z",
+      "side": 1,
+      "message": "For the broadcast offload, the audio configuration will bring with the start session. ReportAudioConfigChanged will not be needed for broadcast offload. Remove it with the change, otherwise I need to add some handle for the broadcast configuration.",
+      "parentUuid": "7de59402_d3fc0022",
       "range": {
         "startLine": 117,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "077c41f2_2b699e03",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-09-08T16:07:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6654009_418fb731",
+      "range": {
+        "startLine": 127,
+        "startChar": 6,
+        "endLine": 127,
+        "endChar": 27
+      },
+      "revId": "62de2aa3b863d7c3943506a29887ef753b9de3e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf68331a_2dffd38f",
@@ -77,6 +143,24 @@
       "writtenOn": "2022-09-06T21:45:36Z",
       "side": 1,
       "message": "should do this only when is_streaming_ is false. Otherwise, should hold onto the stream map",
+      "revId": "62de2aa3b863d7c3943506a29887ef753b9de3e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abd6b656_e2c9888d",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-09-08T16:07:15Z",
+      "side": 1,
+      "message": "Change it with the new stack flow.",
+      "parentUuid": "bf68331a_2dffd38f",
       "revId": "62de2aa3b863d7c3943506a29887ef753b9de3e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -118,6 +202,30 @@
       "side": 1,
       "message": "If status is BluetoothAudioStatus::RECONFIGURATION, is_streaming_ should be set to false as well",
       "parentUuid": "21130e09_4743cca6",
+      "range": {
+        "startLine": 469,
+        "startChar": 4,
+        "endLine": 473,
+        "endChar": 5
+      },
+      "revId": "62de2aa3b863d7c3943506a29887ef753b9de3e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8852cbb_9017d09e",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-09-08T16:07:15Z",
+      "side": 1,
+      "message": "Thanks for pointing out. Done.",
+      "parentUuid": "70e0a018_82194bcd",
       "range": {
         "startLine": 469,
         "startChar": 4,
