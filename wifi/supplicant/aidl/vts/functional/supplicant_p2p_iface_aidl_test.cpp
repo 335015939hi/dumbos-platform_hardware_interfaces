@@ -144,6 +144,14 @@ class SupplicantP2pIfaceCallback : public BnSupplicantP2pIfaceCallback {
         const std::vector<uint8_t>& /* wfdR2DeviceInfo */) override {
         return ndk::ScopedAStatus::ok();
     }
+    ::ndk::ScopedAStatus onServiceDiscoveryRequest(
+        int32_t /* frequency */,
+        const std::vector<uint8_t>& /* srcAddress */,
+        int8_t /* dialogToken */,
+		char16_t /* updateIndicator */,
+		const std::vector<uint8_t>& /* tlvs */) override {
+        return ndk::ScopedAStatus::ok();
+    }
     ::ndk::ScopedAStatus onServiceDiscoveryResponse(
         const std::vector<uint8_t>& /* srcAddress */,
         char16_t /* updateIndicator */,

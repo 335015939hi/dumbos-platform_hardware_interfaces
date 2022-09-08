@@ -243,4 +243,15 @@ oneway interface ISupplicantP2pIfaceCallback {
             in byte[] primaryDeviceType, in String deviceName, in WpsConfigMethods configMethods,
             in byte deviceCapabilities, in P2pGroupCapabilityMask groupCapabilities,
             in byte[] wfdDeviceInfo, in byte[] wfdR2DeviceInfo, in byte[] vendorElemBytes);
+
+    /**
+     * Used to indicate the reception of a P2P service discovery request.
+     *
+     * @param freq The freq of channel that received P2P service discovery request.
+     * @param srcAddress MAC address of the device that sent the service discovery.
+     * @param updateIndicator Service update indicator. Refer to section 3.1.3 of
+     *        Wifi P2P Technical specification v1.2.
+     * @param tlvs Refer to section 3.1.3.1 of Wifi P2P Technical specification v1.2.
+     */
+    void onServiceDiscoveryRequest(in int  freq, in byte[] srcAddress, in byte dialogToken, in char updateIndicator, in byte[] tlvs);
 }
