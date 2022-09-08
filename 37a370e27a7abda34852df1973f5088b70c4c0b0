@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df1704db_341f7589",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-08T07:34:39Z",
+      "side": 1,
+      "message": "correctness nit: A better parameter list is `(const cppbor::Map\u0026, cppbor::MajorType, std::string_view)`\n\nIn a test it doesn\u0027t really matter, but IMO it\u0027s best to make unit tests as \"production-like\" as possible so we keep up good habits.",
+      "range": {
+        "startLine": 466,
+        "startChar": 24,
+        "endLine": 466,
+        "endChar": 92
+      },
+      "revId": "37a370e27a7abda34852df1973f5088b70c4c0b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26f589df_2a14ce93",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-08T07:34:39Z",
+      "side": 1,
+      "message": "Return false here?\n\nSeems like we should consider an empty attribute as \"missing\".",
+      "revId": "37a370e27a7abda34852df1973f5088b70c4c0b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "590e41e7_6741999f",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-08T07:34:39Z",
+      "side": 1,
+      "message": "Having essentially two copies of the function seems like overkill. Suggestions:\n1. rename `checkType` to `assertAttribute` or something, and have it wrap the new function you wrote.\n2. Keep just a single function, and wrap calls to it with ASSERT throughout the code.",
+      "range": {
+        "startLine": 483,
+        "startChar": 9,
+        "endLine": 483,
+        "endChar": 18
+      },
+      "revId": "37a370e27a7abda34852df1973f5088b70c4c0b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afdcf777_5f275c53",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-08T07:34:39Z",
+      "side": 1,
+      "message": "super nit: Initializer is not needed. `std::string` is empty by default.",
+      "range": {
+        "startLine": 509,
+        "startChar": 34,
+        "endLine": 509,
+        "endChar": 39
+      },
+      "revId": "37a370e27a7abda34852df1973f5088b70c4c0b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
