@@ -158,6 +158,14 @@ class IfaceCallback : public ISupplicantP2pIfaceCallback {
         const hidl_string& /* generatedPin */) override {
         return Void();
     }
+    Return<void> onServiceDiscoveryRequest(
+        uint32_t /* freq */,
+        const hidl_array<uint8_t, 6>& /* srcAddress */,
+        uint8_t /* dialogToken */,
+        uint16_t /* updateIndicator */,
+        const hidl_vec<uint8_t>& /* tlvs */) override {
+        return Void();
+    }
     Return<void> onServiceDiscoveryResponse(
         const hidl_array<uint8_t, 6>& /* srcAddress */,
         uint16_t /* updateIndicator */,
