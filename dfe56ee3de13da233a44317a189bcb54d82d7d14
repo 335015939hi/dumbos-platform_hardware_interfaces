@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38ad2184_fbb5b7f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-08T00:48:24Z",
+      "side": 1,
+      "message": "Weird, I realized I just flipped out around `EXPECT_` vs `ASSERT_` and need to fix that. However, an `ASSERT_` failure is supposed to stop the test and return with the relevant failure, however that doesn\u0027t seem to be the case in test output logs...\n\nAh, `ASSERT_` only breaks execution inside the current function. I\u0027ll fix this.",
+      "parentUuid": "a01c9795_a124bf58",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "dfe56ee3de13da233a44317a189bcb54d82d7d14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "63191bc5_77dce0d0",
         "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-07T23:37:14Z",
       "side": 1,
       "message": "Notion of EVT/DVT is pixel specific (I think?).",
+      "range": {
+        "startLine": 468,
+        "startChar": 29,
+        "endLine": 468,
+        "endChar": 32
+      },
+      "revId": "dfe56ee3de13da233a44317a189bcb54d82d7d14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab99b023_1a32035a",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-08T00:48:24Z",
+      "side": 1,
+      "message": "EVT/DVT/PVT/MP are industry standard terms.",
+      "parentUuid": "63191bc5_77dce0d0",
       "range": {
         "startLine": 468,
         "startChar": 29,
