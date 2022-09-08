@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3eb2c5e9_288cbdb8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2022-09-08T20:45:17Z",
+      "side": 1,
+      "message": "According to the merge graph (https://android-build.googleplex.com/builds/automerger/graph/project/android/platform/hardware/interfaces), `AUTOMERGE RESTRICT` is honored between android13-test-dev and master branches.\n\nAnd, I don\u0027t think the last line will prevent this change from being merged into master branch.  For between branches `AUTOMERGE RESTRICT` is not honored, we are required to put `Merged-In` to avoid automerge conflicts.",
+      "parentUuid": "cc342684_69fe992a",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "0f0188f0aeb2614ccf0a9ec028ee1f48e00b16de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "723d9f9d_9a311e13",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
