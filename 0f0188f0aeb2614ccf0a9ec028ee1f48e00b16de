@@ -63,6 +63,23 @@
       "message": "Just a nit. But since this is just a cherry-pick, LGTM",
       "revId": "0f0188f0aeb2614ccf0a9ec028ee1f48e00b16de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff02bbc5_51a33d92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2022-09-08T22:29:02Z",
+      "side": 1,
+      "message": "+rossyeh for +DrNo.",
+      "revId": "0f0188f0aeb2614ccf0a9ec028ee1f48e00b16de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
