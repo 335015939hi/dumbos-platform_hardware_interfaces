@@ -22,6 +22,7 @@ import android.hardware.audio.core.AudioPatch;
 import android.hardware.audio.core.AudioRoute;
 import android.hardware.audio.core.IStreamIn;
 import android.hardware.audio.core.IStreamOut;
+import android.hardware.audio.core.IStreamTransportControl;
 import android.hardware.audio.core.ModuleDebug;
 import android.hardware.audio.core.StreamDescriptor;
 import android.media.audio.common.AudioOffloadInfo;
@@ -263,6 +264,10 @@ interface IModule {
      * be completing with an error, although data (zero filled) will still be
      * provided.
      *
+     * After being created, the stream remains in a "standby" state (at least,
+     * logically) until the first audio I/O exchange is commenced by sending
+     * the BURST command via the associated StreamDescriptor.
+     *
      * @return An opened input stream and the associated descriptor.
      * @param args The pack of arguments, see 'OpenInputStreamArguments' parcelable.
      * @throws EX_ILLEGAL_ARGUMENT In the following cases:
@@ -288,6 +293,8 @@ interface IModule {
     parcelable OpenInputStreamReturn {
         IStreamIn stream;
         StreamDescriptor desc;
+        /** Must be provided for streams operating in MMap No IRQ mode. */
+        @nullable IStreamTransportControl transport;
     }
     OpenInputStreamReturn openInputStream(in OpenInputStreamArguments args);
 
@@ -325,6 +332,10 @@ interface IModule {
      * StreamDescriptor will be completing with an error, although the data
      * will still be accepted and immediately discarded.
      *
+     * After being created, the stream remains in a "standby" state (at least,
+     * logically) until the first audio I/O exchange is commenced by sending
+     * the BURST command via the associated StreamDescriptor.
+     *
      * @return An opened output stream and the associated descriptor.
      * @param args The pack of arguments, see 'OpenOutputStreamArguments' parcelable.
      * @throws EX_ILLEGAL_ARGUMENT In the following cases:
@@ -356,6 +367,11 @@ interface IModule {
     parcelable OpenOutputStreamReturn {
         IStreamOut stream;
         StreamDescriptor desc;
+        /**
+         * Must be provided for streams performing offloaded playback
+         * and streams operating in MMap No IRQ mode.
+         */
+        @nullable IStreamTransportControl transport;
     }
     OpenOutputStreamReturn openOutputStream(in OpenOutputStreamArguments args);
 

@@ -112,7 +112,6 @@ parcelable StreamDescriptor {
          *                              positions can not be reported;
          *  - STATUS_NOT_ENOUGH_DATA: a read or write error has
          *                            occurred for the 'audio.fmq' queue;
-         *
          */
         int status;
         /**
@@ -130,6 +129,10 @@ parcelable StreamDescriptor {
          *   was presented to an external observer (i.e. presentation position).
          * For input streams: the moment when data at the specified stream position
          *   was acquired (i.e. capture position).
+         *
+         * The observable position must never be reset by the HAL module.
+         * The data type of the frame counter is large enough to support
+         * continuous counting for years of operation.
          */
         Position observable;
         /**

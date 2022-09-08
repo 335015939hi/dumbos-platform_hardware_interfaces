@@ -39,6 +39,22 @@ interface IStreamOut {
     void close();
 
     /**
+     * Put the stream into a "standby" state to save power.
+     *
+     * Instructs the HAL module to put hardware into standby mode to save
+     * power. The HAL module must exit the standby mode on the next I/O
+     * operation (a BURST command sent via the associated StreamDescriptor).
+     * Thus, the client must stop the audio exchange on their side prior to
+     * calling the 'standby' method, as otherwise it will not have any effect.
+     *
+     * Note that any newly created stream also remains in the "standby" state
+     * until the first I/O operation.
+     *
+     * @throws EX_ILLEGAL_STATE If the stream is closed.
+     */
+    void standby();
+
+    /**
      * Update stream metadata.
      *
      * Updates the metadata initially provided at the stream creation.

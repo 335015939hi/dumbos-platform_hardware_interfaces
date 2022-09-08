@@ -33,8 +33,7 @@
 
 package android.hardware.audio.core;
 @VintfStability
-interface IStreamOut {
-  void close();
-  void standby();
-  void updateMetadata(in android.hardware.audio.common.SourceMetadata sourceMetadata);
+interface IStreamTransportControl {
+  void pause();
+  void resume();
 }

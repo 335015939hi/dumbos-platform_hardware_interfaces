@@ -59,6 +59,7 @@ interface IModule {
   parcelable OpenInputStreamReturn {
     android.hardware.audio.core.IStreamIn stream;
     android.hardware.audio.core.StreamDescriptor desc;
+    @nullable android.hardware.audio.core.IStreamTransportControl transport;
   }
   @VintfStability
   parcelable OpenOutputStreamArguments {
@@ -71,5 +72,6 @@ interface IModule {
   parcelable OpenOutputStreamReturn {
     android.hardware.audio.core.IStreamOut stream;
     android.hardware.audio.core.StreamDescriptor desc;
+    @nullable android.hardware.audio.core.IStreamTransportControl transport;
   }
 }

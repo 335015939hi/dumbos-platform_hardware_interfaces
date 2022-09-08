@@ -28,6 +28,7 @@
 #include <aidl/android/hardware/audio/common/SourceMetadata.h>
 #include <aidl/android/hardware/audio/core/BnStreamIn.h>
 #include <aidl/android/hardware/audio/core/BnStreamOut.h>
+#include <aidl/android/hardware/audio/core/BnStreamTransportControl.h>
 #include <aidl/android/hardware/audio/core/StreamDescriptor.h>
 #include <aidl/android/media/audio/common/AudioOffloadInfo.h>
 #include <fmq/AidlMessageQueue.h>
@@ -99,7 +100,9 @@ class StreamContext {
 
 class StreamWorkerCommonLogic : public ::android::hardware::audio::common::StreamLogic {
   public:
+    bool isStandby() const { return mIsStandby; }
     void setIsConnected(bool connected) { mIsConnected = connected; }
+    void setIsStandby(bool standby) { mIsStandby = standby; }
 
   protected:
     explicit StreamWorkerCommonLogic(const StreamContext& context)
@@ -112,6 +115,7 @@ class StreamWorkerCommonLogic : public ::android::hardware::audio::common::Strea
 
     // Used both by the main and worker threads.
     std::atomic<bool> mIsConnected = false;
+    std::atomic<bool> mIsStandby = true;
     // All fields are used on the worker thread only.
     const int mInternalCommandCookie;
     const size_t mFrameSize;
@@ -156,7 +160,9 @@ class StreamCommon {
                        : ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
     bool isClosed() const { return mIsClosed; }
+    bool isStandby() const { return mWorker.isStandby(); }
     void setIsConnected(bool connected) { mWorker.setIsConnected(connected); }
+    ndk::ScopedAStatus standby();
     ndk::ScopedAStatus updateMetadata(const Metadata& metadata);
 
   protected:
@@ -180,6 +186,10 @@ class StreamIn
         return StreamCommon<::aidl::android::hardware::audio::common::SinkMetadata,
                             StreamInWorker>::close();
     }
+    ndk::ScopedAStatus standby() override {
+        return StreamCommon<::aidl::android::hardware::audio::common::SinkMetadata,
+                            StreamInWorker>::standby();
+    }
     ndk::ScopedAStatus updateMetadata(const ::aidl::android::hardware::audio::common::SinkMetadata&
                                               in_sinkMetadata) override {
         return StreamCommon<::aidl::android::hardware::audio::common::SinkMetadata,
@@ -197,6 +207,10 @@ class StreamOut : public StreamCommon<::aidl::android::hardware::audio::common::
     ndk::ScopedAStatus close() override {
         return StreamCommon<::aidl::android::hardware::audio::common::SourceMetadata,
                             StreamOutWorker>::close();
+    }
+    ndk::ScopedAStatus standby() override {
+        return StreamCommon<::aidl::android::hardware::audio::common::SourceMetadata,
+                            StreamOutWorker>::standby();
     }
     ndk::ScopedAStatus updateMetadata(
             const ::aidl::android::hardware::audio::common::SourceMetadata& in_sourceMetadata)
@@ -227,18 +241,40 @@ class StreamWrapper {
                 },
                 mStream);
     }
+    bool isStreamStandby() const {
+        return std::visit(
+                [](auto&& ws) -> bool {
+                    auto s = ws.lock();
+                    return !s || s->isStandby();
+                },
+                mStream);
+    }
     void setStreamIsConnected(bool connected) {
         std::visit(
-                [&](auto&& ws) -> bool {
+                [&](auto&& ws) {
                     auto s = ws.lock();
                     if (s) s->setIsConnected(connected);
-                    return !!s;
                 },
                 mStream);
     }
 
   private:
     std::variant<std::weak_ptr<StreamIn>, std::weak_ptr<StreamOut>> mStream;
+};
+
+// Note: it's tempting to make StreamCommon to implement StreamTransportControl directly,
+// however this introduces a multiple non-diamond inheritance from SharedRefBase, thus the lifetime
+// of the resulting class can not be managed correctly due to double ownership.
+class StreamTransportControl : public BnStreamTransportControl {
+    ndk::ScopedAStatus pause() override;
+    ndk::ScopedAStatus resume() override;
+
+  public:
+    explicit StreamTransportControl(StreamWrapper wrapper) : mWrapper(std::move(wrapper)) {}
+
+  private:
+    StreamWrapper mWrapper;
+    bool mIsPaused = false;
 };
 
 class Streams {
@@ -253,7 +289,7 @@ class Streams {
     }
     void insert(int32_t portId, int32_t portConfigId, StreamWrapper sw) {
         mStreams.insert(std::pair{portConfigId, sw});
-        mStreams.insert(std::pair{portId, sw});
+        mStreams.insert(std::pair{portId, std::move(sw)});
     }
     void setStreamIsConnected(int32_t portConfigId, bool connected) {
         if (auto it = mStreams.find(portConfigId); it != mStreams.end()) {

@@ -35,5 +35,6 @@ package android.hardware.audio.core;
 @VintfStability
 interface IStreamIn {
   void close();
+  void standby();
   void updateMetadata(in android.hardware.audio.common.SinkMetadata sinkMetadata);
 }

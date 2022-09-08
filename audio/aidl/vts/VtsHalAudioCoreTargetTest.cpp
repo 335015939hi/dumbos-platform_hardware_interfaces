@@ -26,10 +26,12 @@
 #include <android-base/logging.h>
 
 #include <StreamWorker.h>
+#include <Utils.h>
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
 #include <aidl/android/hardware/audio/core/IConfig.h>
 #include <aidl/android/hardware/audio/core/IModule.h>
+#include <aidl/android/media/audio/common/AudioInputFlags.h>
 #include <aidl/android/media/audio/common/AudioIoFlags.h>
 #include <aidl/android/media/audio/common/AudioOutputFlags.h>
 #include <android-base/chrono_utils.h>
@@ -48,6 +50,7 @@ using aidl::android::hardware::audio::core::AudioRoute;
 using aidl::android::hardware::audio::core::IModule;
 using aidl::android::hardware::audio::core::IStreamIn;
 using aidl::android::hardware::audio::core::IStreamOut;
+using aidl::android::hardware::audio::core::IStreamTransportControl;
 using aidl::android::hardware::audio::core::ModuleDebug;
 using aidl::android::hardware::audio::core::StreamDescriptor;
 using aidl::android::hardware::common::fmq::SynchronizedReadWrite;
@@ -56,6 +59,7 @@ using aidl::android::media::audio::common::AudioDevice;
 using aidl::android::media::audio::common::AudioDeviceAddress;
 using aidl::android::media::audio::common::AudioDeviceType;
 using aidl::android::media::audio::common::AudioFormatType;
+using aidl::android::media::audio::common::AudioInputFlags;
 using aidl::android::media::audio::common::AudioIoFlags;
 using aidl::android::media::audio::common::AudioOutputFlags;
 using aidl::android::media::audio::common::AudioPort;
@@ -64,6 +68,7 @@ using aidl::android::media::audio::common::AudioPortDeviceExt;
 using aidl::android::media::audio::common::AudioPortExt;
 using aidl::android::media::audio::common::AudioSource;
 using aidl::android::media::audio::common::AudioUsage;
+using android::hardware::audio::common::isBitPositionFlagSet;
 using android::hardware::audio::common::StreamLogic;
 using android::hardware::audio::common::StreamWorker;
 using ndk::ScopedAStatus;
@@ -95,20 +100,6 @@ AudioDeviceAddress GenerateUniqueDeviceAddress() {
     static int nextId = 1;
     // TODO: Use connection-specific ID.
     return AudioDeviceAddress::make<AudioDeviceAddress::Tag::id>(std::to_string(++nextId));
-}
-
-template <typename T>
-struct IsInput {
-    constexpr operator bool() const;
-};
-
-template <>
-constexpr IsInput<IStreamIn>::operator bool() const {
-    return true;
-}
-template <>
-constexpr IsInput<IStreamOut>::operator bool() const {
-    return false;
 }
 
 // All 'With*' classes are move-only because they are associated with some
@@ -577,17 +568,39 @@ class WithStream {
                 << "actual buffer size must be no less than requested";
         mContext.emplace(mDescriptor);
         ASSERT_NO_FATAL_FAILURE(mContext.value().checkIsValid());
+        ASSERT_TRUE(mPortConfig.get().flags.has_value());
+        ASSERT_EQ(IOTraits<Stream>::is_input,
+                  mPortConfig.get().flags.value().getTag() == AudioIoFlags::Tag::input);
+        if constexpr (IOTraits<Stream>::is_input) {
+            const bool isMMap = isBitPositionFlagSet(
+                    mPortConfig.get().flags.value().get<AudioIoFlags::Tag::input>(),
+                    AudioInputFlags::MMAP_NOIRQ);
+            EXPECT_EQ(mTransport != nullptr, isMMap)
+                    << "No transport returned for the MMap No IRQ input stream";
+        } else {
+            const int32_t flags = mPortConfig.get().flags.value().get<AudioIoFlags::Tag::output>();
+            const bool isMMap = isBitPositionFlagSet(flags, AudioOutputFlags::MMAP_NOIRQ);
+            const bool isOffload = isBitPositionFlagSet(flags, AudioOutputFlags::COMPRESS_OFFLOAD);
+            EXPECT_EQ(mTransport != nullptr, isMMap || isOffload)
+                    << "No transport returned for the " << (isMMap ? "MMap No IRQ" : "offload")
+                    << " output stream";
+        }
     }
     Stream* get() const { return mStream.get(); }
     const StreamContext* getContext() const { return mContext ? &(mContext.value()) : nullptr; }
-    std::shared_ptr<Stream> getSharedPointer() const { return mStream; }
     const AudioPortConfig& getPortConfig() const { return mPortConfig.get(); }
     int32_t getPortId() const { return mPortConfig.getId(); }
+    std::shared_ptr<Stream> getSharedPointer() const { return mStream; }
+    IStreamTransportControl* getTransport() const { return mTransport.get(); }
+    std::shared_ptr<IStreamTransportControl> getTransportSharedPointer() const {
+        return mTransport;
+    }
 
   private:
     WithAudioPortConfig mPortConfig;
     std::shared_ptr<Stream> mStream;
     StreamDescriptor mDescriptor;
+    std::shared_ptr<IStreamTransportControl> mTransport;
     std::optional<StreamContext> mContext;
 };
 
@@ -614,6 +627,7 @@ ScopedAStatus WithStream<IStreamIn>::SetUpNoChecks(IModule* module,
     if (status.isOk()) {
         mStream = std::move(ret.stream);
         mDescriptor = std::move(ret.desc);
+        mTransport = std::move(ret.transport);
     }
     return status;
 }
@@ -643,6 +657,7 @@ ScopedAStatus WithStream<IStreamOut>::SetUpNoChecks(IModule* module,
     if (status.isOk()) {
         mStream = std::move(ret.stream);
         mDescriptor = std::move(ret.desc);
+        mTransport = std::move(ret.transport);
     }
     return status;
 }
@@ -864,12 +879,12 @@ TEST_P(AudioCoreModule, CheckMixPorts) {
         ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
     }
     std::optional<int32_t> primaryMixPort;
-    constexpr int primaryOutputFlag = 1 << static_cast<int>(AudioOutputFlags::PRIMARY);
     for (const auto& port : ports) {
         if (port.ext.getTag() != AudioPortExt::Tag::mix) continue;
         const auto& mixPort = port.ext.get<AudioPortExt::Tag::mix>();
         if (port.flags.getTag() == AudioIoFlags::Tag::output &&
-            ((port.flags.get<AudioIoFlags::Tag::output>() & primaryOutputFlag) != 0)) {
+            isBitPositionFlagSet(port.flags.get<AudioIoFlags::Tag::output>(),
+                                 AudioOutputFlags::PRIMARY)) {
             EXPECT_FALSE(primaryMixPort.has_value())
                     << "At least two mix ports have PRIMARY flag set: " << primaryMixPort.value()
                     << " and " << port.id;
@@ -1447,14 +1462,15 @@ class AudioStream : public AudioCoreModule {
         EXPECT_NO_FATAL_FAILURE(OpenTwiceSamePortConfigImpl(portConfig.value()));
     }
 
-    void ReadOrWrite(bool useImpl2, bool testObservablePosition) {
+    void ReadOrWrite(bool useSetupSequence2, bool validateObservablePosition) {
         const auto allPortConfigs =
                 moduleConfig->getPortConfigsForMixPorts(IOTraits<Stream>::is_input);
         if (allPortConfigs.empty()) {
             GTEST_SKIP() << "No mix ports have attached devices";
         }
         for (const auto& portConfig : allPortConfigs) {
-            EXPECT_NO_FATAL_FAILURE(ReadOrWriteImpl(portConfig, useImpl2, testObservablePosition))
+            EXPECT_NO_FATAL_FAILURE(
+                    ReadOrWriteImpl(portConfig, useSetupSequence2, validateObservablePosition))
                     << portConfig.toString();
         }
     }
@@ -1479,6 +1495,25 @@ class AudioStream : public AudioCoreModule {
         EXPECT_NO_FATAL_FAILURE(SendInvalidCommandImpl(portConfig.value()));
     }
 
+    void StandbyWhenClosed() {
+        const auto portConfig = moduleConfig->getSingleConfigForMixPort(IOTraits<Stream>::is_input);
+        if (!portConfig.has_value()) {
+            GTEST_SKIP() << "No mix port for attached devices";
+        }
+        std::shared_ptr<Stream> heldStream;
+        {
+            WithStream<Stream> stream(portConfig.value());
+            ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
+            heldStream = stream.getSharedPointer();
+        }
+        ScopedAStatus status = heldStream->standby();
+        EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
+                << status << " when trying to put a closed stream into standby mode";
+    }
+
+    //
+    // === Helper methods ===
+    //
     void OpenTwiceSamePortConfigImpl(const AudioPortConfig& portConfig) {
         WithStream<Stream> stream1(portConfig);
         ASSERT_NO_FATAL_FAILURE(stream1.SetUp(module.get(), kDefaultBufferSizeFrames));
@@ -1491,36 +1526,43 @@ class AudioStream : public AudioCoreModule {
     }
 
     template <class Worker>
-    void WaitForObservablePositionAdvance(Worker& worker) {
+    void WaitForObservablePositionAdvance(Worker& worker, int64_t* framesInitial = nullptr,
+                                          int64_t* framesFinal = nullptr) {
         static constexpr int kWriteDurationUs = 50 * 1000;
         static constexpr std::chrono::milliseconds kPositionChangeTimeout{10000};
-        int64_t framesInitial;
-        framesInitial = worker.getLastObservablePosition().frames;
+        int64_t framesInitialStorage;
+        if (framesInitial == nullptr) framesInitial = &framesInitialStorage;
+        *framesInitial = worker.getLastObservablePosition().frames;
         ASSERT_FALSE(worker.hasError());
         bool timedOut = false;
-        int64_t frames = framesInitial;
+        int64_t framesFinalStorage;
+        if (framesFinal == nullptr) framesFinal = &framesFinalStorage;
+        *framesFinal = *framesInitial;
         for (android::base::Timer elapsed;
-             frames <= framesInitial && !worker.hasError() &&
+             *framesFinal <= *framesInitial && !worker.hasError() &&
              !(timedOut = (elapsed.duration() >= kPositionChangeTimeout));) {
             usleep(kWriteDurationUs);
-            frames = worker.getLastObservablePosition().frames;
+            *framesFinal = worker.getLastObservablePosition().frames;
         }
         EXPECT_FALSE(timedOut);
         EXPECT_FALSE(worker.hasError()) << worker.getError();
-        EXPECT_GT(frames, framesInitial);
+        EXPECT_GT(*framesFinal, *framesInitial);
     }
 
-    void ReadOrWriteImpl(const AudioPortConfig& portConfig, bool useImpl2,
-                         bool testObservablePosition) {
-        if (!useImpl2) {
-            ASSERT_NO_FATAL_FAILURE(ReadOrWriteImpl1(portConfig, testObservablePosition));
+    void ReadOrWriteImpl(const AudioPortConfig& portConfig, bool useSetupSequence2,
+                         bool validateObservablePosition) {
+        if (!useSetupSequence2) {
+            ASSERT_NO_FATAL_FAILURE(
+                    ReadOrWriteSetupSequence1(portConfig, validateObservablePosition));
         } else {
-            ASSERT_NO_FATAL_FAILURE(ReadOrWriteImpl2(portConfig, testObservablePosition));
+            ASSERT_NO_FATAL_FAILURE(
+                    ReadOrWriteSetupSequence2(portConfig, validateObservablePosition));
         }
     }
 
     // Set up a patch first, then open a stream.
-    void ReadOrWriteImpl1(const AudioPortConfig& portConfig, bool testObservablePosition) {
+    void ReadOrWriteSetupSequence1(const AudioPortConfig& portConfig,
+                                   bool validateObservablePosition) {
         auto devicePorts = moduleConfig->getAttachedDevicesPortsForMixPort(
                 IOTraits<Stream>::is_input, portConfig);
         ASSERT_FALSE(devicePorts.empty());
@@ -1534,13 +1576,14 @@ class AudioStream : public AudioCoreModule {
 
         ASSERT_TRUE(worker.start());
         ASSERT_TRUE(worker.waitForAtLeastOneCycle());
-        if (testObservablePosition) {
-            ASSERT_NO_FATAL_FAILURE(WaitForObservablePositionAdvance(worker));
+        if (validateObservablePosition) {
+            ASSERT_NO_FATAL_FAILURE(ValidateObservablePositionImpl(stream.get(), worker));
         }
     }
 
     // Open a stream, then set up a patch for it.
-    void ReadOrWriteImpl2(const AudioPortConfig& portConfig, bool testObservablePosition) {
+    void ReadOrWriteSetupSequence2(const AudioPortConfig& portConfig,
+                                   bool validateObservablePosition) {
         WithStream<Stream> stream(portConfig);
         ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
         typename IOTraits<Stream>::Worker worker(*stream.getContext());
@@ -1554,8 +1597,8 @@ class AudioStream : public AudioCoreModule {
 
         ASSERT_TRUE(worker.start());
         ASSERT_TRUE(worker.waitForAtLeastOneCycle());
-        if (testObservablePosition) {
-            ASSERT_NO_FATAL_FAILURE(WaitForObservablePositionAdvance(worker));
+        if (validateObservablePosition) {
+            ASSERT_NO_FATAL_FAILURE(ValidateObservablePositionImpl(stream.get(), worker));
         }
     }
 
@@ -1578,6 +1621,20 @@ class AudioStream : public AudioCoreModule {
         EXPECT_EQ(0UL, unexpectedStatuses.size())
                 << "Pairs of (command, actual status): "
                 << android::internal::ToString(unexpectedStatuses);
+    }
+
+    void ValidateObservablePositionImpl(Stream* stream, typename IOTraits<Stream>::Worker& worker) {
+        ASSERT_NO_FATAL_FAILURE(WaitForObservablePositionAdvance(worker));
+        int64_t framesBeforeStandby = 0;
+        ASSERT_NO_FATAL_FAILURE(
+                WaitForObservablePositionAdvance(worker, nullptr, &framesBeforeStandby));
+        worker.pause();
+        ScopedAStatus status = stream->standby();
+        ASSERT_TRUE(status.isOk());
+        worker.resume();
+        int64_t framesAfterStandby = 0;
+        ASSERT_NO_FATAL_FAILURE(WaitForObservablePositionAdvance(worker, &framesAfterStandby));
+        EXPECT_LT(framesBeforeStandby, framesAfterStandby);
     }
 };
 using AudioStreamIn = AudioStream<IStreamIn>;
@@ -1609,19 +1666,25 @@ TEST_IO_STREAM(OpenInvalidBufferSize);
 TEST_IO_STREAM(OpenInvalidDirection);
 TEST_IO_STREAM(OpenOverMaxCount);
 TEST_IO_STREAM(OpenTwiceSamePortConfig);
-TEST_IO_STREAM_2(ReadOrWrite, false, false);
-TEST_IO_STREAM_2(ReadOrWrite, true, false);
-TEST_IO_STREAM_2(ReadOrWrite, false, true);
-TEST_IO_STREAM_2(ReadOrWrite, true, true);
+// Use of constants makes comprehensible test names.
+constexpr bool SetupSequence1 = false;
+constexpr bool SetupSequence2 = true;
+constexpr bool SetupOnly = false;
+constexpr bool ValidateObservablePosition = true;
+TEST_IO_STREAM_2(ReadOrWrite, SetupSequence1, SetupOnly);
+TEST_IO_STREAM_2(ReadOrWrite, SetupSequence2, SetupOnly);
+TEST_IO_STREAM_2(ReadOrWrite, SetupSequence1, ValidateObservablePosition);
+TEST_IO_STREAM_2(ReadOrWrite, SetupSequence2, ValidateObservablePosition);
 TEST_IO_STREAM(ResetPortConfigWithOpenStream);
 TEST_IO_STREAM(SendInvalidCommand);
+TEST_IO_STREAM(StandbyWhenClosed);
 
 TEST_P(AudioStreamOut, OpenTwicePrimary) {
     const auto mixPorts = moduleConfig->getMixPorts(false);
     auto primaryPortIt = std::find_if(mixPorts.begin(), mixPorts.end(), [](const AudioPort& port) {
-        constexpr int primaryOutputFlag = 1 << static_cast<int>(AudioOutputFlags::PRIMARY);
         return port.flags.getTag() == AudioIoFlags::Tag::output &&
-               (port.flags.get<AudioIoFlags::Tag::output>() & primaryOutputFlag) != 0;
+               isBitPositionFlagSet(port.flags.get<AudioIoFlags::Tag::output>(),
+                                    AudioOutputFlags::PRIMARY);
     });
     if (primaryPortIt == mixPorts.end()) {
         GTEST_SKIP() << "No primary mix port";
@@ -1634,20 +1697,88 @@ TEST_P(AudioStreamOut, OpenTwicePrimary) {
     EXPECT_NO_FATAL_FAILURE(OpenTwiceSamePortConfigImpl(portConfig.value()));
 }
 
-TEST_P(AudioStreamOut, RequireOffloadInfo) {
-    const auto mixPorts = moduleConfig->getMixPorts(false);
-    auto offloadPortIt = std::find_if(mixPorts.begin(), mixPorts.end(), [&](const AudioPort& port) {
-        constexpr int compressOffloadFlag = 1
-                                            << static_cast<int>(AudioOutputFlags::COMPRESS_OFFLOAD);
-        return port.flags.getTag() == AudioIoFlags::Tag::output &&
-               (port.flags.get<AudioIoFlags::Tag::output>() & compressOffloadFlag) != 0 &&
-               !moduleConfig->getAttachedSinkDevicesPortsForMixPort(port).empty();
-    });
-    if (offloadPortIt == mixPorts.end()) {
+// For each patch setup, closing of the stream is performed both from
+// resumed and paused states.
+enum StreamClosingState : int { Resumed, Paused, EndOfTest };
+
+TEST_P(AudioStreamOut, PauseResumeForOffloadedStreams) {
+    const auto offloadMixPorts =
+            moduleConfig->getOffloadMixPorts(true /*attachedOnly*/, false /*singlePort*/);
+    if (offloadMixPorts.empty()) {
         GTEST_SKIP()
                 << "No mix port for compressed offload that could be routed to attached devices";
     }
-    const auto portConfig = moduleConfig->getSingleConfigForMixPort(false, *offloadPortIt);
+    for (const auto& port : offloadMixPorts) {
+        const auto portConfig = moduleConfig->getSingleConfigForMixPort(false, port);
+        ASSERT_TRUE(portConfig.has_value())
+                << "No profiles specified for the compressed offload mix port " << port.toString();
+        auto devicePorts = moduleConfig->getAttachedSinkDevicesPortsForMixPort(port);
+        ASSERT_FALSE(devicePorts.empty())
+                << "No attached sink devices for the compressed offload mix port "
+                << port.toString();
+        auto devicePortConfig = moduleConfig->getSingleConfigForDevicePort(devicePorts[0]);
+        SCOPED_TRACE("Mix port config: " + portConfig.value().toString() +
+                     ", device port config: " + devicePortConfig.toString());
+        WithAudioPatch patch(false /*isInput*/, portConfig.value(), devicePortConfig);
+        ASSERT_NO_FATAL_FAILURE(patch.SetUp(module.get()));
+        for (StreamClosingState closingState = StreamClosingState::Resumed;
+             closingState != StreamClosingState::EndOfTest;
+             closingState = static_cast<StreamClosingState>(static_cast<int>(closingState) + 1)) {
+            std::shared_ptr<IStreamOut> streamPtr;
+            std::shared_ptr<IStreamTransportControl> transportPtr;
+            {
+                WithStream<IStreamOut> stream(patch.getPortConfig(false /*isInput*/));
+                ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
+                ASSERT_NE(nullptr, stream.getTransport());
+                // Prior to starting audio writing, attempts to pause or resume should fail because
+                // the stream is in a "standby" state.
+                ScopedAStatus status = stream.getTransport()->pause();
+                EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
+                        << status << " returned when attempting to pause a standby stream";
+                status = stream.getTransport()->resume();
+                EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
+                        << status << " returned when attempting to resume a standby stream";
+                typename IOTraits<IStreamOut>::Worker worker(*stream.getContext());
+                ASSERT_TRUE(worker.start());
+                ASSERT_TRUE(worker.waitForAtLeastOneCycle());
+                ASSERT_NO_FATAL_FAILURE(WaitForObservablePositionAdvance(worker));
+                // Now the stream should be ready for transport control tests.
+                status = stream.getTransport()->pause();
+                EXPECT_TRUE(status.isOk());
+                status = stream.getTransport()->pause();
+                EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
+                        << status << " returned when attempting to pause the stream twice";
+                status = stream.getTransport()->resume();
+                EXPECT_TRUE(status.isOk());
+                status = stream.getTransport()->resume();
+                EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
+                        << status << " returned when attempting to resume the stream twice";
+                if (closingState == StreamClosingState::Paused) {
+                    status = stream.getTransport()->pause();
+                    EXPECT_TRUE(status.isOk());
+                }
+                streamPtr = stream.getSharedPointer();
+                transportPtr = stream.getTransportSharedPointer();
+            }
+            ScopedAStatus status = transportPtr->pause();
+            EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
+                    << status << " returned when attempting to pause a closed stream";
+            status = transportPtr->resume();
+            EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
+                    << status << " returned when attempting to resume a closed stream";
+        }
+    }
+}
+
+TEST_P(AudioStreamOut, RequireOffloadInfo) {
+    const auto offloadMixPorts =
+            moduleConfig->getOffloadMixPorts(true /*attachedOnly*/, true /*singlePort*/);
+    if (offloadMixPorts.empty()) {
+        GTEST_SKIP()
+                << "No mix port for compressed offload that could be routed to attached devices";
+    }
+    const auto portConfig =
+            moduleConfig->getSingleConfigForMixPort(false, *offloadMixPorts.begin());
     ASSERT_TRUE(portConfig.has_value())
             << "No profiles specified for the compressed offload mix port";
     StreamDescriptor descriptor;

@@ -102,6 +102,7 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
     } else if (command.code == StreamDescriptor::COMMAND_BURST && command.fmqByteCount >= 0) {
         LOG(DEBUG) << __func__ << ": received BURST read command for " << command.fmqByteCount
                    << " bytes";
+        mIsStandby = false;
         usleep(3000);  // Simulate a blocking call into the driver.
         const size_t byteCount = std::min({static_cast<size_t>(command.fmqByteCount),
                                            mDataMQ->availableToWrite(), mDataBufferSize});
@@ -182,6 +183,7 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
             } else {
                 reply.status = STATUS_INVALID_OPERATION;
             }
+            mIsStandby = false;
             usleep(3000);  // Simulate a blocking call into the driver.
         } else {
             LOG(WARNING) << __func__ << ": reading of " << byteCount
@@ -229,15 +231,26 @@ ndk::ScopedAStatus StreamCommon<Metadata, StreamWorker>::close() {
 }
 
 template <class Metadata, class StreamWorker>
+ndk::ScopedAStatus StreamCommon<Metadata, StreamWorker>::standby() {
+    LOG(DEBUG) << __func__;
+    if (mIsClosed) {
+        LOG(ERROR) << __func__ << ": called on a closed stream";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+    }
+    return ndk::ScopedAStatus::ok();
+}
+
+template <class Metadata, class StreamWorker>
 void StreamCommon<Metadata, StreamWorker>::stopWorker() {
     if (auto commandMQ = mContext.getCommandMQ(); commandMQ != nullptr) {
         LOG(DEBUG) << __func__ << ": asking the worker to stop...";
         StreamDescriptor::Command cmd;
         cmd.code = StreamContext::COMMAND_EXIT;
         cmd.fmqByteCount = mContext.getInternalCommandCookie();
-        // FIXME: This can block in the case when the client wrote a command
-        // while the stream worker's cycle is not running. Need to revisit
-        // when implementing standby and pause/resume.
+        // Note: never call 'pause' and 'resume' methods of StreamWorker
+        // in the HAL implementation. These methods are to be used by
+        // the client side only. Preventing the worker loop from running
+        // on the HAL side can cause a deadlock.
         if (!commandMQ->writeBlocking(&cmd, 1)) {
             LOG(ERROR) << __func__ << ": failed to write exit command to the MQ";
         }
@@ -266,6 +279,38 @@ StreamOut::StreamOut(const SourceMetadata& sourceMetadata, StreamContext context
     : StreamCommon<SourceMetadata, StreamOutWorker>(sourceMetadata, std::move(context)),
       mOffloadInfo(offloadInfo) {
     LOG(DEBUG) << __func__;
+}
+
+ndk::ScopedAStatus StreamTransportControl::pause() {
+    LOG(DEBUG) << __func__;
+    if (mIsPaused) {
+        LOG(ERROR) << __func__ << ": stream is already paused";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+    }
+    if (!mWrapper.isStreamOpen()) {
+        LOG(ERROR) << __func__ << ": stream has been closed";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+    }
+    if (mWrapper.isStreamStandby()) {
+        LOG(ERROR) << __func__ << ": stream is in standby state";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+    }
+    mIsPaused = true;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus StreamTransportControl::resume() {
+    LOG(DEBUG) << __func__;
+    if (!mIsPaused) {
+        LOG(ERROR) << __func__ << ": stream is not paused";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+    }
+    if (!mWrapper.isStreamOpen()) {
+        LOG(ERROR) << __func__ << ": stream has been closed";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+    }
+    mIsPaused = false;
+    return ndk::ScopedAStatus::ok();
 }
 
 }  // namespace aidl::android::hardware::audio::core
