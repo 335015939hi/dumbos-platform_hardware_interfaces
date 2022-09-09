@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2093f4f8_13765c4e",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-09T23:40:20Z",
+      "side": 1,
+      "message": "I can clean the compiler warnings in a follow-up",
+      "parentUuid": "327aeab9_24cad542",
+      "range": {
+        "startLine": 466,
+        "startChar": 24,
+        "endLine": 466,
+        "endChar": 92
+      },
+      "revId": "37a370e27a7abda34852df1973f5088b70c4c0b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26f589df_2a14ce93",
