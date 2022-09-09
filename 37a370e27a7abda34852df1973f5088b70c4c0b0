@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be48a14d_57880f45",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-09T01:20:07Z",
+      "side": 1,
+      "message": "string_view unsurprisingly doesn\u0027t seem to play well with string concatenation. Is there a \"C++onic\" way to do this with string_view, or should I just stick to strings? Otherwise, done.",
+      "parentUuid": "df1704db_341f7589",
+      "range": {
+        "startLine": 466,
+        "startChar": 24,
+        "endLine": 466,
+        "endChar": 92
+      },
+      "revId": "37a370e27a7abda34852df1973f5088b70c4c0b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26f589df_2a14ce93",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-09-08T07:34:39Z",
       "side": 1,
       "message": "Return false here?\n\nSeems like we should consider an empty attribute as \"missing\".",
+      "revId": "37a370e27a7abda34852df1973f5088b70c4c0b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1db58ff_d4cbe884",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-09T01:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26f589df_2a14ce93",
       "revId": "37a370e27a7abda34852df1973f5088b70c4c0b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c23a054d_84c3a12b",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-09T01:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "590e41e7_6741999f",
+      "range": {
+        "startLine": 483,
+        "startChar": 9,
+        "endLine": 483,
+        "endChar": 18
+      },
+      "revId": "37a370e27a7abda34852df1973f5088b70c4c0b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afdcf777_5f275c53",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-09-08T07:34:39Z",
       "side": 1,
       "message": "super nit: Initializer is not needed. `std::string` is empty by default.",
+      "range": {
+        "startLine": 509,
+        "startChar": 34,
+        "endLine": 509,
+        "endChar": 39
+      },
+      "revId": "37a370e27a7abda34852df1973f5088b70c4c0b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d03aea9_52d237f4",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-09T01:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afdcf777_5f275c53",
       "range": {
         "startLine": 509,
         "startChar": 34,
