@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d1d020c_27bacc97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1093248
+      },
+      "writtenOn": "2022-09-09T09:22:25Z",
+      "side": 1,
+      "message": "Some iio sensors that don\u0027t support runtime suspend will disable and enable buffers on hot switch.\n\nOver 50 events are close to the spec.\n\u003e Debug logs:\n09-07 08:15:01.222  8800  8800 I sensors_hidl_hal_test: Collected 200 fast samples and 200 slow samples\n09-07 08:15:01.222  8800  8800 I sensors_hidl_hal_test: heqiang -- minDelayEvents \u003d 11000000 1, , x \u003d 0.047883, y \u003d 0.047883\n09-07 08:15:01.222  8800  8800 I sensors_hidl_hal_test: heqiang -- minDelayEvents \u003d 11000000 2, , x \u003d 0.052648, y \u003d 0.052648\n... ...\n09-07 08:15:01.222  8800  8800 I sensors_hidl_hal_test: heqiang -- minDelayEvents \u003d 11000000 62, , x \u003d 0.086371, y \u003d 0.086371\n09-07 08:15:01.222  8800  8800 I sensors_hidl_hal_test: heqiang -- minDelayEvents \u003d 11000000 63, , x \u003d 0.054894, y \u003d 0.054894\n09-07 08:15:01.222  8800  8800 I sensors_hidl_hal_test: heqiang -- minDelayEvents \u003d 10062916 64, , x \u003d 0.055169, y \u003d 0.055169\n09-07 08:15:01.222  8800  8800 I sensors_hidl_hal_test: heqiang -- minDelayEvents \u003d 9975276 65, , x \u003d 0.100453, y \u003d 0.100453\n09-07 08:15:01.222  8800  8800 I sensors_hidl_hal_test: heqiang -- minDelayEvents \u003d 9986250 66, , x \u003d 0.091225, y \u003d 0.091225",
+      "revId": "d6ef4fb70026cbfaee747d1edad92a2d4e94d967",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
