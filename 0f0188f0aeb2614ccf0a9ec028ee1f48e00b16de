@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "848e70f0_62202778",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1377410
+      },
+      "writtenOn": "2022-09-09T00:18:00Z",
+      "side": 1,
+      "message": "Sorry, I wrongly mentioned \"cherry-picked from\" is enough. Actually, it is the \"Merged-In\". Thank you for pointing it out.\n\nThe Merged-In line has nothing to do with \"Automerge Restrict\" being honored or not, they are orthogonal. In this case, it doesn\u0027t matter because there is only one automerge branch and it will be skipped due to the Restrict tag.",
+      "parentUuid": "3eb2c5e9_288cbdb8",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "0f0188f0aeb2614ccf0a9ec028ee1f48e00b16de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "723d9f9d_9a311e13",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
