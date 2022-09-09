@@ -98,6 +98,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3189644a_e5a82eb0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2022-09-09T02:33:26Z",
+      "side": 1,
+      "message": "Oops. A typo there was.\n\nIt looks automerge hasn\u0027t setup yet btw.",
+      "parentUuid": "1b1ce2f0_3a0ff078",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "0f0188f0aeb2614ccf0a9ec028ee1f48e00b16de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "723d9f9d_9a311e13",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
