@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1b1ce2f0_3a0ff078",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1377410
+      },
+      "writtenOn": "2022-09-09T00:27:07Z",
+      "side": 1,
+      "message": "It is actually \"RESTRICT AUTOMERGE\"\n\ngo/automerger-help#using-do-not-merge-or-restrict-automerge\n\nAlso, go/automerger-help#using-merged-in",
+      "parentUuid": "848e70f0_62202778",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "0f0188f0aeb2614ccf0a9ec028ee1f48e00b16de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "723d9f9d_9a311e13",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
