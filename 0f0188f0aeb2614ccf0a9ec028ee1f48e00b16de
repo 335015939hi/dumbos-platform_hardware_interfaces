@@ -122,6 +122,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f26088f1_4ed3d498",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2022-09-09T02:38:38Z",
+      "side": 1,
+      "message": "Regarding `AUTOMERGE RESTRICT` vs `Merged-In` btw, I prefer using `AUTOMERGE RESTRICT` because this CL is clearly intended to be merged only into `android13-test-dev` branch, not any other branches that may already have the same CL.",
+      "parentUuid": "3189644a_e5a82eb0",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "0f0188f0aeb2614ccf0a9ec028ee1f48e00b16de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "723d9f9d_9a311e13",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
