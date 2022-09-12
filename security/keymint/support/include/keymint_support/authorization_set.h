@@ -282,6 +282,7 @@ class AuthorizationSetBuilder : public AuthorizationSet {
     AuthorizationSetBuilder& RsaSigningKey(uint32_t key_size, uint64_t public_exponent);
     AuthorizationSetBuilder& RsaEncryptionKey(uint32_t key_size, uint64_t public_exponent);
     AuthorizationSetBuilder& EcdsaSigningKey(EcCurve curve);
+    AuthorizationSetBuilder& EcdsaSigningKey(uint32_t key_size);
     AuthorizationSetBuilder& AesEncryptionKey(uint32_t key_size);
     AuthorizationSetBuilder& TripleDesEncryptionKey(uint32_t key_size);
 
