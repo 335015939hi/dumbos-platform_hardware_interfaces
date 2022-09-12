@@ -22,6 +22,30 @@
       },
       "revId": "7383be62aa09aa6d88331c0b4813e4798a628527",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b179332_88b35128",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamTransportControl.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-12T17:43:08Z",
+      "side": 1,
+      "message": "Please recall that besides the Binder interface there is a parallel queue of commands exchanged via FMQ (see StreamDescriptor https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl). This is roughly equivalent to `read` and `write` commands in the C API. The important difference that we have in AIDL is that since presentation positions and latency are also queried via FMQ, the client must start the exchange, even for MMAP streams—we assume that the client wants to know the timing information. This is why after being created, the stream remains in a standby state, and it\u0027s transitioned into an active state with the first command sent via FMQ.\n\nThus, it\u0027s not correct to say that \"streams start in a paused state\"—it starts in a standby state. Actually, this makes me think that for MMap, we don\u0027t need to use pause/resume, or have stop/start as we used to. Instead we can use standby/FMQ command for putting them into standby and resuming—this should be easier do comprehend.\n\nI don\u0027t think that having pause/resume for all types of streams makes a lot of sense. If bursts are short, it\u0027s enough just stop audio exchange for achieving the effect of the \"pause\" command, then resume the exchange. Issuing the \"standby\" command can confirm to the HAL that we are not under-running. Thus, pause/resume is only needed for offloaded streams (and maybe deep buffer, if it\u0027s size is on the order of seconds), so that the effect of pausing can be observed immediately.\n\n\u003e I never liked the implicit start on first write after standby.\n\nWhy would issuing a command on one thread and then starting writing on another would be better? To me, it\u0027s better to have one timing reference. Am I missing something?",
+      "parentUuid": "eba0f680_179e19c5",
+      "range": {
+        "startLine": 43,
+        "startChar": 58,
+        "endLine": 43,
+        "endChar": 63
+      },
+      "revId": "7383be62aa09aa6d88331c0b4813e4798a628527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
