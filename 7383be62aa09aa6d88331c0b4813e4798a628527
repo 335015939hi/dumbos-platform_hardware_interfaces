@@ -46,6 +46,30 @@
       },
       "revId": "7383be62aa09aa6d88331c0b4813e4798a628527",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2308604_927fc21a",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamTransportControl.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-12T18:03:20Z",
+      "side": 1,
+      "message": "In a matter of brainstorming, should we consider having \u0027standby\u0027 and \u0027start\u0027 commands in the FMQ chain (vs \u0027IStream*.standby\u0027)? This way, there will be an explicit \u0027start\u0027 command which will be synchronized with sending/receiving of audio data, and same for the \u0027standby\u0027 command. This also makes obvious why \u0027pause\u0027 and \u0027resume\u0027 are needed—because they can be issued in parallel with audio data exchange when bursts are large. Maybe, they can also be helpful in the case of streams with high latency even when small buffers are used between the HAL and the framework, for example, BT. This will explain why we want the HAL to support these commands for all stream types.",
+      "parentUuid": "6b179332_88b35128",
+      "range": {
+        "startLine": 43,
+        "startChar": 58,
+        "endLine": 43,
+        "endChar": 63
+      },
+      "revId": "7383be62aa09aa6d88331c0b4813e4798a628527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
