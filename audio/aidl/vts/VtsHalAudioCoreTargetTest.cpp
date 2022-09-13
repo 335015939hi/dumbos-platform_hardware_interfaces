@@ -34,6 +34,7 @@
 #include <aidl/android/media/audio/common/AudioIoFlags.h>
 #include <aidl/android/media/audio/common/AudioOutputFlags.h>
 #include <android-base/chrono_utils.h>
+#include <android/binder_enums.h>
 #include <fmq/AidlMessageQueue.h>
 
 #include "AudioHalBinderServiceUtil.h"
@@ -69,6 +70,7 @@ using aidl::android::media::audio::common::AudioUsage;
 using android::hardware::audio::common::isBitPositionFlagSet;
 using android::hardware::audio::common::StreamLogic;
 using android::hardware::audio::common::StreamWorker;
+using ndk::enum_range;
 using ndk::ScopedAStatus;
 
 template <typename T>
@@ -352,21 +354,36 @@ class StreamContext {
     std::unique_ptr<DataMQ> mDataMQ;
 };
 
-class StreamCommonLogic : public StreamLogic {
+class StreamLogicDriver {
   public:
-    StreamDescriptor::Position getLastObservablePosition() {
-        std::lock_guard<std::mutex> lock(mLock);
-        return mLastReply.observable;
-    }
+    virtual ~StreamLogicDriver() = default;
+    // Return 'true' to stop the worker.
+    virtual bool done() = 0;
+    // For 'Writer' logic, if the 'actualSize' is 0, write is skipped.
+    // The 'fmqByteCount' from the returned command is passed as is to the HAL.
+    virtual StreamDescriptor::Command getNextCommand(int maxDataSize,
+                                                     int* actualSize = nullptr) = 0;
+    // Return 'true' to indicate that no further processing is needed,
+    // for example, the driver is expecting a bad status to be returned.
+    // The logic cycle will return with 'CONTINUE' status. Otherwise,
+    // the reply will be validated and then passed to 'processValidReply'.
+    virtual bool interceptRawReply(const StreamDescriptor::Reply& reply) = 0;
+    // Return 'false' to indicate that the contents of the reply are unexpected.
+    // Will abort the logic cycle.
+    virtual bool processValidReply(const StreamDescriptor::Reply& reply) = 0;
+};
 
+class StreamCommonLogic : public StreamLogic {
   protected:
-    explicit StreamCommonLogic(const StreamContext& context)
+    StreamCommonLogic(const StreamContext& context, StreamLogicDriver* driver)
         : mCommandMQ(context.getCommandMQ()),
           mReplyMQ(context.getReplyMQ()),
           mDataMQ(context.getDataMQ()),
-          mData(context.getBufferSizeBytes()) {}
+          mData(context.getBufferSizeBytes()),
+          mDriver(driver) {}
     StreamContext::CommandMQ* getCommandMQ() const { return mCommandMQ; }
     StreamContext::ReplyMQ* getReplyMQ() const { return mReplyMQ; }
+    StreamLogicDriver* getDriver() const { return mDriver; }
 
     std::string init() override { return ""; }
 
@@ -374,19 +391,20 @@ class StreamCommonLogic : public StreamLogic {
     StreamContext::ReplyMQ* mReplyMQ;
     StreamContext::DataMQ* mDataMQ;
     std::vector<int8_t> mData;
-    std::mutex mLock;
-    StreamDescriptor::Reply mLastReply GUARDED_BY(mLock);
+    StreamLogicDriver* const mDriver;
 };
 
 class StreamReaderLogic : public StreamCommonLogic {
   public:
-    explicit StreamReaderLogic(const StreamContext& context) : StreamCommonLogic(context) {}
+    StreamReaderLogic(const StreamContext& context, StreamLogicDriver* driver)
+        : StreamCommonLogic(context, driver) {}
 
   protected:
     Status cycle() override {
-        StreamDescriptor::Command command{};
-        command.code = StreamDescriptor::COMMAND_BURST;
-        command.fmqByteCount = mData.size();
+        if (getDriver()->done()) {
+            return Status::EXIT;
+        }
+        StreamDescriptor::Command command = getDriver()->getNextCommand(mData.size());
         if (!mCommandMQ->writeBlocking(&command, 1)) {
             LOG(ERROR) << __func__ << ": writing of command into MQ failed";
             return Status::ABORT;
@@ -395,6 +413,9 @@ class StreamReaderLogic : public StreamCommonLogic {
         if (!mReplyMQ->readBlocking(&reply, 1)) {
             LOG(ERROR) << __func__ << ": reading of reply from MQ failed";
             return Status::ABORT;
+        }
+        if (getDriver()->interceptRawReply(reply)) {
+            return Status::CONTINUE;
         }
         if (reply.status != STATUS_OK) {
             LOG(ERROR) << __func__ << ": received error status: " << statusToString(reply.status);
@@ -405,14 +426,29 @@ class StreamReaderLogic : public StreamCommonLogic {
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
             return Status::ABORT;
         }
-        {
-            std::lock_guard<std::mutex> lock(mLock);
-            mLastReply = reply;
+        if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
+            LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
+            return Status::ABORT;
         }
+        if (reply.xrunFrames < 0) {
+            LOG(ERROR) << __func__ << ": received invalid xrunFrames value: " << reply.xrunFrames;
+            return Status::ABORT;
+        }
+        if (std::find(enum_range<StreamDescriptor::State>().begin(),
+                      enum_range<StreamDescriptor::State>().end(),
+                      reply.state) == enum_range<StreamDescriptor::State>().end()) {
+            LOG(ERROR) << __func__ << ": received invalid stream state: " << toString(reply.state);
+            return Status::ABORT;
+        }
+        const bool acceptedReply = getDriver()->processValidReply(reply);
         const size_t readCount = std::min({mDataMQ->availableToRead(),
                                            static_cast<size_t>(reply.fmqByteCount), mData.size()});
         if (readCount == 0 || mDataMQ->read(mData.data(), readCount)) {
-            return Status::CONTINUE;
+            if (acceptedReply) {
+                return Status::CONTINUE;
+            }
+            LOG(ERROR) << __func__ << ": unacceptable reply: " << reply.toString();
+            return Status::ABORT;
         }
         LOG(ERROR) << __func__ << ": reading of " << readCount << " data bytes from MQ failed";
         return Status::ABORT;
@@ -422,17 +458,20 @@ using StreamReader = StreamWorker<StreamReaderLogic>;
 
 class StreamWriterLogic : public StreamCommonLogic {
   public:
-    explicit StreamWriterLogic(const StreamContext& context) : StreamCommonLogic(context) {}
+    StreamWriterLogic(const StreamContext& context, StreamLogicDriver* driver)
+        : StreamCommonLogic(context, driver) {}
 
   protected:
     Status cycle() override {
-        if (!mDataMQ->write(mData.data(), mData.size())) {
+        if (getDriver()->done()) {
+            return Status::EXIT;
+        }
+        int actualSize = 0;
+        StreamDescriptor::Command command = getDriver()->getNextCommand(mData.size(), &actualSize);
+        if (actualSize != 0 && !mDataMQ->write(mData.data(), mData.size())) {
             LOG(ERROR) << __func__ << ": writing of " << mData.size() << " bytes to MQ failed";
             return Status::ABORT;
         }
-        StreamDescriptor::Command command{};
-        command.code = StreamDescriptor::COMMAND_BURST;
-        command.fmqByteCount = mData.size();
         if (!mCommandMQ->writeBlocking(&command, 1)) {
             LOG(ERROR) << __func__ << ": writing of command into MQ failed";
             return Status::ABORT;
@@ -441,6 +480,9 @@ class StreamWriterLogic : public StreamCommonLogic {
         if (!mReplyMQ->readBlocking(&reply, 1)) {
             LOG(ERROR) << __func__ << ": reading of reply from MQ failed";
             return Status::ABORT;
+        }
+        if (getDriver()->interceptRawReply(reply)) {
+            return Status::CONTINUE;
         }
         if (reply.status != STATUS_OK) {
             LOG(ERROR) << __func__ << ": received error status: " << statusToString(reply.status);
@@ -451,11 +493,25 @@ class StreamWriterLogic : public StreamCommonLogic {
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
             return Status::ABORT;
         }
-        {
-            std::lock_guard<std::mutex> lock(mLock);
-            mLastReply = reply;
+        if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
+            LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
+            return Status::ABORT;
         }
-        return Status::CONTINUE;
+        if (reply.xrunFrames < 0) {
+            LOG(ERROR) << __func__ << ": received invalid xrunFrames value: " << reply.xrunFrames;
+            return Status::ABORT;
+        }
+        if (std::find(enum_range<StreamDescriptor::State>().begin(),
+                      enum_range<StreamDescriptor::State>().end(),
+                      reply.state) == enum_range<StreamDescriptor::State>().end()) {
+            LOG(ERROR) << __func__ << ": received invalid stream state: " << toString(reply.state);
+            return Status::ABORT;
+        }
+        if (getDriver()->processValidReply(reply)) {
+            return Status::CONTINUE;
+        }
+        LOG(ERROR) << __func__ << ": unacceptable reply: " << reply.toString();
+        return Status::ABORT;
     }
 };
 using StreamWriter = StreamWorker<StreamWriterLogic>;
@@ -464,52 +520,6 @@ template <typename T>
 struct IOTraits {
     static constexpr bool is_input = std::is_same_v<T, IStreamIn>;
     using Worker = std::conditional_t<is_input, StreamReader, StreamWriter>;
-};
-
-// A dedicated version to test replies to invalid commands.
-class StreamInvalidCommandLogic : public StreamCommonLogic {
-  public:
-    StreamInvalidCommandLogic(const StreamContext& context,
-                              const std::vector<StreamDescriptor::Command>& commands)
-        : StreamCommonLogic(context), mCommands(commands) {}
-
-    std::vector<std::string> getUnexpectedStatuses() {
-        std::lock_guard<std::mutex> lock(mLock);
-        return mUnexpectedStatuses;
-    }
-
-  protected:
-    Status cycle() override {
-        // Send all commands in one cycle to simplify testing.
-        // Extra logging helps to sort out issues with unexpected HAL behavior.
-        for (const auto& command : mCommands) {
-            LOG(INFO) << __func__ << ": writing command " << command.toString() << " into MQ...";
-            if (!getCommandMQ()->writeBlocking(&command, 1)) {
-                LOG(ERROR) << __func__ << ": writing of command into MQ failed";
-                return Status::ABORT;
-            }
-            StreamDescriptor::Reply reply{};
-            LOG(INFO) << __func__ << ": reading reply for command " << command.toString() << "...";
-            if (!getReplyMQ()->readBlocking(&reply, 1)) {
-                LOG(ERROR) << __func__ << ": reading of reply from MQ failed";
-                return Status::ABORT;
-            }
-            LOG(INFO) << __func__ << ": received status " << statusToString(reply.status)
-                      << " for command " << command.toString();
-            if (reply.status != STATUS_BAD_VALUE) {
-                std::string s = command.toString();
-                s.append(", ").append(statusToString(reply.status));
-                std::lock_guard<std::mutex> lock(mLock);
-                mUnexpectedStatuses.push_back(std::move(s));
-            }
-        };
-        return Status::EXIT;
-    }
-
-  private:
-    const std::vector<StreamDescriptor::Command> mCommands;
-    std::mutex mLock;
-    std::vector<std::string> mUnexpectedStatuses GUARDED_BY(mLock);
 };
 
 template <typename Stream>
@@ -1208,6 +1218,104 @@ TEST_P(AudioCoreModule, ExternalDevicePortRoutes) {
     }
 }
 
+class StreamLogicDriverInvalidCommand : public StreamLogicDriver {
+  public:
+    StreamLogicDriverInvalidCommand(const std::vector<StreamDescriptor::Command>& commands)
+        : mCommands(commands) {}
+
+    std::string getUnexpectedStatuses() {
+        // This method is intended to be called after the worker thread has joined,
+        // thus no extra synchronization is needed.
+        std::string s;
+        if (!mStatuses.empty()) {
+            s = std::string("Pairs of (command, actual status): ")
+                        .append((android::internal::ToString(mStatuses)));
+        }
+        return s;
+    }
+
+    bool done() override { return mNextCommand >= mCommands.size(); }
+    StreamDescriptor::Command getNextCommand(int, int* actualSize) override {
+        if (actualSize != nullptr) *actualSize = 0;
+        return mCommands[mNextCommand++];
+    }
+    bool interceptRawReply(const StreamDescriptor::Reply& reply) override {
+        if (reply.status != STATUS_BAD_VALUE) {
+            std::string s = mCommands[mNextCommand - 1].toString();
+            s.append(", ").append(statusToString(reply.status));
+            mStatuses.push_back(std::move(s));
+            // If the HAL does not recognize the command as invalid,
+            // retrieve the data etc.
+            return reply.status != STATUS_OK;
+        }
+        return true;
+    }
+    bool processValidReply(const StreamDescriptor::Reply&) override { return true; }
+
+  private:
+    const std::vector<StreamDescriptor::Command> mCommands;
+    size_t mNextCommand = 0;
+    std::vector<std::string> mStatuses;
+};
+
+using CommandAndState = std::pair<StreamDescriptor::CommandCode, StreamDescriptor::State>;
+
+class StreamLogicDefaultDriver : public StreamLogicDriver {
+  public:
+    explicit StreamLogicDefaultDriver(const std::vector<CommandAndState>& commands)
+        : mCommands(commands) {}
+
+    // The three methods below is intended to be called after the worker
+    // thread has joined, thus no extra synchronization is needed.
+    bool hasObservablePositionIncrease() const { return mObservablePositionIncrease; }
+    bool hasRetrogradeObservablePosition() const { return mRetrogradeObservablePosition; }
+    std::string getUnexpectedStateTransition() const { return mUnexpectedTransition; }
+
+    bool done() override { return mNextCommand >= mCommands.size(); }
+    StreamDescriptor::Command getNextCommand(int maxDataSize, int* actualSize) override {
+        StreamDescriptor::Command command{};
+        command.code = mCommands[mNextCommand++].first;
+        const int dataSize = command.code == StreamDescriptor::CommandCode::BURST ? maxDataSize : 0;
+        command.fmqByteCount = dataSize;
+        if (actualSize != nullptr) *actualSize = dataSize;
+        return command;
+    }
+    bool interceptRawReply(const StreamDescriptor::Reply&) override { return false; }
+    bool processValidReply(const StreamDescriptor::Reply& reply) override {
+        if (mPreviousFrames.has_value()) {
+            if (reply.observable.frames > mPreviousFrames.value()) {
+                mObservablePositionIncrease = true;
+            } else if (reply.observable.frames < mPreviousFrames.value()) {
+                mRetrogradeObservablePosition = true;
+            }
+        }
+        mPreviousFrames = reply.observable.frames;
+
+        const auto& lastCommandState = mCommands[mNextCommand - 1];
+        if (lastCommandState.second != reply.state) {
+            std::string s = std::string("Unexpected transition from the state ")
+                                    .append(mPreviousState)
+                                    .append(" to ")
+                                    .append(toString(reply.state))
+                                    .append(" caused by the command ")
+                                    .append(toString(lastCommandState.first));
+            LOG(ERROR) << __func__ << ": " << s;
+            mUnexpectedTransition = std::move(s);
+            return false;
+        }
+        return true;
+    }
+
+  protected:
+    const std::vector<CommandAndState>& mCommands;
+    size_t mNextCommand = 0;
+    std::optional<int64_t> mPreviousFrames;
+    std::string mPreviousState = "<initial state>";
+    bool mObservablePositionIncrease = false;
+    bool mRetrogradeObservablePosition = false;
+    std::string mUnexpectedTransition;
+};
+
 template <typename Stream>
 class AudioStream : public AudioCoreModule {
   public:
@@ -1321,10 +1429,36 @@ class AudioStream : public AudioCoreModule {
         if (allPortConfigs.empty()) {
             GTEST_SKIP() << "No mix ports have attached devices";
         }
+        const std::vector<CommandAndState> bursts{
+                3, std::make_pair(StreamDescriptor::CommandCode::BURST,
+                                  StreamDescriptor::State::READY)};
         for (const auto& portConfig : allPortConfigs) {
-            EXPECT_NO_FATAL_FAILURE(
-                    ReadOrWriteImpl(portConfig, useSetupSequence2, validateObservablePosition))
-                    << portConfig.toString();
+            SCOPED_TRACE(portConfig.toString());
+            EXPECT_NO_FATAL_FAILURE(RunStreamIoCommands(portConfig, bursts, useSetupSequence2,
+                                                        validateObservablePosition));
+        }
+    }
+
+    void Drain(bool useSetupSequence2) {
+        const auto allPortConfigs =
+                moduleConfig->getPortConfigsForMixPorts(IOTraits<Stream>::is_input);
+        if (allPortConfigs.empty()) {
+            GTEST_SKIP() << "No mix ports have attached devices";
+        }
+        const std::vector<CommandAndState> burstsAndDrains{
+                std::make_pair(StreamDescriptor::CommandCode::BURST,
+                               StreamDescriptor::State::READY),
+                std::make_pair(StreamDescriptor::CommandCode::DRAIN, StreamDescriptor::State::IDLE),
+                std::make_pair(StreamDescriptor::CommandCode::DRAIN, StreamDescriptor::State::IDLE),
+                std::make_pair(StreamDescriptor::CommandCode::BURST,
+                               StreamDescriptor::State::READY),
+                std::make_pair(StreamDescriptor::CommandCode::DRAIN,
+                               StreamDescriptor::State::IDLE)};
+        for (const auto& portConfig : allPortConfigs) {
+            SCOPED_TRACE(portConfig.toString());
+            EXPECT_NO_FATAL_FAILURE(RunStreamIoCommands(portConfig, burstsAndDrains,
+                                                        useSetupSequence2,
+                                                        true /*validateObservablePosition*/));
         }
     }
 
@@ -1357,40 +1491,22 @@ class AudioStream : public AudioCoreModule {
                 << stream1.getPortId();
     }
 
-    template <class Worker>
-    void WaitForObservablePositionAdvance(Worker& worker) {
-        static constexpr int kWriteDurationUs = 50 * 1000;
-        static constexpr std::chrono::milliseconds kPositionChangeTimeout{10000};
-        int64_t framesInitial;
-        framesInitial = worker.getLastObservablePosition().frames;
-        ASSERT_FALSE(worker.hasError());
-        bool timedOut = false;
-        int64_t frames = framesInitial;
-        for (android::base::Timer elapsed;
-             frames <= framesInitial && !worker.hasError() &&
-             !(timedOut = (elapsed.duration() >= kPositionChangeTimeout));) {
-            usleep(kWriteDurationUs);
-            frames = worker.getLastObservablePosition().frames;
-        }
-        EXPECT_FALSE(timedOut);
-        EXPECT_FALSE(worker.hasError()) << worker.getError();
-        EXPECT_GT(frames, framesInitial);
-    }
-
-    void ReadOrWriteImpl(const AudioPortConfig& portConfig, bool useSetupSequence2,
-                         bool validateObservablePosition) {
+    void RunStreamIoCommands(const AudioPortConfig& portConfig,
+                             const std::vector<CommandAndState>& commandsAndStates,
+                             bool useSetupSequence2, bool validateObservablePosition) {
         if (!useSetupSequence2) {
-            ASSERT_NO_FATAL_FAILURE(
-                    ReadOrWriteSetupSequence1(portConfig, validateObservablePosition));
+            ASSERT_NO_FATAL_FAILURE(RunStreamIoCommandsImplSeq1(portConfig, commandsAndStates,
+                                                                validateObservablePosition));
         } else {
-            ASSERT_NO_FATAL_FAILURE(
-                    ReadOrWriteSetupSequence2(portConfig, validateObservablePosition));
+            ASSERT_NO_FATAL_FAILURE(RunStreamIoCommandsImplSeq2(portConfig, commandsAndStates,
+                                                                validateObservablePosition));
         }
     }
 
     // Set up a patch first, then open a stream.
-    void ReadOrWriteSetupSequence1(const AudioPortConfig& portConfig,
-                                   bool validateObservablePosition) {
+    void RunStreamIoCommandsImplSeq1(const AudioPortConfig& portConfig,
+                                     const std::vector<CommandAndState>& commandsAndStates,
+                                     bool validateObservablePosition) {
         auto devicePorts = moduleConfig->getAttachedDevicesPortsForMixPort(
                 IOTraits<Stream>::is_input, portConfig);
         ASSERT_FALSE(devicePorts.empty());
@@ -1400,21 +1516,27 @@ class AudioStream : public AudioCoreModule {
 
         WithStream<Stream> stream(patch.getPortConfig(IOTraits<Stream>::is_input));
         ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
-        typename IOTraits<Stream>::Worker worker(*stream.getContext());
+        StreamLogicDefaultDriver driver(commandsAndStates);
+        typename IOTraits<Stream>::Worker worker(*stream.getContext(), &driver);
 
         ASSERT_TRUE(worker.start());
-        ASSERT_TRUE(worker.waitForAtLeastOneCycle());
+        worker.join();
+        EXPECT_FALSE(worker.hasError()) << worker.getError();
+        EXPECT_EQ("", driver.getUnexpectedStateTransition());
         if (validateObservablePosition) {
-            ASSERT_NO_FATAL_FAILURE(WaitForObservablePositionAdvance(worker));
+            EXPECT_TRUE(driver.hasObservablePositionIncrease());
+            EXPECT_FALSE(driver.hasRetrogradeObservablePosition());
         }
     }
 
     // Open a stream, then set up a patch for it.
-    void ReadOrWriteSetupSequence2(const AudioPortConfig& portConfig,
-                                   bool validateObservablePosition) {
+    void RunStreamIoCommandsImplSeq2(const AudioPortConfig& portConfig,
+                                     const std::vector<CommandAndState>& commandsAndStates,
+                                     bool validateObservablePosition) {
         WithStream<Stream> stream(portConfig);
         ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
-        typename IOTraits<Stream>::Worker worker(*stream.getContext());
+        StreamLogicDefaultDriver driver(commandsAndStates);
+        typename IOTraits<Stream>::Worker worker(*stream.getContext(), &driver);
 
         auto devicePorts = moduleConfig->getAttachedDevicesPortsForMixPort(
                 IOTraits<Stream>::is_input, portConfig);
@@ -1424,31 +1546,33 @@ class AudioStream : public AudioCoreModule {
         ASSERT_NO_FATAL_FAILURE(patch.SetUp(module.get()));
 
         ASSERT_TRUE(worker.start());
-        ASSERT_TRUE(worker.waitForAtLeastOneCycle());
+        worker.join();
+        EXPECT_FALSE(worker.hasError()) << worker.getError();
+        EXPECT_EQ("", driver.getUnexpectedStateTransition());
         if (validateObservablePosition) {
-            ASSERT_NO_FATAL_FAILURE(WaitForObservablePositionAdvance(worker));
+            EXPECT_TRUE(driver.hasObservablePositionIncrease());
+            EXPECT_FALSE(driver.hasRetrogradeObservablePosition());
         }
     }
 
     void SendInvalidCommandImpl(const AudioPortConfig& portConfig) {
         std::vector<StreamDescriptor::Command> commands(6);
-        commands[0].code = -1;
-        commands[1].code = StreamDescriptor::COMMAND_BURST - 1;
-        commands[2].code = std::numeric_limits<int32_t>::min();
-        commands[3].code = std::numeric_limits<int32_t>::max();
-        commands[4].code = StreamDescriptor::COMMAND_BURST;
+        commands[0].code = StreamDescriptor::CommandCode(-1);
+        commands[1].code = StreamDescriptor::CommandCode(
+                static_cast<int32_t>(StreamDescriptor::CommandCode::BURST) - 1);
+        commands[2].code = StreamDescriptor::CommandCode(std::numeric_limits<int32_t>::min());
+        commands[3].code = StreamDescriptor::CommandCode(std::numeric_limits<int32_t>::max());
+        commands[4].code = StreamDescriptor::CommandCode::BURST;
         commands[4].fmqByteCount = -1;
-        commands[5].code = StreamDescriptor::COMMAND_BURST;
+        commands[5].code = StreamDescriptor::CommandCode::BURST;
         commands[5].fmqByteCount = std::numeric_limits<int32_t>::min();
         WithStream<Stream> stream(portConfig);
         ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
-        StreamWorker<StreamInvalidCommandLogic> writer(*stream.getContext(), commands);
-        ASSERT_TRUE(writer.start());
-        writer.waitForAtLeastOneCycle();
-        auto unexpectedStatuses = writer.getUnexpectedStatuses();
-        EXPECT_EQ(0UL, unexpectedStatuses.size())
-                << "Pairs of (command, actual status): "
-                << android::internal::ToString(unexpectedStatuses);
+        StreamLogicDriverInvalidCommand driver(commands);
+        typename IOTraits<Stream>::Worker worker(*stream.getContext(), &driver);
+        ASSERT_TRUE(worker.start());
+        worker.join();
+        EXPECT_EQ("", driver.getUnexpectedStatuses());
     }
 };
 using AudioStreamIn = AudioStream<IStreamIn>;
@@ -1457,6 +1581,9 @@ using AudioStreamOut = AudioStream<IStreamOut>;
 #define TEST_IO_STREAM(method_name)                                                \
     TEST_P(AudioStreamIn, method_name) { ASSERT_NO_FATAL_FAILURE(method_name()); } \
     TEST_P(AudioStreamOut, method_name) { ASSERT_NO_FATAL_FAILURE(method_name()); }
+#define TEST_IO_STREAM_1(method_name, arg1)                                                     \
+    TEST_P(AudioStreamIn, method_name##_##arg1) { ASSERT_NO_FATAL_FAILURE(method_name(arg1)); } \
+    TEST_P(AudioStreamOut, method_name##_##arg1) { ASSERT_NO_FATAL_FAILURE(method_name(arg1)); }
 #define TEST_IO_STREAM_2(method_name, arg1, arg2)           \
     TEST_P(AudioStreamIn, method_name##_##arg1##_##arg2) {  \
         ASSERT_NO_FATAL_FAILURE(method_name(arg1, arg2));   \
@@ -1480,6 +1607,8 @@ TEST_IO_STREAM_2(ReadOrWrite, SetupSequence1, SetupOnly);
 TEST_IO_STREAM_2(ReadOrWrite, SetupSequence2, SetupOnly);
 TEST_IO_STREAM_2(ReadOrWrite, SetupSequence1, ValidateObservablePosition);
 TEST_IO_STREAM_2(ReadOrWrite, SetupSequence2, ValidateObservablePosition);
+TEST_IO_STREAM_1(Drain, SetupSequence1);
+TEST_IO_STREAM_1(Drain, SetupSequence2);
 TEST_IO_STREAM(ResetPortConfigWithOpenStream);
 TEST_IO_STREAM(SendInvalidCommand);
 
