@@ -94,6 +94,30 @@
       },
       "revId": "7383be62aa09aa6d88331c0b4813e4798a628527",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3baff881_aa16987c",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamTransportControl.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-09-13T17:11:46Z",
+      "side": 1,
+      "message": "you are worried about standby, pause and resume commands being in a different thread as read/writes but I don\u0027t think this happens there is a different thread on vendor side for the FMQ but all operations on the FMQ are synchronous no? which means that they complete before the system side thread continues and can process a control command.\n\nI am Ok with having start and standby commands in the FMQ if it helps.\nI still don\u0027t see the advantage of an implicit start command. It creates a difference between MMAP and other types of streams without a good reason",
+      "parentUuid": "ebeb0fbf_c7343b1b",
+      "range": {
+        "startLine": 43,
+        "startChar": 58,
+        "endLine": 43,
+        "endChar": 63
+      },
+      "revId": "7383be62aa09aa6d88331c0b4813e4798a628527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
