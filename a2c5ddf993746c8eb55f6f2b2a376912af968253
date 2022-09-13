@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9a02bb2_dbb0b5eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-13T01:24:10Z",
+      "side": 1,
+      "message": "Refactorings only, to separate from the interface change.",
+      "revId": "a2c5ddf993746c8eb55f6f2b2a376912af968253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
