@@ -20,6 +20,7 @@ import android.hardware.audio.common.SinkMetadata;
 import android.hardware.audio.common.SourceMetadata;
 import android.hardware.audio.core.AudioPatch;
 import android.hardware.audio.core.AudioRoute;
+import android.hardware.audio.core.IStreamCallback;
 import android.hardware.audio.core.IStreamIn;
 import android.hardware.audio.core.IStreamOut;
 import android.hardware.audio.core.ModuleDebug;
@@ -357,6 +358,8 @@ interface IModule {
         @nullable AudioOffloadInfo offloadInfo;
         /** Requested audio I/O buffer minimum size, in frames. */
         long bufferSizeFrames;
+        /** Client callback interface for the non-blocking I/O mode. */
+        @nullable IStreamCallback callback;
     }
     @VintfStability
     parcelable OpenOutputStreamReturn {
