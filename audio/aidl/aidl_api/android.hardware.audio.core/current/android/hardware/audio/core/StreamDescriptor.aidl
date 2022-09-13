@@ -40,6 +40,7 @@ parcelable StreamDescriptor {
   long bufferSizeFrames;
   android.hardware.audio.core.StreamDescriptor.AudioBuffer audio;
   const int COMMAND_BURST = 1;
+  const int COMMAND_HOLD = 2;
   @FixedSize @VintfStability
   parcelable Position {
     long frames;

@@ -39,6 +39,23 @@ interface IStreamIn {
     void close();
 
     /**
+     * Put the stream into a "standby" state to save power.
+     *
+     * Hints the HAL module that the client is not going to perform audio I/O
+     * for some time, thus the HAL module can put any connected hardware into
+     * standby mode to save power. This requires that the stream is currently
+     * put "on hold" (that is, has just been opened, or was put on hold via
+     * the associated StreamDescriptor).
+     *
+     * @throws EX_ILLEGAL_STATE If not applicable, this includes the following
+     *                          conditions:
+     *                           - the stream is closed;
+     *                           - the stream is already in the standby state;
+     *                           - the audio exchange was not put on hold.
+     */
+    void standby();
+
+    /**
      * Update stream metadata.
      *
      * Updates the metadata initially provided at the stream creation.

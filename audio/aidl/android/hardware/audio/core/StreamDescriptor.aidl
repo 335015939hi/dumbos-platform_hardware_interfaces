@@ -56,11 +56,51 @@ parcelable StreamDescriptor {
     }
 
     /**
-     * The command used for audio I/O, see 'AudioBuffer'. For MMap No IRQ mode
-     * this command only provides updated positions and latency because actual
-     * audio I/O is done via the 'AudioBuffer.mmap' shared buffer.
+     * The command used for audio I/O, see 'AudioBuffer'. Differences for
+     * the MMap No IRQ mode:
+     *
+     *  - this command only provides updated positions and latency because
+     *    actual audio I/O is done via the 'AudioBuffer.mmap' shared buffer;
+     *
+     *  - the 'fmqByteCount' must always be set to 0;
+     *
+     *  - the command must be issued by the client in order to initiate the
+     *    audio data transfer, which can then be put on hold using the HOLD
+     *    command.
+     *
+     * After receiving the first BURST command (after the stream has been just
+     * opened, or after it was put on hold), the HAL module may assume that the
+     * client is going to be exchanging audio data in a periodic fashion, and
+     * any failures to send or receive audio data on time can be treated as
+     * under- or overrun conditions.
+     *
+     * If the hardware was previously put into the standby mode, any valid BURST
+     * command—even with 'fmqByteCount == 0'—takes it out from standby.
      */
     const int COMMAND_BURST = 1;
+    /**
+     * Puts the audio data exchange on hold temporarily. After receiving this
+     * command, the HAL module should keep waiting for next BURST without
+     * triggering under- of overrun conditions. For the MMap no IRQ mode this
+     * command means that exchange of audio via the 'AudioBuffer.mmap' shared
+     * buffer must cease until receiving the BURST command.
+     *
+     * The 'fmqByteCount' for the HOLD command must always be 0. For output
+     * streams, the HAL module must consume any data remaining in the message
+     * queue. For input streams, the client must consume data from its side.
+     * This way, after processing the HOLD command, the stream returns to
+     * the same state it was in right after it has been opened.
+     *
+     * Audio hardware may still be using power after the HAL module has received
+     * this command. The client needs to use 'IStream*.standby' method in order
+     * to provide a hint that it is not going to restart the exchange soon.
+     *
+     * It is allowed to issue HOLD commands in succession. The HAL module must
+     * return updated timestamps and the current latency value, if
+     * possible. Unlike the BURST command with 'fmqByteCount == 0', the HOLD
+     * command does not take the associated hardware out of the standby mode.
+     */
+    const int COMMAND_HOLD = 2;
 
     /**
      * Used for sending commands to the HAL module. The client writes into
@@ -130,6 +170,10 @@ parcelable StreamDescriptor {
          *   was presented to an external observer (i.e. presentation position).
          * For input streams: the moment when data at the specified stream position
          *   was acquired (i.e. capture position).
+         *
+         * The observable position must never be reset by the HAL module.
+         * The data type of the frame counter is large enough to support
+         * continuous counting for years of operation.
          */
         Position observable;
         /**
@@ -179,7 +223,7 @@ parcelable StreamDescriptor {
          *
          * For output streams the following sequence of operations is used:
          *  1. The client writes audio data into the 'audio.fmq' queue.
-         *  2. The client writes the 'BURST' command into the 'command' queue,
+         *  2. The client writes a command into the 'command' queue,
          *     and hangs on waiting on a read from the 'reply' queue.
          *  3. The high priority thread in the HAL module wakes up due to 2.
          *  4. The HAL module reads the command and audio data.
@@ -189,7 +233,7 @@ parcelable StreamDescriptor {
          *  6. The client wakes up due to 5. and reads the reply.
          *
          * For input streams the following sequence of operations is used:
-         *  1. The client writes the 'BURST' command into the 'command' queue,
+         *  1. The client writes a command into the 'command' queue,
          *     and hangs on waiting on a read from the 'reply' queue.
          *  2. The high priority thread in the HAL module wakes up due to 1.
          *  3. The HAL module writes audio data into the 'audio.fmq' queue.
@@ -202,10 +246,11 @@ parcelable StreamDescriptor {
         MQDescriptor<byte, SynchronizedReadWrite> fmq;
         /**
          * MMap buffers are shared directly with the DSP, which operates
-         * independently from the CPU. Writes and reads into these buffers
-         * are not synchronized with 'command' and 'reply' queues. However,
-         * the client still uses the 'BURST' command for obtaining current
-         * positions from the HAL module.
+         * independently from the CPU. Writes and reads into these buffers are
+         * not synchronized with 'command' and 'reply' queues. However, the
+         * client still uses the 'BURST' and 'HOLD' commands for controlling the
+         * audio data exchange and for obtaining current positions and latency
+         * from the HAL module.
          */
         MmapBufferDescriptor mmap;
     }
