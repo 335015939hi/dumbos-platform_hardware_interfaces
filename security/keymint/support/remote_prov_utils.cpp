@@ -572,4 +572,117 @@ ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateDeviceInfo(
     return std::move(deviceInfo);
 }
 
+ErrMsgOr<bytevec> getSessionKey(ErrMsgOr<std::pair<bytevec, bytevec>>& senderPubkey,
+                                const EekChain& eekChain, int32_t supportedEekCurve) {
+    if (supportedEekCurve == RpcHardwareInfo::CURVE_25519 ||
+        supportedEekCurve == RpcHardwareInfo::CURVE_NONE) {
+        return x25519_HKDF_DeriveKey(eekChain.last_pubkey, eekChain.last_privkey,
+                                     senderPubkey->first, false /* senderIsA */);
+    } else {
+        return ECDH_HKDF_DeriveKey(eekChain.last_pubkey, eekChain.last_privkey, senderPubkey->first,
+                                   false /* senderIsA */);
+    }
+}
+
+ErrMsgOr<std::vector<BccEntryData>> verifyProtectedData(
+        const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
+        const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
+        const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
+        IRemotelyProvisionedComponent* provisionable, const std::vector<uint8_t>& challenge) {
+    auto [parsedProtectedData, _, protDataErrMsg] = cppbor::parse(protectedData.protectedData);
+    if (!parsedProtectedData) {
+        return protDataErrMsg;
+    }
+    if (!parsedProtectedData->asArray()) {
+        return "Protected data is not a CBOR array.";
+    }
+    if (parsedProtectedData->asArray()->size() != kCoseEncryptEntryCount) {
+        return "The protected data COSE_encrypt structure must have " +
+               std::to_string(kCoseEncryptEntryCount) + " entries, but it only has " +
+               std::to_string(parsedProtectedData->asArray()->size());
+    }
+
+    auto senderPubkey = getSenderPubKeyFromCoseEncrypt(parsedProtectedData);
+    if (!senderPubkey) {
+        return senderPubkey.message();
+    }
+    if (senderPubkey->second != eekId) {
+        return "The COSE_encrypt recipient does not match the expected EEK identifier";
+    }
+
+    auto sessionKey = getSessionKey(senderPubkey, eekChain, supportedEekCurve);
+    if (!sessionKey) {
+        return sessionKey.message();
+    }
+
+    auto protectedDataPayload =
+            decryptCoseEncrypt(*sessionKey, parsedProtectedData.get(), bytevec{} /* aad */);
+    if (!protectedDataPayload) {
+        return protectedDataPayload.message();
+    }
+
+    auto [parsedPayload, __, payloadErrMsg] = cppbor::parse(*protectedDataPayload);
+    if (!parsedPayload) {
+        return "Failed to parse payload: " + payloadErrMsg;
+    }
+    if (!parsedPayload->asArray()) {
+        return "The protected data payload must be an Array.";
+    }
+    if (parsedPayload->asArray()->size() != 3U && parsedPayload->asArray()->size() != 2U) {
+        return "The protected data payload must contain SignedMAC and BCC. It may optionally "
+               "contain AdditionalDKSignatures. However, the parsed payload has " +
+               std::to_string(parsedPayload->asArray()->size()) + " entries.";
+    }
+
+    auto& signedMac = parsedPayload->asArray()->get(0);
+    auto& bcc = parsedPayload->asArray()->get(1);
+    if (!signedMac->asArray()) {
+        return "The SignedMAC in the protected data payload is not an Array.";
+    }
+    if (!bcc->asArray()) {
+        return "The BCC in the protected data payload is not an Array.";
+    }
+
+    // BCC is [ pubkey, + BccEntry]
+    auto bccContents = validateBcc(bcc->asArray());
+    if (!bccContents) {
+        return bccContents.message() + "\n" + prettyPrint(bcc.get());
+    }
+    if (bccContents->size() == 0U) {
+        return "The BCC is empty. It must contain at least one entry.";
+    }
+
+    auto deviceInfoResult = parseAndValidateDeviceInfo(deviceInfo.deviceInfo, provisionable);
+    if (!deviceInfoResult) {
+        return deviceInfoResult.message();
+    }
+    std::unique_ptr<cppbor::Map> deviceInfoMap = deviceInfoResult.moveValue();
+    auto& signingKey = bccContents->back().pubKey;
+    auto macKey = verifyAndParseCoseSign1(signedMac->asArray(), signingKey,
+                                          cppbor::Array()  // SignedMacAad
+                                                  .add(challenge)
+                                                  .add(std::move(deviceInfoMap))
+                                                  .add(keysToSignMac)
+                                                  .encode());
+    if (!macKey) {
+        return macKey.message();
+    }
+
+    auto coseMac0 = cppbor::Array()
+                            .add(cppbor::Map()  // protected
+                                         .add(ALGORITHM, HMAC_256)
+                                         .canonicalize()
+                                         .encode())
+                            .add(cppbor::Map())        // unprotected
+                            .add(keysToSign.encode())  // payload (keysToSign)
+                            .add(keysToSignMac);       // tag
+
+    auto macPayload = verifyAndParseCoseMac0(&coseMac0, *macKey);
+    if (!macPayload) {
+        return macPayload.message();
+    }
+
+    return *bccContents;
+}
+
 }  // namespace aidl::android::hardware::security::keymint::remote_prov

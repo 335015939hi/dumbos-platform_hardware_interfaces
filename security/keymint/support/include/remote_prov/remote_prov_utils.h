@@ -149,4 +149,13 @@ JsonOutput jsonEncodeCsrWithBuild(const std::string instance_name,
 ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateDeviceInfo(
         const std::vector<uint8_t>& deviceInfoBytes, IRemotelyProvisionedComponent* provisionable);
 
+/**
+ * Verify the protected data
+ */
+ErrMsgOr<std::vector<BccEntryData>> verifyProtectedData(
+        const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
+        const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
+        const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
+        IRemotelyProvisionedComponent* provisionable, const std::vector<uint8_t>& challenge);
+
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
