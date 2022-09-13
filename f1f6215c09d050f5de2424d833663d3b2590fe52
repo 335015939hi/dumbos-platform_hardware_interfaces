@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8f9b236_c2c62dbe",
+        "filename": "security/keymint/support/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-13T19:13:11Z",
+      "side": 1,
+      "message": "I had to add this because the util code now make a binder call.",
+      "revId": "f1f6215c09d050f5de2424d833663d3b2590fe52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
