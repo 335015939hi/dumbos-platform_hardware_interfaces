@@ -496,6 +496,13 @@ ndk::ScopedAStatus Module::openOutputStream(const OpenOutputStreamArguments& in_
                    << " has COMPRESS_OFFLOAD flag set, requires offload info";
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     }
+    const bool isNonBlocking = isBitPositionFlagSet(port->flags.get<AudioIoFlags::Tag::output>(),
+                                                    AudioOutputFlags::NON_BLOCKING);
+    if (isNonBlocking && in_args.callback == nullptr) {
+        LOG(ERROR) << __func__ << ": port id " << port->id
+                   << " has NON_BLOCKING flag set, requires async callback";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+    }
     StreamContext context;
     if (auto status = createStreamContext(in_args.portConfigId, in_args.bufferSizeFrames, &context);
         !status.isOk()) {

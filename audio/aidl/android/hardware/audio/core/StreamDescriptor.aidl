@@ -90,7 +90,7 @@ import android.media.audio.common.Void;
  * consumer can become active, but not both at the same time. States 'STANDBY',
  * 'IDLE', 'READY', and '*PAUSED' are "stable"—they require an external event,
  * whereas a change from the 'DRAINING' state can happen with time as the buffer
- * gets empty.
+ * gets empty, thus it's a "transient" state.
  *
  * The state machine for input streams is defined in the `stream-in-sm.gv` file,
  * for output streams—in the `stream-out-sm.gv` file. State machines define how
@@ -100,6 +100,17 @@ import android.media.audio.common.Void;
  * client can never observe a stream with a functioning command queue in this
  * state. The 'ERROR' state is a special state which the state machine enters
  * when an unrecoverable hardware error is detected by the HAL module.
+ *
+ * Non-blocking (asynchronous) modes introduce a new 'TRANSFERRING' state, which
+ * the state machine enters after replying to 'BURST' or 'DRAIN' command. The
+ * client gets unblocked, but actual audio delivery to / from the observer is
+ * not complete yet. Once the HAL module is ready for the next transfer, it
+ * notifies the client via a oneway callback, and the machine switches to
+ * 'ACTIVE' state. The 'TRANSFERRING' state is thus "transient", similar to the
+ * 'DRAINING' state. The point of unblocking the client early is allowing it to
+ * issue commands without the need to wait until audio I/O actually completes
+ * (this can take a long time). Please see 'stream-in-async-sm.gv' and
+ * 'stream-out-async-sm.gv' files for details.
  */
 @JavaDerive(equals=true, toString=true)
 @VintfStability
@@ -178,6 +189,29 @@ parcelable StreamDescriptor {
         ERROR = 100,
     }
 
+    @VintfStability
+    @Backing(type="byte")
+    enum DrainMode {
+        /**
+         * Unspecified—used with input streams only, because the client controls
+         * draining.
+         */
+        DRAIN_UNSPECIFIED = 0,
+        /**
+         * Used with output streams only, the HAL module indicates drain
+         * completion when all remaining audio data has been consumed.
+         */
+        DRAIN_ALL = 1,
+        /**
+         * Used with output streams only, the HAL module indicates drain
+         * completion shortly before all audio data has been consumed in order
+         * to give the client an opportunity to provide data for the next track
+         * for gapless playback. The exact amount of provided time is specific
+         * to the HAL implementation.
+         */
+        DRAIN_EARLY_NOTIFY = 2,
+    }
+
     /**
      * Used for sending commands to the HAL module. The client writes into
      * the queue, the HAL module reads. The queue can only contain a single
@@ -239,7 +273,7 @@ parcelable StreamDescriptor {
          * See the state machines on the applicability of this command to
          * different states.
          */
-        Void drain;
+        DrainMode drain;
         /**
          * See the state machines on the applicability of this command to
          * different states.
@@ -401,6 +435,10 @@ parcelable StreamDescriptor {
          *     into 'reply' queue, and hangs on waiting on a read from
          *     the 'command' queue.
          *  6. The client wakes up due to 5. and reads the reply.
+         *     Note: in non-blocking mode, when the HAL module goes to
+         *           the 'TRANSFERRING' state (as indicated by the 'reply.state'
+         *           field), the client must wait for the 'IStreamCallback.onTransferReady'
+         *           notification to arrive before starting the next burst.
          *
          * For input streams the following sequence of operations is used:
          *  1. The client writes the BURST command into the 'command' queue,
@@ -415,6 +453,10 @@ parcelable StreamDescriptor {
          *  5. The client wakes up due to 4.
          *  6. The client reads the reply and audio data. The client must
          *     always read from the FMQ all the data it contains.
+         *     Note: in non-blocking mode, when the HAL module goes to
+         *           the 'TRANSFERRING' state (as indicated by the 'reply.state'
+         *           field) the client must wait for the 'IStreamCallback.onTransferReady'
+         *           notification to arrive before starting the next burst.
          *
          */
         MQDescriptor<byte, SynchronizedReadWrite> fmq;

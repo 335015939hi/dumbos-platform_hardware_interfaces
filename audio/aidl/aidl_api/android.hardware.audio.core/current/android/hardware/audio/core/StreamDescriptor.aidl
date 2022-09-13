@@ -55,12 +55,18 @@ parcelable StreamDescriptor {
     DRAIN_PAUSED = 6,
     ERROR = 100,
   }
+  @Backing(type="byte") @VintfStability
+  enum DrainMode {
+    DRAIN_UNSPECIFIED = 0,
+    DRAIN_ALL = 1,
+    DRAIN_EARLY_NOTIFY = 2,
+  }
   @FixedSize @VintfStability
   union Command {
     int hal_reserved_exit;
     android.media.audio.common.Void start;
     int burst;
-    android.media.audio.common.Void drain;
+    android.hardware.audio.core.StreamDescriptor.DrainMode drain;
     android.media.audio.common.Void standby;
     android.media.audio.common.Void pause;
     android.media.audio.common.Void flush;

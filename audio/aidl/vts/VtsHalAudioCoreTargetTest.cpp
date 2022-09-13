@@ -30,6 +30,7 @@
 #include <Utils.h>
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
+#include <aidl/android/hardware/audio/core/BnStreamCallback.h>
 #include <aidl/android/hardware/audio/core/IModule.h>
 #include <aidl/android/hardware/audio/core/ITelephony.h>
 #include <aidl/android/media/audio/common/AudioIoFlags.h>
@@ -656,6 +657,16 @@ SourceMetadata GenerateSourceMetadata(const AudioPortConfig& portConfig) {
     return metadata;
 }
 
+namespace {
+
+class DummyStreamCallback : public ::aidl::android::hardware::audio::core::BnStreamCallback {
+    ndk::ScopedAStatus onTransferReady() override { return ndk::ScopedAStatus::ok(); }
+    ndk::ScopedAStatus onError() override { return ndk::ScopedAStatus::ok(); }
+    ndk::ScopedAStatus onDrainReady() override { return ndk::ScopedAStatus::ok(); }
+};
+
+}  // namespace
+
 template <>
 ScopedAStatus WithStream<IStreamOut>::SetUpNoChecks(IModule* module,
                                                     const AudioPortConfig& portConfig,
@@ -665,6 +676,7 @@ ScopedAStatus WithStream<IStreamOut>::SetUpNoChecks(IModule* module,
     args.sourceMetadata = GenerateSourceMetadata(portConfig);
     args.offloadInfo = ModuleConfig::generateOffloadInfoIfNeeded(portConfig);
     args.bufferSizeFrames = bufferSizeFrames;
+    args.callback = ndk::SharedRefBase::make<DummyStreamCallback>();
     aidl::android::hardware::audio::core::IModule::OpenOutputStreamReturn ret;
     ScopedAStatus status = module->openOutputStream(args, &ret);
     if (status.isOk()) {
@@ -1615,19 +1627,43 @@ TEST_P(AudioStreamOut, RequireOffloadInfo) {
         GTEST_SKIP()
                 << "No mix port for compressed offload that could be routed to attached devices";
     }
-    const auto portConfig =
-            moduleConfig->getSingleConfigForMixPort(false, *offloadMixPorts.begin());
-    ASSERT_TRUE(portConfig.has_value())
-            << "No profiles specified for the compressed offload mix port";
+    const auto config = moduleConfig->getSingleConfigForMixPort(false, *offloadMixPorts.begin());
+    ASSERT_TRUE(config.has_value()) << "No profiles specified for the compressed offload mix port";
+    WithAudioPortConfig portConfig(config.value());
+    ASSERT_NO_FATAL_FAILURE(portConfig.SetUp(module.get()));
     StreamDescriptor descriptor;
     std::shared_ptr<IStreamOut> ignored;
     aidl::android::hardware::audio::core::IModule::OpenOutputStreamArguments args;
-    args.portConfigId = portConfig.value().id;
-    args.sourceMetadata = GenerateSourceMetadata(portConfig.value());
+    args.portConfigId = portConfig.getId();
+    args.sourceMetadata = GenerateSourceMetadata(portConfig.get());
     args.bufferSizeFrames = kDefaultBufferSizeFrames;
     aidl::android::hardware::audio::core::IModule::OpenOutputStreamReturn ret;
     EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->openOutputStream(args, &ret))
             << "when no offload info is provided for a compressed offload mix port";
+}
+
+TEST_P(AudioStreamOut, RequireAsyncCallback) {
+    const auto nonBlockingMixPorts =
+            moduleConfig->getNonBlockingMixPorts(true /*attachedOnly*/, true /*singlePort*/);
+    if (nonBlockingMixPorts.empty()) {
+        GTEST_SKIP()
+                << "No mix port for non-blocking output that could be routed to attached devices";
+    }
+    const auto config =
+            moduleConfig->getSingleConfigForMixPort(false, *nonBlockingMixPorts.begin());
+    ASSERT_TRUE(config.has_value()) << "No profiles specified for the non-blocking mix port";
+    WithAudioPortConfig portConfig(config.value());
+    ASSERT_NO_FATAL_FAILURE(portConfig.SetUp(module.get()));
+    StreamDescriptor descriptor;
+    std::shared_ptr<IStreamOut> ignored;
+    aidl::android::hardware::audio::core::IModule::OpenOutputStreamArguments args;
+    args.portConfigId = portConfig.getId();
+    args.sourceMetadata = GenerateSourceMetadata(portConfig.get());
+    args.offloadInfo = ModuleConfig::generateOffloadInfoIfNeeded(portConfig.get());
+    args.bufferSizeFrames = kDefaultBufferSizeFrames;
+    aidl::android::hardware::audio::core::IModule::OpenOutputStreamReturn ret;
+    EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->openOutputStream(args, &ret))
+            << "when no async callback is provided for a non-blocking mix port";
 }
 
 using CommandAndState = std::pair<StreamDescriptor::Command, StreamDescriptor::State>;
@@ -1979,7 +2015,11 @@ static const StreamDescriptor::Command kStartCommand =
 static const StreamDescriptor::Command kBurstCommand =
         StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::burst>(0);
 static const StreamDescriptor::Command kDrainCommand =
-        StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::drain>(Void{});
+        StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::drain>(
+                StreamDescriptor::DrainMode::DRAIN_UNSPECIFIED);
+static const StreamDescriptor::Command kDrainAllCommand =
+        StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::drain>(
+                StreamDescriptor::DrainMode::DRAIN_ALL);
 static const StreamDescriptor::Command kStandbyCommand =
         StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::standby>(Void{});
 static const StreamDescriptor::Command kPauseCommand =
@@ -2009,13 +2049,14 @@ static const NamedCommandSequence kDrainOutSeq =
                                std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
                                std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
                                // TODO: This will need to be changed once DRAIN starts taking time.
-                               std::make_pair(kDrainCommand, StreamDescriptor::State::IDLE)});
+                               std::make_pair(kDrainAllCommand, StreamDescriptor::State::IDLE)});
 // TODO: This will need to be changed once DRAIN starts taking time so we can pause it.
-static const NamedCommandSequence kDrainPauseOutSeq = std::make_pair(
-        std::string("DrainPause"),
-        std::vector<CommandAndState>{std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
-                                     std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
-                                     std::make_pair(kDrainCommand, StreamDescriptor::State::IDLE)});
+static const NamedCommandSequence kDrainPauseOutSeq =
+        std::make_pair(std::string("DrainPause"),
+                       std::vector<CommandAndState>{
+                               std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
+                               std::make_pair(kDrainAllCommand, StreamDescriptor::State::IDLE)});
 static const NamedCommandSequence kStandbySeq =
         std::make_pair(std::string("Standby"),
                        std::vector<CommandAndState>{
