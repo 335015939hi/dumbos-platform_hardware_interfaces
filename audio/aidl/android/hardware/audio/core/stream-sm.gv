@@ -1,0 +1,45 @@
+// Copyright (C) 2022 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// To render: dot -Tpng stream-sm.gv -o stream-sm.png
+digraph stream_state_machine {
+    node [shape=doublecircle style=filled fillcolor=black width=0.5] I;
+    node [shape=point width=0.5] F;
+    node [shape=oval width=1];
+    node [fillcolor=lightgreen] IDLE;
+    node [fillcolor=lightgreen] STANDBY;
+    node [fillcolor=tomato] CLOSED;
+    node [style=dashed] TRANSFER;
+    node [style=dashed] DRAIN;
+    node [style=dashed] ANY_STATE;
+    node [fillcolor=lightblue style=filled];
+    I -> IDLE;
+    IDLE -> STANDBY [label="STANDBY"];
+    IDLE -> READY [label="START"];
+    IDLE -> IDLE [label="FLUSH"];
+    STANDBY -> READY [label="START"];
+    STANDBY -> STANDBY [label="FLUSH"];
+    READY -> TRANSFER [label="BURST"];
+    TRANSFER -> READY [label="←IStreamCallback.onTransferReady"];
+    TRANSFER -> ERROR [label="←IStreamCallback.onError"];
+    READY -> PAUSED [label="PAUSE"];
+    READY -> DRAIN [label="DRAIN"];
+    DRAIN -> IDLE [label="←IStreamCallback.onDrainReady"];
+    DRAIN -> ERROR [label="←IStreamCallback.onError"];
+    PAUSED -> READY [label="START"];
+    PAUSED -> DRAIN [label="DRAIN"];
+    PAUSED -> IDLE [label="FLUSH"];
+    ANY_STATE -> CLOSED [label="→IStream*.close"];
+    CLOSED -> F;
+}

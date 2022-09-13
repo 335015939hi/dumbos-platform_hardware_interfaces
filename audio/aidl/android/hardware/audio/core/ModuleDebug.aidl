@@ -35,4 +35,5 @@ parcelable ModuleDebug {
      *    profiles.
      */
     boolean simulateDeviceConnections;
+    /* TODO: Add a flag to simulate driver I/O errors */
 }
