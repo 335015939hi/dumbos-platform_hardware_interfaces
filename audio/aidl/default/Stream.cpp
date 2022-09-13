@@ -85,24 +85,39 @@ std::string StreamWorkerCommonLogic::init() {
     return "";
 }
 
+void StreamWorkerCommonLogic::populateReply(StreamDescriptor::Reply* reply,
+                                            bool isConnected) const {
+    if (isConnected) {
+        reply->status = STATUS_OK;
+        reply->observable.frames = mFrameCount;
+        reply->observable.timeNs = ::android::elapsedRealtimeNano();
+    } else {
+        reply->status = STATUS_NO_INIT;
+    }
+}
+
 const std::string StreamInWorkerLogic::kThreadName = "reader";
 
 StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
     StreamDescriptor::Command command{};
     if (!mCommandMQ->readBlocking(&command, 1)) {
         LOG(ERROR) << __func__ << ": reading of command from MQ failed";
+        mState = StreamDescriptor::State::ERROR;
         return Status::ABORT;
     }
     StreamDescriptor::Reply reply{};
-    if (command.code == StreamContext::COMMAND_EXIT &&
+    if (static_cast<int32_t>(command.code) == StreamContext::COMMAND_EXIT &&
         command.fmqByteCount == mInternalCommandCookie) {
         LOG(DEBUG) << __func__ << ": received EXIT command";
+        setClosed();
         // This is an internal command, no need to reply.
         return Status::EXIT;
-    } else if (command.code == StreamDescriptor::COMMAND_BURST && command.fmqByteCount >= 0) {
+    } else if (command.code == StreamDescriptor::CommandCode::BURST && command.fmqByteCount >= 0) {
         LOG(DEBUG) << __func__ << ": received BURST read command for " << command.fmqByteCount
                    << " bytes";
+        mState = StreamDescriptor::State::READY;
         usleep(3000);  // Simulate a blocking call into the driver.
+        // Can switch the state to ERROR if a driver error occurs.
         const size_t byteCount = std::min({static_cast<size_t>(command.fmqByteCount),
                                            mDataMQ->availableToWrite(), mDataBufferSize});
         const bool isConnected = mIsConnected;
@@ -122,13 +137,7 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
             // Frames are provided and counted regardless of connection status.
             reply.fmqByteCount = byteCount;
             mFrameCount += byteCount / mFrameSize;
-            if (isConnected) {
-                reply.status = STATUS_OK;
-                reply.observable.frames = mFrameCount;
-                reply.observable.timeNs = ::android::elapsedRealtimeNano();
-            } else {
-                reply.status = STATUS_INVALID_OPERATION;
-            }
+            populateReply(&reply, isConnected);
         } else {
             LOG(WARNING) << __func__ << ": writing of " << byteCount
                          << " bytes of data to MQ failed";
@@ -140,9 +149,11 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
                      << ") or count: " << command.fmqByteCount;
         reply.status = STATUS_BAD_VALUE;
     }
+    reply.state = mState;
     LOG(DEBUG) << __func__ << ": writing reply " << reply.toString();
     if (!mReplyMQ->writeBlocking(&reply, 1)) {
         LOG(ERROR) << __func__ << ": writing of reply " << reply.toString() << " to MQ failed";
+        mState = StreamDescriptor::State::ERROR;
         return Status::ABORT;
     }
     return Status::CONTINUE;
@@ -154,17 +165,20 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
     StreamDescriptor::Command command{};
     if (!mCommandMQ->readBlocking(&command, 1)) {
         LOG(ERROR) << __func__ << ": reading of command from MQ failed";
+        mState = StreamDescriptor::State::ERROR;
         return Status::ABORT;
     }
     StreamDescriptor::Reply reply{};
-    if (command.code == StreamContext::COMMAND_EXIT &&
+    if (static_cast<int32_t>(command.code) == StreamContext::COMMAND_EXIT &&
         command.fmqByteCount == mInternalCommandCookie) {
         LOG(DEBUG) << __func__ << ": received EXIT command";
+        setClosed();
         // This is an internal command, no need to reply.
         return Status::EXIT;
-    } else if (command.code == StreamDescriptor::COMMAND_BURST && command.fmqByteCount >= 0) {
+    } else if (command.code == StreamDescriptor::CommandCode::BURST && command.fmqByteCount >= 0) {
         LOG(DEBUG) << __func__ << ": received BURST write command for " << command.fmqByteCount
                    << " bytes";
+        mState = StreamDescriptor::State::READY;
         const size_t byteCount = std::min({static_cast<size_t>(command.fmqByteCount),
                                            mDataMQ->availableToRead(), mDataBufferSize});
         bool success = byteCount > 0 ? mDataMQ->read(&mDataBuffer[0], byteCount) : true;
@@ -175,28 +189,31 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
             // Frames are consumed and counted regardless of connection status.
             reply.fmqByteCount = byteCount;
             mFrameCount += byteCount / mFrameSize;
-            if (isConnected) {
-                reply.status = STATUS_OK;
-                reply.observable.frames = mFrameCount;
-                reply.observable.timeNs = ::android::elapsedRealtimeNano();
-            } else {
-                reply.status = STATUS_INVALID_OPERATION;
-            }
+            populateReply(&reply, isConnected);
             usleep(3000);  // Simulate a blocking call into the driver.
+            // Can switch the state to ERROR if a driver error occurs.
         } else {
             LOG(WARNING) << __func__ << ": reading of " << byteCount
                          << " bytes of data from MQ failed";
             reply.status = STATUS_NOT_ENOUGH_DATA;
         }
         reply.latencyMs = Module::kLatencyMs;
+    } else if (command.code == StreamDescriptor::CommandCode::DRAIN && command.fmqByteCount == 0) {
+        LOG(DEBUG) << __func__ << ": received DRAIN write command";
+        populateReply(&reply, mIsConnected);
+        usleep(3000);  // Simulate a blocking call into the driver.
+        // Can switch the state to ERROR if a driver error occurs.
+        mState = StreamDescriptor::State::IDLE;
     } else {
         LOG(WARNING) << __func__ << ": invalid command (" << command.toString()
                      << ") or count: " << command.fmqByteCount;
         reply.status = STATUS_BAD_VALUE;
     }
+    reply.state = mState;
     LOG(DEBUG) << __func__ << ": writing reply " << reply.toString();
     if (!mReplyMQ->writeBlocking(&reply, 1)) {
         LOG(ERROR) << __func__ << ": writing of reply " << reply.toString() << " to MQ failed";
+        mState = StreamDescriptor::State::ERROR;
         return Status::ABORT;
     }
     return Status::CONTINUE;
@@ -204,7 +221,7 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
 
 template <class Metadata, class StreamWorker>
 StreamCommon<Metadata, StreamWorker>::~StreamCommon() {
-    if (!mIsClosed) {
+    if (!isClosed()) {
         LOG(ERROR) << __func__ << ": stream was not closed prior to destruction, resource leak";
         stopWorker();
         // The worker and the context should clean up by themselves via destructors.
@@ -214,13 +231,13 @@ StreamCommon<Metadata, StreamWorker>::~StreamCommon() {
 template <class Metadata, class StreamWorker>
 ndk::ScopedAStatus StreamCommon<Metadata, StreamWorker>::close() {
     LOG(DEBUG) << __func__;
-    if (!mIsClosed) {
+    if (!isClosed()) {
         stopWorker();
         LOG(DEBUG) << __func__ << ": joining the worker thread...";
         mWorker.stop();
         LOG(DEBUG) << __func__ << ": worker thread joined";
         mContext.reset();
-        mIsClosed = true;
+        mWorker.setClosed();
         return ndk::ScopedAStatus::ok();
     } else {
         LOG(ERROR) << __func__ << ": stream was already closed";
@@ -231,13 +248,14 @@ ndk::ScopedAStatus StreamCommon<Metadata, StreamWorker>::close() {
 template <class Metadata, class StreamWorker>
 void StreamCommon<Metadata, StreamWorker>::stopWorker() {
     if (auto commandMQ = mContext.getCommandMQ(); commandMQ != nullptr) {
-        LOG(DEBUG) << __func__ << ": asking the worker to stop...";
+        LOG(DEBUG) << __func__ << ": asking the worker to exit...";
         StreamDescriptor::Command cmd;
-        cmd.code = StreamContext::COMMAND_EXIT;
+        cmd.code = StreamDescriptor::CommandCode(StreamContext::COMMAND_EXIT);
         cmd.fmqByteCount = mContext.getInternalCommandCookie();
-        // FIXME: This can block in the case when the client wrote a command
-        // while the stream worker's cycle is not running. Need to revisit
-        // when implementing standby and pause/resume.
+        // Note: never call 'pause' and 'resume' methods of StreamWorker
+        // in the HAL implementation. These methods are to be used by
+        // the client side only. Preventing the worker loop from running
+        // on the HAL side can cause a deadlock.
         if (!commandMQ->writeBlocking(&cmd, 1)) {
             LOG(ERROR) << __func__ << ": failed to write exit command to the MQ";
         }
@@ -248,7 +266,7 @@ void StreamCommon<Metadata, StreamWorker>::stopWorker() {
 template <class Metadata, class StreamWorker>
 ndk::ScopedAStatus StreamCommon<Metadata, StreamWorker>::updateMetadata(const Metadata& metadata) {
     LOG(DEBUG) << __func__;
-    if (!mIsClosed) {
+    if (!isClosed()) {
         mMetadata = metadata;
         return ndk::ScopedAStatus::ok();
     }

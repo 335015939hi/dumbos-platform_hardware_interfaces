@@ -34,6 +34,7 @@
 #include <aidl/android/media/audio/common/AudioIoFlags.h>
 #include <aidl/android/media/audio/common/AudioOutputFlags.h>
 #include <android-base/chrono_utils.h>
+#include <android/binder_enums.h>
 #include <fmq/AidlMessageQueue.h>
 
 #include "AudioHalBinderServiceUtil.h"
@@ -69,6 +70,7 @@ using aidl::android::media::audio::common::AudioUsage;
 using android::hardware::audio::common::isBitPositionFlagSet;
 using android::hardware::audio::common::StreamLogic;
 using android::hardware::audio::common::StreamWorker;
+using ndk::enum_range;
 using ndk::ScopedAStatus;
 
 template <typename T>
@@ -375,7 +377,7 @@ class StreamCommonLogic : public StreamLogic {
     StreamContext::DataMQ* mDataMQ;
     std::vector<int8_t> mData;
     std::mutex mLock;
-    StreamDescriptor::Reply mLastReply GUARDED_BY(mLock);
+    StreamDescriptor::Reply mLastReply GUARDED_BY(mLock){};
 };
 
 class StreamReaderLogic : public StreamCommonLogic {
@@ -385,7 +387,7 @@ class StreamReaderLogic : public StreamCommonLogic {
   protected:
     Status cycle() override {
         StreamDescriptor::Command command{};
-        command.code = StreamDescriptor::COMMAND_BURST;
+        command.code = StreamDescriptor::CommandCode::BURST;
         command.fmqByteCount = mData.size();
         if (!mCommandMQ->writeBlocking(&command, 1)) {
             LOG(ERROR) << __func__ << ": writing of command into MQ failed";
@@ -403,6 +405,16 @@ class StreamReaderLogic : public StreamCommonLogic {
         if (reply.fmqByteCount < 0 || reply.fmqByteCount > command.fmqByteCount) {
             LOG(ERROR) << __func__
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
+            return Status::ABORT;
+        }
+        if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
+            LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
+            return Status::ABORT;
+        }
+        if (std::find(enum_range<StreamDescriptor::State>().begin(),
+                      enum_range<StreamDescriptor::State>().end(),
+                      reply.state) == enum_range<StreamDescriptor::State>().end()) {
+            LOG(ERROR) << __func__ << ": received invalid stream state: " << toString(reply.state);
             return Status::ABORT;
         }
         {
@@ -431,7 +443,7 @@ class StreamWriterLogic : public StreamCommonLogic {
             return Status::ABORT;
         }
         StreamDescriptor::Command command{};
-        command.code = StreamDescriptor::COMMAND_BURST;
+        command.code = StreamDescriptor::CommandCode::BURST;
         command.fmqByteCount = mData.size();
         if (!mCommandMQ->writeBlocking(&command, 1)) {
             LOG(ERROR) << __func__ << ": writing of command into MQ failed";
@@ -449,6 +461,16 @@ class StreamWriterLogic : public StreamCommonLogic {
         if (reply.fmqByteCount < 0 || reply.fmqByteCount > command.fmqByteCount) {
             LOG(ERROR) << __func__
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
+            return Status::ABORT;
+        }
+        if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
+            LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
+            return Status::ABORT;
+        }
+        if (std::find(enum_range<StreamDescriptor::State>().begin(),
+                      enum_range<StreamDescriptor::State>().end(),
+                      reply.state) == enum_range<StreamDescriptor::State>().end()) {
+            LOG(ERROR) << __func__ << ": received invalid stream state: " << toString(reply.state);
             return Status::ABORT;
         }
         {
@@ -1432,13 +1454,14 @@ class AudioStream : public AudioCoreModule {
 
     void SendInvalidCommandImpl(const AudioPortConfig& portConfig) {
         std::vector<StreamDescriptor::Command> commands(6);
-        commands[0].code = -1;
-        commands[1].code = StreamDescriptor::COMMAND_BURST - 1;
-        commands[2].code = std::numeric_limits<int32_t>::min();
-        commands[3].code = std::numeric_limits<int32_t>::max();
-        commands[4].code = StreamDescriptor::COMMAND_BURST;
+        commands[0].code = StreamDescriptor::CommandCode(-1);
+        commands[1].code = StreamDescriptor::CommandCode(
+                static_cast<int32_t>(StreamDescriptor::CommandCode::BURST) - 1);
+        commands[2].code = StreamDescriptor::CommandCode(std::numeric_limits<int32_t>::min());
+        commands[3].code = StreamDescriptor::CommandCode(std::numeric_limits<int32_t>::max());
+        commands[4].code = StreamDescriptor::CommandCode::BURST;
         commands[4].fmqByteCount = -1;
-        commands[5].code = StreamDescriptor::COMMAND_BURST;
+        commands[5].code = StreamDescriptor::CommandCode::BURST;
         commands[5].fmqByteCount = std::numeric_limits<int32_t>::min();
         WithStream<Stream> stream(portConfig);
         ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
