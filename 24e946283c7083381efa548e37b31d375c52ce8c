@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3265ca9f_c216bc72",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-09-13T15:20:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64a0733_cdd953af",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 36
+      },
+      "revId": "24e946283c7083381efa548e37b31d375c52ce8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1da929c_99c30910",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-13T10:03:19Z",
       "side": 1,
       "message": "Could it just return the empty vector? It would be more clear.",
+      "range": {
+        "startLine": 49,
+        "startChar": 11,
+        "endLine": 49,
+        "endChar": 43
+      },
+      "revId": "24e946283c7083381efa548e37b31d375c52ce8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8721f674_8b237768",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-09-13T15:20:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1da929c_99c30910",
       "range": {
         "startLine": 49,
         "startChar": 11,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09b90e64_cdb90e2b",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-09-13T15:20:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56cd51b3_958a6484",
+      "range": {
+        "startLine": 73,
+        "startChar": 30,
+        "endLine": 73,
+        "endChar": 50
+      },
+      "revId": "24e946283c7083381efa548e37b31d375c52ce8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f881605a_bac93ca3",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-09-13T10:03:19Z",
       "side": 1,
       "message": "GetCodecType? It\u0027s inside aidl namespace.",
+      "range": {
+        "startLine": 75,
+        "startChar": 26,
+        "endLine": 75,
+        "endChar": 42
+      },
+      "revId": "24e946283c7083381efa548e37b31d375c52ce8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc078823_110e4e93",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-09-13T15:20:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f881605a_bac93ca3",
       "range": {
         "startLine": 75,
         "startChar": 26,
