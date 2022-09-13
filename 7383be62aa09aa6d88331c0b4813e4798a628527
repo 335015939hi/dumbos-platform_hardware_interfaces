@@ -118,6 +118,30 @@
       },
       "revId": "7383be62aa09aa6d88331c0b4813e4798a628527",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71cd9231_fe4a2c4b",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamTransportControl.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-13T18:23:28Z",
+      "side": 1,
+      "message": "\u003e you are worried about standby, pause and resume commands being in a different thread as read/writes but I don\u0027t think this happens there is a different thread on vendor side for the FMQ but all operations on the FMQ are synchronous no? \n\nThe fact that operations on the FMQ are synchronous only means that reads/writes/position updates are ordered. Any operations called via Binder are handled on a separate thread. Thus, unless there is a mutex between the reader/writer thread and the interface implementation methods, their code actually runs in parallel. Actually, we *want* pause and resume to be executed in parallel because this creates an ability to send them even when the reader/writer is blocked within an I/O operation.\n\n\u003e I still don\u0027t see the advantage of an implicit start command. It creates a difference between MMAP and other types of streams without a good reason\n\nFirst, in AIDL we actually try align MMap with other types of streams. You might have noticed from the StreamDescriptor docs that all position retrievals still go through FMQ, even for MMap. This allows getting them with higher precision and less jitter because we use a high-priority thread which does not depend on Binder. Thus, MMap uses the same commands as other types of streams, and the only difference for it is the way the data goes through.\n\nSecond, for me it\u0027s not the advantage of an implicit start command, but rather the extra burden of having an extra command. When we introduce it, we have to care about invalid calls of it—say, what if the client calls \"start\" two times in a row? Then, what is the difference between the \"start\" command and the \"burst\" command with no payload? IMO, the proposal in PS2 with two commands: one for starting or continuing audio exchange, and another for temporarily stopping it should be sufficient.",
+      "parentUuid": "3baff881_aa16987c",
+      "range": {
+        "startLine": 43,
+        "startChar": 58,
+        "endLine": 43,
+        "endChar": 63
+      },
+      "revId": "7383be62aa09aa6d88331c0b4813e4798a628527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
