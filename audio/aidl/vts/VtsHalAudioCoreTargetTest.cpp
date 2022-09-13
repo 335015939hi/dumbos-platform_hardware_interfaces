@@ -405,6 +405,10 @@ class StreamReaderLogic : public StreamCommonLogic {
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
             return Status::ABORT;
         }
+        if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
+            LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
+            return Status::ABORT;
+        }
         {
             std::lock_guard<std::mutex> lock(mLock);
             mLastReply = reply;
@@ -449,6 +453,10 @@ class StreamWriterLogic : public StreamCommonLogic {
         if (reply.fmqByteCount < 0 || reply.fmqByteCount > command.fmqByteCount) {
             LOG(ERROR) << __func__
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
+            return Status::ABORT;
+        }
+        if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
+            LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
             return Status::ABORT;
         }
         {
