@@ -358,6 +358,10 @@ class StreamCommonLogic : public StreamLogic {
         std::lock_guard<std::mutex> lock(mLock);
         return mLastReply.observable;
     }
+    int getLastState() {
+        std::lock_guard<std::mutex> lock(mLock);
+        return mLastReply.state;
+    }
 
   protected:
     explicit StreamCommonLogic(const StreamContext& context)
@@ -370,12 +374,21 @@ class StreamCommonLogic : public StreamLogic {
 
     std::string init() override { return ""; }
 
+    static const std::set<int> kValidStates;
+
     StreamContext::CommandMQ* mCommandMQ;
     StreamContext::ReplyMQ* mReplyMQ;
     StreamContext::DataMQ* mDataMQ;
     std::vector<int8_t> mData;
     std::mutex mLock;
-    StreamDescriptor::Reply mLastReply GUARDED_BY(mLock);
+    StreamDescriptor::Reply mLastReply GUARDED_BY(mLock){};
+};
+
+const std::set<int> StreamCommonLogic::kValidStates = {
+        StreamDescriptor::STATE_IDLE,   StreamDescriptor::STATE_STANDBY,
+        StreamDescriptor::STATE_READY,  StreamDescriptor::STATE_ERROR,
+        StreamDescriptor::STATE_PAUSED, StreamDescriptor::STATE_TRANSFER,
+        StreamDescriptor::STATE_DRAIN,
 };
 
 class StreamReaderLogic : public StreamCommonLogic {
@@ -403,6 +416,14 @@ class StreamReaderLogic : public StreamCommonLogic {
         if (reply.fmqByteCount < 0 || reply.fmqByteCount > command.fmqByteCount) {
             LOG(ERROR) << __func__
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
+            return Status::ABORT;
+        }
+        if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
+            LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
+            return Status::ABORT;
+        }
+        if (kValidStates.count(reply.state) == 0) {
+            LOG(ERROR) << __func__ << ": received invalid stream state: " << reply.state;
             return Status::ABORT;
         }
         {
@@ -449,6 +470,14 @@ class StreamWriterLogic : public StreamCommonLogic {
         if (reply.fmqByteCount < 0 || reply.fmqByteCount > command.fmqByteCount) {
             LOG(ERROR) << __func__
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
+            return Status::ABORT;
+        }
+        if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
+            LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
+            return Status::ABORT;
+        }
+        if (kValidStates.count(reply.state) == 0) {
+            LOG(ERROR) << __func__ << ": received invalid stream state: " << reply.state;
             return Status::ABORT;
         }
         {

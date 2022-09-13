@@ -32,49 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.audio.core;
-@JavaDerive(equals=true, toString=true) @VintfStability
-parcelable StreamDescriptor {
-  android.hardware.common.fmq.MQDescriptor<android.hardware.audio.core.StreamDescriptor.Command,android.hardware.common.fmq.SynchronizedReadWrite> command;
-  android.hardware.common.fmq.MQDescriptor<android.hardware.audio.core.StreamDescriptor.Reply,android.hardware.common.fmq.SynchronizedReadWrite> reply;
-  int frameSizeBytes;
-  long bufferSizeFrames;
-  android.hardware.audio.core.StreamDescriptor.AudioBuffer audio;
-  const int STATE_IDLE = 1;
-  const int STATE_STANDBY = 2;
-  const int STATE_READY = 3;
-  const int STATE_ERROR = 4;
-  const int STATE_PAUSED = 64;
-  const int STATE_TRANSFER = 65;
-  const int STATE_DRAIN = 66;
-  const int COMMAND_START = 1;
-  const int COMMAND_BURST = 2;
-  const int COMMAND_DRAIN = 3;
-  const int COMMAND_STANDBY = 4;
-  const int COMMAND_PAUSE = 5;
-  const int COMMAND_FLUSH = 6;
-  const int LATENCY_UNKNOWN = -1;
-  @FixedSize @VintfStability
-  parcelable Position {
-    long frames;
-    long timeNs;
-  }
-  @FixedSize @VintfStability
-  parcelable Command {
-    int code;
-    int fmqByteCount;
-  }
-  @FixedSize @VintfStability
-  parcelable Reply {
-    int status;
-    int fmqByteCount;
-    android.hardware.audio.core.StreamDescriptor.Position observable;
-    android.hardware.audio.core.StreamDescriptor.Position hardware;
-    int latencyMs;
-    int state;
-  }
-  @VintfStability
-  union AudioBuffer {
-    android.hardware.common.fmq.MQDescriptor<byte,android.hardware.common.fmq.SynchronizedReadWrite> fmq;
-    android.hardware.audio.core.MmapBufferDescriptor mmap;
-  }
+@VintfStability
+interface IStreamCallback {
+  oneway void onTransferReady();
+  oneway void onDrainUpdate(int remainingMs);
+  oneway void onError();
 }
