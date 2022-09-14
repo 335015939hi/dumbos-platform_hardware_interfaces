@@ -16,6 +16,24 @@
       "message": "Can you please add the bug number associated: b/229824143 ?",
       "revId": "38d0930d6ee09543f80e12304cb477adce074189",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ac8bb14_aa4c4ec1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1881539
+      },
+      "writtenOn": "2022-09-14T08:22:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "261900c7_f42b1761",
+      "revId": "38d0930d6ee09543f80e12304cb477adce074189",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
