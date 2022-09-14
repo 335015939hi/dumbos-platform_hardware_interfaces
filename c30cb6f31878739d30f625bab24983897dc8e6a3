@@ -67,6 +67,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f91009e6_74afae4c",
+        "filename": "gatekeeper/aidl/vts/functional/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-09-14T19:16:09Z",
+      "side": 1,
+      "message": "I don\u0027t think this comment is true in this case.  This wasn\u0027t added by a large-scale change.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 38
+      },
+      "revId": "c30cb6f31878739d30f625bab24983897dc8e6a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01f7c390_92a1b680",
         "filename": "gatekeeper/aidl/vts/functional/VtsHalGatekeeperTargetTest.cpp",
         "patchSetId": 8
