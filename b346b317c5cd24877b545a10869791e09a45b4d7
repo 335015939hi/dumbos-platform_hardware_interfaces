@@ -101,6 +101,23 @@
       "message": "Hi, this is waiting for owner code review approval. @Dan Shi could you please help review. Thanks ",
       "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05719ff1_dbbaea45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1953015
+      },
+      "writtenOn": "2022-09-14T16:12:25Z",
+      "side": 1,
+      "message": "Hi Keun-young, could you please review and provide DrNo approval",
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
