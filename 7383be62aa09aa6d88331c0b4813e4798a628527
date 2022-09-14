@@ -166,6 +166,30 @@
       },
       "revId": "7383be62aa09aa6d88331c0b4813e4798a628527",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0548f97_77702ab4",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamTransportControl.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-14T20:01:05Z",
+      "side": 1,
+      "message": "(Since we still haven\u0027t got a chance to discuss) Note that in HIDL HALs calls to read/write of the C API can happen in parallel with calls pause/resume at the wrapper level, there is no mutex around: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/core/all-versions/default/StreamOut.cpp;l\u003d92;drc\u003ded7dfd5f35928c56642d1ead26d7c12c7846aee6. There might be a mutex in the C implementation, of course.",
+      "parentUuid": "1fff2c9d_19968f76",
+      "range": {
+        "startLine": 43,
+        "startChar": 58,
+        "endLine": 43,
+        "endChar": 63
+      },
+      "revId": "7383be62aa09aa6d88331c0b4813e4798a628527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
