@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f43f2ac2_82089e0c",
+        "filename": "graphics/mapper/2.0/utils/passthrough/include/mapper-passthrough/2.0/Gralloc1Hal.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-09-14T20:03:42Z",
+      "side": 1,
+      "message": "should this be \u003c\u003d? (0 % 8) \u003d\u003d 0, but I don\u0027t think bits_per_component is allowed to be 0 is it?",
+      "range": {
+        "startLine": 263,
+        "startChar": 42,
+        "endLine": 263,
+        "endChar": 43
+      },
+      "revId": "d428e5d47e562d1aefe0a8090b8535f463a5b4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
