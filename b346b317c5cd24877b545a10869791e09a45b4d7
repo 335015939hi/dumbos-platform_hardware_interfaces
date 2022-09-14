@@ -122,6 +122,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a74bb74_3dea82d9",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2022-09-14T17:13:16Z",
+      "side": 1,
+      "message": "nit: rename to programList?",
+      "range": {
+        "startLine": 517,
+        "startChar": 9,
+        "endLine": 517,
+        "endChar": 16
+      },
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdecddc0_839b019d",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2022-09-14T17:13:16Z",
+      "side": 1,
+      "message": "plz break the line",
+      "range": {
+        "startLine": 530,
+        "startChar": 81,
+        "endLine": 530,
+        "endChar": 114
+      },
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c351bd11_94a987e5",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2022-09-14T17:13:16Z",
+      "side": 1,
+      "message": "space instead of tab",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 12
+      },
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08e9456b_cbbffb86",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2022-09-14T17:13:16Z",
+      "side": 1,
+      "message": "can you add comments on why this is handled specially?",
+      "range": {
+        "startLine": 535,
+        "startChar": 12,
+        "endLine": 535,
+        "endChar": 36
+      },
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "73ead481_5455d49e",
         "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
         "patchSetId": 2
