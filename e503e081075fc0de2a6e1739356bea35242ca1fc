@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4adef9a_b08c9415",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-15T21:26:35Z",
+      "side": 0,
+      "message": "Was this removed on purpose?",
+      "range": {
+        "startLine": 202,
+        "startChar": 44,
+        "endLine": 202,
+        "endChar": 70
+      },
+      "revId": "e503e081075fc0de2a6e1739356bea35242ca1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1448924f_c2a0e8e8",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-15T21:26:35Z",
+      "side": 0,
+      "message": "Why are we removing this?",
+      "range": {
+        "startLine": 1385,
+        "startChar": 29,
+        "endLine": 1385,
+        "endChar": 66
+      },
+      "revId": "e503e081075fc0de2a6e1739356bea35242ca1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e77270c_f7d52313",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-15T21:26:35Z",
+      "side": 0,
+      "message": "Why are we removing this?",
+      "range": {
+        "startLine": 1418,
+        "startChar": 40,
+        "endLine": 1419,
+        "endChar": 38
+      },
+      "revId": "e503e081075fc0de2a6e1739356bea35242ca1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d7b9ff4_27710f78",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-15T21:26:35Z",
+      "side": 1,
+      "message": "Is this a typo? Seems like this failure message should only be for !status.isOk()",
+      "revId": "fe213fab6864cd7ae8f776316eaff173bb405347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef6530c_22ba2141",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-15T21:26:35Z",
+      "side": 1,
+      "message": "Should this be ASSERT_IS_OK or did you change it on purpose?",
+      "range": {
+        "startLine": 113,
+        "startChar": 34,
+        "endLine": 113,
+        "endChar": 46
+      },
+      "revId": "fe213fab6864cd7ae8f776316eaff173bb405347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "837f94f4_109c2b25",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-15T21:26:35Z",
+      "side": 1,
+      "message": "nit: You kept the semicolon in the others; perhaps keep here too for consistent formatting?\n\nEXPECT_IS_OK(mModule-\u003eresetAudioPatch(mPatch.id)) \u003c\u003c \"; patch id \" \u003c\u003c getId();",
+      "revId": "fe213fab6864cd7ae8f776316eaff173bb405347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71c94152_f4e126cd",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-15T21:26:35Z",
+      "side": 1,
+      "message": "nit: maybe keep the semicolon?",
+      "revId": "fe213fab6864cd7ae8f776316eaff173bb405347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
