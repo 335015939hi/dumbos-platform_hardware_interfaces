@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22280b1e_150c1400",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-15T23:01:30Z",
+      "side": 1,
+      "message": "OK, let\u0027s be explicit here, also helps for consistency with `assertResult`.",
+      "parentUuid": "143ccc8e_30612d98",
+      "revId": "fe213fab6864cd7ae8f776316eaff173bb405347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef6530c_22ba2141",
