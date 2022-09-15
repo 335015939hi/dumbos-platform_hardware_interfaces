@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "023ef330_8b4fa7f4",
+        "filename": "cas/aidl/android/hardware/cas/DestinationBuffer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-15T11:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9250a35b_8eafc515",
+      "revId": "fe6b681112600077ea0b6cff957c0767f1ae25cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f3e1d6a_d259b186",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-08-25T18:19:20Z",
       "side": 1,
       "message": "maybe keep the original name heapbase?",
+      "range": {
+        "startLine": 31,
+        "startChar": 11,
+        "endLine": 31,
+        "endChar": 17
+      },
+      "revId": "fe6b681112600077ea0b6cff957c0767f1ae25cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fed0664c_a6807297",
+        "filename": "cas/aidl/android/hardware/cas/SharedBuffer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-15T11:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f3e1d6a_d259b186",
       "range": {
         "startLine": 31,
         "startChar": 11,

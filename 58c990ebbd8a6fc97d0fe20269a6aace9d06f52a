@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96b12e4d_a253a489",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-15T11:33:51Z",
+      "side": 1,
+      "message": "We have updated the CL with default implementation and vts test.\nWe are still in process of validating the changes.",
+      "revId": "58c990ebbd8a6fc97d0fe20269a6aace9d06f52a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
