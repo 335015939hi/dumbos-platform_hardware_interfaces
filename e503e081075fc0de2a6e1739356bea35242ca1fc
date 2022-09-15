@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a288132_0d8902eb",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-15T22:18:44Z",
+      "side": 0,
+      "message": "Yes. Now it\u0027s not needed because the entire argument to the macro will be printed if the error occurs.",
+      "parentUuid": "e4adef9a_b08c9415",
+      "range": {
+        "startLine": 202,
+        "startChar": 44,
+        "endLine": 202,
+        "endChar": 70
+      },
+      "revId": "e503e081075fc0de2a6e1739356bea35242ca1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1448924f_c2a0e8e8",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06a86a41_7e8a9c47",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-15T22:18:44Z",
+      "side": 0,
+      "message": "Now there is more context printed by the test macro itself because it receives the entire expression, not just the exception code.",
+      "parentUuid": "1448924f_c2a0e8e8",
+      "range": {
+        "startLine": 1385,
+        "startChar": 29,
+        "endLine": 1385,
+        "endChar": 66
+      },
+      "revId": "e503e081075fc0de2a6e1739356bea35242ca1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e77270c_f7d52313",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-09-15T21:26:35Z",
       "side": 0,
       "message": "Why are we removing this?",
+      "range": {
+        "startLine": 1418,
+        "startChar": 40,
+        "endLine": 1419,
+        "endChar": 38
+      },
+      "revId": "e503e081075fc0de2a6e1739356bea35242ca1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43ae274c_08c62b3f",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-15T22:18:44Z",
+      "side": 0,
+      "message": "Same here, removing superfluous information to simplify the code.",
+      "parentUuid": "8e77270c_f7d52313",
       "range": {
         "startLine": 1418,
         "startChar": 40,

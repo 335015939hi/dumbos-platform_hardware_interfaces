@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19cda3ed_97af1020",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-15T22:18:44Z",
+      "side": 1,
+      "message": "The message can be provided in any case, it will only be used when there is a failure (!isOK), see here: https://cs.android.com/android/platform/superproject/+/master:device/generic/vulkan-cereal/third-party/googletest/googletest/include/gtest/gtest-assertion-result.h;l\u003d176;drc\u003d7bc02738e3cc299ede0f1d540b181b276bd3828f",
+      "parentUuid": "6d7b9ff4_27710f78",
+      "revId": "fe213fab6864cd7ae8f776316eaff173bb405347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef6530c_22ba2141",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-09-15T21:26:35Z",
       "side": 1,
       "message": "Should this be ASSERT_IS_OK or did you change it on purpose?",
+      "range": {
+        "startLine": 113,
+        "startChar": 34,
+        "endLine": 113,
+        "endChar": 46
+      },
+      "revId": "fe213fab6864cd7ae8f776316eaff173bb405347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c45ddb37_bef78039",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-15T22:18:44Z",
+      "side": 1,
+      "message": "Thanks for catching this! Fixed.\n\nI must note, that in this particular arrangement there is no actual difference, because the major feature of the ASSERT macro is that it returns from the method immediately. But since it\u0027s the only statement in this method, both EXPECT and ASSERT will do the same thing.",
+      "parentUuid": "8ef6530c_22ba2141",
       "range": {
         "startLine": 113,
         "startChar": 34,
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ef62be5_98e9f90d",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-15T22:18:44Z",
+      "side": 1,
+      "message": "The semicolon is not needed because the extra message is printed on a new line. I was it using previously because the actual value of the status was printed first, so I had to put a delimiter after it. Fixed in other places where I forgot to remove it.",
+      "parentUuid": "837f94f4_109c2b25",
+      "revId": "fe213fab6864cd7ae8f776316eaff173bb405347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71c94152_f4e126cd",
@@ -71,6 +131,24 @@
       "writtenOn": "2022-09-15T21:26:35Z",
       "side": 1,
       "message": "nit: maybe keep the semicolon?",
+      "revId": "fe213fab6864cd7ae8f776316eaff173bb405347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "834e18fc_076f0dbc",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-15T22:18:44Z",
+      "side": 1,
+      "message": "No, see above.",
+      "parentUuid": "71c94152_f4e126cd",
       "revId": "fe213fab6864cd7ae8f776316eaff173bb405347",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
