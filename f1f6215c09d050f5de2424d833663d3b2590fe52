@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c9972de_8a3f5e13",
+        "filename": "security/keymint/support/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-15T00:58:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8f9b236_c2c62dbe",
+      "revId": "f1f6215c09d050f5de2424d833663d3b2590fe52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1027ac9e_9ed45870",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-09-14T22:55:28Z",
       "side": 1,
       "message": "I\u0027m guessing version 3 would be in a separate CR later.",
+      "range": {
+        "startLine": 531,
+        "startChar": 13,
+        "endLine": 531,
+        "endChar": 14
+      },
+      "revId": "f1f6215c09d050f5de2424d833663d3b2590fe52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b3ccb23_4b1e2d85",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-15T00:58:29Z",
+      "side": 1,
+      "message": "Yeah, that will be for trong@ to handle.",
+      "parentUuid": "1027ac9e_9ed45870",
       "range": {
         "startLine": 531,
         "startChar": 13,
