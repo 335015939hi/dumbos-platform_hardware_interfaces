@@ -22,6 +22,30 @@
       },
       "revId": "a2608a88a4bb5bdd243cf2f4c45831cd6ea9f30a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3fecd58_71bb88ec",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-15T18:46:24Z",
+      "side": 1,
+      "message": "Looks like it was missing previously. My editor (correctly!) inserted it 😊\n\nI know it\u0027s unrelated, but I think it\u0027s worth keeping.",
+      "parentUuid": "e9c6ab50_0d90f5b2",
+      "range": {
+        "startLine": 18,
+        "startChar": 9,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "a2608a88a4bb5bdd243cf2f4c45831cd6ea9f30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
