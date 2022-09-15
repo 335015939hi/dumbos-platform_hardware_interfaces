@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c5cc6ed_ba02d0d2",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-15T22:48:27Z",
+      "side": 0,
+      "message": "The direction of the stream is included by this macro? You put it explicitly in OpenTwiceSamePortConfigImpl (line 1359). Is that a typo then?",
+      "parentUuid": "06a86a41_7e8a9c47",
+      "range": {
+        "startLine": 1385,
+        "startChar": 29,
+        "endLine": 1385,
+        "endChar": 66
+      },
+      "revId": "e503e081075fc0de2a6e1739356bea35242ca1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e77270c_f7d52313",
         "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 0,
       "message": "Same here, removing superfluous information to simplify the code.",
       "parentUuid": "8e77270c_f7d52313",
+      "range": {
+        "startLine": 1418,
+        "startChar": 40,
+        "endLine": 1419,
+        "endChar": 38
+      },
+      "revId": "e503e081075fc0de2a6e1739356bea35242ca1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38f0c35a_92052c78",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-15T22:48:27Z",
+      "side": 0,
+      "message": "The direction of the stream is included by this macro? You put it explicitly in OpenTwiceSamePortConfigImpl (line 1359). Is that a typo then?",
+      "parentUuid": "43ae274c_08c62b3f",
       "range": {
         "startLine": 1418,
         "startChar": 40,

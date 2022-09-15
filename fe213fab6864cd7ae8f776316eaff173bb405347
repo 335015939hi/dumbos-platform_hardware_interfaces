@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "143ccc8e_30612d98",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-15T22:48:27Z",
+      "side": 1,
+      "message": "Not sure it\u0027s a good idea to do this regardless. The implementation of AssertionResult could change, possibly making this message confusing or problematic in the future.",
+      "parentUuid": "19cda3ed_97af1020",
+      "revId": "fe213fab6864cd7ae8f776316eaff173bb405347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ef6530c_22ba2141",
         "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
         "patchSetId": 1
