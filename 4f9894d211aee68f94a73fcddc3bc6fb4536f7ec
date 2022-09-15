@@ -22,6 +22,30 @@
       },
       "revId": "4f9894d211aee68f94a73fcddc3bc6fb4536f7ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e56eb38b_2a1c207a",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-15T23:59:17Z",
+      "side": 1,
+      "message": "Removed, and after removing the last usage on the line 1308 I could remove the `direction` method as well.",
+      "parentUuid": "f969848a_dba0f08f",
+      "range": {
+        "startLine": 1359,
+        "startChar": 35,
+        "endLine": 1359,
+        "endChar": 54
+      },
+      "revId": "4f9894d211aee68f94a73fcddc3bc6fb4536f7ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
