@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3b5618f_d40cda15",
+        "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-16T20:25:55Z",
+      "side": 1,
+      "message": "I think we need to point out that this method always returns the same result.",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "92d9cf4fb320ea4054919b70a2071d159b3ae9b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c065739a_811095ac",
+        "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-16T20:25:55Z",
+      "side": 1,
+      "message": "Please stick to the format for doc comments that we use in other HAL interfaces:\n\n```\n/**\n * Short description of the method.\n *\n * Long description of the method.\n *\n * @param ...\n * @return ...\n */\n```",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 6
+      },
+      "revId": "92d9cf4fb320ea4054919b70a2071d159b3ae9b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
