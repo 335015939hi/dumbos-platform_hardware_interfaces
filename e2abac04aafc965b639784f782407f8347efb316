@@ -46,6 +46,30 @@
       },
       "revId": "e2abac04aafc965b639784f782407f8347efb316",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d06332d1_0e6e1381",
+        "filename": "gatekeeper/aidl/vts/functional/VtsHalGatekeeperTargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-09-16T17:41:41Z",
+      "side": 1,
+      "message": "Yes it is taken care of in the HAL service (aosp/2161796) remote_gatekeeper.cpp. In Hidl implementations the GatekeeperVerifyResponse used to hold the serialized buffer of hw_auth_token(where auth_type and timestamp are in network order), but in AIDL the GatekeeperVerifyResponse contains HardwareAuthToken, so HAL service make the correct byte order.",
+      "parentUuid": "fcf1dc3e_c1d66192",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 95
+      },
+      "revId": "e2abac04aafc965b639784f782407f8347efb316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
