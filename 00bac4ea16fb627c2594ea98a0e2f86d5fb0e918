@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "372a0ca1_5b9e5d7d",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-16T00:26:14Z",
+      "side": 1,
+      "message": "I forgot to comment on these macros-- not sure if you want to wrap these with an #ifndef or append a prefix to the name since the names are pretty generic right now.",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 20
+      },
+      "revId": "00bac4ea16fb627c2594ea98a0e2f86d5fb0e918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
