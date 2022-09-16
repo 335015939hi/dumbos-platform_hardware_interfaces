@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e75c30df_65142294",
+        "filename": "gatekeeper/aidl/vts/functional/VtsHalGatekeeperTargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-09-16T16:36:13Z",
+      "side": 1,
+      "message": "Why did you remove the ordering conversion?  It\u0027s necessary.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 95
+      },
+      "revId": "e2abac04aafc965b639784f782407f8347efb316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
