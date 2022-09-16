@@ -22,6 +22,30 @@
       },
       "revId": "00bac4ea16fb627c2594ea98a0e2f86d5fb0e918",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5faf262a_a6a7308e",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-16T01:10:49Z",
+      "side": 1,
+      "message": "These macros are intended to be used in the audio VTS only, so no prefix to make the names as short as possible. Also, they are similar to what we use in HIDL VTS: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/common/all-versions/test/utility/include/utility/AssertOk.h. Use `ASSERT_STATUS` instead of `ASSERT_RESULT` to reflect the difference in the type names for the return types.\n\nNo `#ifndef` because if GTest (or any other header) ends up defining macros with the same name, I want to get a compiler error, not obscure failures at runtime.",
+      "parentUuid": "372a0ca1_5b9e5d7d",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 20
+      },
+      "revId": "00bac4ea16fb627c2594ea98a0e2f86d5fb0e918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
