@@ -22,6 +22,30 @@
       },
       "revId": "e2abac04aafc965b639784f782407f8347efb316",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcf1dc3e_c1d66192",
+        "filename": "gatekeeper/aidl/vts/functional/VtsHalGatekeeperTargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-09-16T16:38:37Z",
+      "side": 1,
+      "message": "Hmm. Or maybe it should already have been done by the HAL service?",
+      "parentUuid": "e75c30df_65142294",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 95
+      },
+      "revId": "e2abac04aafc965b639784f782407f8347efb316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
