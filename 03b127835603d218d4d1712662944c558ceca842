@@ -16,6 +16,24 @@
       "message": "If default to SAT in R, then DVBT will fail.",
       "revId": "03b127835603d218d4d1712662944c558ceca842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eb6dcd7_81bcca77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948879
+      },
+      "writtenOn": "2022-09-17T08:16:16Z",
+      "side": 1,
+      "message": "Hi Henry,\nif default to SAT in R, the DVBT won\u0027t fail, some dvbt cases will be skipped.\nThanks.",
+      "parentUuid": "92d3bec9_4d4416db",
+      "revId": "03b127835603d218d4d1712662944c558ceca842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
