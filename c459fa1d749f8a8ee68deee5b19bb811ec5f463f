@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17d7be3f_969510fc",
+        "filename": "gatekeeper/aidl/Android.bp",
+        "patchSetId": 16
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-09-19T21:19:51Z",
+      "side": 1,
+      "message": "for the failure, I wonder if you need \"android.hardware.security.secureclock-V1\" here explicitly\n\nOr you can try:\n\n     backend: { cpp: { enabled: false }, },\n\nIf it isn\u0027t used (is it?) then we can disable it.",
+      "revId": "c459fa1d749f8a8ee68deee5b19bb811ec5f463f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
