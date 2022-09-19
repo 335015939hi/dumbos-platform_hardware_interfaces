@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e339623_a1a5fca7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-09-19T23:08:22Z",
+      "side": 1,
+      "message": "Tests are failing because the AIDL service is declared but not registered.\nThis test case: https://source.corp.google.com/android/test/vts-testcase/hal/treble/vintf/SingleManifestTest.cpp;rcl\u003d46d0ae3eafebd11b3acb37533adba01abc1d8f27;l\u003d555\n\nFrom the logcat it looks like it\u0027s due to sepolicy:\n```\n09-02 22:35:31.729     0     0 E init    : Could not start service \u0027vendor.cec-default\u0027 as part of class \u0027hal\u0027: File /vendor/bin/hw/android.hardware.tv.cec-service(labeled \"u:object_r:vendor_file:s0\") has incorrect label or no domain transition from u:r:init:s0 to another SELinux domain defined. Have you configured your service correctly? https://source.android.com/security/selinux/device-policy#label_new_services_and_address_denials. Note: this error shows up even in permissive mode in order to make auditing denials possible.\n09-02 22:35:31.732     0     0 E init    : Could not start service \u0027vendor.hdmi-default\u0027 as part of class \u0027hal\u0027: File /vendor/bin/hw/android.hardware.tv.hdmi-service(labeled \"u:object_r:vendor_file:s0\") has incorrect label or no domain transition from u:r:init:s0 to another SELinux domain defined. Have you configured your service correctly? https://source.android.com/security/selinux/device-policy#label_new_services_and_address_denials. Note: this error shows up even in permissive mode in order to make auditing denials possible.\n```\n\nThe sepolicy for the new services should be added in another CL in this topic. Here is a similar one to get an idea of what to do - I\u0027m not familiar with the specifics of cec/hdmi. https://googleplex-android-review.git.corp.google.com/c/platform/system/sepolicy/+/18915745\nBasically, new services need file contexts to start, the services need some HAL permissions to register the interfaces, and once the client changes are made they will need permissions to get the service and make binder calls to it.",
+      "revId": "df857f66bc2d4488a04a7c1a637e77f32b3b39f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7784e4b4_ca02644d",
+        "filename": "tv/cec/aidl/default/android.hardware.tv.cec-service.xml",
+        "patchSetId": 19
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-09-19T23:08:22Z",
+      "side": 1,
+      "message": "remove this line - this is only for HIDL.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 39
+      },
+      "revId": "df857f66bc2d4488a04a7c1a637e77f32b3b39f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c919596_29a5fc50",
+        "filename": "tv/hdmi/aidl/default/android.hardware.tv.hdmi-service.xml",
+        "patchSetId": 19
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-09-19T23:08:22Z",
+      "side": 1,
+      "message": "remove this line",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 39
+      },
+      "revId": "df857f66bc2d4488a04a7c1a637e77f32b3b39f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
