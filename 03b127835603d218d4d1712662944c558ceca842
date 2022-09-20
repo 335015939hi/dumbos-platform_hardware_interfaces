@@ -70,6 +70,24 @@
       "parentUuid": "7fbbbe39_b38dec1d",
       "revId": "03b127835603d218d4d1712662944c558ceca842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c3197cd_3f828408",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1443524
+      },
+      "writtenOn": "2022-09-20T22:13:55Z",
+      "side": 1,
+      "message": "Sorry, my typo in previous comment. the question should be\nAre you sure that default sat won\u0027t cause dvbt\u0027s failure?",
+      "parentUuid": "fb398bf0_f1c35e9c",
+      "revId": "03b127835603d218d4d1712662944c558ceca842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
