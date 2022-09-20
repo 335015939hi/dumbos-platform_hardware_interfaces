@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7caa4393_06de9228",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-09-20T14:53:20Z",
+      "side": 1,
+      "message": "I\u0027ve added the changes in https://android-review.googlesource.com/c/device/google/cuttlefish/+/2200521. The status now is that the service is launched, but gets an avc denied error for {add} in default_android_service.\n\nI added the new services in system/sepolicy (https://android-review.googlesource.com/c/platform/system/sepolicy/+/2223061) but I still see the same error as above when I launch cuttlefish TV.",
+      "parentUuid": "4e339623_a1a5fca7",
+      "revId": "df857f66bc2d4488a04a7c1a637e77f32b3b39f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7784e4b4_ca02644d",
         "filename": "tv/cec/aidl/default/android.hardware.tv.cec-service.xml",
         "patchSetId": 19
@@ -31,6 +49,30 @@
       "writtenOn": "2022-09-19T23:08:22Z",
       "side": 1,
       "message": "remove this line - this is only for HIDL.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 39
+      },
+      "revId": "df857f66bc2d4488a04a7c1a637e77f32b3b39f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "539cd4f1_2c8dfa65",
+        "filename": "tv/cec/aidl/default/android.hardware.tv.cec-service.xml",
+        "patchSetId": 19
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-09-20T14:53:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7784e4b4_ca02644d",
       "range": {
         "startLine": 4,
         "startChar": 0,
@@ -54,6 +96,30 @@
       "writtenOn": "2022-09-19T23:08:22Z",
       "side": 1,
       "message": "remove this line",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 39
+      },
+      "revId": "df857f66bc2d4488a04a7c1a637e77f32b3b39f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83361fbb_3902eda8",
+        "filename": "tv/hdmi/aidl/default/android.hardware.tv.hdmi-service.xml",
+        "patchSetId": 19
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-09-20T14:53:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c919596_29a5fc50",
       "range": {
         "startLine": 4,
         "startChar": 0,
