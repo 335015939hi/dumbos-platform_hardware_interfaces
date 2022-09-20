@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97668ccd_620f7326",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-09-20T15:59:25Z",
+      "side": 1,
+      "message": "Added comments in the other CL. Those sepolicy changes are for HIDL / hwservicemanager / hwbinder but these services are AIDL and use binder / servicemanager instead.",
+      "parentUuid": "7caa4393_06de9228",
+      "revId": "df857f66bc2d4488a04a7c1a637e77f32b3b39f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7784e4b4_ca02644d",
         "filename": "tv/cec/aidl/default/android.hardware.tv.cec-service.xml",
         "patchSetId": 19
