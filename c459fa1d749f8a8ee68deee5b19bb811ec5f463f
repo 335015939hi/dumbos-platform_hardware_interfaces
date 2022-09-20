@@ -16,6 +16,24 @@
       "message": "for the failure, I wonder if you need \"android.hardware.security.secureclock-V1\" here explicitly\n\nOr you can try:\n\n     backend: { cpp: { enabled: false }, },\n\nIf it isn\u0027t used (is it?) then we can disable it.",
       "revId": "c459fa1d749f8a8ee68deee5b19bb811ec5f463f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "546200ae_25f634ed",
+        "filename": "gatekeeper/aidl/Android.bp",
+        "patchSetId": 16
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2022-09-20T01:22:16Z",
+      "side": 1,
+      "message": "Disabled the cpp backend.",
+      "parentUuid": "17d7be3f_969510fc",
+      "revId": "c459fa1d749f8a8ee68deee5b19bb811ec5f463f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
