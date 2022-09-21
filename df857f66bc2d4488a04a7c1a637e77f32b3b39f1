@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71fc2f9c_d7676da0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-09-21T09:36:18Z",
+      "side": 1,
+      "message": "Thank you for the help. I have made the changes to sepolicy, the services launch now and the presubmit tests that failed earlier now pass.",
+      "parentUuid": "97668ccd_620f7326",
+      "revId": "df857f66bc2d4488a04a7c1a637e77f32b3b39f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7784e4b4_ca02644d",
