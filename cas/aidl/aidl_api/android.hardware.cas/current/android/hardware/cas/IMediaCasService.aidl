@@ -36,7 +36,7 @@ package android.hardware.cas;
 interface IMediaCasService {
   android.hardware.cas.IDescrambler createDescrambler(in int CA_system_id);
   android.hardware.cas.ICas createPlugin(in int CA_system_id, in android.hardware.cas.ICasListener listener);
-  android.hardware.cas.CasPluginDescriptor[] enumeratePlugins();
+  android.hardware.cas.AidlCasPluginDescriptor[] enumeratePlugins();
   boolean isDescramblerSupported(in int CA_system_id);
   boolean isSystemIdSupported(in int CA_system_id);
 }

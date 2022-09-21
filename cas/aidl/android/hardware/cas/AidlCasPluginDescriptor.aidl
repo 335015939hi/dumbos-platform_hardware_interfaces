@@ -20,7 +20,7 @@ package android.hardware.cas;
  * Describes a CAS plugin with its system ID and name.
  */
 @VintfStability
-parcelable CasPluginDescriptor {
+parcelable AidlCasPluginDescriptor {
     int caSystemId;
     String name;
 }

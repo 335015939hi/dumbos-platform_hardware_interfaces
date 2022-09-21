@@ -33,7 +33,7 @@
 
 package android.hardware.cas;
 @VintfStability
-parcelable CasPluginDescriptor {
+parcelable AidlCasPluginDescriptor {
   int caSystemId;
   String name;
 }

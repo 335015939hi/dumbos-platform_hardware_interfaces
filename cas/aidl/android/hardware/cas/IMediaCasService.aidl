@@ -16,7 +16,7 @@
 
 package android.hardware.cas;
 
-import android.hardware.cas.CasPluginDescriptor;
+import android.hardware.cas.AidlCasPluginDescriptor;
 import android.hardware.cas.ICas;
 import android.hardware.cas.ICasListener;
 import android.hardware.cas.IDescrambler;
@@ -51,7 +51,7 @@ interface IMediaCasService {
      *
      * @return an array of descriptors for the available CA systems.
      */
-    CasPluginDescriptor[] enumeratePlugins();
+    AidlCasPluginDescriptor[] enumeratePlugins();
 
     /**
      * Query if the descrambling scheme for a CA system is supported on this device.
