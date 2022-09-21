@@ -33,6 +33,24 @@
       "message": "Please add a new line here as well.",
       "revId": "58c990ebbd8a6fc97d0fe20269a6aace9d06f52a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98f4174d_977d1ce6",
+        "filename": "cas/aidl/android/hardware/cas/ScramblingMode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-21T12:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "839ca5de_e48badbe",
+      "revId": "58c990ebbd8a6fc97d0fe20269a6aace9d06f52a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

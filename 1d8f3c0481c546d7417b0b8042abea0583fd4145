@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79579b39_9b9a3704",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-21T12:23:29Z",
+      "side": 1,
+      "message": "We have replaced HidlMemory with Ashmem during AIDL conversion.\nWe couldn\u0027t find conversion from ashmem_create_region to IMemory.\nWe are referring https://cs.android.com/android/platform/superproject/+/master:system/core/libcutils/ashmem_test.cpp for usage of ashmem.",
+      "parentUuid": "76aff4f3_d305288e",
+      "range": {
+        "startLine": 355,
+        "startChar": 8,
+        "endLine": 355,
+        "endChar": 15
+      },
+      "revId": "1d8f3c0481c546d7417b0b8042abea0583fd4145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a6cc35b_13b503b7",
         "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
         "patchSetId": 8
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-21T02:52:01Z",
       "side": 1,
       "message": "please let us know why we need mmap here?",
+      "range": {
+        "startLine": 366,
+        "startChar": 37,
+        "endLine": 366,
+        "endChar": 41
+      },
+      "revId": "1d8f3c0481c546d7417b0b8042abea0583fd4145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a7b3668_2c5065d0",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-21T12:23:29Z",
+      "side": 1,
+      "message": "We have replaced HidlMemory with Ashmem during AIDL conversion.\nWe are referring https://cs.android.com/android/platform/superproject/+/master:system/core/libcutils/ashmem_test.cpp for usage of ashmem.",
+      "parentUuid": "1a6cc35b_13b503b7",
       "range": {
         "startLine": 366,
         "startChar": 37,

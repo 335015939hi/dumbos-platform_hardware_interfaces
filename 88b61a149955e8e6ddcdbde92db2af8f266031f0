@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f590852_eab63d20",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-21T12:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0a51e00_952bb744",
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ee020a1_f0543784",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-09-21T02:52:01Z",
       "side": 1,
       "message": "better combine the 2 together:\nEXPECT_TRUE(mediaCas-\u003esendEvent(event, eventArg, eventData).isOK());\nsame for other similar checks.",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 37
+      },
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e9df615_108a5dcc",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-21T12:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee020a1_f0543784",
       "range": {
         "startLine": 229,
         "startChar": 4,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3467d1ee_f1b05d41",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-21T12:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27ef4628_9ecfcb36",
+      "range": {
+        "startLine": 269,
+        "startChar": 22,
+        "endLine": 269,
+        "endChar": 69
+      },
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "846cfd9d_4bd86f4d",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-09-21T02:52:01Z",
       "side": 1,
       "message": "Should be IMediaCasService?\nbetter use:\n    if (AServiceManager_isDeclared(GetParam().c_str())) {\n        SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));\n        mService \u003d IMediaCasService::fromBinder(binder);\n    } else {\n        mService \u003d nullptr;\n    }",
+      "range": {
+        "startLine": 286,
+        "startChar": 19,
+        "endLine": 286,
+        "endChar": 36
+      },
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6217a0f_70c090e3",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-21T12:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "846cfd9d_4bd86f4d",
       "range": {
         "startLine": 286,
         "startChar": 19,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3020a83a_73930876",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-21T12:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93d4978f_41b5a7e3",
+      "range": {
+        "startLine": 320,
+        "startChar": 67,
+        "endLine": 320,
+        "endChar": 71
+      },
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79311d7f_3458ce26",
@@ -123,6 +237,24 @@
       "writtenOn": "2022-09-21T02:52:01Z",
       "side": 1,
       "message": "why descrambleTestOobInput is skipped?",
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5974562b_d99b52bd",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-21T12:23:29Z",
+      "side": 1,
+      "message": "descrambleTestOobInput was not being used in vts test 1.2, thus was skipped.\nAdded the method now in AIDL VTS, will refer vts test 1.0 and add test for its usage as well.",
+      "parentUuid": "79311d7f_3458ce26",
       "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
