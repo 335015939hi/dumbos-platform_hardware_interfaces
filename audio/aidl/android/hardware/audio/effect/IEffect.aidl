@@ -31,7 +31,7 @@ interface IEffect {
      *
      * @throws a EX_UNSUPPORTED_OPERATION if device capability/resource is not enough or system
      *         failure happens.
-     * @note Open an already-opened effect instance should do nothing and not result in throw error.
+     * @note Open an already-opened effect instance should do nothing and should not throw an error.
      */
     void open();
 
@@ -41,14 +41,14 @@ interface IEffect {
      * close the effect on the client side as soon as it becomes unused, it's client responsibility
      * to make sure all parameter/buffer is correct if client wants to reopen a closed instance.
      *
-     * Effect instance close interface should always success unless:
+     * Effect instance close interface should always succeed unless:
      * 1. The effect instance is not in a proper state to be closed, for example it's still in
      * processing state.
      * 2. There is system/hardware related failure when close.
      *
      * @throws EX_ILLEGAL_STATE if the effect instance is not in a proper state to be closed.
      * @throws EX_UNSUPPORTED_OPERATION if the effect instance failed to close for any other reason.
-     * @note Close an already-closed effect should do nothing and not result in throw error.
+     * @note Close an already-closed effect should do nothing and should not throw an error.
      */
     void close();
 
