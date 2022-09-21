@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b232619e_567547fa",
+        "filename": "audio/aidl/android/hardware/audio/effect/IEffect.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-09-21T23:48:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7afd29c0_94dba41e",
+      "range": {
+        "startLine": 34,
+        "startChar": 74,
+        "endLine": 34,
+        "endChar": 99
+      },
+      "revId": "2c4fd0d25c4b5c488f28b204e2177f7cf8bb0054",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6369b04_52956037",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-21T18:00:44Z",
       "side": 1,
       "message": "succeed",
+      "range": {
+        "startLine": 44,
+        "startChar": 53,
+        "endLine": 44,
+        "endChar": 60
+      },
+      "revId": "2c4fd0d25c4b5c488f28b204e2177f7cf8bb0054",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f05a193_40377e4a",
+        "filename": "audio/aidl/android/hardware/audio/effect/IEffect.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-09-21T23:48:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6369b04_52956037",
       "range": {
         "startLine": 44,
         "startChar": 53,
