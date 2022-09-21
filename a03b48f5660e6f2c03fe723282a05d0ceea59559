@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e54b15b_b49a2a94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-09-21T23:47:33Z",
+      "side": 1,
+      "message": "Thanks, addressing comments in cl: aosp/2225480",
+      "revId": "a03b48f5660e6f2c03fe723282a05d0ceea59559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1681f993_9c6ff496",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-09-21T18:18:50Z",
       "side": 1,
       "message": "Is `EqualizerUUID` an implementation UUID or a type UUID? We should make the name of the constant more clear.",
+      "range": {
+        "startLine": 66,
+        "startChar": 24,
+        "endLine": 66,
+        "endChar": 37
+      },
+      "revId": "a03b48f5660e6f2c03fe723282a05d0ceea59559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "629107d1_4f3def55",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-09-21T23:47:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1681f993_9c6ff496",
       "range": {
         "startLine": 66,
         "startChar": 24,
@@ -47,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5bb99f8_7ea363cc",
+        "filename": "audio/aidl/default/include/equalizer-impl/Equalizer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-09-21T23:47:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50ca3a89_d8cc992c",
+      "range": {
+        "startLine": 41,
+        "startChar": 25,
+        "endLine": 41,
+        "endChar": 39
+      },
+      "revId": "a03b48f5660e6f2c03fe723282a05d0ceea59559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a1fdccb_6952bde2",
@@ -60,6 +125,30 @@
       "writtenOn": "2022-09-21T18:18:50Z",
       "side": 1,
       "message": "missing `explicit`",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 23
+      },
+      "revId": "a03b48f5660e6f2c03fe723282a05d0ceea59559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "363b0732_8036cf22",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-09-21T23:47:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a1fdccb_6952bde2",
       "range": {
         "startLine": 48,
         "startChar": 4,
@@ -93,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4f19242_b06c0ab5",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-09-21T23:47:33Z",
+      "side": 1,
+      "message": "Thanks, that helps!",
+      "parentUuid": "f44db1df_9e326ff4",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 54
+      },
+      "revId": "a03b48f5660e6f2c03fe723282a05d0ceea59559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ea5604f_718cd515",
@@ -106,6 +219,30 @@
       "writtenOn": "2022-09-21T18:18:50Z",
       "side": 1,
       "message": "I think, it would be nicer looking to make `0` an unsigned value instead of coercing size_t to integer: `EXPECT_EQ(mFactory.GetEffectMap().size(), 0UL);`",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 67
+      },
+      "revId": "a03b48f5660e6f2c03fe723282a05d0ceea59559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2cfd75c_1b77c8db",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-09-21T23:47:33Z",
+      "side": 1,
+      "message": "Yes, good catch!",
+      "parentUuid": "6ea5604f_718cd515",
       "range": {
         "startLine": 177,
         "startChar": 0,
