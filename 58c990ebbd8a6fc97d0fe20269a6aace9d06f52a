@@ -16,6 +16,23 @@
       "message": "We have updated the CL with default implementation and vts test.\nWe are still in process of validating the changes.",
       "revId": "58c990ebbd8a6fc97d0fe20269a6aace9d06f52a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "839ca5de_e48badbe",
+        "filename": "cas/aidl/android/hardware/cas/ScramblingMode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-09-21T02:52:01Z",
+      "side": 1,
+      "message": "Please add a new line here as well.",
+      "revId": "58c990ebbd8a6fc97d0fe20269a6aace9d06f52a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

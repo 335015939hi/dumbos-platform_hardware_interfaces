@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76aff4f3_d305288e",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-09-21T02:52:01Z",
+      "side": 1,
+      "message": "why do we not continue to use IMemory? please let us know.",
+      "range": {
+        "startLine": 355,
+        "startChar": 8,
+        "endLine": 355,
+        "endChar": 15
+      },
+      "revId": "1d8f3c0481c546d7417b0b8042abea0583fd4145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a6cc35b_13b503b7",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-09-21T02:52:01Z",
+      "side": 1,
+      "message": "please let us know why we need mmap here?",
+      "range": {
+        "startLine": 366,
+        "startChar": 37,
+        "endLine": 366,
+        "endChar": 41
+      },
+      "revId": "1d8f3c0481c546d7417b0b8042abea0583fd4145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a51e00_952bb744",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-09-21T02:52:01Z",
+      "side": 1,
+      "message": "Please put vts files and default implementation files in 2 different cls.",
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ee020a1_f0543784",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-09-21T02:52:01Z",
+      "side": 1,
+      "message": "better combine the 2 together:\nEXPECT_TRUE(mediaCas-\u003esendEvent(event, eventArg, eventData).isOK());\nsame for other similar checks.",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 37
+      },
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27ef4628_9ecfcb36",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-09-21T02:52:01Z",
+      "side": 1,
+      "message": "Please make sure this matches with the generated function signature from AIDL.\nSame for other similar calls.",
+      "range": {
+        "startLine": 269,
+        "startChar": 22,
+        "endLine": 269,
+        "endChar": 69
+      },
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "846cfd9d_4bd86f4d",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-09-21T02:52:01Z",
+      "side": 1,
+      "message": "Should be IMediaCasService?\nbetter use:\n    if (AServiceManager_isDeclared(GetParam().c_str())) {\n        SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));\n        mService \u003d IMediaCasService::fromBinder(binder);\n    } else {\n        mService \u003d nullptr;\n    }",
+      "range": {
+        "startLine": 286,
+        "startChar": 19,
+        "endLine": 286,
+        "endChar": 36
+      },
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93d4978f_41b5a7e3",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-09-21T02:52:01Z",
+      "side": 1,
+      "message": "may need to change this text.",
+      "range": {
+        "startLine": 320,
+        "startChar": 67,
+        "endLine": 320,
+        "endChar": 71
+      },
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79311d7f_3458ce26",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-09-21T02:52:01Z",
+      "side": 1,
+      "message": "why descrambleTestOobInput is skipped?",
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
