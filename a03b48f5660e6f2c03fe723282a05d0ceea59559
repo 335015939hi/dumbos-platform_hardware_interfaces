@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1681f993_9c6ff496",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-21T18:18:50Z",
+      "side": 1,
+      "message": "Is `EqualizerUUID` an implementation UUID or a type UUID? We should make the name of the constant more clear.",
+      "range": {
+        "startLine": 66,
+        "startChar": 24,
+        "endLine": 66,
+        "endChar": 37
+      },
+      "revId": "a03b48f5660e6f2c03fe723282a05d0ceea59559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50ca3a89_d8cc992c",
+        "filename": "audio/aidl/default/include/equalizer-impl/Equalizer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-21T18:18:50Z",
+      "side": 1,
+      "message": "This confuses me as well. The comment on EqualizerUUID says it\u0027s the implementation UUID, however here we assign it to the type.",
+      "range": {
+        "startLine": 41,
+        "startChar": 25,
+        "endLine": 41,
+        "endChar": 39
+      },
+      "revId": "a03b48f5660e6f2c03fe723282a05d0ceea59559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a1fdccb_6952bde2",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-21T18:18:50Z",
+      "side": 1,
+      "message": "missing `explicit`",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 23
+      },
+      "revId": "a03b48f5660e6f2c03fe723282a05d0ceea59559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f44db1df_9e326ff4",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-21T18:18:50Z",
+      "side": 1,
+      "message": "Recently I\u0027ve added a utility header to make status checks one-liners: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/vts/TestUtils.h\n\nSo this code will become: `EXPECT_IS_OK(mEffectFactory-\u003equeryEffects(in_type, in_instance, _aidl_return));`",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 54
+      },
+      "revId": "a03b48f5660e6f2c03fe723282a05d0ceea59559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ea5604f_718cd515",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-21T18:18:50Z",
+      "side": 1,
+      "message": "I think, it would be nicer looking to make `0` an unsigned value instead of coercing size_t to integer: `EXPECT_EQ(mFactory.GetEffectMap().size(), 0UL);`",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 67
+      },
+      "revId": "a03b48f5660e6f2c03fe723282a05d0ceea59559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
