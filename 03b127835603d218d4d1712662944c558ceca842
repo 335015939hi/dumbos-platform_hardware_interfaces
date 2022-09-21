@@ -88,6 +88,24 @@
       "parentUuid": "fb398bf0_f1c35e9c",
       "revId": "03b127835603d218d4d1712662944c558ceca842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a332658f_5fcfb2ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889050
+      },
+      "writtenOn": "2022-09-21T02:14:46Z",
+      "side": 1,
+      "message": "Hi，Henry,\n   Yes, I have verified it, set frontendtype to default sat, it won\u0027t cause dvbt\u0027s failure.\n   Thanks.",
+      "parentUuid": "0c3197cd_3f828408",
+      "revId": "03b127835603d218d4d1712662944c558ceca842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
