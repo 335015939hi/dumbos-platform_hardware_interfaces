@@ -1,0 +1,64 @@
+/*
+ * Copyright (C) 2022 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+#include <aidl/android/hardware/cas/BnMediaCasService.h>
+
+#include "FactoryLoader.h"
+
+namespace android {
+struct CasFactory;
+struct DescramblerFactory;
+namespace hardware {
+namespace cas {
+namespace implementation {
+
+using aidl::android::hardware::cas::BnMediaCasService;
+using aidl::android::hardware::cas::CasPluginDescriptor;
+using aidl::android::hardware::cas::ICas;
+using aidl::android::hardware::cas::ICasListener;
+using aidl::android::hardware::cas::IDescrambler;
+using aidl::android::hardware::cas::IMediaCasService;
+
+class MediaCasService : public BnMediaCasService {
+  public:
+    MediaCasService();
+
+    virtual ::ndk::ScopedAStatus enumeratePlugins(
+            std::vector<CasPluginDescriptor>* casPluginDescriptor) override;
+
+    virtual ::ndk::ScopedAStatus isSystemIdSupported(int32_t in_CA_system_id,
+                                                     bool* _aidl_return) override;
+
+    virtual ::ndk::ScopedAStatus createPlugin(int32_t in_CA_system_id,
+                                              const std::shared_ptr<ICasListener>& in_listener,
+                                              std::shared_ptr<ICas>* _aidl_return) override;
+
+    virtual ::ndk::ScopedAStatus isDescramblerSupported(int32_t in_CA_system_id,
+                                                        bool* _aidl_return) override;
+
+    virtual ::ndk::ScopedAStatus createDescrambler(
+            int32_t in_CA_system_id, std::shared_ptr<IDescrambler>* _aidl_return) override;
+
+  private:
+    FactoryLoader<CasFactory> mCasLoader;
+    FactoryLoader<DescramblerFactory> mDescramblerLoader;
+
+    virtual ~MediaCasService();
+};
+
+}  // namespace implementation
+}  // namespace cas
+}  // namespace hardware
+}  // namespace android
