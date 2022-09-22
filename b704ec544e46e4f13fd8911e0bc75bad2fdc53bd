@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14d1e6f2_2e945f29",
+        "filename": "audio/aidl/default/include/equalizer-impl/Equalizer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-22T00:24:55Z",
+      "side": 1,
+      "message": "If you want an empty implementation, it\u0027s better to use `\u003d default`, see http://go/totw/131",
+      "range": {
+        "startLine": 42,
+        "startChar": 15,
+        "endLine": 42,
+        "endChar": 18
+      },
+      "revId": "b704ec544e46e4f13fd8911e0bc75bad2fdc53bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
