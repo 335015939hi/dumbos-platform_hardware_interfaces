@@ -139,6 +139,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd575538_b49daf90",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1416371
+      },
+      "writtenOn": "2022-09-22T16:51:18Z",
+      "side": 1,
+      "message": "I see now that it\u0027s due to your drop impl trying to assert that your task has been successfully descheduled - if you want to do this in async, you should not be putting a handle in the object to wait, you should have some sort of a signal that the code that wants to do the potentially-buggy-thing can wait on (e.g. a `async fn wait_for_close(self)` that just returns a truncated version of the JoinGuard.)\n\nThere\u0027s work going on for an `AsyncDrop`, which I agree is what we\u0027d want some day here, but until then we really shouldn\u0027t be doing async waits inside sync drops in the majority of cases.",
+      "parentUuid": "da13d22c_2072f148",
+      "revId": "eb0828af0c923a1895116b2d6312d3a1af75289a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b7f3013d_d25c3daa",
         "filename": "uwb/aidl/default/src/uwb_chip.rs",
         "patchSetId": 3
