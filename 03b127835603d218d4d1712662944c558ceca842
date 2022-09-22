@@ -106,6 +106,23 @@
       "parentUuid": "0c3197cd_3f828408",
       "revId": "03b127835603d218d4d1712662944c558ceca842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cc5551c_d1c3fa8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1244622
+      },
+      "writtenOn": "2022-09-22T23:48:16Z",
+      "side": 1,
+      "message": "Pls update the bug number to 239667706.",
+      "revId": "03b127835603d218d4d1712662944c558ceca842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
