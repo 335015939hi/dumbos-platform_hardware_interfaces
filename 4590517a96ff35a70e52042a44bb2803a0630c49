@@ -1,5 +1,75 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1232c662_d172fdd3",
+        "filename": "audio/aidl/default/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-09-23T19:28:28Z",
+      "side": 1,
+      "message": "prefer to only export one OR \u0027mkdir include_equalizer \u0026\u0026 mv include/equalizer-impl/include_equalizer\u0027. Like this, we export everything in the directory. Also, users can include \"equalizer-impl/foo/bar.h\" or \"foo/bar.h\" due to L85",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 34
+      },
+      "revId": "4590517a96ff35a70e52042a44bb2803a0630c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd956ee7_1280ca46",
+        "filename": "audio/aidl/default/equalizer/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-09-23T19:28:28Z",
+      "side": 1,
+      "message": "use relative include dirs, export_shared_lib_headers, etc.. do not use absolute include dirs",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 84
+      },
+      "revId": "4590517a96ff35a70e52042a44bb2803a0630c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cb02129_4861b033",
+        "filename": "audio/aidl/default/equalizer/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-09-23T19:28:28Z",
+      "side": 1,
+      "message": "does relative //../subpackages syntax not exist? we might want to file an FR",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 51
+      },
+      "revId": "4590517a96ff35a70e52042a44bb2803a0630c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
