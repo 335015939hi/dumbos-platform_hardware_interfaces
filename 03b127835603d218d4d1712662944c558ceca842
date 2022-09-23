@@ -123,6 +123,24 @@
       "message": "Pls update the bug number to 239667706.",
       "revId": "03b127835603d218d4d1712662944c558ceca842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c89f5da6_1aba02db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889050
+      },
+      "writtenOn": "2022-09-23T02:43:51Z",
+      "side": 1,
+      "message": "Hi, Ross,\n   I have updated the bug number to 239667706.\n   Thanks.",
+      "parentUuid": "4cc5551c_d1c3fa8a",
+      "revId": "03b127835603d218d4d1712662944c558ceca842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
