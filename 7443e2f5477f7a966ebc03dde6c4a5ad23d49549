@@ -16,6 +16,23 @@
       "message": "Steven, please provide owner\u0027s approval.\nRoss, please provide Dr. No\u0027s approval.",
       "revId": "7443e2f5477f7a966ebc03dde6c4a5ad23d49549",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5262198_b8f46ab9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-23T02:43:38Z",
+      "side": 1,
+      "message": "Steven, could you please approve. I know, there are lots of CLs, this is because some vendors still use VTS 11 and next versions.",
+      "revId": "7443e2f5477f7a966ebc03dde6c4a5ad23d49549",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
