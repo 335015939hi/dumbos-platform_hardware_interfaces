@@ -31,10 +31,16 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.audio.effect;
-@VintfStability
-interface IFactory {
-  android.hardware.audio.effect.Descriptor.Identity[] queryEffects(in @nullable android.media.audio.common.AudioUuid type, in @nullable android.media.audio.common.AudioUuid implementation);
-  android.hardware.audio.effect.IEffect createEffect(in android.media.audio.common.AudioUuid implUuid);
-  void destroyEffect(in android.hardware.audio.effect.IEffect handle);
+package android.hardware.gatekeeper;
+@SensitiveData @VintfStability
+interface IGatekeeper {
+  void deleteAllUsers();
+  void deleteUser(in int uid);
+  android.hardware.gatekeeper.GatekeeperEnrollResponse enroll(in int uid, in byte[] currentPasswordHandle, in byte[] currentPassword, in byte[] desiredPassword);
+  android.hardware.gatekeeper.GatekeeperVerifyResponse verify(in int uid, in long challenge, in byte[] enrolledPasswordHandle, in byte[] providedPassword);
+  const int STATUS_REENROLL = 1;
+  const int STATUS_OK = 0;
+  const int ERROR_GENERAL_FAILURE = -1;
+  const int ERROR_RETRY_TIMEOUT = -2;
+  const int ERROR_NOT_IMPLEMENTED = -3;
 }

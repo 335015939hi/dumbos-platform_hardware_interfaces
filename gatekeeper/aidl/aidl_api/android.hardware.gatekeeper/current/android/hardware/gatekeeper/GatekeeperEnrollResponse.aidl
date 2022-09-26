@@ -31,10 +31,11 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.audio.effect;
+package android.hardware.gatekeeper;
 @VintfStability
-interface IFactory {
-  android.hardware.audio.effect.Descriptor.Identity[] queryEffects(in @nullable android.media.audio.common.AudioUuid type, in @nullable android.media.audio.common.AudioUuid implementation);
-  android.hardware.audio.effect.IEffect createEffect(in android.media.audio.common.AudioUuid implUuid);
-  void destroyEffect(in android.hardware.audio.effect.IEffect handle);
+parcelable GatekeeperEnrollResponse {
+  int statusCode;
+  int timeoutMs;
+  long secureUserId;
+  byte[] data;
 }
