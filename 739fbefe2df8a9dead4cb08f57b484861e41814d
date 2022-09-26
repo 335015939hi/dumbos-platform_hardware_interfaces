@@ -39,6 +39,30 @@
       },
       "revId": "739fbefe2df8a9dead4cb08f57b484861e41814d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "309c63c0_b32a53f1",
+        "filename": "audio/common/all-versions/default/tests/hidlutils_tests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2022-09-26T21:36:28Z",
+      "side": 1,
+      "message": "No, with only this change, I am able to pass this whole test with newer clang compiler/linker. However, with some other change, I am able to reproduce the error with even older clang-r458507. Please see my new comment in b/248637663.",
+      "parentUuid": "508881d1_193feb78",
+      "range": {
+        "startLine": 1108,
+        "startChar": 7,
+        "endLine": 1108,
+        "endChar": 76
+      },
+      "revId": "739fbefe2df8a9dead4cb08f57b484861e41814d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
