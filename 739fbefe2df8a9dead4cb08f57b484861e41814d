@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49bc6ac1_31debdb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2022-09-26T02:18:39Z",
+      "side": 1,
+      "message": "This is the same issue that HWASAN was seeing with http://b/230535046.",
+      "revId": "739fbefe2df8a9dead4cb08f57b484861e41814d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
