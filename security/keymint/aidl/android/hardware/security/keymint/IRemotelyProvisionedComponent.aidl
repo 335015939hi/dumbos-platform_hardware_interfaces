@@ -315,7 +315,6 @@ interface IRemotelyProvisionedComponent {
      * @return the following CBOR Certificate Signing Request (Csr) serialized into a byte array:
      *
      * Csr = [
-     *    version: 3,              ; The CDDL Schema version.
      *    UdsCerts,
      *    DiceCertChain,
      *    SignedData
