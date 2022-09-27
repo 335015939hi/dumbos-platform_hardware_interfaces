@@ -46,6 +46,30 @@
       },
       "revId": "5cd8f84af777cb7121e2cc89c65ecc04ea80791e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9951ef67_0c94ce78",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-09-27T11:44:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "168fdad4_9ee8743f",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 76
+      },
+      "revId": "5cd8f84af777cb7121e2cc89c65ecc04ea80791e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
