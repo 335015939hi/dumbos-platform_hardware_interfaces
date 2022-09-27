@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f38df10c_0ad89bb1",
+        "filename": "tv/cec/aidl/default/Android.bp",
+        "patchSetId": 24
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2022-09-27T20:19:50Z",
+      "side": 1,
+      "message": "Do we need to make a library and then use that in cc_binary and the fuzzer?\n\nwithout that methods in HdmiCecMock.cpp can\u0027t be invoked in the fuzzer.\n\nld.lld: error: undefined symbol: android::hardware::tv::cec::implementation::HdmiCecMock::HdmiCecMock()\n\u003e\u003e\u003e referenced by binder_interface_utils.h:95 (frameworks/native/libs/binder/ndk/include_cpp/android/binder_interface_utils.h:95)\n\u003e\u003e\u003e               out/soong/.intermediates/hardware/interfaces/tv/cec/aidl/default/android.hardware.tv.cec-service_fuzzer/android_arm64_armv8-a_fuzzer/obj/hardware/interfaces/tv/cec/aidl/default/fuzzer.o:(LLVMFuzzerTestOneInput)",
+      "revId": "f8228201755ce34dd60bb8438e9b56437e7ab04d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
