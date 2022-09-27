@@ -16,6 +16,24 @@
       "message": "Shouldn\u0027t we invite the owners of these interfaces here?",
       "revId": "f6a2418093c538aab7e2120d71f980ab3600c4a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62f523a9_7be50bf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386891
+      },
+      "writtenOn": "2022-09-27T05:31:22Z",
+      "side": 1,
+      "message": "yeah, we should. added the owners as the reviewers.",
+      "parentUuid": "2ce61b5c_ef1ebf5a",
+      "revId": "f6a2418093c538aab7e2120d71f980ab3600c4a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
