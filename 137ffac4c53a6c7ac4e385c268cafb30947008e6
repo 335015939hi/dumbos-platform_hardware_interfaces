@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5af36436_448915b2",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-09-27T23:41:51Z",
+      "side": 1,
+      "message": "My take is that all types are going to be for attestation so it does make sense to at least name them based on context. The one named \"keymint\" is used for key attestations and keymint is even explicitly names in the KeyDescription section of the schema [1] so there is some consistency there.\n\nFor a bit of context, I\u0027m expecting to add something like an \"avf\" for Android Virtualization Framework attestations of VMs, so another attestation but in a different context. I\u0027ll try and get a CL with the schema tweaks tomorrow as it sounded like implementation work is already underway.\n\n[1] -- https://developer.android.com/training/articles/security-key-attestation#certificate_schema",
+      "parentUuid": "72fe75c3_d1721b85",
+      "revId": "137ffac4c53a6c7ac4e385c268cafb30947008e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92b2b794_6ca89d5e",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 10
