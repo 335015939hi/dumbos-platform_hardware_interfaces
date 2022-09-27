@@ -1,0 +1,16 @@
+aidl_interface {
+    name: "android.os.vibratorscale",
+    vendor_available: true,
+    host_supported: true,
+    srcs: [
+        "android/os/*.aidl",
+    ],
+    stability: "vintf",
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+
+}
