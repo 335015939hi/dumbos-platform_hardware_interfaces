@@ -402,12 +402,12 @@ TEST_P(StoreHidlTest, OmxCodecAllowedTest) {
                 } else {
                     std::string codecName = info.mName;
                     bool isAndroidCodec = (codecName.rfind("OMX.google", 0) != std::string::npos);
-                    if (isAndroidCodec && (getFirstApiLevel() <= __ANDROID_API_S__)) {
+                    if (!isAndroidCodec && (getFirstApiLevel() <= __ANDROID_API_S__)) { //omx vender codecs allowed
                         // refer b/230582620
                         // S AOSP build did not remove the OMX.google video codecs
                         // so it is infeasible to require no OMX.google.* video codecs
                         // on S launching devices
-                    } else {
+                    } else { //omx google codecs not allowed
                         ASSERT_LT(getFirstApiLevel(), __ANDROID_API_S__)
                             << " Component: " << info.mName.c_str() << " Role: " << role.c_str()
                             << " not allowed for devices launching with Android S and above";
