@@ -28,6 +28,8 @@ using android::hardware::tv::tuner::V1_0::DemuxTsFilterType;
 using android::hardware::tv::tuner::V1_0::FrontendDvbtBandwidth;
 using android::hardware::tv::tuner::V1_0::FrontendDvbtSettings;
 using android::hardware::tv::tuner::V1_0::FrontendDvbtTransmissionMode;
+using android::hardware::tv::tuner::V1_0::FrontendDvbsModulation;
+using android::hardware::tv::tuner::V1_0::FrontendDvbsStandard;
 using android::hardware::tv::tuner::V1_0::FrontendSettings;
 using android::hardware::tv::tuner::V1_0::FrontendStatus;
 using android::hardware::tv::tuner::V1_0::FrontendStatusType;
@@ -62,7 +64,110 @@ static LnbLiveHardwareConnections lnbLive;
 static LnbRecordHardwareConnections lnbRecord;
 static TimeFilterHardwareConnections timeFilter;
 
+<<<<<<< TARGET BRANCH (714659 Merge "Sync audio_policy_engine_configuration.xsd with the S)
 /** Config all the frontends that would be used in the tests */
+=======
+typedef enum {
+    DVBT,
+    DVBS,
+    FRONTEND_MAX,
+} Frontend;
+
+typedef enum {
+    LNB0,
+    LNB_EXTERNAL,
+    LNB_MAX,
+} Lnb;
+
+typedef enum {
+    DISEQC_POWER_ON,
+    DISEQC_MAX,
+} Diseqc;
+
+typedef enum {
+    SCAN_DVBT,
+    SCAN_DVBS,
+    SCAN_MAX,
+} FrontendScan;
+
+typedef enum {
+    DVR_RECORD0,
+    DVR_PLAYBACK0,
+    DVR_SOFTWARE_FE,
+    DVR_MAX,
+} Dvr;
+
+typedef enum {
+    DESC_0,
+    DESC_MAX,
+} Descrambler;
+
+struct FilterConfig {
+    uint32_t bufferSize;
+    DemuxFilterType type;
+    DemuxFilterSettings settings;
+    bool getMqDesc;
+
+    bool operator<(const FilterConfig& /*c*/) const { return false; }
+};
+
+struct TimeFilterConfig {
+    uint64_t timeStamp;
+};
+
+struct FrontendConfig {
+    bool enable;
+    bool isSoftwareFe;
+    FrontendType type;
+    FrontendSettings settings;
+    vector<FrontendStatusType> tuneStatusTypes;
+    vector<FrontendStatus> expectTuneStatuses;
+};
+
+struct LnbConfig {
+    string name;
+    LnbVoltage voltage;
+    LnbTone tone;
+    LnbPosition position;
+};
+
+struct ChannelConfig {
+    int32_t frontendId;
+    int32_t channelId;
+    std::string channelName;
+    DemuxTpid videoPid;
+    DemuxTpid audioPid;
+};
+
+struct DvrConfig {
+    DvrType type;
+    uint32_t bufferSize;
+    DvrSettings settings;
+    string playbackInputFile;
+};
+
+struct DescramblerConfig {
+    uint32_t casSystemId;
+    string provisionStr;
+    vector<uint8_t> hidlPvtData;
+};
+
+static FrontendConfig frontendArray[FILTER_MAX];
+static FrontendConfig frontendScanArray[SCAN_MAX];
+static LnbConfig lnbArray[LNB_MAX];
+static vector<uint8_t> diseqcMsgArray[DISEQC_MAX];
+static ChannelConfig channelArray[FRONTEND_MAX];
+static FilterConfig filterArray[FILTER_MAX];
+static TimeFilterConfig timeFilterArray[TIMER_MAX];
+static DemuxFilterType filterLinkageTypes[LINKAGE_DIR][FILTER_MAIN_TYPE_BIT_COUNT];
+static DvrConfig dvrArray[DVR_MAX];
+static DescramblerConfig descramblerArray[DESC_MAX];
+static vector<string> goldenOutputFiles;
+static int defaultFrontend = DVBS;
+static int defaultScanFrontend = SCAN_DVBS;
+
+/** Configuration array for the frontend tune test */
+>>>>>>> SOURCE BRANCH (810227 Merge "tunerhal:set default frontend to DVBS [1/1]" into and)
 inline void initFrontendConfig() {
     // The test will use the internal default fe when default fe is connected to any data flow
     // without overriding in the xml config.
@@ -90,6 +195,51 @@ inline void initFrontendConfig() {
     TunerTestingConfigReader1_0::readFrontendConfig1_0(frontendMap);
 };
 
+<<<<<<< TARGET BRANCH (714659 Merge "Sync audio_policy_engine_configuration.xsd with the S)
+=======
+/** Configuration array for the frontend scan test */
+inline void initFrontendScanConfig() {
+    frontendScanArray[SCAN_DVBT].type = FrontendType::DVBT;
+    frontendScanArray[SCAN_DVBT].settings.dvbt({
+            .frequency = 578000,
+            .transmissionMode = FrontendDvbtTransmissionMode::MODE_8K,
+            .bandwidth = FrontendDvbtBandwidth::BANDWIDTH_8MHZ,
+            .constellation = FrontendDvbtConstellation::AUTO,
+            .hierarchy = FrontendDvbtHierarchy::AUTO,
+            .hpCoderate = FrontendDvbtCoderate::AUTO,
+            .lpCoderate = FrontendDvbtCoderate::AUTO,
+            .guardInterval = FrontendDvbtGuardInterval::AUTO,
+            .isHighPriority = true,
+            .standard = FrontendDvbtStandard::T,
+    });
+
+    frontendScanArray[SCAN_DVBS].type = FrontendType::DVBS;
+    frontendScanArray[SCAN_DVBS].settings.dvbs({
+            .frequency = 1000000,
+            .symbolRate = 27500,
+            .modulation = FrontendDvbsModulation::MOD_QPSK,
+            .standard = FrontendDvbsStandard::S,
+    });
+};
+
+/** Configuration array for the Lnb test */
+inline void initLnbConfig() {
+    lnbArray[LNB0].voltage = LnbVoltage::VOLTAGE_12V;
+    lnbArray[LNB0].tone = LnbTone::NONE;
+    lnbArray[LNB0].position = LnbPosition::UNDEFINED;
+    lnbArray[LNB_EXTERNAL].name = "default_lnb_external";
+    lnbArray[LNB_EXTERNAL].voltage = LnbVoltage::VOLTAGE_5V;
+    lnbArray[LNB_EXTERNAL].tone = LnbTone::NONE;
+    lnbArray[LNB_EXTERNAL].position = LnbPosition::UNDEFINED;
+};
+
+/** Diseqc messages array for the Lnb test */
+inline void initDiseqcMsg() {
+    diseqcMsgArray[DISEQC_POWER_ON] = {0xE, 0x0, 0x0, 0x0, 0x0, 0x3};
+};
+
+/** Configuration array for the filter test */
+>>>>>>> SOURCE BRANCH (810227 Merge "tunerhal:set default frontend to DVBS [1/1]" into and)
 inline void initFilterConfig() {
     // The test will use the internal default filter when default filter is connected to any
     // data flow without overriding in the xml config.
