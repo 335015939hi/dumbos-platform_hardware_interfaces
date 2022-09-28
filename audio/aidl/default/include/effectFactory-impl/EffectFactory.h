@@ -16,7 +16,9 @@
 
 #pragma once
 
+#include <map>
 #include <optional>
+#include <unordered_map>
 #include <vector>
 
 #include <aidl/android/hardware/audio/effect/BnFactory.h>
@@ -63,7 +65,33 @@ class Factory : public BnFactory {
             override;
 
   private:
+    ~Factory();
     // List of effect descriptors supported by the devices.
     std::vector<Descriptor::Identity> mIdentityList;
+
+    typedef binder_exception_t (*EffectCreateFunctor)(std::shared_ptr<IEffect>*);
+    typedef binder_exception_t (*EffectDestroyFunctor)(const std::shared_ptr<IEffect>&);
+    struct effect_interface_s {
+        EffectCreateFunctor createEffectFunc;
+        EffectDestroyFunctor destroyEffectFunc;
+    };
+    class UUIDHashFunction {
+      public:
+        size_t operator()(const aidl::android::media::audio::common::AudioUuid& uuid) const {
+            return (std::hash<int>()(uuid.timeLow)) ^ (std::hash<int>()(uuid.timeMid)) ^
+                   (std::hash<int>()(uuid.timeHiAndVersion)) ^ (std::hash<int>()(uuid.clockSeq));
+        }
+    };
+    std::unordered_map<aidl::android::media::audio::common::AudioUuid /* implementationUUID */,
+                       std::pair<std::shared_ptr<void> /* dlHandle */,
+                                 std::shared_ptr<struct effect_interface_s>>,
+                       UUIDHashFunction>
+            mEffectLibMap;
+    std::map<std::weak_ptr<IEffect>, aidl::android::media::audio::common::AudioUuid,
+             std::owner_less<>>
+            mEffectUuidMap;
+
+    ndk::ScopedAStatus destroyEffectImpl(const std::shared_ptr<IEffect>& in_handle);
+    void cleanupEffectMap();
 };
 }  // namespace aidl::android::hardware::audio::effect
