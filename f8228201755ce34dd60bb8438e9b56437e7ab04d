@@ -34,6 +34,24 @@
       "parentUuid": "f38df10c_0ad89bb1",
       "revId": "f8228201755ce34dd60bb8438e9b56437e7ab04d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6a5f2a7_5b80663f",
+        "filename": "tv/cec/aidl/default/Android.bp",
+        "patchSetId": 24
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2022-09-28T20:17:37Z",
+      "side": 1,
+      "message": "included HdmiMock.cpp directly.",
+      "parentUuid": "d1b23515_840b88d4",
+      "revId": "f8228201755ce34dd60bb8438e9b56437e7ab04d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
