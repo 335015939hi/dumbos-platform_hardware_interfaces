@@ -167,6 +167,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc67608f_922eae57",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-28T17:43:05Z",
+      "side": 1,
+      "message": "\u003e The minimum need I have for VMs is to distinguish the trusted (by verified boot) VM, that can issue the detailed VM attestations for other VMs, from the rest of the VMs that we haven\u0027t established that trust in.\n\nFor sure. But don\u0027t we get that by simply not handing a key to other VMs? Maybe I\u0027m oversimplifying, and it\u0027s really not that simple.",
+      "parentUuid": "989a59b6_c5a28ecd",
+      "revId": "9e77718ca2d74f341ef142f8989b21b760ffb9af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba581f72_0a2359ec",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
