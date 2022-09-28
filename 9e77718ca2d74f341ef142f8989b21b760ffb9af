@@ -125,6 +125,48 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "989a59b6_c5a28ecd",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-09-28T17:31:59Z",
+      "side": 1,
+      "message": "The minimum need I have for VMs is to distinguish the trusted (by verified boot) VM, that can issue the detailed VM attestations for other VMs, from the rest of the VMs that we haven\u0027t established that trust in.\n\nThe untrusted VMs must never be allowed to get certificates. And you though it would be a concern if any VM could get a keymint certificate.\n\nI don\u0027t remember how we avoided any changes to the chain, but there were certainly options that were more direct to the problem, such as a config entry that explicitly means \"everything following is from VM-land\" etc. IIRC, it needed to be in the DICE chain as that\u0027s where we keep the record of the verified boot decisions.",
+      "parentUuid": "b9b7ff15_05722b4e",
+      "revId": "9e77718ca2d74f341ef142f8989b21b760ffb9af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da6d6db5_d8af4f9b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-09-28T17:31:59Z",
+      "side": 1,
+      "message": "Right, unconstrained is close to any existing behaviour, especially if there vould be other cert types not included in the current enum.",
+      "parentUuid": "e379f17f_65d0eadc",
+      "range": {
+        "startLine": 422,
+        "startChar": 20,
+        "endLine": 422,
+        "endChar": 43
+      },
+      "revId": "9e77718ca2d74f341ef142f8989b21b760ffb9af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba581f72_0a2359ec",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
