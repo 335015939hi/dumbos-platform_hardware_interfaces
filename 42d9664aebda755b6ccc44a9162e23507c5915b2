@@ -33,6 +33,24 @@
       "message": "Should this be conditioned using RESTRICT AUTOMERGE because the CL in aosp/master has different changes?",
       "revId": "42d9664aebda755b6ccc44a9162e23507c5915b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "456fca67_dcd86b7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2022-09-28T20:33:43Z",
+      "side": 1,
+      "message": "The CL in aosp/master is now abandoned. They should be the same change. And I will let automerger take care of it.",
+      "parentUuid": "4249a32d_d604735c",
+      "revId": "42d9664aebda755b6ccc44a9162e23507c5915b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
