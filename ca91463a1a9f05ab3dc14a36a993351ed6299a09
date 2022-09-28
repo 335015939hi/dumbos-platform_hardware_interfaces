@@ -173,6 +173,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0549e9f7_f20b87fc",
+        "filename": "cas/aidl/default/DescramblerImpl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-28T13:34:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df2bdd5c_e0fe394d",
+      "range": {
+        "startLine": 152,
+        "startChar": 19,
+        "endLine": 152,
+        "endChar": 23
+      },
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c43e0f70_6759b420",
@@ -186,6 +210,30 @@
       "writtenOn": "2022-09-28T01:26:40Z",
       "side": 1,
       "message": "same.",
+      "range": {
+        "startLine": 160,
+        "startChar": 15,
+        "endLine": 160,
+        "endChar": 19
+      },
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "936948cc_b4d47fb9",
+        "filename": "cas/aidl/default/DescramblerImpl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-28T13:34:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c43e0f70_6759b420",
       "range": {
         "startLine": 160,
         "startChar": 15,
