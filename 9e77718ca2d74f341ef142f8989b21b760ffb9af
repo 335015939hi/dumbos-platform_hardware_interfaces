@@ -185,6 +185,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b327d38_634e7070",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-09-28T18:35:31Z",
+      "side": 1,
+      "message": "There\u0027s a slight complication in that VMs also use the DICE chain as their way of deriving device-bound secrets for other purposes. And there\u0027s some use of the DICE chain for local, e.g. inter-VM, attestation. So not handing it over would have knock-on affects.\n\nWe do control a security boundary within some of the VMs, particularly those created by apps (we\u0027re opening up a @SystemApi in U), which hides the DICE chain but I\u0027m not sure whether that qualifies as good enough protection in the RKP context?\n\nThe platform is allowed to create bare metal VMs, but then we would hope that we\u0027d be able to trust the platform to be well behaved. But is trust of the platform enough in the context of RKP? (I don\u0027t think so?)",
+      "parentUuid": "fc67608f_922eae57",
+      "revId": "9e77718ca2d74f341ef142f8989b21b760ffb9af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba581f72_0a2359ec",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
