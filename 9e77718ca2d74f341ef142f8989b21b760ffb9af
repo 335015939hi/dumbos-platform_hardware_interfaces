@@ -201,6 +201,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94268580_a586154e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-28T20:06:23Z",
+      "side": 1,
+      "message": "\u003e There\u0027s a slight complication in that VMs also use the DICE chain as their way of deriving device-bound secrets for other purposes. And there\u0027s some use of the DICE chain for local, e.g. inter-VM, attestation. \n\nAh, ok. If untrusted VMs get DICE chains, then yeah... I think we need something like this change.",
+      "parentUuid": "1b327d38_634e7070",
+      "revId": "9e77718ca2d74f341ef142f8989b21b760ffb9af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba581f72_0a2359ec",
