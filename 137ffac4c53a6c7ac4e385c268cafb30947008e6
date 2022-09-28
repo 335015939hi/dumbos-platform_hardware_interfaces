@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02f5e45b_9406c4ba",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-09-28T00:18:10Z",
+      "side": 1,
+      "message": "To Vikram\u0027s point, it\u0027s possible to implement rkp for this certificate type outside of keymint. And, as Max pointed out in our meeting yesterday, we might end up separating this HAL out of keymint entirely. In this case \"keymint\" name is a little odd.",
+      "parentUuid": "5af36436_448915b2",
+      "revId": "137ffac4c53a6c7ac4e385c268cafb30947008e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92b2b794_6ca89d5e",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 10
