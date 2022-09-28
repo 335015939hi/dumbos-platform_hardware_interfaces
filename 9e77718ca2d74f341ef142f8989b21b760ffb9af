@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd28a211_dfe42433",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-28T16:24:37Z",
+      "side": 1,
+      "message": "nit: I think these two words should be hyphenated as they act as a single adjective for \"components\".",
+      "range": {
+        "startLine": 412,
+        "startChar": 33,
+        "endLine": 412,
+        "endChar": 55
+      },
+      "revId": "9e77718ca2d74f341ef142f8989b21b760ffb9af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1373a60c_8d99e5fd",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
@@ -54,6 +77,71 @@
       "writtenOn": "2022-09-28T16:01:50Z",
       "side": 1,
       "message": "The above is from this doc [1] on the topic. Though it\u0027s described as the \"alternative solution\", Seth\u0027s last comment had it heading back in this direction. In the doc, it talks about a component-based ACL, but using the certificate types felt more consistent with the protocol and doesn\u0027t require a mapping from component to certificate type.\n\nWhat\u0027s written is the most overkill version, so I\u0027m happy to be told why this is overcomplicated an how it can be done with simpler validation rules or less impact on OEMs!\n\n[1] -- https://docs.google.com/document/d/1Ec1E4EF-UacgTbtitwbhTNkCnIPSAn_5VMd5b00Ex6s/edit#heading\u003dh.xj872kj2aqcv",
+      "revId": "9e77718ca2d74f341ef142f8989b21b760ffb9af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e379f17f_65d0eadc",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-28T16:24:37Z",
+      "side": 1,
+      "message": "`If there are no entries, the default is [\"widevine\", \"keymint\"]`\n\nShouldn\u0027t the default be \"unconstrained\"? What\u0027s the benefit in restricting cert requests when the chain doesn\u0027t have any restrictions on type?",
+      "parentUuid": "1373a60c_8d99e5fd",
+      "range": {
+        "startLine": 422,
+        "startChar": 20,
+        "endLine": 422,
+        "endChar": 43
+      },
+      "revId": "9e77718ca2d74f341ef142f8989b21b760ffb9af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9b7ff15_05722b4e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-28T16:24:37Z",
+      "side": 1,
+      "message": "I do think this is slightly more complicated than is strictly necessary, but the rules are simple enough to follow, and it\u0027s extensible.\n\nThe big question I have is: Do we really need this? Based on prior discussions, I thought we decided we could skip this extension of the DICE chain for now.\n\nMy concern here may be FUD, but chain validation is _hard_ to get right. I worry about any additional complexity at all and that\u0027s my source of concern. The design actually seems fine. I just don\u0027t like more complexity than we absolutely must have.",
+      "parentUuid": "caf7260c_78318731",
+      "revId": "9e77718ca2d74f341ef142f8989b21b760ffb9af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba581f72_0a2359ec",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-28T16:24:37Z",
+      "side": 1,
+      "message": "Maybe add a comment indicating there may be new options added?\n\nOr perhaps we just make this a string add a comment indicating known types?",
+      "range": {
+        "startLine": 423,
+        "startChar": 7,
+        "endLine": 423,
+        "endChar": 22
+      },
       "revId": "9e77718ca2d74f341ef142f8989b21b760ffb9af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
