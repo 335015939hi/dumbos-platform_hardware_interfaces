@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "22de9b38_0cf6c716",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-28T13:18:11Z",
+      "side": 1,
+      "message": "This is what happens when you necropost on a merged CL, Vikram! 😄\n\nI would personally take Andrew\u0027s position here. This HAL is already *supposed* to be a generic component that can be added to any other HAL that needs to be provisioned with attestation certificates. This is why `widevine` and `keymint` are both enumerated as they are two HALs that both need certificates provisioned through an IRPC component, but the server needs a way of differentiating the requests in order to route them to the appropriate signing infrastructure.\n\nWe want to name specific module names here because this label is only designed to be consumed by the backend servicing the request; it\u0027s not meant to be meaningfully processed or observed by the Android system, an end user, or developer.",
+      "parentUuid": "02f5e45b_9406c4ba",
+      "revId": "137ffac4c53a6c7ac4e385c268cafb30947008e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92b2b794_6ca89d5e",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 10
