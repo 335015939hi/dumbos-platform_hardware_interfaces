@@ -402,11 +402,25 @@ interface IRemotelyProvisionedComponent {
      *         ? -70002 : tstr,                         ; Component name
      *         ? -70003 : int,                          ; Firmware version
      *         ? -70004 : null,                         ; Resettable
+     *         ? -70005 : [* CertificateType]           ; Permissible certificate types
      *     },
      *     -4670549 : bstr,                         ; Authority Hash
      *     ? -4670550 : bstr,                       ; Authority Descriptor
      *     -4670551 : bstr,                         ; Mode
      * }
+     *
+     * ; In order to distinguish certificate requesting components of different privilege in the
+     * ; system, the component DICE chain can be annotated to restrict the certificate types that
+     * ; can be requested.
+     * ;
+     * ; If a certificate in the DICE chain contains a permissible certificate types entry, it must
+     * ; be a subset of the permissible certificate types from previous entry in the chain. If there
+     * ; are no previous entries, the current certificate is unconstrained.
+     * ;
+     * ; A component is only permitted to request the certificate types of the permissible
+     * ; certificate types entry closest to the leaf certificate. If there are no entries, the
+     * ; default is ["widevine", "keymint"].
+     * CertificateType = "widevine" / "keymint" / "avf"
      *
      * ; Each entry in the Dcc is a DiceChainEntryPayload signed by the key from the previous entry
      * ; in the Dcc array.
