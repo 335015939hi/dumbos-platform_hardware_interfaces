@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49a37b73_a67cd43e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1121338
+      },
+      "writtenOn": "2022-09-28T18:06:15Z",
+      "side": 1,
+      "message": "nit: we generally add a Test: \u003ctest\u003e clause for CLs on android so it might be good to add that.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 14
+      },
+      "revId": "8afbcf97422f418512bc5d1425a7cc0a994fd90c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
