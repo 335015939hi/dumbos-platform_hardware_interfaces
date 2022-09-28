@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d15939e_fc2b07d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2022-09-28T18:56:12Z",
+      "side": 1,
+      "message": "AIDL VTS continues to pass in T.\nHIDL VTS continues to pass in S (with the cherry-picked CL).",
+      "revId": "42d9664aebda755b6ccc44a9162e23507c5915b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
