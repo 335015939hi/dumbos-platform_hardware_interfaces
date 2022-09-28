@@ -427,9 +427,8 @@ void FrontendTests::getFrontendIdByType(FrontendType feType, uint32_t& feId) {
             feId = mFeIds[i];
             return;
         }
-    } else {
-        feId = INVALID_ID;
     }
+    feId = INVALID_ID;
 }
 
 void FrontendTests::tuneTest(FrontendConfig frontendConf) {
