@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dbf8fb8_b6a71431",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T22:11:22Z",
+      "side": 1,
+      "message": "how about `\u003e\u003d VERSION_WITHOUT_TEST_MODE`",
+      "range": {
+        "startLine": 362,
+        "startChar": 41,
+        "endLine": 362,
+        "endChar": 45
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87ab5d58_92a9845b",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T22:11:22Z",
+      "side": 1,
+      "message": "nit: I think it would be nicer to extract the shared stuff into a base class, rather than overriding a completely test class for a completely different set of tests.",
+      "range": {
+        "startLine": 664,
+        "startChar": 40,
+        "endLine": 664,
+        "endChar": 62
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab994a5a_e24bbd4b",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T22:11:22Z",
+      "side": 1,
+      "message": "`VERSION_WITHOUT_TEST_MODE`?",
+      "range": {
+        "startLine": 668,
+        "startChar": 44,
+        "endLine": 668,
+        "endChar": 45
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee951c78_1399aa70",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T22:11:22Z",
+      "side": 1,
+      "message": "Should be false?\n\nOr do you intentionally want to test with both true _and_ false?\n\nSeems like maybe we should have a test for generateCertificateRequestV2 that ensures testMode is an inconsequential flag (aka, it succeeds regardless of the flag state, producing good output).",
+      "range": {
+        "startLine": 708,
+        "startChar": 4,
+        "endLine": 708,
+        "endChar": 25
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a056feb_49552a81",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T22:11:22Z",
+      "side": 1,
+      "message": "This seems fine to me.",
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d95e7aa7_6ce2ec38",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T22:11:22Z",
+      "side": 1,
+      "message": "File a bug?",
+      "range": {
+        "startLine": 827,
+        "startChar": 7,
+        "endLine": 827,
+        "endChar": 11
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
