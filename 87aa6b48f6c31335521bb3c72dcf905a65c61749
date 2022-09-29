@@ -177,6 +177,24 @@
       "message": "It may be worth reiterating relevant information from Keymint\u0027s upgradeKey or just point to it.\nhttps://android.googlesource.com/platform/hardware/interfaces/+/refs/heads/master/security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
       "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4422fa35_f320f279",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T17:32:46Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "0abc6f79_fc7047af",
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
