@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56c867c4_158e3dc3",
+        "filename": "cas/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a600371_f3fd2cda",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68c116a4_54ca2de9",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71e943aa_646f9e88",
+        "filename": "cas/aidl/default/CasImpl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68c116a4_54ca2de9",
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3deacbcf_681edf51",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-09-28T01:26:40Z",
       "side": 1,
       "message": "can remove `namespace implementation` and all `using` lines as well. same for other classes.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 48
+      },
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e38a3da_1f8237d1",
+        "filename": "cas/aidl/default/CasImpl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3deacbcf_681edf51",
       "range": {
         "startLine": 29,
         "startChar": 0,
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c12ffa0_4e2c5a31",
+        "filename": "cas/aidl/default/CasImpl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7afb84dc_37175970",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 20
+      },
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bd4b012_e4a019c5",
@@ -100,6 +190,30 @@
       "writtenOn": "2022-09-28T01:26:40Z",
       "side": 1,
       "message": "better change this to heapBase.",
+      "range": {
+        "startLine": 95,
+        "startChar": 18,
+        "endLine": 95,
+        "endChar": 26
+      },
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d73be163_41f3b5c5",
+        "filename": "cas/aidl/default/DescramblerImpl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bd4b012_e4a019c5",
       "range": {
         "startLine": 95,
         "startChar": 18,
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "162cfcf4_30a675cb",
+        "filename": "cas/aidl/default/DescramblerImpl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "901bf6b6_c9735265",
+      "range": {
+        "startLine": 96,
+        "startChar": 23,
+        "endLine": 96,
+        "endChar": 34
+      },
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "facdd36b_8d5745ac",
@@ -146,6 +284,24 @@
       "writtenOn": "2022-09-28T01:26:40Z",
       "side": 1,
       "message": "in the v1.2 default impl, there is a validate range check here as well. we may keep it.",
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7811c28_9858ed18",
+        "filename": "cas/aidl/default/DescramblerImpl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "facdd36b_8d5745ac",
       "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -267,6 +423,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "148e27b5_dcf31404",
+        "filename": "cas/aidl/default/DescramblerImpl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fd45e26_f1d3c6b7",
+      "range": {
+        "startLine": 39,
+        "startChar": 26,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdeb7416_83312c77",
@@ -284,6 +464,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5c4cd18_8d29dec4",
+        "filename": "cas/aidl/default/cas-default-lazy.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdeb7416_83312c77",
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b458a94_fc571ef5",
@@ -297,6 +495,24 @@
       "writtenOn": "2022-09-28T01:26:40Z",
       "side": 1,
       "message": "move this to line 2",
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88c045d7_1101c08f",
+        "filename": "cas/aidl/default/cas-default.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b458a94_fc571ef5",
       "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -324,6 +540,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ff77e4e_17a3d59d",
+        "filename": "cas/aidl/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00c8e4f9_c4936cae",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 6
+      },
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "092a4684_408e1bdc",
@@ -337,6 +577,30 @@
       "writtenOn": "2022-09-28T01:26:40Z",
       "side": 1,
       "message": "change this to `return EXIT_FAILURE;  // should not be reached`",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 13
+      },
+      "revId": "ca91463a1a9f05ab3dc14a36a993351ed6299a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "369fafef_9285afd8",
+        "filename": "cas/aidl/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-09-29T13:36:02Z",
+      "side": 1,
+      "message": "Call is suppose to reach here in valid cases, in case status !\u003d STATUS_OK we log fatal error.",
+      "parentUuid": "092a4684_408e1bdc",
       "range": {
         "startLine": 54,
         "startChar": 4,
