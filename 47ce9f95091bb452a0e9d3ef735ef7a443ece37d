@@ -140,6 +140,30 @@
       },
       "revId": "47ce9f95091bb452a0e9d3ef735ef7a443ece37d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1843b01b_47586adf",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1937166
+      },
+      "writtenOn": "2022-09-29T13:39:21Z",
+      "side": 1,
+      "message": "Ack. This looks good.",
+      "parentUuid": "822ec27b_32cbface",
+      "range": {
+        "startLine": 473,
+        "startChar": 85,
+        "endLine": 473,
+        "endChar": 93
+      },
+      "revId": "47ce9f95091bb452a0e9d3ef735ef7a443ece37d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
