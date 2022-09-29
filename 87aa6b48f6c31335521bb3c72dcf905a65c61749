@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "548f14de_e4303c6a",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T17:03:30Z",
+      "side": 1,
+      "message": "\"is designed to be added as a component onto these other HALs\" is a bit awkward. How about \"is intended to be implemented by these HALS\".\n\nOr maybe \"is an additional interface for interacting with these HALS\"?\n\nOr... something even better?",
+      "range": {
+        "startLine": 467,
+        "startChar": 19,
+        "endLine": 467,
+        "endChar": 80
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd806ce6_3bd19aa4",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T17:03:30Z",
+      "side": 1,
+      "message": "s/easy/abstract/",
+      "range": {
+        "startLine": 475,
+        "startChar": 36,
+        "endLine": 475,
+        "endChar": 40
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a37c0ef7_bf721802",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T17:03:30Z",
+      "side": 1,
+      "message": "s/effectively//",
+      "range": {
+        "startLine": 475,
+        "startChar": 12,
+        "endLine": 475,
+        "endChar": 23
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55bdb099_679ccf58",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T17:03:30Z",
+      "side": 1,
+      "message": "s/contain/implement/",
+      "range": {
+        "startLine": 476,
+        "startChar": 13,
+        "endLine": 476,
+        "endChar": 20
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03eb06e6_155c97fa",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-09-29T17:03:30Z",
+      "side": 1,
+      "message": "I\u0027m not sure what \"Note that this means from the standpoint of the IRPC HAL, these byte formats are opaque.\" means.\n\nThe IRPC implemented by keymint probably knows what\u0027s in the blobs, right?\n\nPerhaps you meant that the IRPC implementations are likely thin wrappers around an existing HAL key upgrade call?",
+      "range": {
+        "startLine": 476,
+        "startChar": 37,
+        "endLine": 477,
+        "endChar": 31
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
