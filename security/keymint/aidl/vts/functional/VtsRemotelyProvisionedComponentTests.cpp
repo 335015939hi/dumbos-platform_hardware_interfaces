@@ -46,6 +46,7 @@ using ::std::vector;
 namespace {
 
 constexpr int32_t VERSION_WITH_UNIQUE_ID_SUPPORT = 2;
+constexpr int32_t VERSION_WITHOUT_TEST_MODE = 3;
 
 #define INSTANTIATE_REM_PROV_AIDL_TEST(name)                                         \
     GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(name);                             \
@@ -180,6 +181,15 @@ class VtsRemotelyProvisionedComponentTests : public testing::TestWithParam<std::
         return params;
     }
 
+    void checkMacedPubkeyVersioned(const MacedPublicKey& macedPubKey, bool testMode,
+                                   vector<uint8_t>* payload_value) {
+        if (rpcHardwareInfo.versionNumber >= VERSION_WITHOUT_TEST_MODE) {
+            check_maced_pubkey(macedPubKey, false, payload_value);
+        } else {
+            check_maced_pubkey(macedPubKey, testMode, payload_value);
+        }
+    }
+
   protected:
     std::shared_ptr<IRemotelyProvisionedComponent> provisionable_;
     RpcHardwareInfo rpcHardwareInfo;
@@ -261,7 +271,7 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_prodMode) {
     auto status = provisionable_->generateEcdsaP256KeyPair(testMode, &macedPubKey, &privateKeyBlob);
     ASSERT_TRUE(status.isOk());
     vector<uint8_t> coseKeyData;
-    check_maced_pubkey(macedPubKey, testMode, &coseKeyData);
+    checkMacedPubkeyVersioned(macedPubKey, testMode, &coseKeyData);
 }
 
 /**
@@ -284,7 +294,7 @@ TEST_P(GenerateKeyTests, generateAndUseEcdsaP256Key_prodMode) {
     auto status = provisionable_->generateEcdsaP256KeyPair(testMode, &macedPubKey, &privateKeyBlob);
     ASSERT_TRUE(status.isOk());
     vector<uint8_t> coseKeyData;
-    check_maced_pubkey(macedPubKey, testMode, &coseKeyData);
+    checkMacedPubkeyVersioned(macedPubKey, testMode, &coseKeyData);
 
     AttestationKey attestKey;
     attestKey.keyBlob = std::move(privateKeyBlob);
@@ -339,13 +349,21 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_testMode) {
     bool testMode = true;
     auto status = provisionable_->generateEcdsaP256KeyPair(testMode, &macedPubKey, &privateKeyBlob);
     ASSERT_TRUE(status.isOk());
-
-    check_maced_pubkey(macedPubKey, testMode, nullptr);
+    checkMacedPubkeyVersioned(macedPubKey, testMode, nullptr);
 }
 
 class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
   protected:
     CertificateRequestTest() : eekId_(string_to_bytevec("eekid")), challenge_(randomBytes(64)) {}
+
+    void SetUp() override {
+        VtsRemotelyProvisionedComponentTests::SetUp();
+
+        if (rpcHardwareInfo.versionNumber > 2) {
+            GTEST_SKIP() << "This test case only applies to RKP v1 and v2. "
+                         << "RKP version discovered: " << rpcHardwareInfo.versionNumber;
+        }
+    }
 
     void generateTestEekChain(size_t eekLength) {
         auto chain = generateEekChain(rpcHardwareInfo.supportedEekCurve, eekLength, eekId_);
@@ -364,7 +382,7 @@ class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
             ASSERT_TRUE(status.isOk()) << status.getMessage();
 
             vector<uint8_t> payload_value;
-            check_maced_pubkey(key, testMode, &payload_value);
+            checkMacedPubkeyVersioned(key, testMode, &payload_value);
             cborKeysToSign_.add(cppbor::EncodedItem(payload_value));
         }
     }
@@ -642,5 +660,43 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_testKeyInProdCert) {
 }
 
 INSTANTIATE_REM_PROV_AIDL_TEST(CertificateRequestTest);
+
+class CertificateRequestV2Test : public CertificateRequestTest {
+    void SetUp() override {
+        VtsRemotelyProvisionedComponentTests::SetUp();
+
+        if (rpcHardwareInfo.versionNumber < 3) {
+            GTEST_SKIP() << "This test case only applies to RKP v3 and above. "
+                         << "RKP version discovered: " << rpcHardwareInfo.versionNumber;
+        }
+    }
+};
+
+TEST_P(CertificateRequestV2Test, EmptyRequest) {
+    bytevec csr;
+
+    auto status =
+            provisionable_->generateCertificateRequestV2({} /* keysToSign */, challenge_, &csr);
+    ASSERT_TRUE(status.isOk()) << status.getMessage();
+
+    auto result = verifyProductionCsr(cppbor::Array(), csr, provisionable_.get(), challenge_);
+    ASSERT_TRUE(result) << result.message();
+}
+
+TEST_P(CertificateRequestV2Test, NonEmptyRequest) {
+    generateKeys(false /* testMode */, 4 /* numKeys */);
+
+    bytevec csr;
+
+    auto status = provisionable_->generateCertificateRequestV2(keysToSign_, challenge_, &csr);
+    ASSERT_TRUE(status.isOk()) << status.getMessage();
+
+    auto result = verifyProductionCsr(cborKeysToSign_, csr, provisionable_.get(), challenge_);
+    ASSERT_TRUE(result) << result.message();
+}
+
+// TODO: negative tests cases
+
+INSTANTIATE_REM_PROV_AIDL_TEST(CertificateRequestV2Test);
 
 }  // namespace aidl::android::hardware::security::keymint::test
