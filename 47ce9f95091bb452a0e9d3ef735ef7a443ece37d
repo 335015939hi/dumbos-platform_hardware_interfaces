@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e6de3c9_160e812d",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-29T12:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fee5b422_2976b689",
+      "range": {
+        "startLine": 469,
+        "startChar": 7,
+        "endLine": 469,
+        "endChar": 28
+      },
+      "revId": "47ce9f95091bb452a0e9d3ef735ef7a443ece37d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57134718_e23b28f8",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7377035a_6dd801fa",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-29T12:29:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57134718_e23b28f8",
+      "range": {
+        "startLine": 470,
+        "startChar": 12,
+        "endLine": 470,
+        "endChar": 19
+      },
+      "revId": "47ce9f95091bb452a0e9d3ef735ef7a443ece37d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3065a06c_ea3c8f64",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-09-29T12:18:38Z",
       "side": 1,
       "message": "You differentiated IRPC and HALs in the first line. Using IRPC HAL together could make this confusing.",
+      "range": {
+        "startLine": 473,
+        "startChar": 85,
+        "endLine": 473,
+        "endChar": 93
+      },
+      "revId": "47ce9f95091bb452a0e9d3ef735ef7a443ece37d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "822ec27b_32cbface",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-29T12:29:56Z",
+      "side": 1,
+      "message": "I modified the first couple of lines to hopefully make it a little more clear, let me know if that works.",
+      "parentUuid": "3065a06c_ea3c8f64",
       "range": {
         "startLine": 473,
         "startChar": 85,
