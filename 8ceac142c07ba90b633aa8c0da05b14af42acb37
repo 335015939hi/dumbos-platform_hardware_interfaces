@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e53ce84d_a740e436",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-09-29T14:56:47Z",
+      "side": 1,
+      "message": "Updated the text to describe the timestamp source.\n\nI think that Keystore will provide the `timeStampToken` on every invocation, not just the first, so I suspect there will be implementations that rely on that.  So I\u0027ve tried to make the text flexible enough to cover all existing behaviour.",
+      "parentUuid": "53e919a0_f192043f",
+      "range": {
+        "startLine": 631,
+        "startChar": 11,
+        "endLine": 632,
+        "endChar": 97
+      },
+      "revId": "8ceac142c07ba90b633aa8c0da05b14af42acb37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc94ffcf_41fb494c",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-29T14:25:59Z",
       "side": 1,
       "message": "Maybe briefly itemize the two exceptions here, before going on to explain them each in detail?",
+      "range": {
+        "startLine": 83,
+        "startChar": 89,
+        "endLine": 84,
+        "endChar": 30
+      },
+      "revId": "8ceac142c07ba90b633aa8c0da05b14af42acb37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb1751a6_f1c3811c",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-09-29T14:56:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc94ffcf_41fb494c",
       "range": {
         "startLine": 83,
         "startChar": 89,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02440a27_d289e19f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-09-29T14:56:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fee650a5_91d778e0",
+      "range": {
+        "startLine": 92,
+        "startChar": 74,
+        "endLine": 92,
+        "endChar": 85
+      },
+      "revId": "8ceac142c07ba90b633aa8c0da05b14af42acb37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c5e29cb_9d3aa3e6",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bae239a_01a10a17",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-09-29T14:56:47Z",
+      "side": 1,
+      "message": "Went for \"the method\" so the text works in the context of updateAad/finish too.",
+      "parentUuid": "5c5e29cb_9d3aa3e6",
+      "range": {
+        "startLine": 106,
+        "startChar": 49,
+        "endLine": 106,
+        "endChar": 57
+      },
+      "revId": "8ceac142c07ba90b633aa8c0da05b14af42acb37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ac7aa79_94819f6e",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-09-29T14:25:59Z",
       "side": 1,
       "message": "Should we perhaps relax this? I think the HAL\u0027s client (keystore) will and should continue providing the auth token and timestamp token on every call for simplicity, but I wonder if we should actually specify that. Implementers might assume that this means HAL service implementations must also provide those tokens on every call, but for contexts where comms between the AP and the secure environment are slow (eSEs, basically), it might make sense for the HAL service to be smarter and to avoid sending tokens when it knows the secure side has already checked them and cached the result.",
+      "range": {
+        "startLine": 109,
+        "startChar": 46,
+        "endLine": 109,
+        "endChar": 59
+      },
+      "revId": "8ceac142c07ba90b633aa8c0da05b14af42acb37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f829d3cf_95ce2803",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-09-29T14:56:47Z",
+      "side": 1,
+      "message": "I\u0027d prefer not to do anything that looks like a change to the spec at this point, I was just hoping to clarify existing behaviour.",
+      "parentUuid": "3ac7aa79_94819f6e",
       "range": {
         "startLine": 109,
         "startChar": 46,
