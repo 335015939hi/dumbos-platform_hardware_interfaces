@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53e919a0_f192043f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-09-29T14:25:59Z",
+      "side": 1,
+      "message": "We should probably clarify that in this case \"now\" comes from a TimestampToken, which will be passed into every subsequent call.\n\nI just had a long debate with myself on the pros/cons of specifying that the implementer can choose whether to check on the first call and cache the result or to check on every call, but I decided that the time/space tradeoff favors caching in every context I can think of, so let\u0027s go with specifying first call.",
+      "range": {
+        "startLine": 631,
+        "startChar": 11,
+        "endLine": 632,
+        "endChar": 97
+      },
+      "revId": "8ceac142c07ba90b633aa8c0da05b14af42acb37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc94ffcf_41fb494c",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-09-29T14:25:59Z",
+      "side": 1,
+      "message": "Maybe briefly itemize the two exceptions here, before going on to explain them each in detail?",
+      "range": {
+        "startLine": 83,
+        "startChar": 89,
+        "endLine": 84,
+        "endChar": 30
+      },
+      "revId": "8ceac142c07ba90b633aa8c0da05b14af42acb37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fee650a5_91d778e0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-09-29T14:25:59Z",
+      "side": 1,
+      "message": "also updateAad() and finish().",
+      "range": {
+        "startLine": 92,
+        "startChar": 74,
+        "endLine": 92,
+        "endChar": 85
+      },
+      "revId": "8ceac142c07ba90b633aa8c0da05b14af42acb37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c5e29cb_9d3aa3e6",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-09-29T14:25:59Z",
+      "side": 1,
+      "message": "update(), updateAad() and finish()",
+      "range": {
+        "startLine": 106,
+        "startChar": 49,
+        "endLine": 106,
+        "endChar": 57
+      },
+      "revId": "8ceac142c07ba90b633aa8c0da05b14af42acb37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ac7aa79_94819f6e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-09-29T14:25:59Z",
+      "side": 1,
+      "message": "Should we perhaps relax this? I think the HAL\u0027s client (keystore) will and should continue providing the auth token and timestamp token on every call for simplicity, but I wonder if we should actually specify that. Implementers might assume that this means HAL service implementations must also provide those tokens on every call, but for contexts where comms between the AP and the secure environment are slow (eSEs, basically), it might make sense for the HAL service to be smarter and to avoid sending tokens when it knows the secure side has already checked them and cached the result.",
+      "range": {
+        "startLine": 109,
+        "startChar": 46,
+        "endLine": 109,
+        "endChar": 59
+      },
+      "revId": "8ceac142c07ba90b633aa8c0da05b14af42acb37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
