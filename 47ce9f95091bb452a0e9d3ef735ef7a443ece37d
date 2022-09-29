@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fee5b422_2976b689",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1937166
+      },
+      "writtenOn": "2022-09-29T12:18:38Z",
+      "side": 1,
+      "message": "back ticks don\u0027t help I believe. we can use \u003cpre\u003e.\nAlso we can use \"upgradeKey API provides\" here.",
+      "range": {
+        "startLine": 469,
+        "startChar": 7,
+        "endLine": 469,
+        "endChar": 28
+      },
+      "revId": "47ce9f95091bb452a0e9d3ef735ef7a443ece37d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57134718_e23b28f8",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1937166
+      },
+      "writtenOn": "2022-09-29T12:18:38Z",
+      "side": 1,
+      "message": "s/to call//\nto call feels a bit jarring here. we should be able to remove it without loss of understanding.",
+      "range": {
+        "startLine": 470,
+        "startChar": 12,
+        "endLine": 470,
+        "endChar": 19
+      },
+      "revId": "47ce9f95091bb452a0e9d3ef735ef7a443ece37d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3065a06c_ea3c8f64",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1937166
+      },
+      "writtenOn": "2022-09-29T12:18:38Z",
+      "side": 1,
+      "message": "You differentiated IRPC and HALs in the first line. Using IRPC HAL together could make this confusing.",
+      "range": {
+        "startLine": 473,
+        "startChar": 85,
+        "endLine": 473,
+        "endChar": 93
+      },
+      "revId": "47ce9f95091bb452a0e9d3ef735ef7a443ece37d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
