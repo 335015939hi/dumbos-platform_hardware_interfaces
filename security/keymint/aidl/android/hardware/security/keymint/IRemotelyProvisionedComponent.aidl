@@ -461,4 +461,36 @@ interface IRemotelyProvisionedComponent {
      * AlgorithmEdDSA = -8
      */
     byte[] generateCertificateRequestV2(in MacedPublicKey[] keysToSign, in byte[] challenge);
+
+    /**
+     * HALs such as KeyMint have rollback protections applied to the keys that they generate. These
+     * rollback protections also apply to the keys that are generated through this interface, since
+     * the underlying key generation functionality is provided by those other HALs.
+     *
+     * In order to have a holistic attestation key provisioning and maintenance process,
+     * the upgradeKey method provides an entry point for the system component managing remotely
+     * provisioned keys, without that component having to understand HAL-specific key upgrade
+     * functions.
+     *
+     * This is necessary in order to enable that system component to fully manage attestation keys.
+     * When a client of this system component retrieves an attestation key and attempts to use it
+     * in the corresponding HAL (e.g. KeyMint), that HAL may reject that key if it needs an upgrade.
+     * Without this method, the client would have to manage upgrading the key and communicating to
+     * the system component the new version of the key blob. With this method, the client can
+     * indicate that the key blob needs upgrade and offload the responsibility to the system
+     * component itself.
+     *
+     * This provides an abstract wrapper for key upgrade functionality for different HALs which
+     * implement this component.
+     *
+     * STATUS_FAILED should be returned upon a failure to upgrade the key.
+     *
+     * @param in oldKey The key to be upgraded.
+     *
+     * @param in additionalParams any additional parameters that need to be attached to the key
+     *        blob in order to facilitate upgrade. See IKeyMintDevice::upgradeKey() for an example.
+     *
+     * @return the upgraded key blob.
+     */
+    byte[] upgradeKey(in byte[] oldKey, in byte[] additionalParams);
 }
