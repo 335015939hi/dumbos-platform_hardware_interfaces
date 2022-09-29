@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eb5f0f3_7c55a067",
+        "filename": "fastboot/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-09-29T22:57:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2d9964a0_126ebf1e",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 10
+      },
+      "revId": "c634aae5858ad385579febee4e983c89f8dc0cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "113d1e77_de49ea51",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-09-29T21:56:20Z",
       "side": 1,
       "message": "delete this",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 55
+      },
+      "revId": "c634aae5858ad385579febee4e983c89f8dc0cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02e6a53d_6c48a4bf",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-09-29T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "113d1e77_de49ea51",
       "range": {
         "startLine": 25,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8df05fc_a3c08427",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-09-29T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d4ffd94_9d9be3c6",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 20
+      },
+      "revId": "c634aae5858ad385579febee4e983c89f8dc0cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6becdf9b_14a81165",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-09-29T21:56:20Z",
       "side": 1,
       "message": "should use NOT_SUPPORTED for the unsupported command case.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 62
+      },
+      "revId": "c634aae5858ad385579febee4e983c89f8dc0cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5ab6618_310338b8",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-09-29T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6becdf9b_14a81165",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3406e8b_40337dd9",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-09-29T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dba71b10_2eec2a13",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 46
+      },
+      "revId": "c634aae5858ad385579febee4e983c89f8dc0cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06dffa40_885c7c9c",
@@ -146,6 +266,30 @@
       "writtenOn": "2022-09-29T21:56:20Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 69
+      },
+      "revId": "c634aae5858ad385579febee4e983c89f8dc0cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94e955a3_1ca1a673",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-09-29T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06dffa40_885c7c9c",
       "range": {
         "startLine": 65,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "836d691b_1ca6186f",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-09-29T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f203791e_6d99f143",
+      "range": {
+        "startLine": 75,
+        "startChar": 5,
+        "endLine": 75,
+        "endChar": 7
+      },
+      "revId": "c634aae5858ad385579febee4e983c89f8dc0cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baf229fd_bdc70610",
@@ -192,6 +360,30 @@
       "writtenOn": "2022-09-29T21:56:20Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 55
+      },
+      "revId": "c634aae5858ad385579febee4e983c89f8dc0cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c901484_15a64f2e",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-09-29T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baf229fd_bdc70610",
       "range": {
         "startLine": 86,
         "startChar": 0,
@@ -221,6 +413,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91261b3f_1e9c17e1",
+        "filename": "fastboot/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-09-29T22:57:35Z",
+      "side": 1,
+      "message": "Looks like from other places, its recovery only and not in vendor. Let me re-confirm with other people.",
+      "parentUuid": "c086b213_22cefd17",
+      "revId": "c634aae5858ad385579febee4e983c89f8dc0cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "122075db_ac820fdc",
         "filename": "fastboot/aidl/default/Fastboot.cpp",
         "patchSetId": 1
@@ -232,6 +442,30 @@
       "writtenOn": "2022-09-29T21:56:20Z",
       "side": 1,
       "message": "This isn\u0027t needed if we already have the status in the Result type which is returned for all methods. If we want to remove it from Result (then remove Result and use a String and update the IFastboot.aidl methods), I think this would be good, otherwise we could always return `ScopedAStatus::ok();`.",
+      "range": {
+        "startLine": 76,
+        "startChar": 11,
+        "endLine": 76,
+        "endChar": 96
+      },
+      "revId": "c634aae5858ad385579febee4e983c89f8dc0cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1abbef29_8f3189a9",
+        "filename": "fastboot/aidl/default/Fastboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-09-29T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "122075db_ac820fdc",
       "range": {
         "startLine": 76,
         "startChar": 11,
