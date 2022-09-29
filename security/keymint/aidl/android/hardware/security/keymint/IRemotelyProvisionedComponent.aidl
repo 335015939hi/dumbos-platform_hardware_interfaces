@@ -461,4 +461,26 @@ interface IRemotelyProvisionedComponent {
      * AlgorithmEdDSA = -8
      */
     byte[] generateCertificateRequestV2(in MacedPublicKey[] keysToSign, in byte[] challenge);
+
+    /**
+     * HALs such as KeyMint have rollback protections applied to the keys that they generate. These
+     * rollback protections also apply to the keys that are generated through this IRPC interface.
+     * In order to have a holistic attestation key provisioning and maintenance process,
+     * `upgradeKey` provides an entry point for the system component managing remotely provisioned
+     * keys to call, without having to understand HAL-specific key upgrade functions.
+     *
+     * This effectively provides an easy way to wrap key upgrade functionality for different HALs
+     * which contain this component. Note that this means from the standpoint of the IRPC HAL, these
+     * byte formats are opaque.
+     *
+     * `STATUS_FAILED` should be returned upon a failure to upgrade the key.
+     *
+     * @param in oldKey The key to be upgraded.
+     *
+     * @param in additionalParams any additional parameters that need to be attached to the key
+     *        blob in order to facilitate upgrade.
+     *
+     * @return the upgraded key blob.
+     */
+    byte[] upgradeKey(in byte[] oldKey, in byte[] additionalParams);
 }
