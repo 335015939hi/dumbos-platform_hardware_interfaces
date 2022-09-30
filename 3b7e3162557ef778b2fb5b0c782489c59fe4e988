@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "633c9dc6_01505197",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1965505
+      },
+      "writtenOn": "2022-09-30T20:30:44Z",
+      "side": 1,
+      "message": "Moves the aosp wifi hal apex to hardware/interfaces/wifi/apex, old location was in h/i/wifi/1.6/default/apex.  Note there is no delete of the apex files in the old location, planning to abandon the old CL which has the apex in the old location.",
+      "revId": "3b7e3162557ef778b2fb5b0c782489c59fe4e988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
