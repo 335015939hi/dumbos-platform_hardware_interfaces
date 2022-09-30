@@ -51,6 +51,24 @@
       "parentUuid": "81c85ea5_46680293",
       "revId": "b9ae8e77f8bf0f0b60e8dbbd52858ccfa34e0883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b38782e8_88cf17c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-09-30T22:22:30Z",
+      "side": 1,
+      "message": "I don\u0027t know whether there\u0027s any benefit to do that. I can only anticipate potential mess as other codebase are not developed AOSP first, e.g. plumbing it in frameworks/base",
+      "parentUuid": "a980973c_88837895",
+      "revId": "b9ae8e77f8bf0f0b60e8dbbd52858ccfa34e0883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
