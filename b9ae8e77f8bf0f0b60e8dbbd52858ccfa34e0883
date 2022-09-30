@@ -87,6 +87,24 @@
       "parentUuid": "b38782e8_88cf17c0",
       "revId": "b9ae8e77f8bf0f0b60e8dbbd52858ccfa34e0883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b2128dc_ecc7ae49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-09-30T22:56:44Z",
+      "side": 1,
+      "message": "Well partners should have EAP access, critical partners have alignment meetings and roadshow meetings.\n\nI highly respect people who are enthusiastic about developing in AOSP first and can definitely understand that, unfortunately both our infra and workflow don\u0027t seem to agree that developing in AOSP is a good practice at the moment, especially when one needs to do a vertical integration across different codebases. Running into merge conflict is a significant negative impact on productivity.\n\nWould like to have Wei clarify whether this is necessary. I am not objective to merge this patch if it\u0027s necessary.",
+      "parentUuid": "eb089d78_10e0e390",
+      "revId": "b9ae8e77f8bf0f0b60e8dbbd52858ccfa34e0883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
