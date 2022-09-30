@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c0dba8d_5a08be7c",
+        "filename": "cas/aidl/default/FactoryLoader.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-09-30T02:11:11Z",
+      "side": 1,
+      "message": "can be removed as already stated using namespace ::android",
+      "range": {
+        "startLine": 170,
+        "startChar": 11,
+        "endLine": 170,
+        "endChar": 22
+      },
+      "revId": "37e7ee1bdaf4ba5760832b392cc60ee7e066d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2666e2f_e7c7946b",
+        "filename": "cas/aidl/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-09-30T02:11:11Z",
+      "side": 1,
+      "message": "I think we can use MediaCasService here, and remove the using of IMediaCasService.",
+      "range": {
+        "startLine": 37,
+        "startChar": 20,
+        "endLine": 37,
+        "endChar": 36
+      },
+      "revId": "37e7ee1bdaf4ba5760832b392cc60ee7e066d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
