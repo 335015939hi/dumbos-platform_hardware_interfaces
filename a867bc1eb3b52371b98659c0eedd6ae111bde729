@@ -16,6 +16,24 @@
       "message": "cc manishdwivedi@: I was trying to understand some of the StrongBox auth flows and it seemed like the spec was missing some info -- please chime in as to whether this matches your understanding.",
       "revId": "a867bc1eb3b52371b98659c0eedd6ae111bde729",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98dfc68c_923e6b3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1632361
+      },
+      "writtenOn": "2022-09-30T22:15:31Z",
+      "side": 1,
+      "message": "Thanks for updating David. Seems pretty clear to me now. This aligns with our current implemetnation in Javacard applets too.",
+      "parentUuid": "1dc58778_d665fa42",
+      "revId": "a867bc1eb3b52371b98659c0eedd6ae111bde729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
