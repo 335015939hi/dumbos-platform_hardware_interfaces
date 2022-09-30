@@ -93,6 +93,7 @@ aidl_interface {
     srcs: [
         "android/hardware/audio/core/AudioPatch.aidl",
         "android/hardware/audio/core/AudioRoute.aidl",
+        "android/hardware/audio/core/IBluetooth.aidl",
         "android/hardware/audio/core/IConfig.aidl",
         "android/hardware/audio/core/IModule.aidl",
         "android/hardware/audio/core/IStreamIn.aidl",
