@@ -105,6 +105,24 @@
       "parentUuid": "eb089d78_10e0e390",
       "revId": "b9ae8e77f8bf0f0b60e8dbbd52858ccfa34e0883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae97dd5_04064f1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1905031
+      },
+      "writtenOn": "2022-09-30T23:29:33Z",
+      "side": 1,
+      "message": "I think getting the interface out early in AOSP makes sense if we expect it to be required at some point, but I\u0027m not an expert on this and don\u0027t know if it would be bad practice here. @wvw@google.com curious what your thoughts on this are since it was your idea",
+      "parentUuid": "2b2128dc_ecc7ae49",
+      "revId": "b9ae8e77f8bf0f0b60e8dbbd52858ccfa34e0883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
