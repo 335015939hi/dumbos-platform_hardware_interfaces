@@ -33,6 +33,24 @@
       "message": "I don\u0027t think we have to do AOSP. Wei, could you please clarify?",
       "revId": "b9ae8e77f8bf0f0b60e8dbbd52858ccfa34e0883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a980973c_88837895",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-09-30T21:46:40Z",
+      "side": 1,
+      "message": "Why not do AOSP?",
+      "parentUuid": "81c85ea5_46680293",
+      "revId": "b9ae8e77f8bf0f0b60e8dbbd52858ccfa34e0883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
