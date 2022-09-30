@@ -69,6 +69,24 @@
       "parentUuid": "a980973c_88837895",
       "revId": "b9ae8e77f8bf0f0b60e8dbbd52858ccfa34e0883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb089d78_10e0e390",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-09-30T22:32:34Z",
+      "side": 1,
+      "message": "Partners can see it earlier and it allows everyone else that\u0027s dependent on the changes to work in AOSP.\nIt\u0027s true sometimes there will be merge conflicts internally and the work ends up needing to be moved there, but I always suggest trying to develop AOSP first unless there is a reason.",
+      "parentUuid": "b38782e8_88cf17c0",
+      "revId": "b9ae8e77f8bf0f0b60e8dbbd52858ccfa34e0883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
