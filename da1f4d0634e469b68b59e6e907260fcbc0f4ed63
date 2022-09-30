@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46f7c7dc_7b1e46c7",
+        "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-30T23:34:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f62ee476_dc3dbefc",
+      "range": {
+        "startLine": 31,
+        "startChar": 26,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "da1f4d0634e469b68b59e6e907260fcbc0f4ed63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cea87e7b_ab74037c",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "507217a2_51c9e915",
+        "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-30T23:34:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cea87e7b_ab74037c",
+      "range": {
+        "startLine": 32,
+        "startChar": 15,
+        "endLine": 34,
+        "endChar": 71
+      },
+      "revId": "da1f4d0634e469b68b59e6e907260fcbc0f4ed63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb5c293b_834955fe",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-09-30T20:08:21Z",
       "side": 1,
       "message": "during the initialization",
+      "range": {
+        "startLine": 36,
+        "startChar": 39,
+        "endLine": 36,
+        "endChar": 57
+      },
+      "revId": "da1f4d0634e469b68b59e6e907260fcbc0f4ed63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5570a8a_5decc8bd",
+        "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-09-30T23:34:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb5c293b_834955fe",
       "range": {
         "startLine": 36,
         "startChar": 39,
