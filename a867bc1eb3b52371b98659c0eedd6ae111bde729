@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dc58778_d665fa42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-09-30T06:52:50Z",
+      "side": 1,
+      "message": "cc manishdwivedi@: I was trying to understand some of the StrongBox auth flows and it seemed like the spec was missing some info -- please chime in as to whether this matches your understanding.",
+      "revId": "a867bc1eb3b52371b98659c0eedd6ae111bde729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
