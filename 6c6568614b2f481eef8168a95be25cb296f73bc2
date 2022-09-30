@@ -95,6 +95,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32bb013f_498a75b2",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-30T22:33:20Z",
+      "side": 1,
+      "message": "This should be a safe replacement of the version derived in the CSR, because the equality of these two fields is checked in another test, right?",
+      "range": {
+        "startLine": 533,
+        "startChar": 8,
+        "endLine": 533,
+        "endChar": 26
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df7b9cfb_801d8e2f",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-30T22:33:20Z",
+      "side": 1,
+      "message": "Nit: Add the expected vs actual challenge in a hex printout as well",
+      "range": {
+        "startLine": 780,
+        "startChar": 15,
+        "endLine": 780,
+        "endChar": 50
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a056feb_49552a81",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 3
@@ -106,6 +152,24 @@
       "writtenOn": "2022-09-29T22:11:22Z",
       "side": 1,
       "message": "This seems fine to me.",
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87fd1956_997f3a9d",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-30T22:33:20Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "4a056feb_49552a81",
       "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -128,6 +192,29 @@
         "startChar": 7,
         "endLine": 827,
         "endChar": 11
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b0177a2_815bb4a9",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-09-30T22:33:20Z",
+      "side": 1,
+      "message": "Is this used anywhere?",
+      "range": {
+        "startLine": 854,
+        "startChar": 36,
+        "endLine": 854,
+        "endChar": 52
       },
       "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
