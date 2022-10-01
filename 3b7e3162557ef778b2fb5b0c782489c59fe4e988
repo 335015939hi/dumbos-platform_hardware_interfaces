@@ -16,6 +16,115 @@
       "message": "Moves the aosp wifi hal apex to hardware/interfaces/wifi/apex, old location was in h/i/wifi/1.6/default/apex.  Note there is no delete of the apex files in the old location, planning to abandon the old CL which has the apex in the old location.",
       "revId": "3b7e3162557ef778b2fb5b0c782489c59fe4e988",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7fbae45_81a8d5a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-10-01T02:02:51Z",
+      "side": 1,
+      "message": "Set topic for this and the other change together.",
+      "revId": "3b7e3162557ef778b2fb5b0c782489c59fe4e988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "696bf0d9_cec5bc70",
+        "filename": "wifi/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-10-01T02:02:51Z",
+      "side": 1,
+      "message": "We don\u0027t need this. \"com.android.hardware.wifi\" is correct.",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 39
+      },
+      "revId": "3b7e3162557ef778b2fb5b0c782489c59fe4e988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc6c96f8_db188002",
+        "filename": "wifi/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-10-01T02:02:51Z",
+      "side": 1,
+      "message": "vintf_fragments?",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 6
+      },
+      "revId": "3b7e3162557ef778b2fb5b0c782489c59fe4e988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80e502cb_d658532f",
+        "filename": "wifi/apex/android.hardware.wifi.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-10-01T02:02:51Z",
+      "side": 1,
+      "message": "com.android.hardware.wifi",
+      "range": {
+        "startLine": 1,
+        "startChar": 41,
+        "endLine": 1,
+        "endChar": 62
+      },
+      "revId": "3b7e3162557ef778b2fb5b0c782489c59fe4e988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df2be80e_d6320dc5",
+        "filename": "wifi/apex/apex_manifest.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-10-01T02:02:51Z",
+      "side": 1,
+      "message": "com.android.hardware.wifi",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 34
+      },
+      "revId": "3b7e3162557ef778b2fb5b0c782489c59fe4e988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
