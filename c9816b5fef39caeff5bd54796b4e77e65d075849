@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60fdaf72_3a0c61e5",
+        "filename": "thermal/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-01T00:31:44Z",
+      "side": 1,
+      "message": "nit: We can likely disable this backend. The ndk backend works for C++ use cases and can be used in /vendor, so it\u0027s a bit more portable.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 10
+      },
+      "revId": "c9816b5fef39caeff5bd54796b4e77e65d075849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78b0b7f2_6d9c19e9",
+        "filename": "thermal/aidl/android/hardware/thermal/CoolingDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-01T00:31:44Z",
+      "side": 1,
+      "message": "nit: `can be`",
+      "range": {
+        "startLine": 35,
+        "startChar": 63,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "c9816b5fef39caeff5bd54796b4e77e65d075849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0232b44d_290b5e8d",
+        "filename": "thermal/aidl/android/hardware/thermal/CpuUsage.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-01T00:31:44Z",
+      "side": 1,
+      "message": "Add the units to the field name - `activeMs` - makes it a bit easier to work with the code without having to reference the comments here.",
+      "range": {
+        "startLine": 32,
+        "startChar": 9,
+        "endLine": 32,
+        "endChar": 15
+      },
+      "revId": "c9816b5fef39caeff5bd54796b4e77e65d075849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc8abda6_83f24fd3",
+        "filename": "thermal/aidl/android/hardware/thermal/CpuUsage.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-01T00:31:44Z",
+      "side": 1,
+      "message": "`totalMs`",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 14
+      },
+      "revId": "c9816b5fef39caeff5bd54796b4e77e65d075849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dd68cf0_929e6b31",
+        "filename": "thermal/aidl/android/hardware/thermal/IThermal.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-01T00:31:44Z",
+      "side": 1,
+      "message": "can remove",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 55
+      },
+      "revId": "c9816b5fef39caeff5bd54796b4e77e65d075849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

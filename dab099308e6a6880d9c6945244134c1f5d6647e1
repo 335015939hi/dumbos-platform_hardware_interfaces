@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "430e8e5f_ef7e0687",
+        "filename": "thermal/aidl/android/hardware/thermal/TemperatureThreshold.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-01T00:31:44Z",
+      "side": 1,
+      "message": "does this need to be a fixed size array? \nIf we want to add an enumerator to ThrottlingSeverity in the future, this could no longer be used (we can\u0027t change the size of a fixed size array across versions).\n\nProbably just change it to `float[] hotThrottlingThresholds;` and the other field.\nCan keep a comment saying they should map to the enum though.",
+      "range": {
+        "startLine": 39,
+        "startChar": 10,
+        "endLine": 39,
+        "endChar": 40
+      },
+      "revId": "dab099308e6a6880d9c6945244134c1f5d6647e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
