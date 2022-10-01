@@ -70,6 +70,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5d8042a_cf8066fb",
+        "filename": "thermal/aidl/android/hardware/thermal/CpuUsage.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-10-01T03:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0232b44d_290b5e8d",
+      "range": {
+        "startLine": 32,
+        "startChar": 9,
+        "endLine": 32,
+        "endChar": 15
+      },
+      "revId": "c9816b5fef39caeff5bd54796b4e77e65d075849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc8abda6_83f24fd3",
@@ -93,6 +117,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bba7d93f_6840b82e",
+        "filename": "thermal/aidl/android/hardware/thermal/CpuUsage.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-10-01T03:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc8abda6_83f24fd3",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 14
+      },
+      "revId": "c9816b5fef39caeff5bd54796b4e77e65d075849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0dd68cf0_929e6b31",
@@ -106,6 +154,30 @@
       "writtenOn": "2022-10-01T00:31:44Z",
       "side": 1,
       "message": "can remove",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 55
+      },
+      "revId": "c9816b5fef39caeff5bd54796b4e77e65d075849",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc27590a_51de60b2",
+        "filename": "thermal/aidl/android/hardware/thermal/IThermal.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-10-01T03:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dd68cf0_929e6b31",
       "range": {
         "startLine": 26,
         "startChar": 0,
