@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a02da15f_f515fc40",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-03T22:28:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "548f14de_e4303c6a",
+      "range": {
+        "startLine": 467,
+        "startChar": 19,
+        "endLine": 467,
+        "endChar": 80
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a491c394_c776b387",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-29T17:27:59Z",
       "side": 1,
       "message": "Could you elaborate? or give an example of why not having upgradeKey is a problem for rkpd?",
+      "range": {
+        "startLine": 472,
+        "startChar": 25,
+        "endLine": 473,
+        "endChar": 17
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3939d71_be670a59",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-03T22:28:07Z",
+      "side": 1,
+      "message": "Added more description. This was originally a point of some back and forth, so @sethmo@google.com may remember another argument in the pro-column that I forgot.",
+      "parentUuid": "a491c394_c776b387",
       "range": {
         "startLine": 472,
         "startChar": 25,
@@ -93,6 +141,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2e261b4_a77672b4",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-03T22:28:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a37c0ef7_bf721802",
+      "range": {
+        "startLine": 475,
+        "startChar": 12,
+        "endLine": 475,
+        "endChar": 23
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b996b1be_a21cf800",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-03T22:28:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd806ce6_3bd19aa4",
+      "range": {
+        "startLine": 475,
+        "startChar": 36,
+        "endLine": 475,
+        "endChar": 40
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55bdb099_679ccf58",
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef4d6ecc_70bfab3d",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-03T22:28:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55bdb099_679ccf58",
+      "range": {
+        "startLine": 476,
+        "startChar": 13,
+        "endLine": 476,
+        "endChar": 20
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03eb06e6_155c97fa",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-09-29T17:03:30Z",
       "side": 1,
       "message": "I\u0027m not sure what \"Note that this means from the standpoint of the IRPC HAL, these byte formats are opaque.\" means.\n\nThe IRPC implemented by keymint probably knows what\u0027s in the blobs, right?\n\nPerhaps you meant that the IRPC implementations are likely thin wrappers around an existing HAL key upgrade call?",
+      "range": {
+        "startLine": 476,
+        "startChar": 37,
+        "endLine": 477,
+        "endChar": 31
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2eff58a_ef9f1b89",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-03T22:28:07Z",
+      "side": 1,
+      "message": "I suppose I was meaning to imply that the reason both arguments are just `byte[]` is because we can\u0027t prescribe formats ahead of time. I think I should just delete this statement.",
+      "parentUuid": "03eb06e6_155c97fa",
       "range": {
         "startLine": 476,
         "startChar": 37,
@@ -193,6 +337,48 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "0abc6f79_fc7047af",
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0b26e99_f3e0e1be",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-03T22:28:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4422fa35_f320f279",
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9bf8dd8_afa56aa4",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-03T22:28:07Z",
+      "side": 1,
+      "message": "`KeyParameter` is a KeyMint specific parameter, but this API needs to be general. The underlying HAL service should convert as needed.",
+      "parentUuid": "1573a30d_1e8e6776",
+      "range": {
+        "startLine": 488,
+        "startChar": 40,
+        "endLine": 488,
+        "endChar": 66
+      },
       "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
