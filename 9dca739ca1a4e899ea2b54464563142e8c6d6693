@@ -141,6 +141,30 @@
       },
       "revId": "9dca739ca1a4e899ea2b54464563142e8c6d6693",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ce64c3c_6e715e0f",
+        "filename": "audio/aidl/android/hardware/audio/core/IBluetooth.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-03T22:15:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c8d5267e_a476ef0c",
+      "range": {
+        "startLine": 97,
+        "startChar": 9,
+        "endLine": 97,
+        "endChar": 21
+      },
+      "revId": "9dca739ca1a4e899ea2b54464563142e8c6d6693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
