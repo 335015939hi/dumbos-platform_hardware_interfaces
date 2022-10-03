@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "684e4062_37b431d0",
+        "filename": "audio/aidl/android/hardware/audio/core/IBluetooth.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-03T18:52:23Z",
+      "side": 1,
+      "message": "Yes, we do. I did not understand you wanted to use this mechanism for BT ON/OFF.\nOne problem with this approach might be to have to repeat the whole config each time we turn of BT audio ON/OFF which is normally done without changing the BT parameters",
+      "parentUuid": "b6ebb801_88c31330",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 58
+      },
+      "revId": "9dca739ca1a4e899ea2b54464563142e8c6d6693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9aeddef7_fc597eb8",
         "filename": "audio/aidl/android/hardware/audio/core/IBluetooth.aidl",
         "patchSetId": 1
