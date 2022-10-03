@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "980119eb_2fa10527",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-10-03T23:18:40Z",
+      "side": 1,
+      "message": "Maybe we just drop this paragraph?\n\nupgradeKey is totally necessary, and I think the additional description below does a good job of explaining why we need it. This paragraph doesn\u0027t feel like it adds a lot.",
+      "parentUuid": "a3939d71_be670a59",
+      "range": {
+        "startLine": 472,
+        "startChar": 25,
+        "endLine": 473,
+        "endChar": 17
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd806ce6_3bd19aa4",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 2
