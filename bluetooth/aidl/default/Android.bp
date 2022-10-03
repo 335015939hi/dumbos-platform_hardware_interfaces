@@ -30,6 +30,7 @@ cc_library_static {
     defaults: ["android.hardware.bluetooth-service-build-defaults"],
     srcs: [
         "BluetoothHci.cpp",
+        "net_bluetooth_mgmt.cpp",
     ],
 }
 
