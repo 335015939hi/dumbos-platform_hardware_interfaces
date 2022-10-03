@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71f17c50_a00ab0ab",
+        "filename": "audio/aidl/android/hardware/audio/core/IBluetooth.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-03T08:59:27Z",
+      "side": 1,
+      "message": "I don\u0027t think this ever happens. What scenario do you have in mind for this?",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 58
+      },
+      "revId": "9dca739ca1a4e899ea2b54464563142e8c6d6693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aeddef7_fc597eb8",
+        "filename": "audio/aidl/android/hardware/audio/core/IBluetooth.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-03T08:59:27Z",
+      "side": 1,
+      "message": "is HFP enabled by setting a non null config and disabled by setting a null config?",
+      "range": {
+        "startLine": 97,
+        "startChar": 9,
+        "endLine": 97,
+        "endChar": 21
+      },
+      "revId": "9dca739ca1a4e899ea2b54464563142e8c6d6693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
