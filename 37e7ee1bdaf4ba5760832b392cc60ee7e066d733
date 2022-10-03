@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3a05c24_7442df52",
+        "filename": "cas/aidl/default/FactoryLoader.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-10-03T04:34:07Z",
+      "side": 1,
+      "message": "There are 2 CasPluginDescriptor classes in cas : \nFirst in media/cas/CasAPI.h (::android)\nSecond in aidl/android/hardware/cas/.\nWe have renamed HidlCasPluginDescriptor to CasPluginDescriptor in case of AIDL.\nTo distinguish maybe we can rename aidl/android/hardware/cas/ one to AidlCasPluginDescriptor",
+      "parentUuid": "3c0dba8d_5a08be7c",
+      "range": {
+        "startLine": 170,
+        "startChar": 11,
+        "endLine": 170,
+        "endChar": 22
+      },
+      "revId": "37e7ee1bdaf4ba5760832b392cc60ee7e066d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2666e2f_e7c7946b",
         "filename": "cas/aidl/default/service.cpp",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-30T02:11:11Z",
       "side": 1,
       "message": "I think we can use MediaCasService here, and remove the using of IMediaCasService.",
+      "range": {
+        "startLine": 37,
+        "startChar": 20,
+        "endLine": 37,
+        "endChar": 36
+      },
+      "revId": "37e7ee1bdaf4ba5760832b392cc60ee7e066d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67bdd1a5_b8fed470",
+        "filename": "cas/aidl/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-10-03T04:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2666e2f_e7c7946b",
       "range": {
         "startLine": 37,
         "startChar": 20,
