@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "76062b63_618930a5",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-10-03T22:11:59Z",
+      "side": 1,
+      "message": "Please check if the fastbootd client uses the string field in the case of SUCCESS. If it doesn\u0027t, I highly doubt that it would be useful.\n\nThis is especially the case for the functions below that returns values and `doOemSpecificErase`. For `doOemCommand`, if you are really worried about not returning a string here (e.g. perhaps this is the return value of the OEM command?), then you can change this to `String doOemCommand(in String oemCmd)` perhaps.",
+      "parentUuid": "deacbe04_7f2d0385",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 10
+      },
+      "revId": "80f566c7ed1d60fd46baf61d80af5d2fada9cfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a5e7e8a_604038b5",
         "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
         "patchSetId": 3
