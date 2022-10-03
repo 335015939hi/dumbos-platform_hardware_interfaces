@@ -429,6 +429,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eed37d22_7f55c6a9",
+        "filename": "fastboot/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-10-03T20:40:47Z",
+      "side": 1,
+      "message": "this is correct, resolving",
+      "parentUuid": "91261b3f_1e9c17e1",
+      "revId": "c634aae5858ad385579febee4e983c89f8dc0cd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "122075db_ac820fdc",
