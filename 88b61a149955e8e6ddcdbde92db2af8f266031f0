@@ -257,6 +257,24 @@
       "parentUuid": "79311d7f_3458ce26",
       "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3933ad5e_77adcbcb",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-10-03T04:35:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5974562b_d99b52bd",
+      "revId": "88b61a149955e8e6ddcdbde92db2af8f266031f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
