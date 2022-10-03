@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "deacbe04_7f2d0385",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-03T21:50:50Z",
+      "side": 1,
+      "message": "There is no ability to return string when there is SUCCESS with Binder\u0027s status object. Because we always had struct Result in HAL, there was an ability to return string message even with SUCCESS case. We will lose that if I get rid of parcelable now. There is no way of knowing right now if OEM\u0027s have used it for success case. Is it worth getting it done with binder Status object and lose that ability?",
+      "parentUuid": "2e04b27b_817890f7",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 10
+      },
+      "revId": "80f566c7ed1d60fd46baf61d80af5d2fada9cfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a5e7e8a_604038b5",
         "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
         "patchSetId": 3
@@ -70,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "933390b2_a9300070",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-03T21:50:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "41f125c2_67dc64bb",
+      "range": {
+        "startLine": 67,
+        "startChar": 54,
+        "endLine": 67,
+        "endChar": 76
+      },
+      "revId": "80f566c7ed1d60fd46baf61d80af5d2fada9cfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "861c9e50_b84f1747",
@@ -83,6 +131,30 @@
       "writtenOn": "2022-10-03T20:44:21Z",
       "side": 1,
       "message": "Where is this used? Is there a list of known strings? Usually, opaque strings like this needs to be handled very carefully because they may cause backwards incompatible changes in the interface in the future.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 27
+      },
+      "revId": "80f566c7ed1d60fd46baf61d80af5d2fada9cfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d267bd8_2038e4f7",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-03T21:50:50Z",
+      "side": 1,
+      "message": "\u003e Where is this used? Is there a list of known strings? Usually, opaque strings like this needs to be handled very carefully because they may cause backwards incompatible changes in the interface in the future.\n\nQuick code search tells me that there are no predefined known strings. Like the comment mentioned, it is OEM defined so they know what type of device it is and react to it.\n\nPixel returns: \"MSM USF\"\none of the Amlogic implementation returns: \"cortex-a9\"\n\nWhen OEMs migrate to this implementation, they will return the same string as with original HAL implementation, so I think backwards compatibility may not be the issue.",
+      "parentUuid": "861c9e50_b84f1747",
       "range": {
         "startLine": 79,
         "startChar": 0,
