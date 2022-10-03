@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad7625a_06e4e720",
+        "filename": "audio/aidl/android/hardware/audio/core/IBluetooth.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-03T22:18:19Z",
+      "side": 1,
+      "message": "Note, I don\u0027t think it\u0027s possible with the current set of parameters, however it may change in future if they get extended.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 53
+      },
+      "revId": "62553b6f7af2bb586bf7c9cecfeef2eb69dafc63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
