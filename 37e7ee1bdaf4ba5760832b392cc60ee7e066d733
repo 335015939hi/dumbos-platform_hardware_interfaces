@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "371f3fc1_1ffc43a4",
+        "filename": "cas/aidl/default/FactoryLoader.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-10-03T21:54:47Z",
+      "side": 1,
+      "message": "I think the renaming sounds good. Let us rename aidl/android/hardware/cas/ one to AidlCasPluginDescriptor.",
+      "parentUuid": "b3a05c24_7442df52",
+      "range": {
+        "startLine": 170,
+        "startChar": 11,
+        "endLine": 170,
+        "endChar": 22
+      },
+      "revId": "37e7ee1bdaf4ba5760832b392cc60ee7e066d733",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2666e2f_e7c7946b",
         "filename": "cas/aidl/default/service.cpp",
         "patchSetId": 3
