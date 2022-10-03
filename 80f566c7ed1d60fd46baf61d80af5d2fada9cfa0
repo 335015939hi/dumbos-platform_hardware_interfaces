@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6c08271a_adca08e7",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-10-03T22:12:23Z",
+      "side": 1,
+      "message": "s/fastbootd client/fastbootd, the client of the HAL,/",
+      "parentUuid": "76062b63_618930a5",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 10
+      },
+      "revId": "80f566c7ed1d60fd46baf61d80af5d2fada9cfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a5e7e8a_604038b5",
         "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
         "patchSetId": 3
