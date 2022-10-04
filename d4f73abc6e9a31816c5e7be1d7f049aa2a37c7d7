@@ -141,6 +141,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2675aed6_306d66c6",
+        "filename": "thermal/aidl/android/hardware/thermal/ThermalStatusCode.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-04T21:13:27Z",
+      "side": 1,
+      "message": "+1 - https://source.android.com/docs/core/architecture/aidl/aidl-backends#error_handling\n`String debugMessage` can go with a ServiceSpecificError by using `fromServiceSpecificErrorWithMessage()`.",
+      "parentUuid": "50a77153_8633eb8e",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "d4f73abc6e9a31816c5e7be1d7f049aa2a37c7d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5fdda6c_1944e808",
         "filename": "thermal/aidl/default/thermal-default.rc",
         "patchSetId": 14
