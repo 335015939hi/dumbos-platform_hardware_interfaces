@@ -70,6 +70,24 @@
       "parentUuid": "22ff2478_d36fe896",
       "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bd54d40_4e4af2a5",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-10-04T16:52:17Z",
+      "side": 1,
+      "message": "I took Max to be responding to my question - which I see I missed a question mark - as to why cert_type is a member of DeviceInfo in the first place. I didn\u0027t see any concern with changing the enum to tstr, though correct me if I\u0027m wrong.",
+      "parentUuid": "78d175ea_b98873b2",
+      "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
