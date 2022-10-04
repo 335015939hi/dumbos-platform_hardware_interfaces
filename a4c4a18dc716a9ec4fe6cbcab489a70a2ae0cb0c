@@ -106,6 +106,24 @@
       "parentUuid": "4bd54d40_4e4af2a5",
       "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf000e1c_2b428786",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-04T19:37:05Z",
+      "side": 1,
+      "message": "Yes, the change is totally good as is.\n\nWe need to inform Widevine of this, and figure out what to do about the Widevine HAL which is already adding this in DeviceInfo. And then make the appropriate changes on the server side and alter the API if necessary.",
+      "parentUuid": "566b6f24_0fe8f1ff",
+      "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
