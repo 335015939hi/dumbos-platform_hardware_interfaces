@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88d15ba4_c66c7451",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-04T21:48:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6c08271a_adca08e7",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 10
+      },
+      "revId": "80f566c7ed1d60fd46baf61d80af5d2fada9cfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a5e7e8a_604038b5",
@@ -109,6 +133,30 @@
       "writtenOn": "2022-10-03T20:40:47Z",
       "side": 1,
       "message": "Just use the binder\u0027s Status object (which changes this to no out params). Same below.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 62
+      },
+      "revId": "80f566c7ed1d60fd46baf61d80af5d2fada9cfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8087920a_d949446b",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-04T21:48:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a5e7e8a_604038b5",
       "range": {
         "startLine": 54,
         "startChar": 0,
@@ -230,6 +278,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16c9f140_d2940544",
+        "filename": "fastboot/aidl/android/hardware/fastboot/Result.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-04T21:48:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e472d5e_921fd677",
+      "revId": "80f566c7ed1d60fd46baf61d80af5d2fada9cfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "480fa4c7_0d4633f5",
@@ -243,6 +309,24 @@
       "writtenOn": "2022-10-03T20:40:47Z",
       "side": 1,
       "message": "binder already have this error codes; just use the binder ones",
+      "revId": "80f566c7ed1d60fd46baf61d80af5d2fada9cfa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef37513a_b9e033b6",
+        "filename": "fastboot/aidl/android/hardware/fastboot/Status.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-04T21:48:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "480fa4c7_0d4633f5",
       "revId": "80f566c7ed1d60fd46baf61d80af5d2fada9cfa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
