@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1efd588e_ce587ed4",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-10-04T12:31:45Z",
+      "side": 1,
+      "message": "@yixiaoluo@google.com \nIf this approach looks we can mark these as resolved or if you have any inputs on this, let us know.",
+      "parentUuid": "79579b39_9b9a3704",
+      "range": {
+        "startLine": 355,
+        "startChar": 8,
+        "endLine": 355,
+        "endChar": 15
+      },
+      "revId": "1d8f3c0481c546d7417b0b8042abea0583fd4145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a6cc35b_13b503b7",
         "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
         "patchSetId": 8
