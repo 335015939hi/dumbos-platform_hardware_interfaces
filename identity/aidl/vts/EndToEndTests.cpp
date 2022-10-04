@@ -441,8 +441,16 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
     }
 
     vector<uint8_t> mac;
+    vector<uint8_t> ecdsaSignature;
     vector<uint8_t> deviceNameSpacesEncoded;
-    ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesEncoded).isOk());
+    // API version 5 (feature version 202301) returns both MAC and ECDSA signature.
+    if (halApiVersion_ >= 5) {
+        ASSERT_TRUE(credential->finishRetrievalWithSignature(&mac, &deviceNameSpacesEncoded,
+                                                             &ecdsaSignature).isOk());
+        ASSERT_GT(ecdsaSignature.size(), 0);
+    } else {
+        ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesEncoded).isOk());
+    }
     cborPretty = cppbor::prettyPrint(deviceNameSpacesEncoded, 32, {});
     ASSERT_EQ(
             "{\n"
@@ -475,6 +483,21 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
     ASSERT_TRUE(calculatedMac);
     EXPECT_EQ(mac, calculatedMac);
 
+    if (ecdsaSignature.size() > 0) {
+        vector<uint8_t> encodedDeviceAuthentication =
+            cppbor::Array()
+            .add("DeviceAuthentication")
+            .add(sessionTranscript.clone())
+            .add(docType)
+            .add(cppbor::SemanticTag(24, deviceNameSpacesEncoded))
+            .encode();
+        vector<uint8_t> deviceAuthenticationBytes =
+            cppbor::SemanticTag(24, encodedDeviceAuthentication).encode();
+        EXPECT_TRUE(support::coseCheckEcDsaSignature(ecdsaSignature,
+                                                     deviceAuthenticationBytes,  // Detached content
+                                                     signingPubKey.value()));
+    }
+
     // Also perform an additional empty request. This is what mDL applications
     // are envisioned to do - one call to get the data elements, another to get
     // an empty DeviceSignedItems and corresponding MAC.
@@ -486,7 +509,14 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
                                 signingKeyBlob, sessionTranscriptEncoded, {},  // readerSignature,
                                 testEntriesEntryCounts)
                         .isOk());
-    ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesEncoded).isOk());
+    // API version 5 (feature version 202301) returns both MAC and ECDSA signature.
+    if (halApiVersion_ >= 5) {
+        ASSERT_TRUE(credential->finishRetrievalWithSignature(&mac, &deviceNameSpacesEncoded,
+                                                             &ecdsaSignature).isOk());
+        ASSERT_GT(ecdsaSignature.size(), 0);
+    } else {
+        ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesEncoded).isOk());
+    }
     cborPretty = cppbor::prettyPrint(deviceNameSpacesEncoded, 32, {});
     ASSERT_EQ("{}", cborPretty);
     // Calculate DeviceAuthentication and MAC (MACing key hasn't changed)
@@ -496,6 +526,21 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
                                      eMacKey.value());            // EMacKey
     ASSERT_TRUE(calculatedMac);
     EXPECT_EQ(mac, calculatedMac);
+
+    if (ecdsaSignature.size() > 0) {
+        vector<uint8_t> encodedDeviceAuthentication =
+            cppbor::Array()
+            .add("DeviceAuthentication")
+            .add(sessionTranscript.clone())
+            .add(docType)
+            .add(cppbor::SemanticTag(24, deviceNameSpacesEncoded))
+            .encode();
+        vector<uint8_t> deviceAuthenticationBytes =
+            cppbor::SemanticTag(24, encodedDeviceAuthentication).encode();
+        EXPECT_TRUE(support::coseCheckEcDsaSignature(ecdsaSignature,
+                                                     deviceAuthenticationBytes,  // Detached content
+                                                     signingPubKey.value()));
+    }
 
     // Some mDL apps might send a request but with a single empty
     // namespace. Check that too.
@@ -508,7 +553,14 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
                                 signingKeyBlob, sessionTranscriptEncoded, {},  // readerSignature,
                                 testEntriesEntryCounts)
                         .isOk());
-    ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesEncoded).isOk());
+    // API version 5 (feature version 202301) returns both MAC and ECDSA signature.
+    if (halApiVersion_ >= 5) {
+        ASSERT_TRUE(credential->finishRetrievalWithSignature(&mac, &deviceNameSpacesEncoded,
+                                                             &ecdsaSignature).isOk());
+        ASSERT_GT(ecdsaSignature.size(), 0);
+    } else {
+        ASSERT_TRUE(credential->finishRetrieval(&mac, &deviceNameSpacesEncoded).isOk());
+    }
     cborPretty = cppbor::prettyPrint(deviceNameSpacesEncoded, 32, {});
     ASSERT_EQ("{}", cborPretty);
     // Calculate DeviceAuthentication and MAC (MACing key hasn't changed)
@@ -518,6 +570,21 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
                                      eMacKey.value());            // EMacKey
     ASSERT_TRUE(calculatedMac);
     EXPECT_EQ(mac, calculatedMac);
+
+    if (ecdsaSignature.size() > 0) {
+        vector<uint8_t> encodedDeviceAuthentication =
+            cppbor::Array()
+            .add("DeviceAuthentication")
+            .add(sessionTranscript.clone())
+            .add(docType)
+            .add(cppbor::SemanticTag(24, deviceNameSpacesEncoded))
+            .encode();
+        vector<uint8_t> deviceAuthenticationBytes =
+            cppbor::SemanticTag(24, encodedDeviceAuthentication).encode();
+        EXPECT_TRUE(support::coseCheckEcDsaSignature(ecdsaSignature,
+                                                     deviceAuthenticationBytes,  // Detached content
+                                                     signingPubKey.value()));
+    }
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(EndToEndTests);

@@ -209,6 +209,7 @@ class SecureHardwarePresentationProxy : public RefBase {
             const vector<int32_t>& accessControlProfileIds) = 0;
 
     virtual optional<vector<uint8_t>> finishRetrieval();
+    virtual optional<pair<vector<uint8_t>, vector<uint8_t>>> finishRetrievalWithSignature();
 
     virtual optional<vector<uint8_t>> deleteCredential(const string& docType,
                                                        const vector<uint8_t>& challenge,

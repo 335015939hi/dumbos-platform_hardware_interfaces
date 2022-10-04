@@ -557,6 +557,69 @@ bool eicPresentationValidateAccessControlProfile(EicPresentation* ctx, int id,
     return true;
 }
 
+// Helper used to append the DeviceAuthencation prelude, used for both MACing and ECDSA signing.
+static size_t appendDeviceAuthentication(EicCbor *cbor,
+                                         const uint8_t* sessionTranscript, size_t sessionTranscriptSize,
+                                         const char* docType, size_t docTypeLength,
+                                         size_t expectedDeviceNamespacesSize) {
+    // For the payload, the _encoded_ form follows here. We handle this by simply
+    // opening a bstr, and then writing the CBOR. This requires us to know the
+    // size of said bstr, ahead of time... the CBOR to be written is
+    //
+    //   DeviceAuthentication = [
+    //      "DeviceAuthentication",
+    //      SessionTranscript,
+    //      DocType,                ; DocType as used in Documents structure in OfflineResponse
+    //      DeviceNameSpacesBytes
+    //   ]
+    //
+    //   DeviceNameSpacesBytes = #6.24(bstr .cbor DeviceNameSpaces)
+    //
+    //   DeviceAuthenticationBytes = #6.24(bstr .cbor DeviceAuthentication)
+    //
+    // which is easily calculated below
+    //
+    size_t calculatedSize = 0;
+    calculatedSize += 1;  // Array of size 4
+    calculatedSize += 1;  // "DeviceAuthentication" less than 24 bytes
+    calculatedSize += sizeof("DeviceAuthentication") - 1;  // Don't include trailing NUL
+    calculatedSize += sessionTranscriptSize;               // Already CBOR encoded
+    calculatedSize += 1 + eicCborAdditionalLengthBytesFor(docTypeLength) + docTypeLength;
+    calculatedSize += 2;  // Semantic tag EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR (24)
+    calculatedSize += 1 + eicCborAdditionalLengthBytesFor(expectedDeviceNamespacesSize);
+    calculatedSize += expectedDeviceNamespacesSize;
+
+    // However note that we're authenticating DeviceAuthenticationBytes which
+    // is a tagged bstr of the bytes of DeviceAuthentication. So need to get
+    // that in front.
+    size_t dabCalculatedSize = 0;
+    dabCalculatedSize += 2;  // Semantic tag EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR (24)
+    dabCalculatedSize += 1 + eicCborAdditionalLengthBytesFor(calculatedSize);
+    dabCalculatedSize += calculatedSize;
+
+    // Begin the bytestring for DeviceAuthenticationBytes;
+    eicCborBegin(cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, dabCalculatedSize);
+
+    eicCborAppendSemantic(cbor, EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR);
+
+    // Begins the bytestring for DeviceAuthentication;
+    eicCborBegin(cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, calculatedSize);
+
+    eicCborAppendArray(cbor, 4);
+    eicCborAppendStringZ(cbor, "DeviceAuthentication");
+    eicCborAppend(cbor, sessionTranscript, sessionTranscriptSize);
+    eicCborAppendString(cbor, docType, docTypeLength);
+
+    // For the payload, the _encoded_ form follows here. We handle this by simply
+    // opening a bstr, and then writing the CBOR. This requires us to know the
+    // size of said bstr, ahead of time.
+    eicCborAppendSemantic(cbor, EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR);
+    eicCborBegin(cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, expectedDeviceNamespacesSize);
+    size_t expectedCborSizeAtEnd = expectedDeviceNamespacesSize + cbor->size;
+
+    return expectedCborSizeAtEnd;
+}
+
 bool eicPresentationCalcMacKey(EicPresentation* ctx, const uint8_t* sessionTranscript,
                                size_t sessionTranscriptSize,
                                const uint8_t readerEphemeralPublicKey[EIC_P256_PUB_KEY_SIZE],
@@ -582,15 +645,16 @@ bool eicPresentationCalcMacKey(EicPresentation* ctx, const uint8_t* sessionTrans
         readerEphemeralPublicKey = session->readerEphemeralPublicKey;
     }
 
-    uint8_t signingKeyPriv[EIC_P256_PRIV_KEY_SIZE];
+    // Stash the decrypted DeviceKey in context since we'll need it later in
+    // eicPresentationFinishRetrievalWithSignature()
     if (!eicOpsDecryptAes128Gcm(ctx->storageKey, signingKeyBlob, 60, (const uint8_t*)docType,
-                                docTypeLength, signingKeyPriv)) {
+                                docTypeLength, ctx->deviceKeyPriv)) {
         eicDebug("Error decrypting signingKeyBlob");
         return false;
     }
 
     uint8_t sharedSecret[EIC_P256_COORDINATE_SIZE];
-    if (!eicOpsEcdh(readerEphemeralPublicKey, signingKeyPriv, sharedSecret)) {
+    if (!eicOpsEcdh(readerEphemeralPublicKey, ctx->deviceKeyPriv, sharedSecret)) {
         eicDebug("ECDH failed");
         return false;
     }
@@ -638,62 +702,31 @@ bool eicPresentationCalcMacKey(EicPresentation* ctx, const uint8_t* sessionTrans
     static const uint8_t externalAad[0] = {};
     eicCborAppendByteString(&ctx->cbor, externalAad, sizeof(externalAad));
 
-    // For the payload, the _encoded_ form follows here. We handle this by simply
-    // opening a bstr, and then writing the CBOR. This requires us to know the
-    // size of said bstr, ahead of time... the CBOR to be written is
-    //
-    //   DeviceAuthentication = [
-    //      "DeviceAuthentication",
-    //      SessionTranscript,
-    //      DocType,                ; DocType as used in Documents structure in OfflineResponse
-    //      DeviceNameSpacesBytes
-    //   ]
-    //
-    //   DeviceNameSpacesBytes = #6.24(bstr .cbor DeviceNameSpaces)
-    //
-    //   DeviceAuthenticationBytes = #6.24(bstr .cbor DeviceAuthentication)
-    //
-    // which is easily calculated below
-    //
-    size_t calculatedSize = 0;
-    calculatedSize += 1;  // Array of size 4
-    calculatedSize += 1;  // "DeviceAuthentication" less than 24 bytes
-    calculatedSize += sizeof("DeviceAuthentication") - 1;  // Don't include trailing NUL
-    calculatedSize += sessionTranscriptSize;               // Already CBOR encoded
-    calculatedSize += 1 + eicCborAdditionalLengthBytesFor(docTypeLength) + docTypeLength;
-    calculatedSize += 2;  // Semantic tag EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR (24)
-    calculatedSize += 1 + eicCborAdditionalLengthBytesFor(expectedDeviceNamespacesSize);
-    calculatedSize += expectedDeviceNamespacesSize;
-
-    // However note that we're authenticating DeviceAuthenticationBytes which
-    // is a tagged bstr of the bytes of DeviceAuthentication. So need to get
-    // that in front.
-    size_t dabCalculatedSize = 0;
-    dabCalculatedSize += 2;  // Semantic tag EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR (24)
-    dabCalculatedSize += 1 + eicCborAdditionalLengthBytesFor(calculatedSize);
-    dabCalculatedSize += calculatedSize;
-
-    // Begin the bytestring for DeviceAuthenticationBytes;
-    eicCborBegin(&ctx->cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, dabCalculatedSize);
-
-    eicCborAppendSemantic(&ctx->cbor, EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR);
-
-    // Begins the bytestring for DeviceAuthentication;
-    eicCborBegin(&ctx->cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, calculatedSize);
-
-    eicCborAppendArray(&ctx->cbor, 4);
-    eicCborAppendStringZ(&ctx->cbor, "DeviceAuthentication");
-    eicCborAppend(&ctx->cbor, sessionTranscript, sessionTranscriptSize);
-    eicCborAppendString(&ctx->cbor, docType, docTypeLength);
-
-    // For the payload, the _encoded_ form follows here. We handle this by simply
-    // opening a bstr, and then writing the CBOR. This requires us to know the
-    // size of said bstr, ahead of time.
-    eicCborAppendSemantic(&ctx->cbor, EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR);
-    eicCborBegin(&ctx->cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, expectedDeviceNamespacesSize);
-    ctx->expectedCborSizeAtEnd = expectedDeviceNamespacesSize + ctx->cbor.size;
-
+    // Append DeviceAuthentication prelude and open the DeviceSigned map...
+    ctx->expectedCborSizeAtEnd = appendDeviceAuthentication(&ctx->cbor,
+                                                            sessionTranscript, sessionTranscriptSize,
+                                                            docType, docTypeLength,
+                                                            expectedDeviceNamespacesSize);
     eicCborAppendMap(&ctx->cbor, numNamespacesWithValues);
+
+    // Now do the same for ECDSA signatures...
+    //
+    eicCborInit(&ctx->cborEcdsa, NULL, 0);
+    eicCborAppendArray(&ctx->cborEcdsa, 4);
+    eicCborAppendStringZ(&ctx->cborEcdsa, "Signature1");
+    static const uint8_t coseEncodedProtectedHeadersEcdsa[] = {0xa1, 0x01, 0x26};
+    eicCborAppendByteString(&ctx->cborEcdsa, coseEncodedProtectedHeadersEcdsa,
+                            sizeof(coseEncodedProtectedHeadersEcdsa));
+    static const uint8_t externalAadEcdsa[0] = {};
+    eicCborAppendByteString(&ctx->cborEcdsa, externalAadEcdsa, sizeof(externalAadEcdsa));
+
+    // Append DeviceAuthentication prelude and open the DeviceSigned map...
+    ctx->expectedCborEcdsaSizeAtEnd = appendDeviceAuthentication(&ctx->cborEcdsa,
+                                                                 sessionTranscript, sessionTranscriptSize,
+                                                                 docType, docTypeLength,
+                                                                 expectedDeviceNamespacesSize);
+    eicCborAppendMap(&ctx->cborEcdsa, numNamespacesWithValues);
+
     return true;
 }
 
@@ -724,6 +757,9 @@ EicAccessCheckResult eicPresentationStartRetrieveEntryValue(
     if (newNamespaceNumEntries > 0) {
         eicCborAppendString(&ctx->cbor, nameSpace, nameSpaceLength);
         eicCborAppendMap(&ctx->cbor, newNamespaceNumEntries);
+
+        eicCborAppendString(&ctx->cborEcdsa, nameSpace, nameSpaceLength);
+        eicCborAppendMap(&ctx->cborEcdsa, newNamespaceNumEntries);
     }
 
     // We'll need to calc and store a digest of additionalData to check that it's the same
@@ -778,6 +814,7 @@ EicAccessCheckResult eicPresentationStartRetrieveEntryValue(
 
     if (result == EIC_ACCESS_CHECK_RESULT_OK) {
         eicCborAppendString(&ctx->cbor, name, nameLength);
+        eicCborAppendString(&ctx->cborEcdsa, name, nameLength);
         ctx->accessCheckOk = true;
     }
     return result;
@@ -821,6 +858,7 @@ bool eicPresentationRetrieveEntryValue(EicPresentation* ctx, const uint8_t* encr
     }
 
     eicCborAppend(&ctx->cbor, content, encryptedContentSize - 28);
+    eicCborAppend(&ctx->cborEcdsa, content, encryptedContentSize - 28);
 
     return true;
 }
@@ -842,8 +880,42 @@ bool eicPresentationFinishRetrieval(EicPresentation* ctx, uint8_t* digestToBeMac
         return false;
     }
     eicCborFinal(&ctx->cbor, digestToBeMaced);
+
     return true;
 }
+
+bool eicPresentationFinishRetrievalWithSignature(EicPresentation* ctx, uint8_t* digestToBeMaced,
+                                                 size_t* digestToBeMacedSize,
+                                                 uint8_t* signatureOfToBeSigned,
+                                                 size_t* signatureOfToBeSignedSize) {
+    if (!eicPresentationFinishRetrieval(ctx, digestToBeMaced, digestToBeMacedSize)) {
+        return false;
+    }
+
+    if (!ctx->buildCbor) {
+        *signatureOfToBeSignedSize = 0;
+        return true;
+    }
+    if (*signatureOfToBeSignedSize != EIC_ECDSA_P256_SIGNATURE_SIZE) {
+        return false;
+    }
+
+    // This verifies that the correct expectedDeviceNamespacesSize value was
+    // passed in at eicPresentationCalcMacKey() time.
+    if (ctx->cborEcdsa.size != ctx->expectedCborEcdsaSizeAtEnd) {
+        eicDebug("CBOR ECDSA size is %zd, was expecting %zd",
+                 ctx->cborEcdsa.size, ctx->expectedCborEcdsaSizeAtEnd);
+        return false;
+    }
+    uint8_t cborSha256[EIC_SHA256_DIGEST_SIZE];
+    eicCborFinal(&ctx->cborEcdsa, cborSha256);
+    if (!eicOpsEcDsa(ctx->deviceKeyPriv, cborSha256, signatureOfToBeSigned)) {
+        eicDebug("Error signing DeviceAuthentication");
+        return false;
+    }
+    return true;
+}
+
 
 bool eicPresentationDeleteCredential(EicPresentation* ctx, const char* docType, size_t docTypeLength,
                                      const uint8_t* challenge, size_t challengeSize,

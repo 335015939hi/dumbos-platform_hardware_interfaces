@@ -485,4 +485,16 @@ interface IIdentityCredential {
      * @return an IWritableIdentityCredential
      */
     IWritableIdentityCredential updateCredential();
+
+    /**
+     * Like finishRetrieval() but also returns an ECDSA signature in addition to the MAC.
+     *
+     * See section 9.1.3.6 of ISO/IEC 18013-5:2021 for details of how the signature is calculated.
+     *
+     * This method was introduced in API version 5.
+     *
+     * @param ecdsaSignature a COSE_Sign1 signature described above.
+     */
+    @SuppressWarnings(value={"out-array"})
+    void finishRetrievalWithSignature(out byte[] mac, out byte[] deviceNameSpaces, out byte[] ecdsaSignature);
 }

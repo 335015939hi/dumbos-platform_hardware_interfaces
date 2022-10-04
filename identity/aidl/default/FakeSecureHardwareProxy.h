@@ -191,6 +191,8 @@ class FakeSecureHardwarePresentationProxy : public SecureHardwarePresentationPro
 
     optional<vector<uint8_t>> finishRetrieval() override;
 
+    optional<pair<vector<uint8_t>, vector<uint8_t>>> finishRetrievalWithSignature() override;
+
     optional<vector<uint8_t>> deleteCredential(const string& docType,
                                                const vector<uint8_t>& challenge,
                                                bool includeChallenge,

@@ -101,6 +101,12 @@ typedef struct {
 
     size_t expectedCborSizeAtEnd;
     EicCbor cbor;
+
+    // The selected DeviceKey / AuthKey
+    uint8_t deviceKeyPriv[EIC_P256_PRIV_KEY_SIZE];
+
+    EicCbor cborEcdsa;
+    size_t expectedCborEcdsaSizeAtEnd;
 } EicPresentation;
 
 // If sessionId is zero (EIC_PRESENTATION_ID_UNSET), the presentation object is not associated
@@ -252,6 +258,13 @@ bool eicPresentationRetrieveEntryValue(EicPresentation* ctx, const uint8_t* encr
 // and Verify a MAC".
 bool eicPresentationFinishRetrieval(EicPresentation* ctx, uint8_t* digestToBeMaced,
                                     size_t* digestToBeMacedSize);
+
+// Like eicPresentationFinishRetrieval() but also returns an ECDSA signature.
+//
+bool eicPresentationFinishRetrievalWithSignature(EicPresentation* ctx, uint8_t* digestToBeMaced,
+                                                 size_t* digestToBeMacedSize,
+                                                 uint8_t* signatureOfToBeSigned,
+                                                 size_t* signatureOfToBeSignedSize);
 
 // The data returned in |signatureOfToBeSigned| contains the ECDSA signature of
 // the ToBeSigned CBOR from RFC 8051 "4.4. Signing and Verification Process"

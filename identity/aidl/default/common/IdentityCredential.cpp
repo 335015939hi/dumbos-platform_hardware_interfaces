@@ -924,8 +924,9 @@ ndk::ScopedAStatus IdentityCredential::retrieveEntryValue(const vector<uint8_t>&
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus IdentityCredential::finishRetrieval(vector<uint8_t>* outMac,
-                                                       vector<uint8_t>* outDeviceNameSpaces) {
+ndk::ScopedAStatus IdentityCredential::finishRetrievalWithSignature(vector<uint8_t>* outMac,
+                                                                    vector<uint8_t>* outDeviceNameSpaces,
+                                                                    vector<uint8_t>* outEcdsaSignature) {
     ndk::ScopedAStatus status = ensureHwProxy();
     if (!status.isOk()) {
         return status;
@@ -948,17 +949,31 @@ ndk::ScopedAStatus IdentityCredential::finishRetrieval(vector<uint8_t>* outMac,
                         .c_str()));
     }
 
+    optional<vector<uint8_t>> digestToBeMaced;
+    optional<vector<uint8_t>> signatureToBeSigned;
+
+    if (outEcdsaSignature == nullptr) {
+        digestToBeMaced = hwProxy_->finishRetrieval();
+        if (!digestToBeMaced) {
+            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                                          IIdentityCredentialStore::STATUS_INVALID_DATA,
+                                          "Error generating digestToBeMaced"));
+        }
+    } else {
+        auto macAndSignature = hwProxy_->finishRetrievalWithSignature();
+        if (!macAndSignature) {
+            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                                          IIdentityCredentialStore::STATUS_INVALID_DATA,
+                                          "Error generating digestToBeMaced and signatureToBeSigned"));
+        }
+        digestToBeMaced = macAndSignature->first;
+        signatureToBeSigned = macAndSignature->second;
+    }
+
     // If the TA calculated a MAC (it might not have), format it as a COSE_Mac0
     //
-    optional<vector<uint8_t>> mac;
-    optional<vector<uint8_t>> digestToBeMaced = hwProxy_->finishRetrieval();
-
-    // The MAC not being set means an error occurred.
-    if (!digestToBeMaced) {
-        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                IIdentityCredentialStore::STATUS_INVALID_DATA, "Error generating digestToBeMaced"));
-    }
     // Size 0 means that the MAC isn't set. If it's set, it has to be 32 bytes.
+    optional<vector<uint8_t>> mac;
     if (digestToBeMaced.value().size() != 0) {
         if (digestToBeMaced.value().size() != 32) {
             return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
@@ -967,10 +982,27 @@ ndk::ScopedAStatus IdentityCredential::finishRetrieval(vector<uint8_t>* outMac,
         }
         mac = support::coseMacWithDigest(digestToBeMaced.value(), {} /* data */);
     }
-
     *outMac = mac.value_or(vector<uint8_t>({}));
+
+    optional<vector<uint8_t>> signature;
+    if (signatureToBeSigned && signatureToBeSigned.value().size() != 0) {
+        signature = support::coseSignEcDsaWithSignature(signatureToBeSigned.value(),
+                                                        {},                    // data
+                                                        {});                   // certificateChain
+
+    }
+    if (outEcdsaSignature != nullptr) {
+        *outEcdsaSignature = signature.value_or(vector<uint8_t>({}));
+    }
+
     *outDeviceNameSpaces = encodedDeviceNameSpaces;
+
     return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus IdentityCredential::finishRetrieval(vector<uint8_t>* outMac,
+                                                       vector<uint8_t>* outDeviceNameSpaces) {
+    return finishRetrievalWithSignature(outMac, outDeviceNameSpaces, nullptr);
 }
 
 ndk::ScopedAStatus IdentityCredential::generateSigningKeyPair(
