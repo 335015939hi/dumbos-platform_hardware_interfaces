@@ -89,6 +89,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5747e93d_67c055f4",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-10-04T21:03:29Z",
+      "side": 1,
+      "message": "From the previous CL, Max said this is a \"Legacy hold-over from the fact that this was initially a last minute hack to get Widevine CSRs\". He then points out that we\u0027ll need to inform everyone about the change and update the widevine HAL and server to comply.",
+      "parentUuid": "243cde23_181cbecc",
+      "range": {
+        "startLine": 322,
+        "startChar": 11,
+        "endLine": 322,
+        "endChar": 26
+      },
+      "revId": "94fabed432cac28b1ed129487e194f7f3437ecca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8223955b_b9d6558e",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
@@ -100,6 +124,30 @@
       "writtenOn": "2022-10-04T17:59:04Z",
       "side": 1,
       "message": "Just a thought: should we allow authenticated messages with detached payloads?\n\nIt\u0027s not totally clear to me how we\u0027d specify it, but it seems like we should allow cases where the COSE_Sign1 payload value is `nil`. Else we may have backed ourselves into a corner if there are use-cases where the payload is very large.",
+      "range": {
+        "startLine": 338,
+        "startChar": 28,
+        "endLine": 338,
+        "endChar": 29
+      },
+      "revId": "94fabed432cac28b1ed129487e194f7f3437ecca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72f8eb94_13111f69",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-10-04T21:03:29Z",
+      "side": 1,
+      "message": "We can do the types similarly to COSE_Sign1, i.e. `payload: bstr .cbor T / nil,`. `nil` indicating \"detached content\" and it would be down to the server endpoint to define how the payload is otherwise delivered or derived. Would that be adding `/ nil` be good enough?",
+      "parentUuid": "8223955b_b9d6558e",
       "range": {
         "startLine": 338,
         "startChar": 28,
