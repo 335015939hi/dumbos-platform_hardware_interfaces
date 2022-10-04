@@ -16,6 +16,24 @@
       "message": "Seth\u0027s brought this up the type change suggestion in a couple of other contexts.\n\nI was wondering why it\u0027s part of DeviceInfo rather than up a level in the CSR payload, SignedDataPayload. With it here, DeviceInfo would be harder to reuse in other, non-CSR protocols that still require device information.",
       "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22ff2478_d36fe896",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-04T15:34:10Z",
+      "side": 1,
+      "message": "Legacy hold-over from the fact that this was initially a last minute hack to get Widevine CSRs. We can update this, and given the context I think it makes sense, but we need to just message this to the appropriate people and make the associated changes on device and server code.\n\nAlthough for other use cases, I suppose this field could also just be modified to cover them? E.g. \"DevConfig\" \"Provisioning\" etc?",
+      "parentUuid": "d6c64c55_a9a6e54a",
+      "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
