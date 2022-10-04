@@ -16,6 +16,86 @@
       "message": "Uploaded new set of changes addressing comments from Yifan.",
       "revId": "dc5c8020e647e7e2e50749c927f394b7cb30418f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52b2e186_d5969b4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-10-04T22:13:49Z",
+      "side": 1,
+      "message": "dvander@ for review on the fake implementation. I only looked at the AIDL stuff",
+      "revId": "dc5c8020e647e7e2e50749c927f394b7cb30418f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b809b7a1_a06331e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-10-04T22:13:49Z",
+      "side": 1,
+      "message": "dvander@ for review on the fake implementation. I only looked at the AIDL stuff",
+      "revId": "dc5c8020e647e7e2e50749c927f394b7cb30418f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6208bae6_9bcdb0c7",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-10-04T22:13:49Z",
+      "side": 1,
+      "message": "nit: delete",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 22
+      },
+      "revId": "dc5c8020e647e7e2e50749c927f394b7cb30418f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8ac8ced_4e172254",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-10-04T22:13:49Z",
+      "side": 1,
+      "message": "Explain what the string is. Is it the output of the command?",
+      "range": {
+        "startLine": 35,
+        "startChar": 23,
+        "endLine": 35,
+        "endChar": 76
+      },
+      "revId": "dc5c8020e647e7e2e50749c927f394b7cb30418f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
