@@ -16,6 +16,23 @@
       "message": "I this hardware/interfaces is a better place for these AIDL files. Thus +2\u0027ed.\n\nThis needs to be acknowledged by the owners though.",
       "revId": "d998f7f3d3ebb9ee62511292da04f607054be304",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "885c07b0_a99aaa22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-04T03:51:14Z",
+      "side": 1,
+      "message": "h/i/media is for A/V codecs. These types are for audio use only. However, we already have h/i/audio/aidl which is for the HAL types and interfaces. Besides, the moved interfaces are not from `android.hardware` but from `android.media`, that\u0027s why they live in `frameworks`. But they are Vintf-stable so HALs use them as well.",
+      "revId": "d998f7f3d3ebb9ee62511292da04f607054be304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
