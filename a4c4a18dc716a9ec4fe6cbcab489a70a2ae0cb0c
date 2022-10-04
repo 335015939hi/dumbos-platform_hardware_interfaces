@@ -124,6 +124,24 @@
       "parentUuid": "566b6f24_0fe8f1ff",
       "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7d6bdc5_847a3cb3",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-10-04T20:20:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bf000e1c_2b428786",
+      "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
