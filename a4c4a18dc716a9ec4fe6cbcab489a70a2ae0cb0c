@@ -34,6 +34,24 @@
       "parentUuid": "d6c64c55_a9a6e54a",
       "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c554bab7_82e63284",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-10-04T16:35:50Z",
+      "side": 1,
+      "message": "If it were repurposed, you\u0027d ideally change the key of the map field to something more generic which is a breaking change again. If we\u0027ve got an opportunity to avoid oddities, it\u0027s worth a shot at least. I\u0027ll send out something with the couple of more invasive changes I\u0027ve been cooking up and we can see where to take if from there.",
+      "parentUuid": "22ff2478_d36fe896",
+      "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
