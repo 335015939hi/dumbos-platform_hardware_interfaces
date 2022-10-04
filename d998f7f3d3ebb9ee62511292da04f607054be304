@@ -33,6 +33,24 @@
       "message": "h/i/media is for A/V codecs. These types are for audio use only. However, we already have h/i/audio/aidl which is for the HAL types and interfaces. Besides, the moved interfaces are not from `android.hardware` but from `android.media`, that\u0027s why they live in `frameworks`. But they are Vintf-stable so HALs use them as well.",
       "revId": "d998f7f3d3ebb9ee62511292da04f607054be304",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb276910_6d17a4b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386891
+      },
+      "writtenOn": "2022-10-04T14:31:28Z",
+      "side": 1,
+      "message": "Let\u0027s discuss further in b/249177028",
+      "parentUuid": "885c07b0_a99aaa22",
+      "revId": "d998f7f3d3ebb9ee62511292da04f607054be304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
