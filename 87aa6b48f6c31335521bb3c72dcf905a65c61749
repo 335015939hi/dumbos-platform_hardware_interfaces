@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fec7eb27_5e4ccbb6",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-04T20:22:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "980119eb_2fa10527",
+      "range": {
+        "startLine": 472,
+        "startChar": 25,
+        "endLine": 473,
+        "endChar": 17
+      },
+      "revId": "87aa6b48f6c31335521bb3c72dcf905a65c61749",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd806ce6_3bd19aa4",
