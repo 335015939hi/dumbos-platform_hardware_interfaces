@@ -62,6 +62,52 @@
       "message": "Thos one does make breaking changes to the schema!",
       "revId": "94fabed432cac28b1ed129487e194f7f3437ecca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "243cde23_181cbecc",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-10-04T17:59:04Z",
+      "side": 1,
+      "message": "I _think_ this is fine, but I have a nagging suspicion there were some layering reasons the type was in DeviceInfo?\n\nOr was that purely a hack for widevine? Max knows for sure.",
+      "range": {
+        "startLine": 322,
+        "startChar": 11,
+        "endLine": 322,
+        "endChar": 26
+      },
+      "revId": "94fabed432cac28b1ed129487e194f7f3437ecca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8223955b_b9d6558e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-10-04T17:59:04Z",
+      "side": 1,
+      "message": "Just a thought: should we allow authenticated messages with detached payloads?\n\nIt\u0027s not totally clear to me how we\u0027d specify it, but it seems like we should allow cases where the COSE_Sign1 payload value is `nil`. Else we may have backed ourselves into a corner if there are use-cases where the payload is very large.",
+      "range": {
+        "startLine": 338,
+        "startChar": 28,
+        "endLine": 338,
+        "endChar": 29
+      },
+      "revId": "94fabed432cac28b1ed129487e194f7f3437ecca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
