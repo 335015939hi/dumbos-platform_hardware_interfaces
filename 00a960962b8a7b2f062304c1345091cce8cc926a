@@ -33,6 +33,40 @@
       "message": "gentle ping for review",
       "revId": "00a960962b8a7b2f062304c1345091cce8cc926a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98ddf93b_e0e081c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-04T18:01:25Z",
+      "side": 1,
+      "message": "We will want someone else from thermal to review the default impl, VTS, and the interface (for the +2)",
+      "revId": "00a960962b8a7b2f062304c1345091cce8cc926a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65ae3946_57c57105",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-04T18:01:25Z",
+      "side": 1,
+      "message": "nit: remove new line",
+      "revId": "00a960962b8a7b2f062304c1345091cce8cc926a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
