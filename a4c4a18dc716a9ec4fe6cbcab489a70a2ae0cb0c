@@ -88,6 +88,24 @@
       "parentUuid": "78d175ea_b98873b2",
       "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "566b6f24_0fe8f1ff",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-10-04T16:56:41Z",
+      "side": 1,
+      "message": "Yeah, I think this change is good as-is. Most clients won\u0027t even know/care, but it does mean we can avoid editing the comments just to update the CDDL.\n\nI was mostly wondering who Max had in mind about messaging (someone in APE I suppose?). My POV is they just don\u0027t even care about this change, but if it\u0027s more complicated than that I\u0027d like to understand why.",
+      "parentUuid": "4bd54d40_4e4af2a5",
+      "revId": "a4c4a18dc716a9ec4fe6cbcab489a70a2ae0cb0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
