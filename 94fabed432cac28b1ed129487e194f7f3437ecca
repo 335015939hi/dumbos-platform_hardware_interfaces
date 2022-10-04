@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63689a24_7d184f78",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-04T22:45:27Z",
+      "side": 1,
+      "message": "I think this is fine here, leaving the endpoint the message is hitting to imply the context.",
+      "parentUuid": "9265227a_1d25a5fb",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 39
+      },
+      "revId": "94fabed432cac28b1ed129487e194f7f3437ecca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "449194bc_2dc61be2",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-04T17:32:38Z",
       "side": 1,
       "message": "Let me know who this is going to annoy!",
+      "range": {
+        "startLine": 29,
+        "startChar": 5,
+        "endLine": 29,
+        "endChar": 14
+      },
+      "revId": "94fabed432cac28b1ed129487e194f7f3437ecca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b27b5d6e_641b6ce2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-04T22:45:27Z",
+      "side": 1,
+      "message": "Messaged out of band.\n\nI think these changes make sense, but before they can land, we just need to have buy-in from everyone implementing this stuff in the U timeframe, and alignment with the server side.",
+      "parentUuid": "449194bc_2dc61be2",
       "range": {
         "startLine": 29,
         "startChar": 5,
@@ -196,6 +244,30 @@
       "side": 1,
       "message": "Yup, I was thinking we\u0027d just use COSE_Sign1\u0027s nillable payload facility.\n\nWhat didn\u0027t occur to me, until you pointed out the obvious, is that we can just throw `/ nil` in the generic and I think it\u0027s good to go. In my mind I was concocting a more complicated multiple-parameter generic `AuthenticatedMessage` type.\n\nHaving a generic type parameter option with nil feels odd to me, but I think it\u0027s technically fine.",
       "parentUuid": "72f8eb94_13111f69",
+      "range": {
+        "startLine": 338,
+        "startChar": 28,
+        "endLine": 338,
+        "endChar": 29
+      },
+      "revId": "94fabed432cac28b1ed129487e194f7f3437ecca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e67ad6c_6b195100",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-04T22:45:27Z",
+      "side": 1,
+      "message": "Looks good to me.",
+      "parentUuid": "092da9c4_d9907c63",
       "range": {
         "startLine": 338,
         "startChar": 28,
