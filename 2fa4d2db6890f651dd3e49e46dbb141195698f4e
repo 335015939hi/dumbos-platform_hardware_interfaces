@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed3fcb81_dc2dae4b",
+        "filename": "cas/aidl/default/MediaCasService.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-10-04T17:38:20Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 38,
+        "startChar": 41,
+        "endLine": 38,
+        "endChar": 45
+      },
+      "revId": "2fa4d2db6890f651dd3e49e46dbb141195698f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cb60882_c70606f1",
+        "filename": "cas/aidl/default/MediaCasService.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-10-04T17:38:20Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 41,
+        "startChar": 32,
+        "endLine": 41,
+        "endChar": 36
+      },
+      "revId": "2fa4d2db6890f651dd3e49e46dbb141195698f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
