@@ -111,6 +111,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2bf1978_02cef677",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-10-04T21:08:04Z",
+      "side": 1,
+      "message": "That conversation makes so much more sense now 😊 I totally thought it was just about replacing a choice of strings with tstr.\n\nI was very confused about what we needed to inform widevine about. This change definitely needs to be advertised to them.",
+      "parentUuid": "5747e93d_67c055f4",
+      "range": {
+        "startLine": 322,
+        "startChar": 11,
+        "endLine": 322,
+        "endChar": 26
+      },
+      "revId": "94fabed432cac28b1ed129487e194f7f3437ecca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8223955b_b9d6558e",
@@ -148,6 +172,30 @@
       "side": 1,
       "message": "We can do the types similarly to COSE_Sign1, i.e. `payload: bstr .cbor T / nil,`. `nil` indicating \"detached content\" and it would be down to the server endpoint to define how the payload is otherwise delivered or derived. Would that be adding `/ nil` be good enough?",
       "parentUuid": "8223955b_b9d6558e",
+      "range": {
+        "startLine": 338,
+        "startChar": 28,
+        "endLine": 338,
+        "endChar": 29
+      },
+      "revId": "94fabed432cac28b1ed129487e194f7f3437ecca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "092da9c4_d9907c63",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-10-04T21:08:04Z",
+      "side": 1,
+      "message": "Yup, I was thinking we\u0027d just use COSE_Sign1\u0027s nillable payload facility.\n\nWhat didn\u0027t occur to me, until you pointed out the obvious, is that we can just throw `/ nil` in the generic and I think it\u0027s good to go. In my mind I was concocting a more complicated multiple-parameter generic `AuthenticatedMessage` type.\n\nHaving a generic type parameter option with nil feels odd to me, but I think it\u0027s technically fine.",
+      "parentUuid": "72f8eb94_13111f69",
       "range": {
         "startLine": 338,
         "startChar": 28,
