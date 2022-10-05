@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c91edfd_18343956",
+        "filename": "thermal/aidl/default/Thermal.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2022-10-05T17:52:36Z",
+      "side": 1,
+      "message": "also if AIDL works, prefer to do \ngetCoolingDevices\ngetCoolingDevices(Type)",
+      "parentUuid": "d1b45716_53d6eef7",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 90
+      },
+      "revId": "1b3f59902d42ead7f202bda70b1bb07929d91330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7352d471_fa548ad0",
         "filename": "thermal/aidl/default/Thermal.h",
         "patchSetId": 17
