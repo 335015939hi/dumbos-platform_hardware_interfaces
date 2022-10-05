@@ -385,6 +385,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ce52baa_8e3cf176",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-05T04:18:22Z",
+      "side": 1,
+      "message": "We couldn\u0027t inspect these previously because they were part of the encrypted portion of the payload. Now we can verify that they are formatted as (A) map { tstr : [ +bstr ]} and (B) that the array of bstrs is composed of valid X509 certificates terminating in the signature of the UDS_Public_Key. We cannot check that the particular root for the chain is recognized though.",
+      "parentUuid": "eb681fed_c6602455",
+      "range": {
+        "startLine": 827,
+        "startChar": 7,
+        "endLine": 827,
+        "endChar": 11
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b0177a2_815bb4a9",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 3
