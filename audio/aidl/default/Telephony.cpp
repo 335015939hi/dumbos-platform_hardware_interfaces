@@ -14,29 +14,28 @@
  * limitations under the License.
  */
 
-#include <android/binder_enums.h>
 #include <android/binder_to_string.h>
-#define LOG_TAG "AHAL_Config"
+#define LOG_TAG "AHAL_Telephony"
 #include <android-base/logging.h>
 
-#include "core-impl/Config.h"
+#include "core-impl/Telephony.h"
 
 namespace aidl::android::hardware::audio::core {
 
-ndk::ScopedAStatus Config::getSupportedAudioModes(std::vector<AudioMode>* _aidl_return) {
-    std::vector<AudioMode> modes = {::ndk::enum_range<AudioMode>().begin(),
-                                    ::ndk::enum_range<AudioMode>().end()};
-    *_aidl_return = std::move(modes);
+ndk::ScopedAStatus Telephony::getSupportedAudioModes(std::vector<AudioMode>* _aidl_return) {
+    *_aidl_return = mSupportedAudioModes;
     LOG(DEBUG) << __func__ << ": returning " << ::android::internal::ToString(*_aidl_return);
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus Config::getSurroundSoundConfig(SurroundSoundConfig* _aidl_return) {
-    SurroundSoundConfig surroundSoundConfig;
-    // TODO: parse from XML; for now, use empty config as default
-    *_aidl_return = std::move(surroundSoundConfig);
-    LOG(DEBUG) << __func__ << ": returning " << _aidl_return->toString();
-    return ndk::ScopedAStatus::ok();
+ndk::ScopedAStatus Telephony::updateAudioMode(AudioMode in_mode) {
+    if (std::find(mSupportedAudioModes.begin(), mSupportedAudioModes.end(), in_mode) !=
+        mSupportedAudioModes.end()) {
+        LOG(DEBUG) << __func__ << ": " << toString(in_mode);
+        return ndk::ScopedAStatus::ok();
+    }
+    LOG(ERROR) << __func__ << ": unsupported mode " << toString(in_mode);
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
 }  // namespace aidl::android::hardware::audio::core

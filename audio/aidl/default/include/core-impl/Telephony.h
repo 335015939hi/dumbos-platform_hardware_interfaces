@@ -16,14 +16,19 @@
 
 #pragma once
 
-#include <aidl/android/hardware/audio/core/BnConfig.h>
+#include <android/binder_enums.h>
+
+#include <aidl/android/hardware/audio/core/BnTelephony.h>
 
 namespace aidl::android::hardware::audio::core {
 
-class Config : public BnConfig {
+class Telephony : public BnTelephony {
   private:
     ndk::ScopedAStatus getSupportedAudioModes(std::vector<AudioMode>* _aidl_return) override;
-    ndk::ScopedAStatus getSurroundSoundConfig(SurroundSoundConfig* _aidl_return) override;
+    ndk::ScopedAStatus updateAudioMode(AudioMode in_mode) override;
+
+    const std::vector<AudioMode> mSupportedAudioModes = {::ndk::enum_range<AudioMode>().begin(),
+                                                         ::ndk::enum_range<AudioMode>().end()};
 };
 
 }  // namespace aidl::android::hardware::audio::core
