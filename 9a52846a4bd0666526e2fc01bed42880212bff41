@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b7393b3_b484eb75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-05T20:24:22Z",
+      "side": 1,
+      "message": "Shunkai, to clarify--this the same as ag/20075625, and you plan to abandon the latter and submit via AOSP, right?",
+      "revId": "9a52846a4bd0666526e2fc01bed42880212bff41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
