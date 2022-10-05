@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b376a41_15655d21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2022-10-05T20:24:30Z",
+      "side": 1,
+      "message": "Found issue while running these tests on device (pixel-6). Fixed it by replacing sizeof with strlen while converting character array to vector\u003cuint8_t\u003e.",
+      "revId": "8040f46a12ba1e678bae0d55d32fa087099cae48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
