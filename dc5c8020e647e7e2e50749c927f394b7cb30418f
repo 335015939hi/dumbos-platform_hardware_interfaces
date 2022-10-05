@@ -161,6 +161,30 @@
       },
       "revId": "dc5c8020e647e7e2e50749c927f394b7cb30418f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de429911_a8d8694d",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-05T00:15:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "801c0127_c8b2840b",
+      "range": {
+        "startLine": 35,
+        "startChar": 23,
+        "endLine": 35,
+        "endChar": 76
+      },
+      "revId": "dc5c8020e647e7e2e50749c927f394b7cb30418f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
