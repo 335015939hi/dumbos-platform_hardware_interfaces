@@ -22,6 +22,29 @@
       },
       "revId": "a9865b2e8f9549f4e75586bb125807bb47819bac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c20475_47975fb6",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-05T09:26:08Z",
+      "side": 1,
+      "message": "We should make those optional so that we can change either without repeating the other\u0027s current state.",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 612,
+        "endChar": 32
+      },
+      "revId": "a9865b2e8f9549f4e75586bb125807bb47819bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
