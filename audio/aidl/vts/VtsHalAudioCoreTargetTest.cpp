@@ -15,6 +15,7 @@
  */
 
 #include <algorithm>
+#include <cmath>
 #include <limits>
 #include <memory>
 #include <optional>
@@ -45,8 +46,10 @@ using aidl::android::hardware::audio::common::PlaybackTrackMetadata;
 using aidl::android::hardware::audio::common::RecordTrackMetadata;
 using aidl::android::hardware::audio::common::SinkMetadata;
 using aidl::android::hardware::audio::common::SourceMetadata;
+using aidl::android::hardware::audio::core::AudioMode;
 using aidl::android::hardware::audio::core::AudioPatch;
 using aidl::android::hardware::audio::core::AudioRoute;
+using aidl::android::hardware::audio::core::IConfig;
 using aidl::android::hardware::audio::core::IModule;
 using aidl::android::hardware::audio::core::IStreamIn;
 using aidl::android::hardware::audio::core::IStreamOut;
@@ -171,6 +174,29 @@ class WithAudioPortConfig {
     AudioPortConfig mConfig;
 };
 
+template <typename PropType, class Instance, typename Getter, typename Setter>
+void TestAccessors(Instance* inst, Getter getter, Setter setter,
+                   const std::vector<PropType>& validValues,
+                   const std::vector<PropType>& invalidValues, bool* isSupported) {
+    PropType initialValue{};
+    ScopedAStatus status = (inst->*getter)(&initialValue);
+    if (status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
+        *isSupported = false;
+        return;
+    }
+    *isSupported = true;
+    for (const auto v : validValues) {
+        EXPECT_IS_OK((inst->*setter)(v)) << "for valid value: " << v;
+        PropType currentValue{};
+        EXPECT_IS_OK((inst->*getter)(&currentValue));
+        EXPECT_EQ(v, currentValue);
+    }
+    for (const auto v : invalidValues) {
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, (inst->*setter)(v)) << "for invalid value: " << v;
+    }
+    EXPECT_IS_OK((inst->*setter)(initialValue)) << "Failed to restore the initial value";
+}
+
 class AudioCoreModule : public testing::TestWithParam<std::string> {
   public:
     // The default buffer size is used mostly for negative tests.
@@ -189,15 +215,22 @@ class AudioCoreModule : public testing::TestWithParam<std::string> {
     }
 
     void ConnectToService() {
-        module = IModule::fromBinder(binderUtil.connectToService(GetParam()));
+        module = IModule::fromBinder(moduleBinder.connectToService(GetParam()));
         ASSERT_NE(module, nullptr);
     }
 
     void RestartService() {
         ASSERT_NE(module, nullptr);
         moduleConfig.reset();
-        module = IModule::fromBinder(binderUtil.restartService());
+        module = IModule::fromBinder(moduleBinder.restartService());
         ASSERT_NE(module, nullptr);
+    }
+
+    void ConnectToConfig() {
+        auto instances = getAidlHalInstanceNames(IConfig::descriptor);
+        ASSERT_EQ(1UL, instances.size()) << "There must be one instance of IConfig";
+        config = IConfig::fromBinder(configBinder.connectToService(instances[0]));
+        ASSERT_NE(config, nullptr);
     }
 
     void ApplyEveryConfig(const std::vector<AudioPortConfig>& configs) {
@@ -265,7 +298,9 @@ class AudioCoreModule : public testing::TestWithParam<std::string> {
 
     std::shared_ptr<IModule> module;
     std::unique_ptr<ModuleConfig> moduleConfig;
-    AudioHalBinderServiceUtil binderUtil;
+    AudioHalBinderServiceUtil moduleBinder;
+    std::shared_ptr<IConfig> config;
+    AudioHalBinderServiceUtil configBinder;
     WithDebugFlags debug;
 };
 
@@ -1206,6 +1241,72 @@ TEST_P(AudioCoreModule, ExternalDevicePortRoutes) {
         std::sort(routesAfter.begin(), routesAfter.end());
         EXPECT_EQ(routesBefore, routesAfter);
     }
+}
+
+TEST_P(AudioCoreModule, MasterMute) {
+    bool isSupported = false;
+    EXPECT_NO_FATAL_FAILURE(TestAccessors<bool>(module.get(), &IModule::getMasterMute,
+                                                &IModule::setMasterMute, {false, true}, {},
+                                                &isSupported));
+    if (!isSupported) {
+        GTEST_SKIP() << "Master mute is not supported";
+    }
+    // TODO: Test that master mute actually mutes output.
+}
+
+TEST_P(AudioCoreModule, MasterVolume) {
+    bool isSupported = false;
+    EXPECT_NO_FATAL_FAILURE(TestAccessors<float>(
+            module.get(), &IModule::getMasterVolume, &IModule::setMasterVolume, {0.0f, 0.5f, 1.0f},
+            {-0.1, 1.1, NAN, INFINITY, -INFINITY, 1 + std::numeric_limits<float>::epsilon()},
+            &isSupported));
+    if (!isSupported) {
+        GTEST_SKIP() << "Master volume is not supported";
+    }
+    // TODO: Test that master volume actually attenuates output.
+}
+
+TEST_P(AudioCoreModule, MicMute) {
+    bool isSupported = false;
+    EXPECT_NO_FATAL_FAILURE(TestAccessors<bool>(module.get(), &IModule::getMicMute,
+                                                &IModule::setMicMute, {false, true}, {},
+                                                &isSupported));
+    if (!isSupported) {
+        GTEST_SKIP() << "Mic mute is not supported";
+    }
+    // TODO: Test that mic mute actually mutes input.
+}
+
+TEST_P(AudioCoreModule, UpdateAudioMode) {
+    ASSERT_NO_FATAL_FAILURE(ConnectToConfig());
+    std::vector<AudioMode> supportedModes;
+    ASSERT_IS_OK(config->getSupportedAudioModes(&supportedModes));
+    EXPECT_NE(supportedModes.end(),
+              std::find(supportedModes.begin(), supportedModes.end(), AudioMode::NORMAL))
+            << "Audio mode NORMAL must be supported by all HALs";
+    std::set<AudioMode> unsupportedModes = {
+            // Start with all, remove supported ones
+            ::ndk::enum_range<AudioMode>().begin(), ::ndk::enum_range<AudioMode>().end()};
+    for (const auto mode : supportedModes) {
+        EXPECT_IS_OK(module->updateAudioMode(mode)) << toString(mode);
+        unsupportedModes.erase(mode);
+    }
+    for (const auto mode : unsupportedModes) {
+        EXPECT_STATUS(EX_UNSUPPORTED_OPERATION, module->updateAudioMode(mode)) << toString(mode);
+    }
+    EXPECT_IS_OK(module->updateAudioMode(AudioMode::NORMAL));
+}
+
+TEST_P(AudioCoreModule, UpdateScreenRotation) {
+    for (const auto rotation : ::ndk::enum_range<IModule::ScreenRotation>()) {
+        EXPECT_IS_OK(module->updateScreenRotation(rotation)) << toString(rotation);
+    }
+    EXPECT_IS_OK(module->updateScreenRotation(IModule::ScreenRotation::DEG_0));
+}
+
+TEST_P(AudioCoreModule, UpdateScreenState) {
+    EXPECT_IS_OK(module->updateScreenState(false));
+    EXPECT_IS_OK(module->updateScreenState(true));
 }
 
 template <typename Stream>

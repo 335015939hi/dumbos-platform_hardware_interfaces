@@ -70,6 +70,17 @@ class Module : public BnModule {
             bool* _aidl_return) override;
     ndk::ScopedAStatus resetAudioPatch(int32_t in_patchId) override;
     ndk::ScopedAStatus resetAudioPortConfig(int32_t in_portConfigId) override;
+    ndk::ScopedAStatus getMasterMute(bool* _aidl_return) override;
+    ndk::ScopedAStatus setMasterMute(bool in_mute) override;
+    ndk::ScopedAStatus getMasterVolume(float* _aidl_return) override;
+    ndk::ScopedAStatus setMasterVolume(float in_volume) override;
+    ndk::ScopedAStatus getMicMute(bool* _aidl_return) override;
+    ndk::ScopedAStatus setMicMute(bool in_mute) override;
+    ndk::ScopedAStatus updateAudioMode(
+            ::aidl::android::hardware::audio::core::AudioMode in_mode) override;
+    ndk::ScopedAStatus updateScreenRotation(
+            ::aidl::android::hardware::audio::core::IModule::ScreenRotation in_rotation) override;
+    ndk::ScopedAStatus updateScreenState(bool in_isTurnedOn) override;
 
     void cleanUpPatch(int32_t patchId);
     ndk::ScopedAStatus createStreamContext(
@@ -94,6 +105,9 @@ class Module : public BnModule {
     // Maps port ids and port config ids to patch ids.
     // Multimap because both ports and configs can be used by multiple patches.
     std::multimap<int32_t, int32_t> mPatches;
+    bool mMasterMute = false;
+    float mMasterVolume = 1.0f;
+    bool mMicMute = false;
 };
 
 }  // namespace aidl::android::hardware::audio::core
