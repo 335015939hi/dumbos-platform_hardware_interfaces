@@ -21,6 +21,7 @@
 namespace aidl::android::hardware::audio::core {
 
 class Config : public BnConfig {
+  private:
     ndk::ScopedAStatus getSurroundSoundConfig(SurroundSoundConfig* _aidl_return) override;
 };
 

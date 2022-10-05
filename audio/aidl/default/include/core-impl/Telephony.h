@@ -14,20 +14,21 @@
  * limitations under the License.
  */
 
-#include <android/binder_to_string.h>
-#define LOG_TAG "AHAL_Config"
-#include <android-base/logging.h>
+#pragma once
 
-#include "core-impl/Config.h"
+#include <android/binder_enums.h>
+
+#include <aidl/android/hardware/audio/core/BnTelephony.h>
 
 namespace aidl::android::hardware::audio::core {
 
-ndk::ScopedAStatus Config::getSurroundSoundConfig(SurroundSoundConfig* _aidl_return) {
-    SurroundSoundConfig surroundSoundConfig;
-    // TODO: parse from XML; for now, use empty config as default
-    *_aidl_return = std::move(surroundSoundConfig);
-    LOG(DEBUG) << __func__ << ": returning " << _aidl_return->toString();
-    return ndk::ScopedAStatus::ok();
-}
+class Telephony : public BnTelephony {
+  private:
+    ndk::ScopedAStatus getSupportedAudioModes(std::vector<AudioMode>* _aidl_return) override;
+    ndk::ScopedAStatus updateAudioMode(AudioMode in_mode) override;
+
+    const std::vector<AudioMode> mSupportedAudioModes = {::ndk::enum_range<AudioMode>().begin(),
+                                                         ::ndk::enum_range<AudioMode>().end()};
+};
 
 }  // namespace aidl::android::hardware::audio::core
