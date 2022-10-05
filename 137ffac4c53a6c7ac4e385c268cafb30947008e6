@@ -90,6 +90,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bab9139_2f1710d6",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-05T20:22:19Z",
+      "side": 1,
+      "message": "That\u0027s fine by me. My primary concern with strictly enumerating this was to check this field in VTS against the possible expected strings, ideally making sure the correct value was specified depending on the host HAL.",
+      "parentUuid": "33239682_f7203494",
+      "revId": "137ffac4c53a6c7ac4e385c268cafb30947008e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92b2b794_6ca89d5e",
@@ -113,6 +131,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dda304a_3e50b818",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-05T20:22:19Z",
+      "side": 1,
+      "message": "Yes, David is fixing this in another CL",
+      "parentUuid": "92b2b794_6ca89d5e",
+      "range": {
+        "startLine": 273,
+        "startChar": 19,
+        "endLine": 273,
+        "endChar": 21
+      },
+      "revId": "137ffac4c53a6c7ac4e385c268cafb30947008e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed25a7fb_462c3dbb",
@@ -126,6 +168,30 @@
       "writtenOn": "2022-09-02T17:35:59Z",
       "side": 1,
       "message": "Super nitpick: `s/MACs on/MAC for/`",
+      "range": {
+        "startLine": 307,
+        "startChar": 62,
+        "endLine": 307,
+        "endChar": 66
+      },
+      "revId": "137ffac4c53a6c7ac4e385c268cafb30947008e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18f6a04f_c085c5c0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-05T20:22:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed25a7fb_462c3dbb",
       "range": {
         "startLine": 307,
         "startChar": 62,
