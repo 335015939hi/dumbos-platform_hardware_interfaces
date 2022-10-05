@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c7e7314_09c8bf12",
+        "filename": "thermal/aidl/android/hardware/thermal/CoolingType.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-10-05T00:36:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c10065b_5bcb1d11",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 13
+      },
+      "revId": "d4f73abc6e9a31816c5e7be1d7f049aa2a37c7d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f232b2c9_7889c148",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-04T21:03:55Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 2
+      },
+      "revId": "d4f73abc6e9a31816c5e7be1d7f049aa2a37c7d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58aa2abf_8e703a50",
+        "filename": "thermal/aidl/android/hardware/thermal/CpuUsage.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-10-05T00:36:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f232b2c9_7889c148",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8757d209_a0167ecc",
+        "filename": "thermal/aidl/android/hardware/thermal/CpuUsage.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-10-05T00:36:33Z",
+      "side": 1,
+      "message": "This looks like it\u0027s public APIs. https://source.corp.google.com/android-internal/frameworks/base/core/java/android/os/HardwarePropertiesManager.java",
+      "parentUuid": "60dbd457_e52415c0",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 1
+      },
+      "revId": "d4f73abc6e9a31816c5e7be1d7f049aa2a37c7d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a2dc688_89518580",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fc21882_484dfbd6",
+        "filename": "thermal/aidl/android/hardware/thermal/TemperatureType.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-10-05T00:36:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a2dc688_89518580",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 7
+      },
+      "revId": "d4f73abc6e9a31816c5e7be1d7f049aa2a37c7d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9bf05ef_fac121cd",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-10-04T21:03:55Z",
       "side": 1,
       "message": "do we need this still?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 1
+      },
+      "revId": "d4f73abc6e9a31816c5e7be1d7f049aa2a37c7d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4d36574_ce82caa4",
+        "filename": "thermal/aidl/android/hardware/thermal/ThermalStatus.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-10-05T00:36:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9bf05ef_fac121cd",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -163,6 +283,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31e11887_0c2b5afa",
+        "filename": "thermal/aidl/android/hardware/thermal/ThermalStatusCode.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-10-05T00:36:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2675aed6_306d66c6",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "d4f73abc6e9a31816c5e7be1d7f049aa2a37c7d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5fdda6c_1944e808",
@@ -176,6 +320,30 @@
       "writtenOn": "2022-10-04T21:03:55Z",
       "side": 1,
       "message": "let us call this mock or example since this is really an empty implementation",
+      "range": {
+        "startLine": 1,
+        "startChar": 23,
+        "endLine": 1,
+        "endChar": 30
+      },
+      "revId": "d4f73abc6e9a31816c5e7be1d7f049aa2a37c7d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a78a9ef0_86aab106",
+        "filename": "thermal/aidl/default/thermal-default.rc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-10-05T00:36:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5fdda6c_1944e808",
       "range": {
         "startLine": 1,
         "startChar": 23,
