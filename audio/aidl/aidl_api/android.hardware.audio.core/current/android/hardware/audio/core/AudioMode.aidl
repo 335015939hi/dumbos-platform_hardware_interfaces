@@ -32,7 +32,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.audio.core;
-@VintfStability
-interface IConfig {
-  android.hardware.audio.core.AudioMode[] getSupportedAudioModes();
+@Backing(type="int") @VintfStability
+enum AudioMode {
+  NORMAL = 0,
+  RINGTONE = 1,
+  IN_CALL = 2,
+  IN_COMMUNICATION = 3,
+  CALL_SCREEN = 4,
 }

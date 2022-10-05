@@ -16,9 +16,21 @@
 
 package android.hardware.audio.core;
 
+import android.hardware.audio.core.AudioMode;
+
 /**
  * This interface provides system-wide configuration parameters for audio I/O
  * (by "system" here we mean the device running Android).
  */
 @VintfStability
-interface IConfig {}
+interface IConfig {
+    /**
+     * Return the list of the audio modes supported by the system.
+     *
+     * This method is only called once, during the audio system initialization,
+     * and must return the same result all the time.
+     *
+     * @return The list of supported audio modes.
+     */
+    AudioMode[] getSupportedAudioModes();
+}
