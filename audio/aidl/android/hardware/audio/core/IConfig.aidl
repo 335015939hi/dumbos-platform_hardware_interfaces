@@ -16,6 +16,7 @@
 
 package android.hardware.audio.core;
 
+import android.hardware.audio.core.AudioMode;
 import android.hardware.audio.core.SurroundSoundConfig;
 
 /**
@@ -24,6 +25,16 @@ import android.hardware.audio.core.SurroundSoundConfig;
  */
 @VintfStability
 interface IConfig {
+    /**
+     * Return the list of the audio modes supported by the system.
+     *
+     * This method is only called once, during the audio system initialization,
+     * and must return the same result all the time.
+     *
+     * @return The list of supported audio modes.
+     */
+    AudioMode[] getSupportedAudioModes();
+
     /**
      * Returns the surround sound configuration used for the Audio Policy
      * Manager initial configuration.
