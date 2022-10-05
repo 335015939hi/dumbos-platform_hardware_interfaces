@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc319b2e_db00d961",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-05T02:16:19Z",
+      "side": 1,
+      "message": "Note, we use names starting with \u0027on\u0027 to indicate that the HAL has no control over this, and simply gets notified by the client. This makes obvious that a) the method is not allowed to fail, and b) no getter is needed.",
+      "range": {
+        "startLine": 595,
+        "startChar": 9,
+        "endLine": 595,
+        "endChar": 26
+      },
+      "revId": "a9865b2e8f9549f4e75586bb125807bb47819bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
