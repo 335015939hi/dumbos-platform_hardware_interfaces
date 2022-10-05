@@ -16,6 +16,24 @@
       "message": "Add \"Bug component: XXX\"",
       "revId": "784ea1e05991c8730b7bcada611f85e7a2bf4e57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d255714e_d32085b8",
+        "filename": "fastboot/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-05T23:14:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9312f039_b4350efb",
+      "revId": "784ea1e05991c8730b7bcada611f85e7a2bf4e57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
