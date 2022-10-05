@@ -481,4 +481,144 @@ interface IModule {
      *                          - If the port config is used by a patch.
      */
     void resetAudioPortConfig(int portConfigId);
+
+    /**
+     * Get the current state of audio output muting.
+     *
+     * If the HAL module supports muting its combined output completely,
+     * this method returns whether muting is currently enabled.
+     *
+     * Note that muting operates independently from the master volume.
+     *
+     * @return Whether the output from the module is muted.
+     * @throws EX_UNSUPPORTED_OPERATION If muting of combined output
+     *                                  is not supported by the module.
+     */
+    boolean getMasterMute();
+
+    /**
+     * Set the current value of the audio output muting.
+     *
+     * If the HAL module supports muting its combined output completely, this
+     * method controls the mute. Note that for modules supporting telephony,
+     * muting does not affect the voice call.
+     *
+     * For HAL modules not supporting this operation, it's functionality is
+     * typically emulated by the client, in the digital domain.
+     *
+     * @param mute Whether the output from the module is muted.
+     * @throws EX_UNSUPPORTED_OPERATION If muting of combined output
+     *                                  is not supported by the module.
+     */
+    void setMasterMute(boolean mute);
+
+    /**
+     * Get the current value of the audio output attenuation.
+     *
+     * If the HAL module supports attenuating the level its combined output,
+     * this method returns the current attenuation value.
+     *
+     * @return Volume 1.0f means no attenuation (unity), 0.0f is mute.
+     * @throws EX_UNSUPPORTED_OPERATION If attenuation of combined output
+     *                                  is not supported by the module.
+     */
+    float getMasterVolume();
+
+    /**
+     * Set the current value of the audio output attenuation.
+     *
+     * If the HAL module supports attenuating the level its combined output,
+     * this method sets the attenuation value. Note that for modules supporting
+     * telephony, the attenuation of the voice call volume is set separately
+     * via ITelephony interface.
+     *
+     * For HAL modules not supporting this operation, it's functionality is
+     * typically emulated by the client, in the digital domain.
+     *
+     * @param volume The new value, 1.0f means no attenuation (unity), 0.0f is mute.
+     * @throws EX_ILLEGAL_ARGUMENT If the value of the volume is outside of
+     *                             accepted range.
+     * @throws EX_UNSUPPORTED_OPERATION If attenuation of combined output
+     *                                  is not supported by the module.
+     */
+    void setMasterVolume(float volume);
+
+    /**
+     * Get the current state of audio input muting.
+     *
+     * If the HAL module supports muting its external input, this method returns
+     * whether muting is currently enabled.
+     *
+     * @return Whether the input is muted.
+     * @throws EX_UNSUPPORTED_OPERATION If muting of input is not supported by
+     *                                  the module.
+     */
+    boolean getMicMute();
+
+    /**
+     * Set the current value of the audio input muting.
+     *
+     * If the HAL module supports muting its external input, this method
+     * controls the mute.
+     *
+     * For HAL modules not supporting this operation, it's functionality is
+     * emulated by the client.
+     *
+     * @param mute Whether input is muted.
+     * @throws EX_UNSUPPORTED_OPERATION If muting of input is not supported by
+     *                                  the module.
+     */
+    void setMicMute(boolean mute);
+
+    @VintfStability
+    @Backing(type="int")
+    enum AudioMode {
+        /** No active calls. */
+        NORMAL = 0,
+        /** The device is playing the ringtone. */
+        RINGTONE = 1,
+        /** The call is handled by the telephony stack ("voice call"). */
+        IN_CALL = 2,
+        /** The call is handled by an application ("VoIP call"). */
+        IN_COMMUNICATION = 3,
+        /** Call screening is in progress. */
+        CALL_SCREEN = 4,
+    }
+
+    /**
+     * Notify the HAL module on the change of the current audio mode.
+     *
+     * The current audio mode is always controlled by the client.
+     *
+     * @param mode The current mode.
+     */
+    void onAudioModeChange(AudioMode mode);
+
+    @VintfStability
+    @Backing(type="int")
+    enum ScreenRotation {
+        /** Normal orientation. */
+        DEG_0 = 0,
+        DEG_90 = 1,
+        /** Upside down. */
+        DEG_180 = 2,
+        DEG_270 = 3,
+    }
+
+    @JavaDerive(equals=true, toString=true)
+    @VintfStability
+    parcelable ScreenState {
+        boolean isTurnedOn;
+        ScreenRotation rotation;
+    }
+
+    /**
+     * Notify the HAL module on the change of the screen state.
+     *
+     * This notification can be used by the HAL module to optimize audio output
+     * for the particular device orientation.
+     *
+     * @param state The current state.
+     */
+    void onScreenStateChange(in ScreenState state);
 }
