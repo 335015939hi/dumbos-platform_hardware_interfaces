@@ -49,6 +49,15 @@ interface IModule {
   boolean setAudioPortConfig(in android.media.audio.common.AudioPortConfig requested, out android.media.audio.common.AudioPortConfig suggested);
   void resetAudioPatch(int patchId);
   void resetAudioPortConfig(int portConfigId);
+  boolean getMasterMute();
+  void setMasterMute(boolean mute);
+  float getMasterVolume();
+  void setMasterVolume(float volume);
+  boolean getMicMute();
+  void setMicMute(boolean mute);
+  void updateAudioMode(android.hardware.audio.core.IModule.AudioMode mode);
+  void updateScreenRotation(android.hardware.audio.core.IModule.ScreenRotation rotation);
+  void updateScreenState(boolean isTurnedOn);
   @VintfStability
   parcelable OpenInputStreamArguments {
     int portConfigId;
@@ -71,5 +80,20 @@ interface IModule {
   parcelable OpenOutputStreamReturn {
     android.hardware.audio.core.IStreamOut stream;
     android.hardware.audio.core.StreamDescriptor desc;
+  }
+  @Backing(type="int") @VintfStability
+  enum AudioMode {
+    NORMAL = 0,
+    RINGTONE = 1,
+    IN_CALL = 2,
+    IN_COMMUNICATION = 3,
+    CALL_SCREEN = 4,
+  }
+  @Backing(type="int") @VintfStability
+  enum ScreenRotation {
+    DEG_0 = 0,
+    DEG_90 = 1,
+    DEG_180 = 2,
+    DEG_270 = 3,
   }
 }
