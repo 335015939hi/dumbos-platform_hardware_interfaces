@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35e34385_e2f89894",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-05T00:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dbf8fb8_b6a71431",
+      "range": {
+        "startLine": 362,
+        "startChar": 41,
+        "endLine": 362,
+        "endChar": 45
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87ab5d58_92a9845b",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-29T22:11:22Z",
       "side": 1,
       "message": "nit: I think it would be nicer to extract the shared stuff into a base class, rather than overriding a completely test class for a completely different set of tests.",
+      "range": {
+        "startLine": 664,
+        "startChar": 40,
+        "endLine": 664,
+        "endChar": 62
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06990461_1b483cba",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-05T00:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87ab5d58_92a9845b",
       "range": {
         "startLine": 664,
         "startChar": 40,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ff427f8_ea139787",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-05T00:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab994a5a_e24bbd4b",
+      "range": {
+        "startLine": 668,
+        "startChar": 44,
+        "endLine": 668,
+        "endChar": 45
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee951c78_1399aa70",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-09-29T22:11:22Z",
       "side": 1,
       "message": "Should be false?\n\nOr do you intentionally want to test with both true _and_ false?\n\nSeems like maybe we should have a test for generateCertificateRequestV2 that ensures testMode is an inconsequential flag (aka, it succeeds regardless of the flag state, producing good output).",
+      "range": {
+        "startLine": 708,
+        "startChar": 4,
+        "endLine": 708,
+        "endChar": 25
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dffdfc9_1571a5b8",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-05T00:45:50Z",
+      "side": 1,
+      "message": "Good point. The next test case checks that test mode is ignored. I changed this test case to testMode\u003dfalse to avoid confusion.",
+      "parentUuid": "ee951c78_1399aa70",
       "range": {
         "startLine": 708,
         "startChar": 4,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6a67360_ca0ac2cd",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-05T00:45:50Z",
+      "side": 1,
+      "message": "Good spot. I missed that check. I added it to the newest patchset.",
+      "parentUuid": "32bb013f_498a75b2",
+      "range": {
+        "startLine": 533,
+        "startChar": 8,
+        "endLine": 533,
+        "endChar": 26
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df7b9cfb_801d8e2f",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-09-30T22:33:20Z",
       "side": 1,
       "message": "Nit: Add the expected vs actual challenge in a hex printout as well",
+      "range": {
+        "startLine": 780,
+        "startChar": 15,
+        "endLine": 780,
+        "endChar": 50
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6394605_83bed01b",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-05T00:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df7b9cfb_801d8e2f",
       "range": {
         "startLine": 780,
         "startChar": 15,
@@ -174,6 +318,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b8485cf_39f7344c",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-05T00:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87fd1956_997f3a9d",
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d95e7aa7_6ce2ec38",
@@ -197,6 +359,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb681fed_c6602455",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-05T00:45:50Z",
+      "side": 1,
+      "message": "Actually, now that I think about it, UDS is a map with vendor-defined keys, i.e. there is no way for the test to inspect its contents. Checking that UDS is a map should suffice. That\u0027s what we\u0027ve been doing in v1 and 2.",
+      "parentUuid": "d95e7aa7_6ce2ec38",
+      "range": {
+        "startLine": 827,
+        "startChar": 7,
+        "endLine": 827,
+        "endChar": 11
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b0177a2_815bb4a9",
@@ -210,6 +396,30 @@
       "writtenOn": "2022-09-30T22:33:20Z",
       "side": 1,
       "message": "Is this used anywhere?",
+      "range": {
+        "startLine": 854,
+        "startChar": 36,
+        "endLine": 854,
+        "endChar": 52
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61f128d0_6c044ca3",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-05T00:45:50Z",
+      "side": 1,
+      "message": "Not yet, but I imagine rkp_factory_extraction_tool will need this. To make this function easier to use, I kept the return value the same as verify*ProtectedData()",
+      "parentUuid": "2b0177a2_815bb4a9",
       "range": {
         "startLine": 854,
         "startChar": 36,
