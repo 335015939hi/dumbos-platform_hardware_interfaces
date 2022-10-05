@@ -16,6 +16,52 @@
       "message": "ptal :)",
       "revId": "0ff4b177483eff6afbd2ba991291344a061be4fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "619f98b6_1c2f162a",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 18
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2022-10-05T23:48:42Z",
+      "side": 1,
+      "message": "probably need treble team to agree on backward compatibility",
+      "range": {
+        "startLine": 667,
+        "startChar": 3,
+        "endLine": 667,
+        "endChar": 40
+      },
+      "revId": "0ff4b177483eff6afbd2ba991291344a061be4fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1d25307_7351b832",
+        "filename": "thermal/aidl/android/hardware/thermal/TemperatureThreshold.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2022-10-05T23:48:42Z",
+      "side": 1,
+      "message": "I think we can remove this due to daydream is gone, no one is using this",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 32
+      },
+      "revId": "0ff4b177483eff6afbd2ba991291344a061be4fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
