@@ -45,6 +45,30 @@
       },
       "revId": "a9865b2e8f9549f4e75586bb125807bb47819bac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1af77cf7_33532d91",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-05T17:40:04Z",
+      "side": 1,
+      "message": "OK, then it\u0027s probably easier to have 2 methods 😊",
+      "parentUuid": "a3c20475_47975fb6",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 612,
+        "endChar": 32
+      },
+      "revId": "a9865b2e8f9549f4e75586bb125807bb47819bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
