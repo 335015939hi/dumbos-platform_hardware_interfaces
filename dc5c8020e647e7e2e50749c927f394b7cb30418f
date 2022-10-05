@@ -52,6 +52,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e56c0fb_74351318",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-05T00:15:26Z",
+      "side": 1,
+      "message": "Fixed minor comments.",
+      "revId": "dc5c8020e647e7e2e50749c927f394b7cb30418f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6208bae6_9bcdb0c7",
@@ -88,6 +105,54 @@
       "writtenOn": "2022-10-04T22:13:49Z",
       "side": 1,
       "message": "Explain what the string is. Is it the output of the command?",
+      "range": {
+        "startLine": 35,
+        "startChar": 23,
+        "endLine": 35,
+        "endChar": 76
+      },
+      "revId": "dc5c8020e647e7e2e50749c927f394b7cb30418f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e859b50_6a257320",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-05T00:15:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6208bae6_9bcdb0c7",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 35,
+        "endChar": 22
+      },
+      "revId": "dc5c8020e647e7e2e50749c927f394b7cb30418f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "801c0127_c8b2840b",
+        "filename": "fastboot/aidl/android/hardware/fastboot/IFastboot.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-10-05T00:15:26Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "b8ac8ced_4e172254",
       "range": {
         "startLine": 35,
         "startChar": 23,
