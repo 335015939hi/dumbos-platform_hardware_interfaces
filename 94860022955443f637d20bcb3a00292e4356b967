@@ -91,6 +91,29 @@
       },
       "revId": "94860022955443f637d20bcb3a00292e4356b967",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3938ab2c_2674937d",
+        "filename": "thermal/aidl/android/hardware/thermal/TemperatureType.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2022-10-06T15:52:59Z",
+      "side": 1,
+      "message": "+George, let us know if you need more BCL types",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "94860022955443f637d20bcb3a00292e4356b967",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
