@@ -16,6 +16,24 @@
       "message": "Shunkai, to clarify--this the same as ag/20075625, and you plan to abandon the latter and submit via AOSP, right?",
       "revId": "9a52846a4bd0666526e2fc01bed42880212bff41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2038b079_f7527cba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-06T22:12:10Z",
+      "side": 1,
+      "message": "Yes, that\u0027s my plan.",
+      "parentUuid": "2b7393b3_b484eb75",
+      "revId": "9a52846a4bd0666526e2fc01bed42880212bff41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
