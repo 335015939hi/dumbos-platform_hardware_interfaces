@@ -34,6 +34,24 @@
       "parentUuid": "2b7393b3_b484eb75",
       "revId": "9a52846a4bd0666526e2fc01bed42880212bff41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c624bdab_966f198e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-06T22:33:14Z",
+      "side": 1,
+      "message": "I\u0027d like to recommend against this pattern and suggest doing all reviews on AOSP.\nThis makes it difficult for reviewers. I have no easy way to diff this CL against ag/20075625 so I have to either review it again, or trust that it is the same.\nI don\u0027t think there is much value to be gained - folks generally understand that code in reviews is subject to change.\n\nMikhail, what do you think? (I don\u0027t have the context of the Audio team to really understand the value this pattern provides. Maybe this is the correct thing to do.)",
+      "parentUuid": "2038b079_f7527cba",
+      "revId": "9a52846a4bd0666526e2fc01bed42880212bff41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
