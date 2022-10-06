@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2c8914d_9dd7dcb5",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-06T00:20:16Z",
+      "side": 1,
+      "message": "Note: changed these to \u0027update\u0027 to align with \u0027updateMetadata\u0027 from stream interfaces. Let\u0027s reserve \u0027on...\u0027 methods to async notifications in callback interfaces.",
+      "range": {
+        "startLine": 595,
+        "startChar": 9,
+        "endLine": 595,
+        "endChar": 24
+      },
+      "revId": "1e5b22048e498714098ebe3db674ac206f8c9821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
