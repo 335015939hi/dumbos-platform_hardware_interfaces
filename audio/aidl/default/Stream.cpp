@@ -23,6 +23,7 @@
 
 using aidl::android::hardware::audio::common::SinkMetadata;
 using aidl::android::hardware::audio::common::SourceMetadata;
+using aidl::android::media::audio::common::AudioDevice;
 using aidl::android::media::audio::common::AudioOffloadInfo;
 
 namespace aidl::android::hardware::audio::core {
@@ -530,9 +531,59 @@ ndk::ScopedAStatus StreamCommon<Metadata, StreamWorker>::updateMetadata(const Me
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
 }
 
-StreamIn::StreamIn(const SinkMetadata& sinkMetadata, StreamContext context)
-    : StreamCommon<SinkMetadata, StreamInWorker>(sinkMetadata, std::move(context)) {
+namespace {
+static std::map<AudioDevice, std::string> transformMicrophones(
+        const std::vector<MicrophoneInfo>& microphones) {
+    std::map<AudioDevice, std::string> result;
+    std::transform(microphones.begin(), microphones.end(), std::inserter(result, result.begin()),
+                   [](const auto& mic) { return std::make_pair(mic.device, mic.id); });
+    return result;
+}
+}  // namespace
+
+StreamIn::StreamIn(const SinkMetadata& sinkMetadata, StreamContext context,
+                   const std::vector<MicrophoneInfo>& microphones)
+    : StreamCommon<SinkMetadata, StreamInWorker>(sinkMetadata, std::move(context)),
+      mMicrophones(transformMicrophones(microphones)) {
     LOG(DEBUG) << __func__;
+}
+
+ndk::ScopedAStatus StreamIn::getActiveMicrophones(
+        std::vector<MicrophoneDynamicInfo>* _aidl_return) {
+    std::vector<MicrophoneDynamicInfo> result;
+    for (auto it = mConnectedDevices.begin(); it != mConnectedDevices.end(); ++it) {
+        if (auto micIt = mMicrophones.find(*it); micIt != mMicrophones.end()) {
+            MicrophoneDynamicInfo dynMic;
+            dynMic.id = micIt->second;
+            dynMic.channelMapping = std::vector{MicrophoneDynamicInfo::ChannelMapping::DIRECT};
+            result.push_back(std::move(dynMic));
+        }
+    }
+    *_aidl_return = std::move(result);
+    LOG(DEBUG) << __func__ << ": returning " << ::android::internal::ToString(*_aidl_return);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus StreamIn::getMicrophoneDirection(MicrophoneDirection* _aidl_return) {
+    LOG(DEBUG) << __func__;
+    (void)_aidl_return;
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus StreamIn::setMicrophoneDirection(MicrophoneDirection in_direction) {
+    LOG(DEBUG) << __func__ << ": direction " << toString(in_direction);
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus StreamIn::getMicrophoneFieldDimension(float* _aidl_return) {
+    LOG(DEBUG) << __func__;
+    (void)_aidl_return;
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus StreamIn::setMicrophoneFieldDimension(float in_zoom) {
+    LOG(DEBUG) << __func__ << ": zoom " << in_zoom;
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
 StreamOut::StreamOut(const SourceMetadata& sourceMetadata, StreamContext context,
