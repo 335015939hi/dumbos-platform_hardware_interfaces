@@ -32,20 +32,14 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.audio.core;
-@VintfStability
-interface IStreamIn {
-  void close();
-  android.hardware.audio.core.MicrophoneDynamicInfo[] getActiveMicrophones();
-  android.hardware.audio.core.IStreamIn.MicrophoneDirection getMicrophoneDirection();
-  void setMicrophoneDirection(android.hardware.audio.core.IStreamIn.MicrophoneDirection direction);
-  float getMicrophoneFieldDimension();
-  void setMicrophoneFieldDimension(float zoom);
-  void updateMetadata(in android.hardware.audio.common.SinkMetadata sinkMetadata);
+@JavaDerive(equals=true, toString=true) @VintfStability
+parcelable MicrophoneDynamicInfo {
+  @utf8InCpp String id;
+  android.hardware.audio.core.MicrophoneDynamicInfo.ChannelMapping[] channelMapping;
   @Backing(type="int") @VintfStability
-  enum MicrophoneDirection {
-    UNSPECIFIED = 0,
-    FRONT = 1,
-    BACK = 2,
-    EXTERNAL = 3,
+  enum ChannelMapping {
+    UNUSED = 0,
+    DIRECT = 1,
+    PROCESSED = 2,
   }
 }

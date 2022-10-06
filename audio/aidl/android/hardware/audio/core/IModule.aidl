@@ -23,6 +23,7 @@ import android.hardware.audio.core.AudioPatch;
 import android.hardware.audio.core.AudioRoute;
 import android.hardware.audio.core.IStreamIn;
 import android.hardware.audio.core.IStreamOut;
+import android.hardware.audio.core.MicrophoneInfo;
 import android.hardware.audio.core.ModuleDebug;
 import android.hardware.audio.core.StreamDescriptor;
 import android.media.audio.common.AudioOffloadInfo;
@@ -570,6 +571,18 @@ interface IModule {
      *                                  the module.
      */
     void setMicMute(boolean mute);
+
+    /**
+     * Provide information describing microphones of the HAL module.
+     *
+     * If there are no microphones in the HAL module, it must return an empty
+     * vector. If there are microphones, but the HAL module does not possess the
+     * required information about them, EX_UNSUPPORTED_OPERATION must be thrown.
+     *
+     * @return The vector with information about each microphone.
+     * @throws EX_UNSUPPORTED_OPERATION If the information is unavailable.
+     */
+    MicrophoneInfo[] getMicrophones();
 
     /**
      * Notify the HAL module on the change of the current audio mode.
