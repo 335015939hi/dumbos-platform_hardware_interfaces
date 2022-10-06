@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e3c0725_58cd4090",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-10-06T06:15:59Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e53ce84d_a740e436",
+      "range": {
+        "startLine": 631,
+        "startChar": 11,
+        "endLine": 632,
+        "endChar": 97
+      },
+      "revId": "8ceac142c07ba90b633aa8c0da05b14af42acb37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc94ffcf_41fb494c",
