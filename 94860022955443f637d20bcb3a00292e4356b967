@@ -138,6 +138,23 @@
       },
       "revId": "94860022955443f637d20bcb3a00292e4356b967",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a9e471_b2a5c84e",
+        "filename": "thermal/aidl/android/hardware/thermal/TemperatureType.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1378356
+      },
+      "writtenOn": "2022-10-06T16:52:56Z",
+      "side": 1,
+      "message": "What\u0027s SOC?  System on Chip or State of Charge?",
+      "revId": "94860022955443f637d20bcb3a00292e4356b967",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
