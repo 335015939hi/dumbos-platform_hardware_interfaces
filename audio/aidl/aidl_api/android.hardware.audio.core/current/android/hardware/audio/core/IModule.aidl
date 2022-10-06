@@ -55,6 +55,7 @@ interface IModule {
   void setMasterVolume(float volume);
   boolean getMicMute();
   void setMicMute(boolean mute);
+  android.hardware.audio.core.MicrophoneInfo[] getMicrophones();
   void onAudioModeChange(android.hardware.audio.core.IModule.AudioMode mode);
   void onScreenRotationChange(android.hardware.audio.core.IModule.ScreenRotation rotation);
   void onScreenStateChange(boolean isTurnedOn);

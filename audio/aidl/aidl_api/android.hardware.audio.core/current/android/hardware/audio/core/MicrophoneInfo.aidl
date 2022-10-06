@@ -32,20 +32,58 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.audio.core;
-@VintfStability
-interface IStreamIn {
-  void close();
-  @utf8InCpp String[] getActiveMicrophonesIds();
-  android.hardware.audio.core.IStreamIn.MicrophoneDirection getMicrophoneDirection();
-  void setMicrophoneDirection(android.hardware.audio.core.IStreamIn.MicrophoneDirection direction);
-  float getMicrophoneFieldDimension();
-  void setMicrophoneFieldDimension(float zoom);
-  void updateMetadata(in android.hardware.audio.common.SinkMetadata sinkMetadata);
+@JavaDerive(equals=true, toString=true) @VintfStability
+parcelable MicrophoneInfo {
+  @utf8InCpp String id;
+  android.media.audio.common.AudioDeviceAddress address;
+  android.hardware.audio.core.MicrophoneInfo.ChannelMapping[] channelMapping;
+  android.hardware.audio.core.MicrophoneInfo.Location location = android.hardware.audio.core.MicrophoneInfo.Location.UNKNOWN;
+  int group = -1;
+  int indexInTheGroup = -1;
+  @nullable android.hardware.audio.core.MicrophoneInfo.Sensitivity sensitivity;
+  android.hardware.audio.core.MicrophoneInfo.Directionality directionality = android.hardware.audio.core.MicrophoneInfo.Directionality.UNKNOWN;
+  android.hardware.audio.core.MicrophoneInfo.FrequencyResponsePoint[] frequencyResponse;
+  @nullable android.hardware.audio.core.MicrophoneInfo.Coordinate position;
+  @nullable android.hardware.audio.core.MicrophoneInfo.Coordinate orientation;
+  const int GROUP_UNKNOWN = -1;
+  const int INDEX_IN_THE_GROUP_UNKNOWN = -1;
   @Backing(type="int") @VintfStability
-  enum MicrophoneDirection {
-    UNSPECIFIED = 0,
-    FRONT = 1,
-    BACK = 2,
-    EXTERNAL = 3,
+  enum ChannelMapping {
+    UNUSED = 0,
+    DIRECT = 1,
+    PROCESSED = 2,
+  }
+  @Backing(type="int") @VintfStability
+  enum Location {
+    UNKNOWN = 0,
+    MAINBODY = 1,
+    MAINBODY_MOVABLE = 2,
+    PERIPHERAL = 3,
+  }
+  @VintfStability
+  parcelable Sensitivity {
+    float leveldBFS;
+    float maxSpldB;
+    float minSpldB;
+  }
+  @Backing(type="int") @VintfStability
+  enum Directionality {
+    UNKNOWN = 0,
+    OMNI = 1,
+    BI_DIRECTIONAL = 2,
+    CARDIOID = 3,
+    HYPER_CARDIOID = 4,
+    SUPER_CARDIOID = 5,
+  }
+  @VintfStability
+  parcelable FrequencyResponsePoint {
+    float frequencyHz;
+    float leveldB;
+  }
+  @VintfStability
+  parcelable Coordinate {
+    float x;
+    float y;
+    float z;
   }
 }
