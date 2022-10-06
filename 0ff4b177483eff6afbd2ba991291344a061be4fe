@@ -62,6 +62,30 @@
       },
       "revId": "0ff4b177483eff6afbd2ba991291344a061be4fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7770725_866370b3",
+        "filename": "thermal/aidl/android/hardware/thermal/TemperatureThreshold.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-10-06T05:30:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1d25307_7351b832",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 32
+      },
+      "revId": "0ff4b177483eff6afbd2ba991291344a061be4fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
