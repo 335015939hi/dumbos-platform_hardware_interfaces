@@ -140,6 +140,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41f52e6f_a1848d34",
+        "filename": "thermal/aidl/android/hardware/thermal/TemperatureType.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2022-10-06T17:04:53Z",
+      "side": 1,
+      "message": "future prove.",
+      "parentUuid": "646ae2fe_76a9e523",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "94860022955443f637d20bcb3a00292e4356b967",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40a9e471_b2a5c84e",
@@ -153,6 +177,24 @@
       "writtenOn": "2022-10-06T16:52:56Z",
       "side": 1,
       "message": "What\u0027s SOC?  System on Chip or State of Charge?",
+      "revId": "94860022955443f637d20bcb3a00292e4356b967",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45e825bc_81c0106f",
+        "filename": "thermal/aidl/android/hardware/thermal/TemperatureType.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2022-10-06T17:04:53Z",
+      "side": 1,
+      "message": "SoC chip.",
+      "parentUuid": "40a9e471_b2a5c84e",
       "revId": "94860022955443f637d20bcb3a00292e4356b967",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
