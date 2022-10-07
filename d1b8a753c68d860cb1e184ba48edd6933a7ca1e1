@@ -22,6 +22,30 @@
       },
       "revId": "d1b8a753c68d860cb1e184ba48edd6933a7ca1e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52d53303_38b1562a",
+        "filename": "identity/aidl/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-07T01:11:07Z",
+      "side": 1,
+      "message": "I\u0027m trying to bump identity version (to v5) without bumping keymaster version (currently v3). I know this looks super wonky, but I couldn\u0027t figure out another way.",
+      "parentUuid": "2b1041c0_0aae01fc",
+      "range": {
+        "startLine": 17,
+        "startChar": 26,
+        "endLine": 17,
+        "endChar": 39
+      },
+      "revId": "d1b8a753c68d860cb1e184ba48edd6933a7ca1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
