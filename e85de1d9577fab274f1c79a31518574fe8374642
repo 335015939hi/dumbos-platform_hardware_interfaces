@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "571d38a5_43388c92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-10-07T22:35:09Z",
+      "side": 1,
+      "message": "Hi Steven and Etan,\n\nPlease take a look at this. This is to put the AOSP implementation of android.hardware.wifi into an APEX. The new apex is installed to the cuttlefish target as vendor APEX demonstration.",
+      "revId": "e85de1d9577fab274f1c79a31518574fe8374642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
