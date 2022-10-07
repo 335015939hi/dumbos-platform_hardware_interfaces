@@ -111,6 +111,30 @@
       },
       "revId": "694c86f1f2aa30645b3eafe298f6025c55ff0416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab0626c7_90992acf",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-07T17:35:57Z",
+      "side": 1,
+      "message": "Talked offline, we decided it doesn\u0027t make sense after all to add this here to the interface.\n\nThanks for the comment.",
+      "parentUuid": "5fe93f18_40971b52",
+      "range": {
+        "startLine": 490,
+        "startChar": 43,
+        "endLine": 490,
+        "endChar": 47
+      },
+      "revId": "694c86f1f2aa30645b3eafe298f6025c55ff0416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
