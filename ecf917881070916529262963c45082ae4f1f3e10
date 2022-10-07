@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60621b65_2507b47f",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-07T19:45:56Z",
+      "side": 1,
+      "message": "Couple more test recommendations (feel free to add in a follow-up CL)\n\n- Multiple requests all return the same root public key.\n- The HAL can process an arbitrary number of keys at a time. This is harder, and will probably require updates to the Trusty TA / HAL service to stream this. The alternative is to at least set a known bound (50?). RKPD needs to know how many keys can be sent to the HAL in one shot, and ideally shouldn\u0027t have to worry about it at all.",
+      "range": {
+        "startLine": 668,
+        "startChar": 6,
+        "endLine": 668,
+        "endChar": 30
+      },
+      "revId": "ecf917881070916529262963c45082ae4f1f3e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
