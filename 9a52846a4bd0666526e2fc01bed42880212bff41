@@ -52,6 +52,24 @@
       "parentUuid": "2038b079_f7527cba",
       "revId": "9a52846a4bd0666526e2fc01bed42880212bff41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "646ff5f6_1192db2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-07T00:11:47Z",
+      "side": 1,
+      "message": "I think, Shunkai has started working on his internal CL before we went upstream. For new CLs I would also prefer starting from an AOSP CL right away, because it puts less strain on reviewers.",
+      "parentUuid": "c624bdab_966f198e",
+      "revId": "9a52846a4bd0666526e2fc01bed42880212bff41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
