@@ -66,6 +66,7 @@ cc_library_static {
         "-Wall",
         "-Wextra",
         "-DEIC_DEBUG",
+        "-Wno-array-parameter",
         // Allow using C2x extensions such as omitting parameter names
         "-Wno-c2x-extensions",
     ],
