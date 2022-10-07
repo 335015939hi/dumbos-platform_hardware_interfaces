@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcb9010f_c57c4a87",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamIn.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-07T15:24:29Z",
+      "side": 1,
+      "message": "Reporting the IDs is not enough because the channel mapping information in the MicrophoneInfo changes for each capture use case.\nWe could separate the channel mapping in from the MicrophoneInfo and report her pairs of \u003cIds, ChannelMapping\u003e \nYou are right that returning the whole static information tied to each mic is redundant here. Also the channel mapping returned when mics are enumerated from the IModule is useless.",
+      "range": {
+        "startLine": 52,
+        "startChar": 24,
+        "endLine": 52,
+        "endChar": 47
+      },
+      "revId": "c1a575ee4b1081f72dc3248bd33543674b8e3faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
