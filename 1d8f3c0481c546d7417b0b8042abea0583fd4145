@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0366175_ebe2b5d9",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2022-10-08T00:36:26Z",
+      "side": 1,
+      "message": "If this works with the default implementation, we can mark these as resolved for now.",
+      "parentUuid": "1efd588e_ce587ed4",
+      "range": {
+        "startLine": 355,
+        "startChar": 8,
+        "endLine": 355,
+        "endChar": 15
+      },
+      "revId": "1d8f3c0481c546d7417b0b8042abea0583fd4145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a6cc35b_13b503b7",
         "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
         "patchSetId": 8
