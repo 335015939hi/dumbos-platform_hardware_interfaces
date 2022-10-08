@@ -33,7 +33,7 @@ aidl_interface {
         "android/hardware/audio/common/SourceMetadata.aidl",
     ],
     imports: [
-        "android.media.audio.common.types",
+        "android.media.audio.common.types-V2",
     ],
     stability: "vintf",
     backend: {
@@ -41,16 +41,145 @@ aidl_interface {
             enabled: true,
         },
         java: {
-            platform_apis: true,
+            sdk_version: "module_current",
+            min_sdk_version: "31",
+            apex_available: [
+                "//apex_available:platform",
+                "com.android.car.framework",
+            ],
         },
         ndk: {
             apex_available: [
                 "//apex_available:platform",
-                "com.android.bluetooth",
+                "com.android.btservices",
             ],
             min_sdk_version: "31",
         },
     },
-    versions: [
+    versions_with_info: [
+        {
+            version: "1",
+            imports: ["android.media.audio.common.types-V2"],
+        },
+        // IMPORTANT: Update latest_android_hardware_audio_common every time you
+        // add the latest frozen version to versions_with_info
+    ],
+
+}
+
+// Note: This should always be one version ahead of the last frozen version
+latest_android_hardware_audio_common = "android.hardware.audio.common-V1"
+
+// Modules that depend on android.hardware.audio.common directly can include
+// the following cc_defaults to avoid explicitly managing dependency versions
+// across many scattered files.
+cc_defaults {
+    name: "latest_android_hardware_audio_common_cpp_static",
+    static_libs: [
+        latest_android_hardware_audio_common + "-cpp",
+    ],
+}
+
+cc_defaults {
+    name: "latest_android_hardware_audio_common_ndk_static",
+    static_libs: [
+        latest_android_hardware_audio_common + "-ndk",
+    ],
+}
+
+aidl_interface {
+    name: "android.hardware.audio.core",
+    vendor_available: true,
+    srcs: [
+        "android/hardware/audio/core/AudioPatch.aidl",
+        "android/hardware/audio/core/AudioRoute.aidl",
+        "android/hardware/audio/core/IConfig.aidl",
+        "android/hardware/audio/core/IModule.aidl",
+        "android/hardware/audio/core/IStreamIn.aidl",
+        "android/hardware/audio/core/IStreamOut.aidl",
+        "android/hardware/audio/core/MmapBufferDescriptor.aidl",
+        "android/hardware/audio/core/ModuleDebug.aidl",
+        "android/hardware/audio/core/StreamDescriptor.aidl",
+        "android/hardware/audio/core/SurroundSoundConfig.aidl",
+    ],
+    imports: [
+        "android.hardware.common-V2",
+        "android.hardware.common.fmq-V1",
+        "android.hardware.audio.common-V1",
+        "android.media.audio.common.types-V2",
+    ],
+    stability: "vintf",
+    backend: {
+        // The C++ backend is disabled transitively due to use of FMQ.
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+    versions_with_info: [
+        // IMPORTANT: Update latest_android_hardware_audio_core every time you
+        // add the latest frozen version to versions_with_info
+    ],
+}
+
+// Note: This should always be one version ahead of the last frozen version
+latest_android_hardware_audio_core = "android.hardware.audio.core-V1"
+
+// Modules that depend on android.hardware.audio.core directly can include
+// the following cc_defaults to avoid explicitly managing dependency versions
+// across many scattered files.
+cc_defaults {
+    name: "latest_android_hardware_audio_core_ndk_shared",
+    shared_libs: [
+        latest_android_hardware_audio_core + "-ndk",
+    ],
+}
+
+cc_defaults {
+    name: "latest_android_hardware_audio_core_ndk_static",
+    static_libs: [
+        latest_android_hardware_audio_core + "-ndk",
+    ],
+}
+
+aidl_interface {
+    name: "android.hardware.audio.effect",
+    vendor_available: true,
+    srcs: [
+        "android/hardware/audio/effect/Descriptor.aidl",
+        "android/hardware/audio/effect/IEffect.aidl",
+        "android/hardware/audio/effect/IFactory.aidl",
+    ],
+    imports: [
+        "android.hardware.audio.common-V1",
+        "android.media.audio.common.types-V2",
+    ],
+    stability: "vintf",
+    backend: {
+        // The C++ backend is disabled transitively due to use of FMQ.
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+}
+
+latest_android_hardware_audio_effect = "android.hardware.audio.effect-V1"
+
+cc_defaults {
+    name: "latest_android_hardware_audio_effect_ndk_shared",
+    shared_libs: [
+        latest_android_hardware_audio_effect + "-ndk",
+    ],
+}
+
+cc_defaults {
+    name: "latest_android_hardware_audio_effect_ndk_static",
+    static_libs: [
+        latest_android_hardware_audio_effect + "-ndk",
     ],
 }
