@@ -13,17 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "AHAL_Module"
+
+#include "Thermal.h"
+
 #include <android-base/logging.h>
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
 
-#include "core-impl/Config.h"
+using aidl::android::hardware::thermal::impl::example::Thermal;
 
-namespace aidl::android::hardware::audio::core {
-ndk::ScopedAStatus Config::getSurroundSoundConfig(SurroundSoundConfig* _aidl_return) {
-    SurroundSoundConfig surroundSoundConfig;
-    // TODO: parse from XML; for now, use empty config as default
-    *_aidl_return = std::move(surroundSoundConfig);
-    LOG(DEBUG) << __func__ << ": returning " << _aidl_return->toString();
-    return ndk::ScopedAStatus::ok();
+int main() {
+    ABinderProcess_setThreadPoolMaxThreadCount(0);
+    std::shared_ptr<Thermal> thermal = ndk::SharedRefBase::make<Thermal>();
+
+    const std::string instance = std::string() + Thermal::descriptor + "/default";
+    binder_status_t status =
+            AServiceManager_addService(thermal->asBinder().get(), instance.c_str());
+    CHECK(status == STATUS_OK);
+
+    ABinderProcess_joinThreadPool();
+    return EXIT_FAILURE;  // should not reach
 }
-}  // namespace aidl::android::hardware::audio::core

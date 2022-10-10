@@ -31,8 +31,10 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.audio.core;
-@VintfStability
-interface IConfig {
-  android.hardware.audio.core.SurroundSoundConfig getSurroundSoundConfig();
+package android.hardware.fastboot;
+@Backing(type="byte") @VintfStability
+enum FileSystemType {
+  EXT4 = 0,
+  F2FS = 1,
+  RAW = 2,
 }

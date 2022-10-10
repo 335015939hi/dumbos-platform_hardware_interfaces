@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+1 *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -31,8 +31,10 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.audio.core;
+package android.hardware.thermal;
 @VintfStability
-interface IConfig {
-  android.hardware.audio.core.SurroundSoundConfig getSurroundSoundConfig();
+parcelable CoolingDevice {
+  android.hardware.thermal.CoolingType type;
+  String name;
+  long value;
 }
