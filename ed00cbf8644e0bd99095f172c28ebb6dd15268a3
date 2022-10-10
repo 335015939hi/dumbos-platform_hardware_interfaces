@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66b845a9_79166812",
+        "filename": "tv/cec/aidl/default/Android.bp",
+        "patchSetId": 26
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-10T16:19:13Z",
+      "side": 1,
+      "message": "Is commenting this out intentional?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "ed00cbf8644e0bd99095f172c28ebb6dd15268a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
