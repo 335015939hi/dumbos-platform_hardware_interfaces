@@ -31,8 +31,14 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.audio.core;
+package android.hardware.fastboot;
 @VintfStability
-interface IConfig {
-  android.hardware.audio.core.SurroundSoundConfig getSurroundSoundConfig();
+interface IFastboot {
+  String doOemCommand(in String oemCmd);
+  void doOemSpecificErase();
+  int getBatteryVoltageFlashingThreshold();
+  boolean getOffModeChargeState();
+  android.hardware.fastboot.FileSystemType getPartitionType(in String partitionName);
+  String getVariant();
+  const int FAILURE_UNKNOWN = 1;
 }

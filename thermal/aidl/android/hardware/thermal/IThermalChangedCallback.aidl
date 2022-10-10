@@ -13,17 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "AHAL_Module"
-#include <android-base/logging.h>
 
-#include "core-impl/Config.h"
+package android.hardware.thermal;
 
-namespace aidl::android::hardware::audio::core {
-ndk::ScopedAStatus Config::getSurroundSoundConfig(SurroundSoundConfig* _aidl_return) {
-    SurroundSoundConfig surroundSoundConfig;
-    // TODO: parse from XML; for now, use empty config as default
-    *_aidl_return = std::move(surroundSoundConfig);
-    LOG(DEBUG) << __func__ << ": returning " << _aidl_return->toString();
-    return ndk::ScopedAStatus::ok();
+import android.hardware.thermal.Temperature;
+
+/**
+ * IThermalChangedCallback send throttling notification to clients.
+ */
+@VintfStability
+interface IThermalChangedCallback {
+    /**
+     * Send a thermal throttling event to all ThermalHAL
+     * thermal event listeners.
+     *
+     * @param temperature The temperature associated with the
+     *    throttling event.
+     */
+    oneway void notifyThrottling(in Temperature temperature);
 }
-}  // namespace aidl::android::hardware::audio::core

@@ -13,17 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "AHAL_Module"
-#include <android-base/logging.h>
 
-#include "core-impl/Config.h"
+package android.hardware.fastboot;
 
-namespace aidl::android::hardware::audio::core {
-ndk::ScopedAStatus Config::getSurroundSoundConfig(SurroundSoundConfig* _aidl_return) {
-    SurroundSoundConfig surroundSoundConfig;
-    // TODO: parse from XML; for now, use empty config as default
-    *_aidl_return = std::move(surroundSoundConfig);
-    LOG(DEBUG) << __func__ << ": returning " << _aidl_return->toString();
-    return ndk::ScopedAStatus::ok();
+@VintfStability
+@Backing(type="byte")
+enum FileSystemType {
+    /**
+     * Fourth extended file system.
+     */
+    EXT4,
+    /**
+     * Flash Friendly File System.
+     */
+    F2FS,
+    /**
+     * Raw file system.
+     */
+    RAW,
 }
-}  // namespace aidl::android::hardware::audio::core

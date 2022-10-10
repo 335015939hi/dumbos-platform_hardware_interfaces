@@ -31,8 +31,14 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.audio.core;
-@VintfStability
-interface IConfig {
-  android.hardware.audio.core.SurroundSoundConfig getSurroundSoundConfig();
+package android.hardware.thermal;
+@Backing(type="int") @VintfStability
+enum ThrottlingSeverity {
+  NONE = 0,
+  LIGHT = 1,
+  MODERATE = 2,
+  SEVERE = 3,
+  CRITICAL = 4,
+  EMERGENCY = 5,
+  SHUTDOWN = 6,
 }

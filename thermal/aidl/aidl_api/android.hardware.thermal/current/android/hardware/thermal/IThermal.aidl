@@ -31,8 +31,16 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.audio.core;
+package android.hardware.thermal;
 @VintfStability
-interface IConfig {
-  android.hardware.audio.core.SurroundSoundConfig getSurroundSoundConfig();
+interface IThermal {
+  android.hardware.thermal.CoolingDevice[] getCoolingDevices();
+  android.hardware.thermal.CoolingDevice[] getCoolingDevicesWithType(in android.hardware.thermal.CoolingType type);
+  android.hardware.thermal.Temperature[] getTemperatures();
+  android.hardware.thermal.Temperature[] getTemperaturesWithType(in android.hardware.thermal.TemperatureType type);
+  android.hardware.thermal.TemperatureThreshold[] getTemperatureThresholds();
+  android.hardware.thermal.TemperatureThreshold[] getTemperatureThresholdsWithType(in android.hardware.thermal.TemperatureType type);
+  void registerThermalChangedCallback(in android.hardware.thermal.IThermalChangedCallback callback);
+  void registerThermalChangedCallbackWithType(in android.hardware.thermal.IThermalChangedCallback callback, in android.hardware.thermal.TemperatureType type);
+  void unregisterThermalChangedCallback(in android.hardware.thermal.IThermalChangedCallback callback);
 }

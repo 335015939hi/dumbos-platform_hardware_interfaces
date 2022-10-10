@@ -13,17 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "AHAL_Module"
-#include <android-base/logging.h>
 
-#include "core-impl/Config.h"
+package android.hardware.thermal;
 
-namespace aidl::android::hardware::audio::core {
-ndk::ScopedAStatus Config::getSurroundSoundConfig(SurroundSoundConfig* _aidl_return) {
-    SurroundSoundConfig surroundSoundConfig;
-    // TODO: parse from XML; for now, use empty config as default
-    *_aidl_return = std::move(surroundSoundConfig);
-    LOG(DEBUG) << __func__ << ": returning " << _aidl_return->toString();
-    return ndk::ScopedAStatus::ok();
+/**
+ * Device temperature types
+ */
+@VintfStability
+@Backing(type="int")
+enum TemperatureType {
+    UNKNOWN = -1,
+    CPU = 0,
+    GPU = 1,
+    BATTERY = 2,
+    SKIN = 3,
+    USB_PORT = 4,
+    POWER_AMPLIFIER = 5,
+    /**
+     * Battery Current Limit - virtual sensors
+     */
+    BCL_VOLTAGE = 6,
+    BCL_CURRENT = 7,
+    BCL_PERCENTAGE = 8,
+    /**
+     * Neural Processing Unit
+     */
+    NPU = 9,
+    TPU = 10,
+    DISPLAY = 11,
+    MODEM = 12,
+    SOC = 13,
 }
-}  // namespace aidl::android::hardware::audio::core
