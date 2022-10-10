@@ -22,6 +22,30 @@
       },
       "revId": "ecf917881070916529262963c45082ae4f1f3e10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b33aebb_b4698b27",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-10T22:49:01Z",
+      "side": 1,
+      "message": "I added a test for multiple requests.\n\nGood point about multiple keys. I added a test case with 50 keys. \n\nWe can make Trusty process arbitrary number of keys on our own devices. It may be tricky to have vendors do that though. Also, doing it retroactively can be a problem, e.g. rkpd starts sending larger amount of keys in the next release and vendor need to update TEE to accommodate this. \n\nKM interface has similar behavior though, so arbitrary number of keys should reasonable. I\u0027m inclined to leave the interface as is. Let me know if that sounds good to you.",
+      "parentUuid": "60621b65_2507b47f",
+      "range": {
+        "startLine": 668,
+        "startChar": 6,
+        "endLine": 668,
+        "endChar": 30
+      },
+      "revId": "ecf917881070916529262963c45082ae4f1f3e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

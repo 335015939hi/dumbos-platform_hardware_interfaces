@@ -457,6 +457,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ca8a565_9535c6ab",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-10T22:49:01Z",
+      "side": 1,
+      "message": "I added a check for UDS cert. I\u0027m not sure the checks are correct though. Do any of our own devices emit UDS certs?",
+      "parentUuid": "4629a499_84825c67",
+      "range": {
+        "startLine": 827,
+        "startChar": 7,
+        "endLine": 827,
+        "endChar": 11
+      },
+      "revId": "6c6568614b2f481eef8168a95be25cb296f73bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b0177a2_815bb4a9",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 3
