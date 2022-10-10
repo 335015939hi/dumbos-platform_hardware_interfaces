@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ca36a8c_e71c8f2d",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-10-10T05:22:23Z",
+      "side": 1,
+      "message": "Yes, it is working as intended with the default implementation.",
+      "parentUuid": "a0366175_ebe2b5d9",
+      "range": {
+        "startLine": 355,
+        "startChar": 8,
+        "endLine": 355,
+        "endChar": 15
+      },
+      "revId": "1d8f3c0481c546d7417b0b8042abea0583fd4145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a6cc35b_13b503b7",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "We have replaced HidlMemory with Ashmem during AIDL conversion.\nWe are referring https://cs.android.com/android/platform/superproject/+/master:system/core/libcutils/ashmem_test.cpp for usage of ashmem.",
       "parentUuid": "1a6cc35b_13b503b7",
+      "range": {
+        "startLine": 366,
+        "startChar": 37,
+        "endLine": 366,
+        "endChar": 41
+      },
+      "revId": "1d8f3c0481c546d7417b0b8042abea0583fd4145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7404bd12_304755c7",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-10-10T05:22:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8a7b3668_2c5065d0",
       "range": {
         "startLine": 366,
         "startChar": 37,
