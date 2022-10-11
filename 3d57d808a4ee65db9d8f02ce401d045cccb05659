@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16fd4051_340c0797",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-10-11T22:36:25Z",
+      "side": 1,
+      "message": "I guess people are passing around empty native handles rather than using @nullable NativeHandle?",
+      "revId": "3d57d808a4ee65db9d8f02ce401d045cccb05659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
