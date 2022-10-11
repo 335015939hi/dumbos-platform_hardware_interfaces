@@ -22,6 +22,30 @@
       },
       "revId": "ed00cbf8644e0bd99095f172c28ebb6dd15268a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "677b4bb8_3c03f363",
+        "filename": "tv/cec/aidl/default/Android.bp",
+        "patchSetId": 26
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-10-11T04:35:54Z",
+      "side": 1,
+      "message": "Sorry, it was not meant to be commented. I\u0027ve uncommented it.",
+      "parentUuid": "66b845a9_79166812",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "ed00cbf8644e0bd99095f172c28ebb6dd15268a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
