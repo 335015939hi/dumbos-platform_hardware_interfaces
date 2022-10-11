@@ -88,6 +88,24 @@
       "parentUuid": "716c13c9_8da7ebbc",
       "revId": "3d57d808a4ee65db9d8f02ce401d045cccb05659",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0091051d_24fd73c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2022-10-11T22:42:52Z",
+      "side": 1,
+      "message": "Do you want me to rename it into isAidlNativeHandleEmpty?",
+      "parentUuid": "716c13c9_8da7ebbc",
+      "revId": "3d57d808a4ee65db9d8f02ce401d045cccb05659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
