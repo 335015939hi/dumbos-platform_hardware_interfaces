@@ -52,6 +52,24 @@
       "parentUuid": "bd296be1_2f2ad4f7",
       "revId": "3d57d808a4ee65db9d8f02ce401d045cccb05659",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "716c13c9_8da7ebbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2022-10-11T22:40:28Z",
+      "side": 1,
+      "message": "I don\u0027t own this documentation.",
+      "parentUuid": "a1e0d572_aa2e6a2d",
+      "revId": "3d57d808a4ee65db9d8f02ce401d045cccb05659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
