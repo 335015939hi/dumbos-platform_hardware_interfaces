@@ -34,6 +34,24 @@
       "parentUuid": "16fd4051_340c0797",
       "revId": "3d57d808a4ee65db9d8f02ce401d045cccb05659",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1e0d572_aa2e6a2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-10-11T22:39:47Z",
+      "side": 1,
+      "message": "This use of the word \u0027null\u0027 is somewhat ambiguous. Can we correct the documentation there to say \u0027empty\u0027 and also change this method name to be \u0027empty\u0027? This may be used as a proxy for a null value, but it\u0027s not what AIDL considers to be used null.",
+      "parentUuid": "bd296be1_2f2ad4f7",
+      "revId": "3d57d808a4ee65db9d8f02ce401d045cccb05659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
