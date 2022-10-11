@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee71ecc7_298c36cf",
+        "filename": "camera/device/aidl/android/hardware/camera/device/StreamBuffer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-10-11T22:46:34Z",
+      "side": 1,
+      "message": "to distinguish this from \u0027@nullable NativeHandle\u0027",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 16
+      },
+      "revId": "29b87463f4c606c21de0628fca347fa5b390e1e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
