@@ -16,6 +16,24 @@
       "message": "I guess people are passing around empty native handles rather than using @nullable NativeHandle?",
       "revId": "3d57d808a4ee65db9d8f02ce401d045cccb05659",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd296be1_2f2ad4f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2022-10-11T22:38:04Z",
+      "side": 1,
+      "message": "https://android.googlesource.com/platform/hardware/interfaces/+/refs/heads/master/camera/device/aidl/android/hardware/camera/device/StreamBuffer.aidl#65",
+      "parentUuid": "16fd4051_340c0797",
+      "revId": "3d57d808a4ee65db9d8f02ce401d045cccb05659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
