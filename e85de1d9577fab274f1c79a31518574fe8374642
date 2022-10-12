@@ -33,6 +33,24 @@
       "message": "Note that some of the HIDL -\u003e AIDL conversion work is being done in goog/master.",
       "revId": "e85de1d9577fab274f1c79a31518574fe8374642",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e20e771b_a4ee5b1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-10-12T23:11:49Z",
+      "side": 1,
+      "message": "Ack. If necessary, we can change the target binary (implementing HIDL interface) in the apex to the new one (implementing AIDL interface) as part of the conversion later.",
+      "parentUuid": "5f0066f9_6aa4ee39",
+      "revId": "e85de1d9577fab274f1c79a31518574fe8374642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
