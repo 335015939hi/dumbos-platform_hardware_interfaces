@@ -16,6 +16,24 @@
       "message": "please resolve the conflict and I will give +1.",
       "revId": "b2014b624b2f3cb0dc80e9dcc85554a6217806cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b60c496e_044a67b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-10-12T14:14:30Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "3132afc5_9a7500b1",
+      "revId": "b2014b624b2f3cb0dc80e9dcc85554a6217806cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
