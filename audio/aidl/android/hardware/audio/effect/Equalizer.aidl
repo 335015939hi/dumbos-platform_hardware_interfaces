@@ -23,11 +23,15 @@ import android.media.audio.common.AudioProfile;
  */
 @VintfStability
 union Equalizer {
+    // Vendor Equalizer implementation definition for additional parameters.
+    @VintfStability
+    parcelable VendorExtension {
+        ParcelableHolder extension;
+    }
+    VendorExtension vendor;
+
     /**
-     * Defines Equalizer implementation capabilities, it MUST be supported by all equalizer
-     * implementations.
-     *
-     * Equalizer.Capability definition is used by android.hardware.audio.effect.Capability.
+     * Capability MUST be supported by Equalizer implementationx.
      */
     @VintfStability
     parcelable Capability {
@@ -36,12 +40,72 @@ union Equalizer {
          * definition not enough.
          */
         ParcelableHolder extension;
+
+        // Bands frequency ranges supported.
+        BandCapability[] bands;
+
+        // Presets name and index.
+        Preset[] presets;
     }
 
-    // Vendor Equalizer implementation definition for additional parameters.
+    /**
+     * Band information.
+     */
     @VintfStability
-    parcelable VendorExtension {
-        ParcelableHolder extension;
+    parcelable BandLevel {
+        int index; // Index of the band.
+        int level; // current level setting.
     }
-    VendorExtension vendor;
+
+    @VintfStability
+    parcelable BandCapability {
+        int index; // Index of the band.
+        int minFreq; // minimal frequency.
+        int maxFreq; // maximum frequency.
+    }
+
+    /**
+     * Factory presets supported.
+     */
+    @VintfStability
+    parcelable Preset {
+        // Index of the preset.
+        int index;
+        // Preset name, used to identify presets but no intended to display on UI directly.
+        @utf8InCpp String name;
+    }
+
+    /**
+     * Equalizer getParameter() implementation must support and only support these parameters.
+     */
+    @VintfStability
+    enum GetParameterRange {
+        MIN = Tag.bandCapability,
+        MAX = Tag.preset,
+    }
+
+    /**
+     * Equalizer setParameter() implementation must support and only support these parameters.
+     */
+    @VintfStability
+    enum SetParameterRange {
+        MIN = Tag.bandLevels,
+        MAX = Tag.preset,
+    }
+
+    /**
+     * Equalizer parameters must supported by getParameter but must not supported by setParameter.
+     */
+    /* List of bands with frequence range and current level for get and set. */
+    BandCapability[] bandCapability;
+    /* List of presets. */
+    Preset[] presets;
+
+    /**
+     * Equalizer parameters must supported by both getParameter and setParameter.
+     */
+    /* List of bands with frequence range and current level for get and set. */
+    BandLevel[] bandLevels;
+    /* current preset for get and set. */
+    int preset;
 }

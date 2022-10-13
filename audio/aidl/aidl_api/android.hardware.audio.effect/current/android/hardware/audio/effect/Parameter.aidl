@@ -41,7 +41,7 @@ union Parameter {
   union Id {
     int commonTag;
     int vendorTag;
-    android.hardware.audio.effect.Parameter.Specific.Tag specificTag;
+    android.hardware.audio.effect.Parameter.Specific.Id specificId;
   }
   @VintfStability
   parcelable Common {
@@ -57,6 +57,11 @@ union Parameter {
   }
   @VintfStability
   union Specific {
+    android.hardware.audio.effect.Parameter.Specific.Id id;
     android.hardware.audio.effect.Equalizer equalizer;
+    @VintfStability
+    union Id {
+      android.hardware.audio.effect.Equalizer.Tag equalizerTag = android.hardware.audio.effect.Equalizer.Tag.vendor;
+    }
   }
 }
