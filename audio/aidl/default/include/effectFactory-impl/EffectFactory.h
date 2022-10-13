@@ -43,6 +43,16 @@ class Factory : public BnFactory {
             std::vector<Descriptor::Identity>* out_descriptor) override;
 
     /**
+     * @brief Query list of defined processes, with the optional filter by AudioStreamType
+     *
+     * @param in_type Type of process, could be AudioStreamType or AudioSource. Optional parameter.
+     * @param _aidl_return List of process defined filtered by in_type.
+     * @return ndk::ScopedAStatus
+     */
+    ndk::ScopedAStatus queryProcess(const std::optional<Process::Type>& in_type,
+                                    std::vector<Process>* _aidl_return) override;
+
+    /**
      * @brief Create an effect instance for a certain implementation (identified by UUID).
      *
      * @param in_impl_uuid Effect implementation UUID.

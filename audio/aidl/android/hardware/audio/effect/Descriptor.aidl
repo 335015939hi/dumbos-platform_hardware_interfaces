@@ -69,6 +69,14 @@ parcelable Descriptor {
          * UUID for this particular implementation.
          */
         AudioUuid uuid;
+        /**
+         * Optional proxy UUID, only need if the effect implementation should be part of proxy.
+         */
+        @nullable AudioUuid proxy;
+        /**
+         * Capability flags defined for the effect implementation.
+         */
+        Flags flags;
     }
 
     // Common attributes of all effect implementation.
@@ -78,10 +86,6 @@ parcelable Descriptor {
          * Identity of effect implementation.
          */
         Identity id;
-        /**
-         * Effect engine defined capabilities/requirements flags.
-         */
-        Flags flags;
     }
     Common common;
 

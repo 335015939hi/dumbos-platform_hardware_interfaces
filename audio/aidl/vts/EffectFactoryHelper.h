@@ -31,6 +31,7 @@ using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
 using aidl::android::hardware::audio::effect::Parameter;
+using aidl::android::hardware::audio::effect::Process;
 using aidl::android::media::audio::common::AudioUuid;
 
 class EffectFactoryHelper {
@@ -55,6 +56,16 @@ class EffectFactoryHelper {
         ASSERT_NE(mEffectFactory, nullptr);
         EXPECT_IS_OK(mEffectFactory->queryEffects(in_type, in_instance, _aidl_return));
         mIds = *_aidl_return;
+    }
+
+    void QueryProcesses(const std::optional<Process::Type>& in_type,
+                        std::vector<Process>* _aidl_return) {
+        ASSERT_NE(mEffectFactory, nullptr);
+        EXPECT_IS_OK(mEffectFactory->queryProcess(in_type, _aidl_return));
+        // only update the whole list if no filter applied
+        if (!in_type.has_value()) {
+            mProcesses = *_aidl_return;
+        }
     }
 
     void CreateEffects() {
@@ -127,6 +138,7 @@ class EffectFactoryHelper {
     AudioHalBinderServiceUtil binderUtil;
     std::vector<Descriptor::Identity> mIds;
     std::vector<Descriptor::Identity> mCompleteIds;
+    std::vector<Process> mProcesses;
 
     std::map<std::shared_ptr<IEffect>, Descriptor::Identity> mEffectIdMap;
 };

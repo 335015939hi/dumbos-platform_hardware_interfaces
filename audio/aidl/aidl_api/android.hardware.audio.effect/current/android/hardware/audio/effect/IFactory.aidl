@@ -35,6 +35,7 @@ package android.hardware.audio.effect;
 @VintfStability
 interface IFactory {
   android.hardware.audio.effect.Descriptor.Identity[] queryEffects(in @nullable android.media.audio.common.AudioUuid type, in @nullable android.media.audio.common.AudioUuid implementation);
+  android.hardware.audio.effect.Process[] queryProcess(in @nullable android.hardware.audio.effect.Process.Type type);
   android.hardware.audio.effect.IEffect createEffect(in android.media.audio.common.AudioUuid implUuid);
   void destroyEffect(in android.hardware.audio.effect.IEffect handle);
 }
