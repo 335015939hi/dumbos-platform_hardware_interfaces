@@ -69,6 +69,24 @@
       "parentUuid": "e20e771b_a4ee5b1f",
       "revId": "e85de1d9577fab274f1c79a31518574fe8374642",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3942fd_98b7cb6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2022-10-13T05:08:23Z",
+      "side": 1,
+      "message": "No need to block. Just be aware - again, WiFi works in goog/master, not on aosp/master. So any new material won\u0027t be pushed until the next dessert release. But, you want this solution available then as well.\n\nSo where will you do that work - why not do it in goog/master?",
+      "parentUuid": "3debaaa7_fe745363",
+      "revId": "e85de1d9577fab274f1c79a31518574fe8374642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
