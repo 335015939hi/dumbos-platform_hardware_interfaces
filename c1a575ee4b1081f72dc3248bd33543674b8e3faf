@@ -22,6 +22,30 @@
       },
       "revId": "c1a575ee4b1081f72dc3248bd33543674b8e3faf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d53970d5_ac83157f",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamIn.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-13T23:22:36Z",
+      "side": 1,
+      "message": "Thanks for pointing this out! I have thus split the microphone information into \"static\" and \"dynamic\" parts.",
+      "parentUuid": "bcb9010f_c57c4a87",
+      "range": {
+        "startLine": 52,
+        "startChar": 24,
+        "endLine": 52,
+        "endChar": 47
+      },
+      "revId": "c1a575ee4b1081f72dc3248bd33543674b8e3faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
