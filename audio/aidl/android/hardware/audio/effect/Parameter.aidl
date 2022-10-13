@@ -45,7 +45,7 @@ union Parameter {
         // Vendor defined parameter tag.
         int vendorTag;
         // Specific effect parameter tag.
-        Specific.Tag specificTag;
+        Specific.Id specificId;
     }
 
     /**
@@ -80,6 +80,13 @@ union Parameter {
      */
     @VintfStability
     union Specific {
+        @VintfStability
+        union Id {
+            // Equalizer.Tag to identify the parameters in Equalizer.
+            Equalizer.Tag equalizerTag = Equalizer.Tag.vendor;
+        }
+        Id id;
+
         Equalizer equalizer;
         // TODO: add other effect definitions here
     }

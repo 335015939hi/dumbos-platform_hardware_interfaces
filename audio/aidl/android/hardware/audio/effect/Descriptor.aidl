@@ -69,6 +69,14 @@ parcelable Descriptor {
          * UUID for this particular implementation.
          */
         AudioUuid uuid;
+        /**
+         * Optional proxy UUID, only need if the effect implementation should be part of proxy.
+         */
+        @nullable AudioUuid proxy;
+        /**
+         * Capability flags defined for the effect implementation.
+         */
+        Flags flags;
     }
 
     // Common attributes of all effect implementation.
@@ -79,9 +87,25 @@ parcelable Descriptor {
          */
         Identity id;
         /**
-         * Effect engine defined capabilities/requirements flags.
+         * CPU load indication expressed in 0.1 MIPS units as estimated on
+         * an ARM9E core (ARMv5TE) with 0 WS.
+         * TODO: define how to valid it with VTS on certain reference architecture.
          */
-        Flags flags;
+        int cpuLoad;
+        /**
+         * Data memory usage expressed in KB and includes only dynamically
+         * allocated memory.
+         * TODO: define how to valid it with VTS.
+         */
+        int memoryUsage;
+        /**
+         * Human readable effect name.
+         */
+        @utf8InCpp String name;
+        /**
+         * Human readable effect implementor name.
+         */
+        @utf8InCpp String implementor;
     }
     Common common;
 
