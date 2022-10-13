@@ -23,11 +23,15 @@ import android.media.audio.common.AudioProfile;
  */
 @VintfStability
 union Equalizer {
+    // Vendor Equalizer implementation definition for additional parameters.
+    @VintfStability
+    parcelable VendorExtension {
+        ParcelableHolder extension;
+    }
+    VendorExtension vendor;
+
     /**
-     * Defines Equalizer implementation capabilities, it MUST be supported by all equalizer
-     * implementations.
-     *
-     * Equalizer.Capability definition is used by android.hardware.audio.effect.Capability.
+     * Capability MUST be supported by Equalizer implementationx.
      */
     @VintfStability
     parcelable Capability {
@@ -36,12 +40,44 @@ union Equalizer {
          * definition not enough.
          */
         ParcelableHolder extension;
+
+        // Bands frequency ranges supported.
+        Band[] bands;
+
+        // Presets name and index.
+        Preset[] presets;
     }
 
-    // Vendor Equalizer implementation definition for additional parameters.
+    /**
+     * Parameters MUST be supported by Equalizer implementation.
+     */
+    /**
+     * Band information.
+     */
     @VintfStability
-    parcelable VendorExtension {
-        ParcelableHolder extension;
+    parcelable Band {
+        int index; // Index of the band.
+        int level; // current level setting.
+        int minFreq; // minimal frequency.
+        int maxFreq; // maximum frequency.
+        int centre; // centre frequency.
     }
-    VendorExtension vendor;
+
+    /**
+     * Factory presets supported.
+     */
+    @VintfStability
+    parcelable Preset {
+        // Index of the preset.
+        int index;
+        // Preset name, used to identify presets but no intended to display on UI directly.
+        @utf8InCpp String name;
+    }
+
+    // List of bands with frequence range and current level for get and set parameter.
+    Band[] bands;
+    // presets with name and index for getParameter.
+    Preset[] presets;
+    // current preset for get and setParameter.
+    int preset;
 }

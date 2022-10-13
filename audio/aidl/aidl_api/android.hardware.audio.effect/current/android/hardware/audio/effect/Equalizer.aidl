@@ -35,12 +35,30 @@ package android.hardware.audio.effect;
 @VintfStability
 union Equalizer {
   android.hardware.audio.effect.Equalizer.VendorExtension vendor;
-  @VintfStability
-  parcelable Capability {
-    ParcelableHolder extension;
-  }
+  android.hardware.audio.effect.Equalizer.Band[] bands;
+  android.hardware.audio.effect.Equalizer.Preset[] presets;
+  int preset;
   @VintfStability
   parcelable VendorExtension {
     ParcelableHolder extension;
+  }
+  @VintfStability
+  parcelable Capability {
+    ParcelableHolder extension;
+    android.hardware.audio.effect.Equalizer.Band[] bands;
+    android.hardware.audio.effect.Equalizer.Preset[] presets;
+  }
+  @VintfStability
+  parcelable Band {
+    int index;
+    int level;
+    int minFreq;
+    int maxFreq;
+    int centre;
+  }
+  @VintfStability
+  parcelable Preset {
+    int index;
+    @utf8InCpp String name;
   }
 }
