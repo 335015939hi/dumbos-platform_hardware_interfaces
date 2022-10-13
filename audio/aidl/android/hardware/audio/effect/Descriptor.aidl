@@ -94,6 +94,27 @@ parcelable Descriptor {
          * Identity of effect implementation.
          */
         Identity id;
+
+        /**
+         * CPU load indication expressed in 0.1 MIPS units as estimated on
+         * an ARM9E core (ARMv5TE) with 0 WS.
+         * TODO: define how to valid it with VTS on certain reference architecture.
+         */
+        int cpuLoad;
+        /**
+         * Data memory usage expressed in KB and includes only dynamically
+         * allocated memory.
+         * TODO: define how to valid it with VTS.
+         */
+        int memoryUsage;
+        /**
+         * Human readable effect name.
+         */
+        @utf8InCpp String name;
+        /**
+         * Human readable effect implementor name.
+         */
+        @utf8InCpp String implementor;
     }
     Common common;
 
