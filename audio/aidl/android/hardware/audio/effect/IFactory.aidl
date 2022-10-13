@@ -18,6 +18,7 @@ package android.hardware.audio.effect;
 
 import android.hardware.audio.effect.Descriptor;
 import android.hardware.audio.effect.IEffect;
+import android.hardware.audio.effect.Processing;
 import android.media.audio.common.AudioUuid;
 
 /**
@@ -43,6 +44,14 @@ interface IFactory {
      */
     Descriptor.Identity[] queryEffects(
             in @nullable AudioUuid type, in @nullable AudioUuid implementation);
+
+    /**
+     * Return a list of defined processings, with the optional filter by ProcessType.
+     *
+     * @param type Type of processing to query, can be AudioStreamType or AudioSource.
+     * @return list of processing defined with the optional filter by Processing.Type.
+     */
+    Processing[] queryProcessing(in @nullable Processing.Type type);
 
     /**
      * Called by the audio framework to create the effect (identified by the implementation UUID
