@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "010c520b_379afc55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1443524
+      },
+      "writtenOn": "2022-10-13T20:32:30Z",
+      "side": 1,
+      "message": "looks ok.\nplease solve auto check warning \"Please remove the trailing whitespace. \"",
+      "revId": "2dd5bf53fb0ebaae6935b3f40cfe4a5fecd0bf3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
