@@ -38,6 +38,7 @@ using namespace android;
 
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IFactory;
+using aidl::android::hardware::audio::effect::Process;
 using aidl::android::media::audio::common::AudioUuid;
 
 /// Effect factory testing.
@@ -111,7 +112,7 @@ TEST_P(EffectFactoryTest, CreateAndDestroyOnce) {
     mFactory.DestroyEffects();
     EXPECT_EQ(effectMap.size(), 0UL);
 }
-
+#if 0
 TEST_P(EffectFactoryTest, CreateAndDestroyRepeat) {
     std::vector<Descriptor::Identity> descriptors;
     mFactory.QueryEffects(std::nullopt, std::nullopt, &descriptors);
@@ -222,6 +223,12 @@ TEST_P(EffectFactoryTest, CreateRestartAndCreateDestroy) {
     EXPECT_EQ(effectMap.size(), 0UL);
 }
 
+TEST_P(EffectFactoryTest, QueryProcess) {
+    std::vector<Process> processes;
+    mFactory.QueryProcesses(std::nullopt, &processes);
+    // TODO: verify the number of process in example implementation after audio_effects.xml migrated
+}
+#endif
 INSTANTIATE_TEST_SUITE_P(EffectFactoryTest, EffectFactoryTest,
                          testing::ValuesIn(android::getAidlHalInstanceNames(IFactory::descriptor)),
                          android::PrintInstanceNameToString);
