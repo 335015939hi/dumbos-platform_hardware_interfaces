@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac8c1dbf_1490db26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1443524
+      },
+      "writtenOn": "2022-10-14T18:19:05Z",
+      "side": 1,
+      "message": "Hi Sharaddha, \nIn Hidl, we have two interfaces below\nandroid.hardware.cas@ and android.hardware.cas.native@1.0\nThis CL merge them together as on interface. \nDo you check whether android.hardware.cas.native@1.0 is used independently by framework somewhere ?",
+      "revId": "8a4de5250db6668079ec74a1646291bf1db9653f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
