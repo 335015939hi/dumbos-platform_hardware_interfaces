@@ -1,0 +1,249 @@
+/*
+ * Copyright (C) 2022 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include <algorithm>
+#include <limits>
+#include <map>
+#include <memory>
+#include <string>
+#include <vector>
+
+#define LOG_TAG "VtsHalEqualizerTest"
+
+#include <aidl/Gtest.h>
+#include <aidl/Vintf.h>
+#include <android-base/logging.h>
+#include <android-base/properties.h>
+#include <android/binder_interface_utils.h>
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
+#include <gtest/gtest.h>
+
+#include <Utils.h>
+#include <aidl/android/hardware/audio/effect/IEffect.h>
+#include <aidl/android/hardware/audio/effect/IFactory.h>
+#include <aidl/android/media/audio/common/AudioChannelLayout.h>
+#include <aidl/android/media/audio/common/AudioDeviceType.h>
+
+#include "AudioHalBinderServiceUtil.h"
+#include "EffectHelper.h"
+#include "TestUtils.h"
+#include "effect-impl/EffectUUID.h"
+
+using namespace android;
+
+using ndk::ScopedAStatus;
+
+using aidl::android::hardware::audio::effect::Capability;
+using aidl::android::hardware::audio::effect::CommandId;
+using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::EffectNullUuid;
+using aidl::android::hardware::audio::effect::Equalizer;
+using aidl::android::hardware::audio::effect::EqualizerTypeUUID;
+using aidl::android::hardware::audio::effect::IEffect;
+using aidl::android::hardware::audio::effect::IFactory;
+using aidl::android::hardware::audio::effect::Parameter;
+using aidl::android::hardware::audio::effect::State;
+using aidl::android::hardware::common::fmq::SynchronizedReadWrite;
+using aidl::android::media::audio::common::AudioChannelLayout;
+using aidl::android::media::audio::common::AudioDeviceType;
+using aidl::android::media::audio::common::AudioFormatDescription;
+using aidl::android::media::audio::common::AudioFormatType;
+using aidl::android::media::audio::common::AudioUuid;
+using aidl::android::media::audio::common::PcmType;
+
+/**
+ * Testing preset index range with [-10, 10], assuming the min/max preset index supported by
+effect is in this range.
+ * This range is verified with IEffect.getDescriptor(): for any index supported vts expect EX_NONE,
+otherwise expect EX_ILLEGAL_ARGUMENT.
+ */
+constexpr std::pair<int, int> kPresetIndexRange = {-1, 10};
+constexpr std::pair<int, int> kBandIndexRange = {-1, 6};
+constexpr std::pair<int, int> kBandLevelRange = {-5, 5};  // needs update with implementation
+
+/**
+ * Here we focus on specific parameter checking, general IEffect interfaces testing performed in
+ * VtsAudioEfectTargetTest.
+ */
+using EqualizerParamTestParam = std::tuple<int, int, int>;
+
+class EqualizerParamTest : public ::testing::TestWithParam<EqualizerParamTestParam>,
+                           public EffectHelper {
+  public:
+    void SetUp() override {
+        CreateEffectsWithUUID(EqualizerTypeUUID);
+        initParamCommonFormat();
+        initParamCommon();
+        initParamSpecific();
+        OpenEffects(EqualizerTypeUUID);
+    }
+
+    void TearDown() override {
+        CloseEffects();
+        DestroyEffects();
+        CleanUp();
+    }
+    EqualizerParamTest()
+        : EffectHelper(android::getAidlHalInstanceNames(IFactory::descriptor)[0]),
+          mParamPresetIndex(std::get<0 /* kPresetIndexRange */>(GetParam())),
+          mParamBandIndex(std::get<1 /* kBandIndexRange */>(GetParam())),
+          mParamBandLevel(std::get<2 /* kBandLevelRange */>(GetParam())) {}
+
+    const int mParamPresetIndex;
+    const int mParamBandIndex;
+    const int mParamBandLevel;
+
+    void SetAndGetEqualizerParameters() {
+        auto functor = [&](const std::shared_ptr<IEffect>& effect) {
+            for (auto& it : mTags) {
+                auto& tag = it.first;
+                auto& eq = it.second;
+
+                // validate parameter
+                Descriptor desc;
+                ::ndk::ScopedAStatus status = effect->getDescriptor(&desc);
+                ASSERT_STATUS(EX_NONE, status);
+                const bool valid = isTagInRange(it.first, it.second, desc);
+                const binder_exception_t expected = valid ? EX_NONE : EX_ILLEGAL_ARGUMENT;
+
+                // set
+                Parameter expectParam;
+                Parameter::Specific specific;
+                specific.set<Parameter::Specific::equalizer>(*eq.get());
+                expectParam.set<Parameter::specific>(specific);
+                status = effect->setParameter(expectParam);
+                ASSERT_STATUS(expected, status);
+
+                // get
+                Parameter getParam;
+                Parameter::Specific::Id id;
+                id.set<Parameter::Specific::Id::equalizerTag>(tag);
+                status = effect->getParameter(id, &getParam);
+                // if set success, then get should match
+                if (expected == EX_NONE) {
+                    ASSERT_EQ(expectParam, getParam) << "\n"
+                                                     << expectParam.toString() << "\n"
+                                                     << getParam.toString();
+                }
+            }
+        };
+        EXPECT_NO_FATAL_FAILURE(ForEachEffect(functor));
+    }
+
+    void addPresetParam(int preset) {
+        Equalizer eq;
+        eq.set<Equalizer::preset>(preset);
+        mTags.push_back({Equalizer::preset, std::make_unique<Equalizer>(std::move(eq))});
+    }
+
+    void addBandLevelsParam(std::vector<Equalizer::BandLevel>& bandLevels) {
+        Equalizer eq;
+        eq.set<Equalizer::bandLevels>(bandLevels);
+        mTags.push_back({Equalizer::bandLevels, std::make_unique<Equalizer>(std::move(eq))});
+    }
+
+    bool isTagInRange(const Equalizer::Tag& tag, const std::unique_ptr<Equalizer>& eq,
+                      const Descriptor& desc) const {
+        const Equalizer::Capability& eqCap = desc.capability.get<Capability::equalizer>();
+        switch (tag) {
+            case Equalizer::preset: {
+                int index = eq->get<Equalizer::preset>();
+                return isPresetIndexInRange(eqCap, index);
+            }
+            case Equalizer::bandLevels: {
+                auto& bandLevel = eq->get<Equalizer::bandLevels>();
+                return isBandIndexInRange(eqCap, bandLevel);
+            }
+            default:
+                return false;
+        }
+        return false;
+    }
+
+    bool isPresetIndexInRange(const Equalizer::Capability& cap, int idx) const {
+        const auto& range = getPresetIndexRange(cap);
+        return idx >= range.first && idx <= range.second;
+    }
+
+    bool isBandIndexInRange(const Equalizer::Capability& cap,
+                            const std::vector<Equalizer::BandLevel> bandLevel) const {
+        for (auto& it : bandLevel) {
+            if (!isBandIndexInRange(cap, it.index)) return false;
+        }
+        return true;
+    }
+
+    bool isBandIndexInRange(const Equalizer::Capability& cap, int idx) const {
+        const auto& range = getBandIndexRange(cap);
+        return idx >= range.first && idx <= range.second;
+    }
+
+  private:
+    Equalizer::VendorExtension mVendorExtension;
+    std::vector<std::pair<Equalizer::Tag, std::unique_ptr<Equalizer>>> mTags;
+
+    bool validCapabilityTag(Capability& cap) { return cap.getTag() == Capability::equalizer; }
+    std::pair<int, int> getPresetIndexRange(const Equalizer::Capability& cap) const {
+        int min = std::numeric_limits<int>::max();
+        int max = std::numeric_limits<int>::min();
+
+        for (auto& it : cap.presets) {
+            min = std::min(min, it.index);
+            max = std::max(max, it.index);
+        }
+        return std::make_pair(min, max);
+    }
+    std::pair<int, int> getBandIndexRange(const Equalizer::Capability& cap) const {
+        int min = std::numeric_limits<int>::max();
+        int max = std::numeric_limits<int>::min();
+
+        for (auto& it : cap.bandFrequencies) {
+            min = std::min(min, it.index);
+            max = std::max(max, it.index);
+        }
+        return std::make_pair(min, max);
+    }
+
+    void CleanUp() {}
+};
+
+TEST_P(EqualizerParamTest, SetAndGetPreset) {
+    addPresetParam(mParamPresetIndex);
+    SetAndGetEqualizerParameters();
+}
+
+TEST_P(EqualizerParamTest, SetAndGetSingleBand) {
+    Equalizer::BandLevel bandLevel = {mParamBandIndex, mParamBandLevel};
+    std::vector<Equalizer::BandLevel> bandLevels;
+    bandLevels.push_back(bandLevel);
+    addBandLevelsParam(bandLevels);
+    SetAndGetEqualizerParameters();
+}
+
+INSTANTIATE_TEST_SUITE_P(
+        EqualizerTest, EqualizerParamTest,
+        ::testing::Combine(testing::Range(kPresetIndexRange.first, kPresetIndexRange.second),
+                           testing::Range(kBandIndexRange.first, kBandIndexRange.second),
+                           testing::Range(kBandLevelRange.first, kBandLevelRange.second)));
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(EqualizerTest);
+
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    ABinderProcess_setThreadPoolMaxThreadCount(1);
+    ABinderProcess_startThreadPool();
+    return RUN_ALL_TESTS();
+}
