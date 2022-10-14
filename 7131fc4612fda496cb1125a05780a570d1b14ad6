@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39c92385_b446c625",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-14T16:48:24Z",
+      "side": 1,
+      "message": "I would suggest explaining about proxies in the main parcelable\u0027s doc (lines 24–25).\n\nAlso, regarding \"should\"—who decides whether the effect implementation is part of proxy? If it\u0027s decided by the vendor, then I would rephrase this as: \"This field must be set to the proxy effect implementation UUID if the effect implementation is part of a proxy effect.\"\n\nBTW, is this correct that it\u0027s the UUID of the proxy implementation? Or it must be the UUID of the type?",
+      "range": {
+        "startLine": 73,
+        "startChar": 81,
+        "endLine": 73,
+        "endChar": 94
+      },
+      "revId": "7131fc4612fda496cb1125a05780a570d1b14ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "307d5903_da1a0f03",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-14T16:48:24Z",
+      "side": 1,
+      "message": "typo: needed",
+      "range": {
+        "startLine": 73,
+        "startChar": 37,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "7131fc4612fda496cb1125a05780a570d1b14ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e0ee30_93b75b0d",
+        "filename": "audio/aidl/android/hardware/audio/effect/Process.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-14T16:48:24Z",
+      "side": 1,
+      "message": "I would avoid using \"should\" and be more decisive. Also, it\u0027s not clear which side: the client or the HAL must use these effects.",
+      "range": {
+        "startLine": 25,
+        "startChar": 25,
+        "endLine": 25,
+        "endChar": 39
+      },
+      "revId": "7131fc4612fda496cb1125a05780a570d1b14ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44a3b8ca_767055ba",
+        "filename": "audio/aidl/android/hardware/audio/effect/Process.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-14T16:48:24Z",
+      "side": 1,
+      "message": "Since \"process\" is usually used for OS processes, should we use \"processing\" instead? This should also make comments more clear. When I read \"for this process\" I usually start thinking about OS processes, not audio streams processing.",
+      "range": {
+        "startLine": 28,
+        "startChar": 11,
+        "endLine": 28,
+        "endChar": 18
+      },
+      "revId": "7131fc4612fda496cb1125a05780a570d1b14ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b64a2c47_7c3caa8d",
+        "filename": "audio/aidl/android/hardware/audio/effect/Process.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-14T16:48:24Z",
+      "side": 1,
+      "message": "Please use doc comments: \u0027/**\u0027",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "7131fc4612fda496cb1125a05780a570d1b14ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
