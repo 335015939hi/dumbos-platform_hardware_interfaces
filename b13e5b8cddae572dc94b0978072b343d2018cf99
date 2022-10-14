@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39c058be_0def8394",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-10-14T18:01:22Z",
+      "side": 0,
+      "message": "Lajos/Sungtak, I know there was some talk from a certain org that still wanted to use this. Apparently, they don\u0027t have their stuff in continuous integration? We must approve this - to find out if it\u0027ll cause any issue. Don\u0027t worry - it still needs to be supported, and if there is an issue that is raised, we can make a vertical-specific list. Hence, +2 - we needed this for a long time now, to understand any problems it may cause. :D",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 436,
+        "endChar": 47
+      },
+      "revId": "b13e5b8cddae572dc94b0978072b343d2018cf99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
