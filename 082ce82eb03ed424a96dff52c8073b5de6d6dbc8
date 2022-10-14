@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2fa438e9_3e7458a7",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-10-14T05:36:15Z",
+      "side": 1,
+      "message": "Updated detail comments. In case of failures, benchmark tests should update the benchmark state(Timer) by calling state.SkipWithError() to stop the current test case execution. The original function does not return the success/failure result, instead it asserts in failure case, whereas the benchmark needs return value to stop the execution. Hence we duplicated the function replacing the asserts with condition checks and return value.",
+      "parentUuid": "bac95453_66f62591",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "421a4a0c_a7abb709",
         "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2022-08-11T12:03:01Z",
       "side": 1,
       "message": "The `? true : false` seems unnecessary (passim).",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c398930_a5bc35be",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-10-14T05:36:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "421a4a0c_a7abb709",
       "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bc15497_7fe9cb66",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-10-14T05:36:15Z",
+      "side": 1,
+      "message": "Currently there is no test case for curve 25519, and also we can fetch only the keysize from the transform string received in the function.",
+      "parentUuid": "44305f01_ae48ff26",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f4b3ad2_1e05ef28",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-08-11T12:03:01Z",
       "side": 1,
       "message": "nit: s/strong box/StrongBox/ (Passim).",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5f403b7_9aad00d4",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-10-14T05:36:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f4b3ad2_1e05ef28",
       "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -86,6 +158,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "debbe887_0a067150",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-10-14T05:36:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb52606a_6759624b",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62caa9ea_53e15bb5",
@@ -99,6 +189,24 @@
       "writtenOn": "2022-08-11T12:03:01Z",
       "side": 1,
       "message": "- s/public/public key/\n- This isn\u0027t StrongBox specific -- the tests should (now) do local verify for all security levels\n- nit: start sentence with capital letter",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb1cb8d4_44c4a847",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-10-14T05:36:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62caa9ea_53e15bb5",
       "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -120,6 +228,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b15a2bea_896a45e5",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-10-14T05:36:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38da3570_e73189a4",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aad73113_8bcadb02",
@@ -133,6 +259,24 @@
       "writtenOn": "2022-08-11T12:03:01Z",
       "side": 1,
       "message": "This isn\u0027t StrongBox specific -- the tests should (now) do local RSA encrypt for all security levels. (Passim)",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a10ece1_258152cb",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-10-14T05:36:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aad73113_8bcadb02",
       "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
