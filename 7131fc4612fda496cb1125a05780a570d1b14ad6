@@ -47,6 +47,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92021ad9_5306ba4b",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-14T22:37:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "307d5903_da1a0f03",
+      "range": {
+        "startLine": 73,
+        "startChar": 37,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "7131fc4612fda496cb1125a05780a570d1b14ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d69f41f4_766bcc74",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-14T22:37:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39c92385_b446c625",
+      "range": {
+        "startLine": 73,
+        "startChar": 81,
+        "endLine": 73,
+        "endChar": 94
+      },
+      "revId": "7131fc4612fda496cb1125a05780a570d1b14ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82e0ee30_93b75b0d",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-10-14T16:48:24Z",
       "side": 1,
       "message": "I would avoid using \"should\" and be more decisive. Also, it\u0027s not clear which side: the client or the HAL must use these effects.",
+      "range": {
+        "startLine": 25,
+        "startChar": 25,
+        "endLine": 25,
+        "endChar": 39
+      },
+      "revId": "7131fc4612fda496cb1125a05780a570d1b14ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "346cf6f7_5ba43335",
+        "filename": "audio/aidl/android/hardware/audio/effect/Process.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-14T22:37:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82e0ee30_93b75b0d",
       "range": {
         "startLine": 25,
         "startChar": 25,
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a604ae4c_01b499ed",
+        "filename": "audio/aidl/android/hardware/audio/effect/Process.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-14T22:37:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44a3b8ca_767055ba",
+      "range": {
+        "startLine": 28,
+        "startChar": 11,
+        "endLine": 28,
+        "endChar": 18
+      },
+      "revId": "7131fc4612fda496cb1125a05780a570d1b14ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b64a2c47_7c3caa8d",
@@ -106,6 +202,54 @@
       "writtenOn": "2022-10-14T16:48:24Z",
       "side": 1,
       "message": "Please use doc comments: \u0027/**\u0027",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "7131fc4612fda496cb1125a05780a570d1b14ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa72b384_5bfa913c",
+        "filename": "audio/aidl/android/hardware/audio/effect/Process.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-14T22:37:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b64a2c47_7c3caa8d",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "7131fc4612fda496cb1125a05780a570d1b14ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4afdba45_7cc41e6b",
+        "filename": "audio/aidl/android/hardware/audio/effect/Process.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-14T22:37:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b64a2c47_7c3caa8d",
       "range": {
         "startLine": 35,
         "startChar": 4,
