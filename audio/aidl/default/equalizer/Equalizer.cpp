@@ -16,15 +16,18 @@
 
 #define LOG_TAG "AHAL_EqualizerSw"
 #include <Utils.h>
-#include <android-base/logging.h>
 #include <unordered_set>
 
-#include "effect-impl/EffectUUID.h"
+#include <android-base/logging.h>
+#include <fmq/AidlMessageQueue.h>
+#include <hardware/audio_effect.h>
+
 #include "equalizer-impl/EqualizerSw.h"
 
 using android::hardware::audio::common::getFrameSizeInBytes;
 
 namespace aidl::android::hardware::audio::effect {
+extern audio_effect_library_t AUDIO_EFFECT_LIBRARY_INFO_SYM;
 
 extern "C" binder_exception_t createEffect(std::shared_ptr<IEffect>* instanceSpp) {
     if (instanceSpp) {
@@ -68,20 +71,26 @@ ndk::ScopedAStatus EqualizerSw::open(const Parameter::Common& common,
     auto& output = common.output;
     size_t inputFrameSize = getFrameSizeInBytes(input.base.format, input.base.channelMask);
     size_t outputFrameSize = getFrameSizeInBytes(output.base.format, output.base.channelMask);
-    if (!createFmq(1, input.frameCount * inputFrameSize, output.frameCount * outputFrameSize,
-                   _aidl_return)) {
+    mContext = std::make_shared<EqualizerSwContext>(1, input.frameCount * inputFrameSize,
+                                                    output.frameCount * outputFrameSize);
+    if (!mContext) {
+        LOG(ERROR) << __func__ << " created EqualizerSwContext failed";
         return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_UNSUPPORTED_OPERATION,
                                                                 "FailedToCreateFmq");
     }
+    setContext(mContext);
 
     // create the worker thread
-    if (RetCode::SUCCESS != mWorker->create(LOG_TAG)) {
+    if (RetCode::SUCCESS != createThread(LOG_TAG)) {
         LOG(ERROR) << __func__ << " created worker thread failed";
-        destroyFmq();
+        mContext.reset();
         return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_UNSUPPORTED_OPERATION,
-                                                                "FailedToCreateFmq");
+                                                                "FailedToCreateWorker");
     }
 
+    _aidl_return->statusMQ = mContext->getStatusFmq()->dupeDesc();
+    _aidl_return->inputDataMQ = mContext->getInputDataFmq()->dupeDesc();
+    _aidl_return->outputDataMQ = mContext->getOutputDataFmq()->dupeDesc();
     mState = State::IDLE;
     return ndk::ScopedAStatus::ok();
 }
@@ -98,8 +107,9 @@ ndk::ScopedAStatus EqualizerSw::close() {
 
     // stop the worker thread
     mState = State::INIT;
-    mWorker->destroy();
-    destroyFmq();
+    destroyThread();
+    mContext.reset();
+
     LOG(DEBUG) << __func__;
     return ndk::ScopedAStatus::ok();
 }
@@ -121,19 +131,19 @@ ndk::ScopedAStatus EqualizerSw::command(CommandId in_commandId) {
         case CommandId::START:
             // start processing.
             mState = State::PROCESSING;
-            mWorker->start();
+            startThread();
             LOG(DEBUG) << __func__ << " state: " << toString(mState);
             return ndk::ScopedAStatus::ok();
         case CommandId::STOP:
             // stop processing.
             mState = State::IDLE;
-            mWorker->stop();
+            stopThread();
             LOG(DEBUG) << __func__ << " state: " << toString(mState);
             return ndk::ScopedAStatus::ok();
         case CommandId::RESET:
             // TODO: reset buffer status.
             mState = State::IDLE;
-            mWorker->stop();
+            stopThread();
             LOG(DEBUG) << __func__ << " state: " << toString(mState);
             return ndk::ScopedAStatus::ok();
         default:
@@ -173,15 +183,10 @@ ndk::ScopedAStatus EqualizerSw::getParameter(const Parameter::Id& in_paramId,
             LOG(DEBUG) << __func__ << " get: " << _aidl_return->toString();
             return ndk::ScopedAStatus::ok();
         }
-        case Parameter::Id::specificTag: {
-            auto& id = in_paramId.get<Parameter::Id::specificTag>();
-            if (id != Parameter::Specific::equalizer) {
-                LOG(ERROR) << " unsupported parameter Id: " << in_paramId.toString();
-                return ndk::ScopedAStatus::fromExceptionCodeWithMessage(
-                        EX_ILLEGAL_ARGUMENT, "Parameter::IdNotSupported");
-            }
+        case Parameter::Id::specificId: {
+            auto& id = in_paramId.get<Parameter::Id::specificId>();
             Parameter::Specific specific;
-            specific.set<Parameter::Specific::equalizer>(mEqualizerParam);
+            getSpecificParameter(id, &specific);
             _aidl_return->set<Parameter::specific>(specific);
             LOG(DEBUG) << __func__ << _aidl_return->toString();
             return ndk::ScopedAStatus::ok();
@@ -198,35 +203,12 @@ ndk::ScopedAStatus EqualizerSw::getState(State* _aidl_return) {
 }
 
 /// Private methods.
-bool EqualizerSw::createFmq(int statusDepth, int inBufferSize, int outBufferSize,
-                            OpenEffectReturn* ret) {
-    mStatusMQ = std::make_unique<StatusMQ>(statusDepth, true /*configureEventFlagWord*/);
-    mInputMQ = std::make_unique<DataMQ>(inBufferSize);
-    mOutputMQ = std::make_unique<DataMQ>(outBufferSize);
-
-    if (!mStatusMQ->isValid() || !mInputMQ->isValid() || !mOutputMQ->isValid()) {
-        LOG(ERROR) << __func__ << " created invalid FMQ";
-        return false;
-    }
-    ret->statusMQ = mStatusMQ->dupeDesc();
-    ret->inputDataMQ = mInputMQ->dupeDesc();
-    ret->outputDataMQ = mOutputMQ->dupeDesc();
-    return true;
-}
-
-void EqualizerSw::destroyFmq() {
-    mStatusMQ.reset(nullptr);
-    mInputMQ.reset(nullptr);
-    mOutputMQ.reset(nullptr);
-}
-
 ndk::ScopedAStatus EqualizerSw::setCommonParameter(const Parameter::Common& common) {
     mCommonParam = common;
     LOG(DEBUG) << __func__ << " set: " << mCommonParam.toString();
     return ndk::ScopedAStatus::ok();
 }
 
-// TODO: implementation need change to save all parameters.
 ndk::ScopedAStatus EqualizerSw::setSpecificParameter(const Parameter::Specific& specific) {
     if (Parameter::Specific::equalizer != specific.getTag()) {
         LOG(ERROR) << " unsupported effect: " << specific.toString();
@@ -234,8 +216,75 @@ ndk::ScopedAStatus EqualizerSw::setSpecificParameter(const Parameter::Specific& 
                                                                 "EffectNotSupported");
     }
 
-    mEqualizerParam = specific.get<Parameter::Specific::equalizer>();
-    LOG(DEBUG) << __func__ << mEqualizerParam.toString();
+    auto& eqParam = specific.get<Parameter::Specific::equalizer>();
+    auto tag = eqParam.getTag();
+    switch (tag) {
+        case Equalizer::bands: {
+            auto& bands = eqParam.get<Equalizer::bands>();
+            if (bands.size() > NUM_OF_BANDS) {
+                LOG(ERROR) << " band number: " << bands.size() << " exceed max " << NUM_OF_BANDS;
+                return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                        "ExceedMaxBandNum");
+            }
+            mBands = bands;
+            break;
+        }
+        case Equalizer::presets: {
+            auto& presets = eqParam.get<Equalizer::presets>();
+            if (presets.size() > NUM_OF_PRESETS) {
+                LOG(ERROR) << " presets: " << presets.size() << " exceed max " << NUM_OF_PRESETS;
+                return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                        "ExceedMaxPresetNum");
+            }
+            mPresets = presets;
+            break;
+        }
+        case Equalizer::preset: {
+            mPreset = eqParam.get<Equalizer::preset>();
+            LOG(DEBUG) << __func__ << " preset set to " << mPreset;
+            break;
+        }
+        default: {
+            LOG(ERROR) << " unsupported eq param: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "ParamNotSupported");
+        }
+    }
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus EqualizerSw::getSpecificParameter(Parameter::Specific::Id id,
+                                                     Parameter::Specific* specific) {
+    Equalizer eqParam;
+    auto tag = id.getTag();
+    if (tag != Parameter::Specific::Id::equalizerTag) {
+        LOG(ERROR) << " invalid tag: " << toString(tag);
+        return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                "UnsupportedTag");
+    }
+    auto eqTag = id.get<Parameter::Specific::Id::equalizerTag>();
+    switch (eqTag) {
+        case Equalizer::bands: {
+            eqParam.set<Equalizer::bands>(mBands);
+            break;
+        }
+        case Equalizer::presets: {
+            eqParam.set<Equalizer::presets>(mPresets);
+            break;
+        }
+        case Equalizer::preset: {
+            eqParam.set<Equalizer::preset>(mPreset);
+            LOG(DEBUG) << __func__ << " preset " << mPreset;
+            break;
+        }
+        default: {
+            LOG(ERROR) << " unsupported eq param: " << toString(eqTag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "ParamNotSupported");
+        }
+    }
+
+    specific->set<Parameter::Specific::equalizer>(eqParam);
     return ndk::ScopedAStatus::ok();
 }
 
@@ -248,9 +297,18 @@ void EqualizerSw::cleanUp() {
     }
 }
 
-// Processing method running in worker thread.
-void EqualizerSwWorker::process() {
-    // TODO: add EQ processing with FMQ, should wait until data available before data processing.
+IEffect::Status EqualizerSw::status(binder_status_t status, size_t consumed, size_t produced) {
+    IEffect::Status ret;
+    ret.status = status;
+    ret.fmqByteConsumed = consumed;
+    ret.fmqByteProduced = produced;
+    return ret;
+}
+
+// Processing method running in EffectWorker thread.
+IEffect::Status EqualizerSw::effectProcessImpl() {
+    // TODO: get data buffer and process.
+    return status(STATUS_OK, 0x400, 0x400);
 }
 
 }  // namespace aidl::android::hardware::audio::effect

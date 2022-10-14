@@ -21,22 +21,27 @@
 #include <cstdlib>
 #include <memory>
 
-#include "effect-impl/EffectThread.h"
+#include "effect-impl/EffectContext.h"
+#include "effect-impl/EffectTypes.h"
+#include "effect-impl/EffectUUID.h"
+#include "effect-impl/EffectWorker.h"
 
 namespace aidl::android::hardware::audio::effect {
 
-class EqualizerSwWorker : public EffectThread {
-    // EqualizerSwWorker(const std::string name){EffectThread(name)};
-    void process() override;
+class EqualizerSwContext : public EffectContext {
+  public:
+    EqualizerSwContext(int statusDepth, int inBufferSize, int outBufferSize)
+        : EffectContext(statusDepth, inBufferSize, outBufferSize) {
+        LOG(DEBUG) << __func__;
+    }
+
+  private:
+    // Add equalizer specific context for processing here
 };
 
-class EqualizerSw : public BnEffect {
+class EqualizerSw : public BnEffect, EffectWorker {
   public:
-    EqualizerSw() {
-        // create the worker
-        mWorker = std::make_unique<EqualizerSwWorker>();
-        LOG(DEBUG) << __func__;
-    };
+    EqualizerSw() { LOG(DEBUG) << __func__; };
     ~EqualizerSw() {
         cleanUp();
         LOG(DEBUG) << __func__;
@@ -52,9 +57,10 @@ class EqualizerSw : public BnEffect {
     ndk::ScopedAStatus getParameter(const Parameter::Id& in_paramId,
                                     Parameter* _aidl_return) override;
 
+    // must implement by each effect
+    IEffect::Status effectProcessImpl() override;
+
   private:
-    // effect processing thread.
-    std::unique_ptr<EqualizerSwWorker> mWorker;
     // Effect descriptor.
     const Descriptor mDesc = {
             .common = {.id = {.type = EqualizerTypeUUID, .uuid = EqualizerSwImplUUID}}};
@@ -66,21 +72,24 @@ class EqualizerSw : public BnEffect {
     // Instance state INIT by default.
     State mState = State::INIT;
 
-    typedef ::android::AidlMessageQueue<
-            Status, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
-            StatusMQ;
-    typedef ::android::AidlMessageQueue<
-            int8_t, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
-            DataMQ;
+    static const int NUM_OF_BANDS = 5;
+    static const int NUM_OF_PRESETS = 10;
+    static const int PRESET_CUSTOM = -1;
 
-    std::unique_ptr<StatusMQ> mStatusMQ;
-    std::unique_ptr<DataMQ> mInputMQ;
-    std::unique_ptr<DataMQ> mOutputMQ;
+    int mPreset = PRESET_CUSTOM;  // the current preset
+    // bands with level and frequency
+    std::vector<Equalizer::Band> mBands;
+    // presets supported by the device
+    std::vector<Equalizer::Preset> mPresets;
+    // Equalizer worker context
+    std::shared_ptr<EqualizerSwContext> mContext;
 
     ndk::ScopedAStatus setCommonParameter(const Parameter::Common& common_param);
     ndk::ScopedAStatus setSpecificParameter(const Parameter::Specific& specific);
-    bool createFmq(int statusDepth, int inBufferSize, int outBufferSize, OpenEffectReturn* ret);
-    void destroyFmq();
+    ndk::ScopedAStatus getSpecificParameter(Parameter::Specific::Id id,
+                                            Parameter::Specific* specific);
     void cleanUp();
+
+    IEffect::Status status(binder_status_t status, size_t consumed, size_t produced);
 };
 }  // namespace aidl::android::hardware::audio::effect
