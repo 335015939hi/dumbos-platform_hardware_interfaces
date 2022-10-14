@@ -61,6 +61,9 @@ interface IModule {
   void updateScreenRotation(android.hardware.audio.core.IModule.ScreenRotation rotation);
   void updateScreenState(boolean isTurnedOn);
   void getSupportedPlaybackRateFactors(out android.media.audio.common.Float minSpeed, out android.media.audio.common.Float maxSpeed, out android.media.audio.common.Float minPitch, out android.media.audio.common.Float maxPitch);
+  int generateHwAvSyncId();
+  android.hardware.audio.core.VendorParameter[] getVendorParameters(in @utf8InCpp String[] ids);
+  void setVendorParameters(in android.hardware.audio.core.VendorParameter[] parameters, boolean async);
   @VintfStability
   parcelable OpenInputStreamArguments {
     int portConfigId;
