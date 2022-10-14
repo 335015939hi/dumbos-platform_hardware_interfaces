@@ -19,6 +19,14 @@ prebuilt_etc {
     installable: false,
 }
 
+// Embed VINTF within APEX
+prebuilt_etc {
+    name: "com.android.hardware.vibrator.xml",
+    src: ":android.hardware.vibrator.xml",
+    relative_install_path: "vintf",
+    installable: false,
+}
+
 apex {
     name: "com.android.hardware.vibrator",
     manifest: "apex_manifest.json",
@@ -34,8 +42,8 @@ apex {
     ],
     prebuilts: [
         "com.android.hardware.vibrator.rc",
+        "com.android.hardware.vibrator.xml",
     ],
-    vintf_fragments: [":android.hardware.vibrator.xml"],
     // vibrator.default.so is not needed by the AIDL service binary.
     overrides: ["vibrator.default"],
 }
