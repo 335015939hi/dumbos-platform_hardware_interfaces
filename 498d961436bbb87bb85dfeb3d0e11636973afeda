@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c2fe8c8_cb47e3a9",
+        "filename": "cas/aidl/default/service.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-14T18:38:30Z",
+      "side": 1,
+      "message": "nit: \"binder\" - hwbinder is actually only used for HIDL",
+      "range": {
+        "startLine": 35,
+        "startChar": 13,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "498d961436bbb87bb85dfeb3d0e11636973afeda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
