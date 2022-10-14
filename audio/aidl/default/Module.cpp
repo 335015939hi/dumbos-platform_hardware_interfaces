@@ -531,9 +531,10 @@ ndk::ScopedAStatus Module::openInputStream(const OpenInputStreamArguments& in_ar
         return status;
     }
     context.fillDescriptor(&_aidl_return->desc);
-    auto stream = ndk::SharedRefBase::make<StreamIn>(in_args.sinkMetadata, std::move(context),
-                                                     mConfig->microphones);
-    if (auto status = stream->init(); !status.isOk()) {
+    std::shared_ptr<StreamIn> stream;
+    if (auto status = StreamIn::createInstance(in_args.sinkMetadata, std::move(context),
+                                               mConfig->microphones, &stream);
+        !status.isOk()) {
         return status;
     }
     StreamWrapper streamWrapper(stream);
@@ -583,9 +584,10 @@ ndk::ScopedAStatus Module::openOutputStream(const OpenOutputStreamArguments& in_
         return status;
     }
     context.fillDescriptor(&_aidl_return->desc);
-    auto stream = ndk::SharedRefBase::make<StreamOut>(in_args.sourceMetadata, std::move(context),
-                                                      in_args.offloadInfo);
-    if (auto status = stream->init(); !status.isOk()) {
+    std::shared_ptr<StreamOut> stream;
+    if (auto status = StreamOut::createInstance(in_args.sourceMetadata, std::move(context),
+                                                in_args.offloadInfo, &stream);
+        !status.isOk()) {
         return status;
     }
     StreamWrapper streamWrapper(stream);
@@ -932,6 +934,26 @@ ndk::ScopedAStatus Module::updateScreenRotation(ScreenRotation in_rotation) {
 ndk::ScopedAStatus Module::updateScreenState(bool in_isTurnedOn) {
     LOG(DEBUG) << __func__ << ": " << in_isTurnedOn;
     return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Module::generateHwAvSyncId(int32_t* _aidl_return) {
+    LOG(DEBUG) << __func__;
+    (void)_aidl_return;
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus Module::getVendorParameters(const std::vector<std::string>& in_ids,
+                                               std::vector<VendorParameter>* _aidl_return) {
+    LOG(DEBUG) << __func__ << ": id count: " << in_ids.size();
+    (void)_aidl_return;
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus Module::setVendorParameters(const std::vector<VendorParameter>& in_parameters,
+                                               bool in_async) {
+    LOG(DEBUG) << __func__ << ": parameter count " << in_parameters.size()
+               << ", async: " << in_async;
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
 }  // namespace aidl::android::hardware::audio::core
