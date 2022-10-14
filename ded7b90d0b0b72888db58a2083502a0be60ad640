@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa17a890_84113d95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1895625
+      },
+      "writtenOn": "2022-10-14T06:38:52Z",
+      "side": 1,
+      "message": "I get your point. Please forget my previous reply.\nAnd just look at my reply this time.",
+      "revId": "ded7b90d0b0b72888db58a2083502a0be60ad640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97552be3_a5f7e197",
@@ -38,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "07fbfc08_cc9fcdfc",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1895625
+      },
+      "writtenOn": "2022-10-14T06:38:52Z",
+      "side": 1,
+      "message": "I Got your point!!\nYes, #422 can be removed.",
+      "parentUuid": "d252e187_010a18a6",
+      "revId": "ded7b90d0b0b72888db58a2083502a0be60ad640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb4f0c0b_ab784d10",
         "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
         "patchSetId": 3
@@ -67,6 +102,24 @@
       "side": 1,
       "message": "As reply above.",
       "parentUuid": "eb4f0c0b_ab784d10",
+      "revId": "ded7b90d0b0b72888db58a2083502a0be60ad640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75b41851_ab9aa9a0",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1895625
+      },
+      "writtenOn": "2022-10-14T06:38:52Z",
+      "side": 1,
+      "message": "#431~#433 also can be removed.",
+      "parentUuid": "51b2176e_f195a224",
       "revId": "ded7b90d0b0b72888db58a2083502a0be60ad640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
