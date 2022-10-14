@@ -23,12 +23,14 @@ import android.hardware.audio.core.AudioPatch;
 import android.hardware.audio.core.AudioRoute;
 import android.hardware.audio.core.IStreamIn;
 import android.hardware.audio.core.IStreamOut;
+import android.hardware.audio.core.IStreamOutEventCallback;
 import android.hardware.audio.core.MicrophoneInfo;
 import android.hardware.audio.core.ModuleDebug;
 import android.hardware.audio.core.StreamDescriptor;
 import android.media.audio.common.AudioOffloadInfo;
 import android.media.audio.common.AudioPort;
 import android.media.audio.common.AudioPortConfig;
+import android.media.audio.common.Float;
 
 /**
  * Each instance of IModule corresponds to a separate audio module. The system
@@ -353,6 +355,8 @@ interface IModule {
         @nullable AudioOffloadInfo offloadInfo;
         /** Requested audio I/O buffer minimum size, in frames. */
         long bufferSizeFrames;
+        /** Optional callback to notify client about stream events. */
+        @nullable IStreamOutEventCallback eventCallback;
     }
     @VintfStability
     parcelable OpenOutputStreamReturn {
@@ -626,4 +630,25 @@ interface IModule {
      * @param isTurnedOn True if the screen is turned on.
      */
     void updateScreenState(boolean isTurnedOn);
+
+    /**
+     * Get supported ranges of playback rate factors.
+     *
+     * See 'PlaybackRate' for the information on the playback rate parameters.
+     * This method provides supported ranges (inclusive) for the speed factor
+     * and the pitch factor.
+     *
+     * If the HAL module supports setting the playback rate, it is recommended
+     * to support speed and pitch factor values at least in the range from 0.5f
+     * to 2.0f.
+     *
+     * @param minSpeed The minimum allowed speed factor.
+     * @param maxSpeed The maximum allowed speed factor.
+     * @param minPitch The minimum allowed pitch factor.
+     * @param maxPitch The maximum allowed pitch factor.
+     * @throws EX_UNSUPPORTED_OPERATION If setting of playback rate parameters
+     *                                  is not supported by the module.
+     */
+    void getSupportedPlaybackRateFactors(
+            out Float minSpeed, out Float maxSpeed, out Float minPitch, out Float maxPitch);
 }
