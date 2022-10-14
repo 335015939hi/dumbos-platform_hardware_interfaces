@@ -42,25 +42,26 @@ union Equalizer {
         ParcelableHolder extension;
 
         // Bands frequency ranges supported.
-        Band[] bands;
+        BandCapability[] bands;
 
         // Presets name and index.
         Preset[] presets;
     }
 
     /**
-     * Parameters MUST be supported by Equalizer implementation.
-     */
-    /**
      * Band information.
      */
     @VintfStability
-    parcelable Band {
+    parcelable BandLevel {
         int index; // Index of the band.
         int level; // current level setting.
+    }
+
+    @VintfStability
+    parcelable BandCapability {
+        int index; // Index of the band.
         int minFreq; // minimal frequency.
         int maxFreq; // maximum frequency.
-        int centre; // centre frequency.
     }
 
     /**
@@ -74,10 +75,37 @@ union Equalizer {
         @utf8InCpp String name;
     }
 
-    // List of bands with frequence range and current level for get and set parameter.
-    Band[] bands;
-    // presets with name and index for getParameter.
+    /**
+     * Equalizer getParameter() implementation must support and only support these parameters.
+     */
+    @VintfStability
+    enum GetParameterRange {
+        MIN = Tag.bandCapability,
+        MAX = Tag.preset,
+    }
+
+    /**
+     * Equalizer setParameter() implementation must support and only support these parameters.
+     */
+    @VintfStability
+    enum SetParameterRange {
+        MIN = Tag.bandLevels,
+        MAX = Tag.preset,
+    }
+
+    /**
+     * Equalizer parameters must supported by getParameter but must not supported by setParameter.
+     */
+    /* List of bands with frequence range and current level for get and set. */
+    BandCapability[] bandCapability;
+    /* List of presets. */
     Preset[] presets;
-    // current preset for get and setParameter.
+
+    /**
+     * Equalizer parameters must supported by both getParameter and setParameter.
+     */
+    /* List of bands with frequence range and current level for get and set. */
+    BandLevel[] bandLevels;
+    /* current preset for get and set. */
     int preset;
 }
