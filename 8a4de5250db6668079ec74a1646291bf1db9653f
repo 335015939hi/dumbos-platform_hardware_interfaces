@@ -16,6 +16,121 @@
       "message": "Hi Sharaddha, \nIn Hidl, we have two interfaces below\nandroid.hardware.cas@ and android.hardware.cas.native@1.0\nThis CL merge them together as on interface. \nDo you check whether android.hardware.cas.native@1.0 is used independently by framework somewhere ?",
       "revId": "8a4de5250db6668079ec74a1646291bf1db9653f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5337ccb_c8f6c1f5",
+        "filename": "cas/aidl/android/hardware/cas/DestinationBuffer.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-14T18:35:33Z",
+      "side": 1,
+      "message": "AIDL has `union` types that would handle this for you and remove the need for the BufferType.\nThis works though, if you don\u0027t want to change it.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "8a4de5250db6668079ec74a1646291bf1db9653f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f9af163_1dc45647",
+        "filename": "cas/aidl/android/hardware/cas/IDescrambler.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-14T18:35:33Z",
+      "side": 1,
+      "message": "do we expect to ever increase the number of parameters in these methods?\nIf so, we could make these into a single parcelable that could be extended in future versions.\nWe don\u0027t have a way to add new paremeters methods in AIDL, but we can add new fields to parcelables.\nThis comment goes for any method we think we might want to add more parameters to. I only mention it here since this one has a lot of them already.",
+      "range": {
+        "startLine": 33,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 80
+      },
+      "revId": "8a4de5250db6668079ec74a1646291bf1db9653f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "389bf811_e50c8c6b",
+        "filename": "cas/aidl/android/hardware/cas/ScramblingMode.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-14T18:35:33Z",
+      "side": 1,
+      "message": "Is there anything we can say about this mode? Or will the implementers understand it based on the comment for CSA1?",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 13
+      },
+      "revId": "8a4de5250db6668079ec74a1646291bf1db9653f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dc9a41e_fc94f390",
+        "filename": "cas/aidl/android/hardware/cas/Status.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-14T18:35:33Z",
+      "side": 1,
+      "message": "Is this used anywhere?\n\nIn AIDL all of the methods have that built-in Status return, and we have been encouraging HAL teams to use the ServiceSpecificErrors to report the errors using that built in Status return.\n\nThat\u0027s a bit easier to use with `const int ERROR_CAS_NO_LICENSE` defined in an interface somewhere instead of an enum, because these enumerators will all need to be cast to an int to be used there (they are `enum class` in AIDL).\n\nhttps://source.android.com/docs/core/architecture/aidl/aidl-backends#error_handling",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 12
+      },
+      "revId": "8a4de5250db6668079ec74a1646291bf1db9653f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96d1967c_7713b7c0",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 14
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-14T18:35:33Z",
+      "side": 1,
+      "message": "can we remove this one now as well?",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 10
+      },
+      "revId": "8a4de5250db6668079ec74a1646291bf1db9653f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
