@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "020f6e84_8ed37b3d",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-14T23:09:31Z",
+      "side": 1,
+      "message": "processing can be seamlessly switched",
+      "range": {
+        "startLine": 29,
+        "startChar": 42,
+        "endLine": 29,
+        "endChar": 74
+      },
+      "revId": "24f83dbdade7b686fbb1a6bbf3e476db775f80f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e30b85ea_584638c5",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-14T23:09:31Z",
+      "side": 1,
+      "message": "the effect proxy",
+      "range": {
+        "startLine": 31,
+        "startChar": 94,
+        "endLine": 32,
+        "endChar": 8
+      },
+      "revId": "24f83dbdade7b686fbb1a6bbf3e476db775f80f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51de7677_e962fe5b",
+        "filename": "audio/aidl/android/hardware/audio/effect/IFactory.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-14T23:09:31Z",
+      "side": 1,
+      "message": "Processing Type?",
+      "range": {
+        "startLine": 49,
+        "startChar": 73,
+        "endLine": 49,
+        "endChar": 84
+      },
+      "revId": "24f83dbdade7b686fbb1a6bbf3e476db775f80f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "589ee154_ad4404e0",
+        "filename": "audio/aidl/android/hardware/audio/effect/IFactory.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-14T23:09:31Z",
+      "side": 1,
+      "message": "BTW, is it correct that for certain types of effects we need to use AST, and for others AS? For example, as I understand it currently, since the bass boost is intended for processing output, we always need to use the AudioStreamType, whereas the auto gain control is for input streams, thus we need to use AudioSource. And what about effects that can be potentially used both for input and output, like Equalizer (although, in Android we currently use it for outputs only)? \n\nI think we need to expand our docs to explain this better.",
+      "range": {
+        "startLine": 51,
+        "startChar": 48,
+        "endLine": 51,
+        "endChar": 86
+      },
+      "revId": "24f83dbdade7b686fbb1a6bbf3e476db775f80f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c16bbc59_8c86881b",
+        "filename": "audio/aidl/android/hardware/audio/effect/Processing.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-14T23:09:31Z",
+      "side": 1,
+      "message": "I would clarify this a bit, something like \"Specifies the type of processing by referring to the output stream type or the input stream source.\"",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "24f83dbdade7b686fbb1a6bbf3e476db775f80f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
