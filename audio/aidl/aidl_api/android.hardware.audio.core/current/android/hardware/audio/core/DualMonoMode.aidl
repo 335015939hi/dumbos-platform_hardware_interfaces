@@ -32,17 +32,10 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.audio.core;
-@VintfStability
-interface IStreamOut {
-  void close();
-  void updateMetadata(in android.hardware.audio.common.SourceMetadata sourceMetadata);
-  float getAudioDescriptionMixLevel();
-  void setAudioDescriptionMixLevel(float leveldB);
-  android.hardware.audio.core.DualMonoMode getDualMonoMode();
-  void setDualMonoMode(android.hardware.audio.core.DualMonoMode mode);
-  android.hardware.audio.core.LatencyMode[] getRecommendedLatencyModes();
-  void setLatencyMode(android.hardware.audio.core.LatencyMode mode);
-  android.hardware.audio.core.PlaybackRate getPlaybackRateParameters();
-  void setPlaybackRateParameters(in android.hardware.audio.core.PlaybackRate playbackRate);
-  void selectPresentation(int presentationId, int programId);
+@Backing(type="int") @VintfStability
+enum DualMonoMode {
+  OFF = 0,
+  LR = 1,
+  LL = 2,
+  RR = 3,
 }
