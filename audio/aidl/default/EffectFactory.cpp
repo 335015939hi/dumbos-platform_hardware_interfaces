@@ -125,9 +125,9 @@ ndk::ScopedAStatus Factory::createEffect(const AudioUuid& in_impl_uuid,
 
 ndk::ScopedAStatus Factory::destroyEffectImpl(const std::shared_ptr<IEffect>& in_handle) {
     std::weak_ptr<IEffect> wpHandle(in_handle);
-    // find UUID with key (std::weak_ptr<IEffect>)
-    if (auto uuidIt = mEffectMap.find(wpHandle); uuidIt != mEffectMap.end()) {
-        auto& uuid = uuidIt->second.first;
+    // find the effect entry with key (std::weak_ptr<IEffect>)
+    if (auto effectIt = mEffectMap.find(wpHandle); effectIt != mEffectMap.end()) {
+        auto& uuid = effectIt->second.first;
         // find implementation library with UUID
         if (auto libIt = mEffectLibMap.find(uuid); libIt != mEffectLibMap.end()) {
             auto& interface = std::get<kMapEntryInterfaceIndex>(libIt->second);
@@ -138,7 +138,7 @@ ndk::ScopedAStatus Factory::destroyEffectImpl(const std::shared_ptr<IEffect>& in
             LOG(ERROR) << __func__ << ": UUID " << uuid.toString() << " does not exist in libMap!";
             return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
         }
-        mEffectMap.erase(uuidIt);
+        mEffectMap.erase(effectIt);
         return ndk::ScopedAStatus::ok();
     } else {
         LOG(ERROR) << __func__ << ": instance " << in_handle << " does not exist!";
