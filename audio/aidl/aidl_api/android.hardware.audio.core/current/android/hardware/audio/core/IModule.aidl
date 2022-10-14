@@ -60,6 +60,7 @@ interface IModule {
   void updateAudioMode(android.hardware.audio.core.AudioMode mode);
   void updateScreenRotation(android.hardware.audio.core.IModule.ScreenRotation rotation);
   void updateScreenState(boolean isTurnedOn);
+  void getSupportedPlaybackRateFactors(out android.media.audio.common.Float minSpeed, out android.media.audio.common.Float maxSpeed, out android.media.audio.common.Float minPitch, out android.media.audio.common.Float maxPitch);
   @VintfStability
   parcelable OpenInputStreamArguments {
     int portConfigId;
@@ -78,6 +79,7 @@ interface IModule {
     @nullable android.media.audio.common.AudioOffloadInfo offloadInfo;
     long bufferSizeFrames;
     @nullable android.hardware.audio.core.IStreamCallback callback;
+    @nullable android.hardware.audio.core.IStreamOutEventCallback eventCallback;
   }
   @VintfStability
   parcelable OpenOutputStreamReturn {

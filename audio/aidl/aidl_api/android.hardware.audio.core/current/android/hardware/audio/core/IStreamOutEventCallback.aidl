@@ -33,16 +33,7 @@
 
 package android.hardware.audio.core;
 @VintfStability
-interface IStreamOut {
-  void close();
-  void updateMetadata(in android.hardware.audio.common.SourceMetadata sourceMetadata);
-  float getAudioDescriptionMixLevel();
-  void setAudioDescriptionMixLevel(float leveldB);
-  android.hardware.audio.core.DualMonoMode getDualMonoMode();
-  void setDualMonoMode(android.hardware.audio.core.DualMonoMode mode);
-  android.hardware.audio.core.LatencyMode[] getRecommendedLatencyModes();
-  void setLatencyMode(android.hardware.audio.core.LatencyMode mode);
-  android.hardware.audio.core.PlaybackRate getPlaybackRateParameters();
-  void setPlaybackRateParameters(in android.hardware.audio.core.PlaybackRate playbackRate);
-  void selectPresentation(int presentationId, int programId);
+interface IStreamOutEventCallback {
+  oneway void onCodecFormatChanged(in byte[] audioMetadata);
+  oneway void onRecommendedLatencyModeChanged(in android.hardware.audio.core.LatencyMode[] modes);
 }
