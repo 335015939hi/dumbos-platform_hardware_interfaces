@@ -87,6 +87,24 @@
       "parentUuid": "3debaaa7_fe745363",
       "revId": "e85de1d9577fab274f1c79a31518574fe8374642",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95f23de5_18c22768",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-10-14T00:27:26Z",
+      "side": 1,
+      "message": "Ack. Will do the work in goog/master. This change is only to add the AOSP version of wifi vendor hal apex. (which was already there for the cuttlefish though ;-)\n\nKenn, I think it\u0027s okay to submit this change now.",
+      "parentUuid": "cf3942fd_98b7cb6b",
+      "revId": "e85de1d9577fab274f1c79a31518574fe8374642",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
