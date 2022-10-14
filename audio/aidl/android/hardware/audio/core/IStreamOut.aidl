@@ -18,6 +18,7 @@ package android.hardware.audio.core;
 
 import android.hardware.audio.common.SourceMetadata;
 import android.hardware.audio.core.DualMonoMode;
+import android.hardware.audio.core.IStreamCommon;
 import android.hardware.audio.core.LatencyMode;
 import android.hardware.audio.core.PlaybackRate;
 
@@ -27,19 +28,15 @@ import android.hardware.audio.core.PlaybackRate;
 @VintfStability
 interface IStreamOut {
     /**
-     * Close the stream.
+     * Return the interface for common stream operations.
      *
-     * Releases any resources allocated for this stream on the HAL module side.
-     * This includes the fast message queues and shared memories returned via
-     * the StreamDescriptor. Thus, the stream can not be operated anymore after
-     * it has been closed. The client needs to release the audio data I/O
-     * objects after the call to this method returns.
+     * This method must always succeed. The implementation must
+     * reuse the same Binder token for all subsequent calls to
+     * this method.
      *
-     * Methods of this interface throw EX_ILLEGAL_STATE for a closed stream.
-     *
-     * @throws EX_ILLEGAL_STATE If the stream has already been closed.
+     * @return The interface for common operations.
      */
-    void close();
+    IStreamCommon getStreamCommon();
 
     /**
      * Update stream metadata.
