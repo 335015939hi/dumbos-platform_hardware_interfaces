@@ -1,0 +1,33 @@
+Notes relating to hidl2aidl conversion of android.hardware.media.c2@1.2 to android.hardware.media.c2 (if any) follow:
+Unhandled comments from android.hardware.media.c2@1.0::types follow. Consider using hidl-lint to locate these and fixup as many as possible.
+ // bad input
+ // bad sequencing of events
+ // bad environment
+ // missing functionality
+ // unknown fatal
+ // uninitialized
+ // Generic way to describe supported numeric values for Codec2 interfaces.
+
+Unhandled comments from android.hardware.media.c2@1.0::IConfigurable follow. Consider using hidl-lint to locate these and fixup as many as possible.
+ // REFLECTION MECHANISM
+ // =========================================================================
+
+Unhandled comments from android.hardware.media.c2@1.2::types follow. Consider using hidl-lint to locate these and fixup as many as possible.
+ // Read-only.
+ // The values which are tied and not changed with respect to Surface
+ // which is currently set up.
+
+An unhandled type was found in translation: handle
+An unknown named type was found in translation: android.hardware.media.bufferpool@2.0::BufferStatusMessage
+An unhandled type was found in translation: handle
+An unhandled type was found in translation: handle
+An unhandled type was found in translation: handle
+An unknown named type was found in translation: android.hardware.media.bufferpool@2.0::BufferStatusMessage
+An unhandled type was found in translation: handle
+An unhandled type was found in translation: handle
+An unhandled type was found in translation: handle
+An unknown named type was found in translation: android.hardware.media.bufferpool@2.0::BufferStatusMessage
+An unhandled type was found in translation: handle
+An unhandled type was found in translation: handle
+Replacing type android.hidl.safe_union@1.0::Monostate with boolean.
+END OF LOG

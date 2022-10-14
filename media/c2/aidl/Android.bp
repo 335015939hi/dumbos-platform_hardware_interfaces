@@ -1,0 +1,61 @@
+// This is the expected build file, but it may not be right in all cases
+
+aidl_interface {
+    name: "android.hardware.media.c2",
+    vendor_available: true,
+    host_supported: true,
+    srcs: ["android/hardware/media/c2/*.aidl"],
+    stability: "vintf",
+    backend: {
+        cpp: {
+            // FIXME should this be disabled?
+            // prefer NDK backend which can be used anywhere
+            // If you disable this, you also need to delete the C++
+            // translate code.
+            enabled: true,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+}
+
+cc_library {
+    name: "android.hardware.media.c2-translate-cpp",
+    srcs: ["translate/android/hardware/media/c2/translate-cpp.cpp"],
+    shared_libs: [
+        "libbinder",
+        "libhidlbase",
+        "android.hardware.media.c2-V1-cpp",
+        "libutils",
+        "android.hardware.media.c2@1.0",
+        "android.hardware.media.c2@1.2",
+    ],
+    export_include_dirs: ["include"],
+}
+
+cc_library {
+    name: "android.hardware.media.c2-translate-ndk",
+    vendor_available: true,
+    srcs: ["translate/android/hardware/media/c2/translate-ndk.cpp"],
+    shared_libs: [
+        "libbinder_ndk",
+        "libhidlbase",
+        "android.hardware.media.c2-V1-ndk",
+        "android.hardware.media.c2@1.0",
+        "android.hardware.media.c2@1.2",
+    ],
+    export_include_dirs: ["include"],
+}
+
+java_library {
+    name: "android.hardware.media.c2-translate-java",
+    srcs: ["translate/android/hardware/media/c2/Translate.java"],
+    libs: [
+        "android.hardware.media.c2-V1-java",
+        "android.hardware.media.c2-V1.0-java",
+        "android.hardware.media.c2-V1.2-java",
+    ],
+    sdk_version: "module_current",
+}
+
