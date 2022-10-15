@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a88c7a0_899b32fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-15T00:28:35Z",
+      "side": 1,
+      "message": "Eric, do we actually still need these methods? Do they provide any advantage over AudioGainConfig for device ports?",
+      "revId": "f5c3d14418db076c69f8843ee7b2c6a1d10c970c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
