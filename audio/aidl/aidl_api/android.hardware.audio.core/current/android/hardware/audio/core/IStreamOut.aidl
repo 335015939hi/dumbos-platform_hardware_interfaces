@@ -45,4 +45,6 @@ interface IStreamOut {
   android.hardware.audio.core.PlaybackRate getPlaybackRateParameters();
   void setPlaybackRateParameters(in android.hardware.audio.core.PlaybackRate playbackRate);
   void selectPresentation(int presentationId, int programId);
+  float[] getHwVolume();
+  void setHwVolume(in float[] channelVolumes);
 }
