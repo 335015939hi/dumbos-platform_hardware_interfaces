@@ -129,4 +129,30 @@ interface IStreamIn {
      * @throws EX_ILLEGAL_STATE If the stream is closed.
      */
     void updateMetadata(in SinkMetadata sinkMetadata);
+
+    /**
+     * Retrieve current gain applied in hardware.
+     *
+     * In case when the HAL module has an analog amplifier, this method returns
+     * the current value of its gain. The valid range for gain is [0.0f, 1.0f],
+     * where 1.0f corresponds to unity gain, 0.0f corresponds to full mute.
+     *
+     * @return Current gain value.
+     * @throws EX_ILLEGAL_STATE If the stream is closed.
+     * @throws EX_UNSUPPORTED_OPERATION If hardware gain control is not supported.
+     */
+    float getHwGain();
+    /**
+     * Set gain applied in hardware.
+     *
+     * In case when the HAL module has an analog amplifier, this method set
+     * the current value of its gain. The valid range for gain is [0.0f, 1.0f],
+     * where 1.0f corresponds to unity gain, 0.0f corresponds to full mute.
+     *
+     * @param gain Gain value.
+     * @throws EX_ILLEGAL_ARGUMENT If the gain value is out of range.
+     * @throws EX_ILLEGAL_STATE If the stream is closed.
+     * @throws EX_UNSUPPORTED_OPERATION If hardware gain control is not supported.
+     */
+    void setHwGain(float gain);
 }

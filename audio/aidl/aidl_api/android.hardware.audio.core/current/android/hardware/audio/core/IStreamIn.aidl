@@ -41,6 +41,8 @@ interface IStreamIn {
   float getMicrophoneFieldDimension();
   void setMicrophoneFieldDimension(float zoom);
   void updateMetadata(in android.hardware.audio.common.SinkMetadata sinkMetadata);
+  float getHwGain();
+  void setHwGain(float gain);
   @Backing(type="int") @VintfStability
   enum MicrophoneDirection {
     UNSPECIFIED = 0,
