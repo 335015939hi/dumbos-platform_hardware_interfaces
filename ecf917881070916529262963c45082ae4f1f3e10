@@ -70,6 +70,30 @@
       },
       "revId": "ecf917881070916529262963c45082ae4f1f3e10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b997715_97af2d04",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-17T18:02:09Z",
+      "side": 1,
+      "message": "lol yeah I had it at 50 for cuttlefish, but pixel 7 can\u0027t handle many, so I dropped it to 5. \n\nIn RKP v1-2 we don\u0027t sign the key, just the mac, i.e. the payload sent TEE is fixed sized. So, in v1-2 there is no constraint on the number of keys.",
+      "parentUuid": "a096ef4b_d09f11ee",
+      "range": {
+        "startLine": 668,
+        "startChar": 6,
+        "endLine": 668,
+        "endChar": 30
+      },
+      "revId": "ecf917881070916529262963c45082ae4f1f3e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
