@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "423c3015_4051ce21",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1322530
+      },
+      "writtenOn": "2022-10-17T03:19:05Z",
+      "side": 1,
+      "message": "Is it correct to return nullopt here when the leAudioCodecCapabilities is not empty?",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
