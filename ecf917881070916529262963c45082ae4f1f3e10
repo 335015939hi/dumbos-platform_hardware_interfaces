@@ -46,6 +46,30 @@
       },
       "revId": "ecf917881070916529262963c45082ae4f1f3e10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a096ef4b_d09f11ee",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-17T04:30:50Z",
+      "side": 1,
+      "message": "That test case only has `5` keys.\n\nThis is something where we can restrict the new arbitrary number of keys to only newer HALs (v3+), so that older HALs will not fail the VTS tests. RKPD can then act appropriately under those circumstances, batching requests for old HALs and just using arbitrarily large requests for newer HALs.",
+      "parentUuid": "7b33aebb_b4698b27",
+      "range": {
+        "startLine": 668,
+        "startChar": 6,
+        "endLine": 668,
+        "endChar": 30
+      },
+      "revId": "ecf917881070916529262963c45082ae4f1f3e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
