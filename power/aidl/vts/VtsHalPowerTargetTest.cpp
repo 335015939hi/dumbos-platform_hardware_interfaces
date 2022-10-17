@@ -126,6 +126,7 @@ TEST_P(PowerAidl, isModeSupported) {
     for (const auto& mode : kModes) {
         bool supported;
         ASSERT_TRUE(power->isModeSupported(mode, &supported).isOk());
+        ASSERT_TRUE(supported);
     }
     for (const auto& mode : kInvalidModes) {
         bool supported;
@@ -152,6 +153,7 @@ TEST_P(PowerAidl, isBoostSupported) {
     for (const auto& boost : kBoosts) {
         bool supported;
         ASSERT_TRUE(power->isBoostSupported(boost, &supported).isOk());
+        ASSERT_TRUE(supported);
     }
     for (const auto& boost : kInvalidBoosts) {
         bool supported;
