@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9eb3967_089b5a83",
+        "filename": "audio/aidl/android/hardware/audio/effect/IFactory.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-17T15:37:12Z",
+      "side": 1,
+      "message": "nit: can be AudioStreamType, AudioSource, or null.",
+      "range": {
+        "startLine": 53,
+        "startChar": 14,
+        "endLine": 53,
+        "endChar": 86
+      },
+      "revId": "08b687ded761efbb9edf2a9381801e06bc0789e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
