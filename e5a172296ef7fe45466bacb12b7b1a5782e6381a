@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eddf2aa9_23f3d1d0",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-10-18T10:30:02Z",
+      "side": 1,
+      "message": "If we call `ParseFromLeAduioOffloadSettingFile()` with `GetLeAudioCodecCapabilities()` together, then we would not enter this condition.\n\nIn `bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecs.cpp`, we do check this by \n```\nif (kDefaultOffloadLeAudioCapabilities.empty()) {...}\n```\n\n\nHowever, use this condition to prevent developers from not checking capabilities outside of the class `BluetoothLeAudioCodecsProvider` if they also have a tmp container to cache capabilities.",
+      "parentUuid": "54c804e6_5f48ef7a",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a2d8df4_0e4df6a6",
         "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
         "patchSetId": 2
