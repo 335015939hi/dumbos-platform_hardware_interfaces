@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61cec575_f243b900",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1527754
+      },
+      "writtenOn": "2022-10-18T07:06:23Z",
+      "side": 1,
+      "message": "validate*",
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43f3f0fc_397be28f",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1527754
+      },
+      "writtenOn": "2022-10-18T07:06:23Z",
+      "side": 1,
+      "message": "validate*",
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "834ef0af_ea36c0e7",
         "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
         "patchSetId": 4
@@ -273,6 +307,40 @@
         "endLine": 94,
         "endChar": 21
       },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caffa127_76fdb79e",
+        "filename": "audio/aidl/android/hardware/audio/effect/Parameter.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1527754
+      },
+      "writtenOn": "2022-10-18T07:06:23Z",
+      "side": 1,
+      "message": "How this specific has to be used from clients (or AudioFlinger)?\nIs it provided to choose from multiple s/w based implementations?",
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23915c04_01f86e35",
+        "filename": "audio/aidl/android/hardware/audio/effect/Parameter.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1527754
+      },
+      "writtenOn": "2022-10-18T07:06:23Z",
+      "side": 1,
+      "message": "Also, Is this something new we are adding this time?\nWhen I check HIDL based audio_effects.xml, I see we generally define only 1 effect implementation for 1 type.\nOnly for offloaded effects we have proxy and sw based implementation?",
       "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
