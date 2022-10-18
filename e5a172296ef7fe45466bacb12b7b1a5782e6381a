@@ -121,6 +121,24 @@
       "parentUuid": "2a2d8df4_0e4df6a6",
       "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a131dd4e_4d28653c",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-10-18T06:32:41Z",
+      "side": 1,
+      "message": "yes, also need to make sure private map is empty when we go through `GetLeAudioCodecCapabilities`",
+      "parentUuid": "da4b2db7_b818244b",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
