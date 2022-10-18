@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5656e76_918da3b3",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T22:27:51Z",
+      "side": 1,
+      "message": "/** here and below, and please capitalize the first word.",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 6
+      },
+      "revId": "d78757d3f58b45500cfcf7fe9bae813d96ed8b47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c05279a2_92e74b18",
+        "filename": "audio/aidl/android/hardware/audio/effect/Parameter.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T22:27:51Z",
+      "side": 1,
+      "message": "This is an implementation detail of the framework, we should not have it in the AIDL interface. If we have that in C / HIDL APIs it\u0027s probably a remnant from times when effects were running inside AudioFlinger, thus were more tightly integrated with it.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 69
+      },
+      "revId": "d78757d3f58b45500cfcf7fe9bae813d96ed8b47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
