@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc83ac92_05fe212d",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioCodecs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-10-18T08:59:58Z",
+      "side": 1,
+      "message": "It is more flexible for us to no matter simplify what a function did or unit test.\n\n\nAs one function is only for parsing file by `XSDC` and use a predefined class `LeAudioOffloadSetting` to store it.\n\nThe other function is for writing into our container, e.g., private map or codec capabilities cache `leAudioCodecCapabilities`.\n\nAnd for unit test, we are able to create test cases for `LeAudioOffloadSetting` and check if our `GetLeAudioCodecCapabilities` works correctly as this function is implemented by us and the core of first function is implemented by `XSDC`. Therefore, \n1. simplify and not make function too complicate\n2. unit test the second function \nAbove two points are my veiwpoints to split function into two functions.\n\nAre there any suggestions about this approach?",
+      "parentUuid": "44d5e1a5_1ea322bf",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9924b450_9b089ea5",
         "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
         "patchSetId": 2
