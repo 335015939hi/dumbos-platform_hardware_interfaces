@@ -60,6 +60,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "089feedf_18511972",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1527754
+      },
+      "writtenOn": "2022-10-18T09:00:43Z",
+      "side": 1,
+      "message": "What is the idea behind having Equalizer a union?",
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05b2ab49_b2b62f37",
         "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
         "patchSetId": 4
