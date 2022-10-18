@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4282f5c7_54d5d5b7",
+        "filename": "audio/aidl/default/include/equalizer-impl/EqualizerSw.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1527754
+      },
+      "writtenOn": "2022-10-18T07:06:33Z",
+      "side": 1,
+      "message": "Earlier libbundle was catering sw based effects like Equalizer/Bassboost/ .., With AIDL does it mean we are going to have different type in audio_effects.xml or eventually we are going to hook these modules to those legacy libraries where actual processing will be done?",
+      "revId": "67684b160af0a407afa9ab2ac933e0bb5aabb68f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
