@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "834ef0af_ea36c0e7",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "I would also clarify that it\u0027s not actually displayed on any UI.",
+      "range": {
+        "startLine": 111,
+        "startChar": 37,
+        "endLine": 111,
+        "endChar": 38
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05b2ab49_b2b62f37",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "typo: implementation",
+      "range": {
+        "startLine": 34,
+        "startChar": 49,
+        "endLine": 34,
+        "endChar": 64
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "140ca953_81cca22c",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "Please use docstrings: /**, here and elsewhere.",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 44
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65b56585_bad3e04c",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "A common question to \u0027BandLevel\u0027, \u0027BandCapability\u0027 and \u0027Preset\u0027. Why do we need to specify the \u0027index\u0027 explicitly? Since there is an array of all entities that can be obtained by the client, can we just use the index in that array?\n\nI\u0027m not sure what is the benefit of having the index.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 40
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5f35e32_19f87a13",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "Since this really depends on the ordering of of union fields, how can we prevent accidental insertion of fields in between? There must be some big comment which marks the boundaries of fields that we use in ranges, and a reminder to update the ranges if new variants are added.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 25
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "748f52a0_6d1845a6",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "Why do we need to have these parameters both in capabilities and here? Can we leave them just in one place? This feels like a confusing duplication to me.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eee5c244_f95bd306",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "Please use docstrings: /**",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a058e7ea_0b890032",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "Missing \u0027*\u0027",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 10
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "238ddc47_169454d6",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "Need to clarify that \u0027Offload\u0027 applies to offloaded tracks, whereas \u0027hardware acceleration\u0027 applies to the effect implementation itself. Is my understanding correct?",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 36
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad5f5640_9ebf511f",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "\"Supports\" or \"requires\"?\n\nAlso, please expand the text. It\u0027s not clear immediately what a \"device update\" is without any context.",
+      "range": {
+        "startLine": 84,
+        "startChar": 7,
+        "endLine": 84,
+        "endChar": 43
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1771e780_ca43db38",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "if the value is true",
+      "range": {
+        "startLine": 84,
+        "startChar": 30,
+        "endLine": 84,
+        "endChar": 43
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dece6070_d97b5b27",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-18T00:54:30Z",
+      "side": 1,
+      "message": "noProcessing",
+      "range": {
+        "startLine": 94,
+        "startChar": 12,
+        "endLine": 94,
+        "endChar": 21
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
