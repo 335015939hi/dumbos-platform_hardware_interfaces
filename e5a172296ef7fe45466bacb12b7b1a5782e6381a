@@ -103,6 +103,24 @@
       "message": "It seems this function is called by test file only, is that necessary to add this function for testing purpose?",
       "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da4b2db7_b818244b",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2022-10-18T06:28:22Z",
+      "side": 1,
+      "message": "You probably need to clear them in somewhere not only for testing.",
+      "parentUuid": "2a2d8df4_0e4df6a6",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
