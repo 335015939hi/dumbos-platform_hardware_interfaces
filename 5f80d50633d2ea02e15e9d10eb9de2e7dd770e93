@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a98cbb87_921db7ab",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "61cec575_f243b900",
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43f3f0fc_397be28f",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc14addf_6626f324",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "43f3f0fc_397be28f",
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "834ef0af_ea36c0e7",
@@ -48,6 +84,30 @@
       "writtenOn": "2022-10-18T00:54:30Z",
       "side": 1,
       "message": "I would also clarify that it\u0027s not actually displayed on any UI.",
+      "range": {
+        "startLine": 111,
+        "startChar": 37,
+        "endLine": 111,
+        "endChar": 38
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c70753de_eb07e3ee",
+        "filename": "audio/aidl/android/hardware/audio/effect/Descriptor.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "834ef0af_ea36c0e7",
       "range": {
         "startLine": 111,
         "startChar": 37,
@@ -98,6 +158,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89c693e7_e2706417",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05b2ab49_b2b62f37",
+      "range": {
+        "startLine": 34,
+        "startChar": 49,
+        "endLine": 34,
+        "endChar": 64
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "140ca953_81cca22c",
@@ -111,6 +195,30 @@
       "writtenOn": "2022-10-18T00:54:30Z",
       "side": 1,
       "message": "Please use docstrings: /**, here and elsewhere.",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 44
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff092566_1c71839e",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "140ca953_81cca22c",
       "range": {
         "startLine": 44,
         "startChar": 8,
@@ -144,6 +252,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b43e4191_86505efc",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Because we are using std::vector to represent instead of a fixed size array, and it\u0027s possible framework size to do something like: setParameter({1 /* band index */, 0 /* gain level */}) to set a specific band only.",
+      "parentUuid": "65b56585_bad3e04c",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 40
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5f35e32_19f87a13",
@@ -157,6 +289,30 @@
       "writtenOn": "2022-10-18T00:54:30Z",
       "side": 1,
       "message": "Since this really depends on the ordering of of union fields, how can we prevent accidental insertion of fields in between? There must be some big comment which marks the boundaries of fields that we use in ranges, and a reminder to update the ranges if new variants are added.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 25
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcf71564_adcc0768",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Move the get-only parameters to capability so don\u0027t really need this ParameterRange anymore.",
+      "parentUuid": "a5f35e32_19f87a13",
       "range": {
         "startLine": 92,
         "startChar": 0,
@@ -190,6 +346,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e800526e_617c8934",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Right, I think maybe makes more sense to keep all non-settable parameter in Capability and framework get them with IEffect.getDescriptor().",
+      "parentUuid": "748f52a0_6d1845a6",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eee5c244_f95bd306",
@@ -203,6 +383,30 @@
       "writtenOn": "2022-10-18T00:54:30Z",
       "side": 1,
       "message": "Please use docstrings: /**",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab0d6f6_8eab9e0a",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eee5c244_f95bd306",
       "range": {
         "startLine": 24,
         "startChar": 4,
@@ -236,6 +440,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fff85932_81ad125d",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a058e7ea_0b890032",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 10
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "238ddc47_169454d6",
@@ -249,6 +477,30 @@
       "writtenOn": "2022-10-18T00:54:30Z",
       "side": 1,
       "message": "Need to clarify that \u0027Offload\u0027 applies to offloaded tracks, whereas \u0027hardware acceleration\u0027 applies to the effect implementation itself. Is my understanding correct?",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 36
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bdd2bd9_f2849ffb",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "238ddc47_169454d6",
       "range": {
         "startLine": 81,
         "startChar": 0,
@@ -305,6 +557,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4163849e_56ed1f21",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1771e780_ca43db38",
+      "range": {
+        "startLine": 84,
+        "startChar": 30,
+        "endLine": 84,
+        "endChar": 43
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86c8ebf2_fa4969d3",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad5f5640_9ebf511f",
+      "range": {
+        "startLine": 84,
+        "startChar": 7,
+        "endLine": 84,
+        "endChar": 43
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dece6070_d97b5b27",
@@ -318,6 +618,30 @@
       "writtenOn": "2022-10-18T00:54:30Z",
       "side": 1,
       "message": "noProcessing",
+      "range": {
+        "startLine": 94,
+        "startChar": 12,
+        "endLine": 94,
+        "endChar": 21
+      },
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62d44449_ef05184f",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dece6070_d97b5b27",
       "range": {
         "startLine": 94,
         "startChar": 12,
@@ -345,6 +669,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b3cfea6_21fe7e1c",
+        "filename": "audio/aidl/android/hardware/audio/effect/Parameter.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "The ID can be used to identify different effects in `union Specific`.\nExample:\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/2254121/6/audio/aidl/vts/VtsHalEqualizerTargetTest.cpp#112",
+      "parentUuid": "caffa127_76fdb79e",
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23915c04_01f86e35",
@@ -358,6 +700,24 @@
       "writtenOn": "2022-10-18T07:06:23Z",
       "side": 1,
       "message": "Also, Is this something new we are adding this time?\nWhen I check HIDL based audio_effects.xml, I see we generally define only 1 effect implementation for 1 type.\nOnly for offloaded effects we have proxy and sw based implementation?",
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd198961_3674f8a6",
+        "filename": "audio/aidl/android/hardware/audio/effect/Parameter.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-18T22:13:19Z",
+      "side": 1,
+      "message": "We do not make the assumption of only 1 effect implementation for each type in the interface.",
+      "parentUuid": "23915c04_01f86e35",
       "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
