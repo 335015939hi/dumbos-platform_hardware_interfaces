@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44d5e1a5_1ea322bf",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioCodecs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-10-18T03:33:58Z",
+      "side": 1,
+      "message": "seems `ParseFromLeAduioOffloadSettingFile()` and `GetLeAudioCodecCapabilities()` must be called together. Is that necessary to separate the original one to these two functions?",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9924b450_9b089ea5",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-10-18T03:33:58Z",
+      "side": 1,
+      "message": "typo Aduio -\u003e Audio",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "423c3015_4051ce21",
         "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
         "patchSetId": 2
@@ -32,6 +66,41 @@
       "side": 1,
       "message": "since we already cached the capabilities, we dont need to read setting file again. So I return `nullopt` as not read file content.",
       "parentUuid": "423c3015_4051ce21",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54c804e6_5f48ef7a",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-10-18T03:33:58Z",
+      "side": 1,
+      "message": "Seems `ParseFromLeAduioOffloadSettingFile()` is called only if capability is not loaded. Is there a scenario that will enter this condition?",
+      "parentUuid": "fce3efab_d022728e",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a2d8df4_0e4df6a6",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2022-10-18T03:33:58Z",
+      "side": 1,
+      "message": "It seems this function is called by test file only, is that necessary to add this function for testing purpose?",
       "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
