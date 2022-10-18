@@ -35,5 +35,6 @@ cc_binary {
     srcs: [
         "main.cpp",
         "Power.cpp",
+        "PowerHintSession.cpp",
     ],
 }
