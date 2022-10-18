@@ -16,6 +16,24 @@
       "message": "Is it correct to return nullopt here when the leAudioCodecCapabilities is not empty?",
       "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fce3efab_d022728e",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-10-18T02:14:42Z",
+      "side": 1,
+      "message": "since we already cached the capabilities, we dont need to read setting file again. So I return `nullopt` as not read file content.",
+      "parentUuid": "423c3015_4051ce21",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
