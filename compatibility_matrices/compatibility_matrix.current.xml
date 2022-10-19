@@ -199,14 +199,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>android.hardware.confirmationui</name>
-        <version>1.0</version>
-        <interface>
-            <name>IConfirmationUI</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.confirmationui</name>
         <version>1</version>
@@ -438,18 +430,6 @@
             <name>IComponentStore</name>
             <regex-instance>default[0-9]*</regex-instance>
             <regex-instance>vendor[0-9]*_software</regex-instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>android.hardware.media.omx</name>
-        <version>1.0</version>
-        <interface>
-            <name>IOmx</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IOmxStore</name>
-            <instance>default</instance>
         </interface>
     </hal>
     <hal format="aidl" optional="true">
@@ -685,6 +665,20 @@
         <version>1.0-1</version>
         <interface>
             <name>IHdmiCec</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.tv.cec</name>
+        <interface>
+            <name>IHdmiCec</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.tv.hdmi</name>
+        <interface>
+            <name>IHdmi</name>
             <instance>default</instance>
         </interface>
     </hal>

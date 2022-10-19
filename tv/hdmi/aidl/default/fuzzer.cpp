@@ -13,19 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#include <HdmiMock.h>
+#include <fuzzbinder/libbinder_ndk_driver.h>
+#include <fuzzer/FuzzedDataProvider.h>
 
-#pragma once
+using android::fuzzService;
+using android::hardware::tv::hdmi::implementation::HdmiMock;
+using ndk::SharedRefBase;
 
-#include <cstdlib>
+extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
+    auto hdmiAidl = SharedRefBase::make<HdmiMock>();
 
-namespace aidl::android::hardware::audio::effect {
+    fuzzService(hdmiAidl->asBinder().get(), FuzzedDataProvider(data, size));
 
-// Visualizer implementation UUID.
-static const ::aidl::android::media::audio::common::AudioUuid VisualizerUUID = {
-        static_cast<int32_t>(0x1d4033c0),
-        0x8557,
-        0x11df,
-        0x9f2d,
-        {0x00, 0x02, 0xa5, 0xd5, 0xc5, 0x1b}};
-
-}  // namespace aidl::android::hardware::audio::effect
+    return 0;
+}
