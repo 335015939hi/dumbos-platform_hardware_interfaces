@@ -189,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "358c145b_2215730d",
+        "filename": "audio/aidl/default/include/effect-impl/EffectTypes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-19T18:43:47Z",
+      "side": 1,
+      "message": "I agree, it makes no sense to use the exhaustive switch approach for the set of values that is meant to be extended. The exhaustive switch is an excellent fit for the case when you want to make sure (at build time) that each variant is handled, especially when handling and definition are located in different places.",
+      "parentUuid": "2235666f_babe77c0",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 16
+      },
+      "revId": "6e20bb9fe6a1a0ebf181b6b213313892e882d022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33c45eb7_8835bd3c",
