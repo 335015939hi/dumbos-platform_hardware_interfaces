@@ -135,6 +135,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a4f12a9_6f4c2292",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-19T03:37:01Z",
+      "side": 1,
+      "message": "Having Equalizer defined as union enable client (framework) to set parameter individually, for example client can set a preset by pass in Equalizer::preset only:\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/2254121/7/audio/aidl/vts/VtsHalEqualizerTargetTest.cpp#149",
+      "parentUuid": "089feedf_18511972",
+      "revId": "5f80d50633d2ea02e15e9d10eb9de2e7dd770e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05b2ab49_b2b62f37",
