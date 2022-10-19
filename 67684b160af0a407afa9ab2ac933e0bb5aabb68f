@@ -16,6 +16,24 @@
       "message": "Earlier libbundle was catering sw based effects like Equalizer/Bassboost/ .., With AIDL does it mean we are going to have different type in audio_effects.xml or eventually we are going to hook these modules to those legacy libraries where actual processing will be done?",
       "revId": "67684b160af0a407afa9ab2ac933e0bb5aabb68f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c437ce16_b54713aa",
+        "filename": "audio/aidl/default/include/equalizer-impl/EqualizerSw.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-19T18:35:03Z",
+      "side": 1,
+      "message": "Yes, I think the underlying implementation will be the same one in lvm, but it will be the individual implementation of lvm libs.\nFor example, EqualizerSw will be based on `libeffects/lvm/lib/Eq/`\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/libeffects/lvm/lib/Eq/\n\nMost likely bundle will not be something in default implementation.",
+      "parentUuid": "4282f5c7_54d5d5b7",
+      "revId": "67684b160af0a407afa9ab2ac933e0bb5aabb68f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
