@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2d2337a_799f468e",
+        "filename": "audio/aidl/default/equalizer/Equalizer.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-19T17:30:21Z",
+      "side": 1,
+      "message": "I would suggest calling this \u0027getBandIndexRange\u0027, otherwise it\u0027s not clear which \"dimension\" of the band (frequence, level, index) we are talking about.",
+      "range": {
+        "startLine": 215,
+        "startChar": 39,
+        "endLine": 215,
+        "endChar": 51
+      },
+      "revId": "6e20bb9fe6a1a0ebf181b6b213313892e882d022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af0cabcc_03ed7637",
+        "filename": "audio/aidl/default/equalizer/Equalizer.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-19T17:30:21Z",
+      "side": 1,
+      "message": "I think you can leverage a function from STL here: http://go/cppref/cpp/algorithm/minmax_element. Provide it with a comparator which compares \u0027index\u0027 fields, and it should do the job.",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 36
+      },
+      "revId": "6e20bb9fe6a1a0ebf181b6b213313892e882d022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbc98c43_fcb9c963",
+        "filename": "audio/aidl/default/equalizer/Equalizer.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-19T17:30:21Z",
+      "side": 1,
+      "message": "Is this correct that \u0027vendor\u0027 tag controls the preset?",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 55
+      },
+      "revId": "6e20bb9fe6a1a0ebf181b6b213313892e882d022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1038a391_3ff3ca19",
+        "filename": "audio/aidl/default/include/effect-impl/EffectTypes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-19T17:30:21Z",
+      "side": 1,
+      "message": "To prevent problems when new enum values are added, it is recommended to use an \"exhaustive switch\" (w/o default), and handle invalid values outside of the switch, see: go/totw/147.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 16
+      },
+      "revId": "6e20bb9fe6a1a0ebf181b6b213313892e882d022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33c45eb7_8835bd3c",
+        "filename": "audio/aidl/default/include/effect-impl/EffectTypes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-19T17:30:21Z",
+      "side": 1,
+      "message": "I think you want to print the numeric value here.",
+      "range": {
+        "startLine": 47,
+        "startChar": 19,
+        "endLine": 47,
+        "endChar": 38
+      },
+      "revId": "6e20bb9fe6a1a0ebf181b6b213313892e882d022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05ae3fef_c5c346ae",
+        "filename": "audio/aidl/default/include/effect-impl/EffectWorker.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-19T17:30:21Z",
+      "side": 1,
+      "message": "Have you considered passing the context to the constructor? Since it is required for \u0027process\u0027 AND can only be set once, it seems that setting it in the constructor is the most natural option.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 44
+      },
+      "revId": "6e20bb9fe6a1a0ebf181b6b213313892e882d022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
