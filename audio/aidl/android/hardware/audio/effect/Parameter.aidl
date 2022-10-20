@@ -16,7 +16,17 @@
 
 package android.hardware.audio.effect;
 
+import android.hardware.audio.effect.BassBoost;
+import android.hardware.audio.effect.Downmix;
+import android.hardware.audio.effect.DynamicsProcessing;
 import android.hardware.audio.effect.Equalizer;
+import android.hardware.audio.effect.HapticGenerator;
+import android.hardware.audio.effect.LoudnessEnhancer;
+import android.hardware.audio.effect.Reverb;
+import android.hardware.audio.effect.VendorExtension;
+import android.hardware.audio.effect.Virtualizer;
+import android.hardware.audio.effect.Visualizer;
+import android.hardware.audio.effect.Volume;
 import android.media.audio.common.AudioConfig;
 import android.media.audio.common.AudioDeviceDescription;
 import android.media.audio.common.AudioMode;
@@ -60,20 +70,21 @@ union Parameter {
          *  effectInstance.getParameter(id, &param);
          *
          */
+        BassBoost.Id bassBoostTag;
+        Downmix.Id downmixTag;
+        DynamicsProcessing.Id dynamicsProcessingTag;
         Equalizer.Id equalizerTag;
+        HapticGenerator.Id hapticGeneratorTag;
+        LoudnessEnhancer.Id loudnessEnhancerTag;
+        Reverb.Id reverbTag;
+        Virtualizer.Id virtualizerTag;
+        Visualizer.Id visualizerTag;
+        Volume.Id volumeTag;
         /**
          * Non-nested parameter tag. Can be used to get any parameter defined in Union Parameter
          * directly.
          */
         Parameter.Tag commonTag;
-    }
-
-    /**
-     * Parameters for vendor extension effect implementation usage.
-     */
-    @VintfStability
-    parcelable VendorEffectParameter {
-        ParcelableHolder extension;
     }
 
     /**
@@ -135,7 +146,17 @@ union Parameter {
      */
     @VintfStability
     union Specific {
+        VendorExtension vendorEffect;
+        BassBoost bassBoost;
+        Downmix downmix;
+        DynamicsProcessing dynamicsProcessing;
         Equalizer equalizer;
+        LoudnessEnhancer loudnessEnhancer;
+        HapticGenerator hapticGenerator;
+        Reverb reverb;
+        Virtualizer virtualizer;
+        Visualizer visualizer;
+        Volume volume;
     }
     Specific specific;
 }

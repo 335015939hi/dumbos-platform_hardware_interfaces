@@ -16,6 +16,8 @@
 
 package android.hardware.audio.effect;
 
+import android.hardware.audio.effect.VendorExtension;
+
 /**
  * Equalizer specific definitions.
  *
@@ -36,11 +38,7 @@ union Equalizer {
     /**
      * Vendor Equalizer implementation definition for additional parameters.
      */
-    @VintfStability
-    parcelable VendorExtension {
-        ParcelableHolder extension;
-    }
-    VendorExtension vendor;
+    VendorExtension vendorExtension;
 
     /**
      * Capability MUST be supported by Equalizer implementation.
