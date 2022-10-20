@@ -17,6 +17,13 @@ aidl_interface {
     backend: {
         java: {
             platform_apis: true,
+            // Stop using platform apis when b/254112961 is fixed
+            //sdk_version: "module_current",
+            //min_sdk_version: "33",
+            apex_available: [
+                "//apex_available:platform",
+                "com.android.rkpd",
+            ],
         },
         rust: {
             enabled: true,
