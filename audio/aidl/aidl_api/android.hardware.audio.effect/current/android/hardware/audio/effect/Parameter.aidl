@@ -43,7 +43,15 @@ union Parameter {
   @VintfStability
   union Id {
     int vendorEffectTag;
+    android.hardware.audio.effect.BassBoost.Id bassBoostTag;
+    android.hardware.audio.effect.Downmix.Id downmixTag;
+    android.hardware.audio.effect.DynamicsProcessing.Id dynamicsProcessingTag;
     android.hardware.audio.effect.Equalizer.Id equalizerTag;
+    android.hardware.audio.effect.LoudnessEnhancer.Id loudnessEnhancerTag;
+    android.hardware.audio.effect.Reverb.Id reverbTag;
+    android.hardware.audio.effect.Virtualizer.Id virtualizerTag;
+    android.hardware.audio.effect.Visualizer.Id visualizerTag;
+    android.hardware.audio.effect.Volume.Id volumeTag;
     android.hardware.audio.effect.Parameter.Tag commonTag;
   }
   @VintfStability
@@ -64,6 +72,15 @@ union Parameter {
   }
   @VintfStability
   union Specific {
+    android.hardware.audio.effect.Parameter.VendorEffectParameter vendorEffect;
+    android.hardware.audio.effect.BassBoost bassBoost;
+    android.hardware.audio.effect.Downmix downmix;
+    android.hardware.audio.effect.DynamicsProcessing dynamicsProcessing;
     android.hardware.audio.effect.Equalizer equalizer;
+    android.hardware.audio.effect.LoudnessEnhancer loudnessEnhancer;
+    android.hardware.audio.effect.Reverb reverb;
+    android.hardware.audio.effect.Virtualizer virtualizer;
+    android.hardware.audio.effect.Visualizer visualizer;
+    android.hardware.audio.effect.Volume volume;
   }
 }
