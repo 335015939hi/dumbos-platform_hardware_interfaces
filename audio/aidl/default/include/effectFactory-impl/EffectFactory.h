@@ -79,7 +79,8 @@ class Factory : public BnFactory {
     // List of effect descriptors supported by the devices.
     std::vector<Descriptor::Identity> mIdentityList;
 
-    typedef binder_exception_t (*EffectCreateFunctor)(std::shared_ptr<IEffect>*);
+    typedef binder_exception_t (*EffectCreateFunctor)(
+            const ::aidl::android::media::audio::common::AudioUuid*, std::shared_ptr<IEffect>*);
     typedef binder_exception_t (*EffectDestroyFunctor)(const std::shared_ptr<IEffect>&);
     struct effect_interface_s {
         EffectCreateFunctor createEffectFunc;

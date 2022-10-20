@@ -46,6 +46,13 @@ static const AudioUuid EqualizerSwImplUUID = {static_cast<int32_t>(0x0bed4300),
                                               0xbb17,
                                               {0x00, 0x02, 0xa5, 0xd5, 0xc5, 0x1b}};
 
+// Equalizer bundle implementation UUID.
+static const AudioUuid EqualizerBundleImplUUID = {static_cast<int32_t>(0x0bed4300),
+                                                  0x847d,
+                                                  0x11df,
+                                                  0xbb17,
+                                                  {0x00, 0x02, 0xa5, 0xd5, 0xc5, 0x1b}};
+
 // Visualizer type UUID.
 static const AudioUuid VisualizerTypeUUID = {static_cast<int32_t>(0x1d4033c0),
                                              0x8557,
