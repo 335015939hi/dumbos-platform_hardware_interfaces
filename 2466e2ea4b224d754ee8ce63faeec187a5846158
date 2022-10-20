@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "422c1101_88c9c063",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-10-20T09:32:09Z",
+      "side": 1,
+      "message": "While you\u0027re here, I think this needs fixing for current KeyMint - EC keys require EC_CURVE to be specified.",
+      "revId": "2466e2ea4b224d754ee8ce63faeec187a5846158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9737420_bd2fa76a",
         "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
         "patchSetId": 5
