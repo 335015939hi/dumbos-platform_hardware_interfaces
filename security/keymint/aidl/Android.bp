@@ -20,6 +20,11 @@ aidl_interface {
     backend: {
         java: {
             platform_apis: true,
+            // Remove this once b/254112961 is fixed
+            apex_available: [
+                "//apex_available:platform",
+                "com.android.rkpd",
+            ],
         },
         ndk: {
             apps_enabled: false,
