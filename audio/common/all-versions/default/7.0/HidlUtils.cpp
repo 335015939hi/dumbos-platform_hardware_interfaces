@@ -839,8 +839,8 @@ status_t HidlUtils::audioPortToHal(const AudioPort& port, struct audio_port_v7* 
 
 status_t HidlUtils::audioTransportsFromHal(const struct audio_port_v7& halPort, bool isInput,
                                            hidl_vec<AudioTransport>* transports) {
-    if (halPort.num_audio_profiles > AUDIO_PORT_MAX_AUDIO_PROFILES ||
-        halPort.num_extra_audio_descriptors > AUDIO_PORT_MAX_EXTRA_AUDIO_DESCRIPTORS) {
+    if (halPort.num_audio_profiles >= AUDIO_PORT_MAX_AUDIO_PROFILES ||
+        halPort.num_extra_audio_descriptors >= AUDIO_PORT_MAX_EXTRA_AUDIO_DESCRIPTORS) {
         ALOGE("%s, too many audio profiles(%u) or extra audio descriptors(%u)", __func__,
               halPort.num_audio_profiles, halPort.num_extra_audio_descriptors);
         return BAD_VALUE;
