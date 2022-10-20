@@ -65,11 +65,11 @@ interface IEffect {
         /**
          * Message queue for input data buffer.
          */
-        MQDescriptor<byte, SynchronizedReadWrite> inputDataMQ;
+        MQDescriptor<float, SynchronizedReadWrite> inputDataMQ;
         /**
          * Message queue for output data buffer.
          */
-        MQDescriptor<byte, SynchronizedReadWrite> outputDataMQ;
+        MQDescriptor<float, SynchronizedReadWrite> outputDataMQ;
     }
 
     /**

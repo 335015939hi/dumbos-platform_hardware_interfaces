@@ -140,7 +140,7 @@ class EffectHelper {
         auto func = [&](const std::shared_ptr<IEffect>& effect) {
             Parameter paramCommonGet = Parameter(), paramCommonExpect = Parameter();
             Parameter::Id id;
-            id.set<Parameter::Id::commonTag>(0);
+            id.set<Parameter::Id::commonTag>(Parameter::common);
             paramCommonExpect.set<Parameter::common>(mCommon);
             EXPECT_IS_OK(effect->getParameter(id, &paramCommonGet));
             EXPECT_EQ(paramCommonExpect, paramCommonGet)

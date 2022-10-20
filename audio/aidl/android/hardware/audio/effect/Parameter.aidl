@@ -16,7 +16,15 @@
 
 package android.hardware.audio.effect;
 
+import android.hardware.audio.effect.BassBoost;
+import android.hardware.audio.effect.Downmix;
+import android.hardware.audio.effect.DynamicsProcessing;
 import android.hardware.audio.effect.Equalizer;
+import android.hardware.audio.effect.LoudnessEnhancer;
+import android.hardware.audio.effect.Reverb;
+import android.hardware.audio.effect.Virtualizer;
+import android.hardware.audio.effect.Visualizer;
+import android.hardware.audio.effect.Volume;
 import android.media.audio.common.AudioConfig;
 import android.media.audio.common.AudioDeviceType;
 import android.media.audio.common.AudioMode;
@@ -28,9 +36,8 @@ import android.media.audio.common.AudioSource;
  * There are three groups of parameters:
  * 1. Common parameters are essential parameters, MUST pass to effects at open() interface.
  * 2. Parameters defined for a specific effect type.
- * 3. Extension parameters for vendor.
+ * 3. Extension parameters ParcelableHolder can be used for vendor effect definition.
  *
- * For all supported parameter, implementation MUST support both set and get.
  */
 @VintfStability
 union Parameter {
@@ -44,17 +51,47 @@ union Parameter {
     @VintfStability
     union Id {
         /**
-         *  Common parameter tag.
+         * Parameter tag defined for vendor effects. Use int here so there is flexibility for vendor
+         * to define different tag.
          */
-        int commonTag;
+        int vendorEffectTag;
         /**
-         * Vendor defined parameter tag.
+         * Parameter tag defined for nested parameters. Can be used to get any parameter defined in
+         * nested Union structure.
+         *
+         * Several examples:
+         * To get BassBoost strength:
+         *  id.set<Id::bassBoostTag>(BassBoost::strength);
+         *  getParameter(id);
+         *
+         * To get Visualizer measurement, two steps approach is necessary because it's defined in a
+         * nested union GetOnlyParameters:
+         *  visualizerId.set<Visualizer::Id::getOnlyTag>(Visualizer::GetOnlyParameters::measurement)
+         *  id.set<Id::visualizerTag>(visualizerId);
+         *  getParameter(id);
          */
-        int vendorTag;
+        BassBoost.Id bassBoostTag;
+        Downmix.Id downmixTag;
+        DynamicsProcessing.Id dynamicsProcessingTag;
+        Equalizer.Id equalizerTag;
+        LoudnessEnhancer.Id loudnessEnhancerTag;
+        Reverb.Id reverbTag;
+        Virtualizer.Id virtualizerTag;
+        Visualizer.Id visualizerTag;
+        Volume.Id volumeTag;
         /**
-         * Specific effect parameter tag.
+         * Non-nested parameter tag. Can be used to get any parameter defined in Union Parameter
+         * directly.
          */
-        Specific.Id specificId;
+        Parameter.Tag commonTag;
+    }
+
+    /**
+     * Parameters for vendor extension effect implementation usage.
+     */
+    @VintfStability
+    parcelable VendorEffectParameter {
+        ParcelableHolder extension;
     }
 
     /**
@@ -101,46 +138,32 @@ union Parameter {
      * The volume gain for left and right channel, left and right equals to same value if it's mono.
      */
     @VintfStability
-    parcelable Volume {
+    parcelable VolumeStereo {
         float left;
         float right;
     }
     /**
      * Used by audio framework to delegate volume control to effect engine.
      * Effect must implement setParameter(volume) if Flags.volume set to Volume.IND.
+     * TODO: most likely something implemented in framework side because it's involving several
      */
-    Volume volume;
-
-    /**
-     * Used by audio framework to delegate offload information to effect engine.
-     * Effect must implement setParameter(offload) if Flags.offloadSupported set to true.
-     */
-    boolean offload;
-
-    /**
-     * Parameters for vendor extension effect implementation usage.
-     */
-    @VintfStability
-    parcelable VendorEffectParameter {
-        ParcelableHolder extension;
-    }
-    VendorEffectParameter vendorEffect;
+    VolumeStereo volume;
 
     /**
      * Parameters MUST be supported by a Specific type of effect.
      */
     @VintfStability
     union Specific {
-        @VintfStability
-        union Id {
-            /**
-             * Equalizer.Tag to identify the parameters in Equalizer.
-             */
-            Equalizer.Tag equalizerTag = Equalizer.Tag.vendor;
-        }
-        Id id;
-
+        VendorEffectParameter vendorEffect;
+        BassBoost bassBoost;
+        Downmix downmix;
+        DynamicsProcessing dynamicsProcessing;
         Equalizer equalizer;
+        LoudnessEnhancer loudnessEnhancer;
+        Reverb reverb;
+        Virtualizer virtualizer;
+        Visualizer visualizer;
+        Volume volume;
     }
     Specific specific;
 }
