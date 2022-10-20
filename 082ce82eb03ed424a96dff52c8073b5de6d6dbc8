@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e57df7c7_9fa157ef",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-10-20T09:27:27Z",
+      "side": 1,
+      "message": "I preferred the previous code, it was more compact -- it just seemed like all of the `? true : false` parts could be dropped.",
+      "parentUuid": "8c398930_a5bc35be",
+      "revId": "082ce82eb03ed424a96dff52c8073b5de6d6dbc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44305f01_ae48ff26",
         "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
         "patchSetId": 3
