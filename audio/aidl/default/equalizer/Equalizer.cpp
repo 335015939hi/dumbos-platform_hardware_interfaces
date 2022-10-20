@@ -28,7 +28,11 @@ using android::hardware::audio::common::getFrameSizeInBytes;
 
 namespace aidl::android::hardware::audio::effect {
 
-extern "C" binder_exception_t createEffect(std::shared_ptr<IEffect>* instanceSpp) {
+extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
+                                           std::shared_ptr<IEffect>* instanceSpp) {
+    if (!in_impl_uuid || *in_impl_uuid != EqualizerSwImplUUID) {
+        return EX_ILLEGAL_ARGUMENT;
+    }
     if (instanceSpp) {
         *instanceSpp = ndk::SharedRefBase::make<EqualizerSw>();
         LOG(DEBUG) << __func__ << " instance " << instanceSpp->get() << " created";
@@ -140,12 +144,12 @@ ndk::ScopedAStatus EqualizerSw::command(CommandId in_commandId) {
             LOG(DEBUG) << __func__ << " state: " << toString(mState);
             return ndk::ScopedAStatus::ok();
         case CommandId::RESET:
-            // TODO: reset buffer status.
             mState = State::IDLE;
             stopThread();
             LOG(DEBUG) << __func__ << " state: " << toString(mState);
             return ndk::ScopedAStatus::ok();
         default:
+            LOG(ERROR) << __func__ << " instance still processing";
             return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
                                                                     "CommandIdNotSupported");
     }
@@ -166,7 +170,24 @@ ndk::ScopedAStatus EqualizerSw::setParameter(const Parameter& in_param) {
         case Parameter::specific: {
             return setSpecificParameter(in_param.get<Parameter::specific>());
         }
+        case Parameter::device: {
+            mDevice = in_param.get<Parameter::device>();
+            return ndk::ScopedAStatus::ok();
+        }
+        case Parameter::mode: {
+            mMode = in_param.get<Parameter::mode>();
+            return ndk::ScopedAStatus::ok();
+        }
+        case Parameter::source: {
+            mSource = in_param.get<Parameter::source>();
+            return ndk::ScopedAStatus::ok();
+        }
+        case Parameter::volume: {
+            mVolume = in_param.get<Parameter::volume>();
+            return ndk::ScopedAStatus::ok();
+        }
         default:
+            LOG(ERROR) << __func__ << " instance still processing";
             return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
                                                                     "ParameterNotSupported");
     }
@@ -178,12 +199,18 @@ ndk::ScopedAStatus EqualizerSw::getParameter(const Parameter::Id& in_paramId,
     auto tag = in_paramId.getTag();
     switch (tag) {
         case Parameter::Id::commonTag: {
-            _aidl_return->set<Parameter::common>(mCommonParam);
+            ndk::ScopedAStatus status =
+                    getCommonParameter(in_paramId.get<Parameter::Id::commonTag>(), _aidl_return);
+            if (!status.isOk()) {
+                LOG(ERROR) << __func__
+                           << " getSpecificParameter error: " << status.getDescription();
+                return status;
+            }
             LOG(DEBUG) << __func__ << " get: " << _aidl_return->toString();
             return ndk::ScopedAStatus::ok();
         }
-        case Parameter::Id::specificId: {
-            auto& id = in_paramId.get<Parameter::Id::specificId>();
+        case Parameter::Id::equalizerTag: {
+            auto& id = in_paramId.get<Parameter::Id::equalizerTag>();
             Parameter::Specific specific;
             ndk::ScopedAStatus status = getSpecificParameter(id, &specific);
             if (!status.isOk()) {
@@ -195,9 +222,14 @@ ndk::ScopedAStatus EqualizerSw::getParameter(const Parameter::Id& in_paramId,
             LOG(DEBUG) << __func__ << _aidl_return->toString();
             return ndk::ScopedAStatus::ok();
         }
-        case Parameter::Id::vendorTag: {
+        case Parameter::Id::vendorEffectTag: {
             LOG(DEBUG) << __func__ << " noop for vendor tag now";
             return ndk::ScopedAStatus::ok();
+        }
+        default: {
+            LOG(ERROR) << __func__ << " not handled tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "Parameter:IdNotSupported");
         }
     }
     LOG(ERROR) << " unsupported tag: " << toString(tag);
@@ -257,6 +289,11 @@ ndk::ScopedAStatus EqualizerSw::setSpecificParameter(const Parameter::Specific& 
             LOG(DEBUG) << __func__ << " noop for vendor tag now";
             return ndk::ScopedAStatus::ok();
         }
+        default: {
+            LOG(ERROR) << __func__ << " not handled tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "EqualizerTagNotSupported");
+        }
     }
 
     LOG(ERROR) << __func__ << " unsupported eq param tag: " << toString(tag);
@@ -264,16 +301,40 @@ ndk::ScopedAStatus EqualizerSw::setSpecificParameter(const Parameter::Specific& 
                                                             "ParamNotSupported");
 }
 
-ndk::ScopedAStatus EqualizerSw::getSpecificParameter(Parameter::Specific::Id id,
+ndk::ScopedAStatus EqualizerSw::getCommonParameter(Parameter::Tag tag, Parameter* parameter) {
+    switch (tag) {
+        case Parameter::common: {
+            parameter->set<Parameter::common>(mCommonParam);
+            return ndk::ScopedAStatus::ok();
+        }
+        case Parameter::device: {
+            parameter->set<Parameter::device>(mDevice);
+            return ndk::ScopedAStatus::ok();
+        }
+        case Parameter::mode: {
+            parameter->set<Parameter::mode>(mMode);
+            return ndk::ScopedAStatus::ok();
+        }
+        case Parameter::source: {
+            parameter->set<Parameter::source>(mSource);
+            return ndk::ScopedAStatus::ok();
+        }
+        case Parameter::volume: {
+            parameter->set<Parameter::volume>(mVolume);
+            return ndk::ScopedAStatus::ok();
+        }
+        default: {
+            LOG(ERROR) << __func__ << " not handled tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "CommonTagNotSupported");
+        }
+    }
+}
+
+ndk::ScopedAStatus EqualizerSw::getSpecificParameter(const Equalizer::Id& id,
                                                      Parameter::Specific* specific) {
     Equalizer eqParam;
-    auto tag = id.getTag();
-    if (tag != Parameter::Specific::Id::equalizerTag) {
-        LOG(ERROR) << " invalid tag: " << toString(tag);
-        return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
-                                                                "UnsupportedTag");
-    }
-    auto eqTag = id.get<Parameter::Specific::Id::equalizerTag>();
+    auto eqTag = id.get<Equalizer::Id::tag>();
     switch (eqTag) {
         case Equalizer::bandLevels: {
             eqParam.set<Equalizer::bandLevels>(mBandLevels);
@@ -289,6 +350,11 @@ ndk::ScopedAStatus EqualizerSw::getSpecificParameter(Parameter::Specific::Id id,
         case Equalizer::vendor: {
             LOG(DEBUG) << __func__ << " noop for vendor tag now";
             return ndk::ScopedAStatus::ok();
+        }
+        default: {
+            LOG(ERROR) << __func__ << " not handled tag: " << toString(eqTag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "EqTagNotSupported");
         }
     }
     LOG(ERROR) << __func__ << " unsupported eq param: " << toString(eqTag);
@@ -308,14 +374,15 @@ void EqualizerSw::cleanUp() {
 IEffect::Status EqualizerSw::status(binder_status_t status, size_t consumed, size_t produced) {
     IEffect::Status ret;
     ret.status = status;
-    ret.fmqByteConsumed = consumed;
-    ret.fmqByteProduced = produced;
+    ret.fmqConsumed = consumed;
+    ret.fmqProduced = produced;
     return ret;
 }
 
 // Processing method running in EffectWorker thread.
-IEffect::Status EqualizerSw::effectProcessImpl() {
+IEffect::Status EqualizerSw::effectProcessImpl(float* in, float* out, int frameCount) {
     // TODO: get data buffer and process.
+    LOG(DEBUG) << __func__ << " in " << in << " out " << out << " count " << frameCount;
     return status(STATUS_OK, mContext->availableToRead(), mContext->availableToWrite());
 }
 

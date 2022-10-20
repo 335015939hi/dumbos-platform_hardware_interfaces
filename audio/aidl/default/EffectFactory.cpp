@@ -118,7 +118,7 @@ ndk::ScopedAStatus Factory::createEffect(const AudioUuid& in_impl_uuid,
 
             auto& libInterface = lib.second;
             std::shared_ptr<IEffect> effectSp;
-            RETURN_IF_BINDER_EXCEPTION(libInterface->createEffectFunc(&effectSp));
+            RETURN_IF_BINDER_EXCEPTION(libInterface->createEffectFunc(&in_impl_uuid, &effectSp));
             if (!effectSp) {
                 LOG(ERROR) << __func__ << ": library created null instance without return error!";
                 return ndk::ScopedAStatus::fromExceptionCode(EX_TRANSACTION_FAILED);

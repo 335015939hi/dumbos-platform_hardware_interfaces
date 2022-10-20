@@ -112,8 +112,10 @@ class EqualizerParamTest : public ::testing::TestWithParam<EqualizerParamTestPar
                 // get
                 if (expected == EX_NONE) {
                     Parameter getParam;
-                    Parameter::Specific::Id id;
-                    id.set<Parameter::Specific::Id::equalizerTag>(tag);
+                    Parameter::Id id;
+                    Equalizer::Id eqId;
+                    eqId.set<Equalizer::Id::tag>(tag);
+                    id.set<Parameter::Id::equalizerTag>(eqId);
                     // if set success, then get should match
                     EXPECT_STATUS(expected, effect->getParameter(id, &getParam));
                     EXPECT_EQ(expectParam, getParam) << "\n"
