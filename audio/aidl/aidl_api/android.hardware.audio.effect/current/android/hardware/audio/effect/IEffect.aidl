@@ -50,7 +50,7 @@ interface IEffect {
   @VintfStability
   parcelable OpenEffectReturn {
     android.hardware.common.fmq.MQDescriptor<android.hardware.audio.effect.IEffect.Status,android.hardware.common.fmq.SynchronizedReadWrite> statusMQ;
-    android.hardware.common.fmq.MQDescriptor<byte,android.hardware.common.fmq.SynchronizedReadWrite> inputDataMQ;
-    android.hardware.common.fmq.MQDescriptor<byte,android.hardware.common.fmq.SynchronizedReadWrite> outputDataMQ;
+    android.hardware.common.fmq.MQDescriptor<float,android.hardware.common.fmq.SynchronizedReadWrite> inputDataMQ;
+    android.hardware.common.fmq.MQDescriptor<float,android.hardware.common.fmq.SynchronizedReadWrite> outputDataMQ;
   }
 }

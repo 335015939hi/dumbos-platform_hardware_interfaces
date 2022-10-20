@@ -47,12 +47,13 @@ class EffectWorker : public EffectThread {
         // Only this worker will read from input data MQ and write to output data MQ.
         auto readSize = inputMQ->availableToRead(), writeSize = outputMQ->availableToWrite();
         if (readSize && writeSize) {
+            auto procesSize = std::min(readSize, writeSize);
             LOG(DEBUG) << __func__ << " available to read " << readSize << " available to write "
-                       << writeSize;
+                       << writeSize << " process " << procesSize;
             auto buffer = mContext->getWorkBuffer();
-            inputMQ->read(buffer, readSize);
-            IEffect::Status status = effectProcessImpl();
-            writeSize = std::min((int32_t)writeSize, status.fmqByteProduced);
+            inputMQ->read(buffer, procesSize);
+            IEffect::Status status = effectProcessImpl(buffer, buffer, procesSize);
+            writeSize = std::min((int32_t)procesSize, status.fmqByteProduced);
             outputMQ->write(buffer, writeSize);
             statusMQ->writeBlocking(&status, 1);
             LOG(DEBUG) << __func__ << " done processing, effect consumed " << status.fmqByteConsumed
@@ -63,7 +64,7 @@ class EffectWorker : public EffectThread {
     }
 
     // must implement by each effect implementation
-    virtual IEffect::Status effectProcessImpl() = 0;
+    virtual IEffect::Status effectProcessImpl(float* in, float* out, int frameCount) = 0;
 
   private:
     // make sure the context only set once.
