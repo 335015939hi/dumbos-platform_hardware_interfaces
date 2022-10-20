@@ -16,7 +16,15 @@
 
 package android.hardware.audio.effect;
 
+import android.hardware.audio.effect.BassBoost;
+import android.hardware.audio.effect.Downmix;
+import android.hardware.audio.effect.DynamicsProcessing;
 import android.hardware.audio.effect.Equalizer;
+import android.hardware.audio.effect.LoudnessEnhancer;
+import android.hardware.audio.effect.Reverb;
+import android.hardware.audio.effect.Virtualizer;
+import android.hardware.audio.effect.Visualizer;
+import android.hardware.audio.effect.Volume;
 
 /**
  * Effect capability definitions.
@@ -42,5 +50,13 @@ union Capability {
     /**
      * Effect capabilities.
      */
+    BassBoost.Capability bassBoost;
+    Downmix.Capability downmix;
+    DynamicsProcessing.Capability dynamicsProcessing;
     Equalizer.Capability equalizer;
+    LoudnessEnhancer.Capability loudnessEnhancer;
+    Reverb.Capability reverb;
+    Virtualizer.Capability virtualizer;
+    Visualizer.Capability visualizer;
+    Volume.Capability volume;
 }

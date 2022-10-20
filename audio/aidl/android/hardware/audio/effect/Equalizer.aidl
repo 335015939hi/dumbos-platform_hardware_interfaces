@@ -30,7 +30,7 @@ union Equalizer {
     @VintfStability
     union Id {
         int vendorExtensionTag;
-        Equalizer.Tag tag;
+        Equalizer.Tag commonTag;
     }
 
     /**

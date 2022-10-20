@@ -40,7 +40,7 @@ union Equalizer {
   @VintfStability
   union Id {
     int vendorExtensionTag;
-    android.hardware.audio.effect.Equalizer.Tag tag;
+    android.hardware.audio.effect.Equalizer.Tag commonTag;
   }
   @VintfStability
   parcelable VendorExtension {
