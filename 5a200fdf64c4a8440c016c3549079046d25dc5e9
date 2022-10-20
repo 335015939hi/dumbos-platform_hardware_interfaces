@@ -39,6 +39,30 @@
       },
       "revId": "5a200fdf64c4a8440c016c3549079046d25dc5e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "437cfc3c_e414952c",
+        "filename": "identity/aidl/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-20T22:51:08Z",
+      "side": 1,
+      "message": "Basically, I need identity-V5 to depend on keymaster-V3 (old, no updates) and keymint-V3 (new, has updates). And this is the only way I got it to work.",
+      "parentUuid": "cbc11029_36246e95",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 44
+      },
+      "revId": "5a200fdf64c4a8440c016c3549079046d25dc5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
