@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e11bfc1_8ea974be",
+        "filename": "audio/aidl/android/hardware/audio/effect/BassBoost.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-20T23:12:40Z",
+      "side": 1,
+      "message": "It seems to me that we could declare this as `@nullable Int maxStrengthSupported` (need to import `android.media.audio.common.Int` for this), and get rid of the boolean above.",
+      "range": {
+        "startLine": 57,
+        "startChar": 8,
+        "endLine": 57,
+        "endChar": 33
+      },
+      "revId": "385df3f8cf3ee5a74e84dfc8c38a27c3f7beb2fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfa0bf9d_acd889e8",
+        "filename": "audio/aidl/android/hardware/audio/effect/DynamicsProcessing.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-20T23:12:40Z",
+      "side": 1,
+      "message": "Should we call it \u0027ResolutionPreference\u0027? \u0027Variant\u0027 sounds like something related to variant types.",
+      "range": {
+        "startLine": 52,
+        "startChar": 9,
+        "endLine": 52,
+        "endChar": 16
+      },
+      "revId": "385df3f8cf3ee5a74e84dfc8c38a27c3f7beb2fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f67f9452_5f6b4b9b",
+        "filename": "audio/aidl/android/hardware/audio/effect/LoudnessEnhancer.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-20T23:12:40Z",
+      "side": 1,
+      "message": "milliBel?",
+      "range": {
+        "startLine": 50,
+        "startChar": 27,
+        "endLine": 50,
+        "endChar": 34
+      },
+      "revId": "385df3f8cf3ee5a74e84dfc8c38a27c3f7beb2fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f4123e6_491c5f3e",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-20T23:12:40Z",
+      "side": 1,
+      "message": "NORMALIZED",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 17
+      },
+      "revId": "385df3f8cf3ee5a74e84dfc8c38a27c3f7beb2fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "304bd7d4_dd6203c4",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-20T23:12:40Z",
+      "side": 1,
+      "message": "Please expand the comment, is it the measurement latency? What units are used?",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 112,
+        "endChar": 26
+      },
+      "revId": "385df3f8cf3ee5a74e84dfc8c38a27c3f7beb2fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cab4cfec_e3c90ab2",
+        "filename": "audio/aidl/android/hardware/audio/effect/Volume.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-20T23:12:40Z",
+      "side": 1,
+      "message": "What does this effect do? Please expand the comment.",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "385df3f8cf3ee5a74e84dfc8c38a27c3f7beb2fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6085815a_2d3ba3a6",
+        "filename": "audio/aidl/android/hardware/audio/effect/Volume.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-20T23:12:40Z",
+      "side": 1,
+      "message": "Please consider using a \u0027@nullable Int\u0027 and getting rid of the boolean above. Also, what does \u0027stereoPosition\u0027 mean?",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 23
+      },
+      "revId": "385df3f8cf3ee5a74e84dfc8c38a27c3f7beb2fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
