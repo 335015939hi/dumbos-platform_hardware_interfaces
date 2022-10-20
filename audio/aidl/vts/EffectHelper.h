@@ -140,7 +140,7 @@ class EffectHelper {
         auto func = [&](const std::shared_ptr<IEffect>& effect) {
             Parameter paramCommonGet = Parameter(), paramCommonExpect = Parameter();
             Parameter::Id id;
-            id.set<Parameter::Id::commonTag>(0);
+            id.set<Parameter::Id::commonTag>(Parameter::common);
             paramCommonExpect.set<Parameter::common>(mCommon);
             EXPECT_IS_OK(effect->getParameter(id, &paramCommonGet));
             EXPECT_EQ(paramCommonExpect, paramCommonGet)
@@ -290,13 +290,13 @@ class EffectHelper {
     Parameter::Specific mSpecific;
 
     size_t inputFrameSize, outputFrameSize;
-    std::vector<int8_t> mInputBuffer;  // reuse same buffer for all effects testing
+    std::vector<float> mInputBuffer;  // reuse same buffer for all effects testing
 
     typedef ::android::AidlMessageQueue<
             IEffect::Status, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
             StatusMQ;
     typedef ::android::AidlMessageQueue<
-            int8_t, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
+            float, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
             DataMQ;
 
     class EffectParam {

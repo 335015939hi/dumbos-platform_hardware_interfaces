@@ -31,7 +31,7 @@ class EffectContext {
             IEffect::Status, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
             StatusMQ;
     typedef ::android::AidlMessageQueue<
-            int8_t, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
+            float, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
             DataMQ;
 
     EffectContext(size_t statusDepth, size_t inBufferSize, size_t outBufferSize) {
@@ -49,7 +49,7 @@ class EffectContext {
     std::shared_ptr<DataMQ> getInputDataFmq() { return mInputMQ; };
     std::shared_ptr<DataMQ> getOutputDataFmq() { return mOutputMQ; };
 
-    int8_t* getWorkBuffer() { return static_cast<int8_t*>(mWorkBuffer.data()); };
+    float* getWorkBuffer() { return static_cast<float*>(mWorkBuffer.data()); };
     // TODO: update with actual available size
     size_t availableToRead() { return mWorkBuffer.capacity(); };
     size_t availableToWrite() { return mWorkBuffer.capacity(); };
@@ -60,6 +60,6 @@ class EffectContext {
     std::shared_ptr<DataMQ> mOutputMQ;
     // TODO handle effect process input and output
     // work buffer set by effect instances, the access and update are in same thread
-    std::vector<int8_t> mWorkBuffer;
+    std::vector<float> mWorkBuffer;
 };
 }  // namespace aidl::android::hardware::audio::effect
