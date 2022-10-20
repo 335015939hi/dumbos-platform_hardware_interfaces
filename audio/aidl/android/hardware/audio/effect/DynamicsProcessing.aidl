@@ -1,0 +1,298 @@
+/*
+ * Copyright (C) 2022 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.audio.effect;
+
+/**
+ * DynamicsProcessing specific definitions.
+ *
+ * All parameters defined in union DynamicsProcessing must be gettable and settable. The
+ * capabilities defined in DynamicsProcessing.Capability can only acquired with
+ * IEffect.getDescriptor() and not settable.
+ */
+@VintfStability
+union DynamicsProcessing {
+    /**
+     * Vendor DynamicsProcessing implementation definition for additional parameters.
+     */
+    @VintfStability
+    parcelable VendorExtension {
+        ParcelableHolder extension;
+    }
+    VendorExtension vendor;
+
+    /**
+     * Capability MUST be supported by DynamicsProcessing implementation.
+     */
+    @VintfStability
+    parcelable Capability {
+        /**
+         * DynamicsProcessing capability extension, vendor can use this extension in case existing
+         * capability definition not enough.
+         */
+        ParcelableHolder extension;
+    }
+
+    /**
+     * Variant resolutions definition.
+     */
+    enum Variant {
+        /**
+         * Favors frequency domain based implementation.
+         */
+        FAVOR_FREQUENCY_RESOLUTION,
+        /**
+         * Favors tme domain based implementation.
+         */
+        FAVOR_TIME_RESOLUTION,
+    }
+
+    /**
+     * Band enablement configuration.
+     */
+    @VintfStability
+    parcelable BandEnablement {
+        /**
+         * True if multi-band stage is in use.
+         */
+        boolean inUse;
+        /**
+         * Number of bands configured for this stage.
+         */
+        int bandCount;
+    }
+
+    /**
+     * Effect engine configuration. Set the enablement of all stages.
+     */
+    @VintfStability
+    parcelable EngineArchitecture {
+        /**
+         * Variant resolution.
+         */
+        Variant variant;
+        /**
+         * Preferred frame duration in milliseconds (ms).
+         */
+        float preferredFrameDuration;
+        /**
+         * PreEq stage (Multi-band Equalizer) configuration.
+         */
+        BandEnablement preEqBand;
+        /**
+         * PostEq stage (Multi-band Equalizer) configuration.
+         */
+        BandEnablement postEqBand;
+        /**
+         * MBC stage (Multi-band Compressor) configuration.
+         */
+        BandEnablement mbcBand;
+        /**
+         * True if Limiter stage is in use.
+         */
+        boolean limiterInUse;
+    }
+
+    /**
+     * Band enablement configuration for a specific channel.
+     */
+    @VintfStability
+    parcelable BandChannelConfig {
+        /**
+         * Channel index.
+         */
+        int channel;
+        /**
+         * Channel index.
+         */
+        BandEnablement enablement;
+    }
+
+    /**
+     * Equalizer band configuration for a specific channel and band.
+     */
+    @VintfStability
+    parcelable EqBandConfig {
+        /**
+         * Channel index.
+         */
+        int channel;
+        /**
+         * Band index, must in the range of [0, bandCount-1].
+         */
+        int band;
+        /**
+         * True if EQ stage is enabled.
+         */
+        boolean enable;
+        /**
+         * Topmost frequency number (in Hz) this band will process.
+         */
+        float cutoffFrequency;
+        /**
+         * Gain factor in decibels (dB).
+         */
+        float gain;
+    }
+
+    /**
+     * MBC configuration for a specific channel and band.
+     */
+    @VintfStability
+    parcelable MbcBandConfig {
+        /**
+         * Channel index.
+         */
+        int channel;
+        /**
+         * Band index, must in the range of [0, bandCount-1].
+         */
+        int band;
+        /**
+         * True if MBC stage is enabled.
+         */
+        boolean enable;
+        /**
+         * Topmost frequency number (in Hz) this band will process.
+         */
+        float cutoffFrequency;
+        /**
+         * Gain factor in decibels (dB).
+         */
+        float gain;
+        /**
+         * Attack Time for compressor in milliseconds (ms).
+         */
+        float attachTime;
+        /**
+         * Release Time for compressor in milliseconds (ms).
+         */
+        float releaseTime;
+        /**
+         * Compressor ratio (N:1) (input:output).
+         */
+        float ratio;
+        /**
+         * Compressor threshold measured in decibels (dB) from 0 dB Full Scale (dBFS).
+         */
+        float threadhold;
+        /**
+         * Width in decibels (dB) around compressor threshold point.
+         */
+        float kneeWidth;
+        /**
+         * Noise gate threshold in decibels (dB) from 0 dB Full Scale (dBFS).
+         */
+        float noiseGateThreshold;
+        /**
+         * Expander ratio (1:N) (input:output) for signals below the Noise Gate Threshold.
+         */
+        float expanderRatio;
+        /**
+         * Gain applied to the signal BEFORE the compression.
+         */
+        float preGain;
+        /**
+         * Gain applied to the signal AFTER compression.
+         */
+        float postGain;
+    }
+
+    /**
+     * Limiter configuration for a specific channel.
+     */
+    @VintfStability
+    parcelable LimiterConfig {
+        /**
+         * Channel index.
+         */
+        int channel;
+        /**
+         * True if Limiter stage is enabled.
+         */
+        boolean enable;
+        /**
+         * True if Limiter stage is in use.
+         */
+        boolean inUse;
+        /**
+         * Index of group assigned to this Limiter. Only limiters that share the same linkGroup
+         * index will react together.
+         */
+        int linkGroup;
+        /**
+         * Attack Time for compressor in milliseconds (ms).
+         */
+        float attachTime;
+        /**
+         * Release Time for compressor in milliseconds (ms).
+         */
+        float releaseTime;
+        /**
+         * Compressor ratio (N:1) (input:output).
+         */
+        float ratio;
+        /**
+         * Compressor threshold measured in decibels (dB) from 0 dB Full Scale (dBFS).
+         */
+        float threadhold;
+        /**
+         * Gain applied to the signal AFTER compression.
+         */
+        float postGain;
+    }
+
+    /**
+     * Effect engine architecture.
+     */
+    EngineArchitecture engineArchitecture;
+    /**
+     * PreEq stage per channael configuration.
+     */
+    BandChannelConfig preEq;
+    /**
+     * PostEq stage per channael configuration.
+     */
+    BandChannelConfig postEq;
+    /**
+     * PreEq stage per band configuration.
+     */
+    EqBandConfig preEqBand;
+    /**
+     * PostEq stage per band configuration.
+     */
+    EqBandConfig postEqBand;
+    /**
+     * MBC stage per channel configuration.
+     */
+    BandChannelConfig mbc;
+    /**
+     * PostEq stage per band configuration.
+     */
+    MbcBandConfig mbcBand;
+    /**
+     * Limiter stage configuration.
+     */
+    LimiterConfig limiter;
+    /**
+     * Input gain factor in decibels (dB). 0 dB means no change in level.
+     */
+    float inputGain;
+    /**
+     * Linear volume gain which reprented in ISO8.24 format.
+     */
+    float volume;
+}
