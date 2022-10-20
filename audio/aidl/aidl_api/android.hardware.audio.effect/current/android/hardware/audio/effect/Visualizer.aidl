@@ -33,14 +33,20 @@
 
 package android.hardware.audio.effect;
 @VintfStability
-union Equalizer {
-  android.hardware.audio.effect.Equalizer.VendorExtension vendor;
-  android.hardware.audio.effect.Equalizer.BandLevel[] bandLevels;
-  int preset;
+union Visualizer {
+  android.hardware.audio.effect.Visualizer.Id id;
+  android.hardware.audio.effect.Visualizer.VendorExtension vendor;
+  android.hardware.audio.effect.Visualizer.GetOnlyParameters getOnlyParameters;
+  android.hardware.audio.effect.Visualizer.SetOnlyParameters setOnlyParameters;
+  int captureSize;
+  android.hardware.audio.effect.Visualizer.ScalingMode scalingMode;
+  android.hardware.audio.effect.Visualizer.MeasurementMode measurementMode;
   @VintfStability
   union Id {
     int vendorExtensionTag;
-    android.hardware.audio.effect.Equalizer.Tag tag;
+    android.hardware.audio.effect.Visualizer.GetOnlyParameters.Tag getOnlyParamTag;
+    android.hardware.audio.effect.Visualizer.SetOnlyParameters.Tag setOnlyParamTag;
+    android.hardware.audio.effect.Visualizer.Tag tag;
   }
   @VintfStability
   parcelable VendorExtension {
@@ -49,23 +55,36 @@ union Equalizer {
   @VintfStability
   parcelable Capability {
     ParcelableHolder extension;
-    android.hardware.audio.effect.Equalizer.BandFrequency[] bandFrequencies;
-    android.hardware.audio.effect.Equalizer.Preset[] presets;
+    int maxLatency;
+    android.hardware.audio.effect.Visualizer.CaptureSizeRange captureSizeRange;
   }
   @VintfStability
-  parcelable BandLevel {
-    int index;
-    int level;
-  }
-  @VintfStability
-  parcelable BandFrequency {
-    int index;
+  parcelable CaptureSizeRange {
     int min;
     int max;
   }
   @VintfStability
-  parcelable Preset {
-    int index;
-    @utf8InCpp String name;
+  enum ScalingMode {
+    NORMALIZED = 0,
+    AS_PLAYED = 1,
+  }
+  @VintfStability
+  enum MeasurementMode {
+    NONE = 0,
+    PEAK_RMS = 1,
+  }
+  @VintfStability
+  union GetOnlyParameters {
+    android.hardware.audio.effect.Visualizer.GetOnlyParameters.Measurement measurement;
+    byte[] capture;
+    @VintfStability
+    parcelable Measurement {
+      int rms;
+      int peak;
+    }
+  }
+  @VintfStability
+  union SetOnlyParameters {
+    int latency;
   }
 }

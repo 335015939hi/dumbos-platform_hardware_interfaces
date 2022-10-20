@@ -27,6 +27,15 @@ import android.media.audio.common.AudioProfile;
 @VintfStability
 union Equalizer {
     /**
+     * Effect parameter tag to identify the parameters for getParameter().
+     */
+    @VintfStability
+    union Id {
+        int vendorExtensionTag;
+        Equalizer.Tag tag;
+    }
+
+    /**
      * Vendor Equalizer implementation definition for additional parameters.
      */
     @VintfStability
