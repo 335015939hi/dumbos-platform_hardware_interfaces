@@ -16,6 +16,24 @@
       "message": "I\u0027ve uploaded another patch https://android-review.googlesource.com/c/device/google/cuttlefish/+/2264649, which should solve this issue.",
       "revId": "f71efcbfe83ceb9b9a68183ad6bd13b7118a1aca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd666bd1_16b313ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-21T18:44:53Z",
+      "side": 1,
+      "message": "Prefer this solution in aosp/2264649 (still running presubmits as of now)",
+      "parentUuid": "59e04a15_6b154795",
+      "revId": "f71efcbfe83ceb9b9a68183ad6bd13b7118a1aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
