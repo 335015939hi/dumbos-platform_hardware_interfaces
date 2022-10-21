@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59e04a15_6b154795",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-10-21T08:09:47Z",
+      "side": 1,
+      "message": "I\u0027ve uploaded another patch https://android-review.googlesource.com/c/device/google/cuttlefish/+/2264649, which should solve this issue.",
+      "revId": "f71efcbfe83ceb9b9a68183ad6bd13b7118a1aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
