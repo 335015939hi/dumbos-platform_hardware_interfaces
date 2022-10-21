@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89f008cb_dbcf17c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-21T17:21:48Z",
+      "side": 1,
+      "message": "This is a better fix than a revert: https://android-review.googlesource.com/c/device/google/cuttlefish/+/2264649",
+      "revId": "7767ba55cd44f4b7877ef3160af61d5b225eb5b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
