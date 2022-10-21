@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d0f3fbc_f248d254",
+        "filename": "cas/aidl/android/hardware/cas/ICas.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-21T15:20:54Z",
+      "side": 1,
+      "message": "Are there any limits to the size of this session ID?",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 60
+      },
+      "revId": "fdeb39f8780d4dec3738de32546b886abce9b954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

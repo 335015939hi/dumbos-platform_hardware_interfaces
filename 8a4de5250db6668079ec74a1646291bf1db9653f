@@ -269,6 +269,30 @@
       },
       "revId": "8a4de5250db6668079ec74a1646291bf1db9653f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "370cefb5_08b02ad3",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 14
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-21T15:20:54Z",
+      "side": 1,
+      "message": "Ack. Framework changes will follow this change.",
+      "parentUuid": "1fd884c7_b04b9ce6",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 10
+      },
+      "revId": "8a4de5250db6668079ec74a1646291bf1db9653f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
