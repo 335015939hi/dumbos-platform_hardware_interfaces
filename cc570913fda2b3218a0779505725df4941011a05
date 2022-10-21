@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42bbc6dd_25cbcd47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2022-10-21T09:33:01Z",
+      "side": 1,
+      "message": "I try AOSP master, and it doesn\u0027t need to change the user even if the secondary user is running.",
+      "revId": "cc570913fda2b3218a0779505725df4941011a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
