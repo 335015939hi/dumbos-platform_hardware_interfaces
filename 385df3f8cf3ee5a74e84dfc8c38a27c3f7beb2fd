@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11cf153d_4299b857",
+        "filename": "audio/aidl/android/hardware/audio/effect/BassBoost.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-21T20:54:52Z",
+      "side": 1,
+      "message": "OK, I agree that for the case of \"enabled\" we should have the flag and the value separately.\n\nReturning to this particular parameter, we can\u0027t apply the same logic as for \"enabled\", because having \"maxStrengthSupported\" does not make sense if \"strengthSupported\" is not enabled, and the latter can\u0027t be toggled on and off so we don\u0027t have to remember the current value if it\u0027s not enabled.\n\nAs an alternative, considering how \u0027strength\u0027 is defined, it might make sense to say that if \u0027maxStrengthSupported \u003d\u003d 0\u0027 that means strength control is not supported, and thus get rid of the boolean flag. Either way, it seems that we can remove it.",
+      "parentUuid": "e26fc25d_d33d425e",
+      "range": {
+        "startLine": 57,
+        "startChar": 8,
+        "endLine": 57,
+        "endChar": 33
+      },
+      "revId": "385df3f8cf3ee5a74e84dfc8c38a27c3f7beb2fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cfa0bf9d_acd889e8",
         "filename": "audio/aidl/android/hardware/audio/effect/DynamicsProcessing.aidl",
         "patchSetId": 1
@@ -320,6 +344,30 @@
       "side": 1,
       "message": "I\u0027m actually not quite sure about using @nullable in this case.\nWith @nullable we are using a nullopt to imply disable and actual value to imply enable, which IMO doesn\u0027t give a clear interface definition. Usually when something is disabled, the original value was kept and took affect when it\u0027s re-enabled, now we are requesting client to pass the value every time.\nFrom implementation point of view, it\u0027s adding little more requirement to the validation/checking for nullopt.\n\nNot sure if this make sense, happy to learn more thoughts from you, thanks.\n\n\nRegarding stereoPosition, from existing code it\u0027s trying to put some weight between L/R channel, but seems we don\u0027t use them now, so will remove it.",
       "parentUuid": "6085815a_2d3ba3a6",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 23
+      },
+      "revId": "385df3f8cf3ee5a74e84dfc8c38a27c3f7beb2fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de580829_61250beb",
+        "filename": "audio/aidl/android/hardware/audio/effect/Volume.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-21T20:54:52Z",
+      "side": 1,
+      "message": "Sorry, I did not make a distinction between \"enabled\" and \"supported.\" I agree that for \"enabled\" we should have the switch and the current value separately, agree with your reasoning here.",
+      "parentUuid": "b29e4d68_6e976297",
       "range": {
         "startLine": 69,
         "startChar": 4,
