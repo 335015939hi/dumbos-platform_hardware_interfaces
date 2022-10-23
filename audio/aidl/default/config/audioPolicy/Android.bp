@@ -1,0 +1,31 @@
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_interfaces_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+xsd_config {
+    name: "audio_policy_configuration",
+    srcs: ["audio_policy_configuration.xsd"],
+    package_name: "android.audio.policy.configuration",
+    nullability: true,
+}
+
+xsd_config {
+    name: "audio_policy_configuration_enums",
+    srcs: ["audio_policy_configuration.xsd"],
+    package_name: "android.audio.policy.configuration",
+    nullability: true,
+    enums_only: true,
+}
+
+xsd_config {
+    name: "audio_policy_configuration_parser",
+    srcs: ["audio_policy_configuration.xsd"],
+    package_name: "android.audio.policy.configuration",
+    nullability: true,
+    parser_only: true,
+}

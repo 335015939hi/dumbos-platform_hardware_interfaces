@@ -1,0 +1,143 @@
+/*
+ * Copyright (C) 2022 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <unordered_map>
+
+#include <system/audio_config.h>
+#include <utils/Errors.h>
+
+namespace aidl::android::hardware::audio::core::internal {
+
+template <typename T>
+class XmlConverter {
+  public:
+    explicit XmlConverter(const std::string& configFilePath,
+                          std::function<std::optional<T>(const char*)> readXmlConfig)
+        : mRequestedFilePath(configFilePath),
+          mIsRequestedFilePathReadable(
+                  ::android::audio_is_readable_configuration_file(configFilePath.c_str())),
+          mXsdcConfig{readXmlConfig(mRequestedFilePath.c_str())} {
+        if (mXsdcConfig) {
+            mStatus = ::android::OK;
+        }
+    }
+
+    virtual ~XmlConverter(){};
+
+    ::android::status_t getStatus() const { return mStatus; }
+
+    std::string getError() const {
+        std::string errorMessage;
+        if (mStatus != ::android::OK) {
+            if (!mIsRequestedFilePathReadable) {
+                errorMessage = "Could not read requested config file:" + mRequestedFilePath;
+            } else {
+                errorMessage = "Invalid config file: " + mRequestedFilePath;
+            }
+        }
+        return errorMessage;
+    }
+
+  private:
+    const std::string mRequestedFilePath;
+    const bool mIsRequestedFilePathReadable;
+    ::android::status_t mStatus = ::android::NO_INIT;
+
+  protected:
+    std::optional<T> mXsdcConfig;
+};
+
+/**
+ * Converts a vector of an xsd wrapper type to a flat vector of the
+ * corresponding AIDL type.
+ *
+ * Wrapper types are used in order to have well-formed xIncludes. In the
+ * example below, Modules is the wrapper type for Module.
+ *     <Modules>
+ *         <Module> ... </Module>
+ *         <Module> ... </Module>
+ *     </Modules>
+ */
+template <typename W, typename X, typename A>
+static std::vector<A> convertWrappedCollectionToAidl(
+        const std::vector<W>& xsdcWrapperTypeVec,
+        std::function<const std::vector<X>&(const W&)> getInnerTypeVec,
+        std::function<A(const X&)> convertToAidl) {
+    std::vector<A> resultAidlTypeVec;
+    if (!xsdcWrapperTypeVec.empty()) {
+        /*
+         * xsdcWrapperTypeVec likely only contains one element; that is, it's
+         * likely that all the inner types that we need to convert are inside of
+         * xsdcWrapperTypeVec[0].
+         */
+        resultAidlTypeVec.reserve(getInnerTypeVec(xsdcWrapperTypeVec[0]).size());
+        for (const W& xsdcWrapperType : xsdcWrapperTypeVec) {
+            for (const X& xsdcInnerType : getInnerTypeVec(xsdcWrapperType)) {
+                A aidlType = convertToAidl(xsdcInnerType);
+                resultAidlTypeVec.push_back(std::move(aidlType));
+            }
+        }
+    }
+    return resultAidlTypeVec;
+}
+
+template <typename X, typename A>
+static std::vector<A> convertCollectionToAidl(const std::vector<X>& xsdcTypeVec,
+                                              std::function<A(const X&)> convertToAidl) {
+    std::vector<A> resultAidlTypeVec;
+    resultAidlTypeVec.reserve(xsdcTypeVec.size());
+    for (const X& xsdcType : xsdcTypeVec) {
+        A aidlType = convertToAidl(xsdcType);
+        resultAidlTypeVec.push_back(std::move(aidlType));
+    }
+    return resultAidlTypeVec;
+}
+
+/**
+ * Generates a map of xsd referemces, keyed by reference name, given a
+ * vector of wrapper types for the reference.
+ *
+ * Wrapper types are used in order to have well-formed xIncludes. In the
+ * example below, Wrapper is the wrapper type for Reference.
+ *     <Wrapper>
+ *         <Reference> ... </Reference>
+ *         <Reference> ... </Reference>
+ *     </Wrapper>
+ */
+template <typename W, typename R>
+static std::unordered_map<std::string, R> generateReferenceMap(
+        const std::vector<W>& xsdcWrapperTypeVec) {
+    std::unordered_map<std::string, R> resultMap;
+    if (!xsdcWrapperTypeVec.empty()) {
+        /*
+         * xsdcWrapperTypeVec likely only contains one element; that is, it's
+         * likely that all the inner types that we need to convert are inside of
+         * xsdcWrapperTypeVec[0].
+         */
+        resultMap.reserve(xsdcWrapperTypeVec[0].getReference().size());
+        for (const W& xsdcWrapperType : xsdcWrapperTypeVec) {
+            for (const R& xsdcReference : xsdcWrapperType.getReference()) {
+                resultMap.insert({xsdcReference.getName(), xsdcReference});
+            }
+        }
+    }
+    return resultMap;
+}
+}  // namespace aidl::android::hardware::audio::core::internal
