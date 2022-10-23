@@ -14,14 +14,21 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "AHAL_Module"
+#define LOG_TAG "AHAL_Config"
 #include <android-base/logging.h>
 
+#include <system/audio_config.h>
+
+#include "core-impl/AudioPolicyConfigXmlConverter.h"
 #include "core-impl/Config.h"
+#include "core-impl/EngineConfigXmlConverter.h"
 
 using aidl::android::media::audio::common::AudioHalEngineConfig;
 
 namespace aidl::android::hardware::audio::core {
+
+static const std::string kEngineConfigFileName = "audio_policy_engine_configuration.xml";
+
 ndk::ScopedAStatus Config::getSurroundSoundConfig(SurroundSoundConfig* _aidl_return) {
     SurroundSoundConfig surroundSoundConfig;
     // TODO: parse from XML; for now, use empty config as default
@@ -32,7 +39,20 @@ ndk::ScopedAStatus Config::getSurroundSoundConfig(SurroundSoundConfig* _aidl_ret
 
 ndk::ScopedAStatus Config::getEngineConfig(AudioHalEngineConfig* _aidl_return) {
     AudioHalEngineConfig engineConfig;
-    // TODO: parse from XML; for now, use empty config as default
+    internal::EngineConfigXmlConverter engConfigConverter(
+            ::android::audio_find_readable_configuration_file(kEngineConfigFileName.c_str()));
+    if (engConfigConverter.getStatus() == ::android::OK) {
+        engineConfig = engConfigConverter.getAidlEngineConfig();
+    } else {
+        LOG(INFO) << __func__ << engConfigConverter.getError();
+        internal::AudioPolicyConfigXmlConverter audioPolicyConverter(
+                ::android::audio_get_audio_policy_config_file());
+        if (audioPolicyConverter.getStatus() == ::android::OK) {
+            engineConfig = audioPolicyConverter.getAidlEngineConfig();
+        } else {
+            LOG(WARNING) << __func__ << audioPolicyConverter.getError();
+        }
+    }
     *_aidl_return = std::move(engineConfig);
     LOG(DEBUG) << __func__ << ": returning " << _aidl_return->toString();
     return ndk::ScopedAStatus::ok();
