@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bfdd68a_3fe69d3e",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamCallback.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T13:10:29Z",
+      "side": 1,
+      "message": "why introduce this new behavior? This will lead to more power consumption during the draining phase? How of then must this be called?",
+      "range": {
+        "startLine": 32,
+        "startChar": 37,
+        "endLine": 32,
+        "endChar": 77
+      },
+      "revId": "7eb955e7cf21174f582a0eaf0de4d84c636a6522",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
