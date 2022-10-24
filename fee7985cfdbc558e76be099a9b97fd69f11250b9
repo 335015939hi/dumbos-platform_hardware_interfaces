@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1d4058f_90a8d07f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "A general note is that we should be consistent about using unit suffixes on fields, sometimes we use them sometimes not, e.g. \u0027gain\u0027 vs. \u0027gainDb\u0027.",
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3dab514_b467b81c",
+        "filename": "audio/aidl/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "Is there any issue with Java? Although we don\u0027t have immediate plans to have Java clients, it\u0027s still good to know if our definitions cause any issues with the Java backend.",
+      "range": {
+        "startLine": 183,
+        "startChar": 12,
+        "endLine": 183,
+        "endChar": 27
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1a5930f_ad9598f5",
+        "filename": "audio/aidl/android/hardware/audio/effect/BassBoost.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "typo: Capability",
+      "range": {
+        "startLine": 74,
+        "startChar": 43,
+        "endLine": 74,
+        "endChar": 53
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7e15c82_9239294e",
+        "filename": "audio/aidl/android/hardware/audio/effect/DynamicsProcessing.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "typo: attackTime",
+      "range": {
+        "startLine": 188,
+        "startChar": 14,
+        "endLine": 188,
+        "endChar": 24
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c7cc0dc_3c59f013",
+        "filename": "audio/aidl/android/hardware/audio/effect/DynamicsProcessing.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "threshold?",
+      "range": {
+        "startLine": 200,
+        "startChar": 14,
+        "endLine": 200,
+        "endChar": 24
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e1f30db_6274d33c",
+        "filename": "audio/aidl/android/hardware/audio/effect/DynamicsProcessing.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "threshold?",
+      "range": {
+        "startLine": 260,
+        "startChar": 14,
+        "endLine": 260,
+        "endChar": 24
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "206e5e65_3d6d177e",
+        "filename": "audio/aidl/android/hardware/audio/effect/DynamicsProcessing.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "What is this format? Could you please provide some link?",
+      "range": {
+        "startLine": 304,
+        "startChar": 45,
+        "endLine": 304,
+        "endChar": 59
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24b9674e_bbd9bc67",
+        "filename": "audio/aidl/android/hardware/audio/effect/IEffect.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "Since you are changing the FMQ item type to \u0027float\u0027 below, note that the FMQ APIs operate on items: https://cs.android.com/android/platform/superproject/+/master:system/libfmq/include/fmq/MessageQueueBase.h;l\u003d71;drc\u003db45a2ea782074944f79fc388df20b06e01f265f7. Thus either the server will need to recalculate the number of float elements into bytes, or we need to change these definitions.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96896df8_c1fd3755",
+        "filename": "audio/aidl/android/hardware/audio/effect/Parameter.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "What is the type of \u0027id\u0027, is this \u0027Parameter::Id\u0027?",
+      "range": {
+        "startLine": 64,
+        "startChar": 12,
+        "endLine": 64,
+        "endChar": 14
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b9a720e_5ec01bb0",
+        "filename": "audio/aidl/android/hardware/audio/effect/Parameter.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "Is anything missing here? Since we are setting a value of \u0027BassBoost.Id\u0027 here, which is a union on its own, we must choose its tag as well. To me, this example should look like this:\n\n```\nauto id \u003d Parameter::Id::make\u003cParameter::Id::Tag::bassBoostTag\u003e(\n    BassBoost::Id::make\u003cBassBoost::Id::Tag::tag\u003e(BassBoost::Tag::strength));\n```\n\nIs this something that you had on your mind?",
+      "range": {
+        "startLine": 64,
+        "startChar": 37,
+        "endLine": 64,
+        "endChar": 56
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a2dbae4_add687d4",
+        "filename": "audio/aidl/android/hardware/audio/effect/Parameter.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "IEffect.getParameter (for clarity)",
+      "range": {
+        "startLine": 65,
+        "startChar": 12,
+        "endLine": 65,
+        "endChar": 24
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9c28f6a_72ae6612",
+        "filename": "audio/aidl/android/hardware/audio/effect/Parameter.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "Looks like the end of the sentence is missing.",
+      "range": {
+        "startLine": 148,
+        "startChar": 73,
+        "endLine": 148,
+        "endChar": 95
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d03bd80_e446d2d7",
+        "filename": "audio/aidl/android/hardware/audio/effect/Reverb.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "\"bypass\", it\u0027s a single word.",
+      "range": {
+        "startLine": 88,
+        "startChar": 12,
+        "endLine": 88,
+        "endChar": 18
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afca801d_db467968",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "Validity range?",
+      "range": {
+        "startLine": 65,
+        "startChar": 23,
+        "endLine": 65,
+        "endChar": 24
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5f401bb_eb08d472",
+        "filename": "audio/aidl/default/include/effect-impl/EffectTypes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-24T18:46:28Z",
+      "side": 1,
+      "message": "This isn\u0027t consistent with previous macros. Those are called \u0027return if something\u0027 ~ \u0027return if the condition is true\u0027, this one returns if the expression is \u0027false\u0027. So we should name it \u0027RETURN_IF_NOT\u0027 or \u0027RETURN_UNLESS\u0027. Same for the next macro.",
+      "range": {
+        "startLine": 91,
+        "startChar": 11,
+        "endLine": 91,
+        "endChar": 20
+      },
+      "revId": "fee7985cfdbc558e76be099a9b97fd69f11250b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
