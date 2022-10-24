@@ -72,6 +72,7 @@ cc_defaults {
         "libbinder_ndk",
         "android.hardware.audio.effect-V1-ndk",
         "libequalizer",
+        "libbundleaidl",
     ],
     cflags: [
         "-Wall",

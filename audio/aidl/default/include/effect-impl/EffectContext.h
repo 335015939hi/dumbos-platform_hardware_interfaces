@@ -43,16 +43,25 @@ class EffectContext {
             LOG(ERROR) << __func__ << " created invalid FMQ";
         }
         mWorkBuffer.reserve(std::max(inBufferSize, outBufferSize));
-    };
+    }
 
-    std::shared_ptr<StatusMQ> getStatusFmq() { return mStatusMQ; };
-    std::shared_ptr<DataMQ> getInputDataFmq() { return mInputMQ; };
-    std::shared_ptr<DataMQ> getOutputDataFmq() { return mOutputMQ; };
+    std::shared_ptr<StatusMQ> getStatusFmq() { return mStatusMQ; }
+    std::shared_ptr<DataMQ> getInputDataFmq() { return mInputMQ; }
+    std::shared_ptr<DataMQ> getOutputDataFmq() { return mOutputMQ; }
 
-    float* getWorkBuffer() { return static_cast<float*>(mWorkBuffer.data()); };
+    float* getWorkBuffer() { return static_cast<float*>(mWorkBuffer.data()); }
     // TODO: update with actual available size
-    size_t availableToRead() { return mWorkBuffer.capacity(); };
-    size_t availableToWrite() { return mWorkBuffer.capacity(); };
+    size_t availableToRead() { return mWorkBuffer.capacity(); }
+    size_t availableToWrite() { return mWorkBuffer.capacity(); }
+
+    // reset buffer status by abandon all data and status in FMQ
+    void reset() {
+        auto buffer = getWorkBuffer();
+        std::vector<IEffect::Status> status(mStatusMQ->availableToRead());
+        mInputMQ->readBlocking(buffer, mInputMQ->availableToRead());
+        mOutputMQ->readBlocking(buffer, mOutputMQ->availableToRead());
+        mStatusMQ->readBlocking(status.data(), mStatusMQ->availableToRead());
+    }
 
   private:
     std::shared_ptr<StatusMQ> mStatusMQ;

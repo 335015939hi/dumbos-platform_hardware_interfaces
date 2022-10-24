@@ -32,8 +32,8 @@ Factory::Factory() {
         }
     };
     // TODO: implement this with audio_effect.xml.
-    auto libHandle =
-            std::unique_ptr<void, decltype(dlClose)>{dlopen("libequalizer.so", RTLD_LAZY), dlClose};
+    auto libHandle = std::unique_ptr<void, decltype(dlClose)>{dlopen("libbundleaidl.so", RTLD_LAZY),
+                                                              dlClose};
     if (!libHandle) {
         LOG(ERROR) << __func__ << ": dlopen failed, err: " << dlerror();
         return;
