@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ffef52_c9c5a500",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T12:58:56Z",
+      "side": 1,
+      "message": "Don\u0027t understand why IDLE and STANDBY are different states. If STANDBY allows to save more power then it should be the state in which the stream created. From the state machine, it is also not clear why a stream does not go back to STANDBY after flushing from PAUSE but goes back to IDLE. If the stream was started from STANDBY, it should go back to STANDBY.\nWe need to clarify why we need two distinct STANDBY and IDLE states",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 76
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e04d144_b97dfc73",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T12:58:56Z",
+      "side": 1,
+      "message": "I think it must be permitted to \"handle audio I/O\" in PAUSED state.",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 13
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d6f5535_35f6b0be",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T12:58:56Z",
+      "side": 1,
+      "message": "we may need a different states to correspond to either drain(full) or drain(early) commands",
+      "range": {
+        "startLine": 120,
+        "startChar": 8,
+        "endLine": 120,
+        "endChar": 13
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "029dc312_bc23d07b",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T12:58:56Z",
+      "side": 1,
+      "message": "For each command we should indicate in which states the HAL should handle the command.",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 18
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ca1c742_2941b26c",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T12:58:56Z",
+      "side": 1,
+      "message": "We need convey the drain full or drain early variants",
+      "range": {
+        "startLine": 153,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 13
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20bbe5a9_1d3d2af8",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T12:58:56Z",
+      "side": 1,
+      "message": "We also need to pause while draining. So we need READY_PAUSED and DRAINING_PAUSED states or have the draining indication be a qualifier and not a state.",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 79
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1317a4b1_1a96995f",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T12:58:56Z",
+      "side": 1,
+      "message": "and PAUSED?",
+      "range": {
+        "startLine": 189,
+        "startChar": 18,
+        "endLine": 189,
+        "endChar": 19
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c23272d_fc0d8096",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T12:58:56Z",
+      "side": 1,
+      "message": "DRAIN should be ignored on input streams no?",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 51
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f9773fb_d6340f2d",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T12:58:56Z",
+      "side": 1,
+      "message": "Please add a comment indicating that this is temporary: we should go to DRAINING state",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 55
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ee6de3a_a2462c59",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T12:58:56Z",
+      "side": 1,
+      "message": "why not allow STANDBY from pause?",
+      "range": {
+        "startLine": 289,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 54
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ab488af_58f7a7d3",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T12:58:56Z",
+      "side": 1,
+      "message": "We must be able to pause from DRAINING state",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 16
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
