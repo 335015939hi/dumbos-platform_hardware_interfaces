@@ -46,6 +46,30 @@
       },
       "revId": "fdeb39f8780d4dec3738de32546b886abce9b954",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c9920a7_4ae1baf3",
+        "filename": "cas/aidl/android/hardware/cas/ICas.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-24T21:24:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c13442cc_56352ffa",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 60
+      },
+      "revId": "fdeb39f8780d4dec3738de32546b886abce9b954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
