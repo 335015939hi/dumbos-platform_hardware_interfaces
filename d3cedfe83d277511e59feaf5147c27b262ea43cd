@@ -46,6 +46,30 @@
       },
       "revId": "d3cedfe83d277511e59feaf5147c27b262ea43cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f07b3e0_2754ab4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-10-25T23:45:47Z",
+      "side": 1,
+      "message": "This change is fixing the SDK finalization CI issue caused by https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2205679/9/identity/aidl/Android.bp\n\nYou can read about the current breakage here: b/254774724\n\nAfter https://android-review.googlesource.com/c/platform/system/tools/aidl/+/2266924, we\u0027ll do two things\n1. revert this change\n2. add \u0027frozen: false\u0027 to this interface\n\nRight now, whether V5 exists or not (in a release branch) is determined by \u0027check api equal\u0027 logic. Since the API is equal now, it things V5 shouldn\u0027t be used and is blocking the SDK continuous integration.\n\nI figure, it\u0027s better to add this workaround, even if it\u0027s just for a few days, to unblock the SDK finalization project.",
+      "parentUuid": "7b1e32b9_d05a0f31",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "d3cedfe83d277511e59feaf5147c27b262ea43cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
