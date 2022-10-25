@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b73fb6c_d1862fd8",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioCodecs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-10-25T07:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc83ac92_05fe212d",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9924b450_9b089ea5",
@@ -49,6 +67,24 @@
       "writtenOn": "2022-10-18T03:33:58Z",
       "side": 1,
       "message": "typo Aduio -\u003e Audio",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d758dac_bc9659e9",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-10-25T07:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9924b450_9b089ea5",
       "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -124,6 +160,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64f18717_faa8046e",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-10-25T07:57:36Z",
+      "side": 1,
+      "message": "Per discussion, add `isInvalidFileContent` to avoid reading invalid file content for multiple times.",
+      "parentUuid": "eddf2aa9_23f3d1d0",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a2d8df4_0e4df6a6",
@@ -173,6 +227,24 @@
       "side": 1,
       "message": "yes, also need to make sure private map is empty when we go through `GetLeAudioCodecCapabilities`",
       "parentUuid": "da4b2db7_b818244b",
+      "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15dd1617_b8e09a1e",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-10-25T07:57:36Z",
+      "side": 1,
+      "message": "Per discussion, clear map when we have a valid new file content",
+      "parentUuid": "a131dd4e_4d28653c",
       "revId": "e5a172296ef7fe45466bacb12b7b1a5782e6381a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
