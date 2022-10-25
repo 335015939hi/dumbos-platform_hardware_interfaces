@@ -22,6 +22,30 @@
       },
       "revId": "d3cedfe83d277511e59feaf5147c27b262ea43cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39e28d8b_51f4fb75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-25T23:45:09Z",
+      "side": 1,
+      "message": "This change shouldn\u0027t be necessary. We should notice the import version change and treat it as has_development, but we currently don\u0027t - I\u0027m working on the change but it\u0027s kind of ugly so we can do this in the mean time.",
+      "parentUuid": "7b1e32b9_d05a0f31",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "d3cedfe83d277511e59feaf5147c27b262ea43cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
