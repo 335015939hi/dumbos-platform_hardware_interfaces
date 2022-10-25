@@ -107,6 +107,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fafafcf9_075bee92",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1895625
+      },
+      "writtenOn": "2022-10-25T01:13:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9666baec_3ce237e4",
+      "revId": "ded7b90d0b0b72888db58a2083502a0be60ad640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb4f0c0b_ab784d10",
@@ -156,6 +174,24 @@
       "side": 1,
       "message": "#431~#433 also can be removed.",
       "parentUuid": "51b2176e_f195a224",
+      "revId": "ded7b90d0b0b72888db58a2083502a0be60ad640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d320e943_316feb3f",
+        "filename": "tv/tuner/1.0/vts/functional/FrontendTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1895625
+      },
+      "writtenOn": "2022-10-25T01:13:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75b41851_ab9aa9a0",
       "revId": "ded7b90d0b0b72888db58a2083502a0be60ad640",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
