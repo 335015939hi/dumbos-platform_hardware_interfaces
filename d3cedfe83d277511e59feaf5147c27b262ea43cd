@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b1e32b9_d05a0f31",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-10-25T23:41:28Z",
+      "side": 1,
+      "message": "Please teach me. What is wrong with this change? The fact that you have the aidl file in aidl_api/\u003cname\u003e/current, doesn\u0027t it mean that the build system correctly recognized the added enum type?",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "d3cedfe83d277511e59feaf5147c27b262ea43cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
