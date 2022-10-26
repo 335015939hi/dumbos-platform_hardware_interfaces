@@ -63,6 +63,30 @@
       },
       "revId": "9145c2f54a0276304c3c74b904445c034df10fce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85ca7188_5df45d63",
+        "filename": "identity/aidl/vts/src/com/android/tests/security/identity/IdentityCredentialImplementedTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-10-26T16:41:48Z",
+      "side": 1,
+      "message": "I\u0027m certain you have some good reason for it.\n\nA comment would be nice so we\u0027re not scratching our heads about it again in 9 months 😄",
+      "parentUuid": "250aea6c_b61c6318",
+      "range": {
+        "startLine": 30,
+        "startChar": 55,
+        "endLine": 30,
+        "endChar": 73
+      },
+      "revId": "9145c2f54a0276304c3c74b904445c034df10fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
