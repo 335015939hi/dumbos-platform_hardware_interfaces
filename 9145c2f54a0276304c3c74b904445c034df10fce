@@ -87,6 +87,30 @@
       },
       "revId": "9145c2f54a0276304c3c74b904445c034df10fce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bce92b9_ed342efd",
+        "filename": "identity/aidl/vts/src/com/android/tests/security/identity/IdentityCredentialImplementedTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-10-26T17:05:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85ca7188_5df45d63",
+      "range": {
+        "startLine": 30,
+        "startChar": 55,
+        "endLine": 30,
+        "endChar": 73
+      },
+      "revId": "9145c2f54a0276304c3c74b904445c034df10fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
