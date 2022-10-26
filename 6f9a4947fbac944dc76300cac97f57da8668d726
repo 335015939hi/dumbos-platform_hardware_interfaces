@@ -16,6 +16,24 @@
       "message": "bug reference?",
       "revId": "6f9a4947fbac944dc76300cac97f57da8668d726",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc8eabc5_98975f2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-10-26T17:53:06Z",
+      "side": 1,
+      "message": "Unfortunately there\u0027s none; this is discussed via email.\n\nThe commit message should already be clear enough for the intention behind this.",
+      "parentUuid": "65496e56_6648bb51",
+      "revId": "6f9a4947fbac944dc76300cac97f57da8668d726",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
