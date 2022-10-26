@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d9b3575_904757f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-10-26T15:17:44Z",
+      "side": 1,
+      "message": "Kind of strange that this is a host test, otherwise lgtm.",
+      "revId": "9145c2f54a0276304c3c74b904445c034df10fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9a06cfe_1d3c3a44",
+        "filename": "identity/aidl/vts/src/com/android/tests/security/identity/IdentityCredentialImplementedTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-10-26T15:17:44Z",
+      "side": 1,
+      "message": "Why is this a host test?\n\nIf it were an on-device test, then it could use things like `PackageManager.hasSystemFeature` and `SystemProperties.getInt` instead of running shell commands and checking string output directly.",
+      "range": {
+        "startLine": 30,
+        "startChar": 55,
+        "endLine": 30,
+        "endChar": 73
+      },
+      "revId": "9145c2f54a0276304c3c74b904445c034df10fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
