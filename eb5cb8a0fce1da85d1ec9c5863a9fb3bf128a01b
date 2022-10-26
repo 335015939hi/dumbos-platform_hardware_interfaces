@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3a45e93_2638cd79",
+        "filename": "bluetooth/async/test/async_fd_watcher_unittest.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2022-10-26T00:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "759b16a5_b973d814",
+      "range": {
+        "startLine": 213,
+        "startChar": 2,
+        "endLine": 213,
+        "endChar": 15
+      },
+      "revId": "eb5cb8a0fce1da85d1ec9c5863a9fb3bf128a01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "388b9a87_0a829b62",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20e43673_9d816b3d",
+        "filename": "bluetooth/hci/h4_protocol.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2022-10-26T00:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "388b9a87_0a829b62",
+      "range": {
+        "startLine": 36,
+        "startChar": 14,
+        "endLine": 36,
+        "endChar": 20
+      },
+      "revId": "eb5cb8a0fce1da85d1ec9c5863a9fb3bf128a01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abd2b680_fcd3f284",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-10-24T22:13:43Z",
       "side": 1,
       "message": "nit: Value never read\nI suppose this is now handled by the external loop",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 21
+      },
+      "revId": "eb5cb8a0fce1da85d1ec9c5863a9fb3bf128a01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "847da0de_7e148e7f",
+        "filename": "bluetooth/hci/hci_packetizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2022-10-26T00:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd2b680_fcd3f284",
       "range": {
         "startLine": 90,
         "startChar": 6,
