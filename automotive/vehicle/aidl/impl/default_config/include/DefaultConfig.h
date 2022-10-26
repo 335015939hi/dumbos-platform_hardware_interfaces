@@ -1236,6 +1236,15 @@ const std::vector<ConfigDeclaration> kVehicleProperties = {
                                 .changeMode = VehiclePropertyChangeMode::ON_CHANGE,
                         },
         },
+        {
+                .config =
+                        {
+                                .prop = toInt(VehicleProperty::INFO_VIN),
+                                .access = VehiclePropertyAccess::READ,
+                                .changeMode = VehiclePropertyChangeMode::STATIC,
+                        },
+                .initialValue = {.stringValue = "1GCARVIN123456789"},
+        },
 #ifdef ENABLE_VENDOR_CLUSTER_PROPERTY_FOR_TESTING
         // Vendor propetry for E2E ClusterHomeService testing.
         {
