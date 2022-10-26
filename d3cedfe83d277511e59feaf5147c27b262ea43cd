@@ -135,6 +135,23 @@
       "message": "(forrest run passed, showing this unblocks sdk finalization - I\u0027ll stage revert once this lands)",
       "revId": "d3cedfe83d277511e59feaf5147c27b262ea43cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76f3384d_bf017d81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-26T15:17:57Z",
+      "side": 1,
+      "message": "need to bump the impl for hal_implementation_test now too",
+      "revId": "d3cedfe83d277511e59feaf5147c27b262ea43cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
