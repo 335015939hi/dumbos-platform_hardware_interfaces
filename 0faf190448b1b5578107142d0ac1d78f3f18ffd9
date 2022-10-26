@@ -22,6 +22,30 @@
       },
       "revId": "0faf190448b1b5578107142d0ac1d78f3f18ffd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c30c3c60_63aca8b9",
+        "filename": "automotive/remoteaccess/test_grpc_server/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2022-10-26T22:49:17Z",
+      "side": 1,
+      "message": "I will create separate CL to fix issues since this CL is not merged to internal.",
+      "parentUuid": "6952bc25_4313855e",
+      "range": {
+        "startLine": 104,
+        "startChar": 35,
+        "endLine": 104,
+        "endChar": 41
+      },
+      "revId": "0faf190448b1b5578107142d0ac1d78f3f18ffd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
