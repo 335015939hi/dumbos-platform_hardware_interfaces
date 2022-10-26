@@ -15,10 +15,13 @@
  */
 
 #pragma once
+#include <android-base/logging.h>
+#include <cstddef>
 #include <cstdint>
 #include <memory>
 #include <utility>
 #include <vector>
+#include "EffectTypes.h"
 
 #include <aidl/android/hardware/audio/effect/BnEffect.h>
 #include <fmq/AidlMessageQueue.h>
@@ -31,35 +34,115 @@ class EffectContext {
             IEffect::Status, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
             StatusMQ;
     typedef ::android::AidlMessageQueue<
-            int8_t, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
+            float, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
             DataMQ;
 
-    EffectContext(size_t statusDepth, size_t inBufferSize, size_t outBufferSize) {
+    EffectContext(size_t statusDepth, const Parameter::Common& common) {
+        mSessionId = common.session;
+        auto& input = common.input;
+        auto& output = common.output;
+        mInputFrameSize = ::android::hardware::audio::common::getFrameSizeInBytes(
+                input.base.format, input.base.channelMask);
+        mOutputFrameSize = ::android::hardware::audio::common::getFrameSizeInBytes(
+                output.base.format, output.base.channelMask);
+        // in/outBuffer size in float (FMQ data format defined for DataMQ)
+        size_t inBufferSizeInFloat = input.frameCount * mInputFrameSize / sizeof(float);
+        size_t outBufferSizeInFloat = output.frameCount * mOutputFrameSize / sizeof(float);
+
         mStatusMQ = std::make_shared<StatusMQ>(statusDepth, true /*configureEventFlagWord*/);
-        mInputMQ = std::make_shared<DataMQ>(inBufferSize);
-        mOutputMQ = std::make_shared<DataMQ>(outBufferSize);
+        mInputMQ = std::make_shared<DataMQ>(inBufferSizeInFloat);
+        mOutputMQ = std::make_shared<DataMQ>(outBufferSizeInFloat);
 
         if (!mStatusMQ->isValid() || !mInputMQ->isValid() || !mOutputMQ->isValid()) {
             LOG(ERROR) << __func__ << " created invalid FMQ";
         }
-        mWorkBuffer.reserve(std::max(inBufferSize, outBufferSize));
-    };
+        mWorkBuffer.reserve(std::max(inBufferSizeInFloat, outBufferSizeInFloat));
+    }
+    virtual ~EffectContext() {}
 
-    std::shared_ptr<StatusMQ> getStatusFmq() { return mStatusMQ; };
-    std::shared_ptr<DataMQ> getInputDataFmq() { return mInputMQ; };
-    std::shared_ptr<DataMQ> getOutputDataFmq() { return mOutputMQ; };
+    std::shared_ptr<StatusMQ> getStatusFmq() { return mStatusMQ; }
+    std::shared_ptr<DataMQ> getInputDataFmq() { return mInputMQ; }
+    std::shared_ptr<DataMQ> getOutputDataFmq() { return mOutputMQ; }
 
-    int8_t* getWorkBuffer() { return static_cast<int8_t*>(mWorkBuffer.data()); };
+    float* getWorkBuffer() { return static_cast<float*>(mWorkBuffer.data()); }
     // TODO: update with actual available size
-    size_t availableToRead() { return mWorkBuffer.capacity(); };
-    size_t availableToWrite() { return mWorkBuffer.capacity(); };
+    size_t availableToRead() { return mWorkBuffer.capacity(); }
+    size_t availableToWrite() { return mWorkBuffer.capacity(); }
+
+    // reset buffer status by abandon all data and status in FMQ
+    void resetBuffer() {
+        auto buffer = getWorkBuffer();
+        std::vector<IEffect::Status> status(mStatusMQ->availableToRead());
+        mInputMQ->read(buffer, mInputMQ->availableToRead());
+        mOutputMQ->read(buffer, mOutputMQ->availableToRead());
+        mStatusMQ->read(status.data(), mStatusMQ->availableToRead());
+    }
+
+    void dupeFmq(IEffect::OpenEffectReturn* effectRet) {
+        if (effectRet) {
+            effectRet->statusMQ = getStatusFmq()->dupeDesc();
+            effectRet->inputDataMQ = getInputDataFmq()->dupeDesc();
+            effectRet->outputDataMQ = getOutputDataFmq()->dupeDesc();
+        }
+    }
+
+    virtual RetCode setOutputDevice(
+            const aidl::android::media::audio::common::AudioDeviceDescription& device) {
+        mOutputDevice = device;
+        return RetCode::SUCCESS;
+    }
+    virtual aidl::android::media::audio::common::AudioDeviceDescription getOutputDevice() {
+        return mOutputDevice;
+    }
+
+    virtual RetCode setAudioMode(const aidl::android::media::audio::common::AudioMode& mode) {
+        mMode = mode;
+        return RetCode::SUCCESS;
+    }
+    virtual aidl::android::media::audio::common::AudioMode getAudioMode() { return mMode; }
+
+    virtual RetCode setAudioSource(const aidl::android::media::audio::common::AudioSource& source) {
+        mSource = source;
+        return RetCode::SUCCESS;
+    }
+    virtual aidl::android::media::audio::common::AudioSource getAudioSource() { return mSource; }
+
+    virtual RetCode setVolumeStereo(const Parameter::VolumeStereo& volumeStereo) {
+        mVolumeStereo = volumeStereo;
+        return RetCode::SUCCESS;
+    }
+    virtual Parameter::VolumeStereo getVolumeStereo() { return mVolumeStereo; }
+
+    virtual RetCode setParameterCommon(const Parameter::Common& common) {
+        mCommon = common;
+        LOG(ERROR) << __func__ << mCommon.toString();
+        return RetCode::SUCCESS;
+    }
+    virtual Parameter::Common getParameterCommon() {
+        LOG(ERROR) << __func__ << mCommon.toString();
+        return mCommon;
+    }
+
+    virtual size_t getInputFrameSize() { return mInputFrameSize; }
+    virtual size_t getOutputFrameSize() { return mOutputFrameSize; }
+    virtual int getSessionId() { return mSessionId; }
 
   private:
+    // common parameters
+    int mSessionId = INVALID_AUDIO_SESSION_ID;
+    aidl::android::media::audio::common::AudioDeviceDescription mOutputDevice;
+    aidl::android::media::audio::common::AudioMode mMode;
+    aidl::android::media::audio::common::AudioSource mSource;
+    Parameter::VolumeStereo mVolumeStereo;
+    Parameter::Common mCommon;
+    size_t mInputFrameSize, mOutputFrameSize;
+
+    // fmq and buffers
     std::shared_ptr<StatusMQ> mStatusMQ;
     std::shared_ptr<DataMQ> mInputMQ;
     std::shared_ptr<DataMQ> mOutputMQ;
     // TODO handle effect process input and output
     // work buffer set by effect instances, the access and update are in same thread
-    std::vector<int8_t> mWorkBuffer;
+    std::vector<float> mWorkBuffer;
 };
 }  // namespace aidl::android::hardware::audio::effect

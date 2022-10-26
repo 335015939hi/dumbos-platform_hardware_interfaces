@@ -59,6 +59,7 @@ class EffectHelper {
 
     void OpenEffects(const AudioUuid& type = EffectNullUuid) {
         auto open = [&](const std::shared_ptr<IEffect>& effect) {
+            ASSERT_NE(effect, nullptr);
             IEffect::OpenEffectReturn ret;
             EXPECT_IS_OK(effect->open(mCommon, mSpecific, &ret));
             EffectParam params;
@@ -72,6 +73,7 @@ class EffectHelper {
 
     void CloseEffects(const binder_status_t status = EX_NONE) {
         auto close = [&](const std::shared_ptr<IEffect>& effect) {
+            ASSERT_NE(effect, nullptr);
             EXPECT_STATUS(status, effect->close());
         };
 
@@ -97,6 +99,7 @@ class EffectHelper {
 
     void GetEffectDescriptors() {
         auto get = [&](const std::shared_ptr<IEffect>& effect) {
+            ASSERT_NE(effect, nullptr);
             Descriptor desc;
             EXPECT_IS_OK(effect->getDescriptor(&desc));
             mEffectDescriptors.push_back(std::move(desc));
@@ -106,6 +109,7 @@ class EffectHelper {
 
     void CommandEffects(CommandId command) {
         auto close = [&](const std::shared_ptr<IEffect>& effect) {
+            ASSERT_NE(effect, nullptr);
             EXPECT_IS_OK(effect->command(command));
         };
         EXPECT_NO_FATAL_FAILURE(ForEachEffect(close));
@@ -113,6 +117,7 @@ class EffectHelper {
 
     void CommandEffectsExpectStatus(CommandId command, const binder_status_t status) {
         auto func = [&](const std::shared_ptr<IEffect>& effect) {
+            ASSERT_NE(effect, nullptr);
             EXPECT_STATUS(status, effect->command(command));
         };
         EXPECT_NO_FATAL_FAILURE(ForEachEffect(func));
@@ -120,6 +125,7 @@ class EffectHelper {
 
     void ExpectState(State expected) {
         auto get = [&](const std::shared_ptr<IEffect>& effect) {
+            ASSERT_NE(effect, nullptr);
             State state = State::INIT;
             EXPECT_IS_OK(effect->getState(&state));
             EXPECT_EQ(expected, state);
@@ -129,6 +135,7 @@ class EffectHelper {
 
     void SetParameter() {
         auto func = [&](const std::shared_ptr<IEffect>& effect) {
+            ASSERT_NE(effect, nullptr);
             Parameter param;
             param.set<Parameter::common>(mCommon);
             EXPECT_IS_OK(effect->setParameter(param));
@@ -138,9 +145,10 @@ class EffectHelper {
 
     void VerifyParameters() {
         auto func = [&](const std::shared_ptr<IEffect>& effect) {
+            ASSERT_NE(effect, nullptr);
             Parameter paramCommonGet = Parameter(), paramCommonExpect = Parameter();
             Parameter::Id id;
-            id.set<Parameter::Id::commonTag>(0);
+            id.set<Parameter::Id::commonTag>(Parameter::common);
             paramCommonExpect.set<Parameter::common>(mCommon);
             EXPECT_IS_OK(effect->getParameter(id, &paramCommonGet));
             EXPECT_EQ(paramCommonExpect, paramCommonGet)
@@ -151,8 +159,9 @@ class EffectHelper {
 
     void QueryEffects(const std::optional<AudioUuid>& in_type,
                       const std::optional<AudioUuid>& in_instance,
+                      const std::optional<AudioUuid>& in_proxy,
                       std::vector<Descriptor::Identity>* _aidl_return) {
-        mFactoryHelper.QueryEffects(in_type, in_instance, _aidl_return);
+        mFactoryHelper.QueryEffects(in_type, in_instance, in_proxy, _aidl_return);
     }
 
     template <typename Functor>
@@ -173,7 +182,7 @@ class EffectHelper {
         }
     }
 
-    static const size_t mWriteMQSize = 0x400;
+    static const size_t mWriteMQBytes = 0x400;
 
     enum class IO : char { INPUT = 0, OUTPUT = 1, INOUT = 2 };
 
@@ -204,7 +213,7 @@ class EffectHelper {
             mCommon.output.frameCount = frameCount;
         }
     }
-    void initParamCommon(int session = -1, int ioHandle = -1, int iSampleRate = 48000,
+    void initParamCommon(int session = 0, int ioHandle = -1, int iSampleRate = 48000,
                          int oSampleRate = 48000, long iFrameCount = 0x100,
                          long oFrameCount = 0x100) {
         mCommon.session = session;
@@ -227,45 +236,45 @@ class EffectHelper {
     void setSpecific(Parameter::Specific& specific) { mSpecific = specific; }
 
     // usually this function only call once.
-    void PrepareInputData(size_t s = mWriteMQSize) {
-        size_t maxInputSize = s;
+    void PrepareInputData(size_t bytes = mWriteMQBytes) {
+        size_t maxInputBytes = mWriteMQBytes;
         for (auto& it : mEffectParams) {
             auto& mq = it.inputMQ;
             EXPECT_NE(nullptr, mq);
             EXPECT_TRUE(mq->isValid());
-            const size_t bytesToWrite = mq->availableToWrite();
+            const size_t bytesToWrite = mq->availableToWrite() * sizeof(float);
             EXPECT_EQ(inputFrameSize * mCommon.input.frameCount, bytesToWrite);
             EXPECT_NE(0UL, bytesToWrite);
-            EXPECT_TRUE(s <= bytesToWrite);
-            maxInputSize = std::max(maxInputSize, bytesToWrite);
+            EXPECT_TRUE(bytes <= bytesToWrite);
+            maxInputBytes = std::max(maxInputBytes, bytesToWrite);
         }
-        mInputBuffer.resize(maxInputSize);
+        mInputBuffer.resize(maxInputBytes / sizeof(float));
         std::fill(mInputBuffer.begin(), mInputBuffer.end(), 0x5a);
     }
 
-    void writeToFmq(size_t s = mWriteMQSize) {
+    void writeToFmq(size_t bytes = mWriteMQBytes) {
         for (auto& it : mEffectParams) {
             auto& mq = it.inputMQ;
             EXPECT_NE(nullptr, mq);
-            const size_t bytesToWrite = mq->availableToWrite();
+            const size_t bytesToWrite = mq->availableToWrite() * sizeof(float);
             EXPECT_NE(0Ul, bytesToWrite);
-            EXPECT_TRUE(s <= bytesToWrite);
-            EXPECT_TRUE(mq->write(mInputBuffer.data(), s));
+            EXPECT_TRUE(bytes <= bytesToWrite);
+            EXPECT_TRUE(mq->write(mInputBuffer.data(), bytes / sizeof(float)));
         }
     }
 
-    void readFromFmq(size_t expectSize = mWriteMQSize) {
+    void readFromFmq(size_t expectBytes = mWriteMQBytes) {
         for (auto& it : mEffectParams) {
             IEffect::Status status{};
             auto& statusMq = it.statusMQ;
             EXPECT_NE(nullptr, statusMq);
             EXPECT_TRUE(statusMq->readBlocking(&status, 1));
             EXPECT_EQ(STATUS_OK, status.status);
-            EXPECT_EQ(expectSize, (unsigned)status.fmqByteProduced);
+            EXPECT_EQ(expectBytes, (unsigned)status.fmqProduced * sizeof(float));
 
             auto& outputMq = it.outputMQ;
             EXPECT_NE(nullptr, outputMq);
-            EXPECT_EQ(expectSize, outputMq->availableToRead());
+            EXPECT_EQ(expectBytes, outputMq->availableToRead() * sizeof(float));
         }
     }
 
@@ -290,13 +299,13 @@ class EffectHelper {
     Parameter::Specific mSpecific;
 
     size_t inputFrameSize, outputFrameSize;
-    std::vector<int8_t> mInputBuffer;  // reuse same buffer for all effects testing
+    std::vector<float> mInputBuffer;  // reuse same buffer for all effects testing
 
     typedef ::android::AidlMessageQueue<
             IEffect::Status, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
             StatusMQ;
     typedef ::android::AidlMessageQueue<
-            int8_t, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
+            float, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
             DataMQ;
 
     class EffectParam {
