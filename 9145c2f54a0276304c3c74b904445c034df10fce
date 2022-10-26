@@ -39,6 +39,30 @@
       },
       "revId": "9145c2f54a0276304c3c74b904445c034df10fce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "250aea6c_b61c6318",
+        "filename": "identity/aidl/vts/src/com/android/tests/security/identity/IdentityCredentialImplementedTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-10-26T16:38:36Z",
+      "side": 1,
+      "message": "Hmm, yeah, I remember there was a good reason for this back in January when I wrote the test but of course now I\u0027ve forgotten this. Let me check...",
+      "parentUuid": "c9a06cfe_1d3c3a44",
+      "range": {
+        "startLine": 30,
+        "startChar": 55,
+        "endLine": 30,
+        "endChar": 73
+      },
+      "revId": "9145c2f54a0276304c3c74b904445c034df10fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
