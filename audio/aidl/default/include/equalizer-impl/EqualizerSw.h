@@ -30,8 +30,8 @@ namespace aidl::android::hardware::audio::effect {
 
 class EqualizerSwContext : public EffectContext {
   public:
-    EqualizerSwContext(int statusDepth, int inBufferSize, int outBufferSize)
-        : EffectContext(statusDepth, inBufferSize, outBufferSize) {
+    EqualizerSwContext(int statusDepth, const Parameter::Common& common)
+        : EffectContext(statusDepth, common) {
         LOG(DEBUG) << __func__;
     }
 
@@ -41,11 +41,7 @@ class EqualizerSwContext : public EffectContext {
 
 class EqualizerSw : public BnEffect, EffectWorker {
   public:
-    EqualizerSw() {
-        Equalizer::Capability eqCap = {.bandFrequencies = mBandFrequency, .presets = mPresets};
-        mDesc.capability.set<Capability::equalizer>(eqCap);
-        LOG(DEBUG) << __func__;
-    };
+    EqualizerSw() { LOG(DEBUG) << __func__; }
     ~EqualizerSw() {
         cleanUp();
         LOG(DEBUG) << __func__;
@@ -61,16 +57,11 @@ class EqualizerSw : public BnEffect, EffectWorker {
     ndk::ScopedAStatus getParameter(const Parameter::Id& in_paramId,
                                     Parameter* _aidl_return) override;
 
-    IEffect::Status effectProcessImpl() override;
+    IEffect::Status effectProcessImpl(float* in, float* out, int process) override;
 
   private:
-    // Effect descriptor.
-    Descriptor mDesc = {.common = {.id = {.type = EqualizerTypeUUID, .uuid = EqualizerSwImplUUID}}};
-
     // Parameters.
-    Parameter::Common mCommonParam;
     Equalizer mEqualizerParam;  // TODO: the equalizer parameter needs to update
-
     // Instance state INIT by default.
     State mState = State::INIT;
 
@@ -90,16 +81,26 @@ class EqualizerSw : public BnEffect, EffectWorker {
     static const int NUM_OF_PRESETS = 10;
     static const int PRESET_CUSTOM = -1;
 
+    const Equalizer::Capability kEqCap = {.bandFrequencies = mBandFrequency, .presets = mPresets};
+    // Effect descriptor.
+    const Descriptor kDesc = {.common = {.id = {.type = EqualizerTypeUUID,
+                                                .uuid = EqualizerSwImplUUID,
+                                                .proxy = std::nullopt},
+                                         .flags = {.type = Flags::Type::INSERT,
+                                                   .insert = Flags::Insert::FIRST,
+                                                   .volume = Flags::Volume::CTRL},
+                                         .name = "EqualizerSw"},
+                              .capability = Capability::make<Capability::equalizer>(kEqCap)};
+
     // Equalizer worker context
     std::shared_ptr<EqualizerSwContext> mContext;
 
     ndk::ScopedAStatus setCommonParameter(const Parameter::Common& common_param);
     ndk::ScopedAStatus setSpecificParameter(const Parameter::Specific& specific);
-    ndk::ScopedAStatus getSpecificParameter(Parameter::Specific::Id id,
-                                            Parameter::Specific* specific);
+    ndk::ScopedAStatus getSpecificParameter(const Equalizer::Id& id, Parameter::Specific* specific);
+    ndk::ScopedAStatus getCommonParameter(Parameter::Tag tag, Parameter* parameter);
 
     void cleanUp();
-
     IEffect::Status status(binder_status_t status, size_t consumed, size_t produced);
 };
 }  // namespace aidl::android::hardware::audio::effect

@@ -35,18 +35,20 @@ package android.hardware.audio.effect;
 @VintfStability
 union Parameter {
   android.hardware.audio.effect.Parameter.Common common;
-  android.media.audio.common.AudioDeviceType device;
+  android.media.audio.common.AudioDeviceDescription deviceDescription;
   android.media.audio.common.AudioMode mode;
   android.media.audio.common.AudioSource source;
-  android.hardware.audio.effect.Parameter.Volume volume;
-  boolean offload;
-  android.hardware.audio.effect.Parameter.VendorEffectParameter vendorEffect;
+  android.hardware.audio.effect.Parameter.VolumeStereo volumeStereo;
   android.hardware.audio.effect.Parameter.Specific specific;
   @VintfStability
   union Id {
-    int commonTag;
-    int vendorTag;
-    android.hardware.audio.effect.Parameter.Specific.Id specificId;
+    int vendorEffectTag;
+    android.hardware.audio.effect.Equalizer.Id equalizerTag;
+    android.hardware.audio.effect.Parameter.Tag commonTag;
+  }
+  @VintfStability
+  parcelable VendorEffectParameter {
+    ParcelableHolder extension;
   }
   @VintfStability
   parcelable Common {
@@ -56,21 +58,12 @@ union Parameter {
     android.media.audio.common.AudioConfig output;
   }
   @VintfStability
-  parcelable Volume {
+  parcelable VolumeStereo {
     float left;
     float right;
   }
   @VintfStability
-  parcelable VendorEffectParameter {
-    ParcelableHolder extension;
-  }
-  @VintfStability
   union Specific {
-    android.hardware.audio.effect.Parameter.Specific.Id id;
     android.hardware.audio.effect.Equalizer equalizer;
-    @VintfStability
-    union Id {
-      android.hardware.audio.effect.Equalizer.Tag equalizerTag = android.hardware.audio.effect.Equalizer.Tag.vendor;
-    }
   }
 }

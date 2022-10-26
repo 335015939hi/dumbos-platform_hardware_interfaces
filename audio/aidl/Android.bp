@@ -172,6 +172,7 @@ aidl_interface {
             enabled: false,
         },
         java: {
+            enabled: true,
             sdk_version: "module_current",
         },
     },

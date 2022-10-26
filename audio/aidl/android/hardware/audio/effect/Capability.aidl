@@ -40,7 +40,7 @@ union Capability {
     VendorEffectCapability vendor;
 
     /**
-     * Equalizer capability definition.
+     * Effect capabilities.
      */
     Equalizer.Capability equalizer;
 }
