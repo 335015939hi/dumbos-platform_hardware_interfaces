@@ -73,7 +73,11 @@ following behavior:
 
 ## How to build the test wakeup client
 
-* Under android root: `make -j TestWakeupClientServer`
+* Under android root: `source build/envsetup.sh`
+
+* `lunch sdk_car_x86_64-userdebug`
+
+* `make -j TestWakeupClientServer`
 
 ## How to push the test wakeup client to a TCU which runs Android.
 
@@ -101,7 +105,7 @@ following behavior:
 
 ## How to build and test the test wakeup client using one car emulator.
 
-In this test setup we will use one google car emulator
+In this test setup we will use one car emulator
 (sdk_car_x86_64-userdebug). We assume both the TCU and the remote access HAL
 runs on the same Android system, and they communicate through local loopback
 interface.
