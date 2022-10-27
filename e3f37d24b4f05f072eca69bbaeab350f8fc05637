@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7b0cdc3_711ea08a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-27T17:00:41Z",
+      "side": 1,
+      "message": "Thanks, Shunkai! I think it looks good. Do I understand it correctly that you plan to work in smaller steps because trying to make the default implementation and VTS for all these effects at once will create a huge CL?",
+      "revId": "e3f37d24b4f05f072eca69bbaeab350f8fc05637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb915841_9496f1cb",
+        "filename": "audio/aidl/android/hardware/audio/effect/DynamicsProcessing.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-27T17:00:41Z",
+      "side": 1,
+      "message": "typo: channel",
+      "range": {
+        "startLine": 272,
+        "startChar": 23,
+        "endLine": 272,
+        "endChar": 31
+      },
+      "revId": "e3f37d24b4f05f072eca69bbaeab350f8fc05637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
