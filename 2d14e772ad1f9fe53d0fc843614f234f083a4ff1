@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "116fcfa0_d64a283e",
+        "filename": "automotive/remoteaccess/test_grpc_server/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2022-10-27T00:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b68c7b7_705ba838",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 2
+      },
+      "revId": "2d14e772ad1f9fe53d0fc843614f234f083a4ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc0e7472_9f5f63fd",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-10-27T00:08:13Z",
       "side": 1,
       "message": "nit: one empty line at the end of the file.",
+      "revId": "2d14e772ad1f9fe53d0fc843614f234f083a4ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e077ac5b_3a894eb7",
+        "filename": "automotive/remoteaccess/test_grpc_server/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2022-10-27T00:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc0e7472_9f5f63fd",
       "revId": "2d14e772ad1f9fe53d0fc843614f234f083a4ff1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
