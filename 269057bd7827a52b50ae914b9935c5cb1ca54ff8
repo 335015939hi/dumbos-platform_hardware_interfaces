@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f8b05a1_3baf6ca4",
+        "filename": "security/keymint/TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-10-27T22:11:56Z",
+      "side": 1,
+      "message": "VtsAidlKeyMintTargetTest should be here too. It doesn\u0027t actually pass right now though.",
+      "revId": "269057bd7827a52b50ae914b9935c5cb1ca54ff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
