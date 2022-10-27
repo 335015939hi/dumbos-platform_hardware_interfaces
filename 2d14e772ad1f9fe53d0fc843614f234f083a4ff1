@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b68c7b7_705ba838",
+        "filename": "automotive/remoteaccess/test_grpc_server/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2022-10-27T00:08:13Z",
+      "side": 1,
+      "message": "nit: remove the trailing whitespaces.",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 2
+      },
+      "revId": "2d14e772ad1f9fe53d0fc843614f234f083a4ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc0e7472_9f5f63fd",
+        "filename": "automotive/remoteaccess/test_grpc_server/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2022-10-27T00:08:13Z",
+      "side": 1,
+      "message": "nit: one empty line at the end of the file.",
+      "revId": "2d14e772ad1f9fe53d0fc843614f234f083a4ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
