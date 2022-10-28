@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1937779d_6ee55ba6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-28T22:07:07Z",
+      "side": 1,
+      "message": "Test result on Panther `atest VtsHalEqualizerTargetTest`:\n\n```\nRunning Tests...\nNo test to run. Test Logs have saved in /tmp/atest_result/20221028_215920_31kbhovz/log.\n```",
+      "revId": "465b839011b9fe6507bfff003b8243f5f6861775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
