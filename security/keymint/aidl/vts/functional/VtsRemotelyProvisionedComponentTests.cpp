@@ -730,8 +730,7 @@ TEST_P(CertificateRequestV2Test, NonEmptyRequestReproducible) {
  * Generate a non-empty certificate request with multiple keys.
  */
 TEST_P(CertificateRequestV2Test, NonEmptyRequestMultipleKeys) {
-    // TODO(b/254137722): define a minimum number of keys that must be supported.
-    generateKeys(false /* testMode */, 5 /* numKeys */);
+    generateKeys(false /* testMode */, BnRemotelyProvisionedComponent::MAX_NUM_KEYS_IN_CSR);
 
     bytevec csr;
 

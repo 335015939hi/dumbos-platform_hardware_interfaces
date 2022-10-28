@@ -301,6 +301,12 @@ interface IRemotelyProvisionedComponent {
             out ProtectedData protectedData);
 
     /**
+     * Only applicable to version 3 and above of the HAL.
+     * Implementations must support CSR generation with at least this many keys.
+     */
+    const int MAX_NUM_KEYS_IN_CSR = 10;
+
+    /**
      * generateCertificateRequestV2 creates a certificate signing request to be sent to the
      * provisioning server.
      *

@@ -45,4 +45,5 @@ interface IRemotelyProvisionedComponent {
   const int STATUS_TEST_KEY_IN_PRODUCTION_REQUEST = 4;
   const int STATUS_INVALID_EEK = 5;
   const int STATUS_REMOVED = 6;
+  const int MAX_NUM_KEYS_IN_CSR = 10;
 }
