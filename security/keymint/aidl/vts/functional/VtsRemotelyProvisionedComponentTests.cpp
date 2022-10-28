@@ -251,6 +251,15 @@ TEST_P(GetHardwareInfoTests, uniqueId) {
     EXPECT_LE(hwInfo.uniqueId->size(), 32);
 }
 
+/**
+ * Verify implementation supports at least MIN_SUPPORTED_NUM_KEYS_IN_CSR keys in a CSR.
+ */
+TEST_P(GetHardwareInfoTests, supportedNumKeysInCsr) {
+    RpcHardwareInfo hwInfo;
+    ASSERT_TRUE(provisionable_->getHardwareInfo(&hwInfo).isOk());
+    ASSERT_GE(hwInfo.supportedNumKeysInCsr, RpcHardwareInfo::MIN_SUPPORTED_NUM_KEYS_IN_CSR);
+}
+
 using GenerateKeyTests = VtsRemotelyProvisionedComponentTests;
 
 INSTANTIATE_REM_PROV_AIDL_TEST(GenerateKeyTests);
@@ -483,7 +492,7 @@ TEST_P(CertificateRequestTest, DISABLED_EmptyRequest_prodMode) {
  */
 TEST_P(CertificateRequestTest, NonEmptyRequest_testMode) {
     bool testMode = true;
-    generateKeys(testMode, 4 /* numKeys */);
+    generateKeys(testMode, rpcHardwareInfo.supportedNumKeysInCsr /* numKeys */);
 
     for (size_t eekLength : {2, 3, 7}) {
         SCOPED_TRACE(testing::Message() << "EEK of length " << eekLength);
@@ -511,7 +520,7 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_testMode) {
  */
 TEST_P(CertificateRequestTest, DISABLED_NonEmptyRequest_prodMode) {
     bool testMode = false;
-    generateKeys(testMode, 4 /* numKeys */);
+    generateKeys(testMode, rpcHardwareInfo.supportedNumKeysInCsr /* numKeys */);
 
     bytevec keysToSignMac;
     DeviceInfo deviceInfo;
@@ -569,7 +578,7 @@ TEST_P(CertificateRequestTest, NonEmptyRequestCorruptMac_prodMode) {
  */
 TEST_P(CertificateRequestTest, NonEmptyCorruptEekRequest_prodMode) {
     bool testMode = false;
-    generateKeys(testMode, 4 /* numKeys */);
+    generateKeys(testMode, rpcHardwareInfo.supportedNumKeysInCsr /* numKeys */);
 
     auto prodEekChain = getProdEekChain(rpcHardwareInfo.supportedEekCurve);
     auto [parsedChain, _, parseErr] = cppbor::parse(prodEekChain);
@@ -598,7 +607,7 @@ TEST_P(CertificateRequestTest, NonEmptyCorruptEekRequest_prodMode) {
  */
 TEST_P(CertificateRequestTest, NonEmptyIncompleteEekRequest_prodMode) {
     bool testMode = false;
-    generateKeys(testMode, 4 /* numKeys */);
+    generateKeys(testMode, rpcHardwareInfo.supportedNumKeysInCsr /* numKeys */);
 
     // Build an EEK chain that omits the first self-signed cert.
     auto truncatedChain = cppbor::Array();
@@ -730,8 +739,7 @@ TEST_P(CertificateRequestV2Test, NonEmptyRequestReproducible) {
  * Generate a non-empty certificate request with multiple keys.
  */
 TEST_P(CertificateRequestV2Test, NonEmptyRequestMultipleKeys) {
-    // TODO(b/254137722): define a minimum number of keys that must be supported.
-    generateKeys(false /* testMode */, 5 /* numKeys */);
+    generateKeys(false /* testMode */, rpcHardwareInfo.supportedNumKeysInCsr /* numKeys */);
 
     bytevec csr;
 
