@@ -227,6 +227,7 @@ class EffectHelper {
         input.base.format = DefaultFormat;
         output.base.sampleRate = oSampleRate;
         output.base.channelMask = mOutputChannelLayout;
+        output.base.format = DefaultFormat;
         output.frameCount = oFrameCount;
         output.base.format = DefaultFormat;
         inputFrameSize = android::hardware::audio::common::getFrameSizeInBytes(
