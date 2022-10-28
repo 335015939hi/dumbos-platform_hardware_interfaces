@@ -74,4 +74,17 @@ parcelable RpcHardwareInfo {
      *
      */
     @nullable @utf8InCpp String uniqueId;
+
+    /**
+     * maxNumKeysInCsr is the maximum number of keys in a CSR that this implementation can support.
+     * This value is implementation defined and must be larger or equal to
+     * MAX_NUM_KEYS_IN_CSR_FLOOR.
+     *
+     * The value of MAX_NUM_KEYS_IN_CSR_FLOOR was chosen as the value enforced by the VTS test in
+     * earlier versions of this interface.
+     *
+     * MAX_NUM_KEYS_IN_CSR_FLOOR the default value of maxNumKeysInCsr.
+     */
+    const int MAX_NUM_KEYS_IN_CSR_FLOOR = 4;
+    int maxNumKeysInCsr = MAX_NUM_KEYS_IN_CSR_FLOOR;
 }
