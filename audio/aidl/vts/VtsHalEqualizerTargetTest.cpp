@@ -58,7 +58,7 @@ using aidl::android::hardware::audio::effect::Parameter;
  * Here we focus on specific parameter checking, general IEffect interfaces testing performed in
  * VtsAudioEfectTargetTest.
  */
-using EqualizerParamTestParam = std::tuple<int, int, int>;
+using EqualizerParamTestParam = std::tuple<std::string, int, int, int>;
 
 /**
  Testing preset index range with [-10, 10], assuming the min/max preset index supported by
@@ -74,10 +74,10 @@ class EqualizerParamTest : public ::testing::TestWithParam<EqualizerParamTestPar
                            public EffectHelper {
   public:
     EqualizerParamTest()
-        : EffectHelper(android::getAidlHalInstanceNames(IFactory::descriptor)[0]),
-          mParamPresetIndex(std::get<0 /* kPresetIndexRange */>(GetParam())),
-          mParamBandIndex(std::get<1 /* kBandIndexRange */>(GetParam())),
-          mParamBandLevel(std::get<2 /* kBandLevelRange */>(GetParam())) {}
+        : EffectHelper(std::get<0 /* AidlInstanceName */>(GetParam())),
+          mParamPresetIndex(std::get<1 /* kPresetIndexRange */>(GetParam())),
+          mParamBandIndex(std::get<2 /* kBandIndexRange */>(GetParam())),
+          mParamBandLevel(std::get<3 /* kBandLevelRange */>(GetParam())) {}
 
     void SetUp() override {
         CreateEffectsWithUUID(EqualizerTypeUUID);
@@ -255,9 +255,11 @@ TEST_P(EqualizerParamTest, SetAndGetSingleBand) {
 
 INSTANTIATE_TEST_SUITE_P(
         EqualizerTest, EqualizerParamTest,
-        ::testing::Combine(testing::Range(kPresetIndexRange.first, kPresetIndexRange.second),
-                           testing::Range(kBandIndexRange.first, kBandIndexRange.second),
-                           testing::Range(kBandLevelRange.first, kBandLevelRange.second)));
+        ::testing::Combine(
+                testing::ValuesIn(android::getAidlHalInstanceNames(IFactory::descriptor)),
+                testing::Range(kPresetIndexRange.first, kPresetIndexRange.second),
+                testing::Range(kBandIndexRange.first, kBandIndexRange.second),
+                testing::Range(kBandLevelRange.first, kBandLevelRange.second)));
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(EqualizerTest);
 
 int main(int argc, char** argv) {
