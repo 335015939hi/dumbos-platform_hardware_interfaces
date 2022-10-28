@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c5026f_bcbaa46e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-28T01:09:49Z",
+      "side": 1,
+      "message": "Yes, I will be adding more things in EffectContext, which will make the default implementation for all effects easier.\nI think we should merge this with minimal implementation and pass all current vts (without creating separate test cases for all effects).",
+      "parentUuid": "b7b0cdc3_711ea08a",
+      "revId": "e3f37d24b4f05f072eca69bbaeab350f8fc05637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb915841_9496f1cb",
