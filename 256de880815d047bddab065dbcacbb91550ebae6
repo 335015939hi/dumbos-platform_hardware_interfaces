@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e080d153_bcf11b17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "Eric, I have employed more systematic approach in defining of state machines for streams, which is based on the states of the producer, the consumer, and the ring buffer. I think, this addresses your comments. Please note that only synchronous I/O is implemented in this CL, and there are a couple of TODOs regarding the transient nature of the draining state that I plan to address in a later CL once we converge on this one.",
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0ffef52_c9c5a500",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-10-24T12:58:56Z",
       "side": 1,
       "message": "Don\u0027t understand why IDLE and STANDBY are different states. If STANDBY allows to save more power then it should be the state in which the stream created. From the state machine, it is also not clear why a stream does not go back to STANDBY after flushing from PAUSE but goes back to IDLE. If the stream was started from STANDBY, it should go back to STANDBY.\nWe need to clarify why we need two distinct STANDBY and IDLE states",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 76
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "777b1cb4_407e1ff4",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "For input streams, the \"parking\" state is now STANDBY. For output streams, being in the STANDBY state means that audio h/w produces no output, and the h/w chain might be shut down. Thus, it\u0027s safer to go to IDLE state in which the h/w is powered and emits silence. The framework may always send the h/w to the STANDBY state from IDLE by emitting a command.",
+      "parentUuid": "f0ffef52_c9c5a500",
       "range": {
         "startLine": 77,
         "startChar": 0,
@@ -47,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c0da326_d8c411ad",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e04d144_b97dfc73",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 13
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d6f5535_35f6b0be",
@@ -60,6 +125,30 @@
       "writtenOn": "2022-10-24T12:58:56Z",
       "side": 1,
       "message": "we may need a different states to correspond to either drain(full) or drain(early) commands",
+      "range": {
+        "startLine": 120,
+        "startChar": 8,
+        "endLine": 120,
+        "endChar": 13
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afec837d_424ca7d6",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "Agree. I will consider that in the next CL which will implement async I/O.",
+      "parentUuid": "0d6f5535_35f6b0be",
       "range": {
         "startLine": 120,
         "startChar": 8,
@@ -93,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44ec6b24_18b0f91b",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "This is specified by the state machine. I don\u0027t want to duplicate this information in comments, they are quite extensive already.",
+      "parentUuid": "029dc312_bc23d07b",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 18
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ca1c742_2941b26c",
@@ -106,6 +219,30 @@
       "writtenOn": "2022-10-24T12:58:56Z",
       "side": 1,
       "message": "We need convey the drain full or drain early variants",
+      "range": {
+        "startLine": 153,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 13
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b024e4e_d6d20541",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ca1c742_2941b26c",
       "range": {
         "startLine": 153,
         "startChar": 8,
@@ -139,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d625a633_de23162a",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20bbe5a9_1d3d2af8",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 79
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1317a4b1_1a96995f",
@@ -152,6 +313,30 @@
       "writtenOn": "2022-10-24T12:58:56Z",
       "side": 1,
       "message": "and PAUSED?",
+      "range": {
+        "startLine": 189,
+        "startChar": 18,
+        "endLine": 189,
+        "endChar": 19
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "671dcf05_71ca55b7",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1317a4b1_1a96995f",
       "range": {
         "startLine": 189,
         "startChar": 18,
@@ -185,6 +370,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "603c6c54_ac52d12c",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "My understanding is that \u0027draining\u0027 for input streams means that capturing is off, and the client is reading what remains in the buffer.",
+      "parentUuid": "1c23272d_fc0d8096",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 51
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f9773fb_d6340f2d",
@@ -198,6 +407,30 @@
       "writtenOn": "2022-10-24T12:58:56Z",
       "side": 1,
       "message": "Please add a comment indicating that this is temporary: we should go to DRAINING state",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 55
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fb1d17c_ca6831bf",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f9773fb_d6340f2d",
       "range": {
         "startLine": 277,
         "startChar": 0,
@@ -231,6 +464,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "291ea43c_79daeca2",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "For input streams this is now allowed via the FLUSH command. For output still not, see the reasoning in one of the previous comments.",
+      "parentUuid": "1ee6de3a_a2462c59",
+      "range": {
+        "startLine": 289,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 54
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ab488af_58f7a7d3",
@@ -244,6 +501,30 @@
       "writtenOn": "2022-10-24T12:58:56Z",
       "side": 1,
       "message": "We must be able to pause from DRAINING state",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 16
+      },
+      "revId": "256de880815d047bddab065dbcacbb91550ebae6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c06d271_a5ff4226",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:00:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ab488af_58f7a7d3",
       "range": {
         "startLine": 303,
         "startChar": 0,
