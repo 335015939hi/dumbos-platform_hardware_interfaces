@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e80c1b11_d3201fb6",
+        "filename": "audio/aidl/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T18:29:55Z",
+      "side": 1,
+      "message": "Isn\u0027t it enabled by default?",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 26
+      },
+      "revId": "a06e0a4f9f4095dd9f5c4409608ef45d6d1173ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed58be5f_91aa4d08",
+        "filename": "audio/aidl/android/hardware/audio/effect/IEffect.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T18:29:55Z",
+      "side": 1,
+      "message": "audio data samples in the floating point format",
+      "range": {
+        "startLine": 47,
+        "startChar": 25,
+        "endLine": 47,
+        "endChar": 41
+      },
+      "revId": "a06e0a4f9f4095dd9f5c4409608ef45d6d1173ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3534b939_50681828",
+        "filename": "audio/aidl/android/hardware/audio/effect/Parameter.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T18:29:55Z",
+      "side": 1,
+      "message": "Just \u0027Example:\u0027? I don\u0027t see several examples below.",
+      "range": {
+        "startLine": 54,
+        "startChar": 9,
+        "endLine": 54,
+        "endChar": 28
+      },
+      "revId": "a06e0a4f9f4095dd9f5c4409608ef45d6d1173ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aff97f1c_afc60b2e",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T18:29:55Z",
+      "side": 1,
+      "message": "Why do we need a temporary stack variable? We can just use `dlInterface` directly:\n\n```\nauto dlInterface \u003d std::make_unique\u003cstruct effect_dl_interface_s\u003e{};\ndlInterface-\u003ecreateEffectFunc \u003d (EffectCreateFunctor)dlsym(libHandle, \"createEffect\");\ndlInterface-\u003edestroyEffectFunc \u003d (EffectDestroyFunctor)dlsym(libHandle, \"destroyEffect\");\nif (!dlInterface-\u003ecreateEffectFunc || !dlInterface-\u003edestroyEffectFunc) { ... }\n```",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 84
+      },
+      "revId": "a06e0a4f9f4095dd9f5c4409608ef45d6d1173ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3384d449_e33d65af",
+        "filename": "audio/aidl/default/include/effect-impl/EffectContext.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T18:29:55Z",
+      "side": 1,
+      "message": "\u0027in/outBufferSize\u0027 is in bytes (it\u0027s a pity these variables lack a unit suffix, as it would be easier to spot the problem), while you have switched these FMQs to floating point samples.\n\nIf there is an intention to use floating point samples for processing, do we allow \u0027input/output.base.format\u0027 to be anything but float?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 60
+      },
+      "revId": "a06e0a4f9f4095dd9f5c4409608ef45d6d1173ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9727edf_026f149c",
+        "filename": "audio/aidl/default/include/equalizer-impl/EqualizerSw.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T18:29:55Z",
+      "side": 1,
+      "message": "This seems to be duplicating the values from media/libeffects/lvm/wrapper/Aidl/BundleTypes.h of aosp/2268146. Are you going to remove these?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 90
+      },
+      "revId": "a06e0a4f9f4095dd9f5c4409608ef45d6d1173ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
