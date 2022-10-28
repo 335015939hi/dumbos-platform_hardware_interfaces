@@ -49,7 +49,7 @@ using aidl::android::media::audio::common::AudioUuid;
 using aidl::android::media::audio::common::PcmType;
 
 const AudioFormatDescription DefaultFormat = {
-        .type = AudioFormatType::PCM, .pcm = PcmType::INT_16_BIT, .encoding = ""};
+        .type = AudioFormatType::PCM, .pcm = PcmType::FLOAT_32_BIT, .encoding = ""};
 
 class EffectHelper {
   public:
@@ -224,8 +224,10 @@ class EffectHelper {
         input.base.sampleRate = iSampleRate;
         input.base.channelMask = mInputChannelLayout;
         input.frameCount = iFrameCount;
+        input.base.format = DefaultFormat;
         output.base.sampleRate = oSampleRate;
         output.base.channelMask = mOutputChannelLayout;
+        output.base.format = DefaultFormat;
         output.frameCount = oFrameCount;
         inputFrameSize = android::hardware::audio::common::getFrameSizeInBytes(
                 input.base.format, input.base.channelMask);
