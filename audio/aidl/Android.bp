@@ -59,7 +59,7 @@ aidl_interface {
     versions_with_info: [
         {
             version: "1",
-            imports: ["android.media.audio.common.types-V2"],
+            imports: ["android.media.audio.common.types-V1"],
         },
         // IMPORTANT: Update latest_android_hardware_audio_common every time you
         // add the latest frozen version to versions_with_info
