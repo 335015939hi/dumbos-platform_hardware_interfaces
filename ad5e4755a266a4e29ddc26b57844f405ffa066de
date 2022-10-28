@@ -16,6 +16,24 @@
       "message": "HapticGenerator ** typo across the file.",
       "revId": "ad5e4755a266a4e29ddc26b57844f405ffa066de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22bc4dff_b2ff47f3",
+        "filename": "audio/aidl/android/hardware/audio/effect/HapticGenerator.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-28T01:02:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "424e76d5_420bbafe",
+      "revId": "ad5e4755a266a4e29ddc26b57844f405ffa066de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
