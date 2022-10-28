@@ -238,6 +238,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb104d11_5f999ad3",
+        "filename": "audio/aidl/default/include/effect-impl/EffectContext.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-28T21:12:06Z",
+      "side": 1,
+      "message": "I think, we should indeed. Please add something like a LOG_ALWAYS_FATAL if the input or output format isn\u0027t PcmType::FLOAT_32_BIT. Otherwise the behavior of the effect will be very confusing.",
+      "parentUuid": "2bf58f83_8988d570",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 60
+      },
+      "revId": "a06e0a4f9f4095dd9f5c4409608ef45d6d1173ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e9727edf_026f149c",
         "filename": "audio/aidl/default/include/equalizer-impl/EqualizerSw.h",
         "patchSetId": 10
