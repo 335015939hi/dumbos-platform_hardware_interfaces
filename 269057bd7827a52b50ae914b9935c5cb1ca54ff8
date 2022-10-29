@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdc32be8_dc91e786",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-10-29T14:35:25Z",
+      "side": 1,
+      "message": "I tried something similar a while ago in aosp/1879916 but had to revert it (in aosp/2028363) -- it will be interesting to see if you hit something similar (cf. https://b.corp.google.com/issues/224515306#comment3)",
+      "revId": "269057bd7827a52b50ae914b9935c5cb1ca54ff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f8b05a1_3baf6ca4",
