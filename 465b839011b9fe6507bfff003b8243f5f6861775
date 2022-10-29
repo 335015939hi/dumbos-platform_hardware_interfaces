@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c03498c_28bbbb75",
+        "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-29T00:59:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4d81b06_f664dc99",
+      "range": {
+        "startLine": 64,
+        "startChar": 33,
+        "endLine": 64,
+        "endChar": 42
+      },
+      "revId": "465b839011b9fe6507bfff003b8243f5f6861775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfb93f20_55dbfc5f",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-10-28T22:25:26Z",
       "side": 1,
       "message": "I would recommend creating an enum for the parameter names. It also serves as a doc for the parameter tuple:\n\n```\nenum { PARAM_INSTANCE_NAME, PARAM_PRESET_INDEX, ... };\nusing EqualizerParamTestParam \u003d std::tuple\u003c...\n```",
+      "range": {
+        "startLine": 77,
+        "startChar": 32,
+        "endLine": 77,
+        "endChar": 57
+      },
+      "revId": "465b839011b9fe6507bfff003b8243f5f6861775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0af2b739_abe9e56e",
+        "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-29T00:59:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfb93f20_55dbfc5f",
       "range": {
         "startLine": 77,
         "startChar": 32,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3f5aaed_9b2f60c7",
+        "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-29T00:59:27Z",
+      "side": 1,
+      "message": "Because if index not in range and setter failed, there is nothing to verify with getter",
+      "parentUuid": "c321316a_b3569451",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 81
+      },
+      "revId": "465b839011b9fe6507bfff003b8243f5f6861775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0eca3c24_e0b06349",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-10-28T22:25:26Z",
       "side": 1,
       "message": "I would suggest providing a test name generator here. The default generator creates names that are not very comprehensive, usually it just uses indexes of generated parameters in the range. See go/gunitadvanced#specifying-names-for-value-parameterized-test-parameters",
+      "range": {
+        "startLine": 262,
+        "startChar": 78,
+        "endLine": 262,
+        "endChar": 80
+      },
+      "revId": "465b839011b9fe6507bfff003b8243f5f6861775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8c6ef04_cf600daf",
+        "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-29T00:59:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eca3c24_e0b06349",
       "range": {
         "startLine": 262,
         "startChar": 78,
