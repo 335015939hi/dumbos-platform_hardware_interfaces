@@ -106,8 +106,16 @@ cc_binary {
     vintf_fragments: ["android.hardware.audio.effect.service-aidl.xml"],
     defaults: ["aidlaudioeffectservice_defaults"],
     shared_libs: [
-        "libequalizer",
         "libbundleaidl",
+        "libbassboostsw",
+        "libdynamicsprocessingsw",
+        "libequalizersw",
+        "libhapticgeneratorsw",
+        "libloudnessenhancersw",
+        "libreverbsw",
+        "libvirtualizersw",
+        "libvisualizersw",
+        "libvolumesw",
     ],
     srcs: [
         "EffectMain.cpp",
