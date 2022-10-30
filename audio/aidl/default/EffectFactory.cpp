@@ -28,8 +28,20 @@ namespace aidl::android::hardware::audio::effect {
 
 Factory::Factory() {
     // TODO: get list of library UUID and name from audio_effect.xml.
-    openEffectLibrary(EqualizerTypeUUID, EqualizerSwImplUUID, std::nullopt, "libequalizer.so");
+    openEffectLibrary(EqualizerTypeUUID, EqualizerSwImplUUID, std::nullopt, "libequalizersw.so");
     openEffectLibrary(EqualizerTypeUUID, EqualizerBundleImplUUID, std::nullopt, "libbundleaidl.so");
+    openEffectLibrary(BassBoostTypeUUID, BassBoostSwImplUUID, std::nullopt, "libbassboostsw.so");
+    openEffectLibrary(DynamicsProcessingTypeUUID, DynamicsProcessingSwImplUUID, std::nullopt,
+                      "libdynamicsprocessingsw.so");
+    openEffectLibrary(HapticGeneratorTypeUUID, HapticGeneratorSwImplUUID, std::nullopt,
+                      "libhapticgeneratorsw.so");
+    openEffectLibrary(LoudnessEnhancerTypeUUID, LoudnessEnhancerSwImplUUID, std::nullopt,
+                      "libloudnessenhancersw.so");
+    openEffectLibrary(ReverbTypeUUID, ReverbSwImplUUID, std::nullopt, "libreverbsw.so");
+    openEffectLibrary(VirtualizerTypeUUID, VirtualizerSwImplUUID, std::nullopt,
+                      "libvirtualizersw.so");
+    openEffectLibrary(VisualizerTypeUUID, VisualizerSwImplUUID, std::nullopt, "libvisualizersw.so");
+    openEffectLibrary(VolumeTypeUUID, VolumeSwImplUUID, std::nullopt, "libvolumesw.so");
 }
 
 Factory::~Factory() {
