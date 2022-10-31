@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e72c893_16ee43d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-10-31T19:39:18Z",
+      "side": 1,
+      "message": "Known issues:\n\nVTS tests are incomplete\nMetadata helpers still need to be added (aka, the new libgralloctypes)\n\nBut this CL is getting big, so want to start landing stuff to break it up",
+      "revId": "0a3c540ae16f330e7b01b586f80a44f798540e8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
