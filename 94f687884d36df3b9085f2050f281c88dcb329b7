@@ -16,6 +16,29 @@
       "message": "TY for the patch weilin sang!",
       "revId": "94f687884d36df3b9085f2050f281c88dcb329b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b127131e_61d113ab",
+        "filename": "ir/aidl/default/main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-10-31T20:42:21Z",
+      "side": 1,
+      "message": "you know - this may not be initialized - the logic here should probably handle if it\u0027s null - let me create a quick follow-up change at least to remove UB (though - Android does heap zeroing).\n\nMaybe this should be a hard failure if the module is not available?",
+      "range": {
+        "startLine": 50,
+        "startChar": 88,
+        "endLine": 50,
+        "endChar": 95
+      },
+      "revId": "94f687884d36df3b9085f2050f281c88dcb329b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
