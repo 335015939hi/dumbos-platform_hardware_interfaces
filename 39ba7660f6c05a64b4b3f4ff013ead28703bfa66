@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "401f374d_16681c93",
+        "filename": "ir/aidl/default/main.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-31T18:16:13Z",
+      "side": 1,
+      "message": "We don\u0027t need these casts from int to uint with AIDL version since minHz/maxHz are int.",
+      "range": {
+        "startLine": 72,
+        "startChar": 35,
+        "endLine": 72,
+        "endChar": 56
+      },
+      "revId": "39ba7660f6c05a64b4b3f4ff013ead28703bfa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "451d4534_ff78c9f5",
+        "filename": "ir/aidl/default/main.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-31T18:16:13Z",
+      "side": 1,
+      "message": "fix linter suggestion.",
+      "range": {
+        "startLine": 83,
+        "startChar": 10,
+        "endLine": 83,
+        "endChar": 11
+      },
+      "revId": "39ba7660f6c05a64b4b3f4ff013ead28703bfa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
