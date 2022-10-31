@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6257e6e1_8e1fc5ee",
+        "filename": "security/keymint/aidl/aidl_api/android.hardware.security.keymint/current/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-10-31T06:38:57Z",
+      "side": 1,
+      "message": "I wonder if this isn\u0027t something that we should put in RpcHardwareInfo, with the VTS just enforcing a minimum bound of 10.\n\nSince TEE\u0027s are less memory sensitive, and also likely to be the bulk of provisioning requests, I\u0027d rather we avoid cases of doing a lot of extra round trips to provision TEE IRPC instances just to have a blanket accommodation for SE\u0027s.\n\nAdditionally, we may need to consider modifying the Trusty HAL service / TA implementation to chunk this HAL call into multiple requests once there is a real DICE chain being passed in from GSA, as this will add a lot of memory pressure and is easily decomposable from the top level CSR array.",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 37
+      },
+      "revId": "3f0a15769bbf6e7b36cdf61fb98427d628356ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "338a5394_c3246702",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
