@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a543b616_e49fefa6",
+        "filename": "graphics/allocator/aidl/android/hardware/graphics/allocator/BufferDescriptorInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-10-31T21:28:39Z",
+      "side": 1,
+      "message": "By keeping it as the type you can play operator overloading games with it, see the updated VTS example",
+      "parentUuid": "616ec9a2_ede471b9",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 15
+      },
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5307f644_6dc6f7f8",
         "filename": "graphics/allocator/aidl/android/hardware/graphics/allocator/IAllocator.aidl",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-31T21:01:24Z",
       "side": 1,
       "message": "nit: android.hardware.graphics.allocator-V2",
+      "range": {
+        "startLine": 35,
+        "startChar": 25,
+        "endLine": 35,
+        "endChar": 38
+      },
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63e175ea_ad980299",
+        "filename": "graphics/allocator/aidl/android/hardware/graphics/allocator/IAllocator.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-10-31T21:28:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5307f644_6dc6f7f8",
       "range": {
         "startLine": 35,
         "startChar": 25,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7db26b30_b428045b",
+        "filename": "graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-10-31T21:28:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39695eec_c11d25b0",
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2e056b7_ad6b4fd8",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-10-31T21:01:24Z",
       "side": 1,
       "message": "should be unsigned to prevent sign extension",
+      "range": {
+        "startLine": 65,
+        "startChar": 27,
+        "endLine": 65,
+        "endChar": 34
+      },
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1e7824e_d5532dcd",
+        "filename": "graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-10-31T21:28:39Z",
+      "side": 1,
+      "message": "unsigned would be incorrect as that\u0027d be a type change. BufferUsage is an int64_t, but it\u0027s an `enum class` hence the cast to do bitwise operations with it.\n\nChanged to std::underlying_type_t though to avoid this confusion in the future (and did some other tweaks)",
+      "parentUuid": "e2e056b7_ad6b4fd8",
       "range": {
         "startLine": 65,
         "startChar": 27,
@@ -112,6 +202,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a8d0e9a_7c22d4c9",
+        "filename": "graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-10-31T21:28:39Z",
+      "side": 1,
+      "message": "We could but why? This is only part of the VTS test so the risk of bad data is pretty nonexistent.",
+      "parentUuid": "046d924c_3d0fc656",
+      "range": {
+        "startLine": 72,
+        "startChar": 12,
+        "endLine": 72,
+        "endChar": 67
+      },
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dcc4abe6_094bc086",
         "filename": "graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp",
         "patchSetId": 2
@@ -123,6 +237,30 @@
       "writtenOn": "2022-10-31T21:01:24Z",
       "side": 1,
       "message": "I didn\u0027t see this as part of getIMapperLibrarySuffix documentation. Can we add it to there?",
+      "range": {
+        "startLine": 155,
+        "startChar": 57,
+        "endLine": 155,
+        "endChar": 83
+      },
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ca81835_5c5555b2",
+        "filename": "graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-10-31T21:28:39Z",
+      "side": 1,
+      "message": "The getIMapperLibrarySuffix documentation is correct \u0026 this comment is wrong - fixed.",
+      "parentUuid": "dcc4abe6_094bc086",
       "range": {
         "startLine": 155,
         "startChar": 57,
