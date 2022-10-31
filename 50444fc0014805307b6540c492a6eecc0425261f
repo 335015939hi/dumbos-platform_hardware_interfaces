@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ce62738_5fc58eef",
+        "filename": "audio/aidl/android/hardware/audio/effect/DynamicsProcessing.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-31T19:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b4eb4fa_5fddddde",
+      "range": {
+        "startLine": 99,
+        "startChar": 14,
+        "endLine": 99,
+        "endChar": 36
+      },
+      "revId": "50444fc0014805307b6540c492a6eecc0425261f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e44d868_bf49841c",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-31T18:04:27Z",
       "side": 1,
       "message": "What\u0027s this ID? Can we add some description for this?",
+      "range": {
+        "startLine": 72,
+        "startChar": 12,
+        "endLine": 72,
+        "endChar": 14
+      },
+      "revId": "50444fc0014805307b6540c492a6eecc0425261f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35cd7c3d_6c34a6c5",
+        "filename": "audio/aidl/android/hardware/audio/effect/HapticGenerator.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-31T19:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e44d868_bf49841c",
       "range": {
         "startLine": 72,
         "startChar": 12,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fff1ea30_74f7cf03",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-31T19:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27931c3a_4c1d4af4",
+      "range": {
+        "startLine": 76,
+        "startChar": 12,
+        "endLine": 76,
+        "endChar": 15
+      },
+      "revId": "50444fc0014805307b6540c492a6eecc0425261f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f07846e_8765e426",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e1fcc5_46a5bdc0",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-31T19:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f07846e_8765e426",
+      "range": {
+        "startLine": 152,
+        "startChar": 12,
+        "endLine": 152,
+        "endChar": 19
+      },
+      "revId": "50444fc0014805307b6540c492a6eecc0425261f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f200d3cd_b3b9e63d",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-10-31T18:04:27Z",
       "side": 1,
       "message": "captureSizeBytes",
+      "range": {
+        "startLine": 160,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 19
+      },
+      "revId": "50444fc0014805307b6540c492a6eecc0425261f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a2241b0_5d85dc01",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-10-31T19:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f200d3cd_b3b9e63d",
       "range": {
         "startLine": 160,
         "startChar": 8,
