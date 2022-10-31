@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a83d6bb_044249cf",
+        "filename": "bluetooth/aidl/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-31T18:41:32Z",
+      "side": 1,
+      "message": "we can disable the cpp backend now and stick to the ndk backend.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 26
+      },
+      "revId": "3e98500020781e59927450193e86f465742dd6f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbb70e23_7cdad3fd",
+        "filename": "bluetooth/aidl/android/hardware/bluetooth/IBluetoothHciCallbacks.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-31T18:41:32Z",
+      "side": 1,
+      "message": "nit: from",
+      "range": {
+        "startLine": 27,
+        "startChar": 31,
+        "endLine": 27,
+        "endChar": 35
+      },
+      "revId": "3e98500020781e59927450193e86f465742dd6f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
