@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3844a259_5edb09ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-31T15:55:43Z",
+      "side": 1,
+      "message": "hal_implementation_test is failing because it wants the latest versions of all vintf HALs implemented on Cuttlefish. Need to bump the dependencies on the cuttlefish implementations",
+      "revId": "b28d6bf1a55d1a7bd094d023a6b700ffaa9c1767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
