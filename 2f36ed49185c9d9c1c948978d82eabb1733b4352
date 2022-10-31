@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "616ec9a2_ede471b9",
+        "filename": "graphics/allocator/aidl/android/hardware/graphics/allocator/BufferDescriptorInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-10-31T21:01:24Z",
+      "side": 1,
+      "message": "nit: I wonder it this should be `long` instead of BufferUsage as it is a bitmask. Having the type as BufferUsage might be confusing to think this is one of the enum values.",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 15
+      },
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5307f644_6dc6f7f8",
+        "filename": "graphics/allocator/aidl/android/hardware/graphics/allocator/IAllocator.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-10-31T21:01:24Z",
+      "side": 1,
+      "message": "nit: android.hardware.graphics.allocator-V2",
+      "range": {
+        "startLine": 35,
+        "startChar": 25,
+        "endLine": 35,
+        "endChar": 38
+      },
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39695eec_c11d25b0",
+        "filename": "graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-10-31T21:01:24Z",
+      "side": 1,
+      "message": "nit: consider limiting the scope of this just for when we use the expected deprecated function",
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2e056b7_ad6b4fd8",
+        "filename": "graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-10-31T21:01:24Z",
+      "side": 1,
+      "message": "should be unsigned to prevent sign extension",
+      "range": {
+        "startLine": 65,
+        "startChar": 27,
+        "endLine": 65,
+        "endChar": 34
+      },
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "046d924c_3d0fc656",
+        "filename": "graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-10-31T21:01:24Z",
+      "side": 1,
+      "message": "should we check if info.name.data is null-terminated?",
+      "range": {
+        "startLine": 72,
+        "startChar": 12,
+        "endLine": 72,
+        "endChar": 67
+      },
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcc4abe6_094bc086",
+        "filename": "graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-10-31T21:01:24Z",
+      "side": 1,
+      "message": "I didn\u0027t see this as part of getIMapperLibrarySuffix documentation. Can we add it to there?",
+      "range": {
+        "startLine": 155,
+        "startChar": 57,
+        "endLine": 155,
+        "endChar": 83
+      },
+      "revId": "2f36ed49185c9d9c1c948978d82eabb1733b4352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
