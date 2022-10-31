@@ -52,6 +52,24 @@
       "parentUuid": "2131baee_11918d5a",
       "revId": "b28d6bf1a55d1a7bd094d023a6b700ffaa9c1767",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "883f6f2c_553a12b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-10-31T23:59:44Z",
+      "side": 1,
+      "message": "we need to add the new version to the framework compatibility matrix file as part of bumping the versions. (build failures)\n https://source.corp.google.com/android/hardware/interfaces/compatibility_matrices/compatibility_matrix.current.xml;l\u003d1\n\nBumping the VTS test dependencies is probably a good idea even if there isn\u0027t anything new to test.",
+      "parentUuid": "9667b2b6_6fa6dd08",
+      "revId": "b28d6bf1a55d1a7bd094d023a6b700ffaa9c1767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
