@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0612aa0_39b14766",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2022-10-31T17:16:42Z",
+      "side": 1,
+      "message": "Cherry-picked from aosp/2256003",
+      "revId": "f7d6c01dbea2e15b2424a0c1c29489b98b84df3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
