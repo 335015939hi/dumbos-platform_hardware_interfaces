@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "767bee8f_7743a352",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-11-01T17:25:49Z",
+      "side": 1,
+      "message": "code lgtm - doc nits",
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4cd493c_a8b91f85",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-11-01T17:25:49Z",
+      "side": 1,
+      "message": "can we require this, instead of strongly encourage?",
+      "range": {
+        "startLine": 556,
+        "startChar": 7,
+        "endLine": 557,
+        "endChar": 16
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ecf331b_f27b6bf9",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-11-01T17:25:49Z",
+      "side": 1,
+      "message": "do we need this block under the setMetadata docs? seems more appropriate under setStandardMetadata",
+      "range": {
+        "startLine": 554,
+        "startChar": 7,
+        "endLine": 561,
+        "endChar": 76
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
