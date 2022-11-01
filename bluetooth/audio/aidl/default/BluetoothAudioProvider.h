@@ -18,7 +18,11 @@
 #include <aidl/android/hardware/bluetooth/audio/BnBluetoothAudioProvider.h>
 #include <aidl/android/hardware/bluetooth/audio/LatencyMode.h>
 #include <aidl/android/hardware/bluetooth/audio/SessionType.h>
+#include <android-base/thread_annotations.h>
 #include <fmq/AidlMessageQueue.h>
+
+#include <memory>
+#include <unordered_map>
 
 using ::aidl::android::hardware::common::fmq::MQDescriptor;
 using ::aidl::android::hardware::common::fmq::SynchronizedReadWrite;
@@ -35,7 +39,9 @@ namespace hardware {
 namespace bluetooth {
 namespace audio {
 
-class BluetoothAudioProvider : public BnBluetoothAudioProvider {
+class BluetoothAudioProvider
+    : public std::enable_shared_from_this<BluetoothAudioProvider>,
+      public BnBluetoothAudioProvider {
  public:
   BluetoothAudioProvider();
   ndk::ScopedAStatus startSession(
@@ -54,7 +60,8 @@ class BluetoothAudioProvider : public BnBluetoothAudioProvider {
 
  protected:
   virtual ndk::ScopedAStatus onSessionReady(DataMQDesc* _aidl_return) = 0;
-  static void binderDiedCallbackAidl(void* cookie_ptr);
+  static void onBinderDied(void* cookie_ptr);
+  static void onBinderUnlinked(void* cookie_ptr);
 
   ::ndk::ScopedAIBinder_DeathRecipient death_recipient_;
 
@@ -63,6 +70,18 @@ class BluetoothAudioProvider : public BnBluetoothAudioProvider {
   SessionType session_type_;
   std::vector<LatencyMode> latency_modes_;
   bool is_binder_died = false;
+
+  // OnBinderDiedContext is a type used as a cookie passed deathRecipient. The
+  // deathRecipient's onBinderDied function takes only a cookie as input and we
+  // have to store all the contexts as the cookie.
+  struct OnBinderDiedContext {
+    std::weak_ptr<BluetoothAudioProvider> btAudioProvider;
+    const AIBinder* clientId;
+  };
+
+  std::mutex mLock;
+  std::unordered_map<const AIBinder*, std::unique_ptr<OnBinderDiedContext>>
+      mOnBinderDiedContexts GUARDED_BY(mLock);
 };
 
 }  // namespace audio
