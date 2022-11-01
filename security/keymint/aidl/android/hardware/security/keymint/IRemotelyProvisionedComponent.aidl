@@ -318,10 +318,9 @@ interface IRemotelyProvisionedComponent {
      * Csr = AuthenticatedMessage<CsrPayload>
      *
      * CsrPayload = [                      ; CBOR Array defining the payload for Csr
-     *     version: 1,                     ; The CsrPayload CDDL Schema version.
+     *     version: 3,                     ; The CsrPayload CDDL Schema version.
      *     CertificateType,                ; The type of certificate being requested.
      *     DeviceInfo,                     ; Defined in DeviceInfo.aidl
-     *     challenge: bstr .size (32..64), ; Provided by the method parameters
      *     KeysToSign,                     ; Provided by the method parameters
      * ]
      *
@@ -336,10 +335,13 @@ interface IRemotelyProvisionedComponent {
      * KeysToSign = [ * PublicKey ]   ; Please see MacedPublicKey.aidl for the PublicKey definition.
      *
      * AuthenticatedMessage<T> = [
-     *    version: 3,              ; The AuthenticatedMessage CDDL Schema version.
-     *    UdsCerts,
-     *    DiceCertChain,
-     *    SignedData<T>,
+     *     version: 1,              ; The AuthenticatedMessage CDDL Schema version.
+     *     UdsCerts,
+     *     DiceCertChain,
+     *     SignedData<[
+     *         challenge: bstr .size (32..64), ; Provided by the method parameters
+     *         T,
+     *     ]>,
      * ]
      *
      * ; COSE_Sign1 (untagged)
