@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "248e62e4_74dab46e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-01T20:22:08Z",
+      "side": 1,
+      "message": "Slightly confused here: go/android-api-types#hide implies that @hide is for internal APIs which will change without notice, but these HALs are versioned and stable.",
+      "revId": "ac78c2d54d9290cc9411b7cb2b97d1e5e813e3d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "698eb9b1_e6cacd0a",
         "filename": "keymaster/aidl/android/hardware/keymaster/Timestamp.aidl",
         "patchSetId": 4
