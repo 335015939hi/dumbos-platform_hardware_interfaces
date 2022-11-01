@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77491aa6_25497d1b",
+        "filename": "graphics/allocator/aidl/android/hardware/graphics/allocator/BufferDescriptorInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047283
+      },
+      "writtenOn": "2022-11-01T21:34:50Z",
+      "side": 1,
+      "message": "Can we use this opportunity to increase the number of bits for buffer usage ? The limited number of bits has long been a concern.",
+      "range": {
+        "startLine": 59,
+        "startChar": 16,
+        "endLine": 59,
+        "endChar": 21
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f4cd493c_a8b91f85",
         "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
         "patchSetId": 6
