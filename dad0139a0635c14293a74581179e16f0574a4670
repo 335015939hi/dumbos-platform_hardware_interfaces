@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fee4f737_03b61de6",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T17:40:49Z",
+      "side": 1,
+      "message": "Do we know of anyone with an IMapper4 that doesn\u0027t support this? I\u0027m fine with promoting these to required if there\u0027s not any expected pushback. I was aiming to keep this a mechanical update for vendors as much as a possible.",
+      "parentUuid": "f4cd493c_a8b91f85",
+      "range": {
+        "startLine": 556,
+        "startChar": 7,
+        "endLine": 557,
+        "endChar": 16
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ecf331b_f27b6bf9",
         "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
         "patchSetId": 6
@@ -54,6 +78,30 @@
       "writtenOn": "2022-11-01T17:25:49Z",
       "side": 1,
       "message": "do we need this block under the setMetadata docs? seems more appropriate under setStandardMetadata",
+      "range": {
+        "startLine": 554,
+        "startChar": 7,
+        "endLine": 561,
+        "endChar": 76
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d5430f9_cda554ab",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T17:40:49Z",
+      "side": 1,
+      "message": "Both of them can set the standard metadata though. I don\u0027t know why framework would opt for the slower generic one over the fast path, but the comment is strictly speaking relevant to both",
+      "parentUuid": "8ecf331b_f27b6bf9",
       "range": {
         "startLine": 554,
         "startChar": 7,
