@@ -29,7 +29,9 @@ namespace audio {
 
 BluetoothAudioProvider::BluetoothAudioProvider() {
   death_recipient_ = ::ndk::ScopedAIBinder_DeathRecipient(
-      AIBinder_DeathRecipient_new(binderDiedCallbackAidl));
+      AIBinder_DeathRecipient_new(onBinderDied));
+  AIBinder_DeathRecipient_setOnUnlinked(death_recipient_.get(),
+                                        onBinderUnlinked);
 }
 
 ndk::ScopedAStatus BluetoothAudioProvider::startSession(
@@ -42,13 +44,31 @@ ndk::ScopedAStatus BluetoothAudioProvider::startSession(
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
   }
 
+  // Lock to make sure onBinderDied would not be called concurrently.
+  std::scoped_lock lockGuard(mLock);
+  AIBinder* clientId = host_if->asBinder().get();
+
+  if (mOnBinderDiedContexts.find(clientId) != mOnBinderDiedContexts.end()) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+  }
+
   latency_modes_ = latencyModes;
   audio_config_ = std::make_unique<AudioConfiguration>(audio_config);
   stack_iface_ = host_if;
   is_binder_died = false;
 
-  AIBinder_linkToDeath(stack_iface_->asBinder().get(), death_recipient_.get(),
-                       this);
+  std::unique_ptr<OnBinderDiedContext> context =
+      std::make_unique<OnBinderDiedContext>(OnBinderDiedContext{
+          .btAudioProvider = this->ref<BluetoothAudioProvider>(),
+          .clientId = clientId});
+  // We know context must be alive when we use contextPtr because context would
+  // only be removed in OnBinderUnlinked, which must be called after
+  // OnBinderDied.
+  void* contextPtr = static_cast<void*>(context.get());
+  // Insert into a map to keep the context object alive.
+  mOnBinderDiedContexts[clientId] = std::move(context);
+
+  AIBinder_linkToDeath(clientId, death_recipient_.get(), contextPtr);
 
   onSessionReady(_aidl_return);
   return ndk::ScopedAStatus::ok();
@@ -143,15 +163,31 @@ ndk::ScopedAStatus BluetoothAudioProvider::setLowLatencyModeAllowed(
   return ndk::ScopedAStatus::ok();
 }
 
-void BluetoothAudioProvider::binderDiedCallbackAidl(void* ptr) {
-  LOG(ERROR) << __func__ << " - BluetoothAudio Service died";
-  auto provider = static_cast<BluetoothAudioProvider*>(ptr);
-  if (provider == nullptr) {
-    LOG(ERROR) << __func__ << ": Null AudioProvider HAL died";
+void BluetoothAudioProvider::onBinderDied(void* cookie) {
+  OnBinderDiedContext* context = reinterpret_cast<OnBinderDiedContext*>(cookie);
+  std::shared_ptr<BluetoothAudioProvider> provider =
+      context->btAudioProvider.lock();
+  if (!provider) {
+    LOG(ERROR) << __func__ << ": AudioProvider HAL died";
     return;
   }
+  LOG(DEBUG) << __func__ << ": BluetoothAudio binder died";
   provider->is_binder_died = true;
   provider->endSession();
+}
+
+void BluetoothAudioProvider::onBinderUnlinked(void* cookie) {
+  OnBinderDiedContext* context = reinterpret_cast<OnBinderDiedContext*>(cookie);
+  std::shared_ptr<BluetoothAudioProvider> provider =
+      context->btAudioProvider.lock();
+  if (!provider) {
+    LOG(ERROR) << __func__ << ": AudioProvider HAL died";
+    return;
+  }
+  LOG(DEBUG) << __func__ << ": BluetoothAudio binder unlinked";
+  std::scoped_lock<std::mutex> lockGuard(provider->mLock);
+  // Delete the context associated with this cookie.
+  provider->mOnBinderDiedContexts.erase(context->clientId);
 }
 
 }  // namespace audio
