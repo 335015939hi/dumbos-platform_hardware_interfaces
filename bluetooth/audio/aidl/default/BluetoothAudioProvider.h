@@ -54,7 +54,8 @@ class BluetoothAudioProvider : public BnBluetoothAudioProvider {
 
  protected:
   virtual ndk::ScopedAStatus onSessionReady(DataMQDesc* _aidl_return) = 0;
-  static void binderDiedCallbackAidl(void* cookie_ptr);
+  static void onBinderDied(void* cookie_ptr);
+  static void onBinderUnlinked(void* cookie_ptr);
 
   ::ndk::ScopedAIBinder_DeathRecipient death_recipient_;
 
@@ -63,6 +64,15 @@ class BluetoothAudioProvider : public BnBluetoothAudioProvider {
   SessionType session_type_;
   std::vector<LatencyMode> latency_modes_;
   bool is_binder_died = false;
+
+  // OnBinderDiedContext is a type used as a cookie passed deathRecipient. The
+  // deathRecipient's onBinderDied function takes only a cookie as input and we
+  // have to store all the contexts as the cookie.
+  struct OnBinderDiedContext {
+    std::weak_ptr<BluetoothAudioProvider> btAudioProvider;
+  };
+
+  std::unique_ptr<OnBinderDiedContext> mOnBinderDiedContext;
 };
 
 }  // namespace audio
