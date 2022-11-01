@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "055f5707_d460f82b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-01T17:29:22Z",
+      "side": 1,
+      "message": "Implement the AIDL version. The HIDL version is deprecated.",
+      "revId": "14c995fdef6a23e722f9c711d022694de5d65a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
