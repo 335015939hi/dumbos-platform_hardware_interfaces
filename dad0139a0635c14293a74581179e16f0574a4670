@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a82d362f_94ad3cf8",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-11-01T22:08:22Z",
+      "side": 1,
+      "message": "I\u0027m not aware of any IMapper4 implementation not supporting this, no.\n\nIf we think it might make adoption harder then I\u0027m fine with punting until we survey implementations. I just worry that using metadata in the framework + cleaning up various composer/bufferqueue apis can never happen until everyone\u0027s using metadaata.",
+      "parentUuid": "fee4f737_03b61de6",
+      "range": {
+        "startLine": 556,
+        "startChar": 7,
+        "endLine": 557,
+        "endChar": 16
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ecf331b_f27b6bf9",
         "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
         "patchSetId": 6
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "Both of them can set the standard metadata though. I don\u0027t know why framework would opt for the slower generic one over the fast path, but the comment is strictly speaking relevant to both",
       "parentUuid": "8ecf331b_f27b6bf9",
+      "range": {
+        "startLine": 554,
+        "startChar": 7,
+        "endLine": 561,
+        "endChar": 76
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d4c4511_0dbc1e5d",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-11-01T22:08:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9d5430f9_cda554ab",
       "range": {
         "startLine": 554,
         "startChar": 7,
