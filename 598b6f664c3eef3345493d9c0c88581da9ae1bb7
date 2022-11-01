@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10609154_92e6365a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2022-11-01T04:04:10Z",
+      "side": 1,
+      "message": "I notice by simply building my tree, the file here are not rebuilt.\nI have to explicitly ask to build `android.hardware.bluetooth.audio-impl`\n\nSo I do not know at all if what I am doing is good as I don\u0027t know if it\u0027s pushed on my phone during a flash.\n\nMy test is the following:\n* Flash\n* Start bt\n* Pair a device\n* play audio\n* shutdown bt",
+      "revId": "598b6f664c3eef3345493d9c0c88581da9ae1bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d66d3dfd_bec4099c",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2022-11-01T04:04:10Z",
+      "side": 1,
+      "message": "I have some doubt about this. (no pun intended)\n\nDoes the shared_ptr got drop immediately because I only keep a weak_ptr or does it still live because it link to `this`. But I don\u0027t see how I can have a weak_ptr of this in the context struct",
+      "range": {
+        "startLine": 62,
+        "startChar": 29,
+        "endLine": 62,
+        "endChar": 45
+      },
+      "revId": "598b6f664c3eef3345493d9c0c88581da9ae1bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
