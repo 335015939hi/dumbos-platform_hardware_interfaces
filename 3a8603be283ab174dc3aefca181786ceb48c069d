@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb1e60e6_5bdb0c6f",
+        "filename": "security/keymint/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-01T21:18:14Z",
+      "side": 1,
+      "message": "Should we have another bug open to track the removal of these hanging bug todos?",
+      "range": {
+        "startLine": 23,
+        "startChar": 12,
+        "endLine": 23,
+        "endChar": 52
+      },
+      "revId": "3a8603be283ab174dc3aefca181786ceb48c069d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
