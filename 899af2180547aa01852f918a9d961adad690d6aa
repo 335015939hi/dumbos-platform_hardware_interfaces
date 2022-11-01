@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b002e8b3_a8aba4e9",
+        "filename": "graphics/mapper/stable-c/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T16:28:54Z",
+      "side": 1,
+      "message": "Do you mind if that\u0027s a follow-up CL using b/254345788 to track? I did some preliminary playing around with this and I\u0027m not sure it\u0027s working, and the iteration times are kinda really long so I\u0027d like to parallelize working on that with other necessary follow-up CLs",
+      "parentUuid": "2bbe35c5_2be84608",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c48a5e0_04aa7d14",
         "filename": "graphics/mapper/stable-c/Android.bp",
         "patchSetId": 5
@@ -60,6 +84,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e175006a_8aa64026",
+        "filename": "graphics/mapper/stable-c/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T16:28:54Z",
+      "side": 1,
+      "message": "sorry not following - what visibility subpackages are you wanting to see here?",
+      "parentUuid": "7c48a5e0_04aa7d14",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "33d5cb28_128a14a7",
         "filename": "graphics/mapper/stable-c/Android.bp",
         "patchSetId": 5
@@ -71,6 +113,30 @@
       "writtenOn": "2022-10-31T23:52:47Z",
       "side": 1,
       "message": "nit: remove directory",
+      "range": {
+        "startLine": 73,
+        "startChar": 9,
+        "endLine": 73,
+        "endChar": 13
+      },
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29443d3e_2384bf36",
+        "filename": "graphics/mapper/stable-c/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T16:28:54Z",
+      "side": 1,
+      "message": "I like having vts in its own directory (and follows the pattern of others) - what\u0027s wrong with it?",
+      "parentUuid": "33d5cb28_128a14a7",
       "range": {
         "startLine": 73,
         "startChar": 9,
@@ -104,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb838e7c_e431f813",
+        "filename": "graphics/mapper/stable-c/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T16:28:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc7b64c1_352e47ea",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 50
+      },
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ebe0cab_2dfe0b8b",
@@ -117,6 +207,24 @@
       "writtenOn": "2022-10-31T23:52:47Z",
       "side": 1,
       "message": "(consider/nit on these) add reserved fields? or use approach to hide definition?",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5f7075e_ddb3622c",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T16:28:54Z",
+      "side": 1,
+      "message": "I considered it but I think we\u0027re OK with this being long-term stable? It\u0027s essentially a namespaced enum, which should evolve just fine over the long term I think. I\u0027m not sure what else we\u0027d want to add to that.\n\nNear as I can tell there\u0027s vanishingly few examples of metadata types that aren\u0027t from the `StandardMetadataType.aidl` enum anyway, which is why I added the \"fast path\" for querying standard metadata.",
+      "parentUuid": "6ebe0cab_2dfe0b8b",
       "revId": "899af2180547aa01852f918a9d961adad690d6aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -140,6 +248,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "849b1a1a_ff26f694",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T16:28:54Z",
+      "side": 1,
+      "message": "I can\u0027t really hide the definition since this is a return parameter not an input so it\u0027s provided by the vendor implementation.\n\nAdded some reserved space though.",
+      "parentUuid": "b456285f_d4f1c278",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7af96774_de6a2fee",
         "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
         "patchSetId": 5
@@ -151,6 +277,24 @@
       "writtenOn": "2022-10-31T23:52:47Z",
       "side": 1,
       "message": "add reserved fields? or use approach to hide definition?",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4ef74fa_86b3de4e",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T16:28:54Z",
+      "side": 1,
+      "message": "I can\u0027t tell what this is highlighting to ask about reserved fields / hide definition.\n\nIf this is about the AIMapperV5 struct itself, the size is expected/required to be frozen. Additions would be a version bump + an `AIMapperV\u003cnext\u003e` struct.",
+      "parentUuid": "7af96774_de6a2fee",
       "revId": "899af2180547aa01852f918a9d961adad690d6aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -180,6 +324,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef848fd5_e1e22114",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T16:28:54Z",
+      "side": 1,
+      "message": "If the version is removed it collides with the versioned AIMapper struct below.",
+      "parentUuid": "8f2dccef_e5c1a960",
+      "range": {
+        "startLine": 733,
+        "startChar": 10,
+        "endLine": 733,
+        "endChar": 12
+      },
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29b34da1_9f1483f4",
         "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
         "patchSetId": 5
@@ -197,6 +365,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da218936_3f1af3d2",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T16:28:54Z",
+      "side": 1,
+      "message": "Not necessary, see the versioned struct example of go/android-ndk-api-guidelines#opaque-structs\n\nBecause `AIMapper` is only returned as a pointer, the \"actual\" size doesn\u0027t need to be known to the caller. So new versions can be safely appended here.",
+      "parentUuid": "29b34da1_9f1483f4",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9058653f_aa2a05eb",
         "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
         "patchSetId": 5
@@ -208,6 +394,30 @@
       "writtenOn": "2022-10-31T23:52:47Z",
       "side": 1,
       "message": "if there are more of these laying around in the directory, should we warn or potentially test them as well?",
+      "range": {
+        "startLine": 132,
+        "startChar": 34,
+        "endLine": 132,
+        "endChar": 57
+      },
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c9ebe46_34931c98",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-01T16:28:54Z",
+      "side": 1,
+      "message": "Conceptually it seems like it would make sense for eg the emulator image to have different mappers based off of the \"GPU backend\" in use, in which case it\u0027d be expected that the mapper impls for the backend that\u0027s not enabled would fail. So I think warn/testing them would make the \"simple\" approaches to shared images more annoying and I don\u0027t know if we\u0027d get any value out of that.",
+      "parentUuid": "9058653f_aa2a05eb",
       "range": {
         "startLine": 132,
         "startChar": 34,
