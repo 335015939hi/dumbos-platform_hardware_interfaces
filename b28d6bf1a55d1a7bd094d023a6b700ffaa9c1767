@@ -124,6 +124,24 @@
       "parentUuid": "ee62c039_c556c99b",
       "revId": "b28d6bf1a55d1a7bd094d023a6b700ffaa9c1767",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0914f205_fb189f1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-01T15:18:43Z",
+      "side": 1,
+      "message": "Yeah if there are merge conflicts feel free to submit internal first.",
+      "parentUuid": "bc321551_7a2d8e7c",
+      "revId": "b28d6bf1a55d1a7bd094d023a6b700ffaa9c1767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
