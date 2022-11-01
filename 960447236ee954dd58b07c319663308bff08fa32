@@ -16,6 +16,24 @@
       "message": "Same CL from internal.",
       "revId": "960447236ee954dd58b07c319663308bff08fa32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4fff015_2fc0ae4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-11-01T17:12:16Z",
+      "side": 1,
+      "message": "How come we don\u0027t need `Merged-In`? Isn\u0027t the internal CL already merged?",
+      "parentUuid": "7be26cad_bb4b4848",
+      "revId": "960447236ee954dd58b07c319663308bff08fa32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
