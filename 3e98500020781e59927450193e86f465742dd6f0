@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8c7c6b47_e6fba682",
+        "filename": "bluetooth/aidl/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2022-11-01T16:30:02Z",
+      "side": 1,
+      "message": "I\u0027ll do that in a follow-on CL.",
+      "parentUuid": "6a83d6bb_044249cf",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 26
+      },
+      "revId": "3e98500020781e59927450193e86f465742dd6f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "dbb70e23_7cdad3fd",
         "filename": "bluetooth/aidl/android/hardware/bluetooth/IBluetoothHciCallbacks.aidl",
         "patchSetId": 5
