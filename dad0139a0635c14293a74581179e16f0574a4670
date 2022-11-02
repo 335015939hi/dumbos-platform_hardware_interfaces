@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bab35c66_9a67af9b",
+        "filename": "graphics/allocator/aidl/android/hardware/graphics/allocator/BufferDescriptorInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1047283
+      },
+      "writtenOn": "2022-11-02T23:51:12Z",
+      "side": 1,
+      "message": "Filed bug",
+      "parentUuid": "141859bd_447d7c59",
+      "range": {
+        "startLine": 59,
+        "startChar": 16,
+        "endLine": 59,
+        "endChar": 21
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0635b12a_88948a62",
