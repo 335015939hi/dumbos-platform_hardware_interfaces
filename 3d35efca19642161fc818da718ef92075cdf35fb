@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3be72d8c_dfa93db7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-11-02T15:07:10Z",
+      "side": 1,
+      "message": "Is HdmiPortInfo tested in VTS as well? If so, we should update there as well.",
+      "revId": "3d35efca19642161fc818da718ef92075cdf35fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
