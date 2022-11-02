@@ -16,6 +16,24 @@
       "message": "Is HdmiPortInfo tested in VTS as well? If so, we should update there as well.",
       "revId": "3d35efca19642161fc818da718ef92075cdf35fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0206ff4_d8a34cfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-11-02T17:26:19Z",
+      "side": 1,
+      "message": "The test does not check if the arcSupported or eArcSupported fields are set to a particular value, since the DUT may not support them. The test only checks that the API does not fail, the port number starts from 1 and that at least one port reports CEC supported as true.",
+      "parentUuid": "3be72d8c_dfa93db7",
+      "revId": "3d35efca19642161fc818da718ef92075cdf35fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
