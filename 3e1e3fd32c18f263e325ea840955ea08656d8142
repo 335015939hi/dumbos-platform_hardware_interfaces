@@ -16,6 +16,24 @@
       "message": "Is there a mapping missing so that HALs will map appropriately with a new system image + old vendor image that has the old HAL paths?\n\nOr is there some magic that I\u0027m simply not seeing?\n\nAlso, do we need to keep the android.hardware.security.keymint package name in the newly split \"rkp\" HAL?\n\nIf this is just the start, lmk and I\u0027ll hold off on asking more questions until later.",
       "revId": "3e1e3fd32c18f263e325ea840955ea08656d8142",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "711a2d31_cce7f948",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-02T00:28:15Z",
+      "side": 1,
+      "message": "The package is not actually changed, so from the ABI perspective between partitions, this looks exactly the same. What it is is a way to build things separately which previously we built together.\n\nAlso - you can use typedef if you want to do the rename in C++ or Rust. Renaming this here is another complication, and the focus is on fixing this from an API perspective due to keymint using an internal annotation.",
+      "parentUuid": "3737fd82_dc40ce3e",
+      "revId": "3e1e3fd32c18f263e325ea840955ea08656d8142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
