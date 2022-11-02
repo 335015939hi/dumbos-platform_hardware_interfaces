@@ -22,6 +22,30 @@
       },
       "revId": "7eb955e7cf21174f582a0eaf0de4d84c636a6522",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bd3621d_4a038705",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamCallback.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-02T01:05:18Z",
+      "side": 1,
+      "message": "OK, we will have two different DRAIN comments, will need to define them.",
+      "parentUuid": "4bfdd68a_3fe69d3e",
+      "range": {
+        "startLine": 32,
+        "startChar": 37,
+        "endLine": 32,
+        "endChar": 77
+      },
+      "revId": "7eb955e7cf21174f582a0eaf0de4d84c636a6522",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
