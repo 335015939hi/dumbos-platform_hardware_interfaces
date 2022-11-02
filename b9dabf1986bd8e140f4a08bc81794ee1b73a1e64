@@ -39,6 +39,30 @@
       },
       "revId": "b9dabf1986bd8e140f4a08bc81794ee1b73a1e64",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0f0e734_b8bb8b05",
+        "filename": "security/rkp/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-02T23:20:14Z",
+      "side": 1,
+      "message": "module API or system API with min_sdk_version 33 should be fine. I left it as-is here, the reason it doesn\u0027t work in keymint is @SensitiveData. It would be worth trying here in case there is anything else",
+      "parentUuid": "d51dcdfe_bea763a2",
+      "range": {
+        "startLine": 23,
+        "startChar": 12,
+        "endLine": 23,
+        "endChar": 32
+      },
+      "revId": "b9dabf1986bd8e140f4a08bc81794ee1b73a1e64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
