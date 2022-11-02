@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24ea37a0_7ab1de44",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2022-11-02T05:33:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0379741b_2973f987",
+      "range": {
+        "startLine": 62,
+        "startChar": 29,
+        "endLine": 62,
+        "endChar": 45
+      },
+      "revId": "598b6f664c3eef3345493d9c0c88581da9ae1bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38db1024_861aee0c",
@@ -78,6 +102,30 @@
       "writtenOn": "2022-11-01T22:15:11Z",
       "side": 1,
       "message": "you\u0027ll want to remove this",
+      "range": {
+        "startLine": 43,
+        "startChar": 13,
+        "endLine": 43,
+        "endChar": 64
+      },
+      "revId": "598b6f664c3eef3345493d9c0c88581da9ae1bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7399b7f_16079495",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2022-11-02T05:33:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38db1024_861aee0c",
       "range": {
         "startLine": 43,
         "startChar": 13,
