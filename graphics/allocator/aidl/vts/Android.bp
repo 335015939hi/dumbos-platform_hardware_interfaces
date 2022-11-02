@@ -27,7 +27,7 @@ cc_test {
     name: "VtsHalGraphicsAllocatorAidl_TargetTest",
     defaults: [
         "VtsHalTargetTestDefaults",
-        "android.hardware.graphics.allocator-ndk_shared",
+        "android.hardware.graphics.allocator-ndk",
         "use_libaidlvintf_gtest_helper_static",
         "hwui_defaults",
     ],
