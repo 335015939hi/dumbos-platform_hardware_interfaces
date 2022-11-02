@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3737fd82_dc40ce3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-11-02T00:16:02Z",
+      "side": 1,
+      "message": "Is there a mapping missing so that HALs will map appropriately with a new system image + old vendor image that has the old HAL paths?\n\nOr is there some magic that I\u0027m simply not seeing?\n\nAlso, do we need to keep the android.hardware.security.keymint package name in the newly split \"rkp\" HAL?\n\nIf this is just the start, lmk and I\u0027ll hold off on asking more questions until later.",
+      "revId": "3e1e3fd32c18f263e325ea840955ea08656d8142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
