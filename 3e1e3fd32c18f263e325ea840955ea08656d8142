@@ -34,6 +34,24 @@
       "parentUuid": "3737fd82_dc40ce3e",
       "revId": "3e1e3fd32c18f263e325ea840955ea08656d8142",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "356bee8c_c31654a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-11-02T18:27:59Z",
+      "side": 1,
+      "message": "Makes sense! This is way simpler than I imagined it was going to be.",
+      "parentUuid": "711a2d31_cce7f948",
+      "revId": "3e1e3fd32c18f263e325ea840955ea08656d8142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

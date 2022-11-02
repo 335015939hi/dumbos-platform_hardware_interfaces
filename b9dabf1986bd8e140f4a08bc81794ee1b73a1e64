@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d51dcdfe_bea763a2",
+        "filename": "security/rkp/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-11-02T18:27:59Z",
+      "side": 1,
+      "message": "@smoreland@google.com: any gotchas with using SDK (we need min SDK 33 for our module).\n\nIIUC, it\u0027s fine. However there\u0027s a lot about binder and the codegen that\u0027s still magic to me.",
+      "range": {
+        "startLine": 23,
+        "startChar": 12,
+        "endLine": 23,
+        "endChar": 32
+      },
+      "revId": "b9dabf1986bd8e140f4a08bc81794ee1b73a1e64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
