@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00ce716b_456bfe50",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-02T01:02:19Z",
+      "side": 1,
+      "message": "addressed in aosp/2281902, same for all other comments.",
+      "parentUuid": "1cad0fa8_9c12e0c3",
+      "revId": "6afc855087fe87956eb5a7db2202d53495a2f4bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b212f604_b05e99c9",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-11-01T16:28:22Z",
       "side": 1,
       "message": "Note if there\u0027s a class that derived from DynamicsProcessingSw and overrides releaseContext(), we will not call that child class\u0027s releaseContext() here.",
+      "revId": "6afc855087fe87956eb5a7db2202d53495a2f4bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50f92f35_dd83b28a",
+        "filename": "audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-02T01:02:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b212f604_b05e99c9",
       "revId": "6afc855087fe87956eb5a7db2202d53495a2f4bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -69,6 +105,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8706b71_b1110877",
+        "filename": "audio/aidl/default/hapticGenerator/HapticGeneratorSw.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-02T01:02:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc677dbb_6bc7b0c5",
+      "revId": "6afc855087fe87956eb5a7db2202d53495a2f4bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd0d2ee9_29927710",
@@ -82,6 +136,24 @@
       "writtenOn": "2022-11-01T16:28:22Z",
       "side": 1,
       "message": "Note if there\u0027s a class that derived from LoudnessEnhancerSw and overrides releaseContext(), we will not call that child class\u0027s releaseContext() here.",
+      "revId": "6afc855087fe87956eb5a7db2202d53495a2f4bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51218935_50cbdc8f",
+        "filename": "audio/aidl/default/loudnessEnhancer/LoudnessEnhancerSw.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-02T01:02:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd0d2ee9_29927710",
       "revId": "6afc855087fe87956eb5a7db2202d53495a2f4bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -103,6 +175,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68a3ac93_76dba637",
+        "filename": "audio/aidl/default/reverb/ReverbSw.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-02T01:02:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d43de731_ee36f548",
+      "revId": "6afc855087fe87956eb5a7db2202d53495a2f4bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65ec9c1e_cd81a273",
@@ -120,6 +210,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2f54c6d_c5404c2b",
+        "filename": "audio/aidl/default/visualizer/VisualizerSw.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-02T01:02:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65ec9c1e_cd81a273",
+      "revId": "6afc855087fe87956eb5a7db2202d53495a2f4bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f6b3784_83bd0789",
@@ -133,6 +241,24 @@
       "writtenOn": "2022-11-01T16:28:22Z",
       "side": 1,
       "message": "Note if there\u0027s a class that derived from VolumeSw and overrides releaseContext(), we will not call that child class\u0027s releaseContext() here.",
+      "revId": "6afc855087fe87956eb5a7db2202d53495a2f4bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ca86f55_2f7f18a7",
+        "filename": "audio/aidl/default/volume/VolumeSw.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-02T01:02:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f6b3784_83bd0789",
       "revId": "6afc855087fe87956eb5a7db2202d53495a2f4bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
