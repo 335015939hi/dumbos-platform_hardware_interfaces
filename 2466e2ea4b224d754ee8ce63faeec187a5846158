@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3a9f615_d7fb44e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-11-02T04:11:50Z",
+      "side": 1,
+      "message": "Yes, it does take longer time to execute.",
+      "parentUuid": "8b497302_40981c71",
+      "revId": "2466e2ea4b224d754ee8ce63faeec187a5846158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "422c1101_88c9c063",
         "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
         "patchSetId": 5
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "102396fd_aa8242c5",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-11-02T04:11:50Z",
+      "side": 1,
+      "message": "In the same function the authSet is getting updated with EC_CURVE tag as well. at line 267. Following is the code snippet\n```\n       if (algorithm \u003d\u003d Algorithm::EC) {\n            authSet.SetDefaultValidity();\n            std::optional\u003cEcCurve\u003e curve \u003d getCurveFromLength(keySize);\n            if (!curve) {\n                std::cerr \u003c\u003c \"Error: invalid EC-Curve from size \" \u003c\u003c keySize \u003c\u003c std::endl;\n                return false;\n            }\n            authSet.Authorization(TAG_EC_CURVE, curve.value());\n        }\n```",
+      "parentUuid": "422c1101_88c9c063",
+      "revId": "2466e2ea4b224d754ee8ce63faeec187a5846158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9737420_bd2fa76a",
         "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
         "patchSetId": 5
@@ -48,6 +84,24 @@
       "writtenOn": "2022-10-20T09:27:27Z",
       "side": 1,
       "message": "nit: s/execcution/execution/",
+      "revId": "2466e2ea4b224d754ee8ce63faeec187a5846158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb3e28c3_1bacb2ad",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-11-02T04:11:50Z",
+      "side": 1,
+      "message": "Handled",
+      "parentUuid": "c9737420_bd2fa76a",
       "revId": "2466e2ea4b224d754ee8ce63faeec187a5846158",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -75,6 +129,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ed80f26_3f7b9b0d",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-11-02T04:11:50Z",
+      "side": 1,
+      "message": "Handled",
+      "parentUuid": "35053628_4a26a794",
+      "range": {
+        "startLine": 426,
+        "startChar": 73,
+        "endLine": 426,
+        "endChar": 83
+      },
+      "revId": "2466e2ea4b224d754ee8ce63faeec187a5846158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c664c80e_b8e3f9a5",
@@ -92,6 +170,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a445f984_e4959d70",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-11-02T04:11:50Z",
+      "side": 1,
+      "message": "Handled",
+      "parentUuid": "c664c80e_b8e3f9a5",
+      "revId": "2466e2ea4b224d754ee8ce63faeec187a5846158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad7d4b96_68ce87f5",
@@ -105,6 +201,24 @@
       "writtenOn": "2022-10-20T09:27:27Z",
       "side": 1,
       "message": "As above, if this benchmark variant just measures things outside of KeyMint, I think we should drop it.",
+      "revId": "2466e2ea4b224d754ee8ce63faeec187a5846158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "692b677d_1111b1e5",
+        "filename": "security/keymint/aidl/vts/performance/KeyMintBenchmark.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1937196
+      },
+      "writtenOn": "2022-11-02T04:11:50Z",
+      "side": 1,
+      "message": "Handled",
+      "parentUuid": "ad7d4b96_68ce87f5",
       "revId": "2466e2ea4b224d754ee8ce63faeec187a5846158",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
