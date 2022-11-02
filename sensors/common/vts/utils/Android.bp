@@ -28,8 +28,8 @@ package {
 cc_defaults {
     name: "VtsHalSensorsDefaults",
     defaults: [
-        "android.hardware.graphics.allocator-ndk_shared",
-        "android.hardware.graphics.common-ndk_shared",
+        "android.hardware.graphics.allocator-ndk",
+        "android.hardware.graphics.common-ndk",
     ],
     shared_libs: [
         "libbinder_ndk",
@@ -46,8 +46,8 @@ cc_library_static {
     name: "VtsHalSensorsTargetTestUtils",
     defaults: [
         "VtsHalTargetTestDefaults",
-        "android.hardware.graphics.allocator-ndk_shared",
-        "android.hardware.graphics.common-ndk_shared",
+        "android.hardware.graphics.allocator-ndk",
+        "android.hardware.graphics.common-ndk",
     ],
     cflags: ["-DLOG_TAG=\"sensors_hidl_hal_test\""],
     srcs: [
