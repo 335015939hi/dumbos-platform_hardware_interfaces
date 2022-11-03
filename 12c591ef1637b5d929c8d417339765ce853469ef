@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8507d7a_a61e29c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-11-03T21:20:38Z",
+      "side": 1,
+      "message": "I\u0027m holding off merging this until the HAL has been moved to its new home aosp/2280654. Git should be able to figure it out but I don\u0027t want to risk causing problems for the other CL which seems more important at the moment.",
+      "revId": "12c591ef1637b5d929c8d417339765ce853469ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
