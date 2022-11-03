@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "03d1266d_b59151c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-03T00:04:35Z",
+      "side": 1,
+      "message": "Oh shoot, can you add an entry in the changelog as well by the way?",
+      "revId": "5df8f355e7fe552a142954a539d2b0d1c50e79d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4a95b6f4_ae2d3f53",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 4
