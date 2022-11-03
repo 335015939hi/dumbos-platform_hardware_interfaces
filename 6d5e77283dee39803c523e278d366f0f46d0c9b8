@@ -16,6 +16,24 @@
       "message": "This field is not initialized in the constructor, and otherwise never gets set until serviceDied() is called.\n\nPresumably we want to initialize this to \u0027false\u0027, either in the constructor, or on this line with:\n\n```\nbool has_died_ \u003d false;\n```",
       "revId": "6d5e77283dee39803c523e278d366f0f46d0c9b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ecc752f_cf14271e",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2022-11-03T17:28:23Z",
+      "side": 1,
+      "message": "Good catch.  Thanks!",
+      "parentUuid": "5158cf93_34102259",
+      "revId": "6d5e77283dee39803c523e278d366f0f46d0c9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
