@@ -63,6 +63,30 @@
       },
       "revId": "b9dabf1986bd8e140f4a08bc81794ee1b73a1e64",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "488f422d_b5f92c45",
+        "filename": "security/rkp/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-11-03T04:54:16Z",
+      "side": 1,
+      "message": "Cool, thanks!\n\nI tested it with min_sdk_version, and all seems well.",
+      "parentUuid": "e0f0e734_b8bb8b05",
+      "range": {
+        "startLine": 23,
+        "startChar": 12,
+        "endLine": 23,
+        "endChar": 32
+      },
+      "revId": "b9dabf1986bd8e140f4a08bc81794ee1b73a1e64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
