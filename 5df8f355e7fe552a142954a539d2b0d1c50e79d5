@@ -16,6 +16,24 @@
       "message": "I\u0027ve checked that widevine is ok with changes being made now and Tri tells me we haven\u0027t cut over to v3 with OEMs quite yet so it\u0027s still easy enough to make changes.\n\nLMK if this doesn\u0027t make sense and I\u0027ve misunderstood the purpose of the challenge. I\u0027m currently understanding that it\u0027s there for a liveness check of the DICE signer, to provide replay protection.",
       "revId": "5df8f355e7fe552a142954a539d2b0d1c50e79d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb5894b_996cfd3f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-03T00:04:11Z",
+      "side": 1,
+      "message": "Awesome, and yeah we don\u0027t have to worry about changes with respect to OEMs until much later in the cycle.\n\nYes, replay protection and assistance with DDoS prevention by checking for a valid challenge within the timeout boundary before processing the rest of the message.",
+      "parentUuid": "4a95b6f4_ae2d3f53",
+      "revId": "5df8f355e7fe552a142954a539d2b0d1c50e79d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
