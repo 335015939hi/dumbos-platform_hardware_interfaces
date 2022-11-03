@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cfbaef2_0e021db6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-03T14:17:08Z",
+      "side": 1,
+      "message": "Are the changes to KeyCreationResult.aidl (change schema, bump version) coming in a separate CL?",
+      "revId": "97b0bf9430f88d0bf051159d0a5ce69ea0f4f1dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
