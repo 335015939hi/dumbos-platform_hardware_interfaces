@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af123761_d0870a5b",
+        "filename": "security/keymint/aidl/aidl_api/android.hardware.security.keymint/current/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-11-03T00:27:59Z",
+      "side": 1,
+      "message": "I like the idea with RpcHardwareInfo. So I changed it as you suggested.\n\nI agree we need to make Trusty implementation deal with bigger artifacts. I\u0027ll address that separately though.",
+      "parentUuid": "6257e6e1_8e1fc5ee",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 37
+      },
+      "revId": "3f0a15769bbf6e7b36cdf61fb98427d628356ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "338a5394_c3246702",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "It could go without saying, but if you want to mention it, makes sense",
       "parentUuid": "338a5394_c3246702",
+      "range": {
+        "startLine": 304,
+        "startChar": 7,
+        "endLine": 304,
+        "endChar": 11
+      },
+      "revId": "3f0a15769bbf6e7b36cdf61fb98427d628356ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3623344d_f8cfde0e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-11-03T00:27:59Z",
+      "side": 1,
+      "message": "I change things around so that we can the lower bound on older implementation too",
+      "parentUuid": "9c532347_6af24545",
       "range": {
         "startLine": 304,
         "startChar": 7,
