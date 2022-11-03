@@ -33,6 +33,24 @@
       "message": "\u003e The latest version (4) of the package is not implemented\n\nconfusing error",
       "revId": "fc0703cceecf4a632a5ad82929ab04a27dbd1871",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ea81b52_7f17c8e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-03T16:02:58Z",
+      "side": 1,
+      "message": "That\u0027s keeping the original behavior without `frozen: false` set: https://source.corp.google.com/android/system/tools/aidl/build/aidl_api.go;rcl\u003de524dc44bd5b4377f14809cd27f332cfd11a0f33;l\u003d546\nThe error now shows up because of https://android-review.googlesource.com/c/device/google/cuttlefish/+/2272053",
+      "parentUuid": "54c37547_ab136262",
+      "revId": "fc0703cceecf4a632a5ad82929ab04a27dbd1871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
