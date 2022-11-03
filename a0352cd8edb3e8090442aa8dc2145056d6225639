@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "662c6bbd_8679e61f",
+        "filename": "boot/aidl/vts/functional/VtsHalBootAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-03T20:21:13Z",
+      "side": 1,
+      "message": "also - why is the \"AIDL\" test called \"HIDL\" - :/",
+      "range": {
+        "startLine": 193,
+        "startChar": 25,
+        "endLine": 193,
+        "endChar": 29
+      },
+      "revId": "a0352cd8edb3e8090442aa8dc2145056d6225639",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
