@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57643fea_d5e9a9b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-03T20:33:17Z",
+      "side": 1,
+      "message": "Could you add a small entry to the changelog just to mention that this new constant has been added to RpcHardwareInfo as well?",
+      "revId": "1aade0249054dc09a3a9ceefb16dfd1b3e90535d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf5d21a8_18167b2e",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
         "patchSetId": 2
@@ -50,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b74a185_76b252b9",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-03T20:33:17Z",
+      "side": 1,
+      "message": "Yeah, fair enough. I think it will be a little confusing either way but your comments do a good job of explaining the meaning.",
+      "parentUuid": "06108950_c6898c33",
+      "range": {
+        "startLine": 81,
+        "startChar": 7,
+        "endLine": 81,
+        "endChar": 32
+      },
+      "revId": "1aade0249054dc09a3a9ceefb16dfd1b3e90535d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2437ea8_f1a6d773",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
         "patchSetId": 2
@@ -85,6 +126,30 @@
       "side": 1,
       "message": "I don\u0027t think it makes a difference for the client though. Once we introduce this limit, the client code has to handle batching anyways. I\u0027m also not sure how feasible it is to have a blanket requirement of 20. If we could do that, I think it\u0027d be better to go with the first revision of this patch.",
       "parentUuid": "b2437ea8_f1a6d773",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 44
+      },
+      "revId": "1aade0249054dc09a3a9ceefb16dfd1b3e90535d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3f5965f_c7ab13a0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-03T20:33:17Z",
+      "side": 1,
+      "message": "The client code already performs batching in groups of 20 today with v1/v2 implementations: https://cs.android.com/android/platform/superproject/+/master:packages/apps/RemoteProvisioner/src/com/android/remoteprovisioner/PeriodicProvisioner.java;l\u003d165-183\n\nMy other reason for wanting to split out v3+ from v1 and v2 is just so that we can at least aim to push the minimum envelop higher over time, even though some level of batching will be required to maintain simplicity.",
+      "parentUuid": "88add7ff_7f85f0b0",
       "range": {
         "startLine": 88,
         "startChar": 4,
