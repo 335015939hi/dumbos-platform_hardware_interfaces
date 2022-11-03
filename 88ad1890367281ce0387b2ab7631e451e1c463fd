@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "162d1219_c17d1273",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-11-03T23:43:52Z",
+      "side": 1,
+      "message": "Sorry to necropost on this, but what\u0027s the expected behavior on cuttlefish and other emulators?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "88ad1890367281ce0387b2ab7631e451e1c463fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
