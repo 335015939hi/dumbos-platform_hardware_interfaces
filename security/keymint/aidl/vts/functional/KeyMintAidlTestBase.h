@@ -64,6 +64,10 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     static bool arm_deleteAllKeys;
     static bool dump_Attestations;
 
+    // Directory to store/retrieve keyblobs, using subdirectories named for the
+    // KeyMint instance in question (e.g. "./default/", "./strongbox/").
+    static std::string keyblob_dir;
+
     void SetUp() override;
     void TearDown() override {
         if (key_blob_.size()) {
