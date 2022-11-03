@@ -16,6 +16,23 @@
       "message": "In order for you to get a quick overview of the discussions in IssueTracker, I have listed the results of our discussions：\n(Issue ID: 194314791)\n\na System suspend is initiated by userspace\nb cpufreq_offline() -\u003e cpufreq_cooling_unregister() -\u003e thermal_cooling_device_unregister() -\u003e device_del() -\u003e kobject_uevent() -\u003e sends uevents to userspace\nc Health HAL blocks the suspend until it processes all the uevents even if it\u0027s not from power supply subsystem. Of course, any uevents other than from power supply subsystem is going to be discarded. Still it has to receive all of them and process if needed.\nd Go to (a)\n\nThis will block the suspend forever.\n\nAnother idea to solve this problem is that if cpufreq_offline() is called in the suspend path it shouldn\u0027t send uevents to userspace again. But from my understanding I don\u0027t think this approach is possible, and currently I don\u0027t see any relevant changes in the kernel code.",
       "revId": "77287c16b37a3998b069d169714cfe5de6b3e2a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1531a47e_55f73664",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-11-03T03:27:48Z",
+      "side": 1,
+      "message": "LGTM, but I\u0027ll let Alex / Stphane to +2 this",
+      "revId": "77287c16b37a3998b069d169714cfe5de6b3e2a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
