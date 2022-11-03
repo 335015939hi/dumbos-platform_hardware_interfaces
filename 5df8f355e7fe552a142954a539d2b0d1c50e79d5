@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7cd56e42_fd244949",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-11-03T14:07:19Z",
+      "side": 1,
+      "message": "I\u0027m not sure what I would say about this specifically. From v2-\u003ev3 the changelog says the CSR schema is completely different (paraphrasing), is there something in particular you think I should call out about this part?",
+      "parentUuid": "03d1266d_b59151c7",
+      "revId": "5df8f355e7fe552a142954a539d2b0d1c50e79d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4a95b6f4_ae2d3f53",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 4
