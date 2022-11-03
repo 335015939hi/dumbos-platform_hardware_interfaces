@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e88eae38_803ea74a",
+        "filename": "security/rkp/aidl/aidl_api/android.hardware.security.rkp/1/android/hardware/security/keymint/Placeholder.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-03T01:09:59Z",
+      "side": 1,
+      "message": "I think the Rust backend is confused about \u0027IPlaceholder\u0027 vs \u0027Placeholder\u0027 you\u0027ll have to add the I for now.\n\n-\u003e b/257146768",
+      "range": {
+        "startLine": 8,
+        "startChar": 10,
+        "endLine": 8,
+        "endChar": 21
+      },
+      "revId": "dd1fba25e8de2d8baf079376fc6e8a4041ce7fc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "501c9dfb_5ef006b0",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/Placeholder.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-03T01:09:59Z",
+      "side": 1,
+      "message": "this need license as well",
+      "revId": "dd1fba25e8de2d8baf079376fc6e8a4041ce7fc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
