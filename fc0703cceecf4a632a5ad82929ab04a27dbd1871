@@ -51,6 +51,24 @@
       "parentUuid": "54c37547_ab136262",
       "revId": "fc0703cceecf4a632a5ad82929ab04a27dbd1871",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebeeb011_24099742",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-03T20:38:36Z",
+      "side": 1,
+      "message": "Yup. What I mean is that we should change hal_implementation_test to be smart so that it explains that an exception actually exists for a package that doesn\u0027t exist.",
+      "parentUuid": "9ea81b52_7f17c8e0",
+      "revId": "fc0703cceecf4a632a5ad82929ab04a27dbd1871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
