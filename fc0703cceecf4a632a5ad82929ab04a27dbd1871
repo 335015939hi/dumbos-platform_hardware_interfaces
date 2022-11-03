@@ -69,6 +69,24 @@
       "parentUuid": "9ea81b52_7f17c8e0",
       "revId": "fc0703cceecf4a632a5ad82929ab04a27dbd1871",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "945c8535_d20d1313",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-03T20:42:13Z",
+      "side": 1,
+      "message": "The last line of the error says `Interface in missing list and cannot find it anywhere: android.hardware.identity. V5`.",
+      "parentUuid": "ebeeb011_24099742",
+      "revId": "fc0703cceecf4a632a5ad82929ab04a27dbd1871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
