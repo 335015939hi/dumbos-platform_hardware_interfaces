@@ -1,0 +1,59 @@
+// This is the expected build file, but it may not be right in all cases
+
+aidl_interface {
+    name: "android.hardware.secure_element",
+    vendor_available: true,
+    host_supported: true,
+    srcs: ["android/hardware/secure_element/*.aidl"],
+    stability: "vintf",
+    backend: {
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            sdk_version: "system_current",
+        },
+    },
+}
+
+//cc_library {
+//    name: "android.hardware.secure_element-translate-cpp",
+//    srcs: ["translate/android/hardware/secure_element/translate-cpp.cpp"],
+//    shared_libs: [
+//        "libbinder",
+//        "libhidlbase",
+//        "android.hardware.secure_element-V1-cpp",
+//        "libutils",
+//        "android.hardware.secure_element@1.0",
+//        "android.hardware.secure_element@1.1",
+//        "android.hardware.secure_element@1.2",
+//    ],
+//    export_include_dirs: ["include"],
+//}
+
+cc_library {
+    name: "android.hardware.secure_element-translate-ndk",
+    vendor_available: true,
+    srcs: ["translate/android/hardware/secure_element/translate-ndk.cpp"],
+    shared_libs: [
+        "libbinder_ndk",
+        "libhidlbase",
+        "android.hardware.secure_element-V1-ndk",
+        "android.hardware.secure_element@1.0",
+        "android.hardware.secure_element@1.1",
+        "android.hardware.secure_element@1.2",
+    ],
+    export_include_dirs: ["include"],
+}
+
+java_library {
+    name: "android.hardware.secure_element-translate-java",
+    srcs: ["translate/android/hardware/secure_element/Translate.java"],
+    libs: [
+        "android.hardware.secure_element-V1-java",
+        "android.hardware.secure_element-V1.0-java",
+        "android.hardware.secure_element-V1.1-java",
+        "android.hardware.secure_element-V1.2-java",
+    ],
+    sdk_version: "module_current",
+}
