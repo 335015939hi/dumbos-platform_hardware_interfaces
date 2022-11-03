@@ -56,6 +56,7 @@ cc_test {
     srcs: [
         "AttestKeyTest.cpp",
         "DeviceUniqueAttestationTest.cpp",
+        "KeyBlobUpgradeTest.cpp",
         "KeyMintTest.cpp",
         "SecureElementProvisioningTest.cpp",
     ],
