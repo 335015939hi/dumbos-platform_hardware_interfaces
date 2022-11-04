@@ -32,7 +32,15 @@ class LoudnessEnhancerSwContext final : public EffectContext {
         : EffectContext(statusDepth, common) {
         LOG(DEBUG) << __func__;
     }
-    // TODO: add specific context here
+
+    RetCode setLeGainMb(const int gainMb) {
+        mGainMb = gainMb;
+        return RetCode::SUCCESS;
+    }
+    int getLeGainMb() { return mGainMb; }
+
+  private:
+    int mGainMb = 0;  // Default Gain
 };
 
 class LoudnessEnhancerSw final : public EffectImpl {
@@ -66,7 +74,7 @@ class LoudnessEnhancerSw final : public EffectImpl {
                        .name = "LoudnessEnhancerSw"},
             .capability = Capability::make<Capability::loudnessEnhancer>(kCapability)};
 
-    /* parameters */
-    LoudnessEnhancer mSpecificParam;
+    ndk::ScopedAStatus getParameterLoudnessEnhancer(const LoudnessEnhancer::Tag& tag,
+                                                    Parameter::Specific* specific);
 };
 }  // namespace aidl::android::hardware::audio::effect
