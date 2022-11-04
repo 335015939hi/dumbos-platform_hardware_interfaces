@@ -1,5 +1,6 @@
 {
-  "presubmit": [
+  // TODO(b/256244520): promote back to presubmit once fixed
+  "postsubmit": [
     {
       "name": "VtsHalRemotelyProvisionedComponentTargetTest"
     }
