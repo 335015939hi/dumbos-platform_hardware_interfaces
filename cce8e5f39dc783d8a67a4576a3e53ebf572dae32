@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e70e4b08_8db6ee4e",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1880,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-11-04T19:21:46Z",
+      "side": 1,
+      "message": "This is the same as kDrainOutSeq?",
+      "range": {
+        "startLine": 1873,
+        "startChar": 0,
+        "endLine": 1880,
+        "endChar": 64
+      },
+      "revId": "cce8e5f39dc783d8a67a4576a3e53ebf572dae32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
