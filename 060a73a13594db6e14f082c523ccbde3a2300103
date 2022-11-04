@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8100ea6_a0dde42b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-11-04T23:31:26Z",
+      "side": 1,
+      "message": "cl/486240563 was merged, i.e. failing test configuration should be disabled now",
+      "revId": "060a73a13594db6e14f082c523ccbde3a2300103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
