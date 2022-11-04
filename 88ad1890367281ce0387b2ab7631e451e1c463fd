@@ -22,6 +22,30 @@
       },
       "revId": "88ad1890367281ce0387b2ab7631e451e1c463fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ece0c37_5e8c9e7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-04T07:27:30Z",
+      "side": 1,
+      "message": "eranm@ should know more, but I think there\u0027s a related bug (https://b.corp.google.com/issues/241341692#comment3), in which I suggested a hack to get the HAL service to read (most) attestation IDs from userspace properties and send them to the TA at start-of-day (https://b.corp.google.com/issues/241341692#comment7).  \n\nI don\u0027t think anything has happened as yet, though, so I assume device ID attestation tests would currently fail on Cuttlefish.",
+      "parentUuid": "162d1219_c17d1273",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "88ad1890367281ce0387b2ab7631e451e1c463fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
