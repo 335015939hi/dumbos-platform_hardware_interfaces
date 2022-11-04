@@ -135,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f52d4a9_223cae53",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-04T17:50:40Z",
+      "side": 1,
+      "message": "this was a copy/paste from IMapper 4 and yeah I don\u0027t think it applies, reworded.",
+      "parentUuid": "0635b12a_88948a62",
+      "range": {
+        "startLine": 114,
+        "startChar": 21,
+        "endLine": 115,
+        "endChar": 72
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4cd493c_a8b91f85",
@@ -220,6 +244,30 @@
       "side": 1,
       "message": "I\u0027m in favor of requiring it (from one vendor\u0027s perspective)",
       "parentUuid": "a82d362f_94ad3cf8",
+      "range": {
+        "startLine": 556,
+        "startChar": 7,
+        "endLine": 557,
+        "endChar": 16
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f2d7322_37a06f58",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-04T17:50:40Z",
+      "side": 1,
+      "message": "works for me, required.",
+      "parentUuid": "3a198b58_7feadb8e",
       "range": {
         "startLine": 556,
         "startChar": 7,

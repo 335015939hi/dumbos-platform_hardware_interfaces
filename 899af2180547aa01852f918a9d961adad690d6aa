@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e7d0e7c_ac1a31b8",
+        "filename": "graphics/mapper/stable-c/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-04T17:50:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83c5d56c_ec62bbc8",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c48a5e0_04aa7d14",
@@ -138,6 +162,24 @@
       "side": 1,
       "message": "Can you add this:\n\n    visibility: [\":__subpackages__\"],\n\nIt will prevent people from accidentally linking against this.",
       "parentUuid": "e175006a_8aa64026",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9063026_779b9a67",
+        "filename": "graphics/mapper/stable-c/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-04T17:50:40Z",
+      "side": 1,
+      "message": "Ah, that\u0027s cool. I didn\u0027t know that was a thing.",
+      "parentUuid": "9dcf90f9_bb5649b5",
       "revId": "899af2180547aa01852f918a9d961adad690d6aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -313,6 +355,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c37a9e85_27f13613",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-04T17:50:40Z",
+      "side": 1,
+      "message": "Yeah it\u0027s more than a little awkward to make opaque though because it\u0027s both an input \u0026 and output (given to `getMetadata`/`setMetadata` but received in the dump callback). So both sides need to be able to conjure an instance of this up. That means any new additions would end up being gated by the interface version, which we could also do by just slapping a 2 or 3 or whatever on the end of a new struct with new sets of get/setMetadatas \u0026 dump callbacks.\n\nEither way it\u0027s going to be clunky if this actually changes, but there\u0027s a _lot_ of flexibility here in a {string, int} key so I think we\u0027re OK.",
+      "parentUuid": "7a89e762_7480ecaa",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b456285f_d4f1c278",
@@ -421,6 +481,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "250d98c0_736aee25",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-04T17:50:40Z",
+      "side": 1,
+      "message": "This is more like the AIDL-style approach where each new version is a delta on the previous. So a V6 can just be a single method addition, we don\u0027t need to leave padding room in V5 for that.",
+      "parentUuid": "ea87bc7f_08852387",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f2dccef_e5c1a960",
         "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
         "patchSetId": 5
@@ -490,6 +568,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3b038e6_1ca66e14",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-04T17:50:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5adc5c70_aeb486b8",
+      "range": {
+        "startLine": 733,
+        "startChar": 10,
+        "endLine": 733,
+        "endChar": 12
+      },
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29b34da1_9f1483f4",
@@ -539,6 +641,24 @@
       "side": 1,
       "message": "The caller may implement AIMapper like this:\n\n    AIMapper myAIMapper \u003d {\n        .version \u003d 5,\n        .v5 \u003d {\n            .foo \u003d x,\n            ..\n        }\n    }\n\nIf we add v6, then we\u0027d have to understand \u0026myAIMapper passed into this code may have a different size depending on version? I guess this is common in C APIs?",
       "parentUuid": "da218936_3f1af3d2",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cea0d579_70c71c8f",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-04T17:50:40Z",
+      "side": 1,
+      "message": "Note `AIMapper_loadIMapper` takes an AIMapper**, so the caller doesn\u0027t provide the struct it\u0027s receiving it. The usage is as such:\n\n```\n   AIMapper* myMapper \u003d nullptr;\n   AIMapper_loadIMapper(\u0026myMapper);\n   [..]\n   if (myMapper-\u003eversion \u003e\u003d 6) {\n       myMapper-\u003ev6.useNewerCoolerFoo();\n   } else if (myMapper-\u003eversion \u003e\u003d 5) {\n       myMapper-\u003ev5.oldBustedFoo();\n   }\n```\n\nThe only value type of AIMapper that should thus exist is the one provided by the implementation of AIMapper_loadIMapper, which has a reasonable expectation to ensure it\u0027s specifying the version of the size it\u0027s using (which the `IMapperProvider.h` helper is handling for anyone that wants it)\n\nBut yes the struct size varying based on version is a common C paradigm. Often with sizeof() tricks but I (and NDK API council) don\u0027t like that approach (harder to document, more fragile in terms of compile vs. target version, etc...)\n\nSo the requirements here are that the caller must never access a newer version than the one specified (would be an OOB read), and the implementation must always use a struct that\u0027s at least as new as the version they\u0027re specifying (which would be hard to violate since there\u0027s only this one header and everyone is compiling against Vcurrent)",
+      "parentUuid": "eeebf555_d3b63490",
       "revId": "899af2180547aa01852f918a9d961adad690d6aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
