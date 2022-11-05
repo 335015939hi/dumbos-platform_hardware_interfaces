@@ -497,6 +497,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5390fa2_275bf794",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-05T00:39:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "250d98c0_736aee25",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f2dccef_e5c1a960",
@@ -659,6 +677,24 @@
       "side": 1,
       "message": "Note `AIMapper_loadIMapper` takes an AIMapper**, so the caller doesn\u0027t provide the struct it\u0027s receiving it. The usage is as such:\n\n```\n   AIMapper* myMapper \u003d nullptr;\n   AIMapper_loadIMapper(\u0026myMapper);\n   [..]\n   if (myMapper-\u003eversion \u003e\u003d 6) {\n       myMapper-\u003ev6.useNewerCoolerFoo();\n   } else if (myMapper-\u003eversion \u003e\u003d 5) {\n       myMapper-\u003ev5.oldBustedFoo();\n   }\n```\n\nThe only value type of AIMapper that should thus exist is the one provided by the implementation of AIMapper_loadIMapper, which has a reasonable expectation to ensure it\u0027s specifying the version of the size it\u0027s using (which the `IMapperProvider.h` helper is handling for anyone that wants it)\n\nBut yes the struct size varying based on version is a common C paradigm. Often with sizeof() tricks but I (and NDK API council) don\u0027t like that approach (harder to document, more fragile in terms of compile vs. target version, etc...)\n\nSo the requirements here are that the caller must never access a newer version than the one specified (would be an OOB read), and the implementation must always use a struct that\u0027s at least as new as the version they\u0027re specifying (which would be hard to violate since there\u0027s only this one header and everyone is compiling against Vcurrent)",
       "parentUuid": "eeebf555_d3b63490",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ffe7abe_07b123fc",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-05T00:39:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cea0d579_70c71c8f",
       "revId": "899af2180547aa01852f918a9d961adad690d6aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
