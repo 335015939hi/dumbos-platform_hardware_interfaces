@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b81c7653_e7afd5c7",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-05T01:18:12Z",
+      "side": 1,
+      "message": "instead this should delete the OnBinderDiedContext instance",
+      "range": {
+        "startLine": 161,
+        "startChar": 29,
+        "endLine": 161,
+        "endChar": 41
+      },
+      "revId": "f7c00944b7ea632c07d2bf83239326dabe24bdca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c0b265a_324b13e3",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-05T01:18:12Z",
+      "side": 1,
+      "message": "so - when BluetoothAudioProvider is deleted, this will be deleted as well, but this is very close. Avoid deleting it here (only store a pointer or don\u0027t story a reference at all)",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 60
+      },
+      "revId": "f7c00944b7ea632c07d2bf83239326dabe24bdca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
