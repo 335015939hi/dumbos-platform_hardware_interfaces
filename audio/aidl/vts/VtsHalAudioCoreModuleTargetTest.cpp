@@ -22,7 +22,7 @@
 #include <string>
 #include <vector>
 
-#define LOG_TAG "VtsHalAudioCore"
+#define LOG_TAG "VtsHalAudioCore.Module"
 #include <android-base/logging.h>
 
 #include <StreamWorker.h>
