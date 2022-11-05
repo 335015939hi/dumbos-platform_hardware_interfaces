@@ -34,7 +34,8 @@ cc_test {
     ],
     srcs: [
         "ModuleConfig.cpp",
-        "VtsHalAudioCoreTargetTest.cpp",
+        "VtsHalAudioCoreConfigTargetTest.cpp",
+        "VtsHalAudioCoreModuleTargetTest.cpp",
     ],
     test_suites: [
         "general-tests",
