@@ -48,6 +48,7 @@ using aidl::android::hardware::audio::common::SinkMetadata;
 using aidl::android::hardware::audio::common::SourceMetadata;
 using aidl::android::hardware::audio::core::AudioPatch;
 using aidl::android::hardware::audio::core::AudioRoute;
+using aidl::android::hardware::audio::core::IConfig;
 using aidl::android::hardware::audio::core::IModule;
 using aidl::android::hardware::audio::core::IStreamIn;
 using aidl::android::hardware::audio::core::IStreamOut;
@@ -59,6 +60,7 @@ using aidl::android::media::audio::common::AudioDevice;
 using aidl::android::media::audio::common::AudioDeviceAddress;
 using aidl::android::media::audio::common::AudioDeviceType;
 using aidl::android::media::audio::common::AudioFormatType;
+using aidl::android::media::audio::common::AudioHalEngineConfig;
 using aidl::android::media::audio::common::AudioIoFlags;
 using aidl::android::media::audio::common::AudioOutputFlags;
 using aidl::android::media::audio::common::AudioPort;
@@ -1822,6 +1824,34 @@ TEST_P(AudioModulePatch, ResetInvalidPatchId) {
     }
 }
 
+class AudioCoreConfig : public testing::TestWithParam<std::string> {
+  public:
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(ConnectToService()); }
+
+    void ConnectToService() {
+        config = IConfig::fromBinder(binderUtil.connectToService(GetParam()));
+        ASSERT_NE(config, nullptr);
+    }
+
+    void RestartService() {
+        ASSERT_NE(config, nullptr);
+        config = IConfig::fromBinder(binderUtil.restartService());
+        ASSERT_NE(config, nullptr);
+    }
+
+    void GetEngineConfig() {
+        AudioHalEngineConfig engConfig;
+        ASSERT_IS_OK(config->getEngineConfig(&engConfig));
+    }
+
+    std::shared_ptr<IConfig> config;
+    AudioHalBinderServiceUtil binderUtil;
+};
+
+TEST_P(AudioCoreConfig, PrintEngineConfig) {
+    ASSERT_NO_FATAL_FAILURE(GetEngineConfig());
+}
+
 INSTANTIATE_TEST_SUITE_P(AudioCoreModuleTest, AudioCoreModule,
                          testing::ValuesIn(android::getAidlHalInstanceNames(IModule::descriptor)),
                          android::PrintInstanceNameToString);
@@ -1971,6 +2001,10 @@ INSTANTIATE_TEST_SUITE_P(AudioPatchTest, AudioModulePatch,
                          testing::ValuesIn(android::getAidlHalInstanceNames(IModule::descriptor)),
                          android::PrintInstanceNameToString);
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AudioModulePatch);
+INSTANTIATE_TEST_SUITE_P(AudioCoreConfigTest, AudioCoreConfig,
+                         testing::ValuesIn(android::getAidlHalInstanceNames(IConfig::descriptor)),
+                         android::PrintInstanceNameToString);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AudioCoreConfig);
 
 class TestExecutionTracer : public ::testing::EmptyTestEventListener {
   public:
