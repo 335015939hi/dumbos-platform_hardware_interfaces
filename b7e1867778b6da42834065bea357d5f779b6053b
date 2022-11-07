@@ -16,6 +16,52 @@
       "message": "Eric, I\u0027ve added implementation and VTS so we can submit this. PTAL!",
       "revId": "b7e1867778b6da42834065bea357d5f779b6053b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05052f41_008f795d",
+        "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-11-07T16:07:21Z",
+      "side": 1,
+      "message": "See suggestion about moving updateAudioMode() o the ITelephony interface. In this case, this API may be optional and only mandated when an ITelephony interface is present",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 64
+      },
+      "revId": "b7e1867778b6da42834065bea357d5f779b6053b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "127d7b9e_95ddb5e0",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-11-07T16:07:21Z",
+      "side": 1,
+      "message": "why not move this to the ITelephony interface given the audio mode is only relevant for HALs supporting telephony functions?",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 41
+      },
+      "revId": "b7e1867778b6da42834065bea357d5f779b6053b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
