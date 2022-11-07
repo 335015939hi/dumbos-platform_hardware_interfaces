@@ -46,6 +46,30 @@
       },
       "revId": "88ad1890367281ce0387b2ab7631e451e1c463fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "360a31c1_e395ab92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-11-07T23:34:48Z",
+      "side": 1,
+      "message": "Cool, thx for the pointer!",
+      "parentUuid": "7ece0c37_5e8c9e7f",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "88ad1890367281ce0387b2ab7631e451e1c463fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
