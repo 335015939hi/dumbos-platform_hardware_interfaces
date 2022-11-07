@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95b21021_5595401e",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-07T17:24:04Z",
+      "side": 1,
+      "message": "Need to add an asynchronous version.",
+      "range": {
+        "startLine": 694,
+        "startChar": 9,
+        "endLine": 694,
+        "endChar": 28
+      },
+      "revId": "4b814abffec6afea2d90bf93c0d1f4b135877f72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
