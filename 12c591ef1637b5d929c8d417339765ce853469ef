@@ -16,6 +16,24 @@
       "message": "I\u0027m holding off merging this until the HAL has been moved to its new home aosp/2280654. Git should be able to figure it out but I don\u0027t want to risk causing problems for the other CL which seems more important at the moment.",
       "revId": "12c591ef1637b5d929c8d417339765ce853469ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a918ce33_1bbd27a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-11-07T17:23:50Z",
+      "side": 1,
+      "message": "Thank you very much 👍\n\nEvery time I touch http://ag/q/topic:split-rkp-hal-v2, I worry I\u0027ve upset the apple cart somehow and it\u0027s going to tip over.",
+      "parentUuid": "b8507d7a_a61e29c3",
+      "revId": "12c591ef1637b5d929c8d417339765ce853469ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
