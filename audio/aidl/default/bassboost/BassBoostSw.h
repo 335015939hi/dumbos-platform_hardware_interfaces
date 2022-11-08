@@ -32,7 +32,21 @@ class BassBoostSwContext final : public EffectContext {
         : EffectContext(statusDepth, common) {
         LOG(DEBUG) << __func__;
     }
-    // TODO: add specific context here
+
+    RetCode setBbStrengthPm(int strength) {
+        if (strength < BassBoost::MIN_PER_MILLE_STRENGTH ||
+            strength > BassBoost::MAX_PER_MILLE_STRENGTH) {
+            LOG(ERROR) << __func__ << " invalid strength: " << strength;
+            return RetCode::ERROR_ILLEGAL_PARAMETER;
+        }
+        // TODO : Add implementation to apply new strength
+        mStrength = strength;
+        return RetCode::SUCCESS;
+    }
+    int getBbStrengthPm() const { return mStrength; }
+
+  private:
+    int mStrength;
 };
 
 class BassBoostSw final : public EffectImpl {
@@ -54,7 +68,8 @@ class BassBoostSw final : public EffectImpl {
   private:
     std::shared_ptr<BassBoostSwContext> mContext;
     /* capabilities */
-    const BassBoost::Capability kCapability;
+    const bool mStrengthSupported = true;
+    const BassBoost::Capability kCapability = {.strengthSupported = mStrengthSupported};
     /* Effect descriptor */
     const Descriptor kDescriptor = {
             .common = {.id = {.type = kBassBoostTypeUUID,
@@ -67,7 +82,7 @@ class BassBoostSw final : public EffectImpl {
                        .implementor = "The Android Open Source Project"},
             .capability = Capability::make<Capability::bassBoost>(kCapability)};
 
-    /* parameters */
-    BassBoost mSpecificParam;
+    ndk::ScopedAStatus getParameterBassBoost(const BassBoost::Tag& tag,
+                                             Parameter::Specific* specific);
 };
 }  // namespace aidl::android::hardware::audio::effect
