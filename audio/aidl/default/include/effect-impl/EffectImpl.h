@@ -15,20 +15,23 @@
  */
 
 #pragma once
-#include <aidl/android/hardware/audio/effect/BnEffect.h>
-#include <fmq/AidlMessageQueue.h>
 #include <cstdlib>
 #include <memory>
 #include <mutex>
 
+#include <aidl/android/hardware/audio/effect/BnEffect.h>
+#include <fmq/AidlMessageQueue.h>
+
+#include "EffectContext.h"
+#include "EffectThread.h"
 #include "EffectTypes.h"
 #include "effect-impl/EffectContext.h"
+#include "effect-impl/EffectThread.h"
 #include "effect-impl/EffectTypes.h"
-#include "effect-impl/EffectWorker.h"
 
 namespace aidl::android::hardware::audio::effect {
 
-class EffectImpl : public BnEffect, public EffectWorker {
+class EffectImpl : public BnEffect, public EffectThread {
   public:
     EffectImpl() = default;
     virtual ~EffectImpl() = default;
@@ -46,14 +49,10 @@ class EffectImpl : public BnEffect, public EffectWorker {
                                     OpenEffectReturn* ret) override;
     virtual ndk::ScopedAStatus close() override;
     virtual ndk::ScopedAStatus command(CommandId id) override;
-    virtual ndk::ScopedAStatus commandStart() { return ndk::ScopedAStatus::ok(); }
-    virtual ndk::ScopedAStatus commandStop() { return ndk::ScopedAStatus::ok(); }
-    virtual ndk::ScopedAStatus commandReset() { return ndk::ScopedAStatus::ok(); }
 
     virtual ndk::ScopedAStatus getState(State* state) override;
     virtual ndk::ScopedAStatus setParameter(const Parameter& param) override;
     virtual ndk::ScopedAStatus getParameter(const Parameter::Id& id, Parameter* param) override;
-    virtual IEffect::Status effectProcessImpl(float* in, float* out, int process) override;
 
     virtual ndk::ScopedAStatus setParameterCommon(const Parameter& param);
     virtual ndk::ScopedAStatus getParameterCommon(const Parameter::Tag& tag, Parameter* param);
@@ -63,21 +62,48 @@ class EffectImpl : public BnEffect, public EffectWorker {
     virtual ndk::ScopedAStatus setParameterSpecific(const Parameter::Specific& specific) = 0;
     virtual ndk::ScopedAStatus getParameterSpecific(const Parameter::Id& id,
                                                     Parameter::Specific* specific) = 0;
-    virtual std::shared_ptr<EffectContext> createContext(const Parameter::Common& common) = 0;
-    virtual RetCode releaseContext() = 0;
+
+    virtual std::string getEffectName() = 0;
+    virtual std::shared_ptr<EffectContext> getContext() = 0;
+    // effectProcessImpl is in worker thread EffectThread, and should not hold mMutex lock.
+    virtual IEffect::Status effectProcessImpl(float* in, float* out, int process) = 0;
+
+    /*****************************************************************************
+     **  Methods need to be call under mMutex lock.
+     *****************************************************************************/
+    /**
+     * Command handling methods.
+     */
+    virtual ndk::ScopedAStatus commandStart_l() REQUIRES(mMutex) {
+        return ndk::ScopedAStatus::ok();
+    }
+    virtual ndk::ScopedAStatus commandStop_l() REQUIRES(mMutex) { return ndk::ScopedAStatus::ok(); }
+    virtual ndk::ScopedAStatus commandReset_l() REQUIRES(mMutex) {
+        return ndk::ScopedAStatus::ok();
+    }
+
+    /**
+     * Effect context methods must be implemented by each effect.
+     * Each effect can derive from EffectContext and define its own context, but must upcast to
+     * EffectContext for EffectImpl to use.
+     */
+    virtual std::shared_ptr<EffectContext> createContext_l(const Parameter::Common& common)
+            REQUIRES(mMutex) = 0;
+    virtual std::shared_ptr<EffectContext> getContext_l() REQUIRES(mMutex) = 0;
+    virtual RetCode releaseContext_l() REQUIRES(mMutex) = 0;
 
   protected:
     /*
-     * Lock is required if effectProcessImpl (which is running in an independent thread) needs to
-     * access state and parameters.
+     * Lock is required to access state/context/buffer.
      */
     std::mutex mMutex;
     State mState GUARDED_BY(mMutex) = State::INIT;
 
     IEffect::Status status(binder_status_t status, size_t consumed, size_t produced);
     void cleanUp();
-
-  private:
-    std::shared_ptr<EffectContext> mContext GUARDED_BY(mMutex);
+    // handle FMQ and call effect implemented effectProcessImpl.
+    // To override this function, keep in mind this is running in EffectThread and should not take
+    // mMutex, but use the EffectThread interfaces to make sure in sync.
+    virtual void process() override;
 };
 }  // namespace aidl::android::hardware::audio::effect

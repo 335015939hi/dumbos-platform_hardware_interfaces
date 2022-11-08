@@ -73,8 +73,6 @@ ndk::ScopedAStatus DynamicsProcessingSw::getDescriptor(Descriptor* _aidl_return)
 ndk::ScopedAStatus DynamicsProcessingSw::setParameterSpecific(const Parameter::Specific& specific) {
     RETURN_IF(Parameter::Specific::dynamicsProcessing != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
-    std::lock_guard lg(mMutex);
-    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     mSpecificParam = specific.get<Parameter::Specific::dynamicsProcessing>();
     LOG(DEBUG) << __func__ << " success with: " << specific.toString();
@@ -89,17 +87,21 @@ ndk::ScopedAStatus DynamicsProcessingSw::getParameterSpecific(const Parameter::I
     return ndk::ScopedAStatus::ok();
 }
 
-std::shared_ptr<EffectContext> DynamicsProcessingSw::createContext(
+std::shared_ptr<EffectContext> DynamicsProcessingSw::createContext_l(
         const Parameter::Common& common) {
     if (mContext) {
         LOG(DEBUG) << __func__ << " context already exist";
-        return mContext;
+    } else {
+        mContext = std::make_shared<DynamicsProcessingSwContext>(1 /* statusFmqDepth */, common);
     }
-    mContext = std::make_shared<DynamicsProcessingSwContext>(1 /* statusFmqDepth */, common);
     return mContext;
 }
 
-RetCode DynamicsProcessingSw::releaseContext() {
+std::shared_ptr<EffectContext> DynamicsProcessingSw::getContext_l() {
+    return mContext;
+}
+
+RetCode DynamicsProcessingSw::releaseContext_l() {
     if (mContext) {
         mContext.reset();
     }
