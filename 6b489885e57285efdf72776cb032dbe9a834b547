@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a4c60b_cd40b1a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2022-11-08T05:24:50Z",
+      "side": 1,
+      "message": "Thanks Darren.  These tests are failing a bunch for all sorts of CLs, probably related to the device flashing failures.  I\u0027ll try presubmit again tomorrow my time to see if things have cleared up yet.",
+      "revId": "6b489885e57285efdf72776cb032dbe9a834b547",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
