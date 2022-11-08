@@ -22,6 +22,7 @@
 #include <vector>
 
 #include <aidl/android/hardware/audio/effect/BnFactory.h>
+#include "EffectConfig.h"
 
 namespace aidl::android::hardware::audio::effect {
 
@@ -96,5 +97,22 @@ class Factory : public BnFactory {
             const ::aidl::android::media::audio::common::AudioUuid& impl,
             const std::optional<::aidl::android::media::audio::common::AudioUuid>& proxy,
             const std::string& libName);
+#if 0
+    // Returns a vector of paths where audio configuration files
+    // must be searched, in the provided order.
+    static inline std::vector<std::string> getConfigurationPaths() {
+        static const std::vector<std::string> paths = []() {
+            char value[PROPERTY_VALUE_MAX] = {};
+            if (property_get("ro.boot.product.vendor.sku", value, "") <= 0) {
+                return std::vector<std::string>({"/odm/etc", "/vendor/etc", "/system/etc"});
+            } else {
+                return std::vector<std::string>({
+                        "/odm/etc", std::string("/vendor/etc/audio/sku_") + value,
+                        "/vendor/etc", "/system/etc"});
+            }
+        }();
+        return paths;
+    }
+#endif
 };
 }  // namespace aidl::android::hardware::audio::effect

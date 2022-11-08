@@ -20,6 +20,7 @@
 
 #include "effect-impl/EffectTypes.h"
 #include "effect-impl/EffectUUID.h"
+#include "effectFactory-impl/EffectConfig.h"
 #include "effectFactory-impl/EffectFactory.h"
 
 using aidl::android::media::audio::common::AudioUuid;
@@ -27,6 +28,15 @@ using aidl::android::media::audio::common::AudioUuid;
 namespace aidl::android::hardware::audio::effect {
 
 Factory::Factory() {
+    std::string path;
+    bool ret = resolveLibraryPath(DEFAULT_EFFECT_CONFIG_FILE, &path);
+    if (!ret) {
+        LOG(ERROR) << __func__ << " init fail, not able to find " << DEFAULT_EFFECT_CONFIG_FILE;
+        return;
+    }
+    EffectConfig config(path);
+    LOG(DEBUG) << __func__ << " loaded " << DEFAULT_EFFECT_CONFIG_FILE << " in path " << path;
+
     // TODO: get list of library UUID and name from audio_effect.xml.
     openEffectLibrary(EqualizerTypeUUID, EqualizerSwImplUUID, std::nullopt, "libequalizersw.so");
     openEffectLibrary(EqualizerTypeUUID, EqualizerBundleImplUUID, std::nullopt, "libbundleaidl.so");
