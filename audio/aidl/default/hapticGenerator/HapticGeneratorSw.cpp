@@ -73,9 +73,6 @@ ndk::ScopedAStatus HapticGeneratorSw::getDescriptor(Descriptor* _aidl_return) {
 ndk::ScopedAStatus HapticGeneratorSw::setParameterSpecific(const Parameter::Specific& specific) {
     RETURN_IF(Parameter::Specific::hapticGenerator != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
-    std::lock_guard lg(mMutex);
-    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
-
     mSpecificParam = specific.get<Parameter::Specific::hapticGenerator>();
     LOG(DEBUG) << __func__ << " success with: " << specific.toString();
     return ndk::ScopedAStatus::ok();
@@ -89,16 +86,21 @@ ndk::ScopedAStatus HapticGeneratorSw::getParameterSpecific(const Parameter::Id& 
     return ndk::ScopedAStatus::ok();
 }
 
-std::shared_ptr<EffectContext> HapticGeneratorSw::createContext(const Parameter::Common& common) {
+std::shared_ptr<EffectContext> HapticGeneratorSw::createContext_l(const Parameter::Common& common) {
     if (mContext) {
         LOG(DEBUG) << __func__ << " context already exist";
-        return mContext;
+    } else {
+        mContext = std::make_shared<HapticGeneratorSwContext>(1 /* statusFmqDepth */, common);
     }
-    mContext = std::make_shared<HapticGeneratorSwContext>(1 /* statusFmqDepth */, common);
+
     return mContext;
 }
 
-RetCode HapticGeneratorSw::releaseContext() {
+std::shared_ptr<EffectContext> HapticGeneratorSw::getContext_l() {
+    return mContext;
+}
+
+RetCode HapticGeneratorSw::releaseContext_l() {
     if (mContext) {
         mContext.reset();
     }

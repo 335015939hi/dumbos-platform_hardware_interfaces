@@ -73,8 +73,6 @@ ndk::ScopedAStatus VisualizerSw::getDescriptor(Descriptor* _aidl_return) {
 ndk::ScopedAStatus VisualizerSw::setParameterSpecific(const Parameter::Specific& specific) {
     RETURN_IF(Parameter::Specific::visualizer != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
-    std::lock_guard lg(mMutex);
-    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     mSpecificParam = specific.get<Parameter::Specific::visualizer>();
     LOG(DEBUG) << __func__ << " success with: " << specific.toString();
@@ -89,16 +87,21 @@ ndk::ScopedAStatus VisualizerSw::getParameterSpecific(const Parameter::Id& id,
     return ndk::ScopedAStatus::ok();
 }
 
-std::shared_ptr<EffectContext> VisualizerSw::createContext(const Parameter::Common& common) {
+std::shared_ptr<EffectContext> VisualizerSw::createContext_l(const Parameter::Common& common) {
     if (mContext) {
         LOG(DEBUG) << __func__ << " context already exist";
-        return mContext;
+    } else {
+        mContext = std::make_shared<VisualizerSwContext>(1 /* statusFmqDepth */, common);
     }
-    mContext = std::make_shared<VisualizerSwContext>(1 /* statusFmqDepth */, common);
+
     return mContext;
 }
 
-RetCode VisualizerSw::releaseContext() {
+std::shared_ptr<EffectContext> VisualizerSw::getContext_l() {
+    return mContext;
+}
+
+RetCode VisualizerSw::releaseContext_l() {
     if (mContext) {
         mContext.reset();
     }

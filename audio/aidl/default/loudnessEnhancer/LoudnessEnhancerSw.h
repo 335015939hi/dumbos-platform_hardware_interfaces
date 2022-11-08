@@ -56,11 +56,17 @@ class LoudnessEnhancerSw final : public EffectImpl {
     ndk::ScopedAStatus setParameterSpecific(const Parameter::Specific& specific) override;
     ndk::ScopedAStatus getParameterSpecific(const Parameter::Id& id,
                                             Parameter::Specific* specific) override;
+
+    std::shared_ptr<EffectContext> createContext_l(const Parameter::Common& common) override;
+    std::shared_ptr<EffectContext> getContext_l() override;
+    RetCode releaseContext_l() override;
+
     IEffect::Status effectProcessImpl(float* in, float* out, int process) override;
-    std::shared_ptr<EffectContext> createContext(const Parameter::Common& common) override;
-    RetCode releaseContext() override;
+    std::string getEffectName() override { return kEffectName; }
+    std::shared_ptr<EffectContext> getContext() override { return mContext; }
 
   private:
+    const std::string kEffectName = "LoudnessEnhancerSw";
     std::shared_ptr<LoudnessEnhancerSwContext> mContext;
     /* capabilities */
     const LoudnessEnhancer::Capability kCapability;
@@ -72,7 +78,7 @@ class LoudnessEnhancerSw final : public EffectImpl {
                        .flags = {.type = Flags::Type::INSERT,
                                  .insert = Flags::Insert::FIRST,
                                  .volume = Flags::Volume::CTRL},
-                       .name = "LoudnessEnhancerSw",
+                       .name = kEffectName,
                        .implementor = "The Android Open Source Project"},
             .capability = Capability::make<Capability::loudnessEnhancer>(kCapability)};
 
