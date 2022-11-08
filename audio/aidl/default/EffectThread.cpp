@@ -46,7 +46,7 @@ RetCode EffectThread::createThread(const std::string& name, const int priority) 
 
 RetCode EffectThread::destroyThread() {
     {
-        std::lock_guard lg(mMutex);
+        std::lock_guard lg(mThreadMutex);
         mStop = mExit = true;
     }
     mCv.notify_one();
@@ -65,7 +65,7 @@ RetCode EffectThread::startThread() {
     }
 
     {
-        std::lock_guard lg(mMutex);
+        std::lock_guard lg(mThreadMutex);
         if (!mStop) {
             LOG(WARNING) << __func__ << " already start";
             return RetCode::SUCCESS;
@@ -85,7 +85,7 @@ RetCode EffectThread::stopThread() {
     }
 
     {
-        std::lock_guard lg(mMutex);
+        std::lock_guard lg(mThreadMutex);
         if (mStop) {
             LOG(WARNING) << __func__ << " already stop";
             return RetCode::SUCCESS;
@@ -102,8 +102,8 @@ void EffectThread::threadLoop() {
     while (true) {
         bool needExit = false;
         {
-            std::unique_lock l(mMutex);
-            mCv.wait(l, [&]() REQUIRES(mMutex) {
+            std::unique_lock l(mThreadMutex);
+            mCv.wait(l, [&]() REQUIRES(mThreadMutex) {
                 needExit = mExit;
                 return mExit || !mStop;
             });
