@@ -16,6 +16,24 @@
       "message": "I wonder how devices manage to pass this test right now.",
       "revId": "799e4353c2870d8b998d9e229c323a6c67868aab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6172f604_c66693c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-08T07:34:28Z",
+      "side": 1,
+      "message": "\u003e I wonder how devices manage to pass this test right now.\n\n`get_tag_from_prop` will just skip the tag if it\u0027s empty.",
+      "parentUuid": "e9e09c8f_92267706",
+      "revId": "799e4353c2870d8b998d9e229c323a6c67868aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
