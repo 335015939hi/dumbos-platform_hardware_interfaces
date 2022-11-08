@@ -47,10 +47,10 @@ class EffectThread {
     const int MAX_TASK_COMM_LEN = 15;
 
   private:
-    std::mutex mMutex;
+    std::mutex mThreadMutex;
     std::condition_variable mCv;
-    bool mExit GUARDED_BY(mMutex) = false;
-    bool mStop GUARDED_BY(mMutex) = true;
+    bool mExit GUARDED_BY(mThreadMutex) = false;
+    bool mStop GUARDED_BY(mThreadMutex) = true;
     std::thread mThread;
     int mPriority;
     std::string mName;

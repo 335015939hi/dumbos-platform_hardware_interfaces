@@ -70,7 +70,6 @@ ndk::ScopedAStatus EqualizerSw::getDescriptor(Descriptor* _aidl_return) {
 ndk::ScopedAStatus EqualizerSw::setParameterSpecific(const Parameter::Specific& specific) {
     RETURN_IF(Parameter::Specific::equalizer != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
-    std::lock_guard lg(mMutex);
     RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     auto& eqParam = specific.get<Parameter::Specific::equalizer>();
@@ -117,7 +116,6 @@ ndk::ScopedAStatus EqualizerSw::getParameterSpecific(const Parameter::Id& id,
 
 ndk::ScopedAStatus EqualizerSw::getParameterEqualizer(const Equalizer::Tag& tag,
                                                       Parameter::Specific* specific) {
-    std::lock_guard lg(mMutex);
     RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     Equalizer eqParam;
@@ -141,16 +139,21 @@ ndk::ScopedAStatus EqualizerSw::getParameterEqualizer(const Equalizer::Tag& tag,
     return ndk::ScopedAStatus::ok();
 }
 
-std::shared_ptr<EffectContext> EqualizerSw::createContext(const Parameter::Common& common) {
+std::shared_ptr<EffectContext> EqualizerSw::createContext_l(const Parameter::Common& common) {
     if (mContext) {
         LOG(DEBUG) << __func__ << " context already exist";
-        return mContext;
+    } else {
+        mContext = std::make_shared<EqualizerSwContext>(1 /* statusFmqDepth */, common);
     }
-    mContext = std::make_shared<EqualizerSwContext>(1 /* statusFmqDepth */, common);
+
     return mContext;
 }
 
-RetCode EqualizerSw::releaseContext() {
+std::shared_ptr<EffectContext> EqualizerSw::getContext_l() {
+    return mContext;
+}
+
+RetCode EqualizerSw::releaseContext_l() {
     if (mContext) {
         mContext.reset();
     }

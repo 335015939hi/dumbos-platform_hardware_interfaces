@@ -73,8 +73,6 @@ ndk::ScopedAStatus VirtualizerSw::getDescriptor(Descriptor* _aidl_return) {
 ndk::ScopedAStatus VirtualizerSw::setParameterSpecific(const Parameter::Specific& specific) {
     RETURN_IF(Parameter::Specific::virtualizer != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
-    std::lock_guard lg(mMutex);
-    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     mSpecificParam = specific.get<Parameter::Specific::virtualizer>();
     LOG(DEBUG) << __func__ << " success with: " << specific.toString();
@@ -89,16 +87,21 @@ ndk::ScopedAStatus VirtualizerSw::getParameterSpecific(const Parameter::Id& id,
     return ndk::ScopedAStatus::ok();
 }
 
-std::shared_ptr<EffectContext> VirtualizerSw::createContext(const Parameter::Common& common) {
+std::shared_ptr<EffectContext> VirtualizerSw::createContext_l(const Parameter::Common& common) {
     if (mContext) {
         LOG(DEBUG) << __func__ << " context already exist";
-        return mContext;
+    } else {
+        mContext = std::make_shared<VirtualizerSwContext>(1 /* statusFmqDepth */, common);
     }
-    mContext = std::make_shared<VirtualizerSwContext>(1 /* statusFmqDepth */, common);
+
     return mContext;
 }
 
-RetCode VirtualizerSw::releaseContext() {
+std::shared_ptr<EffectContext> VirtualizerSw::getContext_l() {
+    return mContext;
+}
+
+RetCode VirtualizerSw::releaseContext_l() {
     if (mContext) {
         mContext.reset();
     }

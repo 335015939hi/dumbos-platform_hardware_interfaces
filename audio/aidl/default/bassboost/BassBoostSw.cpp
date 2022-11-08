@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
+#include <algorithm>
 #include <cstddef>
+#include <memory>
 #define LOG_TAG "AHAL_BassBoostSw"
 #include <Utils.h>
-#include <algorithm>
 #include <unordered_set>
 
 #include <android-base/logging.h>
@@ -73,32 +74,78 @@ ndk::ScopedAStatus BassBoostSw::getDescriptor(Descriptor* _aidl_return) {
 ndk::ScopedAStatus BassBoostSw::setParameterSpecific(const Parameter::Specific& specific) {
     RETURN_IF(Parameter::Specific::bassBoost != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
-    std::lock_guard lg(mMutex);
     RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
-    mSpecificParam = specific.get<Parameter::Specific::bassBoost>();
-    LOG(DEBUG) << __func__ << " success with: " << specific.toString();
-    return ndk::ScopedAStatus::ok();
+    auto& bbParam = specific.get<Parameter::Specific::bassBoost>();
+    auto tag = bbParam.getTag();
+
+    switch (tag) {
+        case BassBoost::strengthPm: {
+            RETURN_IF(!mStrengthSupported, EX_ILLEGAL_ARGUMENT, "SettingStrengthNotSupported");
+
+            RETURN_IF(mContext->setBbStrengthPm(bbParam.get<BassBoost::strengthPm>()) !=
+                              RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "strengthPmNotSupported");
+            return ndk::ScopedAStatus::ok();
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "BassBoostTagNotSupported");
+        }
+    }
 }
 
 ndk::ScopedAStatus BassBoostSw::getParameterSpecific(const Parameter::Id& id,
                                                      Parameter::Specific* specific) {
     auto tag = id.getTag();
     RETURN_IF(Parameter::Id::bassBoostTag != tag, EX_ILLEGAL_ARGUMENT, "wrongIdTag");
-    specific->set<Parameter::Specific::bassBoost>(mSpecificParam);
+    auto bbId = id.get<Parameter::Id::bassBoostTag>();
+    auto bbIdTag = bbId.getTag();
+    switch (bbIdTag) {
+        case BassBoost::Id::commonTag:
+            return getParameterBassBoost(bbId.get<BassBoost::Id::commonTag>(), specific);
+        default:
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "BassBoostTagNotSupported");
+    }
+}
+
+ndk::ScopedAStatus BassBoostSw::getParameterBassBoost(const BassBoost::Tag& tag,
+                                                      Parameter::Specific* specific) {
+    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+    BassBoost bbParam;
+    switch (tag) {
+        case BassBoost::strengthPm: {
+            bbParam.set<BassBoost::strengthPm>(mContext->getBbStrengthPm());
+            break;
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "BassBoostTagNotSupported");
+        }
+    }
+
+    specific->set<Parameter::Specific::bassBoost>(bbParam);
     return ndk::ScopedAStatus::ok();
 }
 
-std::shared_ptr<EffectContext> BassBoostSw::createContext(const Parameter::Common& common) {
+std::shared_ptr<EffectContext> BassBoostSw::createContext_l(const Parameter::Common& common) {
     if (mContext) {
         LOG(DEBUG) << __func__ << " context already exist";
-        return mContext;
+    } else {
+        mContext = std::make_shared<BassBoostSwContext>(1 /* statusFmqDepth */, common);
     }
-    mContext = std::make_shared<BassBoostSwContext>(1 /* statusFmqDepth */, common);
     return mContext;
 }
 
-RetCode BassBoostSw::releaseContext() {
+std::shared_ptr<EffectContext> BassBoostSw::getContext_l() {
+    return mContext;
+}
+
+RetCode BassBoostSw::releaseContext_l() {
     if (mContext) {
         mContext.reset();
     }

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <future>
 #define LOG_TAG "AHAL_EffectImpl"
 #include "effect-impl/EffectImpl.h"
 #include "effect-impl/EffectTypes.h"
@@ -28,9 +29,7 @@ ndk::ScopedAStatus EffectImpl::open(const Parameter::Common& common,
     {
         std::lock_guard lg(mMutex);
         RETURN_OK_IF(mState != State::INIT);
-        mContext = createContext(common);
-        RETURN_IF(!mContext, EX_ILLEGAL_ARGUMENT, "createContextFailed");
-        setContext(mContext);
+        RETURN_IF(!createContext_l(common), EX_NULL_POINTER, "createContextFailed");
     }
 
     RETURN_IF_ASTATUS_NOT_OK(setParameterCommon(common), "setCommParamErr");
@@ -38,12 +37,14 @@ ndk::ScopedAStatus EffectImpl::open(const Parameter::Common& common,
         RETURN_IF_ASTATUS_NOT_OK(setParameterSpecific(specific.value()), "setSpecParamErr");
     }
 
-    RETURN_IF(createThread(LOG_TAG) != RetCode::SUCCESS, EX_UNSUPPORTED_OPERATION,
+    RETURN_IF(createThread(getEffectName()) != RetCode::SUCCESS, EX_UNSUPPORTED_OPERATION,
               "FailedToCreateWorker");
 
     {
         std::lock_guard lg(mMutex);
-        mContext->dupeFmq(ret);
+        auto context = getContext_l();
+        RETURN_IF(!context, EX_NULL_POINTER, "nullContext");
+        context->dupeFmq(ret);
         mState = State::IDLE;
     }
     return ndk::ScopedAStatus::ok();
@@ -57,9 +58,10 @@ ndk::ScopedAStatus EffectImpl::close() {
     // stop the worker thread, ignore the return code
     RETURN_IF(destroyThread() != RetCode::SUCCESS, EX_UNSUPPORTED_OPERATION,
               "FailedToDestroyWorker");
-    RETURN_IF(releaseContext() != RetCode::SUCCESS, EX_UNSUPPORTED_OPERATION,
-              "FailedToCreateWorker");
     mState = State::INIT;
+    RETURN_IF(releaseContext_l() != RetCode::SUCCESS, EX_UNSUPPORTED_OPERATION,
+              "FailedToCreateWorker");
+
     LOG(DEBUG) << __func__;
     return ndk::ScopedAStatus::ok();
 }
@@ -113,29 +115,34 @@ ndk::ScopedAStatus EffectImpl::getParameter(const Parameter::Id& id, Parameter* 
 }
 
 ndk::ScopedAStatus EffectImpl::setParameterCommon(const Parameter& param) {
-    std::lock_guard lg(mMutex);
-    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+    std::shared_ptr<EffectContext> context;
+    {
+        std::lock_guard lg(mMutex);
+        context = getContext_l();
+        RETURN_IF(!context, EX_NULL_POINTER, "nullContext");
+    }
+
     auto tag = param.getTag();
     switch (tag) {
         case Parameter::common:
-            RETURN_IF(mContext->setCommon(param.get<Parameter::common>()) != RetCode::SUCCESS,
+            RETURN_IF(context->setCommon(param.get<Parameter::common>()) != RetCode::SUCCESS,
                       EX_ILLEGAL_ARGUMENT, "setCommFailed");
             break;
         case Parameter::deviceDescription:
-            RETURN_IF(mContext->setOutputDevice(param.get<Parameter::deviceDescription>()) !=
+            RETURN_IF(context->setOutputDevice(param.get<Parameter::deviceDescription>()) !=
                               RetCode::SUCCESS,
                       EX_ILLEGAL_ARGUMENT, "setDeviceFailed");
             break;
         case Parameter::mode:
-            RETURN_IF(mContext->setAudioMode(param.get<Parameter::mode>()) != RetCode::SUCCESS,
+            RETURN_IF(context->setAudioMode(param.get<Parameter::mode>()) != RetCode::SUCCESS,
                       EX_ILLEGAL_ARGUMENT, "setModeFailed");
             break;
         case Parameter::source:
-            RETURN_IF(mContext->setAudioSource(param.get<Parameter::source>()) != RetCode::SUCCESS,
+            RETURN_IF(context->setAudioSource(param.get<Parameter::source>()) != RetCode::SUCCESS,
                       EX_ILLEGAL_ARGUMENT, "setSourceFailed");
             break;
         case Parameter::volumeStereo:
-            RETURN_IF(mContext->setVolumeStereo(param.get<Parameter::volumeStereo>()) !=
+            RETURN_IF(context->setVolumeStereo(param.get<Parameter::volumeStereo>()) !=
                               RetCode::SUCCESS,
                       EX_ILLEGAL_ARGUMENT, "setVolumeStereoFailed");
             break;
@@ -149,27 +156,32 @@ ndk::ScopedAStatus EffectImpl::setParameterCommon(const Parameter& param) {
 }
 
 ndk::ScopedAStatus EffectImpl::getParameterCommon(const Parameter::Tag& tag, Parameter* param) {
-    std::lock_guard lg(mMutex);
-    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+    std::shared_ptr<EffectContext> context;
+    {
+        std::lock_guard lg(mMutex);
+        context = getContext_l();
+        RETURN_IF(!context, EX_NULL_POINTER, "nullContext");
+    }
+
     switch (tag) {
         case Parameter::common: {
-            param->set<Parameter::common>(mContext->getCommon());
+            param->set<Parameter::common>(context->getCommon());
             break;
         }
         case Parameter::deviceDescription: {
-            param->set<Parameter::deviceDescription>(mContext->getOutputDevice());
+            param->set<Parameter::deviceDescription>(context->getOutputDevice());
             break;
         }
         case Parameter::mode: {
-            param->set<Parameter::mode>(mContext->getAudioMode());
+            param->set<Parameter::mode>(context->getAudioMode());
             break;
         }
         case Parameter::source: {
-            param->set<Parameter::source>(mContext->getAudioSource());
+            param->set<Parameter::source>(context->getAudioSource());
             break;
         }
         case Parameter::volumeStereo: {
-            param->set<Parameter::volumeStereo>(mContext->getVolumeStereo());
+            param->set<Parameter::volumeStereo>(context->getVolumeStereo());
             break;
         }
         default: {
@@ -189,32 +201,33 @@ ndk::ScopedAStatus EffectImpl::getState(State* state) {
 
 ndk::ScopedAStatus EffectImpl::command(CommandId command) {
     std::lock_guard lg(mMutex);
+    RETURN_IF(mState == State::INIT, EX_ILLEGAL_STATE, "CommandStateError");
+    std::shared_ptr<EffectContext> context = getContext_l();
+    RETURN_IF(!context, EX_NULL_POINTER, "nullContext");
     LOG(DEBUG) << __func__ << ": receive command: " << toString(command) << " at state "
                << toString(mState);
-    RETURN_IF(mState == State::INIT, EX_ILLEGAL_STATE, "CommandStateError");
-    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     switch (command) {
         case CommandId::START:
             RETURN_IF(mState == State::INIT, EX_ILLEGAL_STATE, "instanceNotOpen");
             RETURN_OK_IF(mState == State::PROCESSING);
-            RETURN_IF_ASTATUS_NOT_OK(commandStart(), "commandStartFailed");
+            RETURN_IF_ASTATUS_NOT_OK(commandStart_l(), "commandStartFailed");
             mState = State::PROCESSING;
             startThread();
-            return ndk::ScopedAStatus::ok();
+            break;
         case CommandId::STOP:
             RETURN_OK_IF(mState == State::IDLE);
             mState = State::IDLE;
-            RETURN_IF_ASTATUS_NOT_OK(commandStop(), "commandStopFailed");
+            RETURN_IF_ASTATUS_NOT_OK(commandStop_l(), "commandStopFailed");
             stopThread();
-            return ndk::ScopedAStatus::ok();
+            break;
         case CommandId::RESET:
             RETURN_OK_IF(mState == State::IDLE);
             mState = State::IDLE;
-            RETURN_IF_ASTATUS_NOT_OK(commandStop(), "commandStopFailed");
+            RETURN_IF_ASTATUS_NOT_OK(commandStop_l(), "commandStopFailed");
             stopThread();
-            mContext->resetBuffer();
-            return ndk::ScopedAStatus::ok();
+            context->resetBuffer();
+            break;
         default:
             LOG(ERROR) << __func__ << " instance still processing";
             return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
@@ -237,20 +250,31 @@ IEffect::Status EffectImpl::status(binder_status_t status, size_t consumed, size
     return ret;
 }
 
-// A placeholder processing implementation to copy samples from input to output
-IEffect::Status EffectImpl::effectProcessImpl(float* in, float* out, int processSamples) {
-    // lock before access context/parameters
-    std::lock_guard lg(mMutex);
-    IEffect::Status status = {EX_NULL_POINTER, 0, 0};
-    RETURN_VALUE_IF(!mContext, status, "nullContext");
-    auto frameSize = mContext->getInputFrameSize();
-    RETURN_VALUE_IF(0 == frameSize, status, "frameSizeIs0");
-    LOG(DEBUG) << __func__ << " in " << in << " out " << out << " samples " << processSamples
-               << " frames " << processSamples * sizeof(float) / frameSize;
-    for (int i = 0; i < processSamples; i++) {
-        *out++ = *in++;
+void EffectImpl::process() {
+    auto context = getContext();
+    RETURN_VALUE_IF(!context, void(), "nullContext");
+    std::shared_ptr<EffectContext::StatusMQ> statusMQ = context->getStatusFmq();
+    std::shared_ptr<EffectContext::DataMQ> inputMQ = context->getInputDataFmq();
+    std::shared_ptr<EffectContext::DataMQ> outputMQ = context->getOutputDataFmq();
+
+    // Only this worker will read from input data MQ and write to output data MQ.
+    auto readSamples = inputMQ->availableToRead(), writeSamples = outputMQ->availableToWrite();
+    if (readSamples && writeSamples) {
+        auto processSamples = std::min(readSamples, writeSamples);
+        LOG(DEBUG) << __func__ << " available to read " << readSamples << " available to write "
+                   << writeSamples << " process " << processSamples;
+
+        auto buffer = context->getWorkBuffer();
+        inputMQ->read(buffer, processSamples);
+
+        IEffect::Status status = effectProcessImpl(buffer, buffer, processSamples);
+        outputMQ->write(buffer, status.fmqProduced);
+        statusMQ->writeBlocking(&status, 1);
+        LOG(DEBUG) << __func__ << " done processing, effect consumed " << status.fmqConsumed
+                   << " produced " << status.fmqProduced;
+    } else {
+        // TODO: maybe add some sleep here to avoid busy waiting
     }
-    LOG(DEBUG) << __func__ << " done processing " << processSamples << " samples";
-    return {STATUS_OK, processSamples, processSamples};
 }
+
 }  // namespace aidl::android::hardware::audio::effect

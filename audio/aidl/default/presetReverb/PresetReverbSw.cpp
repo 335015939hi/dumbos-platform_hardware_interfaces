@@ -73,8 +73,6 @@ ndk::ScopedAStatus PresetReverbSw::getDescriptor(Descriptor* _aidl_return) {
 ndk::ScopedAStatus PresetReverbSw::setParameterSpecific(const Parameter::Specific& specific) {
     RETURN_IF(Parameter::Specific::reverb != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
-    std::lock_guard lg(mMutex);
-    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     mSpecificParam = specific.get<Parameter::Specific::reverb>();
     LOG(DEBUG) << __func__ << " success with: " << specific.toString();
@@ -89,16 +87,21 @@ ndk::ScopedAStatus PresetReverbSw::getParameterSpecific(const Parameter::Id& id,
     return ndk::ScopedAStatus::ok();
 }
 
-std::shared_ptr<EffectContext> PresetReverbSw::createContext(const Parameter::Common& common) {
+std::shared_ptr<EffectContext> PresetReverbSw::createContext_l(const Parameter::Common& common) {
     if (mContext) {
         LOG(DEBUG) << __func__ << " context already exist";
-        return mContext;
+    } else {
+        mContext = std::make_shared<PresetReverbSwContext>(1 /* statusFmqDepth */, common);
     }
-    mContext = std::make_shared<PresetReverbSwContext>(1 /* statusFmqDepth */, common);
+
     return mContext;
 }
 
-RetCode PresetReverbSw::releaseContext() {
+std::shared_ptr<EffectContext> PresetReverbSw::getContext_l() {
+    return mContext;
+}
+
+RetCode PresetReverbSw::releaseContext_l() {
     if (mContext) {
         mContext.reset();
     }
