@@ -112,6 +112,7 @@ cc_binary {
         "libhapticgeneratorsw",
         "libloudnessenhancersw",
         "libreverbsw",
+        "libtinyxml2",
         "libvirtualizersw",
         "libvisualizersw",
         "libvolumesw",
