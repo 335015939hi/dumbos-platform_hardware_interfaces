@@ -73,7 +73,6 @@ ndk::ScopedAStatus LoudnessEnhancerSw::getDescriptor(Descriptor* _aidl_return) {
 ndk::ScopedAStatus LoudnessEnhancerSw::setParameterSpecific(const Parameter::Specific& specific) {
     RETURN_IF(Parameter::Specific::loudnessEnhancer != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
-    std::lock_guard lg(mMutex);
     RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     auto& leParam = specific.get<Parameter::Specific::loudnessEnhancer>();
@@ -113,7 +112,6 @@ ndk::ScopedAStatus LoudnessEnhancerSw::getParameterSpecific(const Parameter::Id&
 
 ndk::ScopedAStatus LoudnessEnhancerSw::getParameterLoudnessEnhancer(
         const LoudnessEnhancer::Tag& tag, Parameter::Specific* specific) {
-    std::lock_guard lg(mMutex);
     RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     LoudnessEnhancer leParam;
@@ -133,16 +131,22 @@ ndk::ScopedAStatus LoudnessEnhancerSw::getParameterLoudnessEnhancer(
     return ndk::ScopedAStatus::ok();
 }
 
-std::shared_ptr<EffectContext> LoudnessEnhancerSw::createContext(const Parameter::Common& common) {
+std::shared_ptr<EffectContext> LoudnessEnhancerSw::createContext_l(
+        const Parameter::Common& common) {
     if (mContext) {
         LOG(DEBUG) << __func__ << " context already exist";
-        return mContext;
+    } else {
+        mContext = std::make_shared<LoudnessEnhancerSwContext>(1 /* statusFmqDepth */, common);
     }
-    mContext = std::make_shared<LoudnessEnhancerSwContext>(1 /* statusFmqDepth */, common);
+
     return mContext;
 }
 
-RetCode LoudnessEnhancerSw::releaseContext() {
+std::shared_ptr<EffectContext> LoudnessEnhancerSw::getContext_l() {
+    return mContext;
+}
+
+RetCode LoudnessEnhancerSw::releaseContext_l() {
     if (mContext) {
         mContext.reset();
     }
