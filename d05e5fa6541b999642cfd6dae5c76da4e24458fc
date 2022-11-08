@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d71db8af_7c2bae35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2022-11-08T04:20:05Z",
+      "side": 1,
+      "message": "All 4 presubmit failures look unrelated (none of the devices use 4.9 kernel).",
+      "revId": "d05e5fa6541b999642cfd6dae5c76da4e24458fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
