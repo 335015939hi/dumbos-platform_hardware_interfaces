@@ -31,8 +31,10 @@
 using ::aidl::android::hardware::tv::hdmi::BnHdmiCallback;
 using ::aidl::android::hardware::tv::hdmi::HdmiPortInfo;
 using ::aidl::android::hardware::tv::hdmi::HdmiPortType;
+using ::aidl::android::hardware::tv::hdmi::HpdSignal;
 using ::aidl::android::hardware::tv::hdmi::IHdmi;
 using ::aidl::android::hardware::tv::hdmi::IHdmiCallback;
+using ::aidl::android::hardware::tv::hdmi::Result;
 using ::ndk::SpAIBinder;
 
 #define INCORRECT_VENDOR_ID 0x00
@@ -100,4 +102,23 @@ TEST_P(HdmiTest, IsConnected) {
         bool connected;
         ASSERT_TRUE(hdmi->isConnected(ports[i].portId, &connected).isOk());
     }
+}
+
+TEST_P(HdmiTest, HdpSignal) {
+    HpdSignal originalSignal;
+    HpdSignal signal = HpdSignal::HDMI_HPD_STATUS_BIT;
+    HpdSignal readSignal;
+    Result retVal;
+    ASSERT_TRUE(hdmi->getHpdSignal(&originalSignal).isOk());
+    ASSERT_TRUE(hdmi->setHpdSignal(signal, &retVal).isOk());
+    ASSERT_TRUE(retVal == Result::SUCCESS);
+    ASSERT_TRUE(hdmi->getHpdSignal(&readSignal).isOk());
+    EXPECT_EQ(readSignal, signal);
+    signal = HpdSignal::HDMI_HPD_PHYSICAL;
+    ASSERT_TRUE(hdmi->setHpdSignal(signal, &retVal).isOk());
+    ASSERT_TRUE(retVal == Result::SUCCESS);
+    ASSERT_TRUE(hdmi->getHpdSignal(&readSignal).isOk());
+    EXPECT_EQ(readSignal, signal);
+    ASSERT_TRUE(hdmi->setHpdSignal(originalSignal, &retVal).isOk());
+    ASSERT_TRUE(retVal == Result::SUCCESS);
 }

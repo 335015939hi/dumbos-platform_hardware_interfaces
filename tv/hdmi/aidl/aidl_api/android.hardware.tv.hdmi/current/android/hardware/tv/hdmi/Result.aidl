@@ -33,10 +33,9 @@
 
 package android.hardware.tv.hdmi;
 @VintfStability
-interface IHdmi {
-  android.hardware.tv.hdmi.HdmiPortInfo[] getPortInfo();
-  boolean isConnected(in int portId);
-  void setCallback(in android.hardware.tv.hdmi.IHdmiCallback callback);
-  android.hardware.tv.hdmi.Result setHpdSignal(android.hardware.tv.hdmi.HpdSignal signal);
-  android.hardware.tv.hdmi.HpdSignal getHpdSignal();
+enum Result {
+  SUCCESS = 0,
+  FAILURE_UNKNOWN = 1,
+  FAILURE_INVALID_ARGS = 2,
+  FAILURE_NOT_SUPPORTED = 4,
 }
