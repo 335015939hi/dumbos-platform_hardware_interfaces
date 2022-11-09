@@ -17,6 +17,7 @@
 package android.hardware.tv.hdmi;
 
 import android.hardware.tv.hdmi.HdmiPortInfo;
+import android.hardware.tv.hdmi.HpdSignal;
 import android.hardware.tv.hdmi.IHdmiCallback;
 
 /**
@@ -48,4 +49,18 @@ interface IHdmi {
      *        setCallback(null) should deregister the callback.
      */
     void setCallback(in IHdmiCallback callback);
+
+    /**
+     * Set the HPD (Hot Plug Detection) signal type to {@code
+     * HDMI_HPD_STATUS_BIT} if the eARC module is active. When set to {@code
+     * HDMI_HPD_STATUS_BIT} the HAL should use the HDP status bit for
+     * applications such as signaling EDID updates. By default, the HAL will use
+     * {@code HDMI_HPD_PHYSICAL} (the physical hotplug signal).
+     */
+    void setHpdSignal(HpdSignal signal);
+
+    /**
+     * Get the current signal the HAL is using for HPD
+     */
+    HpdSignal getHpdSignal();
 }
