@@ -16,6 +16,29 @@
       "message": "Presumably this should get an extra line?\n```\nattestationIdSecondImei    [723] EXPLICIT OCTET_STRING OPTIONAL,\n```",
       "revId": "a3e3e0d32b67a539b92d5fd5dc970e04659507aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148b6eda_e99bd1ef",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-11-09T18:17:13Z",
+      "side": 1,
+      "message": "What about ATTESTATION_ID_THIRD_IMEI, etc.?  Are we certain we need only two?\n\nI\u0027d feel more comfortable with this if we made it TagType.BYTES_REP (which we\u0027d have to define) and called it ATTESTATION_ID_ADDITIONAL_IMEIS. This would allow any number and not create problems with devices that have three or more radios.",
+      "range": {
+        "startLine": 898,
+        "startChar": 3,
+        "endLine": 898,
+        "endChar": 46
+      },
+      "revId": "a3e3e0d32b67a539b92d5fd5dc970e04659507aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
