@@ -56,6 +56,30 @@
       },
       "revId": "5985b8f5413670472427f409f006e0fdbdcb5693",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15f9b5b3_80769f74",
+        "filename": "audio/aidl/android/hardware/audio/core/ITelephony.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-09T18:56:35Z",
+      "side": 1,
+      "message": "In my opinion—yes. This one (on ITelephony) is a version that is intended to switch the HAL into the new mode, it validates the parameter and blocks until the switch is completed. The one on IModule is more like a notification, it must not throw any errors, and it\u0027s not made \u0027oneway\u0027 only because it is recommended not to mix blocking and oneway calls on the same interface.\n\nActually, after I have explained this, I realized I should rename this one to \u0027switchAudioMode\u0027 to emphasize the action. I\u0027ve commented that \u0027IModule.updateAudioMode\u0027 is called after a successful switching. This way, I hope, there should be no misunderstanding.\n\nThanks for raising this question!",
+      "parentUuid": "7c7eeeb0_82b56b33",
+      "range": {
+        "startLine": 55,
+        "startChar": 3,
+        "endLine": 55,
+        "endChar": 41
+      },
+      "revId": "5985b8f5413670472427f409f006e0fdbdcb5693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
