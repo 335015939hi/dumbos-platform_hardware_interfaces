@@ -32,15 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.tv.hdmi;
-@VintfStability
-interface IHdmi {
-  android.hardware.tv.hdmi.HdmiPortInfo[] getPortInfo();
-  boolean isConnected(in int portId);
-  void setCallback(in android.hardware.tv.hdmi.IHdmiCallback callback);
-  int setHpdSignal(android.hardware.tv.hdmi.HpdSignal signal);
-  android.hardware.tv.hdmi.HpdSignal getHpdSignal();
-  const int RESULT_SUCCESS = 0;
-  const int RESULT_FAILURE_NOT_SUPPORTED = 1;
-  const int RESULT_FAILURE_INVALID_ARGS = 2;
-  const int RESULT_UNKNOWN_FAILURE = 4;
+@Backing(type="byte") @VintfStability
+enum HpdSignal {
+  HDMI_HPD_PHYSICAL = 0,
+  HDMI_HPD_STATUS_BIT = 1,
 }

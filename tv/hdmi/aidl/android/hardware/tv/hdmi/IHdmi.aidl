@@ -17,6 +17,7 @@
 package android.hardware.tv.hdmi;
 
 import android.hardware.tv.hdmi.HdmiPortInfo;
+import android.hardware.tv.hdmi.HpdSignal;
 import android.hardware.tv.hdmi.IHdmiCallback;
 
 /**
@@ -48,4 +49,37 @@ interface IHdmi {
      *        setCallback(null) should deregister the callback.
      */
     void setCallback(in IHdmiCallback callback);
+
+    /**
+     * The HPD Signal type was set successfully.
+     */
+    const int RESULT_SUCCESS = 0;
+
+    /**
+     * The HPD Signal type could not be set as the signal type is not supported.
+     */
+    const int RESULT_FAILURE_NOT_SUPPORTED = 1;
+
+    /**
+     * The HPD Signal type could not be set because the arguments were invalid.
+     */
+    const int RESULT_FAILURE_INVALID_ARGS = 2;
+
+    /**
+     * The HPD Signal type could not be set because of an unknown failure.
+     */
+    const int RESULT_UNKNOWN_FAILURE = 4;
+
+    /**
+     * Method to set the HPD (Hot Plug Detection) signal the HAL should use for HPD signaling (e.g.
+     * signaling EDID updates). By default, the HAL will use {@code HDMI_HPD_PHYSICAL} (the physical
+     * hotplug signal). When set to {@code HDMI_HPD_STATUS_BIT} the HAL should use the HDP status
+     * bit.
+     */
+    int setHpdSignal(HpdSignal signal);
+
+    /**
+     * Get the current signal the HAL is using for HPD
+     */
+    HpdSignal getHpdSignal();
 }
