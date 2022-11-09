@@ -22,6 +22,30 @@
       },
       "revId": "488f40918be3c19996c5111afa041fb94d952163",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dafe6a92_48675c65",
+        "filename": "fastboot/aidl/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1954115
+      },
+      "writtenOn": "2022-11-09T22:01:47Z",
+      "side": 1,
+      "message": "Just like HIDL default implementation, this is just stubby implementation and not installed anywhere.",
+      "parentUuid": "02f96ce2_90cb6ebc",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 63
+      },
+      "revId": "488f40918be3c19996c5111afa041fb94d952163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
