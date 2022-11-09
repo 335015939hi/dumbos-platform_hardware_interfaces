@@ -85,6 +85,8 @@ class HostapdAidl : public testing::TestWithParam<std::string> {
 
     virtual void TearDown() override {
         if (getWifi(wifiInstanceName) != nullptr) {
+            // Restore to STA mode (default) and stop wifi
+            getWifiStaIface(wifiInstanceName);
             stopWifi(wifiInstanceName);
         }
         hostapd->terminate();
