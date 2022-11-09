@@ -233,6 +233,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3464710_b067a7ad",
+        "filename": "audio/aidl/default/config/audioPolicy/audio_policy_configuration.xsd",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-09T19:01:20Z",
+      "side": 1,
+      "message": "Note: after you rebase on top of AOSP master, please ensure that this file is a \"move\" from audio/aidl/default/config/audio_policy_configuration.xsd.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 38
+      },
+      "revId": "338a571a7c8680366448bda78820b3e232304baa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40330b18_ab16dc6d",
         "filename": "audio/aidl/default/config/audioPolicy/engine/Android.bp",
         "patchSetId": 1
