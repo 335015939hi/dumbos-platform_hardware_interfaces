@@ -52,6 +52,69 @@
       "parentUuid": "e87acbe6_f32d53c0",
       "revId": "d7f565a943c5c6bf08a16c22ea15c2c6b628a00e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b49269d4_85f797f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2022-11-09T05:54:02Z",
+      "side": 1,
+      "message": "A couple of nits",
+      "revId": "d7f565a943c5c6bf08a16c22ea15c2c6b628a00e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "becd52f2_ee0d2436",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2022-11-09T05:54:02Z",
+      "side": 1,
+      "message": "Is this needed?  It seems like it is always the same as leAudioCodecCapabilities.empty()\n\nI\u0027d prefer to remove it.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 41
+      },
+      "revId": "d7f565a943c5c6bf08a16c22ea15c2c6b628a00e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "030b8898_f812c3f9",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2022-11-09T05:54:02Z",
+      "side": 1,
+      "message": "nit: I expected line 68 and 69 to be above the check in line 61.\n\nIf le_audio_offload_setting.has_value() returns false, then isInvalidFileContent should be true... right?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 30
+      },
+      "revId": "d7f565a943c5c6bf08a16c22ea15c2c6b628a00e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
