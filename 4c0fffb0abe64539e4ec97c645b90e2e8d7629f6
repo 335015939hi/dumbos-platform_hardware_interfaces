@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d316838f_669f9b35",
+        "filename": "uwb/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-09T17:59:36Z",
+      "side": 1,
+      "message": "why is this file marked as executable !?!? lol",
+      "revId": "4c0fffb0abe64539e4ec97c645b90e2e8d7629f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
