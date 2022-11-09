@@ -401,6 +401,20 @@ std::pair<ScopedAStatus, std::vector<VtsDisplay>> VtsComposerClient::getDisplays
                     return {std::move(status), vtsDisplays};
                 }
             }
+
+            auto config = getActiveConfig(display);
+            if (!config.first.isOk()) {
+                ALOGE("Unable to get the displays for test, failed to get the active config "
+                      "for display %" PRId64,
+                      display);
+                return {std::move(config.first), vtsDisplays};
+            }
+            const auto width =
+                getDisplayAttribute(display, config.second, DisplayAttribute::WIDTH);
+            const auto height =
+                getDisplayAttribute(display, config.second, DisplayAttribute::HEIGHT);
+            vtsDisplay.setDimensions(width.second, height.second);
+
             vtsDisplays.emplace_back(vtsDisplay);
             addDisplayToDisplayResources(display, /*isVirtual*/ false);
         }
