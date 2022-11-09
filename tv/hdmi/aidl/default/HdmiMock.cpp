@@ -67,6 +67,17 @@ ScopedAStatus HdmiMock::setCallback(const std::shared_ptr<IHdmiCallback>& callba
     return ScopedAStatus::ok();
 }
 
+ScopedAStatus HdmiMock::setHpdSignal(HpdSignal signal, int* _aidl_return) {
+    mHpdSignal = signal;
+    *_aidl_return = RESULT_SUCCESS;
+    return ScopedAStatus::ok();
+}
+
+ScopedAStatus HdmiMock::getHpdSignal(HpdSignal* _aidl_return) {
+    *_aidl_return = mHpdSignal;
+    return ScopedAStatus::ok();
+}
+
 void* HdmiMock::__threadLoop(void* user) {
     HdmiMock* const self = static_cast<HdmiMock*>(user);
     self->threadLoop();
