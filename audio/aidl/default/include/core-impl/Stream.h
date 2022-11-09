@@ -54,8 +54,8 @@ class StreamContext {
             int8_t, ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
             DataMQ;
 
-    // Ensure that this value is not used by any of StreamDescriptor.CommandCode enums
-    static constexpr int32_t COMMAND_EXIT = -1;
+    static constexpr StreamDescriptor::Command::Tag COMMAND_EXIT =
+            StreamDescriptor::Command::Tag::reserved;
     // Ensure that this value is not used by any of StreamDescriptor.State enums
     static constexpr int32_t STATE_CLOSED = -1;
 
