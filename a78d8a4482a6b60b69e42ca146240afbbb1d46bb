@@ -16,6 +16,24 @@
       "message": "Build failure observed",
       "revId": "a78d8a4482a6b60b69e42ca146240afbbb1d46bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36a4c55c_52f5c7a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2022-11-09T18:56:47Z",
+      "side": 1,
+      "message": "Resolved",
+      "parentUuid": "c15fac57_5bfe3a76",
+      "revId": "a78d8a4482a6b60b69e42ca146240afbbb1d46bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
