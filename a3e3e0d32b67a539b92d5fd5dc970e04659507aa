@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afae8998_93406a63",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-09T11:41:57Z",
+      "side": 1,
+      "message": "Presumably this should get an extra line?\n```\nattestationIdSecondImei    [723] EXPLICIT OCTET_STRING OPTIONAL,\n```",
+      "revId": "a3e3e0d32b67a539b92d5fd5dc970e04659507aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
