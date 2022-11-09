@@ -16,6 +16,24 @@
       "message": "why is this file marked as executable !?!? lol",
       "revId": "4c0fffb0abe64539e4ec97c645b90e2e8d7629f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef2ab65d_e289839d",
+        "filename": "uwb/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2022-11-09T18:09:51Z",
+      "side": 1,
+      "message": "yeah, that is very odd.",
+      "parentUuid": "d316838f_669f9b35",
+      "revId": "4c0fffb0abe64539e4ec97c645b90e2e8d7629f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
