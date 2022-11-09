@@ -33,6 +33,29 @@
       "message": "Devin, ping for AIDL review, thanks!",
       "revId": "5985b8f5413670472427f409f006e0fdbdcb5693",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c7eeeb0_82b56b33",
+        "filename": "audio/aidl/android/hardware/audio/core/ITelephony.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-09T16:31:04Z",
+      "side": 1,
+      "message": "do we still need this one if we have the same call on IModule and there can be only one ITelephony instance from the HAL?",
+      "range": {
+        "startLine": 55,
+        "startChar": 3,
+        "endLine": 55,
+        "endChar": 41
+      },
+      "revId": "5985b8f5413670472427f409f006e0fdbdcb5693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
