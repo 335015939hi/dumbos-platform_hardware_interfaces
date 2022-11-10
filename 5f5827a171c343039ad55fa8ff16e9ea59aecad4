@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e004539_95b3fece",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T17:17:15Z",
+      "side": 1,
+      "message": "Eric and Ross, ping for an approval. This is a CP of a VTS fix to VTS 13 branch, so we can close a partner bug.",
+      "revId": "5f5827a171c343039ad55fa8ff16e9ea59aecad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
