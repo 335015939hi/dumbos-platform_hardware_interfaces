@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe4eff04_fd356bb7",
+        "filename": "graphics/allocator/aidl/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-10T04:01:10Z",
+      "side": 1,
+      "message": "Marking as a WIP for now while the cherry picks happen. Will just keep growing this CL in the meantime (adding metadata helpers and some _awesome_ template games)",
+      "parentUuid": "3eb6298d_9dac446f",
+      "range": {
+        "startLine": 21,
+        "startChar": 42,
+        "endLine": 21,
+        "endChar": 44
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77491aa6_25497d1b",
