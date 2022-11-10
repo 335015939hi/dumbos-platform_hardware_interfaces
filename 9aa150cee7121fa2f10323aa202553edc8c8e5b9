@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c04afc10_7c460db1",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-11-10T23:48:22Z",
+      "side": 0,
+      "message": "We could still check that `verifyCsr()` is only used with IRPC v3 (not v1/2).",
+      "range": {
+        "startLine": 954,
+        "startChar": 0,
+        "endLine": 960,
+        "endChar": 5
+      },
+      "revId": "9aa150cee7121fa2f10323aa202553edc8c8e5b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
