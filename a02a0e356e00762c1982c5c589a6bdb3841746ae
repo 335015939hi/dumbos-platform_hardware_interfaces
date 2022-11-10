@@ -26,6 +26,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "341c7faf_a34dfbdf",
+        "filename": "audio/aidl/default/audio_effects.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T18:50:16Z",
+      "side": 1,
+      "message": "Since `kDefaultConfigName \u003d \"audio_effects_config.xml\"`, it would be more consistent to name this file like that.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 38
+      },
+      "revId": "a02a0e356e00762c1982c5c589a6bdb3841746ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ebf2c26_962af31f",
+        "filename": "audio/aidl/default/audio_effects.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T18:50:16Z",
+      "side": 1,
+      "message": "And another general question—is the format of this file effectively the same as the config from the HIDL version of the HAL? If yes, please say that explicitly in the comment, if no, then we may need to provide a converter from the old format to the new one, if possible, or at least some instructions how to do that manually.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 99
+      },
+      "revId": "a02a0e356e00762c1982c5c589a6bdb3841746ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9360cf25_16ec0c82",
         "filename": "audio/aidl/default/audio_effects.xml",
         "patchSetId": 3
