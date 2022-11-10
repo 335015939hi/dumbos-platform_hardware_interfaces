@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adc461c0_63977bda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-10T22:11:46Z",
+      "side": 1,
+      "message": "Addressing the easy ones first. Thanks, Mikhail!",
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf23d05a_b28a0ba7",
@@ -31,6 +48,30 @@
       "writtenOn": "2022-11-10T21:01:26Z",
       "side": 1,
       "message": "const std::string\u0026",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fec27dc4_474437d3",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-10T22:11:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf23d05a_b28a0ba7",
       "range": {
         "startLine": 60,
         "startChar": 8,
@@ -64,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b148edc1_aeff0a76",
+        "filename": "audio/aidl/default/include/core-impl/EngineConfigXmlConverter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-10T22:11:46Z",
+      "side": 1,
+      "message": "Correct, this isn\u0027t supposed to be an override. \n\nThe virtual init() in XmlConverter.h is something I forgot to delete when fixing patchset 5, which I realized wouldn\u0027t work, but then didn\u0027t clean up completely. Sorry about that, and thank you for catching it!",
+      "parentUuid": "ca341ba9_cf4a501f",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d701dd1b_2a698685",
@@ -77,6 +142,30 @@
       "writtenOn": "2022-11-10T21:01:26Z",
       "side": 1,
       "message": "OK, assuming that you actually need a virtual \u0027init\u0027 method (see my comment on it below), you indeed need to declare a virtual destructor. In this case, prefer to use `\u003d default` instead of `{}`, see go/totw/131.",
+      "range": {
+        "startLine": 41,
+        "startChar": 27,
+        "endLine": 41,
+        "endChar": 30
+      },
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbec0b72_348f663a",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-10T22:11:46Z",
+      "side": 1,
+      "message": "Virtual init method and destructor not needed.",
+      "parentUuid": "d701dd1b_2a698685",
       "range": {
         "startLine": 41,
         "startChar": 27,
@@ -110,6 +199,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dec2535_822c0258",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-10T22:11:46Z",
+      "side": 1,
+      "message": "I forgot to delete this when fixing patchset 5. \n\nYou\u0027re right, I need to remove it.\n\nBut just for clarity, private methods can be overridden in subclasses if they\u0027re marked virtual. However, it\u0027s dangerous to use them in the base constructor, for example, (as I did in patchset 5). \nhttps://stackoverflow.com/questions/2170688/private-virtual-method-in-c\n\nThe reason patchset 5 didn\u0027t work was because the base constructor still uses the base definition of init() even if I override it in the child classes and call the base constructor from the child class.",
+      "parentUuid": "e958a514_456ef10c",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 26
+      },
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e10de1d3_79739296",
@@ -123,6 +236,30 @@
       "writtenOn": "2022-11-10T21:01:26Z",
       "side": 1,
       "message": "Sorry for questioning your design, but it seems to me that using inheritance might not be the right approach here, and composition could do the same job better. In my understanding, the goal of this class is to parse the config and provide information about the error in case of failure, that\u0027s it. We don\u0027t seem to use XmlConverter as an interface to work with its descendants in a generic way, nor we have any generic functionality in the XmlConverter that its descendants would specialize. In that case, I would instead make an instance of XmlConverter a field of EngineConfigXmlConverter and AudioPolicyConfigXmlConverter.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 33
+      },
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03526b02_6c388ba0",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-10T22:11:46Z",
+      "side": 1,
+      "message": "Right, I couldn\u0027t make XmlConverter an interface like I wanted, because as we discussed, writing a specialization for the entire class does not \"inherit\" anything from the primary template. \n\nComposition works. Will fix. Thank you!",
+      "parentUuid": "e10de1d3_79739296",
       "range": {
         "startLine": 62,
         "startChar": 0,
