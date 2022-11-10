@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87a976e6_646a1d18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T23:26:33Z",
+      "side": 1,
+      "message": "Please brush up the new comments per my suggestions. Thanks!",
+      "revId": "865258311ee9cb82e86ed9d239cb5354471f3a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cd04c11_9c2bef81",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T23:26:33Z",
+      "side": 1,
+      "message": "As a general comment, please wrap long comments to 100 or 80 columns for better readability.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "865258311ee9cb82e86ed9d239cb5354471f3a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fedf934_556eb639",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T23:26:33Z",
+      "side": 1,
+      "message": "typo: library",
+      "range": {
+        "startLine": 6,
+        "startChar": 99,
+        "endLine": 6,
+        "endChar": 107
+      },
+      "revId": "865258311ee9cb82e86ed9d239cb5354471f3a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fccaa570_65446a42",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T23:26:33Z",
+      "side": 1,
+      "message": "must match an \"effect\" element with the same value of the \"name\" attribute.",
+      "range": {
+        "startLine": 7,
+        "startChar": 72,
+        "endLine": 7,
+        "endChar": 133
+      },
+      "revId": "865258311ee9cb82e86ed9d239cb5354471f3a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba0dd494_d2661892",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T23:26:33Z",
+      "side": 1,
+      "message": "\"We\" is ambiguous. Please point to the software component which relies on this.",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "865258311ee9cb82e86ed9d239cb5354471f3a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f25bdcc_b08fe010",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T23:26:33Z",
+      "side": 1,
+      "message": "Please be more specific: \"to match the ... mapping in ...\"",
+      "range": {
+        "startLine": 11,
+        "startChar": 132,
+        "endLine": 11,
+        "endChar": 149
+      },
+      "revId": "865258311ee9cb82e86ed9d239cb5354471f3a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
