@@ -363,13 +363,93 @@ void Tuner::frontendStopTune(uint32_t frontendId) {
     }
 }
 
+
+void Tuner::startTsFileInputLoop() {
+    mTsFileInputThreadRunning = true;
+    pthread_create(&mTsFileInputThread, NULL, __threadLoopTsFileInput, this);
+    pthread_setname_np(mTsFileInputThread, "frontend_ts_file_input_thread");
+
+}
+
+
+void* Tuner::__threadLoopTsFileInput(void* user) {
+    Tuner* const self = static_cast<Tuner*>(user);
+    self->TsFileThreadLoop();
+    return 0;
+}
+
+
+void Tuner::TsFileThreadLoop() {
+
+    mTsFileInputThreadRunning=true;
+    while (mTsFileInputThreadRunning) {
+
+        ts::TSPacket pkt;
+        ts::Report report;
+        std::map<uint32_t, sp<Demux>>::iterator it;
+
+         
+#if 1
+
+        //TODO MArko Get TS File from Frontend
+
+        ts::TSFile file;
+        
+        ts::UString filename;
+
+        filename = u"/product/stream-dvbt.ts";
+        if (!file.openRead(filename, 0, report, ts::TSPacketFormat::AUTODETECT)) {
+            return;
+        }
+
+#endif
+
+        // TODO Marko Add mutex for mFilters
+        
+        for (; file.readPackets(&pkt, nullptr, 1, report) > 0;) {
+
+            if(mTsFileInputThreadRunning == false)
+            {
+                break;
+            }
+#if 1
+            for (it = mDemuxes.begin(); it != mDemuxes.end(); it++){
+            
+                std::vector<uint8_t> data(pkt.b, pkt.b + 188);
+
+                if(it->second == nullptr)
+                {
+                    continue;
+                }
+                
+                
+                it->second->updateDemuxOutput(data);
+
+                
+            }
+#endif            
+            if(mTsFileInputThreadRunning == false)
+            {
+                break;
+            }
+        }
+    }
+           
+}
+
+
+
+
+
 void Tuner::frontendStartTune(uint32_t frontendId) {
+    ALOGD("MARKO START TUNE");
     map<uint32_t, uint32_t>::iterator it = mFrontendToDemux.find(frontendId);
     uint32_t demuxId;
     if (it != mFrontendToDemux.end()) {
         demuxId = it->second;
         mDemuxes[demuxId]->startFrontendInputLoop();
     }
+    startTsFileInputLoop();
 }
 
 }  // namespace implementation

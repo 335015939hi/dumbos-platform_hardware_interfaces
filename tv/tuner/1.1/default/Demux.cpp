@@ -51,6 +51,12 @@ Return<Result> Demux::setFrontendDataSource(uint32_t frontendId) {
         return Result::INVALID_STATE;
     }
 
+
+    {
+        //TODO Marko Get TSFile Handle from Frontend
+        startTsFileInputLoop();
+    }
+
     mTunerService->setFrontendAsDemuxSource(frontendId, mDemuxId);
 
     return Result::SUCCESS;
@@ -59,7 +65,6 @@ Return<Result> Demux::setFrontendDataSource(uint32_t frontendId) {
 Return<void> Demux::openFilter(const DemuxFilterType& type, uint32_t bufferSize,
                                const sp<IFilterCallback>& cb, openFilter_cb _hidl_cb) {
     ALOGV("%s", __FUNCTION__);
-
     uint64_t filterId;
     filterId = ++mLastUsedFilterId;
 
@@ -73,6 +78,7 @@ Return<void> Demux::openFilter(const DemuxFilterType& type, uint32_t bufferSize,
 
     if (!filter->createFilterMQ()) {
         _hidl_cb(Result::UNKNOWN_ERROR, filter);
+
         return Void();
     }
 
@@ -141,15 +147,17 @@ Return<void> Demux::getAvSyncHwId(const sp<IFilter>& filter, getAvSyncHwId_cb _h
         return Void();
     }
 
-    ALOGE("[Demux] No PCR filter opened.");
-    _hidl_cb(Result::INVALID_STATE, avSyncHwId);
+    ALOGE("[Demux] No PCR filter opened. %p %llu", this, id);
+    _hidl_cb(Result::SUCCESS, 10);
     return Void();
 }
 
 Return<void> Demux::getAvSyncTime(AvSyncHwId avSyncHwId, getAvSyncTime_cb _hidl_cb) {
     ALOGV("%s", __FUNCTION__);
 
+
     uint64_t avSyncTime = -1;
+#if 0
     if (mPcrFilterIds.empty()) {
         _hidl_cb(Result::INVALID_STATE, avSyncTime);
         return Void();
@@ -158,6 +166,17 @@ Return<void> Demux::getAvSyncTime(AvSyncHwId avSyncHwId, getAvSyncTime_cb _hidl_
         _hidl_cb(Result::INVALID_ARGUMENT, avSyncTime);
         return Void();
     }
+#endif
+
+    std::map<uint64_t, sp<Filter>>::iterator it;
+    for (it = mFilters.begin(); it != mFilters.end(); it++){ 
+    
+        
+        if (avSyncHwId == it->second->getFilterId()) {
+            avSyncTime= it->second->getPts();
+        }
+    }
+
 
     _hidl_cb(Result::SUCCESS, avSyncTime);
     return Void();
@@ -166,6 +185,7 @@ Return<void> Demux::getAvSyncTime(AvSyncHwId avSyncHwId, getAvSyncTime_cb _hidl_
 Return<Result> Demux::close() {
     ALOGV("%s", __FUNCTION__);
 
+    mTsFileInputThreadRunning = false;
     set<uint64_t>::iterator it;
     for (it = mPlaybackFilterIds.begin(); it != mPlaybackFilterIds.end(); it++) {
         mDvrPlayback->removePlaybackFilter(*it);
@@ -248,7 +268,6 @@ Result Demux::removeFilter(uint64_t filterId) {
     mPlaybackFilterIds.erase(filterId);
     mRecordFilterIds.erase(filterId);
     mFilters.erase(filterId);
-
     return Result::SUCCESS;
 }
 
@@ -333,11 +352,90 @@ void Demux::startFrontendInputLoop() {
     pthread_setname_np(mFrontendInputThread, "frontend_input_thread");
 }
 
+
+void Demux::startTsFileInputLoop() {
+    mTsFileInputThreadRunning = true;
+    pthread_create(&mTsFileInputThread, NULL, __threadLoopTsFileInput, this);
+    pthread_setname_np(mTsFileInputThread, "frontend_ts_file_input_thread");
+
+}
+
+
 void* Demux::__threadLoopFrontend(void* user) {
     Demux* const self = static_cast<Demux*>(user);
     self->frontendInputThreadLoop();
     return 0;
 }
+
+
+void* Demux::__threadLoopTsFileInput(void* user) {
+    Demux* const self = static_cast<Demux*>(user);
+    self->TsFileThreadLoop();
+    return 0;
+}
+
+#if 1
+
+void Demux::TsFileThreadLoop() {
+
+    mTsFileInputThreadRunning=true;
+    while (mTsFileInputThreadRunning) {
+
+        ts::TSPacket pkt;
+        ts::Report report;
+        std::map<uint64_t, sp<Filter>>::iterator it;
+
+         
+#if 1
+
+        //TODO MArko Get TS File from Frontend
+
+        ts::TSFile file;
+        
+        ts::UString filename;
+
+        filename = u"/product/stream-dvbt.ts";
+        if (!file.openRead(filename, 0, report, ts::TSPacketFormat::AUTODETECT)) {
+            return;
+        }
+
+#endif
+
+        // TODO Marko Add mutex for mFilters
+        
+        for (; file.readPackets(&pkt, nullptr, 1, report) > 0;) {
+
+            if(mTsFileInputThreadRunning == false)
+            {
+                break;
+            }
+
+            std::map<uint64_t, sp<Filter>>::iterator it;
+            for (it = mFilters.begin(); it != mFilters.end(); it++){   
+            
+                std::vector<uint8_t> data(pkt.b, pkt.b + 188);
+
+                if(it->second == nullptr)
+                {
+                    continue;
+                }
+                
+                if (pkt.getPID() == it->second->getTpid()) {
+                    it->second->updateFilterOutput(data);
+
+                }
+            }
+            if(mTsFileInputThreadRunning == false)
+            {
+                break;
+            }
+        }
+    }
+           
+}
+      
+#endif
+
 
 void Demux::frontendInputThreadLoop() {
     if (!mFrontendInputThreadRunning) {
@@ -380,6 +478,51 @@ void Demux::frontendInputThreadLoop() {
     mFrontendInputThreadRunning = false;
     ALOGW("[Demux] Frontend Input thread end.");
 }
+
+
+void Demux::updateDemuxOutput(vector<uint8_t> data) {
+     //ALOGD("Feed Demux %p", this);
+
+    uint8_t b[188];
+
+    for(int i = 0 ; i < 188; i++)
+    {
+       b[i] = data[i];   
+    }
+
+    ts::TSPacket *pkt = new ts::TSPacket();
+
+    pkt->copyFrom( (void*) b);
+
+    std::map<uint64_t, sp<Filter>>::iterator it;
+    for (it = mFilters.begin(); it != mFilters.end(); it++){   
+    
+        if(it->second == nullptr)
+        {
+            continue;
+        }
+        
+        if (pkt->getPID() == it->second->getTpid()) {
+            it->second->updateFilterOutput(data);
+
+
+            if(pkt->hasPCR())
+            {
+                ALOGD("ADD PCR PID!!! %p %x %llu", this,it->second->getTpid(),it->second->getFilterId());
+                mPcrFilterIds.insert(it->second->getFilterId());
+                it->second->updatePcr(pkt->getPCR());
+            }
+
+            if(pkt->hasPTS())
+            {
+                it->second->updatePts(pkt->getPTS());
+            }
+
+        }
+    }
+
+}
+
 
 void Demux::stopFrontendInput() {
     ALOGD("[Demux] stop frontend on demux");

@@ -23,6 +23,9 @@
 #include "Frontend.h"
 #include "Lnb.h"
 
+#include "FileTuner/TsPlayPump/tsTSFile.h"
+#include "FileTuner/TsPlayPump/tsTSPacket.h"
+
 using namespace std;
 
 namespace android {
@@ -89,6 +92,14 @@ class Tuner : public ITuner {
     // First used id will be 0.
     uint32_t mLastUsedId = -1;
     vector<sp<Lnb>> mLnbs;
+
+    //MARKO
+    bool mTsFileInputThreadRunning;
+    pthread_t mTsFileInputThread;
+    static void* __threadLoopTsFileInput(void* user);
+    void TsFileThreadLoop();
+    void startTsFileInputLoop();
+
 };
 
 }  // namespace implementation

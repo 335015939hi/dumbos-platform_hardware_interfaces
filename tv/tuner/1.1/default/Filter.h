@@ -28,6 +28,9 @@
 #include "Demux.h"
 #include "Dvr.h"
 #include "Frontend.h"
+#include "FileTuner/TsPlayPump/tsTableHandlerInterface.h"
+#include "FileTuner/TsPlayPump/tsSectionHandlerInterface.h"
+#include "FileTuner/TsPlayPump/tsPESDemux.h"
 
 using namespace std;
 
@@ -49,7 +52,7 @@ const uint32_t BUFFER_SIZE_16M = 0x1000000;
 class Demux;
 class Dvr;
 
-class Filter : public V1_1::IFilter {
+class Filter : public ts::PESHandlerInterface, public ts::TableHandlerInterface, public ts::SectionHandlerInterface, public V1_1::IFilter {
   public:
     Filter();
 
@@ -86,6 +89,25 @@ class Filter : public V1_1::IFilter {
 
     virtual Return<Result> configureMonitorEvent(uint32_t monitorEventTypes) override;
 
+   ////////////////////////////////////////////
+
+
+    virtual void handleSection(ts::SectionDemux& demux, const ts::Section& section) override;
+    virtual void handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table) override;
+
+
+    virtual void handlePESPacket(ts::PESDemux& demux, const ts::PESPacket& packet) override;
+    virtual void handleVideoStartCode(ts::PESDemux& demux, const ts::PESPacket& packet, uint8_t start_code, size_t offset, size_t size) override;
+    virtual void handleNewMPEG2VideoAttributes(ts::PESDemux& demux, const ts::PESPacket& packet, const ts::MPEG2VideoAttributes& attr) override;
+    virtual void handleAccessUnit(ts::PESDemux& demux, const ts::PESPacket& packet, uint8_t nal_unit_type, size_t offset, size_t size) override;
+    virtual void handleSEI(ts::PESDemux& demux, const ts::PESPacket& packet, uint32_t sei_type, size_t offset, size_t size) override;
+    virtual void handleNewAVCAttributes(ts::PESDemux& demux, const ts::PESPacket& packet, const ts::AVCAttributes& attr) override;
+    virtual void handleNewHEVCAttributes(ts::PESDemux& demux, const ts::PESPacket& packet, const ts::HEVCAttributes& attr) override;
+    virtual void handleIntraImage(ts::PESDemux& demux, const ts::PESPacket& packet, size_t offset) override;
+    virtual void handleNewMPEG2AudioAttributes(ts::PESDemux& demux, const ts::PESPacket& packet, const ts::MPEG2AudioAttributes& attr) override;
+    virtual void handleNewAC3Attributes(ts::PESDemux& demux, const ts::PESPacket& packet, const ts::AC3Attributes& attr) override;
+
+
     /**
      * To create a FilterMQ and its Event Flag.
      *
@@ -96,6 +118,10 @@ class Filter : public V1_1::IFilter {
     void updateFilterOutput(vector<uint8_t> data);
     void updateRecordOutput(vector<uint8_t> data);
     void updatePts(uint64_t pts);
+    void updatePcr(uint64_t pts);
+    uint64_t getFilterId();
+    uint64_t getPts();
+    uint64_t getPcr();
     Result startFilterHandler();
     Result startRecordFilterHandler();
     void attachFilterToRecord(const sp<Dvr> dvr);
@@ -136,6 +162,7 @@ class Filter : public V1_1::IFilter {
     vector<uint8_t> mFilterOutput;
     vector<uint8_t> mRecordFilterOutput;
     uint64_t mPts = 0;
+    uint64_t mPcr = 0;
     unique_ptr<FilterMQ> mFilterMQ;
     bool mIsUsingFMQ = false;
     EventFlag* mFilterEventFlag;
@@ -159,7 +186,7 @@ class Filter : public V1_1::IFilter {
      */
     const uint16_t SECTION_WRITE_COUNT = 10;
 
-    bool DEBUG_FILTER = false;
+    bool DEBUG_FILTER = true;
 
     /**
      * Filter handlers to handle the data filtering.
