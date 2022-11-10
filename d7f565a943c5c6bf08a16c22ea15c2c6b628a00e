@@ -96,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e5e1c14_ea282b0d",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-11-10T04:48:34Z",
+      "side": 1,
+      "message": "This is because we use `isInvalidFileContent` to avoid repeatedly reading same invalid content again.\nIf `leAudioCodecCapabilities.empty()` is true, it might be the first read of the valid file, and checking `isInvalidFileContent` \u003d\u003d true is to make sure not reading invalid file again.",
+      "parentUuid": "becd52f2_ee0d2436",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 41
+      },
+      "revId": "d7f565a943c5c6bf08a16c22ea15c2c6b628a00e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "030b8898_f812c3f9",
         "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
         "patchSetId": 4
@@ -107,6 +131,30 @@
       "writtenOn": "2022-11-09T05:54:02Z",
       "side": 1,
       "message": "nit: I expected line 68 and 69 to be above the check in line 61.\n\nIf le_audio_offload_setting.has_value() returns false, then isInvalidFileContent should be true... right?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 30
+      },
+      "revId": "d7f565a943c5c6bf08a16c22ea15c2c6b628a00e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f70b525a_11c3453e",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-11-10T04:48:34Z",
+      "side": 1,
+      "message": "one of a case that le_audio_offload_setting.has_value() returns false is we already cached `leAudioCodecCapabilities` so no need to read file and `le_audio_offload_setting` would not have value.",
+      "parentUuid": "030b8898_f812c3f9",
       "range": {
         "startLine": 69,
         "startChar": 0,
