@@ -207,85 +207,93 @@ void TunerRecordHidlTest::recordSingleFilterTest(FilterConfig1_1 filterConf,
     ASSERT_TRUE(mDemuxTests.closeDemux());
 }
 
-TEST_P(TunerFilterHidlTest, StartFilterInDemux) {
-    description("Open and start a filter in Demux.");
-    if (!live.hasFrontendConnection) {
-        return;
-    }
-    // TODO use parameterized tests
-    configSingleFilterInDemuxTest(filterMap[live.videoFilterId], frontendMap[live.frontendId]);
-}
+// TEST_P(TunerFilterHidlTest, StartFilterInDemux) {
+//     description("Open and start a filter in Demux.");
+//     if (!live.hasFrontendConnection) {
+//         return;
+//     }
+//     // TODO use parameterized tests
+//     configSingleFilterInDemuxTest(filterMap[live.videoFilterId], frontendMap[live.frontendId]);
+// }
 
-TEST_P(TunerFilterHidlTest, ConfigIpFilterInDemuxWithCid) {
-    description("Open and configure an ip filter in Demux.");
-    // TODO use parameterized tests
-    if (!live.hasFrontendConnection) {
-        return;
-    }
-    if (live.ipFilterId.compare(emptyHardwareId) == 0) {
-        return;
-    }
-    configSingleFilterInDemuxTest(filterMap[live.ipFilterId], frontendMap[live.frontendId]);
-}
+// TEST_P(TunerFilterHidlTest, ConfigIpFilterInDemuxWithCid) {
+//     description("Open and configure an ip filter in Demux.");
+//     // TODO use parameterized tests
+//     if (!live.hasFrontendConnection) {
+//         return;
+//     }
+//     if (live.ipFilterId.compare(emptyHardwareId) == 0) {
+//         return;
+//     }
+//     configSingleFilterInDemuxTest(filterMap[live.ipFilterId], frontendMap[live.frontendId]);
+// }
 
-TEST_P(TunerFilterHidlTest, ReconfigFilterToReceiveStartId) {
-    description("Recofigure and restart a filter to test start id.");
-    if (!live.hasFrontendConnection) {
-        return;
-    }
-    // TODO use parameterized tests
-    reconfigSingleFilterInDemuxTest(filterMap[live.videoFilterId], filterMap[live.videoFilterId],
-                                    frontendMap[live.frontendId]);
-}
+// TEST_P(TunerFilterHidlTest, ReconfigFilterToReceiveStartId) {
+//     description("Recofigure and restart a filter to test start id.");
+//     if (!live.hasFrontendConnection) {
+//         return;
+//     }
+//     // TODO use parameterized tests
+//     reconfigSingleFilterInDemuxTest(filterMap[live.videoFilterId], filterMap[live.videoFilterId],
+//                                     frontendMap[live.frontendId]);
+// }
 
-TEST_P(TunerRecordHidlTest, RecordDataFlowWithTsRecordFilterTest) {
-    description("Feed ts data from frontend to recording and test with ts record filter");
-    if (!record.support) {
-        return;
-    }
-    recordSingleFilterTest(filterMap[record.recordFilterId], frontendMap[record.frontendId],
-                           dvrMap[record.dvrRecordId]);
-}
+// TEST_P(TunerRecordHidlTest, RecordDataFlowWithTsRecordFilterTest) {
+//     description("Feed ts data from frontend to recording and test with ts record filter");
+//     if (!record.support) {
+//         return;
+//     }
+//     recordSingleFilterTest(filterMap[record.recordFilterId], frontendMap[record.frontendId],
+//                            dvrMap[record.dvrRecordId]);
+// }
 
-TEST_P(TunerFrontendHidlTest, TuneFrontendWithFrontendSettingsExt1_1) {
-    description("Tune one Frontend with v1_1 extended setting and check Lock event");
-    if (!live.hasFrontendConnection) {
-        return;
-    }
-    mFrontendTests.tuneTest(frontendMap[live.frontendId]);
-}
+// TEST_P(TunerFrontendHidlTest, TuneFrontendWithFrontendSettingsExt1_1) {
+//     description("Tune one Frontend with v1_1 extended setting and check Lock event");
+//     if (!live.hasFrontendConnection) {
+//         return;
+//     }
+//     mFrontendTests.tuneTest(frontendMap[live.frontendId]);
+// }
 
-TEST_P(TunerFrontendHidlTest, BlindScanFrontendWithEndFrequency) {
-    description("Run an blind frontend scan with v1_1 extended setting and check lock scanMessage");
+// TEST_P(TunerFrontendHidlTest, BlindScanFrontendWithEndFrequency) {
+//     description("Run an blind frontend scan with v1_1 extended setting and check lock scanMessage");
+//     if (!scan.hasFrontendConnection) {
+//         return;
+//     }
+//     mFrontendTests.scanTest(frontendMap[scan.frontendId], FrontendScanType::SCAN_BLIND);
+// }
+
+TEST_P(TunerFrontendHidlTest, AutoScanFrontendWithEndFrequency) {
+    description("Run an auto frontend scan with v1_1 extended setting and check lock scanMessage");
     if (!scan.hasFrontendConnection) {
         return;
     }
-    mFrontendTests.scanTest(frontendMap[scan.frontendId], FrontendScanType::SCAN_BLIND);
+    mFrontendTests.scanTest(frontendMap[scan.frontendId], FrontendScanType::SCAN_AUTO);
 }
 
-TEST_P(TunerBroadcastHidlTest, MediaFilterWithSharedMemoryHandle) {
-    description("Test the Media Filter with shared memory handle");
-    if (!live.hasFrontendConnection) {
-        return;
-    }
-    mediaFilterUsingSharedMemoryTest(filterMap[live.videoFilterId], frontendMap[live.frontendId]);
-}
+// TEST_P(TunerBroadcastHidlTest, MediaFilterWithSharedMemoryHandle) {
+//     description("Test the Media Filter with shared memory handle");
+//     if (!live.hasFrontendConnection) {
+//         return;
+//     }
+//     mediaFilterUsingSharedMemoryTest(filterMap[live.videoFilterId], frontendMap[live.frontendId]);
+// }
 
-TEST_P(TunerFrontendHidlTest, GetFrontendDtmbCaps) {
-    description("Test to query Dtmb frontend caps if exists");
-    mFrontendTests.getFrontendDtmbCapsTest();
-}
+// TEST_P(TunerFrontendHidlTest, GetFrontendDtmbCaps) {
+//     description("Test to query Dtmb frontend caps if exists");
+//     mFrontendTests.getFrontendDtmbCapsTest();
+// }
 
-TEST_P(TunerFrontendHidlTest, LinkToCiCam) {
-    description("Test Frontend link to CiCam");
-    if (!live.hasFrontendConnection) {
-        return;
-    }
-    if (!frontendMap[live.frontendId].canConnectToCiCam) {
-        return;
-    }
-    mFrontendTests.tuneTest(frontendMap[live.frontendId]);
-}
+// TEST_P(TunerFrontendHidlTest, LinkToCiCam) {
+//     description("Test Frontend link to CiCam");
+//     if (!live.hasFrontendConnection) {
+//         return;
+//     }
+//     if (!frontendMap[live.frontendId].canConnectToCiCam) {
+//         return;
+//     }
+//     mFrontendTests.tuneTest(frontendMap[live.frontendId]);
+// }
 
 INSTANTIATE_TEST_SUITE_P(
         PerInstance, TunerBroadcastHidlTest,

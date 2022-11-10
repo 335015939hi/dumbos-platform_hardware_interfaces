@@ -89,10 +89,10 @@ class FrontendCallback : public IFrontendCallback {
     void readFrontendScanMessageExt1_1Modulation(FrontendModulation modulation);
 
     bool mEventReceived = false;
-    bool mScanMessageReceived = false;
+    //bool mScanMessageReceived = false;
     bool mLockMsgReceived = false;
-    bool mScanMsgProcessed = true;
-    FrontendScanMessageType mScanMessageType;
+    //bool mScanMsgProcessed = true;
+    //FrontendScanMessageType mScanMessageType;
     FrontendScanMessage mScanMessage;
     hidl_vec<uint8_t> mEventMessage;
     android::Mutex mMsgLock;
