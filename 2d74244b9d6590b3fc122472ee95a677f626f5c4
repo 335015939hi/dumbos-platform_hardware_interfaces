@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "101e15b1_d770a08c",
+        "filename": "audio/aidl/default/include/effectFactory-impl/EffectConfig.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-10T17:27:02Z",
+      "side": 1,
+      "message": "Please checkout:\nhttps://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2298337/2/audio/aidl/default/EffectMain.cpp#32",
+      "parentUuid": "03f32224_9b23844f",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 78
+      },
+      "revId": "2d74244b9d6590b3fc122472ee95a677f626f5c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da92de61_f58ef856",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-09T20:59:00Z",
       "side": 1,
       "message": "Since this isn\u0027t a templated class, there is no need to define all methods implementations in a header file. Please put non-trivial method definitions into a .cpp module.",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "2d74244b9d6590b3fc122472ee95a677f626f5c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f973d0b_83daa7e3",
+        "filename": "audio/aidl/default/include/effectFactory-impl/EffectConfig.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-10T17:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da92de61_f58ef856",
       "range": {
         "startLine": 40,
         "startChar": 3,
