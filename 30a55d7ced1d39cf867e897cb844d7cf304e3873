@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "024051a7_20b569b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T04:09:39Z",
+      "side": 1,
+      "message": "Eric, if you have a chance, could you please provide early feedback on the interface, before I proceed to implementation.\n\nPlease note that I have considered non-blocking input as well, although currently we don\u0027t have corresponding flag at the HAL level (system/hardware/interfaces/media/aidl/android/media/audio/common/AudioInputFlags.aidl). However, this mode might make sense when buffers are large. In this case, the HAL unblocks the client from a read operation before the data is actually available, and notifies it via a callback when the data has been obtained.\n\nAlso note that when the h/w is not consuming (for output) or producing (for input), the I/O operation is in fact just copying of the data from / to the ring buffer, and thus is always synchronous since it completes quickly. I\u0027ve made a comment about that in state machines.",
+      "revId": "30a55d7ced1d39cf867e897cb844d7cf304e3873",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
