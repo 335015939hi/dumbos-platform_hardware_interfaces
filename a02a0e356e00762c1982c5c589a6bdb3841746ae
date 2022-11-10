@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83e105a4_bea340d3",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T18:45:11Z",
+      "side": 1,
+      "message": "Since \u0027Identity.proxy\u0027 is @nullable, that means it\u0027s implemented as \u0027std::optional\u0027, so we probably can just assign `id.proxy \u003d proxyUuid`, have you tried that?",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 9
+      },
+      "revId": "a02a0e356e00762c1982c5c589a6bdb3841746ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9360cf25_16ec0c82",
+        "filename": "audio/aidl/default/audio_effects.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T18:45:11Z",
+      "side": 1,
+      "message": "attribute",
+      "range": {
+        "startLine": 32,
+        "startChar": 36,
+        "endLine": 32,
+        "endChar": 43
+      },
+      "revId": "a02a0e356e00762c1982c5c589a6bdb3841746ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e106b7a1_24b79d34",
+        "filename": "audio/aidl/default/audio_effects.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T18:45:11Z",
+      "side": 1,
+      "message": "Since we don\u0027t have this now in the config, would you mind providing an example in comments?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 80
+      },
+      "revId": "a02a0e356e00762c1982c5c589a6bdb3841746ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a6dfc2f_05d9ed82",
+        "filename": "audio/aidl/default/audio_effects.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T18:45:11Z",
+      "side": 1,
+      "message": "Are effects applied in the same order as \u0027apply\u0027 elements? That would be useful to know.",
+      "range": {
+        "startLine": 88,
+        "startChar": 9,
+        "endLine": 89,
+        "endChar": 81
+      },
+      "revId": "a02a0e356e00762c1982c5c589a6bdb3841746ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
