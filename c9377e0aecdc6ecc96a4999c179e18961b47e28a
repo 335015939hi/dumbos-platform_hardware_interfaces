@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75a5b24c_876e2bda",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-11-10T09:52:26Z",
+      "side": 1,
+      "message": "if exit is the only internal command we should call this \"exit\". Otherwise for future use we should a struct instead of an Int with a cookie and command code",
+      "range": {
+        "startLine": 198,
+        "startChar": 8,
+        "endLine": 198,
+        "endChar": 11
+      },
+      "revId": "c9377e0aecdc6ecc96a4999c179e18961b47e28a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69d1bb60_01d4f535",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-11-10T09:52:26Z",
+      "side": 1,
+      "message": "this seems to imply that EXIT is the only reserved command. Shouldn\u0027t we use COMMAND_RESERVED here?",
+      "range": {
+        "startLine": 57,
+        "startChar": 52,
+        "endLine": 57,
+        "endChar": 64
+      },
+      "revId": "c9377e0aecdc6ecc96a4999c179e18961b47e28a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
