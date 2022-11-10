@@ -34,6 +34,24 @@
       "parentUuid": "b8507d7a_a61e29c3",
       "revId": "12c591ef1637b5d929c8d417339765ce853469ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15e4ca8b_8f80f649",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-11-10T22:16:27Z",
+      "side": 1,
+      "message": "Seth merged the topic and this is now rebased on top.",
+      "parentUuid": "a918ce33_1bbd27a2",
+      "revId": "12c591ef1637b5d929c8d417339765ce853469ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
