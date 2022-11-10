@@ -19,6 +19,8 @@
 #include "Frontend.h"
 #include <android/hardware/tv/tuner/1.1/IFrontendCallback.h>
 #include <utils/Log.h>
+#include <dirent.h>
+#include <string>
 
 namespace android {
 namespace hardware {
@@ -58,17 +60,65 @@ Return<Result> Frontend::setCallback(const sp<IFrontendCallback>& callback) {
     return Result::SUCCESS;
 }
 
-Return<Result> Frontend::tune(const FrontendSettings& /* settings */) {
+bool Frontend::has_suffix(const string& s, const string& suffix){
+    return (s.size() >= suffix.size()) && std::equal(suffix.rbegin(), suffix.rend(), s.rbegin());
+}
+
+vector<int> Frontend::getFrequencyVector(){
+    DIR *dir = opendir("/product/");
+    vector<string> strFreq;
+    if(!dir){
+        ALOGI("Cannot open directory /product/");
+    }
+    dirent *entry;
+    while((entry = readdir(dir)) != NULL) {
+        if(has_suffix(entry->d_name, ".ts")){
+            strFreq.push_back(entry->d_name);
+        }
+    }
+    closedir(dir);
+
+    vector<string> strFreq2;
+    for (auto it = strFreq.begin(); it != strFreq.end(); it++){
+         strFreq2.push_back((*it).substr(0, (*it).find("MHz")));
+    }
+
+    vector<int> intFreq;
+    for (int i = 0; i < strFreq2.size(); i++){
+        intFreq.push_back(stoi(strFreq2.at(i))*1000000); // convert to MHz
+    }
+    return intFreq;
+}
+
+ts::UString Frontend::formatFrequencyPath(int frequency){
+    ts::UString s0 = u"/product/";
+    ts::UString s1 = ts::UString().FromUTF8(std::to_string(frequency / 1000000));
+    ts::UString s2 = u"MHz.ts";
+    ts::UString s3 = s0 + s1 + s2;
+    return s3;
+}
+
+Return<Result> Frontend::tune(const FrontendSettings& settings ) {
     ALOGV("%s", __FUNCTION__);
     if (mCallback == nullptr) {
         ALOGW("[   WARN   ] Frontend callback is not set when tune");
         return Result::INVALID_STATE;
     }
 
-    mTunerService->frontendStartTune(mId);
-    mCallback->onEvent(FrontendEventType::LOCKED);
-    mIsLocked = true;
-    return Result::SUCCESS;
+    vector<int> availableFreq = getFrequencyVector();
+    for (int i = 0; i< availableFreq.size(); i++){
+        if (settings.dvbt().frequency == availableFreq.at(i)){
+            mTunerService->stopTsFileInputLoop();
+            mTunerService->frontendStartTune(mId, formatFrequencyPath(settings.dvbt().frequency));
+            mCallback->onEvent(FrontendEventType::LOCKED);
+            mIsLocked = true;
+            return Result::SUCCESS;
+        }
+    }
+
+    mCallback->onEvent(FrontendEventType::NO_SIGNAL);
+    mIsLocked = false;
+    return Result::UNKNOWN_ERROR;
 }
 
 Return<Result> Frontend::tune_1_1(const FrontendSettings& settings,
@@ -79,7 +129,6 @@ Return<Result> Frontend::tune_1_1(const FrontendSettings& settings,
 
 Return<Result> Frontend::stopTune() {
     ALOGV("%s", __FUNCTION__);
-
     mTunerService->frontendStopTune(mId);
     mIsLocked = false;
 
