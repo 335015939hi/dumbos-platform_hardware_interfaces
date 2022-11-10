@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "47604674_98d7e3a2",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-11-10T02:00:07Z",
+      "side": 1,
+      "message": "yeah, agreed.\n\nSince this is a cherry pick, let\u0027s keep it clean though.\n\nA follow-on change can address this.",
+      "parentUuid": "afae8998_93406a63",
+      "revId": "a3e3e0d32b67a539b92d5fd5dc970e04659507aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "148b6eda_e99bd1ef",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
         "patchSetId": 2
