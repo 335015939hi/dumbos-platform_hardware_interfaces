@@ -39,6 +39,30 @@
       },
       "revId": "a3e3e0d32b67a539b92d5fd5dc970e04659507aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98b46ece_72c24c32",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-11-10T01:50:58Z",
+      "side": 1,
+      "message": "Yeah, I think we discussed doing this but Eran had a reason to push back on that.\n\nAt this point, diverging from \"SECOND_IMEI\" is \"really hard\" because it\u0027s already pushed into master, tm-dev-plus-aosp, and tm-qpr-dev-plus-aosp.\n\nPlease let\u0027s land this change first, before we change this tag type (if it\u0027s changed at all!). Otherwise, we\u0027ll have to unravel another painful set of pushes up the tree to make the merges happy.",
+      "parentUuid": "148b6eda_e99bd1ef",
+      "range": {
+        "startLine": 898,
+        "startChar": 3,
+        "endLine": 898,
+        "endChar": 46
+      },
+      "revId": "a3e3e0d32b67a539b92d5fd5dc970e04659507aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
