@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c61f78f_d57fefc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T21:01:26Z",
+      "side": 1,
+      "message": "Thanks Lorena! The CL looks better now, but I still have some comments.",
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf23d05a_b28a0ba7",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T21:01:26Z",
+      "side": 1,
+      "message": "const std::string\u0026",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca341ba9_cf4a501f",
+        "filename": "audio/aidl/default/include/core-impl/EngineConfigXmlConverter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T21:01:26Z",
+      "side": 1,
+      "message": "Note: this isn\u0027t an override of XmlConverter::init(), because the latter is private. And an overriding would have to be marked with \u0027override\u0027 to work. However, a virtual method shouldn\u0027t be called from the constructor. I find this design of classes is a bit confusing. Can we make it more clear?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d701dd1b_2a698685",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T21:01:26Z",
+      "side": 1,
+      "message": "OK, assuming that you actually need a virtual \u0027init\u0027 method (see my comment on it below), you indeed need to declare a virtual destructor. In this case, prefer to use `\u003d default` instead of `{}`, see go/totw/131.",
+      "range": {
+        "startLine": 41,
+        "startChar": 27,
+        "endLine": 41,
+        "endChar": 30
+      },
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e958a514_456ef10c",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T21:01:26Z",
+      "side": 1,
+      "message": "Why is this private? From the definition it seems that subclasses may and need to override it, but they can\u0027t access the method if it\u0027s private.\n\nAlso, since XmlConverter does not call this method, why to have it here?",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 26
+      },
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e10de1d3_79739296",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-10T21:01:26Z",
+      "side": 1,
+      "message": "Sorry for questioning your design, but it seems to me that using inheritance might not be the right approach here, and composition could do the same job better. In my understanding, the goal of this class is to parse the config and provide information about the error in case of failure, that\u0027s it. We don\u0027t seem to use XmlConverter as an interface to work with its descendants in a generic way, nor we have any generic functionality in the XmlConverter that its descendants would specialize. In that case, I would instead make an instance of XmlConverter a field of EngineConfigXmlConverter and AudioPolicyConfigXmlConverter.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 33
+      },
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
