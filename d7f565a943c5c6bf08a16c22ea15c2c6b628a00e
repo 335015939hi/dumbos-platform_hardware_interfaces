@@ -118,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fb4900d_36a8c790",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2022-11-10T04:53:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7e5e1c14_ea282b0d",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 41
+      },
+      "revId": "d7f565a943c5c6bf08a16c22ea15c2c6b628a00e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "030b8898_f812c3f9",
@@ -155,6 +179,30 @@
       "side": 1,
       "message": "one of a case that le_audio_offload_setting.has_value() returns false is we already cached `leAudioCodecCapabilities` so no need to read file and `le_audio_offload_setting` would not have value.",
       "parentUuid": "030b8898_f812c3f9",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 30
+      },
+      "revId": "d7f565a943c5c6bf08a16c22ea15c2c6b628a00e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef262850_0c70aca1",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2022-11-10T04:53:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f70b525a_11c3453e",
       "range": {
         "startLine": 69,
         "startChar": 0,
