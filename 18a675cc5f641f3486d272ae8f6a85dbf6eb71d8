@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e42b088_54f9b782",
+        "filename": "audio/aidl/default/loudnessEnhancer/LoudnessEnhancerSw.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-11T16:52:02Z",
+      "side": 1,
+      "message": "maybe make this log consistent with line#90?",
+      "range": {
+        "startLine": 126,
+        "startChar": 40,
+        "endLine": 126,
+        "endChar": 55
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd6a5170_a201808f",
+        "filename": "audio/aidl/default/loudnessEnhancer/LoudnessEnhancerSw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-11T16:52:02Z",
+      "side": 1,
+      "message": "Seems no need for `const` here?",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a62e4dcf_8fa54647",
+        "filename": "audio/aidl/default/loudnessEnhancer/LoudnessEnhancerSw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-11T16:52:02Z",
+      "side": 1,
+      "message": "Could you please add TODO here?\nWe are saving parameter for gain, but I think we need the implementation to appy new gain, right?",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0169d41a_3e30bf37",
+        "filename": "audio/aidl/default/loudnessEnhancer/LoudnessEnhancerSw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-11T16:52:02Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 40,
+        "startChar": 21,
+        "endLine": 40,
+        "endChar": 22
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7bdc4c1_d7d126c4",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-11T16:52:02Z",
+      "side": 1,
+      "message": "please remove headers not used",
+      "range": {
+        "startLine": 38,
+        "startChar": 42,
+        "endLine": 39,
+        "endChar": 57
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78dcf11d_243b3517",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-11T16:52:02Z",
+      "side": 1,
+      "message": "please remove namespace not used",
+      "range": {
+        "startLine": 50,
+        "startChar": 46,
+        "endLine": 50,
+        "endChar": 60
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ae3b52f_ab87f884",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-11T16:52:02Z",
+      "side": 1,
+      "message": "nit: I think this int min/max gain may not supported by actual loudness implementation.\nWe don\u0027t have a range/capability defined in LoudnessEnhancer.aidl now, so I think we can keep these test for the placeholder implementation `LoudnessEnhancerSw.cpp` now, and adjust accordingly if anything happen with the real implementation.\nMaybe add a TODO to adjust them later?",
+      "range": {
+        "startLine": 65,
+        "startChar": 40,
+        "endLine": 65,
+        "endChar": 71
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
