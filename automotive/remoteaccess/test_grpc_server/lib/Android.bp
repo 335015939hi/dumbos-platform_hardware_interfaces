@@ -21,23 +21,9 @@ package {
     default_applicable_licenses: ["hardware_interfaces_license"],
 }
 
-cc_binary {
-    name: "TestWakeupClientServer",
+cc_library_shared {
+    name: "ApPowerControlLib",
     vendor: true,
-    srcs: ["src/*.cpp"],
-    local_include_dirs: ["include"],
-    shared_libs: [
-        "libbase",
-        "libutils",
-        "libgrpc++",
-        "libprotobuf-cpp-full",
-        "ApPowerControlLib",
-    ],
-    whole_static_libs: [
-        "wakeup_client_protos",
-    ],
-    cflags: [
-        "-Wno-unused-parameter",
-        "-DGRPC_SERVICE_ADDRESS=\"localhost:50051\"",
-    ],
+    local_include_dirs: ["."],
+    export_include_dirs: ["."],
 }
