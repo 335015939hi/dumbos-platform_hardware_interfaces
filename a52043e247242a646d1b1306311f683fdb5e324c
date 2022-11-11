@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "925dfdfc_db52ffb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-11T08:11:50Z",
+      "side": 1,
+      "message": "WDYT about having these tests mostly-inert in the VTS codebase, but available for manual key upgrade testing?",
+      "revId": "a52043e247242a646d1b1306311f683fdb5e324c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
