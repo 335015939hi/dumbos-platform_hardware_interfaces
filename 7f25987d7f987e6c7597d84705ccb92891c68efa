@@ -18,6 +18,69 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "927d1c7a_476d8f71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-11T02:47:08Z",
+      "side": 1,
+      "message": "I think, we now agree on \"major\" points, let\u0027s converge on details.",
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03bcaf51_7a2b9727",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-11T02:47:08Z",
+      "side": 1,
+      "message": "nit: leading \u0027::\u0027 is superfluous since we are at the topmost namespace.",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdf45210_b4c19494",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-11T02:47:08Z",
+      "side": 1,
+      "message": "Per the company style guide, we should use kCamelCase: https://google.github.io/styleguide/cppguide.html#Constant_Names",
+      "range": {
+        "startLine": 36,
+        "startChar": 17,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89489d22_08ce4b41",
@@ -36,6 +99,29 @@
         "startChar": 11,
         "endLine": 43,
         "endChar": 28
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "651d13aa_2250f136",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-11T02:47:08Z",
+      "side": 1,
+      "message": "I would agree with the linter that searching for a single character `\u0027,\u0027` could be a more efficient implementation.",
+      "range": {
+        "startLine": 43,
+        "startChar": 51,
+        "endLine": 43,
+        "endChar": 54
       },
       "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -89,6 +175,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "833c3ac3_e77359cc",
+        "filename": "audio/aidl/default/Config.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-11T02:47:08Z",
+      "side": 1,
+      "message": "BTW, it it OK if we end up not re-assigning engineConfig from a converter? Should we print a warning or something?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 5
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "643e25ea_61f45291",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-11T02:47:08Z",
+      "side": 1,
+      "message": "nit: redundant leading \u0027::\u0027",
+      "range": {
+        "startLine": 41,
+        "startChar": 16,
+        "endLine": 41,
+        "endChar": 18
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aa02f0c_1a3b00dd",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-11T02:47:08Z",
+      "side": 1,
+      "message": "kStreamTypeEnumOffset",
+      "range": {
+        "startLine": 121,
+        "startChar": 21,
+        "endLine": 121,
+        "endChar": 44
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad168398_ed6b85fb",
         "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
         "patchSetId": 10
@@ -128,6 +283,75 @@
         "startChar": 4,
         "endLine": 42,
         "endChar": 17
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb7a5ca2_5b1d81cf",
+        "filename": "audio/aidl/default/include/core-impl/EngineConfigXmlConverter.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-11T02:47:08Z",
+      "side": 1,
+      "message": "mLatestVendorStrategy\n\nAnd perhaps a more correct name is `mNextVendorStrategy` because it stores the next value to be assigned to a vendor strategy, not the last value that was assigned.",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 30
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de0b7996_eb9c5cac",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-11T02:47:08Z",
+      "side": 1,
+      "message": "BTW, I\u0027m confused here, too. There is `audio_find_readable_configuration_file` function which returns the path to a readable configuration file.",
+      "range": {
+        "startLine": 35,
+        "startChar": 29,
+        "endLine": 35,
+        "endChar": 65
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83cf0c22_70341e2b",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-11T02:47:08Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 60,
+        "startChar": 5,
+        "endLine": 60,
+        "endChar": 6
       },
       "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"

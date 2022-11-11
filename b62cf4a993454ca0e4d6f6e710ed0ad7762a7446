@@ -292,6 +292,30 @@
       },
       "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b52e0e92_e63f1e18",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-11T02:47:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "443f8bdc_187a3a61",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 33
+      },
+      "revId": "b62cf4a993454ca0e4d6f6e710ed0ad7762a7446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
