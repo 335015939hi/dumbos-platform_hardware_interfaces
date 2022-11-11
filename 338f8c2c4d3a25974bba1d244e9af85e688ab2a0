@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb835ff_383f55d2",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-11-11T15:26:18Z",
+      "side": 1,
+      "message": "I was absolutely following the example of functions like `parseAndValidateFactoryDeviceInfo()`. If you\u0027re happy with consistency, I\u0027ll keep it this way for now.",
+      "parentUuid": "c193f779_a3c47846",
+      "range": {
+        "startLine": 184,
+        "startChar": 9,
+        "endLine": 184,
+        "endChar": 39
+      },
+      "revId": "338f8c2c4d3a25974bba1d244e9af85e688ab2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bb2bdf5_f45aabe1",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-11-10T23:48:22Z",
       "side": 1,
       "message": "nit: you could do \n`std::unique_ptr\u003ccppbor::Array\u003e parsed(parsedCsrPayload.release()-\u003easArray());`\nthen you could remove line 861",
+      "revId": "338f8c2c4d3a25974bba1d244e9af85e688ab2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaf7768d_e3b39a96",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-11-11T15:26:18Z",
+      "side": 1,
+      "message": "That solves the warning. I\u0027ve also made this change to the place I copied it from.",
+      "parentUuid": "3bb2bdf5_f45aabe1",
       "revId": "338f8c2c4d3a25974bba1d244e9af85e688ab2a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
