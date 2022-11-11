@@ -16,6 +16,7 @@
 
 #pragma once
 
+#include <ApPowerControl.h>
 #include <android-base/thread_annotations.h>
 #include <utils/Looper.h>
 #include <wakeup_client.grpc.pb.h>
@@ -127,6 +128,8 @@ class TestWakeupClientServiceImpl final : public WakeupClient::Service {
     FakeTaskGenerator mFakeTaskGenerator;
     // Thread-sfae.
     TaskQueue mTaskQueue;
+
+    ApPowerControl mApPowerControl;
 
     void fakeTaskGenerateLoop();
 
