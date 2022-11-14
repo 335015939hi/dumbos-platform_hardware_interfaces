@@ -1033,22 +1033,26 @@ TEST_P(NewKeyGenerationTest, RsaWithMissingValidity) {
 
     vector<uint8_t> key_blob;
     vector<KeyCharacteristics> key_characteristics;
-    ASSERT_EQ(ErrorCode::MISSING_NOT_BEFORE,
-              GenerateKey(AuthorizationSetBuilder()
-                                  .RsaSigningKey(2048, 65537)
-                                  .Digest(Digest::NONE)
-                                  .Padding(PaddingMode::NONE)
-                                  .Authorization(TAG_CERTIFICATE_NOT_AFTER,
-                                                 kUndefinedExpirationDateTime),
-                          &key_blob, &key_characteristics));
+    auto result = GenerateKey(
+            AuthorizationSetBuilder()
+                    .RsaSigningKey(2048, 65537)
+                    .Digest(Digest::NONE)
+                    .Padding(PaddingMode::NONE)
+                    .Authorization(TAG_CERTIFICATE_NOT_AFTER, kUndefinedExpirationDateTime),
+            &key_blob, &key_characteristics);
+    if (AidlVersion() < 2)
+        GTEST_SKIP() << "Validity only strict since KeyMint v2";
+    ASSERT_EQ(ErrorCode::MISSING_NOT_BEFORE, result);
 
-    ASSERT_EQ(ErrorCode::MISSING_NOT_AFTER,
-              GenerateKey(AuthorizationSetBuilder()
-                                  .RsaSigningKey(2048, 65537)
-                                  .Digest(Digest::NONE)
-                                  .Padding(PaddingMode::NONE)
-                                  .Authorization(TAG_CERTIFICATE_NOT_BEFORE, 0),
-                          &key_blob, &key_characteristics));
+    result = GenerateKey(AuthorizationSetBuilder()
+                                 .RsaSigningKey(2048, 65537)
+                                 .Digest(Digest::NONE)
+                                 .Padding(PaddingMode::NONE)
+                                 .Authorization(TAG_CERTIFICATE_NOT_BEFORE, 0),
+                         &key_blob, &key_characteristics);
+    if (AidlVersion() < 2)
+        GTEST_SKIP() << "Validity only strict since KeyMint v2";
+    ASSERT_EQ(ErrorCode::MISSING_NOT_AFTER, result);
 }
 
 /*
@@ -1686,20 +1690,22 @@ TEST_P(NewKeyGenerationTest, EcdsaWithMissingValidity) {
 
     vector<uint8_t> key_blob;
     vector<KeyCharacteristics> key_characteristics;
-    ASSERT_EQ(ErrorCode::MISSING_NOT_BEFORE,
-              GenerateKey(AuthorizationSetBuilder()
-                                  .EcdsaSigningKey(EcCurve::P_256)
-                                  .Digest(Digest::NONE)
-                                  .Authorization(TAG_CERTIFICATE_NOT_AFTER,
-                                                 kUndefinedExpirationDateTime),
-                          &key_blob, &key_characteristics));
+    auto result = GenerateKey(
+            AuthorizationSetBuilder()
+                    .EcdsaSigningKey(EcCurve::P_256)
+                    .Digest(Digest::NONE)
+                    .Authorization(TAG_CERTIFICATE_NOT_AFTER, kUndefinedExpirationDateTime),
+            &key_blob, &key_characteristics);
+    if (AidlVersion() < 2) GTEST_SKIP() << "Validity only strict since KeyMint v2";
+    ASSERT_EQ(ErrorCode::MISSING_NOT_BEFORE, result);
 
-    ASSERT_EQ(ErrorCode::MISSING_NOT_AFTER,
-              GenerateKey(AuthorizationSetBuilder()
-                                  .EcdsaSigningKey(EcCurve::P_256)
-                                  .Digest(Digest::NONE)
-                                  .Authorization(TAG_CERTIFICATE_NOT_BEFORE, 0),
-                          &key_blob, &key_characteristics));
+    result = GenerateKey(AuthorizationSetBuilder()
+                                 .EcdsaSigningKey(EcCurve::P_256)
+                                 .Digest(Digest::NONE)
+                                 .Authorization(TAG_CERTIFICATE_NOT_BEFORE, 0),
+                         &key_blob, &key_characteristics);
+    if (AidlVersion() < 2) GTEST_SKIP() << "Validity only strict since KeyMint v2";
+    ASSERT_EQ(ErrorCode::MISSING_NOT_AFTER, result);
 }
 
 /*
