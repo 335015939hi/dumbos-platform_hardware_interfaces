@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4134fdee_e571e01a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-14T18:09:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c48dfa53_4dc68966",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "eb324d19d8df3acc74e6ee008021d5a1b7d1ab75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9684c848_88dcfdf0",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-11T23:10:44Z",
       "side": 1,
       "message": "if the initial string is non-null these may leak?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 45
+      },
+      "revId": "eb324d19d8df3acc74e6ee008021d5a1b7d1ab75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "459754af_46dc28f4",
+        "filename": "sensors/aidl/convert/convert.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-14T18:09:38Z",
+      "side": 1,
+      "message": "Looks like it - if they were allocated in the first place or duped like this before.\nThese are `const char*` and can\u0027t be freed. Removing the const causes many places to fail to build since they are using literals or `const char*`.",
+      "parentUuid": "9684c848_88dcfdf0",
       "range": {
         "startLine": 69,
         "startChar": 0,
