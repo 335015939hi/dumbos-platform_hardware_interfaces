@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43771517_23641c66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-14T11:10:03Z",
+      "side": 1,
+      "message": "Thanks for doing the test update!",
+      "revId": "a139e1b89f200bab8ed7dc02c99f3584956139cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f289baa_fcad6b83",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-14T11:10:03Z",
+      "side": 1,
+      "message": "Could we move this test\u0027n\u0027skip to the start of the function, and add more of a comment, something like:\n\n\"The KeyMint V1 spec required that CERTIFICATE_NOT_{BEFORE,AFTER} be specified for asymmetric key generation. However, this was not checked at the time so we can only be strict about checking this for implementations of KeyMint version 2 and above.\"\n\n(cf. `NewKeyGenerationTest.EcdsaMissingCurve`)",
+      "revId": "a139e1b89f200bab8ed7dc02c99f3584956139cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c490f66_8c8e0544",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-14T11:10:03Z",
+      "side": 1,
+      "message": "I don\u0027t think this skip can ever be reached.",
+      "revId": "a139e1b89f200bab8ed7dc02c99f3584956139cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ca81f9c_92a2f148",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1697,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-14T11:10:03Z",
+      "side": 1,
+      "message": "(as above)",
+      "revId": "a139e1b89f200bab8ed7dc02c99f3584956139cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
