@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "475873a5_7753b71b",
+        "filename": "identity/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-14T23:36:05Z",
+      "side": 1,
+      "message": "v4 here as well?",
+      "range": {
+        "startLine": 84,
+        "startChar": 35,
+        "endLine": 84,
+        "endChar": 37
+      },
+      "revId": "882e9f6419d472191453d9bcdce1035e1d0e08fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
