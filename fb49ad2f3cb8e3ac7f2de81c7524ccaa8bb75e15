@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa59a75c_e5d42315",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-14T20:43:32Z",
+      "side": 1,
+      "message": "Nit: Should this be `verifyCsrV3` since the function rejects anything other than v3?",
+      "range": {
+        "startLine": 1004,
+        "startChar": 41,
+        "endLine": 1004,
+        "endChar": 50
+      },
+      "revId": "fb49ad2f3cb8e3ac7f2de81c7524ccaa8bb75e15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
