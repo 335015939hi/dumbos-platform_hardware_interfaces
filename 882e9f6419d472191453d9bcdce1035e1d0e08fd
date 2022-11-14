@@ -22,6 +22,30 @@
       },
       "revId": "882e9f6419d472191453d9bcdce1035e1d0e08fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c12722fd_64755b08",
+        "filename": "identity/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-14T23:48:25Z",
+      "side": 1,
+      "message": "thanks - finalization script check is happening in infra. Will restart it.",
+      "parentUuid": "475873a5_7753b71b",
+      "range": {
+        "startLine": 84,
+        "startChar": 35,
+        "endLine": 84,
+        "endChar": 37
+      },
+      "revId": "882e9f6419d472191453d9bcdce1035e1d0e08fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
