@@ -67,14 +67,14 @@ aidl_interface {
 cc_defaults {
     name: "identity_use_latest_hal_aidl_ndk_static",
     static_libs: [
-        "android.hardware.identity-V5-ndk",
+        "android.hardware.identity-V4-ndk",
     ],
 }
 
 cc_defaults {
     name: "identity_use_latest_hal_aidl_ndk_shared",
     shared_libs: [
-        "android.hardware.identity-V5-ndk",
+        "android.hardware.identity-V4-ndk",
     ],
 }
 
