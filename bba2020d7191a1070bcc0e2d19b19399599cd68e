@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14bf921a_629b252f",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-15T10:52:50Z",
+      "side": 1,
+      "message": "The reason I had originally argued against doing a version check is that today\u0027s Android OS code already batches key requests into a maximum of 20 keys at a time into v1/v2 HAL instances, so 20 should already be supported by current instances. \n\nThis is because the RKP server sets the default provisioning to 20 keys for a fresh device. So in practice, every instance either supports a minimum of 20 keys, or is crashing whenever the RemoteProvisioner attempts to get a CSR with 20 keys inside of it.",
+      "parentUuid": "b79de3be_40518df3",
+      "range": {
+        "startLine": 257,
+        "startChar": 29,
+        "endLine": 257,
+        "endChar": 50
+      },
+      "revId": "bba2020d7191a1070bcc0e2d19b19399599cd68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15d50065_e21ae85e",
         "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
         "patchSetId": 5
