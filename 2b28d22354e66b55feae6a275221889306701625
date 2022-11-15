@@ -16,6 +16,29 @@
       "message": "OK I have enough of the VTS tests from mapper4 ported over that I have a decent confidence the bulk of this is working, so I believe this is ready for review.",
       "revId": "2b28d22354e66b55feae6a275221889306701625",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1992506d_cb0e79dd",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-15T22:16:43Z",
+      "side": 1,
+      "message": "I will follow up this in b/256701991 to add the new entry for the new type of HAL.",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 39
+      },
+      "revId": "2b28d22354e66b55feae6a275221889306701625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
