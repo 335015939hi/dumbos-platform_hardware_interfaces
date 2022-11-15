@@ -69,6 +69,29 @@
       },
       "revId": "bba2020d7191a1070bcc0e2d19b19399599cd68e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb3e7e0_1673554b",
+        "filename": "security/rkp/CHANGELOG.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-15T10:53:38Z",
+      "side": 1,
+      "message": "Nit: \"maximum number\"",
+      "range": {
+        "startLine": 40,
+        "startChar": 48,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "bba2020d7191a1070bcc0e2d19b19399599cd68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
