@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36c38f61_1245c500",
+        "filename": "audio/aidl/vts/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-15T22:08:24Z",
+      "side": 1,
+      "message": "I think it\u0027s OK to make the `VtsHalAudioEffectFactoryTargetTest` module above to use these defaults as well. It\u0027s true that VtsHalAudioEffectFactoryTargetTest does not use all of these dependencies, but this does not seem like a problem to me.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 43
+      },
+      "revId": "483106d019cadbbc05131f01439dfc89d2198352",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
