@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f5464c7_bd25c3a2",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-11-15T18:28:53Z",
+      "side": 1,
+      "message": "There is problem on pixel devices when there are 20 keys AND EEK size is 7. If EEK is 2 or 3, pixel strongbox doesn\u0027t complain. IIRC you mentioned that real production EEK size is only 3. So, Tommy does have a point that this patch changes memory requirements for vendors. We could lower the EEK size to whatever the real one is. WDYT?",
+      "parentUuid": "14bf921a_629b252f",
+      "range": {
+        "startLine": 257,
+        "startChar": 29,
+        "endLine": 257,
+        "endChar": 50
+      },
+      "revId": "bba2020d7191a1070bcc0e2d19b19399599cd68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15d50065_e21ae85e",
         "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
         "patchSetId": 5
@@ -84,6 +108,30 @@
       "writtenOn": "2022-11-15T10:53:38Z",
       "side": 1,
       "message": "Nit: \"maximum number\"",
+      "range": {
+        "startLine": 40,
+        "startChar": 48,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "bba2020d7191a1070bcc0e2d19b19399599cd68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "244fd6b8_f454bd10",
+        "filename": "security/rkp/CHANGELOG.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-11-15T18:28:53Z",
+      "side": 1,
+      "message": "We moved away from using \"maximum\" in the code. I think we should stay consistent with the language here.",
+      "parentUuid": "3fb3e7e0_1673554b",
       "range": {
         "startLine": 40,
         "startChar": 48,
