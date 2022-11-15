@@ -73,16 +73,13 @@ cc_test {
     ],
 }
 
-cc_test {
-    name: "VtsHalAudioEffectTargetTest",
+cc_defaults {
+    name: "VtsHalEffectTargetTestDefaults",
     defaults: [
         "latest_android_hardware_audio_common_ndk_static",
         "latest_android_media_audio_common_types_ndk_static",
         "VtsHalTargetTestDefaults",
         "use_libaidlvintf_gtest_helper_static",
-    ],
-    srcs: [
-        "VtsHalAudioEffectTargetTest.cpp",
     ],
     shared_libs: [
         "libbinder_ndk",
@@ -108,35 +105,13 @@ cc_test {
 }
 
 cc_test {
+    name: "VtsHalAudioEffectTargetTest",
+    defaults: ["VtsHalEffectTargetTestDefaults"],
+    srcs: ["VtsHalAudioEffectTargetTest.cpp"],
+}
+
+cc_test {
     name: "VtsHalEqualizerTargetTest",
-    defaults: [
-        "latest_android_hardware_audio_common_ndk_static",
-        "latest_android_media_audio_common_types_ndk_static",
-        "VtsHalTargetTestDefaults",
-        "use_libaidlvintf_gtest_helper_static",
-    ],
-    srcs: [
-        "VtsHalEqualizerTargetTest.cpp",
-    ],
-    shared_libs: [
-        "libbinder_ndk",
-        "libfmq",
-    ],
-    static_libs: [
-        "android.hardware.audio.effect-V1-ndk",
-        "android.hardware.common-V2-ndk",
-        "android.hardware.common.fmq-V1-ndk",
-        "libaudioaidlcommon",
-    ],
-    header_libs: ["libaudioaidl_headers"],
-    cflags: [
-        "-Wall",
-        "-Wextra",
-        "-Werror",
-        "-Wthread-safety",
-    ],
-    test_suites: [
-        "general-tests",
-        "vts",
-    ],
+    defaults: ["VtsHalEffectTargetTestDefaults"],
+    srcs: ["VtsHalEqualizerTargetTest.cpp"],
 }
