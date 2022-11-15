@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "445d55f8_e4b0dca4",
+        "filename": "audio/aidl/default/loudnessEnhancer/LoudnessEnhancerSw.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-11-15T11:00:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e42b088_54f9b782",
+      "range": {
+        "startLine": 126,
+        "startChar": 40,
+        "endLine": 126,
+        "endChar": 55
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd6a5170_a201808f",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-11T16:52:02Z",
       "side": 1,
       "message": "Seems no need for `const` here?",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b2b8875_7b1eefc7",
+        "filename": "audio/aidl/default/loudnessEnhancer/LoudnessEnhancerSw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-11-15T11:00:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd6a5170_a201808f",
       "range": {
         "startLine": 36,
         "startChar": 24,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f975043_8d8612e1",
+        "filename": "audio/aidl/default/loudnessEnhancer/LoudnessEnhancerSw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-11-15T11:00:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a62e4dcf_8fa54647",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0169d41a_3e30bf37",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-11T16:52:02Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 40,
+        "startChar": 21,
+        "endLine": 40,
+        "endChar": 22
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "305536e3_1e97c6fb",
+        "filename": "audio/aidl/default/loudnessEnhancer/LoudnessEnhancerSw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-11-15T11:00:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0169d41a_3e30bf37",
       "range": {
         "startLine": 40,
         "startChar": 21,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e493d29e_787369d0",
+        "filename": "audio/aidl/vts/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-11-15T11:00:46Z",
+      "side": 1,
+      "message": "Added a dependent CL : https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2300300",
+      "parentUuid": "858ac1f7_aa8fe8e2",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 15
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7bdc4c1_d7d126c4",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-11-11T16:52:02Z",
       "side": 1,
       "message": "please remove headers not used",
+      "range": {
+        "startLine": 38,
+        "startChar": 42,
+        "endLine": 39,
+        "endChar": 57
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "618e00c9_d2f8f0f0",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-11-15T11:00:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7bdc4c1_d7d126c4",
       "range": {
         "startLine": 38,
         "startChar": 42,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77b54063_58325b08",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-11-15T11:00:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78dcf11d_243b3517",
+      "range": {
+        "startLine": 50,
+        "startChar": 46,
+        "endLine": 50,
+        "endChar": 60
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ae3b52f_ab87f884",
@@ -185,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6814bd3b_40542194",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-11-15T11:00:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ae3b52f_ab87f884",
+      "range": {
+        "startLine": 65,
+        "startChar": 40,
+        "endLine": 65,
+        "endChar": 71
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea14c6ca_b96e3ad3",
@@ -198,6 +390,30 @@
       "writtenOn": "2022-11-15T01:46:42Z",
       "side": 1,
       "message": "Note: this does not provide any savings. std::unique_ptr manages heap-allocated objects, while `le` is stack-allocated. What happens here is that we call a move constructor of `LoudnessEnhancer` for creating a new object on heap. However, since `LoudnessEnhancer` stores data inside the instance directly (it\u0027s not a \"handle\" object like std::vector), the move constructor have to copy all that data. Since these effect parcelables are not huge, use of heap allocation only complicates things here IMO.\n\nWe should either store LoudnessEnhancer instances directly in `mTags`:\n`std::vector\u003cstd::pair\u003cLoudnessEnhancer::Tag, LoudnessEnhancer\u003e\u003e`, and then call `mTags.push_back({LoudnessEnhancer::gainMb, le})`, or if we insist on allocating effect parcelables on the heap, create here `le` on the heap directly: `auto le \u003d std::make_unique\u003cLoudnessEnhancer\u003e();`.\n\nSorry for missing this code in the Equalizer VTS.",
+      "range": {
+        "startLine": 124,
+        "startChar": 78,
+        "endLine": 124,
+        "endChar": 91
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "003acf18_a4bf31ae",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-11-15T11:00:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea14c6ca_b96e3ad3",
       "range": {
         "startLine": 124,
         "startChar": 78,
