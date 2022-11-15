@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c89ec814_0767232c",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-15T18:31:58Z",
+      "side": 1,
+      "message": "Great point. Given that EEK is being deprecated and it has never been more than three certs long, we can go ahead and remove the EEK size 7 test.",
+      "parentUuid": "1f5464c7_bd25c3a2",
+      "range": {
+        "startLine": 257,
+        "startChar": 29,
+        "endLine": 257,
+        "endChar": 50
+      },
+      "revId": "bba2020d7191a1070bcc0e2d19b19399599cd68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15d50065_e21ae85e",
         "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
         "patchSetId": 5
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "We moved away from using \"maximum\" in the code. I think we should stay consistent with the language here.",
       "parentUuid": "3fb3e7e0_1673554b",
+      "range": {
+        "startLine": 40,
+        "startChar": 48,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "bba2020d7191a1070bcc0e2d19b19399599cd68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9042ffb3_467f802c",
+        "filename": "security/rkp/CHANGELOG.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-15T18:31:58Z",
+      "side": 1,
+      "message": "I guess, just referencing the .aidl documentation: \"supportedNumKeysInCsr is the maximum number of keys in a CSR...\"",
+      "parentUuid": "244fd6b8_f454bd10",
       "range": {
         "startLine": 40,
         "startChar": 48,
