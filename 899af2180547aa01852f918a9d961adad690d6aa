@@ -810,6 +810,30 @@
       },
       "revId": "899af2180547aa01852f918a9d961adad690d6aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "beb29420_64630bf7",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-15T22:17:06Z",
+      "side": 1,
+      "message": "I\u0027ll handle this in b/256701991",
+      "parentUuid": "b8008d1c_d6bd4755",
+      "range": {
+        "startLine": 132,
+        "startChar": 34,
+        "endLine": 132,
+        "endChar": 57
+      },
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
