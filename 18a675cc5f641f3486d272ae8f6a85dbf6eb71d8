@@ -95,6 +95,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "858ac1f7_aa8fe8e2",
+        "filename": "audio/aidl/vts/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-15T01:46:42Z",
+      "side": 1,
+      "message": "Shunkai, could you please extract all parameters that are the same for all effect tests into \"defaults\"? This should reduce the definition of this target to minimum.",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 15
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7bdc4c1_d7d126c4",
         "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
         "patchSetId": 1
@@ -157,6 +180,29 @@
         "startChar": 40,
         "endLine": 65,
         "endChar": 71
+      },
+      "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea14c6ca_b96e3ad3",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-15T01:46:42Z",
+      "side": 1,
+      "message": "Note: this does not provide any savings. std::unique_ptr manages heap-allocated objects, while `le` is stack-allocated. What happens here is that we call a move constructor of `LoudnessEnhancer` for creating a new object on heap. However, since `LoudnessEnhancer` stores data inside the instance directly (it\u0027s not a \"handle\" object like std::vector), the move constructor have to copy all that data. Since these effect parcelables are not huge, use of heap allocation only complicates things here IMO.\n\nWe should either store LoudnessEnhancer instances directly in `mTags`:\n`std::vector\u003cstd::pair\u003cLoudnessEnhancer::Tag, LoudnessEnhancer\u003e\u003e`, and then call `mTags.push_back({LoudnessEnhancer::gainMb, le})`, or if we insist on allocating effect parcelables on the heap, create here `le` on the heap directly: `auto le \u003d std::make_unique\u003cLoudnessEnhancer\u003e();`.\n\nSorry for missing this code in the Equalizer VTS.",
+      "range": {
+        "startLine": 124,
+        "startChar": 78,
+        "endLine": 124,
+        "endChar": 91
       },
       "revId": "18a675cc5f641f3486d272ae8f6a85dbf6eb71d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
