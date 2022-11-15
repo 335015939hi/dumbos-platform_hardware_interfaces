@@ -113,6 +113,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0950458e_97712a10",
+        "filename": "graphics/allocator/aidl/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-15T21:25:29Z",
+      "side": 1,
+      "message": "Revising this, my plan is to just split this into a mini CL that I can land in internal master that just adds the import, and then do the same in AOSP with a merged-in that this CL then depends on. I don\u0027t think we need to worry about the cherry-pick of V4 then",
+      "parentUuid": "fe4eff04_fd356bb7",
+      "range": {
+        "startLine": 21,
+        "startChar": 42,
+        "endLine": 21,
+        "endChar": 44
+      },
+      "revId": "dad0139a0635c14293a74581179e16f0574a4670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77491aa6_25497d1b",
