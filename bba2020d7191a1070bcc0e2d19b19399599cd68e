@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c96116fa_4f2be875",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-11-15T19:34:40Z",
+      "side": 1,
+      "message": "I take that back. I\u0027m not sure what changed, but I can\u0027t pass the test with 20 keys and EEK size 3 now. I tried playing with the challenge size, and the test passes with 32 byte challenge i.e. we\u0027re literally within bytes of the limit in strongbox. \n\nI\u0027m not opposed to adding a version conditional since it seems like that would save us the headache with backwards compatibility.",
+      "parentUuid": "c89ec814_0767232c",
+      "range": {
+        "startLine": 257,
+        "startChar": 29,
+        "endLine": 257,
+        "endChar": 50
+      },
+      "revId": "bba2020d7191a1070bcc0e2d19b19399599cd68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15d50065_e21ae85e",
         "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
         "patchSetId": 5
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "I guess, just referencing the .aidl documentation: \"supportedNumKeysInCsr is the maximum number of keys in a CSR...\"",
       "parentUuid": "244fd6b8_f454bd10",
+      "range": {
+        "startLine": 40,
+        "startChar": 48,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "bba2020d7191a1070bcc0e2d19b19399599cd68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d6aef31_3ceecd18",
+        "filename": "security/rkp/CHANGELOG.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-11-15T19:34:40Z",
+      "side": 1,
+      "message": "lol, I\u0027ll stick with the aidl formulation then",
+      "parentUuid": "9042ffb3_467f802c",
       "range": {
         "startLine": 40,
         "startChar": 48,
