@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45bebe55_933c50d9",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-15T21:17:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3d1abeea_d351ddb7",
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bbe35c5_2be84608",
@@ -245,6 +263,30 @@
       "side": 1,
       "message": "Back when the recommendation was \"vts/functional/foo.cpp\" I said: \"just make it foo.cpp\". Now it is \"vts/foo.cpp\", and what I\u0027m saying is the same \"just make it foo.cpp\" Extra folders \u003d extra complication. Feel free to avoid doing it, but I am a minimalist at heart.",
       "parentUuid": "29443d3e_2384bf36",
+      "range": {
+        "startLine": 73,
+        "startChar": 9,
+        "endLine": 73,
+        "endChar": 13
+      },
+      "revId": "899af2180547aa01852f918a9d961adad690d6aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c924780b_1dee3b04",
+        "filename": "graphics/mapper/stable-c/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-15T21:17:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "96dad837_e55436b9",
       "range": {
         "startLine": 73,
         "startChar": 9,
