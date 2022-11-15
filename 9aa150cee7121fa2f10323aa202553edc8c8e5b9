@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50935dc1_6472a93c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-15T06:55:11Z",
+      "side": 1,
+      "message": "cc: hasinitg@ to make sure you\u0027re aware for the Rust implementation",
+      "revId": "9aa150cee7121fa2f10323aa202553edc8c8e5b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
