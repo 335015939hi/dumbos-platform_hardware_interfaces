@@ -109,13 +109,14 @@ class EqualizerSw final : public EffectImpl {
 
     const Equalizer::Capability kEqCap = {.bandFrequencies = mBandFrequency, .presets = mPresets};
     // Effect descriptor.
-    const Descriptor kDesc = {.common = {.id = {.type = EqualizerTypeUUID,
-                                                .uuid = EqualizerSwImplUUID,
-                                                .proxy = std::nullopt},
+    const Descriptor kDesc = {.common = {.id = {.type = kEqualizerTypeUUID,
+                                                .uuid = kEqualizerSwImplUUID,
+                                                .proxy = kEqualizerProxyUUID},
                                          .flags = {.type = Flags::Type::INSERT,
                                                    .insert = Flags::Insert::FIRST,
                                                    .volume = Flags::Volume::CTRL},
-                                         .name = "EqualizerSw"},
+                                         .name = "EqualizerSw",
+                                         .implementor = "The Android Open Source Project"},
                               .capability = Capability::make<Capability::equalizer>(kEqCap)};
 
     ndk::ScopedAStatus getParameterEqualizer(const Equalizer::Tag& tag,

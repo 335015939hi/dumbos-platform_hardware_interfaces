@@ -26,19 +26,19 @@
 
 namespace aidl::android::hardware::audio::effect {
 
-class VirtualizerSwContext final : public EffectContext {
+class PresetReverbSwContext final : public EffectContext {
   public:
-    VirtualizerSwContext(int statusDepth, const Parameter::Common& common)
+    PresetReverbSwContext(int statusDepth, const Parameter::Common& common)
         : EffectContext(statusDepth, common) {
         LOG(DEBUG) << __func__;
     }
     // TODO: add specific context here
 };
 
-class VirtualizerSw final : public EffectImpl {
+class PresetReverbSw final : public EffectImpl {
   public:
-    VirtualizerSw() { LOG(DEBUG) << __func__; }
-    ~VirtualizerSw() {
+    PresetReverbSw() { LOG(DEBUG) << __func__; }
+    ~PresetReverbSw() {
         LOG(DEBUG) << __func__;
         releaseContext();
     }
@@ -52,22 +52,22 @@ class VirtualizerSw final : public EffectImpl {
     RetCode releaseContext() override;
 
   private:
-    std::shared_ptr<VirtualizerSwContext> mContext;
+    std::shared_ptr<PresetReverbSwContext> mContext;
     /* capabilities */
-    const Virtualizer::Capability kCapability;
+    const Reverb::Capability kCapability;
     /* Effect descriptor */
     const Descriptor kDescriptor = {
-            .common = {.id = {.type = kVirtualizerTypeUUID,
-                              .uuid = kVirtualizerSwImplUUID,
+            .common = {.id = {.type = kPresetReverbTypeUUID,
+                              .uuid = kPresetReverbSwImplUUID,
                               .proxy = std::nullopt},
                        .flags = {.type = Flags::Type::INSERT,
                                  .insert = Flags::Insert::FIRST,
                                  .volume = Flags::Volume::CTRL},
-                       .name = "VirtualizerSw",
+                       .name = "PresetReverbSw",
                        .implementor = "The Android Open Source Project"},
-            .capability = Capability::make<Capability::virtualizer>(kCapability)};
+            .capability = Capability::make<Capability::reverb>(kCapability)};
 
     /* parameters */
-    Virtualizer mSpecificParam;
+    Reverb mSpecificParam;
 };
 }  // namespace aidl::android::hardware::audio::effect

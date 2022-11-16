@@ -57,13 +57,14 @@ class DynamicsProcessingSw final : public EffectImpl {
     const DynamicsProcessing::Capability kCapability;
     /* Effect descriptor */
     const Descriptor kDescriptor = {
-            .common = {.id = {.type = DynamicsProcessingTypeUUID,
-                              .uuid = DynamicsProcessingSwImplUUID,
+            .common = {.id = {.type = kDynamicsProcessingTypeUUID,
+                              .uuid = kDynamicsProcessingSwImplUUID,
                               .proxy = std::nullopt},
                        .flags = {.type = Flags::Type::INSERT,
                                  .insert = Flags::Insert::FIRST,
                                  .volume = Flags::Volume::CTRL},
-                       .name = "DynamicsProcessingSw"},
+                       .name = "DynamicsProcessingSw",
+                       .implementor = "The Android Open Source Project"},
             .capability = Capability::make<Capability::dynamicsProcessing>(kCapability)};
 
     /* parameters */
