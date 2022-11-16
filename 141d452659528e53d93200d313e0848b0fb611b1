@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9ea83e8_7b8fb5d6",
+        "filename": "graphics/allocator/aidl/android/hardware/graphics/allocator/IAllocator.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-11-16T18:09:40Z",
+      "side": 1,
+      "message": "nit: add header name",
+      "range": {
+        "startLine": 69,
+        "startChar": 7,
+        "endLine": 69,
+        "endChar": 34
+      },
+      "revId": "141d452659528e53d93200d313e0848b0fb611b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76aa9f0e_7221ebb0",
+        "filename": "graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-11-16T18:09:40Z",
+      "side": 1,
+      "message": "Seems like this if is redundant since for mIAllocatorVersion \u003e\u003d 2 you\u0027ll assert if null, and for mIAllocatorVersion \u003d\u003d 1 it will always be null",
+      "revId": "141d452659528e53d93200d313e0848b0fb611b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c357b182_f52414f6",
+        "filename": "graphics/mapper/stable-c/implutils/include/android/hardware/graphics/mapper/utils/IMapperProvider.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-11-16T18:09:40Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 11
+      },
+      "revId": "141d452659528e53d93200d313e0848b0fb611b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08989570_04f85269",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-11-16T18:09:40Z",
+      "side": 1,
+      "message": "size_t*",
+      "range": {
+        "startLine": 468,
+        "startChar": 36,
+        "endLine": 468,
+        "endChar": 42
+      },
+      "revId": "141d452659528e53d93200d313e0848b0fb611b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3241ef22_8065f9a1",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-11-16T18:09:40Z",
+      "side": 1,
+      "message": "size_t*",
+      "range": {
+        "startLine": 500,
+        "startChar": 44,
+        "endLine": 500,
+        "endChar": 50
+      },
+      "revId": "141d452659528e53d93200d313e0848b0fb611b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b882a1_e6a27ec6",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-11-16T18:09:40Z",
+      "side": 1,
+      "message": "There are APIs (such as getMetadata) that are not called from the VTS. We should have a least one test for each API",
+      "revId": "141d452659528e53d93200d313e0848b0fb611b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
