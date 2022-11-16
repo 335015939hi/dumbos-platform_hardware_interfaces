@@ -1067,6 +1067,10 @@ TEST_P(NewKeyGenerationTest, RsaWithMissingValidity) {
  * resulting keys have correct characteristics.
  */
 TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     auto challenge = "hello";
     auto app_id = "foo";
 
@@ -1214,6 +1218,10 @@ TEST_P(NewKeyGenerationTest, DISABLED_RsaWithRpkAttestation) {
  * app id is also successful.
  */
 TEST_P(NewKeyGenerationTest, RsaEncryptionWithAttestation) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     auto key_size = 2048;
     auto challenge = "hello";
     auto app_id = "foo";
@@ -1471,6 +1479,10 @@ TEST_P(NewKeyGenerationTest, LimitedUsageRsa) {
  * resulting keys have correct characteristics and attestation.
  */
 TEST_P(NewKeyGenerationTest, LimitedUsageRsaWithAttestation) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     auto challenge = "hello";
     auto app_id = "foo";
 
@@ -1727,6 +1739,10 @@ TEST_P(NewKeyGenerationTest, EcdsaWithMissingValidity) {
  * an attestation will be generated.
  */
 TEST_P(NewKeyGenerationTest, EcdsaAttestation) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     auto challenge = "hello";
     auto app_id = "foo";
 
@@ -1793,6 +1809,10 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestation) {
  * an attestation will be generated.
  */
 TEST_P(NewKeyGenerationTest, EcdsaAttestationCurve25519) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     if (!Curve25519Supported()) {
         GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
     }
@@ -1849,6 +1869,10 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationCurve25519) {
  * attestation extension.
  */
 TEST_P(NewKeyGenerationTest, EcdsaAttestationTags) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     auto challenge = "hello";
     auto app_id = "foo";
     auto subject = "cert subj 2";
@@ -1986,6 +2010,10 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
         // the device identifiers held by the device.
         GTEST_SKIP() << "Test not applicable under GSI";
     }
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     auto challenge = "hello";
     auto app_id = "foo";
     auto subject = "cert subj 2";
@@ -2058,6 +2086,10 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
  * Verifies that creation of an attested ECDSA key with a UNIQUE_ID included.
  */
 TEST_P(NewKeyGenerationTest, EcdsaAttestationUniqueId) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     auto get_unique_id = [this](const std::string& app_id, uint64_t datetime,
                                 vector<uint8_t>* unique_id, bool reset = false) {
         auto challenge = "hello";
@@ -2164,6 +2196,10 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationUniqueId) {
  * Verifies that creation of an attested ECDSA key does not include APPLICATION_ID.
  */
 TEST_P(NewKeyGenerationTest, EcdsaAttestationTagNoApplicationId) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     auto challenge = "hello";
     auto attest_app_id = "foo";
     auto subject = "cert subj 2";
@@ -2350,6 +2386,10 @@ TEST_P(NewKeyGenerationTest, EcdsaIgnoreAppId) {
  * to specify how many following bytes will be used to encode the length.
  */
 TEST_P(NewKeyGenerationTest, AttestationApplicationIDLengthProperlyEncoded) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     auto challenge = "hello";
     std::vector<uint32_t> app_id_lengths{143, 258};
 
@@ -8161,6 +8201,10 @@ class KeyAgreementTest : public KeyMintAidlTestBase {
  * Verifies that ECDH works for all required curves
  */
 TEST_P(KeyAgreementTest, Ecdh) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     // Because it's possible to use this API with keys on different curves, we
     // check all N^2 combinations where N is the number of supported
     // curves.
@@ -8211,6 +8255,10 @@ TEST_P(KeyAgreementTest, Ecdh) {
  * KeyMint 1.0.
  */
 TEST_P(KeyAgreementTest, EcdhCurve25519) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     if (!Curve25519Supported()) {
         GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
     }
@@ -8280,6 +8328,10 @@ TEST_P(KeyAgreementTest, EcdhCurve25519Imported) {
  * Verifies that ECDH fails for curve25519 if the wrong size of public key is provided.
  */
 TEST_P(KeyAgreementTest, EcdhCurve25519InvalidSize) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     if (!Curve25519Supported()) {
         GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
     }
@@ -8309,6 +8361,10 @@ TEST_P(KeyAgreementTest, EcdhCurve25519InvalidSize) {
  * Verifies that ECDH fails between curve25519 and other curves.
  */
 TEST_P(KeyAgreementTest, EcdhCurve25519Mismatch) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     if (!Curve25519Supported()) {
         GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
     }
@@ -8380,6 +8436,10 @@ TEST_P(EarlyBootKeyTest, CreateEarlyBootKeys) {
  * Verifies that creating an early boot key with attestation succeeds.
  */
 TEST_P(EarlyBootKeyTest, CreateAttestedEarlyBootKey) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     auto [aesKeyData, hmacKeyData, rsaKeyData, ecdsaKeyData] = CreateTestKeys(
             TAG_EARLY_BOOT_ONLY, ErrorCode::OK, [](AuthorizationSetBuilder* builder) {
                 builder->AttestationChallenge("challenge");

@@ -238,6 +238,10 @@ TEST_P(AttestKeyTest, RsaAttestKeyMultiPurposeFail) {
  * used to sign other RSA and EC keys.
  */
 TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     auto challenge = "hello";
     auto app_id = "foo";
 
@@ -336,6 +340,10 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
  * with the last attest key signed by the factory chain.
  */
 TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     const int chain_size = 6;
     vector<vector<uint8_t>> key_blob_list(chain_size);
     vector<vector<Certificate>> cert_chain_list(chain_size);
@@ -413,6 +421,10 @@ TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
  * with the last attest key signed by the factory chain.
  */
 TEST_P(AttestKeyTest, EcAttestKeyChaining) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     const int chain_size = 6;
     vector<vector<uint8_t>> key_blob_list(chain_size);
     vector<vector<Certificate>> cert_chain_list(chain_size);
@@ -517,6 +529,10 @@ TEST_P(AttestKeyTest, EcAttestKeyMultiPurposeFail) {
  * cross sign each other and be chained together.
  */
 TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
+    if (isDeviceIdAttestationRequired()) {
+        GTEST_SKIP() << "Test not applicable under api level 33";
+    }
+
     const int chain_size = 6;
     vector<vector<uint8_t>> key_blob_list(chain_size);
     vector<vector<Certificate>> cert_chain_list(chain_size);
