@@ -67,7 +67,7 @@ class EffectImpl : public BnEffect, public EffectWorker {
     virtual ndk::ScopedAStatus getParameterSpecific(const Parameter::Id& id,
                                                     Parameter::Specific* specific) = 0;
     virtual std::shared_ptr<EffectContext> createContext(const Parameter::Common& common) = 0;
-    virtual RetCode releaseContext() = 0;
+    virtual RetCode releaseContext() { return RetCode::SUCCESS; }
 
   protected:
     /*

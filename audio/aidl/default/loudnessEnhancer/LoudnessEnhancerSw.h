@@ -57,13 +57,14 @@ class LoudnessEnhancerSw final : public EffectImpl {
     const LoudnessEnhancer::Capability kCapability;
     /* Effect descriptor */
     const Descriptor kDescriptor = {
-            .common = {.id = {.type = LoudnessEnhancerTypeUUID,
-                              .uuid = LoudnessEnhancerSwImplUUID,
+            .common = {.id = {.type = kLoudnessEnhancerTypeUUID,
+                              .uuid = kLoudnessEnhancerSwImplUUID,
                               .proxy = std::nullopt},
                        .flags = {.type = Flags::Type::INSERT,
                                  .insert = Flags::Insert::FIRST,
                                  .volume = Flags::Volume::CTRL},
-                       .name = "LoudnessEnhancerSw"},
+                       .name = "LoudnessEnhancerSw",
+                       .implementor = "The Android Open Source Project"},
             .capability = Capability::make<Capability::loudnessEnhancer>(kCapability)};
 
     /* parameters */

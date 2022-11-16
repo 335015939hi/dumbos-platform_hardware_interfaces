@@ -57,13 +57,14 @@ class VisualizerSw final : public EffectImpl {
     const Visualizer::Capability kCapability;
     /* Effect descriptor */
     const Descriptor kDescriptor = {
-            .common = {.id = {.type = VisualizerTypeUUID,
-                              .uuid = VisualizerSwImplUUID,
+            .common = {.id = {.type = kVisualizerTypeUUID,
+                              .uuid = kVisualizerSwImplUUID,
                               .proxy = std::nullopt},
                        .flags = {.type = Flags::Type::INSERT,
                                  .insert = Flags::Insert::FIRST,
                                  .volume = Flags::Volume::CTRL},
-                       .name = "VisualizerSw"},
+                       .name = "VisualizerSw",
+                       .implementor = "The Android Open Source Project"},
             .capability = Capability::make<Capability::visualizer>(kCapability)};
 
     /* parameters */

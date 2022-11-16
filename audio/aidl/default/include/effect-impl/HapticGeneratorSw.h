@@ -26,19 +26,19 @@
 
 namespace aidl::android::hardware::audio::effect {
 
-class ReverbSwContext final : public EffectContext {
+class HapticGeneratorSwContext final : public EffectContext {
   public:
-    ReverbSwContext(int statusDepth, const Parameter::Common& common)
+    HapticGeneratorSwContext(int statusDepth, const Parameter::Common& common)
         : EffectContext(statusDepth, common) {
         LOG(DEBUG) << __func__;
     }
     // TODO: add specific context here
 };
 
-class ReverbSw final : public EffectImpl {
+class HapticGeneratorSw final : public EffectImpl {
   public:
-    ReverbSw() { LOG(DEBUG) << __func__; }
-    ~ReverbSw() {
+    HapticGeneratorSw() { LOG(DEBUG) << __func__; }
+    ~HapticGeneratorSw() {
         LOG(DEBUG) << __func__;
         releaseContext();
     }
@@ -52,21 +52,21 @@ class ReverbSw final : public EffectImpl {
     RetCode releaseContext() override;
 
   private:
-    std::shared_ptr<ReverbSwContext> mContext;
+    std::shared_ptr<HapticGeneratorSwContext> mContext;
     /* capabilities */
-    const Reverb::Capability kCapability;
+    const HapticGenerator::Capability kCapability;
     /* Effect descriptor */
     const Descriptor kDescriptor = {
-            .common = {.id = {.type = ReverbTypeUUID,
-                              .uuid = ReverbSwImplUUID,
+            .common = {.id = {.type = kHapticGeneratorTypeUUID,
+                              .uuid = kHapticGeneratorSwImplUUID,
                               .proxy = std::nullopt},
                        .flags = {.type = Flags::Type::INSERT,
                                  .insert = Flags::Insert::FIRST,
                                  .volume = Flags::Volume::CTRL},
-                       .name = "ReverbSw"},
-            .capability = Capability::make<Capability::reverb>(kCapability)};
+                       .name = "HapticGeneratorSw"},
+            .capability = Capability::make<Capability::hapticGenerator>(kCapability)};
 
     /* parameters */
-    Reverb mSpecificParam;
+    HapticGenerator mSpecificParam;
 };
 }  // namespace aidl::android::hardware::audio::effect
