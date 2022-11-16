@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb71c700_8f9b8486",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-11-16T18:27:16Z",
+      "side": 1,
+      "message": "Ah I see, outData is allocated by the client. Well the `out` is really confusing here. How about pData or destBuffer",
+      "parentUuid": "2a87b33d_42b489e3",
+      "range": {
+        "startLine": 468,
+        "startChar": 36,
+        "endLine": 468,
+        "endChar": 42
+      },
+      "revId": "141d452659528e53d93200d313e0848b0fb611b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3241ef22_8065f9a1",
         "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
         "patchSetId": 11
@@ -224,6 +248,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d24bc52_dee97ca1",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-11-16T18:27:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a5e7b19d_61c5e1a1",
+      "range": {
+        "startLine": 500,
+        "startChar": 44,
+        "endLine": 500,
+        "endChar": 50
+      },
+      "revId": "141d452659528e53d93200d313e0848b0fb611b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69b882a1_e6a27ec6",
@@ -255,6 +303,24 @@
       "side": 1,
       "message": "Yeah, the follow-up is to continue porting more of gralloc4\u0027s VTS and then add more as possible. But this CL \u0026 topic has gotten big, and there\u0027s multiple dependent changes that are ready to be made independently of that.",
       "parentUuid": "69b882a1_e6a27ec6",
+      "revId": "141d452659528e53d93200d313e0848b0fb611b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdbb3b13_3055c270",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2022-11-16T18:27:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "144df821_c102ae62",
       "revId": "141d452659528e53d93200d313e0848b0fb611b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
