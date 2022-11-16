@@ -201,6 +201,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e997fe2_eac86d3a",
+        "filename": "graphics/mapper/stable-c/include/android/hardware/graphics/mapper/IMapper.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-16T19:29:37Z",
+      "side": 1,
+      "message": "destBuffer / destBufferSize SGTM",
+      "parentUuid": "eb71c700_8f9b8486",
+      "range": {
+        "startLine": 468,
+        "startChar": 36,
+        "endLine": 468,
+        "endChar": 42
+      },
+      "revId": "141d452659528e53d93200d313e0848b0fb611b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3241ef22_8065f9a1",
