@@ -16,6 +16,23 @@
       "message": "LGTM. Shunkai, do you have any new comments?",
       "revId": "09e39ee4b4b55ba5e578e97d88559f214d856324",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a4c2c2d_55352ded",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-16T00:57:43Z",
+      "side": 1,
+      "message": "Shraddha, I just noticed that this file for some reason has \u0027executable\u0027 bit set in the file system. Please remove it and re-upload, thanks!",
+      "revId": "09e39ee4b4b55ba5e578e97d88559f214d856324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
