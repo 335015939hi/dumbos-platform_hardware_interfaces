@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8955ee7_b9846332",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-16T18:59:34Z",
+      "side": 1,
+      "message": "Please just rename the defaults module and we are good. Thanks!",
+      "revId": "ac947aaed87fafae8b2c569107f38c52b8a8ab79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2e69d55_9d086d1f",
+        "filename": "audio/aidl/vts/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-16T18:59:34Z",
+      "side": 1,
+      "message": "Since we now derive all Audio VTS tests from this default, not just Effect tests, let\u0027s make the name more generic: `VtsHalAudioTargetTestDefaults` (Effect -\u003e Audio).",
+      "revId": "ac947aaed87fafae8b2c569107f38c52b8a8ab79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
