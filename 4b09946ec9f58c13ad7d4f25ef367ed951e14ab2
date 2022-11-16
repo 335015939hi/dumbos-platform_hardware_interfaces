@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dbaead6_838971cf",
+        "filename": "graphics/mapper/stable-c/implutils/include/android/hardware/graphics/mapper/utils/IMapperMetadataTypes.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-16T19:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "004c48d5_a8d58339",
+      "range": {
+        "startLine": 82,
+        "startChar": 44,
+        "endLine": 82,
+        "endChar": 51
+      },
+      "revId": "4b09946ec9f58c13ad7d4f25ef367ed951e14ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e66b56d_e777add8",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-16T19:41:11Z",
       "side": 1,
       "message": "destBuffer/destBufferSize",
+      "range": {
+        "startLine": 60,
+        "startChar": 48,
+        "endLine": 60,
+        "endChar": 55
+      },
+      "revId": "4b09946ec9f58c13ad7d4f25ef367ed951e14ab2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5766306c_0a37af7c",
+        "filename": "graphics/mapper/stable-c/implutils/include/android/hardware/graphics/mapper/utils/IMapperProvider.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-11-16T19:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e66b56d_e777add8",
       "range": {
         "startLine": 60,
         "startChar": 48,
