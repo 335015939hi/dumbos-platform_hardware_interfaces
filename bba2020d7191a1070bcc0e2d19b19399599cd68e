@@ -168,6 +168,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11aae67e_48e9f6a4",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-11-16T05:04:28Z",
+      "side": 1,
+      "message": "Thank you for the clarification.\nI\u0027ll refactor the implementation on strongbox to eliminate the keyToSign limitation.",
+      "parentUuid": "c6097e92_5da9954f",
+      "range": {
+        "startLine": 257,
+        "startChar": 29,
+        "endLine": 257,
+        "endChar": 50
+      },
+      "revId": "bba2020d7191a1070bcc0e2d19b19399599cd68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15d50065_e21ae85e",
