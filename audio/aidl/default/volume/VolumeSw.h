@@ -57,13 +57,14 @@ class VolumeSw final : public EffectImpl {
     const Volume::Capability kCapability;
     /* Effect descriptor */
     const Descriptor kDescriptor = {
-            .common = {.id = {.type = VolumeTypeUUID,
-                              .uuid = VolumeSwImplUUID,
+            .common = {.id = {.type = kVolumeTypeUUID,
+                              .uuid = kVolumeSwImplUUID,
                               .proxy = std::nullopt},
                        .flags = {.type = Flags::Type::INSERT,
                                  .insert = Flags::Insert::FIRST,
                                  .volume = Flags::Volume::CTRL},
-                       .name = "VolumeSw"},
+                       .name = "VolumeSw",
+                       .implementor = "The Android Open Source Project"},
             .capability = Capability::make<Capability::volume>(kCapability)};
 
     /* parameters */

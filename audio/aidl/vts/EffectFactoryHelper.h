@@ -29,9 +29,9 @@
 using namespace android;
 
 using aidl::android::hardware::audio::effect::Descriptor;
-using aidl::android::hardware::audio::effect::EffectNullUuid;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
+using aidl::android::hardware::audio::effect::kEffectNullUuid;
 using aidl::android::hardware::audio::effect::Processing;
 using aidl::android::media::audio::common::AudioUuid;
 
@@ -81,11 +81,11 @@ class EffectFactoryHelper {
         }
     }
 
-    void QueryAndCreateEffects(const AudioUuid& type = EffectNullUuid) {
+    void QueryAndCreateEffects(const AudioUuid& type = kEffectNullUuid) {
         std::vector<Descriptor::Identity> ids;
         ASSERT_NE(mEffectFactory, nullptr);
 
-        if (type == EffectNullUuid) {
+        if (type == kEffectNullUuid) {
             EXPECT_IS_OK(
                     mEffectFactory->queryEffects(std::nullopt, std::nullopt, std::nullopt, &ids));
         } else {
@@ -147,7 +147,7 @@ class EffectFactoryHelper {
         EXPECT_EQ((unsigned int)remaining, mEffectIdMap.size());
     }
 
-    std::shared_ptr<IFactory> GetFactory() { return mEffectFactory; }
+    std::shared_ptr<IFactory> GetFactory() const { return mEffectFactory; }
     const std::vector<Descriptor::Identity>& GetEffectIds() { return mIds; }
     const std::vector<Descriptor::Identity>& GetCompleteEffectIdList() const {
         return mCompleteIds;
@@ -156,6 +156,44 @@ class EffectFactoryHelper {
         return mEffectIdMap;
     }
     void ClearEffectMap() { mEffectIdMap.clear(); }
+
+    void DestroyEffectsAndExpect(
+            const std::map<std::shared_ptr<IEffect>, Descriptor::Identity>& effectMap,
+            const binder_exception_t expected = EX_NONE) {
+        ASSERT_NE(mEffectFactory, nullptr);
+        for (auto it = effectMap.begin(); it != effectMap.end();) {
+            auto erased = it++;
+            auto status = mEffectFactory->destroyEffect(erased->first);
+            EXPECT_STATUS(expected, status);
+        }
+    }
+
+    void DestroyEffects(const std::map<std::shared_ptr<IEffect>, Descriptor::Identity>& effectMap) {
+        DestroyEffectsAndExpect(effectMap);
+    }
+
+    static std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor::Identity>>
+    getAllEffectDescriptors(std::string serviceName, std::optional<AudioUuid> type = std::nullopt) {
+        AudioHalBinderServiceUtil util;
+        auto names = android::getAidlHalInstanceNames(serviceName);
+        std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor::Identity>> result;
+
+        for (const auto& name : names) {
+            auto factory = IFactory::fromBinder(util.connectToService(name));
+            if (factory) {
+                std::vector<Descriptor::Identity> ids;
+                EXPECT_IS_OK(factory->queryEffects(std::nullopt, std::nullopt, std::nullopt, &ids));
+                for (const auto& id : ids) {
+                    if (type.has_value() && id.type != type.value()) {
+                        continue;
+                    }
+                    result.emplace_back(factory, id);
+                }
+            }
+        }
+
+        return result;
+    }
 
   private:
     std::shared_ptr<IFactory> mEffectFactory;
