@@ -57,13 +57,14 @@ class BassBoostSw final : public EffectImpl {
     const BassBoost::Capability kCapability;
     /* Effect descriptor */
     const Descriptor kDescriptor = {
-            .common = {.id = {.type = BassBoostTypeUUID,
-                              .uuid = BassBoostSwImplUUID,
+            .common = {.id = {.type = kBassBoostTypeUUID,
+                              .uuid = kBassBoostSwImplUUID,
                               .proxy = std::nullopt},
                        .flags = {.type = Flags::Type::INSERT,
                                  .insert = Flags::Insert::FIRST,
                                  .volume = Flags::Volume::CTRL},
-                       .name = "BassBoostSw"},
+                       .name = "BassBoostSw",
+                       .implementor = "The Android Open Source Project"},
             .capability = Capability::make<Capability::bassBoost>(kCapability)};
 
     /* parameters */
