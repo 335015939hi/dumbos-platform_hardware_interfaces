@@ -1,0 +1,81 @@
+// This is the expected build file, but it may not be right in all cases
+
+aidl_interface {
+    name: "android.hardware.tetheroffload.control",
+    vendor_available: true,
+    host_supported: true,
+<<<<<<< HEAD
+=======
+    owner: "google",
+>>>>>>> e600a3416... Add autoconverted AIDL HALs for tetheroffload.
+    srcs: ["android/hardware/tetheroffload/control/*.aidl"],
+    stability: "vintf",
+    backend: {
+        cpp: {
+<<<<<<< HEAD
+            // FIXME should this be disabled?
+            // prefer NDK backend which can be used anywhere
+            // If you disable this, you also need to delete the C++
+            // translate code.
+=======
+>>>>>>> e600a3416... Add autoconverted AIDL HALs for tetheroffload.
+            enabled: true,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+<<<<<<< HEAD
+=======
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+
+>>>>>>> e600a3416... Add autoconverted AIDL HALs for tetheroffload.
+}
+
+cc_library {
+    name: "android.hardware.tetheroffload.control-translate-cpp",
+    srcs: ["translate/android/hardware/tetheroffload/control/translate-cpp.cpp"],
+    shared_libs: [
+        "libbinder",
+        "libhidlbase",
+        "android.hardware.tetheroffload.control-V1-cpp",
+        "libutils",
+        "android.hardware.tetheroffload.control@1.0",
+        "android.hardware.tetheroffload.control@1.1",
+    ],
+    export_include_dirs: ["include"],
+}
+
+cc_library {
+    name: "android.hardware.tetheroffload.control-translate-ndk",
+    vendor_available: true,
+    srcs: ["translate/android/hardware/tetheroffload/control/translate-ndk.cpp"],
+    shared_libs: [
+        "libbinder_ndk",
+        "libhidlbase",
+        "android.hardware.tetheroffload.control-V1-ndk",
+        "android.hardware.tetheroffload.control@1.0",
+        "android.hardware.tetheroffload.control@1.1",
+    ],
+    export_include_dirs: ["include"],
+}
+
+java_library {
+    name: "android.hardware.tetheroffload.control-translate-java",
+    srcs: ["translate/android/hardware/tetheroffload/control/Translate.java"],
+    libs: [
+        "android.hardware.tetheroffload.control-V1-java",
+        "android.hardware.tetheroffload.control-V1.0-java",
+        "android.hardware.tetheroffload.control-V1.1-java",
+    ],
+    sdk_version: "module_current",
+}
+<<<<<<< HEAD
+
+=======
+>>>>>>> e600a3416... Add autoconverted AIDL HALs for tetheroffload.

@@ -1,0 +1,42 @@
+// This is the expected build file, but it may not be right in all cases
+
+aidl_interface {
+    name: "android.hardware.tetheroffload.config",
+    vendor_available: true,
+    host_supported: true,
+<<<<<<< HEAD
+    srcs: ["android/hardware/tetheroffload/config/*.aidl"],
+    stability: "vintf",
+    backend: {
+        cpp: {
+            // FIXME should this be disabled?
+            // prefer NDK backend which can be used anywhere
+            // If you disable this, you also need to delete the C++
+            // translate code.
+=======
+    owner: "google",
+    srcs: ["android/hardware/tetheroffload/config/*.aidl"],
+    stability: "vintf",
+    imports: ["android.hardware.tetheroffload.control"],
+    backend: {
+        cpp: {
+>>>>>>> e600a3416... Add autoconverted AIDL HALs for tetheroffload.
+            enabled: true,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+<<<<<<< HEAD
+}
+
+=======
+    versions_with_info: [
+        {
+            version: "1",
+            imports: ["android.hardware.tetheroffload.control-V1"],
+        },
+    ],
+
+}
+>>>>>>> e600a3416... Add autoconverted AIDL HALs for tetheroffload.
