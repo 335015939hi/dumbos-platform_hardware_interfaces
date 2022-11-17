@@ -33,6 +33,24 @@
       "message": "Since we now derive all Audio VTS tests from this default, not just Effect tests, let\u0027s make the name more generic: `VtsHalAudioTargetTestDefaults` (Effect -\u003e Audio).",
       "revId": "ac947aaed87fafae8b2c569107f38c52b8a8ab79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ccc7ea1_de9ec5f1",
+        "filename": "audio/aidl/vts/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-11-17T08:47:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2e69d55_9d086d1f",
+      "revId": "ac947aaed87fafae8b2c569107f38c52b8a8ab79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
