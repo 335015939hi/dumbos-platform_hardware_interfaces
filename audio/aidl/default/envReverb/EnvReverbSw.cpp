@@ -74,16 +74,133 @@ ndk::ScopedAStatus EnvReverbSw::setParameterSpecific(const Parameter::Specific& 
     RETURN_IF(Parameter::Specific::reverb != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
 
-    mSpecificParam = specific.get<Parameter::Specific::reverb>();
-    LOG(DEBUG) << __func__ << " success with: " << specific.toString();
-    return ndk::ScopedAStatus::ok();
+    auto& erParam = specific.get<Parameter::Specific::reverb>();
+    auto tag = erParam.getTag();
+
+    switch (tag) {
+        case Reverb::roomLevelMb: {
+            RETURN_IF(mContext->setErRoomLevel(erParam.get<Reverb::roomLevelMb>()) !=
+                              RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setRoomLevelFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::roomHfLevelMb: {
+            RETURN_IF(mContext->setErRoomHfLevel(erParam.get<Reverb::roomHfLevelMb>()) !=
+                              RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setRoomHfLevelFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::decayTimeMs: {
+            RETURN_IF(mContext->setErDecayTime(erParam.get<Reverb::decayTimeMs>()) !=
+                              RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setDecayTimeFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::decayHfRatioPm: {
+            RETURN_IF(mContext->setErDecayHfRatio(erParam.get<Reverb::decayHfRatioPm>()) !=
+                              RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setDecayHfRatioFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::levelMb: {
+            RETURN_IF(mContext->setErLevel(erParam.get<Reverb::levelMb>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setLevelFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::delayMs: {
+            RETURN_IF(mContext->setErDelay(erParam.get<Reverb::delayMs>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setDelayFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::diffusionPm: {
+            RETURN_IF(mContext->setErDiffusion(erParam.get<Reverb::diffusionPm>()) !=
+                              RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setDiffusionFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::densityPm: {
+            RETURN_IF(mContext->setErDensity(erParam.get<Reverb::densityPm>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setDensityFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::bypass: {
+            RETURN_IF(mContext->setErBypass(erParam.get<Reverb::bypass>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setBypassFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "ReverbTagNotSupported");
+        }
+    }
 }
 
 ndk::ScopedAStatus EnvReverbSw::getParameterSpecific(const Parameter::Id& id,
                                                      Parameter::Specific* specific) {
     auto tag = id.getTag();
     RETURN_IF(Parameter::Id::reverbTag != tag, EX_ILLEGAL_ARGUMENT, "wrongIdTag");
-    specific->set<Parameter::Specific::reverb>(mSpecificParam);
+    auto erId = id.get<Parameter::Id::reverbTag>();
+    auto erIdTag = erId.getTag();
+    switch (erIdTag) {
+        case Reverb::Id::commonTag:
+            return getParameterReverb(erId.get<Reverb::Id::commonTag>(), specific);
+        default:
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(erIdTag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "ReverbTagNotSupported");
+    }
+}
+
+ndk::ScopedAStatus EnvReverbSw::getParameterReverb(const Reverb::Tag& tag,
+                                                   Parameter::Specific* specific) {
+    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+    Reverb erParam;
+    switch (tag) {
+        case Reverb::roomLevelMb: {
+            erParam.set<Reverb::roomLevelMb>(mContext->getErRoomLevel());
+            break;
+        }
+        case Reverb::roomHfLevelMb: {
+            erParam.set<Reverb::roomHfLevelMb>(mContext->getErRoomHfLevel());
+            break;
+        }
+        case Reverb::decayTimeMs: {
+            erParam.set<Reverb::decayTimeMs>(mContext->getErDecayTime());
+            break;
+        }
+        case Reverb::decayHfRatioPm: {
+            erParam.set<Reverb::decayHfRatioPm>(mContext->getErDecayHfRatio());
+            break;
+        }
+        case Reverb::levelMb: {
+            erParam.set<Reverb::levelMb>(mContext->getErLevel());
+            break;
+        }
+        case Reverb::delayMs: {
+            erParam.set<Reverb::delayMs>(mContext->getErDelay());
+            break;
+        }
+        case Reverb::diffusionPm: {
+            erParam.set<Reverb::diffusionPm>(mContext->getErDiffusion());
+            break;
+        }
+        case Reverb::densityPm: {
+            erParam.set<Reverb::densityPm>(mContext->getErDensity());
+            break;
+        }
+        case Reverb::bypass: {
+            erParam.set<Reverb::bypass>(mContext->getErBypass());
+            break;
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "ReverbTagNotSupported");
+        }
+    }
+
+    specific->set<Parameter::Specific::reverb>(erParam);
     return ndk::ScopedAStatus::ok();
 }
 

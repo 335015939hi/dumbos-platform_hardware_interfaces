@@ -50,6 +50,17 @@ class EffectFactoryHelper {
     std::shared_ptr<IFactory> GetFactory() const { return mEffectFactory; }
 
     static std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor::Identity>>
+    getAllEffectDescriptors(std::string serviceName, std::vector<AudioUuid> types) {
+        std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor::Identity>> result;
+        for (auto type : types) {
+            std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor::Identity>> typeResult;
+            typeResult = getAllEffectDescriptors(serviceName, type);
+            result.insert(result.end(), typeResult.begin(), typeResult.end());
+        }
+        return result;
+    }
+
+    static std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor::Identity>>
     getAllEffectDescriptors(std::string serviceName, std::optional<AudioUuid> type = std::nullopt) {
         AudioHalBinderServiceUtil util;
         auto names = android::getAidlHalInstanceNames(serviceName);

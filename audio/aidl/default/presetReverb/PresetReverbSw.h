@@ -32,7 +32,114 @@ class PresetReverbSwContext final : public EffectContext {
         : EffectContext(statusDepth, common) {
         LOG(DEBUG) << __func__;
     }
-    // TODO: add specific context here
+
+    RetCode setPrRoomLevel(int roomLevel) {
+        if (roomLevel < Reverb::MIN_ROOM_LEVEL_MB || roomLevel > Reverb::MAX_ROOM_LEVEL_MB) {
+            LOG(ERROR) << __func__ << " invalid roomLevel: " << roomLevel;
+            return RetCode::ERROR_ILLEGAL_PARAMETER;
+        }
+        // TODO : Add implementation to apply new room level
+        mRoomLevel = roomLevel;
+        return RetCode::SUCCESS;
+    }
+    int getPrRoomLevel() const { return mRoomLevel; }
+
+    RetCode setPrRoomHfLevel(int roomHfLevel) {
+        if (roomHfLevel < Reverb::MIN_ROOM_HF_LEVEL_MB ||
+            roomHfLevel > Reverb::MAX_ROOM_HF_LEVEL_MB) {
+            LOG(ERROR) << __func__ << " invalid roomHfLevel: " << roomHfLevel;
+            return RetCode::ERROR_ILLEGAL_PARAMETER;
+        }
+        // TODO : Add implementation to apply new room HF level
+        mRoomHfLevel = roomHfLevel;
+        return RetCode::SUCCESS;
+    }
+    int getPrRoomHfLevel() const { return mRoomHfLevel; }
+
+    RetCode setPrDecayTime(int decayTime) {
+        if (decayTime < Reverb::MIN_DECAY_TIME_MS || decayTime > Reverb::MAX_DECAY_TIME_MS) {
+            LOG(ERROR) << __func__ << " invalid decayTime: " << decayTime;
+            return RetCode::ERROR_ILLEGAL_PARAMETER;
+        }
+        // TODO : Add implementation to apply new decay time
+        mDecayTime = decayTime;
+        return RetCode::SUCCESS;
+    }
+    int getPrDecayTime() const { return mDecayTime; }
+
+    RetCode setPrDecayHfRatio(int decayHfRatio) {
+        if (decayHfRatio < Reverb::MIN_DECAY_HF_RATIO_PM ||
+            decayHfRatio > Reverb::MAX_DECAY_HF_RATIO_PM) {
+            LOG(ERROR) << __func__ << " invalid decayHfRatio: " << decayHfRatio;
+            return RetCode::ERROR_ILLEGAL_PARAMETER;
+        }
+        // TODO : Add implementation to apply new decay HF ratio
+        mDecayHfRatio = decayHfRatio;
+        return RetCode::SUCCESS;
+    }
+    int getPrDecayHfRatio() const { return mDecayHfRatio; }
+
+    RetCode setPrLevel(int level) {
+        if (level < Reverb::MIN_LEVEL_MB || level > Reverb::MAX_LEVEL_MB) {
+            LOG(ERROR) << __func__ << " invalid level: " << level;
+            return RetCode::ERROR_ILLEGAL_PARAMETER;
+        }
+        // TODO : Add implementation to apply new level
+        mLevel = level;
+        return RetCode::SUCCESS;
+    }
+    int getPrLevel() const { return mLevel; }
+
+    RetCode setPrDelay(int delay) {
+        if (delay < Reverb::MIN_DELAY_MS || delay > Reverb::MAX_DELAY_MS) {
+            LOG(ERROR) << __func__ << " invalid delay: " << delay;
+            return RetCode::ERROR_ILLEGAL_PARAMETER;
+        }
+        // TODO : Add implementation to apply new delay
+        mDelay = delay;
+        return RetCode::SUCCESS;
+    }
+    int getPrDelay() const { return mDelay; }
+
+    RetCode setPrDiffusion(int diffusion) {
+        if (diffusion < Reverb::MIN_DIFFUSION_PM || diffusion > Reverb::MAX_DIFFUSION_PM) {
+            LOG(ERROR) << __func__ << " invalid diffusion: " << diffusion;
+            return RetCode::ERROR_ILLEGAL_PARAMETER;
+        }
+        // TODO : Add implementation to apply new diffusion
+        mDiffusion = diffusion;
+        return RetCode::SUCCESS;
+    }
+    int getPrDiffusion() const { return mDiffusion; }
+
+    RetCode setPrDensity(int density) {
+        if (density < Reverb::MIN_DENSITY_PM || density > Reverb::MAX_DENSITY_PM) {
+            LOG(ERROR) << __func__ << " invalid density: " << density;
+            return RetCode::ERROR_ILLEGAL_PARAMETER;
+        }
+        // TODO : Add implementation to apply new density
+        mDensity = density;
+        return RetCode::SUCCESS;
+    }
+    int getPrDensity() const { return mDensity; }
+
+    RetCode setPrBypass(bool bypass) {
+        // TODO : Add implementation to apply new bypass
+        mBypass = bypass;
+        return RetCode::SUCCESS;
+    }
+    bool getPrBypass() const { return mBypass; }
+
+  private:
+    int mRoomLevel = Reverb::MIN_ROOM_LEVEL_MB;       // Default room level
+    int mRoomHfLevel = Reverb::MAX_ROOM_HF_LEVEL_MB;  // Default room hf level
+    int mDecayTime = 1000;                            // Default decay time
+    int mDecayHfRatio = 500;                          // Default decay hf ratio
+    int mLevel = Reverb::MIN_LEVEL_MB;                // Default level
+    int mDelay = 40;                                  // Default delay
+    int mDiffusion = Reverb::MAX_DIFFUSION_PM;        // Default diffusion
+    int mDensity = Reverb::MAX_DENSITY_PM;            // Default density
+    bool mBypass = false;                             // Default bypass
 };
 
 class PresetReverbSw final : public EffectImpl {
@@ -59,7 +166,8 @@ class PresetReverbSw final : public EffectImpl {
     const std::string kEffectName = "PresetReverbSw";
     std::shared_ptr<PresetReverbSwContext> mContext;
     /* capabilities */
-    const Reverb::Capability kCapability;
+    const int mMaxDecayTime = Reverb::MAX_DECAY_TIME_MS;
+    const Reverb::Capability kCapability = {.maxDecayTimeMs = mMaxDecayTime};
     /* Effect descriptor */
     const Descriptor kDescriptor = {
             .common = {.id = {.type = kPresetReverbTypeUUID,
@@ -72,7 +180,6 @@ class PresetReverbSw final : public EffectImpl {
                        .implementor = "The Android Open Source Project"},
             .capability = Capability::make<Capability::reverb>(kCapability)};
 
-    /* parameters */
-    Reverb mSpecificParam;
+    ndk::ScopedAStatus getParameterReverb(const Reverb::Tag& tag, Parameter::Specific* specific);
 };
 }  // namespace aidl::android::hardware::audio::effect

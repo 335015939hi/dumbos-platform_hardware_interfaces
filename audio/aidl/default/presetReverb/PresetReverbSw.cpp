@@ -74,16 +74,133 @@ ndk::ScopedAStatus PresetReverbSw::setParameterSpecific(const Parameter::Specifi
     RETURN_IF(Parameter::Specific::reverb != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
 
-    mSpecificParam = specific.get<Parameter::Specific::reverb>();
-    LOG(DEBUG) << __func__ << " success with: " << specific.toString();
-    return ndk::ScopedAStatus::ok();
+    auto& prParam = specific.get<Parameter::Specific::reverb>();
+    auto tag = prParam.getTag();
+
+    switch (tag) {
+        case Reverb::roomLevelMb: {
+            RETURN_IF(mContext->setPrRoomLevel(prParam.get<Reverb::roomLevelMb>()) !=
+                              RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setRoomLevelFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::roomHfLevelMb: {
+            RETURN_IF(mContext->setPrRoomHfLevel(prParam.get<Reverb::roomHfLevelMb>()) !=
+                              RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setRoomHfLevelFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::decayTimeMs: {
+            RETURN_IF(mContext->setPrDecayTime(prParam.get<Reverb::decayTimeMs>()) !=
+                              RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setDecayTimeFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::decayHfRatioPm: {
+            RETURN_IF(mContext->setPrDecayHfRatio(prParam.get<Reverb::decayHfRatioPm>()) !=
+                              RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setDecayHfRatioFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::levelMb: {
+            RETURN_IF(mContext->setPrLevel(prParam.get<Reverb::levelMb>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setLevelFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::delayMs: {
+            RETURN_IF(mContext->setPrDelay(prParam.get<Reverb::delayMs>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setDelayFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::diffusionPm: {
+            RETURN_IF(mContext->setPrDiffusion(prParam.get<Reverb::diffusionPm>()) !=
+                              RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setDiffusionFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::densityPm: {
+            RETURN_IF(mContext->setPrDensity(prParam.get<Reverb::densityPm>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setDensityFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Reverb::bypass: {
+            RETURN_IF(mContext->setPrBypass(prParam.get<Reverb::bypass>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "setBypassFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "ReverbTagNotSupported");
+        }
+    }
 }
 
 ndk::ScopedAStatus PresetReverbSw::getParameterSpecific(const Parameter::Id& id,
                                                         Parameter::Specific* specific) {
     auto tag = id.getTag();
     RETURN_IF(Parameter::Id::reverbTag != tag, EX_ILLEGAL_ARGUMENT, "wrongIdTag");
-    specific->set<Parameter::Specific::reverb>(mSpecificParam);
+    auto prId = id.get<Parameter::Id::reverbTag>();
+    auto prIdTag = prId.getTag();
+    switch (prIdTag) {
+        case Reverb::Id::commonTag:
+            return getParameterReverb(prId.get<Reverb::Id::commonTag>(), specific);
+        default:
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(prIdTag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "ReverbTagNotSupported");
+    }
+}
+
+ndk::ScopedAStatus PresetReverbSw::getParameterReverb(const Reverb::Tag& tag,
+                                                      Parameter::Specific* specific) {
+    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+    Reverb prParam;
+    switch (tag) {
+        case Reverb::roomLevelMb: {
+            prParam.set<Reverb::roomLevelMb>(mContext->getPrRoomLevel());
+            break;
+        }
+        case Reverb::roomHfLevelMb: {
+            prParam.set<Reverb::roomHfLevelMb>(mContext->getPrRoomHfLevel());
+            break;
+        }
+        case Reverb::decayTimeMs: {
+            prParam.set<Reverb::decayTimeMs>(mContext->getPrDecayTime());
+            break;
+        }
+        case Reverb::decayHfRatioPm: {
+            prParam.set<Reverb::decayHfRatioPm>(mContext->getPrDecayHfRatio());
+            break;
+        }
+        case Reverb::levelMb: {
+            prParam.set<Reverb::levelMb>(mContext->getPrLevel());
+            break;
+        }
+        case Reverb::delayMs: {
+            prParam.set<Reverb::delayMs>(mContext->getPrDelay());
+            break;
+        }
+        case Reverb::diffusionPm: {
+            prParam.set<Reverb::diffusionPm>(mContext->getPrDiffusion());
+            break;
+        }
+        case Reverb::densityPm: {
+            prParam.set<Reverb::densityPm>(mContext->getPrDensity());
+            break;
+        }
+        case Reverb::bypass: {
+            prParam.set<Reverb::bypass>(mContext->getPrBypass());
+            break;
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "ReverbTagNotSupported");
+        }
+    }
+
+    specific->set<Parameter::Specific::reverb>(prParam);
     return ndk::ScopedAStatus::ok();
 }
 
