@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21d49c8f_03a421aa",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-17T23:36:24Z",
+      "side": 1,
+      "message": "I think so, this was sorted with clang format automatically, no?",
+      "parentUuid": "2d252db2_9394f77b",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 67
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e804189_553e17e5",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-17T02:18:52Z",
       "side": 1,
       "message": "Wouldn\u0027t that leave to context leaks when implementations forget to override this method?",
+      "range": {
+        "startLine": 70,
+        "startChar": 37,
+        "endLine": 70,
+        "endChar": 65
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec5132ca_c0bb54ab",
+        "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-17T23:36:24Z",
+      "side": 1,
+      "message": "Yes I was originally trying to avoid call pure virtual method from destructor, now I think maybe it makes more sense to leave this to derived class for cleanup",
+      "parentUuid": "3e804189_553e17e5",
       "range": {
         "startLine": 70,
         "startChar": 37,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd81a17b_68333d12",
+        "filename": "audio/aidl/default/include/effect-impl/EffectUUID.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-17T23:36:24Z",
+      "side": 1,
+      "message": "I was trying to use constexpr as well, but got error with `constexpr variable cannot have non-literal type`",
+      "parentUuid": "7708841d_84110c7e",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 12
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08fc1473_5cb64236",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-17T02:18:52Z",
       "side": 1,
       "message": "Why is a failure to connect to a factory is not considered to be a problem?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33668533_3425120d",
+        "filename": "audio/aidl/vts/EffectFactoryHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-17T23:36:24Z",
+      "side": 1,
+      "message": "I\u0027m thinking there is still value to continue test, because in theory there could be more than one factory, and in case of one fail another one still testable.",
+      "parentUuid": "08fc1473_5cb64236",
       "range": {
         "startLine": 59,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "341e0e0e_2a63fa91",
+        "filename": "audio/aidl/vts/EffectFactoryHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-17T23:36:24Z",
+      "side": 1,
+      "message": "Same as last comment",
+      "parentUuid": "5e5991a8_13a8598c",
+      "range": {
+        "startLine": 62,
+        "startChar": 16,
+        "endLine": 62,
+        "endChar": 28
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a657cb3_4a6db777",
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acd38055_aa698a43",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-17T23:36:24Z",
+      "side": 1,
+      "message": "To me it seems aligns with other helpers to call IEffect interfaces better, or maybe change this helper to `getState` and `EXPECT_EQ(expectState, state);` with the return state? How do you think?",
+      "parentUuid": "8a657cb3_4a6db777",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 5
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "521c152e_eb618487",
@@ -152,6 +296,30 @@
       "writtenOn": "2022-11-17T02:18:52Z",
       "side": 1,
       "message": "Please make sure that a call to any helper which ASSERTs inside is wrapped into ASSERT_NO_FATAL_FAILURE. See go/gunitadvanced#propagating-fatal-failures.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 31
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f3acd60_4fc3419b",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-17T23:36:24Z",
+      "side": 1,
+      "message": "I\u0027m changing these helper functions to `inline`, seems more convenience",
+      "parentUuid": "521c152e_eb618487",
       "range": {
         "startLine": 114,
         "startChar": 0,
