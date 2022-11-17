@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1056caf1_48ec42d0",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-11-17T19:56:09Z",
+      "side": 1,
+      "message": "Uber-uber nit: Wrap at 100 cols.",
+      "range": {
+        "startLine": 463,
+        "startChar": 8,
+        "endLine": 463,
+        "endChar": 16
+      },
+      "revId": "4cdc6968b459f629fed00599725ee2394d77db49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "502cfdaf_a6f95ad1",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-11-17T19:56:09Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 615,
+        "startChar": 19,
+        "endLine": 615,
+        "endChar": 23
+      },
+      "revId": "4cdc6968b459f629fed00599725ee2394d77db49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a209a5d_e74613d7",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-11-17T19:56:09Z",
+      "side": 1,
+      "message": "Are you certain this is always the case?  It\u0027s never possible for a key with high-order zero byte to get shortened?",
+      "range": {
+        "startLine": 616,
+        "startChar": 20,
+        "endLine": 616,
+        "endChar": 49
+      },
+      "revId": "4cdc6968b459f629fed00599725ee2394d77db49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2295ad6d_a6541876",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-11-17T19:56:09Z",
+      "side": 1,
+      "message": "Nit: This is a little bit subtle.  You\u0027re relying on AIDL methods never getting a nullptr for an out param when called via binder.  That might not be obvious to all readers.",
+      "range": {
+        "startLine": 957,
+        "startChar": 4,
+        "endLine": 957,
+        "endChar": 37
+      },
+      "revId": "4cdc6968b459f629fed00599725ee2394d77db49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
