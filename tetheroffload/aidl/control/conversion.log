@@ -1,0 +1,10 @@
+Notes relating to hidl2aidl conversion of android.hardware.tetheroffload.control@1.1 to android.hardware.tetheroffload.control (if any) follow:
+Unhandled comments from android.hardware.tetheroffload.control@1.0::types follow. Consider using hidl-lint to locate these and fixup as many as possible.
+ // for e.g. 192.168.1.12
+ // for e.g. 8080
+
+IPv4AddrPortPair: Consider replacing char with int if signed integer is desired
+IPv4AddrPortPair: Consider replacing char with int if signed integer is desired
+IPv4AddrPortPair: Consider replacing char with int if signed integer is desired
+IPv4AddrPortPair: Consider replacing char with int if signed integer is desired
+END OF LOG
