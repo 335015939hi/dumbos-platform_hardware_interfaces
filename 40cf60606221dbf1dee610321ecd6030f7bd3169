@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5997eec_624a3e0c",
+        "filename": "sensors/aidl/convert/convert.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2022-11-17T20:37:22Z",
+      "side": 1,
+      "message": "Linter says this is unused. Can you remove?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "40cf60606221dbf1dee610321ecd6030f7bd3169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
