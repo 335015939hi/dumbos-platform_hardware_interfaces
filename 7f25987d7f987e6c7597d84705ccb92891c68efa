@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dca19bed_bfa4d379",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03bcaf51_7a2b9727",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdf45210_b4c19494",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-11-11T02:47:08Z",
       "side": 1,
       "message": "Per the company style guide, we should use kCamelCase: https://google.github.io/styleguide/cppguide.html#Constant_Names",
+      "range": {
+        "startLine": 36,
+        "startChar": 17,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9f9b8b2_9c4bfbcb",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdf45210_b4c19494",
       "range": {
         "startLine": 36,
         "startChar": 17,
@@ -127,6 +175,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5a312b3_31ca9d99",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Using Mikhail\u0027s suggestion of using sscanf for this.",
+      "parentUuid": "89489d22_08ce4b41",
+      "range": {
+        "startLine": 43,
+        "startChar": 11,
+        "endLine": 43,
+        "endChar": 28
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c08e99a1_0aea3404",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Sorry for the back and forth-- I figured out how to use sscanf for 8-bit integers:\nhttps://ssjools.hopto.org/char/types/int8",
+      "parentUuid": "651d13aa_2250f136",
+      "range": {
+        "startLine": 43,
+        "startChar": 51,
+        "endLine": 43,
+        "endChar": 54
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a86dbe02_3b6b8ab2",
@@ -140,6 +236,30 @@
       "writtenOn": "2022-11-11T02:45:26Z",
       "side": 1,
       "message": "We are not expecting caller to change `mAidlEngineConfig`, is this correct?\nDo you think if it make sense to \u0027const AudioHalEngineConfig\u0026 AudioPolicyConfigXmlConverter::getAidlEngineConfig() const\u0027?",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 72
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "959c3520_f796a5ae",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "We can return const AudioHalEngineConfig\u0026.\n\nThis isn\u0027t a const function because parseVolumes modifies members of the class. Maybe getAidlEngineConfig isn\u0027t the greatest name. I didn\u0027t want to call parseVolumes in the constructor because we don\u0027t always want to check for volumes in audio_policy_configuration.xml (namely, when we already have volumes in audio_policy_engine_configuration.xml)-- this would unnecessarily add to initialization time.\n\nLet me know if you have another suggestion, though. Thanks!",
+      "parentUuid": "a86dbe02_3b6b8ab2",
       "range": {
         "startLine": 79,
         "startChar": 0,
@@ -173,6 +293,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a3e3db4_5d9747c3",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Good catch, thank you!",
+      "parentUuid": "05dbe13f_dc990033",
+      "range": {
+        "startLine": 80,
+        "startChar": 50,
+        "endLine": 80,
+        "endChar": 65
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "833c3ac3_e77359cc",
@@ -186,6 +330,30 @@
       "writtenOn": "2022-11-11T02:47:08Z",
       "side": 1,
       "message": "BTW, it it OK if we end up not re-assigning engineConfig from a converter? Should we print a warning or something?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 5
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ba04de6_06b0b0f6",
+        "filename": "audio/aidl/default/Config.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "833c3ac3_e77359cc",
       "range": {
         "startLine": 52,
         "startChar": 0,
@@ -219,6 +387,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4492b4e_d22a41c9",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "643e25ea_61f45291",
+      "range": {
+        "startLine": 41,
+        "startChar": 16,
+        "endLine": 41,
+        "endChar": 18
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5aa02f0c_1a3b00dd",
@@ -232,6 +424,30 @@
       "writtenOn": "2022-11-11T02:47:08Z",
       "side": 1,
       "message": "kStreamTypeEnumOffset",
+      "range": {
+        "startLine": 121,
+        "startChar": 21,
+        "endLine": 121,
+        "endChar": 44
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69e9c348_e91eb1bf",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aa02f0c_1a3b00dd",
       "range": {
         "startLine": 121,
         "startChar": 21,
@@ -265,6 +481,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e723a953_b27078e0",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad168398_ed6b85fb",
+      "range": {
+        "startLine": 173,
+        "startChar": 31,
+        "endLine": 173,
+        "endChar": 55
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0d506ff_e8e972f8",
@@ -278,6 +518,30 @@
       "writtenOn": "2022-11-11T02:45:26Z",
       "side": 1,
       "message": "nit: const?",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 17
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b041d8_9656e5a9",
+        "filename": "audio/aidl/default/include/core-impl/AudioPolicyConfigXmlConverter.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0d506ff_e8e972f8",
       "range": {
         "startLine": 42,
         "startChar": 4,
@@ -311,6 +575,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27cc630b_60046ba2",
+        "filename": "audio/aidl/default/include/core-impl/EngineConfigXmlConverter.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Good point, thank you!",
+      "parentUuid": "eb7a5ca2_5b1d81cf",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 30
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de0b7996_eb9c5cac",
@@ -334,6 +622,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d5bd628_82600a7f",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "I tried to make the example implementation match the existing behavior:\n\nIf we use the volumes from the audio_policy_configuration.xml file, we use audio_get_audio_policy_config_file:\n\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audiopolicy/engine/config/src/EngineConfig.cpp;l\u003d725;drc\u003da12de21829b709ed2b2fcec10f0ba4b501c0511d",
+      "parentUuid": "de0b7996_eb9c5cac",
+      "range": {
+        "startLine": 35,
+        "startChar": 29,
+        "endLine": 35,
+        "endChar": 65
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83cf0c22_70341e2b",
@@ -347,6 +659,30 @@
       "writtenOn": "2022-11-11T02:47:08Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 60,
+        "startChar": 5,
+        "endLine": 60,
+        "endChar": 6
+      },
+      "revId": "7f25987d7f987e6c7597d84705ccb92891c68efa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19a1c759_3b99e0e9",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T01:28:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83cf0c22_70341e2b",
       "range": {
         "startLine": 60,
         "startChar": 5,
