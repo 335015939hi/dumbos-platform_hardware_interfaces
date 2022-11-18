@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9629b0f0_7a23143a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2022-11-18T02:55:38Z",
+      "side": 1,
+      "message": "Hi Eric,\nSorry, I updated the CL to separate the impl from the header file and add a namespace to allow easier override, can you take another look?",
+      "revId": "3529de01bafb634caebafb84bb7f2b2b938a2190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
