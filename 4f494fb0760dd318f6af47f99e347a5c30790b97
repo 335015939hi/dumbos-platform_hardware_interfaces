@@ -22,6 +22,30 @@
       },
       "revId": "4f494fb0760dd318f6af47f99e347a5c30790b97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "163d770a_5b844c08",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-18T19:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad0505a4_a28d8361",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 15
+      },
+      "revId": "4f494fb0760dd318f6af47f99e347a5c30790b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
