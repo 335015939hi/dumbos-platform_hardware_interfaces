@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ef43ae4_5ccd83c5",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T22:37:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29a31cca_3608b161",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "640af9352932c3c73ac0cc5cc1fe98f4e2b50f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a819559_42308d34",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-18T20:10:47Z",
       "side": 1,
       "message": "I would add explicit default initialization `{}` to make sure all primitive fields are set to zeroes, in case parsing fails.",
+      "range": {
+        "startLine": 51,
+        "startChar": 50,
+        "endLine": 51,
+        "endChar": 51
+      },
+      "revId": "640af9352932c3c73ac0cc5cc1fe98f4e2b50f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "232a7f1d_02f60814",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T22:37:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a819559_42308d34",
       "range": {
         "startLine": 51,
         "startChar": 50,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3984408_c5a59693",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T22:37:13Z",
+      "side": 1,
+      "message": "This is the only public method that uses getXsdcConfig(). All other methods are called from this method; I didn\u0027t think it was worth adding redundant checks to the other methods since we already do the check here.",
+      "parentUuid": "0533d78f_6af1c94b",
+      "range": {
+        "startLine": 90,
+        "startChar": 47,
+        "endLine": 90,
+        "endChar": 66
+      },
+      "revId": "640af9352932c3c73ac0cc5cc1fe98f4e2b50f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0a6ce01_5bc7571e",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50f972c7_b5beb803",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T22:37:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0a6ce01_5bc7571e",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 59
+      },
+      "revId": "640af9352932c3c73ac0cc5cc1fe98f4e2b50f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5d66512_dd35fe6c",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-11-18T20:10:47Z",
       "side": 1,
       "message": "add `{}`",
+      "range": {
+        "startLine": 182,
+        "startChar": 50,
+        "endLine": 182,
+        "endChar": 51
+      },
+      "revId": "640af9352932c3c73ac0cc5cc1fe98f4e2b50f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8897fae_46d084fc",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-18T22:37:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5d66512_dd35fe6c",
       "range": {
         "startLine": 182,
         "startChar": 50,
