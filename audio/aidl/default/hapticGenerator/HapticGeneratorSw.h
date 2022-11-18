@@ -32,7 +32,29 @@ class HapticGeneratorSwContext final : public EffectContext {
         : EffectContext(statusDepth, common) {
         LOG(DEBUG) << __func__;
     }
-    // TODO: add specific context here
+
+    RetCode setHgHapticScale(const HapticGenerator::HapticScale& hapticScale) {
+        if (hapticScale.id < 0) {
+            LOG(ERROR) << __func__ << " invalid hapticScaleId " << hapticScale.id;
+            return RetCode::ERROR_ILLEGAL_PARAMETER;
+        }
+        mHapticScale = hapticScale;
+        return RetCode::SUCCESS;
+    }
+    HapticGenerator::HapticScale getHgHapticScale() const { return mHapticScale; }
+
+    RetCode setHgVibratorInformation(const HapticGenerator::VibratorInformation& vibratorInfo) {
+        mVibratorInformation = vibratorInfo;
+        return RetCode::SUCCESS;
+    }
+
+    HapticGenerator::VibratorInformation getHgVibratorInformation() const {
+        return mVibratorInformation;
+    }
+
+  private:
+    HapticGenerator::HapticScale mHapticScale = {0, HapticGenerator::VibratorScale::MUTE};
+    HapticGenerator::VibratorInformation mVibratorInformation = {0, 0, 0};
 };
 
 class HapticGeneratorSw final : public EffectImpl {
@@ -67,7 +89,7 @@ class HapticGeneratorSw final : public EffectImpl {
                        .implementor = "The Android Open Source Project"},
             .capability = Capability::make<Capability::hapticGenerator>(kCapability)};
 
-    /* parameters */
-    HapticGenerator mSpecificParam;
+    ndk::ScopedAStatus getParameterHapticGenerator(const HapticGenerator::Tag& tag,
+                                                   Parameter::Specific* specific);
 };
 }  // namespace aidl::android::hardware::audio::effect
