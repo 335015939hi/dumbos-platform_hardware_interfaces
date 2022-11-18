@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad0505a4_a28d8361",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T19:23:24Z",
+      "side": 1,
+      "message": "As discussed, please just use regular GTest macros that wrap calls to helper methods. The reason is that calls done via HELPER_ASSERT are not very intuitive and may confuse people who work on other implementations of effects.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 15
+      },
+      "revId": "4f494fb0760dd318f6af47f99e347a5c30790b97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
