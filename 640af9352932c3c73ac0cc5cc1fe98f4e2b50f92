@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29a31cca_3608b161",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T20:10:47Z",
+      "side": 1,
+      "message": "Per style, it\u0027s recommended to put C headers (.h) first, then C++ headers, and sort each group: https://google.github.io/styleguide/cppguide.html#Names_and_Order_of_Includes",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "640af9352932c3c73ac0cc5cc1fe98f4e2b50f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a819559_42308d34",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T20:10:47Z",
+      "side": 1,
+      "message": "I would add explicit default initialization `{}` to make sure all primitive fields are set to zeroes, in case parsing fails.",
+      "range": {
+        "startLine": 51,
+        "startChar": 50,
+        "endLine": 51,
+        "endChar": 51
+      },
+      "revId": "640af9352932c3c73ac0cc5cc1fe98f4e2b50f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0533d78f_6af1c94b",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T20:10:47Z",
+      "side": 1,
+      "message": "Why we only do this check here and omit it in all other places where we ae getting something from the config?",
+      "range": {
+        "startLine": 90,
+        "startChar": 47,
+        "endLine": 90,
+        "endChar": 66
+      },
+      "revId": "640af9352932c3c73ac0cc5cc1fe98f4e2b50f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a6ce01_5bc7571e",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T20:10:47Z",
+      "side": 1,
+      "message": "I think we can shave off one extra lookup like this:\n\n```\n    const auto [it, success] \u003d\n        mProductStrategyMap.insert(std::make_pair(\n            xsdcProductStrategyName, mNextVendorStrategy));\n    if (success) mNextVendorStrategy++;\n    return it-\u003esecond;\n```",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 59
+      },
+      "revId": "640af9352932c3c73ac0cc5cc1fe98f4e2b50f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5d66512_dd35fe6c",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T20:10:47Z",
+      "side": 1,
+      "message": "add `{}`",
+      "range": {
+        "startLine": 182,
+        "startChar": 50,
+        "endLine": 182,
+        "endChar": 51
+      },
+      "revId": "640af9352932c3c73ac0cc5cc1fe98f4e2b50f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
