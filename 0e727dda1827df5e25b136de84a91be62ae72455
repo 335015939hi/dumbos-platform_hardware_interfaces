@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b06b0b0e_cb10c8ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T02:41:38Z",
+      "side": 1,
+      "message": "One significant comment, PTAL.",
+      "revId": "0e727dda1827df5e25b136de84a91be62ae72455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3c9d77b_7f6ed701",
+        "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T02:41:38Z",
+      "side": 1,
+      "message": "I would suggest using `\u003d default;` instead of `{}`.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "0e727dda1827df5e25b136de84a91be62ae72455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

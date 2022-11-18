@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43ffdde5_17971116",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T02:41:38Z",
+      "side": 1,
+      "message": "Just looks a bit odd to me, but if that\u0027s what our auto formatter does, then I\u0027m fine with that 😊",
+      "parentUuid": "21d49c8f_03a421aa",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 67
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e804189_553e17e5",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I was trying to use constexpr as well, but got error with `constexpr variable cannot have non-literal type`",
       "parentUuid": "7708841d_84110c7e",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 12
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60a59298_1a002bd6",
+        "filename": "audio/aidl/default/include/effect-impl/EffectUUID.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T02:41:38Z",
+      "side": 1,
+      "message": "Ah, yes, because they translate `byte[]` from AIDL to `std::vector`. OK, nevermind.",
+      "parentUuid": "dd81a17b_68333d12",
       "range": {
         "startLine": 27,
         "startChar": 7,
@@ -283,6 +331,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90384d2a_638fd7e7",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T02:41:38Z",
+      "side": 1,
+      "message": "Right, scratch that. I misread the function.",
+      "parentUuid": "acd38055_aa698a43",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 5
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "521c152e_eb618487",
@@ -320,6 +392,30 @@
       "side": 1,
       "message": "I\u0027m changing these helper functions to `inline`, seems more convenience",
       "parentUuid": "521c152e_eb618487",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 31
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d34405e8_4473006d",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-18T02:41:38Z",
+      "side": 1,
+      "message": "Changing a function to `inline` in this case does not change anything. \"A function defined entirely inside a class/struct/union definition, whether it\u0027s a member function or a non-member friend function, is implicitly an inline function\" (http://go/cppref/cpp/language/inline).\n\nBut in any case, changing a function to being `inline` does not affect how `return` from it works. `ASSERT_...` is essentially an `EXPECT_...` + early return. The point is that if an `ASSERT` fails in a sub-routine, and thus the sub-routine returns early, the test function which was calling it still continues its execution. And probably that\u0027s not good because the fatal failure which the sub-routine has discovered was presumably fatal for the entire test.\n\nIn this specific example, `allocateInputData` asserts that `mq` is not null, and returns. Since we don\u0027t call it wrapped into `ASSERT_NO_FATAL_FAILURE`, the test code continues. Now any unchecked attempt to use a null mq will crash the test. For example, `writeToFmq` which does not do this check, will crash.\n\nOne strategy to avoid that is to ensure that every single helper always validates its parameters, and the test code also does that. But this approach is fragile—anyone modifying the test after you might not be aware of it.",
+      "parentUuid": "5f3acd60_4fc3419b",
       "range": {
         "startLine": 114,
         "startChar": 0,
