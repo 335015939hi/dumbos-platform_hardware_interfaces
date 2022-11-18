@@ -39,6 +39,30 @@
       },
       "revId": "0e727dda1827df5e25b136de84a91be62ae72455",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69f0dd42_6350de63",
+        "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-18T05:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3c9d77b_7f6ed701",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "0e727dda1827df5e25b136de84a91be62ae72455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

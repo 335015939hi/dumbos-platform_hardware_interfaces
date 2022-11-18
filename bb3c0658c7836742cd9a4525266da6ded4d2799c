@@ -424,6 +424,30 @@
       },
       "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe9336a3_04fef4d1",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-18T05:41:59Z",
+      "side": 1,
+      "message": "Sorry I misunderstood the comment and how cpp inline works.\nI\u0027m adding a macro in helper to do the `ASSERT_NO_FATAL_FAILURE` and `EXPECT_NO_FATAL_FAILURE`.\nLet me know if how do you think about this approach.",
+      "parentUuid": "d34405e8_4473006d",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 31
+      },
+      "revId": "bb3c0658c7836742cd9a4525266da6ded4d2799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
