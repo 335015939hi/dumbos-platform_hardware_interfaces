@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05baa62f_60736774",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-11-18T10:13:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c3a949a_41243599",
+      "range": {
+        "startLine": 46,
+        "startChar": 60,
+        "endLine": 46,
+        "endChar": 84
+      },
+      "revId": "0a76cced16cf46e7216976c2a0a99a5d4d53b1b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "648c9a0a_58d0eebd",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-11-17T18:25:11Z",
       "side": 1,
       "message": "Was this output for debugging purposes? Can we remove it?",
+      "revId": "0a76cced16cf46e7216976c2a0a99a5d4d53b1b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb03ccfd_4de071ff",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-11-18T10:13:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "648c9a0a_58d0eebd",
       "revId": "0a76cced16cf46e7216976c2a0a99a5d4d53b1b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
