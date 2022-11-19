@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b6082ff_87cf0853",
+        "filename": "audio/aidl/default/include/core-impl/AudioPolicyConfigXmlConverter.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-19T00:59:10Z",
+      "side": 1,
+      "message": "This should be moved to other fields, after methods.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 94
+      },
+      "revId": "f22bf35e2d068c47368e053414ae1c09e879ed03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46c40040_c69cbc14",
+        "filename": "audio/aidl/default/include/core-impl/EngineConfigXmlConverter.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-19T00:59:10Z",
+      "side": 1,
+      "message": "Please group with other fields.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 91
+      },
+      "revId": "f22bf35e2d068c47368e053414ae1c09e879ed03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
