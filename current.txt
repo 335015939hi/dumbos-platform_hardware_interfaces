@@ -830,7 +830,6 @@ a7d74d7e7e0b1e3b739f233b7776bf01e868856a536f5cdac0f307e9c2850e64 android.hardwar
 b4cbc1f2d38787f2ad069a8e4d10c0896287531a2596f0de0283e390b0ecf05d android.hardware.audio.effect@7.0::IVirtualizerEffect
 2b5681e1ea6a2db0dc1e84edb96d3de2f7daf306046543e7956be76dcb8f20fb android.hardware.audio.effect@7.0::IVisualizerEffect
 fa1e2d78e66fd662de93cb479ffd55947fe54f51cb53915814b3d3e3036c86a5 android.hardware.audio.effect@7.0::types
-e3865e74cb1a6e6afd38c7aa84115cb109ce47b972132de5242bc3838d2771f6 android.hardware.automotive.vehicle@2.0::types
 b3caf524c46a47d67e6453a34419e1881942d059e146cda740502670e9a752c3 android.hardware.automotive.vehicle@2.0::IVehicle
 7ce8728b27600e840cacf0a832f6942819fe535f9d3797ae052d5eef5065921c android.hardware.automotive.vehicle@2.0::IVehicleCallback
 b525e91d886379c13588f4975bb04d625d46e1f41b4453792c4b2db1e7ff4340 android.hardware.biometrics.fingerprint@2.3::IBiometricsFingerprint
@@ -901,6 +900,7 @@ c8a57364f6ad20842be14f4db284df5304f7521ca8eac6bcc1fa6c5b466fb8a6 android.hardwar
 0821f516e4d428bc15251969f7e19411c94d8f2ccbd99e1fc8168d8e49e38b0f android.hardware.wifi.supplicant@1.4::types
 4a087a308608d146b022ebc15633de989f5f4dfe1491a83fa41763290a82e40d android.hardware.automotive.vehicle@2.0::types
 70eb14415391f835fb218b43a1e25f5d6495f098f96fa2acaea70985e98e1ce8 android.hardware.automotive.vehicle@2.0::types
+2aa559cda86c358c6429114ef6bc72c1b43281e98f9eb6b4df5e7073c8d05767 android.hardware.automotive.vehicle@2.0::types
 
 # HALs released in Android SCv2
 77f6fcf3fd0dd3e424d8a0292094ebd17e4c35454bb9abbd3a6cbed1aba70765 android.hardware.camera.metadata@3.7::types
@@ -928,5 +928,8 @@ b7ce2d87841585551b082fca6d099622e63b7099e0d8013f687ea1a1dc35c4dc android.hardwar
 537f0bcfaf9d91b3136984f5e85d6ea559771726d6624a1d17c151b9c9f4b2f9 android.hardware.wifi@1.6::IWifiRttControllerEventCallback
 1bac6a7c8136dfb0414fe5639eec115aa2d12927e64a0642a43fb53225f099b2 android.hardware.wifi@1.6::IWifiStaIface
 0a800e010e8eb6eecdfdc96f04fd2ae2f417a79a74a7c0eec3a9f539199bccd4 android.hardware.wifi@1.6::types
+
+# ABI preserving changes to HALs during Android U
+2aa559cda86c358c6429114ef6bc72c1b43281e98f9eb6b4df5e7073c8d05767 android.hardware.automotive.vehicle@2.0::types
 
 # There will be no more HIDL HALs. Use AIDL instead.
