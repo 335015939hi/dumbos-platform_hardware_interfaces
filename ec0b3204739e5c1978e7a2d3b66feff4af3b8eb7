@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "286ef28f_76ba4491",
+        "filename": "automotive/remoteaccess/test_grpc_server/impl/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2022-11-21T21:47:23Z",
+      "side": 1,
+      "message": "No, this is no within the same namespace as this make file and soong cannot find it unless specified. Futhermore, we will define another ApPowerControlLib for the actual implementation.",
+      "parentUuid": "d2729d8c_1569304e",
+      "range": {
+        "startLine": 34,
+        "startChar": 76,
+        "endLine": 34,
+        "endChar": 93
+      },
+      "revId": "ec0b3204739e5c1978e7a2d3b66feff4af3b8eb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9181f3cf_dc9c3cf1",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-11-21T21:44:38Z",
       "side": 1,
       "message": "nit: one empty line",
+      "revId": "ec0b3204739e5c1978e7a2d3b66feff4af3b8eb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7924555_4293d705",
+        "filename": "automotive/remoteaccess/test_grpc_server/lib/ApPowerControl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2022-11-21T21:47:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9181f3cf_dc9c3cf1",
       "revId": "ec0b3204739e5c1978e7a2d3b66feff4af3b8eb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
