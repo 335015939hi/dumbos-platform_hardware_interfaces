@@ -348,7 +348,7 @@ interface IRemotelyProvisionedComponent {
      * SignedData<T> = [
      *     protected: bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 },
      *     unprotected: {},
-     *     payload: bstr .cbor T / nil,
+     *     payload: bstr [ challenge: bstr .size (32..64), bstr .cbor T ] / nil,
      *     signature: bstr         ; PureEd25519(CDI_Leaf_Priv, bstr .cbor SignedDataSigStruct<T>) /
      *                             ; ECDSA(CDI_Leaf_Priv, bstr .cbor SignedDataSigStruct<T>)
      * ]
@@ -358,7 +358,7 @@ interface IRemotelyProvisionedComponent {
      *     context: "Signature1",
      *     protected: bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 },
      *     external_aad: bstr .size 0,
-     *     payload: bstr .cbor T
+     *     payload: bstr [ challenge: bstr .size (32..64), bstr .cbor T ] / nil,
      * ]
      *
      * ; UdsCerts allows the platform to provide additional certifications for the UDS_Pub. For
