@@ -16,6 +16,29 @@
       "message": "Hi Eric,\nSorry, I updated the CL to separate the impl from the header file and add a namespace to allow easier override, can you take another look?",
       "revId": "3529de01bafb634caebafb84bb7f2b2b938a2190",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a132ff5e_757d7181",
+        "filename": "automotive/remoteaccess/test_grpc_server/lib/ApPowerControl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2022-11-21T19:39:42Z",
+      "side": 1,
+      "message": "Do we intend that ApPowerControl will be inherited?",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 11
+      },
+      "revId": "3529de01bafb634caebafb84bb7f2b2b938a2190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
