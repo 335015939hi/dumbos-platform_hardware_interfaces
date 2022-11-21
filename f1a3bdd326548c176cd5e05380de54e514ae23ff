@@ -33,6 +33,52 @@
       "message": "Google team - PTAL. \n@twasilczyk@google.com, @dshi@google.com, @robinjacob@google.com, @karthikmr@google.com",
       "revId": "f1a3bdd326548c176cd5e05380de54e514ae23ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c82959bf_6c8fc561",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2022-11-21T17:58:08Z",
+      "side": 1,
+      "message": "does",
+      "range": {
+        "startLine": 537,
+        "startChar": 70,
+        "endLine": 537,
+        "endChar": 72
+      },
+      "revId": "f1a3bdd326548c176cd5e05380de54e514ae23ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edc5944a_3fb694d4",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2022-11-21T17:58:08Z",
+      "side": 1,
+      "message": "Could you move `continue` into the next line?",
+      "range": {
+        "startLine": 539,
+        "startChar": 27,
+        "endLine": 539,
+        "endChar": 36
+      },
+      "revId": "f1a3bdd326548c176cd5e05380de54e514ae23ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
