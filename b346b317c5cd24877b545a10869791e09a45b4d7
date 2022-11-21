@@ -160,6 +160,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc194871_df438f20",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1948640
+      },
+      "writtenOn": "2022-11-21T21:29:22Z",
+      "side": 1,
+      "message": "Dear, Mr. Park.\n\nFixed in the latest patch.\n\nThank You.",
+      "parentUuid": "8a74bb74_3dea82d9",
+      "range": {
+        "startLine": 517,
+        "startChar": 9,
+        "endLine": 517,
+        "endChar": 16
+      },
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdecddc0_839b019d",
@@ -173,6 +197,30 @@
       "writtenOn": "2022-09-14T17:13:16Z",
       "side": 1,
       "message": "plz break the line",
+      "range": {
+        "startLine": 530,
+        "startChar": 81,
+        "endLine": 530,
+        "endChar": 114
+      },
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc854e3c_6be814c9",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1948640
+      },
+      "writtenOn": "2022-11-21T21:29:22Z",
+      "side": 1,
+      "message": "Dear, Mr. Park.\n\nFixed in the latest patch.\n\nThank You.",
+      "parentUuid": "cdecddc0_839b019d",
       "range": {
         "startLine": 530,
         "startChar": 81,
@@ -208,6 +256,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83e1bff2_676f0672",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1948640
+      },
+      "writtenOn": "2022-11-21T21:29:22Z",
+      "side": 1,
+      "message": "Dear, Mr. Park.\n\nFixed in the latest patch.\n\nThank You.",
+      "parentUuid": "c351bd11_94a987e5",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 12
+      },
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08e9456b_cbbffb86",
         "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
         "patchSetId": 2
@@ -219,6 +291,30 @@
       "writtenOn": "2022-09-14T17:13:16Z",
       "side": 1,
       "message": "can you add comments on why this is handled specially?",
+      "range": {
+        "startLine": 535,
+        "startChar": 12,
+        "endLine": 535,
+        "endChar": 36
+      },
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cdfdc19_0ae4e2ca",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1948640
+      },
+      "writtenOn": "2022-11-21T21:29:22Z",
+      "side": 1,
+      "message": "Dear, Mr. Park.\n\nFixed in the latest patch.\n\nThank You.",
+      "parentUuid": "08e9456b_cbbffb86",
       "range": {
         "startLine": 535,
         "startChar": 12,
