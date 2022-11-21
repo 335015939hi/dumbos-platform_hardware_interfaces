@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "758aa27c_d1747f32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-21T16:39:15Z",
+      "side": 1,
+      "message": "This looks fine as a concomitant change to aosp/2278647.\n\nHowever...there was some discussion in aosp/2278647 around the tag type for `SECOND_IMEI` and/or whether it should be `ADDITIONAL_IMEIS`, which got curtailed because we needed to deal with the complications of splitting out the RKP HAL.\n\nDid that discussion come to a conclusion?",
+      "revId": "b9d71d3e0959ab9d59d74621952fbb0e673f8895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
