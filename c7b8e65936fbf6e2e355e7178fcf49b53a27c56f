@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f3c761e_a57392b0",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-11-21T18:42:32Z",
+      "side": 1,
+      "message": "nit: shouldn\u0027t this be `bstr .cbor [ ... ]`?",
+      "range": {
+        "startLine": 351,
+        "startChar": 20,
+        "endLine": 351,
+        "endChar": 26
+      },
+      "revId": "c7b8e65936fbf6e2e355e7178fcf49b53a27c56f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bef6b69_e619c170",
         "filename": "security/rkp/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
         "patchSetId": 1
