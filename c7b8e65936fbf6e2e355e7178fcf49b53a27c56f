@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "554a98b1_86aea579",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-11-21T19:07:47Z",
+      "side": 1,
+      "message": "Ah, yeah, I see that now.\n\n`T` is parameterized to include the challenge. It may reduce this short of future confusion if we used a different generic parameter than `T` in `SignedData`, since the value of `T` differs between `AuthenticatedRequest` and `SignedData`.",
+      "parentUuid": "cb627069_566e8708",
+      "range": {
+        "startLine": 351,
+        "startChar": 20,
+        "endLine": 351,
+        "endChar": 26
+      },
+      "revId": "c7b8e65936fbf6e2e355e7178fcf49b53a27c56f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bef6b69_e619c170",
         "filename": "security/rkp/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
         "patchSetId": 1
