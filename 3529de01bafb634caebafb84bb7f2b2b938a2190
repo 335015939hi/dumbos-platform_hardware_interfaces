@@ -39,6 +39,30 @@
       },
       "revId": "3529de01bafb634caebafb84bb7f2b2b938a2190",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "853f154d_f7ca496d",
+        "filename": "automotive/remoteaccess/test_grpc_server/lib/ApPowerControl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2022-11-21T20:05:41Z",
+      "side": 1,
+      "message": "Good point. Since we are using a separate ApPowerControl module to keep state, we actually don\u0027t need a class here. Also considering C++ ABI is not stable, so I change the header definition to C style and removed the class.",
+      "parentUuid": "a132ff5e_757d7181",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 11
+      },
+      "revId": "3529de01bafb634caebafb84bb7f2b2b938a2190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
