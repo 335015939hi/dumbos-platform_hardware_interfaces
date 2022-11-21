@@ -346,6 +346,30 @@
       },
       "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0625df4_fa20e6b5",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1948640
+      },
+      "writtenOn": "2022-11-21T21:30:16Z",
+      "side": 1,
+      "message": "Dear, Mr. Dan.\n\nFixed in the latest patch.\n\nThank You.",
+      "parentUuid": "73ead481_5455d49e",
+      "range": {
+        "startLine": 551,
+        "startChar": 0,
+        "endLine": 551,
+        "endChar": 2
+      },
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
