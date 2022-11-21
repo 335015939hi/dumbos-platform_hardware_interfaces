@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bef6b69_e619c170",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-11-21T14:25:14Z",
+      "side": 1,
+      "message": "What\u0027s the intent behind this? It would mean that HAL v3 has a `versionNumber` of 1.\n\nAnd how is this value used normally? Do HALs not have an in-built means to determine which version of the interface they implement?",
+      "range": {
+        "startLine": 33,
+        "startChar": 12,
+        "endLine": 33,
+        "endChar": 81
+      },
+      "revId": "c7b8e65936fbf6e2e355e7178fcf49b53a27c56f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
