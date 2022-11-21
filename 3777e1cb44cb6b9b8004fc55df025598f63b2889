@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89e81f22_6da0c38d",
+        "filename": "current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-21T19:24:03Z",
+      "side": 0,
+      "message": "leave this unchanged",
+      "range": {
+        "startLine": 833,
+        "startChar": 0,
+        "endLine": 833,
+        "endChar": 111
+      },
+      "revId": "3777e1cb44cb6b9b8004fc55df025598f63b2889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
