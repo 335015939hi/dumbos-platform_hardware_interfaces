@@ -58,6 +58,17 @@ union Volume {
     }
 
     /**
+     * Minimal level in dB.
+     */
+    const int MIN_STRENGTH = -9600;
+
+    /**
+     * Maximum level in dB.
+     */
+    const int MAX_STRENGTH = 0;
+
+    /**
+    /**
      * Current level in dB.
      */
     int levelDb;
