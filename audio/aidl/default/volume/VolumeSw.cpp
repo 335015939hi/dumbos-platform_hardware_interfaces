@@ -74,16 +74,66 @@ ndk::ScopedAStatus VolumeSw::setParameterSpecific(const Parameter::Specific& spe
     RETURN_IF(Parameter::Specific::volume != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
 
-    mSpecificParam = specific.get<Parameter::Specific::volume>();
-    LOG(DEBUG) << __func__ << " success with: " << specific.toString();
-    return ndk::ScopedAStatus::ok();
+    auto& volParam = specific.get<Parameter::Specific::volume>();
+    auto tag = volParam.getTag();
+
+    switch (tag) {
+        case Volume::levelDb: {
+            RETURN_IF(mContext->setVolLevel(volParam.get<Volume::levelDb>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "LevelNotSupported");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Volume::mute: {
+            RETURN_IF(mContext->setVolMute(volParam.get<Volume::mute>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "MuteNotSupported");
+            return ndk::ScopedAStatus::ok();
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "VolumeTagNotSupported");
+        }
+    }
 }
 
 ndk::ScopedAStatus VolumeSw::getParameterSpecific(const Parameter::Id& id,
                                                   Parameter::Specific* specific) {
     auto tag = id.getTag();
     RETURN_IF(Parameter::Id::volumeTag != tag, EX_ILLEGAL_ARGUMENT, "wrongIdTag");
-    specific->set<Parameter::Specific::volume>(mSpecificParam);
+    auto volId = id.get<Parameter::Id::volumeTag>();
+    auto volIdTag = volId.getTag();
+    switch (volIdTag) {
+        case Volume::Id::commonTag:
+            return getParameterVolume(volId.get<Volume::Id::commonTag>(), specific);
+        default:
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "VolumeTagNotSupported");
+    }
+}
+
+ndk::ScopedAStatus VolumeSw::getParameterVolume(const Volume::Tag& tag,
+                                                Parameter::Specific* specific) {
+    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+
+    Volume volParam;
+    switch (tag) {
+        case Volume::levelDb: {
+            volParam.set<Volume::levelDb>(mContext->getVolLevel());
+            break;
+        }
+        case Volume::mute: {
+            volParam.set<Volume::mute>(mContext->getVolMute());
+            break;
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "VolumeTagNotSupported");
+        }
+    }
+
+    specific->set<Parameter::Specific::volume>(volParam);
     return ndk::ScopedAStatus::ok();
 }
 
