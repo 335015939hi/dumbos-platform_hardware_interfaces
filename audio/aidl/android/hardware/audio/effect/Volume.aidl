@@ -57,6 +57,18 @@ union Volume {
         int maxLevel;
     }
 
+    // TODO: Move to Capability
+    /**
+     * Minimal level in dB.
+     */
+    const int MIN_LEVEL = -9600;
+
+    /**
+     * Maximum level in dB.
+     */
+    const int MAX_LEVEL = 0;
+
+    /**
     /**
      * Current level in dB.
      */
