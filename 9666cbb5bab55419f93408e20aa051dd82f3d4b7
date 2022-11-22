@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a62ef6c_08ad4b0d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-22T10:08:19Z",
+      "side": 1,
+      "message": "TBH this might just have been me guessing at the wrong meaning of \"tag\" in `INVALID_TAG`...",
+      "revId": "9666cbb5bab55419f93408e20aa051dd82f3d4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5369f3db_1723547f",
+        "filename": "security/keymint/aidl/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2022-11-22T10:08:19Z",
+      "side": 1,
+      "message": "`AttestKeyTest.EcdsaAttestationMismatchID` has the same check -- fix too?",
+      "revId": "9666cbb5bab55419f93408e20aa051dd82f3d4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
