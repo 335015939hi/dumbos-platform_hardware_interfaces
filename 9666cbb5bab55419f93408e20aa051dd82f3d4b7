@@ -33,6 +33,24 @@
       "message": "`AttestKeyTest.EcdsaAttestationMismatchID` has the same check -- fix too?",
       "revId": "9666cbb5bab55419f93408e20aa051dd82f3d4b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31ed65c1_82266a1c",
+        "filename": "security/keymint/aidl/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-22T18:55:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5369f3db_1723547f",
+      "revId": "9666cbb5bab55419f93408e20aa051dd82f3d4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
