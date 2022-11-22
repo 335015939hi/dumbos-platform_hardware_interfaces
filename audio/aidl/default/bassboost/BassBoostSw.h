@@ -59,7 +59,7 @@ class BassBoostSw final : public EffectImpl {
     const Descriptor kDescriptor = {
             .common = {.id = {.type = kBassBoostTypeUUID,
                               .uuid = kBassBoostSwImplUUID,
-                              .proxy = std::nullopt},
+                              .proxy = kBassBoostProxyUUID},
                        .flags = {.type = Flags::Type::INSERT,
                                  .insert = Flags::Insert::FIRST,
                                  .volume = Flags::Volume::CTRL},
