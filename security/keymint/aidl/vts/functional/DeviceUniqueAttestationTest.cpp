@@ -331,6 +331,7 @@ TEST_P(DeviceUniqueAttestationTest, EcdsaDeviceUniqueAttestationMismatchID) {
                     .Authorization(TAG_ATTESTATION_ID_MODEL, "malicious-model");
     vector<uint8_t> key_blob;
     vector<KeyCharacteristics> key_characteristics;
+    int vsr_level = get_vsr_api_level();
 
     for (const KeyParameter& invalid_tag : attestation_id_tags) {
         SCOPED_TRACE(testing::Message() << "+tag-" << invalid_tag);
@@ -348,8 +349,14 @@ TEST_P(DeviceUniqueAttestationTest, EcdsaDeviceUniqueAttestationMismatchID) {
         // Add the tag that doesn't match the local device's real ID.
         builder.push_back(invalid_tag);
         auto result = GenerateKey(builder, &key_blob, &key_characteristics);
-
         ASSERT_TRUE(result == ErrorCode::CANNOT_ATTEST_IDS || result == ErrorCode::INVALID_TAG);
+        if (vsr_level >= 34) {
+            ASSERT_FALSE(result == ErrorCode::INVALID_TAG)
+                    << "It is a specification violation for INVALID_TAG to be returned due to ID "
+                    << "mismatch in a Device ID Attestation call. INVALID_TAG is only intended to "
+                    << "be used for a case where updateAad() is called after update(). As of "
+                    << "VSR-14, this is now enforced as an error.";
+        }
     }
 }
 
