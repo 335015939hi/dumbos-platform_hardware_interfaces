@@ -797,4 +797,23 @@ TEST_P(CertificateRequestV2Test, CertificateRequestV1Removed) {
 
 INSTANTIATE_REM_PROV_AIDL_TEST(CertificateRequestV2Test);
 
+using VsrRequirementTest = VtsRemotelyProvisionedComponentTests;
+
+TEST_P(VsrRequirementTest, Vsr13Test) {
+    RpcHardwareInfo hwInfo;
+    ASSERT_TRUE(provisionable_->getHardwareInfo(&hwInfo).isOk());
+    int vsr_api_level = get_vsr_api_level();
+    if (vsr_api_level < 34) {
+        GTEST_SKIP() << "Applies only to VSR API level 34 or newer, this device is: "
+                     << vsr_api_level;
+    }
+    switch (vsr_api_level) {
+        default:
+            EXPECT_GE(hwInfo.versionNumber, 3) << "VSR 14+ requires IRPC v3 or newer.";
+            break;
+    }
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(VsrRequirementTest);
+
 }  // namespace aidl::android::hardware::security::keymint::test
