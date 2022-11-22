@@ -32,7 +32,30 @@ class VolumeSwContext final : public EffectContext {
         : EffectContext(statusDepth, common) {
         LOG(DEBUG) << __func__;
     }
-    // TODO: add specific context here
+
+    RetCode setVolLevel(int level) {
+        if (level < Volume::MIN_STRENGTH_DB || level > Volume::MAX_STRENGTH_DB) {
+            LOG(ERROR) << __func__ << " invalid level " << level;
+            return RetCode::ERROR_ILLEGAL_PARAMETER;
+        }
+        // TODO : Add implementation to apply new level
+        mLevel = level;
+        return RetCode::SUCCESS;
+    }
+
+    int getVolLevel() const { return mLevel; }
+
+    RetCode setVolMute(bool mute) {
+        // TODO : Add implementation to modify mute
+        mMute = mute;
+        return RetCode::SUCCESS;
+    }
+
+    bool getVolMute() const { return mMute; }
+
+  private:
+    int mLevel = 0;
+    bool mMute = false;
 };
 
 class VolumeSw final : public EffectImpl {
@@ -54,7 +77,7 @@ class VolumeSw final : public EffectImpl {
   private:
     std::shared_ptr<VolumeSwContext> mContext;
     /* capabilities */
-    const Volume::Capability kCapability;
+    const Volume::Capability kCapability = {.maxLevel = Volume::MAX_STRENGTH_DB};
     /* Effect descriptor */
     const Descriptor kDescriptor = {
             .common = {.id = {.type = kVolumeTypeUUID,
@@ -67,7 +90,6 @@ class VolumeSw final : public EffectImpl {
                        .implementor = "The Android Open Source Project"},
             .capability = Capability::make<Capability::volume>(kCapability)};
 
-    /* parameters */
-    Volume mSpecificParam;
+    ndk::ScopedAStatus getParameterVolume(const Volume::Tag& tag, Parameter::Specific* specific);
 };
 }  // namespace aidl::android::hardware::audio::effect
