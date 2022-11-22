@@ -37,6 +37,8 @@ union Volume {
   android.hardware.audio.effect.VendorExtension vendor;
   int levelDb;
   boolean mute;
+  const int MIN_STRENGTH = -9600;
+  const int MAX_STRENGTH = 0;
   @VintfStability
   union Id {
     int vendorExtensionTag;
