@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4130f0a_05355080",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-22T18:47:36Z",
+      "side": 1,
+      "message": "Ah yes, I see my mistake now. Thanks. Sure, will add you as reviewer/cc in the future, Hasini.",
+      "parentUuid": "a4a3f78d_525e23c1",
+      "range": {
+        "startLine": 351,
+        "startChar": 20,
+        "endLine": 351,
+        "endChar": 26
+      },
+      "revId": "c7b8e65936fbf6e2e355e7178fcf49b53a27c56f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bef6b69_e619c170",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Should it be corrected as: `The version provided here must match the version reported in the \"CsrPayload\"`?\n\nWhen I was reading the spec, I thought that when the reference implementation builds the `CsrPayload`, it will fill the `version` field with what is retrieved here (i.e. the version in the rpc_hardware_info) from the device implementers.\n\n(FYI: Different from the C++ reference implementation which asks the device implementers to build the CsrPayload, in Keymint Rust, we request only the minimal required information via the device interface - i.e. device info, rpc_hardware_info, uds_certs, dice_cert_chain and the signature using the CDI leaf private  on SignedDataSigStruct which itself is built by the reference implementation code)",
       "parentUuid": "8bef6b69_e619c170",
+      "range": {
+        "startLine": 33,
+        "startChar": 12,
+        "endLine": 33,
+        "endChar": 81
+      },
+      "revId": "c7b8e65936fbf6e2e355e7178fcf49b53a27c56f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bb014c6_c3a2f776",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-22T18:47:36Z",
+      "side": 1,
+      "message": "Yes, I forgot the version swap done in aosp/2281789. Just working off an old mental model. Fixed.\n\n\"Do HALs not have an in-built means to determine which version of the interface they implement?\"\n\nThe only potential problem is that a HAL could implement the newest AIDL interface since they are fully backwards compatible while still only implementing an older subset of the functionality. This should be caught by VTS, but historically we keyed off of this version number instead of querying the built-in AIDL versioning call, so swapping now may cause breakage in already-shipped devices.",
+      "parentUuid": "c15dc57a_4f68dc8e",
       "range": {
         "startLine": 33,
         "startChar": 12,
