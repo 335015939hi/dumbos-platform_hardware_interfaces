@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d81202e_45288854",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-22T18:11:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc8a905f_b6efbc7b",
+      "range": {
+        "startLine": 812,
+        "startChar": 68,
+        "endLine": 812,
+        "endChar": 72
+      },
+      "revId": "5c3878690eb84c928acb0a32896a8efd189a9d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b72f009_8c069cdb",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-22T17:59:38Z",
       "side": 1,
       "message": "Two different types of control flow here is a bit weird. Seems like we should either:\n\n1. Combine all vsr_api_level checks into a single switch (ensure that 33 implements v2, etc)\n2. Remove the switch entirely\n\nI think 1 is probably best, as we can keep extending this test as-needed when the requirement is updated in the future (assuming IRPC v4 one day).",
+      "range": {
+        "startLine": 806,
+        "startChar": 0,
+        "endLine": 814,
+        "endChar": 5
+      },
+      "revId": "5c3878690eb84c928acb0a32896a8efd189a9d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92dd3d7e_cbceb249",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-22T18:11:41Z",
+      "side": 1,
+      "message": "I had previously had a switch for 32/33/34, but @drysdale@google.com helpfully pointed out I was just asking for trouble with devices launched on previous VSR levels trying to pass this new test for U, and so scaled it back to only this single switch statement with the expectation that each new version would slot into here as appropriate.\n\nEffectively the ship has probably sailed for having previous versions in this test.\n\nIf there won\u0027t be a new version per release, then I suppose cascading if/else statements probably make more sense, due to C++\u0027s lack of ability to use expressions in case statements.",
+      "parentUuid": "3b72f009_8c069cdb",
       "range": {
         "startLine": 806,
         "startChar": 0,
