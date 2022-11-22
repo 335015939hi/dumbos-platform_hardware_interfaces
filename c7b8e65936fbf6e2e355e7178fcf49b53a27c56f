@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4a3f78d_525e23c1",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-11-22T08:05:32Z",
+      "side": 1,
+      "message": "Yes, I think as Seth said, it would avoid the confusion if two different parameter names are used (I was also confused at first wondering how `T` is parameterized with the challenge when the challenge and `T` are shown as two items on the array that parameterizes `SignedData` at https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl;l\u003d341).\n\n(Sorry about the un-invited comments and thanks to David @drysdale@google.com for cc\u0027ing me. FYI: I would like to follow the new changes as I am working on the reference implementation for keymint Rust. I would appreciate it a lot if you could cc me on any new changes to the spec or the existing C++ reference implementation. I finished reading the latest RKP spec on the Friday before the last when the `challenge` was a field in the `CsrPayload` and was not aware of these changes).",
+      "parentUuid": "554a98b1_86aea579",
+      "range": {
+        "startLine": 351,
+        "startChar": 20,
+        "endLine": 351,
+        "endChar": 26
+      },
+      "revId": "c7b8e65936fbf6e2e355e7178fcf49b53a27c56f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bef6b69_e619c170",
         "filename": "security/rkp/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
         "patchSetId": 1
@@ -85,6 +109,30 @@
       "writtenOn": "2022-11-21T14:25:14Z",
       "side": 1,
       "message": "What\u0027s the intent behind this? It would mean that HAL v3 has a `versionNumber` of 1.\n\nAnd how is this value used normally? Do HALs not have an in-built means to determine which version of the interface they implement?",
+      "range": {
+        "startLine": 33,
+        "startChar": 12,
+        "endLine": 33,
+        "endChar": 81
+      },
+      "revId": "c7b8e65936fbf6e2e355e7178fcf49b53a27c56f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c15dc57a_4f68dc8e",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/RpcHardwareInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-11-22T08:05:32Z",
+      "side": 1,
+      "message": "Should it be corrected as: `The version provided here must match the version reported in the \"CsrPayload\"`?\n\nWhen I was reading the spec, I thought that when the reference implementation builds the `CsrPayload`, it will fill the `version` field with what is retrieved here (i.e. the version in the rpc_hardware_info) from the device implementers.\n\n(FYI: Different from the C++ reference implementation which asks the device implementers to build the CsrPayload, in Keymint Rust, we request only the minimal required information via the device interface - i.e. device info, rpc_hardware_info, uds_certs, dice_cert_chain and the signature using the CDI leaf private  on SignedDataSigStruct which itself is built by the reference implementation code)",
+      "parentUuid": "8bef6b69_e619c170",
       "range": {
         "startLine": 33,
         "startChar": 12,
