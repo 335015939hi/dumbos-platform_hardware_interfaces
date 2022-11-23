@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b137c411_b1d13375",
+        "filename": "sensors/common/convert/convert.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-23T17:39:31Z",
+      "side": 1,
+      "message": "@stange@google.com @bduddie@google.com, @smoreland@google.com brought up a good point and wondered if this is really the right direction to go with this.\nThis is a lot of added code and could pretty likely introduce bugs or changes in behavior from what existed with the unsafe reinterpret_cast.\n\nDo you think this is manageable, reviewable, and tested enough for this to be safe?\nWould we rather add a bunch of static_asserts for the ASensorEvent/sensors_event_t sizes and field offsets to try and make reinterpret_cast safer?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 61
+      },
+      "revId": "835c963c5e065b8afa1eee7c700d1f5387ced980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
