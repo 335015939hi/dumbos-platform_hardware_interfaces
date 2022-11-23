@@ -16,6 +16,24 @@
       "message": "Presubmit ready got flipped to +1 for some reason, but this cannot go in until CF switches to IRCP v3.\n\nJust adding this note in case anyone else stumbles along and thinks about Presubmit+1 it again 😊",
       "revId": "cfb19d0c6adf2e04406f43e28c3c3f57d814318d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1c34685_eb1f4291",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-11-23T17:08:33Z",
+      "side": 1,
+      "message": "Oh! Looks like TH was doing it. Maybe an open comment will stop TH from automatically trying to run presubmits? They\u0027re doomed to fail for a bit.",
+      "parentUuid": "8b3df0f9_81a5cc09",
+      "revId": "cfb19d0c6adf2e04406f43e28c3c3f57d814318d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
