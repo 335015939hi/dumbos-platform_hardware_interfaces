@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5b6416d_3194c3b9",
+        "filename": "secure_element/aidl/android/hardware/secure_element/ISecureElement.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-23T22:21:15Z",
+      "side": 1,
+      "message": "`@throws` with these expected values for consistency",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 69
+      },
+      "revId": "a5823d1fa228fb1c3acff55a164bf37932be162a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa08bfec_60a53783",
+        "filename": "secure_element/aidl/android/hardware/secure_element/ISecureElement.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-23T22:21:15Z",
+      "side": 1,
+      "message": "`throws` and fixup the comment a bit",
+      "range": {
+        "startLine": 99,
+        "startChar": 8,
+        "endLine": 99,
+        "endChar": 13
+      },
+      "revId": "a5823d1fa228fb1c3acff55a164bf37932be162a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f0161a8_925f912d",
+        "filename": "secure_element/aidl/android/hardware/secure_element/ISecureElementCallback.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-23T22:21:15Z",
+      "side": 1,
+      "message": "oneway?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 9
+      },
+      "revId": "a5823d1fa228fb1c3acff55a164bf37932be162a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36015ca6_6e47dd1c",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-23T22:21:15Z",
+      "side": 1,
+      "message": "TODO(b/) or does this need to be fixed before submitting?",
+      "range": {
+        "startLine": 93,
+        "startChar": 11,
+        "endLine": 93,
+        "endChar": 16
+      },
+      "revId": "a5823d1fa228fb1c3acff55a164bf37932be162a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41386637_541ab244",
+        "filename": "secure_element/aidl/vts/VtsHalSecureElementTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-23T22:21:15Z",
+      "side": 1,
+      "message": "TODO(b/) or does this need to be fixed before submitting?",
+      "range": {
+        "startLine": 112,
+        "startChar": 7,
+        "endLine": 112,
+        "endChar": 12
+      },
+      "revId": "a5823d1fa228fb1c3acff55a164bf37932be162a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
