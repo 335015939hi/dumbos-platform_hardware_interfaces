@@ -54,5 +54,5 @@ interface ICasListener {
      *               the number presents how many sessions are supported
      *               in the plugin.
      */
-    void onStatusUpdate(in StatusEvent event, in int number);
+    void onStatusUpdate(in int event, in int number);
 }
