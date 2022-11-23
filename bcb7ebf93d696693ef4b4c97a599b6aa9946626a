@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74a97879_c46463be",
+        "filename": "audio/aidl/default/hapticGenerator/HapticGeneratorSw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-23T22:47:55Z",
+      "side": 1,
+      "message": "Log error here?",
+      "range": {
+        "startLine": 37,
+        "startChar": 12,
+        "endLine": 37,
+        "endChar": 30
+      },
+      "revId": "bcb7ebf93d696693ef4b4c97a599b6aa9946626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "043b01de_070517fe",
         "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
         "patchSetId": 1
