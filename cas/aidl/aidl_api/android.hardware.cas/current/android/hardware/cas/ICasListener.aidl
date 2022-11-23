@@ -36,5 +36,5 @@ package android.hardware.cas;
 interface ICasListener {
   void onEvent(in int event, in int arg, in byte[] data);
   void onSessionEvent(in byte[] sessionId, in int event, in int arg, in byte[] data);
-  void onStatusUpdate(in android.hardware.cas.StatusEvent event, in int number);
+  void onStatusUpdate(in int event, in int number);
 }

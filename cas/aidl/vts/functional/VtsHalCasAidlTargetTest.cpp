@@ -168,7 +168,7 @@ class MediaCasListener : public BnCasListener {
         return ScopedAStatus::ok();
     }
 
-    virtual ScopedAStatus onStatusUpdate(StatusEvent event, int32_t arg) override {
+    virtual ScopedAStatus onStatusUpdate(int32_t event, int32_t arg) override {
         Mutex::Autolock autoLock(mMsgLock);
         mStatusEvent = event;
         mEventArg = arg;
@@ -190,7 +190,7 @@ class MediaCasListener : public BnCasListener {
   private:
     int32_t mEvent = -1;
     int32_t mEventArg = -1;
-    StatusEvent mStatusEvent;
+    int32_t mStatusEvent;
     bool mEventReceived = false;
     vector<uint8_t> mEventData;
     vector<uint8_t> mSessionId;
@@ -249,7 +249,7 @@ void MediaCasListener::testStatusUpdate(shared_ptr<ICas>& mediaCas, vector<uint8
             return;
         }
     }
-    EXPECT_EQ(mStatusEvent, static_cast<StatusEvent>(intent));
+    EXPECT_EQ(mStatusEvent, static_cast<int32_t>(intent));
     EXPECT_EQ(mEventArg, static_cast<int32_t>(mode));
 }
 

@@ -107,7 +107,7 @@ void CasImpl::onStatusUpdate(int32_t event, int32_t arg) {
     if (mListener == NULL) {
         return;
     }
-    mListener->onStatusUpdate(static_cast<StatusEvent>(event), arg);
+    mListener->onStatusUpdate(event, arg);
 }
 
 ScopedAStatus CasImpl::setPluginStatusUpdateCallback() {
