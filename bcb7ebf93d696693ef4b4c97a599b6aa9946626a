@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "113920af_a40b9e88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-23T22:42:00Z",
+      "side": 1,
+      "message": "I think the commit message is not accurate.\n`Added AIDL implementation for HapticGenerator`.\n\nI think we should make it clear that this is only a placeholder implementation. Same for other CLs. Thanks.",
+      "revId": "bcb7ebf93d696693ef4b4c97a599b6aa9946626a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95f303fc_15f55c9f",
