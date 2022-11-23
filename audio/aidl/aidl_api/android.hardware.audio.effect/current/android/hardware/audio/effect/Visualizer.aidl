@@ -41,6 +41,7 @@ union Visualizer {
   int captureSizeBytes;
   android.hardware.audio.effect.Visualizer.ScalingMode scalingMode;
   android.hardware.audio.effect.Visualizer.MeasurementMode measurementMode;
+  const int MIN_LATENCY = 0;
   @VintfStability
   union Id {
     int vendorExtensionTag;

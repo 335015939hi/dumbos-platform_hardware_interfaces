@@ -138,6 +138,11 @@ union Visualizer {
     GetOnlyParameters getOnlyParameters;
 
     /**
+     * Minimal possible latency in milliseconds.
+     */
+    const int MIN_LATENCY = 0;
+
+    /**
      * Any parameter defined in this union must be settable via setParameter(), but must not
      * gettable.
      */
