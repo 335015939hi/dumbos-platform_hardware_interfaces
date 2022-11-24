@@ -23,37 +23,30 @@ package android.hardware.health;
  */
 @VintfStability
 @Backing(type="int")
-enum BatteryHealth {
+enum BatteryChargingState {
+    INVALID = 0,
     /**
-     * Battery health is not supported from the device.
+     * Default state.
      */
-    UNKNOWN = 1,
-    GOOD = 2,
-    OVERHEAT = 3,
-    DEAD = 4,
-    OVER_VOLTAGE = 5,
+    NORMAL = 1,
     /**
-     * Battery experienced an unknown/unspecified failure.
+     * Reported when the battery is too cold to charge at a normal
+     * rate or stopped charging due to low temperature.
      */
-    UNSPECIFIED_FAILURE = 6,
-    COLD = 7,
+    TOO_COLD = 2,
     /**
-     * Battery health is marginal.
+     * Reported when the battery is too hot to charge at a normal
+     * rate or stopped charging due to hot temperature.
      */
-    FAIR = 8,
+    TOO_HOT = 3,
     /**
-     * The reserve data below 10 are used to recognize the battery real health.
+     * The device is using a special charging profile that designed
+     * to prevent accelerated aging.
      */
+    LONG_LIFE = 4,
     /**
-     * There is not enough information to determine an accurate
-     * value. The value might become UNSPECIFIED_FAILURE, DEAD
-     * or any other state except for UNKNOWN later.
+     * The device is using a special charging profile designed to
+     * improve battery cycle life, performances or both.
      */
-    NOT_AVAILABLE = 11,
-    /**
-     * The internal data is inconsistent and the battery needs to
-     * go through a recalibration process. The value might become
-     * UNSPECIFIED_FAILURE, DEAD or any other state except for UNKNOWN later.
-     */
-    INCONSISTENT = 12,
+    ADAPTIVE = 5,
 }
