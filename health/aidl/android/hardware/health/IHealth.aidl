@@ -16,6 +16,8 @@
 
 package android.hardware.health;
 
+import android.hardware.health.BatteryChargingPolicy;
+import android.hardware.health.BatteryHealthData;
 import android.hardware.health.BatteryStatus;
 import android.hardware.health.DiskStats;
 import android.hardware.health.HealthInfo;
@@ -200,4 +202,30 @@ interface IHealth {
      *           for for other errors.
      */
     HealthInfo getHealthInfo();
+
+    /**
+     * Get current battery charging policy
+     *
+     * @return Battery health data if successful.
+     *         If error:
+     *         - Return exception with code EX_UNSUPPORTED_OPERATION
+     *           if this property is not supported
+     *                 (e.g. the file that stores this property does not exist),
+     *         - Return service specific error with code STATUS_UNKNOWN
+     *           for for other errors.
+     */
+    int getBatteryHealthData();
+
+    /**
+     * Get current battery charging policy
+     *
+     * @return current battery charging policy if successful.
+     *         If error:
+     *         - Return exception with code EX_UNSUPPORTED_OPERATION
+     *           if this property is not supported
+     *                 (e.g. the file that stores this property does not exist),
+     *         - Return service specific error with code STATUS_UNKNOWN
+     *           for for other errors.
+     */
+    int getChargingPolicy();
 }

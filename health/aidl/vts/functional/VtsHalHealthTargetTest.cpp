@@ -225,6 +225,30 @@ TEST_P(HealthAidl, getChargeStatus) {
     ASSERT_THAT(value, IsValidEnum<BatteryStatus>());
 }
 
+/*
+ * Tests the values returned by getBatteryHealthData() from interface IHealth.
+ */
+TEST_P(HealthAidl, getBatteryHealthData) {
+    int32_t value;
+    auto status = health->getBatteryHealthData(&value);
+    ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
+    if (!status.isOk()) return;
+    /* TODO: will finish the implementation later */
+    ASSERT_THAT(value, true);
+}
+
+/*
+ * Tests the values returned by getChargingPolicy() from interface IHealth.
+ */
+TEST_P(HealthAidl, getChargingPolicy) {
+    int32_t value;
+    auto status = health->getChargingPolicy(&value);
+    ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
+    if (!status.isOk()) return;
+    /* TODO: will finish the implementation later */
+    ASSERT_THAT(value, true);
+}
+
 MATCHER(IsValidStorageInfo, "") {
     *result_listener << "value is " << arg.toString() << ".";
     if (!ExplainMatchResult(InClosedRange(0, 3), arg.eol, result_listener)) {
