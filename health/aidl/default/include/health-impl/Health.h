@@ -71,6 +71,7 @@ class Health : public BnHealth, public HalHealthLoopCallback {
     // The default implementations return nothing in |out|.
     ndk::ScopedAStatus getDiskStats(std::vector<DiskStats>* out) override;
     ndk::ScopedAStatus getStorageInfo(std::vector<StorageInfo>* out) override;
+    //ndk::ScopedAStatus getBatteryHealthData(std::vector<BatteryHealthData>* out) override;
 
     // A subclass may override these to provide a different implementation.
     binder_status_t dump(int fd, const char** args, uint32_t num_args) override;
