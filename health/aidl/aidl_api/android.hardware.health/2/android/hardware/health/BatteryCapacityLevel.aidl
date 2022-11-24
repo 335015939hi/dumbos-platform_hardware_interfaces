@@ -33,15 +33,12 @@
 
 package android.hardware.health;
 @Backing(type="int") @VintfStability
-enum BatteryHealth {
-  UNKNOWN = 1,
-  GOOD = 2,
-  OVERHEAT = 3,
-  DEAD = 4,
-  OVER_VOLTAGE = 5,
-  UNSPECIFIED_FAILURE = 6,
-  COLD = 7,
-  FAIR = 8,
-  NOT_AVAILABLE = 11,
-  INVALID = 12,
+enum BatteryCapacityLevel {
+  UNSUPPORTED = -1,
+  UNKNOWN = 0,
+  CRITICAL = 1,
+  LOW = 2,
+  NORMAL = 3,
+  HIGH = 4,
+  FULL = 5,
 }

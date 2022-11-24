@@ -17,7 +17,9 @@
 package android.hardware.health;
 
 import android.hardware.health.BatteryCapacityLevel;
+import android.hardware.health.BatteryChargingPolicy;
 import android.hardware.health.BatteryHealth;
+import android.hardware.health.BatteryHealthData;
 import android.hardware.health.BatteryStatus;
 import android.hardware.health.DiskStats;
 import android.hardware.health.StorageInfo;
@@ -133,4 +135,22 @@ parcelable HealthInfo {
      * Value must be less than 100 000 000 µAh if known.
      */
     int batteryFullChargeDesignCapacityUah;
+    /**
+     * Measured battery state of health (remaining estimate full charge capacity
+     * relative to the rated capacity in %).
+     * Value must be in the range 0 to 100 (0 if batteryStatus is UNKNOWN)
+     */
+    int batteryStateOfHealth;
+    /**
+     * Battery charging state
+     */
+    int chargingState;
+    /**
+     * Battery charging policy. See {@link BatteryChargingPolicy} for more details.
+     */
+    BatteryChargingPolicy chargingPolicy;
+    /**
+     * Battery health data
+     */
+    @nullable BatteryHealthData batteryHealthData;
 }

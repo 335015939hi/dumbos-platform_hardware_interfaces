@@ -32,16 +32,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.health;
-@Backing(type="int") @VintfStability
-enum BatteryHealth {
-  UNKNOWN = 1,
-  GOOD = 2,
-  OVERHEAT = 3,
-  DEAD = 4,
-  OVER_VOLTAGE = 5,
-  UNSPECIFIED_FAILURE = 6,
-  COLD = 7,
-  FAIR = 8,
-  NOT_AVAILABLE = 11,
-  INVALID = 12,
+@VintfStability
+interface IHealthInfoCallback {
+  oneway void healthInfoChanged(in android.hardware.health.HealthInfo info);
 }
