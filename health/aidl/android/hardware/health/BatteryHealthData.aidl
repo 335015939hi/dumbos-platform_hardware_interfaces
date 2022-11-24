@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,25 +16,14 @@
 
 package android.hardware.health;
 
-/**
- * Possible values for Battery Health.
- * Note: These are currently in sync with BatteryManager and must not
- * be extended / altered.
+/*
+ * Information on storage device including life time estimates, end of life
+ * information and other attributes.
+ *
+ * All integers in this struct must be interpreted as non-negative.
  */
 @VintfStability
-@Backing(type="int")
-enum BatteryHealth {
-    UNKNOWN = 1,
-    GOOD = 2,
-    OVERHEAT = 3,
-    DEAD = 4,
-    OVER_VOLTAGE = 5,
-    /**
-     * Battery experienced an unknown/unspecified failure.
-     */
-    UNSPECIFIED_FAILURE = 6,
-    COLD = 7,
-    FAIR = 8,
-    NOT_AVAILABLE = 11,
-    INVALID = 12,
+parcelable BatteryHealthData {
+    long batteryManufacturingDate;
+    long batteryFirstUsage;
 }
