@@ -115,6 +115,27 @@ ndk::ScopedAStatus Health::getChargeStatus(BatteryStatus* out) {
                        BatteryStatus::UNKNOWN, out);
 }
 
+ndk::ScopedAStatus Health::getChargingPolicy(BatteryChargingPolicy* out) {
+    return GetProperty(&battery_monitor_, ::android::BATTERY_PROP_CHARGING_POLICY,
+                       BatteryChargingPolicy::DEFAULT, out);
+}
+
+ndk::ScopedAStatus Health::getBatteryHealthData(BatteryHealthData* out) {
+    if (auto res =
+                GetProperty<int64_t>(&battery_monitor_, ::android::BATTERY_PROP_MANUFACTURING_DATE,
+                                     0, &out->batteryManufacturingDateSeconds);
+        !res.isOk()) {
+        LOG(WARNING) << "Cannot get Manufacturing_date: " << res.getDescription();
+        return ndk::ScopedAStatus::ok();
+    }
+    if (auto res = GetProperty<int64_t>(&battery_monitor_, ::android::BATTERY_PROP_FIRST_USAGE_DATE,
+                                        0, &out->batteryFirstUsageSeconds);
+        !res.isOk()) {
+        LOG(WARNING) << "Cannot get First_usage_date: " << res.getDescription();
+    }
+    return ndk::ScopedAStatus::ok();
+}
+
 ndk::ScopedAStatus Health::getDiskStats(std::vector<DiskStats>*) {
     // This implementation does not support DiskStats. An implementation may extend this
     // class and override this function to support disk stats.

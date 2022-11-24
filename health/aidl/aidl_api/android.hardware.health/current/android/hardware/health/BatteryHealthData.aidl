@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,21 +33,7 @@
 
 package android.hardware.health;
 @VintfStability
-interface IHealth {
-  void registerCallback(in android.hardware.health.IHealthInfoCallback callback);
-  void unregisterCallback(in android.hardware.health.IHealthInfoCallback callback);
-  void update();
-  int getChargeCounterUah();
-  int getCurrentNowMicroamps();
-  int getCurrentAverageMicroamps();
-  int getCapacity();
-  long getEnergyCounterNwh();
-  android.hardware.health.BatteryStatus getChargeStatus();
-  android.hardware.health.StorageInfo[] getStorageInfo();
-  android.hardware.health.DiskStats[] getDiskStats();
-  android.hardware.health.HealthInfo getHealthInfo();
-  android.hardware.health.BatteryChargingPolicy getChargingPolicy();
-  android.hardware.health.BatteryHealthData getBatteryHealthData();
-  const int STATUS_UNKNOWN = 2;
-  const int STATUS_CALLBACK_DIED = 4;
+parcelable BatteryHealthData {
+  long batteryManufacturingDateSeconds;
+  long batteryFirstUsageSeconds;
 }
