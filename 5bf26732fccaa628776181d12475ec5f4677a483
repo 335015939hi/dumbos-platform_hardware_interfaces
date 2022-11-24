@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c8fab0a_bd05e241",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-11-24T09:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48e10ed7_afcb6659",
+      "range": {
+        "startLine": 38,
+        "startChar": 19,
+        "endLine": 38,
+        "endChar": 51
+      },
+      "revId": "5bf26732fccaa628776181d12475ec5f4677a483",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59ad5811_fcf7523e",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-24T00:52:32Z",
       "side": 1,
       "message": "I think we should avoid test in such a wide range, most of the test cases in [0, 1000] will be redundant.",
+      "range": {
+        "startLine": 160,
+        "startChar": 27,
+        "endLine": 160,
+        "endChar": 88
+      },
+      "revId": "5bf26732fccaa628776181d12475ec5f4677a483",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d69d4f2_da647a61",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-11-24T09:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59ad5811_fcf7523e",
       "range": {
         "startLine": 160,
         "startChar": 27,
