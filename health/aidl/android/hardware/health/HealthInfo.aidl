@@ -21,6 +21,7 @@ import android.hardware.health.BatteryHealth;
 import android.hardware.health.BatteryStatus;
 import android.hardware.health.DiskStats;
 import android.hardware.health.StorageInfo;
+import android.hardware.health.BatteryHealthData;
 
 /**
  * Health Information.
@@ -133,4 +134,7 @@ parcelable HealthInfo {
      * Value must be less than 100 000 000 µAh if known.
      */
     int batteryFullChargeDesignCapacityUah;
+
+    BatteryHealthData[] batteryHealthData;
+    int batteryHealthIndex;
 }

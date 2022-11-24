@@ -21,6 +21,7 @@ import android.hardware.health.DiskStats;
 import android.hardware.health.HealthInfo;
 import android.hardware.health.IHealthInfoCallback;
 import android.hardware.health.StorageInfo;
+import android.hardware.health.BatteryHealthData;
 
 /**
  * IHealth manages health info and posts events on registered callbacks.
@@ -200,4 +201,16 @@ interface IHealth {
      *           for for other errors.
      */
     HealthInfo getHealthInfo();
+
+    /**
+     * Get Battery Health data.
+     *
+     * @return vector of BatteryHealthData structs if successful.
+     *         If error:
+     *         - Return exception with code EX_UNSUPPORTED_OPERATION
+     *           if this property is not supported,
+     *         - Return service specific error with code STATUS_UNKNOWN
+     *           for other errors.
+     */
+    BatteryHealthData[] getBatteryHealthData();
 }
