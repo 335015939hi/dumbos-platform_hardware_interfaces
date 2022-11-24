@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "828d55b5_da1bc1e4",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2022-11-24T10:18:07Z",
+      "side": 1,
+      "message": "should we also check `strategy_configuration.getAudioLocation()` and `strategy_configuration.getChannelCount()` since this two are also listed in BROADCAST_STEREO.\n\nThat is, if audio_location is stereo, channel_count should be 2 not other value?",
+      "range": {
+        "startLine": 372,
+        "startChar": 6,
+        "endLine": 372,
+        "endChar": 54
+      },
+      "revId": "942fa445171f746b448708219d3fb8334b3fff65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
