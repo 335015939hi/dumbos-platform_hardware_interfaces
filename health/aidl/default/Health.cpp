@@ -127,6 +127,19 @@ ndk::ScopedAStatus Health::getStorageInfo(std::vector<StorageInfo>*) {
     return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
+ndk::ScopedAStatus Health::getBatteryHealthData(BatteryHealthData* out) {
+    HealthInfo health_info;
+    if (auto res = getHealthInfo(&health_info); !res.isOk()) {
+        LOG(WARNING) << "Cannot call getHealthInfo: " << res.getDescription();
+        // No health info to send, so return early.
+        return ndk::ScopedAStatus::ok();
+    }
+
+    out->batteryManufacturingDate = health_info.batteryHealthData.batteryManufacturingDate;
+    out->batteryFirstUsage = health_info.batteryHealthData.batteryFirstUsage;
+    return ndk::ScopedAStatus::ok();
+}
+
 ndk::ScopedAStatus Health::getHealthInfo(HealthInfo* out) {
     battery_monitor_.updateValues();
 

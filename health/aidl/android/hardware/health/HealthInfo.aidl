@@ -18,6 +18,7 @@ package android.hardware.health;
 
 import android.hardware.health.BatteryCapacityLevel;
 import android.hardware.health.BatteryHealth;
+import android.hardware.health.BatteryHealthData;
 import android.hardware.health.BatteryStatus;
 import android.hardware.health.DiskStats;
 import android.hardware.health.StorageInfo;
@@ -91,6 +92,18 @@ parcelable HealthInfo {
      * Instantaneous battery capacity in µA-h
      */
     int batteryChargeCounterUah;
+    /**
+     * Overall health state of the battery 0-100% with 100% being new
+     */
+    int batteryStateOfHealth;
+    /**
+     * Battery health cycle count
+     */
+    int batteryHealthCycleCount;
+    /**
+     * Battery health data
+     */
+    BatteryHealthData batteryHealthData;
     /**
      * Battery technology, e.g. "Li-ion, Li-Poly" etc.
      */

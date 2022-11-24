@@ -50,6 +50,9 @@ parcelable HealthInfo {
   int batteryCycleCount;
   int batteryFullChargeUah;
   int batteryChargeCounterUah;
+  int batteryStateOfHealth;
+  int batteryHealthCycleCount;
+  android.hardware.health.BatteryHealthData batteryHealthData;
   String batteryTechnology;
   int batteryCurrentAverageMicroamps;
   android.hardware.health.DiskStats[] diskStats;

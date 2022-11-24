@@ -217,4 +217,11 @@ ScopedAStatus HealthShim::getHealthInfo(HealthInfo* out) {
     return ReturnAndResultToStatus(ret, out_result);
 }
 
+ScopedAStatus HealthShim::getBatteryHealthData(BatteryHealthData* out) {
+    // TODO: will implement it if necessary
+    out->batteryManufacturingDate = 0;
+    out->batteryFirstUsage = 0;
+    return ResultToStatus(Result::SUCCESS);
+}
+
 }  // namespace aidl::android::hardware::health
