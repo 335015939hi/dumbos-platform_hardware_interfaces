@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ab710a1_53261876",
+        "filename": "secure_element/aidl/android/hardware/secure_element/ISecureElement.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-24T01:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5b6416d_3194c3b9",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 69
+      },
+      "revId": "a5823d1fa228fb1c3acff55a164bf37932be162a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa08bfec_60a53783",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-23T22:21:15Z",
       "side": 1,
       "message": "`throws` and fixup the comment a bit",
+      "range": {
+        "startLine": 99,
+        "startChar": 8,
+        "endLine": 99,
+        "endChar": 13
+      },
+      "revId": "a5823d1fa228fb1c3acff55a164bf37932be162a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "866cb687_09c803a2",
+        "filename": "secure_element/aidl/android/hardware/secure_element/ISecureElement.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-24T01:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa08bfec_60a53783",
       "range": {
         "startLine": 99,
         "startChar": 8,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a2c0de5_8472fd8d",
+        "filename": "secure_element/aidl/android/hardware/secure_element/ISecureElementCallback.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-24T01:23:26Z",
+      "side": 1,
+      "message": "I think HAL to framework oneway calls is fail hard fail fast (makes certain fwk issues more noticeable), and this is consistent with HIDL behavior.",
+      "parentUuid": "5f0161a8_925f912d",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 9
+      },
+      "revId": "a5823d1fa228fb1c3acff55a164bf37932be162a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36015ca6_6e47dd1c",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a6258f8_f1e61a9b",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-24T01:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36015ca6_6e47dd1c",
+      "range": {
+        "startLine": 93,
+        "startChar": 11,
+        "endLine": 93,
+        "endChar": 16
+      },
+      "revId": "a5823d1fa228fb1c3acff55a164bf37932be162a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41386637_541ab244",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-11-23T22:21:15Z",
       "side": 1,
       "message": "TODO(b/) or does this need to be fixed before submitting?",
+      "range": {
+        "startLine": 112,
+        "startChar": 7,
+        "endLine": 112,
+        "endChar": 12
+      },
+      "revId": "a5823d1fa228fb1c3acff55a164bf37932be162a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2c4353a_a4df6cbc",
+        "filename": "secure_element/aidl/vts/VtsHalSecureElementTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-24T01:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41386637_541ab244",
       "range": {
         "startLine": 112,
         "startChar": 7,
