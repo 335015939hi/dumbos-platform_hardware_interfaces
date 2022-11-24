@@ -127,6 +127,12 @@ ndk::ScopedAStatus Health::getStorageInfo(std::vector<StorageInfo>*) {
     return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
+ndk::ScopedAStatus Health::getBatteryHealthData(std::vector<BatteryHealthData>*) {
+    // This implementation does not support BatteryHealthData. An implementation may extend this
+    // class and override this function to support battery health data.
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
 ndk::ScopedAStatus Health::getHealthInfo(HealthInfo* out) {
     battery_monitor_.updateValues();
 
@@ -154,6 +160,18 @@ ndk::ScopedAStatus Health::getHealthInfo(HealthInfo* out) {
         LOG(DEBUG) << "getHealthInfo: getDiskStats fails with service-specific error, clearing: "
                    << res.getDescription();
         out->diskStats = {};
+    }
+    if (auto res = getBatteryHealthData(&out->batteryHealthData); !res.isOk()) {
+        if (res.getServiceSpecificError() == 0 &&
+            res.getExceptionCode() != EX_UNSUPPORTED_OPERATION) {
+            return ndk::ScopedAStatus::fromServiceSpecificErrorWithMessage(
+                    IHealth::STATUS_UNKNOWN,
+                    ("getBatteryHealthData fails: " + res.getDescription()).c_str());
+        }
+        LOG(DEBUG) << "getHealthInfo: getBatteryHealthData fails with service-specific error, "
+                      "clearing: "
+                   << res.getDescription();
+        out->batteryHealthData = {};
     }
 
     // A subclass may want to update health info struct before returning it.
