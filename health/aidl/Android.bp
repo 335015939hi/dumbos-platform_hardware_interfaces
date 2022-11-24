@@ -39,7 +39,7 @@ aidl_interface {
     },
     versions_with_info: [
         {
-            version: "1",
+            version: "2",
             imports: [],
         },
     ],
@@ -55,7 +55,7 @@ cc_library {
     shared_libs: [
         "libbinder_ndk",
         "libhidlbase",
-        "android.hardware.health-V1-ndk",
+        "android.hardware.health-V2-ndk",
         "android.hardware.health@2.0",
         "android.hardware.health@2.1",
     ],
@@ -75,7 +75,7 @@ java_library {
     name: "android.hardware.health-translate-java",
     srcs: ["android/hardware/health/Translate.java"],
     libs: [
-        "android.hardware.health-V1-java",
+        "android.hardware.health-V2-java",
         "android.hardware.health-V2.0-java",
         "android.hardware.health-V2.1-java",
     ],
