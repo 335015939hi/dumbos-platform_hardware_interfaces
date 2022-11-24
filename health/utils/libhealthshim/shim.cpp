@@ -217,4 +217,14 @@ ScopedAStatus HealthShim::getHealthInfo(HealthInfo* out) {
     return ReturnAndResultToStatus(ret, out_result);
 }
 
+ScopedAStatus HealthShim::getBatteryHealthData(int32_t* out) {
+    *out = 0;
+    return ResultToStatus(Result::NOT_SUPPORTED);
+}
+
+ScopedAStatus HealthShim::getChargingPolicy(BatteryChargingPolicy* out) {
+    *out = static_cast<BatteryChargingPolicy>(0);
+    return ResultToStatus(Result::NOT_SUPPORTED);
+}
+
 }  // namespace aidl::android::hardware::health

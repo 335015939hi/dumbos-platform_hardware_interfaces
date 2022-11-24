@@ -46,6 +46,8 @@ interface IHealth {
   android.hardware.health.StorageInfo[] getStorageInfo();
   android.hardware.health.DiskStats[] getDiskStats();
   android.hardware.health.HealthInfo getHealthInfo();
+  int getBatteryHealthData();
+  android.hardware.health.BatteryChargingPolicy getChargingPolicy();
   const int STATUS_UNKNOWN = 2;
   const int STATUS_CALLBACK_DIED = 4;
 }

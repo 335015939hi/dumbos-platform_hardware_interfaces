@@ -328,3 +328,13 @@ permissions. Example (assuming that your health AIDL service runs in domain
 ```text
 domain_trans(init, hal_health_tuna_exec, charger_vendor)
 ```
+
+#### Information of battery health data
+
+battery manufacturing date and and the date of first usage are reported in epoch
+
+```c++
+struct BatteryHealthData {
+    uint64_t batteryManufacturingDate; // epoch
+    uint64_t batteryFirstUsage;        // epoch
+};```
