@@ -36,9 +36,21 @@ package android.hardware.health;
 enum BatteryHealth {
   UNKNOWN = 1,
   GOOD = 2,
+  /**
+   * @deprecated replaced by BatteryChargingState.TOO_HOT
+   */
   OVERHEAT = 3,
   DEAD = 4,
+  /**
+   * @deprecated . Transitory condition only affect charging.
+   */
   OVER_VOLTAGE = 5,
   UNSPECIFIED_FAILURE = 6,
+  /**
+   * @deprecated replaced by BatteryChargingState.TOO_COLD
+   */
   COLD = 7,
+  FAIR = 8,
+  NOT_AVAILABLE = 11,
+  INCONSISTENT = 12,
 }
