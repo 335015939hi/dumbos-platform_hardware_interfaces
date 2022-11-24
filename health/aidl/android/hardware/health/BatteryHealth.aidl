@@ -24,6 +24,9 @@ package android.hardware.health;
 @VintfStability
 @Backing(type="int")
 enum BatteryHealth {
+    /**
+     * Battery health is not supported from the device.
+     */
     UNKNOWN = 1,
     GOOD = 2,
     OVERHEAT = 3,
@@ -34,4 +37,20 @@ enum BatteryHealth {
      */
     UNSPECIFIED_FAILURE = 6,
     COLD = 7,
+    /**
+     * Battery health is marginal.
+     */
+    FAIR = 8,
+    /**
+     * There is not enough information to determine an accurate
+     * value. The value might become UNSPECIFIED_FAILURE, DEAD
+     * or any other state except for UNKNOWN later.
+     */
+    NOT_AVAILABLE = 11,
+    /**
+     * The internal data is inconsistent and the battery needs to
+     * go through a recalibration process. The value might become
+     * UNSPECIFIED_FAILURE, DEAD or any other state except for UNKNOWN later.
+     */
+    INVALID = 12,
 }

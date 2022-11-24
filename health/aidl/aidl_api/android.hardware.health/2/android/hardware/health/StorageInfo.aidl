@@ -33,31 +33,9 @@
 
 package android.hardware.health;
 @VintfStability
-parcelable HealthInfo {
-  boolean chargerAcOnline;
-  boolean chargerUsbOnline;
-  boolean chargerWirelessOnline;
-  boolean chargerDockOnline;
-  int maxChargingCurrentMicroamps;
-  int maxChargingVoltageMicrovolts;
-  android.hardware.health.BatteryStatus batteryStatus;
-  android.hardware.health.BatteryHealth batteryHealth;
-  boolean batteryPresent;
-  int batteryLevel;
-  int batteryVoltageMillivolts;
-  int batteryTemperatureTenthsCelsius;
-  int batteryCurrentMicroamps;
-  int batteryCycleCount;
-  int batteryFullChargeUah;
-  int batteryChargeCounterUah;
-  String batteryTechnology;
-  int batteryCurrentAverageMicroamps;
-  android.hardware.health.DiskStats[] diskStats;
-  android.hardware.health.StorageInfo[] storageInfos;
-  android.hardware.health.BatteryCapacityLevel batteryCapacityLevel;
-  long batteryChargeTimeToFullNowSeconds;
-  int batteryFullChargeDesignCapacityUah;
-  const int BATTERY_CHARGE_TIME_TO_FULL_NOW_SECONDS_UNSUPPORTED = -1;
-  int batteryStateOfHealth;
-  @nullable android.hardware.health.BatteryHealthData batteryHealthData;
+parcelable StorageInfo {
+  int eol;
+  int lifetimeA;
+  int lifetimeB;
+  String version;
 }

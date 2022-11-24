@@ -33,31 +33,19 @@
 
 package android.hardware.health;
 @VintfStability
-parcelable HealthInfo {
-  boolean chargerAcOnline;
-  boolean chargerUsbOnline;
-  boolean chargerWirelessOnline;
-  boolean chargerDockOnline;
-  int maxChargingCurrentMicroamps;
-  int maxChargingVoltageMicrovolts;
-  android.hardware.health.BatteryStatus batteryStatus;
-  android.hardware.health.BatteryHealth batteryHealth;
-  boolean batteryPresent;
-  int batteryLevel;
-  int batteryVoltageMillivolts;
-  int batteryTemperatureTenthsCelsius;
-  int batteryCurrentMicroamps;
-  int batteryCycleCount;
-  int batteryFullChargeUah;
-  int batteryChargeCounterUah;
-  String batteryTechnology;
-  int batteryCurrentAverageMicroamps;
-  android.hardware.health.DiskStats[] diskStats;
-  android.hardware.health.StorageInfo[] storageInfos;
-  android.hardware.health.BatteryCapacityLevel batteryCapacityLevel;
-  long batteryChargeTimeToFullNowSeconds;
-  int batteryFullChargeDesignCapacityUah;
-  const int BATTERY_CHARGE_TIME_TO_FULL_NOW_SECONDS_UNSUPPORTED = -1;
-  int batteryStateOfHealth;
-  @nullable android.hardware.health.BatteryHealthData batteryHealthData;
+interface IHealth {
+  void registerCallback(in android.hardware.health.IHealthInfoCallback callback);
+  void unregisterCallback(in android.hardware.health.IHealthInfoCallback callback);
+  void update();
+  int getChargeCounterUah();
+  int getCurrentNowMicroamps();
+  int getCurrentAverageMicroamps();
+  int getCapacity();
+  long getEnergyCounterNwh();
+  android.hardware.health.BatteryStatus getChargeStatus();
+  android.hardware.health.StorageInfo[] getStorageInfo();
+  android.hardware.health.DiskStats[] getDiskStats();
+  android.hardware.health.HealthInfo getHealthInfo();
+  const int STATUS_UNKNOWN = 2;
+  const int STATUS_CALLBACK_DIED = 4;
 }
