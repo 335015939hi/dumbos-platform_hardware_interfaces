@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75873fbc_44043962",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-26T20:47:50Z",
+      "side": 1,
+      "message": "Please:\n1. Add hashtag `aidl_audio_effect` for all AIDL audio effect CLs.\n2. Update the commit message to clarify this is a placeholder implementation.\n\nThanks.",
+      "revId": "e3dd6b3d3cf87b5d4db4705ced497db7d4ef454c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
