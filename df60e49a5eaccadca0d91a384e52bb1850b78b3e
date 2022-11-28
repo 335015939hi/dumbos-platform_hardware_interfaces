@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7a25f71_2cddd0b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2022-11-28T17:55:05Z",
+      "side": 1,
+      "message": "Skipping on devices that don\u0027t implement Confirmation UI is fine, but this CL unconditionally skips it on all devices.",
+      "revId": "df60e49a5eaccadca0d91a384e52bb1850b78b3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
