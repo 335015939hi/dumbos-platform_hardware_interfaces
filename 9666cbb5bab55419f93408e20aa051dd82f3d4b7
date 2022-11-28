@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ca8e5c2_39504d4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-28T20:15:06Z",
+      "side": 1,
+      "message": "Based on metric data, this looks like it was indeed due to other implementations incorrectly returning this error code.",
+      "parentUuid": "6a62ef6c_08ad4b0d",
+      "revId": "9666cbb5bab55419f93408e20aa051dd82f3d4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5369f3db_1723547f",
