@@ -22,6 +22,30 @@
       },
       "revId": "835c963c5e065b8afa1eee7c700d1f5387ced980",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ccbf7d9_f85d0dbe",
+        "filename": "sensors/common/convert/convert.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2022-11-28T17:00:42Z",
+      "side": 1,
+      "message": "I didn\u0027t have a chance to chat with Brian before he went OOO, but I\u0027d expect long term, we don\u0027t want to have to maintain several structs that represent the same data.\n\nI agree in the interim that doing it this way is pretty clunky and problematic though and introduces some risk for a somewhat trivial change.\n\nHere\u0027s what I think are reasonable next steps:\n\n1) Keep this centralized conversion method so we can put any \"hacks\" here and make it easy to change if we need to diverge the types in the future. \n\n2) Do the same reinterpret_cast here that was being done before.\n\n3) Add a go/gerrit-ifthisthenthat in both event definitions to ensure that the two are kept in sync (or at least someone knows there\u0027s an expectation in code that they are kept in sync)",
+      "parentUuid": "b137c411_b1d13375",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 61
+      },
+      "revId": "835c963c5e065b8afa1eee7c700d1f5387ced980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
