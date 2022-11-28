@@ -34,6 +34,24 @@
       "parentUuid": "8b3df0f9_81a5cc09",
       "revId": "cfb19d0c6adf2e04406f43e28c3c3f57d814318d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b11511_c37a7957",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-11-28T17:50:00Z",
+      "side": 1,
+      "message": "It was re-running the presubmit because it wasn\u0027t certain if the failure was genuine or if it was due to the broken tip of tree. Now that ToT is fixed, the failure is correctly diagnosed as genuine and TH stops trying to run presubmit.",
+      "parentUuid": "b1c34685_eb1f4291",
+      "revId": "cfb19d0c6adf2e04406f43e28c3c3f57d814318d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
