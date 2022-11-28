@@ -960,7 +960,7 @@ TEST_P(CompressedOffloadOutputStreamTest, Mp3FormatGaplessOffload) {
     const int significantSampleNumber = (presentationeEndPrecisionMs * sampleRate) / 1000;
     const int delay = 576 + 1000;
     const int padding = 756 + 1000;
-    const int durationMs = 3000 - 44;
+    const int durationMs = 3030;
     auto start = std::chrono::steady_clock::now();
     auto callbacks = sp<OffloadCallbacks>::make();
     std::mutex presentationEndLock;
