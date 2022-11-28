@@ -46,6 +46,30 @@
       },
       "revId": "835c963c5e065b8afa1eee7c700d1f5387ced980",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6499fa9f_c129dad0",
+        "filename": "sensors/common/convert/convert.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-28T17:54:32Z",
+      "side": 1,
+      "message": "1/2 - SGTM\n3 - The ifthisthenthat linter only works in the same project. The bug to support cross project dependencies was closed: https://b.corp.google.com/issues/154647410. I reopened and added a comment to see if it was done or could be done.",
+      "parentUuid": "1ccbf7d9_f85d0dbe",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 61
+      },
+      "revId": "835c963c5e065b8afa1eee7c700d1f5387ced980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
