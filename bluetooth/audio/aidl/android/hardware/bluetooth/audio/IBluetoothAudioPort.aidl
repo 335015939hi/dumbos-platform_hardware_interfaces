@@ -90,4 +90,25 @@ interface IBluetoothAudioPort {
      * @param latencyMode latency mode from audio
      */
     void setLatencyMode(in LatencyMode latencyMode);
+
+    /**
+     * Callback for IBluetoothAudioProvider.startIndication()
+     *
+     * @param status true for accepted or false for rejected
+     */
+    void startConfirmation(in boolean status);
+
+    /**
+     * Callback for IBluetoothAudioProvider.suspendIndication()
+     *
+     * @param status true for accepted or false for rejected
+     */
+    void suspendConfirmation(in boolean status);
+
+    /**
+     * Called to update sink latency when it has been changed.
+     *
+     * @param latencyMs as passed from Audio HAL
+     */
+    void updateSinklatency(in int latencyMs);
 }

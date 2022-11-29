@@ -93,4 +93,18 @@ interface IBluetoothAudioProvider {
      * mode, the API will be called with supported is false.
      */
     void setLowLatencyModeAllowed(in boolean allowed);
+
+    /**
+     * Called when Bluetooth stack receives the AVDTP start indication
+     * from remote device.
+     *
+     */
+    void startIndication();
+
+    /**
+     * Called when Bluetooth stack receives the AVDTP suspend indication
+     * from remote device.
+     *
+     */
+    void suspendIndication();
 }

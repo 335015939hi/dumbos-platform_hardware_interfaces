@@ -109,6 +109,22 @@ struct PortStatusCallbacks {
    * @param: cookie - indicates which bluetooth_audio output should handle
    ***/
   std::function<void(uint16_t cookie)> soft_audio_configuration_changed_cb_;
+
+  /***
+   * start_ind_cb_ - when the Bluetooth stack receives start indication,
+   * BluetoothAudioProvider will invoke this callback to notify to the
+   * bluetooth_audio module.
+   * @param: cookie - indicates which bluetooth_audio output should handle
+   ***/
+  std::function<void(uint16_t cookie)> start_ind_cb_;
+
+  /***
+   * start_ind_cb_ - when the Bluetooth stack receives suspend indication,
+   * BluetoothAudioProvider will invoke this callback to notify to the
+   * bluetooth_audio module.
+   * @param: cookie - indicates which bluetooth_audio output should handle
+   ***/
+  std::function<void(uint16_t cookie)> suspend_ind_cb_;
 };
 
 class BluetoothAudioSession {
@@ -196,6 +212,9 @@ class BluetoothAudioSession {
   bool GetPresentationPosition(PresentationPosition& presentation_position);
   void UpdateSourceMetadata(const struct source_metadata& source_metadata);
   void UpdateSinkMetadata(const struct sink_metadata& sink_metadata);
+  void startConfirmation(const boolean &status);
+  void suspendConfirmation(const boolean &status);
+  void updateSinklatency(const int &latencyMs);
 
   std::vector<LatencyMode> GetSupportedLatencyModes();
   void SetLatencyMode(const LatencyMode& latency_mode);
