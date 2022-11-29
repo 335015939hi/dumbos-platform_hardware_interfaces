@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66e93d7e_3b2d729a",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-11-29T19:21:36Z",
+      "side": 1,
+      "message": "There is no validation for `vibratorInfo`, so `kMaxAmplitude` and `kQFactorValues` and `kResonantFrequencyValues` doesn\u0027t seems to make sense.\nI think we should add validation for them.",
+      "range": {
+        "startLine": 176,
+        "startChar": 17,
+        "endLine": 176,
+        "endChar": 46
+      },
+      "revId": "1044b24e0cfce55f122244efd874e15ddf1c2ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
