@@ -163,9 +163,11 @@ class BluetoothAudioPort : public BnBluetoothAudioPort {
     return ScopedAStatus::ok();
   }
 
-  ndk::ScopedAStatus setCodecType(const CodecType) {
-    return ScopedAStatus::ok();
-  }
+  ndk::ScopedAStatus startConfirmation(bool) { return ScopedAStatus::ok(); }
+
+  ndk::ScopedAStatus suspendConfirmation(bool) { return ScopedAStatus::ok(); }
+
+  ndk::ScopedAStatus updateSinklatency(int) { return ScopedAStatus::ok(); }
 
  protected:
   virtual ~BluetoothAudioPort() = default;
@@ -176,7 +178,7 @@ class BluetoothAudioProviderFactoryAidl
  public:
   virtual void SetUp() override {
     provider_factory_ = IBluetoothAudioProviderFactory::fromBinder(
-        SpAIBinder(AServiceManager_getService(GetParam().c_str())));
+        SpAIBinder(AServiceManager_waitForService(GetParam().c_str())));
     audio_provider_ = nullptr;
     ASSERT_NE(provider_factory_, nullptr);
   }
@@ -640,10 +642,71 @@ TEST_P(BluetoothAudioProviderA2dpEncodingSoftwareAidl,
         if (is_codec_config_valid) {
           EXPECT_TRUE(data_mq.isValid());
         }
+
+        EXPECT_FALSE(audio_provider_->startIndication().isOk());
+        EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
         EXPECT_TRUE(audio_provider_->endSession().isOk());
       }
     }
   }
+}
+
+/**
+ * Test the IBluetoothAudioPort interface.
+ */
+TEST_P(BluetoothAudioProviderA2dpEncodingSoftwareAidl,
+       IBluetoothAudioPortInterfaceTest) {
+  SourceMetadata sourceMetadata;
+  SinkMetadata sinkMetadata;
+
+  EXPECT_TRUE(audio_port_->startStream(true).isOk());
+  EXPECT_TRUE(audio_port_->startStream(false).isOk());
+  EXPECT_TRUE(audio_port_->suspendStream().isOk());
+  EXPECT_TRUE(audio_port_->stopStream().isOk());
+  EXPECT_TRUE(audio_port_->getPresentationPosition(nullptr).isOk());
+  EXPECT_TRUE(audio_port_->updateSourceMetadata(sourceMetadata).isOk());
+  EXPECT_TRUE(audio_port_->updateSinkMetadata(sinkMetadata).isOk());
+  EXPECT_TRUE(audio_port_->setLatencyMode(LatencyMode::UNKNOWN).isOk());
+  EXPECT_TRUE(audio_port_->setLatencyMode(LatencyMode::LOW_LATENCY).isOk());
+  EXPECT_TRUE(audio_port_->setLatencyMode(LatencyMode::FREE).isOk());
+  EXPECT_TRUE(audio_port_->startConfirmation(true).isOk());
+  EXPECT_TRUE(audio_port_->startConfirmation(false).isOk());
+  EXPECT_TRUE(audio_port_->suspendConfirmation(true).isOk());
+  EXPECT_TRUE(audio_port_->suspendConfirmation(false).isOk());
+  EXPECT_TRUE(audio_port_->updateSinklatency(0).isOk());
+}
+
+/**
+ * Test whether we can't start and stuspend indication
+ * without a started session.
+ */
+TEST_P(BluetoothAudioProviderA2dpEncodingSoftwareAidl,
+       BluetoothAudioProviderIndicationFailTest) {
+  EXPECT_FALSE(audio_provider_->startIndication().isOk());
+
+  EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+}
+
+/**
+ * Test whether we can start and stuspend indication
+ * on a started session.
+ */
+TEST_P(BluetoothAudioProviderA2dpEncodingSoftwareAidl,
+       BluetoothAudioProviderIndicationSuccessTest) {
+  DataMQDesc mq_desc;
+  auto aidl_retval = audio_provider_->startSession(
+      audio_port_, AudioConfiguration(), latency_modes, &mq_desc);
+  DataMQ data_mq(mq_desc);
+  EXPECT_FALSE(data_mq.isValid());
+
+  EXPECT_FALSE(aidl_retval.isOk());
+
+  EXPECT_FALSE(audio_provider_->startIndication().isOk());
+
+  EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
+  EXPECT_TRUE(audio_provider_->endSession().isOk());
 }
 
 /**
@@ -702,6 +765,10 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
         audio_port_, AudioConfiguration(codec_config), latency_modes, &mq_desc);
 
     ASSERT_TRUE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -732,6 +799,10 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
         audio_port_, AudioConfiguration(codec_config), latency_modes, &mq_desc);
 
     ASSERT_TRUE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -762,6 +833,10 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
         audio_port_, AudioConfiguration(codec_config), latency_modes, &mq_desc);
 
     ASSERT_TRUE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -792,6 +867,10 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
         audio_port_, AudioConfiguration(codec_config), latency_modes, &mq_desc);
 
     ASSERT_TRUE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -827,6 +906,10 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
           &mq_desc);
 
       ASSERT_TRUE(aidl_retval.isOk());
+
+      EXPECT_FALSE(audio_provider_->startIndication().isOk());
+      EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
       EXPECT_TRUE(audio_provider_->endSession().isOk());
     }
   }
@@ -891,6 +974,10 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
 
       // AIDL call should fail on invalid codec
       ASSERT_FALSE(aidl_retval.isOk());
+
+      EXPECT_FALSE(audio_provider_->startIndication().isOk());
+      EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
       EXPECT_TRUE(audio_provider_->endSession().isOk());
     }
   }
@@ -954,6 +1041,10 @@ TEST_P(BluetoothAudioProviderHearingAidSoftwareAidl,
         if (is_codec_config_valid) {
           EXPECT_TRUE(data_mq.isValid());
         }
+
+        EXPECT_FALSE(audio_provider_->startIndication().isOk());
+        EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
         EXPECT_TRUE(audio_provider_->endSession().isOk());
       }
     }
@@ -1027,6 +1118,10 @@ TEST_P(BluetoothAudioProviderLeAudioOutputSoftwareAidl,
           if (is_codec_config_valid) {
             EXPECT_TRUE(data_mq.isValid());
           }
+
+          EXPECT_FALSE(audio_provider_->startIndication().isOk());
+          EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
           EXPECT_TRUE(audio_provider_->endSession().isOk());
         }
       }
@@ -1100,6 +1195,10 @@ TEST_P(BluetoothAudioProviderLeAudioInputSoftwareAidl,
           if (is_codec_config_valid) {
             EXPECT_TRUE(data_mq.isValid());
           }
+
+          EXPECT_FALSE(audio_provider_->startIndication().isOk());
+          EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
           EXPECT_TRUE(audio_provider_->endSession().isOk());
         }
       }
@@ -1230,6 +1329,10 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
         &mq_desc);
 
     ASSERT_TRUE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -1264,6 +1367,10 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
 
     // AIDL call should fail on invalid codec
     ASSERT_FALSE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -1340,6 +1447,10 @@ TEST_P(BluetoothAudioProviderLeAudioInputHardwareAidl,
         &mq_desc);
 
     ASSERT_TRUE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -1375,6 +1486,10 @@ TEST_P(BluetoothAudioProviderLeAudioInputHardwareAidl,
 
     // AIDL call should fail on invalid codec
     ASSERT_FALSE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -1447,6 +1562,10 @@ TEST_P(BluetoothAudioProviderLeAudioBroadcastSoftwareAidl,
           if (is_codec_config_valid) {
             EXPECT_TRUE(data_mq.isValid());
           }
+
+          EXPECT_FALSE(audio_provider_->startIndication().isOk());
+          EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
           EXPECT_TRUE(audio_provider_->endSession().isOk());
         }
       }
@@ -1576,6 +1695,10 @@ TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
         latency_modes, &mq_desc);
 
     ASSERT_TRUE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -1611,6 +1734,10 @@ TEST_P(
 
     // AIDL call should fail on invalid codec
     ASSERT_FALSE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -1668,6 +1795,10 @@ TEST_P(BluetoothAudioProviderA2dpDecodingSoftwareAidl,
         if (is_codec_config_valid) {
           EXPECT_TRUE(data_mq.isValid());
         }
+
+        EXPECT_FALSE(audio_provider_->startIndication().isOk());
+        EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
         EXPECT_TRUE(audio_provider_->endSession().isOk());
       }
     }
@@ -1730,6 +1861,14 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
         audio_port_, AudioConfiguration(codec_config), latency_modes, &mq_desc);
 
     ASSERT_TRUE(aidl_retval.isOk());
+
+    auto retval = audio_provider_->startIndication();
+    std::cout << retval.getDescription() << std::endl;
+    EXPECT_EQ(retval.getStatus(), 0);
+
+    // EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    // EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -1760,6 +1899,10 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
         audio_port_, AudioConfiguration(codec_config), latency_modes, &mq_desc);
 
     ASSERT_TRUE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -1790,6 +1933,10 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
         audio_port_, AudioConfiguration(codec_config), latency_modes, &mq_desc);
 
     ASSERT_TRUE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -1820,6 +1967,10 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
         audio_port_, AudioConfiguration(codec_config), latency_modes, &mq_desc);
 
     ASSERT_TRUE(aidl_retval.isOk());
+
+    EXPECT_FALSE(audio_provider_->startIndication().isOk());
+    EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
     EXPECT_TRUE(audio_provider_->endSession().isOk());
   }
 }
@@ -1855,6 +2006,10 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
           &mq_desc);
 
       ASSERT_TRUE(aidl_retval.isOk());
+
+      EXPECT_FALSE(audio_provider_->startIndication().isOk());
+      EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
       EXPECT_TRUE(audio_provider_->endSession().isOk());
     }
   }
@@ -1919,6 +2074,10 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
 
       // AIDL call should fail on invalid codec
       ASSERT_FALSE(aidl_retval.isOk());
+
+      EXPECT_FALSE(audio_provider_->startIndication().isOk());
+      EXPECT_FALSE(audio_provider_->suspendIndication().isOk());
+
       EXPECT_TRUE(audio_provider_->endSession().isOk());
     }
   }

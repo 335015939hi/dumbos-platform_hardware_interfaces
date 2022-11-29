@@ -92,6 +92,30 @@ class BluetoothAudioSessionReport {
       session_ptr->ReportLowLatencyModeAllowedChanged(allowed);
     }
   }
+
+  /***
+   * The API reports the Bluetooth stack has requested for
+   * start indication.
+   ***/
+  static void ReportStartIndication(const SessionType& session_type) {
+    std::shared_ptr<BluetoothAudioSession> session_ptr =
+        BluetoothAudioSessionInstance::GetSessionInstance(session_type);
+    if (session_ptr != nullptr) {
+      session_ptr->ReportStartIndication();
+    }
+  }
+
+  /***
+   * The API reports the Bluetooth stack has requested for
+   * suspend indication.
+   ***/
+  static void ReportSuspendIndication(const SessionType& session_type) {
+    std::shared_ptr<BluetoothAudioSession> session_ptr =
+        BluetoothAudioSessionInstance::GetSessionInstance(session_type);
+    if (session_ptr != nullptr) {
+      session_ptr->ReportSuspendIndication();
+    }
+  }
 };
 
 }  // namespace audio
