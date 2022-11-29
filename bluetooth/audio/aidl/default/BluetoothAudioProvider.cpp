@@ -162,7 +162,7 @@ ndk::ScopedAStatus BluetoothAudioProvider::startIndication() {
               << " has NO session";
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
   }
-  LOG(INFO) << __func__ << " - allowed " << allowed;
+  LOG(INFO) << __func__;
   BluetoothAudioSessionReport::ReportStartIndication(session_type_);
   return ndk::ScopedAStatus::ok();
 }
@@ -175,7 +175,7 @@ ndk::ScopedAStatus BluetoothAudioProvider::suspendIndication() {
               << " has NO session";
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
   }
-  LOG(INFO) << __func__ << " - allowed " << allowed;
+  LOG(INFO) << __func__;
   BluetoothAudioSessionReport::ReportSuspendIndication(session_type_);
   return ndk::ScopedAStatus::ok();
 }
