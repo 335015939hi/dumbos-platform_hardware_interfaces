@@ -154,6 +154,32 @@ void BluetoothAudioProvider::binderDiedCallbackAidl(void* ptr) {
   provider->endSession();
 }
 
+ndk::ScopedAStatus BluetoothAudioProvider::startIndication() {
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_);
+
+  if (stack_iface_ == nullptr) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << " has NO session";
+    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+  }
+  LOG(INFO) << __func__ << " - allowed " << allowed;
+  BluetoothAudioSessionReport::ReportStartIndication(session_type_);
+  return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus BluetoothAudioProvider::suspendIndication() {
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_);
+
+  if (stack_iface_ == nullptr) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << " has NO session";
+    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+  }
+  LOG(INFO) << __func__ << " - allowed " << allowed;
+  BluetoothAudioSessionReport::ReportSuspendIndication(session_type_);
+  return ndk::ScopedAStatus::ok();
+}
+
 }  // namespace audio
 }  // namespace bluetooth
 }  // namespace hardware
