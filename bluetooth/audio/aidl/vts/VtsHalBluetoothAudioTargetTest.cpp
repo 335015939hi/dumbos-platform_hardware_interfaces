@@ -167,6 +167,18 @@ class BluetoothAudioPort : public BnBluetoothAudioPort {
     return ScopedAStatus::ok();
   }
 
+  ndk::ScopedAStatus startConfirmation(bool) {
+    return ScopedAStatus::ok();
+  }
+
+  ndk::ScopedAStatus suspendConfirmation(bool) {
+    return ScopedAStatus::ok();
+  }
+
+  ndk::ScopedAStatus updateSinklatency(int) {
+    return ScopedAStatus::ok();
+  }
+
  protected:
   virtual ~BluetoothAudioPort() = default;
 };
