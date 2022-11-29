@@ -202,6 +202,9 @@ class BluetoothAudioSession {
    * outputs
    ***/
   void ReportLowLatencyModeAllowedChanged(bool allowed);
+
+  void ReportStartIndication();
+  void ReportSuspendIndication();
   /***
    * Those control functions are for the bluetooth_audio module to start,
    * suspend, stop stream, to check position, and to update metadata.
@@ -212,9 +215,9 @@ class BluetoothAudioSession {
   bool GetPresentationPosition(PresentationPosition& presentation_position);
   void UpdateSourceMetadata(const struct source_metadata& source_metadata);
   void UpdateSinkMetadata(const struct sink_metadata& sink_metadata);
-  void startConfirmation(const boolean &status);
-  void suspendConfirmation(const boolean &status);
-  void updateSinklatency(const int &latencyMs);
+  void startConfirmation(const bool& status);
+  void suspendConfirmation(const bool& status);
+  void updateSinklatency(const int& latencyMs);
 
   std::vector<LatencyMode> GetSupportedLatencyModes();
   void SetLatencyMode(const LatencyMode& latency_mode);

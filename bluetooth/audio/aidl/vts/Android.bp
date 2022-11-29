@@ -25,6 +25,9 @@ cc_test {
         "libcutils",
         "libfmq",
     ],
+    static_libs: [
+        "libgmock",
+    ],
     test_suites: [
         "general-tests",
         "vts",
