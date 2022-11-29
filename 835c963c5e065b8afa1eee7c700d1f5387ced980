@@ -94,6 +94,30 @@
       },
       "revId": "835c963c5e065b8afa1eee7c700d1f5387ced980",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e937c044_15fe3476",
+        "filename": "sensors/common/convert/convert.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-11-29T19:22:44Z",
+      "side": 1,
+      "message": "Sounds good. Done: https://android-review.git.corp.google.com/c/platform/frameworks/native/+/2322012",
+      "parentUuid": "1b436ba3_e8b1be85",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 61
+      },
+      "revId": "835c963c5e065b8afa1eee7c700d1f5387ced980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
