@@ -219,6 +219,33 @@ class BluetoothAudioSessionControl {
     }
     return 0;
   }
+
+  static void startConfirmation(const SessionType& session_type,
+                                 const boolean &status) {
+    std::shared_ptr<BluetoothAudioSession> session_ptr =
+        BluetoothAudioSessionInstance::GetSessionInstance(session_type);
+    if (session_ptr != nullptr) {
+      session_ptr->startConfirmation(status);
+    }
+  }
+
+  static void suspendConfirmation(const SessionType& session_type,
+                                 const boolean &status) {
+    std::shared_ptr<BluetoothAudioSession> session_ptr =
+        BluetoothAudioSessionInstance::GetSessionInstance(session_type);
+    if (session_ptr != nullptr) {
+      session_ptr->suspendConfirmation(status);
+    }
+  }
+
+  static void updateSinklatency(const SessionType& session_type,
+                                 const int &latencyMs) {
+    std::shared_ptr<BluetoothAudioSession> session_ptr =
+        BluetoothAudioSessionInstance::GetSessionInstance(session_type);
+    if (session_ptr != nullptr) {
+      session_ptr->updateSinklatency(latencyMs);
+    }
+  }
 };
 
 }  // namespace audio
