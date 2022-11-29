@@ -16,6 +16,23 @@
       "message": "thanks",
       "revId": "1120a6f78c9a1a528ffc596c60a39f4c0783bd0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bd6bd9d_627b59f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833319
+      },
+      "writtenOn": "2022-11-29T09:51:59Z",
+      "side": 1,
+      "message": "This patch has already been merged to aosp-master before, but not found in aosp-android13-tests-dev.\n\nIt still needs Code-Owners and Dr.No-Review votes to be merged.",
+      "revId": "1120a6f78c9a1a528ffc596c60a39f4c0783bd0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
