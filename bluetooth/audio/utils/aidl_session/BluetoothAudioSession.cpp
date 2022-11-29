@@ -528,8 +528,7 @@ void BluetoothAudioSession::ReportStartIndication() {
   for (auto& observer : observers_) {
     uint16_t cookie = observer.first;
     std::shared_ptr<PortStatusCallbacks> callback = observer.second;
-    LOG(INFO) << __func__
-              << " - allowed=" << (allowed ? " allowed" : " disallowed");
+    LOG(INFO) << __func__;
     if (callback->start_ind_cb_ != nullptr) {
       callback->start_ind_cb_(cookie);
     }
@@ -546,8 +545,7 @@ void BluetoothAudioSession::ReportSuspendIndication() {
   for (auto& observer : observers_) {
     uint16_t cookie = observer.first;
     std::shared_ptr<PortStatusCallbacks> callback = observer.second;
-    LOG(INFO) << __func__
-              << " - allowed=" << (allowed ? " allowed" : " disallowed");
+    LOG(INFO) << __func__;
     if (callback->suspend_ind_cb_ != nullptr) {
       callback->suspend_ind_cb_(cookie);
     }
@@ -724,7 +722,7 @@ BluetoothAudioSessionInstance::GetSessionInstance(
   return session_ptr;
 }
 
-void BluetoothAudioSession::startConfirmation(const boolean &status) {
+void BluetoothAudioSession::startConfirmation(const bool& status) {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
@@ -743,7 +741,7 @@ void BluetoothAudioSession::startConfirmation(const boolean &status) {
   }
 }
 
-void BluetoothAudioSession::suspendConfirmation(const boolean &status) {
+void BluetoothAudioSession::suspendConfirmation(const bool& status) {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
@@ -762,7 +760,7 @@ void BluetoothAudioSession::suspendConfirmation(const boolean &status) {
   }
 }
 
-void BluetoothAudioSession::updateSinklatency(const int &latencyMs) {
+void BluetoothAudioSession::updateSinklatency(const int& latencyMs) {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)

@@ -221,7 +221,7 @@ class BluetoothAudioSessionControl {
   }
 
   static void startConfirmation(const SessionType& session_type,
-                                 const boolean &status) {
+                                const bool& status) {
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -230,7 +230,7 @@ class BluetoothAudioSessionControl {
   }
 
   static void suspendConfirmation(const SessionType& session_type,
-                                 const boolean &status) {
+                                  const bool& status) {
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -239,7 +239,7 @@ class BluetoothAudioSessionControl {
   }
 
   static void updateSinklatency(const SessionType& session_type,
-                                 const int &latencyMs) {
+                                const int& latencyMs) {
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
