@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c91ca8d1_e1b3b819",
+        "filename": "tetheroffload/aidl/config/android/hardware/tetheroffload/config/IOffloadConfig.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1874530
+      },
+      "writtenOn": "2022-11-30T18:07:59Z",
+      "side": 1,
+      "message": "android.os.ParcelFileDescriptor ?\n\nthere is no definition of NativeHandle",
+      "range": {
+        "startLine": 40,
+        "startChar": 34,
+        "endLine": 40,
+        "endChar": 47
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d820e8e_882862d7",
         "filename": "tetheroffload/aidl/config/android/hardware/tetheroffload/config/IOffloadConfig.aidl",
         "patchSetId": 2
