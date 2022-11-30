@@ -1,0 +1,389 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d820e8e_882862d7",
+        "filename": "tetheroffload/aidl/config/android/hardware/tetheroffload/config/IOffloadConfig.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "Combine to a enum status value. Can also move to using a return param, no need for out parameter.",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12cfef4a_ffd69840",
+        "filename": "tetheroffload/aidl/config/conversion.log",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "remove file, no errors from conversion.",
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20158d44_2a10cfb8",
+        "filename": "tetheroffload/aidl/control/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "yes, this should be enabled, backend is in cpp",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25c6ee3b_e4a5de66",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "change to enum return value",
+      "range": {
+        "startLine": 70,
+        "startChar": 58,
+        "endLine": 70,
+        "endChar": 96
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "588bf82c_19225b1b",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "Change to parcelable return with rxBytes and txBytes",
+      "range": {
+        "startLine": 91,
+        "startChar": 47,
+        "endLine": 91,
+        "endChar": 81
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "204a76ed_29bf4548",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "enum return value",
+      "range": {
+        "startLine": 117,
+        "startChar": 54,
+        "endLine": 117,
+        "endChar": 92
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f477eb5_c6e60710",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "enum return value",
+      "range": {
+        "startLine": 139,
+        "startChar": 8,
+        "endLine": 139,
+        "endChar": 46
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b7fe01c_9a29a1c8",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "enum return value",
+      "range": {
+        "startLine": 175,
+        "startChar": 57,
+        "endLine": 175,
+        "endChar": 95
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f30288_d1bfaab6",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "enum return value",
+      "range": {
+        "startLine": 234,
+        "startChar": 8,
+        "endLine": 234,
+        "endChar": 46
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e63649_f223f370",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "enum return value",
+      "range": {
+        "startLine": 253,
+        "startChar": 48,
+        "endLine": 253,
+        "endChar": 86
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60eb3060_a8c227e6",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "enum return value",
+      "range": {
+        "startLine": 294,
+        "startChar": 27,
+        "endLine": 294,
+        "endChar": 65
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97d204a2_eef7a8cc",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "enum return value",
+      "range": {
+        "startLine": 312,
+        "startChar": 21,
+        "endLine": 312,
+        "endChar": 59
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b14a9ae4_7330dd8a",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IPv4AddrPortPair.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "Can switch to int, use check to throw exception if port is out of bounds. See PortRange.aidl for example",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 9
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a3f34c6_481065e3",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/ITetheringOffloadCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "double import",
+      "range": {
+        "startLine": 22,
+        "startChar": 46,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "383d74e2_15a0d3d8",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/ITetheringOffloadCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "Update comments to removing 1.0 versioning comments",
+      "range": {
+        "startLine": 37,
+        "startChar": 36,
+        "endLine": 37,
+        "endChar": 43
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db0c4ed8_e59d0f55",
+        "filename": "tetheroffload/aidl/control/conversion.log",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "see comment in IPv4AddrPortPair file.",
+      "range": {
+        "startLine": 6,
+        "startChar": 18,
+        "endLine": 9,
+        "endChar": 79
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9708a3df_51e58adc",
+        "filename": "tetheroffload/aidl/control/translate/android/hardware/tetheroffload/control/Translate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-11-30T02:12:27Z",
+      "side": 1,
+      "message": "change to int",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 20
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
