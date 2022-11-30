@@ -16,6 +16,29 @@
       "message": "Looking for AIDL-API+1 from Steven, Yifan, or Devin. Thanks for looking.",
       "revId": "2d2e6791c4722c44d6f8785a9a7250f7d7f9f258",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fec4f38c_8be2ffa3",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-11-30T21:59:29Z",
+      "side": 1,
+      "message": "consider this structure:\n\n\n    parcelable Signature {\n        byte[] mac;\n        ...\n    }\n    Signature finishRetrieval();",
+      "range": {
+        "startLine": 504,
+        "startChar": 0,
+        "endLine": 504,
+        "endChar": 42
+      },
+      "revId": "2d2e6791c4722c44d6f8785a9a7250f7d7f9f258",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
