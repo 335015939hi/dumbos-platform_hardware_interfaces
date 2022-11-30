@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1adc8589_d9dac9a0",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-30T22:21:49Z",
+      "side": 1,
+      "message": "Why do we need `msSinceEpoch`? This makes the set of test names to change on every run. This is a bad idea because the continuous test system can\u0027t keep track of the test history.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 75
+      },
+      "revId": "dc9104e52c95fbde277e2ee9f06acb8aaca302a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
