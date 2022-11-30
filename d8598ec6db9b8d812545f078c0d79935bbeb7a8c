@@ -69,6 +69,24 @@
       "parentUuid": "f4434677_ea6eb990",
       "revId": "d8598ec6db9b8d812545f078c0d79935bbeb7a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e5a85c3_2fc17455",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-11-30T21:30:03Z",
+      "side": 1,
+      "message": "Thanks.  I didn\u0027t want to duplicate effort, but now I\u0027ve filed b/260898878 for this.",
+      "parentUuid": "2e87cb98_eb09de66",
+      "revId": "d8598ec6db9b8d812545f078c0d79935bbeb7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
