@@ -16,6 +16,23 @@
       "message": "Thanks!",
       "revId": "d8598ec6db9b8d812545f078c0d79935bbeb7a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5038f07c_880e51e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2022-11-30T20:09:46Z",
+      "side": 1,
+      "message": "For the record, here\u0027s an example log of the breakage:\nhttps://android-build.googleplex.com/builds/submitted/9351207/wembley_2GB-userdebug/latest/view/logs/build_error.log",
+      "revId": "d8598ec6db9b8d812545f078c0d79935bbeb7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
