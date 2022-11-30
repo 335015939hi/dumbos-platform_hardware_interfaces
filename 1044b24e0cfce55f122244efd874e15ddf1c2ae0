@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9822c5d3_f2bd3b54",
+        "filename": "audio/aidl/default/hapticGenerator/HapticGeneratorSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-30T22:27:21Z",
+      "side": 1,
+      "message": "Shunkai, I\u0027m looking at https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/android/hardware/audio/effect/HapticGenerator.aidl and I see this:\n\n```\n    parcelable HapticScale {\n        /**\n         * Audio track ID.\n         */\n        int id;\n```\n\nThis does not say that `id` is required to be non-negative, is that true? Perhaps we can also clarify the purpose and the valid range of this field in the AIDL with this CL?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 9
+      },
+      "revId": "1044b24e0cfce55f122244efd874e15ddf1c2ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a024317c_7f7c4276",
+        "filename": "audio/aidl/default/hapticGenerator/HapticGeneratorSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-30T22:27:21Z",
+      "side": 1,
+      "message": "Does this setter miss validation of `vibratorInfo`?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 44
+      },
+      "revId": "1044b24e0cfce55f122244efd874e15ddf1c2ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66e93d7e_3b2d729a",
         "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
         "patchSetId": 3
@@ -14,6 +60,30 @@
       "writtenOn": "2022-11-29T19:21:36Z",
       "side": 1,
       "message": "There is no validation for `vibratorInfo`, so `kMaxAmplitude` and `kQFactorValues` and `kResonantFrequencyValues` doesn\u0027t seems to make sense.\nI think we should add validation for them.",
+      "range": {
+        "startLine": 176,
+        "startChar": 17,
+        "endLine": 176,
+        "endChar": 46
+      },
+      "revId": "1044b24e0cfce55f122244efd874e15ddf1c2ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aef9a0e3_a72457d7",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-11-30T22:27:21Z",
+      "side": 1,
+      "message": "If possible, please define constants for valid ranges in the AIDL.",
+      "parentUuid": "66e93d7e_3b2d729a",
       "range": {
         "startLine": 176,
         "startChar": 17,
