@@ -33,6 +33,24 @@
       "message": "For the record, here\u0027s an example log of the breakage:\nhttps://android-build.googleplex.com/builds/submitted/9351207/wembley_2GB-userdebug/latest/view/logs/build_error.log",
       "revId": "d8598ec6db9b8d812545f078c0d79935bbeb7a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4434677_ea6eb990",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-11-30T21:00:06Z",
+      "side": 1,
+      "message": "Is there a bug filed for why TreeHugger tried a wembley build with Patch Set 2 (and the build failed, as expected), but did not try a wembley build with Patch Set 4?  That seems like a clear, and very serious, TreeHugger bug.",
+      "parentUuid": "5038f07c_880e51e8",
+      "revId": "d8598ec6db9b8d812545f078c0d79935bbeb7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
