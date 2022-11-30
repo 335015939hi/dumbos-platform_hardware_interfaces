@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbb3ca1c_16aa429a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-11-30T17:57:24Z",
+      "side": 1,
+      "message": "Thanks for looking. New PS coming up.",
+      "revId": "4cdc6968b459f629fed00599725ee2394d77db49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1056caf1_48ec42d0",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-11-17T19:56:09Z",
       "side": 1,
       "message": "Uber-uber nit: Wrap at 100 cols.",
+      "range": {
+        "startLine": 463,
+        "startChar": 8,
+        "endLine": 463,
+        "endChar": 16
+      },
+      "revId": "4cdc6968b459f629fed00599725ee2394d77db49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f01fad1_cdc1b716",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-11-30T17:57:24Z",
+      "side": 1,
+      "message": "Already seems to be wrapped.",
+      "parentUuid": "1056caf1_48ec42d0",
       "range": {
         "startLine": 463,
         "startChar": 8,
@@ -47,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7060b1b8_85db74d3",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-11-30T17:57:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "502cfdaf_a6f95ad1",
+      "range": {
+        "startLine": 615,
+        "startChar": 19,
+        "endLine": 615,
+        "endChar": 23
+      },
+      "revId": "4cdc6968b459f629fed00599725ee2394d77db49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a209a5d_e74613d7",
@@ -70,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae0285dc_b3cb8411",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-11-30T17:57:24Z",
+      "side": 1,
+      "message": "I\u0027m positive, see Section 2.2 of https://www.rfc-editor.org/rfc/rfc5480 which points to Sections 2.3.1 and 2.3.2 of https://www.secg.org/sec1-v2.pdf.\n\nAlso, if this were not true we\u0027d see spurious unit test failures since all this is VTS and CTS tested.",
+      "parentUuid": "2a209a5d_e74613d7",
+      "range": {
+        "startLine": 616,
+        "startChar": 20,
+        "endLine": 616,
+        "endChar": 49
+      },
+      "revId": "4cdc6968b459f629fed00599725ee2394d77db49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2295ad6d_a6541876",
@@ -83,6 +172,30 @@
       "writtenOn": "2022-11-17T19:56:09Z",
       "side": 1,
       "message": "Nit: This is a little bit subtle.  You\u0027re relying on AIDL methods never getting a nullptr for an out param when called via binder.  That might not be obvious to all readers.",
+      "range": {
+        "startLine": 957,
+        "startChar": 4,
+        "endLine": 957,
+        "endChar": 37
+      },
+      "revId": "4cdc6968b459f629fed00599725ee2394d77db49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4e4d01c_ce0cd42a",
+        "filename": "identity/aidl/default/common/IdentityCredential.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-11-30T17:57:24Z",
+      "side": 1,
+      "message": "Good point. I\u0027ll add a comment.",
+      "parentUuid": "2295ad6d_a6541876",
       "range": {
         "startLine": 957,
         "startChar": 4,
