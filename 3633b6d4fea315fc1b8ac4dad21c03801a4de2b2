@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f3baa04_0fae180d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2022-11-30T07:31:56Z",
+      "side": 1,
+      "message": "Reverting this does fix wembley_2GB:\nhttps://android-build.googleplex.com/builds/abtd/run/L03100000957560329",
+      "revId": "3633b6d4fea315fc1b8ac4dad21c03801a4de2b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
