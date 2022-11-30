@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bec9c877_971f29a8",
+        "filename": "tetheroffload/aidl/config/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1874530
+      },
+      "writtenOn": "2022-11-30T18:34:26Z",
+      "side": 1,
+      "message": "the aidl needs to be frozen to get version",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c91ca8d1_e1b3b819",
         "filename": "tetheroffload/aidl/config/android/hardware/tetheroffload/config/IOffloadConfig.aidl",
         "patchSetId": 2
@@ -60,6 +83,29 @@
       "writtenOn": "2022-11-30T02:12:27Z",
       "side": 1,
       "message": "remove file, no errors from conversion.",
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f19be2ee_d5c249b2",
+        "filename": "tetheroffload/aidl/control/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1874530
+      },
+      "writtenOn": "2022-11-30T18:34:26Z",
+      "side": 1,
+      "message": "freeze the aidl",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 15
+      },
       "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
