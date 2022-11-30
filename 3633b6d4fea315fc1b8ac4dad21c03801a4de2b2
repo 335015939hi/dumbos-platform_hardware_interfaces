@@ -16,6 +16,23 @@
       "message": "Reverting this does fix wembley_2GB:\nhttps://android-build.googleplex.com/builds/abtd/run/L03100000957560329",
       "revId": "3633b6d4fea315fc1b8ac4dad21c03801a4de2b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00ce8c30_8f0094ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2022-11-30T20:09:59Z",
+      "side": 1,
+      "message": "Forgot to post example log of the breakage:\nhttps://android-build.googleplex.com/builds/submitted/9351207/wembley_2GB-userdebug/latest/view/logs/build_error.log",
+      "revId": "3633b6d4fea315fc1b8ac4dad21c03801a4de2b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
