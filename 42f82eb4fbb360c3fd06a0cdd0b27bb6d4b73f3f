@@ -16,6 +16,52 @@
       "message": "Eric, this is now ready for a full review. PTAL!",
       "revId": "42f82eb4fbb360c3fd06a0cdd0b27bb6d4b73f3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79186042_7dbf7bf0",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-11-30T14:46:27Z",
+      "side": 1,
+      "message": "Does the async mode stream systematically enter this state after a burst or only if the amount of data passed by the burst cannot be entirely consumed immediately?\nCurrent HISL implementation only waits for the callback in case of partial writes",
+      "range": {
+        "startLine": 202,
+        "startChar": 55,
+        "endLine": 203,
+        "endChar": 42
+      },
+      "revId": "42f82eb4fbb360c3fd06a0cdd0b27bb6d4b73f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9eeac25_cd64cf22",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-11-30T14:46:27Z",
+      "side": 1,
+      "message": "this means that in case of direct transition from TRANSFERRING to DRAINING the client will not receive the onTransferReady() callback. We should document this",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 78
+      },
+      "revId": "42f82eb4fbb360c3fd06a0cdd0b27bb6d4b73f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
