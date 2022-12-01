@@ -1,0 +1,26 @@
+// This is the expected build file, but it may not be right in all cases
+
+aidl_interface {
+    name: "android.hardware.tetheroffload.config",
+    vendor_available: true,
+    host_supported: true,
+    owner: "google",
+    srcs: ["android/hardware/tetheroffload/config/*.aidl"],
+    stability: "vintf",
+    imports: ["android.hardware.tetheroffload.control"],
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: ["android.hardware.tetheroffload.control-V1"],
+        },
+    ],
+
+}
