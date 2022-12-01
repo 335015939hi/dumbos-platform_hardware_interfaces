@@ -36,7 +36,8 @@ void RadioConfigTest::SetUp() {
     radioInd_config = ndk::SharedRefBase::make<RadioConfigIndication>(*this);
     ASSERT_NE(nullptr, radioInd_config.get());
 
-    radio_config->setResponseFunctions(radioRsp_config, radioInd_config);
+    ndk::ScopedAStatus res = radio_config->setResponseFunctions(radioRsp_config, radioInd_config);
+    ASSERT_OK(res);
 }
 
 void RadioConfigTest::updateSimSlotStatus() {

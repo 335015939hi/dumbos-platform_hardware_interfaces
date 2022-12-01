@@ -48,6 +48,16 @@ int32_t toAidl(uint32_t v) {
     return v;
 }
 
+android::hardware::hidl_vec<uint8_t> toHidl(const std::vector<uint8_t>& v) {
+    ::android::hardware::hidl_vec<uint8_t> res{v.begin(), v.end()};
+    return res;
+}
+
+std::vector<uint8_t> toAidl(const hidl_vec<uint8_t>& v) {
+    std::vector<uint8_t> res{v.begin(), v.end()};
+    return res;
+}
+
 aidl::RadioIndicationType toAidl(V1_0::RadioIndicationType type) {
     return aidl::RadioIndicationType(type);
 }
