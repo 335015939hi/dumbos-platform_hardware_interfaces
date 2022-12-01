@@ -958,8 +958,13 @@ TEST_P(CompressedOffloadOutputStreamTest, Mp3FormatGaplessOffload) {
     const int presentationeEndPrecisionMs = 1000;
     const int sampleRate = 44100;
     const int significantSampleNumber = (presentationeEndPrecisionMs * sampleRate) / 1000;
+    // The duration of sine882hz3s.mp3 is: 3 seconds + (576 + 756) samples. Note that it's
+    // a mono file, thus 1 frame = 1 sample for it. 'delay' is the amount of frames ignored
+    // at the beginning, 'padding' is the amount of frames ignored at the end of the track.
     const int delay = 576 + 1000;
     const int padding = 756 + 1000;
+    // Extra 1000 frames on the delay and padding are overlaid (because it's gapless playback),
+    // and constitute ~ 44 ms which have to be subtracted from the initial track duration.
     const int durationMs = 3000 - 44;
     auto start = std::chrono::steady_clock::now();
     auto callbacks = sp<OffloadCallbacks>::make();
