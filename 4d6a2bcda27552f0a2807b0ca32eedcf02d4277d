@@ -16,6 +16,23 @@
       "message": "Note that we usually submit to AOSP master first, then do cherry-picks to VTS branches. Let me check the master CL first (2319955).",
       "revId": "4d6a2bcda27552f0a2807b0ca32eedcf02d4277d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc8f17da_33e0ca04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-01T21:31:36Z",
+      "side": 1,
+      "message": "Please see the comment on the master change https://r.android.com/2319955",
+      "revId": "4d6a2bcda27552f0a2807b0ca32eedcf02d4277d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
