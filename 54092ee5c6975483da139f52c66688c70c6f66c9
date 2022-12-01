@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2ce556c_32bba20c",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-01T21:28:44Z",
+      "side": 1,
+      "message": "Please see https://r.android.com/2320825 which clarifies the origin of these numbers.",
+      "range": {
+        "startLine": 963,
+        "startChar": 14,
+        "endLine": 963,
+        "endChar": 32
+      },
+      "revId": "54092ee5c6975483da139f52c66688c70c6f66c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
