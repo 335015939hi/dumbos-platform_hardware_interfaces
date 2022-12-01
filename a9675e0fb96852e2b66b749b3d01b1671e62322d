@@ -46,6 +46,30 @@
       },
       "revId": "a9675e0fb96852e2b66b749b3d01b1671e62322d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24f44a93_d1ba8b95",
+        "filename": "cas/aidl/android/hardware/cas/ICasListener.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1443524
+      },
+      "writtenOn": "2022-12-01T21:28:48Z",
+      "side": 1,
+      "message": "you can get value from enum\u0027s object.\nYou may refer the tuner default implememtation.",
+      "parentUuid": "b9b39a0f_df59ae17",
+      "range": {
+        "startLine": 57,
+        "startChar": 3,
+        "endLine": 57,
+        "endChar": 53
+      },
+      "revId": "a9675e0fb96852e2b66b749b3d01b1671e62322d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
