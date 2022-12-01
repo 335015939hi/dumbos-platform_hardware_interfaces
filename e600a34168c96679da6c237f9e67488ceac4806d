@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16e3659b_faf4e37b",
+        "filename": "tetheroffload/aidl/control/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-01T22:07:06Z",
+      "side": 1,
+      "message": "remove comment",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 72
+      },
+      "revId": "e600a34168c96679da6c237f9e67488ceac4806d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eab1ae37_a23c0286",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-01T22:07:06Z",
+      "side": 1,
+      "message": "Watch line length",
+      "revId": "e600a34168c96679da6c237f9e67488ceac4806d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87b7f8ce_3a6f43c6",
+        "filename": "tetheroffload/aidl/control/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-01T22:07:06Z",
+      "side": 1,
+      "message": "May need to add explanation for when each status would be returned.",
+      "range": {
+        "startLine": 56,
+        "startChar": 26,
+        "endLine": 56,
+        "endChar": 32
+      },
+      "revId": "e600a34168c96679da6c237f9e67488ceac4806d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
