@@ -21,6 +21,9 @@ cc_defaults {
         "android.hardware.common-V2-ndk",
         "android.hardware.common.fmq-V1-ndk",
     ],
+    header_libs: [
+        "libaudioaidl_headers",
+    ],
 }
 
 cc_library_static {
@@ -36,6 +39,7 @@ cc_library_static {
         "Configuration.cpp",
         "Module.cpp",
         "Stream.cpp",
+        "Telephony.cpp",
     ],
     visibility: [
         ":__subpackages__",
@@ -62,12 +66,24 @@ cc_defaults {
     name: "aidlaudioeffectservice_defaults",
     defaults: [
         "latest_android_media_audio_common_types_ndk_shared",
+        "latest_android_hardware_audio_effect_ndk_shared",
     ],
     vendor: true,
     shared_libs: [
+        "libaudioaidlcommon",
         "libbase",
         "libbinder_ndk",
-        "android.hardware.audio.effect-V1-ndk",
+        "libcutils",
+        "libfmq",
+        "liblog",
+        "libutils",
+        "android.hardware.common-V2-ndk",
+        "android.hardware.common.fmq-V1-ndk",
+    ],
+    header_libs: [
+        "libaudioaidl_headers",
+        "libaudio_system_headers",
+        "libsystem_headers",
     ],
     cflags: [
         "-Wall",
@@ -77,15 +93,11 @@ cc_defaults {
     ],
 }
 
-cc_library_static {
-    name: "libaudioeffectserviceexampleimpl",
-    defaults: ["aidlaudioeffectservice_defaults"],
-    export_include_dirs: ["include"],
+filegroup {
+    name: "effectCommonFile",
     srcs: [
-        "EffectFactory.cpp",
-    ],
-    visibility: [
-        ":__subpackages__",
+        "EffectThread.cpp",
+        "EffectImpl.cpp",
     ],
 }
 
@@ -95,8 +107,30 @@ cc_binary {
     init_rc: ["android.hardware.audio.effect.service-aidl.example.rc"],
     vintf_fragments: ["android.hardware.audio.effect.service-aidl.xml"],
     defaults: ["aidlaudioeffectservice_defaults"],
-    static_libs: [
-        "libaudioeffectserviceexampleimpl",
+    shared_libs: [
+        "libbassboostsw",
+        "libbundleaidl",
+        "libdynamicsprocessingsw",
+        "libenvreverbsw",
+        "libequalizersw",
+        "libhapticgeneratorsw",
+        "libloudnessenhancersw",
+        "libpresetreverbsw",
+        "libtinyxml2",
+        "libvirtualizersw",
+        "libvisualizersw",
+        "libvolumesw",
     ],
-    srcs: ["EffectMain.cpp"],
+    srcs: [
+        "EffectConfig.cpp",
+        "EffectFactory.cpp",
+        "EffectMain.cpp",
+    ],
+}
+
+cc_library_headers {
+    name: "libaudioaidl_headers",
+    export_include_dirs: ["include"],
+    vendor_available: true,
+    host_supported: true,
 }

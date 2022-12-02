@@ -35,6 +35,7 @@ package android.hardware.audio.effect;
 @VintfStability
 parcelable Descriptor {
   android.hardware.audio.effect.Descriptor.Common common;
+  android.hardware.audio.effect.Capability capability;
   const String EFFECT_TYPE_UUID_ENV_REVERB = "c2e5d5f0-94bd-4763-9cac-4e234d06839e";
   const String EFFECT_TYPE_UUID_PRESET_REVERB = "47382d60-ddd8-11db-bf3a-0002a5d5c51b";
   const String EFFECT_TYPE_UUID_EQUALIZER = "0bed4300-ddd6-11db-8f34-0002a5d5c51b";
@@ -52,9 +53,15 @@ parcelable Descriptor {
   parcelable Identity {
     android.media.audio.common.AudioUuid type;
     android.media.audio.common.AudioUuid uuid;
+    @nullable android.media.audio.common.AudioUuid proxy;
   }
   @VintfStability
   parcelable Common {
     android.hardware.audio.effect.Descriptor.Identity id;
+    android.hardware.audio.effect.Flags flags;
+    int cpuLoad;
+    int memoryUsage;
+    @utf8InCpp String name;
+    @utf8InCpp String implementor;
   }
 }

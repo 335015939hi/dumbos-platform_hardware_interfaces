@@ -252,7 +252,7 @@ TEST_P(DeviceUniqueAttestationTest, EcdsaDeviceUniqueAttestationID) {
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_BRAND, "ro.product.brand");
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_DEVICE, "ro.product.device");
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_PRODUCT, "ro.product.name");
-    add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_SERIAL, "ro.serial");
+    add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_SERIAL, "ro.serialno");
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_MANUFACTURER,
                       "ro.product.manufacturer");
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_MODEL, "ro.product.model");
@@ -348,8 +348,8 @@ TEST_P(DeviceUniqueAttestationTest, EcdsaDeviceUniqueAttestationMismatchID) {
         // Add the tag that doesn't match the local device's real ID.
         builder.push_back(invalid_tag);
         auto result = GenerateKey(builder, &key_blob, &key_characteristics);
-
         ASSERT_TRUE(result == ErrorCode::CANNOT_ATTEST_IDS || result == ErrorCode::INVALID_TAG);
+        device_id_attestation_vsr_check(result);
     }
 }
 

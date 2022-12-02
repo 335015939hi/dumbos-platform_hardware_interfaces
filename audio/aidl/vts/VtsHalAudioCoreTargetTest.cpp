@@ -15,6 +15,7 @@
  */
 
 #include <algorithm>
+#include <cmath>
 #include <limits>
 #include <memory>
 #include <optional>
@@ -26,28 +27,33 @@
 #include <android-base/logging.h>
 
 #include <StreamWorker.h>
+#include <Utils.h>
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
-#include <aidl/android/hardware/audio/core/IConfig.h>
 #include <aidl/android/hardware/audio/core/IModule.h>
+#include <aidl/android/hardware/audio/core/ITelephony.h>
 #include <aidl/android/media/audio/common/AudioIoFlags.h>
 #include <aidl/android/media/audio/common/AudioOutputFlags.h>
 #include <android-base/chrono_utils.h>
+#include <android/binder_enums.h>
 #include <fmq/AidlMessageQueue.h>
 
 #include "AudioHalBinderServiceUtil.h"
 #include "ModuleConfig.h"
+#include "TestUtils.h"
 
 using namespace android;
 using aidl::android::hardware::audio::common::PlaybackTrackMetadata;
 using aidl::android::hardware::audio::common::RecordTrackMetadata;
 using aidl::android::hardware::audio::common::SinkMetadata;
 using aidl::android::hardware::audio::common::SourceMetadata;
+using aidl::android::hardware::audio::core::AudioMode;
 using aidl::android::hardware::audio::core::AudioPatch;
 using aidl::android::hardware::audio::core::AudioRoute;
 using aidl::android::hardware::audio::core::IModule;
 using aidl::android::hardware::audio::core::IStreamIn;
 using aidl::android::hardware::audio::core::IStreamOut;
+using aidl::android::hardware::audio::core::ITelephony;
 using aidl::android::hardware::audio::core::ModuleDebug;
 using aidl::android::hardware::audio::core::StreamDescriptor;
 using aidl::android::hardware::common::fmq::SynchronizedReadWrite;
@@ -64,16 +70,12 @@ using aidl::android::media::audio::common::AudioPortDeviceExt;
 using aidl::android::media::audio::common::AudioPortExt;
 using aidl::android::media::audio::common::AudioSource;
 using aidl::android::media::audio::common::AudioUsage;
+using aidl::android::media::audio::common::Void;
+using android::hardware::audio::common::isBitPositionFlagSet;
 using android::hardware::audio::common::StreamLogic;
 using android::hardware::audio::common::StreamWorker;
+using ndk::enum_range;
 using ndk::ScopedAStatus;
-
-namespace ndk {
-std::ostream& operator<<(std::ostream& str, const ScopedAStatus& status) {
-    str << status.getDescription();
-    return str;
-}
-}  // namespace ndk
 
 template <typename T>
 auto findById(std::vector<T>& v, int32_t id) {
@@ -97,20 +99,6 @@ AudioDeviceAddress GenerateUniqueDeviceAddress() {
     return AudioDeviceAddress::make<AudioDeviceAddress::Tag::id>(std::to_string(++nextId));
 }
 
-template <typename T>
-struct IsInput {
-    constexpr operator bool() const;
-};
-
-template <>
-constexpr IsInput<IStreamIn>::operator bool() const {
-    return true;
-}
-template <>
-constexpr IsInput<IStreamOut>::operator bool() const {
-    return false;
-}
-
 // All 'With*' classes are move-only because they are associated with some
 // resource or state of a HAL module.
 class WithDebugFlags {
@@ -125,14 +113,10 @@ class WithDebugFlags {
     WithDebugFlags& operator=(const WithDebugFlags&) = delete;
     ~WithDebugFlags() {
         if (mModule != nullptr) {
-            ScopedAStatus status = mModule->setModuleDebug(mInitial);
-            EXPECT_EQ(EX_NONE, status.getExceptionCode()) << status;
+            EXPECT_IS_OK(mModule->setModuleDebug(mInitial));
         }
     }
-    void SetUp(IModule* module) {
-        ScopedAStatus status = module->setModuleDebug(mFlags);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    void SetUp(IModule* module) { ASSERT_IS_OK(module->setModuleDebug(mFlags)); }
     ModuleDebug& flags() { return mFlags; }
 
   private:
@@ -153,9 +137,7 @@ class WithAudioPortConfig {
     WithAudioPortConfig& operator=(const WithAudioPortConfig&) = delete;
     ~WithAudioPortConfig() {
         if (mModule != nullptr) {
-            ScopedAStatus status = mModule->resetAudioPortConfig(getId());
-            EXPECT_EQ(EX_NONE, status.getExceptionCode())
-                    << status << "; port config id " << getId();
+            EXPECT_IS_OK(mModule->resetAudioPortConfig(getId())) << "port config id " << getId();
         }
     }
     void SetUp(IModule* module) {
@@ -174,9 +156,8 @@ class WithAudioPortConfig {
         if (mInitialConfig.id == 0) {
             AudioPortConfig suggested;
             bool applied = false;
-            ScopedAStatus status = module->setAudioPortConfig(mInitialConfig, &suggested, &applied);
-            ASSERT_EQ(EX_NONE, status.getExceptionCode())
-                    << status << "; Config: " << mInitialConfig.toString();
+            ASSERT_IS_OK(module->setAudioPortConfig(mInitialConfig, &suggested, &applied))
+                    << "Config: " << mInitialConfig.toString();
             if (!applied && negotiate) {
                 mInitialConfig = suggested;
                 ASSERT_NO_FATAL_FAILURE(SetUpImpl(module, false))
@@ -196,27 +177,49 @@ class WithAudioPortConfig {
     AudioPortConfig mConfig;
 };
 
-class AudioCoreModule : public testing::TestWithParam<std::string> {
+template <typename PropType, class Instance, typename Getter, typename Setter>
+void TestAccessors(Instance* inst, Getter getter, Setter setter,
+                   const std::vector<PropType>& validValues,
+                   const std::vector<PropType>& invalidValues, bool* isSupported) {
+    PropType initialValue{};
+    ScopedAStatus status = (inst->*getter)(&initialValue);
+    if (status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
+        *isSupported = false;
+        return;
+    }
+    *isSupported = true;
+    for (const auto v : validValues) {
+        EXPECT_IS_OK((inst->*setter)(v)) << "for valid value: " << v;
+        PropType currentValue{};
+        EXPECT_IS_OK((inst->*getter)(&currentValue));
+        EXPECT_EQ(v, currentValue);
+    }
+    for (const auto v : invalidValues) {
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, (inst->*setter)(v)) << "for invalid value: " << v;
+    }
+    EXPECT_IS_OK((inst->*setter)(initialValue)) << "Failed to restore the initial value";
+}
+
+// Can be used as a base for any test here, does not depend on the fixture GTest parameters.
+class AudioCoreModuleBase {
   public:
     // The default buffer size is used mostly for negative tests.
     static constexpr int kDefaultBufferSizeFrames = 256;
 
-    void SetUp() override {
-        ASSERT_NO_FATAL_FAILURE(ConnectToService());
+    void SetUpImpl(const std::string& moduleName) {
+        ASSERT_NO_FATAL_FAILURE(ConnectToService(moduleName));
         debug.flags().simulateDeviceConnections = true;
         ASSERT_NO_FATAL_FAILURE(debug.SetUp(module.get()));
     }
 
-    void TearDown() override {
+    void TearDownImpl() {
         if (module != nullptr) {
-            ScopedAStatus status = module->setModuleDebug(ModuleDebug{});
-            EXPECT_EQ(EX_NONE, status.getExceptionCode())
-                    << status << " returned when resetting debug flags";
+            EXPECT_IS_OK(module->setModuleDebug(ModuleDebug{}));
         }
     }
 
-    void ConnectToService() {
-        module = IModule::fromBinder(binderUtil.connectToService(GetParam()));
+    void ConnectToService(const std::string& moduleName) {
+        module = IModule::fromBinder(binderUtil.connectToService(moduleName));
         ASSERT_NE(module, nullptr);
     }
 
@@ -234,8 +237,7 @@ class AudioCoreModule : public testing::TestWithParam<std::string> {
             ASSERT_NO_FATAL_FAILURE(portConfig.SetUp(module.get()));  // calls setAudioPortConfig
             EXPECT_EQ(config.portId, portConfig.get().portId);
             std::vector<AudioPortConfig> retrievedPortConfigs;
-            ScopedAStatus status = module->getAudioPortConfigs(&retrievedPortConfigs);
-            ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
+            ASSERT_IS_OK(module->getAudioPortConfigs(&retrievedPortConfigs));
             const int32_t portConfigId = portConfig.getId();
             auto configIt = std::find_if(
                     retrievedPortConfigs.begin(), retrievedPortConfigs.end(),
@@ -258,10 +260,7 @@ class AudioCoreModule : public testing::TestWithParam<std::string> {
                          ScopedAStatus (IModule::*getter)(std::vector<Entity>*),
                          const std::string& errorMessage) {
         std::vector<Entity> entities;
-        {
-            ScopedAStatus status = (module.get()->*getter)(&entities);
-            ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-        }
+        { ASSERT_IS_OK((module.get()->*getter)(&entities)); }
         std::transform(entities.begin(), entities.end(),
                        std::inserter(*entityIds, entityIds->begin()),
                        [](const auto& entity) { return entity.id; });
@@ -300,6 +299,13 @@ class AudioCoreModule : public testing::TestWithParam<std::string> {
     WithDebugFlags debug;
 };
 
+class AudioCoreModule : public AudioCoreModuleBase, public testing::TestWithParam<std::string> {
+  public:
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpImpl(GetParam())); }
+
+    void TearDown() override { ASSERT_NO_FATAL_FAILURE(TearDownImpl()); }
+};
+
 class WithDevicePortConnectedState {
   public:
     explicit WithDevicePortConnectedState(const AudioPort& idAndData) : mIdAndData(idAndData) {}
@@ -309,16 +315,13 @@ class WithDevicePortConnectedState {
     WithDevicePortConnectedState& operator=(const WithDevicePortConnectedState&) = delete;
     ~WithDevicePortConnectedState() {
         if (mModule != nullptr) {
-            ScopedAStatus status = mModule->disconnectExternalDevice(getId());
-            EXPECT_EQ(EX_NONE, status.getExceptionCode())
-                    << status << " returned when disconnecting device port ID " << getId();
+            EXPECT_IS_OK(mModule->disconnectExternalDevice(getId()))
+                    << "when disconnecting device port ID " << getId();
         }
     }
     void SetUp(IModule* module) {
-        ScopedAStatus status = module->connectExternalDevice(mIdAndData, &mConnectedPort);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode())
-                << status << " returned when connecting device port ID & data "
-                << mIdAndData.toString();
+        ASSERT_IS_OK(module->connectExternalDevice(mIdAndData, &mConnectedPort))
+                << "when connecting device port ID & data " << mIdAndData.toString();
         ASSERT_NE(mIdAndData.id, getId())
                 << "ID of the connected port must not be the same as the ID of the template port";
         mModule = module;
@@ -386,21 +389,36 @@ class StreamContext {
     std::unique_ptr<DataMQ> mDataMQ;
 };
 
-class StreamCommonLogic : public StreamLogic {
+class StreamLogicDriver {
   public:
-    StreamDescriptor::Position getLastObservablePosition() {
-        std::lock_guard<std::mutex> lock(mLock);
-        return mLastReply.observable;
-    }
+    virtual ~StreamLogicDriver() = default;
+    // Return 'true' to stop the worker.
+    virtual bool done() = 0;
+    // For 'Writer' logic, if the 'actualSize' is 0, write is skipped.
+    // The 'fmqByteCount' from the returned command is passed as is to the HAL.
+    virtual StreamDescriptor::Command getNextCommand(int maxDataSize,
+                                                     int* actualSize = nullptr) = 0;
+    // Return 'true' to indicate that no further processing is needed,
+    // for example, the driver is expecting a bad status to be returned.
+    // The logic cycle will return with 'CONTINUE' status. Otherwise,
+    // the reply will be validated and then passed to 'processValidReply'.
+    virtual bool interceptRawReply(const StreamDescriptor::Reply& reply) = 0;
+    // Return 'false' to indicate that the contents of the reply are unexpected.
+    // Will abort the logic cycle.
+    virtual bool processValidReply(const StreamDescriptor::Reply& reply) = 0;
+};
 
+class StreamCommonLogic : public StreamLogic {
   protected:
-    explicit StreamCommonLogic(const StreamContext& context)
+    StreamCommonLogic(const StreamContext& context, StreamLogicDriver* driver)
         : mCommandMQ(context.getCommandMQ()),
           mReplyMQ(context.getReplyMQ()),
           mDataMQ(context.getDataMQ()),
-          mData(context.getBufferSizeBytes()) {}
+          mData(context.getBufferSizeBytes()),
+          mDriver(driver) {}
     StreamContext::CommandMQ* getCommandMQ() const { return mCommandMQ; }
     StreamContext::ReplyMQ* getReplyMQ() const { return mReplyMQ; }
+    StreamLogicDriver* getDriver() const { return mDriver; }
 
     std::string init() override { return ""; }
 
@@ -408,19 +426,20 @@ class StreamCommonLogic : public StreamLogic {
     StreamContext::ReplyMQ* mReplyMQ;
     StreamContext::DataMQ* mDataMQ;
     std::vector<int8_t> mData;
-    std::mutex mLock;
-    StreamDescriptor::Reply mLastReply GUARDED_BY(mLock);
+    StreamLogicDriver* const mDriver;
 };
 
 class StreamReaderLogic : public StreamCommonLogic {
   public:
-    explicit StreamReaderLogic(const StreamContext& context) : StreamCommonLogic(context) {}
+    StreamReaderLogic(const StreamContext& context, StreamLogicDriver* driver)
+        : StreamCommonLogic(context, driver) {}
 
   protected:
     Status cycle() override {
-        StreamDescriptor::Command command{};
-        command.code = StreamDescriptor::COMMAND_BURST;
-        command.fmqByteCount = mData.size();
+        if (getDriver()->done()) {
+            return Status::EXIT;
+        }
+        StreamDescriptor::Command command = getDriver()->getNextCommand(mData.size());
         if (!mCommandMQ->writeBlocking(&command, 1)) {
             LOG(ERROR) << __func__ << ": writing of command into MQ failed";
             return Status::ABORT;
@@ -430,25 +449,55 @@ class StreamReaderLogic : public StreamCommonLogic {
             LOG(ERROR) << __func__ << ": reading of reply from MQ failed";
             return Status::ABORT;
         }
+        if (getDriver()->interceptRawReply(reply)) {
+            return Status::CONTINUE;
+        }
         if (reply.status != STATUS_OK) {
             LOG(ERROR) << __func__ << ": received error status: " << statusToString(reply.status);
             return Status::ABORT;
         }
-        if (reply.fmqByteCount < 0 || reply.fmqByteCount > command.fmqByteCount) {
+        if (reply.fmqByteCount < 0 ||
+            (command.getTag() == StreamDescriptor::Command::Tag::burst &&
+             reply.fmqByteCount > command.get<StreamDescriptor::Command::Tag::burst>())) {
             LOG(ERROR) << __func__
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
             return Status::ABORT;
         }
-        {
-            std::lock_guard<std::mutex> lock(mLock);
-            mLastReply = reply;
+        if (static_cast<size_t>(reply.fmqByteCount) != mDataMQ->availableToRead()) {
+            LOG(ERROR) << __func__
+                       << ": the byte count in the reply is not the same as the amount of "
+                       << "data available in the MQ: " << reply.fmqByteCount
+                       << " != " << mDataMQ->availableToRead();
         }
-        const size_t readCount = std::min({mDataMQ->availableToRead(),
-                                           static_cast<size_t>(reply.fmqByteCount), mData.size()});
-        if (readCount == 0 || mDataMQ->read(mData.data(), readCount)) {
+        if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
+            LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
+            return Status::ABORT;
+        }
+        if (reply.xrunFrames < 0) {
+            LOG(ERROR) << __func__ << ": received invalid xrunFrames value: " << reply.xrunFrames;
+            return Status::ABORT;
+        }
+        if (std::find(enum_range<StreamDescriptor::State>().begin(),
+                      enum_range<StreamDescriptor::State>().end(),
+                      reply.state) == enum_range<StreamDescriptor::State>().end()) {
+            LOG(ERROR) << __func__ << ": received invalid stream state: " << toString(reply.state);
+            return Status::ABORT;
+        }
+        const bool acceptedReply = getDriver()->processValidReply(reply);
+        if (const size_t readCount = mDataMQ->availableToRead(); readCount > 0) {
+            std::vector<int8_t> data(readCount);
+            if (mDataMQ->read(data.data(), readCount)) {
+                memcpy(mData.data(), data.data(), std::min(mData.size(), data.size()));
+                goto checkAcceptedReply;
+            }
+            LOG(ERROR) << __func__ << ": reading of " << readCount << " data bytes from MQ failed";
+            return Status::ABORT;
+        }  // readCount == 0
+    checkAcceptedReply:
+        if (acceptedReply) {
             return Status::CONTINUE;
         }
-        LOG(ERROR) << __func__ << ": reading of " << readCount << " data bytes from MQ failed";
+        LOG(ERROR) << __func__ << ": unacceptable reply: " << reply.toString();
         return Status::ABORT;
     }
 };
@@ -456,17 +505,20 @@ using StreamReader = StreamWorker<StreamReaderLogic>;
 
 class StreamWriterLogic : public StreamCommonLogic {
   public:
-    explicit StreamWriterLogic(const StreamContext& context) : StreamCommonLogic(context) {}
+    StreamWriterLogic(const StreamContext& context, StreamLogicDriver* driver)
+        : StreamCommonLogic(context, driver) {}
 
   protected:
     Status cycle() override {
-        if (!mDataMQ->write(mData.data(), mData.size())) {
+        if (getDriver()->done()) {
+            return Status::EXIT;
+        }
+        int actualSize = 0;
+        StreamDescriptor::Command command = getDriver()->getNextCommand(mData.size(), &actualSize);
+        if (actualSize != 0 && !mDataMQ->write(mData.data(), mData.size())) {
             LOG(ERROR) << __func__ << ": writing of " << mData.size() << " bytes to MQ failed";
             return Status::ABORT;
         }
-        StreamDescriptor::Command command{};
-        command.code = StreamDescriptor::COMMAND_BURST;
-        command.fmqByteCount = mData.size();
         if (!mCommandMQ->writeBlocking(&command, 1)) {
             LOG(ERROR) << __func__ << ": writing of command into MQ failed";
             return Status::ABORT;
@@ -476,20 +528,45 @@ class StreamWriterLogic : public StreamCommonLogic {
             LOG(ERROR) << __func__ << ": reading of reply from MQ failed";
             return Status::ABORT;
         }
+        if (getDriver()->interceptRawReply(reply)) {
+            return Status::CONTINUE;
+        }
         if (reply.status != STATUS_OK) {
             LOG(ERROR) << __func__ << ": received error status: " << statusToString(reply.status);
             return Status::ABORT;
         }
-        if (reply.fmqByteCount < 0 || reply.fmqByteCount > command.fmqByteCount) {
+        if (reply.fmqByteCount < 0 ||
+            (command.getTag() == StreamDescriptor::Command::Tag::burst &&
+             reply.fmqByteCount > command.get<StreamDescriptor::Command::Tag::burst>())) {
             LOG(ERROR) << __func__
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
             return Status::ABORT;
         }
-        {
-            std::lock_guard<std::mutex> lock(mLock);
-            mLastReply = reply;
+        if (mDataMQ->availableToWrite() != mDataMQ->getQuantumCount()) {
+            LOG(ERROR) << __func__ << ": the HAL module did not consume all data from the data MQ: "
+                       << "available to write " << mDataMQ->availableToWrite()
+                       << ", total size: " << mDataMQ->getQuantumCount();
+            return Status::ABORT;
         }
-        return Status::CONTINUE;
+        if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
+            LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
+            return Status::ABORT;
+        }
+        if (reply.xrunFrames < 0) {
+            LOG(ERROR) << __func__ << ": received invalid xrunFrames value: " << reply.xrunFrames;
+            return Status::ABORT;
+        }
+        if (std::find(enum_range<StreamDescriptor::State>().begin(),
+                      enum_range<StreamDescriptor::State>().end(),
+                      reply.state) == enum_range<StreamDescriptor::State>().end()) {
+            LOG(ERROR) << __func__ << ": received invalid stream state: " << toString(reply.state);
+            return Status::ABORT;
+        }
+        if (getDriver()->processValidReply(reply)) {
+            return Status::CONTINUE;
+        }
+        LOG(ERROR) << __func__ << ": unacceptable reply: " << reply.toString();
+        return Status::ABORT;
     }
 };
 using StreamWriter = StreamWorker<StreamWriterLogic>;
@@ -498,52 +575,6 @@ template <typename T>
 struct IOTraits {
     static constexpr bool is_input = std::is_same_v<T, IStreamIn>;
     using Worker = std::conditional_t<is_input, StreamReader, StreamWriter>;
-};
-
-// A dedicated version to test replies to invalid commands.
-class StreamInvalidCommandLogic : public StreamCommonLogic {
-  public:
-    StreamInvalidCommandLogic(const StreamContext& context,
-                              const std::vector<StreamDescriptor::Command>& commands)
-        : StreamCommonLogic(context), mCommands(commands) {}
-
-    std::vector<std::string> getUnexpectedStatuses() {
-        std::lock_guard<std::mutex> lock(mLock);
-        return mUnexpectedStatuses;
-    }
-
-  protected:
-    Status cycle() override {
-        // Send all commands in one cycle to simplify testing.
-        // Extra logging helps to sort out issues with unexpected HAL behavior.
-        for (const auto& command : mCommands) {
-            LOG(INFO) << __func__ << ": writing command " << command.toString() << " into MQ...";
-            if (!getCommandMQ()->writeBlocking(&command, 1)) {
-                LOG(ERROR) << __func__ << ": writing of command into MQ failed";
-                return Status::ABORT;
-            }
-            StreamDescriptor::Reply reply{};
-            LOG(INFO) << __func__ << ": reading reply for command " << command.toString() << "...";
-            if (!getReplyMQ()->readBlocking(&reply, 1)) {
-                LOG(ERROR) << __func__ << ": reading of reply from MQ failed";
-                return Status::ABORT;
-            }
-            LOG(INFO) << __func__ << ": received status " << statusToString(reply.status)
-                      << " for command " << command.toString();
-            if (reply.status != STATUS_BAD_VALUE) {
-                std::string s = command.toString();
-                s.append(", ").append(statusToString(reply.status));
-                std::lock_guard<std::mutex> lock(mLock);
-                mUnexpectedStatuses.push_back(std::move(s));
-            }
-        };
-        return Status::EXIT;
-    }
-
-  private:
-    const std::vector<StreamDescriptor::Command> mCommands;
-    std::mutex mLock;
-    std::vector<std::string> mUnexpectedStatuses GUARDED_BY(mLock);
 };
 
 template <typename Stream>
@@ -556,9 +587,7 @@ class WithStream {
     ~WithStream() {
         if (mStream != nullptr) {
             mContext.reset();
-            ScopedAStatus status = mStream->close();
-            EXPECT_EQ(EX_NONE, status.getExceptionCode())
-                    << status << "; port config id " << getPortId();
+            EXPECT_IS_OK(mStream->close()) << "port config id " << getPortId();
         }
     }
     void SetUpPortConfig(IModule* module) { ASSERT_NO_FATAL_FAILURE(mPortConfig.SetUp(module)); }
@@ -569,10 +598,8 @@ class WithStream {
                                 long bufferSizeFrames);
     void SetUp(IModule* module, long bufferSizeFrames) {
         ASSERT_NO_FATAL_FAILURE(SetUpPortConfig(module));
-        ScopedAStatus status = SetUpNoChecks(module, bufferSizeFrames);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode())
-                << status << "; port config id " << getPortId();
-        ASSERT_NE(nullptr, mStream) << "; port config id " << getPortId();
+        ASSERT_IS_OK(SetUpNoChecks(module, bufferSizeFrames)) << "port config id " << getPortId();
+        ASSERT_NE(nullptr, mStream) << "port config id " << getPortId();
         EXPECT_GE(mDescriptor.bufferSizeFrames, bufferSizeFrames)
                 << "actual buffer size must be no less than requested";
         mContext.emplace(mDescriptor);
@@ -660,8 +687,7 @@ class WithAudioPatch {
     WithAudioPatch& operator=(const WithAudioPatch&) = delete;
     ~WithAudioPatch() {
         if (mModule != nullptr && mPatch.id != 0) {
-            ScopedAStatus status = mModule->resetAudioPatch(mPatch.id);
-            EXPECT_EQ(EX_NONE, status.getExceptionCode()) << status << "; patch id " << getId();
+            EXPECT_IS_OK(mModule->resetAudioPatch(mPatch.id)) << "patch id " << getId();
         }
     }
     void SetUpPortConfigs(IModule* module) {
@@ -676,10 +702,8 @@ class WithAudioPatch {
     }
     void SetUp(IModule* module) {
         ASSERT_NO_FATAL_FAILURE(SetUpPortConfigs(module));
-        ScopedAStatus status = SetUpNoChecks(module);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode())
-                << status << "; source port config id " << mSrcPortConfig.getId()
-                << "; sink port config id " << mSinkPortConfig.getId();
+        ASSERT_IS_OK(SetUpNoChecks(module)) << "source port config id " << mSrcPortConfig.getId()
+                                            << "; sink port config id " << mSinkPortConfig.getId();
         EXPECT_GT(mPatch.minimumStreamBufferSizeFrames, 0) << "patch id " << getId();
         for (auto latencyMs : mPatch.latenciesMs) {
             EXPECT_GT(latencyMs, 0) << "patch id " << getId();
@@ -715,15 +739,9 @@ TEST_P(AudioCoreModule, PortIdsAreUnique) {
 
 TEST_P(AudioCoreModule, GetAudioPortsIsStable) {
     std::vector<AudioPort> ports1;
-    {
-        ScopedAStatus status = module->getAudioPorts(&ports1);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioPorts(&ports1));
     std::vector<AudioPort> ports2;
-    {
-        ScopedAStatus status = module->getAudioPorts(&ports2);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioPorts(&ports2));
     ASSERT_EQ(ports1.size(), ports2.size())
             << "Sizes of audio port arrays do not match across consequent calls to getAudioPorts";
     std::sort(ports1.begin(), ports1.end());
@@ -733,15 +751,9 @@ TEST_P(AudioCoreModule, GetAudioPortsIsStable) {
 
 TEST_P(AudioCoreModule, GetAudioRoutesIsStable) {
     std::vector<AudioRoute> routes1;
-    {
-        ScopedAStatus status = module->getAudioRoutes(&routes1);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioRoutes(&routes1));
     std::vector<AudioRoute> routes2;
-    {
-        ScopedAStatus status = module->getAudioRoutes(&routes2);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioRoutes(&routes2));
     ASSERT_EQ(routes1.size(), routes2.size())
             << "Sizes of audio route arrays do not match across consequent calls to getAudioRoutes";
     std::sort(routes1.begin(), routes1.end());
@@ -751,10 +763,7 @@ TEST_P(AudioCoreModule, GetAudioRoutesIsStable) {
 
 TEST_P(AudioCoreModule, GetAudioRoutesAreValid) {
     std::vector<AudioRoute> routes;
-    {
-        ScopedAStatus status = module->getAudioRoutes(&routes);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioRoutes(&routes));
     for (const auto& route : routes) {
         std::set<int32_t> sources(route.sourcePortIds.begin(), route.sourcePortIds.end());
         EXPECT_NE(0UL, sources.size())
@@ -769,10 +778,7 @@ TEST_P(AudioCoreModule, GetAudioRoutesPortIdsAreValid) {
     std::set<int32_t> portIds;
     ASSERT_NO_FATAL_FAILURE(GetAllPortIds(&portIds));
     std::vector<AudioRoute> routes;
-    {
-        ScopedAStatus status = module->getAudioRoutes(&routes);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioRoutes(&routes));
     for (const auto& route : routes) {
         EXPECT_EQ(1UL, portIds.count(route.sinkPortId))
                 << route.sinkPortId << " sink port id is unknown";
@@ -790,8 +796,7 @@ TEST_P(AudioCoreModule, GetAudioRoutesForAudioPort) {
     }
     for (const auto portId : portIds) {
         std::vector<AudioRoute> routes;
-        ScopedAStatus status = module->getAudioRoutesForAudioPort(portId, &routes);
-        EXPECT_EQ(EX_NONE, status.getExceptionCode()) << status;
+        EXPECT_IS_OK(module->getAudioRoutesForAudioPort(portId, &routes));
         for (const auto& r : routes) {
             if (r.sinkPortId != portId) {
                 const auto& srcs = r.sourcePortIds;
@@ -802,18 +807,14 @@ TEST_P(AudioCoreModule, GetAudioRoutesForAudioPort) {
     }
     for (const auto portId : GetNonExistentIds(portIds)) {
         std::vector<AudioRoute> routes;
-        ScopedAStatus status = module->getAudioRoutesForAudioPort(portId, &routes);
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " returned for port ID " << portId;
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->getAudioRoutesForAudioPort(portId, &routes))
+                << "port ID " << portId;
     }
 }
 
 TEST_P(AudioCoreModule, CheckDevicePorts) {
     std::vector<AudioPort> ports;
-    {
-        ScopedAStatus status = module->getAudioPorts(&ports);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioPorts(&ports));
     std::optional<int32_t> defaultOutput, defaultInput;
     std::set<AudioDevice> inputs, outputs;
     const int defaultDeviceFlag = 1 << AudioPortDeviceExt::FLAG_INDEX_DEFAULT_DEVICE;
@@ -859,17 +860,14 @@ TEST_P(AudioCoreModule, CheckDevicePorts) {
 
 TEST_P(AudioCoreModule, CheckMixPorts) {
     std::vector<AudioPort> ports;
-    {
-        ScopedAStatus status = module->getAudioPorts(&ports);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioPorts(&ports));
     std::optional<int32_t> primaryMixPort;
-    constexpr int primaryOutputFlag = 1 << static_cast<int>(AudioOutputFlags::PRIMARY);
     for (const auto& port : ports) {
         if (port.ext.getTag() != AudioPortExt::Tag::mix) continue;
         const auto& mixPort = port.ext.get<AudioPortExt::Tag::mix>();
         if (port.flags.getTag() == AudioIoFlags::Tag::output &&
-            ((port.flags.get<AudioIoFlags::Tag::output>() & primaryOutputFlag) != 0)) {
+            isBitPositionFlagSet(port.flags.get<AudioIoFlags::Tag::output>(),
+                                 AudioOutputFlags::PRIMARY)) {
             EXPECT_FALSE(primaryMixPort.has_value())
                     << "At least two mix ports have PRIMARY flag set: " << primaryMixPort.value()
                     << " and " << port.id;
@@ -889,15 +887,13 @@ TEST_P(AudioCoreModule, GetAudioPort) {
     }
     for (const auto portId : portIds) {
         AudioPort port;
-        ScopedAStatus status = module->getAudioPort(portId, &port);
-        EXPECT_EQ(EX_NONE, status.getExceptionCode()) << status;
+        EXPECT_IS_OK(module->getAudioPort(portId, &port));
         EXPECT_EQ(portId, port.id);
     }
     for (const auto portId : GetNonExistentIds(portIds)) {
         AudioPort port;
-        ScopedAStatus status = module->getAudioPort(portId, &port);
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " returned for port ID " << portId;
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->getAudioPort(portId, &port))
+                << "port ID " << portId;
     }
 }
 
@@ -929,9 +925,8 @@ TEST_P(AudioCoreModule, GetAudioPortWithExternalDevices) {
                   portConnected.get().ext.get<AudioPortExt::Tag::device>().device);
         // Verify that 'getAudioPort' and 'getAudioPorts' return the same connected port.
         AudioPort connectedPort;
-        ScopedAStatus status = module->getAudioPort(connectedPortId, &connectedPort);
-        EXPECT_EQ(EX_NONE, status.getExceptionCode())
-                << status << " returned for getAudioPort port ID " << connectedPortId;
+        EXPECT_IS_OK(module->getAudioPort(connectedPortId, &connectedPort))
+                << "port ID " << connectedPortId;
         EXPECT_EQ(portConnected.get(), connectedPort);
         const auto& portProfiles = connectedPort.profiles;
         EXPECT_NE(0UL, portProfiles.size())
@@ -944,10 +939,7 @@ TEST_P(AudioCoreModule, GetAudioPortWithExternalDevices) {
                                                         << "profiles: " << connectedPort.toString();
 
         std::vector<AudioPort> allPorts;
-        {
-            ScopedAStatus status = module->getAudioPorts(&allPorts);
-            ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-        }
+        ASSERT_IS_OK(module->getAudioPorts(&allPorts));
         const auto allPortsIt = findById(allPorts, connectedPortId);
         EXPECT_NE(allPorts.end(), allPortsIt);
         if (allPortsIt != allPorts.end()) {
@@ -965,9 +957,8 @@ TEST_P(AudioCoreModule, OpenStreamInvalidPortConfigId) {
             args.portConfigId = portConfigId;
             args.bufferSizeFrames = kDefaultBufferSizeFrames;
             aidl::android::hardware::audio::core::IModule::OpenInputStreamReturn ret;
-            ScopedAStatus status = module->openInputStream(args, &ret);
-            EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                    << status << " openInputStream returned for port config ID " << portConfigId;
+            EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->openInputStream(args, &ret))
+                    << "port config ID " << portConfigId;
             EXPECT_EQ(nullptr, ret.stream);
         }
         {
@@ -975,9 +966,8 @@ TEST_P(AudioCoreModule, OpenStreamInvalidPortConfigId) {
             args.portConfigId = portConfigId;
             args.bufferSizeFrames = kDefaultBufferSizeFrames;
             aidl::android::hardware::audio::core::IModule::OpenOutputStreamReturn ret;
-            ScopedAStatus status = module->openOutputStream(args, &ret);
-            EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                    << status << " openOutputStream returned for port config ID " << portConfigId;
+            EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->openOutputStream(args, &ret))
+                    << "port config ID " << portConfigId;
             EXPECT_EQ(nullptr, ret.stream);
         }
     }
@@ -992,10 +982,7 @@ TEST_P(AudioCoreModule, PortConfigPortIdsAreValid) {
     std::set<int32_t> portIds;
     ASSERT_NO_FATAL_FAILURE(GetAllPortIds(&portIds));
     std::vector<AudioPortConfig> portConfigs;
-    {
-        ScopedAStatus status = module->getAudioPortConfigs(&portConfigs);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioPortConfigs(&portConfigs));
     for (const auto& config : portConfigs) {
         EXPECT_EQ(1UL, portIds.count(config.portId))
                 << config.portId << " port id is unknown, config id " << config.id;
@@ -1006,9 +993,8 @@ TEST_P(AudioCoreModule, ResetAudioPortConfigInvalidId) {
     std::set<int32_t> portConfigIds;
     ASSERT_NO_FATAL_FAILURE(GetAllPortConfigIds(&portConfigIds));
     for (const auto portConfigId : GetNonExistentIds(portConfigIds)) {
-        ScopedAStatus status = module->resetAudioPortConfig(portConfigId);
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " returned for port config ID " << portConfigId;
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->resetAudioPortConfig(portConfigId))
+                << "port config ID " << portConfigId;
     }
 }
 
@@ -1016,21 +1002,13 @@ TEST_P(AudioCoreModule, ResetAudioPortConfigInvalidId) {
 // the config does not delete it, but brings it back to the initial config.
 TEST_P(AudioCoreModule, ResetAudioPortConfigToInitialValue) {
     std::vector<AudioPortConfig> portConfigsBefore;
-    {
-        ScopedAStatus status = module->getAudioPortConfigs(&portConfigsBefore);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioPortConfigs(&portConfigsBefore));
     // TODO: Change port configs according to port profiles.
     for (const auto& c : portConfigsBefore) {
-        ScopedAStatus status = module->resetAudioPortConfig(c.id);
-        EXPECT_EQ(EX_NONE, status.getExceptionCode())
-                << status << " returned for port config ID " << c.id;
+        EXPECT_IS_OK(module->resetAudioPortConfig(c.id)) << "port config ID " << c.id;
     }
     std::vector<AudioPortConfig> portConfigsAfter;
-    {
-        ScopedAStatus status = module->getAudioPortConfigs(&portConfigsAfter);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioPortConfigs(&portConfigsAfter));
     for (const auto& c : portConfigsBefore) {
         auto afterIt = findById<AudioPortConfig>(portConfigsAfter, c.id);
         EXPECT_NE(portConfigsAfter.end(), afterIt)
@@ -1052,9 +1030,8 @@ TEST_P(AudioCoreModule, SetAudioPortConfigSuggestedConfig) {
     portConfig.portId = srcMixPort.value().id;
     {
         bool applied = true;
-        ScopedAStatus status = module->setAudioPortConfig(portConfig, &suggestedConfig, &applied);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode())
-                << status << "; Config: " << portConfig.toString();
+        ASSERT_IS_OK(module->setAudioPortConfig(portConfig, &suggestedConfig, &applied))
+                << "Config: " << portConfig.toString();
         EXPECT_FALSE(applied);
     }
     EXPECT_EQ(0, suggestedConfig.id);
@@ -1108,9 +1085,9 @@ TEST_P(AudioCoreModule, SetAudioPortConfigInvalidPortId) {
         AudioPortConfig portConfig, suggestedConfig;
         bool applied;
         portConfig.portId = portId;
-        ScopedAStatus status = module->setAudioPortConfig(portConfig, &suggestedConfig, &applied);
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " returned for port ID " << portId;
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT,
+                      module->setAudioPortConfig(portConfig, &suggestedConfig, &applied))
+                << "port ID " << portId;
         EXPECT_FALSE(suggestedConfig.format.has_value());
         EXPECT_FALSE(suggestedConfig.channelMask.has_value());
         EXPECT_FALSE(suggestedConfig.sampleRate.has_value());
@@ -1124,9 +1101,9 @@ TEST_P(AudioCoreModule, SetAudioPortConfigInvalidPortConfigId) {
         AudioPortConfig portConfig, suggestedConfig;
         bool applied;
         portConfig.id = portConfigId;
-        ScopedAStatus status = module->setAudioPortConfig(portConfig, &suggestedConfig, &applied);
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " returned for port config ID " << portConfigId;
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT,
+                      module->setAudioPortConfig(portConfig, &suggestedConfig, &applied))
+                << "port config ID " << portConfigId;
         EXPECT_FALSE(suggestedConfig.format.has_value());
         EXPECT_FALSE(suggestedConfig.channelMask.has_value());
         EXPECT_FALSE(suggestedConfig.sampleRate.has_value());
@@ -1147,9 +1124,8 @@ TEST_P(AudioCoreModule, TryConnectMissingDevice) {
         AudioPort portWithData = port;
         portWithData.ext.get<AudioPortExt::Tag::device>().device.address =
                 GenerateUniqueDeviceAddress();
-        ScopedAStatus status = module->connectExternalDevice(portWithData, &ignored);
-        EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
-                << status << " returned for static port " << portWithData.toString();
+        EXPECT_STATUS(EX_ILLEGAL_STATE, module->connectExternalDevice(portWithData, &ignored))
+                << "static port " << portWithData.toString();
     }
 }
 
@@ -1163,10 +1139,8 @@ TEST_P(AudioCoreModule, TryChangingConnectionSimulationMidway) {
     ASSERT_NO_FATAL_FAILURE(portConnected.SetUp(module.get()));
     ModuleDebug midwayDebugChange = debug.flags();
     midwayDebugChange.simulateDeviceConnections = false;
-    ScopedAStatus status = module->setModuleDebug(midwayDebugChange);
-    EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
-            << status << " returned when trying to disable connections simulation "
-            << "while having a connected device";
+    EXPECT_STATUS(EX_ILLEGAL_STATE, module->setModuleDebug(midwayDebugChange))
+            << "when trying to disable connections simulation while having a connected device";
 }
 
 TEST_P(AudioCoreModule, ConnectDisconnectExternalDeviceInvalidPorts) {
@@ -1176,40 +1150,28 @@ TEST_P(AudioCoreModule, ConnectDisconnectExternalDeviceInvalidPorts) {
     for (const auto portId : GetNonExistentIds(portIds)) {
         AudioPort invalidPort;
         invalidPort.id = portId;
-        ScopedAStatus status = module->connectExternalDevice(invalidPort, &ignored);
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " returned for port ID " << portId << " when setting CONNECTED state";
-        status = module->disconnectExternalDevice(portId);
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " returned for port ID " << portId
-                << " when setting DISCONNECTED state";
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->connectExternalDevice(invalidPort, &ignored))
+                << "port ID " << portId << ", when setting CONNECTED state";
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->disconnectExternalDevice(portId))
+                << "port ID " << portId << ", when setting DISCONNECTED state";
     }
 
     std::vector<AudioPort> ports;
-    {
-        ScopedAStatus status = module->getAudioPorts(&ports);
-        ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-    }
+    ASSERT_IS_OK(module->getAudioPorts(&ports));
     for (const auto& port : ports) {
         if (port.ext.getTag() != AudioPortExt::Tag::device) {
-            ScopedAStatus status = module->connectExternalDevice(port, &ignored);
-            EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                    << status << " returned for non-device port ID " << port.id
-                    << " when setting CONNECTED state";
-            status = module->disconnectExternalDevice(port.id);
-            EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                    << status << " returned for non-device port ID " << port.id
-                    << " when setting DISCONNECTED state";
+            EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->connectExternalDevice(port, &ignored))
+                    << "non-device port ID " << port.id << " when setting CONNECTED state";
+            EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->disconnectExternalDevice(port.id))
+                    << "non-device port ID " << port.id << " when setting DISCONNECTED state";
         } else {
             const auto& devicePort = port.ext.get<AudioPortExt::Tag::device>();
             if (devicePort.device.type.connection.empty()) {
-                ScopedAStatus status = module->connectExternalDevice(port, &ignored);
-                EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                        << status << " returned for permanently attached device port ID " << port.id
+                EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->connectExternalDevice(port, &ignored))
+                        << "for a permanently attached device port ID " << port.id
                         << " when setting CONNECTED state";
-                status = module->disconnectExternalDevice(port.id);
-                EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                        << status << " returned for permanently attached device port ID " << port.id
+                EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->disconnectExternalDevice(port.id))
+                        << "for a permanently attached device port ID " << port.id
                         << " when setting DISCONNECTED state";
             }
         }
@@ -1225,27 +1187,22 @@ TEST_P(AudioCoreModule, ConnectDisconnectExternalDeviceTwice) {
         GTEST_SKIP() << "No external devices in the module.";
     }
     for (const auto& port : ports) {
-        ScopedAStatus status = module->disconnectExternalDevice(port.id);
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " returned when disconnecting already disconnected device port ID "
-                << port.id;
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->disconnectExternalDevice(port.id))
+                << "when disconnecting already disconnected device port ID " << port.id;
         AudioPort portWithData = port;
         portWithData.ext.get<AudioPortExt::Tag::device>().device.address =
                 GenerateUniqueDeviceAddress();
         WithDevicePortConnectedState portConnected(portWithData);
         ASSERT_NO_FATAL_FAILURE(portConnected.SetUp(module.get()));
-        status = module->connectExternalDevice(portConnected.get(), &ignored);
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " returned when trying to connect a connected device port "
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT,
+                      module->connectExternalDevice(portConnected.get(), &ignored))
+                << "when trying to connect a connected device port "
                 << portConnected.get().toString();
-        status = module->connectExternalDevice(portWithData, &ignored);
-        EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
-                << status << " returned when connecting again the external device "
-                << portWithData.ext.get<AudioPortExt::Tag::device>().device.toString();
-        if (status.getExceptionCode() == EX_NONE) {
-            ADD_FAILURE() << "Returned connected port " << ignored.toString() << " for template "
-                          << portWithData.toString();
-        }
+        EXPECT_STATUS(EX_ILLEGAL_STATE, module->connectExternalDevice(portWithData, &ignored))
+                << "when connecting again the external device "
+                << portWithData.ext.get<AudioPortExt::Tag::device>().device.toString()
+                << "; Returned connected port " << ignored.toString() << " for template "
+                << portWithData.toString();
     }
 }
 
@@ -1266,9 +1223,8 @@ TEST_P(AudioCoreModule, DisconnectExternalDeviceNonResetPortConfig) {
             // Our test assumes that 'getAudioPort' returns at least one profile, and it
             // is not a dynamic profile.
             ASSERT_NO_FATAL_FAILURE(config.SetUp(module.get()));
-            ScopedAStatus status = module->disconnectExternalDevice(portConnected.getId());
-            EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
-                    << status << " returned when trying to disconnect device port ID " << port.id
+            EXPECT_STATUS(EX_ILLEGAL_STATE, module->disconnectExternalDevice(portConnected.getId()))
+                    << "when trying to disconnect device port ID " << port.id
                     << " with active configuration " << config.getId();
         }
     }
@@ -1282,10 +1238,7 @@ TEST_P(AudioCoreModule, ExternalDevicePortRoutes) {
     }
     for (const auto& port : ports) {
         std::vector<AudioRoute> routesBefore;
-        {
-            ScopedAStatus status = module->getAudioRoutes(&routesBefore);
-            ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-        }
+        ASSERT_IS_OK(module->getAudioRoutes(&routesBefore));
 
         int32_t connectedPortId;
         {
@@ -1293,34 +1246,24 @@ TEST_P(AudioCoreModule, ExternalDevicePortRoutes) {
             ASSERT_NO_FATAL_FAILURE(portConnected.SetUp(module.get()));
             connectedPortId = portConnected.getId();
             std::vector<AudioRoute> connectedPortRoutes;
-            {
-                ScopedAStatus status =
-                        module->getAudioRoutesForAudioPort(connectedPortId, &connectedPortRoutes);
-                ASSERT_EQ(EX_NONE, status.getExceptionCode())
-                        << status << " returned when retrieving routes for connected port id "
-                        << connectedPortId;
-            }
+            ASSERT_IS_OK(module->getAudioRoutesForAudioPort(connectedPortId, &connectedPortRoutes))
+                    << "when retrieving routes for connected port id " << connectedPortId;
             // There must be routes for the port to be useful.
             if (connectedPortRoutes.empty()) {
                 std::vector<AudioRoute> allRoutes;
-                ScopedAStatus status = module->getAudioRoutes(&allRoutes);
-                ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
+                ASSERT_IS_OK(module->getAudioRoutes(&allRoutes));
                 ADD_FAILURE() << " no routes returned for the connected port "
                               << portConnected.get().toString()
                               << "; all routes: " << android::internal::ToString(allRoutes);
             }
         }
         std::vector<AudioRoute> ignored;
-        ScopedAStatus status = module->getAudioRoutesForAudioPort(connectedPortId, &ignored);
-        ASSERT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " returned when retrieving routes for released connected port id "
-                << connectedPortId;
+        ASSERT_STATUS(EX_ILLEGAL_ARGUMENT,
+                      module->getAudioRoutesForAudioPort(connectedPortId, &ignored))
+                << "when retrieving routes for released connected port id " << connectedPortId;
 
         std::vector<AudioRoute> routesAfter;
-        {
-            ScopedAStatus status = module->getAudioRoutes(&routesAfter);
-            ASSERT_EQ(EX_NONE, status.getExceptionCode()) << status;
-        }
+        ASSERT_IS_OK(module->getAudioRoutes(&routesAfter));
         ASSERT_EQ(routesBefore.size(), routesAfter.size())
                 << "Sizes of audio route arrays do not match after creating and "
                 << "releasing a connected port";
@@ -1330,11 +1273,155 @@ TEST_P(AudioCoreModule, ExternalDevicePortRoutes) {
     }
 }
 
+TEST_P(AudioCoreModule, MasterMute) {
+    bool isSupported = false;
+    EXPECT_NO_FATAL_FAILURE(TestAccessors<bool>(module.get(), &IModule::getMasterMute,
+                                                &IModule::setMasterMute, {false, true}, {},
+                                                &isSupported));
+    if (!isSupported) {
+        GTEST_SKIP() << "Master mute is not supported";
+    }
+    // TODO: Test that master mute actually mutes output.
+}
+
+TEST_P(AudioCoreModule, MasterVolume) {
+    bool isSupported = false;
+    EXPECT_NO_FATAL_FAILURE(TestAccessors<float>(
+            module.get(), &IModule::getMasterVolume, &IModule::setMasterVolume, {0.0f, 0.5f, 1.0f},
+            {-0.1, 1.1, NAN, INFINITY, -INFINITY, 1 + std::numeric_limits<float>::epsilon()},
+            &isSupported));
+    if (!isSupported) {
+        GTEST_SKIP() << "Master volume is not supported";
+    }
+    // TODO: Test that master volume actually attenuates output.
+}
+
+TEST_P(AudioCoreModule, MicMute) {
+    bool isSupported = false;
+    EXPECT_NO_FATAL_FAILURE(TestAccessors<bool>(module.get(), &IModule::getMicMute,
+                                                &IModule::setMicMute, {false, true}, {},
+                                                &isSupported));
+    if (!isSupported) {
+        GTEST_SKIP() << "Mic mute is not supported";
+    }
+    // TODO: Test that mic mute actually mutes input.
+}
+
+TEST_P(AudioCoreModule, UpdateAudioMode) {
+    for (const auto mode : ::ndk::enum_range<AudioMode>()) {
+        EXPECT_IS_OK(module->updateAudioMode(mode)) << toString(mode);
+    }
+    EXPECT_IS_OK(module->updateAudioMode(AudioMode::NORMAL));
+}
+
+TEST_P(AudioCoreModule, UpdateScreenRotation) {
+    for (const auto rotation : ::ndk::enum_range<IModule::ScreenRotation>()) {
+        EXPECT_IS_OK(module->updateScreenRotation(rotation)) << toString(rotation);
+    }
+    EXPECT_IS_OK(module->updateScreenRotation(IModule::ScreenRotation::DEG_0));
+}
+
+TEST_P(AudioCoreModule, UpdateScreenState) {
+    EXPECT_IS_OK(module->updateScreenState(false));
+    EXPECT_IS_OK(module->updateScreenState(true));
+}
+
+class AudioCoreTelephony : public AudioCoreModuleBase, public testing::TestWithParam<std::string> {
+  public:
+    void SetUp() override {
+        ASSERT_NO_FATAL_FAILURE(SetUpImpl(GetParam()));
+        ASSERT_IS_OK(module->getTelephony(&telephony));
+    }
+
+    void TearDown() override { ASSERT_NO_FATAL_FAILURE(TearDownImpl()); }
+
+    std::shared_ptr<ITelephony> telephony;
+};
+
+TEST_P(AudioCoreTelephony, GetSupportedAudioModes) {
+    if (telephony == nullptr) {
+        GTEST_SKIP() << "Telephony is not supported";
+    }
+    std::vector<AudioMode> modes1;
+    ASSERT_IS_OK(telephony->getSupportedAudioModes(&modes1));
+    const std::vector<AudioMode> kMandatoryModes = {AudioMode::NORMAL, AudioMode::RINGTONE,
+                                                    AudioMode::IN_CALL,
+                                                    AudioMode::IN_COMMUNICATION};
+    for (const auto mode : kMandatoryModes) {
+        EXPECT_NE(modes1.end(), std::find(modes1.begin(), modes1.end(), mode))
+                << "Mandatory mode not supported: " << toString(mode);
+    }
+    std::vector<AudioMode> modes2;
+    ASSERT_IS_OK(telephony->getSupportedAudioModes(&modes2));
+    ASSERT_EQ(modes1.size(), modes2.size())
+            << "Sizes of audio mode arrays do not match across consequent calls to "
+            << "getSupportedAudioModes";
+    std::sort(modes1.begin(), modes1.end());
+    std::sort(modes2.begin(), modes2.end());
+    EXPECT_EQ(modes1, modes2);
+};
+
+TEST_P(AudioCoreTelephony, SwitchAudioMode) {
+    if (telephony == nullptr) {
+        GTEST_SKIP() << "Telephony is not supported";
+    }
+    std::vector<AudioMode> supportedModes;
+    ASSERT_IS_OK(telephony->getSupportedAudioModes(&supportedModes));
+    std::set<AudioMode> unsupportedModes = {
+            // Start with all, remove supported ones
+            ::ndk::enum_range<AudioMode>().begin(), ::ndk::enum_range<AudioMode>().end()};
+    for (const auto mode : supportedModes) {
+        EXPECT_IS_OK(telephony->switchAudioMode(mode)) << toString(mode);
+        unsupportedModes.erase(mode);
+    }
+    for (const auto mode : unsupportedModes) {
+        EXPECT_STATUS(EX_UNSUPPORTED_OPERATION, telephony->switchAudioMode(mode)) << toString(mode);
+    }
+}
+
+class StreamLogicDriverInvalidCommand : public StreamLogicDriver {
+  public:
+    StreamLogicDriverInvalidCommand(const std::vector<StreamDescriptor::Command>& commands)
+        : mCommands(commands) {}
+
+    std::string getUnexpectedStatuses() {
+        // This method is intended to be called after the worker thread has joined,
+        // thus no extra synchronization is needed.
+        std::string s;
+        if (!mStatuses.empty()) {
+            s = std::string("Pairs of (command, actual status): ")
+                        .append((android::internal::ToString(mStatuses)));
+        }
+        return s;
+    }
+
+    bool done() override { return mNextCommand >= mCommands.size(); }
+    StreamDescriptor::Command getNextCommand(int, int* actualSize) override {
+        if (actualSize != nullptr) *actualSize = 0;
+        return mCommands[mNextCommand++];
+    }
+    bool interceptRawReply(const StreamDescriptor::Reply& reply) override {
+        if (reply.status != STATUS_BAD_VALUE) {
+            std::string s = mCommands[mNextCommand - 1].toString();
+            s.append(", ").append(statusToString(reply.status));
+            mStatuses.push_back(std::move(s));
+            // If the HAL does not recognize the command as invalid,
+            // retrieve the data etc.
+            return reply.status != STATUS_OK;
+        }
+        return true;
+    }
+    bool processValidReply(const StreamDescriptor::Reply&) override { return true; }
+
+  private:
+    const std::vector<StreamDescriptor::Command> mCommands;
+    size_t mNextCommand = 0;
+    std::vector<std::string> mStatuses;
+};
+
 template <typename Stream>
 class AudioStream : public AudioCoreModule {
   public:
-    static std::string direction(bool capitalize);
-
     void SetUp() override {
         ASSERT_NO_FATAL_FAILURE(AudioCoreModule::SetUp());
         ASSERT_NO_FATAL_FAILURE(SetUpModuleConfig());
@@ -1351,9 +1438,7 @@ class AudioStream : public AudioCoreModule {
             ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
             heldStream = stream.getSharedPointer();
         }
-        ScopedAStatus status = heldStream->close();
-        EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
-                << status << " when closing the stream twice";
+        EXPECT_STATUS(EX_ILLEGAL_STATE, heldStream->close()) << "when closing the stream twice";
     }
 
     void OpenAllConfigs() {
@@ -1375,10 +1460,8 @@ class AudioStream : public AudioCoreModule {
         // The buffer size of 1 frame should be impractically small, and thus
         // less than any minimum buffer size suggested by any HAL.
         for (long bufferSize : std::array<long, 4>{-1, 0, 1, std::numeric_limits<long>::max()}) {
-            ScopedAStatus status = stream.SetUpNoChecks(module.get(), bufferSize);
-            EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                    << status << " open" << direction(true) << "Stream returned for " << bufferSize
-                    << " buffer size";
+            EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, stream.SetUpNoChecks(module.get(), bufferSize))
+                    << "for the buffer size " << bufferSize;
             EXPECT_EQ(nullptr, stream.get());
         }
     }
@@ -1392,10 +1475,9 @@ class AudioStream : public AudioCoreModule {
         }
         WithStream<Stream> stream(portConfig.value());
         ASSERT_NO_FATAL_FAILURE(stream.SetUpPortConfig(module.get()));
-        ScopedAStatus status = stream.SetUpNoChecks(module.get(), kDefaultBufferSizeFrames);
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " open" << direction(true) << "Stream returned for port config ID "
-                << stream.getPortId();
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT,
+                      stream.SetUpNoChecks(module.get(), kDefaultBufferSizeFrames))
+                << "port config ID " << stream.getPortId();
         EXPECT_EQ(nullptr, stream.get());
     }
 
@@ -1424,18 +1506,15 @@ class AudioStream : public AudioCoreModule {
                     ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
                 } else {
                     ASSERT_NO_FATAL_FAILURE(stream.SetUpPortConfig(module.get()));
-                    ScopedAStatus status =
-                            stream.SetUpNoChecks(module.get(), kDefaultBufferSizeFrames);
-                    EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
-                            << status << " open" << direction(true)
-                            << "Stream returned for port config ID " << stream.getPortId()
-                            << ", maxOpenStreamCount is " << maxStreamCount;
+                    EXPECT_STATUS(EX_ILLEGAL_STATE,
+                                  stream.SetUpNoChecks(module.get(), kDefaultBufferSizeFrames))
+                            << "port config ID " << stream.getPortId() << ", maxOpenStreamCount is "
+                            << maxStreamCount;
                 }
             }
         }
         if (!hasSingleRun) {
-            GTEST_SKIP() << "Not enough " << direction(false)
-                         << " ports to test max open stream count";
+            GTEST_SKIP() << "Not enough ports to test max open stream count";
         }
     }
 
@@ -1447,18 +1526,6 @@ class AudioStream : public AudioCoreModule {
         EXPECT_NO_FATAL_FAILURE(OpenTwiceSamePortConfigImpl(portConfig.value()));
     }
 
-    void ReadOrWrite(bool useImpl2, bool testObservablePosition) {
-        const auto allPortConfigs =
-                moduleConfig->getPortConfigsForMixPorts(IOTraits<Stream>::is_input);
-        if (allPortConfigs.empty()) {
-            GTEST_SKIP() << "No mix ports have attached devices";
-        }
-        for (const auto& portConfig : allPortConfigs) {
-            EXPECT_NO_FATAL_FAILURE(ReadOrWriteImpl(portConfig, useImpl2, testObservablePosition))
-                    << portConfig.toString();
-        }
-    }
-
     void ResetPortConfigWithOpenStream() {
         const auto portConfig = moduleConfig->getSingleConfigForMixPort(IOTraits<Stream>::is_input);
         if (!portConfig.has_value()) {
@@ -1466,9 +1533,8 @@ class AudioStream : public AudioCoreModule {
         }
         WithStream<Stream> stream(portConfig.value());
         ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
-        ScopedAStatus status = module->resetAudioPortConfig(stream.getPortId());
-        EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
-                << status << " returned for port config ID " << stream.getPortId();
+        EXPECT_STATUS(EX_ILLEGAL_STATE, module->resetAudioPortConfig(stream.getPortId()))
+                << "port config ID " << stream.getPortId();
     }
 
     void SendInvalidCommand() {
@@ -1483,145 +1549,53 @@ class AudioStream : public AudioCoreModule {
         WithStream<Stream> stream1(portConfig);
         ASSERT_NO_FATAL_FAILURE(stream1.SetUp(module.get(), kDefaultBufferSizeFrames));
         WithStream<Stream> stream2;
-        ScopedAStatus status = stream2.SetUpNoChecks(module.get(), stream1.getPortConfig(),
-                                                     kDefaultBufferSizeFrames);
-        EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
-                << status << " when opening " << direction(false)
-                << " stream twice for the same port config ID " << stream1.getPortId();
-    }
-
-    template <class Worker>
-    void WaitForObservablePositionAdvance(Worker& worker) {
-        static constexpr int kWriteDurationUs = 50 * 1000;
-        static constexpr std::chrono::milliseconds kPositionChangeTimeout{10000};
-        int64_t framesInitial;
-        framesInitial = worker.getLastObservablePosition().frames;
-        ASSERT_FALSE(worker.hasError());
-        bool timedOut = false;
-        int64_t frames = framesInitial;
-        for (android::base::Timer elapsed;
-             frames <= framesInitial && !worker.hasError() &&
-             !(timedOut = (elapsed.duration() >= kPositionChangeTimeout));) {
-            usleep(kWriteDurationUs);
-            frames = worker.getLastObservablePosition().frames;
-        }
-        EXPECT_FALSE(timedOut);
-        EXPECT_FALSE(worker.hasError()) << worker.getError();
-        EXPECT_GT(frames, framesInitial);
-    }
-
-    void ReadOrWriteImpl(const AudioPortConfig& portConfig, bool useImpl2,
-                         bool testObservablePosition) {
-        if (!useImpl2) {
-            ASSERT_NO_FATAL_FAILURE(ReadOrWriteImpl1(portConfig, testObservablePosition));
-        } else {
-            ASSERT_NO_FATAL_FAILURE(ReadOrWriteImpl2(portConfig, testObservablePosition));
-        }
-    }
-
-    // Set up a patch first, then open a stream.
-    void ReadOrWriteImpl1(const AudioPortConfig& portConfig, bool testObservablePosition) {
-        auto devicePorts = moduleConfig->getAttachedDevicesPortsForMixPort(
-                IOTraits<Stream>::is_input, portConfig);
-        ASSERT_FALSE(devicePorts.empty());
-        auto devicePortConfig = moduleConfig->getSingleConfigForDevicePort(devicePorts[0]);
-        WithAudioPatch patch(IOTraits<Stream>::is_input, portConfig, devicePortConfig);
-        ASSERT_NO_FATAL_FAILURE(patch.SetUp(module.get()));
-
-        WithStream<Stream> stream(patch.getPortConfig(IOTraits<Stream>::is_input));
-        ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
-        typename IOTraits<Stream>::Worker worker(*stream.getContext());
-
-        ASSERT_TRUE(worker.start());
-        ASSERT_TRUE(worker.waitForAtLeastOneCycle());
-        if (testObservablePosition) {
-            ASSERT_NO_FATAL_FAILURE(WaitForObservablePositionAdvance(worker));
-        }
-    }
-
-    // Open a stream, then set up a patch for it.
-    void ReadOrWriteImpl2(const AudioPortConfig& portConfig, bool testObservablePosition) {
-        WithStream<Stream> stream(portConfig);
-        ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
-        typename IOTraits<Stream>::Worker worker(*stream.getContext());
-
-        auto devicePorts = moduleConfig->getAttachedDevicesPortsForMixPort(
-                IOTraits<Stream>::is_input, portConfig);
-        ASSERT_FALSE(devicePorts.empty());
-        auto devicePortConfig = moduleConfig->getSingleConfigForDevicePort(devicePorts[0]);
-        WithAudioPatch patch(IOTraits<Stream>::is_input, stream.getPortConfig(), devicePortConfig);
-        ASSERT_NO_FATAL_FAILURE(patch.SetUp(module.get()));
-
-        ASSERT_TRUE(worker.start());
-        ASSERT_TRUE(worker.waitForAtLeastOneCycle());
-        if (testObservablePosition) {
-            ASSERT_NO_FATAL_FAILURE(WaitForObservablePositionAdvance(worker));
-        }
+        EXPECT_STATUS(EX_ILLEGAL_STATE, stream2.SetUpNoChecks(module.get(), stream1.getPortConfig(),
+                                                              kDefaultBufferSizeFrames))
+                << "when opening a stream twice for the same port config ID "
+                << stream1.getPortId();
     }
 
     void SendInvalidCommandImpl(const AudioPortConfig& portConfig) {
-        std::vector<StreamDescriptor::Command> commands(6);
-        commands[0].code = -1;
-        commands[1].code = StreamDescriptor::COMMAND_BURST - 1;
-        commands[2].code = std::numeric_limits<int32_t>::min();
-        commands[3].code = std::numeric_limits<int32_t>::max();
-        commands[4].code = StreamDescriptor::COMMAND_BURST;
-        commands[4].fmqByteCount = -1;
-        commands[5].code = StreamDescriptor::COMMAND_BURST;
-        commands[5].fmqByteCount = std::numeric_limits<int32_t>::min();
+        std::vector<StreamDescriptor::Command> commands = {
+                StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::hal_reserved_exit>(
+                        0),
+                // TODO: For proper testing of input streams, need to put the stream into
+                // a state which accepts BURST commands.
+                StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::burst>(-1),
+                StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::burst>(
+                        std::numeric_limits<int32_t>::min()),
+        };
         WithStream<Stream> stream(portConfig);
         ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
-        StreamWorker<StreamInvalidCommandLogic> writer(*stream.getContext(), commands);
-        ASSERT_TRUE(writer.start());
-        writer.waitForAtLeastOneCycle();
-        auto unexpectedStatuses = writer.getUnexpectedStatuses();
-        EXPECT_EQ(0UL, unexpectedStatuses.size())
-                << "Pairs of (command, actual status): "
-                << android::internal::ToString(unexpectedStatuses);
+        StreamLogicDriverInvalidCommand driver(commands);
+        typename IOTraits<Stream>::Worker worker(*stream.getContext(), &driver);
+        ASSERT_TRUE(worker.start());
+        worker.join();
+        EXPECT_EQ("", driver.getUnexpectedStatuses());
     }
 };
 using AudioStreamIn = AudioStream<IStreamIn>;
 using AudioStreamOut = AudioStream<IStreamOut>;
 
-template <>
-std::string AudioStreamIn::direction(bool capitalize) {
-    return capitalize ? "Input" : "input";
-}
-template <>
-std::string AudioStreamOut::direction(bool capitalize) {
-    return capitalize ? "Output" : "output";
-}
-
-#define TEST_IO_STREAM(method_name)                                                \
+#define TEST_IN_AND_OUT_STREAM(method_name)                                        \
     TEST_P(AudioStreamIn, method_name) { ASSERT_NO_FATAL_FAILURE(method_name()); } \
     TEST_P(AudioStreamOut, method_name) { ASSERT_NO_FATAL_FAILURE(method_name()); }
-#define TEST_IO_STREAM_2(method_name, arg1, arg2)           \
-    TEST_P(AudioStreamIn, method_name##_##arg1##_##arg2) {  \
-        ASSERT_NO_FATAL_FAILURE(method_name(arg1, arg2));   \
-    }                                                       \
-    TEST_P(AudioStreamOut, method_name##_##arg1##_##arg2) { \
-        ASSERT_NO_FATAL_FAILURE(method_name(arg1, arg2));   \
-    }
 
-TEST_IO_STREAM(CloseTwice);
-TEST_IO_STREAM(OpenAllConfigs);
-TEST_IO_STREAM(OpenInvalidBufferSize);
-TEST_IO_STREAM(OpenInvalidDirection);
-TEST_IO_STREAM(OpenOverMaxCount);
-TEST_IO_STREAM(OpenTwiceSamePortConfig);
-TEST_IO_STREAM_2(ReadOrWrite, false, false);
-TEST_IO_STREAM_2(ReadOrWrite, true, false);
-TEST_IO_STREAM_2(ReadOrWrite, false, true);
-TEST_IO_STREAM_2(ReadOrWrite, true, true);
-TEST_IO_STREAM(ResetPortConfigWithOpenStream);
-TEST_IO_STREAM(SendInvalidCommand);
+TEST_IN_AND_OUT_STREAM(CloseTwice);
+TEST_IN_AND_OUT_STREAM(OpenAllConfigs);
+TEST_IN_AND_OUT_STREAM(OpenInvalidBufferSize);
+TEST_IN_AND_OUT_STREAM(OpenInvalidDirection);
+TEST_IN_AND_OUT_STREAM(OpenOverMaxCount);
+TEST_IN_AND_OUT_STREAM(OpenTwiceSamePortConfig);
+TEST_IN_AND_OUT_STREAM(ResetPortConfigWithOpenStream);
+TEST_IN_AND_OUT_STREAM(SendInvalidCommand);
 
 TEST_P(AudioStreamOut, OpenTwicePrimary) {
     const auto mixPorts = moduleConfig->getMixPorts(false);
     auto primaryPortIt = std::find_if(mixPorts.begin(), mixPorts.end(), [](const AudioPort& port) {
-        constexpr int primaryOutputFlag = 1 << static_cast<int>(AudioOutputFlags::PRIMARY);
         return port.flags.getTag() == AudioIoFlags::Tag::output &&
-               (port.flags.get<AudioIoFlags::Tag::output>() & primaryOutputFlag) != 0;
+               isBitPositionFlagSet(port.flags.get<AudioIoFlags::Tag::output>(),
+                                    AudioOutputFlags::PRIMARY);
     });
     if (primaryPortIt == mixPorts.end()) {
         GTEST_SKIP() << "No primary mix port";
@@ -1635,19 +1609,14 @@ TEST_P(AudioStreamOut, OpenTwicePrimary) {
 }
 
 TEST_P(AudioStreamOut, RequireOffloadInfo) {
-    const auto mixPorts = moduleConfig->getMixPorts(false);
-    auto offloadPortIt = std::find_if(mixPorts.begin(), mixPorts.end(), [&](const AudioPort& port) {
-        constexpr int compressOffloadFlag = 1
-                                            << static_cast<int>(AudioOutputFlags::COMPRESS_OFFLOAD);
-        return port.flags.getTag() == AudioIoFlags::Tag::output &&
-               (port.flags.get<AudioIoFlags::Tag::output>() & compressOffloadFlag) != 0 &&
-               !moduleConfig->getAttachedSinkDevicesPortsForMixPort(port).empty();
-    });
-    if (offloadPortIt == mixPorts.end()) {
+    const auto offloadMixPorts =
+            moduleConfig->getOffloadMixPorts(true /*attachedOnly*/, true /*singlePort*/);
+    if (offloadMixPorts.empty()) {
         GTEST_SKIP()
                 << "No mix port for compressed offload that could be routed to attached devices";
     }
-    const auto portConfig = moduleConfig->getSingleConfigForMixPort(false, *offloadPortIt);
+    const auto portConfig =
+            moduleConfig->getSingleConfigForMixPort(false, *offloadMixPorts.begin());
     ASSERT_TRUE(portConfig.has_value())
             << "No profiles specified for the compressed offload mix port";
     StreamDescriptor descriptor;
@@ -1657,11 +1626,168 @@ TEST_P(AudioStreamOut, RequireOffloadInfo) {
     args.sourceMetadata = GenerateSourceMetadata(portConfig.value());
     args.bufferSizeFrames = kDefaultBufferSizeFrames;
     aidl::android::hardware::audio::core::IModule::OpenOutputStreamReturn ret;
-    ScopedAStatus status = module->openOutputStream(args, &ret);
-    EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-            << status
-            << " returned when no offload info is provided for a compressed offload mix port";
+    EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->openOutputStream(args, &ret))
+            << "when no offload info is provided for a compressed offload mix port";
 }
+
+using CommandAndState = std::pair<StreamDescriptor::Command, StreamDescriptor::State>;
+
+class StreamLogicDefaultDriver : public StreamLogicDriver {
+  public:
+    explicit StreamLogicDefaultDriver(const std::vector<CommandAndState>& commands)
+        : mCommands(commands) {}
+
+    // The three methods below is intended to be called after the worker
+    // thread has joined, thus no extra synchronization is needed.
+    bool hasObservablePositionIncrease() const { return mObservablePositionIncrease; }
+    bool hasRetrogradeObservablePosition() const { return mRetrogradeObservablePosition; }
+    std::string getUnexpectedStateTransition() const { return mUnexpectedTransition; }
+
+    bool done() override { return mNextCommand >= mCommands.size(); }
+    StreamDescriptor::Command getNextCommand(int maxDataSize, int* actualSize) override {
+        auto command = mCommands[mNextCommand++].first;
+        if (command.getTag() == StreamDescriptor::Command::Tag::burst) {
+            if (actualSize != nullptr) {
+                // In the output scenario, reduce slightly the fmqByteCount to verify
+                // that the HAL module always consumes all data from the MQ.
+                if (maxDataSize > 1) maxDataSize--;
+                *actualSize = maxDataSize;
+            }
+            command.set<StreamDescriptor::Command::Tag::burst>(maxDataSize);
+        } else {
+            if (actualSize != nullptr) *actualSize = 0;
+        }
+        return command;
+    }
+    bool interceptRawReply(const StreamDescriptor::Reply&) override { return false; }
+    bool processValidReply(const StreamDescriptor::Reply& reply) override {
+        if (mPreviousFrames.has_value()) {
+            if (reply.observable.frames > mPreviousFrames.value()) {
+                mObservablePositionIncrease = true;
+            } else if (reply.observable.frames < mPreviousFrames.value()) {
+                mRetrogradeObservablePosition = true;
+            }
+        }
+        mPreviousFrames = reply.observable.frames;
+
+        const auto& lastCommandState = mCommands[mNextCommand - 1];
+        if (lastCommandState.second != reply.state) {
+            std::string s = std::string("Unexpected transition from the state ")
+                                    .append(mPreviousState)
+                                    .append(" to ")
+                                    .append(toString(reply.state))
+                                    .append(" caused by the command ")
+                                    .append(lastCommandState.first.toString());
+            LOG(ERROR) << __func__ << ": " << s;
+            mUnexpectedTransition = std::move(s);
+            return false;
+        }
+        return true;
+    }
+
+  protected:
+    const std::vector<CommandAndState>& mCommands;
+    size_t mNextCommand = 0;
+    std::optional<int64_t> mPreviousFrames;
+    std::string mPreviousState = "<initial state>";
+    bool mObservablePositionIncrease = false;
+    bool mRetrogradeObservablePosition = false;
+    std::string mUnexpectedTransition;
+};
+
+using NamedCommandSequence = std::pair<std::string, std::vector<CommandAndState>>;
+enum { PARAM_MODULE_NAME, PARAM_CMD_SEQ, PARAM_SETUP_SEQ };
+using StreamIoTestParameters =
+        std::tuple<std::string /*moduleName*/, NamedCommandSequence, bool /*useSetupSequence2*/>;
+template <typename Stream>
+class AudioStreamIo : public AudioCoreModuleBase,
+                      public testing::TestWithParam<StreamIoTestParameters> {
+  public:
+    void SetUp() override {
+        ASSERT_NO_FATAL_FAILURE(SetUpImpl(std::get<PARAM_MODULE_NAME>(GetParam())));
+        ASSERT_NO_FATAL_FAILURE(SetUpModuleConfig());
+    }
+
+    void Run() {
+        const auto allPortConfigs =
+                moduleConfig->getPortConfigsForMixPorts(IOTraits<Stream>::is_input);
+        if (allPortConfigs.empty()) {
+            GTEST_SKIP() << "No mix ports have attached devices";
+        }
+        for (const auto& portConfig : allPortConfigs) {
+            SCOPED_TRACE(portConfig.toString());
+            const auto& commandsAndStates = std::get<PARAM_CMD_SEQ>(GetParam()).second;
+            if (!std::get<PARAM_SETUP_SEQ>(GetParam())) {
+                ASSERT_NO_FATAL_FAILURE(RunStreamIoCommandsImplSeq1(portConfig, commandsAndStates));
+            } else {
+                ASSERT_NO_FATAL_FAILURE(RunStreamIoCommandsImplSeq2(portConfig, commandsAndStates));
+            }
+        }
+    }
+
+    bool ValidateObservablePosition(const AudioPortConfig& /*portConfig*/) {
+        // May return false based on the portConfig, e.g. for telephony ports.
+        return true;
+    }
+
+    // Set up a patch first, then open a stream.
+    void RunStreamIoCommandsImplSeq1(const AudioPortConfig& portConfig,
+                                     const std::vector<CommandAndState>& commandsAndStates) {
+        auto devicePorts = moduleConfig->getAttachedDevicesPortsForMixPort(
+                IOTraits<Stream>::is_input, portConfig);
+        ASSERT_FALSE(devicePorts.empty());
+        auto devicePortConfig = moduleConfig->getSingleConfigForDevicePort(devicePorts[0]);
+        WithAudioPatch patch(IOTraits<Stream>::is_input, portConfig, devicePortConfig);
+        ASSERT_NO_FATAL_FAILURE(patch.SetUp(module.get()));
+
+        WithStream<Stream> stream(patch.getPortConfig(IOTraits<Stream>::is_input));
+        ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
+        StreamLogicDefaultDriver driver(commandsAndStates);
+        typename IOTraits<Stream>::Worker worker(*stream.getContext(), &driver);
+
+        ASSERT_TRUE(worker.start());
+        worker.join();
+        EXPECT_FALSE(worker.hasError()) << worker.getError();
+        EXPECT_EQ("", driver.getUnexpectedStateTransition());
+        if (ValidateObservablePosition(portConfig)) {
+            EXPECT_TRUE(driver.hasObservablePositionIncrease());
+            EXPECT_FALSE(driver.hasRetrogradeObservablePosition());
+        }
+    }
+
+    // Open a stream, then set up a patch for it.
+    void RunStreamIoCommandsImplSeq2(const AudioPortConfig& portConfig,
+                                     const std::vector<CommandAndState>& commandsAndStates) {
+        WithStream<Stream> stream(portConfig);
+        ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
+        StreamLogicDefaultDriver driver(commandsAndStates);
+        typename IOTraits<Stream>::Worker worker(*stream.getContext(), &driver);
+
+        auto devicePorts = moduleConfig->getAttachedDevicesPortsForMixPort(
+                IOTraits<Stream>::is_input, portConfig);
+        ASSERT_FALSE(devicePorts.empty());
+        auto devicePortConfig = moduleConfig->getSingleConfigForDevicePort(devicePorts[0]);
+        WithAudioPatch patch(IOTraits<Stream>::is_input, stream.getPortConfig(), devicePortConfig);
+        ASSERT_NO_FATAL_FAILURE(patch.SetUp(module.get()));
+
+        ASSERT_TRUE(worker.start());
+        worker.join();
+        EXPECT_FALSE(worker.hasError()) << worker.getError();
+        EXPECT_EQ("", driver.getUnexpectedStateTransition());
+        if (ValidateObservablePosition(portConfig)) {
+            EXPECT_TRUE(driver.hasObservablePositionIncrease());
+            EXPECT_FALSE(driver.hasRetrogradeObservablePosition());
+        }
+    }
+};
+using AudioStreamIoIn = AudioStreamIo<IStreamIn>;
+using AudioStreamIoOut = AudioStreamIo<IStreamOut>;
+
+#define TEST_IN_AND_OUT_STREAM_IO(method_name)                                       \
+    TEST_P(AudioStreamIoIn, method_name) { ASSERT_NO_FATAL_FAILURE(method_name()); } \
+    TEST_P(AudioStreamIoOut, method_name) { ASSERT_NO_FATAL_FAILURE(method_name()); }
+
+TEST_IN_AND_OUT_STREAM_IO(Run);
 
 // Tests specific to audio patches. The fixure class is named 'AudioModulePatch'
 // to avoid clashing with 'AudioPatch' class.
@@ -1681,9 +1807,8 @@ class AudioModulePatch : public AudioCoreModule {
         AudioPatch patch;
         patch.sourcePortConfigIds = sources;
         patch.sinkPortConfigIds = sinks;
-        ScopedAStatus status = module->setAudioPatch(patch, &patch);
-        ASSERT_EQ(expectedException, status.getExceptionCode())
-                << status << ": patch source ids: " << android::internal::ToString(sources)
+        ASSERT_STATUS(expectedException, module->setAudioPatch(patch, &patch))
+                << "patch source ids: " << android::internal::ToString(sources)
                 << "; sink ids: " << android::internal::ToString(sinks);
     }
 
@@ -1701,9 +1826,8 @@ class AudioModulePatch : public AudioCoreModule {
                                           patch.get().sinkPortConfigIds.begin(),
                                           patch.get().sinkPortConfigIds.end());
         for (const auto portConfigId : sourceAndSinkPortConfigIds) {
-            ScopedAStatus status = module->resetAudioPortConfig(portConfigId);
-            EXPECT_EQ(EX_ILLEGAL_STATE, status.getExceptionCode())
-                    << status << " returned for port config ID " << portConfigId;
+            EXPECT_STATUS(EX_ILLEGAL_STATE, module->resetAudioPortConfig(portConfigId))
+                    << "port config ID " << portConfigId;
         }
     }
 
@@ -1748,10 +1872,8 @@ class AudioModulePatch : public AudioCoreModule {
         }
         WithAudioPatch patch(srcSinkPair.value().first, srcSinkPair.value().second);
         ASSERT_NO_FATAL_FAILURE(patch.SetUpPortConfigs(module.get()));
-        ScopedAStatus status = patch.SetUpNoChecks(module.get());
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << ": when setting up a patch from "
-                << srcSinkPair.value().first.toString() << " to "
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, patch.SetUpNoChecks(module.get()))
+                << "when setting up a patch from " << srcSinkPair.value().first.toString() << " to "
                 << srcSinkPair.value().second.toString() << " that does not have a route";
     }
 
@@ -1807,10 +1929,9 @@ class AudioModulePatch : public AudioCoreModule {
         for (const auto patchId : GetNonExistentIds(patchIds)) {
             AudioPatch patchWithNonExistendId = patch.get();
             patchWithNonExistendId.id = patchId;
-            ScopedAStatus status =
-                    module->setAudioPatch(patchWithNonExistendId, &patchWithNonExistendId);
-            EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                    << status << " returned for patch ID " << patchId;
+            EXPECT_STATUS(EX_ILLEGAL_ARGUMENT,
+                          module->setAudioPatch(patchWithNonExistendId, &patchWithNonExistendId))
+                    << "patch ID " << patchId;
         }
     }
 };
@@ -1832,9 +1953,8 @@ TEST_P(AudioModulePatch, ResetInvalidPatchId) {
     std::set<int32_t> patchIds;
     ASSERT_NO_FATAL_FAILURE(GetAllPatchIds(&patchIds));
     for (const auto patchId : GetNonExistentIds(patchIds)) {
-        ScopedAStatus status = module->resetAudioPatch(patchId);
-        EXPECT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode())
-                << status << " returned for patch ID " << patchId;
+        EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->resetAudioPatch(patchId))
+                << "patch ID " << patchId;
     }
 }
 
@@ -1842,6 +1962,10 @@ INSTANTIATE_TEST_SUITE_P(AudioCoreModuleTest, AudioCoreModule,
                          testing::ValuesIn(android::getAidlHalInstanceNames(IModule::descriptor)),
                          android::PrintInstanceNameToString);
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AudioCoreModule);
+INSTANTIATE_TEST_SUITE_P(AudioCoreTelephonyTest, AudioCoreTelephony,
+                         testing::ValuesIn(android::getAidlHalInstanceNames(IModule::descriptor)),
+                         android::PrintInstanceNameToString);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AudioCoreTelephony);
 INSTANTIATE_TEST_SUITE_P(AudioStreamInTest, AudioStreamIn,
                          testing::ValuesIn(android::getAidlHalInstanceNames(IModule::descriptor)),
                          android::PrintInstanceNameToString);
@@ -1850,6 +1974,117 @@ INSTANTIATE_TEST_SUITE_P(AudioStreamOutTest, AudioStreamOut,
                          testing::ValuesIn(android::getAidlHalInstanceNames(IModule::descriptor)),
                          android::PrintInstanceNameToString);
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AudioStreamOut);
+
+static const StreamDescriptor::Command kStartCommand =
+        StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::start>(Void{});
+static const StreamDescriptor::Command kBurstCommand =
+        StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::burst>(0);
+static const StreamDescriptor::Command kDrainCommand =
+        StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::drain>(Void{});
+static const StreamDescriptor::Command kStandbyCommand =
+        StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::standby>(Void{});
+static const StreamDescriptor::Command kPauseCommand =
+        StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::pause>(Void{});
+static const StreamDescriptor::Command kFlushCommand =
+        StreamDescriptor::Command::make<StreamDescriptor::Command::Tag::flush>(Void{});
+static const NamedCommandSequence kReadOrWriteSeq =
+        std::make_pair(std::string("ReadOrWrite"),
+                       std::vector<CommandAndState>{
+                               std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE)});
+static const NamedCommandSequence kDrainInSeq =
+        std::make_pair(std::string("Drain"),
+                       std::vector<CommandAndState>{
+                               std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
+                               std::make_pair(kDrainCommand, StreamDescriptor::State::DRAINING),
+                               std::make_pair(kStartCommand, StreamDescriptor::State::ACTIVE),
+                               std::make_pair(kDrainCommand, StreamDescriptor::State::DRAINING),
+                               // TODO: This will need to be changed once DRAIN starts taking time.
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::STANDBY)});
+static const NamedCommandSequence kDrainOutSeq =
+        std::make_pair(std::string("Drain"),
+                       std::vector<CommandAndState>{
+                               std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
+                               // TODO: This will need to be changed once DRAIN starts taking time.
+                               std::make_pair(kDrainCommand, StreamDescriptor::State::IDLE)});
+// TODO: This will need to be changed once DRAIN starts taking time so we can pause it.
+static const NamedCommandSequence kDrainPauseOutSeq = std::make_pair(
+        std::string("DrainPause"),
+        std::vector<CommandAndState>{std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
+                                     std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
+                                     std::make_pair(kDrainCommand, StreamDescriptor::State::IDLE)});
+static const NamedCommandSequence kStandbySeq =
+        std::make_pair(std::string("Standby"),
+                       std::vector<CommandAndState>{
+                               std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
+                               std::make_pair(kStandbyCommand, StreamDescriptor::State::STANDBY),
+                               // Perform a read or write in order to advance observable position
+                               // (this is verified by tests).
+                               std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE)});
+static const NamedCommandSequence kPauseInSeq =
+        std::make_pair(std::string("Pause"),
+                       std::vector<CommandAndState>{
+                               std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
+                               std::make_pair(kPauseCommand, StreamDescriptor::State::PAUSED),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
+                               std::make_pair(kPauseCommand, StreamDescriptor::State::PAUSED),
+                               std::make_pair(kFlushCommand, StreamDescriptor::State::STANDBY)});
+static const NamedCommandSequence kPauseOutSeq =
+        std::make_pair(std::string("Pause"),
+                       std::vector<CommandAndState>{
+                               std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
+                               std::make_pair(kPauseCommand, StreamDescriptor::State::PAUSED),
+                               std::make_pair(kStartCommand, StreamDescriptor::State::ACTIVE),
+                               std::make_pair(kPauseCommand, StreamDescriptor::State::PAUSED),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::PAUSED),
+                               std::make_pair(kStartCommand, StreamDescriptor::State::ACTIVE),
+                               std::make_pair(kPauseCommand, StreamDescriptor::State::PAUSED)});
+static const NamedCommandSequence kFlushInSeq =
+        std::make_pair(std::string("Flush"),
+                       std::vector<CommandAndState>{
+                               std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
+                               std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
+                               std::make_pair(kPauseCommand, StreamDescriptor::State::PAUSED),
+                               std::make_pair(kFlushCommand, StreamDescriptor::State::STANDBY)});
+static const NamedCommandSequence kFlushOutSeq = std::make_pair(
+        std::string("Flush"),
+        std::vector<CommandAndState>{std::make_pair(kStartCommand, StreamDescriptor::State::IDLE),
+                                     std::make_pair(kBurstCommand, StreamDescriptor::State::ACTIVE),
+                                     std::make_pair(kPauseCommand, StreamDescriptor::State::PAUSED),
+                                     std::make_pair(kFlushCommand, StreamDescriptor::State::IDLE)});
+std::string GetStreamIoTestName(const testing::TestParamInfo<StreamIoTestParameters>& info) {
+    return android::PrintInstanceNameToString(
+                   testing::TestParamInfo<std::string>{std::get<PARAM_MODULE_NAME>(info.param),
+                                                       info.index})
+            .append("_")
+            .append(std::get<PARAM_CMD_SEQ>(info.param).first)
+            .append("_SetupSeq")
+            .append(std::get<PARAM_SETUP_SEQ>(info.param) ? "2" : "1");
+}
+INSTANTIATE_TEST_SUITE_P(
+        AudioStreamIoInTest, AudioStreamIoIn,
+        testing::Combine(testing::ValuesIn(android::getAidlHalInstanceNames(IModule::descriptor)),
+                         testing::Values(kReadOrWriteSeq, kDrainInSeq, kStandbySeq, kPauseInSeq,
+                                         kFlushInSeq),
+                         testing::Values(false, true)),
+        GetStreamIoTestName);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AudioStreamIoIn);
+INSTANTIATE_TEST_SUITE_P(
+        AudioStreamIoOutTest, AudioStreamIoOut,
+        testing::Combine(testing::ValuesIn(android::getAidlHalInstanceNames(IModule::descriptor)),
+                         testing::Values(kReadOrWriteSeq, kDrainOutSeq, kDrainPauseOutSeq,
+                                         kStandbySeq, kPauseOutSeq, kFlushOutSeq),
+                         testing::Values(false, true)),
+        GetStreamIoTestName);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AudioStreamIoOut);
+
 INSTANTIATE_TEST_SUITE_P(AudioPatchTest, AudioModulePatch,
                          testing::ValuesIn(android::getAidlHalInstanceNames(IModule::descriptor)),
                          android::PrintInstanceNameToString);
