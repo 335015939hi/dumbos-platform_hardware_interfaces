@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e6b8450_bc3126d9",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-02T06:14:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a977daf_d003609e",
+      "range": {
+        "startLine": 38,
+        "startChar": 56,
+        "endLine": 38,
+        "endChar": 59
+      },
+      "revId": "aa62428f36dd58c3f1edd99570674f7bb2fdf78b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a25aa4a_1456c577",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-30T22:18:29Z",
       "side": 1,
       "message": "These constants must be defined in the AIDL file (hardware/interfaces/audio/aidl/android/hardware/audio/effect/BassBoost.aidl). Thanks for revealing this issue with the interface definition!",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 38
+      },
+      "revId": "aa62428f36dd58c3f1edd99570674f7bb2fdf78b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cedf5b08_47edf87d",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-02T06:14:51Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we want to define all of these ranges in AIDL, unless it was specified in CDD, or previously enforced by HIDL.\nIn BassBoost CDD there is a requirement of range [0, 1000], so I think it\u0027s okay to add definition and verification in this case.\nhttps://developer.android.com/reference/android/media/audiofx/BassBoost\n\nI agree VTS test cases should match with and driven from AIDL definition, but IMHO we should also update CDD together with these AIDL definition and VTS.",
+      "parentUuid": "1a25aa4a_1456c577",
       "range": {
         "startLine": 48,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90597ec0_a58f1570",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-02T06:14:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e05d4a6_05e6e46d",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 30
+      },
+      "revId": "aa62428f36dd58c3f1edd99570674f7bb2fdf78b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed15f68d_2d2cc995",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-30T22:18:29Z",
       "side": 1,
       "message": "Please also add `numeric_limits\u003cint\u003e::min()` and `numeric_limits\u003cint\u003e::max()`",
+      "range": {
+        "startLine": 51,
+        "startChar": 58,
+        "endLine": 51,
+        "endChar": 60
+      },
+      "revId": "aa62428f36dd58c3f1edd99570674f7bb2fdf78b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4de55bb6_242948c1",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-02T06:14:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed15f68d_2d2cc995",
       "range": {
         "startLine": 51,
         "startChar": 58,
