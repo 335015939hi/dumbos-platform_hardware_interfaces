@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aaf85d3_e40b1eeb",
+        "filename": "audio/aidl/android/hardware/audio/core/IBluetooth.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1979021
+      },
+      "writtenOn": "2022-12-02T03:30:55Z",
+      "side": 1,
+      "message": "May need a new boolean or extend this from bool to int for SWB(Super Wideband) feature.",
+      "range": {
+        "startLine": 46,
+        "startChar": 26,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "62553b6f7af2bb586bf7c9cecfeef2eb69dafc63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1ad7625a_06e4e720",
