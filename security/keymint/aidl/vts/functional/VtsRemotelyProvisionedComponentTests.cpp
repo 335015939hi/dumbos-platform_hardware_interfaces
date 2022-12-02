@@ -221,10 +221,15 @@ INSTANTIATE_REM_PROV_AIDL_TEST(GetHardwareInfoTests);
 TEST_P(GetHardwareInfoTests, supportsValidCurve) {
     RpcHardwareInfo hwInfo;
     ASSERT_TRUE(provisionable_->getHardwareInfo(&hwInfo).isOk());
-
-    const std::set<int> validCurves = {RpcHardwareInfo::CURVE_P256, RpcHardwareInfo::CURVE_25519};
-    ASSERT_EQ(validCurves.count(hwInfo.supportedEekCurve), 1)
-            << "Invalid curve: " << hwInfo.supportedEekCurve;
+    if (hwInfo.versionNumber == 2) {
+        const std::set<int> validCurves = {RpcHardwareInfo::CURVE_P256,
+                                           RpcHardwareInfo::CURVE_25519};
+        ASSERT_EQ(validCurves.count(hwInfo.supportedEekCurve), 1)
+                << "Invalid curve: " << hwInfo.supportedEekCurve;
+    } else {
+        ASSERT_EQ(hwInfo.supportedEekCurve, RpcHardwareInfo::CURVE_NONE)
+                << "Invalid curve: " << hwInfo.supportedEekCurve;
+    }
 }
 
 /**
