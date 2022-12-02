@@ -159,6 +159,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eb2d9ea_85fda47b",
+        "filename": "tetheroffload/aidl/config/conversion.log",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1607903
+      },
+      "writtenOn": "2022-12-02T08:38:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12cfef4a_ffd69840",
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f19be2ee_d5c249b2",
@@ -830,6 +848,30 @@
       "writtenOn": "2022-11-30T02:12:27Z",
       "side": 1,
       "message": "see comment in IPv4AddrPortPair file.",
+      "range": {
+        "startLine": 6,
+        "startChar": 18,
+        "endLine": 9,
+        "endChar": 79
+      },
+      "revId": "9444f5a84be7905fc66d7a42e922cbb6d1eb4473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e6d3b14_13dd0e68",
+        "filename": "tetheroffload/aidl/control/conversion.log",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1607903
+      },
+      "writtenOn": "2022-12-02T08:38:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db0c4ed8_e59d0f55",
       "range": {
         "startLine": 6,
         "startChar": 18,
