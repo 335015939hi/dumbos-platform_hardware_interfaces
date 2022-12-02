@@ -22,6 +22,30 @@
       },
       "revId": "dc9104e52c95fbde277e2ee9f06acb8aaca302a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e270e13_218cc936",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-02T13:01:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1adc8589_d9dac9a0",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 75
+      },
+      "revId": "dc9104e52c95fbde277e2ee9f06acb8aaca302a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
