@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <memory>
+
 #include <radio_config_hidl_hal_utils.h>
 
 #define ASSERT_OK(ret) ASSERT_TRUE(ret.isOk())
@@ -39,7 +41,7 @@ TEST_P(RadioConfigHidlTest, getModemsConfig) {
  */
 TEST_P(RadioConfigHidlTest, setModemsConfig_invalidArgument) {
     serial = GetRandomSerialNumber();
-    ModemsConfig* mConfig = new ModemsConfig();
+    std::unique_ptr<ModemsConfig> mConfig(new ModemsConfig());
     Return<void> res = radioConfig->setModemsConfig(serial, *mConfig);
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
@@ -57,7 +59,7 @@ TEST_P(RadioConfigHidlTest, setModemsConfig_invalidArgument) {
  */
 TEST_P(RadioConfigHidlTest, setModemsConfig_goodRequest) {
     serial = GetRandomSerialNumber();
-    ModemsConfig* mConfig = new ModemsConfig();
+    std::unique_ptr<ModemsConfig> mConfig(new ModemsConfig());
     if (isSsSsEnabled()) {
         mConfig->numOfLiveModems = 1;
     } else if (isDsDsEnabled()) {

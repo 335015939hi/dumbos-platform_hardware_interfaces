@@ -21,6 +21,8 @@
 #include <android/hardware/vibrator/IVibrator.h>
 #include <binder/IServiceManager.h>
 
+#include <memory>
+
 using ::android::enum_range;
 using ::android::sp;
 using ::android::hardware::hidl_enum_range;
@@ -297,11 +299,12 @@ BENCHMARK_WRAPPER(VibratorBench_Aidl, on, {
     mVibrator->getCapabilities(&capabilities);
 
     int32_t ms = INT32_MAX;
-    auto cb = (capabilities & Aidl::IVibrator::CAP_ON_CALLBACK) ? new HalCallback() : nullptr;
+    std::unique_ptr<HalCallback> cb(
+            (capabilities & Aidl::IVibrator::CAP_ON_CALLBACK) ? new HalCallback() : nullptr);
 
     for (auto _ : state) {
         state.ResumeTiming();
-        mVibrator->on(ms, cb);
+        mVibrator->on(ms, cb.get());
         state.PauseTiming();
         mVibrator->off();
     }
@@ -475,7 +478,8 @@ BENCHMARK_WRAPPER(VibratorEffectsBench_Aidl, perform, {
 
     auto effect = getEffect(state);
     auto strength = getStrength(state);
-    auto cb = (capabilities & Aidl::IVibrator::CAP_PERFORM_CALLBACK) ? new HalCallback() : nullptr;
+    std::unique_ptr<HalCallback> cb(
+            (capabilities & Aidl::IVibrator::CAP_PERFORM_CALLBACK) ? new HalCallback() : nullptr);
     int32_t lengthMs = 0;
 
     std::vector<Aidl::Effect> supported;
@@ -486,7 +490,7 @@ BENCHMARK_WRAPPER(VibratorEffectsBench_Aidl, perform, {
 
     for (auto _ : state) {
         state.ResumeTiming();
-        mVibrator->perform(effect, strength, cb, &lengthMs);
+        mVibrator->perform(effect, strength, cb.get(), &lengthMs);
         state.PauseTiming();
         mVibrator->off();
     }
@@ -562,13 +566,13 @@ BENCHMARK_WRAPPER(VibratorPrimitivesBench_Aidl, compose, {
         return;
     }
 
-    auto cb = new HalCallback();
+    std::unique_ptr<HalCallback> cb(new HalCallback());
     std::vector<Aidl::CompositeEffect> effects;
     effects.push_back(effect);
 
     for (auto _ : state) {
         state.ResumeTiming();
-        mVibrator->compose(effects, cb);
+        mVibrator->compose(effects, cb.get());
         state.PauseTiming();
         mVibrator->off();
     }
