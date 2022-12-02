@@ -16,6 +16,29 @@
       "message": "Andy, PTAL!",
       "revId": "d67dda685422cd7e9f391905d88b47758c6fea77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "accf9767_ba85a580",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2022-12-02T22:05:30Z",
+      "side": 1,
+      "message": "would be nice to compute this explicitly to make the formula clear. From\n\nhttps://wiki.hydrogenaud.io/index.php?title\u003dGapless_playback\n\nwe have\n\n    original_track_length \u003d file_track_length - delay - padding\n    \nhence\n\n    durationMs \u003d 3000 + (576 + 756 - (576 + 1000) - (756 + 1000)) * 1000 / sampleRate;\n    \nor\n\n    durationMs \u003d 3000 - 45;  // 45.35",
+      "range": {
+        "startLine": 967,
+        "startChar": 23,
+        "endLine": 967,
+        "endChar": 26
+      },
+      "revId": "d67dda685422cd7e9f391905d88b47758c6fea77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
