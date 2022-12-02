@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25261c7e_aae415c8",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-02T17:38:16Z",
+      "side": 1,
+      "message": "\u003e we should also update CDD together with these AIDL definition and VTS\n\nPlease note that CDD does not translate into HAL requirements directly, because CDD is a set requirements for the framework. The framework can do its own adaptation / translation when it passes parameters to HAL. For example, the CDD may say that the valid range for some parameter is from 0.0f to 1.0f, but on the HAL interface we might use 0 to 1000, scaling the framework number by 1000.\n\nI think, the general approach to validity ranges should be: if we can define ranges in the AIDL, do that. Otherwise, we should assume that one of the sides is responsible for defining the validity range at runtime, and we provide a corresponding method for retrieving the range by the other side.\n\nIn any case, defining constants in implementations only must be avoided.",
+      "parentUuid": "cedf5b08_47edf87d",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 38
+      },
+      "revId": "aa62428f36dd58c3f1edd99570674f7bb2fdf78b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e05d4a6_05e6e46d",
