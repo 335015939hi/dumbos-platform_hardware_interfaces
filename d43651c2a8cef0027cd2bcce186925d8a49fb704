@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a0741d4_826e627f",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1884457
+      },
+      "writtenOn": "2022-12-02T06:46:56Z",
+      "side": 1,
+      "message": "do we still use hidl-gen in U?",
+      "range": {
+        "startLine": 936,
+        "startChar": 1,
+        "endLine": 936,
+        "endChar": 52
+      },
+      "revId": "d43651c2a8cef0027cd2bcce186925d8a49fb704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
