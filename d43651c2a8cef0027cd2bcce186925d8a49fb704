@@ -22,6 +22,30 @@
       },
       "revId": "d43651c2a8cef0027cd2bcce186925d8a49fb704",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62b3e80c_58037565",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-03T02:59:03Z",
+      "side": 1,
+      "message": "only for legacy stuff. This CL is right. Thanks!",
+      "parentUuid": "2a0741d4_826e627f",
+      "range": {
+        "startLine": 936,
+        "startChar": 1,
+        "endLine": 936,
+        "endChar": 52
+      },
+      "revId": "d43651c2a8cef0027cd2bcce186925d8a49fb704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
