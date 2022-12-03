@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bb50859_edfb10b8",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-03T05:08:27Z",
+      "side": 1,
+      "message": "Thanks for pointing that out! I can see the client code here: https://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audioflinger/Threads.cpp;l\u003d3363;drc\u003d12488fa6dbc0ccee81e7ec84d3153f379949902e.\n\nI\u0027ve specified in the state machine that after a burst the stream can remain in the ACTIVE state which implies there will be no callback.\n\nUnfortunately, this complicates testing as the state machine becomes undeterministic.",
+      "parentUuid": "79186042_7dbf7bf0",
+      "range": {
+        "startLine": 202,
+        "startChar": 55,
+        "endLine": 203,
+        "endChar": 42
+      },
+      "revId": "42f82eb4fbb360c3fd06a0cdd0b27bb6d4b73f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9eeac25_cd64cf22",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-11-30T14:46:27Z",
       "side": 1,
       "message": "this means that in case of direct transition from TRANSFERRING to DRAINING the client will not receive the onTransferReady() callback. We should document this",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 78
+      },
+      "revId": "42f82eb4fbb360c3fd06a0cdd0b27bb6d4b73f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edcbac1b_d17bcac9",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-03T05:08:27Z",
+      "side": 1,
+      "message": "The observation is correct. Is your concern that the client could be blocked indefinitely waiting for `onTransferReady`? I don\u0027t think that it will be actually waiting because going from \u0027TRANSFERRING\u0027 to \u0027DRAINING\u0027 is only possible by means of the \u0027drain\u0027 command sent from the client. I think that waiting for the callback and sending the command at the same time would indicate lack of coordination in the client implementation. Also, sending a command implies getting a reply, which always provides the new stream state, thus the client will explicitly know that the stream is not in the \u0027TRANSFERRING\u0027 state anymore.",
+      "parentUuid": "a9eeac25_cd64cf22",
       "range": {
         "startLine": 392,
         "startChar": 0,
