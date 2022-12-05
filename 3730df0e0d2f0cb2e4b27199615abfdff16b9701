@@ -16,6 +16,24 @@
       "message": "You also need to update cuttlefish and Trusty implementations.",
       "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "330b8c1f_cc5b6825",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-12-05T19:15:57Z",
+      "side": 1,
+      "message": "Actually, I want to make v3 optionally backwards compatible with v2. b/260920864. So, I\u0027d rather we don\u0027t change the test. I\u0027ll update the interface.",
+      "parentUuid": "0467630b_bd8a2cc6",
+      "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
