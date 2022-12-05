@@ -39,6 +39,30 @@
       },
       "revId": "1846210ca7fc1f251126952b046e64ac1521460d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92e61b36_9ee5f31e",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-05T20:00:32Z",
+      "side": 1,
+      "message": "I\u0027m seeing this callback as an indication of an irrecoverable error, the stream enters a final \u0027ERROR\u0027 state after sending this. Thus, the client can\u0027t do much even if it would be aware of the exact reason. I\u0027ve added a comment clarifying that. We didn\u0027t have a error code in the corresponding HIDL interface either: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/7.0/IStreamOutCallback.hal?q\u003dIStreamOutCallback.hal",
+      "parentUuid": "8b341c46_ab4fbeb7",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 19
+      },
+      "revId": "1846210ca7fc1f251126952b046e64ac1521460d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
