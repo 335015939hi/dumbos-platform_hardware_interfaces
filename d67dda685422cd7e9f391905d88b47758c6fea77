@@ -39,6 +39,30 @@
       },
       "revId": "d67dda685422cd7e9f391905d88b47758c6fea77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0f7e1a5_9756e3ec",
+        "filename": "audio/core/all-versions/vts/functional/7.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-05T22:10:39Z",
+      "side": 1,
+      "message": "Good suggestion! Done.",
+      "parentUuid": "accf9767_ba85a580",
+      "range": {
+        "startLine": 967,
+        "startChar": 23,
+        "endLine": 967,
+        "endChar": 26
+      },
+      "revId": "d67dda685422cd7e9f391905d88b47758c6fea77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
