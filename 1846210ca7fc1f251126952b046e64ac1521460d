@@ -16,6 +16,29 @@
       "message": "Devin, please review API.",
       "revId": "1846210ca7fc1f251126952b046e64ac1521460d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b341c46_ab4fbeb7",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-05T18:08:57Z",
+      "side": 1,
+      "message": "do we want to have an error type in case we want more detail in the future?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 19
+      },
+      "revId": "1846210ca7fc1f251126952b046e64ac1521460d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
