@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d7f1763_6cc2e81c",
+        "filename": "audio/aidl/default/hapticGenerator/HapticGeneratorSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-05T14:33:16Z",
+      "side": 1,
+      "message": "All int values of Id are valid thus no range check is needed. For reference\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/libeffects/hapticgenerator/EffectHapticGenerator.cpp;l\u003d290",
+      "parentUuid": "9822c5d3_f2bd3b54",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 9
+      },
+      "revId": "1044b24e0cfce55f122244efd874e15ddf1c2ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a024317c_7f7c4276",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-30T22:27:21Z",
       "side": 1,
       "message": "Does this setter miss validation of `vibratorInfo`?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 44
+      },
+      "revId": "1044b24e0cfce55f122244efd874e15ddf1c2ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4181e677_98ee4a49",
+        "filename": "audio/aidl/default/hapticGenerator/HapticGeneratorSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-05T14:33:16Z",
+      "side": 1,
+      "message": "As vibratorInfo contains all float values and float values are valid thus no range check is needed. For reference: https://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/libeffects/hapticgenerator/EffectHapticGenerator.cpp;l\u003d308",
+      "parentUuid": "a024317c_7f7c4276",
       "range": {
         "startLine": 47,
         "startChar": 0,
@@ -84,6 +132,30 @@
       "side": 1,
       "message": "If possible, please define constants for valid ranges in the AIDL.",
       "parentUuid": "66e93d7e_3b2d729a",
+      "range": {
+        "startLine": 176,
+        "startChar": 17,
+        "endLine": 176,
+        "endChar": 46
+      },
+      "revId": "1044b24e0cfce55f122244efd874e15ddf1c2ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f685d56_89fb6dae",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-05T14:33:16Z",
+      "side": 1,
+      "message": "All float values are valid thus no range check is needed. For reference: https://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/libeffects/hapticgenerator/EffectHapticGenerator.cpp;l\u003d308",
+      "parentUuid": "aef9a0e3_a72457d7",
       "range": {
         "startLine": 176,
         "startChar": 17,
