@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6382346c_d37903d0",
+        "filename": "tetheroffload/aidl/control/translate/android/hardware/tetheroffload/control/Translate.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-05T17:11:27Z",
+      "side": 1,
+      "message": "Do we need this file?",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 18,
+        "endChar": 9
+      },
+      "revId": "59424f1a41965c7a4f7c26011c46773c0575c5bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4747d8fd_6714f79a",
+        "filename": "tetheroffload/aidl/control/translate/android/hardware/tetheroffload/control/translate-cpp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-05T17:11:27Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this file, since we have the ndk translate. May need to check",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 79
+      },
+      "revId": "59424f1a41965c7a4f7c26011c46773c0575c5bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "951cb1be_021b05a8",
+        "filename": "tetheroffload/aidl/control/translate/android/hardware/tetheroffload/control/translate-ndk.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-05T17:11:27Z",
+      "side": 1,
+      "message": "Remove line",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 18,
+        "endChar": 9
+      },
+      "revId": "59424f1a41965c7a4f7c26011c46773c0575c5bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
