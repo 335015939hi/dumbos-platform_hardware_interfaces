@@ -34,6 +34,24 @@
       "parentUuid": "0467630b_bd8a2cc6",
       "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e9289c2_55b8e3ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-05T19:39:03Z",
+      "side": 1,
+      "message": "Hrm... Do we want to mandate backwards compatibility for the new implementation, though? Maintaining compat in the trusty impl we already have makes sense, as the code already exists.\n\nHow much additional burden are we placing on rust keymint here?",
+      "parentUuid": "330b8c1f_cc5b6825",
+      "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
