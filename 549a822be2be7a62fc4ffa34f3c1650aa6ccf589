@@ -16,6 +16,23 @@
       "message": "Eric, please review!",
       "revId": "549a822be2be7a62fc4ffa34f3c1650aa6ccf589",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8f33815_09a0cc7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-05T17:47:56Z",
+      "side": 1,
+      "message": "Devin, please review the API change.",
+      "revId": "549a822be2be7a62fc4ffa34f3c1650aa6ccf589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
