@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0467630b_bd8a2cc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2022-12-05T19:03:24Z",
+      "side": 1,
+      "message": "You also need to update cuttlefish and Trusty implementations.",
+      "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
