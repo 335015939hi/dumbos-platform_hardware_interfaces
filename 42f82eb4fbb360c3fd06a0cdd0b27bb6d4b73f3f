@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ded3a94_8198bc2f",
+        "filename": "audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-12-05T17:50:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1bb50859_edfb10b8",
+      "range": {
+        "startLine": 202,
+        "startChar": 55,
+        "endLine": 203,
+        "endChar": 42
+      },
+      "revId": "42f82eb4fbb360c3fd06a0cdd0b27bb6d4b73f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9eeac25_cd64cf22",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "The observation is correct. Is your concern that the client could be blocked indefinitely waiting for `onTransferReady`? I don\u0027t think that it will be actually waiting because going from \u0027TRANSFERRING\u0027 to \u0027DRAINING\u0027 is only possible by means of the \u0027drain\u0027 command sent from the client. I think that waiting for the callback and sending the command at the same time would indicate lack of coordination in the client implementation. Also, sending a command implies getting a reply, which always provides the new stream state, thus the client will explicitly know that the stream is not in the \u0027TRANSFERRING\u0027 state anymore.",
       "parentUuid": "a9eeac25_cd64cf22",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 78
+      },
+      "revId": "42f82eb4fbb360c3fd06a0cdd0b27bb6d4b73f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffc40749_93c5767d",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-12-05T17:50:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "edcbac1b_d17bcac9",
       "range": {
         "startLine": 392,
         "startChar": 0,
