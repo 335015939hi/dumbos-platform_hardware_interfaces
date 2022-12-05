@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46352e84_5f499e8a",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-05T21:29:35Z",
+      "side": 1,
+      "message": "Please use the constants available from the generated class `android::hardware::audio::effect::BassBoost`.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 38
+      },
+      "revId": "53b076c8e713b46cb62fbe2116da0d792745cb36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
