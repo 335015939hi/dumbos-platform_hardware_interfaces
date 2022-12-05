@@ -16,6 +16,24 @@
       "message": "I think we should put it into a separate test. The test code for IConfig does not share anything with the test code for IModule, and the latter is already big on its own.",
       "revId": "fb5f23b827191b1410244a2e8a79ab6aea05ccfa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8818fd93_bc4aa5b1",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-12-05T22:58:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a48c8d51_a5bc56be",
+      "revId": "fb5f23b827191b1410244a2e8a79ab6aea05ccfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
