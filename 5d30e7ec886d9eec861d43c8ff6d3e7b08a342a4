@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1f590c7_31a52000",
+        "filename": "audio/aidl/default/hapticGenerator/HapticGeneratorSw.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-05T21:46:22Z",
+      "side": 1,
+      "message": "Likely, the scope of the mutex is too broad. It should be essential to make a copy of the pointer to the context under the lock and release it afterwards.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 31
+      },
+      "revId": "5d30e7ec886d9eec861d43c8ff6d3e7b08a342a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1155a69_4e3d29f7",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-05T21:46:22Z",
+      "side": 1,
+      "message": "Having current time in the test name is not a good idea. This prevents the test bookkeeping system from tracking test histories.",
+      "range": {
+        "startLine": 201,
+        "startChar": 23,
+        "endLine": 201,
+        "endChar": 35
+      },
+      "revId": "5d30e7ec886d9eec861d43c8ff6d3e7b08a342a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cceacf16_fc0875d2",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-05T21:46:22Z",
+      "side": 1,
+      "message": "Same note about the test name.",
+      "range": {
+        "startLine": 237,
+        "startChar": 12,
+        "endLine": 237,
+        "endChar": 35
+      },
+      "revId": "5d30e7ec886d9eec861d43c8ff6d3e7b08a342a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
