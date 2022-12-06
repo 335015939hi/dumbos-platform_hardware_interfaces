@@ -62,6 +62,7 @@ bool ShouldCheckMissingHalsInFcm(const std::string& package) {
             "android.hardware.input.common",
             "android.hardware.keymaster",
             "android.hardware.radio",
+            "android.hardware.tetheroffload.common",
             "android.hardware.uwb.fira_android",
 
             // Fastboot HAL is only used by recovery. Recovery is owned by OEM. Framework
