@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3eb5f917_1fcca2d5",
+        "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-06T02:18:33Z",
+      "side": 1,
+      "message": "Yes, it\u0027s more like a clarification for implementors that this method returns data which is constant at runtime.\n\nI would just change future tense to present: \"will only be called\" -\u003e \"is only called\".",
+      "parentUuid": "bb91d390_2c6143cc",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 77
+      },
+      "revId": "1c87fa91089127e990feb67ffcfaa1715b4bcb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e225fdd_b694d084",
         "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
         "patchSetId": 6
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I don\u0027t think the system could do anything with this error. This method is only called at engine initialization. The entire audio server process restarts as a whole (and restarts the HAL as well), so I think all things affected by engine configuration would also reset like in a regular startup.",
       "parentUuid": "8e225fdd_b694d084",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 61
+      },
+      "revId": "1c87fa91089127e990feb67ffcfaa1715b4bcb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dc4f535_3f0eeba1",
+        "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-06T02:18:33Z",
+      "side": 1,
+      "message": "I think, the question here is what will happen if the implementation encounters a runtime error while trying to serve this method, for example some of config files that it uses for fulfilling this request can\u0027t be opened or contain bad data. In this case the implementation can either return some empty or incomplete configuration which will render audio on the device to be unusable completely or partially, or it can return an error, and the audio server will abort initialization, and restart, and repeat it again and again.\n\nCurrently, the audio server skips bad parts of the configuration, or falls back to some default settings. I think we can retain this behavior, making the device partially useful, possibly with no audio.",
+      "parentUuid": "a2455f65_a574e410",
       "range": {
         "startLine": 48,
         "startChar": 0,
