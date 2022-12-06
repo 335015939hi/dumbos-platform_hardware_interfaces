@@ -157,8 +157,8 @@ aidl_interface {
     srcs: ["android/hardware/radio/sim/*.aidl"],
     stability: "vintf",
     imports: [
-        "android.hardware.radio",
-        "android.hardware.radio.config",
+        "android.hardware.radio-V1",
+        "android.hardware.radio.config-V1",
     ],
     backend: {
         cpp: {
