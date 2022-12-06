@@ -22,6 +22,30 @@
       },
       "revId": "320dc3c4fbebacbe79842a0da25dffa10e0e6a6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9501cfe7_98ed1e29",
+        "filename": "radio/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-06T19:31:53Z",
+      "side": 1,
+      "message": "yeah - b/261198242 is for this. I was expecting some of these to fail :)",
+      "parentUuid": "21051cdf_42fa6864",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 17
+      },
+      "revId": "320dc3c4fbebacbe79842a0da25dffa10e0e6a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
