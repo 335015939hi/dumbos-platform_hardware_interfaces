@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3ff5f4a_faae2a7e",
+        "filename": "tetheroffload/config/aidl/android/hardware/tetheroffload/config/IOffloadConfig.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T18:37:28Z",
+      "side": 1,
+      "message": "If these can be a single file descriptor, then we can use `ParcelFileDescriptor` instead.\nNativeHandle is a wrapper around an array of fds and ints: https://source.corp.google.com/android/hardware/interfaces/common/aidl/android/hardware/common/NativeHandle.aidl;rcl\u003d655c54ef67a77f22d5c42b8169eb4c733519869c;l\u003d24",
+      "range": {
+        "startLine": 37,
+        "startChar": 25,
+        "endLine": 37,
+        "endChar": 37
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0735d5e0_9371a0a7",
+        "filename": "tetheroffload/control/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T18:37:28Z",
+      "side": 1,
+      "message": "Add the `-V1` explicitly. It will likely be required int he future.\n`android.hardware.tetheroffload.common-V1`",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 47
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16076495_c34567fb",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T18:37:28Z",
+      "side": 1,
+      "message": "can delete",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 67
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc0857d5_720b06f2",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T18:37:28Z",
+      "side": 1,
+      "message": "is there a specific format/standard for what this interface name is? Can we add any comment here describing it?",
+      "range": {
+        "startLine": 53,
+        "startChar": 21,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad6c374_f0da0872",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T18:37:28Z",
+      "side": 1,
+      "message": "We could move this to the return type if we don\u0027t want to add the `Status` as a return type.\nIt\u0027s also fine if you want to keep it this way.",
+      "range": {
+        "startLine": 83,
+        "startChar": 46,
+        "endLine": 83,
+        "endChar": 71
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da9f952c_8364e820",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T18:37:28Z",
+      "side": 1,
+      "message": "I think this can be removed since there is nothing it is replacing anymore?",
+      "range": {
+        "startLine": 136,
+        "startChar": 3,
+        "endLine": 138,
+        "endChar": 70
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6853f16b_de6811a5",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/ITetheringOffloadCallback.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T18:37:28Z",
+      "side": 1,
+      "message": "can delete",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 77
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "497ddadf_6dfa319e",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/ITetheringOffloadCallback.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T18:37:28Z",
+      "side": 1,
+      "message": "can delete",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 55
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "270c5fba_62dc6fde",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/ITetheringOffloadCallback.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T18:37:28Z",
+      "side": 1,
+      "message": "can delete",
+      "range": {
+        "startLine": 36,
+        "startChar": 27,
+        "endLine": 37,
+        "endChar": 44
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6101125_ee537fad",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/ITetheringOffloadCallback.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T18:37:28Z",
+      "side": 1,
+      "message": "We can move the `oneway` to the whole interface (`oneway interface ITetheringOffloadCallback {`) and remove these",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 10
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1d7a661_84bcf9c7",
+        "filename": "tetheroffload/control/aidl/include/android/hardware/tetheroffload/control/translate-cpp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T18:37:28Z",
+      "side": 1,
+      "message": "we can remove all of these translate* files if we don\u0027t intend to translate between the HIDL and AIDL types. Most clients/services don\u0027t end up need them.",
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
