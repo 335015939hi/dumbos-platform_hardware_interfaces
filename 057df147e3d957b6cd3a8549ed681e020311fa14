@@ -51,6 +51,24 @@
       "message": "I am not",
       "revId": "057df147e3d957b6cd3a8549ed681e020311fa14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7af0572c_6c744f89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1933945
+      },
+      "writtenOn": "2022-12-06T00:29:26Z",
+      "side": 1,
+      "message": "There is a long tail of errors: https://android-build.googleplex.com/builds/pending/P45320954/errorprone/latest/view/logs/build.log\n\nFor example:\n\n```\nout/.intermediates/hardware/interfaces/thermal/aidl/android.hardware.thermal-V1-java-source/gen/android/hardware/thermal/CoolingDevice.java:5: error: Parcelable classes must be final: android.hardware.thermal.CoolingDevice is not final [ParcelNotFinal]\nout/.intermediates/hardware/interfaces/thermal/aidl/android.hardware.thermal-V1-java-source/gen/android/hardware/thermal/CoolingDevice.java:37: error: Missing nullability on parameter `_aidl_parcel` in method `writeToParcel` [MissingNullability]\nout/.intermediates/hardware/interfaces/thermal/aidl/android.hardware.thermal-V1-java-source/gen/android/hardware/thermal/CoolingDevice.java:49: error: Missing nullability on parameter `_aidl_parcel` in method `readFromParcel` [MissingNullability]\nout/.intermediates/hardware/interfaces/thermal/aidl/android.hardware.thermal-V1-java-source/gen/android/hardware/thermal/CoolingDevice.java:25: error: Missing nullability on field `CREATOR` in class `class android.hardware.thermal.CoolingDevice` [MissingNullability]\nout/.intermediates/hardware/interfaces/thermal/aidl/android.hardware.thermal-V1-java-source/gen/android/hardware/thermal/CoolingDevice.java:15: error: Bare field name must be marked final, or moved behind accessors if mutable [MutableBareField]\nout/.intermediates/hardware/interfaces/thermal/aidl/android.hardware.thermal-V1-java-source/gen/android/hardware/thermal/CoolingDevice.java:15: error: Missing nullability on field `name` in class `class android.hardware.thermal.CoolingDevice` [MissingNullability]\nout/.intermediates/hardware/interfaces/thermal/aidl/android.hardware.thermal-V1-java-source/gen/android/hardware/thermal/CoolingDevice.java:8: error: Bare field type must be marked final, or moved behind accessors if mutable [MutableBareField]\nout/.intermediates/hardware/interfaces/thermal/aidl/android.hardware.thermal-V1-java-source/gen/android/hardware/thermal/CoolingDevice.java:22: error: Bare field value must be marked final, or moved behind accessors if mutable [MutableBareField]\n```\n\nFollowing the suggestion here https://groups.google.com/a/google.com/g/android-idl-discuss/c/VzU9x8Lg9F4/m/fbK_rUUUAgAJ, we need to mark it as @hide or we should revamp the AIDL to comply?",
+      "parentUuid": "02b34c24_ab73c70f",
+      "revId": "057df147e3d957b6cd3a8549ed681e020311fa14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
