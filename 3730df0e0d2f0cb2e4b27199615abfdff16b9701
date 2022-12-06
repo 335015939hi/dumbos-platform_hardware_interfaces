@@ -87,6 +87,24 @@
       "parentUuid": "4d960236_47113d89",
       "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35c0e410_2cfd477f",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-06T21:49:02Z",
+      "side": 1,
+      "message": "\u003e A particular instance can declare only one value for the version field in hwInfo (v2 or v3).\n\nTrue, but Tri had a neat idea to allow v3 implementations to support v2 clients. So we cannot rely only on the hwInfo version to determine the curve support.\n\nThe confusing bit here, I think, is that there are two different versions:\n1. The HAL version\n2. The CSR version (the on-the-wire format that the HAL spits out)\n\nWith the changes Tri is working on now, we\u0027re slightly decoupling this, so a newer HAL can support older CSR versions. There are different entry points for getting the different CSR versions, so we can figure out which one the client wants.\n\nWe need the P256 and x25519 curves to be supported in HALs that support the old CSR version (because it requires request encryption). We can detect a HAL that supports old CSRs by checking which interfaces it supports.\n\nHowever, a newer HAL doesn\u0027t _have_ to support the old CSR version. In that case, CURVE_NONE is the supported curve since that HAL will never support CSR encryption.\n\nAs usual, we made something complicated. Feel free to grab me over chat or gvc if you want to talk more.",
+      "parentUuid": "5cca3fb6_8b13c57c",
+      "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
