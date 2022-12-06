@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb91d390_2c6143cc",
+        "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-12-06T01:02:18Z",
+      "side": 1,
+      "message": "It\u0027s more a heads-up to vendors that that is how we (audio framework) intend to use that method. \n\nI can\u0027t think of a scenario where the system would ever need to use this method outside of engine initialization, but I also don\u0027t know that we need to say \"This method must only be called ...\"",
+      "parentUuid": "aa8520c6_efe1e023",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 77
+      },
+      "revId": "1c87fa91089127e990feb67ffcfaa1715b4bcb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e225fdd_b694d084",
         "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
         "patchSetId": 6
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-21T20:34:25Z",
       "side": 1,
       "message": "nit: specify error to return if not?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 61
+      },
+      "revId": "1c87fa91089127e990feb67ffcfaa1715b4bcb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2455f65_a574e410",
+        "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-12-06T01:02:18Z",
+      "side": 1,
+      "message": "I don\u0027t think the system could do anything with this error. This method is only called at engine initialization. The entire audio server process restarts as a whole (and restarts the HAL as well), so I think all things affected by engine configuration would also reset like in a regular startup.",
+      "parentUuid": "8e225fdd_b694d084",
       "range": {
         "startLine": 48,
         "startChar": 0,
