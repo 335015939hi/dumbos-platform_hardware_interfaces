@@ -69,6 +69,24 @@
       "message": "Based on discussions in the team chat, I think it would be better to check if the HAL supports backward compatibility instead.\n\n@trong@google.com helpfully pointed out https://source.corp.google.com/android-internal/hardware/interfaces/security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp;l\u003d400\n\nWe just check to see if v1 support has been removed, if so, then CURVE_NONE makes sense. Else, the HAL supports v1 and we should ensure valid curves are returned.",
       "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cca3fb6_8b13c57c",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-12-06T21:17:36Z",
+      "side": 1,
+      "message": "Thanks Seth! I will try to add that check here.\n\nI would like to clarify a few things in the meanwhile:\n1) In the VTS tests, do we not test a particular instance of the IRPC HAL implementation?\nA particular instance can declare only one value for the version field in hwInfo (v2 or v3). Isn\u0027t it?\n2) It is not clear to me why we do not decide which set of VTS tests to run based on hwInfo.version, regardless of whether a particular instance previously supported the previous version or not.\n\nIn the check pointed out by @trong@google.com, there are two checks:\na) `rpcHardwareInfo.versionNumber \u003e\u003d VERSION_WITHOUT_TEST_MODE`\nb) `generateCertificateRequest` returns `STATUS_REMOVED`\nIt is not clear to me why b should not always be true if a is true. (i.e. how can a particular instance of a HAL implementation supports two versions at the same time)\n\nI would appreciate any clarifications. Thanks!",
+      "parentUuid": "4d960236_47113d89",
+      "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
