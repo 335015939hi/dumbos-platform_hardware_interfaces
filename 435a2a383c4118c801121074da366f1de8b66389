@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2704cf4f_fb78a5e7",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-06T02:37:09Z",
+      "side": 1,
+      "message": "Should this be defined in AIDL? Looks like part of the interface contract.",
+      "range": {
+        "startLine": 31,
+        "startChar": 54,
+        "endLine": 31,
+        "endChar": 57
+      },
+      "revId": "435a2a383c4118c801121074da366f1de8b66389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f439957_54e3d55a",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-06T02:37:09Z",
+      "side": 1,
+      "message": "I think this is fragile because we don\u0027t really enforce this in AIDL. If someone makes a typo in the constant name, this will break. I think, it\u0027s more reliable to test against enum values explicitly, e.g. `\u003d\u003d AudioFlag.SYS_RESERVED_SCO` etc.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 1
+      },
+      "revId": "435a2a383c4118c801121074da366f1de8b66389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb748a28_1a36fb07",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-06T02:37:09Z",
+      "side": 1,
+      "message": "This looks a bit odd to me 1) because we always make a copy of AudioHalEngineConfig (when constructing a heap-allocated version), which can be avoided, and 2) when I see `make_unique\u003c\u003e` from a stack-allocated object I suspect that something wrong is going on, also 3) on a general note, classes that need to be managed with a unique_ptr are often not copyable. I would suggest a more canonical implementation instead:\n\n```\nauto tempConfig \u003d std::make_unique\u003cAudioHalEngineConfig\u003e();\nASSERT_IS_OK(mConfig-\u003egetEngineConfig(tempConfig.get()));\nmEngineConfig \u003d std::move(tempConfig);\n```",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 78
+      },
+      "revId": "435a2a383c4118c801121074da366f1de8b66389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e76909fe_ca61dfc9",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-06T02:37:09Z",
+      "side": 1,
+      "message": "In general it\u0027s advised to wrap calls to helper methods into `EXPECT_NO_FATAL_FAILURE` or `ASSERT_NO_FATAL_FAILURE` to guarantee that any errors or early exits from test code get handled correctly, see go/gunitadvanced#asserting-on-subroutines.",
+      "range": {
+        "startLine": 108,
+        "startChar": 8,
+        "endLine": 108,
+        "endChar": 60
+      },
+      "revId": "435a2a383c4118c801121074da366f1de8b66389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fdda148_85d68276",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-06T02:37:09Z",
+      "side": 1,
+      "message": "nit: Please surround each `TEST_P() { ... }` with empty lines.",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 1
+      },
+      "revId": "435a2a383c4118c801121074da366f1de8b66389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
