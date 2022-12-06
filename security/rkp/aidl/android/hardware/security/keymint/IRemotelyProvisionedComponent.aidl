@@ -340,6 +340,7 @@ interface IRemotelyProvisionedComponent {
      *         challenge: bstr .size (32..64), ; Provided by the method parameters
      *         bstr .cbor T,
      *     ]>,
+     *     UnverifiedDeviceInfo,
      * ]
      *
      * ; COSE_Sign1 (untagged)
@@ -439,6 +440,13 @@ interface IRemotelyProvisionedComponent {
      *     external_aad: bstr .size 0,
      *     payload: bstr .cbor DiceChainEntryPayload
      * ]
+     *
+     * ; The authenticated request also contains a map containing information
+     * ; which has not been signed as part of the payload from the device. For now, it contains only
+     * ; the build fingerprint.
+     * UnverifiedDeviceInfo = {
+     *     "fingerprint" : tstr,
+     * }
      *
      * ; The following section defines some types that are reused throughout the above
      * ; data structures.
