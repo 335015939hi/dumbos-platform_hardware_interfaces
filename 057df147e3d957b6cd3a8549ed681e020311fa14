@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d3f4aab_41289ae0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1933945
+      },
+      "writtenOn": "2022-12-06T00:16:32Z",
+      "side": 1,
+      "message": "I think we don\u0027t want this in SDK, and they won\u0027t pass the API lint check.",
+      "revId": "057df147e3d957b6cd3a8549ed681e020311fa14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
