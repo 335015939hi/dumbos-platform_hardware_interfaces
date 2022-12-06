@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80d8ab11_b286b5ec",
+        "filename": "tetheroffload/config/aidl/android/hardware/tetheroffload/config/IOffloadConfig.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-06T21:51:58Z",
+      "side": 1,
+      "message": "Yes a ParcelFileDescriptor will suffice.",
+      "parentUuid": "c3ff5f4a_faae2a7e",
+      "range": {
+        "startLine": 37,
+        "startChar": 25,
+        "endLine": 37,
+        "endChar": 37
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0735d5e0_9371a0a7",
         "filename": "tetheroffload/control/aidl/Android.bp",
         "patchSetId": 3
@@ -95,6 +119,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dda7f48d_56acbba0",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-06T21:51:58Z",
+      "side": 1,
+      "message": "There is no specific format right now.",
+      "parentUuid": "dc0857d5_720b06f2",
+      "range": {
+        "startLine": 53,
+        "startChar": 21,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aad6c374_f0da0872",
         "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
         "patchSetId": 3
@@ -118,6 +166,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd680327_f37e3538",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-06T21:51:58Z",
+      "side": 1,
+      "message": "This would be fine",
+      "parentUuid": "aad6c374_f0da0872",
+      "range": {
+        "startLine": 83,
+        "startChar": 46,
+        "endLine": 83,
+        "endChar": 71
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da9f952c_8364e820",
         "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
         "patchSetId": 3
@@ -129,6 +201,30 @@
       "writtenOn": "2022-12-06T18:37:28Z",
       "side": 1,
       "message": "I think this can be removed since there is nothing it is replacing anymore?",
+      "range": {
+        "startLine": 136,
+        "startChar": 3,
+        "endLine": 138,
+        "endChar": 70
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12bb72ea_0b7332e0",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-06T21:51:58Z",
+      "side": 1,
+      "message": "Correct",
+      "parentUuid": "da9f952c_8364e820",
       "range": {
         "startLine": 136,
         "startChar": 3,
@@ -244,6 +340,24 @@
       "writtenOn": "2022-12-06T18:37:28Z",
       "side": 1,
       "message": "we can remove all of these translate* files if we don\u0027t intend to translate between the HIDL and AIDL types. Most clients/services don\u0027t end up need them.",
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25265741_24543566",
+        "filename": "tetheroffload/control/aidl/include/android/hardware/tetheroffload/control/translate-cpp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-06T21:51:58Z",
+      "side": 1,
+      "message": "As we are moving the service to AIDL, it is fine to remove these files.",
+      "parentUuid": "f1d7a661_84bcf9c7",
       "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
