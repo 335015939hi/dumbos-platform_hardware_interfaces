@@ -16,6 +16,41 @@
       "message": "I think we don\u0027t want this in SDK, and they won\u0027t pass the API lint check.",
       "revId": "057df147e3d957b6cd3a8549ed681e020311fa14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02b34c24_ab73c70f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-12-06T00:19:11Z",
+      "side": 1,
+      "message": "I am not sure about the reason, could you please be more specific?",
+      "parentUuid": "1d3f4aab_41289ae0",
+      "revId": "057df147e3d957b6cd3a8549ed681e020311fa14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31c2419c_1f909024",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2022-12-06T00:19:11Z",
+      "side": 1,
+      "message": "I am not",
+      "revId": "057df147e3d957b6cd3a8549ed681e020311fa14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
