@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21051cdf_42fa6864",
+        "filename": "radio/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-06T16:25:37Z",
+      "side": 1,
+      "message": "This can\u0027t get merged internally because there are changes to it.\n\nThe build failure is pretty misleading though...",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 17
+      },
+      "revId": "320dc3c4fbebacbe79842a0da25dffa10e0e6a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
