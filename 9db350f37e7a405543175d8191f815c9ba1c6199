@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6132dfa3_77cd3d7a",
+        "filename": "audio/aidl/default/Config.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-06T03:29:44Z",
+      "side": 1,
+      "message": "This looks problematic. When we use `std::move` we indicate to the compiler that we will never use the moved-from object again, so it can do whatever it wants with it, but here we will in fact use it again on the next call to `getEngineConfig`. This problem would become more clear if we declare `returnEngCfg` as `static const`, which it really should be—in that case use of `std::move` will become syntactically incorrect.\n\nSo, please make `returnEngCfg` a constant, and remove `std::move`. A copy is unavoidable in this scenario, and it\u0027s OK. It\u0027s still far more cheaper to copy this object instead of re-creating it via deserialization.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 44
+      },
+      "revId": "9db350f37e7a405543175d8191f815c9ba1c6199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5365db34_e0f27a4d",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-06T03:29:44Z",
+      "side": 1,
+      "message": "It seems to be that we can generate the error message at the construction time (using a static method), and in that case storing `mRequestedFilePath` and `mIsRequestedFilePathReadable` becomes redundant as they are not used anywhere outside the instance initialization besides this code.",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "9db350f37e7a405543175d8191f815c9ba1c6199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
