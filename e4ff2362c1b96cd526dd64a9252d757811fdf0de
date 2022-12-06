@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c12bf33_9fc6153f",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-06T21:08:16Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to match up with the existing implementation.\n\nIs the plan to pass unverified device info into the HAL? That seems like a lot of data copying.",
+      "range": {
+        "startLine": 343,
+        "startChar": 11,
+        "endLine": 343,
+        "endChar": 31
+      },
+      "revId": "e4ff2362c1b96cd526dd64a9252d757811fdf0de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
