@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc8ce039_ff42e818",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-06T11:19:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1155a69_4e3d29f7",
+      "range": {
+        "startLine": 201,
+        "startChar": 23,
+        "endLine": 201,
+        "endChar": 35
+      },
+      "revId": "5d30e7ec886d9eec861d43c8ff6d3e7b08a342a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cceacf16_fc0875d2",
@@ -84,6 +108,30 @@
       "writtenOn": "2022-12-05T21:46:22Z",
       "side": 1,
       "message": "Same note about the test name.",
+      "range": {
+        "startLine": 237,
+        "startChar": 12,
+        "endLine": 237,
+        "endChar": 35
+      },
+      "revId": "5d30e7ec886d9eec861d43c8ff6d3e7b08a342a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e247089_7cfa9326",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-06T11:19:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cceacf16_fc0875d2",
       "range": {
         "startLine": 237,
         "startChar": 12,
