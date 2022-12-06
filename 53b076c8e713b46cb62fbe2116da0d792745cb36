@@ -22,6 +22,30 @@
       },
       "revId": "53b076c8e713b46cb62fbe2116da0d792745cb36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d587a3d_f2f1cff2",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-06T03:30:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46352e84_5f499e8a",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 38
+      },
+      "revId": "53b076c8e713b46cb62fbe2116da0d792745cb36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
