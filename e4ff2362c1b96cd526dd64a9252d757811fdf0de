@@ -22,6 +22,30 @@
       },
       "revId": "e4ff2362c1b96cd526dd64a9252d757811fdf0de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d9e40dc_2367c57d",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-06T21:36:26Z",
+      "side": 1,
+      "message": "Talked over lunch. This makes sense, and I misread (this data is not signed).\n\nWe just need to update client bits to do this. trong@google.com will do that, I guess?",
+      "parentUuid": "2c12bf33_9fc6153f",
+      "range": {
+        "startLine": 343,
+        "startChar": 11,
+        "endLine": 343,
+        "endChar": 31
+      },
+      "revId": "e4ff2362c1b96cd526dd64a9252d757811fdf0de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
