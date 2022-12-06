@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c459f96c_3a4228dc",
+        "filename": "audio/aidl/default/hapticGenerator/HapticGeneratorSw.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-06T04:41:56Z",
+      "side": 1,
+      "message": "I will address this in a followup CL.",
+      "parentUuid": "f1f590c7_31a52000",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 31
+      },
+      "revId": "5d30e7ec886d9eec861d43c8ff6d3e7b08a342a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1155a69_4e3d29f7",
