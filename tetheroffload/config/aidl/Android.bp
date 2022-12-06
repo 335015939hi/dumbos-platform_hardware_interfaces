@@ -1,0 +1,21 @@
+// This is the expected build file, but it may not be right in all cases
+
+aidl_interface {
+    name: "android.hardware.tetheroffload.config",
+    vendor_available: true,
+    host_supported: true,
+    srcs: ["android/hardware/tetheroffload/config/*.aidl"],
+    stability: "vintf",
+    backend: {
+        cpp: {
+            // FIXME should this be disabled?
+            // prefer NDK backend which can be used anywhere
+            // If you disable this, you also need to delete the C++
+            // translate code.
+            enabled: true,
+        },
+        java: {
+            sdk_version: "system_current",
+        },
+    },
+}
