@@ -673,6 +673,18 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.tetheroffload</name>
+        <version>1</version>
+        <interface>
+            <name>IOffloadConfig</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IOffloadControl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="aidl" optional="false">
         <name>android.hardware.thermal</name>
         <version>1</version>
