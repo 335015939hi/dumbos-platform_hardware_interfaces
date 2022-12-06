@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce9bb8cd_0f97426f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-12-06T10:43:57Z",
+      "side": 1,
+      "message": "Do you want to merge as is and move the base types in a subsequent CLs or create a topic to merge all the changes at once?",
+      "revId": "9465b90fab4583630f5fbb86f07fcefd57b64464",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82bdcd1c_4a146c52",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-12-06T10:43:57Z",
+      "side": 1,
+      "message": "Is this new from HIDL?\nIs this this exposed at the module level, does it mean that it applies to all output stream and input streams? If not, how do we indicate which streams this applies to?",
+      "range": {
+        "startLine": 652,
+        "startChar": 9,
+        "endLine": 652,
+        "endChar": 40
+      },
+      "revId": "9465b90fab4583630f5fbb86f07fcefd57b64464",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
