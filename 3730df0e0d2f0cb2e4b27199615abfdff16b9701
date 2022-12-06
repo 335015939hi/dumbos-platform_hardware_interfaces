@@ -52,6 +52,23 @@
       "parentUuid": "330b8c1f_cc5b6825",
       "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d960236_47113d89",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-06T17:28:30Z",
+      "side": 1,
+      "message": "Based on discussions in the team chat, I think it would be better to check if the HAL supports backward compatibility instead.\n\n@trong@google.com helpfully pointed out https://source.corp.google.com/android-internal/hardware/interfaces/security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp;l\u003d400\n\nWe just check to see if v1 support has been removed, if so, then CURVE_NONE makes sense. Else, the HAL supports v1 and we should ensure valid curves are returned.",
+      "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
