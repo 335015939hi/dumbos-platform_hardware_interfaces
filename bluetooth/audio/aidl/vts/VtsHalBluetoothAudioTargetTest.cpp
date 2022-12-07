@@ -37,6 +37,8 @@ using aidl::android::hardware::bluetooth::audio::AacCapabilities;
 using aidl::android::hardware::bluetooth::audio::AacConfiguration;
 using aidl::android::hardware::bluetooth::audio::AptxCapabilities;
 using aidl::android::hardware::bluetooth::audio::AptxConfiguration;
+using aidl::android::hardware::bluetooth::audio::AptxAdaptiveLeCapabilities;
+using aidl::android::hardware::bluetooth::audio::AptxAdaptiveLeConfiguration;
 using aidl::android::hardware::bluetooth::audio::AudioCapabilities;
 using aidl::android::hardware::bluetooth::audio::AudioConfiguration;
 using aidl::android::hardware::bluetooth::audio::BnBluetoothAudioPort;
@@ -238,6 +240,8 @@ class BluetoothAudioProviderFactoryAidl
                         CodecCapabilities::Capabilities::opusCapabilities);
               break;
             case CodecType::APTX_ADAPTIVE:
+            case CodecType::APTX_ADAPTIVE_LE:
+            case CodecType::APTX_ADAPTIVE_LEX:
             case CodecType::LC3:
             case CodecType::VENDOR:
             case CodecType::UNKNOWN:
@@ -1192,6 +1196,57 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
     return le_audio_codec_configs;
   }
 
+
+  std::vector<AptxAdaptiveLeConfiguration> GetUnicastAptxAdaptiveLeSupportedList(bool decoding,
+                                                           bool supported, bool is_le_extended) {
+    std::vector<AptxAdaptiveLeConfiguration> le_audio_codec_configs;
+    if (!supported) {
+      AptxAdaptiveLeConfiguration aptx_adaptive_le_config{.pcmBitDepth = 0, .samplingFrequencyHz = 0};
+      le_audio_codec_configs.push_back(aptx_adaptive_le_config);
+      return le_audio_codec_configs;
+    }
+
+    // There might be more than one LeAudioCodecCapabilitiesSetting
+    std::vector<AptxAdaptiveLeCapabilities> aptx_adaptive_le_capabilities;
+    for (auto& capability : temp_provider_capabilities_) {
+      if (capability.getTag() != AudioCapabilities::leAudioCapabilities) {
+        continue;
+      }
+      auto& le_audio_capability =
+          capability.get<AudioCapabilities::leAudioCapabilities>();
+      auto& unicast_capability =
+          decoding ? le_audio_capability.unicastDecodeCapability
+                   : le_audio_capability.unicastEncodeCapability;
+      if ((!is_le_extended && unicast_capability.codecType != CodecType::APTX_ADAPTIVE_LE) ||
+          (is_le_extended && unicast_capability.codecType != CodecType::APTX_ADAPTIVE_LEX)) {
+        continue;
+      }
+      auto& aptx_adaptive_le_capability = unicast_capability.leAudioCodecCapabilities.get<
+          UnicastCapability::LeAudioCodecCapabilities::aptxadaptiveleCapabilitiess>();
+      aptx_adaptive_le_capabilities.push_back(aptx_adaptive_le_capability);
+    }
+
+    // Combine those parameters into one list of LeAudioCodecConfiguration
+    // This seems horrible, but usually each Lc3Capability only contains a
+    // single Lc3Configuration, which means every array has a length of 1.
+    for (auto& aptx_adaptive_le_capability : aptx_adaptive_le_capabilities) {
+      for (int32_t samplingFrequencyHz : aptx_adaptive_le_capability.samplingFrequencyHz) {
+        for (int32_t frameDurationUs : aptx_adaptive_le_capability.frameDurationUs) {
+          for (int32_t octetsPerFrame : aptx_adaptive_le_capability.octetsPerFrame) {
+            AptxAdaptiveLeConfiguration aptx_adaptive_le_config = {
+                .samplingFrequencyHz = samplingFrequencyHz,
+                .frameDurationUs = frameDurationUs,
+                .octetsPerFrame = octetsPerFrame,
+            };
+            le_audio_codec_configs.push_back(aptx_adaptive_le_config);
+          }
+        }
+      }
+    }
+
+    return le_audio_codec_configs;
+  }
+
   LeAudioCodecCapabilitiesSetting temp_le_audio_capabilities_;
 };
 
@@ -1265,6 +1320,73 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
     // AIDL call should fail on invalid codec
     ASSERT_FALSE(aidl_retval.isOk());
     EXPECT_TRUE(audio_provider_->endSession().isOk());
+  }
+}
+
+/**
+ * Test whether each provider of type
+ * SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH can be started and
+ * stopped with Unicast hardware encoding config
+ */
+TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
+       StartAndEndLeAudioOutputSessionWithAptxAdaptiveLeUnicastConfig) {
+  if (!IsOffloadOutputSupported()) {
+    return;
+  }
+
+  for (auto codec_type : {CodecType::APTX_ADAPTIVE_LE, CodecType::APTX_ADAPTIVE_LEX}) {
+    bool is_le_extended = (codec_type == CodecType::APTX_ADAPTIVE_LEX);
+    auto aptx_adaptive_le_codec_configs = GetUnicastAptxAdaptiveLeSupportedList(false, true, is_le_extended);
+    LeAudioConfiguration le_audio_config = {
+        .codecType = codec_type,
+        .peerDelayUs = 0,
+
+    for (auto& aptx_adaptive_le_config : aptx_adaptive_le_codec_configs) {
+      le_audio_config.leAudioCodecConfig
+          .set<LeAudioCodecConfiguration::aptxadaptiveleConfig>(aptx_adaptive_le_config);
+      DataMQDesc mq_desc;
+      auto aidl_retval = audio_provider_->startSession(
+          audio_port_, AudioConfiguration(le_audio_config), latency_modes,
+          &mq_desc);
+
+      ASSERT_TRUE(aidl_retval.isOk());
+      EXPECT_TRUE(audio_provider_->endSession().isOk());
+    }
+  }
+}
+
+/**
+ * Test whether each provider of type
+ * SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH can be started and
+ * stopped with Unicast hardware encoding config
+ *
+ * Disabled since offload codec checking is not ready
+ */
+TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
+       DISABLED_StartAndEndLeAudioOutputSessionWithInvalidAptxAdaptiveLeAudioConfiguration) {
+  if (!IsOffloadOutputSupported()) {
+    return;
+  }
+
+  for (auto codec_type : {CodecType::APTX_ADAPTIVE_LE, CodecType::APTX_ADAPTIVE_LEX}) {
+    bool is_le_extended = (codec_type == CodecType::APTX_ADAPTIVE_LEX);
+    auto aptx_adaptive_le_codec_configs = GetUnicastAptxAdaptiveLeSupportedList(false, true, is_le_extended);
+    LeAudioConfiguration le_audio_config = {
+        .codecType = codec_type,
+        .peerDelayUs = 0,
+
+    for (auto& aptx_adaptive_le_config : aptx_adaptive_le_codec_configs) {
+      le_audio_config.leAudioCodecConfig
+          .set<LeAudioCodecConfiguration::aptxadaptiveleConfig>(aptx_adaptive_le_config);
+      DataMQDesc mq_desc;
+      auto aidl_retval = audio_provider_->startSession(
+          audio_port_, AudioConfiguration(le_audio_config), latency_modes,
+          &mq_desc);
+
+      // AIDL call should fail on invalid codec
+      ASSERT_FALSE(aidl_retval.isOk());
+      EXPECT_TRUE(audio_provider_->endSession().isOk());
+    }
   }
 }
 
@@ -1893,6 +2015,8 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
         codec_specifics = GetOpusCodecSpecificSupportedList(false);
         continue;
       case CodecType::APTX_ADAPTIVE:
+      case CodecType::APTX_ADAPTIVE_LE:
+      case CodecType::APTX_ADAPTIVE_LEX:
       case CodecType::LC3:
       case CodecType::VENDOR:
       case CodecType::UNKNOWN:
