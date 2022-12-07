@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "600d92a3_95fe7965",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2022-12-07T23:20:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6649ca2a_2eae8aa5",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "9e3282f892457111ed694a9083f41385699b2dfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5273d0a7_bb0bbce4",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-07T01:13:02Z",
       "side": 1,
       "message": "nit: remove a trailing whitespace. same for line 126.",
+      "range": {
+        "startLine": 78,
+        "startChar": 5,
+        "endLine": 78,
+        "endChar": 6
+      },
+      "revId": "9e3282f892457111ed694a9083f41385699b2dfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e544892_c743abc8",
+        "filename": "automotive/remoteaccess/test_grpc_server/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2022-12-07T23:20:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5273d0a7_bb0bbce4",
       "range": {
         "startLine": 78,
         "startChar": 5,
