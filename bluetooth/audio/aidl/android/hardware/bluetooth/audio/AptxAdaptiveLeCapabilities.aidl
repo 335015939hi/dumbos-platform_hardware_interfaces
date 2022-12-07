@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,16 +16,29 @@
 
 package android.hardware.bluetooth.audio;
 
-import android.hardware.bluetooth.audio.Lc3Configuration;
-import android.hardware.bluetooth.audio.AptxAdaptiveLeConfiguration;
-
+/**
+ * Used for Hardware Encoding/Decoding Aptx Adaptive LE codec capabilities.
+ */
 @VintfStability
-union LeAudioCodecConfiguration {
-    @VintfStability
-    parcelable VendorConfiguration {
-        ParcelableHolder extension;
-    }
-    Lc3Configuration lc3Config;
-    VendorConfiguration vendorConfig;
-    @nullable AptxAdaptiveLeConfiguration aptxadaptiveleConfig;
+parcelable AptxAdaptiveLeCapabilities {
+    /*
+     * PCM is Input for encoder, Output for decoder
+     */
+    byte[] pcmBitDepth;
+    /*
+     * codec-specific parameters
+     */
+    int[] samplingFrequencyHz;
+    /*
+     * FrameDuration based on microseconds.
+     */
+    int[] frameDurationUs;
+    /*
+     * length in octets of a codec frame
+     */
+    int[] octetsPerFrame;
+    /*
+     * Number of blocks of codec frames per single SDU (Service Data Unit)
+     */
+    byte[] blocksPerSdu;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,20 +33,10 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-parcelable UnicastCapability {
-  android.hardware.bluetooth.audio.CodecType codecType;
-  android.hardware.bluetooth.audio.AudioLocation supportedChannel;
-  int deviceCount;
-  int channelCountPerDevice;
-  android.hardware.bluetooth.audio.UnicastCapability.LeAudioCodecCapabilities leAudioCodecCapabilities;
-  @VintfStability
-  parcelable VendorCapabilities {
-    ParcelableHolder extension;
-  }
-  @VintfStability
-  union LeAudioCodecCapabilities {
-    android.hardware.bluetooth.audio.Lc3Capabilities lc3Capabilities;
-    android.hardware.bluetooth.audio.UnicastCapability.VendorCapabilities vendorCapabillities;
-    @nullable android.hardware.bluetooth.audio.AptxAdaptiveLeCapabilities aptxadaptiveleCapabilities;
-  }
+parcelable AptxAdaptiveLeCapabilities {
+  byte[] pcmBitDepth;
+  int[] samplingFrequencyHz;
+  int[] frameDurationUs;
+  int[] octetsPerFrame;
+  byte[] blocksPerSdu;
 }
