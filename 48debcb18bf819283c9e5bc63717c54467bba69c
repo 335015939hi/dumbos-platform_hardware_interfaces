@@ -53,6 +53,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ba907c8_9b477b79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-12-07T01:55:26Z",
+      "side": 1,
+      "message": "Actually, this code won\u0027t automerge to tm-mainline-prod at all. I think that means we can\u0027t change the tethering code to call it.\n\nThe automerger ensures that the tethering code in AOSP and in tm-mainline-prod is identical, but in tm-mainline-prod, this interface won\u0027t exist. Steven, any thoughts here? Should we manually cherry-pick this CL to tm-mainline-prod once it\u0027s approved in AOSP? Should we develop it in tm-mainline-prod first as an unfrozen interface? ...?",
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f93c9ac4_960019ba",
@@ -164,6 +181,29 @@
         "startChar": 8,
         "endLine": 16,
         "endChar": 47
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea723fbd_3c7ae4cd",
+        "filename": "tetheroffload/control/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-12-07T01:55:26Z",
+      "side": 1,
+      "message": "Won\u0027t we need to enable this, in order to call the HAL from the Java tethering code?",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 27
       },
       "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
