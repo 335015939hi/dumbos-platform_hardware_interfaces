@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d7f566b_4d30bd6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-07T00:31:36Z",
+      "side": 1,
+      "message": "we should also combine all of these into a single module:\n- get rid of subpackages (common/config/control)\n- combine config.IOffloadConfig and config.IOffloadControl\n\nThis is split up due to old HIDL implementations.",
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3ff5f4a_faae2a7e",
         "filename": "tetheroffload/config/aidl/android/hardware/tetheroffload/config/IOffloadConfig.aidl",
         "patchSetId": 3
