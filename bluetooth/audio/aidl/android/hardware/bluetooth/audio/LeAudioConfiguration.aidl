@@ -40,4 +40,5 @@ parcelable LeAudioConfiguration {
     StreamMap[] streamMap;
     int peerDelayUs;
     LeAudioCodecConfiguration leAudioCodecConfig;
+    @nullable byte[] codecSpecificMetadata;
 }
