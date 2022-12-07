@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1c7106e_160b2d40",
+        "filename": "audio/aidl/android/hardware/audio/effect/BassBoost.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-07T22:18:33Z",
+      "side": 1,
+      "message": "Please mention this change in the commit description.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 44
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "449cc595_74d3b5ab",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-07T22:18:33Z",
+      "side": 1,
+      "message": "It looks confusing to me that we have `getContext_l` and `getContext` which are implemented in the same way but one of them requires taking a mutex, and the other one doesn\u0027t.\n\nCan we implement `EffectImpl::getContext` in terms of `getContext_l` and make it final?",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 78
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "189aeb9a_09dafb89",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-07T22:18:33Z",
+      "side": 1,
+      "message": "Should this bear `GUARDED_BY (EffectImpl::mMutex)`?",
+      "range": {
+        "startLine": 75,
+        "startChar": 48,
+        "endLine": 75,
+        "endChar": 49
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7d2b455_8cae8ba2",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-07T22:18:33Z",
+      "side": 1,
+      "message": "Is this implemented?",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 60
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4a985fb_61127d4f",
+        "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-07T22:18:33Z",
+      "side": 1,
+      "message": "With `REQUIRES` I think this comment is superfluous.",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 83
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bcded68_ccf3897c",
+        "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-07T22:18:33Z",
+      "side": 1,
+      "message": "Would it make sense to move these methods to the \u0027protected\u0027 section, as I think they are not intended to be called directly.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 0
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ca7f0d8_adad06ac",
+        "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-07T22:18:33Z",
+      "side": 1,
+      "message": "I don\u0027t see any buffer here, please clarify.",
+      "range": {
+        "startLine": 97,
+        "startChar": 48,
+        "endLine": 97,
+        "endChar": 55
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f847a0bb_96ac4716",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-07T22:18:33Z",
+      "side": 1,
+      "message": "Please remove",
+      "range": {
+        "startLine": 133,
+        "startChar": 1,
+        "endLine": 136,
+        "endChar": 0
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
