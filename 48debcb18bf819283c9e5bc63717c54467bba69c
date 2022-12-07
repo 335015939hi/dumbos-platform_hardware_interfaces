@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97736929_1dff6d12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-12-07T01:45:11Z",
+      "side": 1,
+      "message": "Do we need the compatibility matrix in this CL? Or can we add it later?\n\nWill this code build when the code automerges to tm-mainline-prod? I think it won\u0027t, because tm-mainline-prod is a REL branch, and non-frozen stable AIDL interfaces are not allowed in that branch.",
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3ff5f4a_faae2a7e",
