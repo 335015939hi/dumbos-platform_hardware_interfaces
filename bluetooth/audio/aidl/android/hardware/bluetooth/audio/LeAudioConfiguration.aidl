@@ -44,4 +44,13 @@ parcelable LeAudioConfiguration {
     StreamMap[] streamMap;
     int peerDelayUs;
     LeAudioCodecConfiguration leAudioCodecConfig;
+
+    /*
+     * Octet 0 = Length
+     * Octet 1 = Type (Vendor specific - 0xFF)
+     * Octet 2-3 = Company_ID
+     * Company ID values are defined in Bluetooth Assigned Numbers.
+     * Octet 4 onwards = Vendor specific Metadata
+     */
+    @nullable byte[] vendorSpecificMetadata;
 }
