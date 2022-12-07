@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96291dab_01e5e56b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-07T00:23:22Z",
+      "side": 1,
+      "message": "Eric, please review. You\u0027ve approved the AIDL interface previously, now I\u0027ve added an implementation and tests.",
+      "revId": "de82d6759d1a9b287bf2676f4af72753a6bf63cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
