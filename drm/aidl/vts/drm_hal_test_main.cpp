@@ -23,6 +23,7 @@
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
 #include <android/binder_process.h>
+#include <android/binder_manager.h>
 #include <log/log.h>
 
 #include <gtest/gtest.h>
@@ -53,8 +54,15 @@ static const std::vector<DrmHalTestParam> getAllInstances() {
     }
 
     std::vector<DrmHalTestParam> allInstanceUuidCombos;
-    auto noUUID = [](std::string s) { return DrmHalTestParam(s); };
-    std::transform(allInstances.begin(), allInstances.end(),
+    auto noUUID = [](std::string s, std::string c) {
+        auto drmFactory = IDrmFactory::fromBinder(
+            ::ndk::SpAIBinder(AServiceManager_waitForService(c.c_str())));
+        aidl::android::hardware::drm::CryptoSchemes schemes{};
+        drmFactory->getSupportedCryptoSchemes(&schemes);
+        return DrmHalTestParam(s, drm_vts::hidl_array<uint8_t, 16>
+                                (reinterpret_cast<uint8_t*>(schemes.uuids.data())));
+    };
+    std::transform(allInstances.begin(), allInstances.end(), drmInstances.begin(),
                    std::back_inserter(allInstanceUuidCombos), noUUID);
     return allInstanceUuidCombos;
 };
