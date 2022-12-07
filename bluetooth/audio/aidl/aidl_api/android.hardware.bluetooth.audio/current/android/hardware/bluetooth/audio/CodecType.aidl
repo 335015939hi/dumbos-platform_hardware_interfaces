@@ -44,4 +44,5 @@ enum CodecType {
   VENDOR = 7,
   APTX_ADAPTIVE = 8,
   OPUS = 9,
+  APTX_ADAPTIVE_LE = 10,
 }
