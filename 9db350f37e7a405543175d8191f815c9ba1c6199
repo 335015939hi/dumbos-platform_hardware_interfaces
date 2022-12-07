@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54297ae8_d8639925",
+        "filename": "audio/aidl/default/Config.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-12-07T23:07:32Z",
+      "side": 1,
+      "message": "Ah, thank you! Good catch. Very poor copy-pasting on my part...\n\nFYI, making returnEngCfg const didn\u0027t actually catch the std::move error at build time. That would\u0027ve been nice, though. Thank you!!",
+      "parentUuid": "6132dfa3_77cd3d7a",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 44
+      },
+      "revId": "9db350f37e7a405543175d8191f815c9ba1c6199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5365db34_e0f27a4d",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-06T03:29:44Z",
       "side": 1,
       "message": "It seems to be that we can generate the error message at the construction time (using a static method), and in that case storing `mRequestedFilePath` and `mIsRequestedFilePathReadable` becomes redundant as they are not used anywhere outside the instance initialization besides this code.",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "9db350f37e7a405543175d8191f815c9ba1c6199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83eb2620_b6132f26",
+        "filename": "audio/aidl/default/include/core-impl/XmlConverter.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-12-07T23:07:32Z",
+      "side": 1,
+      "message": "Done. Per your suggestion, using a private constructor to avoid duplication of function calls (namely, ::android::audio_is_readable_configuration_file).",
+      "parentUuid": "5365db34_e0f27a4d",
       "range": {
         "startLine": 42,
         "startChar": 4,
