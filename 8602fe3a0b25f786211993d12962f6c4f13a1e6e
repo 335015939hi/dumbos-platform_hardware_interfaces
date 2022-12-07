@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b41724ee_1772089d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2022-12-07T07:29:39Z",
+      "side": 1,
+      "message": "This is a cherry-pick from an already merged CL from internal master.",
+      "revId": "8602fe3a0b25f786211993d12962f6c4f13a1e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
