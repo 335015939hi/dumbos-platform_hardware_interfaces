@@ -16,6 +16,7 @@
 
 #define LOG_TAG "VtsRemotelyProvisionableComponentTests"
 
+#include <android-base/properties.h>
 #include <AndroidRemotelyProvisionedComponentDevice.h>
 #include <aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.h>
 #include <aidl/android/hardware/security/keymint/SecurityLevel.h>
@@ -76,6 +77,19 @@ std::set<std::string> getAllowedAttIdStates() {
 bytevec string_to_bytevec(const char* s) {
     const uint8_t* p = reinterpret_cast<const uint8_t*>(s);
     return bytevec(p, p + strlen(s));
+}
+
+bool is_rkp_supported() {
+    auto first_api_level =
+            ::android::base::GetUintProperty<uint64_t>("ro.product.first_api_level", 0);
+    auto vendor_api_level =
+            ::android::base::GetUintProperty<uint64_t>("ro.vendor.api_level", 0);
+
+    // supported on T+ with VSR S+
+    if (first_api_level >= 33 && vendor_api_level >= 31) return true;
+
+    // otherwise unsupported
+    return false;
 }
 
 ErrMsgOr<MacedPublicKey> corrupt_maced_key(const MacedPublicKey& macedPubKey) {
@@ -184,6 +198,12 @@ class VtsRemotelyProvisionedComponentTests : public testing::TestWithParam<std::
             ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
             provisionable_ = IRemotelyProvisionedComponent::fromBinder(binder);
         }
+
+        if (!is_rkp_supported()) {
+            GTEST_SKIP() << "Skipping Remote Key Provisioning test not supported";
+            return;
+        }
+
         ASSERT_NE(provisionable_, nullptr);
         ASSERT_TRUE(provisionable_->getHardwareInfo(&rpcHardwareInfo).isOk());
     }
