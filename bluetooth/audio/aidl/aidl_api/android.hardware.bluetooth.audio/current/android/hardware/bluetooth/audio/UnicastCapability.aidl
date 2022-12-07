@@ -47,5 +47,6 @@ parcelable UnicastCapability {
   union LeAudioCodecCapabilities {
     android.hardware.bluetooth.audio.Lc3Capabilities lc3Capabilities;
     android.hardware.bluetooth.audio.UnicastCapability.VendorCapabilities vendorCapabillities;
+    @nullable android.hardware.bluetooth.audio.AptxAdaptiveLeCapabilities aptxadaptiveleCapabilities;
   }
 }

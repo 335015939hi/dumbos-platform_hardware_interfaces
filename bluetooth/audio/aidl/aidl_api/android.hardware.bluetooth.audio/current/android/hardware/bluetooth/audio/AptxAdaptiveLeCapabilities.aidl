@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,15 +33,10 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-parcelable LeAudioConfiguration {
-  android.hardware.bluetooth.audio.CodecType codecType;
-  android.hardware.bluetooth.audio.LeAudioConfiguration.StreamMap[] streamMap;
-  int peerDelayUs;
-  android.hardware.bluetooth.audio.LeAudioCodecConfiguration leAudioCodecConfig;
-  @nullable byte[] vendorSpecificMetadata;
-  @VintfStability
-  parcelable StreamMap {
-    char streamHandle;
-    int audioChannelAllocation;
-  }
+parcelable AptxAdaptiveLeCapabilities {
+  byte[] pcmBitDepth;
+  int[] samplingFrequencyHz;
+  int[] frameDurationUs;
+  int[] octetsPerFrame;
+  byte[] blocksPerSdu;
 }
