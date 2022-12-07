@@ -22,6 +22,30 @@
       },
       "revId": "557a1dbd03732e11f83035d91ed1ee55198de9db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dcdde3a_f85a4e1b",
+        "filename": "security/rkp/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-07T15:56:09Z",
+      "side": 1,
+      "message": "This is the HAL interface for RKP. We cannot make it visible only to our module because there are tools in-tree that need to talk to these HALs.\n\nAFAIK, there isn\u0027t a problem exposing such stable AIDL interfaces to mainline modules (is there?).",
+      "parentUuid": "05db0aec_09279735",
+      "range": {
+        "startLine": 23,
+        "startChar": 34,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "557a1dbd03732e11f83035d91ed1ee55198de9db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
