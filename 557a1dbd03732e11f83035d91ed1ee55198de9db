@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05db0aec_09279735",
+        "filename": "security/rkp/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-12-07T11:34:12Z",
+      "side": 1,
+      "message": "This is an aidl interface that\u0027s visible to the platform and module, which suggests it\u0027s an interface between the two which we don\u0027t allow. I think we discussed this in the design review.. could you please clarify?",
+      "range": {
+        "startLine": 23,
+        "startChar": 34,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "557a1dbd03732e11f83035d91ed1ee55198de9db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
