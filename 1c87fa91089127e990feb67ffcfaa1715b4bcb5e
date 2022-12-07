@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "48f21f94_80c1d7cf",
+        "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-07T00:30:10Z",
+      "side": 1,
+      "message": "Or explicitly use \"expected\" (the implementation should be able to handle any order of call though)",
+      "parentUuid": "3eb5f917_1fcca2d5",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 77
+      },
+      "revId": "1c87fa91089127e990feb67ffcfaa1715b4bcb5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e225fdd_b694d084",
         "filename": "audio/aidl/android/hardware/audio/core/IConfig.aidl",
         "patchSetId": 6
