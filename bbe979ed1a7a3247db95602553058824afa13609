@@ -22,6 +22,121 @@
       },
       "revId": "bbe979ed1a7a3247db95602553058824afa13609",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b9cf281_fe8241df",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/ErrorCode.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-07T18:30:20Z",
+      "side": 1,
+      "message": "Normally, I\u0027d suggest to move these into consts - AIDL uses ServiceSpecificException/EX_SERVICE_SPECIFIC\n\nHowever, all of these are already supported in the builtin error types, so we should be able to delete it. We can still use EX_* and corresponding java exceptions for these.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "bbe979ed1a7a3247db95602553058824afa13609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae7e18ec_b14feddd",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffloadConfig.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-07T18:30:20Z",
+      "side": 1,
+      "message": "we can move this function into IOffloadControl, delete this file, and only have \"IOffload\"",
+      "range": {
+        "startLine": 34,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 0
+      },
+      "revId": "bbe979ed1a7a3247db95602553058824afa13609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8125bee5_aae40866",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffloadControl.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-07T18:30:20Z",
+      "side": 1,
+      "message": "and all these can be void",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 10
+      },
+      "revId": "bbe979ed1a7a3247db95602553058824afa13609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "493de952_5dfb4351",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffloadControl.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-07T18:30:20Z",
+      "side": 1,
+      "message": "and things like this can be simplified to:\n\nForwardedStats getForwardedStats(in String upstream);",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 75
+      },
+      "revId": "bbe979ed1a7a3247db95602553058824afa13609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a05b8486_cdeec318",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/Status.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-07T18:30:20Z",
+      "side": 1,
+      "message": "this type can also be deleted - AIDL errors also have \u0027WithMessage\u0027 constructors",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 19
+      },
+      "revId": "bbe979ed1a7a3247db95602553058824afa13609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
