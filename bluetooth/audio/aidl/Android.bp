@@ -64,7 +64,6 @@ aidl_interface {
                 "android.hardware.audio.common-V1",
             ],
         },
-
     ],
 
 }
