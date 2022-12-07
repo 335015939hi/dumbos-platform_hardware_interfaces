@@ -16,18 +16,29 @@
 
 package android.hardware.bluetooth.audio;
 
+/**
+ * Used for Hardware Encoding/Decoding Aptx Adaptive LE codec configuration.
+ */
 @VintfStability
-@Backing(type="int")
-enum CodecType {
-    UNKNOWN,
-    SBC,
-    AAC,
-    APTX,
-    APTX_HD,
-    LDAC,
-    LC3,
-    VENDOR,
-    APTX_ADAPTIVE,
-    OPUS,
-    APTX_ADAPTIVE_LE,
+parcelable AptxAdaptiveLeConfiguration {
+    /*
+     * PCM is Input for encoder, Output for decoder
+     */
+    byte pcmBitDepth;
+    /*
+     * codec-specific parameters
+     */
+    int samplingFrequencyHz;
+    /*
+     * FrameDuration based on microseconds.
+     */
+    int frameDurationUs;
+    /*
+     * length in octets of a codec frame
+     */
+    int octetsPerFrame;
+    /*
+     * Number of blocks of codec frames per single SDU (Service Data Unit)
+     */
+    byte blocksPerSdu;
 }

@@ -33,20 +33,10 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-parcelable UnicastCapability {
-  android.hardware.bluetooth.audio.CodecType codecType;
-  android.hardware.bluetooth.audio.AudioLocation supportedChannel;
-  int deviceCount;
-  int channelCountPerDevice;
-  android.hardware.bluetooth.audio.UnicastCapability.LeAudioCodecCapabilities leAudioCodecCapabilities;
-  @VintfStability
-  parcelable VendorCapabilities {
-    ParcelableHolder extension;
-  }
-  @VintfStability
-  union LeAudioCodecCapabilities {
-    android.hardware.bluetooth.audio.Lc3Capabilities lc3Capabilities;
-    android.hardware.bluetooth.audio.UnicastCapability.VendorCapabilities vendorCapabillities;
-    android.hardware.bluetooth.audio.AptxAdaptiveLeCapabilities aptxadaptiveleCapabilities;
-  }
+parcelable AptxAdaptiveLeCapabilities {
+  byte[] pcmBitDepth;
+  int[] samplingFrequencyHz;
+  int[] frameDurationUs;
+  int[] octetsPerFrame;
+  byte[] blocksPerSdu;
 }
