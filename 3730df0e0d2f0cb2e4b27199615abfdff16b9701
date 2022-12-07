@@ -105,6 +105,24 @@
       "parentUuid": "5cca3fb6_8b13c57c",
       "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c43a3a7_0d5d0c63",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-12-07T00:41:45Z",
+      "side": 1,
+      "message": "Thanks a lot Seth, for the clarifications and for offering to chat over gvc. I added a calendar event for tomorrow evening.\n\nFollowing are the few followup questions I have. If you think it is easier to clarify them in the meeting, no need to reply here.\n\n\u003e allow v3 implementations to support v2 clients\n\nI am curious what would be an example of a scenario where the IRPC implementation is in V3, but the clients are in V2?\n\nThat also raises the question who are the clients of an IRPC implementation? Are they the keystore and the remote provisioner? Or the remote provisioner only? Or are there any other clients that I am not aware of?\n\n(If the clients are only on the Android side and since Android is upgraded with each firmware upgrades (although it is not the case the other way round) I am curious how could a V3 implementation have a v2 client. I am sure that I must be missing something)\n\n\u003e The confusing bit here, I think, is that there are two different versions:\nThe HAL version\nThe CSR version (the on-the-wire format that the HAL spits out)\n\nI hope that by CSR version, you meant the version here?\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl;l\u003d319\n\nYes, I thought that both those are the same for an IRPC V3 implementation.\n\nAnd since there is no explicit CSR version field in IRPC V2 messages, I assume that it is inferred by checking whether the HAL implements the generateCSRRequest method or not.\n\nThanks again!",
+      "parentUuid": "35c0e410_2cfd477f",
+      "revId": "3730df0e0d2f0cb2e4b27199615abfdff16b9701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
