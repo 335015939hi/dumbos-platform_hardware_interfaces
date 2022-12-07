@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba6aede1_23429f4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-07T01:47:41Z",
+      "side": 1,
+      "message": "We still need 2 interfaces, can they be combined in the subpackage?",
+      "parentUuid": "6d7f566b_4d30bd6a",
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "97736929_1dff6d12",
@@ -31,6 +49,29 @@
       "writtenOn": "2022-12-07T01:45:11Z",
       "side": 1,
       "message": "Do we need the compatibility matrix in this CL? Or can we add it later?\n\nWill this code build when the code automerges to tm-mainline-prod? I think it won\u0027t, because tm-mainline-prod is a REL branch, and non-frozen stable AIDL interfaces are not allowed in that branch.",
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f93c9ac4_960019ba",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2022-12-07T01:47:41Z",
+      "side": 1,
+      "message": "Rename to \"android.hardware.tetheroffload\"",
+      "range": {
+        "startLine": 669,
+        "startChar": 45,
+        "endLine": 669,
+        "endChar": 51
+      },
       "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
