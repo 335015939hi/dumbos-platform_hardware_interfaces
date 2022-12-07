@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7c32bebf_94c129f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-07T09:06:05Z",
+      "side": 1,
+      "message": "Done. Merge them into one package but still has two interfaces.",
+      "parentUuid": "ba6aede1_23429f4d",
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "97736929_1dff6d12",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -116,6 +134,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "465be4d0_126ceb08",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-07T09:06:05Z",
+      "side": 1,
+      "message": "Done. Merge them into one package but still has two interfaces.",
+      "parentUuid": "d91a3d97_dafd6acb",
+      "range": {
+        "startLine": 669,
+        "startChar": 31,
+        "endLine": 669,
+        "endChar": 44
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a2d0d5e_27ba6b55",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-07T09:06:05Z",
+      "side": 1,
+      "message": "Done. Merge them into one package but still has two interfaces.",
+      "parentUuid": "f93c9ac4_960019ba",
+      "range": {
+        "startLine": 669,
+        "startChar": 45,
+        "endLine": 669,
+        "endChar": 51
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3ff5f4a_faae2a7e",
@@ -163,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a28cf65_96730245",
+        "filename": "tetheroffload/config/aidl/android/hardware/tetheroffload/config/IOffloadConfig.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-07T09:06:05Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "80d8ab11_b286b5ec",
+      "range": {
+        "startLine": 37,
+        "startChar": 25,
+        "endLine": 37,
+        "endChar": 37
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0735d5e0_9371a0a7",
@@ -186,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9874a36_69924782",
+        "filename": "tetheroffload/control/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-07T09:06:05Z",
+      "side": 1,
+      "message": "removed the \u0027imports\u0027 section since we have merge common/config/control into one single package.",
+      "parentUuid": "0735d5e0_9371a0a7",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 47
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea723fbd_3c7ae4cd",
@@ -199,6 +313,30 @@
       "writtenOn": "2022-12-07T01:55:26Z",
       "side": 1,
       "message": "Won\u0027t we need to enable this, in order to call the HAL from the Java tethering code?",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75acf02d_898586c8",
+        "filename": "tetheroffload/control/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-07T09:06:05Z",
+      "side": 1,
+      "message": "I think this is just for backend implementation?",
+      "parentUuid": "ea723fbd_3c7ae4cd",
       "range": {
         "startLine": 25,
         "startChar": 12,
@@ -340,6 +478,30 @@
       "side": 1,
       "message": "This would be fine",
       "parentUuid": "aad6c374_f0da0872",
+      "range": {
+        "startLine": 83,
+        "startChar": 46,
+        "endLine": 83,
+        "endChar": 71
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a8d07f5_e6f98a68",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-07T09:06:05Z",
+      "side": 1,
+      "message": "Change return type to Status for consistency and if the caller pass an invalid upstream interface, we could return some meaningful value.",
+      "parentUuid": "bd680327_f37e3538",
       "range": {
         "startLine": 83,
         "startChar": 46,
@@ -575,6 +737,30 @@
       "writtenOn": "2022-12-06T18:37:28Z",
       "side": 1,
       "message": "We can move the `oneway` to the whole interface (`oneway interface ITetheringOffloadCallback {`) and remove these",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 10
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c676dc7_68b3c270",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/ITetheringOffloadCallback.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-07T09:06:05Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e6101125_ee537fad",
       "range": {
         "startLine": 39,
         "startChar": 4,
