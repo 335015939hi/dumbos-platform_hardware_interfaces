@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ae7a7f4_a22f7088",
+        "filename": "tetheroffload/aidl/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-07T18:27:23Z",
+      "side": 1,
+      "message": "delete (we don\u0027t put HAL interfaces in the VNDK by default, because they have separate versioning",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "bbe979ed1a7a3247db95602553058824afa13609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
