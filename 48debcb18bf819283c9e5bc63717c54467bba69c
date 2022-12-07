@@ -78,6 +78,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d91a3d97_dafd6acb",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1937168
+      },
+      "writtenOn": "2022-12-07T01:49:26Z",
+      "side": 1,
+      "message": "we don\u0027t want to merge it to one AIDL interface. Can we have it under one android.hardware.tetheroffload",
+      "range": {
+        "startLine": 669,
+        "startChar": 31,
+        "endLine": 669,
+        "endChar": 44
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3ff5f4a_faae2a7e",
         "filename": "tetheroffload/config/aidl/android/hardware/tetheroffload/config/IOffloadConfig.aidl",
         "patchSetId": 3
