@@ -45,6 +45,30 @@
       },
       "revId": "537a214ff874262476193678670065dcca5bc1d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f2eafe7_5d2f0bf0",
+        "filename": "automotive/remoteaccess/hal/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2022-12-07T23:20:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1e00817_32624651",
+      "range": {
+        "startLine": 51,
+        "startChar": 8,
+        "endLine": 51,
+        "endChar": 32
+      },
+      "revId": "537a214ff874262476193678670065dcca5bc1d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
