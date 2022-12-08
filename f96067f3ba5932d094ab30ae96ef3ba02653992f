@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c79a2a0e_8c6eb934",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-12-08T20:08:50Z",
+      "side": 1,
+      "message": "Ack. Will fix in future CL.",
+      "parentUuid": "e1ad181d_9d0308e6",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 9
+      },
+      "revId": "f96067f3ba5932d094ab30ae96ef3ba02653992f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37418eb6_ad448a31",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-08T18:20:22Z",
       "side": 1,
       "message": "nit: static\n\nAlso, returning a const reference to `int` does not really provide any benefits compared to returning the int itself.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 14
+      },
+      "revId": "f96067f3ba5932d094ab30ae96ef3ba02653992f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c8a34f6_77c45623",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-12-08T20:08:50Z",
+      "side": 1,
+      "message": "Ack. Will fix in future CL.",
+      "parentUuid": "37418eb6_ad448a31",
       "range": {
         "startLine": 112,
         "startChar": 0,
