@@ -238,6 +238,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de254d4b_a5e6bc3e",
+        "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-08T02:43:48Z",
+      "side": 1,
+      "message": "Not done.",
+      "parentUuid": "ec8317ff_e1718072",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 83
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0bcded68_ccf3897c",
         "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
         "patchSetId": 11
@@ -273,6 +297,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "0bcded68_ccf3897c",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 0
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "607e2d8c_a142a8ca",
+        "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-08T02:43:48Z",
+      "side": 1,
+      "message": "I don\u0027t see a change, methods are public.",
+      "parentUuid": "87ec613f_28ee7be6",
       "range": {
         "startLine": 77,
         "startChar": 0,
