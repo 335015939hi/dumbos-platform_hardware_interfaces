@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d68b0ca8_5d6137ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-08T18:47:03Z",
+      "side": 1,
+      "message": "what are the changes? I don\u0027t see anything different between `3/` and `current/` on aosp and imports are the same between v4 and the frozen v3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 23
+      },
+      "revId": "8a96bb51ea3c63efdf07b5230495311ab24c34aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
