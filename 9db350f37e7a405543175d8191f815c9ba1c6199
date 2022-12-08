@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aebd21e3_ac16a486",
+        "filename": "audio/aidl/default/Config.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-08T00:57:59Z",
+      "side": 1,
+      "message": "Right, it seems that std::move is just a no-op in case when its argument is a const, and it does not break compilation. Maybe that\u0027s because it makes writing generic code easier, as this example shows: https://stackoverflow.com/a/28596435.\n\nIn general, if you try writing a cast expression nominally equivalent to std::move, for example, as below, it will not compile:\n\n```\n    const int a \u003d 42;\n    return static_cast\u003cint\u0026\u0026\u003e(a);\n```",
+      "parentUuid": "54297ae8_d8639925",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 44
+      },
+      "revId": "9db350f37e7a405543175d8191f815c9ba1c6199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5365db34_e0f27a4d",
