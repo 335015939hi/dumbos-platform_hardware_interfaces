@@ -19,6 +19,8 @@
 
     <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer">
     </target_preparer>
+    <target_preparer class="com.android.tradefed.targetprep.StopServicesSetup">
+    </target_preparer>
 
     <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
         <option name="run-command" value="settings put global ble_scan_always_enabled 0" />
