@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d764851_310980a7",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-08T02:42:26Z",
+      "side": 1,
+      "message": "Note that EffectImpl can have its own `shared_ptr\u003cEffectContext\u003e` which actually points to the same instance of `BassBoostSwContext` as `std::shared_ptr\u003cBassBoostSwContext\u003e mContext` in this class. Having two shared_ptrs to the same object and using them on different threads is totally OK.\n\nI think, I\u0027m still missing which operations we actually want to serialize. Is it only access to the context pointer, or methods of the context itself that the implementation of the particular effect needs to use.",
+      "parentUuid": "449cc595_74d3b5ab",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 78
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "189aeb9a_09dafb89",
         "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
         "patchSetId": 11
