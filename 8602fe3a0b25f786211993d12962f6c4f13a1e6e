@@ -16,6 +16,23 @@
       "message": "This is a cherry-pick from an already merged CL from internal master.",
       "revId": "8602fe3a0b25f786211993d12962f6c4f13a1e6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da4e6bb9_6ba51432",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-08T23:37:44Z",
+      "side": 1,
+      "message": "(for cherry-pick)",
+      "revId": "8602fe3a0b25f786211993d12962f6c4f13a1e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
