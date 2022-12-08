@@ -373,6 +373,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0218f62c_dab0e79c",
+        "filename": "tetheroffload/control/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-08T15:32:45Z",
+      "side": 1,
+      "message": "Currently, Qualcomm only needs cpp(ndk) backend. Perhaps leaving it as enabled won\u0027t hurt, right?",
+      "parentUuid": "9fabcdda_922bcbca",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16076495_c34567fb",
         "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
         "patchSetId": 3
