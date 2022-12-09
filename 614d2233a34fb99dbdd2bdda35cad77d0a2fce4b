@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd1e88be_fd6014e0",
+        "filename": "audio/aidl/default/EffectImpl.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-09T18:33:18Z",
+      "side": 1,
+      "message": "Is it used?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 17
+      },
+      "revId": "614d2233a34fb99dbdd2bdda35cad77d0a2fce4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c32c46f7_bf152dff",
+        "filename": "audio/aidl/default/include/effect-impl/EffectThread.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-09T18:33:18Z",
+      "side": 1,
+      "message": "kMaxTaskCommLen",
+      "range": {
+        "startLine": 32,
+        "startChar": 14,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "614d2233a34fb99dbdd2bdda35cad77d0a2fce4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ee5e881_28dce717",
+        "filename": "audio/aidl/default/include/effect-impl/EffectThread.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-09T18:33:18Z",
+      "side": 1,
+      "message": "Please wrap properly.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 79
+      },
+      "revId": "614d2233a34fb99dbdd2bdda35cad77d0a2fce4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29ea90c2_a8130530",
+        "filename": "audio/aidl/default/include/effect-impl/EffectThread.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-09T18:33:18Z",
+      "side": 1,
+      "message": "GUARDED_BY(mThreadMutex)",
+      "range": {
+        "startLine": 80,
+        "startChar": 34,
+        "endLine": 80,
+        "endChar": 35
+      },
+      "revId": "614d2233a34fb99dbdd2bdda35cad77d0a2fce4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
