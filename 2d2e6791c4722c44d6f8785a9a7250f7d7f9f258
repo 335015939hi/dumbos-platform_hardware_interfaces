@@ -39,6 +39,30 @@
       },
       "revId": "2d2e6791c4722c44d6f8785a9a7250f7d7f9f258",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5402a415_8ed08382",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2022-12-09T08:26:03Z",
+      "side": 1,
+      "message": "I opted to not do this for consistency reasons.",
+      "parentUuid": "fec4f38c_8be2ffa3",
+      "range": {
+        "startLine": 504,
+        "startChar": 0,
+        "endLine": 504,
+        "endChar": 42
+      },
+      "revId": "2d2e6791c4722c44d6f8785a9a7250f7d7f9f258",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
