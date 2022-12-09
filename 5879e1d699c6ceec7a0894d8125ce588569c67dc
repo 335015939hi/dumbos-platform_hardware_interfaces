@@ -16,6 +16,24 @@
       "message": "This file probably belongs to the next CL where the implementation is added.",
       "revId": "5879e1d699c6ceec7a0894d8125ce588569c67dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e631eddf_1a5cdae2",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-09T05:30:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "108adff2_87e72514",
+      "revId": "5879e1d699c6ceec7a0894d8125ce588569c67dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
