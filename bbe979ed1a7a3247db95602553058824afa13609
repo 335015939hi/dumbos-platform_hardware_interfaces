@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ad4f07a_bf565278",
+        "filename": "tetheroffload/aidl/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-09T01:16:07Z",
+      "side": 1,
+      "message": "VNDK is about installing this library on the system imagine and on the GSI. However, we want to let vendor code choose a specific version of this, so we bundle it with vendor code.",
+      "parentUuid": "693d51f3_f9986c21",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "bbe979ed1a7a3247db95602553058824afa13609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b9cf281_fe8241df",
         "filename": "tetheroffload/aidl/android/hardware/tetheroffload/ErrorCode.aidl",
         "patchSetId": 5

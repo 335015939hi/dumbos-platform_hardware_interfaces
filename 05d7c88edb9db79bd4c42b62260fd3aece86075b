@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5ac45db_449e8835",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-09T01:16:07Z",
+      "side": 1,
+      "message": "Looks solid. Do you have client/vts/sepolicy as well?",
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a50fdc4b_0c13d194",
+        "filename": "tetheroffload/aidl/default/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-09T01:16:07Z",
+      "side": 1,
+      "message": "consider https://android-review.git.corp.google.com/c/platform/external/minigbm/+/2333944\n\n(by chance have recent CL, this must be getting copy/pasted)",
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "923b5c3f_22054f91",
+        "filename": "tetheroffload/aidl/default/Offload.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-09T01:16:07Z",
+      "side": 1,
+      "message": "fyi - android-base/strings.h has this as well, since you are already importing it.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 1
+      },
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6eb2203_9fd31df0",
+        "filename": "tetheroffload/aidl/default/main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-09T01:16:07Z",
+      "side": 1,
+      "message": "nit: consider deleting the instance variable and adding \"IOffload::makeServiceName(\"default\").c_str()\" - this will avoid leaving this small amount of memory on the heap. IDK - added it recently, but it doesn\u0027t really matter.",
+      "range": {
+        "startLine": 31,
+        "startChar": 66,
+        "endLine": 31,
+        "endChar": 74
+      },
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98257767_4162bb23",
+        "filename": "tetheroffload/aidl/default/main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-09T01:16:07Z",
+      "side": 1,
+      "message": "pref: CHECK_EQ(status, STATUS_OK) for a clearer message",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
