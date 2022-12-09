@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9569c4f1_c6bfdcb5",
+        "filename": "audio/aidl/default/include/effect-impl/EffectThread.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-09T18:37:28Z",
+      "side": 1,
+      "message": "And, in fact, does it have to be public? Seems only be used by the implementation.",
+      "parentUuid": "c32c46f7_bf152dff",
+      "range": {
+        "startLine": 32,
+        "startChar": 14,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "614d2233a34fb99dbdd2bdda35cad77d0a2fce4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ee5e881_28dce717",
         "filename": "audio/aidl/default/include/effect-impl/EffectThread.h",
         "patchSetId": 17
