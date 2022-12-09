@@ -70,6 +70,29 @@
       },
       "revId": "e4ff2362c1b96cd526dd64a9252d757811fdf0de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a79ed12_65acbd04",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2022-12-09T19:50:48Z",
+      "side": 1,
+      "message": "Just a clarification question for the Rust implementation: how is the reference implementation supposed to obtain the build fingerprint (to be included in the AuthenticatedRequest)? Should it be supplied by the device implementers or is there an Android API that we can query to get the build fingerprint? Thanks!",
+      "range": {
+        "startLine": 448,
+        "startChar": 12,
+        "endLine": 448,
+        "endChar": 23
+      },
+      "revId": "e4ff2362c1b96cd526dd64a9252d757811fdf0de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
