@@ -46,6 +46,30 @@
       },
       "revId": "557a1dbd03732e11f83035d91ed1ee55198de9db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c182b7d8_d50de1b8",
+        "filename": "security/rkp/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-12-09T14:24:56Z",
+      "side": 1,
+      "message": "It wasn\u0027t mentioned in the mainline docs nor the design review as far as I can remember, so I\u0027m a little bit surprised to see it here.\n\nI don\u0027t think we have (or want) another solution for HALs accessed in mainline modules, but think it suffers from some of the same problems AIDL for non-HAL interfaces do.\n\nNo action necessary for now.",
+      "parentUuid": "2dcdde3a_f85a4e1b",
+      "range": {
+        "startLine": 23,
+        "startChar": 34,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "557a1dbd03732e11f83035d91ed1ee55198de9db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
