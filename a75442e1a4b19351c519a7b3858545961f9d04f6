@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca295381_d234c3e3",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-09T06:10:38Z",
+      "side": 1,
+      "message": "I rethink all the example implementation, as all IEffect interfaces are not oneway which means synchronous call, there is really no need to lock in EffectImpl class: it can trust context pointer won\u0027t be changed until this call finished. The mMutex in EffectImpl now removed.\n\nTo handle the case of context parameter setting and effect processing (the actual processing, placeholders doesn\u0027t need parameters expect FMQ which won\u0027t be changed) in separate thread may need to access these parameters, it\u0027s necessary to have the parameters protected. An example is Bundle EQ, all parameter used processing need go though `mInstance`, so I add lock for it:\nhttps://android-review.git.corp.google.com/c/platform/frameworks/av/+/2331945/4/media/libeffects/lvm/wrapper/Aidl/BundleContext.h#72\n\nPlease let me know how you think, thanks.",
+      "parentUuid": "8d764851_310980a7",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 78
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "189aeb9a_09dafb89",
@@ -260,6 +284,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5255e63_692cc4b1",
+        "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-09T06:10:38Z",
+      "side": 1,
+      "message": "Seems caused by some error with rebase, sorry for the confusion.",
+      "parentUuid": "de254d4b_a5e6bc3e",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 83
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bcded68_ccf3897c",
@@ -321,6 +369,30 @@
       "side": 1,
       "message": "I don\u0027t see a change, methods are public.",
       "parentUuid": "87ec613f_28ee7be6",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 0
+      },
+      "revId": "a75442e1a4b19351c519a7b3858545961f9d04f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd265551_4f3812e5",
+        "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-09T06:10:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "607e2d8c_a142a8ca",
       "range": {
         "startLine": 77,
         "startChar": 0,
