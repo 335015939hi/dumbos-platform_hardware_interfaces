@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67ea7c37_98981b2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-10T01:20:32Z",
+      "side": 1,
+      "message": "LGTM, but I\u0027d like to understand exactly why we need this. I\u0027m fine with the change for now as I think it won\u0027t hurt anything.",
+      "revId": "c0e18f2363fb23e97542887cf27622a37366c8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
