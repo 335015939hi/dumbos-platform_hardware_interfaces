@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b15390a9_b79f5ff5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-10T01:08:20Z",
+      "side": 1,
+      "message": "I think we can move the types first, this might be easier than providing an implementation and test.",
+      "parentUuid": "ce9bb8cd_0f97426f",
+      "revId": "9465b90fab4583630f5fbb86f07fcefd57b64464",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82bdcd1c_4a146c52",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-12-06T10:43:57Z",
       "side": 1,
       "message": "Is this new from HIDL?\nIs this this exposed at the module level, does it mean that it applies to all output stream and input streams? If not, how do we indicate which streams this applies to?",
+      "range": {
+        "startLine": 652,
+        "startChar": 9,
+        "endLine": 652,
+        "endChar": 40
+      },
+      "revId": "9465b90fab4583630f5fbb86f07fcefd57b64464",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a660c1fb_6a21727b",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-10T01:08:20Z",
+      "side": 1,
+      "message": "It wasn\u0027t in HIDL. I\u0027m adding it for being able to test the implementation for rejection of invalid values. Since the range is not fixed, but is rather implementation-defined, I think it makes sense to query it from the HAL first.\n\nI think that same values should apply to all streams of the module. Then per stream it\u0027s only the fact whether rate control is supported or not.",
+      "parentUuid": "82bdcd1c_4a146c52",
       "range": {
         "startLine": 652,
         "startChar": 9,
