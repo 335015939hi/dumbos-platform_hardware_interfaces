@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1b0828f_79156d3d",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamIn.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-10T01:59:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "614ae79f_79d94b33",
+      "range": {
+        "startLine": 136,
+        "startChar": 39,
+        "endLine": 136,
+        "endChar": 58
+      },
+      "revId": "f5c3d14418db076c69f8843ee7b2c6a1d10c970c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb6f24fc_03b74dd9",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "636a89d3_77e28e0e",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamIn.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-10T01:59:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb6f24fc_03b74dd9",
+      "range": {
+        "startLine": 148,
+        "startChar": 39,
+        "endLine": 148,
+        "endChar": 58
+      },
+      "revId": "f5c3d14418db076c69f8843ee7b2c6a1d10c970c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e1dc1ab_a2f2a31e",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-12-06T10:33:55Z",
       "side": 1,
       "message": "why not use the same approach as for output streams and pass one value per channel?",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 31
+      },
+      "revId": "f5c3d14418db076c69f8843ee7b2c6a1d10c970c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a9f47c6_a480192b",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamIn.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-10T01:59:49Z",
+      "side": 1,
+      "message": "I like this idea, done.",
+      "parentUuid": "7e1dc1ab_a2f2a31e",
       "range": {
         "startLine": 157,
         "startChar": 0,
