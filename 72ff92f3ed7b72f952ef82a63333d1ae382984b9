@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6752666_6bcbb26e",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-10T00:20:24Z",
+      "side": 1,
+      "message": "How about add helper methods like `Configuration::addPort()`, and do `createPort`, `createPortConfig` and `push_back` inside the helper.\nAlso feel like the name, deviceType and devType etc can be put into a centralized place like array or map?",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 216,
+        "endChar": 34
+      },
+      "revId": "72ff92f3ed7b72f952ef82a63333d1ae382984b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a14dc111_c7b9afd0",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-10T00:20:24Z",
+      "side": 1,
+      "message": "Question, why don\u0027t we use `AudioDeviceType`?",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 13
+      },
+      "revId": "72ff92f3ed7b72f952ef82a63333d1ae382984b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
