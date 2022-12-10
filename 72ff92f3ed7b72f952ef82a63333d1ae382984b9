@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4da6e2cb_53926c12",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-10T01:17:23Z",
+      "side": 1,
+      "message": "The configuration has to be loaded from a configuration file, so this code is temporary, it will be removed eventually. Thus, I don\u0027t want spending much time polishing it.",
+      "parentUuid": "e6752666_6bcbb26e",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 216,
+        "endChar": 34
+      },
+      "revId": "72ff92f3ed7b72f952ef82a63333d1ae382984b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a14dc111_c7b9afd0",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-10T00:20:24Z",
       "side": 1,
       "message": "Question, why don\u0027t we use `AudioDeviceType`?",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 13
+      },
+      "revId": "72ff92f3ed7b72f952ef82a63333d1ae382984b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb7d0124_f40bfcd2",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-10T01:17:23Z",
+      "side": 1,
+      "message": "AudioDeviceType is the type of an audio device. This is an audio module, and each module may serve many different types of devices.",
+      "parentUuid": "a14dc111_c7b9afd0",
       "range": {
         "startLine": 34,
         "startChar": 4,
