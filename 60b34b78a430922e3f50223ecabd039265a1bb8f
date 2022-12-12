@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae3b543_c0b03153",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-12-12T18:00:26Z",
+      "side": 1,
+      "message": "why do we list libsw twice instead of libsw and libhw?\n\nI though the bundle library corresponded to the SW implementation",
+      "revId": "60b34b78a430922e3f50223ecabd039265a1bb8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
