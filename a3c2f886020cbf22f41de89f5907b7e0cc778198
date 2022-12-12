@@ -16,6 +16,29 @@
       "message": "Devin, could you please check the compatibility matrix.",
       "revId": "a3c2f886020cbf22f41de89f5907b7e0cc778198",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97a45b5c_67228b1a",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-12T19:21:03Z",
+      "side": 1,
+      "message": "What is the difference between this and android.hardware.bluetooth.audio? Is there any plan to consolidate or are they just different things?",
+      "range": {
+        "startLine": 35,
+        "startChar": 22,
+        "endLine": 35,
+        "endChar": 31
+      },
+      "revId": "a3c2f886020cbf22f41de89f5907b7e0cc778198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
