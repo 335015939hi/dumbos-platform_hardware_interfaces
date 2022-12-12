@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4b2e601_be5ad867",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-12T15:57:23Z",
+      "side": 1,
+      "message": "Based on discussions in the team chat, it sounds like we don\u0027t actually want this change.\n\nInstead, we\u0027ll just document that the `UnverifiedDeviceInfo` is added to the request outside of the HAL.",
+      "parentUuid": "afbc23a1_9d57359b",
+      "range": {
+        "startLine": 343,
+        "startChar": 11,
+        "endLine": 343,
+        "endChar": 31
+      },
+      "revId": "e4ff2362c1b96cd526dd64a9252d757811fdf0de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a79ed12_65acbd04",
         "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
         "patchSetId": 1
