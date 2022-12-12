@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6adb570_f56f389f",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-12T21:49:44Z",
+      "side": 1,
+      "message": "missing \"or query\"",
+      "range": {
+        "startLine": 234,
+        "startChar": 32,
+        "endLine": 234,
+        "endChar": 43
+      },
+      "revId": "d593a3355e2fffddfa1ce9506c5c4e9dbbc1843c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ba51948_37a940f0",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-12T21:49:44Z",
+      "side": 1,
+      "message": "Can we add the name of the library to the library record so that we could print more useful error message? I know there is a debug message which prints the handle of the opened library, but these get suppressed in user builds.",
+      "range": {
+        "startLine": 234,
+        "startChar": 77,
+        "endLine": 234,
+        "endChar": 91
+      },
+      "revId": "d593a3355e2fffddfa1ce9506c5c4e9dbbc1843c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
