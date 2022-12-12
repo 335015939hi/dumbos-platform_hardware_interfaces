@@ -17,18 +17,18 @@ package {
 }
 
 cc_binary {
-    name: "android.hardware.tv.hdmi-service",
-    vintf_fragments: ["android.hardware.tv.hdmi-service.xml"],
+    name: "android.hardware.tv.hdmi_connection-service",
+    vintf_fragments: ["android.hardware.tv.hdmi_connection-service.xml"],
     relative_install_path: "hw",
     vendor: true,
     cflags: [
         "-Wall",
         "-Wextra",
     ],
-    init_rc: ["android.hardware.tv.hdmi-service.rc"],
+    init_rc: ["android.hardware.tv.hdmi_connection-service.rc"],
     srcs: [
         "serviceMock.cpp",
-        "HdmiMock.cpp",
+        "HdmiConnectionMock.cpp",
     ],
     shared_libs: [
         "libbinder_ndk",
@@ -42,7 +42,7 @@ cc_binary {
 }
 
 cc_fuzz {
-    name: "android.hardware.tv.hdmi-service_fuzzer",
+    name: "android.hardware.tv.hdmi_connection-service_fuzzer",
     defaults: ["service_fuzzer_defaults"],
     static_libs: [
         "android.hardware.tv.hdmi-V1-ndk",
@@ -50,7 +50,7 @@ cc_fuzz {
     ],
     srcs: [
         "fuzzer.cpp",
-        "HdmiMock.cpp",
+        "HdmiConnectionMock.cpp",
     ],
     fuzz_config: {
         componentid: 826094,

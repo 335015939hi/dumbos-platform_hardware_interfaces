@@ -24,7 +24,7 @@ import android.hardware.tv.hdmi.IHdmiCallback;
  * HDMI HAL interface definition.
  */
 @VintfStability
-interface IHdmi {
+interface IHdmiConnection {
     /**
      * Gets the hdmi port information of underlying hardware.
      *

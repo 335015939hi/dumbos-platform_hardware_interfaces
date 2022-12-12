@@ -36,8 +36,8 @@ using ::aidl::android::hardware::tv::hdmi::IHdmiCallback;
 #define HDMI_MSG_IN_FIFO "/dev/hdmi_in_pipe"
 #define MESSAGE_BODY_MAX_LENGTH 4
 
-struct HdmiMock : public BnHdmi {
-    HdmiMock();
+struct HdmiConnectionMock : public BnHdmi {
+    HdmiConnectionMock();
 
     ::ndk::ScopedAStatus getPortInfo(std::vector<HdmiPortInfo>* _aidl_return) override;
     ::ndk::ScopedAStatus isConnected(int32_t portId, bool* _aidl_return) override;

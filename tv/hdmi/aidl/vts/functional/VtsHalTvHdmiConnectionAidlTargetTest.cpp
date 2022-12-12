@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "Hdmi_hal_test"
+#define LOG_TAG "Hdmi_Connection_hal_test"
 
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
-#include <aidl/android/hardware/tv/hdmi/BnHdmi.h>
 #include <aidl/android/hardware/tv/hdmi/BnHdmiCallback.h>
+#include <aidl/android/hardware/tv/hdmi/BnHdmiConnection.h>
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
@@ -32,20 +32,21 @@ using ::aidl::android::hardware::tv::hdmi::BnHdmiCallback;
 using ::aidl::android::hardware::tv::hdmi::HdmiPortInfo;
 using ::aidl::android::hardware::tv::hdmi::HdmiPortType;
 using ::aidl::android::hardware::tv::hdmi::HpdSignal;
-using ::aidl::android::hardware::tv::hdmi::IHdmi;
 using ::aidl::android::hardware::tv::hdmi::IHdmiCallback;
+using ::aidl::android::hardware::tv::hdmi::IHdmiConnection;
 using ::ndk::SpAIBinder;
 
 #define INCORRECT_VENDOR_ID 0x00
 #define TV_PHYSICAL_ADDRESS 0x0000
 
 // The main test class for TV HDMI HAL.
-class HdmiTest : public ::testing::TestWithParam<std::string> {
+class HdmiConnectionTest : public ::testing::TestWithParam<std::string> {
     static void serviceDied(void* /* cookie */) { ALOGE("VtsHalTvCecAidlTargetTest died"); }
 
   public:
     void SetUp() override {
-        hdmi = IHdmi::fromBinder(SpAIBinder(AServiceManager_waitForService(GetParam().c_str())));
+        hdmi = IHdmiConnection::fromBinder(
+                SpAIBinder(AServiceManager_waitForService(GetParam().c_str())));
         ASSERT_NE(hdmi, nullptr);
         ALOGI("%s: getService() for hdmi is %s", __func__, hdmi->isRemote() ? "remote" : "local");
 
@@ -64,21 +65,22 @@ class HdmiTest : public ::testing::TestWithParam<std::string> {
         };
     };
 
-    std::shared_ptr<IHdmi> hdmi;
+    std::shared_ptr<IHdmiConnection> hdmi;
     std::shared_ptr<IHdmiCallback> hdmiCallback;
     ::ndk::ScopedAIBinder_DeathRecipient hdmiDeathRecipient;
 };
 
-GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(HdmiTest);
-INSTANTIATE_TEST_SUITE_P(PerInstance, HdmiTest,
-                         testing::ValuesIn(android::getAidlHalInstanceNames(IHdmi::descriptor)),
-                         android::PrintInstanceNameToString);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(HdmiConnectionTest);
+INSTANTIATE_TEST_SUITE_P(
+        PerInstance, HdmiConnectionTest,
+        testing::ValuesIn(android::getAidlHalInstanceNames(IHdmiConnection::descriptor)),
+        android::PrintInstanceNameToString);
 
-TEST_P(HdmiTest, SetCallback) {
+TEST_P(HdmiConnectionTest, SetCallback) {
     ASSERT_TRUE(hdmi->setCallback(::ndk::SharedRefBase::make<HdmiCallback>()).isOk());
 }
 
-TEST_P(HdmiTest, GetPortInfo) {
+TEST_P(HdmiConnectionTest, GetPortInfo) {
     std::vector<HdmiPortInfo> ports;
     ASSERT_TRUE(hdmi->getPortInfo(&ports).isOk());
 
@@ -94,7 +96,7 @@ TEST_P(HdmiTest, GetPortInfo) {
     EXPECT_NE(cecSupportedOnDevice, false) << "At least one port should support CEC";
 }
 
-TEST_P(HdmiTest, IsConnected) {
+TEST_P(HdmiConnectionTest, IsConnected) {
     std::vector<HdmiPortInfo> ports;
     ASSERT_TRUE(hdmi->getPortInfo(&ports).isOk());
     for (size_t i = 0; i < ports.size(); ++i) {
@@ -103,7 +105,7 @@ TEST_P(HdmiTest, IsConnected) {
     }
 }
 
-TEST_P(HdmiTest, HdpSignal) {
+TEST_P(HdmiConnectionTest, HdpSignal) {
     HpdSignal originalSignal;
     HpdSignal signal = HpdSignal::HDMI_HPD_STATUS_BIT;
     HpdSignal readSignal;

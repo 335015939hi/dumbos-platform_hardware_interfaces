@@ -17,12 +17,12 @@ package {
 }
 
 cc_test {
-    name: "VtsHalTvHdmiAidlTargetTest",
+    name: "VtsHalTvHdmiConnectionAidlTargetTest",
     defaults: [
         "VtsHalTargetTestDefaults",
         "use_libaidlvintf_gtest_helper_static",
     ],
-    srcs: ["VtsHalTvHdmiAidlTargetTest.cpp"],
+    srcs: ["VtsHalTvHdmiConnectionAidlTargetTest.cpp"],
     static_libs: [
         "android.hardware.tv.hdmi-V1-ndk",
     ],

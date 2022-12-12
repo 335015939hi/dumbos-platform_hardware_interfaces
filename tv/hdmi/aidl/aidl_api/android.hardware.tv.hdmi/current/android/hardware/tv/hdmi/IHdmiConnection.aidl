@@ -33,7 +33,7 @@
 
 package android.hardware.tv.hdmi;
 @VintfStability
-interface IHdmi {
+interface IHdmiConnection {
   android.hardware.tv.hdmi.HdmiPortInfo[] getPortInfo();
   boolean isConnected(in int portId);
   void setCallback(in android.hardware.tv.hdmi.IHdmiCallback callback);

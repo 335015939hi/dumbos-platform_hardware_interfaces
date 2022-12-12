@@ -19,7 +19,7 @@
 #include <fcntl.h>
 #include <utils/Log.h>
 
-#include "HdmiMock.h"
+#include "HdmiConnectionMock.h"
 
 using ndk::ScopedAStatus;
 
@@ -29,18 +29,18 @@ namespace tv {
 namespace hdmi {
 namespace implementation {
 
-void HdmiMock::serviceDied(void* cookie) {
-    ALOGE("HdmiMock died");
-    auto hdmi = static_cast<HdmiMock*>(cookie);
+void HdmiConnectionMock::serviceDied(void* cookie) {
+    ALOGE("HdmiConnectionMock died");
+    auto hdmi = static_cast<HdmiConnectionMock*>(cookie);
     hdmi->mHdmiThreadRun = false;
 }
 
-ScopedAStatus HdmiMock::getPortInfo(std::vector<HdmiPortInfo>* _aidl_return) {
+ScopedAStatus HdmiConnectionMock::getPortInfo(std::vector<HdmiPortInfo>* _aidl_return) {
     *_aidl_return = mPortInfos;
     return ScopedAStatus::ok();
 }
 
-ScopedAStatus HdmiMock::isConnected(int32_t portId, bool* _aidl_return) {
+ScopedAStatus HdmiConnectionMock::isConnected(int32_t portId, bool* _aidl_return) {
     // Maintain port connection status and update on hotplug event
     if (portId <= mTotalPorts && portId >= 1) {
         *_aidl_return = mPortConnectionStatus[portId];
@@ -51,7 +51,7 @@ ScopedAStatus HdmiMock::isConnected(int32_t portId, bool* _aidl_return) {
     return ScopedAStatus::ok();
 }
 
-ScopedAStatus HdmiMock::setCallback(const std::shared_ptr<IHdmiCallback>& callback) {
+ScopedAStatus HdmiConnectionMock::setCallback(const std::shared_ptr<IHdmiCallback>& callback) {
     if (mCallback != nullptr) {
         mCallback = nullptr;
     }
@@ -67,23 +67,23 @@ ScopedAStatus HdmiMock::setCallback(const std::shared_ptr<IHdmiCallback>& callba
     return ScopedAStatus::ok();
 }
 
-ScopedAStatus HdmiMock::setHpdSignal(HpdSignal signal) {
+ScopedAStatus HdmiConnectionMock::setHpdSignal(HpdSignal signal) {
     mHpdSignal = signal;
     return ScopedAStatus::ok();
 }
 
-ScopedAStatus HdmiMock::getHpdSignal(HpdSignal* _aidl_return) {
+ScopedAStatus HdmiConnectionMock::getHpdSignal(HpdSignal* _aidl_return) {
     *_aidl_return = mHpdSignal;
     return ScopedAStatus::ok();
 }
 
-void* HdmiMock::__threadLoop(void* user) {
-    HdmiMock* const self = static_cast<HdmiMock*>(user);
+void* HdmiConnectionMock::__threadLoop(void* user) {
+    HdmiConnectionMock* const self = static_cast<HdmiConnectionMock*>(user);
     self->threadLoop();
     return 0;
 }
 
-int HdmiMock::readMessageFromFifo(unsigned char* buf, int msgCount) {
+int HdmiConnectionMock::readMessageFromFifo(unsigned char* buf, int msgCount) {
     if (msgCount <= 0 || !buf) {
         return 0;
     }
@@ -99,7 +99,7 @@ int HdmiMock::readMessageFromFifo(unsigned char* buf, int msgCount) {
     return ret;
 }
 
-void HdmiMock::printEventBuf(const char* msg_buf, int len) {
+void HdmiConnectionMock::printEventBuf(const char* msg_buf, int len) {
     int i, size = 0;
     const int bufSize = MESSAGE_BODY_MAX_LENGTH * 3;
     // Use 2 characters for each byte in the message plus 1 space
@@ -112,7 +112,7 @@ void HdmiMock::printEventBuf(const char* msg_buf, int len) {
     ALOGD("[halimp_aidl] %s, msg:%.*s", __FUNCTION__, size, buf);
 }
 
-void HdmiMock::handleHotplugMessage(unsigned char* msgBuf) {
+void HdmiConnectionMock::handleHotplugMessage(unsigned char* msgBuf) {
     bool connected = ((msgBuf[3]) & 0xf) > 0;
     int32_t portId = static_cast<uint32_t>(msgBuf[0] & 0xf);
 
@@ -135,7 +135,7 @@ void HdmiMock::handleHotplugMessage(unsigned char* msgBuf) {
     }
 }
 
-void HdmiMock::threadLoop() {
+void HdmiConnectionMock::threadLoop() {
     ALOGD("[halimp_aidl] threadLoop start.");
     unsigned char msgBuf[MESSAGE_BODY_MAX_LENGTH];
     int r = -1;
@@ -167,7 +167,7 @@ void HdmiMock::threadLoop() {
     ALOGD("[halimp_aidl] thread end.");
 }
 
-HdmiMock::HdmiMock() {
+HdmiConnectionMock::HdmiConnectionMock() {
     ALOGE("[halimp_aidl] Opening a virtual HDMI HAL for testing and virtual machine.");
     mCallback = nullptr;
     mPortInfos.resize(mTotalPorts);
