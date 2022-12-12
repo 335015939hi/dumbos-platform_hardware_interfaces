@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85d2a2f6_b6ad0e9e",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-12T19:19:17Z",
+      "side": 1,
+      "message": "I think struct fields needs to be added to the end, otherwise it is not backwards compatible. I am checking with other people. @smoreland@google.com do you know?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 40
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e89aea61_b07dfcb9",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-12T19:19:17Z",
+      "side": 1,
+      "message": "I think this impl has two problems:\n\n- It needs to read the whole HealthInfo, which contains other unnecessary info\n- It doesn\u0027t count for the case when a device doesn\u0027t support it (it just returns ok() consistently).\n\nHence, I think this should be changed to:\n\n```\nndk::ScopedAStatus Health::getBatteryHealthData(BatteryHealthData* out) {\n    if (auto res \u003d GetProperty(..., BATTERY_PROP_MANUFACTURING_DATE, ...); !res.ok()) return res;    \n    // same for first usage\n}\n```\n\n(You\u0027ll need to add `BATTERY_PROP_MANUFACTURING_DATE`)\n\n(Or you can add two new functions in BatteryMonitor)",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 1
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "226d8f83_92e3d46b",
+        "filename": "health/utils/libhealthshim/shim.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-12T19:19:17Z",
+      "side": 1,
+      "message": "`libhealthshim` is \"Shim library that wraps a HIDL IHealth object into an AIDL IHealth object.\"\n\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/health/utils/libhealthshim/Android.bp;l\u003d53;drc\u003dad1bf31b78dbbfb31fa27bade538884a905454d8\n\nThe HIDL IHealth is never going to support BatteryHealthData.\n\nHence, this should always return \"NOT_SUPPORTED\"",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 0
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
