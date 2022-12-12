@@ -18,6 +18,7 @@
 
 #include <string>
 
+#include <aidl/android/hardware/audio/core/SurroundSoundConfig.h>
 #include <aidl/android/media/audio/common/AudioHalEngineConfig.h>
 #include <android_audio_policy_configuration.h>
 #include <android_audio_policy_configuration_enums.h>
@@ -35,6 +36,7 @@ class AudioPolicyConfigXmlConverter {
     ::android::status_t getStatus() const { return mConverter.getStatus(); }
 
     const ::aidl::android::media::audio::common::AudioHalEngineConfig& getAidlEngineConfig();
+    const SurroundSoundConfig& getSurroundSoundConfig();
 
   private:
     const std::optional<::android::audio::policy::configuration::AudioPolicyConfiguration>&
@@ -46,9 +48,13 @@ class AudioPolicyConfigXmlConverter {
             const ::android::audio::policy::configuration::Volume& xsdcVolumeCurve);
     void mapStreamsToVolumeCurves();
     void parseVolumes();
+    static ::aidl::android::media::audio::common::AudioFormatDescription convertAudioFormatToAidl(
+            const std::string& xsdcAudioFormat);
     ::aidl::android::media::audio::common::AudioHalVolumeCurve::CurvePoint convertCurvePointToAidl(
             const std::string& xsdcCurvePoint);
-
+    SurroundSoundConfig::SurroundFormatFamily convertSurroundFormatFamilyToAidl(
+            const ::android::audio::policy::configuration::SurroundFormats::Format&
+                    xsdcSurroundFormat);
     ::aidl::android::media::audio::common::AudioHalVolumeCurve convertVolumeCurveToAidl(
             const ::android::audio::policy::configuration::Volume& xsdcVolumeCurve);
 

@@ -23,9 +23,12 @@
 
 #include <aidl/android/media/audio/common/AudioHalEngineConfig.h>
 #include <system/audio-base-utils.h>
+// #include <AidlConversion.h>
+// #include <TypeConverter.h>
 
 #include "core-impl/AudioPolicyConfigXmlConverter.h"
 
+using aidl::android::media::audio::common::AudioFormatDescription;
 using aidl::android::media::audio::common::AudioHalEngineConfig;
 using aidl::android::media::audio::common::AudioHalVolumeCurve;
 using aidl::android::media::audio::common::AudioHalVolumeGroup;
@@ -85,6 +88,45 @@ AudioHalVolumeCurve AudioPolicyConfigXmlConverter::convertVolumeCurveToAidl(
 void AudioPolicyConfigXmlConverter::mapStreamToVolumeCurve(const xsd::Volume& xsdcVolumeCurve) {
     mStreamToVolumeCurvesMap[xsdcVolumeCurve.getStream()].push_back(
             convertVolumeCurveToAidl(xsdcVolumeCurve));
+}
+
+AudioFormatDescription AudioPolicyConfigXmlConverter::convertAudioFormatToAidl(
+        const std::string& xsdcAudioFormat) {
+    // TODO: should actually call
+    // legacy2aidl_audio_format_t_AudioFormatDescription(fromString(xsdcAudioFormat)).
+    // Replace when ndk backend conversion methods are available
+    return AudioFormatDescription{.encoding = xsdcAudioFormat};
+}
+
+SurroundSoundConfig::SurroundFormatFamily
+AudioPolicyConfigXmlConverter::convertSurroundFormatFamilyToAidl(
+        const xsd::SurroundFormats::Format& xsdcSurroundFormat) {
+    SurroundSoundConfig::SurroundFormatFamily aidlSurroundFormatFamily;
+    aidlSurroundFormatFamily.primaryFormat = convertAudioFormatToAidl(xsdcSurroundFormat.getName());
+    if (xsdcSurroundFormat.hasSubformats()) {
+        std::transform(xsdcSurroundFormat.getSubformats().begin(),
+                       xsdcSurroundFormat.getSubformats().end(),
+                       std::back_inserter(aidlSurroundFormatFamily.subFormats),
+                       convertAudioFormatToAidl);
+    }
+    return aidlSurroundFormatFamily;
+}
+
+const SurroundSoundConfig& AudioPolicyConfigXmlConverter::getSurroundSoundConfig() {
+    static const SurroundSoundConfig aidlSurroundSoundConfig = [this]() {
+        SurroundSoundConfig surroundConfig;
+        if (getXsdcConfig() && getXsdcConfig()->hasSurroundSound()) {
+            surroundConfig.formatFamilies = convertWrappedCollectionToAidl<
+                    xsd::SurroundFormats, xsd::SurroundFormats::Format,
+                    SurroundSoundConfig::SurroundFormatFamily>(
+                    getXsdcConfig()->getFirstSurroundSound()->getFormats(),
+                    &xsd::SurroundFormats::getFormat,
+                    std::bind(&AudioPolicyConfigXmlConverter::convertSurroundFormatFamilyToAidl,
+                              this, std::placeholders::_1));
+        }
+        return surroundConfig;
+    }();
+    return aidlSurroundSoundConfig;
 }
 
 const AudioHalEngineConfig& AudioPolicyConfigXmlConverter::getAidlEngineConfig() {
