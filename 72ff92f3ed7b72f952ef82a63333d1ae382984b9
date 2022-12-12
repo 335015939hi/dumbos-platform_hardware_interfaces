@@ -50,6 +50,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8fe151c_b0d51907",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-12-12T11:12:54Z",
+      "side": 1,
+      "message": "reverted source and sink",
+      "range": {
+        "startLine": 321,
+        "startChar": 39,
+        "endLine": 321,
+        "endChar": 77
+      },
+      "revId": "72ff92f3ed7b72f952ef82a63333d1ae382984b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f8928a_a8d94d8c",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-12-12T11:12:54Z",
+      "side": 1,
+      "message": "reverted source and sink",
+      "range": {
+        "startLine": 322,
+        "startChar": 27,
+        "endLine": 322,
+        "endChar": 71
+      },
+      "revId": "72ff92f3ed7b72f952ef82a63333d1ae382984b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "197b3e2d_2fc4b3d5",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-12-12T11:12:54Z",
+      "side": 1,
+      "message": "Submix",
+      "range": {
+        "startLine": 338,
+        "startChar": 10,
+        "endLine": 338,
+        "endChar": 16
+      },
+      "revId": "72ff92f3ed7b72f952ef82a63333d1ae382984b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a14dc111_c7b9afd0",
         "filename": "audio/aidl/default/include/core-impl/Module.h",
         "patchSetId": 2
