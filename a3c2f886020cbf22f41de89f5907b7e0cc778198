@@ -39,6 +39,30 @@
       },
       "revId": "a3c2f886020cbf22f41de89f5907b7e0cc778198",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "529f6afb_55044fd3",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-12T21:04:27Z",
+      "side": 1,
+      "message": "This is the audio framework side of the bluetooth implementation. For the HIDL/C implementation, this is this module: https://cs.android.com/android/platform/superproject/+/master:packages/modules/Bluetooth/system/audio_bluetooth_hw/Android.bp. I think, it uses android.hardware.bluetooth.audio interfaces to exchange audio data with the BT stack.",
+      "parentUuid": "97a45b5c_67228b1a",
+      "range": {
+        "startLine": 35,
+        "startChar": 22,
+        "endLine": 35,
+        "endChar": 31
+      },
+      "revId": "a3c2f886020cbf22f41de89f5907b7e0cc778198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
