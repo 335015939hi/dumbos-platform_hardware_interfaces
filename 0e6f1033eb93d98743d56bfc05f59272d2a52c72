@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7829538_655f1317",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-12T16:58:53Z",
+      "side": 1,
+      "message": "This fix is not appropriate, as this test _must_ pass if there are `IRemotelyProvisionedComponent` implementations on the device.",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 0
+      },
+      "revId": "0e6f1033eb93d98743d56bfc05f59272d2a52c72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db03d2e5_34d25cab",
+        "filename": "security/keymint/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-12T16:58:53Z",
+      "side": 1,
+      "message": "This function is determining which `IRemotelyProvisionedComponent`s are declared in the manifest.\n\nIf the device does not support RKP, then it should not be declaring `IRemotelyProvisionedComponent` implementations in the manifest.",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 5
+      },
+      "revId": "0e6f1033eb93d98743d56bfc05f59272d2a52c72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
