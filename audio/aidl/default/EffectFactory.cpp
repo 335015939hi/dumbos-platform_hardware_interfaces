@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <iterator>
 #define LOG_TAG "AHAL_EffectFactory"
 #include <dlfcn.h>
 #include <unordered_set>
@@ -51,15 +52,27 @@ Factory::~Factory() {
 ndk::ScopedAStatus Factory::queryEffects(const std::optional<AudioUuid>& in_type_uuid,
                                          const std::optional<AudioUuid>& in_impl_uuid,
                                          const std::optional<AudioUuid>& in_proxy_uuid,
-                                         std::vector<Descriptor::Identity>* _aidl_return) {
-    std::copy_if(
-            mIdentitySet.begin(), mIdentitySet.end(), std::back_inserter(*_aidl_return),
-            [&](auto& desc) {
-                return (!in_type_uuid.has_value() || in_type_uuid.value() == desc.type) &&
-                       (!in_impl_uuid.has_value() || in_impl_uuid.value() == desc.uuid) &&
-                       (!in_proxy_uuid.has_value() ||
-                        (desc.proxy.has_value() && in_proxy_uuid.value() == desc.proxy.value()));
-            });
+                                         std::vector<Descriptor>* _aidl_return) {
+    // get the matching list
+    std::vector<Descriptor::Identity> idList;
+    std::copy_if(mIdentitySet.begin(), mIdentitySet.end(), std::back_inserter(idList),
+                 [&](auto& id) {
+                     return (!in_type_uuid.has_value() || in_type_uuid.value() == id.type) &&
+                            (!in_impl_uuid.has_value() || in_impl_uuid.value() == id.uuid) &&
+                            (!in_proxy_uuid.has_value() ||
+                             (id.proxy.has_value() && in_proxy_uuid.value() == id.proxy.value()));
+                 });
+    // query through the matching list
+    for (const auto& id : idList) {
+        if (mEffectLibMap.count(id.uuid)) {
+            Descriptor desc;
+            auto& entry = mEffectLibMap[id.uuid];
+            getDlSyms(entry);
+            RETURN_IF(!entry.second, EX_NULL_POINTER, "nullContext");
+            RETURN_IF_BINDER_EXCEPTION(entry.second->queryEffectFunc(&id.uuid, &desc));
+            _aidl_return->emplace_back(std::move(desc));
+        }
+    }
     return ndk::ScopedAStatus::ok();
 }
 
@@ -74,37 +87,15 @@ ndk::ScopedAStatus Factory::queryProcessing(const std::optional<Processing::Type
     return ndk::ScopedAStatus::ok();
 }
 
-#define RETURN_IF_BINDER_EXCEPTION(functor)                                 \
-    {                                                                       \
-        binder_exception_t exception = functor;                             \
-        if (EX_NONE != exception) {                                         \
-            LOG(ERROR) << #functor << ":  failed with error " << exception; \
-            return ndk::ScopedAStatus::fromExceptionCode(exception);        \
-        }                                                                   \
-    }
-
 ndk::ScopedAStatus Factory::createEffect(const AudioUuid& in_impl_uuid,
                                          std::shared_ptr<IEffect>* _aidl_return) {
     LOG(DEBUG) << __func__ << ": UUID " << in_impl_uuid.toString();
     if (mEffectLibMap.count(in_impl_uuid)) {
-        auto& lib = mEffectLibMap[in_impl_uuid];
-        // didn't do dlsym yet
-        if (nullptr == lib.second) {
-            void* libHandle = lib.first.get();
-            auto dlInterface = std::make_unique<struct effect_dl_interface_s>();
-            dlInterface->createEffectFunc = (EffectCreateFunctor)dlsym(libHandle, "createEffect");
-            dlInterface->destroyEffectFunc =
-                    (EffectDestroyFunctor)dlsym(libHandle, "destroyEffect");
-            if (!dlInterface->createEffectFunc || !dlInterface->destroyEffectFunc) {
-                LOG(ERROR) << __func__
-                           << ": create or destroy symbol not exist in library: " << libHandle
-                           << " with dlerror: " << dlerror();
-                return ndk::ScopedAStatus::fromExceptionCode(EX_TRANSACTION_FAILED);
-            }
-            lib.second = std::move(dlInterface);
-        }
+        auto& entry = mEffectLibMap[in_impl_uuid];
+        getDlSyms(entry);
 
-        auto& libInterface = lib.second;
+        auto& libInterface = entry.second;
+        RETURN_IF(!libInterface, EX_NULL_POINTER, "nullContext");
         std::shared_ptr<IEffect> effectSp;
         RETURN_IF_BINDER_EXCEPTION(libInterface->createEffectFunc(&in_impl_uuid, &effectSp));
         if (!effectSp) {
@@ -224,6 +215,27 @@ void Factory::loadEffectLibs() {
                        << " skipping!";
         }
     }
+}
+
+void Factory::getDlSyms(DlEntry& entry) {
+    auto& dlHandle = entry.first;
+    // return if interface already exist
+    if (entry.second) {
+        return;
+    }
+
+    auto dlInterface = std::make_unique<struct effect_dl_interface_s>();
+    dlInterface->createEffectFunc = (EffectCreateFunctor)dlsym(dlHandle.get(), "createEffect");
+    dlInterface->queryEffectFunc = (EffectQueryFunctor)dlsym(dlHandle.get(), "queryEffect");
+    dlInterface->destroyEffectFunc = (EffectDestroyFunctor)dlsym(dlHandle.get(), "destroyEffect");
+    if (!dlInterface->createEffectFunc || !dlInterface->destroyEffectFunc ||
+        !dlInterface->queryEffectFunc) {
+        LOG(ERROR) << __func__
+                   << ": create or destroy symbol not exist in library: " << dlHandle.get()
+                   << " with dlerror: " << dlerror();
+        return;
+    }
+    entry.second = std::move(dlInterface);
 }
 
 }  // namespace aidl::android::hardware::audio::effect
