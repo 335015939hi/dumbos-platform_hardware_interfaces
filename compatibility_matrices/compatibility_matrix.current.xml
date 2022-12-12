@@ -698,7 +698,7 @@
     <hal format="aidl" optional="true">
         <name>android.hardware.tv.hdmi</name>
         <interface>
-            <name>IHdmi</name>
+            <name>IHdmiConnection</name>
             <instance>default</instance>
         </interface>
     </hal>
