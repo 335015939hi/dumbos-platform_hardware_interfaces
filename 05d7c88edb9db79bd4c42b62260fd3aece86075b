@@ -54,6 +54,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9cf151b_293ef916",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-12T16:36:04Z",
+      "side": 1,
+      "message": "The presubmit failures are due to missing the implementation on Cuttlefish.\n\nWe can handle this now, which is recommended, by (1) adding the `android.hardware.tetheroffload-service.example` service to Cuttlefish here https://source.corp.google.com/android/device/google/cuttlefish/shared/device.mk;rcl\u003d6c582ae5d7cf91dff81167135e2d190f68cf1e4b;l\u003d284 and (2) adding all of the necessary policy for the new interface/service.\n\nIf we want to split up CLs, then this interface would need to be added temporarily to https://source.corp.google.com/android/device/google/cuttlefish/tests/hal/hal_implementation_test.cpp;rcl\u003d6c582ae5d7cf91dff81167135e2d190f68cf1e4b;l\u003d167 so we skip the interface in the tests",
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a50fdc4b_0c13d194",
