@@ -16,8 +16,10 @@
 
 using namespace android;
 using aidl::android::hardware::audio::core::IConfig;
+using aidl::android::hardware::audio::core::SurroundSoundConfig;
 using aidl::android::media::audio::common::AudioAttributes;
 using aidl::android::media::audio::common::AudioFlag;
+using aidl::android::media::audio::common::AudioFormatDescription;
 using aidl::android::media::audio::common::AudioHalAttributesGroup;
 using aidl::android::media::audio::common::AudioHalCapCriterion;
 using aidl::android::media::audio::common::AudioHalCapCriterionType;
@@ -41,6 +43,7 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
     void RestartService() {
         ASSERT_NE(mConfig, nullptr);
         mEngineConfig.reset();
+        mSurroundSoundConfig.reset();
         mConfig = IConfig::fromBinder(mBinderUtil.restartService());
         ASSERT_NE(mConfig, nullptr);
     }
@@ -50,6 +53,14 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
             auto tempConfig = std::make_unique<AudioHalEngineConfig>();
             ASSERT_IS_OK(mConfig->getEngineConfig(tempConfig.get()));
             mEngineConfig = std::move(tempConfig);
+        }
+    }
+
+    void SetUpSurroundSoundConfig() {
+        if (mSurroundSoundConfig == nullptr) {
+            auto tempConfig = std::make_unique<SurroundSoundConfig>();
+            ASSERT_IS_OK(mConfig->getSurroundSoundConfig(tempConfig.get()));
+            mSurroundSoundConfig = std::move(tempConfig);
         }
     }
 
@@ -308,9 +319,33 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
         }
     }
 
+    void ValidateAudioFormatDescription(const AudioFormatDescription& format) {
+        // Fake placeholder validation. Remove when
+        // legacy2aidl_audio_format_t_AudioFormatDescription is available
+        EXPECT_FALSE(format.encoding.empty());
+    }
+
+    /**
+     * Verify each of the formatFamilies has a non-empty primaryFormat
+     * Verify each format is unique
+     */
+    void ValidateSurroundSoundConfig() {
+        std::set<AudioFormatDescription> formatSet;
+        for (const SurroundSoundConfig::SurroundFormatFamily& family :
+             mSurroundSoundConfig->formatFamilies) {
+            EXPECT_NO_FATAL_FAILURE(ValidateAudioFormatDescription(family.primaryFormat));
+            EXPECT_TRUE(formatSet.insert(family.primaryFormat).second);
+            for (const AudioFormatDescription& subformat : family.subFormats) {
+                EXPECT_NO_FATAL_FAILURE(ValidateAudioFormatDescription(subformat));
+                EXPECT_TRUE(formatSet.insert(subformat).second);
+            }
+        }
+    }
+
   private:
     std::shared_ptr<IConfig> mConfig;
     std::unique_ptr<AudioHalEngineConfig> mEngineConfig;
+    std::unique_ptr<SurroundSoundConfig> mSurroundSoundConfig;
     AudioHalBinderServiceUtil mBinderUtil;
 };
 
@@ -325,6 +360,11 @@ TEST_P(AudioCoreConfig, CanBeRestarted) {
 TEST_P(AudioCoreConfig, GetEngineConfigIsValid) {
     ASSERT_NO_FATAL_FAILURE(SetUpEngineConfig());
     EXPECT_NO_FATAL_FAILURE(ValidateAudioHalEngineConfig());
+}
+
+TEST_P(AudioCoreConfig, GetSurroundSoundConfigIsValid) {
+    ASSERT_NO_FATAL_FAILURE(SetUpSurroundSoundConfig());
+    EXPECT_NO_FATAL_FAILURE(ValidateSurroundSoundConfig());
 }
 
 INSTANTIATE_TEST_SUITE_P(AudioCoreConfigTest, AudioCoreConfig,
