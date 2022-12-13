@@ -45,6 +45,54 @@
       },
       "revId": "d593a3355e2fffddfa1ce9506c5c4e9dbbc1843c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46671c92_7b9331f6",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-13T00:32:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6adb570_f56f389f",
+      "range": {
+        "startLine": 234,
+        "startChar": 32,
+        "endLine": 234,
+        "endChar": 43
+      },
+      "revId": "d593a3355e2fffddfa1ce9506c5c4e9dbbc1843c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24e9b3dc_0dfda4ff",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-13T00:32:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba51948_37a940f0",
+      "range": {
+        "startLine": 234,
+        "startChar": 77,
+        "endLine": 234,
+        "endChar": 91
+      },
+      "revId": "d593a3355e2fffddfa1ce9506c5c4e9dbbc1843c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
