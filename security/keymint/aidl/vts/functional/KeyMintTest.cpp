@@ -1132,14 +1132,14 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
 /*
  * NewKeyGenerationTest.RsaWithRpkAttestation
  *
- * Verifies that keymint can generate all required RSA key sizes, using an attestation key
+ * Verifies that keymint can generate all required RSA key sizes using an attestation key
  * that has been generated using an associate IRemotelyProvisionedComponent.
- *
- * This test is disabled because the KeyMint specification does not require that implementations
- * of the first version of KeyMint have to also implement IRemotelyProvisionedComponent.
- * However, the test is kept in the code because KeyMint v2 will impose this requirement.
  */
-TEST_P(NewKeyGenerationTest, DISABLED_RsaWithRpkAttestation) {
+TEST_P(NewKeyGenerationTest, RsaWithRpkAttestation) {
+    if (AidlVersion() < 2) {
+        GTEST_SKIP() << "Only required starting with KeyMint v2";
+    }
+
     // There should be an IRemotelyProvisionedComponent instance associated with the KeyMint
     // instance.
     std::shared_ptr<IRemotelyProvisionedComponent> rp;
