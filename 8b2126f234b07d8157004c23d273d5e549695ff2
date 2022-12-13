@@ -94,6 +94,30 @@
       },
       "revId": "8b2126f234b07d8157004c23d273d5e549695ff2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcd3307d_8d80526e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-12-13T21:19:49Z",
+      "side": 1,
+      "message": "Yeah, just require it for v3+ then.",
+      "parentUuid": "7cce6449_a09ea8c5",
+      "range": {
+        "startLine": 1139,
+        "startChar": 4,
+        "endLine": 1139,
+        "endChar": 28
+      },
+      "revId": "8b2126f234b07d8157004c23d273d5e549695ff2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
