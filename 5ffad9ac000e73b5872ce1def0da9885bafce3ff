@@ -46,6 +46,30 @@
       },
       "revId": "5ffad9ac000e73b5872ce1def0da9885bafce3ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fef4cf3_8bca2081",
+        "filename": "audio/aidl/android/hardware/audio/effect/PresetReverb.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-13T00:51:45Z",
+      "side": 1,
+      "message": "Now I\u0027m curious about how many definitions of \"halls\" exist across Android devices 😄",
+      "parentUuid": "0c1dd3d4_e3cf4409",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 31
+      },
+      "revId": "5ffad9ac000e73b5872ce1def0da9885bafce3ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
