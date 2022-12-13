@@ -22,6 +22,30 @@
       },
       "revId": "e21cc8f23a57ce6b6d4c95f43e3cc17b2420e673",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41041048_65fd33eb",
+        "filename": "security/rkp/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-12-13T19:08:31Z",
+      "side": 1,
+      "message": "Probably makes sense to throw yourself in here as well, but +1 to smaller sets, ideally only of people that have really gotten into the code in question.",
+      "parentUuid": "7d850173_912604c1",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 5
+      },
+      "revId": "e21cc8f23a57ce6b6d4c95f43e3cc17b2420e673",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
