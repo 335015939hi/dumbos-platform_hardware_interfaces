@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7b4371b_88f055e9",
+        "filename": "audio/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-13T22:29:29Z",
+      "side": 1,
+      "message": "Please also add to presubmit test mapping: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/TEST_MAPPING",
+      "range": {
+        "startLine": 75,
+        "startChar": 11,
+        "endLine": 75,
+        "endChar": 34
+      },
+      "revId": "bcf08e360b91569db0ee7b9d31cb326eeeedc6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
