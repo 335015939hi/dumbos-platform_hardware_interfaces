@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2ea99d0_b4e1e61c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-13T15:29:26Z",
+      "side": 1,
+      "message": "Just upload the vts test. It is basically transformed from the hidl version. It looks like the vts doesn\u0027t really test the callback function. I think not all events can be triggered by the vts test. May add another patch to test the OFFLOAD_STARTED and OFFLOAD_SUPPORT_AVAILABLE events.",
+      "parentUuid": "e27359e3_edbb70a5",
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a50fdc4b_0c13d194",
         "filename": "tetheroffload/aidl/default/Android.bp",
         "patchSetId": 6
@@ -84,6 +102,24 @@
       "writtenOn": "2022-12-09T01:16:07Z",
       "side": 1,
       "message": "consider https://android-review.git.corp.google.com/c/platform/external/minigbm/+/2333944\n\n(by chance have recent CL, this must be getting copy/pasted)",
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c3672b9_657a6c86",
+        "filename": "tetheroffload/aidl/default/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-13T15:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a50fdc4b_0c13d194",
       "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -101,6 +137,30 @@
       "writtenOn": "2022-12-09T01:16:07Z",
       "side": 1,
       "message": "fyi - android-base/strings.h has this as well, since you are already importing it.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 1
+      },
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f96db07_77c6e4a3",
+        "filename": "tetheroffload/aidl/default/Offload.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-13T15:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "923b5c3f_22054f91",
       "range": {
         "startLine": 26,
         "startChar": 0,
@@ -134,6 +194,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f913482a_763ab3b7",
+        "filename": "tetheroffload/aidl/default/main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-13T15:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6eb2203_9fd31df0",
+      "range": {
+        "startLine": 31,
+        "startChar": 66,
+        "endLine": 31,
+        "endChar": 74
+      },
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98257767_4162bb23",
@@ -147,6 +231,30 @@
       "writtenOn": "2022-12-09T01:16:07Z",
       "side": 1,
       "message": "pref: CHECK_EQ(status, STATUS_OK) for a clearer message",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f4295d1_b6605758",
+        "filename": "tetheroffload/aidl/default/main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2022-12-13T15:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98257767_4162bb23",
       "range": {
         "startLine": 32,
         "startChar": 0,
