@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a931cbe5_78c33cde",
+        "filename": "security/keymint/TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2022-12-13T19:01:32Z",
+      "side": 0,
+      "message": "We probably want to leave this in here. When changes are made within this directory, we\u0027ll probably still want to have the IRPC tests get executed.",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "a55e7023249374c6b6aa58340553a47a050eab40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
