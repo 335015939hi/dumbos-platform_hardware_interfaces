@@ -40,5 +40,4 @@ enum EnergyConsumerType {
   GNSS = 4,
   MOBILE_RADIO = 5,
   WIFI = 6,
-  CAMERA = 7,
 }
