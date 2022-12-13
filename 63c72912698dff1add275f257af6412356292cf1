@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b312433_81ab2bd9",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-13T00:34:44Z",
+      "side": 1,
+      "message": "units?",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7281e85c_37a14cfd",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-13T00:34:44Z",
+      "side": 1,
+      "message": "units?",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 26
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "85d2a2f6_b6ad0e9e",
         "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
         "patchSetId": 7
@@ -36,6 +82,53 @@
         "startChar": 0,
         "endLine": 106,
         "endChar": 40
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bec311a_35a31ad4",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-13T00:34:44Z",
+      "side": 1,
+      "message": "right, this should be a compilation error. If it is not, please file a bug.",
+      "parentUuid": "85d2a2f6_b6ad0e9e",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 40
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e9084a9_faaffcb5",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-13T00:34:44Z",
+      "side": 1,
+      "message": "why is this a new method? what makes this different than HealthInfo, since that also includes information about the battery.",
+      "range": {
+        "startLine": 215,
+        "startChar": 4,
+        "endLine": 215,
+        "endChar": 21
       },
       "revId": "63c72912698dff1add275f257af6412356292cf1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
