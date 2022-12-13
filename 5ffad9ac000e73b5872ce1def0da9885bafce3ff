@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f1cbf38_e3c96c81",
+        "filename": "audio/aidl/android/hardware/audio/effect/PresetReverb.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-13T00:39:25Z",
+      "side": 1,
+      "message": "What makes a room a hall? Is this some common knowledge for audio engineers? Should it be described here?",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 31
+      },
+      "revId": "5ffad9ac000e73b5872ce1def0da9885bafce3ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
