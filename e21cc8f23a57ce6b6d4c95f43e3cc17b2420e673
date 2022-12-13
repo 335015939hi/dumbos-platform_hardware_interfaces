@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d850173_912604c1",
+        "filename": "security/rkp/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-13T01:07:14Z",
+      "side": 1,
+      "message": "I figured Tri should be here for sure. Wasn\u0027t sure who else to add.\n\nAll of rkp-eng? Seems like we probably want to keep OWNERS smaller than the whole team...",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 5
+      },
+      "revId": "e21cc8f23a57ce6b6d4c95f43e3cc17b2420e673",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
