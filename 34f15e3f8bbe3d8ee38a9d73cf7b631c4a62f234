@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e0adaa8_f6077f5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-13T00:43:43Z",
+      "side": 1,
+      "message": "these tests can be run with atest. Please make sure the device you have has radio@1.1 installed or reach out to telephony team.",
+      "revId": "34f15e3f8bbe3d8ee38a9d73cf7b631c4a62f234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b94c01c_99c174ed",
+        "filename": "radio/config/1.1/vts/functional/radio_config_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-13T00:43:43Z",
+      "side": 1,
+      "message": "ModemsConfig mConfig; (etc) - can be on the stack",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 62
+      },
+      "revId": "34f15e3f8bbe3d8ee38a9d73cf7b631c4a62f234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7faa1783_d630dc31",
+        "filename": "vibrator/bench/benchmark.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-13T00:43:43Z",
+      "side": 1,
+      "message": "also UAF/double-own",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 93
+      },
+      "revId": "34f15e3f8bbe3d8ee38a9d73cf7b631c4a62f234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f87e9c9_aa3a7369",
+        "filename": "vibrator/bench/benchmark.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-13T00:43:43Z",
+      "side": 1,
+      "message": "also UAF/double-own",
+      "range": {
+        "startLine": 481,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 36
+      },
+      "revId": "34f15e3f8bbe3d8ee38a9d73cf7b631c4a62f234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "838f9a66_d436ca88",
+        "filename": "vibrator/bench/benchmark.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-13T00:43:43Z",
+      "side": 1,
+      "message": "this is UAF, double-own. The leak detection is wrong. Enable cflag ANDROID_UTILS_REF_BASE_DISABLE_IMPLICIT_CONSTRUCTION in Android.bp for the compiler to tell you how to fix it",
+      "range": {
+        "startLine": 569,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 55
+      },
+      "revId": "34f15e3f8bbe3d8ee38a9d73cf7b631c4a62f234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
