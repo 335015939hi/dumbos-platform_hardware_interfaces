@@ -46,6 +46,30 @@
       },
       "revId": "8b2126f234b07d8157004c23d273d5e549695ff2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cce6449_a09ea8c5",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-13T19:37:31Z",
+      "side": 1,
+      "message": "Yup, but if RKP wasn\u0027t required by GMS (and therefore the device pubkey wasn\u0027t registered) then it was \"fine\".\n\nI agree it\u0027s best to test at AIDL version 2. However we might run into some OEMs who had goofy setups, and we will need to fight that battle if/when that occurs.",
+      "parentUuid": "21cef47d_ab6242af",
+      "range": {
+        "startLine": 1139,
+        "startChar": 4,
+        "endLine": 1139,
+        "endChar": 28
+      },
+      "revId": "8b2126f234b07d8157004c23d273d5e549695ff2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

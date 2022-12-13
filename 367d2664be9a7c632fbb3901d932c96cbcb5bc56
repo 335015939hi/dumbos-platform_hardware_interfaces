@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b55ba295_127f9fe0",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-13T19:37:31Z",
+      "side": 1,
+      "message": "Nope. Added.",
+      "parentUuid": "fc038887_66fd58b7",
+      "range": {
+        "startLine": 1135,
+        "startChar": 51,
+        "endLine": 1135,
+        "endChar": 54
+      },
+      "revId": "367d2664be9a7c632fbb3901d932c96cbcb5bc56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fccd726_b1e6aae4",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-13T19:03:17Z",
       "side": 1,
       "message": "Nit: s/Rpk/Rkp/",
+      "range": {
+        "startLine": 1138,
+        "startChar": 36,
+        "endLine": 1138,
+        "endChar": 39
+      },
+      "revId": "367d2664be9a7c632fbb3901d932c96cbcb5bc56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c777408e_02d773c9",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-13T19:37:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fccd726_b1e6aae4",
       "range": {
         "startLine": 1138,
         "startChar": 36,
