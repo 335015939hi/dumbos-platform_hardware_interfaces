@@ -118,6 +118,30 @@
       },
       "revId": "557a1dbd03732e11f83035d91ed1ee55198de9db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da244328_9c55e6d9",
+        "filename": "security/rkp/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2022-12-14T15:59:34Z",
+      "side": 1,
+      "message": "We have native VTS tests for the HALs. I don\u0027t think we have coverage measurements, though the goal is 100% API coverage.\n\nAre there any special steps we should take to include these APIs in the coverage dashboard for mainline modules?",
+      "parentUuid": "69322e10_484e48ec",
+      "range": {
+        "startLine": 23,
+        "startChar": 34,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "557a1dbd03732e11f83035d91ed1ee55198de9db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
