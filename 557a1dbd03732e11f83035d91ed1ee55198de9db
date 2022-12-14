@@ -142,6 +142,30 @@
       },
       "revId": "557a1dbd03732e11f83035d91ed1ee55198de9db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9db9733f_86211625",
+        "filename": "security/rkp/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-12-14T17:39:17Z",
+      "side": 1,
+      "message": "No, my point is that the infrastructure to support this kind of interface doesn\u0027t meet the mainline requirements. There isn\u0027t an alternative for HALs, but it\u0027s still a \"gotcha\" (since you asked 😊)",
+      "parentUuid": "da244328_9c55e6d9",
+      "range": {
+        "startLine": 23,
+        "startChar": 34,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "557a1dbd03732e11f83035d91ed1ee55198de9db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
