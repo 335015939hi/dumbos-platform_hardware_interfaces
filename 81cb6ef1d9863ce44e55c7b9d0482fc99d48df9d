@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28cd6f78_fa1867db",
+        "filename": "tv/hdmi/aidl/aidl_api/android.hardware.tv.hdmi/current/android/hardware/tv/hdmi/IHdmiConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-14T07:58:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a7c14d6_4a67e1e7",
+      "range": {
+        "startLine": 39,
+        "startChar": 42,
+        "endLine": 39,
+        "endChar": 46
+      },
+      "revId": "81cb6ef1d9863ce44e55c7b9d0482fc99d48df9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "326552a4_40c3ec45",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-13T12:23:29Z",
       "side": 1,
       "message": "HDMI Connection",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 7
+      },
+      "revId": "81cb6ef1d9863ce44e55c7b9d0482fc99d48df9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3f7e81d_6c64080a",
+        "filename": "tv/hdmi/aidl/android/hardware/tv/hdmi/IHdmiConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-14T07:58:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "326552a4_40c3ec45",
       "range": {
         "startLine": 24,
         "startChar": 3,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44d189d9_2ca8a1d4",
+        "filename": "tv/hdmi/aidl/default/HdmiConnectionMock.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-14T07:58:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9df65f1_9503a87f",
+      "range": {
+        "startLine": 44,
+        "startChar": 59,
+        "endLine": 44,
+        "endChar": 72
+      },
+      "revId": "81cb6ef1d9863ce44e55c7b9d0482fc99d48df9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a96c62ad_1a2f27cf",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-12-13T12:23:29Z",
       "side": 1,
       "message": "hdmiConnection or hdmi_connection",
+      "range": {
+        "startLine": 36,
+        "startChar": 37,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "81cb6ef1d9863ce44e55c7b9d0482fc99d48df9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ca3ae27_127d1de3",
+        "filename": "tv/hdmi/aidl/vts/functional/VtsHalTvHdmiConnectionAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-14T07:58:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a96c62ad_1a2f27cf",
       "range": {
         "startLine": 36,
         "startChar": 37,
