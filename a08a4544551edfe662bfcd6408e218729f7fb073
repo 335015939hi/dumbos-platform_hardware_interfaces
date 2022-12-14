@@ -16,6 +16,23 @@
       "message": "(rechecking after internal merge)",
       "revId": "a08a4544551edfe662bfcd6408e218729f7fb073",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa297e02_f00d2a8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-14T01:51:50Z",
+      "side": 1,
+      "message": "(removing domains which have been changed recently)",
+      "revId": "a08a4544551edfe662bfcd6408e218729f7fb073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
