@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76cbecb8_2770892f",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-14T17:40:49Z",
+      "side": 1,
+      "message": "We probably want to indicate a conversion failure somehow. In AidlConversion we use `ConversionResult`.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 22
+      },
+      "revId": "fd3df8fd0f8322f153344443acf1d24b532cd282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a080ba20_e29e19dd",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-14T17:40:49Z",
+      "side": 1,
+      "message": "I would suggest creating a separate source file for such simple type converters, perhaps name it `XsdcConversion`.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 1
+      },
+      "revId": "fd3df8fd0f8322f153344443acf1d24b532cd282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "758ef7a2_43ac2850",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-14T17:40:49Z",
+      "side": 1,
+      "message": "There should be a generic function similar to [`convertContainer`]( https://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/libaudioclient/include/media/AidlConversionUtil.h;l\u003d105;drc\u003da461a00ed5c235675a4a7ac24619df77a190e225) which also checks that each element has been converted correctly.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 49
+      },
+      "revId": "fd3df8fd0f8322f153344443acf1d24b532cd282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bcc3e6d_f79a5d38",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-14T17:40:49Z",
+      "side": 1,
+      "message": "Please put this into a separate source file. I think we can reuse it in the \u0027Module\u0027 VTS test for validating audio ports returned by the HAL.",
+      "range": {
+        "startLine": 322,
+        "startChar": 9,
+        "endLine": 322,
+        "endChar": 39
+      },
+      "revId": "fd3df8fd0f8322f153344443acf1d24b532cd282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
