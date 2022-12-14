@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "324db3cd_cc9b9ae6",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-14T09:04:37Z",
+      "side": 1,
+      "message": "android.hardware.tv.hdmi.cec\n\nSame for the eARC and HDMI Connection HAL.",
+      "range": {
+        "startLine": 685,
+        "startChar": 14,
+        "endLine": 685,
+        "endChar": 37
+      },
+      "revId": "721f8c68fabb5594905e7a9084cdc8644430e14e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9eaa8f0_617ccc3f",
+        "filename": "tv/hdmi/connection/aidl/vts/functional/VtsHalTvHdmiConnectionAidlTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-14T09:04:37Z",
+      "side": 1,
+      "message": "HDMI Connection",
+      "range": {
+        "startLine": 42,
+        "startChar": 27,
+        "endLine": 42,
+        "endChar": 38
+      },
+      "revId": "721f8c68fabb5594905e7a9084cdc8644430e14e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
