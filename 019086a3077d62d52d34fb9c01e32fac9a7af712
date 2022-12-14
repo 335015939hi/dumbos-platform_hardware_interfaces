@@ -33,6 +33,24 @@
       "message": "Why merge to aosp if nothing is using android.hardware.radio.network-V2? \nThis will require bumping the cuttlefish implementation to use V2 and the compat shim to use V2 for hal_implementation_test. The CLs that did that internally are not in aosp yet.",
       "revId": "019086a3077d62d52d34fb9c01e32fac9a7af712",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97b97890_e61010e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1886292
+      },
+      "writtenOn": "2022-12-14T17:55:19Z",
+      "side": 1,
+      "message": "https://googleplex-android-review.git.corp.google.com/q/topic:%22support_3g_ecno_measurement%22\nThis topic will move to AOSP. I\u0027ll request review when the topic moves to AOSP.",
+      "parentUuid": "d7e00fd6_02fb72ca",
+      "revId": "019086a3077d62d52d34fb9c01e32fac9a7af712",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
