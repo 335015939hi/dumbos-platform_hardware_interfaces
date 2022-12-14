@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86977dd2_d4c3af9e",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-14T16:44:38Z",
+      "side": 1,
+      "message": "IMHO it is common sense a latency can not be negative right?\nSo maybe not a good thing to define Minimal latency in AIDL, I think adding a comment in SetOnlyParameters.latencyMs about the legal value must be larger than 0 is enough.\n\n`MAX_LATENCY` however can be defined as an effect capability.\nhttps://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2352968/1/audio/aidl/default/visualizer/VisualizerSw.h#27",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 0
+      },
+      "revId": "1394e192a8fe1362717a9b0ec20e6b6b94c03e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
