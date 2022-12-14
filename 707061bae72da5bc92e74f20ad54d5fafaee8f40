@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fc474d1_cc62297d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1029699
+      },
+      "writtenOn": "2022-12-14T08:04:13Z",
+      "side": 1,
+      "message": "We\u0027d need different HAL_PIXEL_FORMATs for the 12x4 and 14x2 variants. We choose different strides for 12bits-in-16bits/14bits-in-16bits/16bits formats for optimal buffer usages.",
+      "revId": "707061bae72da5bc92e74f20ad54d5fafaee8f40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6499abe0_c8b33829",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1029699
+      },
+      "writtenOn": "2022-12-14T08:04:13Z",
+      "side": 1,
+      "message": "The same here.",
+      "revId": "707061bae72da5bc92e74f20ad54d5fafaee8f40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9a33d643_0f5e4a06",
