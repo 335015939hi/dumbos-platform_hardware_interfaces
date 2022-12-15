@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3448985b_a758cb83",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-15T16:15:22Z",
+      "side": 1,
+      "message": "uint64_t",
+      "parentUuid": "8b312433_81ab2bd9",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7281e85c_37a14cfd",
         "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
         "patchSetId": 7
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-13T00:34:44Z",
       "side": 1,
       "message": "units?",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 26
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "246df60f_830226c2",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-15T16:15:22Z",
+      "side": 1,
+      "message": "uint64_t",
+      "parentUuid": "7281e85c_37a14cfd",
       "range": {
         "startLine": 28,
         "startChar": 9,
@@ -111,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4185f9c5_a2a7ba63",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-15T16:15:22Z",
+      "side": 1,
+      "message": "Thanks for the reminding. done!",
+      "parentUuid": "0bec311a_35a31ad4",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 40
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e9084a9_faaffcb5",
@@ -124,6 +196,30 @@
       "writtenOn": "2022-12-13T00:34:44Z",
       "side": 1,
       "message": "why is this a new method? what makes this different than HealthInfo, since that also includes information about the battery.",
+      "range": {
+        "startLine": 215,
+        "startChar": 4,
+        "endLine": 215,
+        "endChar": 21
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15dbbd2b_3e18639f",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-15T16:15:22Z",
+      "side": 1,
+      "message": "We can get BatteryHealthData from HealthInfo. remove this method.",
+      "parentUuid": "4e9084a9_faaffcb5",
       "range": {
         "startLine": 215,
         "startChar": 4,
@@ -157,6 +253,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b6e7b13_1e3682cf",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-15T16:15:22Z",
+      "side": 1,
+      "message": "We can get BatteryHealthData from HealthInfo. remove this method.",
+      "parentUuid": "e89aea61_b07dfcb9",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 1
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "226d8f83_92e3d46b",
@@ -170,6 +290,30 @@
       "writtenOn": "2022-12-12T19:19:17Z",
       "side": 1,
       "message": "`libhealthshim` is \"Shim library that wraps a HIDL IHealth object into an AIDL IHealth object.\"\n\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/health/utils/libhealthshim/Android.bp;l\u003d53;drc\u003dad1bf31b78dbbfb31fa27bade538884a905454d8\n\nThe HIDL IHealth is never going to support BatteryHealthData.\n\nHence, this should always return \"NOT_SUPPORTED\"",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 0
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0a8bc11_c6198b6e",
+        "filename": "health/utils/libhealthshim/shim.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-15T16:15:22Z",
+      "side": 1,
+      "message": "We can get BatteryHealthData from HealthInfo. remove this method.",
+      "parentUuid": "226d8f83_92e3d46b",
       "range": {
         "startLine": 221,
         "startChar": 0,
