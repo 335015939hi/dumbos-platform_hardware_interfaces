@@ -98,6 +98,7 @@ typedef struct km_auth_list {
     ASN1_OCTET_STRING* attestation_id_product;
     ASN1_OCTET_STRING* attestation_id_serial;
     ASN1_OCTET_STRING* attestation_id_imei;
+    ASN1_OCTET_STRING* attestation_id_second_imei;
     ASN1_OCTET_STRING* attestation_id_meid;
     ASN1_OCTET_STRING* attestation_id_manufacturer;
     ASN1_OCTET_STRING* attestation_id_model;
@@ -157,6 +158,8 @@ ASN1_SEQUENCE(KM_AUTH_LIST) = {
                      TAG_ATTESTATION_ID_SERIAL.maskedTag()),
         ASN1_EXP_OPT(KM_AUTH_LIST, attestation_id_imei, ASN1_OCTET_STRING,
                      TAG_ATTESTATION_ID_IMEI.maskedTag()),
+        ASN1_EXP_OPT(KM_AUTH_LIST, attestation_id_second_imei, ASN1_OCTET_STRING,
+                     TAG_ATTESTATION_ID_SECOND_IMEI.maskedTag()),
         ASN1_EXP_OPT(KM_AUTH_LIST, attestation_id_meid, ASN1_OCTET_STRING,
                      TAG_ATTESTATION_ID_MEID.maskedTag()),
         ASN1_EXP_OPT(KM_AUTH_LIST, attestation_id_manufacturer, ASN1_OCTET_STRING,
@@ -316,6 +319,7 @@ static ErrorCode extract_auth_list(const KM_AUTH_LIST* record, AuthorizationSet*
     copyAuthTag(record->attestation_id_product, TAG_ATTESTATION_ID_PRODUCT, auth_list);
     copyAuthTag(record->attestation_id_serial, TAG_ATTESTATION_ID_SERIAL, auth_list);
     copyAuthTag(record->attestation_id_imei, TAG_ATTESTATION_ID_IMEI, auth_list);
+    copyAuthTag(record->attestation_id_second_imei, TAG_ATTESTATION_ID_SECOND_IMEI, auth_list);
     copyAuthTag(record->attestation_id_meid, TAG_ATTESTATION_ID_MEID, auth_list);
     copyAuthTag(record->attestation_id_manufacturer, TAG_ATTESTATION_ID_MANUFACTURER, auth_list);
     copyAuthTag(record->attestation_id_model, TAG_ATTESTATION_ID_MODEL, auth_list);
