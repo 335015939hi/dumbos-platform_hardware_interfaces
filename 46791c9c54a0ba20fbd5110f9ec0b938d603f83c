@@ -16,6 +16,47 @@
       "message": "I tried to test this on Pixel6 device, but couldn\u0027t test it successfully. It failed with `CANNOT_ATTEST_IDS` error response. I observed this behavior even before these changes. Could you please suggest the device I should use for testing where  attest-id is supported.",
       "revId": "46791c9c54a0ba20fbd5110f9ec0b938d603f83c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79b50f14_42081f97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-12-15T12:03:43Z",
+      "side": 1,
+      "message": "Per OOB discussion, please ask for a PVT device which should have the IDs correctly provisioned, and run CTS tests on it first to see that ID attestation works.\n\nThe relevant test is android.keystore.cts.DeviceOwnerKeyManagementTest",
+      "parentUuid": "684a0d03_a1396380",
+      "revId": "46791c9c54a0ba20fbd5110f9ec0b938d603f83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7a785cf_b302fc90",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2022-12-15T12:03:43Z",
+      "side": 1,
+      "message": "Some devices may not have an IMEI (e.g. if they don\u0027t have a cellular modem). So skip adding the IMEI tag if there\u0027s no IMEI.",
+      "range": {
+        "startLine": 846,
+        "startChar": 4,
+        "endLine": 846,
+        "endChar": 30
+      },
+      "revId": "46791c9c54a0ba20fbd5110f9ec0b938d603f83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
