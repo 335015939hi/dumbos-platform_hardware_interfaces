@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f59bff1_d5948734",
+        "filename": "tv/earc/aidl/aidl_api/android.hardware.tv.earc/current/android/hardware/tv/earc/IEArc.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-15T08:31:39Z",
+      "side": 1,
+      "message": "This should return an integer with the result (see the proposal doc).",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 6
+      },
+      "revId": "b3b6df4023e68ee644a069935c69eb44d8404a97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f1cb9fd_b5afafb1",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArc.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-15T08:31:39Z",
+      "side": 1,
+      "message": "Elaborate:\n\n```\nFunction to enable or disable eARC in the device\u0027s driver and HAL. If enabled, the driver and HAL shall attempt to establish an eARC connection and inform the Android framework about updates with IEArcCallback callbacks. If disabled, the driver and HAL shall not attempt to establish an eARC connection and shall not send any IEArcCallback callbacks to the Android framework.\n\n@return ...\n```",
+      "range": {
+        "startLine": 28,
+        "startChar": 7,
+        "endLine": 28,
+        "endChar": 55
+      },
+      "revId": "b3b6df4023e68ee644a069935c69eb44d8404a97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6c7369d_e4f0761d",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArc.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-15T08:31:39Z",
+      "side": 1,
+      "message": "in the device\u0027s driver and HAL.",
+      "range": {
+        "startLine": 33,
+        "startChar": 44,
+        "endLine": 33,
+        "endChar": 56
+      },
+      "revId": "b3b6df4023e68ee644a069935c69eb44d8404a97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "409275e5_08e7b887",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArcCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-15T08:31:39Z",
+      "side": 1,
+      "message": "Android framework",
+      "range": {
+        "startLine": 27,
+        "startChar": 90,
+        "endLine": 27,
+        "endChar": 96
+      },
+      "revId": "b3b6df4023e68ee644a069935c69eb44d8404a97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2043452b_f2d7fc1c",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArcCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-15T08:31:39Z",
+      "side": 1,
+      "message": "driver and HAL implementation",
+      "range": {
+        "startLine": 27,
+        "startChar": 61,
+        "endLine": 27,
+        "endChar": 75
+      },
+      "revId": "b3b6df4023e68ee644a069935c69eb44d8404a97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c78909cf_7511555c",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArcCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-15T08:31:39Z",
+      "side": 1,
+      "message": "idem as above.",
+      "range": {
+        "startLine": 35,
+        "startChar": 61,
+        "endLine": 35,
+        "endChar": 75
+      },
+      "revId": "b3b6df4023e68ee644a069935c69eb44d8404a97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebada91c_b8487257",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArcCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-15T08:31:39Z",
+      "side": 1,
+      "message": "idem as above.",
+      "range": {
+        "startLine": 35,
+        "startChar": 90,
+        "endLine": 35,
+        "endChar": 96
+      },
+      "revId": "b3b6df4023e68ee644a069935c69eb44d8404a97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f33df49c_7ae250b5",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArcCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-15T08:31:39Z",
+      "side": 1,
+      "message": "Elaborate:\n\n```\nOn every state change to {@code STATUS_EARC_CONNECTED}, the driver shall read the capabilities reported by the eARC RX. The onStateChange callback shall always be invoked first and the onCapabilitiesReported callback shall be invoked second.\n```",
+      "range": {
+        "startLine": 36,
+        "startChar": 64,
+        "endLine": 36,
+        "endChar": 77
+      },
+      "revId": "b3b6df4023e68ee644a069935c69eb44d8404a97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a52a310d_75572bf0",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArcCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-15T08:31:39Z",
+      "side": 1,
+      "message": "Refer to the part of the spec where they are defined.",
+      "range": {
+        "startLine": 38,
+        "startChar": 34,
+        "endLine": 38,
+        "endChar": 65
+      },
+      "revId": "b3b6df4023e68ee644a069935c69eb44d8404a97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b99dd015_81258e0c",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArcCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-15T08:31:39Z",
+      "side": 1,
+      "message": "audio capabilities",
+      "range": {
+        "startLine": 39,
+        "startChar": 47,
+        "endLine": 39,
+        "endChar": 59
+      },
+      "revId": "b3b6df4023e68ee644a069935c69eb44d8404a97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

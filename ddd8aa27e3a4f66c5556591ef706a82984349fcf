@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "087d3629_3793746a",
+        "filename": "tv/earc/aidl/default/EArcMock.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2022-12-15T08:31:39Z",
+      "side": 1,
+      "message": "Or 4 ports, which is a common case on TV panels",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "ddd8aa27e3a4f66c5556591ef706a82984349fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
