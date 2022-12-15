@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c675358_27108fab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-15T00:55:11Z",
+      "side": 1,
+      "message": "I have added the default implementation and VTS, ready for the final review. Eric, PTAL.",
+      "revId": "2d1bba0063fa8dc3bf2bd7503ff62b53c57147c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
