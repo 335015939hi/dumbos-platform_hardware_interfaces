@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c1e16df_ce63200a",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-15T20:34:50Z",
+      "side": 1,
+      "message": "Is it the plan to keep each effect both in a standalone library and in a bundle? I think this approach will double memory consumption, or am I missing something?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 81
+      },
+      "revId": "3a2fb0344b44af5fecabb4b4a36c9f0001d628c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
