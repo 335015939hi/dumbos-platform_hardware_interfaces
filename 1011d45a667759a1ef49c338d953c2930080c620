@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edabe485_64a01508",
+        "filename": "audio/aidl/vts/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-15T21:01:22Z",
+      "side": 1,
+      "message": "Please add to TEST_MAPPING file.",
+      "range": {
+        "startLine": 88,
+        "startChar": 11,
+        "endLine": 88,
+        "endChar": 37
+      },
+      "revId": "1011d45a667759a1ef49c338d953c2930080c620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
