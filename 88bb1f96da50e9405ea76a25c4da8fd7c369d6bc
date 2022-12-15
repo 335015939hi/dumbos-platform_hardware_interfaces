@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44f4a637_5070a6d2",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-12-15T13:39:00Z",
+      "side": 1,
+      "message": "update the comment to refer to the binder too",
+      "range": {
+        "startLine": 128,
+        "startChar": 12,
+        "endLine": 128,
+        "endChar": 16
+      },
+      "revId": "88bb1f96da50e9405ea76a25c4da8fd7c369d6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b38cc2fe_04c727ce",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-12-15T13:39:00Z",
+      "side": 1,
+      "message": "effectIt",
+      "range": {
+        "startLine": 129,
+        "startChar": 13,
+        "endLine": 129,
+        "endChar": 19
+      },
+      "revId": "88bb1f96da50e9405ea76a25c4da8fd7c369d6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
