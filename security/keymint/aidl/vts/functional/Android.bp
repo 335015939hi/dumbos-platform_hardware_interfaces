@@ -33,6 +33,7 @@ cc_defaults {
     shared_libs: [
         "libbinder_ndk",
         "libcrypto",
+        "libbase",
     ],
     static_libs: [
         "android.hardware.security.rkp-V3-ndk",

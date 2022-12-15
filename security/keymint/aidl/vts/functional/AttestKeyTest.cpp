@@ -15,6 +15,8 @@
  */
 
 #define LOG_TAG "keymint_1_attest_key_test"
+#include <android-base/logging.h>
+#include <android-base/strings.h>
 #include <cutils/log.h>
 #include <cutils/properties.h>
 
@@ -26,10 +28,56 @@
 namespace aidl::android::hardware::security::keymint::test {
 
 namespace {
+string TELEPHONY_CMD_GET_IMEI = "cmd phone get-imei";
 
 bool IsSelfSigned(const vector<Certificate>& chain) {
     if (chain.size() != 1) return false;
     return ChainSignaturesAreValid(chain);
+}
+
+/*
+ * Run a shell command and collect the output of it. If any error, set an empty string as the
+ * output.
+ */
+string exec_command(string command) {
+    char buffer[128];
+    string result = "";
+
+    FILE* pipe = popen(command.c_str(), "r");
+    if (!pipe) {
+        LOG(ERROR) << "popen failed.";
+        return result;
+    }
+
+    // read till end of process:
+    while (!feof(pipe)) {
+        if (fgets(buffer, 128, pipe) != NULL) result += buffer;
+    }
+
+    pclose(pipe);
+    return result;
+}
+
+/*
+ * Get IMEI using Telephony service shell command. If any error while executing the command
+ * then empty string will be returned as output.
+ */
+string get_imei() {
+    string output = exec_command(TELEPHONY_CMD_GET_IMEI);
+
+    if (output.empty()) {
+        LOG(ERROR) << "Command failed. Cmd: " << TELEPHONY_CMD_GET_IMEI;
+        return "";
+    }
+
+    vector<string> out = ::android::base::Tokenize(::android::base::Trim(output), "Device IMEI:");
+
+    if (out.size() != 1) {
+        LOG(ERROR) << "Error in parsing the command output. Cmd: " << TELEPHONY_CMD_GET_IMEI;
+        return "";
+    }
+
+    return ::android::base::Trim(out[0]);
 }
 
 }  // namespace
@@ -795,6 +843,10 @@ TEST_P(AttestKeyTest, EcdsaAttestationID) {
 
     // Collection of valid attestation ID tags.
     auto attestation_id_tags = AuthorizationSetBuilder();
+    string imei = get_imei();
+    if (!imei.empty()) {
+        attestation_id_tags.Authorization(TAG_ATTESTATION_ID_IMEI, imei.data(), imei.size());
+    }
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_BRAND, "ro.product.brand");
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_DEVICE, "ro.product.device");
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_PRODUCT, "ro.product.name");
