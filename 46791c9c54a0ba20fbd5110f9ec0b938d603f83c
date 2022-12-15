@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "684a0d03_a1396380",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2022-12-15T05:06:25Z",
+      "side": 1,
+      "message": "I tried to test this on Pixel6 device, but couldn\u0027t test it successfully. It failed with `CANNOT_ATTEST_IDS` error response. I observed this behavior even before these changes. Could you please suggest the device I should use for testing where  attest-id is supported.",
+      "revId": "46791c9c54a0ba20fbd5110f9ec0b938d603f83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
