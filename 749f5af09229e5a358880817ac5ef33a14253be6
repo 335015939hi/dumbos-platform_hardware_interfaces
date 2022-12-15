@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdf6f3bf_565a8897",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2022-12-15T18:58:10Z",
+      "side": 1,
+      "message": "Clean cherry-pick from internal to AOSP",
+      "revId": "749f5af09229e5a358880817ac5ef33a14253be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
