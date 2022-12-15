@@ -88,6 +88,23 @@
       "parentUuid": "c0bea59e_e4d3424f",
       "revId": "c30749411230e074f4691de3918c5a79777c5318",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6323b22d_11084057",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1307988
+      },
+      "writtenOn": "2022-12-15T18:35:55Z",
+      "side": 1,
+      "message": "Is there any public outcome to this issue? AFAICS the offending code is still in AOSP.",
+      "revId": "c30749411230e074f4691de3918c5a79777c5318",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
