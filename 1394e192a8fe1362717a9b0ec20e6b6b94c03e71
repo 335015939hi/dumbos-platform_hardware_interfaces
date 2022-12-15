@@ -22,6 +22,30 @@
       },
       "revId": "1394e192a8fe1362717a9b0ec20e6b6b94c03e71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1994be4f_7dea7507",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-12-15T05:59:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86977dd2_d4c3af9e",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 0
+      },
+      "revId": "1394e192a8fe1362717a9b0ec20e6b6b94c03e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
