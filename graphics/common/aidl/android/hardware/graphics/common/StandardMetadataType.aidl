@@ -368,4 +368,14 @@ enum StandardMetadataType {
      * If this is unset when encoded into a byte stream, the byte stream is empty.
      */
     SMPTE2094_10 = 22,
+
+    /**
+     * Can be used to get the stride of the buffer allocation. Must match the value returned in
+     * android.hardware.graphics.allocator.AllocationResult#stride
+     *
+     * This is required metadata in mapper5 and should be read-only.
+     *
+     * The metadata type is a uint32_t.
+     */
+    STRIDE = 23,
 }
