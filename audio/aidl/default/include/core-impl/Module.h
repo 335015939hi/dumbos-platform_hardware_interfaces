@@ -114,6 +114,7 @@ class Module : public BnModule {
     // Since it is required to return the same instance of the ITelephony, even
     // if the client has released it on its side, we need to hold it via a strong pointer.
     std::shared_ptr<ITelephony> mTelephony;
+    ndk::SpAIBinder mTelephonyBinder;
     // ids of ports created at runtime via 'connectExternalDevice'.
     std::set<int32_t> mConnectedDevicePorts;
     Streams mStreams;

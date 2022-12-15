@@ -315,7 +315,8 @@ ndk::ScopedAStatus Module::setModuleDebug(
 ndk::ScopedAStatus Module::getTelephony(std::shared_ptr<ITelephony>* _aidl_return) {
     if (mTelephony == nullptr) {
         mTelephony = ndk::SharedRefBase::make<Telephony>();
-        AIBinder_setMinSchedulerPolicy(mTelephony->asBinder().get(), SCHED_NORMAL,
+        mTelephonyBinder = mTelephony->asBinder();
+        AIBinder_setMinSchedulerPolicy(mTelephonyBinder.get(), SCHED_NORMAL,
                                        ANDROID_PRIORITY_AUDIO);
     }
     *_aidl_return = mTelephony;
@@ -535,8 +536,9 @@ ndk::ScopedAStatus Module::openInputStream(const OpenInputStreamArguments& in_ar
     if (auto status = stream->init(); !status.isOk()) {
         return status;
     }
-    AIBinder_setMinSchedulerPolicy(stream->asBinder().get(), SCHED_NORMAL, ANDROID_PRIORITY_AUDIO);
     StreamWrapper streamWrapper(stream);
+    AIBinder_setMinSchedulerPolicy(streamWrapper.getBinder().get(), SCHED_NORMAL,
+                                   ANDROID_PRIORITY_AUDIO);
     auto patchIt = mPatches.find(in_args.portConfigId);
     if (patchIt != mPatches.end()) {
         streamWrapper.setStreamIsConnected(findConnectedDevices(in_args.portConfigId));
@@ -586,8 +588,9 @@ ndk::ScopedAStatus Module::openOutputStream(const OpenOutputStreamArguments& in_
     if (auto status = stream->init(); !status.isOk()) {
         return status;
     }
-    AIBinder_setMinSchedulerPolicy(stream->asBinder().get(), SCHED_NORMAL, ANDROID_PRIORITY_AUDIO);
     StreamWrapper streamWrapper(stream);
+    AIBinder_setMinSchedulerPolicy(streamWrapper.getBinder().get(), SCHED_NORMAL,
+                                   ANDROID_PRIORITY_AUDIO);
     auto patchIt = mPatches.find(in_args.portConfigId);
     if (patchIt != mPatches.end()) {
         streamWrapper.setStreamIsConnected(findConnectedDevices(in_args.portConfigId));
