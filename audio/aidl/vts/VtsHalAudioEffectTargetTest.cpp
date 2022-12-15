@@ -49,18 +49,20 @@ using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::State;
 
 enum ParamName { PARAM_INSTANCE_NAME };
-using EffectTestParam = std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor::Identity>>;
+using EffectTestParam = std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>>;
 
 class AudioEffectTest : public testing::TestWithParam<EffectTestParam>, public EffectHelper {
   public:
-    AudioEffectTest() { std::tie(mFactory, mIdentity) = std::get<PARAM_INSTANCE_NAME>(GetParam()); }
+    AudioEffectTest() {
+        std::tie(mFactory, mDescriptor) = std::get<PARAM_INSTANCE_NAME>(GetParam());
+    }
 
     void SetUp() override {}
     void TearDown() override {}
 
     static const long kInputFrameCount = 0x100, kOutputFrameCount = 0x100;
     std::shared_ptr<IFactory> mFactory;
-    Descriptor::Identity mIdentity;
+    Descriptor mDescriptor;
 };
 
 TEST_P(AudioEffectTest, SetupAndTearDown) {
@@ -69,13 +71,13 @@ TEST_P(AudioEffectTest, SetupAndTearDown) {
 
 TEST_P(AudioEffectTest, CreateAndDestroy) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(destroy(mFactory, effect));
 }
 
 TEST_P(AudioEffectTest, OpenAndClose) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(close(effect));
     ASSERT_NO_FATAL_FAILURE(destroy(mFactory, effect));
@@ -83,15 +85,15 @@ TEST_P(AudioEffectTest, OpenAndClose) {
 
 TEST_P(AudioEffectTest, CloseUnopenedEffect) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(close(effect));
     ASSERT_NO_FATAL_FAILURE(destroy(mFactory, effect));
 }
 
 TEST_P(AudioEffectTest, DoubleOpenAndClose) {
     std::shared_ptr<IEffect> effect1, effect2;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect1, mIdentity));
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect2, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect1, mDescriptor));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect2, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect1));
     ASSERT_NO_FATAL_FAILURE(open(effect2, 1 /* session */));
     ASSERT_NO_FATAL_FAILURE(close(effect1));
@@ -102,9 +104,9 @@ TEST_P(AudioEffectTest, DoubleOpenAndClose) {
 
 TEST_P(AudioEffectTest, TripleOpenAndClose) {
     std::shared_ptr<IEffect> effect1, effect2, effect3;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect1, mIdentity));
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect2, mIdentity));
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect3, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect1, mDescriptor));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect2, mDescriptor));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect3, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect1));
     ASSERT_NO_FATAL_FAILURE(open(effect2, 1 /* session */));
     ASSERT_NO_FATAL_FAILURE(open(effect3, 2 /* session */));
@@ -119,9 +121,10 @@ TEST_P(AudioEffectTest, TripleOpenAndClose) {
 TEST_P(AudioEffectTest, GetDescritorBeforeOpen) {
     std::shared_ptr<IEffect> effect;
     Descriptor desc;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(getDescriptor(effect, desc));
-    EXPECT_EQ(mIdentity.toString(), desc.common.id.toString());
+    EXPECT_EQ(mDescriptor.common, desc.common);
+    // Effect implementation Must fill in implementor and name
     EXPECT_NE("", desc.common.name);
     EXPECT_NE("", desc.common.implementor);
     ASSERT_NO_FATAL_FAILURE(destroy(mFactory, effect));
@@ -130,7 +133,7 @@ TEST_P(AudioEffectTest, GetDescritorBeforeOpen) {
 TEST_P(AudioEffectTest, GetDescritorAfterOpen) {
     std::shared_ptr<IEffect> effect;
     Descriptor beforeOpen, afterOpen, afterClose;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(getDescriptor(effect, beforeOpen));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(getDescriptor(effect, afterOpen));
@@ -152,12 +155,12 @@ TEST_P(AudioEffectTest, DescriptorExistAndUnique) {
     auto descList = EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor);
     std::set<Descriptor::Identity> idSet;
     for (const auto& it : descList) {
-        auto& id = it.second;
+        auto& id = it.second.common.id;
         EXPECT_EQ(0ul, idSet.count(id));
         idSet.insert(id);
     }
 
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(getDescriptor(effect, desc));
     EXPECT_EQ(1ul, idSet.count(desc.common.id));
     ASSERT_NO_FATAL_FAILURE(destroy(mFactory, effect));
@@ -167,7 +170,7 @@ TEST_P(AudioEffectTest, DescriptorExistAndUnique) {
 // An effect instance is in INIT state by default after it was created.
 TEST_P(AudioEffectTest, InitStateAfterCreation) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::INIT));
     ASSERT_NO_FATAL_FAILURE(destroy(mFactory, effect));
 }
@@ -175,7 +178,7 @@ TEST_P(AudioEffectTest, InitStateAfterCreation) {
 // An effect instance transfer to IDLE state after IEffect.ASSERT_NO_FATAL_FAILURE(open().
 TEST_P(AudioEffectTest, IdleStateAfterOpen) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
     ASSERT_NO_FATAL_FAILURE(close(effect));
@@ -185,7 +188,7 @@ TEST_P(AudioEffectTest, IdleStateAfterOpen) {
 // An effect instance is in PROCESSING state after it receive an START command.
 TEST_P(AudioEffectTest, ProcessingStateAfterStart) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::INIT));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
@@ -199,7 +202,7 @@ TEST_P(AudioEffectTest, ProcessingStateAfterStart) {
 // An effect instance transfer to IDLE state after Command.Id.STOP in PROCESSING state.
 TEST_P(AudioEffectTest, IdleStateAfterStop) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::PROCESSING));
@@ -212,7 +215,7 @@ TEST_P(AudioEffectTest, IdleStateAfterStop) {
 // An effect instance transfer to IDLE state after Command.Id.RESET in PROCESSING state.
 TEST_P(AudioEffectTest, IdleStateAfterReset) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::PROCESSING));
@@ -225,7 +228,7 @@ TEST_P(AudioEffectTest, IdleStateAfterReset) {
 // An effect instance transfer to INIT after IEffect.ASSERT_NO_FATAL_FAILURE(close().
 TEST_P(AudioEffectTest, InitStateAfterClose) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::STOP));
@@ -237,7 +240,7 @@ TEST_P(AudioEffectTest, InitStateAfterClose) {
 // An effect instance shouldn't accept any command before open.
 TEST_P(AudioEffectTest, NoCommandAcceptedBeforeOpen) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START, EX_ILLEGAL_STATE));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::STOP, EX_ILLEGAL_STATE));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::RESET, EX_ILLEGAL_STATE));
@@ -249,7 +252,7 @@ TEST_P(AudioEffectTest, NoCommandAcceptedBeforeOpen) {
 // No-op when receive STOP command in IDLE state.
 TEST_P(AudioEffectTest, StopCommandInIdleStateNoOp) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::STOP));
@@ -261,7 +264,7 @@ TEST_P(AudioEffectTest, StopCommandInIdleStateNoOp) {
 // No-op when receive RESET command in IDLE state.
 TEST_P(AudioEffectTest, ResetCommandInIdleStateNoOp) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::RESET));
@@ -273,7 +276,7 @@ TEST_P(AudioEffectTest, ResetCommandInIdleStateNoOp) {
 // Repeat START and STOP command.
 TEST_P(AudioEffectTest, RepeatStartAndStop) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
@@ -292,7 +295,7 @@ TEST_P(AudioEffectTest, RepeatStartAndStop) {
 // Repeat START and RESET command.
 TEST_P(AudioEffectTest, RepeatStartAndReset) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
@@ -311,7 +314,7 @@ TEST_P(AudioEffectTest, RepeatStartAndReset) {
 // Try to close an effect instance at PROCESSING state.
 TEST_P(AudioEffectTest, CloseProcessingStateEffects) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
@@ -328,7 +331,7 @@ TEST_P(AudioEffectTest, CloseProcessingStateEffects) {
 // Expect EX_ILLEGAL_STATE if the effect instance is not in a proper state to be destroyed.
 TEST_P(AudioEffectTest, DestroyOpenEffects) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
 
@@ -338,7 +341,7 @@ TEST_P(AudioEffectTest, DestroyOpenEffects) {
 // Expect EX_ILLEGAL_STATE if the effect instance is not in a proper state to be destroyed.
 TEST_P(AudioEffectTest, DestroyProcessingEffects) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
@@ -349,7 +352,7 @@ TEST_P(AudioEffectTest, DestroyProcessingEffects) {
 
 TEST_P(AudioEffectTest, NormalSequenceStates) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::INIT));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
@@ -369,7 +372,7 @@ TEST_P(AudioEffectTest, NormalSequenceStates) {
 // Verify parameters pass in open can be successfully get.
 TEST_P(AudioEffectTest, VerifyCommonParametersAfterOpen) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon();
     IEffect::OpenEffectReturn ret;
@@ -389,7 +392,7 @@ TEST_P(AudioEffectTest, VerifyCommonParametersAfterOpen) {
 // Verify parameters pass in set can be successfully get.
 TEST_P(AudioEffectTest, SetAndGetCommonParameter) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
 
     Parameter::Common common = EffectHelper::createParamCommon(
@@ -410,7 +413,7 @@ TEST_P(AudioEffectTest, SetAndGetCommonParameter) {
 // Verify parameters set and get in PROCESSING state.
 TEST_P(AudioEffectTest, SetAndGetParameterInProcessing) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::PROCESSING));
@@ -434,7 +437,7 @@ TEST_P(AudioEffectTest, SetAndGetParameterInProcessing) {
 // Verify parameters set and get in IDLE state.
 TEST_P(AudioEffectTest, SetAndGetParameterInIdle) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::PROCESSING));
@@ -459,7 +462,7 @@ TEST_P(AudioEffectTest, SetAndGetParameterInIdle) {
 // Verify Parameters kept after stop.
 TEST_P(AudioEffectTest, SetAndGetParameterAfterStop) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
     ASSERT_NO_FATAL_FAILURE(expectState(effect, State::PROCESSING));
@@ -485,7 +488,7 @@ TEST_P(AudioEffectTest, SetAndGetParameterAfterStop) {
 // Verify Parameters kept after reset.
 TEST_P(AudioEffectTest, SetAndGetParameterAfterReset) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(open(effect));
 
     ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
@@ -513,7 +516,7 @@ TEST_P(AudioEffectTest, SetAndGetParameterAfterReset) {
 // Send data to effects and expect it to be consumed by checking statusMQ.
 TEST_P(AudioEffectTest, ConsumeDataInProcessingState) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
             0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
@@ -542,7 +545,7 @@ TEST_P(AudioEffectTest, ConsumeDataInProcessingState) {
 // Send data to effects and expect it to be consumed after effect restart.
 TEST_P(AudioEffectTest, ConsumeDataAfterRestart) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
             0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
@@ -575,7 +578,7 @@ TEST_P(AudioEffectTest, ConsumeDataAfterRestart) {
 // Send data to IDLE effects and expect it to be consumed after effect start.
 TEST_P(AudioEffectTest, SendDataAtIdleAndConsumeDataInProcessing) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
             0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
@@ -606,7 +609,7 @@ TEST_P(AudioEffectTest, SendDataAtIdleAndConsumeDataInProcessing) {
 // Send data multiple times.
 TEST_P(AudioEffectTest, ProcessDataMultipleTimes) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
             0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
@@ -644,7 +647,7 @@ TEST_P(AudioEffectTest, ProcessDataMultipleTimes) {
 // Send data to IDLE state effects and expect it not be consumed.
 TEST_P(AudioEffectTest, NotConsumeDataInIdleState) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
             0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
@@ -679,7 +682,7 @@ TEST_P(AudioEffectTest, NotConsumeDataInIdleState) {
 // Send data to closed effects and expect it not be consumed.
 TEST_P(AudioEffectTest, NotConsumeDataByClosedEffect) {
     std::shared_ptr<IEffect> effect;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
             0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
@@ -703,8 +706,8 @@ TEST_P(AudioEffectTest, NotConsumeDataByClosedEffect) {
 // Send data to multiple effects.
 TEST_P(AudioEffectTest, ConsumeDataMultipleEffects) {
     std::shared_ptr<IEffect> effect1, effect2;
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect1, mIdentity));
-    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect2, mIdentity));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect1, mDescriptor));
+    ASSERT_NO_FATAL_FAILURE(create(mFactory, effect2, mDescriptor));
 
     Parameter::Common common1 = EffectHelper::createParamCommon(
             0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
@@ -752,9 +755,11 @@ INSTANTIATE_TEST_SUITE_P(
         ::testing::Combine(testing::ValuesIn(
                 EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor))),
         [](const testing::TestParamInfo<AudioEffectTest::ParamType>& info) {
-            auto instance = std::get<PARAM_INSTANCE_NAME>(info.param);
-            std::string name = "TYPE_" + instance.second.type.toString() + "_UUID_" +
-                               instance.second.uuid.toString();
+            auto descriptor = std::get<PARAM_INSTANCE_NAME>(info.param).second;
+            std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
+                               descriptor.common.name + "_TYPE_" +
+                               descriptor.common.id.type.toString() + "_UUID_" +
+                               descriptor.common.id.uuid.toString();
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;

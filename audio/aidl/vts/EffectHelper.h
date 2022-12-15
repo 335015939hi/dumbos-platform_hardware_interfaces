@@ -58,8 +58,9 @@ typedef ::android::AidlMessageQueue<float,
 class EffectHelper {
   public:
     static void create(std::shared_ptr<IFactory> factory, std::shared_ptr<IEffect>& effect,
-                       Descriptor::Identity id, binder_status_t status = EX_NONE) {
+                       Descriptor& desc, binder_status_t status = EX_NONE) {
         ASSERT_NE(factory, nullptr);
+        auto& id = desc.common.id;
         EXPECT_STATUS(status, factory->createEffect(id.uuid, &effect));
         if (status == EX_NONE) {
             ASSERT_NE(effect, nullptr) << id.uuid.toString();
