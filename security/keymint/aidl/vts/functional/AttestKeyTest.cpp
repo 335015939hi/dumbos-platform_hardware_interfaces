@@ -15,6 +15,8 @@
  */
 
 #define LOG_TAG "keymint_1_attest_key_test"
+#include <android-base/logging.h>
+#include <android-base/strings.h>
 #include <cutils/log.h>
 #include <cutils/properties.h>
 
@@ -26,10 +28,59 @@
 namespace aidl::android::hardware::security::keymint::test {
 
 namespace {
+string TELEPHONY_CMD_GET_IMEI = "cmd phone get-imei ";
 
 bool IsSelfSigned(const vector<Certificate>& chain) {
     if (chain.size() != 1) return false;
     return ChainSignaturesAreValid(chain);
+}
+
+/*
+ * Run a shell command and collect the output of it. If any error, set an empty string as the
+ * output.
+ */
+string exec_command(string command) {
+    char buffer[128];
+    string result = "";
+
+    FILE* pipe = popen(command.c_str(), "r");
+    if (!pipe) {
+        LOG(ERROR) << "popen failed.";
+        return result;
+    }
+
+    // read till end of process:
+    while (!feof(pipe)) {
+        if (fgets(buffer, 128, pipe) != NULL) {
+            result += buffer;
+        }
+    }
+
+    pclose(pipe);
+    return result;
+}
+
+/*
+ * Get IMEI using Telephony service shell command. If any error while executing the command
+ * then empty string will be returned as output.
+ */
+string get_imei(int slot) {
+    string cmd = TELEPHONY_CMD_GET_IMEI + std::to_string(slot);
+    string output = exec_command(cmd);
+
+    if (output.empty()) {
+        LOG(ERROR) << "Command failed. Cmd: " << cmd;
+        return "";
+    }
+
+    vector<string> out = ::android::base::Tokenize(::android::base::Trim(output), "Device IMEI:");
+
+    if (out.size() != 1) {
+        LOG(ERROR) << "Error in parsing the command output. Cmd: " << cmd;
+        return "";
+    }
+
+    return ::android::base::Trim(out[0]);
 }
 
 }  // namespace
@@ -803,6 +854,20 @@ TEST_P(AttestKeyTest, EcdsaAttestationID) {
                       "ro.product.manufacturer");
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_MODEL, "ro.product.model");
 
+    string imei = get_imei(0);
+    if (!imei.empty()) {
+        attestation_id_tags.Authorization(TAG_ATTESTATION_ID_IMEI, imei.data(), imei.size());
+    }
+
+    // b/264979486 - second imei doesn't depend on first imei.
+    if (AidlVersion() >= 3 && SecLevel() != SecurityLevel::STRONGBOX) {
+        string second_imei = get_imei(1);
+        if (!second_imei.empty() && second_imei.compare("null") != 0) {
+            attestation_id_tags.Authorization(TAG_ATTESTATION_ID_SECOND_IMEI, second_imei.data(),
+                                              second_imei.size());
+        }
+    }
+
     for (const KeyParameter& tag : attestation_id_tags) {
         SCOPED_TRACE(testing::Message() << "+tag-" << tag);
         // Use attestation key to sign an ECDSA key, but include an attestation ID field.
@@ -869,6 +934,10 @@ TEST_P(AttestKeyTest, EcdsaAttestationMismatchID) {
                     .Authorization(TAG_ATTESTATION_ID_MEID, "mismatching-meid")
                     .Authorization(TAG_ATTESTATION_ID_MANUFACTURER, "malformed-manufacturer")
                     .Authorization(TAG_ATTESTATION_ID_MODEL, "malicious-model");
+
+    if (AidlVersion() >= 3 && SecLevel() != SecurityLevel::STRONGBOX) {
+        attestation_id_tags.Authorization(TAG_ATTESTATION_ID_SECOND_IMEI, "invalid-second-imei");
+    }
     vector<uint8_t> key_blob;
     vector<KeyCharacteristics> key_characteristics;
 
