@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee8e9332_404ec3ed",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-16T09:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e09defa0_2206c694",
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b6166ad_6b011bb1",
@@ -148,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bfca499_962864e8",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-16T09:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa5110e3_d5325f2e",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80365cf1_163122c5",
@@ -183,6 +225,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da08c73b_c83b8ea5",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-16T09:52:14Z",
+      "side": 1,
+      "message": "updated the comment",
+      "parentUuid": "7427e358_d2cf5252",
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e11eb806_d43f18fb",
@@ -214,6 +274,24 @@
       "side": 1,
       "message": "juts battery cycle count.\n\nthis is the number of full charge/discharge cycles that the battery fuel gauge has recorded since manufacturing.",
       "parentUuid": "e11eb806_d43f18fb",
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14755442_b61c3e01",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-16T09:52:14Z",
+      "side": 1,
+      "message": "remove it and just use batteryCycleCount",
+      "parentUuid": "6a0b389a_5bbee65f",
       "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

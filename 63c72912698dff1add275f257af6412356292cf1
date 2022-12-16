@@ -137,6 +137,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13382cc6_c04fb654",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-16T09:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b10da401_930b0081",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7281e85c_37a14cfd",
@@ -222,6 +246,30 @@
       "side": 1,
       "message": "epoch",
       "parentUuid": "a2fc3c23_39967db1",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 26
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb8dda1f_a588dc7e",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-16T09:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7b0e232_d0281bcf",
       "range": {
         "startLine": 28,
         "startChar": 9,
