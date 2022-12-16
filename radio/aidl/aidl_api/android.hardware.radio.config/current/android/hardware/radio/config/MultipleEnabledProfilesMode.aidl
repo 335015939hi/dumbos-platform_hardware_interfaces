@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,22 +31,11 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.radio.sim;
-@JavaDerive(toString=true) @VintfStability
-parcelable CardStatus {
-  int cardState;
-  android.hardware.radio.sim.PinState universalPinState;
-  int gsmUmtsSubscriptionAppIndex;
-  int cdmaSubscriptionAppIndex;
-  int imsSubscriptionAppIndex;
-  android.hardware.radio.sim.AppStatus[] applications;
-  String atr;
-  String iccid;
-  String eid;
-  android.hardware.radio.config.SlotPortMapping slotMap;
-  android.hardware.radio.config.MultipleEnabledProfilesMode supportedMepMode = android.hardware.radio.config.MultipleEnabledProfilesMode.NONE;
-  const int STATE_ABSENT = 0;
-  const int STATE_PRESENT = 1;
-  const int STATE_ERROR = 2;
-  const int STATE_RESTRICTED = 3;
+package android.hardware.radio.config;
+@Backing(type="int") @JavaDerive(toString=true) @VintfStability
+enum MultipleEnabledProfilesMode {
+  NONE = 0,
+  MEP_A1 = 1,
+  MEP_A2 = 2,
+  MEP_B = 3,
 }
