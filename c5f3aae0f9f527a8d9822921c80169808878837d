@@ -22,6 +22,30 @@
       },
       "revId": "c5f3aae0f9f527a8d9822921c80169808878837d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d5b66ca_73964fe8",
+        "filename": "tv/hdmi/aidl/aidl_api/android.hardware.tv.hdmi/current/android/hardware/tv/hdmi/IHdmi.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-16T19:23:13Z",
+      "side": 1,
+      "message": "There is already a similar enum in CEC. I will bring it into HDMI connection AIDL and use it in CEC, connection and eArc AIDLs in the refactor CL. The values in this patch match with the values already defined in Result.aidl in CEC interface.",
+      "parentUuid": "8b6ad18e_6eb1d82c",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 1
+      },
+      "revId": "c5f3aae0f9f527a8d9822921c80169808878837d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
