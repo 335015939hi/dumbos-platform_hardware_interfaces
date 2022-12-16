@@ -22,6 +22,30 @@
       },
       "revId": "3a2fb0344b44af5fecabb4b4a36c9f0001d628c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "995c8e58_166b8e8a",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2022-12-16T18:50:13Z",
+      "side": 1,
+      "message": "The other one is just the placeholder implementation.\nEffects were defined this way earlier and we have just replicated the behaviour.\nIf you think placeholder implementation is not needed here, we can remove it.",
+      "parentUuid": "0c1e16df_ce63200a",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 81
+      },
+      "revId": "3a2fb0344b44af5fecabb4b4a36c9f0001d628c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
