@@ -57,6 +57,30 @@
       },
       "revId": "46791c9c54a0ba20fbd5110f9ec0b938d603f83c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ed0ebe9_9908fb78",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2022-12-16T00:21:11Z",
+      "side": 1,
+      "message": "Changes made to add IMEI tag whenever IMEI is available.",
+      "parentUuid": "e7a785cf_b302fc90",
+      "range": {
+        "startLine": 846,
+        "startChar": 4,
+        "endLine": 846,
+        "endChar": 30
+      },
+      "revId": "46791c9c54a0ba20fbd5110f9ec0b938d603f83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
