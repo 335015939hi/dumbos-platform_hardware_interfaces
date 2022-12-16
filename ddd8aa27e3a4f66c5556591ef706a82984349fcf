@@ -22,6 +22,30 @@
       },
       "revId": "ddd8aa27e3a4f66c5556591ef706a82984349fcf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c2ed8cd_1d136db9",
+        "filename": "tv/earc/aidl/default/EArcMock.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-16T11:43:45Z",
+      "side": 1,
+      "message": "Since this is the default implementation with no actual ports, I\u0027ve retained it as 1.",
+      "parentUuid": "087d3629_3793746a",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "ddd8aa27e3a4f66c5556591ef706a82984349fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
