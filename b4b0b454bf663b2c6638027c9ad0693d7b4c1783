@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1413314_cf3340c5",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-16T00:09:49Z",
+      "side": 1,
+      "message": "What\u0027s the definition of FAIR (vs e.g. GOOD? Is it just less \"good\"?)",
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b6166ad_6b011bb1",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-16T00:09:49Z",
+      "side": 1,
+      "message": "What happens to 9 and 10? are they reserved for something?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 23
+      },
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d48f5e9_05a3af29",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-16T00:09:49Z",
+      "side": 1,
+      "message": "What\u0027s the difference between UNKNOWN, NOT_AVAILABLE, and INVALID? Maybe a comment?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80365cf1_163122c5",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-16T00:09:49Z",
+      "side": 1,
+      "message": "This ranges between 0 to 100? Can you say so in the comment? It is not clear what the representation is.",
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e11eb806_d43f18fb",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-16T00:09:49Z",
+      "side": 1,
+      "message": "This is a non-negative integer I assume? (I know there are no unsigned types in AIDL...)\n\nAlso maybe be a bit more clear about what \"health cycle count\" really means. What\u0027s a health cycle?",
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

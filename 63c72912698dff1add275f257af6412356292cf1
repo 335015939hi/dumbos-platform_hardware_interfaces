@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fccfc853_a9ac7fca",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-16T00:09:49Z",
+      "side": 1,
+      "message": "I think it is asking about using milliseconds or seconds for this date. Also, if this is \"epoch\" please say so in the field name",
+      "parentUuid": "3448985b_a758cb83",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7281e85c_37a14cfd",
         "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
         "patchSetId": 7
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "uint64_t",
       "parentUuid": "7281e85c_37a14cfd",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 26
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2fc3c23_39967db1",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-16T00:09:49Z",
+      "side": 1,
+      "message": "same here. This is a date right?",
+      "parentUuid": "246df60f_830226c2",
       "range": {
         "startLine": 28,
         "startChar": 9,
