@@ -31,9 +31,6 @@ typedef struct {
     // A non-zero number unique for this EicSession instance
     uint32_t id;
 
-    // Set to true iff eicSessionGetEphemeralKeyPair() has been called.
-    bool getEphemeralKeyPairCalled;
-
     // The challenge generated at construction time by eicSessionInit().
     uint64_t authChallenge;
 
@@ -44,7 +41,6 @@ typedef struct {
 
     uint8_t sessionTranscriptSha256[EIC_SHA256_DIGEST_SIZE];
 
-    size_t readerEphemeralPublicKeySize;
 } EicSession;
 
 bool eicSessionInit(EicSession* ctx);

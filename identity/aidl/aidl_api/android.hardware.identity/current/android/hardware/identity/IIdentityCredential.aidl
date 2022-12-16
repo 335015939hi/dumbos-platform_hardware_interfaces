@@ -51,5 +51,4 @@ interface IIdentityCredential {
   byte[] deleteCredentialWithChallenge(in byte[] challenge);
   byte[] proveOwnership(in byte[] challenge);
   android.hardware.identity.IWritableIdentityCredential updateCredential();
-  @SuppressWarnings(value={"out-array"}) void finishRetrievalWithSignature(out byte[] mac, out byte[] deviceNameSpaces, out byte[] ecdsaSignature);
 }

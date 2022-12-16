@@ -72,10 +72,8 @@ class PresentationSession : public BnPresentationSession {
 
     // Set by initialize()
     uint64_t id_;
-    uint64_t authChallenge_;
-
-    // Set by getEphemeralKeyPair()
     vector<uint8_t> ephemeralKeyPair_;
+    uint64_t authChallenge_;
 
     // Set by setReaderEphemeralPublicKey()
     vector<uint8_t> readerPublicKey_;
