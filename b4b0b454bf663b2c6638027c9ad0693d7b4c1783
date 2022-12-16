@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fbdf4eeb_8b55d434",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2022-12-16T00:52:52Z",
+      "side": 1,
+      "message": "yes. it is used to represent the cases where replacing the battery might not have much impact on user overall experience.",
+      "parentUuid": "b1413314_cf3340c5",
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b6166ad_6b011bb1",
         "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
         "patchSetId": 9
@@ -66,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b9c53cd_b927e984",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2022-12-16T00:52:52Z",
+      "side": 1,
+      "message": "UNKNOWN when battery health is not supported from the device.\n\nNOT_AVAILABLE when there is not enough information to determine an accurate value, The value might become UNSPECIFIED_FAILURE, DEAD or any other state except for UNKNOWN later.\n\nINVALID is used when the internal data is inconsistent and the battery needs to go through (or is going through) a recalibration process. The value might become NOT_AVAILABLE, UNSPECIFIED_FAILURE, DEAD or any other state except for UNKNOWN.",
+      "parentUuid": "4d48f5e9_05a3af29",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "80365cf1_163122c5",
         "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
         "patchSetId": 9
@@ -83,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7427e358_d2cf5252",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2022-12-16T00:52:52Z",
+      "side": 1,
+      "message": "this is the measured state of health (remaining estimate full charge capacity relative to the rated capacity in %).",
+      "parentUuid": "80365cf1_163122c5",
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e11eb806_d43f18fb",
         "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
         "patchSetId": 9
@@ -94,6 +154,24 @@
       "writtenOn": "2022-12-16T00:09:49Z",
       "side": 1,
       "message": "This is a non-negative integer I assume? (I know there are no unsigned types in AIDL...)\n\nAlso maybe be a bit more clear about what \"health cycle count\" really means. What\u0027s a health cycle?",
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a0b389a_5bbee65f",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2022-12-16T00:52:52Z",
+      "side": 1,
+      "message": "juts battery cycle count.\n\nthis is the number of full charge/discharge cycles that the battery fuel gauge has recorded since manufacturing.",
+      "parentUuid": "e11eb806_d43f18fb",
       "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
