@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e09defa0_2206c694",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-16T02:21:38Z",
+      "side": 1,
+      "message": "please put this in the doc comments",
+      "parentUuid": "fbdf4eeb_8b55d434",
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b6166ad_6b011bb1",
         "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
         "patchSetId": 9
@@ -96,6 +114,30 @@
       "side": 1,
       "message": "UNKNOWN when battery health is not supported from the device.\n\nNOT_AVAILABLE when there is not enough information to determine an accurate value, The value might become UNSPECIFIED_FAILURE, DEAD or any other state except for UNKNOWN later.\n\nINVALID is used when the internal data is inconsistent and the battery needs to go through (or is going through) a recalibration process. The value might become NOT_AVAILABLE, UNSPECIFIED_FAILURE, DEAD or any other state except for UNKNOWN.",
       "parentUuid": "4d48f5e9_05a3af29",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa5110e3_d5325f2e",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-16T02:21:38Z",
+      "side": 1,
+      "message": "Please put this in the doc comments",
+      "parentUuid": "7b9c53cd_b927e984",
       "range": {
         "startLine": 38,
         "startChar": 0,
