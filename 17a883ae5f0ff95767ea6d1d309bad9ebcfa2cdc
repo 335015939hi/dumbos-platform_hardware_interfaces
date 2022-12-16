@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad923145_9f41a020",
+        "filename": "tv/hdmi/aidl/aidl_api/android.hardware.tv.hdmi/current/android/hardware/tv/hdmi/IHdmi.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-16T10:50:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e320c810_dd73e302",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 6
+      },
+      "revId": "17a883ae5f0ff95767ea6d1d309bad9ebcfa2cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09100122_ae2dcd3a",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-15T08:40:26Z",
       "side": 1,
       "message": "This is not eARC-specific, so I would keep it \u0027eARC\u0027 out of the description.\n\n```\nMethod to set which HPD signal the HAL should use for HPD signaling (e.g. signaling EDID updates). By default, the HAL will use {@code HDMI_HPD_PHYSICAL} (the physical hotplug signal). When set to {@code HDMI_HPD_STATUS_BIT} the HAL should use the HDP status bit.\n```",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 63
+      },
+      "revId": "17a883ae5f0ff95767ea6d1d309bad9ebcfa2cdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d07bfd1_471d98eb",
+        "filename": "tv/hdmi/aidl/android/hardware/tv/hdmi/IHdmi.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-16T10:50:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09100122_ae2dcd3a",
       "range": {
         "startLine": 54,
         "startChar": 0,
