@@ -22,6 +22,30 @@
       },
       "revId": "8230457989d63c3479604a08120dbf3692fbf94a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd83e72f_12c13f77",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1840,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-16T22:30:00Z",
+      "side": 1,
+      "message": "The HAL implementation may crash on the second call, so it\u0027s useful to try twice in any case 😊",
+      "parentUuid": "1c7108f1_3b907dd5",
+      "range": {
+        "startLine": 1840,
+        "startChar": 8,
+        "endLine": 1840,
+        "endChar": 40
+      },
+      "revId": "8230457989d63c3479604a08120dbf3692fbf94a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
