@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edb7245e_726980da",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-16T01:56:50Z",
+      "side": 1,
+      "message": "Missing `EXPECT_NO_FATAL_FAILURE` to propagate errors.",
+      "range": {
+        "startLine": 96,
+        "startChar": 8,
+        "endLine": 96,
+        "endChar": 12
+      },
+      "revId": "ccdc014403c0125543b4cd5aa711dd691d5b805e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
