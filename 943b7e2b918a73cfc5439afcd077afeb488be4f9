@@ -16,6 +16,23 @@
       "message": "Upstreaming ag/20678756.",
       "revId": "943b7e2b918a73cfc5439afcd077afeb488be4f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d61d1fb7_6edeb9a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-16T02:16:58Z",
+      "side": 1,
+      "message": "Submitting the upstreaming CLs separately, because I have to wait Shunkai\u0027s aosp/2360488 to land in order to clean up issues with effect VTS that my change has revealed.",
+      "revId": "943b7e2b918a73cfc5439afcd077afeb488be4f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
