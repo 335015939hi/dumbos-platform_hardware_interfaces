@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45d57bb5_4183f334",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2022-12-16T22:19:26Z",
+      "side": 1,
+      "message": "this should be deprecated here and moved to \"charging state\" since it is a transitory state which only affects charging.",
+      "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb38d259_71377c0e",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2022-12-16T22:19:26Z",
+      "side": 1,
+      "message": "The issue seems transitory just like OVERHEAT and COLD and it should be deprecated here and moved to \"charging state\". Also OVER_VOLTAGE is very loosely defined.",
+      "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a863d3db_62fe8b4e",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2022-12-16T22:19:26Z",
+      "side": 1,
+      "message": "this should be deprecated here and moved to \"charging state\" since it is a transitory state which only affects charging and (possibly) device performances.",
+      "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
