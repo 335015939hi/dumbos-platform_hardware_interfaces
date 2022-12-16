@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b10da401_930b0081",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-16T02:23:56Z",
+      "side": 1,
+      "message": "please name it something like `batteryManufacturingDateMs` or `batteryManufacturingDateSeconds`",
+      "parentUuid": "59142be3_d9fea0ba",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7281e85c_37a14cfd",
         "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
         "patchSetId": 7
