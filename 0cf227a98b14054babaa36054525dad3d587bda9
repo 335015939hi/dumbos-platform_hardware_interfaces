@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41165881_b29ec457",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArc.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-17T00:26:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a600145c_4259c4d3",
+      "range": {
+        "startLine": 33,
+        "startChar": 57,
+        "endLine": 33,
+        "endChar": 59
+      },
+      "revId": "0cf227a98b14054babaa36054525dad3d587bda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc596ae1_dbcd59d2",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-16T13:02:10Z",
       "side": 1,
       "message": "The doc mentions a 4th value: RESULT_FAILURE_INVALID_ARGS.\n\nAlso, I would give the failure values a common prefix:\n\nRESULT_SUCCESS \u003d 0\nRESULT_FAILURE_NOT_SUPPORTED \u003d 1\nRESULT_FAILURE_INVALID_ARGS \u003d 2\nRESULT_FAILURE_UNKNOWN \u003d 3",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 41
+      },
+      "revId": "0cf227a98b14054babaa36054525dad3d587bda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6f2bf05_237d4de8",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArc.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-17T00:26:26Z",
+      "side": 1,
+      "message": "Done, I will merge the enum into a common enum in the refactor CL.",
+      "parentUuid": "dc596ae1_dbcd59d2",
       "range": {
         "startLine": 40,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee226f3d_d99fa37b",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArc.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-17T00:26:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92786b1a_745006bf",
+      "range": {
+        "startLine": 49,
+        "startChar": 59,
+        "endLine": 49,
+        "endChar": 66
+      },
+      "revId": "0cf227a98b14054babaa36054525dad3d587bda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffc97422_40cae14c",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f13963d1_d724fa13",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArc.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-17T00:26:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffc97422_40cae14c",
+      "range": {
+        "startLine": 55,
+        "startChar": 44,
+        "endLine": 55,
+        "endChar": 57
+      },
+      "revId": "0cf227a98b14054babaa36054525dad3d587bda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "710d1ea8_ddd105d7",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-12-16T13:02:10Z",
       "side": 1,
       "message": "nit: double space",
+      "range": {
+        "startLine": 35,
+        "startChar": 60,
+        "endLine": 35,
+        "endChar": 61
+      },
+      "revId": "0cf227a98b14054babaa36054525dad3d587bda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d6ba9cc_d26c7eca",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArcCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-17T00:26:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "710d1ea8_ddd105d7",
       "range": {
         "startLine": 35,
         "startChar": 60,
