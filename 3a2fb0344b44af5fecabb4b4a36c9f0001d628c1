@@ -46,6 +46,30 @@
       },
       "revId": "3a2fb0344b44af5fecabb4b4a36c9f0001d628c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "608f31d1_2fc55f65",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-17T00:30:33Z",
+      "side": 1,
+      "message": "@yaoshunkai@google.com Shunkai, I thought having \"real\" and placeholder implementation for the equalizer was just demonstration of possibility. Do we plan to have two implementations for every effect from the bundle?",
+      "parentUuid": "995c8e58_166b8e8a",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 81
+      },
+      "revId": "3a2fb0344b44af5fecabb4b4a36c9f0001d628c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
