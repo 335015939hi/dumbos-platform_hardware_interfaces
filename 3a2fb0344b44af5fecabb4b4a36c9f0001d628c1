@@ -70,6 +70,30 @@
       },
       "revId": "3a2fb0344b44af5fecabb4b4a36c9f0001d628c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbb46d10_d3f04d8f",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-17T00:35:40Z",
+      "side": 1,
+      "message": "I think we should only keep one, I will address this in separate CL.",
+      "parentUuid": "608f31d1_2fc55f65",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 81
+      },
+      "revId": "3a2fb0344b44af5fecabb4b4a36c9f0001d628c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
