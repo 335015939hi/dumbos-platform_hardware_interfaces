@@ -65,6 +65,24 @@ constexpr size_t getChannelCount(
     return 0;
 }
 
+constexpr size_t getChannelCount(
+        const ::aidl::android::media::audio::common::AudioChannelLayout& layout, int mask) {
+    using Tag = ::aidl::android::media::audio::common::AudioChannelLayout::Tag;
+    switch (layout.getTag()) {
+        case Tag::none:
+            return 0;
+        case Tag::invalid:
+            return 0;
+        case Tag::indexMask:
+            return __builtin_popcount(layout.get<Tag::indexMask>() & mask);
+        case Tag::layoutMask:
+            return __builtin_popcount(layout.get<Tag::layoutMask>() & mask);
+        case Tag::voiceMask:
+            return __builtin_popcount(layout.get<Tag::voiceMask>() & mask);
+    }
+    return 0;
+}
+
 constexpr size_t getFrameSizeInBytes(
         const ::aidl::android::media::audio::common::AudioFormatDescription& format,
         const ::aidl::android::media::audio::common::AudioChannelLayout& layout) {
