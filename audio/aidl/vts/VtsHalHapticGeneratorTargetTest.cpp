@@ -61,9 +61,9 @@ const float MAX_FLOAT = std::numeric_limits<float>::max();
 
 const std::vector<int> kHapticScaleIdValues = {MIN_ID, 0, MAX_ID};
 const std::vector<HapticGenerator::VibratorScale> kVibratorScaleValues = {
-        HapticGenerator::VibratorScale::MUTE, HapticGenerator::VibratorScale::VERY_LOW,
-        HapticGenerator::VibratorScale::LOW,  HapticGenerator::VibratorScale::NONE,
-        HapticGenerator::VibratorScale::HIGH, HapticGenerator::VibratorScale::VERY_HIGH};
+        HapticGenerator::VibratorScale::VERY_LOW, HapticGenerator::VibratorScale::LOW,
+        HapticGenerator::VibratorScale::NONE, HapticGenerator::VibratorScale::HIGH,
+        HapticGenerator::VibratorScale::VERY_HIGH};
 
 const std::vector<float> kResonantFrequencyValues = {MIN_FLOAT, 100, MAX_FLOAT};
 const std::vector<float> kQFactorValues = {MIN_FLOAT, 100, MAX_FLOAT};
@@ -100,9 +100,9 @@ class HapticGeneratorParamTest : public ::testing::TestWithParam<HapticGenerator
     }
 
     Parameter::Specific getDefaultParamSpecific() {
-        HapticGenerator::HapticScale hapticScale = {.id = 0,
-                                                    .scale = HapticGenerator::VibratorScale::MUTE};
-        HapticGenerator hg = HapticGenerator::make<HapticGenerator::hapticScale>(hapticScale);
+        std::vector<HapticGenerator::HapticScale> hapticScales = {
+                {.id = 0, .scale = HapticGenerator::VibratorScale::MUTE}};
+        HapticGenerator hg = HapticGenerator::make<HapticGenerator::hapticScales>(hapticScales);
         Parameter::Specific specific =
                 Parameter::Specific::make<Parameter::Specific::hapticGenerator>(hg);
         return specific;
@@ -143,9 +143,9 @@ class HapticGeneratorParamTest : public ::testing::TestWithParam<HapticGenerator
 
     void addHapticScaleParam(int id, HapticGenerator::VibratorScale scale) {
         HapticGenerator hg;
-        HapticGenerator::HapticScale hapticScale = {.id = id, .scale = scale};
-        hg.set<HapticGenerator::hapticScale>(hapticScale);
-        mTags.push_back({HapticGenerator::hapticScale, hg});
+        std::vector<HapticGenerator::HapticScale> hapticScales = {{.id = id, .scale = scale}};
+        hg.set<HapticGenerator::hapticScales>(hapticScales);
+        mTags.push_back({HapticGenerator::hapticScales, hg});
     }
 
     void addVibratorInformationParam(float resonantFrequencyHz, float qFactor, float maxAmplitude) {
@@ -210,7 +210,7 @@ INSTANTIATE_TEST_SUITE_P(
         ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
                                    IFactory::descriptor, kHapticGeneratorTypeUUID)),
                            testing::Values(MIN_ID - 1),
-                           testing::Values(HapticGenerator::VibratorScale::MUTE),
+                           testing::Values(HapticGenerator::VibratorScale::NONE),
                            testing::Values(MIN_FLOAT), testing::Values(MIN_FLOAT),
                            testing::Values(MIN_FLOAT)),
         [](const testing::TestParamInfo<HapticGeneratorParamTest::ParamType>& info) {
