@@ -102,9 +102,9 @@ class HapticGeneratorParamTest : public ::testing::TestWithParam<HapticGenerator
     }
 
     Parameter::Specific getDefaultParamSpecific() {
-        HapticGenerator::HapticScale hapticScale = {.id = 0,
-                                                    .scale = HapticGenerator::VibratorScale::MUTE};
-        HapticGenerator hg = HapticGenerator::make<HapticGenerator::hapticScale>(hapticScale);
+        std::vector<HapticGenerator::HapticScale> hapticScales = {
+                {.id = 0, .scale = HapticGenerator::VibratorScale::MUTE}};
+        HapticGenerator hg = HapticGenerator::make<HapticGenerator::hapticScales>(hapticScales);
         Parameter::Specific specific =
                 Parameter::Specific::make<Parameter::Specific::hapticGenerator>(hg);
         return specific;
@@ -122,15 +122,20 @@ class HapticGeneratorParamTest : public ::testing::TestWithParam<HapticGenerator
 
     void SetAndGetHapticGeneratorParameters() {
         for (auto& it : mTags) {
-            auto& tag = it.first;
-            auto& hg = it.second;
+            auto& tag = std::get<0>(it);
+            auto& setHg = std::get<1>(it);
+            auto& expectHg = std::get<2>(it);
 
             // set parameter
             Parameter expectParam;
             Parameter::Specific specific;
-            specific.set<Parameter::Specific::hapticGenerator>(hg);
+            specific.set<Parameter::Specific::hapticGenerator>(setHg);
             expectParam.set<Parameter::specific>(specific);
             EXPECT_STATUS(EX_NONE, mEffect->setParameter(expectParam)) << expectParam.toString();
+
+            // Set Param to expected Haptic Generator
+            specific.set<Parameter::Specific::hapticGenerator>(expectHg);
+            expectParam.set<Parameter::specific>(specific);
 
             // get parameter
             Parameter getParam;
@@ -144,10 +149,17 @@ class HapticGeneratorParamTest : public ::testing::TestWithParam<HapticGenerator
     }
 
     void addHapticScaleParam(int id, HapticGenerator::VibratorScale scale) {
-        HapticGenerator hg;
-        HapticGenerator::HapticScale hapticScale = {.id = id, .scale = scale};
-        hg.set<HapticGenerator::hapticScale>(hapticScale);
-        mTags.push_back({HapticGenerator::hapticScale, hg});
+        HapticGenerator setHg, expectHg;
+        std::vector<HapticGenerator::HapticScale> hapticScales = {{.id = id, .scale = scale}};
+        setHg.set<HapticGenerator::hapticScales>(hapticScales);
+        if (scale == HapticGenerator::VibratorScale::MUTE) {
+            // When the scale is mute we don't store the id thus expect empty hapticScales.
+            hapticScales = {};
+            expectHg.set<HapticGenerator::hapticScales>(hapticScales);
+        } else {
+            expectHg = setHg;
+        }
+        mTags.push_back({HapticGenerator::hapticScales, setHg, expectHg});
     }
 
     void addVibratorInformationParam(float resonantFrequencyHz, float qFactor, float maxAmplitude) {
@@ -157,11 +169,11 @@ class HapticGeneratorParamTest : public ::testing::TestWithParam<HapticGenerator
                 .qFactor = qFactor,
                 .maxAmplitude = maxAmplitude};
         hg.set<HapticGenerator::vibratorInfo>(vibrationInfo);
-        mTags.push_back({HapticGenerator::vibratorInfo, hg});
+        mTags.push_back({HapticGenerator::vibratorInfo, hg, hg});
     }
 
   private:
-    std::vector<std::pair<HapticGenerator::Tag, HapticGenerator>> mTags;
+    std::vector<std::tuple<HapticGenerator::Tag, HapticGenerator, HapticGenerator>> mTags;
 
     void CleanUp() { mTags.clear(); }
 };
@@ -212,7 +224,7 @@ INSTANTIATE_TEST_SUITE_P(
         ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
                                    IFactory::descriptor, kHapticGeneratorTypeUUID)),
                            testing::Values(MIN_ID - 1),
-                           testing::Values(HapticGenerator::VibratorScale::MUTE),
+                           testing::Values(HapticGenerator::VibratorScale::NONE),
                            testing::Values(MIN_FLOAT), testing::Values(MIN_FLOAT),
                            testing::Values(MIN_FLOAT)),
         [](const testing::TestParamInfo<HapticGeneratorParamTest::ParamType>& info) {

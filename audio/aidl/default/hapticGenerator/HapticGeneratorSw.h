@@ -33,12 +33,12 @@ class HapticGeneratorSwContext final : public EffectContext {
         LOG(DEBUG) << __func__;
     }
 
-    RetCode setHgHapticScale(const HapticGenerator::HapticScale& hapticScale) {
+    RetCode setHgHapticScales(const std::vector<HapticGenerator::HapticScale> hapticScales) {
         // All int values are valid for ID
-        mHapticScale = hapticScale;
+        mHapticScales = hapticScales;
         return RetCode::SUCCESS;
     }
-    HapticGenerator::HapticScale getHgHapticScale() const { return mHapticScale; }
+    std::vector<HapticGenerator::HapticScale> getHgHapticScales() const { return mHapticScales; }
 
     RetCode setHgVibratorInformation(const HapticGenerator::VibratorInformation& vibratorInfo) {
         // All float values are valid for resonantFrequencyHz, qFactor, maxAmplitude
@@ -54,7 +54,7 @@ class HapticGeneratorSwContext final : public EffectContext {
     static constexpr float DEFAULT_RESONANT_FREQUENCY = 150.0f;
     static constexpr float DEFAULT_Q_FACTOR = 1.0f;
     static constexpr float DEFAULT_MAX_AMPLITUDE = 0.0f;
-    HapticGenerator::HapticScale mHapticScale = {0, HapticGenerator::VibratorScale::MUTE};
+    std::vector<HapticGenerator::HapticScale> mHapticScales;
     HapticGenerator::VibratorInformation mVibratorInformation = {
             DEFAULT_RESONANT_FREQUENCY, DEFAULT_Q_FACTOR, DEFAULT_MAX_AMPLITUDE};
 };
