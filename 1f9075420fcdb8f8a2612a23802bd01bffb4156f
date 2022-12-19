@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8cad6c8_2e2ec826",
+        "filename": "health/aidl/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-19T22:54:46Z",
+      "side": 1,
+      "message": "do not freeze a new version yet. use \u0027-update-api\u0027 not \u0027-freeze-api\u0027",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 6
+      },
+      "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45d57bb5_4183f334",
         "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
         "patchSetId": 10
