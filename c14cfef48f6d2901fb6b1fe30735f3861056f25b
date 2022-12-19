@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05e6d9b5_abd79259",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-19T01:10:30Z",
+      "side": 1,
+      "message": "Please change to `int32_t mask \u003d std::numeric_limits\u003cint32_t\u003e::max()` and remove the original function definition—it will become a special case of this, more generic one.",
+      "range": {
+        "startLine": 69,
+        "startChar": 81,
+        "endLine": 69,
+        "endChar": 89
+      },
+      "revId": "c14cfef48f6d2901fb6b1fe30735f3861056f25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
