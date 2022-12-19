@@ -18,6 +18,7 @@ package android.hardware.tv.tuner;
 
 import android.hardware.common.NativeHandle;
 
+import android.hardware.tv.tuner.AudioPreselection;
 import android.hardware.tv.tuner.DemuxFilterMediaEventExtraMetaData;
 import android.hardware.tv.tuner.DemuxFilterScIndexMask;
 
