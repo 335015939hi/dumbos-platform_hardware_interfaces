@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,22 +33,11 @@
 
 package android.hardware.tv.tuner;
 /* @hide */
-@VintfStability
-parcelable DemuxFilterMediaEvent {
-  int streamId;
-  boolean isPtsPresent;
-  long pts;
-  boolean isDtsPresent;
-  long dts;
-  long dataLength;
-  long offset;
-  android.hardware.common.NativeHandle avMemory;
-  boolean isSecureMemory;
-  long avDataId;
-  int mpuSequenceNumber;
-  boolean isPesPrivateData;
-  android.hardware.tv.tuner.DemuxFilterMediaEventExtraMetaData extraMetaData;
-  android.hardware.tv.tuner.DemuxFilterScIndexMask scIndexMask;
-  android.hardware.tv.tuner.AudioPreselection[] audioPreselections = {};
-  int ac4ShortProgramId = -1;
+@Backing(type="int") @VintfStability
+enum AudioPreselectionRenderingIndicationType {
+  NOT_INDICATED = 0,
+  STEREO = 1,
+  TWO_DIMENSIONAL = 2,
+  THREE_DIMENSIONAL = 3,
+  HEADPHONE = 4,
 }

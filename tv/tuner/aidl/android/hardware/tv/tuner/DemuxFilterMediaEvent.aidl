@@ -18,6 +18,7 @@ package android.hardware.tv.tuner;
 
 import android.hardware.common.NativeHandle;
 
+import android.hardware.tv.tuner.AudioPreselection;
 import android.hardware.tv.tuner.DemuxFilterMediaEventExtraMetaData;
 import android.hardware.tv.tuner.DemuxFilterScIndexMask;
 
@@ -91,4 +92,16 @@ parcelable DemuxFilterMediaEvent {
      * access unit framing at decode stage.
      */
     DemuxFilterScIndexMask scIndexMask;
+
+    /**
+     * Audio preselections available for user selection.
+     */
+    AudioPreselection[] audioPreselections = {};
+
+    /**
+     * Dolby AC-4 short program id specified in ETSI TS 103 190-2. For use in conjunction with
+     * audioPreselections to ensure contininuity of personalized experience during program
+     * transitions.
+     */
+    int ac4ShortProgramId = -1;
 }
