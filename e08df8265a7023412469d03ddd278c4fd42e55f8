@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0d30e5e_379166c0",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamCommon.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-19T17:24:06Z",
+      "side": 1,
+      "message": "Thanks, copy-and-paste error.",
+      "parentUuid": "d608d977_251e9722",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 59
+      },
+      "revId": "e08df8265a7023412469d03ddd278c4fd42e55f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11c76f9d_3445ce09",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-19T11:25:03Z",
       "side": 1,
       "message": "why continue the test in this case?\nIt seems that inconsistent replies for add and remove should be considered a test failure",
+      "range": {
+        "startLine": 1762,
+        "startChar": 0,
+        "endLine": 1762,
+        "endChar": 27
+      },
+      "revId": "e08df8265a7023412469d03ddd278c4fd42e55f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a37b152_9021dc8d",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1762,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-19T17:24:06Z",
+      "side": 1,
+      "message": "The idea here is: first, we add the failure about the inconsistency (line 1760), then we avoid skipping the test, because [a skipped test is neither success nor failure](https://cs.android.com/android/platform/superproject/+/master:external/googletest/googletest/include/gtest/gtest.h;l\u003d1888;drc\u003dbcf06ca814862b06084f202399b30793f1fe2df3), and we want a failure.\n\nBut I agree that the idea was not expressed clearly.",
+      "parentUuid": "11c76f9d_3445ce09",
       "range": {
         "startLine": 1762,
         "startChar": 0,
