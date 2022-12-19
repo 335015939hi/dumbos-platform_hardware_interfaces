@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff4f0fba_a81027fa",
+        "filename": "audio/aidl/default/visualizer/VisualizerSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-12-19T16:40:50Z",
+      "side": 1,
+      "message": "Similar to how we provide a default value to `mCaptureSize`, should we provide a default value to `mLatency`?  It isn\u0027t set in the constructor.  And while it is (possibly) set in `setVsLatency()`, we probably want to be more robust here and not require a certain order of operations to avoid usage of an uninitialized variable.\n\nIt looks like `mLatency` isn\u0027t read from yet, but presumably we\u0027ll use it in future.",
+      "revId": "94aae5e51d4886a222da0a003595a0831718c136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
