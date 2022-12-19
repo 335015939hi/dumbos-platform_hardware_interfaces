@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e4c8151_90594d28",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-19T20:47:16Z",
+      "side": 1,
+      "message": "maybe put a comment on why 9 and 10 is missing (and what they are reserved for)?\n\nJust a nit -- in case future developers take the values 9 and 10 unexpectedly",
+      "parentUuid": "ec271cb6_226b3a00",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 23
+      },
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d48f5e9_05a3af29",
         "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
         "patchSetId": 9

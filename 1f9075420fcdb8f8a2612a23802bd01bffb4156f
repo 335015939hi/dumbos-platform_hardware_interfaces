@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "831ccf98_4385f826",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-19T20:47:16Z",
+      "side": 1,
+      "message": "I don\u0027t think we can remove enums though. We can mark it as deprecated but it can\u0027t be removed",
+      "parentUuid": "45d57bb5_4183f334",
+      "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb38d259_71377c0e",
         "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
         "patchSetId": 10
@@ -48,6 +66,46 @@
       "writtenOn": "2022-12-16T22:19:26Z",
       "side": 1,
       "message": "this should be deprecated here and moved to \"charging state\" since it is a transitory state which only affects charging and (possibly) device performances.",
+      "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5410e59c_945d61c2",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-19T20:47:16Z",
+      "side": 1,
+      "message": "Please add a doc that these are \"since epoch\"",
+      "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e87fc6a6_94b0f6b0",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2022-12-19T20:47:16Z",
+      "side": 1,
+      "message": "\"0 if batteryStatus is UNKNOWN\"?\n\n\"0 means batteryStatus is UNKNOWN\"?\n\nBTW we don\u0027t care about fractions of percentages right?",
+      "range": {
+        "startLine": 140,
+        "startChar": 44,
+        "endLine": 140,
+        "endChar": 79
+      },
       "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
