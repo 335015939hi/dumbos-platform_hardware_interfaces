@@ -1168,6 +1168,29 @@ void Filter::createMediaEvent(vector<DemuxFilterEvent>& events) {
     mediaEvent.isPesPrivateData = true;
     mediaEvent.extraMetaData.set<DemuxFilterMediaEventExtraMetaData::Tag::audio>(audio);
 
+    AudioPreselection audioPreselection0 {
+        .preselectionId = 0,
+        .programId = 42,
+        .messageDescriptors = {{"en", "Commentator"}, {"es", "Comentarista"}},
+        .language = "en",
+        .renderingIndication = AudioPreselectionRenderingIndicationType::THREE_DIMENSIONAL,
+        .hasAudioDescription = false,
+        .hasSpokenSubtitles = false,
+        .hasDialogueEnhancement = true
+    };
+    AudioPreselection audioPreselection1 {
+        .preselectionId = 1,
+        .programId = 42,
+        .messageDescriptors = {{"en", "Crowd"}, {"es", "Multitud"}},
+        .language = "en",
+        .renderingIndication = AudioPreselectionRenderingIndicationType::THREE_DIMENSIONAL,
+        .hasAudioDescription = false,
+        .hasSpokenSubtitles = false,
+        .hasDialogueEnhancement = false
+    };
+    mediaEvent.audioPreselections.push_back(audioPreselection0);
+    mediaEvent.audioPreselections.push_back(audioPreselection1);
+
     int av_fd = createAvIonFd(BUFFER_SIZE_16M);
     if (av_fd == -1) {
         return;
