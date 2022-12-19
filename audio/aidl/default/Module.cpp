@@ -44,6 +44,7 @@ using aidl::android::media::audio::common::AudioPort;
 using aidl::android::media::audio::common::AudioPortConfig;
 using aidl::android::media::audio::common::AudioPortExt;
 using aidl::android::media::audio::common::AudioProfile;
+using aidl::android::media::audio::common::Float;
 using aidl::android::media::audio::common::Int;
 using aidl::android::media::audio::common::PcmType;
 using android::hardware::audio::common::getFrameSizeInBytes;
@@ -601,6 +602,17 @@ ndk::ScopedAStatus Module::openOutputStream(const OpenOutputStreamArguments& in_
     mStreams.insert(port->id, in_args.portConfigId, std::move(streamWrapper));
     _aidl_return->stream = std::move(stream);
     return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Module::getSupportedPlaybackRateFactors(Float* out_minSpeed, Float* out_maxSpeed,
+                                                           Float* out_minPitch,
+                                                           Float* out_maxPitch) {
+    LOG(DEBUG) << __func__;
+    (void)out_minSpeed;
+    (void)out_maxSpeed;
+    (void)out_minPitch;
+    (void)out_maxPitch;
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
 ndk::ScopedAStatus Module::setAudioPatch(const AudioPatch& in_requested, AudioPatch* _aidl_return) {

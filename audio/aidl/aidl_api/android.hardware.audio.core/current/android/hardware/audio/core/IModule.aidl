@@ -46,6 +46,7 @@ interface IModule {
   android.hardware.audio.core.AudioRoute[] getAudioRoutesForAudioPort(int portId);
   android.hardware.audio.core.IModule.OpenInputStreamReturn openInputStream(in android.hardware.audio.core.IModule.OpenInputStreamArguments args);
   android.hardware.audio.core.IModule.OpenOutputStreamReturn openOutputStream(in android.hardware.audio.core.IModule.OpenOutputStreamArguments args);
+  void getSupportedPlaybackRateFactors(out android.media.audio.common.Float minSpeed, out android.media.audio.common.Float maxSpeed, out android.media.audio.common.Float minPitch, out android.media.audio.common.Float maxPitch);
   android.hardware.audio.core.AudioPatch setAudioPatch(in android.hardware.audio.core.AudioPatch requested);
   boolean setAudioPortConfig(in android.media.audio.common.AudioPortConfig requested, out android.media.audio.common.AudioPortConfig suggested);
   void resetAudioPatch(int patchId);
@@ -82,6 +83,7 @@ interface IModule {
     @nullable android.media.audio.common.AudioOffloadInfo offloadInfo;
     long bufferSizeFrames;
     @nullable android.hardware.audio.core.IStreamCallback callback;
+    @nullable android.hardware.audio.core.IStreamOutEventCallback eventCallback;
   }
   @VintfStability
   parcelable OpenOutputStreamReturn {
