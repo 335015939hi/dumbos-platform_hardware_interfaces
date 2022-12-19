@@ -18,6 +18,7 @@ package android.hardware.tv.tuner;
 
 import android.hardware.common.NativeHandle;
 
+import android.hardware.tv.tuner.AudioPresentation;
 import android.hardware.tv.tuner.DemuxFilterMediaEventExtraMetaData;
 import android.hardware.tv.tuner.DemuxFilterScIndexMask;
 
@@ -91,4 +92,6 @@ parcelable DemuxFilterMediaEvent {
      * access unit framing at decode stage.
      */
     DemuxFilterScIndexMask scIndexMask;
+
+    @nullable AudioPresentation[] audioPresentations;
 }
