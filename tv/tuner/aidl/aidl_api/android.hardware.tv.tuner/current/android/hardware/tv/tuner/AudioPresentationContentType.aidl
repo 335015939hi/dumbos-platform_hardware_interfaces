@@ -33,21 +33,15 @@
 
 package android.hardware.tv.tuner;
 /* @hide */
-@VintfStability
-parcelable DemuxFilterMediaEvent {
-  int streamId;
-  boolean isPtsPresent;
-  long pts;
-  boolean isDtsPresent;
-  long dts;
-  long dataLength;
-  long offset;
-  android.hardware.common.NativeHandle avMemory;
-  boolean isSecureMemory;
-  long avDataId;
-  int mpuSequenceNumber;
-  boolean isPesPrivateData;
-  android.hardware.tv.tuner.DemuxFilterMediaEventExtraMetaData extraMetaData;
-  android.hardware.tv.tuner.DemuxFilterScIndexMask scIndexMask;
-  @nullable android.hardware.tv.tuner.AudioPresentation[] audioPresentations;
+@Backing(type="int") @VintfStability
+enum AudioPresentationContentType {
+  UNKNOWN = 0,
+  MAIN = 1,
+  MUSIC_AND_EFFECTS = 2,
+  VISUALLY_IMPAIRED = 3,
+  HEARING_IMPAIRED = 4,
+  DIALOG = 5,
+  COMMENTARY = 6,
+  EMERGENCY = 7,
+  VOICEOVER = 8,
 }

@@ -32,22 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.tv.tuner;
-/* @hide */
 @VintfStability
-parcelable DemuxFilterMediaEvent {
-  int streamId;
-  boolean isPtsPresent;
-  long pts;
-  boolean isDtsPresent;
-  long dts;
-  long dataLength;
-  long offset;
-  android.hardware.common.NativeHandle avMemory;
-  boolean isSecureMemory;
-  long avDataId;
-  int mpuSequenceNumber;
-  boolean isPesPrivateData;
-  android.hardware.tv.tuner.DemuxFilterMediaEventExtraMetaData extraMetaData;
-  android.hardware.tv.tuner.DemuxFilterScIndexMask scIndexMask;
-  @nullable android.hardware.tv.tuner.AudioPresentation[] audioPresentations;
+parcelable AudioPresentationLabel {
+  String locale;
+  String label;
 }
