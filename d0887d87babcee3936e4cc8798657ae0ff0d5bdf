@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91f78018_44573de5",
+        "filename": "audio/aidl/default/presetReverb/PresetReverbSw.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-20T18:22:31Z",
+      "side": 1,
+      "message": "The aidl generator creates ranges of valid values for each enum.\n\nYou need to `#include \u003candroid/binder_enums.h\u003e` to get this utility: https://cs.android.com/android/platform/superproject/+/master:frameworks/native/libs/binder/ndk/include_cpp/android/binder_enums.h, and then the valid range can be obtained as:\n\n```\nenum_range\u003cPresetReverb::Presets\u003e()\n```",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 2
+      },
+      "revId": "d0887d87babcee3936e4cc8798657ae0ff0d5bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a72f9c1_09141846",
+        "filename": "audio/aidl/vts/VtsHalPresetReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-20T18:22:31Z",
+      "side": 1,
+      "message": "Same note about the valid range.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 2
+      },
+      "revId": "d0887d87babcee3936e4cc8798657ae0ff0d5bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
