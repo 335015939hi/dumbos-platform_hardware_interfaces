@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1b499fb_97262d22",
+        "filename": "health/aidl/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-20T15:43:07Z",
+      "side": 1,
+      "message": "Thanks for reminding. Done.",
+      "parentUuid": "d8cad6c8_2e2ec826",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 6
+      },
+      "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45d57bb5_4183f334",
