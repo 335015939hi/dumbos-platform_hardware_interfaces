@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f430d57_a294e589",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-20T18:20:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c45530ed_fec7180c",
+      "range": {
+        "startLine": 70,
+        "startChar": 8,
+        "endLine": 70,
+        "endChar": 20
+      },
+      "revId": "26d52a0d48ace0e83edf062ec15095529414d220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40a16bae_1ba4b11f",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b6e6769_35abda39",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-20T18:20:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40a16bae_1ba4b11f",
+      "range": {
+        "startLine": 73,
+        "startChar": 68,
+        "endLine": 73,
+        "endChar": 74
+      },
+      "revId": "26d52a0d48ace0e83edf062ec15095529414d220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce47039b_a252953b",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-12-20T17:36:53Z",
       "side": 1,
       "message": "Why is this in one line? Seems inconsistent with other code.",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 73
+      },
+      "revId": "26d52a0d48ace0e83edf062ec15095529414d220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8007cd63_b73e9e7c",
+        "filename": "audio/aidl/android/hardware/audio/effect/NoiseSuppression.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-20T18:20:34Z",
+      "side": 1,
+      "message": "This was done by `system/tools/aidl/aidl-format.sh` automatically.",
+      "parentUuid": "ce47039b_a252953b",
       "range": {
         "startLine": 65,
         "startChar": 4,
