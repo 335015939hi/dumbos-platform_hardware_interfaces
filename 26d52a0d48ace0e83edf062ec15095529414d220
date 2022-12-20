@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c45530ed_fec7180c",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-20T17:29:17Z",
+      "side": 1,
+      "message": "`echoDelayUs` - `Ms` is for milliseconds, and `Us` is for microseconds. Also change the comment here and the `Capability::maxEchoDelayMs` name to reflect it.",
+      "range": {
+        "startLine": 70,
+        "startChar": 8,
+        "endLine": 70,
+        "endChar": 20
+      },
+      "revId": "26d52a0d48ace0e83edf062ec15095529414d220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
