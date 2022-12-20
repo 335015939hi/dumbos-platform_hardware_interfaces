@@ -23,11 +23,13 @@
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 
+#include "core-impl/AudioPolicyConfigXmlConverter.h"
 #include "core-impl/Config.h"
 #include "core-impl/Module.h"
 
 using aidl::android::hardware::audio::core::Config;
 using aidl::android::hardware::audio::core::Module;
+using aidl::android::hardware::audio::core::internal::AudioPolicyConfigXmlConverter;
 
 int main() {
     // Random values are used in the implementation.
@@ -37,25 +39,43 @@ int main() {
     android::base::SetMinimumLogSeverity(::android::base::DEBUG);
     ABinderProcess_setThreadPoolMaxThreadCount(16);
 
+    AudioPolicyConfigXmlConverter audioPolicyConverter{
+            ::android::audio_get_audio_policy_config_file()};
+
     // Make the default config service
-    auto config = ndk::SharedRefBase::make<Config>();
+    auto config = ndk::SharedRefBase::make<Config>(audioPolicyConverter);
     const std::string configName = std::string() + Config::descriptor + "/default";
     binder_status_t status =
             AServiceManager_addService(config->asBinder().get(), configName.c_str());
     CHECK_EQ(STATUS_OK, status);
 
     // Make modules
-    auto createModule = [](Module::Type type, const std::string& instance) {
-        auto module = ndk::SharedRefBase::make<Module>(type);
+    auto createModule = [&audioPolicyConverter](const std::string& name,
+                                                Module::Configuration& config) {
+        auto module = ndk::SharedRefBase::make<Module>(std::move(config));
         ndk::SpAIBinder moduleBinder = module->asBinder();
-        const std::string moduleName = std::string(Module::descriptor).append("/").append(instance);
+        const std::string moduleName = std::string(Module::descriptor).append("/").append(name);
         AIBinder_setMinSchedulerPolicy(moduleBinder.get(), SCHED_NORMAL, ANDROID_PRIORITY_AUDIO);
         binder_status_t status = AServiceManager_addService(moduleBinder.get(), moduleName.c_str());
         CHECK_EQ(STATUS_OK, status);
         return std::make_pair(module, moduleBinder);
     };
-    auto modules = {createModule(Module::Type::DEFAULT, "default"),
-                    createModule(Module::Type::R_SUBMIX, "r_submix")};
+    std::vector<std::pair<std::shared_ptr<Module>, ndk::SpAIBinder>> moduleBinderPairs;
+    for (std::pair<std::string, Module::Configuration>& configPair :
+         audioPolicyConverter.getModuleConfigs()) {
+        std::string name = configPair.first;
+        // 'default' module is equivalent to 'primary' in XML schema used by HIDL
+        if (name.compare("primary") == 0) {
+            name = "default";
+        }
+        if (Module::isSupportedType(name)) {
+            moduleBinderPairs.push_back(createModule(name, configPair.second));
+        } else {
+            LOG(ERROR) << __func__ << ": module name: \'" << name
+                       << "\' is not supported. Check configuration.";
+            return EXIT_FAILURE;
+        }
+    }
 
     ABinderProcess_joinThreadPool();
     return EXIT_FAILURE;  // should not reach
