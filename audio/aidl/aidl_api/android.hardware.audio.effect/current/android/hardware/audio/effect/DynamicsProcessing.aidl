@@ -36,13 +36,13 @@ package android.hardware.audio.effect;
 union DynamicsProcessing {
   android.hardware.audio.effect.VendorExtension vendorExtension;
   android.hardware.audio.effect.DynamicsProcessing.EngineArchitecture engineArchitecture;
-  android.hardware.audio.effect.DynamicsProcessing.BandChannelConfig preEq;
-  android.hardware.audio.effect.DynamicsProcessing.BandChannelConfig postEq;
-  android.hardware.audio.effect.DynamicsProcessing.EqBandConfig preEqBand;
-  android.hardware.audio.effect.DynamicsProcessing.EqBandConfig postEqBand;
-  android.hardware.audio.effect.DynamicsProcessing.BandChannelConfig mbc;
-  android.hardware.audio.effect.DynamicsProcessing.MbcBandConfig mbcBand;
-  android.hardware.audio.effect.DynamicsProcessing.LimiterConfig limiter;
+  android.hardware.audio.effect.DynamicsProcessing.BandChannelConfig[] preEq;
+  android.hardware.audio.effect.DynamicsProcessing.BandChannelConfig[] postEq;
+  android.hardware.audio.effect.DynamicsProcessing.EqBandConfig[] preEqBand;
+  android.hardware.audio.effect.DynamicsProcessing.EqBandConfig[] postEqBand;
+  android.hardware.audio.effect.DynamicsProcessing.BandChannelConfig[] mbc;
+  android.hardware.audio.effect.DynamicsProcessing.MbcBandConfig[] mbcBand;
+  android.hardware.audio.effect.DynamicsProcessing.LimiterConfig[] limiter;
   float inputGainDb;
   @VintfStability
   union Id {
