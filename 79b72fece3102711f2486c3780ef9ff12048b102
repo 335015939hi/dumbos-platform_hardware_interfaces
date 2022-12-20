@@ -22,6 +22,30 @@
       },
       "revId": "79b72fece3102711f2486c3780ef9ff12048b102",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90ac39c8_9ec21be0",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2022-12-20T19:59:42Z",
+      "side": 0,
+      "message": "I\u0027m not sure... :(\n\nI wanted to change the way this works, so that we don\u0027t kill the HAL unnecessarily, but I\u0027m not sure what happened now.",
+      "parentUuid": "a7e2fcbb_96c9d261",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 3
+      },
+      "revId": "79b72fece3102711f2486c3780ef9ff12048b102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
