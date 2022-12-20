@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecf27cec_470d4461",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-20T18:19:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fe3ff4f_4dfbbaab",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 69
+      },
+      "revId": "31872fb596ed176aa6b2ea7684ae3fba767c3a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85bd7770_7d9b050e",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70f71fc2_ef38a045",
+        "filename": "audio/aidl/default/acousticEchoCanceler/AcousticEchoCancelerSw.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-20T18:19:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85bd7770_7d9b050e",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "31872fb596ed176aa6b2ea7684ae3fba767c3a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af90686e_3913b607",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-12-20T17:48:10Z",
       "side": 1,
       "message": "The change of indentation here is probably unintentional.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 8
+      },
+      "revId": "31872fb596ed176aa6b2ea7684ae3fba767c3a78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff6022e_47da01bf",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-20T18:19:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af90686e_3913b607",
       "range": {
         "startLine": 88,
         "startChar": 0,
