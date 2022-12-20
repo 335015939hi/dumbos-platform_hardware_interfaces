@@ -16,6 +16,23 @@
       "message": "Eric, please re-review the implementation and VTS, there are also a couple of minor changes in the AIDL.",
       "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14101b8f_2e21221e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-20T16:59:39Z",
+      "side": 1,
+      "message": "Downstream conflicts, will have to look into them first.",
+      "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
