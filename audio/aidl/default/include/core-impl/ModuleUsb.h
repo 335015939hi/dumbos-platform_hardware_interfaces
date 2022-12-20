@@ -22,7 +22,8 @@ namespace aidl::android::hardware::audio::core {
 
 class ModuleUsb final : public ModuleAlsa {
   public:
-    ModuleUsb() : ModuleAlsa(Type::USB) {}
+    ModuleUsb(const std::string& type, Configuration&& config)
+        : ModuleAlsa(type, std::move(config)) {}
 
   private:
     // IModule interfaces
