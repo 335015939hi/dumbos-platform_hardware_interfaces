@@ -22,7 +22,8 @@ namespace aidl::android::hardware::audio::core {
 
 class ModuleRemoteSubmix : public Module {
   public:
-    ModuleRemoteSubmix() : Module(Type::R_SUBMIX) {}
+    ModuleRemoteSubmix(const std::string& type, Configuration&& config)
+        : Module(type, std::move(config)) {}
 
   private:
     // IModule interfaces
