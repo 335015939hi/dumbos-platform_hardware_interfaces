@@ -22,7 +22,8 @@ namespace aidl::android::hardware::audio::core {
 
 class ModulePrimary final : public Module {
   public:
-    ModulePrimary() : Module(Type::DEFAULT) {}
+    ModulePrimary(const std::string& type, Configuration&& config)
+        : Module(type, std::move(config)) {}
 
   protected:
     ndk::ScopedAStatus getTelephony(std::shared_ptr<ITelephony>* _aidl_return) override;
