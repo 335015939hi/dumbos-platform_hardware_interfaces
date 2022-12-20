@@ -31,8 +31,55 @@ class DynamicsProcessingSwContext final : public EffectContext {
     DynamicsProcessingSwContext(int statusDepth, const Parameter::Common& common)
         : EffectContext(statusDepth, common) {
         LOG(DEBUG) << __func__;
+        mChannelCount =
+                ::android::hardware::audio::common::getChannelCount(common.input.base.channelMask);
+        mPreEqChCfgs.reserve(mChannelCount);
+        mPostEqChCfgs.reserve(mChannelCount);
+        mMbcChCfgs.reserve(mChannelCount);
+        mPreEqChBands.reserve(mChannelCount);
+        mPostEqChBands.reserve(mChannelCount);
+        mMbcChBands.reserve(mChannelCount);
     }
-    // TODO: add specific context here
+
+    // set params
+    RetCode setEngineArchitecture(const DynamicsProcessing::EngineArchitecture& config);
+    RetCode setPreEqChannelConfig(const DynamicsProcessing::BandChannelConfig& cfg);
+    RetCode setPostEqChannelConfig(const DynamicsProcessing::BandChannelConfig& cfg);
+    RetCode setMbcChannelConfig(const DynamicsProcessing::BandChannelConfig& cfg);
+    RetCode setPreEqBandConfig(const DynamicsProcessing::EqBandConfig& cfg);
+    RetCode setPostEqBandConfig(const DynamicsProcessing::EqBandConfig& cfg);
+    RetCode setMbcBandConfig(const DynamicsProcessing::MbcBandConfig& cfg);
+    RetCode setLimiterConfig(const DynamicsProcessing::LimiterConfig& cfg);
+    RetCode setInputGaindB(float inputGain) {
+        mInputGaindB = inputGain;
+        return RetCode::SUCCESS;
+    }
+
+    // get params
+    DynamicsProcessing::EngineArchitecture getEngineArchitecture() { return mEngineSettings; }
+    RetCode getPreEqChannelConfig(DynamicsProcessing::BandChannelConfig& cfg);
+    RetCode getPostEqChannelConfig(DynamicsProcessing::BandChannelConfig& cfg);
+    RetCode getMbcChannelConfig(DynamicsProcessing::BandChannelConfig& cfg);
+    RetCode getPreEqBandConfig(DynamicsProcessing::EqBandConfig& cfg);
+    RetCode getPostEqBandConfig(DynamicsProcessing::EqBandConfig& cfg);
+    RetCode getMbcBandConfig(DynamicsProcessing::MbcBandConfig& cfg);
+    DynamicsProcessing::LimiterConfig getLimiterConfig() { return mLimiterCfg; }
+    float getInputGaindB() { return mInputGaindB; }
+
+  private:
+    static constexpr float DEFAULT_MIN_FREQUENCY = 220;    // Hz
+    static constexpr float DEFAULT_MAX_FREQUENCY = 20000;  // Hz
+
+    int mChannelCount;
+    DynamicsProcessing::EngineArchitecture mEngineSettings;
+    std::vector<DynamicsProcessing::BandChannelConfig> mPreEqChCfgs;
+    std::vector<DynamicsProcessing::BandChannelConfig> mPostEqChCfgs;
+    std::vector<DynamicsProcessing::BandChannelConfig> mMbcChCfgs;
+    std::vector<std::vector<DynamicsProcessing::EqBandConfig>> mPreEqChBands;
+    std::vector<std::vector<DynamicsProcessing::EqBandConfig>> mPostEqChBands;
+    std::vector<std::vector<DynamicsProcessing::MbcBandConfig>> mMbcChBands;
+    float mInputGaindB = 0.f;
+    DynamicsProcessing::LimiterConfig mLimiterCfg;
 };
 
 class DynamicsProcessingSw final : public EffectImpl {
@@ -60,7 +107,7 @@ class DynamicsProcessingSw final : public EffectImpl {
 
   private:
     std::shared_ptr<DynamicsProcessingSwContext> mContext;
-    /* parameters */
-    DynamicsProcessing mSpecificParam;
+    ndk::ScopedAStatus getParameterDynamicsProcessing(const DynamicsProcessing::Tag& tag,
+                                                      Parameter::Specific* specific);
 };
 }  // namespace aidl::android::hardware::audio::effect

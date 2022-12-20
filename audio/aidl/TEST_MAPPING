@@ -35,6 +35,9 @@
     },
     {
       "name": "VtsHalNSTargetTest"
+    },
+    {
+      "name": "VtsHalDynamicProcessingTargetTest"
     }
   ]
 }
