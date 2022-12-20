@@ -60,7 +60,16 @@ extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descrip
 namespace aidl::android::hardware::audio::effect {
 
 const std::string PresetReverbSw::kEffectName = "PresetReverbSw";
-const PresetReverb::Capability PresetReverbSw::kCapability;
+
+const std::vector<PresetReverb::Presets> kSupportedPresets = {
+        PresetReverb::Presets::NONE,       PresetReverb::Presets::SMALLROOM,
+        PresetReverb::Presets::MEDIUMROOM, PresetReverb::Presets::LARGEROOM,
+        PresetReverb::Presets::MEDIUMHALL, PresetReverb::Presets::LARGEHALL,
+        PresetReverb::Presets::PLATE,
+};
+
+const PresetReverb::Capability PresetReverbSw::kCapability = {.supportedPresets =
+                                                                      kSupportedPresets};
 const Descriptor PresetReverbSw::kDescriptor = {
         .common = {.id = {.type = kPresetReverbTypeUUID,
                           .uuid = kPresetReverbSwImplUUID,
@@ -82,16 +91,59 @@ ndk::ScopedAStatus PresetReverbSw::setParameterSpecific(const Parameter::Specifi
     RETURN_IF(Parameter::Specific::presetReverb != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
 
-    mSpecificParam = specific.get<Parameter::Specific::presetReverb>();
-    LOG(DEBUG) << __func__ << " success with: " << specific.toString();
-    return ndk::ScopedAStatus::ok();
+    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+
+    auto& prParam = specific.get<Parameter::Specific::presetReverb>();
+    auto tag = prParam.getTag();
+
+    switch (tag) {
+        case PresetReverb::preset: {
+            RETURN_IF(
+                    mContext->setPRPreset(prParam.get<PresetReverb::preset>()) != RetCode::SUCCESS,
+                    EX_ILLEGAL_ARGUMENT, "setPresetFailed");
+            return ndk::ScopedAStatus::ok();
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "PresetReverbTagNotSupported");
+        }
+    }
 }
 
 ndk::ScopedAStatus PresetReverbSw::getParameterSpecific(const Parameter::Id& id,
                                                         Parameter::Specific* specific) {
     auto tag = id.getTag();
     RETURN_IF(Parameter::Id::presetReverbTag != tag, EX_ILLEGAL_ARGUMENT, "wrongIdTag");
-    specific->set<Parameter::Specific::presetReverb>(mSpecificParam);
+    auto prId = id.get<Parameter::Id::presetReverbTag>();
+    auto prIdTag = prId.getTag();
+    switch (prIdTag) {
+        case PresetReverb::Id::commonTag:
+            return getParameterPresetReverb(prId.get<PresetReverb::Id::commonTag>(), specific);
+        default:
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "PresetReverbTagNotSupported");
+    }
+}
+
+ndk::ScopedAStatus PresetReverbSw::getParameterPresetReverb(const PresetReverb::Tag& tag,
+                                                            Parameter::Specific* specific) {
+    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+    PresetReverb prParam;
+    switch (tag) {
+        case PresetReverb::preset: {
+            prParam.set<PresetReverb::preset>(mContext->getPRPreset());
+            break;
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "PresetReverbTagNotSupported");
+        }
+    }
+
+    specific->set<Parameter::Specific::presetReverb>(prParam);
     return ndk::ScopedAStatus::ok();
 }
 
