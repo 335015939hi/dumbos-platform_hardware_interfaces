@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "117e05fc_4bae9d22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-20T04:47:39Z",
+      "side": 1,
+      "message": "Eric, please re-review the implementation and VTS, there are also a couple of minor changes in the AIDL.",
+      "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
