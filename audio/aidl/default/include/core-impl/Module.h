@@ -24,25 +24,34 @@
 #include <aidl/android/hardware/audio/core/BnModule.h>
 
 #include "core-impl/ChildInterface.h"
-#include "core-impl/Configuration.h"
 #include "core-impl/Stream.h"
 
 namespace aidl::android::hardware::audio::core {
-
 class Module : public BnModule {
   public:
-    // This value is used for all AudioPatches and reported by all streams.
-    static constexpr int32_t kLatencyMs = 10;
-    enum Type : int { DEFAULT, R_SUBMIX, STUB, USB, BLUETOOTH };
+    struct Configuration {
+        std::vector<::aidl::android::media::audio::common::MicrophoneInfo> microphones;
+        std::vector<::aidl::android::media::audio::common::AudioPort> ports;
+        std::vector<::aidl::android::media::audio::common::AudioPortConfig> portConfigs;
+        std::vector<::aidl::android::media::audio::common::AudioPortConfig> initialConfigs;
+        // Port id -> List of profiles to use when the device port state is set to 'connected'.
+        std::map<int32_t, std::vector<::aidl::android::media::audio::common::AudioProfile>>
+                connectedProfiles;
+        std::vector<AudioRoute> routes;
+        std::vector<AudioPatch> patches;
+        int32_t nextPortId = 1;
+        int32_t nextPatchId = 1;
+    };
     enum BtInterface : int { BTCONF, BTA2DP, BTLE };
-
-    static std::shared_ptr<Module> createInstance(Type type);
-
-    explicit Module(Type type) : mType(type) {}
-
     typedef std::tuple<std::weak_ptr<IBluetooth>, std::weak_ptr<IBluetoothA2dp>,
                        std::weak_ptr<IBluetoothLe>>
             BtProfileHandles;
+
+    // This value is used by default for all AudioPatches and reported by all streams.
+    static constexpr int32_t kLatencyMs = 10;
+
+    Module(const std::string& type, Configuration&& config)
+        : mType(type), mConfig(std::make_unique<Configuration>(std::move(config))) {}
 
   protected:
     // The vendor extension done via inheritance can override interface methods and augment
@@ -147,8 +156,8 @@ class Module : public BnModule {
     // Multimap because both ports and configs can be used by multiple patches.
     using Patches = std::multimap<int32_t, int32_t>;
 
-    const Type mType;
-    std::unique_ptr<internal::Configuration> mConfig;
+    const std::string mType;
+    std::unique_ptr<Configuration> mConfig;
     ModuleDebug mDebug;
     VendorDebug mVendorDebug;
     ConnectedDevicePorts mConnectedDevicePorts;
@@ -187,7 +196,6 @@ class Module : public BnModule {
             const ::aidl::android::media::audio::common::AudioPort& audioPort, bool connected);
     virtual ndk::ScopedAStatus onMasterMuteChanged(bool mute);
     virtual ndk::ScopedAStatus onMasterVolumeChanged(float volume);
-    virtual std::unique_ptr<internal::Configuration> initializeConfig();
 
     // Utility and helper functions accessible to subclasses.
     ndk::ScopedAStatus bluetoothParametersUpdated();
@@ -204,7 +212,7 @@ class Module : public BnModule {
             int32_t in_portConfigId, ::aidl::android::media::audio::common::AudioPort** port);
     std::vector<AudioRoute*> getAudioRoutesForAudioPortImpl(int32_t portId);
     virtual BtProfileHandles getBtProfileManagerHandles();
-    internal::Configuration& getConfig();
+    Configuration& getConfig();
     const ConnectedDevicePorts& getConnectedDevicePorts() const { return mConnectedDevicePorts; }
     bool getMasterMute() const { return mMasterMute; }
     bool getMasterVolume() const { return mMasterVolume; }
@@ -213,7 +221,7 @@ class Module : public BnModule {
     std::set<int32_t> getRoutableAudioPortIds(int32_t portId,
                                               std::vector<AudioRoute*>* routes = nullptr);
     const Streams& getStreams() const { return mStreams; }
-    Type getType() const { return mType; }
+    const std::string& getType() const { return mType; }
     bool isMmapSupported();
     template <typename C>
     std::set<int32_t> portIdsFromPortConfigIds(C portConfigIds);
@@ -221,7 +229,5 @@ class Module : public BnModule {
     ndk::ScopedAStatus updateStreamsConnectedState(const AudioPatch& oldPatch,
                                                    const AudioPatch& newPatch);
 };
-
-std::ostream& operator<<(std::ostream& os, Module::Type t);
 
 }  // namespace aidl::android::hardware::audio::core
