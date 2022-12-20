@@ -12,6 +12,7 @@ cc_defaults {
     vendor: true,
     shared_libs: [
         "libalsautilsv2",
+        "libaudio_aidl_conversion_common_ndk",
         "libaudioaidlcommon",
         "libaudioutils",
         "libbase",
@@ -19,6 +20,8 @@ cc_defaults {
         "libcutils",
         "libfmq",
         "libnbaio_mono",
+        "liblog",
+        "libmedia_helper",
         "libstagefright_foundation",
         "libtinyalsav2",
         "libutils",
@@ -30,6 +33,9 @@ cc_defaults {
         "libaudio_system_headers",
         "libaudioaidl_headers",
         "libxsdc-utils",
+    ],
+    cflags: [
+        "-DBACKEND_NDK",
     ],
 }
 
@@ -70,7 +76,6 @@ cc_library {
         "AudioPolicyConfigXmlConverter.cpp",
         "Bluetooth.cpp",
         "Config.cpp",
-        "Configuration.cpp",
         "EngineConfigXmlConverter.cpp",
         "Module.cpp",
         "ModulePrimary.cpp",
@@ -78,6 +83,7 @@ cc_library {
         "Stream.cpp",
         "StreamSwitcher.cpp",
         "Telephony.cpp",
+        "XsdcConversion.cpp",
         "alsa/Mixer.cpp",
         "alsa/ModuleAlsa.cpp",
         "alsa/StreamAlsa.cpp",

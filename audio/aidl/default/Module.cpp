@@ -107,43 +107,6 @@ bool findAudioProfile(const AudioPort& port, const AudioFormatDescription& forma
 
 }  // namespace
 
-// static
-std::shared_ptr<Module> Module::createInstance(Type type) {
-    switch (type) {
-        case Type::DEFAULT:
-            return ndk::SharedRefBase::make<ModulePrimary>();
-        case Type::R_SUBMIX:
-            return ndk::SharedRefBase::make<ModuleRemoteSubmix>();
-        case Type::STUB:
-            return ndk::SharedRefBase::make<ModuleStub>();
-        case Type::USB:
-            return ndk::SharedRefBase::make<ModuleUsb>();
-        case Type::BLUETOOTH:
-            return ndk::SharedRefBase::make<ModuleBluetooth>();
-    }
-}
-
-std::ostream& operator<<(std::ostream& os, Module::Type t) {
-    switch (t) {
-        case Module::Type::DEFAULT:
-            os << "default";
-            break;
-        case Module::Type::R_SUBMIX:
-            os << "r_submix";
-            break;
-        case Module::Type::STUB:
-            os << "stub";
-            break;
-        case Module::Type::USB:
-            os << "usb";
-            break;
-        case Module::Type::BLUETOOTH:
-            os << "bluetooth";
-            break;
-    }
-    return os;
-}
-
 void Module::cleanUpPatch(int32_t patchId) {
     erase_all_values(mPatches, std::set<int32_t>{patchId});
 }
@@ -292,32 +255,7 @@ std::set<int32_t> Module::portIdsFromPortConfigIds(C portConfigIds) {
     return result;
 }
 
-std::unique_ptr<internal::Configuration> Module::initializeConfig() {
-    std::unique_ptr<internal::Configuration> config;
-    switch (getType()) {
-        case Type::DEFAULT:
-            config = std::move(internal::getPrimaryConfiguration());
-            break;
-        case Type::R_SUBMIX:
-            config = std::move(internal::getRSubmixConfiguration());
-            break;
-        case Type::STUB:
-            config = std::move(internal::getStubConfiguration());
-            break;
-        case Type::USB:
-            config = std::move(internal::getUsbConfiguration());
-            break;
-        case Type::BLUETOOTH:
-            config = std::move(internal::getBluetoothConfiguration());
-            break;
-    }
-    return config;
-}
-
-internal::Configuration& Module::getConfig() {
-    if (!mConfig) {
-        mConfig = std::move(initializeConfig());
-    }
+Module::Configuration& Module::getConfig() {
     return *mConfig;
 }
 
