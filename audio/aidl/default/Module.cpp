@@ -237,17 +237,7 @@ std::set<int32_t> Module::portIdsFromPortConfigIds(C portConfigIds) {
     return result;
 }
 
-internal::Configuration& Module::getConfig() {
-    if (!mConfig) {
-        switch (mType) {
-            case Type::DEFAULT:
-                mConfig = std::move(internal::getPrimaryConfiguration());
-                break;
-            case Type::R_SUBMIX:
-                mConfig = std::move(internal::getRSubmixConfiguration());
-                break;
-        }
-    }
+Module::Configuration& Module::getConfig() {
     return *mConfig;
 }
 
