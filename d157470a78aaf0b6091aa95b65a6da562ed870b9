@@ -681,6 +681,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e372737_12ac29a4",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2022-12-20T00:02:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10891956_064043c1",
+      "range": {
+        "startLine": 169,
+        "startChar": 22,
+        "endLine": 169,
+        "endChar": 28
+      },
+      "revId": "d157470a78aaf0b6091aa95b65a6da562ed870b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf48d64c_ff7ac782",
@@ -694,6 +718,30 @@
       "writtenOn": "2022-12-14T19:51:03Z",
       "side": 1,
       "message": "This is not the recommended way to use rfkill from user space:\nhttps://www.kernel.org/doc/html/latest/driver-api/rfkill.html#kernel-api\n\nThe recommended way is to send commands to`/dev/rfkill` using the interface in `\u003clinux/rfkill.h\u003e`",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 11
+      },
+      "revId": "d157470a78aaf0b6091aa95b65a6da562ed870b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b42f41f0_8de4961d",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2022-12-20T00:02:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf48d64c_ff7ac782",
       "range": {
         "startLine": 170,
         "startChar": 0,
