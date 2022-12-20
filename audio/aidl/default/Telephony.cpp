@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-#include <android/binder_to_string.h>
 #define LOG_TAG "AHAL_Telephony"
 #include <android-base/logging.h>
+#include <android/binder_to_string.h>
 
 #include "core-impl/Telephony.h"
 

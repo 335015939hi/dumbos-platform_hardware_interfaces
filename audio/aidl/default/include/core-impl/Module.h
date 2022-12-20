@@ -19,21 +19,33 @@
 #include <map>
 #include <memory>
 #include <set>
+#include <unordered_set>
 
 #include <aidl/android/hardware/audio/core/BnModule.h>
 
-#include "core-impl/Configuration.h"
 #include "core-impl/Stream.h"
 
 namespace aidl::android::hardware::audio::core {
-
 class Module : public BnModule {
   public:
+    struct Configuration {
+        std::vector<MicrophoneInfo> microphones;
+        std::vector<::aidl::android::media::audio::common::AudioPort> ports;
+        std::vector<::aidl::android::media::audio::common::AudioPortConfig> portConfigs;
+        std::vector<::aidl::android::media::audio::common::AudioPortConfig> initialConfigs;
+        // Port id -> List of profiles to use when the device port state is set to 'connected'.
+        std::map<int32_t, std::vector<::aidl::android::media::audio::common::AudioProfile>>
+                connectedProfiles;
+        std::vector<AudioRoute> routes;
+        std::vector<AudioPatch> patches;
+        int32_t nextPortId = 1;
+        int32_t nextPatchId = 1;
+    };
     // This value is used for all AudioPatches and reported by all streams.
     static constexpr int32_t kLatencyMs = 10;
-    enum Type : int { DEFAULT, R_SUBMIX };
 
-    explicit Module(Type type) : mType(type) {}
+    explicit Module(Configuration&& config) : mConfig(std::make_unique<Configuration>(config)) {}
+    static bool isSupportedType(const std::string& name) { return mSupportedTypes.count(name); };
 
   private:
     struct VendorDebug {
@@ -122,7 +134,7 @@ class Module : public BnModule {
     std::set<int32_t> findConnectedPortConfigIds(int32_t portConfigId);
     ndk::ScopedAStatus findPortIdForNewStream(
             int32_t in_portConfigId, ::aidl::android::media::audio::common::AudioPort** port);
-    internal::Configuration& getConfig();
+    Configuration& getConfig();
     template <typename C>
     std::set<int32_t> portIdsFromPortConfigIds(C portConfigIds);
     void registerPatch(const AudioPatch& patch);
@@ -133,8 +145,7 @@ class Module : public BnModule {
     // The maximum stream buffer size is 1 GiB = 2 ** 30 bytes;
     static constexpr int32_t kMaximumStreamBufferSizeBytes = 1 << 30;
 
-    const Type mType;
-    std::unique_ptr<internal::Configuration> mConfig;
+    std::unique_ptr<Configuration> mConfig;
     ModuleDebug mDebug;
     VendorDebug mVendorDebug;
     // For the interfaces requiring to return the same instance, we need to hold them
@@ -154,6 +165,10 @@ class Module : public BnModule {
     bool mMicMute = false;
     std::shared_ptr<sounddose::ISoundDose> mSoundDose;
     ndk::SpAIBinder mSoundDoseBinder;
+    // keep in sync with IModules registered in system/sepolicy/private/service_contexts and
+    // system/sepolicy/build/soong/service_fuzzer_bindings.go
+    static inline const std::unordered_set<std::string> mSupportedTypes = {
+            "default", "a2dp", "bluetooth", "hearing_aid", "msd", "r_submix", "stub", "usb"};
 };
 
 }  // namespace aidl::android::hardware::audio::core
