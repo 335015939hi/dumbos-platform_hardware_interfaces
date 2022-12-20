@@ -269,31 +269,31 @@ union DynamicsProcessing {
     /**
      * PreEq stage per channel configuration.
      */
-    BandChannelConfig preEq;
+    BandChannelConfig[] preEq;
     /**
      * PostEq stage per channel configuration.
      */
-    BandChannelConfig postEq;
+    BandChannelConfig[] postEq;
     /**
      * PreEq stage per band configuration.
      */
-    EqBandConfig preEqBand;
+    EqBandConfig[] preEqBand;
     /**
      * PostEq stage per band configuration.
      */
-    EqBandConfig postEqBand;
+    EqBandConfig[] postEqBand;
     /**
      * MBC stage per channel configuration.
      */
-    BandChannelConfig mbc;
+    BandChannelConfig[] mbc;
     /**
      * PostEq stage per band configuration.
      */
-    MbcBandConfig mbcBand;
+    MbcBandConfig[] mbcBand;
     /**
      * Limiter stage configuration.
      */
-    LimiterConfig limiter;
+    LimiterConfig[] limiter;
     /**
      * Input gain factor in decibels (dB). 0 dB means no change in level.
      */
