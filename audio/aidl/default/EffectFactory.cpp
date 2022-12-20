@@ -79,6 +79,7 @@ ndk::ScopedAStatus Factory::queryEffects(const std::optional<AudioUuid>& in_type
             _aidl_return->emplace_back(std::move(desc));
         }
     }
+    LOG(DEBUG) << __func__ << " xxx return " << _aidl_return->size();
     return ndk::ScopedAStatus::ok();
 }
 
