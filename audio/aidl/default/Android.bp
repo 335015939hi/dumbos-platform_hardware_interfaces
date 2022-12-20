@@ -11,11 +11,13 @@ cc_defaults {
     name: "aidlaudioservice_defaults",
     vendor: true,
     shared_libs: [
+        "libaudio_aidl_conversion_common_ndk",
         "libaudioaidlcommon",
         "libbase",
         "libbinder_ndk",
         "libcutils",
         "libfmq",
+        "libmedia_helper",
         "libstagefright_foundation",
         "libutils",
         "libxml2",
@@ -26,6 +28,9 @@ cc_defaults {
         "libaudio_system_headers",
         "libaudioaidl_headers",
         "libxsdc-utils",
+    ],
+    cflags: [
+        "-DBACKEND_NDK",
     ],
 }
 
@@ -69,6 +74,7 @@ cc_library_static {
         "SoundDose.cpp",
         "Stream.cpp",
         "Telephony.cpp",
+        "XsdcConversion.cpp",
     ],
     generated_sources: [
         "audio_policy_configuration_aidl_default",

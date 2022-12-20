@@ -22,6 +22,7 @@
 #include <android_audio_policy_configuration.h>
 #include <android_audio_policy_configuration_enums.h>
 
+#include "core-impl/Configuration.h"
 #include "core-impl/XmlConverter.h"
 
 namespace aidl::android::hardware::audio::core::internal {
@@ -29,12 +30,15 @@ namespace aidl::android::hardware::audio::core::internal {
 class AudioPolicyConfigXmlConverter {
   public:
     explicit AudioPolicyConfigXmlConverter(const std::string& configFilePath)
-        : mConverter(configFilePath, &::android::audio::policy::configuration::read) {}
+        : mConverter(configFilePath, &::android::audio::policy::configuration::read) {
+        init();
+    }
 
     std::string getError() const { return mConverter.getError(); }
     ::android::status_t getStatus() const { return mConverter.getStatus(); }
 
     const ::aidl::android::media::audio::common::AudioHalEngineConfig& getAidlEngineConfig();
+    Configuration getModuleConfig(const std::string& moduleName);
 
   private:
     const std::optional<::android::audio::policy::configuration::AudioPolicyConfiguration>&
@@ -42,13 +46,13 @@ class AudioPolicyConfigXmlConverter {
         return mConverter.getXsdcConfig();
     }
     void addVolumeGroupstoEngineConfig();
+    void init();
     void mapStreamToVolumeCurve(
             const ::android::audio::policy::configuration::Volume& xsdcVolumeCurve);
     void mapStreamsToVolumeCurves();
     void parseVolumes();
     ::aidl::android::media::audio::common::AudioHalVolumeCurve::CurvePoint convertCurvePointToAidl(
             const std::string& xsdcCurvePoint);
-
     ::aidl::android::media::audio::common::AudioHalVolumeCurve convertVolumeCurveToAidl(
             const ::android::audio::policy::configuration::Volume& xsdcVolumeCurve);
 
@@ -59,6 +63,7 @@ class AudioPolicyConfigXmlConverter {
     std::unordered_map<::android::audio::policy::configuration::AudioStreamType,
                        std::vector<::aidl::android::media::audio::common::AudioHalVolumeCurve>>
             mStreamToVolumeCurvesMap;
+    std::unordered_map<std::string, Configuration> mModuleConfigurationMap;
 };
 
 }  // namespace aidl::android::hardware::audio::core::internal

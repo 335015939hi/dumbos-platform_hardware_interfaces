@@ -23,11 +23,13 @@
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 
+#include "core-impl/AudioPolicyConfigXmlConverter.h"
 #include "core-impl/Config.h"
 #include "core-impl/Module.h"
 
 using aidl::android::hardware::audio::core::Config;
 using aidl::android::hardware::audio::core::Module;
+using aidl::android::hardware::audio::core::internal::AudioPolicyConfigXmlConverter;
 
 int main() {
     // Random values are used in the implementation.
@@ -37,16 +39,20 @@ int main() {
     android::base::SetMinimumLogSeverity(::android::base::DEBUG);
     ABinderProcess_setThreadPoolMaxThreadCount(16);
 
+    AudioPolicyConfigXmlConverter audioPolicyConverter{
+            ::android::audio_get_audio_policy_config_file()};
+
     // Make the default config service
-    auto config = ndk::SharedRefBase::make<Config>();
+    auto config = ndk::SharedRefBase::make<Config>(audioPolicyConverter);
     const std::string configName = std::string() + Config::descriptor + "/default";
     binder_status_t status =
             AServiceManager_addService(config->asBinder().get(), configName.c_str());
     CHECK_EQ(STATUS_OK, status);
 
     // Make modules
-    auto createModule = [](Module::Type type, const std::string& instance) {
-        auto module = ndk::SharedRefBase::make<Module>(type);
+    auto createModule = [&audioPolicyConverter](Module::Type type, const std::string& instance) {
+        auto module = ndk::SharedRefBase::make<Module>(
+                type, audioPolicyConverter.getModuleConfig(instance));
         ndk::SpAIBinder moduleBinder = module->asBinder();
         const std::string moduleName = std::string(Module::descriptor).append("/").append(instance);
         AIBinder_setMinSchedulerPolicy(moduleBinder.get(), SCHED_NORMAL, ANDROID_PRIORITY_AUDIO);

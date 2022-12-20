@@ -33,7 +33,8 @@ class Module : public BnModule {
     static constexpr int32_t kLatencyMs = 10;
     enum Type : int { DEFAULT, R_SUBMIX };
 
-    explicit Module(Type type) : mType(type) {}
+    Module(Type type, internal::Configuration config)
+        : mType(type), mConfig(std::make_unique<internal::Configuration>(config)) {}
 
   private:
     ndk::ScopedAStatus setModuleDebug(

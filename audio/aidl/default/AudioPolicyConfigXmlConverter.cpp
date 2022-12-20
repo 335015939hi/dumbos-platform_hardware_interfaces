@@ -25,6 +25,7 @@
 #include <system/audio-base-utils.h>
 
 #include "core-impl/AudioPolicyConfigXmlConverter.h"
+#include "core-impl/XsdcConversion.h"
 
 using aidl::android::media::audio::common::AudioHalEngineConfig;
 using aidl::android::media::audio::common::AudioHalVolumeCurve;
@@ -87,6 +88,14 @@ void AudioPolicyConfigXmlConverter::mapStreamToVolumeCurve(const xsd::Volume& xs
             convertVolumeCurveToAidl(xsdcVolumeCurve));
 }
 
+Configuration AudioPolicyConfigXmlConverter::getModuleConfig(const std::string& moduleName) {
+    if (auto iter = mModuleConfigurationMap.find(moduleName);
+        iter != mModuleConfigurationMap.end()) {
+        return iter->second;
+    }
+    return Configuration{};
+}
+
 const AudioHalEngineConfig& AudioPolicyConfigXmlConverter::getAidlEngineConfig() {
     if (mAidlEngineConfig.volumeGroups.empty() && getXsdcConfig() &&
         getXsdcConfig()->hasVolumes()) {
@@ -125,6 +134,19 @@ void AudioPolicyConfigXmlConverter::parseVolumes() {
     if (mStreamToVolumeCurvesMap.empty() && getXsdcConfig()->hasVolumes()) {
         mapStreamsToVolumeCurves();
         addVolumeGroupstoEngineConfig();
+    }
+}
+
+void AudioPolicyConfigXmlConverter::init() {
+    if (getXsdcConfig() && getXsdcConfig()->hasModules()) {
+        for (const xsd::Modules& xsdcModulesType : getXsdcConfig()->getModules()) {
+            if (xsdcModulesType.has_module()) {
+                for (const xsd::Modules::Module xsdcModule : xsdcModulesType.get_module()) {
+                    mModuleConfigurationMap[xsdcModule.getName()] =
+                            convertModuleConfigToAidl(xsdcModule);
+                }
+            }
+        }
     }
 }
 }  // namespace aidl::android::hardware::audio::core::internal
