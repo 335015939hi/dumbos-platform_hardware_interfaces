@@ -131,6 +131,30 @@
       },
       "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac5eb3da_3d9b5aa6",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-20T12:33:17Z",
+      "side": 1,
+      "message": "Yes, and thanks for your advice.",
+      "parentUuid": "e87fc6a6_94b0f6b0",
+      "range": {
+        "startLine": 140,
+        "startChar": 44,
+        "endLine": 140,
+        "endChar": 79
+      },
+      "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
