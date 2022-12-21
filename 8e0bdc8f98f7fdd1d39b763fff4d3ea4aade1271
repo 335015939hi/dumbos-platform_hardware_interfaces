@@ -91,6 +91,29 @@
       },
       "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "747c3513_51643fd4",
+        "filename": "audio/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-21T22:19:01Z",
+      "side": 1,
+      "message": "Here we need either to go through the list of all known module names, [see here]( https://r.android.com/c/platform/system/sepolicy/+/2336911/3/private/service_contexts), and instantiate only those that are declared in the config file. Or first query module names from the config and go through them.",
+      "range": {
+        "startLine": 63,
+        "startChar": 19,
+        "endLine": 64,
+        "endChar": 70
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
