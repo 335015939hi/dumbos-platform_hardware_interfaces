@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c111605_ba40b68b",
+        "filename": "audio/aidl/android/hardware/audio/effect/Volume.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-21T13:13:52Z",
+      "side": 1,
+      "message": "we will do the change of capabilities for the tests in one CL",
+      "parentUuid": "25012fb6_af3fa9aa",
+      "range": {
+        "startLine": 63,
+        "startChar": 14,
+        "endLine": 63,
+        "endChar": 23
+      },
+      "revId": "50aa4c7f3ce97429a0479af8f7db18987ba67d6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0187f84f_55de5906",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-20T17:52:13Z",
       "side": 1,
       "message": "With the maxValue defined in Capability, we can construct test cases according to the reported max value.\nExample:\nhttps://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2363493/1/audio/aidl/vts/VtsHalAECTargetTest.cpp#158\n\nThis can be a TODO to improve as separate CL",
+      "range": {
+        "startLine": 41,
+        "startChar": 23,
+        "endLine": 41,
+        "endChar": 35
+      },
+      "revId": "50aa4c7f3ce97429a0479af8f7db18987ba67d6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54b2ac3e_7eda09cc",
+        "filename": "audio/aidl/vts/VtsHalVolumeTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-21T13:13:52Z",
+      "side": 1,
+      "message": "TODO as separate CL for test",
+      "parentUuid": "0187f84f_55de5906",
       "range": {
         "startLine": 41,
         "startChar": 23,
