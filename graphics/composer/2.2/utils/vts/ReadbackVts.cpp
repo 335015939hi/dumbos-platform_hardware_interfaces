@@ -220,7 +220,7 @@ void ReadbackBuffer::setReadbackBuffer() {
 
 void ReadbackBuffer::checkReadbackBuffer(std::vector<IComposerClient::Color> expectedColors) {
     // lock buffer for reading
-    int32_t fenceHandle;
+    int32_t fenceHandle = 0;
     ASSERT_NO_FATAL_FAILURE(mComposerClient->getReadbackBufferFence(mDisplay, &fenceHandle));
 
     void* bufData = mGralloc->lock(mBufferHandle->get(), mUsage, mAccessRegion, fenceHandle);
