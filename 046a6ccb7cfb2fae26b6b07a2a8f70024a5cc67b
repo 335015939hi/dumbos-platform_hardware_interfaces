@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bda8eb5_6c22cae0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-12-21T23:11:21Z",
+      "side": 1,
+      "message": "nit: extensions",
+      "range": {
+        "startLine": 14,
+        "startChar": 20,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "046a6ccb7cfb2fae26b6b07a2a8f70024a5cc67b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8544783_8e79bce8",
+        "filename": "graphics/allocator/aidl/android/hardware/graphics/allocator/BufferDescriptorInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-12-21T23:11:21Z",
+      "side": 1,
+      "message": "super nit: and",
+      "range": {
+        "startLine": 59,
+        "startChar": 56,
+        "endLine": 59,
+        "endChar": 57
+      },
+      "revId": "046a6ccb7cfb2fae26b6b07a2a8f70024a5cc67b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
