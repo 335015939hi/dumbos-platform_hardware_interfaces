@@ -166,7 +166,7 @@ TEST_P(GraphicsMapperHidlTest, CreateDescriptorNegative) {
  * Test IMapper::importBuffer and IMapper::freeBuffer with allocated buffers.
  */
 TEST_P(GraphicsMapperHidlTest, ImportFreeBufferBasic) {
-    const native_handle_t* bufferHandle;
+    const native_handle_t* bufferHandle = nullptr;
     ASSERT_NO_FATAL_FAILURE(bufferHandle = mGralloc->allocate(mDummyDescriptorInfo, true));
     ASSERT_NO_FATAL_FAILURE(mGralloc->freeBuffer(bufferHandle));
 }
@@ -175,12 +175,12 @@ TEST_P(GraphicsMapperHidlTest, ImportFreeBufferBasic) {
  * Test IMapper::importBuffer and IMapper::freeBuffer with cloned buffers.
  */
 TEST_P(GraphicsMapperHidlTest, ImportFreeBufferClone) {
-    const native_handle_t* clonedBufferHandle;
+    const native_handle_t* clonedBufferHandle = nullptr;
     ASSERT_NO_FATAL_FAILURE(clonedBufferHandle = mGralloc->allocate(mDummyDescriptorInfo, false));
 
     // A cloned handle is a raw handle. Check that we can import it multiple
     // times.
-    const native_handle_t* importedBufferHandles[2];
+    const native_handle_t* importedBufferHandles[2] = {nullptr, nullptr};
     ASSERT_NO_FATAL_FAILURE(importedBufferHandles[0] = mGralloc->importBuffer(clonedBufferHandle));
     ASSERT_NO_FATAL_FAILURE(importedBufferHandles[1] = mGralloc->importBuffer(clonedBufferHandle));
     ASSERT_NO_FATAL_FAILURE(mGralloc->freeBuffer(importedBufferHandles[0]));
@@ -193,7 +193,7 @@ TEST_P(GraphicsMapperHidlTest, ImportFreeBufferClone) {
  * Test IMapper::importBuffer and IMapper::freeBuffer cross mapper instances.
  */
 TEST_P(GraphicsMapperHidlTest, ImportFreeBufferSingleton) {
-    const native_handle_t* rawHandle;
+    const native_handle_t* rawHandle = nullptr;
     ASSERT_NO_FATAL_FAILURE(rawHandle = mGralloc->allocate(mDummyDescriptorInfo, false));
 
     native_handle_t* importedHandle = nullptr;
@@ -273,7 +273,7 @@ TEST_P(GraphicsMapperHidlTest, FreeBufferNegative) {
 TEST_P(GraphicsMapperHidlTest, LockUnlockBasic) {
     const auto& info = mDummyDescriptorInfo;
 
-    const native_handle_t* bufferHandle;
+    const native_handle_t* bufferHandle = nullptr;
     uint32_t stride;
     ASSERT_NO_FATAL_FAILURE(bufferHandle = mGralloc->allocate(info, true, &stride));
 
@@ -281,7 +281,7 @@ TEST_P(GraphicsMapperHidlTest, LockUnlockBasic) {
     const IMapper::Rect region{0, 0, static_cast<int32_t>(info.width),
                                static_cast<int32_t>(info.height)};
     int fence = -1;
-    uint8_t* data;
+    uint8_t* data = nullptr;
     ASSERT_NO_FATAL_FAILURE(
         data = static_cast<uint8_t*>(mGralloc->lock(bufferHandle, info.usage, region, fence)));
 
@@ -320,7 +320,7 @@ TEST_P(GraphicsMapperHidlTest, LockYCbCrBasic) {
     auto info = mDummyDescriptorInfo;
     info.format = PixelFormat::YV12;
 
-    const native_handle_t* bufferHandle;
+    const native_handle_t* bufferHandle = nullptr;
     uint32_t stride;
     ASSERT_NO_FATAL_FAILURE(bufferHandle = mGralloc->allocate(info, true, &stride));
 

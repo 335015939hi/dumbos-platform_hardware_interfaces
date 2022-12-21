@@ -61,8 +61,8 @@ class GraphicsMapperHidlTest
  * Test that IMapper::validateBufferSize works.
  */
 TEST_P(GraphicsMapperHidlTest, ValidateBufferSizeBasic) {
-    const native_handle_t* bufferHandle;
-    uint32_t stride;
+    const native_handle_t* bufferHandle = nullptr;
+    uint32_t stride = 0;
     ASSERT_NO_FATAL_FAILURE(bufferHandle = mGralloc->allocate(mDummyDescriptorInfo, true, &stride));
 
     ASSERT_TRUE(mGralloc->validateBufferSize(bufferHandle, mDummyDescriptorInfo, stride));
@@ -107,8 +107,8 @@ TEST_P(GraphicsMapperHidlTest, ValidateBufferSizeBadValue) {
     info.layerCount = 1;
     info.format = PixelFormat::RGBA_8888;
 
-    native_handle_t* bufferHandle;
-    uint32_t stride;
+    native_handle_t* bufferHandle = nullptr;
+    uint32_t stride = 0;
     ASSERT_NO_FATAL_FAILURE(
         bufferHandle = const_cast<native_handle_t*>(mGralloc->allocate(info, true, &stride)));
 
@@ -148,7 +148,7 @@ TEST_P(GraphicsMapperHidlTest, ValidateBufferSizeBadValue) {
  * Test IMapper::getTransportSize.
  */
 TEST_P(GraphicsMapperHidlTest, GetTransportSizeBasic) {
-    const native_handle_t* bufferHandle;
+    const native_handle_t* bufferHandle = nullptr;
     uint32_t numFds;
     uint32_t numInts;
     ASSERT_NO_FATAL_FAILURE(bufferHandle = mGralloc->allocate(mDummyDescriptorInfo, true));
