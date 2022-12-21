@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1154b6c_ab03a02f",
+        "filename": "audio/aidl/android/hardware/audio/core/IBluetooth.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-21T00:05:12Z",
+      "side": 1,
+      "message": "Andy, does use of SWB imply use of WB, or are they mutually exclusive, or both optional? I can see the following options for declaring this:\n  - use a single enum with the following values: `{ DISABLED, SCO, SCO_WB, SCO_SWB }`;\n  - have 3 distinct fields `isEnabled`, `isWidebandEnabled`, and `isSuperWidebandEnabled`, or alternatively one field with flags\n  - have `isEnabled` as a separate boolean, and then have an enum field with `{SCO, SCO_WB, SCO_SWB}` modes.",
+      "parentUuid": "5aaf85d3_e40b1eeb",
+      "range": {
+        "startLine": 46,
+        "startChar": 26,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "62553b6f7af2bb586bf7c9cecfeef2eb69dafc63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1ad7625a_06e4e720",
