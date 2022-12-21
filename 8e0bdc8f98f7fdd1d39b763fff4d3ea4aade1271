@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48377643_9129116d",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-21T05:54:28Z",
+      "side": 1,
+      "message": "Missing \u0027\u0026\u0027",
+      "range": {
+        "startLine": 144,
+        "startChar": 47,
+        "endLine": 144,
+        "endChar": 48
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d62bece5_64c571fd",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-21T05:54:28Z",
+      "side": 1,
+      "message": "We need either to move the configuration object around (take `\u0026\u0026` here and then move from it), or pass it inside a unique_ptr, it\u0027s pretty expensive to copy.",
+      "range": {
+        "startLine": 36,
+        "startChar": 22,
+        "endLine": 36,
+        "endChar": 45
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9559d04e_52dc8dcf",
+        "filename": "audio/aidl/default/include/core-impl/XsdcConversion.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-21T05:54:28Z",
+      "side": 1,
+      "message": "I\u0027m surprised all these converters do not emit any errors. I can see that they create \u0027invalid\u0027 values, but we don\u0027t have code (apart from VTS) that would check that the configuration which the HAL returns is valid. Ideally we would like the HAL module not to start if there are problems with its initialization.\n\nI know, vendors may change our approach and make their implementation to swallow all the errors, but I think we should set a good example which does a good job in finding configuration errors and preventing them from propagating further.\n\nDo you think there are any objective reasons not to indicate that there was a problem during deserialization?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 61
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfc9a0cc_2d5aca34",
+        "filename": "audio/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-21T05:54:28Z",
+      "side": 1,
+      "message": "I think we need to map \"default\" to \"primary\" because this is what legacy configs use. We use \"default\" for the AIDL instance name because it\u0027s the canonical name for the \"main\" instance.",
+      "range": {
+        "startLine": 55,
+        "startChar": 59,
+        "endLine": 55,
+        "endChar": 67
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
