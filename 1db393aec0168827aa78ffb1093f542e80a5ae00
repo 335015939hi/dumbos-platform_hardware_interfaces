@@ -39,6 +39,30 @@
       },
       "revId": "1db393aec0168827aa78ffb1093f542e80a5ae00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c6efae1_36f633d6",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2022-12-21T23:29:03Z",
+      "side": 1,
+      "message": "this is an enum:\n\n    BATTERY_CHARGING_STATE_NORMAL \u003d 1,\n    BATTERY_CHARGING_STATE_TOO_COLD \u003d 1,\n    BATTERY_CHARGING_STATE_TOO_HOT \u003d 2,\n    BATTERY_CHARGING_STATE_LONGLIFE \u003d 3,\n    BATTERY_CHARGING_STATE_ADAPTIVE \u003d 4",
+      "parentUuid": "8ce1eb28_e82df351",
+      "range": {
+        "startLine": 147,
+        "startChar": 4,
+        "endLine": 147,
+        "endChar": 7
+      },
+      "revId": "1db393aec0168827aa78ffb1093f542e80a5ae00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

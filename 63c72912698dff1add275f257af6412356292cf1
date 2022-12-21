@@ -282,6 +282,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73208256_8db5f54e",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2022-12-21T23:29:03Z",
+      "side": 1,
+      "message": "no need for this (sorry), just use batteryCycleCount",
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "85d2a2f6_b6ad0e9e",
         "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
         "patchSetId": 7

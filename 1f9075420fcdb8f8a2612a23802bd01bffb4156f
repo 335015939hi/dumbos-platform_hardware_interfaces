@@ -103,6 +103,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f711af3e_12dc0655",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2022-12-21T23:29:03Z",
+      "side": 1,
+      "message": "yes. we will leave a note and recommend to not use them.",
+      "parentUuid": "831ccf98_4385f826",
+      "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb38d259_71377c0e",
         "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
         "patchSetId": 10
