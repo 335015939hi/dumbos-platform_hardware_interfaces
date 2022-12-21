@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eea03eb_12a0bc63",
+        "filename": "audio/aidl/default/hapticGenerator/HapticGeneratorSw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-21T21:10:39Z",
+      "side": 1,
+      "message": "Use const reference?",
+      "range": {
+        "startLine": 36,
+        "startChar": 71,
+        "endLine": 36,
+        "endChar": 72
+      },
+      "revId": "da0360d463803e7054b79dbbeb6cd9a1e0848a32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
