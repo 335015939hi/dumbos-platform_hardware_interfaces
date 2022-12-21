@@ -22,6 +22,29 @@
       },
       "revId": "da0360d463803e7054b79dbbeb6cd9a1e0848a32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "303578d0_d16025ee",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-21T23:55:19Z",
+      "side": 1,
+      "message": "Sorry, I missed this before. Please don\u0027t duplicate the list of valid enum values in the code. In fact, it\u0027s available through generated files. You need to include frameworks/native/libs/binder/ndk/include_cpp/android/binder_enums.h and use `ndk::enum_range\u003cHapticGenerator::VibratorScale\u003e().{begin|end}()` to access it.\n\nSame applies to the check in the implementation.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 51
+      },
+      "revId": "da0360d463803e7054b79dbbeb6cd9a1e0848a32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
