@@ -188,6 +188,8 @@ Tuner::Tuner() {
     mLnbs.resize(2);
     mLnbs[0] = new Lnb(0);
     mLnbs[1] = new Lnb(1);
+
+    mTsFileInputThreadRunning = false;
 }
 
 Tuner::~Tuner() {}
@@ -257,6 +259,7 @@ Return<void> Tuner::getFrontendInfo(FrontendId frontendId, getFrontendInfo_cb _h
 
     FrontendInfo info;
     if (frontendId >= mFrontendSize) {
+        ALOGI("mFrontendSize: %d and frontendId: %d", mFrontendSize, frontendId);
         _hidl_cb(Result::INVALID_ARGUMENT, info);
         return Void();
     }
@@ -269,11 +272,10 @@ Return<void> Tuner::getFrontendInfo(FrontendId frontendId, getFrontendInfo_cb _h
             .minSymbolRate = 45,
             .maxSymbolRate = 1145,
             .acquireRange = 30,
-            .exclusiveGroupId = 57,
+            .exclusiveGroupId = 0,
             .statusCaps = mFrontendStatusCaps[frontendId],
             .frontendCaps = mFrontendCaps[frontendId],
     };
-
     _hidl_cb(Result::SUCCESS, info);
     return Void();
 }
@@ -333,6 +335,13 @@ Return<void> Tuner::getFrontendDtmbCapabilities(uint32_t frontendId,
 }
 
 void Tuner::setFrontendAsDemuxSource(uint32_t frontendId, uint32_t demuxId) {
+    map<uint32_t, uint32_t>::iterator it = mFrontendToDemux.find(frontendId);
+    if (it != mFrontendToDemux.end()) {
+        demuxId = it->second;
+        ALOGD("find demuxid = %d in mFrontendToDemux, don't need to startFrontendInputLoop", demuxId);
+        return;
+    }
+
     mFrontendToDemux[frontendId] = demuxId;
     if (mFrontends[frontendId] != nullptr && mFrontends[frontendId]->isLocked()) {
         mDemuxes[demuxId]->startFrontendInputLoop();
@@ -363,93 +372,87 @@ void Tuner::frontendStopTune(uint32_t frontendId) {
     }
 }
 
-
-void Tuner::startTsFileInputLoop() {
+void Tuner::startTsFileInputLoop(ts::UString tsFile) {
     mTsFileInputThreadRunning = true;
+    setTsFileName(tsFile);
     pthread_create(&mTsFileInputThread, NULL, __threadLoopTsFileInput, this);
     pthread_setname_np(mTsFileInputThread, "frontend_ts_file_input_thread");
-
 }
 
+void Tuner::stopTsFileInputLoop(){
+    mTsFileInputThreadRunning = false;
+    pthread_join(mTsFileInputThread, NULL);
+}
+
+void Tuner::setTsFileName(ts::UString tsFile){
+    currentTsFile = tsFile;
+}
+
+ts::UString Tuner::getTsFileName(){
+    return currentTsFile;
+}
 
 void* Tuner::__threadLoopTsFileInput(void* user) {
     Tuner* const self = static_cast<Tuner*>(user);
-    self->TsFileThreadLoop();
+    self->TsFileThreadLoop(self->getTsFileName());
     return 0;
 }
 
-
-void Tuner::TsFileThreadLoop() {
+void Tuner::TsFileThreadLoop(ts::UString tsFile) {
 
     mTsFileInputThreadRunning=true;
     while (mTsFileInputThreadRunning) {
-
         ts::TSPacket pkt;
         ts::Report report;
         std::map<uint32_t, sp<Demux>>::iterator it;
-
-         
-#if 1
-
         //TODO MArko Get TS File from Frontend
-
+#if 1
         ts::TSFile file;
-        
         ts::UString filename;
-
-        filename = u"/product/stream-dvbt.ts";
+        filename = tsFile;
         if (!file.openRead(filename, 0, report, ts::TSPacketFormat::AUTODETECT)) {
             return;
         }
-
 #endif
-
-        // TODO Marko Add mutex for mFilters
-        
-        for (; file.readPackets(&pkt, nullptr, 1, report) > 0;) {
-
-            if(mTsFileInputThreadRunning == false)
-            {
+        for (; (file.readPackets(&pkt, nullptr, 1, report) > 0);) {
+            if(mTsFileInputThreadRunning == false){
+                file.close(report);
                 break;
             }
+            // TODO Marko Add mutex for mFilters
 #if 1
             for (it = mDemuxes.begin(); it != mDemuxes.end(); it++){
-            
                 std::vector<uint8_t> data(pkt.b, pkt.b + 188);
-
-                if(it->second == nullptr)
-                {
+                if(it->second == nullptr){
                     continue;
                 }
-                
-                
                 it->second->updateDemuxOutput(data);
-
-                
             }
-#endif            
-            if(mTsFileInputThreadRunning == false)
-            {
+#endif
+            if(mTsFileInputThreadRunning == false){
+                file.close(report);
                 break;
             }
         }
     }
-           
 }
 
-
-
-
-
-void Tuner::frontendStartTune(uint32_t frontendId) {
-    ALOGD("MARKO START TUNE");
+void Tuner::frontendStartTune(uint32_t frontendId, ts::UString tsFile) {
     map<uint32_t, uint32_t>::iterator it = mFrontendToDemux.find(frontendId);
     uint32_t demuxId;
     if (it != mFrontendToDemux.end()) {
         demuxId = it->second;
         mDemuxes[demuxId]->startFrontendInputLoop();
     }
-    startTsFileInputLoop();
+    startTsFileInputLoop(tsFile);
+}
+
+bool Tuner::getTsFileInputThreadRunning(){
+    return mTsFileInputThreadRunning;
+}
+
+void Tuner::setTsFileInputThreadRunning(bool value){
+    mTsFileInputThreadRunning = value;
 }
 
 }  // namespace implementation

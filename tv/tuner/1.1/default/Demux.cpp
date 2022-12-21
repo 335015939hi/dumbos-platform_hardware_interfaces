@@ -51,10 +51,9 @@ Return<Result> Demux::setFrontendDataSource(uint32_t frontendId) {
         return Result::INVALID_STATE;
     }
 
-
     {
         //TODO Marko Get TSFile Handle from Frontend
-        startTsFileInputLoop();
+        //startTsFileInputLoop();
     }
 
     mTunerService->setFrontendAsDemuxSource(frontendId, mDemuxId);
@@ -155,7 +154,6 @@ Return<void> Demux::getAvSyncHwId(const sp<IFilter>& filter, getAvSyncHwId_cb _h
 Return<void> Demux::getAvSyncTime(AvSyncHwId avSyncHwId, getAvSyncTime_cb _hidl_cb) {
     ALOGV("%s", __FUNCTION__);
 
-
     uint64_t avSyncTime = -1;
 #if 0
     if (mPcrFilterIds.empty()) {
@@ -169,14 +167,11 @@ Return<void> Demux::getAvSyncTime(AvSyncHwId avSyncHwId, getAvSyncTime_cb _hidl_
 #endif
 
     std::map<uint64_t, sp<Filter>>::iterator it;
-    for (it = mFilters.begin(); it != mFilters.end(); it++){ 
-    
-        
+    for (it = mFilters.begin(); it != mFilters.end(); it++){        
         if (avSyncHwId == it->second->getFilterId()) {
             avSyncTime= it->second->getPts();
         }
     }
-
 
     _hidl_cb(Result::SUCCESS, avSyncTime);
     return Void();
@@ -249,7 +244,6 @@ Return<Result> Demux::connectCiCam(uint32_t ciCamId) {
     ALOGV("%s", __FUNCTION__);
 
     mCiCamId = ciCamId;
-
     return Result::SUCCESS;
 }
 
@@ -306,7 +300,6 @@ void Demux::sendFrontendInputToRecord(vector<uint8_t> data, uint16_t pid, uint64
 
 bool Demux::startBroadcastFilterDispatcher() {
     set<uint64_t>::iterator it;
-
     // Handle the output data per filter type
     for (it = mPlaybackFilterIds.begin(); it != mPlaybackFilterIds.end(); it++) {
         if (mFilters[*it]->startFilterHandler() != Result::SUCCESS) {
@@ -319,7 +312,6 @@ bool Demux::startBroadcastFilterDispatcher() {
 
 bool Demux::startRecordFilterDispatcher() {
     set<uint64_t>::iterator it;
-
     for (it = mRecordFilterIds.begin(); it != mRecordFilterIds.end(); it++) {
         if (mFilters[*it]->startRecordFilterHandler() != Result::SUCCESS) {
             return false;
@@ -357,16 +349,13 @@ void Demux::startTsFileInputLoop() {
     mTsFileInputThreadRunning = true;
     pthread_create(&mTsFileInputThread, NULL, __threadLoopTsFileInput, this);
     pthread_setname_np(mTsFileInputThread, "frontend_ts_file_input_thread");
-
 }
-
 
 void* Demux::__threadLoopFrontend(void* user) {
     Demux* const self = static_cast<Demux*>(user);
     self->frontendInputThreadLoop();
     return 0;
 }
-
 
 void* Demux::__threadLoopTsFileInput(void* user) {
     Demux* const self = static_cast<Demux*>(user);
@@ -387,53 +376,38 @@ void Demux::TsFileThreadLoop() {
 
          
 #if 1
-
         //TODO MArko Get TS File from Frontend
-
-        ts::TSFile file;
-        
+        ts::TSFile file;       
         ts::UString filename;
-
         filename = u"/product/stream-dvbt.ts";
         if (!file.openRead(filename, 0, report, ts::TSPacketFormat::AUTODETECT)) {
             return;
         }
-
 #endif
-
-        // TODO Marko Add mutex for mFilters
-        
+        // TODO Marko Add mutex for mFilters        
         for (; file.readPackets(&pkt, nullptr, 1, report) > 0;) {
-
-            if(mTsFileInputThreadRunning == false)
-            {
+            if(mTsFileInputThreadRunning == false){
                 break;
             }
 
             std::map<uint64_t, sp<Filter>>::iterator it;
             for (it = mFilters.begin(); it != mFilters.end(); it++){   
-            
                 std::vector<uint8_t> data(pkt.b, pkt.b + 188);
 
-                if(it->second == nullptr)
-                {
+                if(it->second == nullptr){
                     continue;
                 }
                 
                 if (pkt.getPID() == it->second->getTpid()) {
                     it->second->updateFilterOutput(data);
-
                 }
             }
-            if(mTsFileInputThreadRunning == false)
-            {
+            if(mTsFileInputThreadRunning == false){
                 break;
             }
         }
-    }
-           
+    }          
 }
-      
 #endif
 
 
@@ -479,50 +453,36 @@ void Demux::frontendInputThreadLoop() {
     ALOGW("[Demux] Frontend Input thread end.");
 }
 
-
 void Demux::updateDemuxOutput(vector<uint8_t> data) {
      //ALOGD("Feed Demux %p", this);
-
     uint8_t b[188];
-
-    for(int i = 0 ; i < 188; i++)
-    {
+    for(int i = 0 ; i < 188; i++){
        b[i] = data[i];   
     }
-
     ts::TSPacket *pkt = new ts::TSPacket();
-
     pkt->copyFrom( (void*) b);
-
     std::map<uint64_t, sp<Filter>>::iterator it;
-    for (it = mFilters.begin(); it != mFilters.end(); it++){   
-    
-        if(it->second == nullptr)
-        {
+    for (it = mFilters.begin(); it != mFilters.end(); it++){     
+        if(it->second == nullptr){
             continue;
         }
         
         if (pkt->getPID() == it->second->getTpid()) {
             it->second->updateFilterOutput(data);
 
-
-            if(pkt->hasPCR())
-            {
+            if(pkt->hasPCR()){
                 ALOGD("ADD PCR PID!!! %p %x %llu", this,it->second->getTpid(),it->second->getFilterId());
                 mPcrFilterIds.insert(it->second->getFilterId());
                 it->second->updatePcr(pkt->getPCR());
             }
 
-            if(pkt->hasPTS())
-            {
+            if(pkt->hasPTS()){
                 it->second->updatePts(pkt->getPTS());
             }
-
         }
     }
-
+    delete pkt;
 }
-
 
 void Demux::stopFrontendInput() {
     ALOGD("[Demux] stop frontend on demux");
@@ -544,7 +504,6 @@ bool Demux::attachRecordFilter(uint64_t filterId) {
         !mFilters[filterId]->isRecordFilter()) {
         return false;
     }
-
     mRecordFilterIds.insert(filterId);
     mFilters[filterId]->attachFilterToRecord(mDvrRecord);
 
@@ -555,7 +514,6 @@ bool Demux::detachRecordFilter(uint64_t filterId) {
     if (mFilters[filterId] == nullptr || mDvrRecord == nullptr) {
         return false;
     }
-
     mRecordFilterIds.erase(filterId);
     mFilters[filterId]->detachFilterFromRecord();
 

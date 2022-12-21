@@ -26,8 +26,6 @@
 #include "FileTuner/TsPlayPump/tsBinaryTable.h"
 #include "FileTuner/TsPlayPump/tsAbstractLongTable.h"
 #include "FileTuner/TsPlayPump/tsDuckContext.h"
-
-
 #include "Filter.h"
 
 namespace android {
@@ -798,7 +796,6 @@ Result Filter::startMediaFilterHandler() {
 
 #endif
 
-
 void Filter::handlePESPacket(ts::PESDemux& demux, const ts::PESPacket& packet)
 {
       ALOGD("%s %d",__FUNCTION__,getTpid());
@@ -843,47 +840,30 @@ void Filter::handleNewAC3Attributes(ts::PESDemux& demux, const ts::PESPacket& pa
     
 }
 
-
-
-
 ts::PESDemux* pes_demux = nullptr;  //TODO Destructor .... Section Demux FIX IT ... 
 
 Result Filter::startMediaFilterHandler() {
     if (mFilterOutput.empty()) {
         return Result::SUCCESS;
     }
-
     
-    ts::DuckContext *   duck = new ts::DuckContext();
-    
-    if(pes_demux == nullptr)
-    {
+    ts::DuckContext *   duck = new ts::DuckContext();    
+    if(pes_demux == nullptr){
         pes_demux = new  ts::PESDemux(*duck,this);
     }
-
     uint8_t b[188];
 
-    for(int i = 0 ; i < 188; i++)
-    {
+    for(int i = 0 ; i < 188; i++){
        b[i] = mFilterOutput[i];   
-    } 
-    
+    }     
     pes_demux->addPID(getTpid());  // also equal PID_TOT
-
     ts::TSPacket *pkt = new ts::TSPacket();
-
     pkt->copyFrom( (void*) b);
-
     pes_demux->feedPacket(*pkt);
-    
-
     mFilterOutput.clear();
 
-    return Result::SUCCESS;
-    
+    return Result::SUCCESS;    
 }
-
-
 
 Result Filter::createMediaFilterEventWithIon(vector<uint8_t> output) {
     if (mUsingSharedAvMem) {
@@ -928,9 +908,7 @@ Result Filter::startRecordFilterHandler() {
     mFilterEvent.events.resize(size + 1);
     mFilterEvent.events[size].tsRecord(recordEvent);
 
-
-#if 0
-
+#if 1
         // After successfully write, send a callback and wait for the read to be done
     if (mCallback_1_1 != nullptr) {
         mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
@@ -941,19 +919,10 @@ Result Filter::startRecordFilterHandler() {
         mCallback->onFilterEvent(mFilterEvent);
     }
 #endif
-
-
     mFilterOutput.clear();
 
     return Result::SUCCESS;
-
 }
-
-
-
-
-
-
 
 Result Filter::startPcrFilterHandler() {
     // TODO handle starting PCR filter
@@ -970,13 +939,9 @@ void Filter::handleSection(ts::SectionDemux& demux, const ts::Section& section)
     //ALOGD("[Filter] %s", __FUNCTION__);
 }
 
-
 void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table) 
 {
-
-
-    if(mFilterThreadRunning == false)
-    {
+    if(mFilterThreadRunning == false){
         return;
     }
     #if 0
@@ -1005,18 +970,11 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table)
     // MARKO TODO Handle case with more sections ...
 
     ts::SectionPtr secPtr = table.sectionAt(0);
-
     // MARKO TODO Handle Long Sections
     const uint8_t* sec_payload = secPtr->content();
-
     std::vector<uint8_t> data(sec_payload, sec_payload + secPtr->size() );
-
-
     std::lock_guard<std::mutex> lock(mFilterEventLock);
-
-
-    if(data.size() == 0)
-    {
+    if(data.size() == 0){
         //TODO WHY ????
         return;
     }
@@ -1037,8 +995,7 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table)
             .dataLength = static_cast<uint16_t>(data.size()),
     };
     mFilterEvent.events[size].section(secEvent);
-
-   
+  
     // After successfully write, send a callback and wait for the read to be done
     if (mCallback_1_1 != nullptr) {
         mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
@@ -1049,19 +1006,15 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table)
         mCallback->onFilterEvent(mFilterEvent);
     }
 
-
     mFilterEvent.events.resize(0);
-
-
     // TODO MARKO Signalisation ??????????
-
-#if 0
+#if 1
     if (mCallback != nullptr) {
             mCallback->onFilterStatus(DemuxFilterStatus::DATA_READY);
     } else if (mCallback_1_1 != nullptr) {
             mCallback_1_1->onFilterStatus(DemuxFilterStatus::DATA_READY);
     }
-#endif    
+#endif
 
 #if 0
 
@@ -1080,28 +1033,20 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table)
         break;
     }
 #endif    
-
 }
-
 
 bool Filter::writeSectionsAndCreateEvent(vector<uint8_t> data) {
     
     ts::DuckContext *   duck = new ts::DuckContext();
     ts::SectionDemux demux(*duck, this,this);
-
     uint8_t b[188];
 
-    for(int i = 0 ; i < 188; i++)
-    {
+    for(int i = 0 ; i < 188; i++){
        b[i] = data[i];   
     }
-
     demux.addPID(getTpid());
-
     ts::TSPacket *pkt = new ts::TSPacket();
-
     pkt->copyFrom( (void*) b);
-
     demux.feedPacket(*pkt);
     
     return true;

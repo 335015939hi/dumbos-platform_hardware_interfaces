@@ -72,10 +72,13 @@ class Tuner : public ITuner {
 
     void setFrontendAsDemuxSource(uint32_t frontendId, uint32_t demuxId);
 
-    void frontendStartTune(uint32_t frontendId);
+    void frontendStartTune(uint32_t frontendId, ts::UString tsFile);
     void frontendStopTune(uint32_t frontendId);
     void removeDemux(uint32_t demuxId);
     void removeFrontend(uint32_t frontendId);
+    bool getTsFileInputThreadRunning();
+    void setTsFileInputThreadRunning(bool value);
+    void stopTsFileInputLoop();
 
   private:
     virtual ~Tuner();
@@ -92,14 +95,14 @@ class Tuner : public ITuner {
     // First used id will be 0.
     uint32_t mLastUsedId = -1;
     vector<sp<Lnb>> mLnbs;
-
-    //MARKO
+    ts::UString currentTsFile;
     bool mTsFileInputThreadRunning;
     pthread_t mTsFileInputThread;
     static void* __threadLoopTsFileInput(void* user);
-    void TsFileThreadLoop();
-    void startTsFileInputLoop();
-
+    void TsFileThreadLoop(ts::UString tsFile);
+    void startTsFileInputLoop(ts::UString tsFile);
+    void setTsFileName(ts::UString tsFile);
+    ts::UString getTsFileName();
 };
 
 }  // namespace implementation
