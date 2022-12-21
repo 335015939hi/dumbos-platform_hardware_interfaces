@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd353213_76c5e2e2",
+        "filename": "graphics/composer/aidl/vts/VtsComposerClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1256615
+      },
+      "writtenOn": "2022-12-21T04:33:00Z",
+      "side": 1,
+      "message": "updateDisplayProperties() adds config to the display as well.\nSo I think we can\u0027t skip entire block because of 2.\nI have seperated adding config from updateDisplayProperties() in the new patchset.",
+      "parentUuid": "a16068c2_2b97a796",
+      "range": {
+        "startLine": 388,
+        "startChar": 12,
+        "endLine": 403,
+        "endChar": 13
+      },
+      "revId": "6ed2ad80048580b5145646bf82e8b8b748f697fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bbffef87_6698c8bf",
         "filename": "graphics/composer/aidl/vts/VtsComposerClient.cpp",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-19T17:55:50Z",
       "side": 1,
       "message": "I\u0027d just call updateDisplayProperties instead of calling setDimensions directly.\n\notherwise some information like refresh rate does not match the current config",
+      "range": {
+        "startLine": 416,
+        "startChar": 12,
+        "endLine": 416,
+        "endChar": 66
+      },
+      "revId": "6ed2ad80048580b5145646bf82e8b8b748f697fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50e8053c_26d42cb0",
+        "filename": "graphics/composer/aidl/vts/VtsComposerClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1256615
+      },
+      "writtenOn": "2022-12-21T04:33:00Z",
+      "side": 1,
+      "message": "I have updated the new patchset.",
+      "parentUuid": "bbffef87_6698c8bf",
       "range": {
         "startLine": 416,
         "startChar": 12,
