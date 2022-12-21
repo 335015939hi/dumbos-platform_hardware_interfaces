@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a79722de_81fb9399",
+        "filename": "tv/tuner/aidl/android/hardware/tv/tuner/AudioPreselection.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1281351
+      },
+      "writtenOn": "2022-12-21T20:04:58Z",
+      "side": 1,
+      "message": "Add comment for this field?",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "abeb9c90ed781119124588921869bdb8ec9d9a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3d87f7a_8e03ec55",
+        "filename": "tv/tuner/aidl/android/hardware/tv/tuner/AudioPreselectionLabel.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1281351
+      },
+      "writtenOn": "2022-12-21T20:04:58Z",
+      "side": 1,
+      "message": "2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "abeb9c90ed781119124588921869bdb8ec9d9a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca97e432_9fad94fd",
+        "filename": "tv/tuner/aidl/android/hardware/tv/tuner/AudioPreselectionLabel.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1281351
+      },
+      "writtenOn": "2022-12-21T20:04:58Z",
+      "side": 1,
+      "message": "language specified, pertaining to the preselection.",
+      "range": {
+        "startLine": 31,
+        "startChar": 40,
+        "endLine": 31,
+        "endChar": 84
+      },
+      "revId": "abeb9c90ed781119124588921869bdb8ec9d9a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dd83324_4844be81",
+        "filename": "tv/tuner/aidl/android/hardware/tv/tuner/DemuxFilterMediaEvent.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1281351
+      },
+      "writtenOn": "2022-12-21T20:04:58Z",
+      "side": 1,
+      "message": "2021-2022?",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "abeb9c90ed781119124588921869bdb8ec9d9a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
