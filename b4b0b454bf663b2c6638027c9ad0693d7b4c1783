@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38be09f0_690a15bf",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-22T13:55:29Z",
+      "side": 1,
+      "message": "add a comment in code",
+      "parentUuid": "0e4c8151_90594d28",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 23
+      },
+      "revId": "b4b0b454bf663b2c6638027c9ad0693d7b4c1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d48f5e9_05a3af29",

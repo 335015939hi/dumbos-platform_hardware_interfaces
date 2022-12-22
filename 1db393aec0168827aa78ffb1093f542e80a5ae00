@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3e45a3b_778f6d38",
+        "filename": "health/aidl/aidl_api/android.hardware.health/current/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-22T13:55:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f69372a_faae645a",
+      "revId": "1db393aec0168827aa78ffb1093f542e80a5ae00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ce1eb28_e82df351",
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "this is an enum:\n\n    BATTERY_CHARGING_STATE_NORMAL \u003d 1,\n    BATTERY_CHARGING_STATE_TOO_COLD \u003d 1,\n    BATTERY_CHARGING_STATE_TOO_HOT \u003d 2,\n    BATTERY_CHARGING_STATE_LONGLIFE \u003d 3,\n    BATTERY_CHARGING_STATE_ADAPTIVE \u003d 4",
       "parentUuid": "8ce1eb28_e82df351",
+      "range": {
+        "startLine": 147,
+        "startChar": 4,
+        "endLine": 147,
+        "endChar": 7
+      },
+      "revId": "1db393aec0168827aa78ffb1093f542e80a5ae00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b88a8532_cb52c2de",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-22T13:55:29Z",
+      "side": 1,
+      "message": "add an enum for chargingState\nenum BatteryChargingState {\n  INVALID \u003d 0,\n  NORMAL \u003d 1,\n  TOO_COLD \u003d 2,\n  TOO_HOT \u003d 3,\n  LONGLIFE \u003d 4,\n  ADAPTIVE \u003d 5,\n}",
+      "parentUuid": "8c6efae1_36f633d6",
       "range": {
         "startLine": 147,
         "startChar": 4,

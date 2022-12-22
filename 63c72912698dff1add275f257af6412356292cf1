@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47e242af_32176775",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-22T13:55:29Z",
+      "side": 1,
+      "message": "Thanks for reminding. done.",
+      "parentUuid": "6d576f92_3346d6bb",
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b312433_81ab2bd9",
@@ -293,6 +311,24 @@
       "writtenOn": "2022-12-21T23:29:03Z",
       "side": 1,
       "message": "no need for this (sorry), just use batteryCycleCount",
+      "revId": "63c72912698dff1add275f257af6412356292cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a2e99b_a535f490",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2022-12-22T13:55:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73208256_8db5f54e",
       "revId": "63c72912698dff1add275f257af6412356292cf1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
