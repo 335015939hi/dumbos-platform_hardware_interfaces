@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26cc0e82_ccfeba6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-22T22:09:29Z",
+      "side": 1,
+      "message": "Presubmit error was caused by known issue: b/263437450\nBypassing",
+      "revId": "e39cd36545db7c77ce45b8494810d9cd2a976cf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
