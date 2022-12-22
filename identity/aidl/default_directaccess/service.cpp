@@ -1,5 +1,5 @@
 /*
- * Copyright 2019, The Android Open Source Project
+ * Copyright 2023, The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.identity-service"
+#define LOG_TAG "android.hardware.directaccess"
 
 #include <aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.h>
 #include <android-base/logging.h>
@@ -55,9 +55,10 @@ int main(int /*argc*/, char* argv[]) {
     ABinderProcess_setThreadPoolMaxThreadCount(0);
     std::shared_ptr<IdentityCredentialStore> store =
             ndk::SharedRefBase::make<IdentityCredentialStore>(
-                    hwProxyFactory, remotelyProvisionedComponentName, false);
+                    hwProxyFactory, remotelyProvisionedComponentName, true);
 
-    const std::string instance = std::string() + IdentityCredentialStore::descriptor + "/default";
+    const std::string instance =
+            std::string() + IdentityCredentialStore::descriptor + "/directAccess";
     binder_status_t status = AServiceManager_addService(store->asBinder().get(), instance.c_str());
     CHECK_EQ(status, STATUS_OK);
 

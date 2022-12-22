@@ -1058,4 +1058,69 @@ ndk::ScopedAStatus IdentityCredential::updateCredential(
     return ndk::ScopedAStatus::ok();
 }
 
+ndk::ScopedAStatus IdentityCredential::getSigningKeyUsageCount(
+        const std::vector<uint8_t>& in_signingKeyBlob, int32_t* out_UsageCount) {
+    if (session_) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Cannot be called in a session"));
+    }
+
+    *out_UsageCount = hwProxy_->getSigningKeyUsageCount(in_signingKeyBlob, docType_);
+    if (*out_UsageCount < 0) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "getSigningKeyUsageCount"));
+    }
+
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus IdentityCredential::deleteStaticAuthData(
+        const std::vector<uint8_t>& in_signingKeyBlob, vector<uint8_t>* out_proofOfDeletion) {
+    if (session_) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Cannot be called in a session"));
+    }
+
+    vector<uint8_t> authPubKey(P256_PRIV_KEY_SIZE);
+    cppbor::Array array = {"ProofOfDeletion", authPubKey};
+
+    vector<uint8_t> proofOfDeletionCbor = array.encode();
+    vector<uint8_t> podDigest = support::sha256(proofOfDeletionCbor);
+
+    optional<vector<uint8_t>> signatureOfToBeSigned = hwProxy_->deleteStaticAuthData(
+            in_signingKeyBlob, docType_, authPubKey, proofOfDeletionCbor.size());
+    if (!signatureOfToBeSigned) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error signing ProofOfDeletion"));
+    }
+
+    optional<vector<uint8_t>> signature =
+            support::coseSignEcDsaWithSignature(signatureOfToBeSigned.value(),
+                                                proofOfDeletionCbor,  // data
+                                                {});                  // certificateChain
+    if (!signature) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error signing data"));
+    }
+
+    *out_proofOfDeletion = signature.value();
+
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus IdentityCredential::storeStaticAuthenticationData(
+        const std::vector<uint8_t>& in_signingKeyBlob, int64_t in_expirationDate,
+        const std::vector<uint8_t>& in_staticAuthData) {
+    if (session_) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Cannot be called in a session"));
+    }
+
+    if (!hwProxy_->storeStaticAuthenticationData(in_signingKeyBlob, docType_, in_expirationDate,
+                                                 in_staticAuthData)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "storeStaticAuthenticationData"));
+    }
+    return ndk::ScopedAStatus::ok();
+}
 }  // namespace aidl::android::hardware::identity

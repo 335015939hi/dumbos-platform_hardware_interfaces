@@ -25,6 +25,7 @@
 extern "C" {
 #endif
 
+#include <sys/queue.h>
 #include "EicCbor.h"
 
 // The maximum size we support for public keys in reader certificates.
@@ -32,6 +33,22 @@ extern "C" {
 
 // Constant used to convey that no session is associated with a presentation.
 #define EIC_PRESENTATION_ID_UNSET 0
+
+typedef struct AuthKeyData {
+    uint8_t* mStaticAuthenticationData;
+    uint32_t mStaticAuthenticationDataSize;
+    int mUseCount;
+    uint32_t mExpirationDate;
+    uint8_t authKeyPriv[EIC_P256_PRIV_KEY_SIZE];
+    uint8_t authKeyPub[EIC_P256_PUB_KEY_SIZE];
+    TAILQ_ENTRY(AuthKeyData) next;
+} AuthKeyData;
+
+typedef struct AuthKeyDataRoot {
+    int mAuthMaxUsesPerKey;
+    // List of Auth key data
+    TAILQ_HEAD(, AuthKeyData) head;
+} AuthKeyDataRoot;
 
 typedef struct {
     // A non-zero number unique for this EicPresentation instance
@@ -108,6 +125,9 @@ typedef struct {
 
     EicCbor cborEcdsa;
     size_t expectedCborEcdsaSizeAtEnd;
+
+    // Static Auth key data base
+    AuthKeyDataRoot authKeyDataRoot;
 } EicPresentation;
 
 // If sessionId is zero (EIC_PRESENTATION_ID_UNSET), the presentation object is not associated
@@ -284,6 +304,21 @@ bool eicPresentationProveOwnership(EicPresentation* ctx, const char* docType, si
                                    size_t proofOfOwnershipCborSize,
                                    uint8_t signatureOfToBeSigned[EIC_ECDSA_P256_SIGNATURE_SIZE]);
 
+bool eicStoreStaticAuthenticationData(EicPresentation* ctx, const uint8_t* signingKeyBlob,
+                                      const size_t signingKeyBlobSize, const char* docType,
+                                      const size_t docTypeLength, const int64_t expirationDate,
+                                      const uint8_t* staticAuthData,
+                                      const size_t staticAuthDataSize);
+
+bool eicDeleteStaticAuthenticationData(
+        EicPresentation* ctx, const uint8_t* signingKeyBlob, const size_t signingKeyBlobSize,
+        const char* docType, const size_t docTypeLength, unsigned char* authPubKey,
+        const size_t proofOfDeletionCborSize,
+        uint8_t signatureOfToBeSigned[EIC_ECDSA_P256_SIGNATURE_SIZE]);
+
+int eicGetSigningKeyUsageCount(EicPresentation* ctx, const uint8_t* signingKeyBlob,
+                               const size_t signingKeyBlobSize, const char* docType,
+                               const size_t docTypeLength);
 #ifdef __cplusplus
 }
 #endif

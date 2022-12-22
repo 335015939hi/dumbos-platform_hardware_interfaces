@@ -23,6 +23,7 @@
 // Global used for assigning ids for presentation objects.
 //
 static uint32_t gPresentationLastIdAssigned = 0;
+static void allocNewAuthData(AuthKeyDataRoot* authKeyDataRoot, uint8_t* keyPriv, uint8_t* keyPub);
 
 bool eicPresentationInit(EicPresentation* ctx, uint32_t sessionId, bool testCredential,
                          const char* docType, size_t docTypeLength,
@@ -99,6 +100,10 @@ bool eicPresentationInit(EicPresentation* ctx, uint32_t sessionId, bool testCred
     if (expectPopSha256) {
         eicMemCpy(ctx->proofOfProvisioningSha256, credentialKeys + 54, EIC_SHA256_DIGEST_SIZE);
     }
+
+    // Init AuthData LL
+    ctx->authKeyDataRoot.mAuthMaxUsesPerKey = 0;
+    TAILQ_INIT(&(ctx->authKeyDataRoot.head));
 
     eicDebug("Initialized presentation with id %" PRIu32, ctx->id);
     return true;
@@ -184,6 +189,8 @@ bool eicPresentationGenerateSigningKeyPair(EicPresentation* ctx, const char* doc
         return false;
     }
 
+    // Assign AuthKeyData
+    allocNewAuthData(&(ctx->authKeyDataRoot), signingKeyPriv, signingKeyPub);
     return true;
 }
 
@@ -1045,4 +1052,184 @@ bool eicPresentationProveOwnership(EicPresentation* ctx, const char* docType,
     }
 
     return true;
+}
+
+static void allocNewAuthData(AuthKeyDataRoot* authKeyDataRoot, uint8_t* keyPriv, uint8_t* keyPub) {
+    AuthKeyData* aKd = malloc(sizeof(AuthKeyData));
+    // init the data
+    aKd->mUseCount = 0;
+    aKd->mExpirationDate = 0;
+    eicMemCpy(aKd->authKeyPriv, keyPriv, EIC_P256_PRIV_KEY_SIZE);
+    eicMemCpy(aKd->authKeyPub, keyPub, EIC_P256_PUB_KEY_SIZE);
+    TAILQ_INSERT_TAIL(&(authKeyDataRoot->head), aKd, next);
+}
+
+static void deleteAuthData(AuthKeyData* aKd) {
+    if (aKd) {
+        if (aKd->mStaticAuthenticationData) {
+            free(aKd->mStaticAuthenticationData);
+        }
+        free(aKd);
+    }
+}
+
+static void deleteAuthDatas(AuthKeyDataRoot* authKeyDataRoot, const uint8_t* keyPriv) {
+    AuthKeyData *aKd, *next;
+
+    for (aKd = TAILQ_FIRST(&(authKeyDataRoot->head)); aKd != NULL; aKd = next) {
+        next = TAILQ_NEXT(aKd, next);
+        if (!eicMemCmp(aKd->authKeyPriv, keyPriv, EIC_P256_PRIV_KEY_SIZE)) {
+            TAILQ_REMOVE(&(authKeyDataRoot->head), aKd, next);
+            deleteAuthData(aKd);
+        } else {
+            break;
+        }
+    }
+}
+
+AuthKeyData* getMatchingAuthData(AuthKeyDataRoot* authKeyDataRoot, const uint8_t* x509Authkey) {
+    AuthKeyData *aKd, *next;
+
+    for (aKd = TAILQ_FIRST(&(authKeyDataRoot->head)); aKd != NULL; aKd = next) {
+        next = TAILQ_NEXT(aKd, next);
+        if (!eicMemCmp(x509Authkey, aKd->authKeyPriv, EIC_P256_PRIV_KEY_SIZE)) {
+            return aKd;
+        }
+    }
+    return NULL;
+}
+
+bool eicStoreStaticAuthenticationData(EicPresentation* ctx, const uint8_t* signingKeyBlob,
+                                      const size_t signingKeyBlobSize, const char* docType,
+                                      const size_t docTypeLength, const int64_t expirationDate,
+                                      const uint8_t* staticAuthData,
+                                      const size_t staticAuthDataSize) {
+    uint8_t keyPriv[EIC_P256_PRIV_KEY_SIZE];
+    AuthKeyDataRoot* authKeyDataRoot = &(ctx->authKeyDataRoot);
+    AuthKeyData* matchAuthKeyData = NULL;
+
+    // First extract signing(auth) key
+    if (!eicOpsDecryptAes128Gcm(ctx->storageKey, signingKeyBlob, signingKeyBlobSize,
+                                (const uint8_t*)docType, docTypeLength, keyPriv)) {
+        eicDebug("Error decrypting signingKeyBlob");
+        return false;
+    }
+
+    // verify the Static Auth Data ?
+
+    // search for sigining(auth) key
+    matchAuthKeyData = getMatchingAuthData(authKeyDataRoot, keyPriv);
+    if (matchAuthKeyData == NULL) {
+        eicDebug("No such authentication key");
+        return false;
+    }
+
+    // Store Static data and respective contents
+    matchAuthKeyData->mStaticAuthenticationData = malloc(staticAuthDataSize);
+    eicMemCpy(matchAuthKeyData->mStaticAuthenticationData, staticAuthData, staticAuthDataSize);
+    matchAuthKeyData->mUseCount = 0;
+    matchAuthKeyData->mExpirationDate = expirationDate;
+
+    return true;
+}
+
+bool eicDeleteStaticAuthenticationData(
+        EicPresentation* ctx, const uint8_t* signingKeyBlob, const size_t signingKeyBlobSize,
+        const char* docType, const size_t docTypeLength, unsigned char* authPubKey,
+        const size_t proofOfDeletionCborSize,
+        uint8_t signatureOfToBeSigned[EIC_ECDSA_P256_SIGNATURE_SIZE]) {
+    uint8_t keyPriv[EIC_P256_PRIV_KEY_SIZE];
+    AuthKeyDataRoot* authKeyDataRoot = &(ctx->authKeyDataRoot);
+    AuthKeyData* matchAuthKeyData = NULL;
+
+    // First extract signing(auth) key
+    if (!eicOpsDecryptAes128Gcm(ctx->storageKey, signingKeyBlob, signingKeyBlobSize,
+                                (const uint8_t*)docType, docTypeLength, keyPriv)) {
+        eicDebug("Error decrypting signingKeyBlob");
+        return false;
+    }
+
+    // search for sigining(auth) key
+    matchAuthKeyData = getMatchingAuthData(authKeyDataRoot, keyPriv);
+    if (matchAuthKeyData == NULL) {
+        eicDebug("No such authentication key");
+        return false;
+    }
+
+    // now calculate Signature
+    EicCbor cbor;
+
+    eicCborInit(&cbor, NULL, 0);
+    // What we're going to sign is the COSE ToBeSigned structure which
+    // looks like the following:
+    //
+    // Sig_structure = [
+    //   context : "Signature" / "Signature1" / "CounterSignature",
+    //   body_protected : empty_or_serialized_map,
+    //   ? sign_protected : empty_or_serialized_map,
+    //   external_aad : bstr,
+    //   payload : bstr
+    //  ]
+    //
+    eicCborAppendArray(&cbor, 4);
+    eicCborAppendStringZ(&cbor, "Signature1");
+
+    // The COSE Encoded protected headers is just a single field with
+    // COSE_LABEL_ALG (1) -> COSE_ALG_ECSDA_256 (-7). For simplicitly we just
+    // hard-code the CBOR encoding:
+    static const uint8_t coseEncodedProtectedHeaders[] = {0xa1, 0x01, 0x26};
+    eicCborAppendByteString(&cbor, coseEncodedProtectedHeaders,
+                            sizeof(coseEncodedProtectedHeaders));
+
+    // We currently don't support Externally Supplied Data (RFC 8152 section 4.3)
+    // so external_aad is the empty bstr
+    static const uint8_t externalAad[0] = {};
+    eicCborAppendByteString(&cbor, externalAad, sizeof(externalAad));
+
+    // For the payload, the _encoded_ form follows here. We handle this by simply
+    // opening a bstr, and then writing the CBOR. This requires us to know the
+    // size of said bstr, ahead of time.
+    eicCborBegin(&cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, proofOfDeletionCborSize);
+
+    // Finally, the CBOR that we're actually signing.
+    eicCborAppendArray(&cbor, 2);
+    eicCborAppendStringZ(&cbor, "ProofOfDeletion");
+    eicCborAppendByteString(&cbor, matchAuthKeyData->authKeyPub, EIC_P256_PUB_KEY_SIZE);
+
+    uint8_t cborSha256[EIC_SHA256_DIGEST_SIZE];
+    eicCborFinal(&cbor, cborSha256);
+    if (!eicOpsEcDsa(ctx->credentialPrivateKey, cborSha256, signatureOfToBeSigned)) {
+        eicDebug("Error signing proofOfDeletion");
+        return false;
+    }
+
+    // copy public keys
+    eicMemCpy(authPubKey, matchAuthKeyData->authKeyPub, EIC_P256_PUB_KEY_SIZE);
+    // delete static auth data and respective contents
+    deleteAuthDatas(authKeyDataRoot, keyPriv);
+    return true;
+}
+
+int eicGetSigningKeyUsageCount(EicPresentation* ctx, const uint8_t* signingKeyBlob,
+                               const size_t signingKeyBlobSize, const char* docType,
+                               const size_t docTypeLength) {
+    uint8_t keyPriv[EIC_P256_PRIV_KEY_SIZE];
+    AuthKeyDataRoot* authKeyDataRoot = &(ctx->authKeyDataRoot);
+    AuthKeyData* matchAuthKeyData = NULL;
+
+    // First extract signing(auth) key
+    if (!eicOpsDecryptAes128Gcm(ctx->storageKey, signingKeyBlob, signingKeyBlobSize,
+                                (const uint8_t*)docType, docTypeLength, keyPriv)) {
+        eicDebug("Error decrypting signingKeyBlob");
+        return -1;
+    }
+
+    // search for sigining(auth) key
+    matchAuthKeyData = getMatchingAuthData(authKeyDataRoot, keyPriv);
+    if (matchAuthKeyData == NULL) {
+        eicDebug("No such authentication key");
+        return -1;
+    }
+
+    return matchAuthKeyData->mUseCount;
 }

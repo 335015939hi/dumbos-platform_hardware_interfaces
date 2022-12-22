@@ -138,6 +138,9 @@ void* eicMemSet(void* s, int c, size_t n);
 // Memory copying, see memcpy(3).
 void* eicMemCpy(void* dest, const void* src, size_t n);
 
+// Memory compare, see memcmp(3).
+bool eicMemCmp(const void* lhs, const void* rhs, size_t n);
+
 // String length, see strlen(3).
 size_t eicStrLen(const char* s);
 

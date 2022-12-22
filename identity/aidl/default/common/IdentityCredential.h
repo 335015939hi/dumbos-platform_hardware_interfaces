@@ -33,6 +33,8 @@
 #include "PresentationSession.h"
 #include "SecureHardwareProxy.h"
 
+#define P256_PRIV_KEY_SIZE 32
+
 namespace aidl::android::hardware::identity {
 
 using ::aidl::android::hardware::keymaster::HardwareAuthToken;
@@ -95,6 +97,16 @@ class IdentityCredential : public BnIdentityCredential {
     ndk::ScopedAStatus finishRetrievalWithSignature(vector<uint8_t>* outMac,
                                                     vector<uint8_t>* outDeviceNameSpaces,
                                                     vector<uint8_t>* outEcdsaSignature) override;
+
+    ndk::ScopedAStatus getSigningKeyUsageCount(const std::vector<uint8_t>& in_signingKeyBlob,
+                                               int32_t* out_UsageCount) override;
+
+    ndk::ScopedAStatus deleteStaticAuthData(const std::vector<uint8_t>& in_signingKeyBlob,
+                                            vector<uint8_t>* out_proofOfDeletion) override;
+
+    ndk::ScopedAStatus storeStaticAuthenticationData(
+            const std::vector<uint8_t>& in_signingKeyBlob, int64_t in_expirationDate,
+            const std::vector<uint8_t>& in_staticAuthData) override;
 
   private:
     ndk::ScopedAStatus deleteCredentialCommon(const vector<uint8_t>& challenge,
