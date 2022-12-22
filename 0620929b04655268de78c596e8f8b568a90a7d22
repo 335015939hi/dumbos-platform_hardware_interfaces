@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cedf44ed_f0f39db4",
+        "filename": "audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-22T19:11:28Z",
+      "side": 1,
+      "message": "It\u0027s possible to perform this initialization in the constructor\u0027s field initialization list if we change the type `mChannelCount` to `size_t`:\n\n```\n    EffectContext(statusDepth, common),\n    mChannelCount(::android::hardware::audio::common::getChannelCount(common.input.base.channelMask)),\n    mPreEqChCfgs(mChannelCount),\n    mPostEqChCfgs(mChannelCount),\n    ... \n```\n\nThe advantage is that we can make `mChannelCount` a const if it\u0027s not actually changed during the lifetime of the class. And vectors get allocated with the right size from the start.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 43
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a988dae_9d36ad25",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-22T19:11:28Z",
+      "side": 1,
+      "message": "Does `auto [mFactory, mDescriptor] \u003d pair` work?",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 39
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94a36f96_39e60b90",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-22T19:11:28Z",
+      "side": 1,
+      "message": "Please remove `default`. This will ensure that all values of the `Tag` are covered by the switch. This applies to all similar `switch` statements.",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 25
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bc32f35_1cd6d570",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-22T19:11:28Z",
+      "side": 1,
+      "message": "Please add an enum (usually we call it `ParamName`) to specify names for the parameters. This applies to all tests.",
+      "range": {
+        "startLine": 405,
+        "startChar": 48,
+        "endLine": 405,
+        "endChar": 49
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b307587_5e19d5d0",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-22T19:11:28Z",
+      "side": 1,
+      "message": "Please add a `GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(...);` statement with the test fixture class name (`DynamicsProcessingTestEngineArchitecture` in this case). Please do this for each `INSTANTIATE_TEST_SUITE_P`. Otherwise it will be a fatal test error if there are no test instances on the device.",
+      "range": {
+        "startLine": 474,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 11
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
