@@ -1,0 +1,3 @@
+service vendor.direct-remote /vendor/bin/hw/android.hardware.directaccess-service.remote
+    class hal
+    user nobody
