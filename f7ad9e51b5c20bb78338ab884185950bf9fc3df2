@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3d7abc1_1de38008",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-22T16:19:08Z",
+      "side": 1,
+      "message": "this isn\u0027t necessary in an AIDL file. It\u0027s an implementation detail for the backends.",
+      "range": {
+        "startLine": 134,
+        "startChar": 80,
+        "endLine": 134,
+        "endChar": 91
+      },
+      "revId": "f7ad9e51b5c20bb78338ab884185950bf9fc3df2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ffd2fd3_5eb4a86c",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-22T16:19:08Z",
+      "side": 1,
+      "message": "`number of samples`?",
+      "range": {
+        "startLine": 155,
+        "startChar": 31,
+        "endLine": 155,
+        "endChar": 37
+      },
+      "revId": "f7ad9e51b5c20bb78338ab884185950bf9fc3df2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
