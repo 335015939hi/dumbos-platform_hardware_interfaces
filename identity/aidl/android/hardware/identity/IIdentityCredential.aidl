@@ -504,4 +504,63 @@ interface IIdentityCredential {
     @SuppressWarnings(value={"out-array"})
     void finishRetrievalWithSignature(
             out byte[] mac, out byte[] deviceNameSpaces, out byte[] ecdsaSignature);
+
+    /**
+     * Store static authentication data
+     *
+     * This method store Authentication data asscociated with a dynamic authentication key. This
+     * should only be called for an authenticated key(signingKeyBlob) retured by
+     * "generateSigningKeyPair()"
+     *
+     * If the method is called on an instance obtained via IPresentationSession.getCredential(),
+     * STATUS_FAILED must be returned.
+     *
+     * @param signingKeyBlob contains an AES-GCM-ENC(storageKey, R, signingKey, docType)
+     *        where signingKey is an EC private key in uncompressed form.
+     *        (see generateSigningKeyPair() description for more details)
+     * @param expirationDate, Expiration date of "staticAuthData".
+     * @param staticAuthData, Static authentication data (see  below) provided by the issuer
+     *        that validates the authenticity and integrity of the credential data fields.
+     *        This value cannot be null
+     *
+     *     Static Auth data is the the bytes of CBOR with the following CDDL..
+     *     StaticAuthData = {
+     *         "digestIdMapping": DigestIdMapping,
+     *         "issuerAuth" : IssuerAuth
+     *     }
+     *
+     *     DigestIdMapping = {
+     *         NameSpace =&gt; [ + IssuerSignedItemBytes ]
+     *     }
+     *
+     *     ; Defined in ISO 18013-5
+     *     ;
+     *     NameSpace = String
+     *     DataElementIdentifier = String
+     *     DigestID = uint
+     *     IssuerAuth = COSE_Sign1 ; The payload is MobileSecurityObjectBytes
+     *
+     *     IssuerSignedItemBytes = #6.24(bstr .cbor IssuerSignedItem)
+     *
+     *     IssuerSignedItem = {
+     *       "digestID" : uint,                           ; Digest ID for issuer data auth
+     *       "random" : bstr,                             ; Random value for issuer data auth
+     *       "elementIdentifier" : DataElementIdentifier, ; Data element identifier
+     *       "elementValue" : NULL                        ; Placeholder for Data element value
+     *     }
+     *
+     */
+    void storeStaticAuthenticationData(
+            in byte[] signingKeyBlob, in long expirationDate, in byte[] staticAuthData);
+
+    /**
+     * Get the number of times the dynamic authentication key have been used. key is passed
+     * using 'signingKeyBlob' which was received using "generateSigningKeyPair()"
+     *
+     * @param signingKeyBlob contains an AES-GCM-ENC(storageKey, R, signingKey, docType)
+     *        where signingKey is an EC private key in uncompressed form.
+     *        (see generateSigningKeyPair() description for more details)
+     * @return number of key usage count
+     */
+    int getSigningKeyUsageCount(in byte[] signingKeyBlob);
 }

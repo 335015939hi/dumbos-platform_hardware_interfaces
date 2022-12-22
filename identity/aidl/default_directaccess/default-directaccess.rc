@@ -1,0 +1,3 @@
+service vendor.identity-directaccess /vendor/bin/hw/android.hardware.identity-service.directaccess
+    class hal
+    user nobody

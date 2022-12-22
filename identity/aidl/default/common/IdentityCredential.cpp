@@ -1058,4 +1058,19 @@ ndk::ScopedAStatus IdentityCredential::updateCredential(
     return ndk::ScopedAStatus::ok();
 }
 
+ndk::ScopedAStatus IdentityCredential::getSigningKeyUsageCount(
+        const std::vector<uint8_t>& in_signingKeyBlob, int32_t* out_UsageCount) {
+    (void)in_signingKeyBlob;
+    (void)out_UsageCount;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus IdentityCredential::storeStaticAuthenticationData(
+        const std::vector<uint8_t>& in_signingKeyBlob, int64_t in_expirationDate,
+        const std::vector<uint8_t>& in_staticAuthData) {
+    (void)in_signingKeyBlob;
+    (void)in_expirationDate;
+    (void)in_staticAuthData;
+    return ndk::ScopedAStatus::ok();
+}
 }  // namespace aidl::android::hardware::identity

@@ -392,6 +392,7 @@
         <interface>
             <name>IIdentityCredentialStore</name>
             <instance>default</instance>
+            <instance>directAccess</instance>
         </interface>
     </hal>
     <hal format="aidl" optional="true">
