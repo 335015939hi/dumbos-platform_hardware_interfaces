@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6508db5_81856aa0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-22T16:54:10Z",
+      "side": 1,
+      "message": "need to run `m android.hardware.tv.hdmi.cec-update-api` to update the files in the `aidl_api/.*/current/` directory.",
+      "revId": "f5e3e806a87e0b30ea2e33c334b5ba01ecc88e58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95ae1167_47573429",
+        "filename": "tv/hdmi/connection/aidl/android/hardware/tv/hdmi/connection/IHdmiConnection.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-22T16:54:10Z",
+      "side": 1,
+      "message": "Sorry I didn\u0027t notice this before! We can keep these constants defined here and instead of returning them, we can use them as part of the `ServiceSpecificExceptions` in the built error handling that AIDL functions have.\nhttps://source.android.com/docs/core/architecture/aidl/aidl-backends#error_handling\n\nReturning the result works too, but can be kind of odd in the implementation to set the Result to some FAILURE and then return `ScopedAStatus::ok()` at the same time.",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 10
+      },
+      "revId": "f5e3e806a87e0b30ea2e33c334b5ba01ecc88e58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
