@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2dae875f_f692097e",
+        "filename": "audio/aidl/default/hapticGenerator/HapticGeneratorSw.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-22T19:18:37Z",
+      "side": 1,
+      "message": "I think we need to do a comparison here, and only update these items in vector.\nFor example, if `mHapticScales` have list size of 2 with track id 0 and 1, and setParameter is trying to update track ID 1, this implementation will update track ID 1 but drop track ID 0, the drop is not the right behavior.\n\nA reference for similar use case:\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/default/equalizer/EqualizerSw.h;drc\u003d5d1001b35f888b619ddee85aa08aac26a49cb967;l\u003d45",
+      "range": {
+        "startLine": 38,
+        "startChar": 8,
+        "endLine": 38,
+        "endChar": 36
+      },
+      "revId": "c82ba76127596c5d0e701f73ec2d89e1cd5044c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c0ef216_3d4e64cc",
         "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
         "patchSetId": 2
