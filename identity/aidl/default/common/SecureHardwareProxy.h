@@ -220,6 +220,16 @@ class SecureHardwarePresentationProxy : public RefBase {
     virtual optional<vector<uint8_t>> proveOwnership(const string& docType, bool testCredential,
                                                      const vector<uint8_t>& challenge,
                                                      size_t proofOfOwnershipCborSize) = 0;
+
+    virtual bool setAvailableAuthenticationKeys(const int32_t in_keyCount,
+                                                const int32_t in_maxUsesPerKey) = 0;
+
+    virtual bool getAuthKeysNeedingCertification(vector<uint8_t>* out_x509Certificates,
+                                                 int32_t* out_x509CertificatesSize) = 0;
+
+    virtual bool storeStaticAuthenticationData(const vector<uint8_t>& in_authenticationKey,
+                                               const int64_t in_expirationDate,
+                                               const vector<uint8_t>& in_staticAuthData) = 0;
 };
 
 }  // namespace android::hardware::identity
