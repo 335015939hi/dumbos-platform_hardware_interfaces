@@ -22,6 +22,30 @@
       },
       "revId": "08c2814ef0de4b9124608ad16d368022310e94f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb53c33_b3892431",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-22T01:53:23Z",
+      "side": 1,
+      "message": "No, the log was wrong commit, thanks.",
+      "parentUuid": "8f233a91_87001f52",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 5
+      },
+      "revId": "08c2814ef0de4b9124608ad16d368022310e94f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
