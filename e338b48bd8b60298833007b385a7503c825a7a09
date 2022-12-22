@@ -67,6 +67,98 @@
       "message": "Devin, please provide an API review.",
       "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43de15d7_05baee98",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-22T21:36:28Z",
+      "side": 1,
+      "message": "will we ever want to add anything to this list of out params? \nWould it be better to add them to a parcelable to be able to extend it in the future?",
+      "range": {
+        "startLine": 422,
+        "startChar": 11,
+        "endLine": 422,
+        "endChar": 90
+      },
+      "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae5acf86_476278f3",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamOut.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-22T21:36:28Z",
+      "side": 1,
+      "message": "can remove",
+      "range": {
+        "startLine": 106,
+        "startChar": 15,
+        "endLine": 106,
+        "endChar": 22
+      },
+      "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f28ffb14_79edc251",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamOut.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-22T21:36:28Z",
+      "side": 1,
+      "message": "can remove",
+      "range": {
+        "startLine": 186,
+        "startChar": 15,
+        "endLine": 186,
+        "endChar": 27
+      },
+      "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4740a7ab_30154eff",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamOutEventCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2022-12-22T21:36:28Z",
+      "side": 1,
+      "message": "is it important to call out the specifics of the old HIDL versions here?",
+      "range": {
+        "startLine": 58,
+        "startChar": 10,
+        "endLine": 58,
+        "endChar": 23
+      },
+      "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
