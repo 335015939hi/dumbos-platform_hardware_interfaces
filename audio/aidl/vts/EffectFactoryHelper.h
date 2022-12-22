@@ -70,6 +70,7 @@ class EffectFactoryHelper {
                 }
             }
         }
+        LOG(DEBUG) << __func__ << " size: " << result.size();
         return result;
     }
 

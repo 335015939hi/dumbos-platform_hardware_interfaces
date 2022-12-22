@@ -79,6 +79,9 @@ ndk::ScopedAStatus Factory::queryEffects(const std::optional<AudioUuid>& in_type
             _aidl_return->emplace_back(std::move(desc));
         }
     }
+    for (auto& it : *_aidl_return) {
+        LOG(DEBUG) << __func__ << " xxx: " << it.toString();
+    }
     return ndk::ScopedAStatus::ok();
 }
 
