@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8f69372a_faae645a",
+        "filename": "health/aidl/aidl_api/android.hardware.health/current/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2022-12-22T01:57:22Z",
+      "side": 1,
+      "message": "sorry we already have an INVALID at 0, we should rename this to INCONSISTENT. Spec updated.",
+      "revId": "1db393aec0168827aa78ffb1093f542e80a5ae00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ce1eb28_e82df351",
         "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
         "patchSetId": 12
