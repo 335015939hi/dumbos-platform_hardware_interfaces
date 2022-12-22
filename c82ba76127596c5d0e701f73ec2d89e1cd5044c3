@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e49cf2e_e7992132",
+        "filename": "audio/aidl/default/hapticGenerator/HapticGeneratorSw.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-22T17:42:50Z",
+      "side": 1,
+      "message": "Please add `\u0026`",
+      "range": {
+        "startLine": 36,
+        "startChar": 77,
+        "endLine": 36,
+        "endChar": 78
+      },
+      "revId": "c82ba76127596c5d0e701f73ec2d89e1cd5044c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c0ef216_3d4e64cc",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-22T17:42:50Z",
+      "side": 1,
+      "message": "Please create an enum with names of the fields in this tuple, similar to ParamName.",
+      "range": {
+        "startLine": 125,
+        "startChar": 33,
+        "endLine": 125,
+        "endChar": 34
+      },
+      "revId": "c82ba76127596c5d0e701f73ec2d89e1cd5044c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
