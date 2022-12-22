@@ -49,6 +49,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8efc7dea_ad76df3e",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-22T19:28:44Z",
+      "side": 1,
+      "message": "I think we shouldn\u0027t use track ID as part of test case combination, this way we are limiting our test cases to only one ID at a time.\nThink about the test case of:\n1. set scale with ID 0;\n2. getParameter and check if ID 0 was successfully set;\n3. set scale with ID 1;\n3. getParameter and check if both ID 0 and 1 are expected.\n\nAnd:\n1. set scale with ID 0, 1, 2;\n2. getParameter and check if all scales successfully set;\n3. set scale with ID 3;\n3. getParameter and check if all IDs (0, 1, 2, 3) are expected.",
+      "range": {
+        "startLine": 65,
+        "startChar": 23,
+        "endLine": 65,
+        "endChar": 43
+      },
+      "revId": "c82ba76127596c5d0e701f73ec2d89e1cd5044c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c0ef216_3d4e64cc",
         "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
         "patchSetId": 2
