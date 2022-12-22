@@ -46,6 +46,52 @@
       },
       "revId": "3884ee60f6e1b056704f3bf5aafc9c21472fe5e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6859257_21a2a184",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-12-22T02:24:03Z",
+      "side": 1,
+      "message": "This constant provides no information, so it doesn\u0027t seem useful to define it. We can just say that for debugging purposes, implementations should provide a useful error message in ServiceSpecificException\u0027s message field.",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "3884ee60f6e1b056704f3bf5aafc9c21472fe5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a03dc3a_038bbd22",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-12-22T02:24:03Z",
+      "side": 1,
+      "message": "with the error message set to a human-readable reason,\n\n\n(also elsewhere)",
+      "range": {
+        "startLine": 43,
+        "startChar": 37,
+        "endLine": 43,
+        "endChar": 68
+      },
+      "revId": "3884ee60f6e1b056704f3bf5aafc9c21472fe5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
