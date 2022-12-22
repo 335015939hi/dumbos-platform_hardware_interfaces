@@ -46,6 +46,30 @@
       },
       "revId": "be072f9191cba43d70bbb5cc36a6b2a0de125012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9aa42c7_07daae54",
+        "filename": "tv/tuner/aidl/android/hardware/tv/tuner/DemuxFilterMediaEvent.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2022-12-22T21:27:20Z",
+      "side": 1,
+      "message": "Actually, ac4ShortProgramId updates should occur with audioPreselections updates, so putting these both within the DemuxFilterMediaEventExtraMetaData union won\u0027t work.\n\nOne option to get around that is to put ac4ShortProgramId within AudioPreselection, but that will deviate AudioPreselection from the ETSI EN 300 468 V1.17.1 definition. Do you prefer this approach to include ac4ShortProgramId within AudioPreselection, or another way?",
+      "parentUuid": "30731601_31ec30be",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 31
+      },
+      "revId": "be072f9191cba43d70bbb5cc36a6b2a0de125012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
