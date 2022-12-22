@@ -504,4 +504,67 @@ interface IIdentityCredential {
     @SuppressWarnings(value={"out-array"})
     void finishRetrievalWithSignature(
             out byte[] mac, out byte[] deviceNameSpaces, out byte[] ecdsaSignature);
+
+    /**
+     * Number of Authentication keys
+     *
+     * This method sets the number of authentiocation keys that IdentityCredential will maintain,
+     * and the number of times each should be used
+     *
+     * If the method is called on an instance obtained via IPresentationSession.getCredential(),
+     * STATUS_FAILED must be returned.
+     *
+     *  @param keyCount, The number of active/certified dynamic authentication keys the
+     *         IdentityCredential will try to keep available. This value must be non-negative
+     *  @param maxUsesPerKey, The maximum number of times each of the keys will be used
+     *         before it's eligible for replacement. This value must be greater than zero
+     */
+    void setAvailableAuthenticationKeys(in int keyCount, in int maxUsesPerKey);
+
+    /**
+     * Authentication keys that requires certification
+     *
+     * This method returns the list of X5.509 certificates for dynamic authentication keys
+     * that need issuer certification
+     * When there aren't enough certified dynamic authentication keys, either because the key count
+     * has been increased or because one or more keys have reached their usage count, this method
+     * will generate replacement keys and certificates and return them for issuer certification.
+     * The issuer certificates and associated static authentication data must then be provided back
+     * to the Identity Credential using "storeStaticAuthenticationData()". The private part of each
+     * authentication key never leaves secure hardware.
+     *
+     * If the method is called on an instance obtained via IPresentationSession.getCredential(),
+     * STATUS_FAILED must be returned.
+     *
+     * @return Collection of X.509 certificat,e which has Auth key as a public key, signed by
+     *         credential key
+     *
+     * each X.509 certificate contains an X.509 extension at OID 1.3.6.1.4.1.11129.2.1.26 which
+     * contains a DER encoded OCTET STRING with the bytes of the CBOR with the following CDDL:
+     *          ProofOfBinding = [
+     *              "ProofOfBinding",
+     *              bstr,              // Contains SHA-256(ProofOfProvisioning)
+     *          ]
+     */
+    int getAuthKeysNeedingCertification(out byte[] x509Certificates);
+
+    /**
+     * Store static authentication data
+     *
+     * This method store Authentication data asscociated with a dynamic authentication key. This
+     * should only be called for an authenticated key retured by "getAuthKeysNeedingCertification()"
+     *
+     * If the method is called on an instance obtained via IPresentationSession.getCredential(),
+     * STATUS_FAILED must be returned.
+     *
+     * @param authenticationKey, This is a X.509 certificate (The dynamic authentication key) for
+     *         which
+     *        Static authentication data is being provisioned/provided. This should not be NULL
+     * @param expirationDate, Expiration date of "staticAuthData".
+     * @param staticAuthData, Static authentication data provided by the issuer that validates the
+     *         authenticity
+     *        and integrity of the credential data fields. This value cannot be null
+     */
+    void storeStaticAuthenticationData(
+            in byte[] authenticationKey, in long expirationDate, in byte[] staticAuthData);
 }
