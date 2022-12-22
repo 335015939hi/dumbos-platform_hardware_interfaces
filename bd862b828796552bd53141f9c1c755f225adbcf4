@@ -1,5 +1,57 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f15a0066_101d5a0d",
+        "filename": "audio/aidl/default/acousticEchoCanceler/AcousticEchoCancelerSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-12-22T20:29:46Z",
+      "side": 1,
+      "message": "I\u0027d recommend we initialize this in the constructor with a consistent value.  While it might be a bug for a user to call getEchoDelay() prior to setEchoDelay(), such an initialization will at least make the buggy behavior consistent and easier to debug.",
+      "revId": "bd862b828796552bd53141f9c1c755f225adbcf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3958f473_c5725227",
+        "filename": "audio/aidl/default/automaticGainControl/AutomaticGainControlSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-12-22T20:29:46Z",
+      "side": 1,
+      "message": "Similar comment about initialization.",
+      "revId": "bd862b828796552bd53141f9c1c755f225adbcf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "289cf7b8_8cc76285",
+        "filename": "audio/aidl/default/automaticGainControl/AutomaticGainControlSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-12-22T20:29:46Z",
+      "side": 1,
+      "message": "Similar comment about initialization.",
+      "revId": "bd862b828796552bd53141f9c1c755f225adbcf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
