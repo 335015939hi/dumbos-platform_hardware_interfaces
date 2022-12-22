@@ -122,9 +122,9 @@ class NSParamTest : public ::testing::TestWithParam<NSParamTestParam>, public Ef
 const std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor>> kFactoryDescList =
         EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor,
                                                      kNoiseSuppressionTypeUUID);
-const std::vector<NoiseSuppression::Level> NSParamTest::kLevelValues = {
-        NoiseSuppression::Level::LOW, NoiseSuppression::Level::MEDIUM,
-        NoiseSuppression::Level::HIGH};
+const std::unordered_set<NoiseSuppression::Level> NSParamTest::kLevelValues = {
+        ndk::enum_range<NoiseSuppression::Level>().begin(),
+        ndk::enum_range<NoiseSuppression::Level>().end()};
 
 TEST_P(NSParamTest, SetAndGetLevel) {
     EXPECT_NO_FATAL_FAILURE(addLevelParam(mLevel));
