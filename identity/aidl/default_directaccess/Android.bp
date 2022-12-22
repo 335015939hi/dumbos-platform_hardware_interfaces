@@ -1,0 +1,60 @@
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_interfaces_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+cc_binary {
+    name: "android.hardware.identity-service.directaccess",
+    relative_install_path: "hw",
+    init_rc: ["default-directaccess.rc"],
+    vintf_fragments: ["default-directaccess.xml"],
+    vendor: true,
+    defaults: [
+        "identity_use_latest_hal_aidl_ndk_static",
+        "keymint_use_latest_hal_aidl_ndk_static",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-g",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcrypto",
+        "libbinder_ndk",
+        "libkeymaster_messages",
+    ],
+    static_libs: [
+        "libbase",
+        "libcppbor_external",
+        "libcppcose_rkp",
+        "libutils",
+        "libsoft_attestation_cert",
+        "libkeymaster_portable",
+        "libsoft_attestation_cert",
+        "libpuresoftkeymasterdevice",
+        "android.hardware.identity-support-lib",
+        "android.hardware.keymaster-V3-ndk",
+        "android.hardware.identity-libeic-hal-common",
+        "android.hardware.identity-libeic-library",
+        "android.hardware.security.rkp-V3-ndk",
+    ],
+    srcs: [
+        "service.cpp",
+        "FakeSecureHardwareProxy.cpp",
+    ],
+    required: [
+        "android.hardware.directaccess.xml",
+    ],
+}
+
+prebuilt_etc {
+    name: "android.hardware.directaccess.xml",
+    sub_dir: "permissions",
+    vendor: true,
+    src: "android.hardware.directaccess.xml",
+}
