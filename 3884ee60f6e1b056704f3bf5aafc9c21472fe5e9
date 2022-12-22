@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3c14790_1a37a679",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-12-22T02:40:47Z",
+      "side": 1,
+      "message": "Ack, we do need something. But it doesn\u0027t have to be meaningful and we don\u0027t need to define a constant for it. ServiceSpecificException is specific to this service, so we can define the contents of that exception in this file which defines our service.\n\nSo for example, we could say that only the error message is meaningful, and the code is unused. We could say that the code must always be something known like 0, or even leave it unspecified. I think that\u0027s better than defining a FAILURE_UNKNOWN constant because the constant introduces unnecessary cognitive load.",
+      "parentUuid": "4635851f_716b0985",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "3884ee60f6e1b056704f3bf5aafc9c21472fe5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a03dc3a_038bbd22",
         "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
         "patchSetId": 8
