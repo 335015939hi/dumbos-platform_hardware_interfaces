@@ -63,6 +63,10 @@ void* eicMemCpy(void* dest, const void* src, size_t n) {
     return memcpy(dest, src, n);
 }
 
+bool eicMemCmp(const void* lhs, const void* rhs, size_t n) {
+    return memcmp(lhs, rhs, n);
+}
+
 size_t eicStrLen(const char* s) {
     return strlen(s);
 }
@@ -562,5 +566,26 @@ void eicCborPrettyPrint(const uint8_t* cborData, size_t cborDataSize, size_t max
             android::hardware::identity::support::cborPrettyPrint(cborDataVec, maxBStrSize, {});
     fprintf(stderr, "%s\n", str.c_str());
 }
+
+// Abstract storage functions
+bool saveFn(uint8_t type, uint8_t* buff, uint32_t buffSize, uint8_t* docType,
+            uint32_t docTypeSize) {
+    (void)type;
+    (void)buff;
+    (void)buffSize;
+    (void)docType;
+    (void)docTypeSize;
+    return true;
+}
+
+bool loadFn(uint8_t type, uint8_t* docType, uint32_t docTypeSize) {
+    (void)type;
+    (void)docType;
+    (void)docTypeSize;
+    return true;
+}
+
+/* A storage structure implementing the API */
+struct storage_api storageApi = {.save_data = saveFn, .load_data = loadFn};
 
 #endif  // EIC_DEBUG

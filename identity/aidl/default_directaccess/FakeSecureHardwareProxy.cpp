@@ -1,5 +1,5 @@
 /*
- * Copyright 2020, The Android Open Source Project
+ * Copyright 2023, The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "FakeSecureHardwareProxy"
+#define LOG_TAG "FakeSecureHardwareProxy-da"
 
 #include "FakeSecureHardwareProxy.h"
 
@@ -191,10 +191,8 @@ bool FakeSecureHardwareProvisioningProxy::startPersonalization(
         return false;
     }
 
-    if (!eicProvisioningStartPersonalization(&ctx_, accessControlProfileCount,
-                                             entryCounts.data(),
-                                             entryCounts.size(),
-                                             docType.c_str(), docType.size(),
+    if (!eicProvisioningStartPersonalization(&ctx_, accessControlProfileCount, entryCounts.data(),
+                                             entryCounts.size(), docType.c_str(), docType.size(),
                                              expectedProofOfProvisioningSize)) {
         return false;
     }
@@ -213,8 +211,8 @@ optional<vector<uint8_t>> FakeSecureHardwareProvisioningProxy::addAccessControlP
     uint8_t scratchSpace[512];
     if (!eicProvisioningAddAccessControlProfile(
                 &ctx_, id, readerCertificate.data(), readerCertificate.size(),
-                userAuthenticationRequired, timeoutMillis, secureUserId, mac.data(),
-                scratchSpace, sizeof(scratchSpace))) {
+                userAuthenticationRequired, timeoutMillis, secureUserId, mac.data(), scratchSpace,
+                sizeof(scratchSpace))) {
         return std::nullopt;
     }
     return mac;
@@ -293,7 +291,6 @@ optional<vector<uint8_t>> FakeSecureHardwareProvisioningProxy::finishGetCredenti
     encryptedCredentialKeys.resize(size);
     return encryptedCredentialKeys;
 }
-
 // ----------------------------------------------------------------------
 
 // The singleton EicSession object used everywhere.
@@ -578,11 +575,10 @@ optional<bool> FakeSecureHardwarePresentationProxy::validateAccessControlProfile
 
     bool accessGranted = false;
     uint8_t scratchSpace[512];
-    if (!eicPresentationValidateAccessControlProfile(&ctx_, id, readerCertificate.data(),
-                                                     readerCertificate.size(),
-                                                     userAuthenticationRequired, timeoutMillis,
-                                                     secureUserId, mac.data(), &accessGranted,
-                                                     scratchSpace, sizeof(scratchSpace))) {
+    if (!eicPresentationValidateAccessControlProfile(
+                &ctx_, id, readerCertificate.data(), readerCertificate.size(),
+                userAuthenticationRequired, timeoutMillis, secureUserId, mac.data(), &accessGranted,
+                scratchSpace, sizeof(scratchSpace))) {
         return std::nullopt;
     }
     return accessGranted;
@@ -630,8 +626,7 @@ AccessCheckResult FakeSecureHardwarePresentationProxy::startRetrieveEntryValue(
     EicAccessCheckResult result = eicPresentationStartRetrieveEntryValue(
             &ctx_, nameSpace.c_str(), nameSpace.size(), name.c_str(), name.size(),
             newNamespaceNumEntries, entrySize, uint8AccessControlProfileIds.data(),
-            uint8AccessControlProfileIds.size(), scratchSpace,
-            sizeof(scratchSpace));
+            uint8AccessControlProfileIds.size(), scratchSpace, sizeof(scratchSpace));
     switch (result) {
         case EIC_ACCESS_CHECK_RESULT_OK:
             return AccessCheckResult::kOk;
@@ -740,29 +735,32 @@ optional<vector<uint8_t>> FakeSecureHardwarePresentationProxy::proveOwnership(
 
 int FakeSecureHardwarePresentationProxy::getSigningKeyUsageCount(
         const std::vector<uint8_t>& in_signingKeyBlob, const string& in_docType) {
-    (void)in_signingKeyBlob;
-    (void)in_docType;
-    return 0;
+    return eicGetSigningKeyUsageCount(&ctx_, in_signingKeyBlob.data(), in_signingKeyBlob.size(),
+                                      in_docType.c_str(), in_docType.size());
 }
 
 optional<vector<uint8_t>> FakeSecureHardwarePresentationProxy::deleteStaticAuthData(
         const std::vector<uint8_t>& in_signingKeyBlob, const string& in_docType,
         std::vector<uint8_t>& out_authPubKey, const size_t in_proofOfDeletionCborSize) {
-    (void)in_signingKeyBlob;
-    (void)in_docType;
-    (void)out_authPubKey;
-    (void)in_proofOfDeletionCborSize;
+    if (!validateId(__func__)) {
+        return std::nullopt;
+    }
 
-    return {};
+    vector<uint8_t> signatureOfToBeSigned(EIC_ECDSA_P256_SIGNATURE_SIZE);
+    if (!eicDeleteStaticAuthenticationData(
+                &ctx_, in_signingKeyBlob.data(), in_signingKeyBlob.size(), in_docType.c_str(),
+                in_docType.size(), out_authPubKey.data(), in_proofOfDeletionCborSize,
+                signatureOfToBeSigned.data())) {
+        return std::nullopt;
+    }
+    return signatureOfToBeSigned;
 }
 
 bool FakeSecureHardwarePresentationProxy::storeStaticAuthenticationData(
-        const vector<uint8_t>& addEntryValue in_signingKeyBlob, const string& in_docType,
-        const int64_t in_expirationDate, const vector<uint8_t>& in_staticAuthData) {
-    (void)in_signingKeyBlob;
-    (void)in_docType;
-    (void)in_expirationDate;
-    (void)in_staticAuthData;
-    return true;
+        const vector<uint8_t>& in_signingKeyBlob, const string& in_docType,
+        const int64_t expirationDate, const vector<uint8_t>& staticAuthData) {
+    return eicStoreStaticAuthenticationData(
+            &ctx_, in_signingKeyBlob.data(), in_signingKeyBlob.size(), in_docType.c_str(),
+            in_docType.size(), expirationDate, staticAuthData.data(), staticAuthData.size());
 }
 }  // namespace android::hardware::identity

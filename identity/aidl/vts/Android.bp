@@ -32,6 +32,7 @@ cc_test {
         "TestCredentialTests.cpp",
         "AuthenticationKeyTests.cpp",
         "PresentationSessionTests.cpp",
+        "DirectAccessTests.cpp",
     ],
     shared_libs: [
         "libbinder",

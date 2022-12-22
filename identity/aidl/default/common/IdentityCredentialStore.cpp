@@ -29,13 +29,14 @@ namespace aidl::android::hardware::identity {
 using ::aidl::android::hardware::security::keymint::IRemotelyProvisionedComponent;
 
 IdentityCredentialStore::IdentityCredentialStore(sp<SecureHardwareProxyFactory> hwProxyFactory,
-                                                 optional<string> remotelyProvisionedComponent)
+                                                 optional<string> remotelyProvisionedComponent,
+                                                 bool isDirectAccess)
     : hwProxyFactory_(hwProxyFactory),
       remotelyProvisionedComponentName_(remotelyProvisionedComponent) {
     hardwareInformation_.credentialStoreName = "Identity Credential Reference Implementation";
     hardwareInformation_.credentialStoreAuthorName = "Google";
     hardwareInformation_.dataChunkSize = kGcmChunkSize;
-    hardwareInformation_.isDirectAccess = false;
+    hardwareInformation_.isDirectAccess = isDirectAccess;
     hardwareInformation_.supportedDocTypes = {};
     hardwareInformation_.isRemoteKeyProvisioningSupported =
             remotelyProvisionedComponentName_.has_value();

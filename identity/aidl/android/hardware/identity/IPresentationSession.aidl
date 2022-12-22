@@ -18,6 +18,7 @@ package android.hardware.identity;
 
 import android.hardware.identity.CipherSuite;
 import android.hardware.identity.IIdentityCredential;
+import android.hardware.keymaster.HardwareAuthToken;
 
 /**
  * An interface to present multiple credentials in the same session.
@@ -109,4 +110,90 @@ interface IPresentationSession {
      * @return an IIdentityCredential interface that provides operations on the Credential.
      */
     IIdentityCredential getCredential(in byte[] credentialData);
+
+    /**
+     * Test function to test direct access presentation simulation
+     *
+     * This api is used to start the retrieval process in direct access, This method must be
+     * called before calling 'retrieveValueDirectAccess()' and 'finishRetrieval()'. calling this
+     * method will reset the previous on going presentation session.
+     * reader verification is performed against provisioined Access control profiles. if
+     * verification failed method should return STATUS_READER_SIGNATURE_CHECK_FAILED
+     *
+     * If authToken is not valid this method fails with STATUS_INVALID_AUTH_TOKEN.
+     *
+     * readerSignature is a COSE_Sign1 entity, detail is defined in 'startRetrieval()' in
+     * "IIdentityCredential.aidl"
+     *
+     * @param authToken
+     *   The authentication token that proves the user was authenticated
+     *
+     * @param sessionTranscript
+     *   the CBOR of the SessionTranscript
+     *
+     * @param readerSignature
+     *   readerSignature contains a CBOR_Sign1 structure. See above.
+     *
+     * @return total number of expected data to read, in Cbor format
+     */
+    int startRetrievalDirectAccess(
+            in HardwareAuthToken authToken, in byte[] sessionTranscript, in byte[] readerSignature);
+
+    /**
+     * Test function to test direct access presentation simulation
+     *
+     * This api must be called after 'startRetrievalDirectAccess()'. It is used to retrieve
+     * dataItems, or part of one, if the value is larger than gcmChunkSize. It should be call in
+     * loop until expected datalength.
+     *
+     * @param data
+     *    part of expected data (Final data should be in Cbor format)
+     */
+    void retrieveValueDirectAccess(out byte[] data);
+
+    /**
+     *  Test function to test direct access presentation simulation
+     *
+     *  End of retrieval data, this api should be call after receiving all expected data from
+     *  'retrieveValueDirectAccess()' call. In order to verfiy authenticity of received data,
+     *  Api returns a Mac information specified as below
+     *
+     * @param out mac is a COSE_Mac0 with empty payload and the detached content is set to
+     *    DeviceAuthenticationBytes as defined below.
+     *    This code is produced by using the key agreement and key derivation function
+     *    from the ciphersuite with the authentication private key and the reader
+     *    ephemeral public key to compute a shared message authentication code (MAC)
+     *    key, then using the MAC function from the ciphersuite to compute a MAC of
+     *    the authenticated data. See section 9.2.3.5 of ISO/IEC 18013-5 for details
+     *    of this operation.
+     *
+     *        DeviceAuthentication = [
+     *            "DeviceAuthentication",
+     *            SessionTranscript,
+     *            DocType,
+     *            DeviceNameSpacesBytes,
+     *        ]
+     *
+     *        DocType = tstr
+     *
+     *        SessionTranscript = any
+     *
+     *        DeviceNameSpacesBytes = #6.24(bstr .cbor DeviceNameSpaces)
+     *
+     *        DeviceAuthenticationBytes = #6.24(bstr .cbor DeviceAuthentication)
+     *
+     *    where
+     *
+     *        DeviceNameSpaces = {
+     *            * NameSpace => DeviceSignedItems
+     *        }
+     *        DeviceSignedItems = {
+     *            + DataItemName => DataItemValue
+     *        }
+     *
+     *        Namespace = tstr
+     *        DataItemName = tstr
+     *        DataItemValue = any
+     */
+    void finishRetrievalDirectAccess(out byte[] mac);
 }

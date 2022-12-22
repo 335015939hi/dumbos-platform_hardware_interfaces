@@ -1,5 +1,5 @@
 /*
- * Copyright 2020, The Android Open Source Project
+ * Copyright 2023, The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,20 +38,6 @@ extern "C" {
 #define EIC_SHA256_CONTEXT_SIZE sizeof(SHA256_CTX)
 
 #define EIC_HMAC_SHA256_CONTEXT_SIZE sizeof(HMAC_CTX)
-
-// Load_data type
-#define DATA_PRESENTATION 1
-#define DATA_PROVISION 2
-#define DATA_AUTH_DATA 4
-/* Storage API to Implement*/
-struct storage_api {
-    bool (*save_data)(uint8_t type, uint8_t* buff, uint32_t buffSize, uint8_t* docType,
-                      uint32_t docTypeSize);
-    bool (*load_data)(uint8_t type, uint8_t* docType, uint32_t docTypeSize);
-};
-
-bool saveFn(uint8_t type, uint8_t* buff, uint32_t buffSize, uint8_t* docType, uint32_t docTypeSize);
-bool loadFn(uint8_t type, uint8_t* docType, uint32_t docTypeSize);
 
 #ifdef __cplusplus
 }

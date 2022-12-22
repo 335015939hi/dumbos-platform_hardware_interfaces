@@ -37,7 +37,7 @@ class IdentityCredentialStore : public BnIdentityCredentialStore {
     // IRemotelyProvisionedComponent to the remotelyProvisionedComponent parameter. Else
     // pass std::nullopt to indicate remote key provisioning is not supported.
     IdentityCredentialStore(sp<SecureHardwareProxyFactory> hwProxyFactory,
-                            optional<string> remotelyProvisionedComponent);
+                            optional<string> remotelyProvisionedComponent, bool isDirectAccess);
 
     // The GCM chunk size used by this implementation is 64 KiB.
     static constexpr size_t kGcmChunkSize = 64 * 1024;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2020, The Android Open Source Project
+ * Copyright 2023, The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,8 +17,7 @@
 #ifndef ANDROID_HARDWARE_IDENTITY_FAKESECUREHARDWAREPROXY_H
 #define ANDROID_HARDWARE_IDENTITY_FAKESECUREHARDWAREPROXY_H
 
-#include <libeic/libeic.h>
-
+#include <libeic.h>
 #include "SecureHardwareProxy.h"
 
 namespace android::hardware::identity {
@@ -210,8 +209,8 @@ class FakeSecureHardwarePresentationProxy : public SecureHardwarePresentationPro
             std::vector<uint8_t>& out_authPubKey, const size_t in_proofOfDeletionCborSize) override;
 
     bool storeStaticAuthenticationData(const vector<uint8_t>& in_signingKeyBlob,
-                                       const string& in_docType, const int64_t in_expirationDate,
-                                       const vector<uint8_t>& in_staticAuthData) override;
+                                       const string& in_docType, const int64_t expirationDate,
+                                       const vector<uint8_t>& staticAuthData) override;
 
   protected:
     // See docs for id_.

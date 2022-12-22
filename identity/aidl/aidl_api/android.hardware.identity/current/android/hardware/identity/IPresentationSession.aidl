@@ -39,4 +39,7 @@ interface IPresentationSession {
   void setReaderEphemeralPublicKey(in byte[] publicKey);
   void setSessionTranscript(in byte[] sessionTranscript);
   android.hardware.identity.IIdentityCredential getCredential(in byte[] credentialData);
+  int startRetrievalDirectAccess(in android.hardware.keymaster.HardwareAuthToken authToken, in byte[] sessionTranscript, in byte[] readerSignature);
+  void retrieveValueDirectAccess(out byte[] data);
+  void finishRetrievalDirectAccess(out byte[] mac);
 }
