@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb85a7db_a623fe4f",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-22T02:46:59Z",
+      "side": 1,
+      "message": "Setting this code to 0 is still a magic value, and there is a history of issues surrounding this setting, because some code has misinterpreted a ServiceSpecificException with a 0 code as success, especially in C++ layers.\n\nIf code needs to use a value, we should define it in the interface and it becomes part of the interface. If in the future, we add a new type of error, we would want to distinguish between that error type and this one.\n\nThat being said, given that this is a generic code, I would agree with you it may be unnecessary and encourage using the built-in types (and save service-specific exceptions for something truly tetheroffload-specific). However, if we can\u0027t replace this with the existing error types (like EX_UNSUPPORTED_OPERATION or EX_ILLEGAL_STATE), and we do use a ServiceSpecificException, we do need to put a specific constant here, though maybe not specifically this one.",
+      "parentUuid": "b3c14790_1a37a679",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "3884ee60f6e1b056704f3bf5aafc9c21472fe5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a03dc3a_038bbd22",
         "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
         "patchSetId": 8
