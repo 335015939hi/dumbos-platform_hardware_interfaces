@@ -52,4 +52,7 @@ interface IIdentityCredential {
   byte[] proveOwnership(in byte[] challenge);
   android.hardware.identity.IWritableIdentityCredential updateCredential();
   @SuppressWarnings(value={"out-array"}) void finishRetrievalWithSignature(out byte[] mac, out byte[] deviceNameSpaces, out byte[] ecdsaSignature);
+  void storeStaticAuthenticationData(in byte[] signingKeyBlob, in long expirationDate, in byte[] staticAuthData);
+  byte[] deleteStaticAuthData(in byte[] signingKeyBlob);
+  int getSigningKeyUsageCount(in byte[] signingKeyBlob);
 }
