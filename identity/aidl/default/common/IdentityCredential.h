@@ -96,6 +96,16 @@ class IdentityCredential : public BnIdentityCredential {
                                                     vector<uint8_t>* outDeviceNameSpaces,
                                                     vector<uint8_t>* outEcdsaSignature) override;
 
+    ndk::ScopedAStatus setAvailableAuthenticationKeys(const int32_t in_keyCount,
+                                                      const int32_t in_maxUsesPerKey) override;
+
+    ndk::ScopedAStatus getAuthKeysNeedingCertification(
+            vector<Certificate>* out_x509Certificates) override;
+
+    ndk::ScopedAStatus storeStaticAuthenticationData(
+            const std::vector<uint8_t>& in_authenticationKey, int64_t in_expirationDate,
+            const std::vector<uint8_t>& in_staticAuthData) override;
+
   private:
     ndk::ScopedAStatus deleteCredentialCommon(const vector<uint8_t>& challenge,
                                               bool includeChallenge,
