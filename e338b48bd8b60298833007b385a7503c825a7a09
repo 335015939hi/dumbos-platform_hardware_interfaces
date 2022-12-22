@@ -33,6 +33,23 @@
       "message": "Downstream conflicts, will have to look into them first.",
       "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e50e04b_8da80293",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-22T00:41:01Z",
+      "side": 1,
+      "message": "Downstream changes landed, however it looks like we also need to land something onto tm-qpr-dev-plus-aosp first.",
+      "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
