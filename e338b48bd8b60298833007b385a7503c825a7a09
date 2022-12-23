@@ -92,6 +92,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddba161d_4b2b8e33",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-23T02:24:09Z",
+      "side": 1,
+      "message": "OK, since the parameters themselves are in a parcelable, it makes sense to make allow for addition of more parameters along with their ranges.",
+      "parentUuid": "43de15d7_05baee98",
+      "range": {
+        "startLine": 422,
+        "startChar": 11,
+        "endLine": 422,
+        "endChar": 90
+      },
+      "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae5acf86_476278f3",
@@ -105,6 +129,30 @@
       "writtenOn": "2022-12-22T21:36:28Z",
       "side": 1,
       "message": "can remove",
+      "range": {
+        "startLine": 106,
+        "startChar": 15,
+        "endLine": 106,
+        "endChar": 22
+      },
+      "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9266f481_b58cd130",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamOut.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-23T02:24:09Z",
+      "side": 1,
+      "message": "Good catch, a leftover from HIDL.",
+      "parentUuid": "ae5acf86_476278f3",
       "range": {
         "startLine": 106,
         "startChar": 15,
@@ -138,6 +186,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62a25bd2_1db0270a",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamOut.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-23T02:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f28ffb14_79edc251",
+      "range": {
+        "startLine": 186,
+        "startChar": 15,
+        "endLine": 186,
+        "endChar": 27
+      },
+      "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4740a7ab_30154eff",
@@ -151,6 +223,30 @@
       "writtenOn": "2022-12-22T21:36:28Z",
       "side": 1,
       "message": "is it important to call out the specifics of the old HIDL versions here?",
+      "range": {
+        "startLine": 58,
+        "startChar": 10,
+        "endLine": 58,
+        "endChar": 23
+      },
+      "revId": "e338b48bd8b60298833007b385a7503c825a7a09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5ff218d_973c327e",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamOutEventCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-23T02:24:09Z",
+      "side": 1,
+      "message": "Probably not. Changed to reference Android release letters only.",
+      "parentUuid": "4740a7ab_30154eff",
       "range": {
         "startLine": 58,
         "startChar": 10,
