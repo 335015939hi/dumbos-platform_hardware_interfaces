@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "386f792c_c6726615",
+        "filename": "audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2022-12-23T08:14:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cedf44ed_f0f39db4",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 43
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a988dae_9d36ad25",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "723c60fb_61fcf459",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2022-12-23T08:14:11Z",
+      "side": 1,
+      "message": "It is not working mikhail, ...",
+      "parentUuid": "0a988dae_9d36ad25",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 39
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94a36f96_39e60b90",
         "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
         "patchSetId": 3
@@ -60,6 +108,30 @@
       "writtenOn": "2022-12-22T19:11:28Z",
       "side": 1,
       "message": "Please remove `default`. This will ensure that all values of the `Tag` are covered by the switch. This applies to all similar `switch` statements.",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 25
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de86df00_9bac7e61",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2022-12-23T08:14:11Z",
+      "side": 1,
+      "message": "vendorExtension Tag is not covered. Keeping default.",
+      "parentUuid": "94a36f96_39e60b90",
       "range": {
         "startLine": 145,
         "startChar": 0,
@@ -106,6 +178,30 @@
       "writtenOn": "2022-12-22T19:11:28Z",
       "side": 1,
       "message": "Please add a `GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(...);` statement with the test fixture class name (`DynamicsProcessingTestEngineArchitecture` in this case). Please do this for each `INSTANTIATE_TEST_SUITE_P`. Otherwise it will be a fatal test error if there are no test instances on the device.",
+      "range": {
+        "startLine": 474,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 11
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57b97f51_b198126a",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2022-12-23T08:14:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b307587_5e19d5d0",
       "range": {
         "startLine": 474,
         "startChar": 0,
