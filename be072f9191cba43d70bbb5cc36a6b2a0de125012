@@ -70,6 +70,30 @@
       },
       "revId": "be072f9191cba43d70bbb5cc36a6b2a0de125012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e37e1d4_66153629",
+        "filename": "tv/tuner/aidl/android/hardware/tv/tuner/DemuxFilterMediaEvent.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1947190
+      },
+      "writtenOn": "2022-12-26T11:13:29Z",
+      "side": 1,
+      "message": "On my opinion, I don\u0027t think breaking the `ETSI EN 300 468 V1.17.1` definition is a good idea. I prefer keeping these two attributes as-is.\nAnother way to solve this is introducing another structure to store `audioPreselections` and `ac4ShortProgramId` at the same time and place the structure into `DemuxFilterMediaEventExtraMetaData`.",
+      "parentUuid": "c9aa42c7_07daae54",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 31
+      },
+      "revId": "be072f9191cba43d70bbb5cc36a6b2a0de125012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
