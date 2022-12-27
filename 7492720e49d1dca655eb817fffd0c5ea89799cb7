@@ -33,6 +33,52 @@
       "message": "Hi Steven, since Devin is OOO this week, could you please help with AIDL review? Devin has already went over the interface and I\u0027ve addressed his comments. PTAL!",
       "revId": "7492720e49d1dca655eb817fffd0c5ea89799cb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53a202e0_45e8e44d",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-27T22:01:31Z",
+      "side": 1,
+      "message": "units?",
+      "range": {
+        "startLine": 420,
+        "startChar": 13,
+        "endLine": 427,
+        "endChar": 23
+      },
+      "revId": "7492720e49d1dca655eb817fffd0c5ea89799cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de4026bd_a7b898d9",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamOutEventCallback.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-27T22:01:31Z",
+      "side": 1,
+      "message": "it\u0027s okay due to legacy, but would it be possible to express this format in AIDL?",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 55
+      },
+      "revId": "7492720e49d1dca655eb817fffd0c5ea89799cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
