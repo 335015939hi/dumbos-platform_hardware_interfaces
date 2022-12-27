@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e631e81_778d8994",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-27T23:10:31Z",
+      "side": 1,
+      "message": "Thanks Steven! Please see my replies.",
+      "revId": "7492720e49d1dca655eb817fffd0c5ea89799cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53a202e0_45e8e44d",
@@ -58,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5a36811_5ee9928c",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-27T23:10:31Z",
+      "side": 1,
+      "message": "It\u0027s a linear multiply factor, so no units really.",
+      "parentUuid": "53a202e0_45e8e44d",
+      "range": {
+        "startLine": 420,
+        "startChar": 13,
+        "endLine": 427,
+        "endChar": 23
+      },
+      "revId": "7492720e49d1dca655eb817fffd0c5ea89799cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de4026bd_a7b898d9",
@@ -71,6 +112,30 @@
       "writtenOn": "2022-12-27T22:01:31Z",
       "side": 1,
       "message": "it\u0027s okay due to legacy, but would it be possible to express this format in AIDL?",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 55
+      },
+      "revId": "7492720e49d1dca655eb817fffd0c5ea89799cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "276f413e_7ff6c73e",
+        "filename": "audio/aidl/android/hardware/audio/core/IStreamOutEventCallback.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-27T23:10:31Z",
+      "side": 1,
+      "message": "@hunga@google.com Andy should know better, but here is my understanding. This metadata is passed from vendor code to the framework (vendor components in the framework, I suppose), and is essentially defined by vendors, not by AOSP. This is similar to camera metadata, but uses a different representation. Andy has surveyed different ways for representing metadata [here, internal doc](https://docs.google.com/document/d/1Ks0oQk5JXs9JQqvm_nnA2N1vkUXFBrq7WQwppyVKPWQ/edit?usp\u003dsharing) and came up with this implementation. Not using xIDL compilers is listed as an advantage 😊",
+      "parentUuid": "de4026bd_a7b898d9",
       "range": {
         "startLine": 162,
         "startChar": 0,
