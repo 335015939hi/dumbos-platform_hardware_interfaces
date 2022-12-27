@@ -52,21 +52,15 @@ union BassBoost {
          */
         ParcelableHolder extension;
         /**
+         * Maximum possible per mille strength.
+         */
+        int maxStrengthPm;
+        /**
          * Indicates whether setting strength is supported. False value indicates only one strength
          * is supported and setParameter() method will return EX_ILLEGAL_ARGUMENT.
          */
         boolean strengthSupported;
     }
-
-    /**
-     * Minimal possible per mille strength.
-     */
-    const int MIN_PER_MILLE_STRENGTH = 0;
-
-    /**
-     * Maximum possible per mille strength.
-     */
-    const int MAX_PER_MILLE_STRENGTH = 1000;
 
     /**
      * The per mille strength of the bass boost effect.
