@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "520444b0_c7375207",
+        "filename": "audio/aidl/android/hardware/audio/effect/Volume.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-27T18:12:25Z",
+      "side": 1,
+      "message": "Please remove extra opening comment.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 7
+      },
+      "revId": "8be898def48b84ebc49f42c3d64fe293fadd0d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f93a3f65_7accf735",
+        "filename": "audio/aidl/android/hardware/audio/effect/Volume.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-27T18:12:25Z",
+      "side": 1,
+      "message": "Please specify that the minimum and maximum volume is specified by corresponding capabilities.",
+      "range": {
+        "startLine": 67,
+        "startChar": 26,
+        "endLine": 67,
+        "endChar": 27
+      },
+      "revId": "8be898def48b84ebc49f42c3d64fe293fadd0d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "842d6d95_2a7f471e",
+        "filename": "audio/aidl/vts/VtsHalVolumeTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-27T18:12:25Z",
+      "side": 1,
+      "message": "I would recommend adding a test assertion somewhere that min and max levels returned by the HAL are in a valid ordering: min \u003c\u003d max.",
+      "range": {
+        "startLine": 152,
+        "startChar": 15,
+        "endLine": 152,
+        "endChar": 72
+      },
+      "revId": "8be898def48b84ebc49f42c3d64fe293fadd0d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
