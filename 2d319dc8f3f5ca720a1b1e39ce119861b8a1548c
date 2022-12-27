@@ -16,6 +16,24 @@
       "message": "I\u0027d recommend we initialize this in the constructor with a consistent value. While it might be a bug for a user to call getVrStrength() prior to setVrStrength(), such an initialization will at least make the buggy behavior consistent and easier to debug.",
       "revId": "2d319dc8f3f5ca720a1b1e39ce119861b8a1548c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de6920c0_434ae6cc",
+        "filename": "audio/aidl/default/virtualizer/VirtualizerSw.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-27T14:28:07Z",
+      "side": 1,
+      "message": "Done. Link : https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2370616",
+      "parentUuid": "cb76ab2c_20b3f802",
+      "revId": "2d319dc8f3f5ca720a1b1e39ce119861b8a1548c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
