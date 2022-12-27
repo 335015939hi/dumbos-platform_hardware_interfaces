@@ -39,6 +39,30 @@
       },
       "revId": "f5e3e806a87e0b30ea2e33c334b5ba01ecc88e58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5388c3ce_d6b5dd99",
+        "filename": "tv/hdmi/connection/aidl/android/hardware/tv/hdmi/connection/IHdmiConnection.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-27T13:20:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95ae1167_47573429",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 10
+      },
+      "revId": "f5e3e806a87e0b30ea2e33c334b5ba01ecc88e58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
