@@ -16,6 +16,29 @@
       "message": "Steven, PTAL at the AIDL change.",
       "revId": "e808b07200bf2d83abe2db618fd915e9b4b61526",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42e2208d_3c8bed52",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-28T18:45:35Z",
+      "side": 1,
+      "message": "this structure is the same as https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2370613\n\nDo we need two copies of it? Would a generic capability structure make sense?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 0
+      },
+      "revId": "e808b07200bf2d83abe2db618fd915e9b4b61526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
