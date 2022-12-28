@@ -63,6 +63,30 @@
       },
       "revId": "e808b07200bf2d83abe2db618fd915e9b4b61526",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4990f331_8b36e8c0",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-12-28T21:10:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7c26a3e7_8dedc02a",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 0
+      },
+      "revId": "e808b07200bf2d83abe2db618fd915e9b4b61526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
