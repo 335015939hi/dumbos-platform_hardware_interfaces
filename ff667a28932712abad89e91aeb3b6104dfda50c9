@@ -69,6 +69,30 @@
       },
       "revId": "ff667a28932712abad89e91aeb3b6104dfda50c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6288285f_b4207d2b",
+        "filename": "audio/aidl/android/hardware/audio/effect/BassBoost.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-28T14:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d569204_741fe133",
+      "range": {
+        "startLine": 72,
+        "startChar": 43,
+        "endLine": 72,
+        "endChar": 47
+      },
+      "revId": "ff667a28932712abad89e91aeb3b6104dfda50c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
