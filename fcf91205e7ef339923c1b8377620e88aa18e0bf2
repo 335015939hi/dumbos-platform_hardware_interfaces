@@ -16,6 +16,52 @@
       "message": "Mikhail, Shunkai, Added changes that covers all tags of DyanmicsProcessing. Please let me know if more changes are needed.",
       "revId": "fcf91205e7ef339923c1b8377620e88aa18e0bf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "078b2fe3_3610ae7b",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-28T02:24:00Z",
+      "side": 1,
+      "message": "I think these doesn\u0027t belong to test case, to me it\u0027s better to have these defined in effect capability?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 64
+      },
+      "revId": "fcf91205e7ef339923c1b8377620e88aa18e0bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c053e08_a7c13fba",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-28T02:24:00Z",
+      "side": 1,
+      "message": "I\u0027m afraid these test combination is not providing enough coverage, can you consider have these defined in effect capability?",
+      "range": {
+        "startLine": 617,
+        "startChar": 32,
+        "endLine": 617,
+        "endChar": 48
+      },
+      "revId": "fcf91205e7ef339923c1b8377620e88aa18e0bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
