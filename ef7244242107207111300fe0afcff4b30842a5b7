@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76213af3_4a04c605",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-28T21:02:07Z",
+      "side": 1,
+      "message": "\u003e There will be a failure due to the check on the line 2132, please consider this:\n\u003e \n\u003e add \u0026 remove supported: #2130 true \u003d\u003e pass (if both reject the invalid argument)\n\u003e add not supported, remove supported: #2130 false, #2134 true \u003d\u003e failure\n\u003e add supported, remove not supported: #2130 true, #2132 fails (UNSUPPORTED_OPERATION instead of ILLEGAL_ARGUMENT) \u003d\u003e failure\n\u003e add \u0026 remove not supported: #2130 false, #2134 false \u003d\u003e pass\n\u003e \n\u003e I agree that the error message in the case 3 is not the same as in the case 2, but the net outcome is the same.\n\nThanks for the explain, I didn\u0027t know `ILLEGAL_ARGUMENT` in #2132 actually indicates supported. Sounds good.",
+      "parentUuid": "a3ac5b11_fcec606a",
+      "range": {
+        "startLine": 2136,
+        "startChar": 38,
+        "endLine": 2136,
+        "endChar": 56
+      },
+      "revId": "ef7244242107207111300fe0afcff4b30842a5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "152f831e_14238599",
