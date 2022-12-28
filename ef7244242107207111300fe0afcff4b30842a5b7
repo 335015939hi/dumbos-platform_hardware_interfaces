@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3ac5b11_fcec606a",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-28T20:56:57Z",
+      "side": 1,
+      "message": "There will be a failure due to the check on the line 2132, please consider this:\n\nadd \u0026 remove supported: #2130 true \u003d\u003e pass (if both reject the invalid argument)\nadd not supported, remove supported: #2130 false, #2134 true \u003d\u003e failure\nadd supported, remove not supported: #2130 true, #2132 fails (UNSUPPORTED_OPERATION instead of ILLEGAL_ARGUMENT) \u003d\u003e failure\nadd \u0026 remove not supported: #2130 false, #2134 false \u003d\u003e pass\n\nI agree that the error message in the case 3 is not the same as in the case 2, but the net outcome is the same.",
+      "parentUuid": "f09a0368_ae221099",
+      "range": {
+        "startLine": 2136,
+        "startChar": 38,
+        "endLine": 2136,
+        "endChar": 56
+      },
+      "revId": "ef7244242107207111300fe0afcff4b30842a5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "152f831e_14238599",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-28T20:24:55Z",
       "side": 1,
       "message": "should this move to line#2461?",
+      "range": {
+        "startLine": 2480,
+        "startChar": 8,
+        "endLine": 2480,
+        "endChar": 33
+      },
+      "revId": "ef7244242107207111300fe0afcff4b30842a5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4149fe7d_1f9bd949",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2480,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-28T20:56:57Z",
+      "side": 1,
+      "message": "Indeed, otherwise the failure added at #2462 would be ignored.",
+      "parentUuid": "152f831e_14238599",
       "range": {
         "startLine": 2480,
         "startChar": 8,
