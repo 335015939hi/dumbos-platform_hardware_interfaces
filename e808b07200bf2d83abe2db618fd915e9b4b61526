@@ -87,6 +87,30 @@
       },
       "revId": "e808b07200bf2d83abe2db618fd915e9b4b61526",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e393d1c8_ff3cc3f4",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-28T21:11:13Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct.\nThe fact that `parcelable Capability` looks same for BassBoost and Virtualizer is more of a coincide because they both have per-mille strength parameter, but IMHO it\u0027s not common enough to make a generic capability parcelable for this.",
+      "parentUuid": "7c26a3e7_8dedc02a",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 0
+      },
+      "revId": "e808b07200bf2d83abe2db618fd915e9b4b61526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
