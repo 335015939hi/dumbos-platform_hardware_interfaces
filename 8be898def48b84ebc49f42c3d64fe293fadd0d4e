@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6f93a0f_8a243ae1",
+        "filename": "audio/aidl/android/hardware/audio/effect/Volume.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-28T14:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "520444b0_c7375207",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 7
+      },
+      "revId": "8be898def48b84ebc49f42c3d64fe293fadd0d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f93a3f65_7accf735",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-27T18:12:25Z",
       "side": 1,
       "message": "Please specify that the minimum and maximum volume is specified by corresponding capabilities.",
+      "range": {
+        "startLine": 67,
+        "startChar": 26,
+        "endLine": 67,
+        "endChar": 27
+      },
+      "revId": "8be898def48b84ebc49f42c3d64fe293fadd0d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40cc69c8_982b0b40",
+        "filename": "audio/aidl/android/hardware/audio/effect/Volume.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-28T14:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f93a3f65_7accf735",
       "range": {
         "startLine": 67,
         "startChar": 26,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44129990_7affffed",
+        "filename": "audio/aidl/vts/VtsHalVolumeTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-28T14:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "842d6d95_2a7f471e",
+      "range": {
+        "startLine": 152,
+        "startChar": 15,
+        "endLine": 152,
+        "endChar": 72
+      },
+      "revId": "8be898def48b84ebc49f42c3d64fe293fadd0d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84d77931_20142814",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-12-28T02:30:33Z",
       "side": 1,
       "message": "Please add a comment here to state it\u0027s testing value: `/* mute */`",
+      "range": {
+        "startLine": 178,
+        "startChar": 16,
+        "endLine": 178,
+        "endChar": 29
+      },
+      "revId": "8be898def48b84ebc49f42c3d64fe293fadd0d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a235ebf_defa4667",
+        "filename": "audio/aidl/vts/VtsHalVolumeTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2022-12-28T14:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84d77931_20142814",
       "range": {
         "startLine": 178,
         "startChar": 16,
