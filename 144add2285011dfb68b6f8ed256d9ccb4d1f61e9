@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "767ab127_a0e72b0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-28T17:50:14Z",
+      "side": 1,
+      "message": "Please refine the interface comment, otherwise looks good.",
+      "revId": "144add2285011dfb68b6f8ed256d9ccb4d1f61e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31ad0bd8_671472d6",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-28T17:50:14Z",
+      "side": 1,
+      "message": "I think removing the statement that \u00270\u0027 is the lower boundary is not right, especially considering that we actually have tests for that. Let\u0027s try being more precise in our interface contracts. I would suggest saying here: \"The value of the strength must be non-negative and not exceed the value specified by the \u0027maxStrengthPm\u0027 capability.\"",
+      "range": {
+        "startLine": 73,
+        "startChar": 7,
+        "endLine": 73,
+        "endChar": 61
+      },
+      "revId": "144add2285011dfb68b6f8ed256d9ccb4d1f61e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
