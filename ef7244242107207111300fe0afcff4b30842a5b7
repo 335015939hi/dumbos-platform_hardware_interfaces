@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f09a0368_ae221099",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-28T20:24:55Z",
+      "side": 1,
+      "message": "I think with `else if` it\u0027s not guaranteed for add and remove supported together?",
+      "range": {
+        "startLine": 2136,
+        "startChar": 38,
+        "endLine": 2136,
+        "endChar": 56
+      },
+      "revId": "ef7244242107207111300fe0afcff4b30842a5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "152f831e_14238599",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2480,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-28T20:24:55Z",
+      "side": 1,
+      "message": "should this move to line#2461?",
+      "range": {
+        "startLine": 2480,
+        "startChar": 8,
+        "endLine": 2480,
+        "endChar": 33
+      },
+      "revId": "ef7244242107207111300fe0afcff4b30842a5b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
