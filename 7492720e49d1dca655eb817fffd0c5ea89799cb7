@@ -163,6 +163,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5ea3e66_9b708113",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2461,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-28T19:49:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c9029e39_b55e3fbc",
+      "revId": "7492720e49d1dca655eb817fffd0c5ea89799cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45734dcc_c283d9cd",
@@ -176,6 +194,24 @@
       "writtenOn": "2022-12-28T14:39:43Z",
       "side": 1,
       "message": "...but it doesn\u0027t look like we set it to any other value before this line.  So `atLeastOneSupports` never gets set to `true`, and so this test always reports a `GTEST_SKIP` at the end.\n\nThe `DualMonoMode` test case before this one does have `isSupported` getting set to different values.  I don\u0027t know if we need to also have similar settings of this variable in this test case, or if we want to remove the variable from this test case altogether as not relevant to `LatencyMode`.",
+      "revId": "7492720e49d1dca655eb817fffd0c5ea89799cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32477eeb_21f07d23",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2484,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-28T19:49:52Z",
+      "side": 1,
+      "message": "Greg, thanks a lot for pointing out this issue! Indeed, this isn\u0027t the logic I intended to put here. Fixing in aosp/2370962.",
+      "parentUuid": "45734dcc_c283d9cd",
       "revId": "7492720e49d1dca655eb817fffd0c5ea89799cb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
