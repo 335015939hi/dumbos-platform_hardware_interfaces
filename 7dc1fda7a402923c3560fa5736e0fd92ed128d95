@@ -1,5 +1,52 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e47a83cd_a02bc599",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-12-28T08:12:39Z",
+      "side": 1,
+      "message": "I think we\u0027ll need to consider `vendor_api_level` (via get_vsr_api_level()) as well.\nOnce a device was released on S but OTA to T later on, it maybe not have `IRemotelyProvisionedComponent` which leads to this test fail.",
+      "range": {
+        "startLine": 1139,
+        "startChar": 24,
+        "endLine": 1139,
+        "endChar": 25
+      },
+      "revId": "7dc1fda7a402923c3560fa5736e0fd92ed128d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1c93fa4_4db5b1a3",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2022-12-28T08:12:39Z",
+      "side": 1,
+      "message": "Same to above.",
+      "range": {
+        "startLine": 1217,
+        "startChar": 24,
+        "endLine": 1217,
+        "endChar": 25
+      },
+      "revId": "7dc1fda7a402923c3560fa5736e0fd92ed128d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
