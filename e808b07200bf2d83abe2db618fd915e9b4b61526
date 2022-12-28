@@ -39,6 +39,30 @@
       },
       "revId": "e808b07200bf2d83abe2db618fd915e9b4b61526",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c26a3e7_8dedc02a",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-28T19:17:24Z",
+      "side": 1,
+      "message": "Capabilities vary per effect. We define them in a consistent way, so it\u0027s more like a \"pattern\", and it is not possible to \"generify\" it further without compromising usability. For example, we could define such fragments as \"strength support\" as parcelables (I guess, Steven, this is what you are referring to when pointing to BassBoost), and then stuff per-effect \u0027Capability\u0027 parcelable with these fragments, but that would make it harder to deal with due to nesting. Also, I\u0027m not sure there is that many cases of similar capabilities among effects.\n\n@yaoshunkai@google.com Shunkai, is my understanding correct?",
+      "parentUuid": "42e2208d_3c8bed52",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 0
+      },
+      "revId": "e808b07200bf2d83abe2db618fd915e9b4b61526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
