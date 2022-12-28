@@ -605,6 +605,44 @@ TEST_P(GraphicsMapperHidlTest, ImportFreeBufferClone) {
 }
 
 /**
+ * Test IMapper::importBuffer and IMapper::freeBuffer and IMapper::lock with cloned buffers.
+ */
+TEST_P(GraphicsMapperHidlTest, ImportFreeLockBufferClone) {
+    const auto& info = mDummyDescriptorInfo;
+    const native_handle_t* rawHandle;
+    ASSERT_NO_FATAL_FAILURE(rawHandle = mGralloc->allocate(info, false));
+
+    // A cloned handle is a raw handle. Check that we can import it multiple
+    // times.
+    const native_handle_t* importedBufferHandles[3];
+    ASSERT_NO_FATAL_FAILURE(importedBufferHandles[0] = mGralloc->importBuffer(rawHandle));
+    ASSERT_NO_FATAL_FAILURE(importedBufferHandles[1] = mGralloc->importBuffer(rawHandle));
+
+    // lock buffer
+    const IMapper::Rect region{0, 0, static_cast<int32_t>(info.width),
+                               static_cast<int32_t>(info.height)};
+    unique_fd fence;
+    uint8_t* data;
+    ASSERT_NO_FATAL_FAILURE(
+            data = static_cast<uint8_t*>(
+                    mGralloc->lock(importedBufferHandles[0], info.usage, region, fence.release())));
+
+    // Test import raw handle when a imported buffer handle is locked.
+    ASSERT_NO_FATAL_FAILURE(importedBufferHandles[2] = mGralloc->importBuffer(rawHandle));
+
+    // Test free imported buffer handle when another imported buffer handle is locked.
+    // This should be no error, because imported buffer handles are independent to each other.
+    ASSERT_NO_FATAL_FAILURE(mGralloc->freeBuffer(importedBufferHandles[1]));
+
+    // Unlock locked imported buffer handle before free itself.
+    ASSERT_NO_FATAL_FAILURE(fence.reset(mGralloc->unlock(importedBufferHandles[0])));
+    ASSERT_NO_FATAL_FAILURE(mGralloc->freeBuffer(importedBufferHandles[0]));
+    ASSERT_NO_FATAL_FAILURE(mGralloc->freeBuffer(importedBufferHandles[2]));
+
+    ASSERT_NO_FATAL_FAILURE(mGralloc->freeBuffer(rawHandle));
+}
+
+/**
  * Test IMapper::importBuffer and IMapper::freeBuffer cross mapper instances.
  */
 TEST_P(GraphicsMapperHidlTest, ImportFreeBufferSingleton) {
