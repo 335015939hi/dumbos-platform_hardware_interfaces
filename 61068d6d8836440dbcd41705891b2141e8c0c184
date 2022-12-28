@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dd4ee27_b0ea23af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-28T17:55:19Z",
+      "side": 1,
+      "message": "Please refine the interface comment, otherwise looks good.",
+      "revId": "61068d6d8836440dbcd41705891b2141e8c0c184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b9f22b4_8209f7f3",
+        "filename": "audio/aidl/android/hardware/audio/effect/BassBoost.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-12-28T17:55:19Z",
+      "side": 1,
+      "message": "I think removing the statement that \u00270\u0027 is the lower boundary is not right, especially considering that we actually have tests for that. Let\u0027s try being more precise in our interface contracts. I would suggest saying here: \"The value of the strength must be non-negative and not exceed the value specified by the \u0027maxStrengthPm\u0027 capability.\"",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 61
+      },
+      "revId": "61068d6d8836440dbcd41705891b2141e8c0c184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
