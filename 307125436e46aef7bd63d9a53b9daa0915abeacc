@@ -16,6 +16,24 @@
       "message": "See comments on https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2302957",
       "revId": "307125436e46aef7bd63d9a53b9daa0915abeacc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6b33e9c_482757cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-12-29T21:36:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab575b09_0c72aaef",
+      "revId": "307125436e46aef7bd63d9a53b9daa0915abeacc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
