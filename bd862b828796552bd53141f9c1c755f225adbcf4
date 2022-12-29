@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc11ec51_2885b594",
+        "filename": "audio/aidl/default/acousticEchoCanceler/AcousticEchoCancelerSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-29T01:52:59Z",
+      "side": 1,
+      "message": "thanks for the comment, addressed in aosp/2370616",
+      "parentUuid": "f15a0066_101d5a0d",
+      "revId": "bd862b828796552bd53141f9c1c755f225adbcf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3958f473_c5725227",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "437f5fcf_71d00d33",
+        "filename": "audio/aidl/default/automaticGainControl/AutomaticGainControlSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-29T01:52:59Z",
+      "side": 1,
+      "message": "thanks for the comment, addressed in aosp/2370616",
+      "parentUuid": "3958f473_c5725227",
+      "revId": "bd862b828796552bd53141f9c1c755f225adbcf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "289cf7b8_8cc76285",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-12-22T20:29:46Z",
       "side": 1,
       "message": "Similar comment about initialization.",
+      "revId": "bd862b828796552bd53141f9c1c755f225adbcf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f4d6292_5abd080b",
+        "filename": "audio/aidl/default/automaticGainControl/AutomaticGainControlSw.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-29T01:52:59Z",
+      "side": 1,
+      "message": "thanks for the comment, addressed in aosp/2370616",
+      "parentUuid": "289cf7b8_8cc76285",
       "revId": "bd862b828796552bd53141f9c1c755f225adbcf4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
