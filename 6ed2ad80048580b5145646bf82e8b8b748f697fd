@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10533de3_571dee12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-12-29T21:36:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ff8211ec_bdd6d04e",
+      "revId": "6ed2ad80048580b5145646bf82e8b8b748f697fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a16068c2_2b97a796",
@@ -65,6 +83,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee39775d_0941105a",
+        "filename": "graphics/composer/aidl/vts/VtsComposerClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-12-29T21:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd353213_76c5e2e2",
+      "range": {
+        "startLine": 388,
+        "startChar": 12,
+        "endLine": 403,
+        "endChar": 13
+      },
+      "revId": "6ed2ad80048580b5145646bf82e8b8b748f697fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbffef87_6698c8bf",
@@ -102,6 +144,30 @@
       "side": 1,
       "message": "I have updated the new patchset.",
       "parentUuid": "bbffef87_6698c8bf",
+      "range": {
+        "startLine": 416,
+        "startChar": 12,
+        "endLine": 416,
+        "endChar": 66
+      },
+      "revId": "6ed2ad80048580b5145646bf82e8b8b748f697fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62ef4698_05520404",
+        "filename": "graphics/composer/aidl/vts/VtsComposerClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2022-12-29T21:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50e8053c_26d42cb0",
       "range": {
         "startLine": 416,
         "startChar": 12,
