@@ -62,6 +62,30 @@
       },
       "revId": "fcf91205e7ef339923c1b8377620e88aa18e0bf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19ac6f59_9c46acce",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2022-12-29T04:44:28Z",
+      "side": 1,
+      "message": "Please ignore this comment, comparing to HIDL coverage, it\u0027s good for now to test negative, 0, and positive FrameDurations.",
+      "parentUuid": "4c053e08_a7c13fba",
+      "range": {
+        "startLine": 617,
+        "startChar": 32,
+        "endLine": 617,
+        "endChar": 48
+      },
+      "revId": "fcf91205e7ef339923c1b8377620e88aa18e0bf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
