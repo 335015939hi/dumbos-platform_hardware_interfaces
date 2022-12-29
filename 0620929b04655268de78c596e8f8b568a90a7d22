@@ -191,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "456c818a_62c390b8",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2022-12-29T21:08:41Z",
+      "side": 1,
+      "message": "Mikhail, there are multiple test suites. There are common parameters across test suites. Labelling each param of test suite with a unique enum label is confusing and is repetitive. I have ensured the variables are named properly. Is this sufficient? Do you want me to go ahead and upload the enum change as well.",
+      "parentUuid": "2bc32f35_1cd6d570",
+      "range": {
+        "startLine": 405,
+        "startChar": 48,
+        "endLine": 405,
+        "endChar": 49
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b307587_5e19d5d0",
         "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
         "patchSetId": 3
