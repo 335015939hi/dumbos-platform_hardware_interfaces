@@ -195,6 +195,12 @@ void convertToHidlEvent(const AidlEvent& aidlEvent, V2_1Event* hidlEvent) {
             *(reinterpret_cast<int32_t*>(&hidlEvent->u.data[6])) = ht.discontinuityCount;
             break;
         }
+	case AidlSensorType::HEADING: {
+	    const auto& ht = aidlEvent.payload.get<Event::EventPayload::heading>();
+	    hidlEvent->u.data[0] = ht.heading;
+	    hidlEvent->u.data[1] = ht.accuracy;
+	    break;
+	}
         default: {
             CHECK_GE((int32_t)aidlEvent.sensorType, (int32_t)SensorType::DEVICE_PRIVATE_BASE);
             std::copy(std::begin(aidlEvent.payload.get<AidlEvent::EventPayload::data>().values),
@@ -342,7 +348,13 @@ void convertToAidlEvent(const V2_1Event& hidlEvent, AidlEvent* aidlEvent) {
                         *(reinterpret_cast<const int32_t*>(&hidlEvent.u.data[6]));
 
                 aidlEvent->payload.set<Event::EventPayload::Tag::headTracker>(headTracker);
-            } else {
+            } else if(static_cast<int32_t>(hidlEvent.sensorType) ==
+		static_cast<int32_t>(AidlSensorType::HEADING)) {
+		Event::EventPayload::Heading heading;
+	        heading.heading = hidlEvent.u.data[0];
+		heading.accuracy = hidlEvent.u.data[1];
+	        aidlEvent->payload.set<Event::EventPayload::Tag::heading>(heading);
+	    } else {
                 CHECK_GE((int32_t)hidlEvent.sensorType,
                          (int32_t)V2_1SensorType::DEVICE_PRIVATE_BASE);
                 AidlEvent::EventPayload::Data data;
