@@ -22,6 +22,30 @@
       },
       "revId": "ae4abdaddaf9aba06d09b51d2d74debdb4feaba0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9263e703_6714d598",
+        "filename": "usb/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1373349
+      },
+      "writtenOn": "2022-12-30T03:30:39Z",
+      "side": 1,
+      "message": "I think the component 175220 is a correct one to use.",
+      "parentUuid": "a61b125e_69e2925b",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 31
+      },
+      "revId": "ae4abdaddaf9aba06d09b51d2d74debdb4feaba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
