@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9f0fa3f_d45d701f",
+        "filename": "vibrator/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1598788
+      },
+      "writtenOn": "2022-12-30T05:03:41Z",
+      "side": 1,
+      "message": "Eli has transferred to another function.\n\nI would recommend chrispaulo@google.com and nathankulczak@google.com to this OWNERS file.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 7
+      },
+      "revId": "cefd70d33846fb129e155a72c459609273aa2ca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
