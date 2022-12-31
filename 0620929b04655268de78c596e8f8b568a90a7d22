@@ -190,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d992222_8ba1fed5",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2022-12-31T06:10:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "034055cf_a560fbc0",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 25
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bc32f35_1cd6d570",
@@ -251,6 +275,30 @@
       "side": 1,
       "message": "I think, we can omit having enums if we leave the only place in code where we get positional parameters (excluding the parameter with index 0—the effect descriptor, I think for it we should have a constant so we can easily distinguish it from other zeroes).\n\nFor example, in this particular test, we can provide a function which fills out an instance of `DynamicsProcessing::EngineArchitecture` from the parameter tuple—the code which is currently in the test name formatter. We can replace individual fields in the `DynamicsProcessingTestEngineArchitecture` fixture with a field of the `DynamicsProcessing::EngineArchitecture` type, too. I think, that should work.",
       "parentUuid": "456c818a_62c390b8",
+      "range": {
+        "startLine": 405,
+        "startChar": 48,
+        "endLine": 405,
+        "endChar": 49
+      },
+      "revId": "0620929b04655268de78c596e8f8b568a90a7d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "949a5991_eddd7520",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2022-12-31T06:10:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fefac2b_bdfa928f",
       "range": {
         "startLine": 405,
         "startChar": 48,
