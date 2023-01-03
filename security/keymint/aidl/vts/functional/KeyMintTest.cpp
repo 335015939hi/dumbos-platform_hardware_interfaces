@@ -1136,8 +1136,8 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
  * that has been generated using an associate IRemotelyProvisionedComponent.
  */
 TEST_P(NewKeyGenerationTest, RsaWithRkpAttestation) {
-    if (AidlVersion() < 2) {
-        GTEST_SKIP() << "Only required starting with KeyMint v2";
+    if (get_vsr_api_level() < 33) {
+        GTEST_SKIP() << "Only required starting with VSR 13+";
     }
 
     // There should be an IRemotelyProvisionedComponent instance associated with the KeyMint
@@ -1214,8 +1214,8 @@ TEST_P(NewKeyGenerationTest, RsaWithRkpAttestation) {
  * that has been generated using an associate IRemotelyProvisionedComponent.
  */
 TEST_P(NewKeyGenerationTest, EcdsaWithRkpAttestation) {
-    if (AidlVersion() < 2) {
-        GTEST_SKIP() << "Only required starting with KeyMint v2";
+    if (get_vsr_api_level() < 33) {
+        GTEST_SKIP() << "Only required starting with VSR 13+";
     }
 
     // There should be an IRemotelyProvisionedComponent instance associated with the KeyMint
