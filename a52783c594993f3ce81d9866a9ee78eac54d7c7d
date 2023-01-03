@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ec63d20_1004bc39",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "If `bytes` comes in with a size less than `kHeaderSize`, this will underflow `payload_len` and be the maximum `size_t`.",
+      "range": {
+        "startLine": 55,
+        "startChar": 29,
+        "endLine": 55,
+        "endChar": 34
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df476e83_ae3476ac",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "`IsExtended`?\n\nThe [style guide](https://google.github.io/styleguide/cppguide.html#Function_Names) writes\n\n\u003e Regular functions have mixed case; accessors and mutators may be named like variables.\n\u003e\n\u003e Ordinarily, functions should start with a capital letter and have a capital letter for each new word.\n\u003e```\n\u003eAddTableEntry()\n\u003eDeleteUrl()\n\u003eOpenFileOrDie()\n\u003e```",
+      "range": {
+        "startLine": 113,
+        "startChar": 9,
+        "endLine": 113,
+        "endChar": 19
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c593dbcc_f54b8ea1",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "It appears that instances of this class can exist in two states: \"command\" or \"response\", which are distinguished by the different constructors. `getLc` and `getLe` appear to be \"command\"-specific because the \"response\" constructors don\u0027t assign them. Should they error out in the \"command\" state instead of returning `0`?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 41
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fb26e7b_2ab5697a",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "If this is intended to be an [abstract class](https://en.cppreference.com/w/cpp/language/abstract_class) rather than a predeclaration, the method should be `\u003d 0;`. I assume this is the intention because there is no `Applet::select` or `Applet::process` method defined elsewhere in the file.\n\nSame issue for the next method.",
+      "range": {
+        "startLine": 161,
+        "startChar": 50,
+        "endLine": 161,
+        "endChar": 52
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d664b1f_e22370b3",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "The [style guide](https://google.github.io/styleguide/cppguide.html#Inheritance) writes\n\n\u003e **Do not use `virtual` when declaring an override.** Rationale: A function or destructor marked override or final that is not an override of a base class virtual function will not compile, and this helps catch common errors. The specifiers serve as documentation; if no specifier is present, the reader has to check all ancestors of the class in question to determine if the function or destructor is virtual or not.\n\nSame issue for `process` below.",
+      "range": {
+        "startLine": 178,
+        "startChar": 4,
+        "endLine": 178,
+        "endChar": 11
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f49702d_350afb51",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "There\u0027s no guarantee here that `aid` is non-empty, in which case this may access the element at unsigned `0-1` which would be out of bounds.",
+      "range": {
+        "startLine": 179,
+        "startChar": 16,
+        "endLine": 179,
+        "endChar": 30
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2abea90d_9dcb0ebd",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "`response_` and `response_offset_`?\n\nThe [style guide](https://google.github.io/styleguide/cppguide.html#Variable_Names) writes\n\n\u003e The names of variables (including function parameters) and data members are all lowercase, with underscores between words. Data members of classes (but not structs) additionally have trailing underscores. For instance: `a_local_variable`, `a_struct_data_member`, `a_class_data_member_`.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 31
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74f0f5d8_8e439412",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "is `aidlReturn` guaranteed to be non-`nullptr` by the superclass?",
+      "range": {
+        "startLine": 425,
+        "startChar": 8,
+        "endLine": 425,
+        "endChar": 19
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ab29ab5_2532f23e",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "`mClientCallback` is only assigned a target by `init`. Since this is a public method, can this null-check `mClientCallback` in case `init` is not called first?",
+      "range": {
+        "startLine": 431,
+        "startChar": 8,
+        "endLine": 431,
+        "endChar": 23
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "839375ff_19f04907",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "Can the declaration of `std::shared_ptr\u003cse::Applet\u003e applet \u003d ...;` be moved here?\n\nThe [style guide](https://google.github.io/styleguide/cppguide.html#Local_Variables) writes\n\n\u003e Place a function\u0027s variables in the narrowest scope possible, and initialize variables in the declaration.\n\u003e \n\u003e C++ allows you to declare variables anywhere in a function. We encourage you to declare them in as local a scope as possible, and as close to the first use as possible. This makes it easier for the reader to find the declaration and see what type the variable is and what it was initialized to.\n\n`applet` is not used outside of this `if` block.",
+      "range": {
+        "startLine": 465,
+        "startChar": 12,
+        "endLine": 465,
+        "endChar": 39
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c150a82c_0d53d712",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "Please address the build warning. Maybe `channelNumber` should be a `size_t`?",
+      "range": {
+        "startLine": 507,
+        "startChar": 8,
+        "endLine": 507,
+        "endChar": 67
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f1d695e_2feb174e",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "This check should be `\u003e\u003d`. If `channelNumber \u003d\u003d mChannels.size()`, it is accessing the next entry after the last entry.",
+      "range": {
+        "startLine": 557,
+        "startChar": 26,
+        "endLine": 557,
+        "endChar": 27
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2bdea55_f3ff59d8",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2023-01-03T20:58:00Z",
+      "side": 1,
+      "message": "There is no validation that `channelNumber` is within the bounds of `mChannels`. It comes from external input.",
+      "range": {
+        "startLine": 595,
+        "startChar": 20,
+        "endLine": 595,
+        "endChar": 45
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
