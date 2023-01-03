@@ -22,6 +22,30 @@
       },
       "revId": "61d6c00150044b746d49c5e98fd56feb25693944",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c280cf60_c06061ec",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-03T17:44:12Z",
+      "side": 1,
+      "message": "Nothing now - it\u0027s required to be 1. I\u0027d prefer to wait until we have multiple versions to design how they work, or we could add a symbol now. I\u0027ll follow up over email",
+      "parentUuid": "4d97710d_b03d65e9",
+      "range": {
+        "startLine": 834,
+        "startChar": 8,
+        "endLine": 834,
+        "endChar": 30
+      },
+      "revId": "61d6c00150044b746d49c5e98fd56feb25693944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
