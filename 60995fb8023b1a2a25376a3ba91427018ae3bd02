@@ -16,6 +16,52 @@
       "message": "Devin, could you please renew your reviews? They expired because of a new patchset.",
       "revId": "60995fb8023b1a2a25376a3ba91427018ae3bd02",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38763259_b3decfe6",
+        "filename": "tv/hdmi/earc/aidl/android/hardware/tv/hdmi/earc/IEArc.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-03T17:59:53Z",
+      "side": 1,
+      "message": "Maybe something like \"The ServiceSpecificException status is set to:\" or a lot of HALs say \"@throws ServiceSpecificException with the following values:\".",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 16
+      },
+      "revId": "60995fb8023b1a2a25376a3ba91427018ae3bd02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a01b8514_75bc174f",
+        "filename": "tv/hdmi/earc/aidl/android/hardware/tv/hdmi/earc/IEArc.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-03T17:59:53Z",
+      "side": 1,
+      "message": "Add the type for where these come from like `Result::SUCCESS`",
+      "range": {
+        "startLine": 34,
+        "startChar": 22,
+        "endLine": 34,
+        "endChar": 29
+      },
+      "revId": "60995fb8023b1a2a25376a3ba91427018ae3bd02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -63,6 +63,30 @@
       },
       "revId": "f5e3e806a87e0b30ea2e33c334b5ba01ecc88e58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a8e165b_89d77b25",
+        "filename": "tv/hdmi/connection/aidl/android/hardware/tv/hdmi/connection/IHdmiConnection.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-03T17:59:53Z",
+      "side": 1,
+      "message": "Add the same comment as the one in `IEArc.aidl` for the expected ServiceSpecificException here.",
+      "parentUuid": "5388c3ce_d6b5dd99",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 10
+      },
+      "revId": "f5e3e806a87e0b30ea2e33c334b5ba01ecc88e58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
