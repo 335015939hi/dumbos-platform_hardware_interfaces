@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbb29186_786eb24f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-03T18:50:14Z",
+      "side": 1,
+      "message": "The test failures are unrelated to the CL however I\u0027m not a fan of bypassing presubmit. Let\u0027s wait until the failures get fixed and get a clean Presubmit Verified.",
+      "revId": "af91ce9f7a4220747ea39f0762bef4e60784d26f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
