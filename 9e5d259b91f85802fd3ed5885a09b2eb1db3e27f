@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a496381_d7fb2d8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2023-01-03T19:01:02Z",
+      "side": 1,
+      "message": "Bug: 263591012",
+      "revId": "9e5d259b91f85802fd3ed5885a09b2eb1db3e27f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "328c8052_a91e7d35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2023-01-03T19:01:02Z",
+      "side": 1,
+      "message": "Ayushi,\nPlease update the bug id to new bug filed by clusterfuzz as that makes it easier to track once the CL is merged.",
+      "revId": "9e5d259b91f85802fd3ed5885a09b2eb1db3e27f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
