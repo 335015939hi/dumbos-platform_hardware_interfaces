@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35d68ce7_1c064dba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-03T18:25:05Z",
+      "side": 1,
+      "message": "Devin, could you please repeat your AIDL approval? I\u0027ve rebased to fix a merge conflict and addressed Eric\u0027s comment, and your +1 got removed. Thanks!",
+      "revId": "10c6fe2b8fa9c216d22de63bf3a92a5e1bc28ac4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
