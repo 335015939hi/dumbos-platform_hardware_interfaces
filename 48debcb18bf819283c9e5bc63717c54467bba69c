@@ -395,6 +395,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b94b0c5_441c6a95",
+        "filename": "tetheroffload/control/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-03T23:25:35Z",
+      "side": 1,
+      "message": "Looks like this is enabled for the client code in the latest patch.",
+      "parentUuid": "0218f62c_dab0e79c",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16076495_c34567fb",
@@ -479,6 +503,30 @@
       "side": 1,
       "message": "There is no specific format right now.",
       "parentUuid": "dc0857d5_720b06f2",
+      "range": {
+        "startLine": 53,
+        "startChar": 21,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "48debcb18bf819283c9e5bc63717c54467bba69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b689769c_4ac4e986",
+        "filename": "tetheroffload/control/aidl/android/hardware/tetheroffload/control/IOffloadControl.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-03T23:25:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dda7f48d_56acbba0",
       "range": {
         "startLine": 53,
         "startChar": 21,

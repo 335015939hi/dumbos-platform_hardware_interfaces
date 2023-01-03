@@ -161,6 +161,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14b146d4_4f7c7047",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-03T23:25:35Z",
+      "side": 1,
+      "message": "The framework code in mainline module is here: aosp/2372828",
+      "parentUuid": "6f30855d_3387e7c6",
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81304062_756396ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-03T23:25:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "76a0f5c8_9fa343cb",
+      "revId": "05d7c88edb9db79bd4c42b62260fd3aece86075b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a50fdc4b_0c13d194",
