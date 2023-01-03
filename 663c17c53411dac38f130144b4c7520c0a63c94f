@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2cca63a_4406e43e",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2023-01-03T21:38:33Z",
+      "side": 1,
+      "message": "This should only be true if upstream was set.",
+      "range": {
+        "startLine": 203,
+        "startChar": 51,
+        "endLine": 203,
+        "endChar": 70
+      },
+      "revId": "663c17c53411dac38f130144b4c7520c0a63c94f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17ad9f65_43025b55",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1203633
+      },
+      "writtenOn": "2023-01-03T21:38:33Z",
+      "side": 1,
+      "message": "With current implementation the upstream iface name is not checked, this test will fail.",
+      "range": {
+        "startLine": 401,
+        "startChar": 14,
+        "endLine": 401,
+        "endChar": 33
+      },
+      "revId": "663c17c53411dac38f130144b4c7520c0a63c94f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
