@@ -22,6 +22,30 @@
       },
       "revId": "cefd70d33846fb129e155a72c459609273aa2ca2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac957de5_2025baf9",
+        "filename": "vibrator/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-03T23:53:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c9f0fa3f_d45d701f",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 7
+      },
+      "revId": "cefd70d33846fb129e155a72c459609273aa2ca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
