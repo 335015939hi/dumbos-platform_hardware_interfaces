@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf04082d_502f39a0",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-03T23:30:36Z",
+      "side": 1,
+      "message": "This can be done in a follow up CL.",
+      "parentUuid": "4997fc7f_1ed0683c",
+      "range": {
+        "startLine": 702,
+        "startChar": 12,
+        "endLine": 702,
+        "endChar": 40
+      },
+      "revId": "90373fe4d6289290f8a71cdf4a0e5f1e5fb857c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e5fff582_afaad0d3",
         "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArc.aidl",
         "patchSetId": 7
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-03T18:04:40Z",
       "side": 1,
       "message": "Sorry, I\u0027m making comments in the wrong CLs with the refactoring 😊\nhttps://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2347525/8/tv/hdmi/earc/aidl/android/hardware/tv/hdmi/earc/IEArc.aidl#33\nYou can resolve that here or there.",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 16
+      },
+      "revId": "90373fe4d6289290f8a71cdf4a0e5f1e5fb857c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2760e38_f59a1b8b",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArc.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-03T23:30:36Z",
+      "side": 1,
+      "message": "Maybe this should just be resolved in the refactor CL so this topic can land.",
+      "parentUuid": "e5fff582_afaad0d3",
       "range": {
         "startLine": 33,
         "startChar": 11,
