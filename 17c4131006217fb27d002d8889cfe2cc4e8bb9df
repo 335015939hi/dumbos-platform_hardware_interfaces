@@ -1,0 +1,268 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6068dcc0_b71a762f",
+        "filename": "health/aidl/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "This should be in a new line",
+      "range": {
+        "startLine": 340,
+        "startChar": 2,
+        "endLine": 340,
+        "endChar": 5
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f852ad3b_c3c1e61b",
+        "filename": "health/aidl/android/hardware/health/BatteryChargingPolicy.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "I am not sure if this is clear enough. Does that mean, under this policy, the device \"MUST\" stop at 80% or \"MAY\" stop at 80%?\n\nIf the latter, maybe a clearer phrase? e.g. \"Preserve battery life aggressively. A device must charge to the level to extend battery life as much as possible.\" (This implies that the level is implementation defined, which may or may not be 80%)\n\nEDIT: Or perhaps just `@see BatteryChargingState.LONG_LIFE`. Same for adaptive below",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 40
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db7121f9_674fc69a",
+        "filename": "health/aidl/android/hardware/health/BatteryChargingState.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "LONG_LIFE?",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "070baee5_57e08044",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "`@deprecated replaced by BatteryChargingState.TOO_HOT`\n\nsame below",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 72
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e11f254_644e3d71",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "nit: explain \"reserved for what\"?",
+      "range": {
+        "startLine": 54,
+        "startChar": 28,
+        "endLine": 54,
+        "endChar": 29
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c035bb1f_edb1abe9",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "nit: Is \"information\" and \"data\" repeated?",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 37
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55f00ae9_36bbd034",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "nit: I still think this is a bit unclear about the 0 value. \n\nIf batteryStateOfHealth is 0, batteryStatus is not necessary UNKNOWN (batteryStatus could be something else)\n\nIf batteryStatus is UNKNOWN, then batteryStateOfHealth is 0.\n\nRight?",
+      "range": {
+        "startLine": 142,
+        "startChar": 7,
+        "endLine": 142,
+        "endChar": 74
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e56bb40_7e5e3ae9",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "data?",
+      "range": {
+        "startLine": 232,
+        "startChar": 36,
+        "endLine": 232,
+        "endChar": 42
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f0f54ae_abbc9259",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "Delete? I would suggest this to at least set the first usage date if manufacturing date is not available.",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 40
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f41417a9_ebe42caf",
+        "filename": "health/aidl/default/android.hardware.health-service.example.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "why is this reverted?",
+      "range": {
+        "startLine": 4,
+        "startChar": 17,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ce7b02c_ba3ef308",
+        "filename": "health/aidl/vts/functional/VtsHalHealthTargetTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "Is setChargingPolicy tested anywhere?",
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3fc7540_0a13c1b2",
+        "filename": "health/utils/libhealthshim/shim.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-03T20:39:02Z",
+      "side": 1,
+      "message": "nit: just skip logging this warning, like getChargingPolicy etc.",
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
