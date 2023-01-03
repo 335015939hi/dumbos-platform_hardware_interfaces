@@ -22,6 +22,30 @@
       },
       "revId": "eec9ab4a52dfb2a8085a04ea2ec39c09165f19e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e521912_00a377c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-01-03T21:59:49Z",
+      "side": 1,
+      "message": "\"it\u0027s complicated\"\n\nVSR 12 has to support RKP, but a device shipping with Android 12 doesn\u0027t. However, devices shipping with Android 13 really do have to ship with RKP support. That\u0027s why I checked VSR here.\n\nHowever, now that I think about it, I\u0027m not sure this check is actually right. The right check is more like \"did it ship VSR12+? Was the first api level at least 13?\"\n\nI\u0027ll update this with a more appropriate check.",
+      "parentUuid": "45bf76c8_d4677cc9",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 17
+      },
+      "revId": "eec9ab4a52dfb2a8085a04ea2ec39c09165f19e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
