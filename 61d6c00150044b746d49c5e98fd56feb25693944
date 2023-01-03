@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d97710d_b03d65e9",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2023-01-03T16:34:39Z",
+      "side": 1,
+      "message": "what is this version supposed to map to? On the naming / C side, we\u0027ve been calling this \"mapper v5\" so should this be version\u003d5 to match that?",
+      "range": {
+        "startLine": 834,
+        "startChar": 8,
+        "endLine": 834,
+        "endChar": 30
+      },
+      "revId": "61d6c00150044b746d49c5e98fd56feb25693944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
