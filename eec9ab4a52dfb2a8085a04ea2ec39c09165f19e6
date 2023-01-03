@@ -70,6 +70,30 @@
       },
       "revId": "eec9ab4a52dfb2a8085a04ea2ec39c09165f19e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e04c312_703ce631",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-01-03T23:08:54Z",
+      "side": 1,
+      "message": "Thanks for the clarification!\n\nThe CR vote hasn\u0027t changed. So this comment doesn\u0027t block the landing of this CL.\n\nThis is again for my clarification:\nI assume the check: `AidlVersion() \u003c 2` is for Keymint 2?\nIIRC, Keymint 2 was shipped with Android 12. Your previous comment mentioned: VSR 12 has to support RKP, but a device shipping with Android 12 doesn\u0027t.\nSo I am not sure how the check `AidlVersion() \u003c 2` is relevant here?",
+      "parentUuid": "cabb3100_5c97c908",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 17
+      },
+      "revId": "eec9ab4a52dfb2a8085a04ea2ec39c09165f19e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
