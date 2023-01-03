@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45bf76c8_d4677cc9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-01-03T21:38:16Z",
+      "side": 1,
+      "message": "Just for my clarification: is VSR 12 the only one that falls into this category (i.e. ships Keymint 2 but RKP is not mandated)?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 17
+      },
+      "revId": "eec9ab4a52dfb2a8085a04ea2ec39c09165f19e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
