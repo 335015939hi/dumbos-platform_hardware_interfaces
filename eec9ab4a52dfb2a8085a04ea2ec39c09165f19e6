@@ -94,6 +94,30 @@
       },
       "revId": "eec9ab4a52dfb2a8085a04ea2ec39c09165f19e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a303e0f5_bfb9b55f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-01-03T23:20:46Z",
+      "side": 1,
+      "message": "Yeah, after looking this over some more I realized:\n1. The _device_ doesn\u0027t have to support RKP for the customer, but the HAL needs to work -- this is the CDD requirement (though, philosophically, it\u0027s a strange requirement).\n2. These tests are only verifying the integration of the KeyMint HAL and the IRPC HAL. For example, if a device shipped on Android 13 (with KeyMint 2) and a VSR-11 chipset, then we should skip this test.\n\n\u003e IIRC, Keymint 2 was shipped with Android 12\nLooks like it\u0027s Android 13, actually. (VSR links are internal only, not sharing here). However, the `Vsr13Test` seems to confirm this.\n\nThese version checks are somehow more confusing then it seems the should be on the surface.",
+      "parentUuid": "9e04c312_703ce631",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 17
+      },
+      "revId": "eec9ab4a52dfb2a8085a04ea2ec39c09165f19e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
