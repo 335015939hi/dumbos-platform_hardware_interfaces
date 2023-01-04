@@ -22,6 +22,30 @@
       },
       "revId": "021c4dec5e6fa8ef8d59c59d4363c88fc00a3fe7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ed1b155_d147c80c",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2023-01-04T17:11:30Z",
+      "side": 1,
+      "message": "I looked at the implementation on the server and figured this out. For v3, we are still using tagged bstr when verifying the signatures. Using deserialized DiceChainEntryInput is kinda meaningless since it\u0027s an array. We need to update the description here.",
+      "parentUuid": "30781b37_f187e7f1",
+      "range": {
+        "startLine": 428,
+        "startChar": 53,
+        "endLine": 428,
+        "endChar": 72
+      },
+      "revId": "021c4dec5e6fa8ef8d59c59d4363c88fc00a3fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
