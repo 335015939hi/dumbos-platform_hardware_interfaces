@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8bead76_0c6f8cbf",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-01-04T03:30:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bf04082d_502f39a0",
+      "range": {
+        "startLine": 702,
+        "startChar": 12,
+        "endLine": 702,
+        "endChar": 40
+      },
+      "revId": "90373fe4d6289290f8a71cdf4a0e5f1e5fb857c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5fff582_afaad0d3",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Maybe this should just be resolved in the refactor CL so this topic can land.",
       "parentUuid": "e5fff582_afaad0d3",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 16
+      },
+      "revId": "90373fe4d6289290f8a71cdf4a0e5f1e5fb857c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fed8f5f3_94465e0e",
+        "filename": "tv/earc/aidl/android/hardware/tv/earc/IEArc.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-01-04T03:30:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a2760e38_f59a1b8b",
       "range": {
         "startLine": 33,
         "startChar": 11,
