@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c3d55ae_3e281767",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-01-04T17:20:52Z",
+      "side": 0,
+      "message": "I guess this is also unused as it\u0027s also for key exchange.",
+      "range": {
+        "startLine": 445,
+        "startChar": 7,
+        "endLine": 445,
+        "endChar": 19
+      },
+      "revId": "7fb9baae1c9085c25e5ad4e9b6b7248f874acd5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
