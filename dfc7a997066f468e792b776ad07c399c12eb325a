@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c53434e_c5fff9ce",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1308504
+      },
+      "writtenOn": "2023-01-04T06:42:57Z",
+      "side": 1,
+      "message": "The getForwardedStats API says it will throw EX_ILLEGAL_ARGUMENT if the upstream interface is invalid. Test this behavior ?",
+      "range": {
+        "startLine": 401,
+        "startChar": 4,
+        "endLine": 401,
+        "endChar": 70
+      },
+      "revId": "dfc7a997066f468e792b776ad07c399c12eb325a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae8653ea_b2b0d6f4",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1308504
+      },
+      "writtenOn": "2023-01-04T06:42:57Z",
+      "side": 1,
+      "message": "It is weird to allow throwing different exception for the same parameter. The API says it will throw EX_ILLEGAL_ARGUMENT if any parameters are invalid (such as invalid upstream or negative number of bytes)\n\nWhy not just EX_ILLEGAL_ARGUMENT ?",
+      "range": {
+        "startLine": 426,
+        "startChar": 22,
+        "endLine": 426,
+        "endChar": 75
+      },
+      "revId": "dfc7a997066f468e792b776ad07c399c12eb325a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf5b8698_c14584d6",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1308504
+      },
+      "writtenOn": "2023-01-04T06:42:57Z",
+      "side": 1,
+      "message": "ditto, why EX_UNSUPPORTED_OPERATION ?",
+      "range": {
+        "startLine": 436,
+        "startChar": 35,
+        "endLine": 436,
+        "endChar": 63
+      },
+      "revId": "dfc7a997066f468e792b776ad07c399c12eb325a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05a6a681_1dc436d3",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1308504
+      },
+      "writtenOn": "2023-01-04T06:42:57Z",
+      "side": 1,
+      "message": "ditto, why EX_UNSUPPORTED_OPERATION ?",
+      "range": {
+        "startLine": 446,
+        "startChar": 38,
+        "endLine": 446,
+        "endChar": 62
+      },
+      "revId": "dfc7a997066f468e792b776ad07c399c12eb325a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6e98535_e99cff8d",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1308504
+      },
+      "writtenOn": "2023-01-04T06:42:57Z",
+      "side": 1,
+      "message": "ditto, why EX_UNSUPPORTED_OPERATION ?",
+      "range": {
+        "startLine": 455,
+        "startChar": 50,
+        "endLine": 455,
+        "endChar": 74
+      },
+      "revId": "dfc7a997066f468e792b776ad07c399c12eb325a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
