@@ -16,6 +16,29 @@
       "message": "Base changes for AptX Adaptive LEA and AAC ABR",
       "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8abd412d_45f473e6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveLeCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-04T22:03:16Z",
+      "side": 1,
+      "message": "The capabilities is taken to be the product of all fields? So, this is not equivalent to AptxAdaptiveLeConfiguration[]",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
