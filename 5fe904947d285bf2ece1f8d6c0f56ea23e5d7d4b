@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff0a262_cfef9a59",
+        "filename": "usb/gadget/aidl/android/hardware/usb/gadget/GadgetFunction.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-04T15:59:38Z",
+      "side": 1,
+      "message": "AIDL allows for expressions here like `\u003d 1 \u003c\u003c 3;` if we want.",
+      "range": {
+        "startLine": 40,
+        "startChar": 21,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "5fe904947d285bf2ece1f8d6c0f56ea23e5d7d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c98b358_06e5fb0a",
+        "filename": "usb/gadget/aidl/android/hardware/usb/gadget/IUsbGadget.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-04T15:59:38Z",
+      "side": 1,
+      "message": "What does this mean? `needs to be torn down` or `needs to be reset`? Can we be a bit more specific?",
+      "range": {
+        "startLine": 26,
+        "startChar": 24,
+        "endLine": 26,
+        "endChar": 38
+      },
+      "revId": "5fe904947d285bf2ece1f8d6c0f56ea23e5d7d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41640dd7_37fa9453",
+        "filename": "usb/gadget/aidl/android/hardware/usb/gadget/IUsbGadgetCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-04T15:59:38Z",
+      "side": 1,
+      "message": "nit: move this function to the top to follow the same order as `IUsbGadget.aidl`",
+      "range": {
+        "startLine": 62,
+        "startChar": 9,
+        "endLine": 62,
+        "endChar": 33
+      },
+      "revId": "5fe904947d285bf2ece1f8d6c0f56ea23e5d7d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
