@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c6eb8ec_50786b98",
+        "filename": "health/aidl/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "Revert this file since we have added the comment in the aidl file.",
+      "parentUuid": "6068dcc0_b71a762f",
+      "range": {
+        "startLine": 340,
+        "startChar": 2,
+        "endLine": 340,
+        "endChar": 5
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f852ad3b_c3c1e61b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-03T20:39:02Z",
       "side": 1,
       "message": "I am not sure if this is clear enough. Does that mean, under this policy, the device \"MUST\" stop at 80% or \"MAY\" stop at 80%?\n\nIf the latter, maybe a clearer phrase? e.g. \"Preserve battery life aggressively. A device must charge to the level to extend battery life as much as possible.\" (This implies that the level is implementation defined, which may or may not be 80%)\n\nEDIT: Or perhaps just `@see BatteryChargingState.LONG_LIFE`. Same for adaptive below",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 40
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "976df7c9_8411f651",
+        "filename": "health/aidl/android/hardware/health/BatteryChargingPolicy.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "thanks for the advice. Done!",
+      "parentUuid": "f852ad3b_c3c1e61b",
       "range": {
         "startLine": 31,
         "startChar": 19,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e754daf1_b15a334f",
+        "filename": "health/aidl/android/hardware/health/BatteryChargingState.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db7121f9_674fc69a",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "070baee5_57e08044",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-01-03T20:39:02Z",
       "side": 1,
       "message": "`@deprecated replaced by BatteryChargingState.TOO_HOT`\n\nsame below",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 72
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "581196f2_47f66380",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "070baee5_57e08044",
       "range": {
         "startLine": 33,
         "startChar": 7,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43aca92f_9f23f8ea",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "leave an comment \"The reserve data below 10 are used to recognize the battery real health\"",
+      "parentUuid": "3e11f254_644e3d71",
+      "range": {
+        "startLine": 54,
+        "startChar": 28,
+        "endLine": 54,
+        "endChar": 29
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c035bb1f_edb1abe9",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-01-03T20:39:02Z",
       "side": 1,
       "message": "nit: Is \"information\" and \"data\" repeated?",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 37
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cca7877_607fc542",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c035bb1f_edb1abe9",
       "range": {
         "startLine": 20,
         "startChar": 3,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e858ec8_5e4d3c08",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "Yes. update the comment in this file.",
+      "parentUuid": "55f00ae9_36bbd034",
+      "range": {
+        "startLine": 142,
+        "startChar": 7,
+        "endLine": 142,
+        "endChar": 74
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e56bb40_7e5e3ae9",
@@ -175,6 +343,30 @@
       "writtenOn": "2023-01-03T20:39:02Z",
       "side": 1,
       "message": "data?",
+      "range": {
+        "startLine": 232,
+        "startChar": 36,
+        "endLine": 232,
+        "endChar": 42
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03042b80_2f0733ce",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e56bb40_7e5e3ae9",
       "range": {
         "startLine": 232,
         "startChar": 36,
@@ -208,6 +400,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "817332ba_60a03551",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "Thanks for the advice. Done!",
+      "parentUuid": "8f0f54ae_abbc9259",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 40
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f41417a9_ebe42caf",
@@ -221,6 +437,30 @@
       "writtenOn": "2023-01-03T20:39:02Z",
       "side": 1,
       "message": "why is this reverted?",
+      "range": {
+        "startLine": 4,
+        "startChar": 17,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47c4c199_e1b35aae",
+        "filename": "health/aidl/default/android.hardware.health-service.example.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f41417a9_ebe42caf",
       "range": {
         "startLine": 4,
         "startChar": 17,
@@ -248,6 +488,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf5458fe_bb372b86",
+        "filename": "health/aidl/vts/functional/VtsHalHealthTargetTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "add setChargingPolicy() tests here",
+      "parentUuid": "2ce7b02c_ba3ef308",
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3fc7540_0a13c1b2",
@@ -261,6 +519,24 @@
       "writtenOn": "2023-01-03T20:39:02Z",
       "side": 1,
       "message": "nit: just skip logging this warning, like getChargingPolicy etc.",
+      "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11614aab_43084cb2",
+        "filename": "health/utils/libhealthshim/shim.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3fc7540_0a13c1b2",
       "revId": "17c4131006217fb27d002d8889cfe2cc4e8bb9df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

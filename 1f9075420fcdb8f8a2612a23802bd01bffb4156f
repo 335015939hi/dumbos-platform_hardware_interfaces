@@ -278,6 +278,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb16f63_0f251fcc",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-04T11:00:39Z",
+      "side": 1,
+      "message": "Thanks for the advice. \nAdd an comment in this AIDL file.",
+      "parentUuid": "41a01d62_b8eb7758",
+      "revId": "1f9075420fcdb8f8a2612a23802bd01bffb4156f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e87fc6a6_94b0f6b0",
