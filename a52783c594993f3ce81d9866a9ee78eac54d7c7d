@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b7f4975_4a03f181",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ec63d20_1004bc39",
+      "range": {
+        "startLine": 55,
+        "startChar": 29,
+        "endLine": 55,
+        "endChar": 34
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df476e83_ae3476ac",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-03T20:58:00Z",
       "side": 1,
       "message": "`IsExtended`?\n\nThe [style guide](https://google.github.io/styleguide/cppguide.html#Function_Names) writes\n\n\u003e Regular functions have mixed case; accessors and mutators may be named like variables.\n\u003e\n\u003e Ordinarily, functions should start with a capital letter and have a capital letter for each new word.\n\u003e```\n\u003eAddTableEntry()\n\u003eDeleteUrl()\n\u003eOpenFileOrDie()\n\u003e```",
+      "range": {
+        "startLine": 113,
+        "startChar": 9,
+        "endLine": 113,
+        "endChar": 19
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4903b94_914c2460",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df476e83_ae3476ac",
       "range": {
         "startLine": 113,
         "startChar": 9,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6270978e_de23b5c4",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "Changed the implementation to use the type `Apdu` for commands only. Responses are crafted with static functions `CreateResponse`.",
+      "parentUuid": "c593dbcc_f54b8ea1",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 41
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4fb26e7b_2ab5697a",
         "filename": "secure_element/aidl/default/main.cpp",
         "patchSetId": 3
@@ -83,6 +155,30 @@
       "writtenOn": "2023-01-03T20:58:00Z",
       "side": 1,
       "message": "If this is intended to be an [abstract class](https://en.cppreference.com/w/cpp/language/abstract_class) rather than a predeclaration, the method should be `\u003d 0;`. I assume this is the intention because there is no `Applet::select` or `Applet::process` method defined elsewhere in the file.\n\nSame issue for the next method.",
+      "range": {
+        "startLine": 161,
+        "startChar": 50,
+        "endLine": 161,
+        "endChar": 52
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1554c3ae_20668233",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fb26e7b_2ab5697a",
       "range": {
         "startLine": 161,
         "startChar": 50,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72206f93_e1c2b146",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d664b1f_e22370b3",
+      "range": {
+        "startLine": 178,
+        "startChar": 4,
+        "endLine": 178,
+        "endChar": 11
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f49702d_350afb51",
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9d1f5ae_cc6b54f0",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "Assuming the applet was registered with a non empty AID the length will always be \u003e0.\nFixed anyway.",
+      "parentUuid": "0f49702d_350afb51",
+      "range": {
+        "startLine": 179,
+        "startChar": 16,
+        "endLine": 179,
+        "endChar": 30
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2abea90d_9dcb0ebd",
@@ -152,6 +296,30 @@
       "writtenOn": "2023-01-03T20:58:00Z",
       "side": 1,
       "message": "`response_` and `response_offset_`?\n\nThe [style guide](https://google.github.io/styleguide/cppguide.html#Variable_Names) writes\n\n\u003e The names of variables (including function parameters) and data members are all lowercase, with underscores between words. Data members of classes (but not structs) additionally have trailing underscores. For instance: `a_local_variable`, `a_struct_data_member`, `a_class_data_member_`.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 31
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17f7938e_caf5dd71",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2abea90d_9dcb0ebd",
       "range": {
         "startLine": 288,
         "startChar": 0,
@@ -187,6 +355,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6435927a_abcc7741",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "I could not find a reference to this in the spec, but I don\u0027t see why a null pointer would be passed by the binder here.",
+      "parentUuid": "74f0f5d8_8e439412",
+      "range": {
+        "startLine": 425,
+        "startChar": 8,
+        "endLine": 425,
+        "endChar": 19
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ab29ab5_2532f23e",
         "filename": "secure_element/aidl/default/main.cpp",
         "patchSetId": 3
@@ -198,6 +390,30 @@
       "writtenOn": "2023-01-03T20:58:00Z",
       "side": 1,
       "message": "`mClientCallback` is only assigned a target by `init`. Since this is a public method, can this null-check `mClientCallback` in case `init` is not called first?",
+      "range": {
+        "startLine": 431,
+        "startChar": 8,
+        "endLine": 431,
+        "endChar": 23
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3633905e_23c96dbf",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ab29ab5_2532f23e",
       "range": {
         "startLine": 431,
         "startChar": 8,
@@ -233,6 +449,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55c27518_464c1be7",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "The variable is used outside of this scope, at the end of the method:\n```\nchannels_[0] \u003d Channel(aid, p2, applet);\n```",
+      "parentUuid": "839375ff_19f04907",
+      "range": {
+        "startLine": 465,
+        "startChar": 12,
+        "endLine": 465,
+        "endChar": 39
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c150a82c_0d53d712",
         "filename": "secure_element/aidl/default/main.cpp",
         "patchSetId": 3
@@ -244,6 +484,30 @@
       "writtenOn": "2023-01-03T20:58:00Z",
       "side": 1,
       "message": "Please address the build warning. Maybe `channelNumber` should be a `size_t`?",
+      "range": {
+        "startLine": 507,
+        "startChar": 8,
+        "endLine": 507,
+        "endChar": 67
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34c6acc9_91e1bbcc",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c150a82c_0d53d712",
       "range": {
         "startLine": 507,
         "startChar": 8,
@@ -277,6 +541,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ee64d6d_e7502cdd",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f1d695e_2feb174e",
+      "range": {
+        "startLine": 557,
+        "startChar": 26,
+        "endLine": 557,
+        "endChar": 27
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2bdea55_f3ff59d8",
@@ -290,6 +578,30 @@
       "writtenOn": "2023-01-03T20:58:00Z",
       "side": 1,
       "message": "There is no validation that `channelNumber` is within the bounds of `mChannels`. It comes from external input.",
+      "range": {
+        "startLine": 595,
+        "startChar": 20,
+        "endLine": 595,
+        "endChar": 45
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96d6ee05_6bf3042e",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-04T14:54:36Z",
+      "side": 1,
+      "message": "The channel number is assured to be in the range 0-19, see the extractor:\n```\n(cla \u0026 0x40) \u003d\u003d 0 ? cla \u0026 0x3 : 4 + (cla \u0026 0xf)\n```",
+      "parentUuid": "e2bdea55_f3ff59d8",
       "range": {
         "startLine": 595,
         "startChar": 20,
