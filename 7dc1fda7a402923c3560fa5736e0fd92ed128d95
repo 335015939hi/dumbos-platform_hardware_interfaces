@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d87fb7c_7df2b7a7",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-01-04T16:02:43Z",
+      "side": 1,
+      "message": "Ah, good catch. Thanks!",
+      "parentUuid": "e47a83cd_a02bc599",
+      "range": {
+        "startLine": 1139,
+        "startChar": 24,
+        "endLine": 1139,
+        "endChar": 25
+      },
+      "revId": "7dc1fda7a402923c3560fa5736e0fd92ed128d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1c93fa4_4db5b1a3",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-28T08:12:39Z",
       "side": 1,
       "message": "Same to above.",
+      "range": {
+        "startLine": 1217,
+        "startChar": 24,
+        "endLine": 1217,
+        "endChar": 25
+      },
+      "revId": "7dc1fda7a402923c3560fa5736e0fd92ed128d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dc48b70_00e663b0",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1217,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-01-04T16:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1c93fa4_4db5b1a3",
       "range": {
         "startLine": 1217,
         "startChar": 24,
