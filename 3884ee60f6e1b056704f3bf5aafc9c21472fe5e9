@@ -188,6 +188,30 @@
       },
       "revId": "3884ee60f6e1b056704f3bf5aafc9c21472fe5e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6151e646_432bb209",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-04T06:13:24Z",
+      "side": 1,
+      "message": "Changed to:\nEX_SERVICE_SPECIFIC with status FAILURE_UNSPECIFIED and the error message set to a human-readable reason for other errors.",
+      "parentUuid": "a516ad02_8082d27e",
+      "range": {
+        "startLine": 43,
+        "startChar": 37,
+        "endLine": 43,
+        "endChar": 68
+      },
+      "revId": "3884ee60f6e1b056704f3bf5aafc9c21472fe5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

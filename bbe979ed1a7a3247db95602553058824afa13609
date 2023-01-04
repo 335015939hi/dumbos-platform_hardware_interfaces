@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc63b155_94221487",
+        "filename": "tetheroffload/aidl/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-04T06:13:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2ad4f07a_bf565278",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "bbe979ed1a7a3247db95602553058824afa13609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b9cf281_fe8241df",
