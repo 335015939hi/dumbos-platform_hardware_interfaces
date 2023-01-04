@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30781b37_f187e7f1",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-01-04T16:40:13Z",
+      "side": 1,
+      "message": "@asbel@google.com is this correct?\n\nWe\u0027ve always documented the signature to be over a tagged bstr, not the raw CBOR (at least, that\u0027s my read from ProtectedData.aidl).\n\nHave we always been wrong? Or has the signature processing on the backend changed somehow?\n\nIt seems important to be consistent in V3 with whatever V1 \u0026 V2 were doing.",
+      "range": {
+        "startLine": 428,
+        "startChar": 53,
+        "endLine": 428,
+        "endChar": 72
+      },
+      "revId": "021c4dec5e6fa8ef8d59c59d4363c88fc00a3fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
