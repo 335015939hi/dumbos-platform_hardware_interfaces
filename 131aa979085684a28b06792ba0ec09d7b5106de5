@@ -45,6 +45,30 @@
       },
       "revId": "131aa979085684a28b06792ba0ec09d7b5106de5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67e12b39_0841b8eb",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-04T18:30:19Z",
+      "side": 1,
+      "message": "Keep UNSUPPORTED_OPERATION; I am suggesting to add a new returned status",
+      "parentUuid": "57c048e3_372e82fb",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 80
+      },
+      "revId": "131aa979085684a28b06792ba0ec09d7b5106de5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
