@@ -46,6 +46,30 @@
       },
       "revId": "021c4dec5e6fa8ef8d59c59d4363c88fc00a3fe7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f48e8b87_2495f2aa",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2023-01-04T18:53:57Z",
+      "side": 1,
+      "message": "I was mistaken - it\u0027s an array CBOR. So we do need to provide correct guidance for v3.",
+      "parentUuid": "0ed1b155_d147c80c",
+      "range": {
+        "startLine": 428,
+        "startChar": 53,
+        "endLine": 428,
+        "endChar": 72
+      },
+      "revId": "021c4dec5e6fa8ef8d59c59d4363c88fc00a3fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
