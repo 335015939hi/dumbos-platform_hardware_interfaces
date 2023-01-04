@@ -22,6 +22,30 @@
       },
       "revId": "17ae2ff8550a460447443434c60afed0f41f100c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bb52d8a_a91653df",
+        "filename": "graphics/common/aidl/android/hardware/graphics/common/StandardMetadataType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2023-01-04T21:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01c2afc5_8c38095f",
+      "range": {
+        "startLine": 374,
+        "startChar": 60,
+        "endLine": 374,
+        "endChar": 66
+      },
+      "revId": "17ae2ff8550a460447443434c60afed0f41f100c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
