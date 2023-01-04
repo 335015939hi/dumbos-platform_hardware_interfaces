@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "404412cb_c22a5767",
+        "filename": "tv/hdmi/earc/aidl/android/hardware/tv/hdmi/earc/IEArc.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-01-04T06:02:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38763259_b3decfe6",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 16
+      },
+      "revId": "60995fb8023b1a2a25376a3ba91427018ae3bd02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a01b8514_75bc174f",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-03T17:59:53Z",
       "side": 1,
       "message": "Add the type for where these come from like `Result::SUCCESS`",
+      "range": {
+        "startLine": 34,
+        "startChar": 22,
+        "endLine": 34,
+        "endChar": 29
+      },
+      "revId": "60995fb8023b1a2a25376a3ba91427018ae3bd02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d511769c_dda299ab",
+        "filename": "tv/hdmi/earc/aidl/android/hardware/tv/hdmi/earc/IEArc.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-01-04T06:02:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a01b8514_75bc174f",
       "range": {
         "startLine": 34,
         "startChar": 22,
