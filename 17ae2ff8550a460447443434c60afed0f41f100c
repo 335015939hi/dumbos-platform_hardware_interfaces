@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01c2afc5_8c38095f",
+        "filename": "graphics/common/aidl/android/hardware/graphics/common/StandardMetadataType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1561731
+      },
+      "writtenOn": "2023-01-04T21:23:57Z",
+      "side": 1,
+      "message": "drive-by: could this explicitly state if the stride is in pixels vs bytes? Otherwise you kind of have to follow a chain of look ups (`StandardMetadataType::STRIDE` -\u003e `android.hardware.graphics.allocator.AllocationResult#stride` -\u003e `AHardwareBuffer_Desc`) to figure out.",
+      "range": {
+        "startLine": 374,
+        "startChar": 60,
+        "endLine": 374,
+        "endChar": 66
+      },
+      "revId": "17ae2ff8550a460447443434c60afed0f41f100c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
