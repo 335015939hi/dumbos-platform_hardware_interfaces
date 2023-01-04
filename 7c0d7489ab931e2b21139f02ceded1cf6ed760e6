@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c79a152_6c106ebb",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-04T22:02:14Z",
+      "side": 1,
+      "message": "consider onStartedIndication? The next phase the framework should do could be documented, but it feels a bit confusing, since the status is related to a previous workflow, and this appears to also encode a statement about how we should respond to a started indication",
+      "range": {
+        "startLine": 95,
+        "startChar": 44,
+        "endLine": 99,
+        "endChar": 46
+      },
+      "revId": "7c0d7489ab931e2b21139f02ceded1cf6ed760e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
