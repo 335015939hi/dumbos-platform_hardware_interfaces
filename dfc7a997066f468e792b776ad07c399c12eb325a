@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef624c91_c0a84fe0",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-04T10:17:48Z",
+      "side": 1,
+      "message": "The original HIDL vts expected success even when the upstream interface is not valid in this API, but it will be validated in other configuration APIs. This was also requested by Qualcomm in their comments as this is the old behavior.\nI removed the EX_ILLEGAL_ARGUMENT error from the getForwardedStats API comment.",
+      "parentUuid": "2c53434e_c5fff9ce",
+      "range": {
+        "startLine": 401,
+        "startChar": 4,
+        "endLine": 401,
+        "endChar": 70
+      },
+      "revId": "dfc7a997066f468e792b776ad07c399c12eb325a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae8653ea_b2b0d6f4",
         "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
         "patchSetId": 13
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-04T06:42:57Z",
       "side": 1,
       "message": "It is weird to allow throwing different exception for the same parameter. The API says it will throw EX_ILLEGAL_ARGUMENT if any parameters are invalid (such as invalid upstream or negative number of bytes)\n\nWhy not just EX_ILLEGAL_ARGUMENT ?",
+      "range": {
+        "startLine": 426,
+        "startChar": 22,
+        "endLine": 426,
+        "endChar": 75
+      },
+      "revId": "dfc7a997066f468e792b776ad07c399c12eb325a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f8d59dd_5ecaa87a",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-04T10:17:48Z",
+      "side": 1,
+      "message": "The future Android versions that only has AIDL interface supported may run on the old devices which don\u0027t support warning limit, they have to return EX_UNSUPPORTED_OPERATION in this case.\nI added another test case to verify this: SetDataWarningAndLimitUnlimitedWarningOk",
+      "parentUuid": "ae8653ea_b2b0d6f4",
       "range": {
         "startLine": 426,
         "startChar": 22,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48f27054_74ec19dd",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-04T10:17:48Z",
+      "side": 1,
+      "message": "Same as #426",
+      "parentUuid": "bf5b8698_c14584d6",
+      "range": {
+        "startLine": 436,
+        "startChar": 35,
+        "endLine": 436,
+        "endChar": 63
+      },
+      "revId": "dfc7a997066f468e792b776ad07c399c12eb325a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05a6a681_1dc436d3",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebc269f7_da32d5c4",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-04T10:17:48Z",
+      "side": 1,
+      "message": "Same as #426",
+      "parentUuid": "05a6a681_1dc436d3",
+      "range": {
+        "startLine": 446,
+        "startChar": 38,
+        "endLine": 446,
+        "endChar": 62
+      },
+      "revId": "dfc7a997066f468e792b776ad07c399c12eb325a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6e98535_e99cff8d",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-01-04T06:42:57Z",
       "side": 1,
       "message": "ditto, why EX_UNSUPPORTED_OPERATION ?",
+      "range": {
+        "startLine": 455,
+        "startChar": 50,
+        "endLine": 455,
+        "endChar": 74
+      },
+      "revId": "dfc7a997066f468e792b776ad07c399c12eb325a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9654cda4_ca597d66",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-04T10:17:48Z",
+      "side": 1,
+      "message": "Same as #426",
+      "parentUuid": "d6e98535_e99cff8d",
       "range": {
         "startLine": 455,
         "startChar": 50,

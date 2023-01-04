@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58379c58_4ed08d55",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-04T10:17:48Z",
+      "side": 1,
+      "message": "The callback interface won\u0027t be null when passing through binder, I removed this error.",
+      "parentUuid": "25f0e8ca_dce76413",
+      "range": {
+        "startLine": 124,
+        "startChar": 37,
+        "endLine": 124,
+        "endChar": 73
+      },
+      "revId": "663c17c53411dac38f130144b4c7520c0a63c94f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07e4cfad_6e2bc7ea",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-04T06:42:57Z",
       "side": 1,
       "message": "Not for this change. These codes is copied from original HAL VTS, you can have a util .h file to share the codes.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 1
+      },
+      "revId": "663c17c53411dac38f130144b4c7520c0a63c94f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00236cf2_989426d7",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-04T10:17:48Z",
+      "side": 1,
+      "message": "Not knowing any module share code between HIDL and AIDL vts tests, and since the vts test of HIDL is deprecated and won\u0027t be updated in the future, I think it maybe okay for some code duplicated between them?",
+      "parentUuid": "07e4cfad_6e2bc7ea",
       "range": {
         "startLine": 49,
         "startChar": 0,
@@ -154,6 +202,30 @@
       "writtenOn": "2023-01-04T06:42:57Z",
       "side": 1,
       "message": "We can\u0027t expect all OEM/vendor all use rmnet_data0 if they want to provid tether offload hardware. We probably need to allow them to change the hardcode interface name for testing or just query a active interface (?). If they are not realistic, maybe we should consider the stop this test ?",
+      "range": {
+        "startLine": 406,
+        "startChar": 3,
+        "endLine": 406,
+        "endChar": 58
+      },
+      "revId": "663c17c53411dac38f130144b4c7520c0a63c94f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16d93b06_14160a56",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-04T10:17:48Z",
+      "side": 1,
+      "message": "We can think how to do it better, but currently we can only check the existence of the interface but can\u0027t distinguish upstream RIL interface from the others.",
+      "parentUuid": "79f212dc_174ef7aa",
       "range": {
         "startLine": 406,
         "startChar": 3,
