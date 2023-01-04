@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d789561_10b55edd",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-04T06:55:34Z",
+      "side": 1,
+      "message": "How about something like:\n\n    /**\n     * Error code for all {@code ServiceSpecificException}s thrown by this interface.\n     */\n    const int ERROR_CODE_UNUSED \u003d 0;\n\nthen?",
+      "parentUuid": "fb85a7db_a623fe4f",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "3884ee60f6e1b056704f3bf5aafc9c21472fe5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a03dc3a_038bbd22",
         "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
         "patchSetId": 8
