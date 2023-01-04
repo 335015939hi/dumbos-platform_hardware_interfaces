@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42690cb0_b2fceff6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1185377
+      },
+      "writtenOn": "2023-01-04T08:48:58Z",
+      "side": 1,
+      "message": "I was asked in b/262751204 to cherry-pick this change. But I was a bit confused because Git says that this commit is already present on the 12L branch:\n\n     git branch -a --contains 16e7bf5ce34bad76c4c96304950417b446e46b89\n      remotes/aosp/android10-tests-dev\n      remotes/aosp/android12-tests-dev\n      remotes/aosp/android12L-tests-dev\n      remotes/origin/haleytek/google/t-fs-release\n\n...but the actual code change (from an `EXPECT_EQ` to `ASSERT_TRUE`) is not there.\n\nIt was merged into this branch at a74294fe:\n\n    commit a74294fe1f29be6119d1d3e542e3aceb0d6c4237\n    Merge: cefd18a94 c78a2efe3\n    Author: Xin Li \u003cdelphij@google.com\u003e\n    Date:   Fri Apr 1 00:16:12 2022 -0700\n\n        Mark ab/8389834 as merged\n        \n        Bug: 188847863\n        Merged-In: I890f54f80ff3aca3dcb2c51f20db087d453c2927\n        Change-Id: Ibd61ea9f788323943ab852a5f8d3f01cb662e7f9\n\nOne of the parents has the corrected code, while the other doesn\u0027t -- it seems that the fixed code was discarded during merge. Do we know that this wasn\u0027t intentional?",
+      "revId": "e3d77fb6d0863881526ab07933647a959b88e0d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
