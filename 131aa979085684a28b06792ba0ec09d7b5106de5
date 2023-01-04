@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "76c0968e_41955c77",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-04T18:39:49Z",
+      "side": 1,
+      "message": "Does that mean the HAL should stop reporting this value?\n\nIf so can you add a VTS test (maybe in a separate CL) that checks that they should not be returned for health version V2 and above?\n\n--\n\nAnd same for OVERHEAT / COLD; for functions that used to return them, should they return `BatteryHealth.FAIR` instead (or maybe some other value?), and return the temperature information via BatteryChargingState? (If so / not, please document the behavior expected on the HAL.)\n\nAnd maybe in a separate CL add a VTS test that OVERHEAT / COLD should not be returned for health V2 and above.\n\n--\n\nAlso sorry I forgot to mention -- please say the version on which it is deprecated:\n\n```\n@deprecated Deprecated at version 2. Transitory condition that only affects charging.\n```",
+      "range": {
+        "startLine": 38,
+        "startChar": 20,
+        "endLine": 38,
+        "endChar": 62
+      },
+      "revId": "131aa979085684a28b06792ba0ec09d7b5106de5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4055f9f3_5186b19e",
         "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
         "patchSetId": 17
