@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5263a4f6_263c09fc",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-05T19:04:15Z",
+      "side": 1,
+      "message": "I see. Then they aren\u0027t @deprecated.\n\nThe other comments still apply though. Maybe something like:\n\n\"Must be consistent with BatteryChargingState. If BatteryHealth is COLD, then BatteryChargingState must be TOO_COLD.\"\n\nUsually a VTS test needs to be added for this consistency. However, in this case, IMO the VTS test is optional, unless there\u0027s a way to actually heat up / cool down the device so it overheats / overcools :)",
+      "parentUuid": "17bc0e08_3bac8daf",
+      "range": {
+        "startLine": 38,
+        "startChar": 20,
+        "endLine": 38,
+        "endChar": 62
+      },
+      "revId": "131aa979085684a28b06792ba0ec09d7b5106de5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4055f9f3_5186b19e",
         "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
         "patchSetId": 17
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "4055f9f3_5186b19e",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 41
+      },
+      "revId": "131aa979085684a28b06792ba0ec09d7b5106de5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a740ed1_a11d6536",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-05T19:04:15Z",
+      "side": 1,
+      "message": "Sorry, I mean:\n\n```\n    /**\n     * Battery manufacturing date is reported in epoch.\n     */\n    long batteryManufacturingDateSeconds;\n    /**\n     * The date of first usage is reported in epoch.\n     */\n    long batteryFirstUsageSeconds;\n```\n\nThese are like Java doc comments. The comments for the first field don\u0027t get propagated to fields below by doc generators.",
+      "parentUuid": "661f0c14_97447422",
       "range": {
         "startLine": 25,
         "startChar": 34,
@@ -156,6 +204,30 @@
       "side": 1,
       "message": "thanks for the advice. done for both BatteryMonitor and hal changes.",
       "parentUuid": "67e12b39_0841b8eb",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 80
+      },
+      "revId": "131aa979085684a28b06792ba0ec09d7b5106de5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cc4cb08_62337884",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-05T19:04:15Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "aa461902_3ec0b68f",
       "range": {
         "startLine": 210,
         "startChar": 0,
