@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19c5296a_cb531307",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-01-05T15:38:20Z",
+      "side": 1,
+      "message": "Explicit comparison:\nif (... \u0026\u0026 second_imei.compare(\"null\") !\u003d 0)",
+      "range": {
+        "startLine": 864,
+        "startChar": 36,
+        "endLine": 864,
+        "endChar": 63
+      },
+      "revId": "a809374a5be33dfa80df078bb6019fe65fdb4097",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba3b0463_a8d83a93",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-01-05T15:38:20Z",
+      "side": 1,
+      "message": "Do I understand correctly that we have a dependency on the order of KeyParameter tags here? If so it should be documented explicitly, but I\u0027m not sure that this dependency is safe. I\u0027d rather we explicitly pushed back the IMEI tag after filling it in.",
+      "range": {
+        "startLine": 887,
+        "startChar": 0,
+        "endLine": 889,
+        "endChar": 9
+      },
+      "revId": "a809374a5be33dfa80df078bb6019fe65fdb4097",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
