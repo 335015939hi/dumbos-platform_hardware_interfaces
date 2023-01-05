@@ -70,6 +70,30 @@
       },
       "revId": "021c4dec5e6fa8ef8d59c59d4363c88fc00a3fe7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68f27043_18a9140f",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-01-05T02:38:57Z",
+      "side": 1,
+      "message": "Ah sorry for not describing clearer.\nHere\u0027s what I refers to - \n- DiceChainEntryInput: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/support/remote_prov_utils.cpp;l\u003d342\n- SignedDataSigStruct:\nhttps://cs.android.com/android/platform/superproject/+/master:system/keymaster/cppcose/cppcose.cpp;l\u003d367\n\nIt\u0027s a cbor array but not bstr.",
+      "parentUuid": "f48e8b87_2495f2aa",
+      "range": {
+        "startLine": 428,
+        "startChar": 53,
+        "endLine": 428,
+        "endChar": 72
+      },
+      "revId": "021c4dec5e6fa8ef8d59c59d4363c88fc00a3fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
