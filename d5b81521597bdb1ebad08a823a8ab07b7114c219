@@ -16,6 +16,29 @@
       "message": "Feel free to merge the change and fix the doc in a follow up CL",
       "revId": "d5b81521597bdb1ebad08a823a8ab07b7114c219",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd3a325b_4d890cee",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-05T22:32:58Z",
+      "side": 1,
+      "message": "Looking at the CL and the BatteryMonitor change, why do you need a SetProperty function? You could just have the HAL call setChargingPolicy directly in L136",
+      "range": {
+        "startLine": 94,
+        "startChar": 26,
+        "endLine": 94,
+        "endChar": 37
+      },
+      "revId": "d5b81521597bdb1ebad08a823a8ab07b7114c219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
