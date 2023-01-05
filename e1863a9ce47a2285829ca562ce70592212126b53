@@ -16,6 +16,23 @@
       "message": "Tomasz and Enrico, can you please provide owner vote here? I have modified owner file so that oscarazu@ or xuweilin@ can approve these changes going forward.",
       "revId": "e1863a9ce47a2285829ca562ce70592212126b53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c8b8498_1996376f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2023-01-05T06:18:43Z",
+      "side": 1,
+      "message": "+1 to pass owner check, but the actual owner (Oscar) should do the actual review.",
+      "revId": "e1863a9ce47a2285829ca562ce70592212126b53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
