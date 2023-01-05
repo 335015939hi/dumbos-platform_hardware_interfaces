@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17bc0e08_3bac8daf",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-05T09:31:18Z",
+      "side": 1,
+      "message": "Thanks for the advice.\nWe will not stop reporting these values now.We will use the value of BatteryChargingState instead of BatteryHealth in the BatteryManager.",
+      "parentUuid": "76c0968e_41955c77",
+      "range": {
+        "startLine": 38,
+        "startChar": 20,
+        "endLine": 38,
+        "endChar": 62
+      },
+      "revId": "131aa979085684a28b06792ba0ec09d7b5106de5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4055f9f3_5186b19e",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-04T18:29:29Z",
       "side": 1,
       "message": "please fix\n\nAlso please split the comment into two, to corresponding fields",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 41
+      },
+      "revId": "131aa979085684a28b06792ba0ec09d7b5106de5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "661f0c14_97447422",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-05T09:31:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4055f9f3_5186b19e",
       "range": {
         "startLine": 25,
         "startChar": 34,
@@ -84,6 +132,30 @@
       "side": 1,
       "message": "Keep UNSUPPORTED_OPERATION; I am suggesting to add a new returned status",
       "parentUuid": "57c048e3_372e82fb",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 80
+      },
+      "revId": "131aa979085684a28b06792ba0ec09d7b5106de5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa461902_3ec0b68f",
+        "filename": "health/aidl/android/hardware/health/IHealth.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-05T09:31:18Z",
+      "side": 1,
+      "message": "thanks for the advice. done for both BatteryMonitor and hal changes.",
+      "parentUuid": "67e12b39_0841b8eb",
       "range": {
         "startLine": 210,
         "startChar": 0,
