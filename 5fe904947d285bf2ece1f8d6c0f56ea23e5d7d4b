@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6a4bd4a_f02827ac",
+        "filename": "usb/gadget/aidl/android/hardware/usb/gadget/IUsbGadget.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-05T17:48:03Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "27d425b4_790a7009",
+      "range": {
+        "startLine": 26,
+        "startChar": 24,
+        "endLine": 26,
+        "endChar": 38
+      },
+      "revId": "5fe904947d285bf2ece1f8d6c0f56ea23e5d7d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41640dd7_37fa9453",
