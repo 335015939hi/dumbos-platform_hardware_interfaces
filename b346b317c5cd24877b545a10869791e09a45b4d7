@@ -278,6 +278,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d316d65_9d40365c",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1110792
+      },
+      "writtenOn": "2023-01-05T01:56:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83e1bff2_676f0672",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 12
+      },
+      "revId": "b346b317c5cd24877b545a10869791e09a45b4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08e9456b_cbbffb86",
