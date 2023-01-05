@@ -16,6 +16,24 @@
       "message": "Please add the reference bug ID.",
       "revId": "d50cbab51335a6d16a3ffc620357206ebefcbd49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2f694b7_5b3bb1d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1256615
+      },
+      "writtenOn": "2023-01-05T01:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "001d4ae1_4969e4dd",
+      "revId": "d50cbab51335a6d16a3ffc620357206ebefcbd49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
