@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87fcec5f_0e718774",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-01-05T16:48:19Z",
+      "side": 1,
+      "message": "Can we remove this and inline the close and return?  I think it\u0027s simple enough that it will improve the readability of the code.",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 13
+      },
+      "revId": "f1c41d8808d6ae5bfd311327866b95cdc8ac1de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
