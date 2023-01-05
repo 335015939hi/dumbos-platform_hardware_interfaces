@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6dbd48c1_4040fa3e",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1982325
+      },
+      "writtenOn": "2023-01-05T17:35:36Z",
+      "side": 1,
+      "message": "Please explain why the skip should be specific to chip/model. There\u0027s a similar non-specific skip in https://cs.android.com/android/platform/superproject/+/master:cts/tests/tests/keystore/src/android/keystore/cts/AttestKeyTest.java;l\u003d203.\nDon\u0027t you think that both should be specific, or both non-specific?\nI think the latter is better, so we won\u0027t have to make fixes for every new chip/model.",
+      "parentUuid": "860a7e82_587943c7",
+      "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d64e7c2_93609d47",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 1
