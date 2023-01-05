@@ -50,6 +50,23 @@
       "message": "@chriselliott@google.com _ request for DrNo approval",
       "revId": "87237d3e2f56e299d1debc0cfc065ad8ba7da903",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa84c094_877bd047",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1222074
+      },
+      "writtenOn": "2023-01-05T00:14:08Z",
+      "side": 1,
+      "message": "CL need owner approval vote from test owner",
+      "revId": "87237d3e2f56e299d1debc0cfc065ad8ba7da903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
