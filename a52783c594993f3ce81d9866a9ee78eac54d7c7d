@@ -142,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b44d5cb_70ee283c",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-05T08:15:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6270978e_de23b5c4",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 41
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fb26e7b_2ab5697a",
@@ -377,6 +401,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9687e35_b9392ad4",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-05T08:15:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6435927a_abcc7741",
+      "range": {
+        "startLine": 425,
+        "startChar": 8,
+        "endLine": 425,
+        "endChar": 19
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ab29ab5_2532f23e",
@@ -461,6 +509,30 @@
       "side": 1,
       "message": "The variable is used outside of this scope, at the end of the method:\n```\nchannels_[0] \u003d Channel(aid, p2, applet);\n```",
       "parentUuid": "839375ff_19f04907",
+      "range": {
+        "startLine": 465,
+        "startChar": 12,
+        "endLine": 465,
+        "endChar": 39
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e46c58ec_3508d43c",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-05T08:15:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "55c27518_464c1be7",
       "range": {
         "startLine": 465,
         "startChar": 12,
@@ -602,6 +674,30 @@
       "side": 1,
       "message": "The channel number is assured to be in the range 0-19, see the extractor:\n```\n(cla \u0026 0x40) \u003d\u003d 0 ? cla \u0026 0x3 : 4 + (cla \u0026 0xf)\n```",
       "parentUuid": "e2bdea55_f3ff59d8",
+      "range": {
+        "startLine": 595,
+        "startChar": 20,
+        "endLine": 595,
+        "endChar": 45
+      },
+      "revId": "a52783c594993f3ce81d9866a9ee78eac54d7c7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56c696d5_47e68e78",
+        "filename": "secure_element/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-05T08:15:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "96d6ee05_6bf3042e",
       "range": {
         "startLine": 595,
         "startChar": 20,
