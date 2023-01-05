@@ -2048,6 +2048,29 @@ void device_id_attestation_vsr_check(const ErrorCode& result) {
     }
 }
 
+bool KeyMintAidlTestBase::DeviceSupportsFeature(const string& featureName) const {
+    bool hasFeature = false;
+    FILE *p = popen("/system/bin/pm list features", "re");
+    if (!p) {
+        GTEST_LOG_(ERROR) << "popen failed: " << errno;
+        return false;
+    }
+
+    char *line = NULL;
+    size_t len = 0;
+    while (getline(&line, &len, p) > 0) {
+        if (strstr(line, featureName.c_str())) {
+            hasFeature = true;
+            break;
+        }
+    }
+
+    free(line);
+    pclose(p);
+
+    return hasFeature;
+}
+
 }  // namespace test
 
 }  // namespace aidl::android::hardware::security::keymint
