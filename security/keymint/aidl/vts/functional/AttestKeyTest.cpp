@@ -35,7 +35,19 @@ bool IsSelfSigned(const vector<Certificate>& chain) {
 }  // namespace
 
 class AttestKeyTest : public KeyMintAidlTestBase {
+  public:
+    void SetUp() override {
+        if (!DeviceSupportsFeature(FEATURE_KEYSTORE_APP_ATTEST_KEY)) {
+            GTEST_SKIP() << "Feature " + FEATURE_KEYSTORE_APP_ATTEST_KEY + " is disabled";
+        }
+
+        KeyMintAidlTestBase::SetUp();
+    }
+
   protected:
+    const string FEATURE_KEYSTORE_APP_ATTEST_KEY =
+            "android.hardware.keystore.app_attest_key";
+
     ErrorCode GenerateAttestKey(const AuthorizationSet& key_desc,
                                 const optional<AttestationKey>& attest_key,
                                 vector<uint8_t>* key_blob,
