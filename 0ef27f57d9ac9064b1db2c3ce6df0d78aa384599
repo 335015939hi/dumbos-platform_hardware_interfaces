@@ -16,6 +16,24 @@
       "message": "Merge with parent commit",
       "revId": "0ef27f57d9ac9064b1db2c3ce6df0d78aa384599",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3600846_7c68e611",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-01-05T23:32:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "945585fa_65e6c979",
+      "revId": "0ef27f57d9ac9064b1db2c3ce6df0d78aa384599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
