@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27d425b4_790a7009",
+        "filename": "usb/gadget/aidl/android/hardware/usb/gadget/IUsbGadget.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1292828
+      },
+      "writtenOn": "2023-01-05T08:23:52Z",
+      "side": 1,
+      "message": "Because this already merged in, fixed on the aosp/2377088",
+      "parentUuid": "8c98b358_06e5fb0a",
+      "range": {
+        "startLine": 26,
+        "startChar": 24,
+        "endLine": 26,
+        "endChar": 38
+      },
+      "revId": "5fe904947d285bf2ece1f8d6c0f56ea23e5d7d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41640dd7_37fa9453",
@@ -60,6 +84,30 @@
       "writtenOn": "2023-01-04T15:59:38Z",
       "side": 1,
       "message": "nit: move this function to the top to follow the same order as `IUsbGadget.aidl`",
+      "range": {
+        "startLine": 62,
+        "startChar": 9,
+        "endLine": 62,
+        "endChar": 33
+      },
+      "revId": "5fe904947d285bf2ece1f8d6c0f56ea23e5d7d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64165e5c_15ea9d30",
+        "filename": "usb/gadget/aidl/android/hardware/usb/gadget/IUsbGadgetCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1292828
+      },
+      "writtenOn": "2023-01-05T08:23:52Z",
+      "side": 1,
+      "message": "Because this already merged in, fixed on the aosp/2377088",
+      "parentUuid": "41640dd7_37fa9453",
       "range": {
         "startLine": 62,
         "startChar": 9,
