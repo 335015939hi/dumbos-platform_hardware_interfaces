@@ -39,6 +39,30 @@
       },
       "revId": "2e120e79bee3707004794c09445c214d38052c3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adf36d01_811b2752",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-01-05T21:56:19Z",
+      "side": 1,
+      "message": "Yes, moved inside loop as it is initialized and used only in case of SECOND_IMEI tag.",
+      "parentUuid": "3cbc7e29_9ac9ee67",
+      "range": {
+        "startLine": 872,
+        "startChar": 4,
+        "endLine": 872,
+        "endChar": 26
+      },
+      "revId": "2e120e79bee3707004794c09445c214d38052c3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
