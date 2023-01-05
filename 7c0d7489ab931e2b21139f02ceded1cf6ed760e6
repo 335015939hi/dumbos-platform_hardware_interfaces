@@ -22,6 +22,30 @@
       },
       "revId": "7c0d7489ab931e2b21139f02ceded1cf6ed760e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77f1d139_a1093bfa",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1136338
+      },
+      "writtenOn": "2023-01-05T17:13:55Z",
+      "side": 1,
+      "message": "this StartIndication and startConfirmation terminology used from the bluetooth spec. \n\nBeing a2dp sink device, when remote device issues startIndication to local BT stack, BT stack further issues same request to Audio HAL for it\u0027s confirmation , so same API used at AIDL level also. Audio HAL can confirm it with the callback startConfirmation with the reason accepted or rejected. \n\nAs a result of it, further BT stack checks with BT controller for it\u0027s confirmation via HCI commands , and finally consolidates the startConfirmation from Audio HAL, BT controller and sends the response ( startConfirmation) back to Remote device.",
+      "parentUuid": "0c79a152_6c106ebb",
+      "range": {
+        "startLine": 95,
+        "startChar": 44,
+        "endLine": 99,
+        "endChar": 46
+      },
+      "revId": "7c0d7489ab931e2b21139f02ceded1cf6ed760e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
