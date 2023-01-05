@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "860a7e82_587943c7",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-01-05T15:51:06Z",
+      "side": 1,
+      "message": "Please could you make the skip more specific to the chip/model name too.",
+      "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d64e7c2_93609d47",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2053,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-01-05T15:51:06Z",
+      "side": 1,
+      "message": "Please could you add code to connect to PackageManager rather than using a shell.\n\nThere\u0027s an example of the kind of thing here:\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/tuner/TunerHelper.cpp;drc\u003d093c5f34fad4cf9daf2f7821a6c1574a9e7314e8;l\u003d45",
+      "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
