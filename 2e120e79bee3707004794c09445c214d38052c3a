@@ -16,6 +16,29 @@
       "message": "Updated as per your feedback, also added checks to make sure first-IMEI exists while using second-IMEI.",
       "revId": "2e120e79bee3707004794c09445c214d38052c3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cbc7e29_9ac9ee67",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-01-05T21:25:59Z",
+      "side": 1,
+      "message": "Can this be defined inside the for block, seeing that it\u0027s now initialized and used in the same place?",
+      "range": {
+        "startLine": 872,
+        "startChar": 4,
+        "endLine": 872,
+        "endChar": 26
+      },
+      "revId": "2e120e79bee3707004794c09445c214d38052c3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
