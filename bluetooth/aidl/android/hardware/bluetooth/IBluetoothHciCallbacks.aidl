@@ -22,7 +22,7 @@ import android.hardware.bluetooth.Status;
  * The interface from the Bluetooth Controller to the stack.
  */
 @VintfStability
-interface IBluetoothHciCallbacks {
+oneway interface IBluetoothHciCallbacks {
     /**
      * Send an ACL data packet from the controller to the host.
      * @param data the ACL HCI packet to be passed to the host stack

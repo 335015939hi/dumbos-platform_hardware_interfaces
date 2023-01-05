@@ -34,9 +34,9 @@
 package android.hardware.bluetooth;
 @Backing(type="int") @VintfStability
 enum Status {
-  SUCCESS = 0,
-  ALREADY_INITIALIZED = 1,
-  UNABLE_TO_OPEN_INTERFACE = 2,
-  HARDWARE_INITIALIZATION_ERROR = 3,
-  UNKNOWN = 4,
+  SUCCESS,
+  ALREADY_INITIALIZED,
+  UNABLE_TO_OPEN_INTERFACE,
+  HARDWARE_INITIALIZATION_ERROR,
+  UNKNOWN,
 }

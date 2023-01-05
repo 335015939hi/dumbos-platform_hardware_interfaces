@@ -34,10 +34,10 @@
 package android.hardware.bluetooth;
 @VintfStability
 interface IBluetoothHci {
-  void close();
-  void initialize(in android.hardware.bluetooth.IBluetoothHciCallbacks callback);
-  void sendAclData(in byte[] data);
-  void sendHciCommand(in byte[] command);
-  void sendIsoData(in byte[] data);
-  void sendScoData(in byte[] data);
+  oneway void close();
+  oneway void initialize(in android.hardware.bluetooth.IBluetoothHciCallbacks callback);
+  oneway void sendAclData(in byte[] data);
+  oneway void sendHciCommand(in byte[] command);
+  oneway void sendIsoData(in byte[] data);
+  oneway void sendScoData(in byte[] data);
 }

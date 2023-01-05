@@ -34,9 +34,9 @@
 package android.hardware.bluetooth;
 @VintfStability
 interface IBluetoothHciCallbacks {
-  void aclDataReceived(in byte[] data);
-  void hciEventReceived(in byte[] event);
-  void initializationComplete(in android.hardware.bluetooth.Status status);
-  void isoDataReceived(in byte[] data);
-  void scoDataReceived(in byte[] data);
+  oneway void aclDataReceived(in byte[] data);
+  oneway void hciEventReceived(in byte[] event);
+  oneway void initializationComplete(in android.hardware.bluetooth.Status status);
+  oneway void isoDataReceived(in byte[] data);
+  oneway void scoDataReceived(in byte[] data);
 }

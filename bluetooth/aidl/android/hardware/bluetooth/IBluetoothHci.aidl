@@ -27,7 +27,7 @@ import android.hardware.bluetooth.IBluetoothHciCallbacks;
  * implementation-specific details related to the hardware.
  */
 @VintfStability
-interface IBluetoothHci {
+oneway interface IBluetoothHci {
     /**
      * Close the HCI interface
      */
