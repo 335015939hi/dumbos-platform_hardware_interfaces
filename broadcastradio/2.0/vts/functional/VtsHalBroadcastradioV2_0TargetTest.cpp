@@ -498,9 +498,53 @@ TEST_P(BroadcastRadioHalTest, TuneFailsWithInvalid) {
 TEST_P(BroadcastRadioHalTest, DabTune) {
     ASSERT_TRUE(openSession());
 
+    auto programList = getProgramList();
+
+    if (!programList) {
+        printSkipped("Empty Station-List, tune cannot be performed");
+        return;
+    }
+
     ProgramSelector sel = {};
+<<<<<<< HEAD   (26b625 Add a null pointer check for wifi_chip in am: 4e6349240e)
     uint64_t freq = 178352;
     sel.primaryId = make_identifier(IdentifierType::DAB_FREQUENCY,freq);
+=======
+    uint64_t freq = 0;
+    bool dabStnPresent = false;
+
+    for (auto&& programInfo : *programList) {
+        if (utils::hasId(programInfo.selector, IdentifierType::DAB_FREQUENCY)) {
+            for (auto&& config_entry : config) {
+                if (config_entry.frequency == utils::getId(programInfo.selector,
+                    IdentifierType::DAB_FREQUENCY, 0)) {
+                    freq = config_entry.frequency;
+                    break;
+                }
+            }
+            // Do not trigger a tune request if the programList entry does not contain
+            // a valid DAB frequency
+            if (freq == 0) {
+              continue;
+            }
+            uint64_t dabSidExt = utils::getId(programInfo.selector, IdentifierType::DAB_SID_EXT, 0);
+            uint64_t dabEns = utils::getId(programInfo.selector, IdentifierType::DAB_ENSEMBLE, 0);
+            sel.primaryId = make_identifier(IdentifierType::DAB_SID_EXT, dabSidExt);
+            hidl_vec<ProgramIdentifier> secondaryIds = {
+                make_identifier(IdentifierType::DAB_ENSEMBLE, dabEns),
+                make_identifier(IdentifierType::DAB_FREQUENCY, freq)
+            };
+            sel.secondaryIds = secondaryIds;
+            dabStnPresent = true;
+            break;
+        }
+    }
+
+    if (!dabStnPresent) {
+        printSkipped("No DAB stations in the list, tune cannot be performed");
+        return;
+    }
+>>>>>>> BRANCH (433858 Merge "Fix: BroadcastradioHalTest.DabTune case failure" into)
 
     std::this_thread::sleep_for(gTuneWorkaround);
 
