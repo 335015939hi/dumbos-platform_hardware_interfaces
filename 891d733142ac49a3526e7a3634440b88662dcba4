@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb27b44a_db60e3a9",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-01-06T15:17:09Z",
+      "side": 1,
+      "message": "if the SetUpNoChecks is called with failureExpected, then it shoul dbe OK to fail restoring mInitial no?",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 75
+      },
+      "revId": "891d733142ac49a3526e7a3634440b88662dcba4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
