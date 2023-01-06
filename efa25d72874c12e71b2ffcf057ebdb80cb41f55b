@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b25e93f9_27f869bd",
+        "filename": "bluetooth/aidl/aidl_api/android.hardware.bluetooth/current/android/hardware/bluetooth/Status.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-01-06T01:38:29Z",
+      "side": 0,
+      "message": "This was done automatically.  I didn\u0027t change the values by hand.",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "efa25d72874c12e71b2ffcf057ebdb80cb41f55b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
