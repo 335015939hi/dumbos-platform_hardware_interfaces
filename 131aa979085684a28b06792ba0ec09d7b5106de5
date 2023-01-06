@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "567ce719_8dd6988f",
+        "filename": "health/aidl/android/hardware/health/BatteryHealth.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-06T09:05:40Z",
+      "side": 1,
+      "message": "Thanks for the advice. Done!",
+      "parentUuid": "5263a4f6_263c09fc",
+      "range": {
+        "startLine": 38,
+        "startChar": 20,
+        "endLine": 38,
+        "endChar": 62
+      },
+      "revId": "131aa979085684a28b06792ba0ec09d7b5106de5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4055f9f3_5186b19e",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Sorry, I mean:\n\n```\n    /**\n     * Battery manufacturing date is reported in epoch.\n     */\n    long batteryManufacturingDateSeconds;\n    /**\n     * The date of first usage is reported in epoch.\n     */\n    long batteryFirstUsageSeconds;\n```\n\nThese are like Java doc comments. The comments for the first field don\u0027t get propagated to fields below by doc generators.",
       "parentUuid": "661f0c14_97447422",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 41
+      },
+      "revId": "131aa979085684a28b06792ba0ec09d7b5106de5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6494f4e7_b16dacf4",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-01-06T09:05:40Z",
+      "side": 1,
+      "message": "Sorry to misunderstand and thanks for the advice! Done!",
+      "parentUuid": "4a740ed1_a11d6536",
       "range": {
         "startLine": 25,
         "startChar": 34,
