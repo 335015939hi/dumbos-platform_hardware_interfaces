@@ -37,6 +37,7 @@ interface ISecureElement {
   void closeChannel(in byte channelNumber);
   byte[] getAtr();
   void init(in android.hardware.secure_element.ISecureElementCallback clientCallback);
+  void deinit();
   boolean isCardPresent();
   byte[] openBasicChannel(in byte[] aid, in byte p2);
   android.hardware.secure_element.LogicalChannelResponse openLogicalChannel(in byte[] aid, in byte p2);

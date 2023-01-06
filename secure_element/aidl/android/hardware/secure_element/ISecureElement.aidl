@@ -60,6 +60,14 @@ interface ISecureElement {
     void init(in ISecureElementCallback clientCallback);
 
     /**
+     * Deinitializes the Secure Element.
+     *
+     * The callback configured in init() is dropped. Clients must call init()
+     * again before opening channels.
+     */
+    void deinit();
+
+    /**
      * Returns the current state of the card.
      *
      * This is useful for removable Secure Elements like UICC,
@@ -113,7 +121,8 @@ interface ISecureElement {
      * Reset the Secure Element.
      *
      * HAL should trigger reset to the secure element. It could hardware power cycle or
-     * a soft reset depends on the hardware design.
+     * a soft reset depends on the hardware design. All channels opened are
+     * closed by this operation.
      * HAL service must send onStateChange() with connected equal to true
      * after resetting and all the re-initialization has been successfully completed.
      */
