@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7355e4d0_70ac151b",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-01-06T17:07:37Z",
+      "side": 1,
+      "message": "I would expect this to work, not fail -- there\u0027s some discussion on aosp/2327964",
+      "revId": "90cec6fc23550cccc62cd4642c988faefb4bbc5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
