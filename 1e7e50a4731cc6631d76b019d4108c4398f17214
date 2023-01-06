@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "158727a4_188bd8a6",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-01-06T22:58:01Z",
+      "side": 1,
+      "message": "I don\u0027t think we should be adding this to device info, because it\u0027s not something we expect the device to authenticate.\n\nInstead, we should just add it to the JSON CSR (that isn\u0027t actually defined in any AIDL/spec).\n\nIf we need to upload the serialno to the server, then I think we just add it to the request object, and it\u0027s essentially ignored by the server for now.",
+      "range": {
+        "startLine": 40,
+        "startChar": 18,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "1e7e50a4731cc6631d76b019d4108c4398f17214",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
