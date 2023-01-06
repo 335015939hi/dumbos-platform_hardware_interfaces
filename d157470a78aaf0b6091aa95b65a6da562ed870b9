@@ -729,6 +729,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d8074f6_0abfe783",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-01-06T01:28:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d143eb52_b3eb7c5b",
+      "range": {
+        "startLine": 169,
+        "startChar": 29,
+        "endLine": 169,
+        "endChar": 38
+      },
+      "revId": "d157470a78aaf0b6091aa95b65a6da562ed870b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf48d64c_ff7ac782",
@@ -789,6 +813,24 @@
       "writtenOn": "2022-12-14T19:51:03Z",
       "side": 1,
       "message": "nit: Can you use the same naming casing as BluetoothHci for this file?",
+      "revId": "d157470a78aaf0b6091aa95b65a6da562ed870b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef79996e_5f3e1f20",
+        "filename": "bluetooth/aidl/default/net_bluetooth_mgmt.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-01-06T01:28:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d09d688a_4b2c97c1",
       "revId": "d157470a78aaf0b6091aa95b65a6da562ed870b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
