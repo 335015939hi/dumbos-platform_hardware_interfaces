@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e37a6aff_a09a553c",
+        "filename": "audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-06T03:07:30Z",
+      "side": 1,
+      "message": "I think it\u0027s a bit different here, because I actually want to use the pair of channelId and bandId as key, see line#334: `bandSet.count({cfg.channel, cfg.band})`",
+      "parentUuid": "1b09ef2c_7cd93320",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 58
+      },
+      "revId": "261dd333a44ff1575a674facccf77547d0a9592a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65d113ca_016cdbcc",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-06T02:40:34Z",
       "side": 1,
       "message": "typo?",
+      "range": {
+        "startLine": 409,
+        "startChar": 0,
+        "endLine": 409,
+        "endChar": 13
+      },
+      "revId": "261dd333a44ff1575a674facccf77547d0a9592a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d458719d_5266d473",
+        "filename": "audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-06T03:07:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65d113ca_016cdbcc",
       "range": {
         "startLine": 409,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "097b9c56_df83cb51",
+        "filename": "audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-06T03:07:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2ddeb74_d52f9d38",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 465,
+        "endChar": 5
+      },
+      "revId": "261dd333a44ff1575a674facccf77547d0a9592a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "608df21f_a67e6539",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48248fec_ea000fff",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-06T03:07:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "608df21f_a67e6539",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 428,
+        "endChar": 7
+      },
+      "revId": "261dd333a44ff1575a674facccf77547d0a9592a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b24c4197_a13db353",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-01-06T02:40:34Z",
       "side": 1,
       "message": "Why not to make this a templated function and then express `isAidlVectorEqual` via it? `isAidlVectorEqual` can pass filtered vectors to this generic function.",
+      "range": {
+        "startLine": 445,
+        "startChar": 0,
+        "endLine": 445,
+        "endChar": 51
+      },
+      "revId": "261dd333a44ff1575a674facccf77547d0a9592a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5efb2b63_c83db3a2",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-06T03:07:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b24c4197_a13db353",
       "range": {
         "startLine": 445,
         "startChar": 0,
