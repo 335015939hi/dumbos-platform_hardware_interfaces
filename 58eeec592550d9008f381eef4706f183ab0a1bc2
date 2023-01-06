@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b74f1031_5ab259f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2023-01-06T23:19:17Z",
+      "side": 1,
+      "message": "Instead of automatic merge in aosp/2378429, cherry-pick this CL manually.",
+      "revId": "58eeec592550d9008f381eef4706f183ab0a1bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
