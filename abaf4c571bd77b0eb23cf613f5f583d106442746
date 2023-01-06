@@ -22,6 +22,30 @@
       },
       "revId": "abaf4c571bd77b0eb23cf613f5f583d106442746",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "736fe88d_bf1d389b",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-06T23:01:14Z",
+      "side": 1,
+      "message": "Yes, good point.",
+      "parentUuid": "8e57dcd1_da64f0b2",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 51
+      },
+      "revId": "abaf4c571bd77b0eb23cf613f5f583d106442746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25cdd1e4_2bf2bac4",
+        "filename": "audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-06T23:01:14Z",
+      "side": 1,
+      "message": "Yes correct, the thing I\u0027m trying to do here is to make sure in a parameter setting there is no duplicated pair of `{ch, band}`, and return ERROR_ILLEGAL_PARAMETER if any.",
+      "parentUuid": "998f022c_f500f348",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 58
+      },
+      "revId": "261dd333a44ff1575a674facccf77547d0a9592a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65d113ca_016cdbcc",
