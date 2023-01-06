@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d244286_2ff37a71",
+        "filename": "audio/aidl/android/hardware/audio/effect/DynamicsProcessing.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-06T02:42:02Z",
+      "side": 1,
+      "message": "\"channel count\" is more correct term, here and everywhere.",
+      "range": {
+        "startLine": 131,
+        "startChar": 75,
+        "endLine": 131,
+        "endChar": 81
+      },
+      "revId": "cb669389007ec1b45dc0ebfea9a3f1c0c82de995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
