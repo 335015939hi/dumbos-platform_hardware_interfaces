@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e57dcd1_da64f0b2",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-06T19:59:51Z",
+      "side": 1,
+      "message": "I would suggest putting this as the first line, and change `tempS|T` to `source` and `target`. This will prevent unnecessary copying if we in beforehand know that the vectors do not match.",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 51
+      },
+      "revId": "abaf4c571bd77b0eb23cf613f5f583d106442746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

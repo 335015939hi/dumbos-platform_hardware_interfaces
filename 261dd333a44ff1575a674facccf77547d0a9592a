@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "998f022c_f500f348",
+        "filename": "audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-06T19:59:51Z",
+      "side": 1,
+      "message": "OK, I realized that since both the channel and the band matter here, that is, the same channel can have multiple bands, and the same band can be assigned to multiple channels—is that correct BTW?—it\u0027s more like a multimap, and dealing with it will probably be more complicated.",
+      "parentUuid": "e37a6aff_a09a553c",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 58
+      },
+      "revId": "261dd333a44ff1575a674facccf77547d0a9592a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65d113ca_016cdbcc",
