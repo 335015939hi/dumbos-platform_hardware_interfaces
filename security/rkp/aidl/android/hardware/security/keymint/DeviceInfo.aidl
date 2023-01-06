@@ -37,6 +37,7 @@ parcelable DeviceInfo {
      *         "product" : tstr,
      *         "model" : tstr,
      *         "device" : tstr,
+     *         ? "serialno": tstr,
      *         "vb_state" : "green" / "yellow" / "orange",    ; Taken from the AVB values
      *         "bootloader_state" : "locked" / "unlocked",    ; Taken from the AVB values
      *         "vbmeta_digest": bstr,                         ; Taken from the AVB values
