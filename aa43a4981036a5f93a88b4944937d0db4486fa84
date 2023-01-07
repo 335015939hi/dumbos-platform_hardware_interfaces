@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0101c50e_9e335f85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-07T00:31:38Z",
+      "side": 1,
+      "message": "Thanks for adding these definitions",
+      "revId": "aa43a4981036a5f93a88b4944937d0db4486fa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31b6fb3f_77274c0f",
+        "filename": "audio/aidl/android/hardware/audio/effect/EnvironmentalReverb.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-07T00:31:38Z",
+      "side": 1,
+      "message": "If we are using `min` and `max` for several times, maybe it worth a parcelable definition like `parcelable Range { int min, int max}`?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 26
+      },
+      "revId": "aa43a4981036a5f93a88b4944937d0db4486fa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3b807ca_3477ba3b",
@@ -19,6 +59,29 @@
         "startChar": 57,
         "endLine": 103,
         "endChar": 58
+      },
+      "revId": "aa43a4981036a5f93a88b4944937d0db4486fa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a321b451_1ac5e893",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-07T00:31:38Z",
+      "side": 1,
+      "message": "Better to return a `set` or `unordered_set` instead of `vector` to avoid generate potential duplicated result",
+      "range": {
+        "startLine": 251,
+        "startChar": 11,
+        "endLine": 251,
+        "endChar": 27
       },
       "revId": "aa43a4981036a5f93a88b4944937d0db4486fa84",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
