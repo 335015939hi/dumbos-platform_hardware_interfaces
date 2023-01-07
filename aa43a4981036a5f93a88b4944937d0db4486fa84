@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4261e4f_4e23a7be",
+        "filename": "audio/aidl/android/hardware/audio/effect/EnvironmentalReverb.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-07T02:29:01Z",
+      "side": 1,
+      "message": "Agree, I will submit a separate CL to address this. b/264719622",
+      "parentUuid": "9e375908_63db85e5",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 26
+      },
+      "revId": "aa43a4981036a5f93a88b4944937d0db4486fa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3b807ca_3477ba3b",
