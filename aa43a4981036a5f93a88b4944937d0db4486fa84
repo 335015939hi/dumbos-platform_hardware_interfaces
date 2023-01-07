@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9e375908_63db85e5",
+        "filename": "audio/aidl/android/hardware/audio/effect/EnvironmentalReverb.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-07T00:53:06Z",
+      "side": 1,
+      "message": "It\u0027s an interesting idea. If we go this way, we should have `RangeInt` and `RangeFloat`, and we should put them into \u0027common\u0027 types because they can be used universally. Perhaps let\u0027s leave that for another CL and create a bug which we should resolve before the API freeze.",
+      "parentUuid": "31b6fb3f_77274c0f",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 26
+      },
+      "revId": "aa43a4981036a5f93a88b4944937d0db4486fa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3b807ca_3477ba3b",
         "filename": "audio/aidl/android/hardware/audio/effect/EnvironmentalReverb.aidl",
         "patchSetId": 2
