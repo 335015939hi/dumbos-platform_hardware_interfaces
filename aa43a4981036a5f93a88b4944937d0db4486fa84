@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e196ab54_d3a2ca5f",
+        "filename": "audio/aidl/android/hardware/audio/effect/EnvironmentalReverb.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2023-01-09T11:05:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3b807ca_3477ba3b",
+      "range": {
+        "startLine": 103,
+        "startChar": 57,
+        "endLine": 103,
+        "endChar": 58
+      },
+      "revId": "aa43a4981036a5f93a88b4944937d0db4486fa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a321b451_1ac5e893",
@@ -125,6 +149,30 @@
       "writtenOn": "2023-01-07T00:31:38Z",
       "side": 1,
       "message": "Better to return a `set` or `unordered_set` instead of `vector` to avoid generate potential duplicated result",
+      "range": {
+        "startLine": 251,
+        "startChar": 11,
+        "endLine": 251,
+        "endChar": 27
+      },
+      "revId": "aa43a4981036a5f93a88b4944937d0db4486fa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41c313ee_438eae1a",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1959014
+      },
+      "writtenOn": "2023-01-09T11:05:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a321b451_1ac5e893",
       "range": {
         "startLine": 251,
         "startChar": 11,
