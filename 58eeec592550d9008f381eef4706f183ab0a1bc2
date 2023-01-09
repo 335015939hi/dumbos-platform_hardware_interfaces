@@ -33,6 +33,23 @@
       "message": "Samip, can you provide DrNo? This CP from android11-tests-dev",
       "revId": "58eeec592550d9008f381eef4706f183ab0a1bc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80d40a05_e1f966b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-01-09T19:03:59Z",
+      "side": 1,
+      "message": "Merge conflict follow up fix after CP from https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2379128",
+      "revId": "58eeec592550d9008f381eef4706f183ab0a1bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
