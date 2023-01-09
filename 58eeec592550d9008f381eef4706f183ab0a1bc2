@@ -16,6 +16,23 @@
       "message": "Instead of automatic merge in aosp/2378429, cherry-pick this CL manually.",
       "revId": "58eeec592550d9008f381eef4706f183ab0a1bc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04b34989_0d1dd7ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1110792
+      },
+      "writtenOn": "2023-01-09T18:54:39Z",
+      "side": 1,
+      "message": "Samip, can you provide DrNo? This CP from android11-tests-dev",
+      "revId": "58eeec592550d9008f381eef4706f183ab0a1bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
