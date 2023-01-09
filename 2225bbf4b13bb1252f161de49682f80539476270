@@ -22,6 +22,30 @@
       },
       "revId": "2225bbf4b13bb1252f161de49682f80539476270",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02339fbb_ea1ffd13",
+        "filename": "vibrator/aidl/default/example_java_client/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-09T23:58:23Z",
+      "side": 1,
+      "message": "Thanks, good catch.\n\nSo I\u0027m hitting this now: 01-09 23:54:26.829  3076  3076 E AndroidRuntime: java.lang.UnsatisfiedLinkError: dlopen failed: library \"/system/lib64/libexample_vib_getter.so\" needed or dlopened by \"/apex/com.android.art/lib64/libnativeloader.so\" is not accessible for the namespace \"product-clns-4\"\n\nJustin, is there a way to have a jni_lib on product?",
+      "parentUuid": "1b8b314b_307a97ec",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "2225bbf4b13bb1252f161de49682f80539476270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
