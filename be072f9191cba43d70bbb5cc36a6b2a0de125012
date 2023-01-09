@@ -94,6 +94,30 @@
       },
       "revId": "be072f9191cba43d70bbb5cc36a6b2a0de125012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28be9e01_4cfb8908",
+        "filename": "tv/tuner/aidl/android/hardware/tv/tuner/DemuxFilterMediaEvent.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-01-09T02:45:41Z",
+      "side": 1,
+      "message": "I have introduced the AudioPresentation structure to store AudioPreselection and program ID, and update the CLs for AIDL interface and frameworks/base accordingly.",
+      "parentUuid": "2e37e1d4_66153629",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 31
+      },
+      "revId": "be072f9191cba43d70bbb5cc36a6b2a0de125012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
