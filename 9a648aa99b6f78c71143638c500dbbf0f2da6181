@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "696de7aa_b6c15875",
+        "filename": "graphics/composer/2.3/utils/hal/include/composer-hal/2.3/ComposerCommandEngine.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2023-01-09T08:11:33Z",
+      "side": 1,
+      "message": "i think you underflow here if length \u003d\u003d 0",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 17
+      },
+      "revId": "9a648aa99b6f78c71143638c500dbbf0f2da6181",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
