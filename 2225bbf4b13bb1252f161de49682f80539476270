@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b8b314b_307a97ec",
+        "filename": "vibrator/aidl/default/example_java_client/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-09T22:00:23Z",
+      "side": 1,
+      "message": "what causes this one to be in product instead of vendor? The module looks the same as the vendor one.",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "2225bbf4b13bb1252f161de49682f80539476270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
