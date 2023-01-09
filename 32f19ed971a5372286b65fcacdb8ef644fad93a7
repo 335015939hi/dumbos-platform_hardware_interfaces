@@ -39,6 +39,30 @@
       },
       "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fca0a70_7f581a50",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveLeCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-01-09T07:13:04Z",
+      "side": 1,
+      "message": "Correct. It\u0027s inline like LC3\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/bluetooth/audio/aidl/android/hardware/bluetooth/audio/Lc3Configuration.aidl;bpv\u003d0\n\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/bluetooth/audio/aidl/android/hardware/bluetooth/audio/Lc3Capabilities.aidl;bpv\u003d0\n\nCapabilities are feature set.\nConfiguration is finally negotiated one of capability value ultimate turns out to be configuration to be updated to BT Audio Vendor HAL and MM Audio further for encoder instantiations.\nLet me know if it helps answer your question.",
+      "parentUuid": "8abd412d_45f473e6",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
