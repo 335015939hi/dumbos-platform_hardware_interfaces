@@ -46,6 +46,30 @@
       },
       "revId": "2225bbf4b13bb1252f161de49682f80539476270",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e72f7be_f90a2fdc",
+        "filename": "vibrator/aidl/default/example_java_client/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-01-10T02:04:59Z",
+      "side": 1,
+      "message": "Devin, it\u0027s `product_specific: true` which is installing this to the product partition.\n\nSteven, consider adding `use_embedded_native_libs: true` so that the jni lib is embedded in the apk.",
+      "parentUuid": "02339fbb_ea1ffd13",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "2225bbf4b13bb1252f161de49682f80539476270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
