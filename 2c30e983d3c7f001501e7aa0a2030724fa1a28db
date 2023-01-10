@@ -33,6 +33,24 @@
       "message": "Hi - as discussed in the meeting, we don\u0027t need all the files in identity/aidl/default_directaccess/common ... in fact, you should be able to just use `android.hardware.identity-libeic-hal-common` library intead of duplicating it here as `android.hardware.identity-libeic-hal-common-da`, right?",
       "revId": "2c30e983d3c7f001501e7aa0a2030724fa1a28db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b01621f_6dd1a3fa",
+        "filename": "identity/aidl/default_directaccess/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1926980
+      },
+      "writtenOn": "2023-01-10T22:28:20Z",
+      "side": 1,
+      "message": "Removed duplicate \u0027android.hardware.identity-libeic-hal-common-da\u0027 library in the next patch.",
+      "parentUuid": "350c6cfa_9dd80d8b",
+      "revId": "2c30e983d3c7f001501e7aa0a2030724fa1a28db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
