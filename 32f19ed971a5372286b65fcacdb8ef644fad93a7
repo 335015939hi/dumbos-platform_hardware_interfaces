@@ -87,6 +87,30 @@
       },
       "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3429628a_21a87547",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveLeCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-01-10T06:38:27Z",
+      "side": 1,
+      "message": "Currently we are planning to mainline interface part only.\nClient-side changes are big will not be immediately merge but there is plan scoped to start merge those once we have interface in place due to interface freezing soon.\nRegarding VTS tests, can it be done while implementing client/server-side changes OR only interface merge could also impact on VTS test?\nIf only interface merge could impact VTS, I can have a look over VTS test impact now.",
+      "parentUuid": "3a62483c_99f76148",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
