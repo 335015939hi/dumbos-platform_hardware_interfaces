@@ -16,6 +16,98 @@
       "message": "Eric, could you PTAL?",
       "revId": "01a1630ef9d1caf40c81af067414664d56eb2a73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0ae8252_bc2a76e4",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-01-10T18:59:25Z",
+      "side": 1,
+      "message": "should we simulate a read delay here?",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 50
+      },
+      "revId": "01a1630ef9d1caf40c81af067414664d56eb2a73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82947441_07877437",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-01-10T18:59:25Z",
+      "side": 1,
+      "message": "should we simulate a write delay here?",
+      "range": {
+        "startLine": 534,
+        "startChar": 0,
+        "endLine": 534,
+        "endChar": 54
+      },
+      "revId": "01a1630ef9d1caf40c81af067414664d56eb2a73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fd917e6_a80550c0",
+        "filename": "audio/aidl/default/StreamStub.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-01-10T18:59:25Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "01a1630ef9d1caf40c81af067414664d56eb2a73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea9cd14_609aa97b",
+        "filename": "audio/aidl/default/include/core-impl/StreamStub.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-01-10T18:59:25Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "01a1630ef9d1caf40c81af067414664d56eb2a73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
