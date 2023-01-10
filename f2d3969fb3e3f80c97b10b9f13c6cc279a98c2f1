@@ -46,6 +46,30 @@
       },
       "revId": "f2d3969fb3e3f80c97b10b9f13c6cc279a98c2f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5facba4_dc841941",
+        "filename": "graphics/composer/2.3/utils/hal/include/composer-hal/2.3/ComposerCommandEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1884457
+      },
+      "writtenOn": "2023-01-10T19:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58ab99b5_810c27f4",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 79,
+        "endChar": 9
+      },
+      "revId": "f2d3969fb3e3f80c97b10b9f13c6cc279a98c2f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
