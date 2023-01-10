@@ -16,6 +16,24 @@
       "message": "I would expect this to work, not fail -- there\u0027s some discussion on aosp/2327964",
       "revId": "90cec6fc23550cccc62cd4642c988faefb4bbc5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d6b7406_aa41a72f",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-01-10T15:34:47Z",
+      "side": 1,
+      "message": "@Rajesh let\u0027s change the test so it assumes the 2nd IMEI can be attested to independently, then it should be good to go.",
+      "parentUuid": "7355e4d0_70ac151b",
+      "revId": "90cec6fc23550cccc62cd4642c988faefb4bbc5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
