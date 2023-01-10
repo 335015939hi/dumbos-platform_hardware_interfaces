@@ -22,6 +22,30 @@
       },
       "revId": "f2d3969fb3e3f80c97b10b9f13c6cc279a98c2f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58ab99b5_810c27f4",
+        "filename": "graphics/composer/2.3/utils/hal/include/composer-hal/2.3/ComposerCommandEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2023-01-10T04:43:10Z",
+      "side": 1,
+      "message": "i would prefer short-circuiting:\n\n```\nif (length \u003d\u003d 0) {\n    return false;\n}\n```\n\nYou\u0027ll need to do this check before read() I think. Otherwise you might overrun the command buffer",
+      "parentUuid": "b79fed99_0dc7f1b5",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 79,
+        "endChar": 9
+      },
+      "revId": "f2d3969fb3e3f80c97b10b9f13c6cc279a98c2f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
