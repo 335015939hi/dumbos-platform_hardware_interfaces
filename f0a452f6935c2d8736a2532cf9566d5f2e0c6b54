@@ -51,6 +51,24 @@
       "message": "Please could you add code to connect to PackageManager rather than using a shell.\n\nThere\u0027s an example of the kind of thing here:\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/tuner/TunerHelper.cpp;drc\u003d093c5f34fad4cf9daf2f7821a6c1574a9e7314e8;l\u003d45",
       "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1caa5886_7c36620c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2053,
+      "author": {
+        "id": 1982325
+      },
+      "writtenOn": "2023-01-10T09:12:30Z",
+      "side": 1,
+      "message": "I tried implementing it like in the example you gave, but I got the following error:\n\"hardware/interfaces/security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp:39:10: fatal error: \u0027android/content/pm/IPackageManagerNative.h\u0027 file not found\".\n\nLooks like the PM API is only available in frameworks/ and not in hardware/.\n\nMy implementation (using shell) is similar to other VTS in hardware/, e.g., https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/radio/aidl/vts/radio_aidl_hal_utils.cpp;l\u003d62.\nI guess whoever implemented it encountered the same issue.\n\nIf you prefer to not merge my fix then please give us waiver from AttestKeyTests for a specific chip (sm8550).",
+      "parentUuid": "8d64e7c2_93609d47",
+      "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
