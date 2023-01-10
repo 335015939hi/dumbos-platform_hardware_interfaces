@@ -111,6 +111,30 @@
       },
       "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9542de11_3605fbdd",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveLeCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-10T21:59:30Z",
+      "side": 1,
+      "message": "If we don\u0027t have a VTS test, we may certify implementations that don\u0027t work or are broken. It would be Android\u0027s responsibility to maintain support for such an interface, but we can\u0027t maintain support for arbitrary interfaces. We need a test.",
+      "parentUuid": "3429628a_21a87547",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
