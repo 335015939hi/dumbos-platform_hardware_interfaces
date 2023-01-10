@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35b790cb_c55ac6b3",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 21
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-10T23:48:01Z",
+      "side": 1,
+      "message": "update. If you want new devices to always ship V2, then change to `\u003cversion\u003e2\u003c/version\u003e`. Otherwise, change to `\u003cversion\u003e1-2\u003c/version\u003e`",
+      "revId": "e2a7058636ad5dff6d823faa3b2ab70871942e01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
