@@ -70,6 +70,30 @@
       },
       "revId": "2225bbf4b13bb1252f161de49682f80539476270",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b693dc4_bfbe132d",
+        "filename": "vibrator/aidl/default/example_java_client/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-01-10T02:33:14Z",
+      "side": 1,
+      "message": "I noticed that both `vendor_available` and `product_available` do not install the proper image variants, but install the core variant to the system partition instead. This is unexpected behavior. Build system do not redirect the dependency to the proper image variant.\nIn the current implementation, jni_libs for non-system partition must have the partition specific property (vendor: true, or product_specific: true).\nI guess we never had cases of sharing a single jni lib implementation with apps from different partitions.",
+      "parentUuid": "02339fbb_ea1ffd13",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "2225bbf4b13bb1252f161de49682f80539476270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
