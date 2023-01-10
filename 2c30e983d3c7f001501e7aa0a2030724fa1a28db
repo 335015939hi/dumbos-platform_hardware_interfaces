@@ -16,6 +16,23 @@
       "message": "Please update the year in the Copyright in all files.",
       "revId": "2c30e983d3c7f001501e7aa0a2030724fa1a28db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "350c6cfa_9dd80d8b",
+        "filename": "identity/aidl/default_directaccess/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-01-10T21:47:25Z",
+      "side": 1,
+      "message": "Hi - as discussed in the meeting, we don\u0027t need all the files in identity/aidl/default_directaccess/common ... in fact, you should be able to just use `android.hardware.identity-libeic-hal-common` library intead of duplicating it here as `android.hardware.identity-libeic-hal-common-da`, right?",
+      "revId": "2c30e983d3c7f001501e7aa0a2030724fa1a28db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
