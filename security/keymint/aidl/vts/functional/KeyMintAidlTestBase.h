@@ -386,6 +386,11 @@ vector<uint8_t> make_name_from_str(const string& name);
 void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,
                         vector<uint8_t>* payload_value);
 void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey);
+<<<<<<< HEAD   (05f5fd Merge "drm aidl vts: proper skip tests without vendor module)
+=======
+void device_id_attestation_vsr_check(const ErrorCode& result);
+bool check_feature(const std::string& name);
+>>>>>>> CHANGE (3d2ba0 Add check_feature helper)
 
 AuthorizationSet HwEnforcedAuthorizations(const vector<KeyCharacteristics>& key_characteristics);
 AuthorizationSet SwEnforcedAuthorizations(const vector<KeyCharacteristics>& key_characteristics);
