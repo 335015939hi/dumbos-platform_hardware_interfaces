@@ -94,6 +94,30 @@
       },
       "revId": "2225bbf4b13bb1252f161de49682f80539476270",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2935812_777f572e",
+        "filename": "vibrator/aidl/default/example_java_client/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-11T01:43:25Z",
+      "side": 1,
+      "message": "ah - use_embedded_native_libs - I have been searching for you for so long.\n\nAlso - Devin\u0027s comment is correct. I accidentally left it as \u0027vendor\u0027 on PS1, not product_specific. Fixed in PS2. Thank you all!\n\nJustin - thanks for the explanation, filed b/265057202 for now.",
+      "parentUuid": "2b693dc4_bfbe132d",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "2225bbf4b13bb1252f161de49682f80539476270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
