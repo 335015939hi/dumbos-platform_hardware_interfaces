@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "484e48bb_27767266",
+        "filename": "audio/common/all-versions/default/7.0/HidlUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-11T17:14:43Z",
+      "side": 1,
+      "message": "The existing code is correct. Please see how `num_audio_profiles` is used below on the line 851. In the case when `halPort.num_audio_profiles \n \u003d\u003d AUDIO_PORT_MAX_AUDIO_PROFILES` the loop goes from `0` to `AUDIO_PORT_MAX_AUDIO_PROFILES - 1` due to use of `\u003c` comparison, this is correct. While, if we reject `AUDIO_PORT_MAX_AUDIO_PROFILES` here, then the loop could only go up to `AUDIO_PORT_MAX_AUDIO_PROFILES - 2`.\n \n Same for `num_extra_audio_descriptors`.",
+      "range": {
+        "startLine": 842,
+        "startChar": 35,
+        "endLine": 842,
+        "endChar": 38
+      },
+      "revId": "f33aaa533fb73df0d5dcc27b9e26bf93275bea36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
