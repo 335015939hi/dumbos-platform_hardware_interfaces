@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad2ed5b3_f214dd0f",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-01-11T17:45:40Z",
+      "side": 1,
+      "message": "This must be specific to the chip model because the requirement to support the ATTEST_KEY has only been waived on specific models, and this test is how we ensure that it isn\u0027t accidentally omitted for all other devices. Also, the test should only be skipped when STRONGBOX feature flag is enabled.\n\nSo to be clear, the test should only be skipped when all of the following hold:\n\n1. ATTEST_KEY feature is disabled.\n2. STRONGBOX is enabled.\n3. The device is running one of the chipsets that have received the waiver that allows Android S (or later) versions to be launched with Keymaster 4.0 in StrongBox.\n\nI\u0027m marking this CL as \"do not submit\" as-is.  With the logic above implemented, I\u0027ll change to +2 and merge.",
+      "parentUuid": "6dbd48c1_4040fa3e",
+      "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d64e7c2_93609d47",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 1
