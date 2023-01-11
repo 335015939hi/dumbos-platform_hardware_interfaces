@@ -34,6 +34,24 @@
       "parentUuid": "7355e4d0_70ac151b",
       "revId": "90cec6fc23550cccc62cd4642c988faefb4bbc5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deadf4cb_3bf78eb1",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-01-11T01:19:47Z",
+      "side": 1,
+      "message": "Updated the test to use second IMEI independently as attestation id.",
+      "parentUuid": "7d6b7406_aa41a72f",
+      "revId": "90cec6fc23550cccc62cd4642c988faefb4bbc5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
