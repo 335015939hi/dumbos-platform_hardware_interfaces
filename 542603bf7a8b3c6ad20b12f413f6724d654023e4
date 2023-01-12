@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a1ef7c_cc05c83a",
+        "filename": "secure_element/aidl/android/hardware/secure_element/ISecureElement.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2023-01-12T08:15:41Z",
+      "side": 1,
+      "message": "A little unclear what\u0027s the HW operations we should implement for this AIDL API on physical devices. it looks like the deinit usage in the vts could be replaced directly by reset?",
+      "range": {
+        "startLine": 68,
+        "startChar": 9,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "542603bf7a8b3c6ad20b12f413f6724d654023e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66a12ab4_0dfd038d",
+        "filename": "secure_element/aidl/vts/VtsHalSecureElementTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2023-01-12T08:15:41Z",
+      "side": 1,
+      "message": "maybe use 3 to make sure there is additional data not only the 2 bytes status words?\nSame comment for the rest of places that use kDataApdu.",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 39
+      },
+      "revId": "542603bf7a8b3c6ad20b12f413f6724d654023e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
