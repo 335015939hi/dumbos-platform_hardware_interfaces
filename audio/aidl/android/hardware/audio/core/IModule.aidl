@@ -807,4 +807,15 @@ interface IModule {
      * @throws EX_UNSUPPORTED_OPERATION If the module does not support device port effects.
      */
     void removeDeviceEffect(int portConfigId, in IEffect effect);
+
+    /**
+     * Indicates if this module supports variable latency control for instance
+     * over Bluetooth A2DP or LE Audio links.
+     *
+     * If supported, all instances of IStreamOut interface returned by this module must
+     * implement getRecommendedLatencyModes() and setLatencyMode() APIs.
+     *
+     * @return Whether the module supports variable latency control.
+     */
+    boolean supportsVariableLatency();
 }

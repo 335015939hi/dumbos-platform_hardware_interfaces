@@ -1080,4 +1080,10 @@ ndk::ScopedAStatus Module::removeDeviceEffect(
     return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
+ndk::ScopedAStatus Module::supportsVariableLatency(bool* _aidl_return) {
+    LOG(DEBUG) << __func__;
+    *_aidl_return = false;
+    return ndk::ScopedAStatus::ok();
+}
+
 }  // namespace aidl::android::hardware::audio::core

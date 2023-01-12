@@ -110,6 +110,7 @@ class Module : public BnModule {
             int32_t in_portConfigId,
             const std::shared_ptr<::aidl::android::hardware::audio::effect::IEffect>& in_effect)
             override;
+    ndk::ScopedAStatus supportsVariableLatency(bool* _aidl_return) override;
 
     void cleanUpPatch(int32_t patchId);
     ndk::ScopedAStatus createStreamContext(
