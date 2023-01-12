@@ -1,44 +1,70 @@
-// FIXME: license file, or use the -l option to generate the files with the header.
+/*
+ * Copyright (C) 2022 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package android.hardware.gatekeeper;
 
-import android.hardware.gatekeeper.GatekeeperResponse;
+import android.hardware.gatekeeper.GatekeeperEnrollResponse;
+import android.hardware.gatekeeper.GatekeeperVerifyResponse;
 
 @VintfStability
+@SensitiveData
 interface IGatekeeper {
-    // Adding return type to method instead of out param GatekeeperResponse response since there is only one return value.
+    /**
+     * enroll and verify binder calls may return a ServiceSpecificException
+     * with the following error codes.
+     */
+    /* Success, but upper layers should re-enroll the verified password due to a version change. */
+    const int STATUS_REENROLL = 1;
+    /* operation is successful */
+    const int STATUS_OK = 0;
+    /* operation is successful. */
+    const int ERROR_GENERAL_FAILURE = -1;
+    /* operation should  be retried after timeout. */
+    const int ERROR_RETRY_TIMEOUT = -2;
+    /* operation is not implemented. */
+    const int ERROR_NOT_IMPLEMENTED = -3;
+
     /**
      * Deletes all the enrolled_password_handles for all uid's. Once called,
      * no users must be enrolled on the device.
      * This is an optional method.
      *
-     * @return
-     *    response.code must always contain operation completion status.
-     *    This method may return ERROR_GENERAL_FAILURE or ERROR_RETRY_TIMEOUT on
-     *    failure. It must return STATUS_OK on success.
-     *    If not implemented, it must return ERROR_NOT_IMPLEMENTED.
-     *    If ERROR_RETRY_TIMEOUT is returned, response.timeout must be non-zero.
+     * Service status return:
+     *
+     * OK if all the users are deleted successfully.
+     * ERROR_GENERAL_FAILURE on failure.
+     * ERROR_NOT_IMPLEMENTED if not implemented.
      */
-    GatekeeperResponse deleteAllUsers();
+    void deleteAllUsers();
 
-    // Adding return type to method instead of out param GatekeeperResponse response since there is only one return value.
     /**
      * Deletes the enrolledPasswordHandle associated with the uid. Once deleted
      * the user cannot be verified anymore.
      * This is an optional method.
      *
-     * @param uid The Android user identifier
+     * Service status return:
      *
-     * @return
-     *    response.code must always contain operation completion status.
-     *    This method may return ERROR_GENERAL_FAILURE or ERROR_RETRY_TIMEOUT on
-     *    failure. It must return STATUS_OK on success.
-     *    If not implemented, it must return ERROR_NOT_IMPLEMENTED.
-     *    If ERROR_RETRY_TIMEOUT is returned, response.timeout must be non-zero.
+     * OK if user is deleted successfully.
+     * ERROR_GENERAL_FAILURE on failure.
+     * ERROR_NOT_IMPLEMENTED if not implemented.
+     *
+     * @param uid The Android user identifier
      */
-    GatekeeperResponse deleteUser(in int uid);
+    void deleteUser(in int uid);
 
-    // Adding return type to method instead of out param GatekeeperResponse response since there is only one return value.
     /**
      * Enrolls desiredPassword, which may be derived from a user selected pin
      * or password, with the private key used only for enrolling authentication
@@ -48,6 +74,12 @@ interface IGatekeeper {
      * passed in currentPasswordHandle, and current password must be passed in
      * currentPassword. Valid currentPassword must verify() against
      * currentPasswordHandle.
+     *
+     * Service status return:
+     *
+     * OK if password is enrolled successfully.
+     * ERROR_GENERAL_FAILURE on failure.
+     * ERROR_NOT_IMPLEMENTED if not implemented.
      *
      * @param uid The Android user identifier
      *
@@ -65,16 +97,14 @@ interface IGatekeeper {
      *    On success, data buffer must contain the new password handle referencing
      *    the password provided in desiredPassword.
      *    This buffer can be used on subsequent calls to enroll or
-     *    verify. On error, this buffer must be empty.
-     *    response.code must always contain operation completion status.
-     *    This method may return ERROR_GENERAL_FAILURE or ERROR_RETRY_TIMEOUT on
-     *    failure. It must return STATUS_OK on success.
+     *    verify. response.statusCode must contain either ERROR_RETRY_TIMEOUT or
+     *    STATUS_OK. On error, this buffer must be empty. This method may return
+     *    ERROR_GENERAL_FAILURE on failure.
      *    If ERROR_RETRY_TIMEOUT is returned, response.timeout must be non-zero.
      */
-    GatekeeperResponse enroll(in int uid, in byte[] currentPasswordHandle,
-        in byte[] currentPassword, in byte[] desiredPassword);
+    GatekeeperEnrollResponse enroll(in int uid, in byte[] currentPasswordHandle,
+            in byte[] currentPassword, in byte[] desiredPassword);
 
-    // Adding return type to method instead of out param GatekeeperResponse response since there is only one return value.
     /**
      * Verifies that providedPassword matches enrolledPasswordHandle.
      *
@@ -83,6 +113,12 @@ interface IGatekeeper {
      *
      * On success, returns verification token in response.data, which shall be
      * usable to attest password verification to other trusted services.
+     *
+     * Service status return:
+     *
+     * OK if password is enrolled successfully.
+     * ERROR_GENERAL_FAILURE on failure.
+     * ERROR_NOT_IMPLEMENTED if not implemented.
      *
      * @param uid The Android user identifier
      *
@@ -97,15 +133,14 @@ interface IGatekeeper {
      *    enrolledPasswordHandle
      *
      * @return
-     *    On success, a non-empty data buffer containing the
-     *    authentication token resulting from this verification is returned.
+     *    On success, a HardwareAuthToken resulting from this verification is returned.
+     *    response.statusCode must contain either ERROR_RETRY_TIMEOUT or
+     *    or STATUS_REENROLL or STATUS_OK.
      *    On error, data buffer must be empty.
-     *    response.code must always contain operation completion status.
-     *    This method may return ERROR_GENERAL_FAILURE or ERROR_RETRY_TIMEOUT on
-     *    failure. It must return STATUS_OK on success.
+     *    This method may return ERROR_GENERAL_FAILURE on failure.
      *    If password re-enrollment is necessary, it must return STATUS_REENROLL.
      *    If ERROR_RETRY_TIMEOUT is returned, response.timeout must be non-zero.
      */
-    GatekeeperResponse verify(in int uid, in long challenge, in byte[] enrolledPasswordHandle,
-        in byte[] providedPassword);
+    GatekeeperVerifyResponse verify(in int uid, in long challenge, in byte[] enrolledPasswordHandle,
+            in byte[] providedPassword);
 }
