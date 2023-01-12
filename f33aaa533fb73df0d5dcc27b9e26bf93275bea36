@@ -22,6 +22,30 @@
       },
       "revId": "f33aaa533fb73df0d5dcc27b9e26bf93275bea36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b1883f7_097d115f",
+        "filename": "audio/common/all-versions/default/7.0/HidlUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1869057
+      },
+      "writtenOn": "2023-01-12T01:56:26Z",
+      "side": 1,
+      "message": "agree with you， thanks for your review",
+      "parentUuid": "484e48bb_27767266",
+      "range": {
+        "startLine": 842,
+        "startChar": 35,
+        "endLine": 842,
+        "endChar": 38
+      },
+      "revId": "f33aaa533fb73df0d5dcc27b9e26bf93275bea36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
