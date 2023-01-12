@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ee7be5e_8468b2df",
+        "filename": "secure_element/aidl/android/hardware/secure_element/ISecureElement.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-12T14:05:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "923db200_25a980d1",
+      "range": {
+        "startLine": 68,
+        "startChar": 9,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "542603bf7a8b3c6ad20b12f413f6724d654023e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66a12ab4_0dfd038d",
@@ -205,6 +229,30 @@
       "side": 1,
       "message": "Ok, I can add that 👍",
       "parentUuid": "a3f5dbd1_d7b010eb",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 39
+      },
+      "revId": "542603bf7a8b3c6ad20b12f413f6724d654023e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ecb2bcc_541798f8",
+        "filename": "secure_element/aidl/vts/VtsHalSecureElementTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-01-12T14:05:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ec8ed20_5bb063b8",
       "range": {
         "startLine": 137,
         "startChar": 8,
