@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "820d2f6c_03161036",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-12T02:26:04Z",
+      "side": 1,
+      "message": "Devin, could you please review API changes.",
+      "revId": "a7dd56f3cab314baa798cf3e2f1af8c2a832cfac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ce25007_ef0ee74c",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-01-12T02:22:05Z",
       "side": 1,
       "message": "nit: how about std::unordered_set?",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 20
+      },
+      "revId": "a7dd56f3cab314baa798cf3e2f1af8c2a832cfac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d14b36cd_a45ce7e8",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-12T02:26:04Z",
+      "side": 1,
+      "message": "It is not allowed with `constexpr` due to use dynamic memory allocation. I think, checking against a list of 5 values wouldn\u0027t really be much faster even with a set.",
+      "parentUuid": "4ce25007_ef0ee74c",
       "range": {
         "startLine": 36,
         "startChar": 10,
