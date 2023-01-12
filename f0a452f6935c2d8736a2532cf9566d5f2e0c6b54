@@ -159,6 +159,24 @@
       "parentUuid": "8ce42e82_e8e0160c",
       "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e48b113e_dab016d3",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2053,
+      "author": {
+        "id": 1982325
+      },
+      "writtenOn": "2023-01-12T17:20:02Z",
+      "side": 1,
+      "message": "OK, fount it. Thanks.",
+      "parentUuid": "23de3f9f_bbbff77b",
+      "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
