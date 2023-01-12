@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d94b5811_cade5a1b",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-01-12T16:12:38Z",
+      "side": 1,
+      "message": "Nit: I\u0027d prefer to make this a little clearer, e.g. \"Check if chipset has received a waiver allowing it to be launched with Android S (or later) with Keymaster 4.0 in StrongBox\".",
+      "range": {
+        "startLine": 96,
+        "startChar": 7,
+        "endLine": 96,
+        "endChar": 57
+      },
+      "revId": "9a5601d786158a7056ef7855331cd7dac4755bd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "113ffea7_33fa052a",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-01-12T16:12:38Z",
+      "side": 1,
+      "message": "I don\u0027t recall model SXR2230P being included in the waiver.  What is it?",
+      "revId": "9a5601d786158a7056ef7855331cd7dac4755bd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

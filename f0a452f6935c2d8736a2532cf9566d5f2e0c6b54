@@ -105,6 +105,24 @@
       "parentUuid": "8d64e7c2_93609d47",
       "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8472217_c0d5b1ad",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2053,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-01-12T16:12:38Z",
+      "side": 1,
+      "message": "See https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2384612, which should be merged and provides a helper function you can use.",
+      "parentUuid": "1caa5886_7c36620c",
+      "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
