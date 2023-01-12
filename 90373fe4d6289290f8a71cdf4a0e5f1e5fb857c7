@@ -177,6 +177,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "611d7cc3_9d3bf2df",
+        "filename": "tv/earc/aidl/default/EArcMock.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2023-01-12T13:53:44Z",
+      "side": 1,
+      "message": "Done in aosp/2385792.",
+      "parentUuid": "166b8cb0_85a7b196",
+      "revId": "90373fe4d6289290f8a71cdf4a0e5f1e5fb857c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d441e7bc_36ea74dd",
@@ -190,6 +208,24 @@
       "writtenOn": "2023-01-04T18:47:04Z",
       "side": 1,
       "message": "I think we want to take the `capabilities` argument by const reference here, instead of copy.  Our use of `const` suggests that was our intention but we just forgot the `\u0026`.  So this should probably be:\n\n```\n    ::ndk::ScopedAStatus reportCapabilities(const std::vector\u003cuint8_t\u003e\u0026 capabilities,\n```",
+      "revId": "90373fe4d6289290f8a71cdf4a0e5f1e5fb857c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b231f9a_c77c5ecd",
+        "filename": "tv/earc/aidl/default/EArcMock.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2023-01-12T13:53:44Z",
+      "side": 1,
+      "message": "Done in aosp/2385792.",
+      "parentUuid": "d441e7bc_36ea74dd",
       "revId": "90373fe4d6289290f8a71cdf4a0e5f1e5fb857c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
