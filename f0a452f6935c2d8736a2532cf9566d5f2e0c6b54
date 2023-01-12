@@ -123,6 +123,24 @@
       "parentUuid": "1caa5886_7c36620c",
       "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ce42e82_e8e0160c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2053,
+      "author": {
+        "id": 1982325
+      },
+      "writtenOn": "2023-01-12T16:29:32Z",
+      "side": 1,
+      "message": "I don\u0027t have access to that link (looks like internal Google site). If it\u0027s merged then please send me a link in https://cs.android.com/android/platform/superproject.",
+      "parentUuid": "e8472217_c0d5b1ad",
+      "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

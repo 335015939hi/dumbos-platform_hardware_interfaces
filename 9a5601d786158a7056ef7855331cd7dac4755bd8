@@ -39,6 +39,24 @@
       "message": "I don\u0027t recall model SXR2230P being included in the waiver.  What is it?",
       "revId": "9a5601d786158a7056ef7855331cd7dac4755bd8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f253010_881744fe",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1982325
+      },
+      "writtenOn": "2023-01-12T16:29:32Z",
+      "side": 1,
+      "message": "It\u0027s also known as Halliday. It\u0027s a variant of SM8450, and also has SB KM 4.0.",
+      "parentUuid": "113ffea7_33fa052a",
+      "revId": "9a5601d786158a7056ef7855331cd7dac4755bd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
