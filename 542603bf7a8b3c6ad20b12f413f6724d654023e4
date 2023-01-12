@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "923db200_25a980d1",
+        "filename": "secure_element/aidl/android/hardware/secure_element/ISecureElement.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2023-01-12T09:45:55Z",
+      "side": 1,
+      "message": "shutdown disconnect the SeService object, but the HW operations are close all used sessions/channels by this app/SeService objects. The SE state is still the same connected.",
+      "parentUuid": "6b23129f_233ac1bd",
+      "range": {
+        "startLine": 68,
+        "startChar": 9,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "542603bf7a8b3c6ad20b12f413f6724d654023e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66a12ab4_0dfd038d",
         "filename": "secure_element/aidl/vts/VtsHalSecureElementTargetTest.cpp",
         "patchSetId": 4
