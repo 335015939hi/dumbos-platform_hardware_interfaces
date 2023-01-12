@@ -141,6 +141,24 @@
       "parentUuid": "e8472217_c0d5b1ad",
       "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23de3f9f_bbbff77b",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2053,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-01-12T16:45:06Z",
+      "side": 1,
+      "message": "Hmm. It\u0027s AOSP, but you access it through a different Gerrit portal, I guess. Can you search for change I4a5b2a41172c15ae29efb5b177eb86cea5527b4e? You should be able to paste it in the Gerrit search box.",
+      "parentUuid": "8ce42e82_e8e0160c",
+      "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
