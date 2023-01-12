@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "754cdd01_63119f59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-12T02:52:07Z",
+      "side": 1,
+      "message": "Looking at presubmit errors, seems like we need to go via internal first and fix usages in vendor-specific code.",
+      "revId": "a7dd56f3cab314baa798cf3e2f1af8c2a832cfac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ce25007_ef0ee74c",
