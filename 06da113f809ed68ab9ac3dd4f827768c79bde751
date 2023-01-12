@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d706f6f9_99cf89f8",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-01-12T11:20:52Z",
+      "side": 1,
+      "message": "tommychiu@ noticed that the ASN.1 parsing code in `hardware/interfaces/security/keymint/support/attestation_record.cpp` hasn\u0027t been updated for `SECOND_IMEI` yet -- has this test been run against a device that has a 2nd IMEI yet?",
+      "revId": "06da113f809ed68ab9ac3dd4f827768c79bde751",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
