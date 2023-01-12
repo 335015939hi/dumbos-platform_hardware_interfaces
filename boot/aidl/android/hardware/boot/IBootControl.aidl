@@ -1,27 +1,15 @@
-//
-// Copyright (C) 2022 The Android Open Source Project
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-//
+// FIXME: license file, or use the -l option to generate the files with the header.
 
 package android.hardware.boot;
 
+import android.hardware.boot.BoolResult;
+import android.hardware.boot.CommandResult;
 import android.hardware.boot.MergeStatus;
 
+// Interface inherits from android.hardware.boot@1.1::IBootControl but AIDL does not support interface inheritance (methods have been flattened).
 @VintfStability
 interface IBootControl {
-    const int INVALID_SLOT = -1;
-    const int COMMAND_FAILED = -2;
+    // Adding return type to method instead of out param int slot since there is only one return value.
     /**
      * Returns the active slot to boot into on the next boot. If
      * setActiveBootSlot() has been called, the getter function should return the
@@ -29,10 +17,10 @@ interface IBootControl {
      * The returned value is always guaranteed to be strictly less than the
      * value returned by getNumberSlots. Slots start at 0 and finish at
      * getNumberSlots() - 1. For instance, a system with A/B must return 0 or 1.
-     * @return the active slot to boot into on the next boot.
      */
     int getActiveBootSlot();
 
+    // Adding return type to method instead of out param int slot since there is only one return value.
     /**
      * getCurrentSlot() returns the slot number of that the current boot is booted
      * from, for example slot number 0 (Slot A). It is assumed that if the current
@@ -42,10 +30,10 @@ interface IBootControl {
      * value returned by getNumberSlots. Slots start at 0 and finish at
      * getNumberSlots() - 1. The value returned here must match the suffix passed
      * from the bootloader, regardless of which slot is active or successful.
-     * @return the slot number of that the current boot is booted
      */
     int getCurrentSlot();
 
+    // Adding return type to method instead of out param int numSlots since there is only one return value.
     /**
      * getNumberSlots() returns the number of available slots.
      * For instance, a system with a single set of partitions must return
@@ -53,10 +41,11 @@ interface IBootControl {
      * less than two slots doesn't support background updates, for example if
      * running from a virtual machine with only one copy of each partition for the
      * purpose of testing.
-     * @return number of available slots
      */
     int getNumberSlots();
 
+    // FIXME: AIDL has built-in status types. Do we need the status type here?
+    // Adding return type to method instead of out param MergeStatus status since there is only one return value.
     /**
      * Returns whether a snapshot-merge of any dynamic partition is in progress.
      *
@@ -70,61 +59,64 @@ interface IBootControl {
      */
     MergeStatus getSnapshotMergeStatus();
 
+    // Adding return type to method instead of out param String slotSuffix since there is only one return value.
     /**
      * getSuffix() returns the string suffix used by partitions that correspond to
      * the slot number passed in as a parameter. The bootloader must pass the
      * suffix of the currently active slot either through a kernel command line
      * property at androidboot.slot_suffix, or the device tree at
      * /firmware/android/slot_suffix.
-     * @return suffix for the input slot, or the empty string "" if slot
-     * does not match an existing slot.
+     * Returns the empty string "" if slot does not match an existing slot.
      */
     String getSuffix(in int slot);
 
+    // Adding return type to method instead of out param BoolResult bootable since there is only one return value.
     /**
      * isSlotBootable() returns if the slot passed in parameter is bootable. Note
      * that slots can be made unbootable by both the bootloader and by the OS
      * using setSlotAsUnbootable.
-     * @return true if the slot is bootable, false if it's not.
-     * @throws service specific error INVALID_SLOT if slot is invalid.
+     * Returns TRUE if the slot is bootable, FALSE if it's not, and INVALID_SLOT
+     * if slot does not exist.
      */
-    boolean isSlotBootable(in int slot);
+    BoolResult isSlotBootable(in int slot);
 
+    // Adding return type to method instead of out param BoolResult successful since there is only one return value.
     /**
-     * isSlotMarkedSuccessful() returns if the slot passed in parameter has been
+     * isSlotMarkedSucessful() returns if the slot passed in parameter has been
      * marked as successful using markBootSuccessful. Note that only the current
      * slot can be marked as successful but any slot can be queried.
-     * @return true if the slot has been marked as successful, false if it has
-     * not.
-     * @throws service specific error INVALID_SLOT if slot is invalid.
+     * Returns TRUE if the slot has been marked as successful, FALSE if it has
+     * not, and INVALID_SLOT if the slot does not exist.
      */
-    boolean isSlotMarkedSuccessful(in int slot);
+    BoolResult isSlotMarkedSuccessful(in int slot);
 
+    // Adding return type to method instead of out param CommandResult error since there is only one return value.
     /**
      * markBootSuccessful() marks the current slot as having booted successfully.
      *
-     * @throws Service specific error COMMAND_FAILED if command failed.
+     * Returns whether the command succeeded.
      */
-    void markBootSuccessful();
+    CommandResult markBootSuccessful();
 
+    // Adding return type to method instead of out param CommandResult error since there is only one return value.
     /**
      * setActiveBootSlot() marks the slot passed in parameter as the active boot
      * slot (see getCurrentSlot for an explanation of the "slot" parameter). This
      * overrides any previous call to setSlotAsUnbootable.
-     * @throws Service specific error INVALID_SLOT if slot is invalid, or COMMAND_FAILED if
-     * operation failed.
+     * Returns whether the command succeeded.
      */
-    void setActiveBootSlot(in int slot);
+    CommandResult setActiveBootSlot(in int slot);
 
+    // Adding return type to method instead of out param CommandResult error since there is only one return value.
     /**
      * setSlotAsUnbootable() marks the slot passed in parameter as
      * an unbootable. This can be used while updating the contents of the slot's
      * partitions, so that the system must not attempt to boot a known bad set up.
-     * @throws Service specific error INVALID_SLOT if slot is invalid, or COMMAND_FAILED if
-     * operation failed.
+     * Returns whether the command succeeded.
      */
-    void setSlotAsUnbootable(in int slot);
+    CommandResult setSlotAsUnbootable(in int slot);
 
+    // Adding return type to method instead of out param boolean success since there is only one return value.
     /**
      * Sets whether a snapshot-merge of any dynamic partition is in progress.
      *
@@ -152,7 +144,7 @@ interface IBootControl {
      *
      * @param status Merge status.
      *
-     * @throws service specific error COMMAND_FAILED if operation failed.
+     * @return True on success, false otherwise.
      */
-    void setSnapshotMergeStatus(in MergeStatus status);
+    boolean setSnapshotMergeStatus(in MergeStatus status);
 }
