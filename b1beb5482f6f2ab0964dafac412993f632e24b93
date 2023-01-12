@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acace94d_1de472ff",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-01-12T23:47:12Z",
+      "side": 1,
+      "message": "I wonder if we should require this or not.\n\nI recall at least one partner telling us they may not have populated the serial number at the point at which they capture keys off the device.\n\nSo I\u0027m thinking we need some more edge case handling:\n1. Skip serialno if the property is missing\n2. Skip serialno when the property is empty",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 428,
+        "endChar": 5
+      },
+      "revId": "b1beb5482f6f2ab0964dafac412993f632e24b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
