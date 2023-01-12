@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "830efe3c_88dbeda7",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1982325
+      },
+      "writtenOn": "2023-01-12T15:28:34Z",
+      "side": 1,
+      "message": "Thanks for the clarifications. I\u0027ve uploaded a new patch with the required changes.",
+      "parentUuid": "ad2ed5b3_f214dd0f",
+      "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d64e7c2_93609d47",
