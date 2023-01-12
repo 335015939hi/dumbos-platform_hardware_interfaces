@@ -16,6 +16,24 @@
       "message": "Was the binary failing to run because the shared lib wasn\u0027t actually present in the image?",
       "revId": "12dbdbd34b707b15c827bf28707b634dc7105606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43d9d3c5_48b2b4f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-01-12T23:44:04Z",
+      "side": 1,
+      "message": "Yup, and I suggested just static linking.\n\nThis lib is only used for testing, so IMO it makes sense to static link it instead of copying it around.\n\nI considered suggesting that we make it a static lib so all tests explicitly link it statically. But that seemed unnecessary.",
+      "parentUuid": "c88f9181_4d9f41ae",
+      "revId": "12dbdbd34b707b15c827bf28707b634dc7105606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
