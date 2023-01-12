@@ -16,6 +16,29 @@
       "message": "Shunkai, this is a purely technical change, please fully approve (give +2) if you don\u0027t see any issues. Thanks!",
       "revId": "a7dd56f3cab314baa798cf3e2f1af8c2a832cfac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ce25007_ef0ee74c",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-12T02:22:05Z",
+      "side": 1,
+      "message": "nit: how about std::unordered_set?",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 36,
+        "endChar": 20
+      },
+      "revId": "a7dd56f3cab314baa798cf3e2f1af8c2a832cfac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
