@@ -1,29 +1,59 @@
-package {
-    // See: http://go/android-license-faq
-    // A large-scale-change added 'default_applicable_licenses' to import
-    // all of the 'license_kinds' from "hardware_interfaces_license"
-    // to get the below license kinds:
-    //   SPDX-license-identifier-Apache-2.0
-    default_applicable_licenses: ["hardware_interfaces_license"],
-}
+// This is the expected build file, but it may not be right in all cases
 
 aidl_interface {
     name: "android.hardware.gatekeeper",
     vendor_available: true,
-    imports: [
-        "android.hardware.security.keymint-V3",
-    ],
+    host_supported: true,
+    frozen: false,
     srcs: ["android/hardware/gatekeeper/*.aidl"],
     stability: "vintf",
     backend: {
-        java: {
-            platform_apis: true,
-        },
-        ndk: {
-            apps_enabled: false,
-        },
         cpp: {
-            enabled: false,
+            // FIXME should this be disabled?
+            // prefer NDK backend which can be used anywhere
+            // If you disable this, you also need to delete the C++
+            // translate code.
+            enabled: true,
+        },
+        java: {
+            sdk_version: "system_current",
         },
     },
 }
+
+cc_library {
+    name: "android.hardware.gatekeeper-translate-cpp",
+    srcs: ["translate/android/hardware/gatekeeper/translate-cpp.cpp"],
+    shared_libs: [
+        "libbinder",
+        "libhidlbase",
+        "android.hardware.gatekeeper-V1-cpp",
+        "libutils",
+        "android.hardware.gatekeeper@1.0",
+    ],
+    export_include_dirs: ["include"],
+}
+
+cc_library {
+    name: "android.hardware.gatekeeper-translate-ndk",
+    vendor_available: true,
+    srcs: ["translate/android/hardware/gatekeeper/translate-ndk.cpp"],
+    shared_libs: [
+        "libbinder_ndk",
+        "libhidlbase",
+        "android.hardware.gatekeeper-V1-ndk",
+        "android.hardware.gatekeeper@1.0",
+    ],
+    export_include_dirs: ["include"],
+}
+
+java_library {
+    name: "android.hardware.gatekeeper-translate-java",
+    srcs: ["translate/android/hardware/gatekeeper/Translate.java"],
+    libs: [
+        "android.hardware.gatekeeper-V1-java",
+        "android.hardware.gatekeeper-V1.0-java",
+    ],
+    sdk_version: "system_current",
+}
+
