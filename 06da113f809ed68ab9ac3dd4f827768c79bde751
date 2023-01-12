@@ -34,6 +34,24 @@
       "parentUuid": "d706f6f9_99cf89f8",
       "revId": "06da113f809ed68ab9ac3dd4f827768c79bde751",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a49c0ab_d1b7e737",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-01-12T17:12:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce8c400f_28954f03",
+      "revId": "06da113f809ed68ab9ac3dd4f827768c79bde751",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
