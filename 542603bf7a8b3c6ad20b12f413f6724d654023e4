@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5363dcd6_4aa2e8a4",
+        "filename": "secure_element/aidl/android/hardware/secure_element/ISecureElement.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2023-01-12T08:51:15Z",
+      "side": 1,
+      "message": "I think we dont have a closed state, and no actual usage.\nIf you plan to add this state, I wonder what\u0027s the expected HW operation here.\nIt\u0027s better to document it in more detail since current default impl seems not match the API description.",
+      "parentUuid": "f99bf29f_fdae9b29",
+      "range": {
+        "startLine": 68,
+        "startChar": 9,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "542603bf7a8b3c6ad20b12f413f6724d654023e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66a12ab4_0dfd038d",
         "filename": "secure_element/aidl/vts/VtsHalSecureElementTargetTest.cpp",
         "patchSetId": 4
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "It does not really matter that there is data present imo. VTS testing should only target the ability of the transmit method to send and receive data, and that this data is a valid command is irrelevant.",
       "parentUuid": "66a12ab4_0dfd038d",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 39
+      },
+      "revId": "542603bf7a8b3c6ad20b12f413f6724d654023e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3f5dbd1_d7b010eb",
+        "filename": "secure_element/aidl/vts/VtsHalSecureElementTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2023-01-12T08:51:15Z",
+      "side": 1,
+      "message": "I think it\u0027s used to make sure the response data + status words are sent back with one transaction instead of separately. Otherwise there are no data apdus can be used.",
+      "parentUuid": "0eca16ce_76a85035",
       "range": {
         "startLine": 137,
         "startChar": 8,
