@@ -16,6 +16,24 @@
       "message": "tommychiu@ noticed that the ASN.1 parsing code in `hardware/interfaces/security/keymint/support/attestation_record.cpp` hasn\u0027t been updated for `SECOND_IMEI` yet -- has this test been run against a device that has a 2nd IMEI yet?",
       "revId": "06da113f809ed68ab9ac3dd4f827768c79bde751",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce8c400f_28954f03",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-01-12T16:45:07Z",
+      "side": 1,
+      "message": "This CL is rebased on-to https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2357762.\n\nTested this on Pixel-7a and Cuttlefish.\nTo support the second IMEI attestation-id on cuttlefish, I made changes: https://android-review.git.corp.google.com/q/topic:%22second_imei_cf%22\n\n(On Pixel-7a, attest record verification ignores this tag as it\u0027s not supported yet)",
+      "parentUuid": "d706f6f9_99cf89f8",
+      "revId": "06da113f809ed68ab9ac3dd4f827768c79bde751",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
