@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "872785a7_ce1e9b4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2023-01-12T17:13:10Z",
+      "side": 1,
+      "message": "VTS were actually failing without this CL. Thanks for the fix!",
+      "revId": "8a68cbc4d03ffb5dcbaadbcb20e883ccfe7d332a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
