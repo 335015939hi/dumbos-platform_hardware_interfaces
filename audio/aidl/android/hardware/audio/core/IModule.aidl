@@ -32,6 +32,8 @@ import android.hardware.audio.core.StreamDescriptor;
 import android.hardware.audio.core.VendorParameter;
 import android.hardware.audio.core.sounddose.ISoundDose;
 import android.hardware.audio.effect.IEffect;
+import android.media.audio.common.AudioMMapPolicyInfo;
+import android.media.audio.common.AudioMMapPolicyType;
 import android.media.audio.common.AudioMode;
 import android.media.audio.common.AudioOffloadInfo;
 import android.media.audio.common.AudioPort;
@@ -807,4 +809,17 @@ interface IModule {
      * @throws EX_UNSUPPORTED_OPERATION If the module does not support device port effects.
      */
     void removeDeviceEffect(int portConfigId, in IEffect effect);
+
+    /**
+     * Provide information describing how aaudio mmap is supported per queried aaudio
+     * mmap policy type.
+     *
+     * If there are no devices support aaudio mmap for the queried aaudio mmap policy type
+     * in the HAL module, it must return an empty vector. Otherwise, return a vector of
+     * how the devices supports aaudio mmap.
+     *
+     * @param mmapPolicyType the aaudio mmap policy type to query.
+     * @return The vector with mmap policy information.
+     */
+    AudioMMapPolicyInfo[] getMmapPolicyInfos(AudioMMapPolicyType mmapPolicyType);
 }
