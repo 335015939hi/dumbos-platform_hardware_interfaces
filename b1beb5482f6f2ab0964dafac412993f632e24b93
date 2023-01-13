@@ -22,6 +22,30 @@
       },
       "revId": "b1beb5482f6f2ab0964dafac412993f632e24b93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1698d7c_4f22dbed",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1950650
+      },
+      "writtenOn": "2023-01-13T18:31:28Z",
+      "side": 1,
+      "message": "Removed the hard requirement. It will default to an empty string if not present.",
+      "parentUuid": "acace94d_1de472ff",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 428,
+        "endChar": 5
+      },
+      "revId": "b1beb5482f6f2ab0964dafac412993f632e24b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
