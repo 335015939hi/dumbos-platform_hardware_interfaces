@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecbb4dd8_28d4134a",
+        "filename": "scripts/anapic_hidl2aidl_review.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-13T01:09:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "972577f6_fa8b8a76",
+      "range": {
+        "startLine": 20,
+        "startChar": 14,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "94449978ab1c736b06bf6d5cb7aaff4fd1ea01a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25b3d2a9_73c5e3f5",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-13T00:26:47Z",
       "side": 1,
       "message": "is \u0027-A\u0027 good enough?",
+      "range": {
+        "startLine": 22,
+        "startChar": 8,
+        "endLine": 22,
+        "endChar": 9
+      },
+      "revId": "94449978ab1c736b06bf6d5cb7aaff4fd1ea01a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39efe516_61b91d44",
+        "filename": "scripts/anapic_hidl2aidl_review.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-13T01:09:22Z",
+      "side": 1,
+      "message": "Looks like it! Done.",
+      "parentUuid": "25b3d2a9_73c5e3f5",
       "range": {
         "startLine": 22,
         "startChar": 8,
