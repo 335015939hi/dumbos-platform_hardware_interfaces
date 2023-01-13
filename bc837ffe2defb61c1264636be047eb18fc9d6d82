@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11193636_698a0a11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-13T20:33:09Z",
+      "side": 1,
+      "message": "p",
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "156af012_db67aa0b",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-13T20:33:09Z",
+      "side": 1,
+      "message": "For consistency with comments in data types we should write this as \"aaudio MMAP\", see https://cs.android.com/android/platform/superproject/+/master:system/hardware/interfaces/media/aidl/android/media/audio/common/AudioMMapPolicyType.aidl",
+      "range": {
+        "startLine": 814,
+        "startChar": 42,
+        "endLine": 814,
+        "endChar": 53
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2382488d_4fc67464",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-13T20:33:09Z",
+      "side": 1,
+      "message": "that support",
+      "range": {
+        "startLine": 817,
+        "startChar": 31,
+        "endLine": 817,
+        "endChar": 38
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a22b19f0_a04d1b07",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-13T20:33:09Z",
+      "side": 1,
+      "message": "describing",
+      "range": {
+        "startLine": 818,
+        "startChar": 85,
+        "endLine": 818,
+        "endChar": 87
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a211f7b7_47d4d38d",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-13T20:33:09Z",
+      "side": 1,
+      "message": "support",
+      "range": {
+        "startLine": 819,
+        "startChar": 23,
+        "endLine": 819,
+        "endChar": 31
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe9c8ae9_332b8575",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-13T20:33:09Z",
+      "side": 1,
+      "message": "Please add a comment explaining why we don\u0027t use this parameter now.",
+      "range": {
+        "startLine": 1086,
+        "startChar": 46,
+        "endLine": 1086,
+        "endChar": 85
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3958aad_58558f0d",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-13T20:33:09Z",
+      "side": 1,
+      "message": "Please add `LOG(DEBUG) \u003c\u003c __func__ \u003c\u003c ...` at the beginning, we do that in all methods.",
+      "range": {
+        "startLine": 1087,
+        "startChar": 93,
+        "endLine": 1087,
+        "endChar": 95
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "055b351c_fc88f0aa",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-13T20:33:09Z",
+      "side": 1,
+      "message": "Do we actually use ports? Looks like we only need IDs. In that case, we can use a set, and \u0027count\u0027 operation instead of \u0027find\u0027.",
+      "range": {
+        "startLine": 1088,
+        "startChar": 0,
+        "endLine": 1089,
+        "endChar": 45
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c60cc41_584ac832",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-13T20:33:09Z",
+      "side": 1,
+      "message": "Again, with sets we can use `count_any`\n(http://cs/android-internal/hardware/interfaces/audio/aidl/default/include/core-impl/utils.h;l\u003d63;rcl\u003d07ad08e0b58b18ef979f253593e7b8ed925e45da):\n\n`count_any(mmapSources, route.sourcePortIds)`",
+      "range": {
+        "startLine": 1134,
+        "startChar": 16,
+        "endLine": 1137,
+        "endChar": 61
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "985a802e_6d876eaf",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-13T20:33:09Z",
+      "side": 1,
+      "message": "add `\u003c\u003c toString(mmapPolicyType)` to see on which of them it has failed.",
+      "range": {
+        "startLine": 1904,
+        "startChar": 78,
+        "endLine": 1904,
+        "endChar": 79
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
