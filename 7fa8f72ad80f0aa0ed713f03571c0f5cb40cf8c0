@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "367a6e43_1349374e",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-01-13T16:56:58Z",
+      "side": 1,
+      "message": "added.",
+      "parentUuid": "8ed5ad2c_35dda113",
+      "range": {
+        "startLine": 862,
+        "startChar": 30,
+        "endLine": 862,
+        "endChar": 68
+      },
+      "revId": "7fa8f72ad80f0aa0ed713f03571c0f5cb40cf8c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2440d7c6_37285752",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-13T06:40:46Z",
       "side": 1,
       "message": "This implies the second IMEI must be presented together with the first IMEI which seems to conflict the expectation of b/264979486.\nDo we really need the logic here?",
+      "range": {
+        "startLine": 888,
+        "startChar": 41,
+        "endLine": 888,
+        "endChar": 64
+      },
+      "revId": "7fa8f72ad80f0aa0ed713f03571c0f5cb40cf8c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66f29c2e_e91aa46b",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-01-13T16:56:58Z",
+      "side": 1,
+      "message": "No, after b/264979486 this is not required. \nRemoved the logic of adding first IMEI along with second IMEI in the test.",
+      "parentUuid": "2440d7c6_37285752",
       "range": {
         "startLine": 888,
         "startChar": 41,
