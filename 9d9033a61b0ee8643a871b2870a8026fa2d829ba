@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85196973_4a8b190f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010050
+      },
+      "writtenOn": "2023-01-13T08:21:26Z",
+      "side": 1,
+      "message": "Perhaps overkill for a small fix, but we could consider using https://en.cppreference.com/w/cpp/types/extent to be more type-safe here.",
+      "revId": "9d9033a61b0ee8643a871b2870a8026fa2d829ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
