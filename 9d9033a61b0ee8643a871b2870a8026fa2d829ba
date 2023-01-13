@@ -16,6 +16,23 @@
       "message": "Perhaps overkill for a small fix, but we could consider using https://en.cppreference.com/w/cpp/types/extent to be more type-safe here.",
       "revId": "9d9033a61b0ee8643a871b2870a8026fa2d829ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48d21a81_2cde250d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2023-01-13T18:11:27Z",
+      "side": 1,
+      "message": "Looks like Eddy doesn\u0027t have owner permissions on 2.7? @smoreland@google.com for owners\u0027 permission.",
+      "revId": "9d9033a61b0ee8643a871b2870a8026fa2d829ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
