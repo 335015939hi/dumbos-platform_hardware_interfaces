@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7c1a3e6_5c847422",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-01-13T22:58:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "156af012_db67aa0b",
+      "range": {
+        "startLine": 814,
+        "startChar": 42,
+        "endLine": 814,
+        "endChar": 53
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2382488d_4fc67464",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-13T20:33:09Z",
       "side": 1,
       "message": "that support",
+      "range": {
+        "startLine": 817,
+        "startChar": 31,
+        "endLine": 817,
+        "endChar": 38
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6794416_f7818255",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-01-13T22:58:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2382488d_4fc67464",
       "range": {
         "startLine": 817,
         "startChar": 31,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9456fda3_508a1a90",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-01-13T22:58:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a22b19f0_a04d1b07",
+      "range": {
+        "startLine": 818,
+        "startChar": 85,
+        "endLine": 818,
+        "endChar": 87
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a211f7b7_47d4d38d",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-01-13T20:33:09Z",
       "side": 1,
       "message": "support",
+      "range": {
+        "startLine": 819,
+        "startChar": 23,
+        "endLine": 819,
+        "endChar": 31
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4837d9da_54f3c173",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-01-13T22:58:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a211f7b7_47d4d38d",
       "range": {
         "startLine": 819,
         "startChar": 23,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "090743a2_9e63cb1a",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-01-13T22:58:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe9c8ae9_332b8575",
+      "range": {
+        "startLine": 1086,
+        "startChar": 46,
+        "endLine": 1086,
+        "endChar": 85
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3958aad_58558f0d",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-01-13T20:33:09Z",
       "side": 1,
       "message": "Please add `LOG(DEBUG) \u003c\u003c __func__ \u003c\u003c ...` at the beginning, we do that in all methods.",
+      "range": {
+        "startLine": 1087,
+        "startChar": 93,
+        "endLine": 1087,
+        "endChar": 95
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fe6ddd9_692389fd",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-01-13T22:58:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3958aad_58558f0d",
       "range": {
         "startLine": 1087,
         "startChar": 93,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d06249b0_471b7289",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-01-13T22:58:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "055b351c_fc88f0aa",
+      "range": {
+        "startLine": 1088,
+        "startChar": 0,
+        "endLine": 1089,
+        "endChar": 45
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c60cc41_584ac832",
@@ -202,6 +370,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f20987e3_426479e2",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-01-13T22:58:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c60cc41_584ac832",
+      "range": {
+        "startLine": 1134,
+        "startChar": 16,
+        "endLine": 1137,
+        "endChar": 61
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "985a802e_6d876eaf",
@@ -215,6 +407,30 @@
       "writtenOn": "2023-01-13T20:33:09Z",
       "side": 1,
       "message": "add `\u003c\u003c toString(mmapPolicyType)` to see on which of them it has failed.",
+      "range": {
+        "startLine": 1904,
+        "startChar": 78,
+        "endLine": 1904,
+        "endChar": 79
+      },
+      "revId": "bc837ffe2defb61c1264636be047eb18fc9d6d82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2075430b_71a8c964",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-01-13T22:58:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "985a802e_6d876eaf",
       "range": {
         "startLine": 1904,
         "startChar": 78,
