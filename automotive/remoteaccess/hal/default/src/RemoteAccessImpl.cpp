@@ -18,9 +18,12 @@
 
 #include "RemoteAccessService.h"
 
+#include "gRPCBindToDeviceSocketMutation.h"
+
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 #include <grpcpp/create_channel.h>
+#include <libnetdevice/libnetdevice.h>
 #include <stdlib.h>
 #include <utils/Log.h>
 
@@ -33,7 +36,20 @@ int main(int /* argc */, char* /* argv */[]) {
     ALOGE("GRPC_SERVICE_ADDRESS is not defined, exiting");
     exit(1);
 #endif
-    auto channel = grpc::CreateChannel(GRPC_SERVICE_ADDRESS, grpc::InsecureChannelCredentials());
+    ::grpc::ChannelArguments grpcargs;
+
+#ifdef GRPC_SERVICE_IFNAME
+    grpcargs.SetSocketMutator(
+            new android::hardware::automotive::remoteaccess::BindToDeviceSocketMutator(
+                    GRPC_SERVICE_IFNAME));
+    ALOGD("GRPC_SERVICE_IFNAME specified as: %s", GRPC_SERVICE_IFNAME);
+    ALOGI("Waiting for interface: %s", GRPC_SERVICE_IFNAME);
+    android::netdevice::waitFor({GRPC_SERVICE_IFNAME},
+                                android::netdevice::WaitCondition::PRESENT_AND_UP);
+    ALOGI("Waiting for interface: %s done", GRPC_SERVICE_IFNAME);
+#endif
+    auto channel = grpc::CreateCustomChannel(GRPC_SERVICE_ADDRESS,
+                                             grpc::InsecureChannelCredentials(), grpcargs);
     auto clientStub = android::hardware::automotive::remoteaccess::WakeupClient::NewStub(channel);
     auto service = ndk::SharedRefBase::make<
             android::hardware::automotive::remoteaccess::RemoteAccessService>(clientStub.get());
