@@ -49,8 +49,7 @@ class Module : public BnModule {
     // This value is used by default for all AudioPatches and reported by all streams.
     static constexpr int32_t kLatencyMs = 10;
 
-    Module(const std::string& type, Configuration&& config)
-        : mType(type), mConfig(std::make_unique<Configuration>(std::move(config))) {}
+    Module(const std::string& type, Configuration&& config);
 
   protected:
     // The vendor extension done via inheritance can override interface methods and augment
@@ -223,6 +222,7 @@ class Module : public BnModule {
     const Streams& getStreams() const { return mStreams; }
     const std::string& getType() const { return mType; }
     bool isMmapSupported();
+    void populateConnectedProfiles();
     template <typename C>
     std::set<int32_t> portIdsFromPortConfigIds(C portConfigIds);
     void registerPatch(const AudioPatch& patch);
