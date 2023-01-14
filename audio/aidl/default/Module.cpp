@@ -118,6 +118,22 @@ bool generateDefaultPortConfig(const AudioPort& port, AudioPortConfig* config) {
     return false;
 }
 
+std::vector<AudioProfile> getStandardPcmAudioProfiles() {
+    auto createStdPcmAudioProfile = [](const PcmType& pcmType) {
+        return AudioProfile{
+                .format = AudioFormatDescription{.type = AudioFormatType::PCM, .pcm = pcmType},
+                .channelMasks = {AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                                         AudioChannelLayout::LAYOUT_MONO),
+                                 AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                                         AudioChannelLayout::LAYOUT_STEREO)},
+                .sampleRates = {8000, 11025, 16000, 32000, 44100, 48000}};
+    };
+    return {
+            createStdPcmAudioProfile(PcmType::INT_16_BIT),
+            createStdPcmAudioProfile(PcmType::INT_24_BIT),
+    };
+}
+
 bool findAudioProfile(const AudioPort& port, const AudioFormatDescription& format,
                       AudioProfile* profile) {
     if (auto profilesIt =
@@ -131,6 +147,11 @@ bool findAudioProfile(const AudioPort& port, const AudioFormatDescription& forma
 }
 
 }  // namespace
+
+Module::Module(const std::string& type, Configuration&& config)
+    : mType(type), mConfig(std::make_unique<Configuration>(std::move(config))) {
+    populateConnectedProfiles();
+}
 
 void Module::cleanUpPatch(int32_t patchId) {
     erase_all_values(mPatches, std::set<int32_t>{patchId});
@@ -265,6 +286,18 @@ ndk::ScopedAStatus Module::findPortIdForNewStream(int32_t in_portConfigId, Audio
     }
     *port = &(*portIt);
     return ndk::ScopedAStatus::ok();
+}
+
+void Module::populateConnectedProfiles() {
+    Configuration& config = getConfig();
+    for (const AudioPort& port : config.ports) {
+        if (port.ext.getTag() == AudioPortExt::device) {
+            if (auto devicePort = port.ext.get<AudioPortExt::device>();
+                !devicePort.device.type.connection.empty() && port.profiles.empty()) {
+                config.connectedProfiles[port.id] = getStandardPcmAudioProfiles();
+            }
+        }
+    }
 }
 
 template <typename C>
