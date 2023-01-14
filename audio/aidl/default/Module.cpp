@@ -271,6 +271,31 @@ void Module::registerPatch(const AudioPatch& patch) {
     do_insert(patch.sinkPortConfigIds);
 }
 
+std::vector<AudioProfile> getStandardPcmAudioProfiles() {
+    auto createStdPcmAudioProfile = [](const PcmType& pcmType) {
+        return AudioProfile{
+                .format = AudioFormatDescription{.type = AudioFormatType::PCM, .pcm = pcmType},
+                .channelMasks = {AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                                         AudioChannelLayout::LAYOUT_MONO),
+                                 AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                                         AudioChannelLayout::LAYOUT_STEREO)},
+                .sampleRates = {8000, 11025, 16000, 32000, 44100, 48000}};
+    };
+    return {
+            createStdPcmAudioProfile(PcmType::INT_16_BIT),
+            createStdPcmAudioProfile(PcmType::INT_24_BIT),
+    };
+}
+
+void Module::setConnectedProfiles() {
+    Configuration& config = getConfig();
+    for (const AudioPort& audioPort : config.ports) {
+        if (audioPort.profiles.empty()) {
+            config.connectedProfiles[audioPort.id] = getStandardPcmAudioProfiles();
+        }
+    }
+}
+
 void Module::updateStreamsConnectedState(const AudioPatch& oldPatch, const AudioPatch& newPatch) {
     // Streams from the old patch need to be disconnected, streams from the new
     // patch need to be connected. If the stream belongs to both patches, no need
