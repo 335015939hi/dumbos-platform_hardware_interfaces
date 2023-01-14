@@ -44,7 +44,9 @@ class Module : public BnModule {
     // This value is used for all AudioPatches and reported by all streams.
     static constexpr int32_t kLatencyMs = 10;
 
-    explicit Module(Configuration&& config) : mConfig(std::make_unique<Configuration>(config)) {}
+    explicit Module(Configuration&& config) : mConfig(std::make_unique<Configuration>(config)) {
+        setConnectedProfiles();
+    }
     static bool isSupportedType(const std::string& name) { return mSupportedTypes.count(name); };
 
   private:
@@ -142,6 +144,7 @@ class Module : public BnModule {
     template <typename C>
     std::set<int32_t> portIdsFromPortConfigIds(C portConfigIds);
     void registerPatch(const AudioPatch& patch);
+    void setConnectedProfiles();
     void updateStreamsConnectedState(const AudioPatch& oldPatch, const AudioPatch& newPatch);
 
     // This value is used for all AudioPatches.
