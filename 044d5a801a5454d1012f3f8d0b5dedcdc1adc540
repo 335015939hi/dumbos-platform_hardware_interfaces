@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "351ff683_cf2fc449",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1292828
+      },
+      "writtenOn": "2023-01-16T12:08:54Z",
+      "side": 0,
+      "message": "Should we wait for other projects like gs201 implementation complete and then remove?",
+      "revId": "044d5a801a5454d1012f3f8d0b5dedcdc1adc540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
