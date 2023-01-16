@@ -348,6 +348,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44e72a97_ca34f2d8",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-16T06:01:17Z",
+      "side": 1,
+      "message": "... I mean, the ordering that appears in the HIDL HAL (IOffloadControl.hal) seems to make more sense.",
+      "parentUuid": "a670cea1_c859c74e",
+      "range": {
+        "startLine": 89,
+        "startChar": 9,
+        "endLine": 89,
+        "endChar": 22
+      },
+      "revId": "b46ff74d88fd285a1efaa5ecdd3014ef4a825043",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0db44406_a86536bd",
         "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
         "patchSetId": 16
@@ -635,6 +659,30 @@
       "writtenOn": "2023-01-16T05:51:24Z",
       "side": 1,
       "message": "This is not acceptable, right? The method must be supported in this HAL? It was only optional in the previous HIDL HAL.",
+      "range": {
+        "startLine": 205,
+        "startChar": 42,
+        "endLine": 205,
+        "endChar": 65
+      },
+      "revId": "b46ff74d88fd285a1efaa5ecdd3014ef4a825043",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e35e5c0f_9b41e080",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-16T06:01:17Z",
+      "side": 1,
+      "message": "... if so, then that means that we must remove EX_UNSUPPORTED_OPERATION from the documentation here. This implies that any hardware that supports this HAL must be able to support the data warning.",
+      "parentUuid": "29da6a19_0b5235b6",
       "range": {
         "startLine": 205,
         "startChar": 42,
