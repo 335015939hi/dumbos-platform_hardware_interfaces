@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b2fb41c_478555a1",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-16T05:51:24Z",
+      "side": 1,
+      "message": "In that case, this test will not run though, will it? This test will only run on devices that have the AIDL HAL, and on those devices, the warning must always be supported, right?",
+      "parentUuid": "3f8d59dd_5ecaa87a",
+      "range": {
+        "startLine": 426,
+        "startChar": 22,
+        "endLine": 426,
+        "endChar": 75
+      },
+      "revId": "dfc7a997066f468e792b776ad07c399c12eb325a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf5b8698_c14584d6",
         "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
         "patchSetId": 13
