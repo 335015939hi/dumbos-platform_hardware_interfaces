@@ -16,6 +16,24 @@
       "message": "Should we wait for other projects like gs201 implementation complete and then remove?",
       "revId": "044d5a801a5454d1012f3f8d0b5dedcdc1adc540",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffc81e98_312b07b1",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-17T18:05:45Z",
+      "side": 0,
+      "message": "Devices that will be launching with Android 14 will need to be converted.\ngs201 devices can be converted, but don\u0027t need to since they were already launched.\n\nIf there are launching android 14 devices that we have software for, then yes we should update them first. \n\nDo you know of any of those right now? (they aren\u0027t in presubtmits, otherwise the builds would fail). Don\u0027t mention any specifics since this is aosp/public.",
+      "parentUuid": "351ff683_cf2fc449",
+      "revId": "044d5a801a5454d1012f3f8d0b5dedcdc1adc540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
