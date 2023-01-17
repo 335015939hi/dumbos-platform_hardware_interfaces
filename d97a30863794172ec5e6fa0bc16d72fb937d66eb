@@ -154,6 +154,30 @@
       },
       "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e94a07e_9ea6f0fd",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-17T19:24:16Z",
+      "side": 1,
+      "message": "+1, that is a problem in libbinder that we shouldn\u0027t be expecting.",
+      "parentUuid": "37ed336b_7ce1d45e",
+      "range": {
+        "startLine": 208,
+        "startChar": 47,
+        "endLine": 208,
+        "endChar": 72
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
