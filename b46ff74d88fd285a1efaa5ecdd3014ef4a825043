@@ -165,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dd1eeec_6d9f34d8",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-17T14:48:15Z",
+      "side": 1,
+      "message": "Removed setHandles()",
+      "parentUuid": "254cfec0_c4763f55",
+      "range": {
+        "startLine": 33,
+        "startChar": 73,
+        "endLine": 33,
+        "endChar": 80
+      },
+      "revId": "b46ff74d88fd285a1efaa5ecdd3014ef4a825043",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7038b0d2_122a98fd",
@@ -672,6 +696,30 @@
       "side": 1,
       "message": "... I mean, the ordering that appears in the HIDL HAL (IOffloadControl.hal) seems to make more sense.",
       "parentUuid": "a670cea1_c859c74e",
+      "range": {
+        "startLine": 89,
+        "startChar": 9,
+        "endLine": 89,
+        "endChar": 22
+      },
+      "revId": "b46ff74d88fd285a1efaa5ecdd3014ef4a825043",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "568c841f_a3dd1844",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-17T14:48:15Z",
+      "side": 1,
+      "message": "It was sorted by the hidl2aidl converting tool. I changed it to the same order as IOffloadControl.hal",
+      "parentUuid": "44e72a97_ca34f2d8",
       "range": {
         "startLine": 89,
         "startChar": 9,
@@ -1588,6 +1636,30 @@
       "writtenOn": "2023-01-16T05:51:24Z",
       "side": 1,
       "message": "Nit: this should probably be a link-local address, so something like fe80::97be:9de7:b24b:9194.",
+      "range": {
+        "startLine": 256,
+        "startChar": 56,
+        "endLine": 256,
+        "endChar": 85
+      },
+      "revId": "b46ff74d88fd285a1efaa5ecdd3014ef4a825043",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd7677db_a508b6a4",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-17T14:48:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec5907ba_f7c305d0",
       "range": {
         "startLine": 256,
         "startChar": 56,
