@@ -22,6 +22,30 @@
       },
       "revId": "da4d0bcb15cb70c1da04c68cdc3a6e62d031f3d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39146d2f_dbe2c8bf",
+        "filename": "secure_element/aidl/vts/VtsHalSecureElementTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2023-01-17T08:31:35Z",
+      "side": 0,
+      "message": "the modification ensures the response length is greater than 3 bytes.",
+      "parentUuid": "9fb009fc_6ad88456",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 42
+      },
+      "revId": "da4d0bcb15cb70c1da04c68cdc3a6e62d031f3d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
