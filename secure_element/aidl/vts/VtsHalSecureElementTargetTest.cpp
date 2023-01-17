@@ -109,8 +109,7 @@ TEST_P(SecureElementAidl, transmit) {
     std::vector<uint8_t> transmitResponse;
     EXPECT_OK(se->transmit(command, &transmitResponse));
 
-    EXPECT_LE(transmitResponse.size(), 3);
-    EXPECT_GE(transmitResponse.size(), 2);
+    EXPECT_LE(3u, transmitResponse.size());
     EXPECT_EQ(transmitResponse[transmitResponse.size() - 1], 0x00);
     EXPECT_EQ(transmitResponse[transmitResponse.size() - 2], 0x90);
 
