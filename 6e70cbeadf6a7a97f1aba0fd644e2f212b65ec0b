@@ -16,6 +16,24 @@
       "message": "the new implementation is here:\nhttps://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2378096",
       "revId": "6e70cbeadf6a7a97f1aba0fd644e2f212b65ec0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46ac0e7b_9c2d0b97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1296738
+      },
+      "writtenOn": "2023-01-17T09:36:34Z",
+      "side": 1,
+      "message": "This link is not accessible to NXP team.\nWe are able to access only the ones in https://android-review.googlesource.com/\nIs patch in the above link similar to the current one here.",
+      "parentUuid": "b3fceac3_aa28fbb6",
+      "revId": "6e70cbeadf6a7a97f1aba0fd644e2f212b65ec0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
