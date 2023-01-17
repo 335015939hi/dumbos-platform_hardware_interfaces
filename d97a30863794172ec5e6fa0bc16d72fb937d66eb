@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df2370a_cdbfa63e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-17T18:41:59Z",
+      "side": 1,
+      "message": "LGTM, feel free to address comments in a follow-up if you prefer.",
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d393e422_c2c24016",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-17T18:41:59Z",
+      "side": 1,
+      "message": "Actually I think this is not correct, right? We call it every time the user turns on tethering? If so, I\u0027d say, \"when Tethering is requested by the user\".",
+      "range": {
+        "startLine": 35,
+        "startChar": 44,
+        "endLine": 35,
+        "endChar": 58
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35b65f58_a69ed6a3",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-17T18:41:59Z",
+      "side": 1,
+      "message": "We should remove this, since any hardware implementing this HAL must support this method.",
+      "range": {
+        "startLine": 171,
+        "startChar": 17,
+        "endLine": 171,
+        "endChar": 41
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96d15a49_ba0bd265",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-17T18:41:59Z",
+      "side": 1,
+      "message": "prefix",
+      "range": {
+        "startLine": 272,
+        "startChar": 49,
+        "endLine": 272,
+        "endChar": 56
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed73e4af_c2e1bb9b",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/OffloadCallbackEvent.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-17T18:41:59Z",
+      "side": 1,
+      "message": "setDataWarningAndLimit",
+      "range": {
+        "startLine": 58,
+        "startChar": 54,
+        "endLine": 58,
+        "endChar": 68
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e219bc4f_a2705e31",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-17T18:41:59Z",
+      "side": 1,
+      "message": "The error should go into the assertion. Like this perhaps?\n\n    FAIL() \u003c\u003c \"Unable to create conntrack sockets: \" \u003c\u003c strerror(errno);\n\nAlso elsewhere.",
+      "range": {
+        "startLine": 155,
+        "startChar": 12,
+        "endLine": 155,
+        "endChar": 17
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37ed336b_7ce1d45e",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-01-17T18:41:59Z",
+      "side": 1,
+      "message": "Why TRANSACTION_FAILED? This should never happen, should it? Can we remove it? Also elsewhere.",
+      "range": {
+        "startLine": 208,
+        "startChar": 47,
+        "endLine": 208,
+        "endChar": 72
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
