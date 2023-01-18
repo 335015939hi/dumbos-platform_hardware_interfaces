@@ -822,4 +822,26 @@ interface IModule {
      * @return The vector with mmap policy information.
      */
     AudioMMapPolicyInfo[] getMmapPolicyInfos(AudioMMapPolicyType mmapPolicyType);
+
+    /**
+     * Get the number of burst per aaudio mixer cycle.
+     *
+     * Return the number of burst per aaudio mixer cycle. When 0 is returned, the audio
+     * framework will use default value which is 2.
+     *
+     * @return The number of burst per aaudio mixer cycle.
+     * @throw EX_UNSUPPORTED_OPERATION If the module does not support aaudio MMAP.
+     */
+    int getAAudioMixerBurstCount();
+
+    /**
+     * Get the minimum microseconds for a MMAP hardware burst.
+     *
+     * Return the minimum microseconds for a MMAP hardware burst. When 0 is returned,
+     * the audio framework will use default value which is 1000.
+     *
+     * @return The minimum number of microseconds for a MMAP hardware burst.
+     * @throw EX_UNSUPPORTED_OPERATION If the module does not support aaudio MMAP.
+     */
+    int getAAudioHardwareBurstMinUsec();
 }

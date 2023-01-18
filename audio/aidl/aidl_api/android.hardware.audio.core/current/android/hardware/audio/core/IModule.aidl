@@ -69,6 +69,8 @@ interface IModule {
   void addDeviceEffect(int portConfigId, in android.hardware.audio.effect.IEffect effect);
   void removeDeviceEffect(int portConfigId, in android.hardware.audio.effect.IEffect effect);
   android.media.audio.common.AudioMMapPolicyInfo[] getMmapPolicyInfos(android.media.audio.common.AudioMMapPolicyType mmapPolicyType);
+  int getAAudioMixerBurstCount();
+  int getAAudioHardwareBurstMinUsec();
   @VintfStability
   parcelable OpenInputStreamArguments {
     int portConfigId;
