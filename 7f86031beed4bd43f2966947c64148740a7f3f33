@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e985fd31_5602c576",
+        "filename": "camera/provider/2.4/vts/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1010050
+      },
+      "writtenOn": "2023-01-18T21:01:01Z",
+      "side": 0,
+      "message": "Is it expected that we\u0027re removing VTS team from vts OWNERS?",
+      "revId": "7f86031beed4bd43f2966947c64148740a7f3f33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
