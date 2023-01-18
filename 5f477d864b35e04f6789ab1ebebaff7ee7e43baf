@@ -22,6 +22,30 @@
       },
       "revId": "5f477d864b35e04f6789ab1ebebaff7ee7e43baf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dcbfeaf_2685f074",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1899,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-18T02:07:44Z",
+      "side": 1,
+      "message": "I think we have to. For mix ports that can only be routed to non-attached device ports we would need to simulate external device connection. Until we do that, I think it\u0027s not fair to ask the HAL about MMAP support for them because it can depend on the actual connected device.",
+      "parentUuid": "b51221b0_7710b1f7",
+      "range": {
+        "startLine": 1897,
+        "startChar": 0,
+        "endLine": 1899,
+        "endChar": 89
+      },
+      "revId": "5f477d864b35e04f6789ab1ebebaff7ee7e43baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
