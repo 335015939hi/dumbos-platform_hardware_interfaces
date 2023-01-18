@@ -35,6 +35,10 @@ parcelable LeAudioBroadcastConfiguration {
          */
         int audioChannelAllocation;
         LeAudioCodecConfiguration leAudioCodecConfig;
+        /*
+         * The pcm stream id to identify what is the source for given streamHandle.
+         */
+        char pcmStreamId;
     }
     CodecType codecType;
     BroadcastStreamMap[] streamMap;
