@@ -46,6 +46,7 @@ class Module : public BnModule {
 
     explicit Module(Configuration&& config) : mConfig(std::make_unique<Configuration>(config)) {
         setConnectedProfiles();
+        setMicrophoneInfo();
     }
     static bool isSupportedType(const std::string& name) { return mSupportedTypes.count(name); };
 
@@ -145,6 +146,7 @@ class Module : public BnModule {
     std::set<int32_t> portIdsFromPortConfigIds(C portConfigIds);
     void registerPatch(const AudioPatch& patch);
     void setConnectedProfiles();
+    void setMicrophoneInfo();
     void updateStreamsConnectedState(const AudioPatch& oldPatch, const AudioPatch& newPatch);
 
     // This value is used for all AudioPatches.
