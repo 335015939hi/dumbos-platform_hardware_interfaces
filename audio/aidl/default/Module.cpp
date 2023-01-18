@@ -37,6 +37,7 @@ using aidl::android::hardware::audio::common::SourceMetadata;
 using aidl::android::hardware::audio::core::sounddose::ISoundDose;
 using aidl::android::media::audio::common::AudioChannelLayout;
 using aidl::android::media::audio::common::AudioDevice;
+using aidl::android::media::audio::common::AudioDeviceType;
 using aidl::android::media::audio::common::AudioFormatDescription;
 using aidl::android::media::audio::common::AudioFormatType;
 using aidl::android::media::audio::common::AudioInputFlags;
@@ -289,6 +290,25 @@ void Module::setConnectedProfiles() {
     for (const AudioPort& audioPort : config.ports) {
         if (audioPort.profiles.empty()) {
             config.connectedProfiles[audioPort.id] = getStandardPcmAudioProfiles();
+        }
+    }
+}
+
+void Module::setMicrophoneInfo() {
+    Configuration& config = getConfig();
+    for (const AudioPort& port : config.ports) {
+        const AudioDeviceType deviceType =
+                port.ext.template get<AudioPortExt::Tag::device>().device.type.type;
+        if (deviceType == AudioDeviceType::IN_MICROPHONE ||
+            deviceType == AudioDeviceType::IN_MICROPHONE_BACK) {
+            // dummy values; vendors must populate MicrophoneInfo accordingly based
+            // on their microphone groupings
+            config.microphones.push_back(MicrophoneInfo{
+                    .id = port.name,
+                    .device = port.ext.get<AudioPortExt::Tag::device>().device,
+                    .group = 0,
+                    .indexInTheGroup = 0,
+            });
         }
     }
 }
