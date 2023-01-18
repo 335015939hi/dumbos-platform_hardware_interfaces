@@ -160,6 +160,30 @@
       },
       "revId": "65d6b4891f3668f4c224548e4d3c40fcf5ea2ca3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6dbe0f7_5a62e311",
+        "filename": "audio/aidl/vts/ModuleConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-01-18T05:46:55Z",
+      "side": 1,
+      "message": "I am expecting the mmap policy information only depends on the audio route but not the connected device. If that is the case, I think we should use `false` here instead of `true`.",
+      "parentUuid": "e97251ba_89886712",
+      "range": {
+        "startLine": 444,
+        "startChar": 31,
+        "endLine": 444,
+        "endChar": 36
+      },
+      "revId": "65d6b4891f3668f4c224548e4d3c40fcf5ea2ca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
