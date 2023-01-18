@@ -52,6 +52,24 @@
       "parentUuid": "ffc81e98_312b07b1",
       "revId": "044d5a801a5454d1012f3f8d0b5dedcdc1adc540",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d683d20_69f06c57",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1292828
+      },
+      "writtenOn": "2023-01-18T16:53:21Z",
+      "side": 0,
+      "message": "Sorry, I understand it. I think the gs201 cover is good.",
+      "parentUuid": "5ff968e3_b2a69bbd",
+      "revId": "044d5a801a5454d1012f3f8d0b5dedcdc1adc540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
