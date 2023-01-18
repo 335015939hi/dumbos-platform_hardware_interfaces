@@ -24,6 +24,10 @@ parcelable LeAudioBroadcastConfiguration {
     @VintfStability
     parcelable BroadcastStreamMap {
         /*
+         * The pcm stream id to identify what is the source for given streamHandle.
+         */
+        char pcmStreamId;
+        /*
          * The connection handle used for a broadcast group.
          * Range: 0x0000 to 0xEFFF
          */

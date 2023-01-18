@@ -38,6 +38,7 @@ parcelable LeAudioBroadcastConfiguration {
   android.hardware.bluetooth.audio.LeAudioBroadcastConfiguration.BroadcastStreamMap[] streamMap;
   @VintfStability
   parcelable BroadcastStreamMap {
+    char pcmStreamId;
     char streamHandle;
     int audioChannelAllocation;
     android.hardware.bluetooth.audio.LeAudioCodecConfiguration leAudioCodecConfig;
