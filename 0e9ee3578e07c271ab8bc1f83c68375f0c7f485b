@@ -22,6 +22,30 @@
       },
       "revId": "0e9ee3578e07c271ab8bc1f83c68375f0c7f485b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "981ff03c_84d5f9ed",
+        "filename": "tetheroffload/aidl/TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-18T20:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de522153_3f73bcce",
+      "range": {
+        "startLine": 4,
+        "startChar": 15,
+        "endLine": 4,
+        "endChar": 40
+      },
+      "revId": "0e9ee3578e07c271ab8bc1f83c68375f0c7f485b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
