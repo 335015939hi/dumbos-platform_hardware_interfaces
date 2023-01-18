@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a775aa81_a66ee396",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-18T23:44:46Z",
+      "side": 1,
+      "message": "Ah, sorry, missed that we use `FATAL` below.",
+      "parentUuid": "d420437d_1e64d5d0",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 44
+      },
+      "revId": "7438b1918bf6ae9724ac759c370daac3eebd7961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "049b1fd8_b27ee924",
