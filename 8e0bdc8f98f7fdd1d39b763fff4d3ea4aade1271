@@ -24,6 +24,99 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f42d6bb_9ee0a9f1",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T05:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48377643_9129116d",
+      "range": {
+        "startLine": 144,
+        "startChar": 47,
+        "endLine": 144,
+        "endChar": 48
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68556033_e82c7054",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T05:00:59Z",
+      "side": 1,
+      "message": "Moved to XsdcConversion.cpp",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 1
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "503d86a0_04ff838f",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T05:00:59Z",
+      "side": 1,
+      "message": "Moved to XsdcConversion.cpp",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 260,
+        "endChar": 0
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bd737bf_f121cf62",
+        "filename": "audio/aidl/default/include/core-impl/EngineConfigXmlConverter.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T05:00:59Z",
+      "side": 1,
+      "message": "Moved to XsdcConversion.h",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 47
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d62bece5_64c571fd",
@@ -37,6 +130,30 @@
       "writtenOn": "2022-12-21T05:54:28Z",
       "side": 1,
       "message": "We need either to move the configuration object around (take `\u0026\u0026` here and then move from it), or pass it inside a unique_ptr, it\u0027s pretty expensive to copy.",
+      "range": {
+        "startLine": 36,
+        "startChar": 22,
+        "endLine": 36,
+        "endChar": 45
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3e3c101_ce97ccf2",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T05:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d62bece5_64c571fd",
       "range": {
         "startLine": 36,
         "startChar": 22,
@@ -70,6 +187,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "854397d4_17b9c4d1",
+        "filename": "audio/aidl/default/include/core-impl/XsdcConversion.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T05:00:59Z",
+      "side": 1,
+      "message": "No, done.",
+      "parentUuid": "9559d04e_52dc8dcf",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 61
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfc9a0cc_2d5aca34",
@@ -93,6 +234,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1bb17ac_ce602ad0",
+        "filename": "audio/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T05:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfc9a0cc_2d5aca34",
+      "range": {
+        "startLine": 55,
+        "startChar": 59,
+        "endLine": 55,
+        "endChar": 67
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e83da3c_a6d77571",
+        "filename": "audio/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T05:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfc9a0cc_2d5aca34",
+      "range": {
+        "startLine": 55,
+        "startChar": 59,
+        "endLine": 55,
+        "endChar": 67
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "747c3513_51643fd4",
@@ -106,6 +295,54 @@
       "writtenOn": "2022-12-21T22:19:01Z",
       "side": 1,
       "message": "Here we need either to go through the list of all known module names, [see here]( https://r.android.com/c/platform/system/sepolicy/+/2336911/3/private/service_contexts), and instantiate only those that are declared in the config file. Or first query module names from the config and go through them.",
+      "range": {
+        "startLine": 63,
+        "startChar": 19,
+        "endLine": 64,
+        "endChar": 70
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd270cc6_03647e77",
+        "filename": "audio/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T05:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "747c3513_51643fd4",
+      "range": {
+        "startLine": 63,
+        "startChar": 19,
+        "endLine": 64,
+        "endChar": 70
+      },
+      "revId": "8e0bdc8f98f7fdd1d39b763fff4d3ea4aade1271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1da6f35a_38260610",
+        "filename": "audio/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T05:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "747c3513_51643fd4",
       "range": {
         "startLine": 63,
         "startChar": 19,

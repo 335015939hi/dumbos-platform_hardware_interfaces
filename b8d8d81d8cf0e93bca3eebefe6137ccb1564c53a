@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15d05285_4e451549",
+        "filename": "audio/aidl/default/include/core-impl/EngineConfigXmlConverter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T05:00:59Z",
+      "side": 1,
+      "message": "Moved to XsdcConversion.h",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 44
+      },
+      "revId": "b8d8d81d8cf0e93bca3eebefe6137ccb1564c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
