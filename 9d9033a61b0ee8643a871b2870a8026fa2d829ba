@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f60c6bd4_49512112",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-18T23:10:59Z",
+      "side": 1,
+      "message": "e.g. if someone copies that code to do something else, sizeof shouldn\u0027t be used for strings.",
+      "parentUuid": "87d74fc8_67ae4faf",
+      "range": {
+        "startLine": 14,
+        "startChar": 26,
+        "endLine": 14,
+        "endChar": 32
+      },
+      "revId": "9d9033a61b0ee8643a871b2870a8026fa2d829ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "85196973_4a8b190f",
