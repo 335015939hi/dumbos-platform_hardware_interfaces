@@ -1341,6 +1341,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3998738_28556b71",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-18T14:56:38Z",
+      "side": 1,
+      "message": "Updated in aosp/2393092",
+      "parentUuid": "e35e5c0f_9b41e080",
+      "range": {
+        "startLine": 205,
+        "startChar": 42,
+        "endLine": 205,
+        "endChar": 65
+      },
+      "revId": "b46ff74d88fd285a1efaa5ecdd3014ef4a825043",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89fbd23f_78767d56",

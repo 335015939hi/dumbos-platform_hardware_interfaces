@@ -92,6 +92,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d832351_71c97a7b",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-18T14:56:38Z",
+      "side": 1,
+      "message": "Updated in aosp/2393092",
+      "parentUuid": "d393e422_c2c24016",
+      "range": {
+        "startLine": 35,
+        "startChar": 44,
+        "endLine": 35,
+        "endChar": 58
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35b65f58_a69ed6a3",
@@ -105,6 +129,30 @@
       "writtenOn": "2023-01-17T18:41:59Z",
       "side": 1,
       "message": "We should remove this, since any hardware implementing this HAL must support this method.",
+      "range": {
+        "startLine": 171,
+        "startChar": 17,
+        "endLine": 171,
+        "endChar": 41
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2609a971_bc50e35f",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-18T14:56:38Z",
+      "side": 1,
+      "message": "Updated in aosp/2393092",
+      "parentUuid": "35b65f58_a69ed6a3",
       "range": {
         "startLine": 171,
         "startChar": 17,
@@ -138,6 +186,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "730dba77_621c5e66",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/IOffload.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-18T14:56:38Z",
+      "side": 1,
+      "message": "Updated in aosp/2393092",
+      "parentUuid": "96d15a49_ba0bd265",
+      "range": {
+        "startLine": 272,
+        "startChar": 49,
+        "endLine": 272,
+        "endChar": 56
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed73e4af_c2e1bb9b",
@@ -161,6 +233,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ee6663b_1cf18178",
+        "filename": "tetheroffload/aidl/android/hardware/tetheroffload/OffloadCallbackEvent.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-18T14:56:38Z",
+      "side": 1,
+      "message": "Updated in aosp/2393092",
+      "parentUuid": "ed73e4af_c2e1bb9b",
+      "range": {
+        "startLine": 58,
+        "startChar": 54,
+        "endLine": 58,
+        "endChar": 68
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e219bc4f_a2705e31",
@@ -174,6 +270,30 @@
       "writtenOn": "2023-01-17T18:41:59Z",
       "side": 1,
       "message": "The error should go into the assertion. Like this perhaps?\n\n    FAIL() \u003c\u003c \"Unable to create conntrack sockets: \" \u003c\u003c strerror(errno);\n\nAlso elsewhere.",
+      "range": {
+        "startLine": 155,
+        "startChar": 12,
+        "endLine": 155,
+        "endChar": 17
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "031fc95e_c697a773",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-18T14:56:38Z",
+      "side": 1,
+      "message": "Updated in aosp/2393092",
+      "parentUuid": "e219bc4f_a2705e31",
       "range": {
         "startLine": 155,
         "startChar": 12,
@@ -221,6 +341,30 @@
       "side": 1,
       "message": "+1, that is a problem in libbinder that we shouldn\u0027t be expecting.",
       "parentUuid": "37ed336b_7ce1d45e",
+      "range": {
+        "startLine": 208,
+        "startChar": 47,
+        "endLine": 208,
+        "endChar": 72
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6e8aebb_9b582504",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-01-18T14:56:38Z",
+      "side": 1,
+      "message": "It will return EX_TRANSACTION_FAILED if any of the FDs is invalid. I thought libbinder will check parameters of type ParcelFileDescriptor. FDs wrapped in handle seems don\u0027t have this \"issue\". So this is not expected?",
+      "parentUuid": "6e94a07e_9ea6f0fd",
       "range": {
         "startLine": 208,
         "startChar": 47,
