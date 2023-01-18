@@ -34,6 +34,24 @@
       "parentUuid": "e985fd31_5602c576",
       "revId": "7f86031beed4bd43f2966947c64148740a7f3f33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9e4142e_0c061678",
+        "filename": "camera/provider/2.4/vts/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1010050
+      },
+      "writtenOn": "2023-01-18T21:07:29Z",
+      "side": 0,
+      "message": "np, just wanted to check. Happy to see these consolidated.",
+      "parentUuid": "6dca8588_f808d2b9",
+      "revId": "7f86031beed4bd43f2966947c64148740a7f3f33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
