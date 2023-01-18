@@ -318,6 +318,16 @@ void Module::setMicrophoneInfo() {
     }
 }
 
+void Module::setPortConfigs() {
+    Configuration& config = getConfig();
+    auto createAudioPortConfig = [](const AudioPort& p) {
+        return AudioPortConfig{.id = p.id, .portId = p.id, .ext = p.ext};
+    };
+    std::transform(config.ports.begin(), config.ports.end(),
+                   std::back_inserter(config.initialConfigs), createAudioPortConfig);
+    config.portConfigs = config.initialConfigs;
+}
+
 void Module::updateStreamsConnectedState(const AudioPatch& oldPatch, const AudioPatch& newPatch) {
     // Streams from the old patch need to be disconnected, streams from the new
     // patch need to be connected. If the stream belongs to both patches, no need
