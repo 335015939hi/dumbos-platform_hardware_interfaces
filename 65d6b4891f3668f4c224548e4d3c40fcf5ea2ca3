@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd415c74_cef32c4d",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-18T01:56:45Z",
+      "side": 1,
+      "message": "bursts",
+      "range": {
+        "startLine": 827,
+        "startChar": 25,
+        "endLine": 827,
+        "endChar": 30
+      },
+      "revId": "65d6b4891f3668f4c224548e4d3c40fcf5ea2ca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ef3651d_9116157f",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-18T01:56:45Z",
+      "side": 1,
+      "message": "Please add constants in the interface for this, something like `AAUDIO_MIXER_BURST_COUNT_UNSPECIFIED` and `..._DEFAULT`.\n\nActually, I\u0027m wondering what is the benefit in returning \"unspecified\" instead of returning the default value directly?",
+      "range": {
+        "startLine": 829,
+        "startChar": 58,
+        "endLine": 830,
+        "endChar": 51
+      },
+      "revId": "65d6b4891f3668f4c224548e4d3c40fcf5ea2ca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef99fcfc_67d9e323",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-18T01:56:45Z",
+      "side": 1,
+      "message": "duration",
+      "range": {
+        "startLine": 838,
+        "startChar": 23,
+        "endLine": 838,
+        "endChar": 35
+      },
+      "revId": "65d6b4891f3668f4c224548e4d3c40fcf5ea2ca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a581f376_f0cfa6a2",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-18T01:56:45Z",
+      "side": 1,
+      "message": "duration, in microseconds,",
+      "range": {
+        "startLine": 840,
+        "startChar": 26,
+        "endLine": 840,
+        "endChar": 38
+      },
+      "revId": "65d6b4891f3668f4c224548e4d3c40fcf5ea2ca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75b70847_24ed7114",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-18T01:56:45Z",
+      "side": 1,
+      "message": "Same comment about constants.",
+      "range": {
+        "startLine": 840,
+        "startChar": 66,
+        "endLine": 841,
+        "endChar": 64
+      },
+      "revId": "65d6b4891f3668f4c224548e4d3c40fcf5ea2ca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3b73b07_b71b07ca",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-18T01:56:45Z",
+      "side": 1,
+      "message": "Should we cache the result of this function? It probably does not change during the lifetime of the module.",
+      "range": {
+        "startLine": 1168,
+        "startChar": 5,
+        "endLine": 1168,
+        "endChar": 28
+      },
+      "revId": "65d6b4891f3668f4c224548e4d3c40fcf5ea2ca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e97251ba_89886712",
+        "filename": "audio/aidl/vts/ModuleConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-18T01:56:45Z",
+      "side": 1,
+      "message": "I think, we should use \u0027true\u0027 here, please see aosp/2389655. Testing for detached mix ports would require going through connection simulation step, which we don\u0027t really do.",
+      "range": {
+        "startLine": 444,
+        "startChar": 31,
+        "endLine": 444,
+        "endChar": 36
+      },
+      "revId": "65d6b4891f3668f4c224548e4d3c40fcf5ea2ca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
