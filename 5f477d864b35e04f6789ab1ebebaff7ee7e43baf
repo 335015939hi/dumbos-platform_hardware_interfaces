@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b51221b0_7710b1f7",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1899,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2023-01-18T01:59:18Z",
+      "side": 1,
+      "message": "Not sure that we actually need to change these two",
+      "range": {
+        "startLine": 1897,
+        "startChar": 0,
+        "endLine": 1899,
+        "endChar": 89
+      },
+      "revId": "5f477d864b35e04f6789ab1ebebaff7ee7e43baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
