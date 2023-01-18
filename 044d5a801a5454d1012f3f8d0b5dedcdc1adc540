@@ -34,6 +34,24 @@
       "parentUuid": "351ff683_cf2fc449",
       "revId": "044d5a801a5454d1012f3f8d0b5dedcdc1adc540",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ff968e3_b2a69bbd",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-18T16:21:37Z",
+      "side": 0,
+      "message": "Do you know of something that needs to be converted for this?\nDo you know when that will be?",
+      "parentUuid": "ffc81e98_312b07b1",
+      "revId": "044d5a801a5454d1012f3f8d0b5dedcdc1adc540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
