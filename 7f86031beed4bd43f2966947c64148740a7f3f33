@@ -16,6 +16,24 @@
       "message": "Is it expected that we\u0027re removing VTS team from vts OWNERS?",
       "revId": "7f86031beed4bd43f2966947c64148740a7f3f33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dca8588_f808d2b9",
+        "filename": "camera/provider/2.4/vts/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-18T21:03:52Z",
+      "side": 0,
+      "message": "Yeah, this hasn\u0027t been the VTS team in 3-4 years.\n\nAlso - testing teams may own tests, but generally I think it\u0027s important that people own their own tests and testing teams take the role of fixing broad issues. They won\u0027t maintain any tests, and if they make broad changes, OWNERS should agree. We also have other processes in-place to enable large-scale changes.",
+      "parentUuid": "e985fd31_5602c576",
+      "revId": "7f86031beed4bd43f2966947c64148740a7f3f33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
