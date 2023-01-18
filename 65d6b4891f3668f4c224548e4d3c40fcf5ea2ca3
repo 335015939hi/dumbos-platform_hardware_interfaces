@@ -184,6 +184,30 @@
       },
       "revId": "65d6b4891f3668f4c224548e4d3c40fcf5ea2ca3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "090b90cb_9c6c4508",
+        "filename": "audio/aidl/vts/ModuleConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-18T17:44:23Z",
+      "side": 1,
+      "message": "OK, if you say that then it\u0027s OK to have non-attached devices here.",
+      "parentUuid": "a6dbe0f7_5a62e311",
+      "range": {
+        "startLine": 444,
+        "startChar": 31,
+        "endLine": 444,
+        "endChar": 36
+      },
+      "revId": "65d6b4891f3668f4c224548e4d3c40fcf5ea2ca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
