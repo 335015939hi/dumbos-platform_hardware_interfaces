@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de522153_3f73bcce",
+        "filename": "tetheroffload/aidl/TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-18T20:56:58Z",
+      "side": 1,
+      "message": "VtsHalTetheroffloadTargetTest ?",
+      "range": {
+        "startLine": 4,
+        "startChar": 15,
+        "endLine": 4,
+        "endChar": 40
+      },
+      "revId": "0e9ee3578e07c271ab8bc1f83c68375f0c7f485b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
