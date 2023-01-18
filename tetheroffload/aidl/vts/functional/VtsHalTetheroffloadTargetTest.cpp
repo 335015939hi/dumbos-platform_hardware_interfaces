@@ -152,15 +152,13 @@ class TetheroffloadAidlTestBase : public testing::TestWithParam<std::string> {
     void initOffload(const bool expectedResult) {
         unique_fd ufd1(netlinkSocket(kFd1Groups));
         if (ufd1.get() < 0) {
-            ALOGE("Unable to create conntrack sockets: %d/%s", errno, strerror(errno));
-            FAIL();
+            FAIL() << "Unable to create conntrack sockets: " << strerror(errno);
         }
         ndk::ScopedFileDescriptor fd1 = ndk::ScopedFileDescriptor(ufd1.release());
 
         unique_fd ufd2(netlinkSocket(kFd2Groups));
         if (ufd2.get() < 0) {
-            ALOGE("Unable to create conntrack sockets: %d/%s", errno, strerror(errno));
-            FAIL();
+            FAIL() << "Unable to create conntrack sockets: " << strerror(errno);
         }
         ndk::ScopedFileDescriptor fd2 = ndk::ScopedFileDescriptor(ufd2.release());
 
@@ -214,8 +212,7 @@ TEST_P(TetheroffloadAidlPreInitTest, TestInitOffloadInvalidFd1ReturnsError) {
     ndk::ScopedFileDescriptor fd1 = ndk::ScopedFileDescriptor(-1);
     unique_fd ufd2(netlinkSocket(kFd2Groups));
     if (ufd2.get() < 0) {
-        ALOGE("Unable to create conntrack sockets: %d/%s", errno, strerror(errno));
-        FAIL();
+        FAIL() << "Unable to create conntrack sockets: " << strerror(errno);
     }
     ndk::ScopedFileDescriptor fd2 = ndk::ScopedFileDescriptor(ufd2.release());
     mTetheringOffloadCallback = ndk::SharedRefBase::make<TetheringOffloadCallback>();
@@ -229,8 +226,7 @@ TEST_P(TetheroffloadAidlPreInitTest, TestInitOffloadInvalidFd1ReturnsError) {
 TEST_P(TetheroffloadAidlPreInitTest, TestInitOffloadInvalidFd2ReturnsError) {
     unique_fd ufd1(netlinkSocket(kFd1Groups));
     if (ufd1.get() < 0) {
-        ALOGE("Unable to create conntrack sockets: %d/%s", errno, strerror(errno));
-        FAIL();
+        FAIL() << "Unable to create conntrack sockets: " << strerror(errno);
     }
     ndk::ScopedFileDescriptor fd1 = ndk::ScopedFileDescriptor(ufd1.release());
     ndk::ScopedFileDescriptor fd2 = ndk::ScopedFileDescriptor(-1);
@@ -413,8 +409,8 @@ TEST_P(TetheroffloadAidlGeneralTest, SetDataWarningAndLimitEmptyUpstreamIfaceFai
     const std::string upstream("");
     const int64_t warning = 12345LL;
     const int64_t limit = 67890LL;
-    EXPECT_THAT(mOffload->setDataWarningAndLimit(upstream, warning, limit).getExceptionCode(),
-                AnyOf(Eq(EX_ILLEGAL_ARGUMENT), Eq(EX_UNSUPPORTED_OPERATION)));
+    EXPECT_EQ(mOffload->setDataWarningAndLimit(upstream, warning, limit).getExceptionCode(),
+              EX_ILLEGAL_ARGUMENT);
 }
 
 // TEST_IFACE is presumed to exist on the device and be up. No packets
@@ -423,8 +419,7 @@ TEST_P(TetheroffloadAidlGeneralTest, SetDataWarningAndLimitNonZeroOk) {
     const std::string upstream(TEST_IFACE);
     const int64_t warning = 4000LL;
     const int64_t limit = 5000LL;
-    EXPECT_THAT(mOffload->setDataWarningAndLimit(upstream, warning, limit).getExceptionCode(),
-                AnyOf(Eq(EX_NONE), Eq(EX_UNSUPPORTED_OPERATION)));
+    EXPECT_TRUE(mOffload->setDataWarningAndLimit(upstream, warning, limit).isOk());
 }
 
 // TEST_IFACE is presumed to exist on the device and be up. No packets
@@ -433,8 +428,7 @@ TEST_P(TetheroffloadAidlGeneralTest, SetDataWarningAndLimitZeroOk) {
     const std::string upstream(TEST_IFACE);
     const int64_t warning = 0LL;
     const int64_t limit = 0LL;
-    EXPECT_THAT(mOffload->setDataWarningAndLimit(upstream, warning, limit).getExceptionCode(),
-                AnyOf(Eq(EX_NONE), Eq(EX_UNSUPPORTED_OPERATION)));
+    EXPECT_TRUE(mOffload->setDataWarningAndLimit(upstream, warning, limit).isOk());
 }
 
 // TEST_IFACE is presumed to exist on the device and be up. No packets
@@ -451,8 +445,8 @@ TEST_P(TetheroffloadAidlGeneralTest, SetDataWarningAndLimitNegativeFails) {
     const std::string upstream(TEST_IFACE);
     const int64_t warning = -1LL;
     const int64_t limit = -1LL;
-    EXPECT_THAT(mOffload->setDataWarningAndLimit(upstream, warning, limit).getExceptionCode(),
-                AnyOf(Eq(EX_ILLEGAL_ARGUMENT), Eq(EX_UNSUPPORTED_OPERATION)));
+    EXPECT_EQ(mOffload->setDataWarningAndLimit(upstream, warning, limit).getExceptionCode(),
+              EX_ILLEGAL_ARGUMENT);
 }
 
 /*
