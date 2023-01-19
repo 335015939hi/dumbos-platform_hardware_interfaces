@@ -135,6 +135,30 @@
       },
       "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b21f970d_a1367ab1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveLeCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-01-19T12:50:46Z",
+      "side": 1,
+      "message": "Are we OK with suggested structure members from interface viewpoint?\nI have written some utility and added couple of VTS cases for new interface. Can you have a look over. \nUnfortunately, I am unable to compile it and run VTS tests locally for new cases as it seems it keeps on linking with older interface files which is AIDL Version 2. Is there any way to compile and test here locally and run VTS OR Will it require an interface freeze and version upgrade (make it version 3 for AIDL) so that those auto gen AIDL will be start link with latest files. And if that is the case then will Google consolidate and freeze all interfaces?",
+      "parentUuid": "9542de11_3605fbdd",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
