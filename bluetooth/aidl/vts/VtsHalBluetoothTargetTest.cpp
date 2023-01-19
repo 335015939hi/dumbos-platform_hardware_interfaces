@@ -60,6 +60,8 @@ static constexpr uint8_t kCommandHciShouldBeUnknown[] = {
 static constexpr uint8_t kCommandHciReadLocalVersionInformation[] = {0x01, 0x10,
                                                                      0x00};
 static constexpr uint8_t kCommandHciReadBufferSize[] = {0x05, 0x10, 0x00};
+static constexpr uint8_t kCommandHciWriteLoopbackModeLocal[] = {0x02, 0x18,
+                                                                0x01, 0x01};
 static constexpr uint8_t kCommandHciReset[] = {0x03, 0x0c, 0x00};
 static constexpr uint8_t kCommandHciWriteLocalName[] = {0x13, 0x0c, 0xf8};
 static constexpr uint8_t kHciStatusSuccess = 0x00;
@@ -69,6 +71,7 @@ static constexpr uint8_t kEventConnectionComplete = 0x03;
 static constexpr uint8_t kEventCommandComplete = 0x0e;
 static constexpr uint8_t kEventCommandStatus = 0x0f;
 static constexpr uint8_t kEventNumberOfCompletedPackets = 0x13;
+static constexpr uint8_t kEventLoopbackCommand = 0x19;
 
 static constexpr size_t kEventCodeByte = 0;
 static constexpr size_t kEventLengthByte = 1;
@@ -186,7 +189,14 @@ class BluetoothAidlTest : public ::testing::TestWithParam<std::string> {
 
   void setBufferSizes();
 
+  // Functions called from within tests in loopback mode
+  void sendAndCheckHCI(int num_packets);
+  void sendAndCheckSCO(int num_packets, size_t size, uint16_t handle);
+  void sendAndCheckACL(int num_packets, size_t size, uint16_t handle);
+
   // Helper functions to try to get a handle on verbosity
+  void enterLoopbackMode(std::vector<uint16_t>* sco_handles,
+                         std::vector<uint16_t>* acl_handles);
   void handle_no_ops();
   void wait_for_event(bool timeout_is_error);
   void wait_for_command_complete_event(std::vector<uint8_t> cmd);
@@ -431,6 +441,153 @@ void BluetoothAidlTest::setBufferSizes() {
         static_cast<int>(max_sco_data_packets));
 }
 
+// Send an HCI command (in Loopback mode) and check the response.
+void BluetoothAidlTest::sendAndCheckHCI(int num_packets) {
+  ThroughputLogger logger = {__func__};
+  int command_size = 0;
+  for (int n = 0; n < num_packets; n++) {
+    // Send an HCI packet
+    std::vector<uint8_t> write_name{
+        kCommandHciWriteLocalName,
+        kCommandHciWriteLocalName + sizeof(kCommandHciWriteLocalName)};
+    // With a name
+    char new_name[] = "John Jacob Jingleheimer Schmidt ___________________0";
+    size_t new_name_length = strlen(new_name);
+    for (size_t i = 0; i < new_name_length; i++) {
+      write_name.push_back(static_cast<uint8_t>(new_name[i]));
+    }
+    // And the packet number
+    size_t i = new_name_length - 1;
+    for (int digits = n; digits > 0; digits = digits / 10, i--) {
+      write_name[i] = static_cast<uint8_t>('0' + digits % 10);
+    }
+    // And padding
+    for (size_t i = 0; i < 248 - new_name_length; i++) {
+      write_name.push_back(static_cast<uint8_t>(0));
+    }
+
+    std::vector<uint8_t> cmd = write_name;
+    hci->sendHciCommand(cmd);
+
+    // Check the loopback of the HCI packet
+    wait_for_event();
+    if (event_queue.empty()) {
+      return;
+    }
+    std::vector<uint8_t> event;
+    ASSERT_TRUE(event_queue.pop(event));
+
+    size_t compare_length =
+        (cmd.size() > static_cast<size_t>(0xff) ? static_cast<size_t>(0xff)
+                                                : cmd.size());
+    ASSERT_GT(event.size(), compare_length + kEventFirstPayloadByte - 1);
+
+    ASSERT_EQ(kEventLoopbackCommand, event[kEventCodeByte]);
+    ASSERT_EQ(compare_length, event[kEventCodeByte]);
+
+    // Don't compare past the end of the event.
+    if (compare_length + kEventFirstPayloadByte > event.size()) {
+      compare_length = event.size() - kEventFirstPayloadByte;
+      ALOGE("Only comparing %d bytes", static_cast<int>(compare_length));
+    }
+
+    if (n == num_packets - 1) {
+      command_size = cmd.size();
+    }
+
+    for (size_t i = 0; i < compare_length; i++) {
+      ASSERT_EQ(cmd[i], event[kEventFirstPayloadByte + i]);
+    }
+  }
+  logger.setTotalBytes(command_size * num_packets * 2);
+}
+
+// Send a SCO data packet (in Loopback mode) and check the response.
+void BluetoothAidlTest::sendAndCheckSCO(int num_packets, size_t size,
+                                        uint16_t handle) {
+  ThroughputLogger logger = {__func__};
+  for (int n = 0; n < num_packets; n++) {
+    // Send a SCO packet
+    std::vector<uint8_t> sco_packet;
+    std::vector<uint8_t> sco_vector;
+    sco_vector.push_back(static_cast<uint8_t>(handle & 0xff));
+    sco_vector.push_back(static_cast<uint8_t>((handle & 0x0f00) >> 8));
+    sco_vector.push_back(static_cast<uint8_t>(size & 0xff));
+    sco_vector.push_back(static_cast<uint8_t>((size & 0xff00) >> 8));
+    for (size_t i = 0; i < size; i++) {
+      sco_vector.push_back(static_cast<uint8_t>(i + n));
+    }
+    sco_packet = sco_vector;
+    hci->sendScoData(sco_vector);
+
+    // Check the loopback of the SCO packet
+    std::vector<uint8_t> sco_loopback;
+    ASSERT_TRUE(
+        sco_queue.tryPopWithTimeout(sco_loopback, kWaitForScoDataTimeout));
+
+    ASSERT_EQ(sco_packet.size(), sco_loopback.size());
+    size_t successful_bytes = 0;
+
+    for (size_t i = 0; i < sco_packet.size(); i++) {
+      if (sco_packet[i] == sco_loopback[i]) {
+        successful_bytes = i;
+      } else {
+        ALOGE("Miscompare at %d (expected %x, got %x)", static_cast<int>(i),
+              sco_packet[i], sco_loopback[i]);
+        ALOGE("At %d (expected %x, got %x)", static_cast<int>(i + 1),
+              sco_packet[i + 1], sco_loopback[i + 1]);
+        break;
+      }
+    }
+    ASSERT_EQ(sco_packet.size(), successful_bytes + 1);
+  }
+  logger.setTotalBytes(num_packets * size * 2);
+}
+
+// Send an ACL data packet (in Loopback mode) and check the response.
+void BluetoothAidlTest::sendAndCheckACL(int num_packets, size_t size,
+                                        uint16_t handle) {
+  ThroughputLogger logger = {__func__};
+  for (int n = 0; n < num_packets; n++) {
+    // Send an ACL packet
+    std::vector<uint8_t> acl_packet;
+    std::vector<uint8_t> acl_vector;
+    acl_vector.push_back(static_cast<uint8_t>(handle & 0xff));
+    acl_vector.push_back(static_cast<uint8_t>((handle & 0x0f00) >> 8) |
+                         kAclBroadcastPointToPoint |
+                         kAclPacketBoundaryFirstAutoFlushable);
+    acl_vector.push_back(static_cast<uint8_t>(size & 0xff));
+    acl_vector.push_back(static_cast<uint8_t>((size & 0xff00) >> 8));
+    for (size_t i = 0; i < size; i++) {
+      acl_vector.push_back(static_cast<uint8_t>(i + n));
+    }
+    acl_packet = acl_vector;
+    hci->sendAclData(acl_vector);
+
+    std::vector<uint8_t> acl_loopback;
+    // Check the loopback of the ACL packet
+    ASSERT_TRUE(
+        acl_queue.tryPopWithTimeout(acl_loopback, kWaitForAclDataTimeout));
+
+    ASSERT_EQ(acl_packet.size(), acl_loopback.size());
+    size_t successful_bytes = 0;
+
+    for (size_t i = 0; i < acl_packet.size(); i++) {
+      if (acl_packet[i] == acl_loopback[i]) {
+        successful_bytes = i;
+      } else {
+        ALOGE("Miscompare at %d (expected %x, got %x)", static_cast<int>(i),
+              acl_packet[i], acl_loopback[i]);
+        ALOGE("At %d (expected %x, got %x)", static_cast<int>(i + 1),
+              acl_packet[i + 1], acl_loopback[i + 1]);
+        break;
+      }
+    }
+    ASSERT_EQ(acl_packet.size(), successful_bytes + 1);
+  }
+  logger.setTotalBytes(num_packets * size * 2);
+}
+
 // Return the number of completed packets reported by the controller.
 int BluetoothAidlTest::wait_for_completed_packets_event(uint16_t handle) {
   int packets_processed = 0;
@@ -452,6 +609,60 @@ int BluetoothAidlTest::wait_for_completed_packets_event(uint16_t handle) {
     packets_processed += event[5] + (event[6] << 8);
   }
   return packets_processed;
+}
+
+// Send local loopback command and initialize SCO and ACL handles.
+void BluetoothAidlTest::enterLoopbackMode(std::vector<uint16_t>* sco_handles,
+                                          std::vector<uint16_t>* acl_handles) {
+  std::vector<uint8_t> cmd{kCommandHciWriteLoopbackModeLocal,
+                           kCommandHciWriteLoopbackModeLocal +
+                               sizeof(kCommandHciWriteLoopbackModeLocal)};
+  hci->sendHciCommand(cmd);
+
+  // Receive connection complete events with data channels
+  int connection_event_count = 0;
+  bool command_complete_received = false;
+  while (true) {
+    wait_for_event(false);
+    if (event_queue.empty()) {
+      // Fail if there was no event received or no connections completed.
+      ASSERT_TRUE(command_complete_received);
+      ASSERT_LT(0, connection_event_count);
+      return;
+    }
+    std::vector<uint8_t> event;
+    ASSERT_TRUE(event_queue.pop(event));
+    ASSERT_GT(event.size(),
+              static_cast<size_t>(kEventCommandCompleteStatusByte));
+    if (event[kEventCodeByte] == kEventConnectionComplete) {
+      ASSERT_GT(event.size(),
+                static_cast<size_t>(kEventConnectionCompleteType));
+      ASSERT_EQ(event[kEventLengthByte], kEventConnectionCompleteParamLength);
+      uint8_t connection_type = event[kEventConnectionCompleteType];
+
+      ASSERT_TRUE(connection_type == kEventConnectionCompleteTypeSco ||
+                  connection_type == kEventConnectionCompleteTypeAcl);
+
+      // Save handles
+      uint16_t handle = event[kEventConnectionCompleteHandleLsByte] |
+                        event[kEventConnectionCompleteHandleLsByte + 1] << 8;
+      if (connection_type == kEventConnectionCompleteTypeSco) {
+        sco_handles->push_back(handle);
+      } else {
+        acl_handles->push_back(handle);
+      }
+
+      ALOGD("Connect complete type = %d handle = %d",
+            event[kEventConnectionCompleteType], handle);
+      connection_event_count++;
+    } else {
+      ASSERT_EQ(kEventCommandComplete, event[kEventCodeByte]);
+      ASSERT_EQ(cmd[0], event[kEventCommandCompleteOpcodeLsByte]);
+      ASSERT_EQ(cmd[1], event[kEventCommandCompleteOpcodeLsByte + 1]);
+      ASSERT_EQ(kHciStatusSuccess, event[kEventCommandCompleteStatusByte]);
+      command_complete_received = true;
+    }
+  }
 }
 
 // Empty test: Initialize()/Close() are called in SetUp()/TearDown().
@@ -518,6 +729,121 @@ TEST_P(BluetoothAidlTest, HciUnknownCommand) {
     ASSERT_EQ(cmd[1], event[kEventCommandStatusOpcodeLsByte + 1]);
     ASSERT_EQ(kHciStatusUnknownHciCommand,
               event[kEventCommandStatusStatusByte]);
+  }
+}
+
+// Enter loopback mode, but don't send any packets.
+TEST_P(BluetoothAidlTest, WriteLoopbackMode) {
+  std::vector<uint16_t> sco_connection_handles;
+  std::vector<uint16_t> acl_connection_handles;
+  enterLoopbackMode(&sco_connection_handles, &acl_connection_handles);
+}
+
+// Enter loopback mode and send a single command.
+TEST_P(BluetoothAidlTest, LoopbackModeSingleCommand) {
+  setBufferSizes();
+
+  std::vector<uint16_t> sco_connection_handles;
+  std::vector<uint16_t> acl_connection_handles;
+  enterLoopbackMode(&sco_connection_handles, &acl_connection_handles);
+
+  sendAndCheckHCI(1);
+}
+
+// Enter loopback mode and send a single SCO packet.
+TEST_P(BluetoothAidlTest, LoopbackModeSingleSco) {
+  setBufferSizes();
+
+  std::vector<uint16_t> sco_connection_handles;
+  std::vector<uint16_t> acl_connection_handles;
+  enterLoopbackMode(&sco_connection_handles, &acl_connection_handles);
+
+  if (!sco_connection_handles.empty()) {
+    ASSERT_LT(0, max_sco_data_packet_length);
+    sendAndCheckSCO(1, max_sco_data_packet_length, sco_connection_handles[0]);
+    int sco_packets_sent = 1;
+    int completed_packets =
+        wait_for_completed_packets_event(sco_connection_handles[0]);
+    if (sco_packets_sent != completed_packets) {
+      ALOGW("%s: packets_sent (%d) != completed_packets (%d)", __func__,
+            sco_packets_sent, completed_packets);
+    }
+  }
+}
+
+// Enter loopback mode and send a single ACL packet.
+TEST_P(BluetoothAidlTest, LoopbackModeSingleAcl) {
+  setBufferSizes();
+
+  std::vector<uint16_t> sco_connection_handles;
+  std::vector<uint16_t> acl_connection_handles;
+  enterLoopbackMode(&sco_connection_handles, &acl_connection_handles);
+
+  if (!acl_connection_handles.empty()) {
+    ASSERT_LT(0, max_acl_data_packet_length);
+    sendAndCheckACL(1, max_acl_data_packet_length, acl_connection_handles[0]);
+    int acl_packets_sent = 1;
+    int completed_packets =
+        wait_for_completed_packets_event(acl_connection_handles[0]);
+    if (acl_packets_sent != completed_packets) {
+      ALOGW("%s: packets_sent (%d) != completed_packets (%d)", __func__,
+            acl_packets_sent, completed_packets);
+    }
+  }
+}
+
+// Enter loopback mode and send command packets for bandwidth measurements.
+TEST_P(BluetoothAidlTest, LoopbackModeCommandBandwidth) {
+  setBufferSizes();
+
+  std::vector<uint16_t> sco_connection_handles;
+  std::vector<uint16_t> acl_connection_handles;
+  enterLoopbackMode(&sco_connection_handles, &acl_connection_handles);
+
+  sendAndCheckHCI(kNumHciCommandsBandwidth);
+}
+
+// Enter loopback mode and send SCO packets for bandwidth measurements.
+TEST_P(BluetoothAidlTest, LoopbackModeScoBandwidth) {
+  setBufferSizes();
+
+  std::vector<uint16_t> sco_connection_handles;
+  std::vector<uint16_t> acl_connection_handles;
+  enterLoopbackMode(&sco_connection_handles, &acl_connection_handles);
+
+  if (!sco_connection_handles.empty()) {
+    ASSERT_LT(0, max_sco_data_packet_length);
+    sendAndCheckSCO(kNumScoPacketsBandwidth, max_sco_data_packet_length,
+                    sco_connection_handles[0]);
+    int sco_packets_sent = kNumScoPacketsBandwidth;
+    int completed_packets =
+        wait_for_completed_packets_event(sco_connection_handles[0]);
+    if (sco_packets_sent != completed_packets) {
+      ALOGW("%s: packets_sent (%d) != completed_packets (%d)", __func__,
+            sco_packets_sent, completed_packets);
+    }
+  }
+}
+
+// Enter loopback mode and send packets for ACL bandwidth measurements.
+TEST_P(BluetoothAidlTest, LoopbackModeAclBandwidth) {
+  setBufferSizes();
+
+  std::vector<uint16_t> sco_connection_handles;
+  std::vector<uint16_t> acl_connection_handles;
+  enterLoopbackMode(&sco_connection_handles, &acl_connection_handles);
+
+  if (!acl_connection_handles.empty()) {
+    ASSERT_LT(0, max_acl_data_packet_length);
+    sendAndCheckACL(kNumAclPacketsBandwidth, max_acl_data_packet_length,
+                    acl_connection_handles[0]);
+    int acl_packets_sent = kNumAclPacketsBandwidth;
+    int completed_packets =
+        wait_for_completed_packets_event(acl_connection_handles[0]);
+    if (acl_packets_sent != completed_packets) {
+      ALOGW("%s: packets_sent (%d) != completed_packets (%d)", __func__,
+            acl_packets_sent, completed_packets);
+    }
   }
 }
 
