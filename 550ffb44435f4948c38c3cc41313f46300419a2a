@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70c337ca_9ccb6d41",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-01-19T01:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f06e783_742c8986",
+      "range": {
+        "startLine": 49,
+        "startChar": 24,
+        "endLine": 49,
+        "endChar": 48
+      },
+      "revId": "550ffb44435f4948c38c3cc41313f46300419a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ffb20f5_703330fd",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-19T00:47:16Z",
       "side": 1,
       "message": "nit: The default is 15, since this is a test it\u0027s fine to leave it at 15 and delete this line.",
+      "range": {
+        "startLine": 549,
+        "startChar": 5,
+        "endLine": 549,
+        "endChar": 47
+      },
+      "revId": "550ffb44435f4948c38c3cc41313f46300419a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "536f6d16_7e363c60",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-01-19T01:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ffb20f5_703330fd",
       "range": {
         "startLine": 549,
         "startChar": 5,
