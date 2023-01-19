@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85467f9f_9cccfe56",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-01-19T19:27:55Z",
+      "side": 1,
+      "message": "Thanks for adding tests!\n\nIt looks like `ThroughputLogger` isn\u0027t used right now.  But if we plan to use it in the future with additional tests, we probably want to initialize this field to 0 in the constructor.\n\nAs it is right now, if someone constructs a `ThroughputLogger` instance, and doesn\u0027t call `setTotalBytes()` before it gets deconstructed, then the destructor will use an uninitialized value to determine if it should do more work, and log what could be a very confusing (and inconsistent) value in the log.",
+      "revId": "8a6e09c72d025fc8bbebb12863b6e602c5261e43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
