@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "966e1bbf_4d3cb1aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-19T00:02:44Z",
+      "side": 1,
+      "message": "Please address my comments before passing to Devin for API review.",
+      "revId": "fb8b9eff33c1ac39a1fc8dfe332138a623b272b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1807712_f779a1f7",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-19T00:02:44Z",
+      "side": 1,
+      "message": "I would add something like \"this is a suggested value to return for the HAL module, unless it is known that a better option exists\". This is to justify why we keep it in the AIDL file.",
+      "range": {
+        "startLine": 827,
+        "startChar": 64,
+        "endLine": 827,
+        "endChar": 65
+      },
+      "revId": "fb8b9eff33c1ac39a1fc8dfe332138a623b272b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f8f49a6_a478f135",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-19T00:02:44Z",
+      "side": 1,
+      "message": "`US` or `USEC` for `microseconds`",
+      "range": {
+        "startLine": 841,
+        "startChar": 57,
+        "endLine": 841,
+        "endChar": 59
+      },
+      "revId": "fb8b9eff33c1ac39a1fc8dfe332138a623b272b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
