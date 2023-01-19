@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88414a9d_e77b16dc",
+        "filename": "drm/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-19T19:35:23Z",
+      "side": 1,
+      "message": "Can these be error types used with the service specific exceptions instead of substrings that we have to check/keep backwards compatible?",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 11,
+        "endChar": 11
+      },
+      "revId": "81be088cb601fbb689ecbcc58548cddb3fefbb8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
