@@ -1,5 +1,52 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f510e695_f69eb975",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/IGatekeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-19T18:33:18Z",
+      "side": 1,
+      "message": "do we redo the compliance tests for these with the new interface?",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "69aa7f3528b09d62b79e04ab5fe6b01efce68c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba077c94_9e001559",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/IGatekeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-19T18:33:18Z",
+      "side": 1,
+      "message": "It would be good to add a comment where these are used in the other types. Like `IGatekeeper::STATUS_*`",
+      "range": {
+        "startLine": 30,
+        "startChar": 14,
+        "endLine": 30,
+        "endChar": 29
+      },
+      "revId": "69aa7f3528b09d62b79e04ab5fe6b01efce68c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
