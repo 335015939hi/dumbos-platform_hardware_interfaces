@@ -30,7 +30,6 @@ cc_library_static {
     defaults: ["android.hardware.bluetooth-service-build-defaults"],
     srcs: [
         "BluetoothHci.cpp",
-        "net_bluetooth_mgmt.cpp",
     ],
 }
 
@@ -38,7 +37,7 @@ cc_binary {
     name: "android.hardware.bluetooth-service.default",
     relative_install_path: "hw",
     init_rc: ["bluetooth-service-default.rc"],
-    vintf_fragments: [":manifest_android.hardware.bluetooth-service.default.xml"],
+    vintf_fragments: ["bluetooth-service-default.xml"],
     vendor: true,
     defaults: ["android.hardware.bluetooth-service-build-defaults"],
     srcs: [
@@ -77,9 +76,4 @@ cc_fuzz {
             "mylesgw@google.com",
         ],
     },
-}
-
-filegroup {
-    name: "manifest_android.hardware.bluetooth-service.default.xml",
-    srcs: ["bluetooth-service-default.xml"],
 }
