@@ -22,6 +22,30 @@
       },
       "revId": "81be088cb601fbb689ecbcc58548cddb3fefbb8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6dadbe0_eb7f276e",
+        "filename": "drm/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2023-01-19T21:13:26Z",
+      "side": 1,
+      "message": "We do have service specific exception codes, this is to add more details to the error.\n\nWe understand this is hacky, but the DRM API surface is large, and this allows us to add *optional* error details without big, boiler-plate changes to the client and multiple services.\n\nThis README describes the current state of the code.",
+      "parentUuid": "88414a9d_e77b16dc",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 11,
+        "endChar": 11
+      },
+      "revId": "81be088cb601fbb689ecbcc58548cddb3fefbb8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
