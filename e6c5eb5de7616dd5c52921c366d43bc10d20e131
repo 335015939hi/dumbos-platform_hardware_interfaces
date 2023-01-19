@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b3c7116_f3f3b9ca",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-19T21:31:14Z",
+      "side": 1,
+      "message": "nit: The failure message here will say that isOk() is not true and doesn\u0027t tell us why it\u0027s not true.\nIf we do something like the following, it will print the error and even error message if any exists.\n```\nauto ret \u003d mOffload-\u003esetDataWarningAndLimit(upstream, warning, limit);\nEXPECT_TRUE(ret.isOk()) \u003c\u003c ret;\n```",
+      "range": {
+        "startLine": 431,
+        "startChar": 4,
+        "endLine": 431,
+        "endChar": 15
+      },
+      "revId": "e6c5eb5de7616dd5c52921c366d43bc10d20e131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
