@@ -37,7 +37,6 @@ class EffectContext {
             DataMQ;
 
     EffectContext(size_t statusDepth, const Parameter::Common& common) {
-        mSessionId = common.session;
         auto& input = common.input;
         auto& output = common.output;
 
@@ -88,7 +87,8 @@ class EffectContext {
     }
     size_t getInputFrameSize() { return mInputFrameSize; }
     size_t getOutputFrameSize() { return mOutputFrameSize; }
-    int getSessionId() { return mSessionId; }
+    int getSessionId() { return mCommon.session; }
+    int getIoHandle() { return mCommon.ioHandle; }
 
     virtual RetCode setOutputDevice(
             const std::vector<aidl::android::media::audio::common::AudioDeviceDescription>&
@@ -96,6 +96,7 @@ class EffectContext {
         mOutputDevice = device;
         return RetCode::SUCCESS;
     }
+
     virtual std::vector<aidl::android::media::audio::common::AudioDeviceDescription>
     getOutputDevice() {
         return mOutputDevice;
@@ -131,7 +132,6 @@ class EffectContext {
 
   protected:
     // common parameters
-    int mSessionId = INVALID_AUDIO_SESSION_ID;
     size_t mInputFrameSize;
     size_t mOutputFrameSize;
     Parameter::Common mCommon;
