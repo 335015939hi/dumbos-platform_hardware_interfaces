@@ -61,7 +61,7 @@ namespace aidl::android::hardware::audio::effect {
 
 const std::string AutomaticGainControlSw::kEffectName = "AutomaticGainControlSw";
 const AutomaticGainControl::Capability AutomaticGainControlSw::kCapability = {
-        .maxFixedDigitalGainMb = 50000, .maxSaturationMarginMb = 10000};
+        .maxFixedDigitalGainMb = 50000};
 const Descriptor AutomaticGainControlSw::kDescriptor = {
         .common = {.id = {.type = kAutomaticGainControlTypeUUID,
                           .uuid = kAutomaticGainControlSwImplUUID,
@@ -97,20 +97,6 @@ ndk::ScopedAStatus AutomaticGainControlSw::setParameterSpecific(
                       EX_ILLEGAL_ARGUMENT, "digitalGainNotSupported");
             return ndk::ScopedAStatus::ok();
         }
-        case AutomaticGainControl::levelEstimator: {
-            RETURN_IF(
-                    mContext->setLevelEstimator(
-                            param.get<AutomaticGainControl::levelEstimator>()) != RetCode::SUCCESS,
-                    EX_ILLEGAL_ARGUMENT, "levelEstimatorNotSupported");
-            return ndk::ScopedAStatus::ok();
-        }
-        case AutomaticGainControl::saturationMarginMb: {
-            RETURN_IF(mContext->setSaturationMargin(
-                              param.get<AutomaticGainControl::saturationMarginMb>()) !=
-                              RetCode::SUCCESS,
-                      EX_ILLEGAL_ARGUMENT, "saturationMarginNotSupported");
-            return ndk::ScopedAStatus::ok();
-        }
         default: {
             LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
             return ndk::ScopedAStatus::fromExceptionCodeWithMessage(
@@ -143,14 +129,6 @@ ndk::ScopedAStatus AutomaticGainControlSw::getParameterAutomaticGainControl(
     switch (tag) {
         case AutomaticGainControl::fixedDigitalGainMb: {
             param.set<AutomaticGainControl::fixedDigitalGainMb>(mContext->getDigitalGain());
-            break;
-        }
-        case AutomaticGainControl::levelEstimator: {
-            param.set<AutomaticGainControl::levelEstimator>(mContext->getLevelEstimator());
-            break;
-        }
-        case AutomaticGainControl::saturationMarginMb: {
-            param.set<AutomaticGainControl::saturationMarginMb>(mContext->getSaturationMargin());
             break;
         }
         default: {
@@ -206,29 +184,6 @@ RetCode AutomaticGainControlSwContext::setDigitalGain(int gain) {
 
 int AutomaticGainControlSwContext::getDigitalGain() {
     return mDigitalGain;
-}
-
-RetCode AutomaticGainControlSwContext::setLevelEstimator(
-        AutomaticGainControl::LevelEstimator levelEstimator) {
-    mLevelEstimator = levelEstimator;
-    return RetCode::SUCCESS;
-}
-
-AutomaticGainControl::LevelEstimator AutomaticGainControlSwContext::getLevelEstimator() {
-    return mLevelEstimator;
-}
-
-RetCode AutomaticGainControlSwContext::setSaturationMargin(int margin) {
-    if (margin < 0 || margin > AutomaticGainControlSw::kCapability.maxSaturationMarginMb) {
-        LOG(DEBUG) << __func__ << " illegal saturationMargin " << margin;
-        return RetCode::ERROR_ILLEGAL_PARAMETER;
-    }
-    mSaturationMargin = margin;
-    return RetCode::SUCCESS;
-}
-
-int AutomaticGainControlSwContext::getSaturationMargin() {
-    return mSaturationMargin;
 }
 
 }  // namespace aidl::android::hardware::audio::effect
