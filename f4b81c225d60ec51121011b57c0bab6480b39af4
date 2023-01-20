@@ -33,6 +33,52 @@
       "message": "+ Mikhail for owner review",
       "revId": "f4b81c225d60ec51121011b57c0bab6480b39af4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fbce045_48cc1e7a",
+        "filename": "audio/aidl/default/include/effect-impl/EffectContext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-20T16:51:06Z",
+      "side": 1,
+      "message": "Shunkai, do you know why `mCommon` is not initialized from `common` here, but instead there is `setCommon` method?",
+      "range": {
+        "startLine": 39,
+        "startChar": 44,
+        "endLine": 39,
+        "endChar": 69
+      },
+      "revId": "f4b81c225d60ec51121011b57c0bab6480b39af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d71ca9d7_49f23b9f",
+        "filename": "audio/aidl/default/include/effect-impl/EffectContext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-20T16:51:06Z",
+      "side": 1,
+      "message": "This seems to be a change in behavior. If this getter is called before `setCommon`, then the result will not be `INVALID_AUDIO_SESSION_ID` (-1) but a zero.",
+      "range": {
+        "startLine": 90,
+        "startChar": 32,
+        "endLine": 90,
+        "endChar": 48
+      },
+      "revId": "f4b81c225d60ec51121011b57c0bab6480b39af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
