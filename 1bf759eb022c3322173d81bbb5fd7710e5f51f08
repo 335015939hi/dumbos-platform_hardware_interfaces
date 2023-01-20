@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "802d4a62_2ed0f7df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-01-20T20:56:05Z",
+      "side": 1,
+      "message": "Updated this CL to include second IMEI test support changes\nAdded new check `AidlVersion() \u003e\u003d 3 \u0026\u0026 property_get_int32(\"ro.vendor.api_level\", 0) \u003e 33` to run second IMEI test.",
+      "revId": "1bf759eb022c3322173d81bbb5fd7710e5f51f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
