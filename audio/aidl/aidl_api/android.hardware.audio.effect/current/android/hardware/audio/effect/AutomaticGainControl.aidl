@@ -36,8 +36,6 @@ package android.hardware.audio.effect;
 union AutomaticGainControl {
   android.hardware.audio.effect.VendorExtension vendor;
   int fixedDigitalGainMb;
-  android.hardware.audio.effect.AutomaticGainControl.LevelEstimator levelEstimator;
-  int saturationMarginMb;
   @VintfStability
   union Id {
     int vendorExtensionTag;
@@ -47,11 +45,5 @@ union AutomaticGainControl {
   parcelable Capability {
     ParcelableHolder extension;
     int maxFixedDigitalGainMb;
-    int maxSaturationMarginMb;
-  }
-  @Backing(type="int") @VintfStability
-  enum LevelEstimator {
-    RMS = 0,
-    PEAK = 1,
   }
 }

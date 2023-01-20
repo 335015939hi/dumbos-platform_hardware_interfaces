@@ -23,6 +23,7 @@ import android.hardware.audio.effect.VendorExtension;
  * of the captured signal by boosting or lowering input from the microphone to match a preset level
  * so that the output signal level is virtually constant. AGC can be used by applications where the
  * input signal dynamic range is not important but where a constant strong capture level is desired.
+ * WebRTC only supports RMS level estimator and saturation margin is no longer configurable.
  *
  * All parameters defined in union AutomaticGainControl must be gettable and settable. The
  * capabilities defined in AutomaticGainControl.Capability can only acquired with
@@ -58,19 +59,6 @@ union AutomaticGainControl {
          * Max fixed digital gain supported by AGC implementation in millibel.
          */
         int maxFixedDigitalGainMb;
-        /**
-         * Max fixed saturation margin supported by AGC implementation in millibel.
-         */
-        int maxSaturationMarginMb;
-    }
-
-    @VintfStability
-    @Backing(type="int")
-    enum LevelEstimator {
-        /* Use Root Mean Square level estimator*/
-        RMS = 0,
-        /* Use Peak level estimator*/
-        PEAK = 1,
     }
 
     /**
@@ -78,13 +66,4 @@ union AutomaticGainControl {
      * Must never be negative, and not larger than maxFixedDigitalGainMb in capability.
      */
     int fixedDigitalGainMb;
-    /*
-     * Adaptive digital level estimator.
-     */
-    LevelEstimator levelEstimator;
-    /**
-     * The AGC saturation margin in millibel.
-     * Must never be negative, and not larger than maxSaturationMarginMb in capability.
-     */
-    int saturationMarginMb;
 }

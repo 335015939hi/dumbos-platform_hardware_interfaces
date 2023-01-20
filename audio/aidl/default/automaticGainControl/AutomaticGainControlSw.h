@@ -35,16 +35,9 @@ class AutomaticGainControlSwContext final : public EffectContext {
 
     RetCode setDigitalGain(int gain);
     int getDigitalGain();
-    RetCode setLevelEstimator(AutomaticGainControl::LevelEstimator levelEstimator);
-    AutomaticGainControl::LevelEstimator getLevelEstimator();
-    RetCode setSaturationMargin(int margin);
-    int getSaturationMargin();
 
   private:
     int mDigitalGain = 0;
-    AutomaticGainControl::LevelEstimator mLevelEstimator =
-            AutomaticGainControl::LevelEstimator::RMS;
-    int mSaturationMargin = 0;
 };
 
 class AutomaticGainControlSw final : public EffectImpl {
