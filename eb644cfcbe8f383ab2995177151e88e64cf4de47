@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6af7e979_47f64606",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-01-20T20:49:20Z",
+      "side": 1,
+      "message": "Updated this CL - Retaining changes specific to use first IMEI as attestation id in test.\nRemoved second imei test specific changes from this CL.\nSecond imei test specific changes are added in CL: https://r.android.com/2378091.",
+      "revId": "eb644cfcbe8f383ab2995177151e88e64cf4de47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
