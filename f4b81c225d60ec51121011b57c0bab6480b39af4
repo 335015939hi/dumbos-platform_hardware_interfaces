@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d57211d5_be378ae0",
+        "filename": "audio/aidl/default/include/effect-impl/EffectContext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-20T17:51:42Z",
+      "side": 1,
+      "message": "Good point, `EffectImpl::open` will call `createContext` first and then `setParameterCommon`, but maybe it\u0027s reasonable to just init `mCommon` here.\nI will send a cl for this. thanks.",
+      "parentUuid": "2fbce045_48cc1e7a",
+      "range": {
+        "startLine": 39,
+        "startChar": 44,
+        "endLine": 39,
+        "endChar": 69
+      },
+      "revId": "f4b81c225d60ec51121011b57c0bab6480b39af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d71ca9d7_49f23b9f",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-01-20T16:51:06Z",
       "side": 1,
       "message": "This seems to be a change in behavior. If this getter is called before `setCommon`, then the result will not be `INVALID_AUDIO_SESSION_ID` (-1) but a zero.",
+      "range": {
+        "startLine": 90,
+        "startChar": 32,
+        "endLine": 90,
+        "endChar": 48
+      },
+      "revId": "f4b81c225d60ec51121011b57c0bab6480b39af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c1f3dd5_a5a65c45",
+        "filename": "audio/aidl/default/include/effect-impl/EffectContext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-20T17:51:42Z",
+      "side": 1,
+      "message": "Should be fixed with updated CL.",
+      "parentUuid": "d71ca9d7_49f23b9f",
       "range": {
         "startLine": 90,
         "startChar": 32,
