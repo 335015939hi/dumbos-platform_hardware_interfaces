@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e5218e9_e3bd93c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958203
+      },
+      "writtenOn": "2023-01-23T19:45:58Z",
+      "side": 1,
+      "message": "1. ASSERT_NO_FATAL_FAILURE missing in a few places\n2. ContainerEq instead of loops (using EXPECT)\n3. reset() in SetUp() / TearDown()?\n4. Can stuff be pulled out of the utility functions and into the tests themselves? If the packet builders are in separate functions then maybe there isn\u0027t that much boilerplate",
+      "revId": "e1708c8c44783ed5b3882a0e5ffa59e37e5b77e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
