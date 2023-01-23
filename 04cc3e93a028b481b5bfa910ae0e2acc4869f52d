@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11659860_bb37307e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2023-01-23T16:51:53Z",
+      "side": 1,
+      "message": "FYI, those changes would conflict with the latest internal codes. Ray will CP them into the internal gerrit.",
+      "revId": "04cc3e93a028b481b5bfa910ae0e2acc4869f52d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
