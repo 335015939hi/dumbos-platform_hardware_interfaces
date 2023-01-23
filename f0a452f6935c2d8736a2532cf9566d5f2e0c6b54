@@ -177,6 +177,24 @@
       "parentUuid": "23de3f9f_bbbff77b",
       "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6868914_8a5370d6",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2053,
+      "author": {
+        "id": 1982325
+      },
+      "writtenOn": "2023-01-23T16:35:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e48b113e_dab016d3",
+      "revId": "f0a452f6935c2d8736a2532cf9566d5f2e0c6b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
