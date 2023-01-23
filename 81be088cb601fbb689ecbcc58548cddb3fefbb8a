@@ -46,6 +46,30 @@
       },
       "revId": "81be088cb601fbb689ecbcc58548cddb3fefbb8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c8b23cd_f44af7ee",
+        "filename": "drm/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2023-01-23T15:25:42Z",
+      "side": 1,
+      "message": "Removed the *AIDL error handling* section.",
+      "parentUuid": "c6dadbe0_eb7f276e",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 11,
+        "endChar": 11
+      },
+      "revId": "81be088cb601fbb689ecbcc58548cddb3fefbb8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
