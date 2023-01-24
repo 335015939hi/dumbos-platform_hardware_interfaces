@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5da19475_b8b2aea8",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-01-24T20:21:31Z",
+      "side": 1,
+      "message": "We don\u0027t need this one since credstore is already managing this.",
+      "revId": "81262c1e9dae74ef156c3850247a710b33187d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4005c94_b17d1b6e",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-01-24T20:21:31Z",
+      "side": 1,
+      "message": "We already have generateSigningKeyPair() which does this. I can\u0027t remember why we\u0027re calling it `SigningKey` here and not just `AuthKey`...",
+      "revId": "81262c1e9dae74ef156c3850247a710b33187d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97bc004f_280aa3e3",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-01-24T20:21:31Z",
+      "side": 1,
+      "message": "This one we do need but the idea is that we use `signingKeyBlob` to identify the authenticationkey. We should also define the format of `staticAuthData`, it should match what is here: https://github.com/google/identity-credential/blob/master/identity/src/main/java/com/android/identity/Utility.java#L74\n\nWe\u0027re also going to need a way to get usage count for each signing key, probably just `int getSigningKeyUsageCount(byte[] signingKeyBlob)`.",
+      "revId": "81262c1e9dae74ef156c3850247a710b33187d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
