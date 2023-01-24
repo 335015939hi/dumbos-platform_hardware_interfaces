@@ -46,7 +46,7 @@ class HdmiTest : public ::testing::TestWithParam<std::string> {
   public:
     void SetUp() override {
         hdmi = IHdmi::fromBinder(SpAIBinder(AServiceManager_waitForService(GetParam().c_str())));
-        ASSERT_NE(hdmi, nullptr);
+        ASSERT_NE(hdmi, nullptr); 
         ALOGI("%s: getService() for hdmi is %s", __func__, hdmi->isRemote() ? "remote" : "local");
 
         hdmiCallback = ::ndk::SharedRefBase::make<HdmiCallback>();
