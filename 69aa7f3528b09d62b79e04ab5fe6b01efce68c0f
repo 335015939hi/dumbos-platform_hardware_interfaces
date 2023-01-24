@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10a1ce32_3642d77f",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/IGatekeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-24T19:51:06Z",
+      "side": 1,
+      "message": "Sorry, I should have given more detail here. Starting an email thread for this.",
+      "parentUuid": "cca07d8c_2d6c31af",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "69aa7f3528b09d62b79e04ab5fe6b01efce68c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba077c94_9e001559",
         "filename": "gatekeeper/aidl/android/hardware/gatekeeper/IGatekeeper.aidl",
         "patchSetId": 1
