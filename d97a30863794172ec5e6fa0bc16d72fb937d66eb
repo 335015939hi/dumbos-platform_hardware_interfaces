@@ -69,6 +69,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17920add_48a36a99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1664259
+      },
+      "writtenOn": "2023-01-24T17:20:58Z",
+      "side": 1,
+      "message": "The latest VTS is failing , please check \n\n[  FAILED  ] 2 tests, listed below:\n[  FAILED  ] IOffload/TetheroffloadAidlGeneralTest.SetLocalPrefixesIPv4AddressFails/0_android_hardware_tetheroffload_IOffload_default, where GetParam() \u003d \"android.hardware.tetheroffload.IOffload/default\"\n[  FAILED  ] IOffload/TetheroffloadAidlGeneralTest.SetLocalPrefixesIPv6AddressFails/0_android_hardware_tetheroffload_IOffload_default, where GetParam() \u003d \"android.hardware.tetheroffload.IOffload/default\"\n2 FAILED TESTS",
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d393e422_c2c24016",
@@ -370,6 +387,52 @@
         "startChar": 47,
         "endLine": 208,
         "endChar": 72
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "185ffb9f_f9415d1d",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1664259
+      },
+      "writtenOn": "2023-01-24T17:20:58Z",
+      "side": 1,
+      "message": "server side accepts raw ipv4 and ipv6 addresses and the test cases should always pass in these cases. Expectation should be isOk(). PTAL",
+      "range": {
+        "startLine": 355,
+        "startChar": 71,
+        "endLine": 355,
+        "endChar": 90
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86def0c3_ec4f837e",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1664259
+      },
+      "writtenOn": "2023-01-24T17:20:58Z",
+      "side": 1,
+      "message": "server side accepts raw ipv4 and ipv6 addresses and the test cases should always pass in these cases. Expectation should be isOk(). PTAL",
+      "range": {
+        "startLine": 361,
+        "startChar": 51,
+        "endLine": 361,
+        "endChar": 67
       },
       "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
