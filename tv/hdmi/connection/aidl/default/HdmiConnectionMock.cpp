@@ -69,7 +69,7 @@ ScopedAStatus HdmiConnectionMock::setCallback(
     return ScopedAStatus::ok();
 }
 
-ScopedAStatus HdmiConnectionMock::setHpdSignal(HpdSignal signal) {
+ScopedAStatus HdmiConnectionMock::setHpdSignal(HpdSignal signal, int32_t portId) {
     if (mHdmiThreadRun) {
         mHpdSignal = signal;
         return ScopedAStatus::ok();
@@ -79,7 +79,7 @@ ScopedAStatus HdmiConnectionMock::setHpdSignal(HpdSignal signal) {
     }
 }
 
-ScopedAStatus HdmiConnectionMock::getHpdSignal(HpdSignal* _aidl_return) {
+ScopedAStatus HdmiConnectionMock::getHpdSignal(int32_t portId, HpdSignal* _aidl_return) {
     *_aidl_return = mHpdSignal;
     return ScopedAStatus::ok();
 }
