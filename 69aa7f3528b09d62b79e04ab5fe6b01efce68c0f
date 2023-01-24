@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cca07d8c_2d6c31af",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/IGatekeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-01-24T19:44:00Z",
+      "side": 1,
+      "message": "Yes compliance tests were written for the aidl interface.\naosp/2161977",
+      "parentUuid": "f510e695_f69eb975",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "69aa7f3528b09d62b79e04ab5fe6b01efce68c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba077c94_9e001559",
         "filename": "gatekeeper/aidl/android/hardware/gatekeeper/IGatekeeper.aidl",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-19T18:33:18Z",
       "side": 1,
       "message": "It would be good to add a comment where these are used in the other types. Like `IGatekeeper::STATUS_*`",
+      "range": {
+        "startLine": 30,
+        "startChar": 14,
+        "endLine": 30,
+        "endChar": 29
+      },
+      "revId": "69aa7f3528b09d62b79e04ab5fe6b01efce68c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de3de580_e1647a07",
+        "filename": "gatekeeper/aidl/android/hardware/gatekeeper/IGatekeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-01-24T19:44:00Z",
+      "side": 1,
+      "message": "Updated the comment and uploaded a CL: aosp/2401295.",
+      "parentUuid": "ba077c94_9e001559",
       "range": {
         "startLine": 30,
         "startChar": 14,
