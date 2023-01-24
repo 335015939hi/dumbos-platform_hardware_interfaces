@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6832c5be_0865acf9",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-24T23:43:11Z",
+      "side": 1,
+      "message": "WDYT about making this an union? This way, an instance of Range can also be used on its own as a variant type. This can be used, for example, for generic \"range\" parameters if there is a possibility that we can have these.\n\nRegardless of whether it\u0027s a parcelable or a union, it should still be possible to use inner parcelable types on their own when the type of the range is fixed.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "6629c526ce4d83b8cbae357333782a3912c6b026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
