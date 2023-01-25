@@ -33,34 +33,19 @@
 
 package android.hardware.audio.effect;
 @VintfStability
-parcelable Range {
-  int tag;
-  android.hardware.audio.effect.Range.Types types;
+union AutomaticGainControlV1 {
+  android.hardware.audio.effect.VendorExtension vendor;
+  int targetLevelDbFs;
+  int compressionGainDb;
+  boolean enableLimiter;
   @VintfStability
-  parcelable Int {
-    int min;
-    int max;
+  union Id {
+    int vendorExtensionTag;
+    android.hardware.audio.effect.AutomaticGainControlV1.Tag commonTag;
   }
   @VintfStability
-  parcelable Float {
-    float min;
-    float max;
-  }
-  @VintfStability
-  parcelable Long {
-    long min;
-    long max;
-  }
-  @VintfStability
-  parcelable Byte {
-    byte min;
-    byte max;
-  }
-  @VintfStability
-  union Types {
-    android.hardware.audio.effect.Range.Int rangeInt;
-    android.hardware.audio.effect.Range.Float rangeFloat;
-    android.hardware.audio.effect.Range.Long rangeLong;
-    android.hardware.audio.effect.Range.Byte rangeByte;
+  parcelable Capability {
+    ParcelableHolder extension;
+    android.hardware.audio.effect.Range[] ranges;
   }
 }

@@ -17,11 +17,18 @@
 package android.hardware.audio.effect;
 
 /**
- * Define the range (min and max) of variable.
- * Can be used by effect capabilities to define supported value range for a certain member.
+ * Define the range (min and max) of a certain field, identified by tag.
+ * Can be used by effect capabilities to define supported value ranges.
  */
 @VintfStability
 parcelable Range {
+    /**
+     * The union tag name which the range is defined for.
+     * For example: if used in AutomaticGainControlV1.Capability, value of Range.tag could be
+     * targetLevelDbFs or compressionGainDb.
+     */
+    int tag;
+
     @VintfStability
     parcelable Int {
         int min;
@@ -45,4 +52,14 @@ parcelable Range {
         byte min;
         byte max;
     }
+
+    @VintfStability
+    union Types {
+        Int rangeInt;
+        Float rangeFloat;
+        Long rangeLong;
+        Byte rangeByte;
+    }
+
+    Types types;
 }
