@@ -16,6 +16,29 @@
       "message": "Verified on partner side.",
       "revId": "e28d5ed739a4cb12f4b29c98c44063494896f1f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b24ce0c2_9b8464f8",
+        "filename": "camera/provider/aidl/vts/VtsAidlHalCameraProvider_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-01-25T02:05:56Z",
+      "side": 1,
+      "message": "Please put a comment for changing the for loop starting with frameNumber \u003d 1",
+      "range": {
+        "startLine": 1992,
+        "startChar": 25,
+        "endLine": 1992,
+        "endChar": 40
+      },
+      "revId": "e28d5ed739a4cb12f4b29c98c44063494896f1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
