@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6784d43c_02f94f2f",
+        "filename": "audio/aidl/android/hardware/audio/effect/AutomaticGainControlV1.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-25T21:06:43Z",
+      "side": 1,
+      "message": "Should this be `targetPeakLevelDbFs`?",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 23
+      },
+      "revId": "7f65449e544a65aaf886e7bd8220420d0577129f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec68b6ae_03900c84",
+        "filename": "audio/aidl/android/hardware/audio/effect/AutomaticGainControlV1.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-25T21:06:43Z",
+      "side": 1,
+      "message": "Should this be `maxCompressionGainDb`? Does `peak` and `maximum` mean the same thing here? Maybe we can have both of these fields(compressionGain and targetLevel) named in a similar way.",
+      "range": {
+        "startLine": 75,
+        "startChar": 8,
+        "endLine": 75,
+        "endChar": 25
+      },
+      "revId": "7f65449e544a65aaf886e7bd8220420d0577129f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
