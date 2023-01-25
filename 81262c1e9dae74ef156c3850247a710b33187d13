@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "618001ee_3cecbc19",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1926980
+      },
+      "writtenOn": "2023-01-25T21:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5da19475_b8b2aea8",
+      "revId": "81262c1e9dae74ef156c3850247a710b33187d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4005c94_b17d1b6e",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "658ea6e8_53f2bcd9",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1926980
+      },
+      "writtenOn": "2023-01-25T21:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4005c94_b17d1b6e",
+      "revId": "81262c1e9dae74ef156c3850247a710b33187d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97bc004f_280aa3e3",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-01-24T20:21:31Z",
       "side": 1,
       "message": "This one we do need but the idea is that we use `signingKeyBlob` to identify the authenticationkey. We should also define the format of `staticAuthData`, it should match what is here: https://github.com/google/identity-credential/blob/master/identity/src/main/java/com/android/identity/Utility.java#L74\n\nWe\u0027re also going to need a way to get usage count for each signing key, probably just `int getSigningKeyUsageCount(byte[] signingKeyBlob)`.",
+      "revId": "81262c1e9dae74ef156c3850247a710b33187d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "247c5257_3f914d00",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1926980
+      },
+      "writtenOn": "2023-01-25T21:34:19Z",
+      "side": 1,
+      "message": "methods are updated in next patch",
+      "parentUuid": "97bc004f_280aa3e3",
       "revId": "81262c1e9dae74ef156c3850247a710b33187d13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
