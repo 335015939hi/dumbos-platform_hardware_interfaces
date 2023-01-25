@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98cf5c65_c5100b1e",
+        "filename": "audio/aidl/android/hardware/audio/effect/AutomaticGainControlV1.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-25T02:23:04Z",
+      "side": 1,
+      "message": "dBFS (dB relative to full scale) \n\nsee https://en.wikipedia.org/wiki/DBFS",
+      "range": {
+        "startLine": 69,
+        "startChar": 68,
+        "endLine": 69,
+        "endChar": 72
+      },
+      "revId": "ae3c402ed0d38a2ecdda9166bc259c06ee529a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be8c286f_cd63d744",
+        "filename": "audio/aidl/android/hardware/audio/effect/AutomaticGainControlV1.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-25T02:23:04Z",
+      "side": 1,
+      "message": "Must be",
+      "range": {
+        "startLine": 71,
+        "startChar": 7,
+        "endLine": 71,
+        "endChar": 11
+      },
+      "revId": "ae3c402ed0d38a2ecdda9166bc259c06ee529a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e78a4f7_68872cc3",
+        "filename": "audio/aidl/android/hardware/audio/effect/AutomaticGainControlV1.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-25T02:23:04Z",
+      "side": 1,
+      "message": "Must be",
+      "range": {
+        "startLine": 77,
+        "startChar": 7,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "ae3c402ed0d38a2ecdda9166bc259c06ee529a54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
