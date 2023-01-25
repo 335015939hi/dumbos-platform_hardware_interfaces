@@ -32,10 +32,12 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@Backing(type="byte") @VintfStability
-enum ChannelMode {
-  UNKNOWN,
-  MONO,
-  STEREO,
-  DUALMONO,
+@VintfStability
+parcelable Lc3Capabilities {
+  byte[] pcmBitDepth;
+  int[] samplingFrequencyHz;
+  int[] frameDurationUs;
+  int[] octetsPerFrame;
+  byte[] blocksPerSdu;
+  android.hardware.bluetooth.audio.ChannelMode[] channelMode;
 }

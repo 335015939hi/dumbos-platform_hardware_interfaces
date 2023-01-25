@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,10 +32,12 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@Backing(type="byte") @VintfStability
-enum ChannelMode {
-  UNKNOWN,
-  MONO,
-  STEREO,
-  DUALMONO,
+@VintfStability
+parcelable AptxSinkBuffering {
+  byte minLowLatency;
+  byte maxLowLatency;
+  byte minHighQuality;
+  byte maxHighQuality;
+  byte minTws;
+  byte maxTws;
 }

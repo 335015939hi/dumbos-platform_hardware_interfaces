@@ -32,10 +32,20 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@Backing(type="byte") @VintfStability
-enum ChannelMode {
-  UNKNOWN,
-  MONO,
-  STEREO,
-  DUALMONO,
+@VintfStability
+parcelable UnicastCapability {
+  android.hardware.bluetooth.audio.CodecType codecType;
+  android.hardware.bluetooth.audio.AudioLocation supportedChannel;
+  int deviceCount;
+  int channelCountPerDevice;
+  android.hardware.bluetooth.audio.UnicastCapability.LeAudioCodecCapabilities leAudioCodecCapabilities;
+  @VintfStability
+  parcelable VendorCapabilities {
+    ParcelableHolder extension;
+  }
+  @VintfStability
+  union LeAudioCodecCapabilities {
+    android.hardware.bluetooth.audio.Lc3Capabilities lc3Capabilities;
+    android.hardware.bluetooth.audio.UnicastCapability.VendorCapabilities vendorCapabillities;
+  }
 }

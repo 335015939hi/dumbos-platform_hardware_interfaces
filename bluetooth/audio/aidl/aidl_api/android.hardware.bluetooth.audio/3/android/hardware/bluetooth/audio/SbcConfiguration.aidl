@@ -32,10 +32,14 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@Backing(type="byte") @VintfStability
-enum ChannelMode {
-  UNKNOWN,
-  MONO,
-  STEREO,
-  DUALMONO,
+@VintfStability
+parcelable SbcConfiguration {
+  int sampleRateHz;
+  android.hardware.bluetooth.audio.SbcChannelMode channelMode;
+  byte blockLength;
+  byte numSubbands;
+  android.hardware.bluetooth.audio.SbcAllocMethod allocMethod;
+  byte bitsPerSample;
+  int minBitpool;
+  int maxBitpool;
 }

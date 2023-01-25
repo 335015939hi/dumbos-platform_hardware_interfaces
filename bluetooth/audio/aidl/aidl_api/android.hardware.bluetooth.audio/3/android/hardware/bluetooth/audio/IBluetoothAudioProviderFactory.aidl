@@ -32,10 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@Backing(type="byte") @VintfStability
-enum ChannelMode {
-  UNKNOWN,
-  MONO,
-  STEREO,
-  DUALMONO,
+@VintfStability
+interface IBluetoothAudioProviderFactory {
+  android.hardware.bluetooth.audio.AudioCapabilities[] getProviderCapabilities(in android.hardware.bluetooth.audio.SessionType sessionType);
+  android.hardware.bluetooth.audio.IBluetoothAudioProvider openProvider(in android.hardware.bluetooth.audio.SessionType sessionType);
 }

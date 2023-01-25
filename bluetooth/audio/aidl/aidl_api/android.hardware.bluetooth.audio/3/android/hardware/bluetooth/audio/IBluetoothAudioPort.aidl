@@ -32,10 +32,13 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@Backing(type="byte") @VintfStability
-enum ChannelMode {
-  UNKNOWN,
-  MONO,
-  STEREO,
-  DUALMONO,
+@VintfStability
+interface IBluetoothAudioPort {
+  android.hardware.bluetooth.audio.PresentationPosition getPresentationPosition();
+  void startStream(boolean isLowLatency);
+  void stopStream();
+  void suspendStream();
+  void updateSourceMetadata(in android.hardware.audio.common.SourceMetadata sourceMetadata);
+  void updateSinkMetadata(in android.hardware.audio.common.SinkMetadata sinkMetadata);
+  void setLatencyMode(in android.hardware.bluetooth.audio.LatencyMode latencyMode);
 }

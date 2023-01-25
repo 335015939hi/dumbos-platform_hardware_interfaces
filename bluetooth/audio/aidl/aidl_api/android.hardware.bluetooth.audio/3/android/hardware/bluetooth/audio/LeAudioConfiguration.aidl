@@ -32,10 +32,15 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@Backing(type="byte") @VintfStability
-enum ChannelMode {
-  UNKNOWN,
-  MONO,
-  STEREO,
-  DUALMONO,
+@VintfStability
+parcelable LeAudioConfiguration {
+  android.hardware.bluetooth.audio.CodecType codecType;
+  android.hardware.bluetooth.audio.LeAudioConfiguration.StreamMap[] streamMap;
+  int peerDelayUs;
+  android.hardware.bluetooth.audio.LeAudioCodecConfiguration leAudioCodecConfig;
+  @VintfStability
+  parcelable StreamMap {
+    char streamHandle;
+    int audioChannelAllocation;
+  }
 }

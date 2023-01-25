@@ -32,10 +32,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@Backing(type="byte") @VintfStability
-enum ChannelMode {
-  UNKNOWN,
-  MONO,
-  STEREO,
-  DUALMONO,
+@Backing(type="int") @VintfStability
+enum BluetoothAudioStatus {
+  UNKNOWN = 0,
+  SUCCESS = 1,
+  UNSUPPORTED_CODEC_CONFIGURATION = 2,
+  FAILURE = 3,
+  RECONFIGURATION = 4,
 }
