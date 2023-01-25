@@ -183,6 +183,30 @@
       },
       "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148a6d1e_60a56c71",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveLeCapabilities.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-01-25T08:25:31Z",
+      "side": 1,
+      "message": "You should be able to change it in the build file. Do you have the CL for VTS?\n\u003cSagar\u003e It is part of this CL only. \nbluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp\n\nV2 of this interface is frozen, so we must add V3.\n\u003cSagar\u003e New VTS changes still linking to V2. Hence unable to run it loaclly. We must add V3 (I can also) but there are many other interface related AIDL changes like below \n\none from Google\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/2385795\n\nThese 2 from QCOM\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/2332483\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/2332483\n\nand may be many more\n\nideally as part of any changes in AIDL would lead to version upgrade. But can you help me how these 3 are supposed to merge and who among them is supposed to change the final version from V2 to V3.\n\nAlso is there any way to locally run VTS to link with current AIDL without V3?\nOR we should wait first AIDL interface only to merge and then add/modify new VTS as part of some other CL?",
+      "parentUuid": "0370ca81_11fa8491",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "32f19ed971a5372286b65fcacdb8ef644fad93a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
