@@ -46,6 +46,30 @@
       },
       "revId": "6629c526ce4d83b8cbae357333782a3912c6b026",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b1e73f0_97b90763",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-25T01:25:12Z",
+      "side": 1,
+      "message": "Not sure if we have the use case of using `union Range` because it looks like we know the type of a field when we need to define a range for it.",
+      "parentUuid": "95bfd796_1ae4467b",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "6629c526ce4d83b8cbae357333782a3912c6b026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
