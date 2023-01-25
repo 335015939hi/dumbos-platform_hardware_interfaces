@@ -117,6 +117,30 @@
       },
       "revId": "7f65449e544a65aaf886e7bd8220420d0577129f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a3820b4_9ced4c52",
+        "filename": "audio/aidl/android/hardware/audio/effect/AutomaticGainControlV1.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-25T22:16:31Z",
+      "side": 1,
+      "message": "Thanks for the explanation!",
+      "parentUuid": "4c725317_3e0988c2",
+      "range": {
+        "startLine": 75,
+        "startChar": 8,
+        "endLine": 75,
+        "endChar": 25
+      },
+      "revId": "7f65449e544a65aaf886e7bd8220420d0577129f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
