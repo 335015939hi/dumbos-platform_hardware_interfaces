@@ -70,6 +70,30 @@
       },
       "revId": "6629c526ce4d83b8cbae357333782a3912c6b026",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c46c3355_a4a59fee",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-25T01:39:46Z",
+      "side": 1,
+      "message": "Sure, the union has to hold fields, they can be used when we use an instance of Range as a variant type. However, if you say we always know the data type of fields boundaries then it probably makes no sense to make Range an union.\n\nI think, if we ever actually need a union like this, we can always define it later:\n```\nunion RangeVariant {\n    Range.Int int;\n    Range.Float float;\n    ...\n}\n```\n\nSo, indeed, no need to do anything with Range now.",
+      "parentUuid": "5b1e73f0_97b90763",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "6629c526ce4d83b8cbae357333782a3912c6b026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
