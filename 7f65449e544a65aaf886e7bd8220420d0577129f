@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b4717e0_7b9ac01d",
+        "filename": "audio/aidl/android/hardware/audio/effect/AutomaticGainControlV1.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-25T22:13:03Z",
+      "side": 1,
+      "message": "good idea",
+      "parentUuid": "6784d43c_02f94f2f",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 23
+      },
+      "revId": "7f65449e544a65aaf886e7bd8220420d0577129f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec68b6ae_03900c84",
@@ -60,6 +84,30 @@
       "writtenOn": "2023-01-25T22:12:50Z",
       "side": 1,
       "message": "These are different things. The \"target peak level\" sets the maximum level of output signal peaks in the time domain. The output signal has the maximum of 0 dBFS, and peaks need to be lower than it by X dB, and the X is set by `targetLevelDbFs`. The \"maximum gain\" is the maximum amount of amplification which the effect is allowed to apply. Thus, \"peak\" is absolutely not a synonym of \"max\" here.",
+      "parentUuid": "ec68b6ae_03900c84",
+      "range": {
+        "startLine": 75,
+        "startChar": 8,
+        "endLine": 75,
+        "endChar": 25
+      },
+      "revId": "7f65449e544a65aaf886e7bd8220420d0577129f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c725317_3e0988c2",
+        "filename": "audio/aidl/android/hardware/audio/effect/AutomaticGainControlV1.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-25T22:13:03Z",
+      "side": 1,
+      "message": "I think these two are a little different in the terms, looks like to me `maxLevel` or `peakGain` doesn\u0027t sounds so natural. But thanks for the suggestion.",
       "parentUuid": "ec68b6ae_03900c84",
       "range": {
         "startLine": 75,
