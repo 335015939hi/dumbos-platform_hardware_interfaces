@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "770947f2_acb57a7c",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-01-25T16:48:10Z",
+      "side": 1,
+      "message": "Nit (Well not a nit, more like \"plea for additional change\"): While you\u0027re in here already, for readability could you change this to \"represented as a certificate chain which is a CBOR array of...\" instead of the \"represented as an X, represented as a Y\" pattern.",
+      "range": {
+        "startLine": 169,
+        "startChar": 90,
+        "endLine": 170,
+        "endChar": 28
+      },
+      "revId": "04c0d667845a09bd413b3a09d3366e4242146ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
