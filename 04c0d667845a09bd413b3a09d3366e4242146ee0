@@ -22,6 +22,30 @@
       },
       "revId": "04c0d667845a09bd413b3a09d3366e4242146ee0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "324c3c34_e2bbe0e6",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-01-26T06:32:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "770947f2_acb57a7c",
+      "range": {
+        "startLine": 169,
+        "startChar": 90,
+        "endLine": 170,
+        "endChar": 28
+      },
+      "revId": "04c0d667845a09bd413b3a09d3366e4242146ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
