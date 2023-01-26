@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e013354a_2aabfbaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-26T19:06:54Z",
+      "side": 1,
+      "message": "Hi, want to hear some opinion from you @smolder@google.com about this CL.\nSorry I should have added you in the first place, but I can always amend if anything stands out. Thanks.",
+      "revId": "88b24b2dea5b24085fc0c83a758de709d32dc2db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
