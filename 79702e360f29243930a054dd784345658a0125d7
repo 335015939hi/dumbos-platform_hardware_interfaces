@@ -34,6 +34,24 @@
       "parentUuid": "732e1c6c_84f1370c",
       "revId": "79702e360f29243930a054dd784345658a0125d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e31e1ed8_f4cff1d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-01-27T22:19:17Z",
+      "side": 1,
+      "message": "Yifan - do you off hand btw why we need to do this? I thought we had logic to prevent this issue, but given b/247575800, I think wherever there is an issue, we should remove \"optional\" and we should keep libvintf simple. So, I am a fan of this CL.\n\nDevin - can you reach out to teams individually and let them know that if they want to specifically test for these services to exist, they need to add a test specifically for this. For audio, audio.effect, gatekeeper, and graphics.mapper, this should not be necessary, and it is a friendly FYI.\n\nThe thermal HAL is explicitly marked as non-optional here in order to increase adoption since some of the APIs are needed for some important features. If this is a prophylactic change, we should split it out, but if it\u0027s needed now, we should offer to add the requirement in vts_treble_vintf_vendor_test, and wvw@ can give you context.",
+      "parentUuid": "c211f190_187b2894",
+      "revId": "79702e360f29243930a054dd784345658a0125d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
