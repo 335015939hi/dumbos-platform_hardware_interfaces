@@ -46,6 +46,30 @@
       },
       "revId": "d9dbb06a4ba8b4cd2a88f9693dd8ed37b64f7248",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1fa12d8_6e660996",
+        "filename": "thermal/aidl/android/hardware/thermal/IThermal.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2023-01-27T23:57:24Z",
+      "side": 1,
+      "message": "ok, this is something discussed in the API review, either way fine for me. Maybe adding a VTS to make sure the size of the return?",
+      "parentUuid": "d087c727_8130757e",
+      "range": {
+        "startLine": 117,
+        "startChar": 24,
+        "endLine": 117,
+        "endChar": 26
+      },
+      "revId": "d9dbb06a4ba8b4cd2a88f9693dd8ed37b64f7248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
