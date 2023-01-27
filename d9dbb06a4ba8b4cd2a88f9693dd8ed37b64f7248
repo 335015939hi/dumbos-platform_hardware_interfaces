@@ -70,6 +70,30 @@
       },
       "revId": "d9dbb06a4ba8b4cd2a88f9693dd8ed37b64f7248",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01143e58_b8c150c9",
+        "filename": "thermal/aidl/android/hardware/thermal/IThermal.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1933945
+      },
+      "writtenOn": "2023-01-27T23:57:59Z",
+      "side": 1,
+      "message": "Agree, and this was confirmed with Devin here as well https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/21108333/comment/2dcaa3c9_2c1ea954/.",
+      "parentUuid": "d087c727_8130757e",
+      "range": {
+        "startLine": 117,
+        "startChar": 24,
+        "endLine": 117,
+        "endChar": 26
+      },
+      "revId": "d9dbb06a4ba8b4cd2a88f9693dd8ed37b64f7248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
