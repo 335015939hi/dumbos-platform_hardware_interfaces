@@ -16,6 +16,24 @@
       "message": "CMIIW, I think you need to add VTS tests to ensure that an audio etc. HAL is served, aidl or hidl, similar to the health HAL / gralloc / composer HALs\n\nhttps://cs.android.com/android/platform/superproject/+/master:test/vts-testcase/hal/treble/vintf/DeviceManifestTest.cpp;l\u003d81;drc\u003d44f223ff6898125c43e38399bf0bf9847c1d5f9b",
       "revId": "79702e360f29243930a054dd784345658a0125d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c211f190_187b2894",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-27T22:10:41Z",
+      "side": 1,
+      "message": "I know missing mapper and audio will cause the device to fail to boot, so VTS really isn\u0027t getting us much there. There are other optional\u003d\"true\" hals with this same behavior.\n\nI\u0027m not sure about audio.effect, gatekeeper or thermal though.\n\nIt\u0027s safer to create these tests though.\n\n@smoreland@google.com do you have any opinion?",
+      "parentUuid": "732e1c6c_84f1370c",
+      "revId": "79702e360f29243930a054dd784345658a0125d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
