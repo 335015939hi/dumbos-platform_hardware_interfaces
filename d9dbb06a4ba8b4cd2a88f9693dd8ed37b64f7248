@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15f49934_58d20d09",
+        "filename": "thermal/aidl/android/hardware/thermal/IThermal.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2023-01-27T05:42:53Z",
+      "side": 1,
+      "message": "do we want to put the hard-coded fixed number?",
+      "range": {
+        "startLine": 117,
+        "startChar": 24,
+        "endLine": 117,
+        "endChar": 26
+      },
+      "revId": "d9dbb06a4ba8b4cd2a88f9693dd8ed37b64f7248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
