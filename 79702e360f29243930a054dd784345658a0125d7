@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "732e1c6c_84f1370c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-27T20:14:03Z",
+      "side": 1,
+      "message": "CMIIW, I think you need to add VTS tests to ensure that an audio etc. HAL is served, aidl or hidl, similar to the health HAL / gralloc / composer HALs\n\nhttps://cs.android.com/android/platform/superproject/+/master:test/vts-testcase/hal/treble/vintf/DeviceManifestTest.cpp;l\u003d81;drc\u003d44f223ff6898125c43e38399bf0bf9847c1d5f9b",
+      "revId": "79702e360f29243930a054dd784345658a0125d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
