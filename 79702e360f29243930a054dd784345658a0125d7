@@ -88,6 +88,24 @@
       "parentUuid": "e31e1ed8_f4cff1d0",
       "revId": "79702e360f29243930a054dd784345658a0125d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fe98535_e378ec3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-27T23:10:22Z",
+      "side": 1,
+      "message": "The bug is properly fixed after we remove some relevant VTS and check_vintf tests (and I haven\u0027t had time to locate these tests yet). The quickest would be to delete the \u003chal\u003e tags with optional\u003dtrue, then see what breaks",
+      "parentUuid": "0d19d5f6_ece909a2",
+      "revId": "79702e360f29243930a054dd784345658a0125d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
