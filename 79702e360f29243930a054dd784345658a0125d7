@@ -70,6 +70,24 @@
       "parentUuid": "e31e1ed8_f4cff1d0",
       "revId": "79702e360f29243930a054dd784345658a0125d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d19d5f6_ece909a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-27T23:08:22Z",
+      "side": 1,
+      "message": "For thermal, no is asking for it right now, but they really should be... I\u0027ll remove it from this CL though since it also needs a change in compatibility_matrix.8.xml.\n\nFor mapper I talked with jreck@ and he believes that the device wouldn\u0027t boot without one. The new AIDL allocator also requires the new mapper for the VTS tests https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp;drc\u003dcf8d8bc76944e11e43add867358f9ac38316997b;l\u003d147\n\nI sent emails to the other teams.",
+      "parentUuid": "e31e1ed8_f4cff1d0",
+      "revId": "79702e360f29243930a054dd784345658a0125d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
