@@ -52,6 +52,24 @@
       "parentUuid": "c211f190_187b2894",
       "revId": "79702e360f29243930a054dd784345658a0125d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22e1a584_7935357c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-27T23:05:03Z",
+      "side": 1,
+      "message": "\u003e I thought we had logic to prevent this issue\n\nThe logic is the VTS tests I pointed to previously. We can\u0027t express complicated logical expressions in the compatibility matrices that are too complicated (in particular, no \"OR\" relationships between \u003chal\u003e tags)\n\n\u003e I think wherever there is an issue, we should remove \"optional\" and we should keep libvintf simple.\n\nI know what you want, but we need to delete the relevant VTS and check_vintf tests before we actually remove `optional` -- which is exactly what the bug is for. This CL does not fix the bug; it is just related to the bug.",
+      "parentUuid": "e31e1ed8_f4cff1d0",
+      "revId": "79702e360f29243930a054dd784345658a0125d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
