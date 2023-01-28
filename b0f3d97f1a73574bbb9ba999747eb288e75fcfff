@@ -39,6 +39,30 @@
       },
       "revId": "b0f3d97f1a73574bbb9ba999747eb288e75fcfff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ffc5a32_16027fef",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-28T00:20:47Z",
+      "side": 1,
+      "message": "No. This is the reflection of the framework logic here: https://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audiopolicy/managerdefault/AudioPolicyManager.cpp;l\u003d5634;drc\u003dc18e9a10af774bce4a6525b7c883daab03fa4756.",
+      "parentUuid": "aa222948_812986a7",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 5
+      },
+      "revId": "b0f3d97f1a73574bbb9ba999747eb288e75fcfff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
