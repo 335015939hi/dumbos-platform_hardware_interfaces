@@ -16,6 +16,29 @@
       "message": "With this CL and aosp/2406214, all CtsMediaAudioTestCases pass, except for 3 which check presentation / capture timestamps, this is not implemented yet. Also because of that, testing takes longer than usual.",
       "revId": "b0f3d97f1a73574bbb9ba999747eb288e75fcfff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa222948_812986a7",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-01-28T00:18:25Z",
+      "side": 1,
+      "message": "question: do we need to handle else here?",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 5
+      },
+      "revId": "b0f3d97f1a73574bbb9ba999747eb288e75fcfff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
