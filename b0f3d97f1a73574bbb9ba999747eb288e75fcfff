@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "966f629a_3edf2fdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-01-28T00:14:26Z",
+      "side": 1,
+      "message": "With this CL and aosp/2406214, all CtsMediaAudioTestCases pass, except for 3 which check presentation / capture timestamps, this is not implemented yet. Also because of that, testing takes longer than usual.",
+      "revId": "b0f3d97f1a73574bbb9ba999747eb288e75fcfff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
