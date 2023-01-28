@@ -124,6 +124,24 @@
       "parentUuid": "6fe98535_e378ec3b",
       "revId": "79702e360f29243930a054dd784345658a0125d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b029494a_4baa5ca2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-28T00:06:27Z",
+      "side": 1,
+      "message": "I am referring to b/247575800. This CL does NOT fix b/247575800.",
+      "parentUuid": "144840c7_acc9e319",
+      "revId": "79702e360f29243930a054dd784345658a0125d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
