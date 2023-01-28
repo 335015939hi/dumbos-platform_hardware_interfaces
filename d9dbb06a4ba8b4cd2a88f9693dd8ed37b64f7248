@@ -94,6 +94,30 @@
       },
       "revId": "d9dbb06a4ba8b4cd2a88f9693dd8ed37b64f7248",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b84c3c35_4bdae316",
+        "filename": "thermal/aidl/android/hardware/thermal/IThermal.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1933945
+      },
+      "writtenOn": "2023-01-28T00:04:48Z",
+      "side": 1,
+      "message": "Actually I was referring to the float temperature severity array within TemperatureThreshold. \n\nFor this array, what is the expected size for each temperature type? Is it required to support all temperature types in a device?",
+      "parentUuid": "01143e58_b8c150c9",
+      "range": {
+        "startLine": 117,
+        "startChar": 24,
+        "endLine": 117,
+        "endChar": 26
+      },
+      "revId": "d9dbb06a4ba8b4cd2a88f9693dd8ed37b64f7248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
