@@ -122,10 +122,7 @@ class Demux : public IDemux {
     };
 
     static void* __threadLoopFrontend(void* user);
-
-    static void* __threadLoopTsFileInput(void* user);
     void frontendInputThreadLoop();
-    void TsFileThreadLoop();
 
     /**
      * To create a FilterMQ with the next available Filter ID.
@@ -175,14 +172,12 @@ class Demux : public IDemux {
     // Thread handlers
     pthread_t mFrontendInputThread;
 
-    pthread_t mTsFileInputThread;
     /**
      * If a specific filter's writing loop is still running
      */
     bool mFrontendInputThreadRunning;
     bool mKeepFetchingDataFromFrontend;
 
-    bool mTsFileInputThreadRunning;
     /**
      * If the dvr recording is running.
      */
@@ -195,8 +190,6 @@ class Demux : public IDemux {
      * Lock to protect writes to the input status
      */
     std::mutex mFrontendInputThreadLock;
-
-    std::mutex mFilterLock;
 
 
     // temp handle single PES filter
