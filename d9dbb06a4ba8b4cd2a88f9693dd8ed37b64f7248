@@ -118,6 +118,30 @@
       },
       "revId": "d9dbb06a4ba8b4cd2a88f9693dd8ed37b64f7248",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c37fbd_0398e9e4",
+        "filename": "thermal/aidl/android/hardware/thermal/IThermal.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2023-01-30T21:10:53Z",
+      "side": 1,
+      "message": "I think SKIN is probably the main one, but it is also possible some device form factor doesn\u0027t need it",
+      "parentUuid": "b84c3c35_4bdae316",
+      "range": {
+        "startLine": 117,
+        "startChar": 24,
+        "endLine": 117,
+        "endChar": 26
+      },
+      "revId": "d9dbb06a4ba8b4cd2a88f9693dd8ed37b64f7248",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
