@@ -25,6 +25,7 @@
 
 #include "FileTuner/TsPlayPump/tsTSFile.h"
 #include "FileTuner/TsPlayPump/tsTSPacket.h"
+#include "FileTuner/TsPlayPump/tsPCRRegulator.h"
 
 using namespace std;
 
