@@ -46,6 +46,11 @@ Filter::Filter(DemuxFilterType type, uint64_t filterId, uint32_t bufferSize,
     mBufferSize = bufferSize;
     mDemux = demux;
 
+    mPesDuckCotext = new ts::DuckContext();
+    mPes_demux = new ts::PESDemux(*mPesDuckCotext,this);
+    ts::DuckContext * duck = new ts::DuckContext();
+    mSectionDemux = new ts::SectionDemux(*duck, this,this);
+
     switch (mType.mainType) {
         ALOGD("%s Main Type", __FUNCTION__);
         case DemuxFilterMainType::TS:
@@ -257,7 +262,7 @@ Return<Result> Filter::configureIpCid(uint32_t ipCid) {
     return Result::SUCCESS;
 }
 
-Return<void> Filter::getAvSharedHandle(getAvSharedHandle_cb _hidl_cb) {
+ Return<void> Filter::getAvSharedHandle(getAvSharedHandle_cb _hidl_cb) {
     ALOGV("%s", __FUNCTION__);
 
     if (!mIsMediaFilter) {
@@ -308,7 +313,6 @@ Return<Result> Filter::configureAvStreamType(const V1_1::AvStreamType& avStreamT
         default:
             break;
     }
-
     return Result::SUCCESS;
 }
 
@@ -547,8 +551,10 @@ uint16_t Filter::getTpid() {
 void Filter::updateFilterOutput(vector<uint8_t> data) {
     std::lock_guard<std::mutex> lock(mFilterOutputLock);
 
+    ALOGD("[Filter] vektor data [%d]",data.size());
     if(mFilterThreadRunning == true)
     {
+        ALOGD("[Filter] mFilterOutput.insert uzima data i pakuje ga u mFilterOutput");
         mFilterOutput.insert(mFilterOutput.end(), data.begin(), data.end());
         startFilterHandler();
     }
@@ -591,32 +597,35 @@ Result Filter::startFilterHandler() {
         case DemuxFilterMainType::TS:
             switch (mType.subType.tsFilterType()) {
                 case DemuxTsFilterType::UNDEFINED:
-                    ALOGD("[Filter] %s UNDEF" ,__FUNCTION__);
+                    ALOGD("[Filter] case DemuxTsFilterType::UNDEFINED:");
                     break;
                 case DemuxTsFilterType::SECTION:
+                    ALOGD("[Filter] case DemuxTsFilterType::SECTION:");
                     startSectionFilterHandler();
                     break;
                 case DemuxTsFilterType::RECORD:
+                    ALOGD("[Filter] case DemuxTsFilterType::RECORD:");
                     startRecordFilterHandler();
                     break;
                 case DemuxTsFilterType::PES:
-                    ALOGD("[Filter] %s PES" ,__FUNCTION__);
+                    ALOGD("[Filter] case DemuxTsFilterType::PES:");
                     startPesFilterHandler();
                     break;
                 case DemuxTsFilterType::TS:
-                    ALOGD("[Filter] %s TS" ,__FUNCTION__);
+                    ALOGD("[Filter] case DemuxTsFilterType::TS:");
                     startTsFilterHandler();
                     break;
                 case DemuxTsFilterType::AUDIO:
                 case DemuxTsFilterType::VIDEO:
+                    ALOGD("[Filter] case DemuxTsFilterType::AUDIO I VIDEO :");
                     startMediaFilterHandler();
                     break;
                 case DemuxTsFilterType::PCR:
-                    ALOGD("[Filter] %s PCR" ,__FUNCTION__);
+                    ALOGD("[Filter] case DemuxTsFilterType::PCR:");
                     startPcrFilterHandler();
                     break;
                 case DemuxTsFilterType::TEMI:
-                    ALOGD("[Filter] %s TEMI" ,__FUNCTION__);
+                    ALOGD("[Filter] case DemuxTsFilterType::TEMI:");
                     startTemiFilterHandler();
                     break;
                 default:
@@ -796,72 +805,109 @@ Result Filter::startMediaFilterHandler() {
 
 #endif
 
+//#include "tsAVC.h"
+#include <string.h>
+#include <stdlib.h>
+// #include <iostream>
+// #include <fstream>
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int counterr;
+
 void Filter::handlePESPacket(ts::PESDemux& demux, const ts::PESPacket& packet)
 {
-      ALOGD("%s %d",__FUNCTION__,getTpid());
+    ALOGD("[Filter] handlePESPacket PES DATA PAYLOAD SIZE  |%d| ", packet.payloadSize());
 
-    vector<uint8_t> data(packet.content(), packet.content() + packet.size());
+    vector<uint8_t> data(packet.payload(), packet.payload()+packet.payloadSize());
     createMediaFilterEventWithIon(data);
+    return;
 }
+
 void Filter::handleVideoStartCode(ts::PESDemux& demux, const ts::PESPacket& packet, uint8_t start_code, size_t offset, size_t size)
 {
-
+    ALOGD("%s %d",__FUNCTION__,getTpid());
 }
+
 void Filter::handleNewMPEG2VideoAttributes(ts::PESDemux& demux, const ts::PESPacket& packet, const ts::MPEG2VideoAttributes& attr)
 {
-
+    ALOGD("%s %d",__FUNCTION__,getTpid());
 }
+
 void Filter::handleAccessUnit(ts::PESDemux& demux, const ts::PESPacket& packet, uint8_t nal_unit_type, size_t offset, size_t size)
 {
+    #if 0
+    vector<uint8_t> data(packet.payload()+offset, packet.payload()+offset+size);
+    ALOGD("%s %d %2x %d %d",__FUNCTION__,getTpid(),nal_unit_type,size,offset);
+    if(1 != nal_unit_type)
+    {
+        return;
+    }
 
+    if(packet.HasCommonVideoHeader(packet.payload()+offset, size))
+    {
+                ALOGD("[Filter] Send callback ID %d IMA HEADER ",__LINE__);
+                //createMediaFilterEventWithIon(data);
+
+    }
+    else
+    {
+            ALOGD("[Filter] Send callback ID %d NEMA HEADER ",__LINE__);
+    }
+    #endif
+    //createMediaFilterEventWithIon(data);
+    ALOGD("%s %d",__FUNCTION__,getTpid());
 }
+
 void Filter::handleSEI(ts::PESDemux& demux, const ts::PESPacket& packet, uint32_t sei_type, size_t offset, size_t size)
 {
-
+    ALOGD("%s %d",__FUNCTION__,getTpid());
 }
+
 void Filter::handleNewAVCAttributes(ts::PESDemux& demux, const ts::PESPacket& packet, const ts::AVCAttributes& attr)
 {
-
+    ALOGD("%s %d",__FUNCTION__,getTpid());
 }
+
 void Filter::handleNewHEVCAttributes(ts::PESDemux& demux, const ts::PESPacket& packet, const ts::HEVCAttributes& attr)
 {
-
+    ALOGD("%s %d",__FUNCTION__,getTpid());
 }
+
 void Filter::handleIntraImage(ts::PESDemux& demux, const ts::PESPacket& packet, size_t offset)
 {
-
+    ALOGD("%s %d",__FUNCTION__,getTpid());
 }
+
 void Filter::handleNewMPEG2AudioAttributes(ts::PESDemux& demux, const ts::PESPacket& packet, const ts::MPEG2AudioAttributes& attr)
 {
-
+    ALOGD("%s %d",__FUNCTION__,getTpid());
 }
+
 void Filter::handleNewAC3Attributes(ts::PESDemux& demux, const ts::PESPacket& packet, const ts::AC3Attributes& attr)
 {
-
+    ALOGD("%s %d",__FUNCTION__,getTpid());
 }
 
-ts::PESDemux* pes_demux = nullptr;  //TODO Destructor .... Section Demux FIX IT ...
-
 Result Filter::startMediaFilterHandler() {
+    ALOGD("%s",__FUNCTION__);
+
     if (mFilterOutput.empty()) {
         return Result::SUCCESS;
     }
 
-    ts::DuckContext *   duck = new ts::DuckContext();
-    if(pes_demux == nullptr){
-        pes_demux = new  ts::PESDemux(*duck,this);
-    }
     uint8_t b[188];
 
     for(int i = 0 ; i < 188; i++){
        b[i] = mFilterOutput[i];
     }
-    pes_demux->addPID(getTpid());  // also equal PID_TOT
+    mPes_demux->addPID(getTpid());
     ts::TSPacket *pkt = new ts::TSPacket();
     pkt->copyFrom( (void*) b);
-    pes_demux->feedPacket(*pkt);
+    mPes_demux->feedPacket(*pkt);
     mFilterOutput.clear();
-
+    delete pkt;
     return Result::SUCCESS;
 }
 
@@ -872,7 +918,6 @@ Result Filter::createMediaFilterEventWithIon(vector<uint8_t> output) {
         }
         return createShareMemMediaEvents(output);
     }
-
     return createIndependentMediaEvents(output);
 }
 
@@ -888,7 +933,6 @@ Result Filter::startRecordFilterHandler() {
         return Result::UNKNOWN_ERROR;
     }
 
-
     V1_0::DemuxFilterTsRecordEvent recordEvent;
     recordEvent = {
             .byteNumber = mFilterOutput.size(),
@@ -896,7 +940,7 @@ Result Filter::startRecordFilterHandler() {
 
     V1_1::DemuxFilterTsRecordEventExt recordEventExt;
     recordEventExt = {
-            .pts = (mPts == 0) ? time(NULL) * 900000 : mPts,   // TODO MARKO ????
+            .pts = (mPts == 0) ? time(NULL) * 900000 : mPts,   // TODO????
             .firstMbInSlice = 0,     // random address
     };
 
@@ -945,32 +989,29 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table)
         return;
     }
     #if 0
-    ALOGD("[Filter] MARKO %s PID 0x%02X", __FUNCTION__, table.sourcePID());
+    ALOGD("[Filter]  %s PID 0x%02X", __FUNCTION__, table.sourcePID());
 
+    ALOGD("[Filter]  %s", __FUNCTION__);
 
-    ALOGD("[Filter] MARKO %s", __FUNCTION__);
+    ALOGD("[Filter]  %s VALID %d", __FUNCTION__, table.isValid());
 
+    ALOGD("[Filter]  %s TID 0x%02X", __FUNCTION__, table.tableId());
 
-    ALOGD("[Filter] MARKO %s VALID %d", __FUNCTION__, table.isValid());
+    ALOGD("[Filter]  %s TID EXT 0x%02X", __FUNCTION__, table.tableIdExtension());
 
-    ALOGD("[Filter] MARKO %s TID 0x%02X", __FUNCTION__, table.tableId());
+    ALOGD("[Filter]  %s VERSION 0x%02X", __FUNCTION__, table.version());
 
-    ALOGD("[Filter] MARKO %s TID EXT 0x%02X", __FUNCTION__, table.tableIdExtension());
+    ALOGD("[Filter]  %s PID 0x%02X", __FUNCTION__, table.sourcePID());
 
+    ALOGD("[Filter]  %s Section Count 0x%02X", __FUNCTION__, table.sectionCount());
 
-    ALOGD("[Filter] MARKO %s VERSION 0x%02X", __FUNCTION__, table.version());
-
-    ALOGD("[Filter] MARKO %s PID 0x%02X", __FUNCTION__, table.sourcePID());
-
-    ALOGD("[Filter] MARKO %s Section Count 0x%02X", __FUNCTION__, table.sectionCount());
-
-    ALOGD("[Filter] MARKO %s Total Size 0x%02X", __FUNCTION__, table.totalSize());
+    ALOGD("[Filter]  %s Total Size 0x%02X", __FUNCTION__, table.totalSize());
 
     #endif
-    // MARKO TODO Handle case with more sections ...
+    //TODO Handle case with more sections ...
 
     ts::SectionPtr secPtr = table.sectionAt(0);
-    // MARKO TODO Handle Long Sections
+    //TODO Handle Long Sections
     const uint8_t* sec_payload = secPtr->content();
     std::vector<uint8_t> data(sec_payload, sec_payload + secPtr->size() );
     std::lock_guard<std::mutex> lock(mFilterEventLock);
@@ -1007,7 +1048,7 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table)
     }
 
     mFilterEvent.events.resize(0);
-    // TODO MARKO Signalisation ??????????
+    // TODO Signalisation ??????????
 #if 1
     if (mCallback != nullptr) {
             mCallback->onFilterStatus(DemuxFilterStatus::DATA_READY);
@@ -1020,7 +1061,7 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table)
 
     uint32_t efState = 0;
     while (true) {
-        ALOGD("[Filter] MARKO wait for data consumed");
+        ALOGD("[Filter]  wait for data consumed");
         status_t status = mFilterEventFlag->wait(
             static_cast<uint32_t>(DemuxQueueNotifyBits::DATA_CONSUMED), &efState,
             WAIT_TIMEOUT, true /* retry on spurious wake */);
@@ -1037,17 +1078,15 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table)
 
 bool Filter::writeSectionsAndCreateEvent(vector<uint8_t> data) {
 
-    ts::DuckContext *   duck = new ts::DuckContext();
-    ts::SectionDemux demux(*duck, this,this);
     uint8_t b[188];
 
     for(int i = 0 ; i < 188; i++){
        b[i] = data[i];
     }
-    demux.addPID(getTpid());
+    mSectionDemux->addPID(getTpid());
     ts::TSPacket *pkt = new ts::TSPacket();
     pkt->copyFrom( (void*) b);
-    demux.feedPacket(*pkt);
+    mSectionDemux->feedPacket(*pkt);
 
     return true;
 }
@@ -1130,7 +1169,6 @@ Result Filter::createIndependentMediaEvents(vector<uint8_t> output) {
     }
     hidl_handle handle;
     handle.setTo(nativeHandle, /*shouldOwn=*/true);
-
     // Create a dataId and add a <dataId, av_fd> pair into the dataId2Avfd map
     uint64_t dataId = mLastUsedDataId++ /*createdUID*/;
     mDataId2Avfd[dataId] = dup(av_fd);
@@ -1143,17 +1181,41 @@ Result Filter::createIndependentMediaEvents(vector<uint8_t> output) {
             .avDataId = dataId,
     };
     if (mPts) {
+        //mediaEvent.pts = (mPts/90)*1000;
         mediaEvent.pts = mPts;
         mPts = 0;
     }
+
+    //mediaEvent.streamId = 0x00E0;  //video
+
     int size = mFilterEvent.events.size();
     mFilterEvent.events.resize(size + 1);
     mFilterEvent.events[size].media(mediaEvent);
 
+    if (mCallback_1_1 != nullptr) {
+        ALOGD("[Filter] Send callback 1_1 ID %llu", mFilterId);
+        mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
+        mFilterEventExt.events.resize(0);
+    }
+
+    if (mCallback != nullptr) {
+        ALOGD("[Filter] Send callback ID %llu", mFilterId);
+        mCallback->onFilterEvent(mFilterEvent);
+        mFilterEvent.events.resize(0);
+    }
+
+ #if 0
+    ALOGD("[Filter] Send callback ID %d",__LINE__);
+    int size = mFilterEvent.events.size();
+    mFilterEvent.events.resize(size + 1);
+    mFilterEvent.events[size].media(mediaEvent);
+    ALOGD("[Filter] Send callback ID %d",__LINE__);
+#endif
     // Clear and log
     output.clear();
     mAvBufferCopyCount = 0;
     ::close(av_fd);
+    ALOGD("[Filter] 11 Send callback ID %d",__LINE__);
     if (DEBUG_FILTER) {
         ALOGD("[Filter] av data length %d", mediaEvent.dataLength);
     }
@@ -1161,6 +1223,7 @@ Result Filter::createIndependentMediaEvents(vector<uint8_t> output) {
 }
 
 Result Filter::createShareMemMediaEvents(vector<uint8_t> output) {
+
     // copy the filtered data to the shared buffer
     uint8_t* sharedAvBuffer = getIonBuffer(mSharedAvMemHandle.getNativeHandle()->data[0],
                                            output.size() + mSharedAvMemOffset);
@@ -1186,12 +1249,30 @@ Result Filter::createShareMemMediaEvents(vector<uint8_t> output) {
     };
     mSharedAvMemOffset += output.size();
     if (mPts) {
-        mediaEvent.pts = mPts;
-        mPts = 0;
+        mediaEvent.pts = (mPts/90)*1000;
+        //mPts = 0;
     }
+
+    mediaEvent.pts = (mPts/90)*1000;
+    //mediaEvent.streamId = 0x00E0;
+    mediaEvent.isPtsPresent = true;
+    mediaEvent.isSecureMemory = false;
+
     int size = mFilterEvent.events.size();
     mFilterEvent.events.resize(size + 1);
     mFilterEvent.events[size].media(mediaEvent);
+    ALOGD("[Filter] 12 mFilterEvent size %d ", mFilterEvent.events.size());
+    // if (mCallback_1_1 != nullptr) {
+    //     ALOGD("[Filter] 12 Send callback ID %llu", mFilterId);
+    //     mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
+    //     mFilterEventExt.events.resize(0);
+    // }
+
+    if (mCallback != nullptr) {
+        ALOGD("[Filter] Send callback ID %llu", mFilterId);
+        mCallback->onFilterEvent(mFilterEvent);
+        mFilterEvent.events.resize(0);
+    }
 
     // Clear and log
     output.clear();

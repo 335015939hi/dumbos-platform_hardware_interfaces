@@ -108,10 +108,10 @@ Return<Result> Frontend::tune(const FrontendSettings& settings ) {
     vector<int> availableFreq = getFrequencyVector();
     for (int i = 0; i< availableFreq.size(); i++){
         if (settings.dvbt().frequency == availableFreq.at(i)){
-            ALOGI("Marjan added: target frequency is: %d", settings.dvbt().frequency);
+            ALOGI("[Frontend::tune] target frequency is: %d", settings.dvbt().frequency);
             mTunerService->stopTsFileInputLoop();
             mTunerService->frontendStartTune(mId, formatFrequencyPath(settings.dvbt().frequency));
-            ALOGI("Marjan added: mId is: %d", mId);
+            ALOGI("[Frontend::tune] mId is: %d", mId);
             mCallback->onEvent(FrontendEventType::LOCKED);
             mIsLocked = true;
             return Result::SUCCESS;
@@ -133,7 +133,6 @@ Return<Result> Frontend::stopTune() {
     ALOGV("%s", __FUNCTION__);
     mTunerService->frontendStopTune(mId);
     mIsLocked = false;
-
     return Result::SUCCESS;
 }
 

@@ -22,6 +22,7 @@
 #include "Descrambler.h"
 #include "Frontend.h"
 #include "Lnb.h"
+#include <unistd.h>
 
 namespace android {
 namespace hardware {
@@ -405,21 +406,23 @@ void Tuner::TsFileThreadLoop(ts::UString tsFile) {
         ts::TSPacket pkt;
         ts::Report report;
         std::map<uint32_t, sp<Demux>>::iterator it;
-        //TODO MArko Get TS File from Frontend
+        //TODO Get TS File from Frontend
 #if 1
         ts::TSFile file;
         ts::UString filename;
         filename = tsFile;
-        if (!file.openRead(filename, 0, report, ts::TSPacketFormat::AUTODETECT)) {
+        if (!file.openRead(filename,0, 0, report, ts::TSPacketFormat::AUTODETECT)) {
             return;
         }
 #endif
         for (; (file.readPackets(&pkt, nullptr, 1, report) > 0);) {
+            //usleep(80*1000);
+
             if(mTsFileInputThreadRunning == false){
                 file.close(report);
                 break;
             }
-            // TODO Marko Add mutex for mFilters
+            // TODO Add mutex for mFilters
 #if 1
             for (it = mDemuxes.begin(); it != mDemuxes.end(); it++){
                 std::vector<uint8_t> data(pkt.b, pkt.b + 188);
