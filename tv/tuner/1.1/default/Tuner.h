@@ -22,9 +22,11 @@
 #include "Demux.h"
 #include "Frontend.h"
 #include "Lnb.h"
+#include <vector>
 
 #include "FileTuner/TsPlayPump/tsTSFile.h"
 #include "FileTuner/TsPlayPump/tsTSPacket.h"
+#include "FileTuner/TsPlayPump/tsPCRRegulator.h"
 
 using namespace std;
 
