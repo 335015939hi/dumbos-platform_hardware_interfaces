@@ -22,6 +22,7 @@
 #include "Descrambler.h"
 #include "Frontend.h"
 #include "Lnb.h"
+#include <unistd.h>
 
 namespace android {
 namespace hardware {
@@ -259,7 +260,6 @@ Return<void> Tuner::getFrontendInfo(FrontendId frontendId, getFrontendInfo_cb _h
 
     FrontendInfo info;
     if (frontendId >= mFrontendSize) {
-        ALOGI("mFrontendSize: %d and frontendId: %d", mFrontendSize, frontendId);
         _hidl_cb(Result::INVALID_ARGUMENT, info);
         return Void();
     }
@@ -338,7 +338,6 @@ void Tuner::setFrontendAsDemuxSource(uint32_t frontendId, uint32_t demuxId) {
     map<uint32_t, uint32_t>::iterator it = mFrontendToDemux.find(frontendId);
     if (it != mFrontendToDemux.end()) {
         demuxId = it->second;
-        ALOGD("find demuxid = %d in mFrontendToDemux, don't need to startFrontendInputLoop", demuxId);
         return;
     }
 
@@ -399,28 +398,28 @@ void* Tuner::__threadLoopTsFileInput(void* user) {
 }
 
 void Tuner::TsFileThreadLoop(ts::UString tsFile) {
-
+    bool flush = false;
     mTsFileInputThreadRunning=true;
     while (mTsFileInputThreadRunning) {
         ts::TSPacket pkt;
         ts::Report report;
         std::map<uint32_t, sp<Demux>>::iterator it;
-        //TODO MArko Get TS File from Frontend
-#if 1
         ts::TSFile file;
+        ts::PCRRegulator regulator;
         ts::UString filename;
         filename = tsFile;
-        if (!file.openRead(filename, 0, report, ts::TSPacketFormat::AUTODETECT)) {
+        if (!file.openRead(filename,0, 0, report, ts::TSPacketFormat::AUTODETECT)) {
             return;
         }
-#endif
+
         for (; (file.readPackets(&pkt, nullptr, 1, report) > 0);) {
+
+            flush = regulator.regulate(pkt);
             if(mTsFileInputThreadRunning == false){
                 file.close(report);
                 break;
             }
-            // TODO Marko Add mutex for mFilters
-#if 1
+
             for (it = mDemuxes.begin(); it != mDemuxes.end(); it++){
                 std::vector<uint8_t> data(pkt.b, pkt.b + 188);
                 if(it->second == nullptr){
@@ -428,7 +427,7 @@ void Tuner::TsFileThreadLoop(ts::UString tsFile) {
                 }
                 it->second->updateDemuxOutput(data);
             }
-#endif
+
             if(mTsFileInputThreadRunning == false){
                 file.close(report);
                 break;
