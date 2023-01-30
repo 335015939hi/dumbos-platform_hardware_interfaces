@@ -16,6 +16,29 @@
       "message": "CP\u0027ed from Master.",
       "revId": "44ca6473103d318a7e5c2faf5ed9ce6726f40948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f662f83_888025f5",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-01-30T23:25:50Z",
+      "side": 1,
+      "message": "Build Error message -\nerror: use of undeclared identifier \u0027check_feature\u0027",
+      "range": {
+        "startLine": 78,
+        "startChar": 13,
+        "endLine": 78,
+        "endChar": 26
+      },
+      "revId": "44ca6473103d318a7e5c2faf5ed9ce6726f40948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
