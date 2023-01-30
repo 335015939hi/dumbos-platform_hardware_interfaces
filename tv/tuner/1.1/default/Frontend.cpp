@@ -21,6 +21,7 @@
 #include <utils/Log.h>
 #include <dirent.h>
 #include <string>
+#include <vector>
 
 namespace android {
 namespace hardware {
@@ -60,37 +61,37 @@ Return<Result> Frontend::setCallback(const sp<IFrontendCallback>& callback) {
     return Result::SUCCESS;
 }
 
-bool Frontend::has_suffix(const string& s, const string& suffix){
+bool Frontend::has_suffix(const string& s, const string& suffix)  {
     return (s.size() >= suffix.size()) && std::equal(suffix.rbegin(), suffix.rend(), s.rbegin());
 }
 
-vector<int> Frontend::getFrequencyVector(){
+vector<int> Frontend::getFrequencyVector()  {
     DIR *dir = opendir("/product/");
     vector<string> strFreq;
-    if(!dir){
+    if (!dir) {
         ALOGI("Cannot open directory /product/");
     }
     dirent *entry;
-    while((entry = readdir(dir)) != NULL) {
-        if(has_suffix(entry->d_name, ".ts")){
+    while ((entry = readdir(dir)) != NULL) {
+        if (has_suffix(entry->d_name, ".ts")) {
             strFreq.push_back(entry->d_name);
         }
     }
     closedir(dir);
 
     vector<string> strFreq2;
-    for (auto it = strFreq.begin(); it != strFreq.end(); it++){
+    for (auto it = strFreq.begin(); it != strFreq.end(); it++) {
          strFreq2.push_back((*it).substr(0, (*it).find("MHz")));
     }
 
     vector<int> intFreq;
-    for (int i = 0; i < strFreq2.size(); i++){
-        intFreq.push_back(stoi(strFreq2.at(i))*1000000); // convert to MHz
+    for (int i = 0; i < strFreq2.size(); i++) {
+        intFreq.push_back(stoi(strFreq2.at(i))*1000000);
     }
     return intFreq;
 }
 
-ts::UString Frontend::formatFrequencyPath(int frequency){
+ts::UString Frontend::formatFrequencyPath(int frequency) {
     ts::UString s0 = u"/product/";
     ts::UString s1 = ts::UString().FromUTF8(std::to_string(frequency / 1000000));
     ts::UString s2 = u"MHz.ts";
@@ -106,12 +107,10 @@ Return<Result> Frontend::tune(const FrontendSettings& settings ) {
     }
 
     vector<int> availableFreq = getFrequencyVector();
-    for (int i = 0; i< availableFreq.size(); i++){
-        if (settings.dvbt().frequency == availableFreq.at(i)){
-            ALOGI("Marjan added: target frequency is: %d", settings.dvbt().frequency);
+    for (int i = 0; i< availableFreq.size(); i++) {
+        if (settings.dvbt().frequency == availableFreq.at(i)) {
             mTunerService->stopTsFileInputLoop();
             mTunerService->frontendStartTune(mId, formatFrequencyPath(settings.dvbt().frequency));
-            ALOGI("Marjan added: mId is: %d", mId);
             mCallback->onEvent(FrontendEventType::LOCKED);
             mIsLocked = true;
             return Result::SUCCESS;
@@ -133,12 +132,10 @@ Return<Result> Frontend::stopTune() {
     ALOGV("%s", __FUNCTION__);
     mTunerService->frontendStopTune(mId);
     mIsLocked = false;
-
     return Result::SUCCESS;
 }
 
-void Frontend::logScanFrequencyMessage(uint32_t frequency, bool locked, float progressPercent){
-
+void Frontend::logScanFrequencyMessage(uint32_t frequency, bool locked, float progressPercent) {
     FrontendScanMessage msg;
     msg.frequencies({frequency});
     mCallback->onScanMessage(FrontendScanMessageType::FREQUENCY, msg);
@@ -151,7 +148,6 @@ void Frontend::logScanFrequencyMessage(uint32_t frequency, bool locked, float pr
 
 Return<Result> Frontend::scan(const FrontendSettings& settings, FrontendScanType type) {
     ALOGV("%s", __FUNCTION__);
-    ALOGW("[   SCAN   ] Frontend::SCAN (const FrontendSettings& settings, FrontendScanType type)");
     Result result = Result::SUCCESS;
     uint32_t startFrequency = 474000000;
     uint32_t stepFrequency = 8000000;
@@ -164,16 +160,15 @@ Return<Result> Frontend::scan(const FrontendSettings& settings, FrontendScanType
     vector<int> availableFreq = getFrequencyVector();
 
     if (type == FrontendScanType::SCAN_AUTO) {
-        while(frequency <= endFrequency) {
-            ALOGW("[SCAN] SCAN FREQUENCY = %d",frequency);
+        while (frequency <= endFrequency) {
             result = tune(setting);
-            if(result == Result::SUCCESS) {
-                ALOGW("[SCAN] SUCCESS TUNE ON FREQUENCY = %d",frequency);
+            if (result == Result::SUCCESS) {
+                ALOGW("[SCAN] SUCCESS TUNE ON FREQUENCY = %d", frequency);
                 lockSuccess = true;
                 frequencyCount++;
                 logScanFrequencyMessage(frequency, lockSuccess, (frequencyCount * 1.0 / availableFreq.size())*100);
             } else {
-                ALOGW("[SCAN] SCAN FAILED FOR FREQUENCY = %d",frequency);
+                ALOGW("[SCAN] SCAN FAILED FOR FREQUENCY = %d", frequency);
             }
             frequency = frequency + stepFrequency;
             setting.dvbt().frequency = frequency;
@@ -201,7 +196,6 @@ Return<Result> Frontend::scan(const FrontendSettings& settings, FrontendScanType
 Return<Result> Frontend::scan_1_1(const FrontendSettings& settings, FrontendScanType type,
                                   const V1_1::FrontendSettingsExt1_1& settingsExt1_1) {
     ALOGV("%s", __FUNCTION__);
-    ALOGD("[Frontend] scan_1_1 end frequency %d", settingsExt1_1.endFrequency);
     return scan(settings, type);
 }
 
