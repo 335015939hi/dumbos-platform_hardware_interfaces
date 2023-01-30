@@ -392,6 +392,8 @@ ts::UString Tuner::getTsFileName(){
     return currentTsFile;
 }
 
+#include <unistd.h>
+
 void* Tuner::__threadLoopTsFileInput(void* user) {
     Tuner* const self = static_cast<Tuner*>(user);
     self->TsFileThreadLoop(self->getTsFileName());
@@ -410,11 +412,21 @@ void Tuner::TsFileThreadLoop(ts::UString tsFile) {
         ts::TSFile file;
         ts::UString filename;
         filename = tsFile;
-        if (!file.openRead(filename, 0, report, ts::TSPacketFormat::AUTODETECT)) {
+        if (!file.openRead(filename,0, 0, report, ts::TSPacketFormat::AUTODETECT)) {
             return;
         }
+
+        for(int i = 0 ; i < 700; i++){
+            file.readPackets(&pkt, nullptr, 1, report);
+        }
+
 #endif
+
+            ALOGD("readPackets gotovo");
+
         for (; (file.readPackets(&pkt, nullptr, 1, report) > 0);) {
+            //usleep(80*1000);
+
             if(mTsFileInputThreadRunning == false){
                 file.close(report);
                 break;
