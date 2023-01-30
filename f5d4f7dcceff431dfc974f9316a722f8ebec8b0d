@@ -16,6 +16,57 @@
       "message": "Sending Reset every time it starts.",
       "revId": "f5d4f7dcceff431dfc974f9316a722f8ebec8b0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296672c5_2c46f1a0",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1958203
+      },
+      "writtenOn": "2023-01-30T23:11:29Z",
+      "side": 1,
+      "message": "nit: no need for these to be member variables",
+      "revId": "f5d4f7dcceff431dfc974f9316a722f8ebec8b0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f9fb266_e793228f",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1958203
+      },
+      "writtenOn": "2023-01-30T23:11:29Z",
+      "side": 1,
+      "message": "I don\u0027t know how the lifecycle of this object works - can initialize() and close() be executing simultaneously?",
+      "revId": "f5d4f7dcceff431dfc974f9316a722f8ebec8b0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4998a2ff_c8b49bc8",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1958203
+      },
+      "writtenOn": "2023-01-30T23:11:29Z",
+      "side": 1,
+      "message": "does this also need to be scoped to a smaller block, or are we OK holding it for the whole function?",
+      "revId": "f5d4f7dcceff431dfc974f9316a722f8ebec8b0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
