@@ -199,9 +199,7 @@ void FrontendCallback::resetBlindScanStartingFrequency(FrontendConfig1_1& config
             config.config1_0.settings.dvbs().frequency = resetingFreq;
             break;
         case FrontendSettings::hidl_discriminator::dvbt:
-            ALOGI("Marjan added: Entered case FrontendSettings::hidl_discriminator::dvbt:");
-            //config.config1_0.settings.dvbt().frequency = resetingFreq;
-            config.config1_0.settings.dvbt().frequency = 618000000;
+            config.config1_0.settings.dvbt().frequency = resetingFreq;
             break;
         case FrontendSettings::hidl_discriminator::isdbs:
             config.config1_0.settings.isdbs().frequency = resetingFreq;

@@ -154,7 +154,41 @@ class TunerBroadcastHidlTest : public testing::TestWithParam<std::string> {
 
     void mediaFilterUsingSharedMemoryTest(FilterConfig1_1 filterConf,
                                           FrontendConfig1_1 frontendConf);
+
+    void broadcastSingleFilterTest(FilterConfig1_1 filterConf,
+                                    FrontendConfig1_1 frontendConf);
 };
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(TunerBroadcastHidlTest);
+
+class TunerPlaybackHidlTest : public testing::TestWithParam<std::string> {
+  public:
+    virtual void SetUp() override {
+        mService = ITuner::getService(GetParam());
+        ASSERT_NE(mService, nullptr);
+        ASSERT_TRUE(initConfiguration());
+
+        mFrontendTests.setService(mService);
+        mDemuxTests.setService(mService);
+        mFilterTests.setService(mService);
+        mDvrTests.setService(mService);
+    }
+
+  protected:
+    static void description(const std::string& description) {
+        RecordProperty("description", description);
+    }
+
+    sp<ITuner> mService;
+    FrontendTests mFrontendTests;
+    DemuxTests mDemuxTests;
+    FilterTests mFilterTests;
+    DvrTests mDvrTests;
+
+    AssertionResult filterDataOutputTest();
+
+    void playbackSingleFilterTest(FilterConfig1_1 filterConf, DvrConfig dvrConf);
+};
+
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(TunerPlaybackHidlTest);
 }  // namespace
