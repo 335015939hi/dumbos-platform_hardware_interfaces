@@ -22,6 +22,7 @@
 #include "Descrambler.h"
 #include "Frontend.h"
 #include "Lnb.h"
+#include <unistd.h>
 
 namespace android {
 namespace hardware {
@@ -259,7 +260,6 @@ Return<void> Tuner::getFrontendInfo(FrontendId frontendId, getFrontendInfo_cb _h
 
     FrontendInfo info;
     if (frontendId >= mFrontendSize) {
-        ALOGI("mFrontendSize: %d and frontendId: %d", mFrontendSize, frontendId);
         _hidl_cb(Result::INVALID_ARGUMENT, info);
         return Void();
     }
@@ -338,10 +338,9 @@ void Tuner::setFrontendAsDemuxSource(uint32_t frontendId, uint32_t demuxId) {
     map<uint32_t, uint32_t>::iterator it = mFrontendToDemux.find(frontendId);
     if (it != mFrontendToDemux.end()) {
         demuxId = it->second;
-        ALOGD("find demuxid = %d in mFrontendToDemux, don't need to startFrontendInputLoop", demuxId);
         return;
     }
-
+    mFrontendDemuxID = demuxId;
     mFrontendToDemux[frontendId] = demuxId;
     if (mFrontends[frontendId] != nullptr && mFrontends[frontendId]->isLocked()) {
         mDemuxes[demuxId]->startFrontendInputLoop();
@@ -370,6 +369,7 @@ void Tuner::frontendStopTune(uint32_t frontendId) {
         demuxId = it->second;
         mDemuxes[demuxId]->stopFrontendInput();
     }
+    stopTsFileInputLoop();
 }
 
 void Tuner::startTsFileInputLoop(ts::UString tsFile) {
@@ -379,17 +379,17 @@ void Tuner::startTsFileInputLoop(ts::UString tsFile) {
     pthread_setname_np(mTsFileInputThread, "frontend_ts_file_input_thread");
 }
 
-void Tuner::stopTsFileInputLoop(){
+void Tuner::stopTsFileInputLoop() {
     mTsFileInputThreadRunning = false;
     pthread_join(mTsFileInputThread, NULL);
 }
 
-void Tuner::setTsFileName(ts::UString tsFile){
-    currentTsFile = tsFile;
+void Tuner::setTsFileName(ts::UString tsFile) {
+    mCurrentTsFile = tsFile;
 }
 
-ts::UString Tuner::getTsFileName(){
-    return currentTsFile;
+ts::UString Tuner::getTsFileName() {
+    return mCurrentTsFile;
 }
 
 void* Tuner::__threadLoopTsFileInput(void* user) {
@@ -399,37 +399,32 @@ void* Tuner::__threadLoopTsFileInput(void* user) {
 }
 
 void Tuner::TsFileThreadLoop(ts::UString tsFile) {
-
-    mTsFileInputThreadRunning=true;
+    bool flush = false;
     while (mTsFileInputThreadRunning) {
         ts::TSPacket pkt;
         ts::Report report;
         std::map<uint32_t, sp<Demux>>::iterator it;
-        //TODO MArko Get TS File from Frontend
-#if 1
         ts::TSFile file;
+        ts::PCRRegulator regulator;
         ts::UString filename;
         filename = tsFile;
-        if (!file.openRead(filename, 0, report, ts::TSPacketFormat::AUTODETECT)) {
+        if (!file.openRead(filename, 0, 0, report, ts::TSPacketFormat::AUTODETECT)) {
             return;
         }
-#endif
+
         for (; (file.readPackets(&pkt, nullptr, 1, report) > 0);) {
-            if(mTsFileInputThreadRunning == false){
+            flush = regulator.regulate(pkt);
+            if (mTsFileInputThreadRunning == false) {
                 file.close(report);
                 break;
             }
-            // TODO Marko Add mutex for mFilters
-#if 1
-            for (it = mDemuxes.begin(); it != mDemuxes.end(); it++){
-                std::vector<uint8_t> data(pkt.b, pkt.b + 188);
-                if(it->second == nullptr){
-                    continue;
-                }
-                it->second->updateDemuxOutput(data);
+
+            std::vector<uint8_t> data(pkt.b, pkt.b + 188);
+            if (mDemuxes[mFrontendDemuxID] != nullptr) {
+                mDemuxes[mFrontendDemuxID]->updateDemuxOutput(data);
             }
-#endif
-            if(mTsFileInputThreadRunning == false){
+
+            if (mTsFileInputThreadRunning == false) {
                 file.close(report);
                 break;
             }
@@ -442,16 +437,17 @@ void Tuner::frontendStartTune(uint32_t frontendId, ts::UString tsFile) {
     uint32_t demuxId;
     if (it != mFrontendToDemux.end()) {
         demuxId = it->second;
+        mFrontendDemuxID = demuxId;
         mDemuxes[demuxId]->startFrontendInputLoop();
     }
     startTsFileInputLoop(tsFile);
 }
 
-bool Tuner::getTsFileInputThreadRunning(){
+bool Tuner::getTsFileInputThreadRunning() {
     return mTsFileInputThreadRunning;
 }
 
-void Tuner::setTsFileInputThreadRunning(bool value){
+void Tuner::setTsFileInputThreadRunning(bool value) {
     mTsFileInputThreadRunning = value;
 }
 
