@@ -52,7 +52,6 @@ Return<Result> Demux::setFrontendDataSource(uint32_t frontendId) {
     }
 
     {
-        //TODO Marko Get TSFile Handle from Frontend
         //startTsFileInputLoop();
     }
 
@@ -154,6 +153,10 @@ Return<void> Demux::getAvSyncHwId(const sp<IFilter>& filter, getAvSyncHwId_cb _h
 Return<void> Demux::getAvSyncTime(AvSyncHwId avSyncHwId, getAvSyncTime_cb _hidl_cb) {
     ALOGV("%s", __FUNCTION__);
 
+    _hidl_cb(Result::UNAVAILABLE, 0llu);
+
+    return Void();
+#if 1
     uint64_t avSyncTime = -1;
 #if 0
     if (mPcrFilterIds.empty()) {
@@ -169,12 +172,13 @@ Return<void> Demux::getAvSyncTime(AvSyncHwId avSyncHwId, getAvSyncTime_cb _hidl_
     std::map<uint64_t, sp<Filter>>::iterator it;
     for (it = mFilters.begin(); it != mFilters.end(); it++){
         if (avSyncHwId == it->second->getFilterId()) {
-            avSyncTime= it->second->getPts();
+            avSyncTime= it->second->getPcr();
         }
     }
-
+    ALOGV("%s %llu", __FUNCTION__,avSyncTime);
     _hidl_cb(Result::SUCCESS, avSyncTime);
     return Void();
+#endif
 }
 
 Return<Result> Demux::close() {
@@ -327,11 +331,13 @@ Result Demux::startFilterHandler(uint64_t filterId) {
 
 void Demux::updateFilterOutput(uint64_t filterId, vector<uint8_t> data) {
     mFilters[filterId]->updateFilterOutput(data);
+    ALOGW("[Demux] updateFilterOutput");
 }
 
 void Demux::updateMediaFilterOutput(uint64_t filterId, vector<uint8_t> data, uint64_t pts) {
     updateFilterOutput(filterId, data);
     mFilters[filterId]->updatePts(pts);
+    ALOGW("[Demux] updateMediaFilterOutput");
 }
 
 uint16_t Demux::getFilterTpid(uint64_t filterId) {
@@ -343,7 +349,6 @@ void Demux::startFrontendInputLoop() {
     pthread_create(&mFrontendInputThread, NULL, __threadLoopFrontend, this);
     pthread_setname_np(mFrontendInputThread, "frontend_input_thread");
 }
-
 
 void Demux::startTsFileInputLoop() {
     mTsFileInputThreadRunning = true;
@@ -363,8 +368,6 @@ void* Demux::__threadLoopTsFileInput(void* user) {
     return 0;
 }
 
-#if 1
-
 void Demux::TsFileThreadLoop() {
 
     mTsFileInputThreadRunning=true;
@@ -374,17 +377,13 @@ void Demux::TsFileThreadLoop() {
         ts::Report report;
         std::map<uint64_t, sp<Filter>>::iterator it;
 
-
-#if 1
-        //TODO MArko Get TS File from Frontend
         ts::TSFile file;
         ts::UString filename;
         filename = u"/product/stream-dvbt.ts";
         if (!file.openRead(filename, 0, report, ts::TSPacketFormat::AUTODETECT)) {
             return;
         }
-#endif
-        // TODO Marko Add mutex for mFilters
+
         for (; file.readPackets(&pkt, nullptr, 1, report) > 0;) {
             if(mTsFileInputThreadRunning == false){
                 break;
@@ -408,8 +407,6 @@ void Demux::TsFileThreadLoop() {
         }
     }
 }
-#endif
-
 
 void Demux::frontendInputThreadLoop() {
     if (!mFrontendInputThreadRunning) {
@@ -454,7 +451,6 @@ void Demux::frontendInputThreadLoop() {
 }
 
 void Demux::updateDemuxOutput(vector<uint8_t> data) {
-     //ALOGD("Feed Demux %p", this);
     uint8_t b[188];
     for(int i = 0 ; i < 188; i++){
        b[i] = data[i];
@@ -466,14 +462,12 @@ void Demux::updateDemuxOutput(vector<uint8_t> data) {
         if(it->second == nullptr){
             continue;
         }
-
         if (pkt->getPID() == it->second->getTpid()) {
             it->second->updateFilterOutput(data);
 
             if(pkt->hasPCR()){
                 ALOGD("ADD PCR PID!!! %p %x %llu", this,it->second->getTpid(),it->second->getFilterId());
                 mPcrFilterIds.insert(it->second->getFilterId());
-                it->second->updatePcr(pkt->getPCR());
             }
 
             if(pkt->hasPTS()){

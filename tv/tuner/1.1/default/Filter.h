@@ -31,6 +31,9 @@
 #include "FileTuner/TsPlayPump/tsTableHandlerInterface.h"
 #include "FileTuner/TsPlayPump/tsSectionHandlerInterface.h"
 #include "FileTuner/TsPlayPump/tsPESDemux.h"
+#include "FileTuner/TsPlayPump/tsAVC.h"
+#include "FileTuner/TsPlayPump/tsAccessUnitIterator.h"
+#include "FileTuner/TsPlayPump/tsAVCAccessUnitDelimiter.h"
 
 using namespace std;
 
@@ -154,6 +157,7 @@ class Filter : public ts::PESHandlerInterface, public ts::TableHandlerInterface,
     bool mIsMediaFilter = false;
     bool mIsPcrFilter = false;
     bool mIsRecordFilter = false;
+    bool mIsPusi = false;
     DemuxFilterSettings mFilterSettings;
 
     uint16_t mTpid;
@@ -161,6 +165,9 @@ class Filter : public ts::PESHandlerInterface, public ts::TableHandlerInterface,
     bool mIsDataSourceDemux = true;
     vector<uint8_t> mFilterOutput;
     vector<uint8_t> mRecordFilterOutput;
+    vector<uint8_t> mPPSOutput;
+    vector<uint8_t> mNalUnitDelimit;
+    vector<uint8_t> mSPSOutput;
     uint64_t mPts = 0;
     uint64_t mPcr = 0;
     unique_ptr<FilterMQ> mFilterMQ;
@@ -168,6 +175,12 @@ class Filter : public ts::PESHandlerInterface, public ts::TableHandlerInterface,
     EventFlag* mFilterEventFlag;
     DemuxFilterEvent mFilterEvent;
     V1_1::DemuxFilterEventExt mFilterEventExt;
+
+    ts::PESDemux* mPes_demux;
+
+    ts::DuckContext* mPesDuckCotext;
+
+    ts::SectionDemux* mSectionDemux;
 
     // Thread handlers
     pthread_t mFilterThread;
@@ -182,7 +195,6 @@ class Filter : public ts::PESHandlerInterface, public ts::TableHandlerInterface,
 
     /**
      * How many times a filter should write
-     * TODO make this dynamic/random/can take as a parameter
      */
     const uint16_t SECTION_WRITE_COUNT = 10;
 
@@ -218,7 +230,7 @@ class Filter : public ts::PESHandlerInterface, public ts::TableHandlerInterface,
     void filterThreadLoop();
 
     int createAvIonFd(int size);
-    uint8_t* getIonBuffer(int fd, int size);
+    uint8_t* getIonBuffer(int fd, int size, off_t *pa);
     native_handle_t* createNativeHandle(int fd);
     Result createMediaFilterEventWithIon(vector<uint8_t> output);
     Result createIndependentMediaEvents(vector<uint8_t> output);
@@ -244,7 +256,6 @@ class Filter : public ts::PESHandlerInterface, public ts::TableHandlerInterface,
     /**
      * Lock to protect writes to the filter event
      */
-    // TODO make each filter separate event lock
     std::mutex mFilterEventLock;
     /**
      * Lock to protect writes to the input status
@@ -255,7 +266,6 @@ class Filter : public ts::PESHandlerInterface, public ts::TableHandlerInterface,
     std::mutex mRecordFilterOutputLock;
 
     // temp handle single PES filter
-    // TODO handle mulptiple Pes filters
     int mPesSizeLeft = 0;
     vector<uint8_t> mPesOutput;
 
