@@ -16,6 +16,52 @@
       "message": "@smoreland@google.com, @siyuanh@google.com, @plhuang@google.com can help with my queries and review it further if interface changes are OK ?",
       "revId": "9f224f3e58fb083e7db99b7edff8b7b189cf2619",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cccb4831_a764b110",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecType.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-01-30T21:51:13Z",
+      "side": 1,
+      "message": "I don\u0027t think we need an extra constant since if we use APTX_ADAPTIVE with LeAudioCodecConfig, the HAL should know that this is for LE audio instead of A2DP.\n\nUnless AptXAdaptive for LE needs different configuration compared to AptX Adaptive for A2DP",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "9f224f3e58fb083e7db99b7edff8b7b189cf2619",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "036bb4ab_483b8fff",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecType.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-01-30T21:51:13Z",
+      "side": 1,
+      "message": "What is the meaning of this constant?",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 21
+      },
+      "revId": "9f224f3e58fb083e7db99b7edff8b7b189cf2619",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
