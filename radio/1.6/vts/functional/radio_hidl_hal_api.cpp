@@ -501,8 +501,7 @@ TEST_P(RadioHidlTest_v1_6, setDataThrottling) {
     if (getRadioHalCapabilities()) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
-                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED,
-                 ::android::hardware::radio::V1_6::RadioError::NONE}));
+                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
     } else {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
@@ -524,8 +523,7 @@ TEST_P(RadioHidlTest_v1_6, setDataThrottling) {
     if (getRadioHalCapabilities()) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
-                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED,
-                 ::android::hardware::radio::V1_6::RadioError::NONE}));
+                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
     } else {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
@@ -547,8 +545,7 @@ TEST_P(RadioHidlTest_v1_6, setDataThrottling) {
     if (getRadioHalCapabilities()) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
-                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED,
-                 ::android::hardware::radio::V1_6::RadioError::NONE}));
+                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
     } else {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
@@ -569,8 +566,7 @@ TEST_P(RadioHidlTest_v1_6, setDataThrottling) {
     if (getRadioHalCapabilities()) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
-                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED,
-                 ::android::hardware::radio::V1_6::RadioError::NONE}));
+                {::android::hardware::radio::V1_6::RadioError::REQUEST_NOT_SUPPORTED}));
     } else {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_v1_6->rspInfo.error,
