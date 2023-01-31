@@ -110,6 +110,30 @@
       },
       "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f788fd1d_15b02165",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-01-31T21:24:44Z",
+      "side": 1,
+      "message": "that means we might have simpler generic way.",
+      "parentUuid": "f0fd1b8d_4760246d",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
