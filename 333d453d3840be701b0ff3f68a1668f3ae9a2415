@@ -3,6 +3,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6363d413_d1c378a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-01-31T17:03:34Z",
+      "side": 1,
+      "message": "This AIDL interface does not come with AOSP Bluetooth stack implementation. What is the plan to add client side implementation of these APIs?",
+      "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a9ed45f_d9d63244",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-01-31T17:03:34Z",
+      "side": 1,
+      "message": "Per today\u0027s review: The codec specific parameters must be explicitly stated instead of using byte array to ensure this interface is stable and secure.\n\nCould this structure be updated to include exactly what it means by the `codecSpecificMetadata`?\n\nThis byte[] was proposed last year in T and was rejected by the AIDL reviewers.",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 43
+      },
+      "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e438d14_b7698db6",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
         "patchSetId": 7
