@@ -22,6 +22,30 @@
       },
       "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8538af8_f1cd407f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-01-31T11:59:12Z",
+      "side": 1,
+      "message": "In addition, I think that to support vendor specific configuration for LE in hardware offloader the following should be enough:\n1)  using VendorCapabilities \n2) add  new json configurations  on top of the lists for each context type xwhich would indicate vendor specific codec\nhttps://cs.android.com/android/platform/superproject/+/master:packages/modules/Bluetooth/system/bta/le_audio/audio_set_configurations.json?q\u003daudio_set_configurations.json\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\n3) remote device exposing PACs with vendor specific codec\n4) probably some minor adjustments in the Bluetooth stack to verify the path is working and there is no LC3 dependencies.\n\nFor the Software path we need much more, as now LC3 encoder/decoder is very tight to the stack, but using Software path is not recommended way for any codec as it use HCI and this brings additional latencies.",
+      "parentUuid": "9e438d14_b7698db6",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
