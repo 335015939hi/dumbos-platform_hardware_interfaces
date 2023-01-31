@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ae3e613_73d14a22",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecType.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-01-31T14:54:43Z",
+      "side": 1,
+      "message": "Both of them are different codec altogether and their structures are entirely different.",
+      "parentUuid": "cccb4831_a764b110",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "9f224f3e58fb083e7db99b7edff8b7b189cf2619",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "036bb4ab_483b8fff",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecType.aidl",
         "patchSetId": 6
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-30T21:51:13Z",
       "side": 1,
       "message": "What is the meaning of this constant?",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 21
+      },
+      "revId": "9f224f3e58fb083e7db99b7edff8b7b189cf2619",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1524ac4_658c31d5",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecType.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-01-31T14:54:43Z",
+      "side": 1,
+      "message": "This one again is for LE but it\u0027s a different codec for XPAN",
+      "parentUuid": "036bb4ab_483b8fff",
       "range": {
         "startLine": 33,
         "startChar": 4,

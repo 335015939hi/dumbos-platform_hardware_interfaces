@@ -46,6 +46,30 @@
       },
       "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0fd1b8d_4760246d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-01-31T14:54:43Z",
+      "side": 1,
+      "message": "APTX_ADAPTIVE_LE, APTX_ADAPTIVE_LEX are for LE_HARDWARE Offload path.\nI agree we might need to have configs which is scalable for other codecs also coming in future for LE Audio.",
+      "parentUuid": "e8538af8_f1cd407f",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
