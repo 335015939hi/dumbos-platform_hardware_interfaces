@@ -29,7 +29,7 @@ aidl_interface {
     imports: [
         "android.hardware.common-V2",
         "android.hardware.common.fmq-V1",
-        "android.hardware.audio.common",
+        "android.hardware.audio.common-V1",
     ],
     backend: {
         cpp: {
@@ -42,9 +42,29 @@ aidl_interface {
         ndk: {
             apex_available: [
                 "//apex_available:platform",
-                "com.android.bluetooth",
+                "com.android.btservices",
             ],
             min_sdk_version: "31",
         },
     },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.common.fmq-V1",
+                "android.hardware.audio.common-V1",
+            ],
+        },
+        {
+            version: "2",
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.common.fmq-V1",
+                "android.hardware.audio.common-V1",
+            ],
+        },
+
+    ],
+
 }

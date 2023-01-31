@@ -29,6 +29,7 @@
 #include <fmq/MessageQueue.h>
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
+#include <mediautils/MethodStatistics.h>
 #include <utils/Thread.h>
 
 #include <hardware/audio_effect.h>
@@ -169,7 +170,11 @@ struct Effect : public IEffect {
     Result setParameterImpl(uint32_t paramSize, const void* paramData, uint32_t valueSize,
                             const void* valueData);
 
-   private:
+    // process execution statistics
+    const std::shared_ptr<mediautils::MethodStatistics<std::string>> mStatistics =
+            std::make_shared<mediautils::MethodStatistics<std::string>>();
+
+  private:
     friend struct VirtualizerEffect;  // for getParameterImpl
     friend struct VisualizerEffect;   // to allow executing commands
 
@@ -178,6 +183,9 @@ struct Effect : public IEffect {
     using GetCurrentConfigSuccessCallback = std::function<void(void* configData)>;
     using GetSupportedConfigsSuccessCallback =
         std::function<void(uint32_t supportedConfigs, void* configsData)>;
+
+    // Sets the limit on the maximum size of vendor-provided data structures.
+    static constexpr size_t kMaxDataSize = 1 << 20;
 
     static const char* sContextResultOfCommand;
     static const char* sContextCallToCommand;
@@ -206,8 +214,8 @@ struct Effect : public IEffect {
                                              channel_config_t* halConfig);
     static void effectOffloadParamToHal(const EffectOffloadParameter& offload,
                                         effect_offload_param_t* halOffload);
-    static std::vector<uint8_t> parameterToHal(uint32_t paramSize, const void* paramData,
-                                               uint32_t valueSize, const void** valueData);
+    static bool parameterToHal(uint32_t paramSize, const void* paramData, uint32_t valueSize,
+                               const void** valueData, std::vector<uint8_t>* halParamBuffer);
 
     Result analyzeCommandStatus(const char* commandName, const char* context, status_t status);
     void getConfigImpl(int commandCode, const char* commandName, GetConfigCallback cb);

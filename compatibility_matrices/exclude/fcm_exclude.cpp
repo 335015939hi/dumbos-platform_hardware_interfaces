@@ -52,17 +52,26 @@ bool ShouldCheckMissingHalsInFcm(const std::string& package) {
             "android.hardware.radio.config@1.2",
             // AIDL
             "android.hardware.audio.common",
+            "android.hardware.audio.core.sounddose",
             "android.hardware.biometrics.common",
+            "android.hardware.camera.metadata",
+            "android.hardware.camera.device",
+            "android.hardware.camera.common",
             "android.hardware.common",
             "android.hardware.common.fmq",
             "android.hardware.graphics.common",
+            "android.hardware.input.common",
             "android.hardware.keymaster",
+            "android.hardware.media.bufferpool2",
             "android.hardware.radio",
+            "android.hardware.uwb.fira_android",
 
             // Fastboot HAL is only used by recovery. Recovery is owned by OEM. Framework
             // does not depend on this HAL, hence it is not declared in any manifests or matrices.
             "android.hardware.fastboot@1.0",
             "android.hardware.fastboot@1.1",
+            // Fastboot AIDL
+            "android.hardware.fastboot",
 
             // Deprecated HALs.
             // HIDL
