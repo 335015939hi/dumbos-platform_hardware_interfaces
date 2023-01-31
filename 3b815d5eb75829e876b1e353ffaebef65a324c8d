@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2218256_b28f2c05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-31T19:16:54Z",
+      "side": 1,
+      "message": "That is exactly what \"optional\" check is doing.\n\nPreviously, if you add a HAL `android.hardware.foo`, then you must do one of the following:\n\n- Add android.hardware.foo as required; or\n- Add android.hardware.foo as optional.\n\nWe have a build time check (in check_vintf.cpp) to check that all HAL definitions must be in compatibility matrices except for the exceptions listed in this file.\n\nNow that optional HALs are going away in compatibility matrices, the build time check can no longer be enforced. Hence we list all HALs as being exempted.",
+      "parentUuid": "d7676a71_d5eb3e14",
+      "revId": "3b815d5eb75829e876b1e353ffaebef65a324c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "769d35d7_ef627199",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-01-31T19:09:22Z",
       "side": 1,
       "message": "unused param",
+      "range": {
+        "startLine": 26,
+        "startChar": 52,
+        "endLine": 26,
+        "endChar": 59
+      },
+      "revId": "3b815d5eb75829e876b1e353ffaebef65a324c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4183de3_1b1c2a7d",
+        "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-31T19:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "769d35d7_ef627199",
       "range": {
         "startLine": 26,
         "startChar": 52,
