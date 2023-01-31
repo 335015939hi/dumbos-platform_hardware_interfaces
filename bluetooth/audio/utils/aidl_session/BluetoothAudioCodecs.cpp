@@ -26,9 +26,13 @@
 #include <aidl/android/hardware/bluetooth/audio/LdacChannelMode.h>
 #include <aidl/android/hardware/bluetooth/audio/LdacQualityIndex.h>
 #include <aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.h>
+#include <aidl/android/hardware/bluetooth/audio/OpusCapabilities.h>
+#include <aidl/android/hardware/bluetooth/audio/OpusConfiguration.h>
 #include <aidl/android/hardware/bluetooth/audio/SbcCapabilities.h>
 #include <aidl/android/hardware/bluetooth/audio/SbcChannelMode.h>
 #include <android-base/logging.h>
+
+#include "BluetoothLeAudioCodecsProvider.h"
 
 namespace aidl {
 namespace android {
@@ -78,9 +82,9 @@ static const AptxCapabilities kDefaultOffloadAptxHdCapability = {
     .bitsPerSample = {24},
 };
 
-static const Lc3Capabilities kDefaultA2dpOffloadLc3Capability = {
-    .samplingFrequencyHz = {44100, 48000},
-    .frameDurationUs = {7500, 10000},
+static const OpusCapabilities kDefaultOffloadOpusCapability = {
+    .samplingFrequencyHz = {48000},
+    .frameDurationUs = {10000, 20000},
     .channelMode = {ChannelMode::MONO, ChannelMode::STEREO},
 };
 
@@ -90,70 +94,9 @@ const std::vector<CodecCapabilities> kDefaultOffloadA2dpCodecCapabilities = {
     {.codecType = CodecType::LDAC, .capabilities = {}},
     {.codecType = CodecType::APTX, .capabilities = {}},
     {.codecType = CodecType::APTX_HD, .capabilities = {}},
-    {.codecType = CodecType::LC3, .capabilities = {}}};
+    {.codecType = CodecType::OPUS, .capabilities = {}}};
 
 std::vector<LeAudioCodecCapabilitiesSetting> kDefaultOffloadLeAudioCapabilities;
-
-static const UnicastCapability kInvalidUnicastCapability = {
-    .codecType = CodecType::UNKNOWN};
-
-static const BroadcastCapability kInvalidBroadcastCapability = {
-    .codecType = CodecType::UNKNOWN};
-
-// Default Supported Codecs
-// LC3 16_1: sample rate: 16 kHz, frame duration: 7.5 ms, octets per frame: 30
-static const Lc3Capabilities kLc3Capability_16_1 = {
-    .samplingFrequencyHz = {16000},
-    .frameDurationUs = {7500},
-    .octetsPerFrame = {30}};
-
-// Default Supported Codecs
-// LC3 16_2: sample rate: 16 kHz, frame duration: 10 ms, octets per frame: 40
-static const Lc3Capabilities kLc3Capability_16_2 = {
-    .samplingFrequencyHz = {16000},
-    .frameDurationUs = {10000},
-    .octetsPerFrame = {40}};
-
-// Default Supported Codecs
-// LC3 24_2: sample rate: 24 kHz, frame duration: 10 ms, octets per frame: 60
-static const Lc3Capabilities kLc3Capability_24_2 = {
-    .samplingFrequencyHz = {24000},
-    .frameDurationUs = {10000},
-    .octetsPerFrame = {60}};
-
-// Default Supported Codecs
-// LC3 32_2: sample rate: 32 kHz, frame duration: 10 ms, octets per frame: 80
-static const Lc3Capabilities kLc3Capability_32_2 = {
-    .samplingFrequencyHz = {32000},
-    .frameDurationUs = {10000},
-    .octetsPerFrame = {80}};
-
-// Default Supported Codecs
-// LC3 48_4: sample rate: 48 kHz, frame duration: 10 ms, octets per frame: 120
-static const Lc3Capabilities kLc3Capability_48_4 = {
-    .samplingFrequencyHz = {48000},
-    .frameDurationUs = {10000},
-    .octetsPerFrame = {120}};
-
-static const std::vector<Lc3Capabilities> supportedLc3CapabilityList = {
-    kLc3Capability_48_4, kLc3Capability_32_2, kLc3Capability_24_2,
-    kLc3Capability_16_2, kLc3Capability_16_1};
-
-static AudioLocation stereoAudio = static_cast<AudioLocation>(
-    static_cast<uint8_t>(AudioLocation::FRONT_LEFT) |
-    static_cast<uint8_t>(AudioLocation::FRONT_RIGHT));
-static AudioLocation monoAudio = AudioLocation::UNKNOWN;
-
-// Stores the supported setting of audio location, connected device, and the
-// channel count for each device
-std::vector<std::tuple<AudioLocation, uint8_t, uint8_t>>
-    supportedDeviceSetting = {
-        // Stereo, two connected device, one for L one for R
-        std::make_tuple(stereoAudio, 2, 1),
-        // Stereo, one connected device for both L and R
-        std::make_tuple(stereoAudio, 1, 2),
-        // Mono
-        std::make_tuple(monoAudio, 1, 1)};
 
 template <class T>
 bool BluetoothAudioCodecs::ContainedInVector(
@@ -294,22 +237,24 @@ bool BluetoothAudioCodecs::IsOffloadAptxHdConfigurationValid(
   return false;
 }
 
-bool BluetoothAudioCodecs::IsOffloadLc3ConfigurationValid(
+bool BluetoothAudioCodecs::IsOffloadOpusConfigurationValid(
     const CodecConfiguration::CodecSpecific& codec_specific) {
-  if (codec_specific.getTag() != CodecConfiguration::CodecSpecific::lc3Config) {
+  if (codec_specific.getTag() !=
+      CodecConfiguration::CodecSpecific::opusConfig) {
     LOG(WARNING) << __func__
                  << ": Invalid CodecSpecific=" << codec_specific.toString();
     return false;
   }
-  const Lc3Configuration lc3_data =
-      codec_specific.get<CodecConfiguration::CodecSpecific::lc3Config>();
+  std::optional<OpusConfiguration> opus_data =
+      codec_specific.get<CodecConfiguration::CodecSpecific::opusConfig>();
 
-  if (ContainedInVector(kDefaultA2dpOffloadLc3Capability.samplingFrequencyHz,
-                        lc3_data.samplingFrequencyHz) &&
-      ContainedInVector(kDefaultA2dpOffloadLc3Capability.frameDurationUs,
-                        lc3_data.frameDurationUs) &&
-      ContainedInVector(kDefaultA2dpOffloadLc3Capability.channelMode,
-                        lc3_data.channelMode)) {
+  if (opus_data.has_value() &&
+      ContainedInVector(kDefaultOffloadOpusCapability.samplingFrequencyHz,
+                        opus_data->samplingFrequencyHz) &&
+      ContainedInVector(kDefaultOffloadOpusCapability.frameDurationUs,
+                        opus_data->frameDurationUs) &&
+      ContainedInVector(kDefaultOffloadOpusCapability.channelMode,
+                        opus_data->channelMode)) {
     return true;
   }
   LOG(WARNING) << __func__
@@ -358,13 +303,14 @@ BluetoothAudioCodecs::GetA2dpOffloadCodecCapabilities(
             .set<CodecCapabilities::Capabilities::aptxCapabilities>(
                 kDefaultOffloadAptxHdCapability);
         break;
-      case CodecType::LC3:
+      case CodecType::OPUS:
         codec_capability.capabilities
-            .set<CodecCapabilities::Capabilities::lc3Capabilities>(
-                kDefaultA2dpOffloadLc3Capability);
+            .set<CodecCapabilities::Capabilities::opusCapabilities>(
+                kDefaultOffloadOpusCapability);
         break;
       case CodecType::UNKNOWN:
       case CodecType::VENDOR:
+      case CodecType::LC3:
       case CodecType::APTX_ADAPTIVE:
         break;
     }
@@ -425,30 +371,18 @@ bool BluetoothAudioCodecs::IsOffloadCodecConfigurationValid(
         return true;
       }
       break;
-    case CodecType::LC3:
-      if (IsOffloadLc3ConfigurationValid(codec_specific)) {
+    case CodecType::OPUS:
+      if (IsOffloadOpusConfigurationValid(codec_specific)) {
         return true;
       }
       break;
     case CodecType::APTX_ADAPTIVE:
+    case CodecType::LC3:
     case CodecType::UNKNOWN:
     case CodecType::VENDOR:
       break;
   }
   return false;
-}
-
-UnicastCapability composeUnicastLc3Capability(
-    AudioLocation audioLocation, uint8_t deviceCnt, uint8_t channelCount,
-    const Lc3Capabilities& capability) {
-  return {
-      .codecType = CodecType::LC3,
-      .supportedChannel = audioLocation,
-      .deviceCount = deviceCnt,
-      .channelCountPerDevice = channelCount,
-      .leAudioCodecCapabilities =
-          UnicastCapability::LeAudioCodecCapabilities(capability),
-  };
 }
 
 std::vector<LeAudioCodecCapabilitiesSetting>
@@ -464,41 +398,11 @@ BluetoothAudioCodecs::GetLeAudioOffloadCodecCapabilities(
   }
 
   if (kDefaultOffloadLeAudioCapabilities.empty()) {
-    for (auto [audioLocation, deviceCnt, channelCount] :
-         supportedDeviceSetting) {
-      for (auto capability : supportedLc3CapabilityList) {
-        UnicastCapability lc3Capability = composeUnicastLc3Capability(
-            audioLocation, deviceCnt, channelCount, capability);
-        UnicastCapability lc3MonoDecodeCapability =
-            composeUnicastLc3Capability(monoAudio, 1, 1, capability);
-
-        // Adds the capability for encode only
-        kDefaultOffloadLeAudioCapabilities.push_back(
-            {.unicastEncodeCapability = lc3Capability,
-             .unicastDecodeCapability = kInvalidUnicastCapability,
-             .broadcastCapability = kInvalidBroadcastCapability});
-
-        // Adds the capability for decode only
-        kDefaultOffloadLeAudioCapabilities.push_back(
-            {.unicastEncodeCapability = kInvalidUnicastCapability,
-             .unicastDecodeCapability = lc3Capability,
-             .broadcastCapability = kInvalidBroadcastCapability});
-
-        // Adds the capability for the case that encode and decode exist at the
-        // same time(force one active device for decode)
-        kDefaultOffloadLeAudioCapabilities.push_back(
-            {.unicastEncodeCapability = lc3Capability,
-             .unicastDecodeCapability = lc3MonoDecodeCapability,
-             .broadcastCapability = kInvalidBroadcastCapability});
-
-        // Adds the capability for the case that encode and decode exist at the
-        // same time
-        kDefaultOffloadLeAudioCapabilities.push_back(
-            {.unicastEncodeCapability = lc3Capability,
-             .unicastDecodeCapability = lc3Capability,
-             .broadcastCapability = kInvalidBroadcastCapability});
-      }
-    }
+    auto le_audio_offload_setting =
+        BluetoothLeAudioCodecsProvider::ParseFromLeAudioOffloadSettingFile();
+    kDefaultOffloadLeAudioCapabilities =
+        BluetoothLeAudioCodecsProvider::GetLeAudioCodecCapabilities(
+            le_audio_offload_setting);
   }
 
   return kDefaultOffloadLeAudioCapabilities;

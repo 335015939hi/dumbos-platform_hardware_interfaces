@@ -82,8 +82,11 @@ int64_t msFromNs(int64_t nanos) {
 }
 
 HalProxy::HalProxy() {
-    const char* kMultiHalConfigFile = "/vendor/etc/sensors/hals.conf";
-    initializeSubHalListFromConfigFile(kMultiHalConfigFile);
+    static const std::string kMultiHalConfigFiles[] = {"/vendor/etc/sensors/hals.conf",
+                                                       "/odm/etc/sensors/hals.conf"};
+    for (const std::string& configFile : kMultiHalConfigFiles) {
+        initializeSubHalListFromConfigFile(configFile.c_str());
+    }
     init();
 }
 
@@ -176,7 +179,13 @@ Return<Result> HalProxy::initialize_2_1(
     std::unique_ptr<EventMessageQueueWrapperBase> queue =
             std::make_unique<EventMessageQueueWrapperV2_1>(eventQueue);
 
-    return initializeCommon(queue, wakeLockDescriptor, dynamicCallback);
+    // Create the Wake Lock FMQ from the wakeLockDescriptor. Reset the read/write positions.
+    auto hidlWakeLockQueue =
+            std::make_unique<WakeLockMessageQueue>(wakeLockDescriptor, true /* resetPointers */);
+    std::unique_ptr<WakeLockMessageQueueWrapperBase> wakeLockQueue =
+            std::make_unique<WakeLockMessageQueueWrapperHidl>(hidlWakeLockQueue);
+
+    return initializeCommon(queue, wakeLockQueue, dynamicCallback);
 }
 
 Return<Result> HalProxy::initialize(
@@ -192,12 +201,18 @@ Return<Result> HalProxy::initialize(
     std::unique_ptr<EventMessageQueueWrapperBase> queue =
             std::make_unique<EventMessageQueueWrapperV1_0>(eventQueue);
 
-    return initializeCommon(queue, wakeLockDescriptor, dynamicCallback);
+    // Create the Wake Lock FMQ from the wakeLockDescriptor. Reset the read/write positions.
+    auto hidlWakeLockQueue =
+            std::make_unique<WakeLockMessageQueue>(wakeLockDescriptor, true /* resetPointers */);
+    std::unique_ptr<WakeLockMessageQueueWrapperBase> wakeLockQueue =
+            std::make_unique<WakeLockMessageQueueWrapperHidl>(hidlWakeLockQueue);
+
+    return initializeCommon(queue, wakeLockQueue, dynamicCallback);
 }
 
 Return<Result> HalProxy::initializeCommon(
         std::unique_ptr<EventMessageQueueWrapperBase>& eventQueue,
-        const ::android::hardware::MQDescriptorSync<uint32_t>& wakeLockDescriptor,
+        std::unique_ptr<WakeLockMessageQueueWrapperBase>& wakeLockQueue,
         const sp<ISensorsCallbackWrapperBase>& sensorsCallback) {
     Result result = Result::OK;
 
@@ -222,8 +237,7 @@ Return<Result> HalProxy::initializeCommon(
 
     // Create the Wake Lock FMQ that is used by the framework to communicate whenever WAKE_UP
     // events have been successfully read and handled by the framework.
-    mWakeLockQueue =
-            std::make_unique<WakeLockMessageQueue>(wakeLockDescriptor, true /* resetPointers */);
+    mWakeLockQueue = std::move(wakeLockQueue);
 
     if (mEventQueueFlag != nullptr) {
         EventFlag::deleteEventFlag(&mEventQueueFlag);

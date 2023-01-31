@@ -250,8 +250,7 @@ protected:
             // Stream configurations are found in metadata
             RawStreamConfig *ptr = reinterpret_cast<RawStreamConfig *>(streamCfgs.data.i32);
             for (unsigned offset = 0; offset < streamCfgs.count; offset += kStreamCfgSz) {
-                if (ptr->direction == ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_OUTPUT &&
-                    ptr->format == HAL_PIXEL_FORMAT_RGBA_8888) {
+                if (ptr->direction == ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_OUTPUT) {
                     targetCfg.width = ptr->width;
                     targetCfg.height = ptr->height;
                     targetCfg.format = static_cast<PixelFormat>(ptr->format);
@@ -563,7 +562,8 @@ TEST_P(EvsHidlTest, CameraStreamBuffering) {
         activeCameras.push_back(pCam);
 
         // Ask for a very large number of buffers in flight to ensure it errors correctly
-        Return<EvsResult> badResult = pCam->setMaxFramesInFlight(0xFFFFFFFF);
+        Return<EvsResult> badResult =
+                pCam->setMaxFramesInFlight(std::numeric_limits<int32_t>::max());
         EXPECT_EQ(EvsResult::BUFFER_NOT_AVAILABLE, badResult);
 
         // Now ask for exactly two buffers in flight as we'll test behavior in that case
@@ -630,29 +630,29 @@ TEST_P(EvsHidlTest, CameraToDisplayRoundTrip) {
         targetDisplayId = ids[0];
     });
 
-    // Request exclusive access to the first EVS display
-    sp<IEvsDisplay_1_1> pDisplay = pEnumerator->openDisplay_1_1(targetDisplayId);
-    ASSERT_NE(pDisplay, nullptr);
-    LOG(INFO) << "Display " << targetDisplayId << " is alreay in use.";
-
-    // Get the display descriptor
-    pDisplay->getDisplayInfo_1_1([](const HwDisplayConfig& config, const HwDisplayState& state) {
-        ASSERT_GT(config.size(), 0);
-        ASSERT_GT(state.size(), 0);
-
-        android::ui::DisplayMode* pConfig = (android::ui::DisplayMode*)config.data();
-        const auto width = pConfig->resolution.getWidth();
-        const auto height = pConfig->resolution.getHeight();
-        LOG(INFO) << "    Resolution: " << width << "x" << height;
-        ASSERT_GT(width, 0);
-        ASSERT_GT(height, 0);
-
-        android::ui::DisplayState* pState = (android::ui::DisplayState*)state.data();
-        ASSERT_NE(pState->layerStack, -1);
-    });
-
     // Test each reported camera
     for (auto&& cam: cameraInfo) {
+        // Request exclusive access to the first EVS display
+        sp<IEvsDisplay_1_1> pDisplay = pEnumerator->openDisplay_1_1(targetDisplayId);
+        ASSERT_NE(pDisplay, nullptr);
+        LOG(INFO) << "Display " << targetDisplayId << " is already in use.";
+
+        // Get the display descriptor
+        pDisplay->getDisplayInfo_1_1([](const HwDisplayConfig& config, const HwDisplayState& state) {
+            ASSERT_GT(config.size(), 0);
+            ASSERT_GT(state.size(), 0);
+
+            android::ui::DisplayMode* pConfig = (android::ui::DisplayMode*)config.data();
+            const auto width = pConfig->resolution.getWidth();
+            const auto height = pConfig->resolution.getHeight();
+            LOG(INFO) << "    Resolution: " << width << "x" << height;
+            ASSERT_GT(width, 0);
+            ASSERT_GT(height, 0);
+
+            android::ui::DisplayState* pState = (android::ui::DisplayState*)state.data();
+            ASSERT_NE(pState->layerStack, android::ui::INVALID_LAYER_STACK);
+        });
+
         bool isLogicalCam = false;
         getPhysicalCameraIds(cam.v1.cameraId, isLogicalCam);
         if (mIsHwModule && isLogicalCam) {
@@ -707,10 +707,10 @@ TEST_P(EvsHidlTest, CameraToDisplayRoundTrip) {
         // Explicitly release the camera
         pEnumerator->closeCamera(pCam);
         activeCameras.clear();
-    }
 
-    // Explicitly release the display
-    pEnumerator->closeDisplay(pDisplay);
+        // Explicitly release the display
+        pEnumerator->closeDisplay(pDisplay);
+    }
 }
 
 
@@ -1631,12 +1631,12 @@ TEST_P(EvsHidlTest, HighPriorityCameraClient) {
     // Get the camera list
     loadCameraList();
 
-    // Request exclusive access to the EVS display
-    sp<IEvsDisplay_1_0> pDisplay = pEnumerator->openDisplay();
-    ASSERT_NE(pDisplay, nullptr);
-
     // Test each reported camera
     for (auto&& cam: cameraInfo) {
+        // Request exclusive access to the EVS display
+        sp<IEvsDisplay_1_0> pDisplay = pEnumerator->openDisplay();
+        ASSERT_NE(pDisplay, nullptr);
+
         // Read a target resolution from the metadata
         Stream targetCfg =
             getFirstStreamConfiguration(reinterpret_cast<camera_metadata_t*>(cam.metadata.data()));
@@ -1978,10 +1978,9 @@ TEST_P(EvsHidlTest, HighPriorityCameraClient) {
         pEnumerator->closeCamera(pCam1);
         activeCameras.clear();
 
+        // Explicitly release the display
+        pEnumerator->closeDisplay(pDisplay);
     }
-
-    // Explicitly release the display
-    pEnumerator->closeDisplay(pDisplay);
 }
 
 
@@ -1997,12 +1996,12 @@ TEST_P(EvsHidlTest, CameraUseStreamConfigToDisplay) {
     // Get the camera list
     loadCameraList();
 
-    // Request exclusive access to the EVS display
-    sp<IEvsDisplay_1_0> pDisplay = pEnumerator->openDisplay();
-    ASSERT_NE(pDisplay, nullptr);
-
     // Test each reported camera
     for (auto&& cam: cameraInfo) {
+        // Request exclusive access to the EVS display
+        sp<IEvsDisplay_1_0> pDisplay = pEnumerator->openDisplay();
+        ASSERT_NE(pDisplay, nullptr);
+
         // choose a configuration that has a frame rate faster than minReqFps.
         Stream targetCfg = {};
         const int32_t minReqFps = 15;
@@ -2016,13 +2015,12 @@ TEST_P(EvsHidlTest, CameraUseStreamConfigToDisplay) {
             // Stream configurations are found in metadata
             RawStreamConfig *ptr = reinterpret_cast<RawStreamConfig *>(streamCfgs.data.i32);
             for (unsigned offset = 0; offset < streamCfgs.count; offset += kStreamCfgSz) {
-                if (ptr->direction == ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_OUTPUT &&
-                    ptr->format == HAL_PIXEL_FORMAT_RGBA_8888) {
-
+                if (ptr->direction == ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_OUTPUT) {
                     if (ptr->width * ptr->height > maxArea &&
                         ptr->framerate >= minReqFps) {
                         targetCfg.width = ptr->width;
                         targetCfg.height = ptr->height;
+                        targetCfg.format = static_cast<PixelFormat>(ptr->format);
 
                         maxArea = ptr->width * ptr->height;
                         foundCfg = true;
@@ -2031,8 +2029,6 @@ TEST_P(EvsHidlTest, CameraUseStreamConfigToDisplay) {
                 ++ptr;
             }
         }
-        targetCfg.format =
-            static_cast<PixelFormat>(HAL_PIXEL_FORMAT_RGBA_8888);
 
         if (!foundCfg) {
             // Current EVS camera does not provide stream configurations in the
@@ -2081,10 +2077,10 @@ TEST_P(EvsHidlTest, CameraUseStreamConfigToDisplay) {
         // Explicitly release the camera
         pEnumerator->closeCamera(pCam);
         activeCameras.clear();
-    }
 
-    // Explicitly release the display
-    pEnumerator->closeDisplay(pDisplay);
+        // Explicitly release the display
+        pEnumerator->closeDisplay(pDisplay);
+    }
 }
 
 
@@ -2119,13 +2115,12 @@ TEST_P(EvsHidlTest, MultiCameraStreamUseConfig) {
             // Stream configurations are found in metadata
             RawStreamConfig *ptr = reinterpret_cast<RawStreamConfig *>(streamCfgs.data.i32);
             for (unsigned offset = 0; offset < streamCfgs.count; offset += kStreamCfgSz) {
-                if (ptr->direction == ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_OUTPUT &&
-                    ptr->format == HAL_PIXEL_FORMAT_RGBA_8888) {
-
+                if (ptr->direction == ANDROID_SCALER_AVAILABLE_STREAM_CONFIGURATIONS_OUTPUT) {
                     if (ptr->width * ptr->height > maxArea &&
                         ptr->framerate >= minReqFps) {
                         targetCfg.width = ptr->width;
                         targetCfg.height = ptr->height;
+                        targetCfg.format = static_cast<PixelFormat>(ptr->format);
 
                         maxArea = ptr->width * ptr->height;
                         foundCfg = true;
@@ -2134,8 +2129,6 @@ TEST_P(EvsHidlTest, MultiCameraStreamUseConfig) {
                 ++ptr;
             }
         }
-        targetCfg.format =
-            static_cast<PixelFormat>(HAL_PIXEL_FORMAT_RGBA_8888);
 
         if (!foundCfg) {
             LOG(INFO) << "Device " << cam.v1.cameraId

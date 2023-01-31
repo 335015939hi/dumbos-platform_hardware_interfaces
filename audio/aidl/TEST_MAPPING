@@ -1,0 +1,52 @@
+{
+  "presubmit": [
+    {
+      "name": "VtsHalAudioCoreTargetTest"
+    },
+    {
+      "name": "VtsHalAudioEffectFactoryTargetTest"
+    },
+    {
+      "name": "VtsHalAudioEffectTargetTest"
+    },
+    {
+      "name": "VtsHalDownmixTargetTest"
+    },
+    {
+      "name": "VtsHalDynamicsProcessingTargetTest"
+    },
+    {
+      "name": "VtsHalEnvironmentalReverbTargetTest"
+    },
+    {
+      "name": "VtsHalEqualizerTargetTest"
+    },
+    {
+      "name": "VtsHalHapticGeneratorTargetTest"
+    },
+    {
+      "name": "VtsHalLoudnessEnhancerTargetTest"
+    },
+    {
+      "name": "VtsHalPresetReverbTargetTest"
+    },
+    {
+      "name": "VtsHalVirtualizerTargetTest"
+    },
+    {
+      "name": "VtsHalVisualizerTargetTest"
+    },
+    {
+      "name": "VtsHalVolumeTargetTest"
+    },
+    {
+      "name": "VtsHalAECTargetTest"
+    },
+    {
+      "name": "VtsHalAGCTargetTest"
+    },
+    {
+      "name": "VtsHalNSTargetTest"
+    }
+  ]
+}
