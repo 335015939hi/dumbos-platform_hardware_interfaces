@@ -90,6 +90,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "354e5707_b21e3dea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-31T20:42:23Z",
+      "side": 1,
+      "message": "\u003e if android.hardware.foo is not required\n\nWe want everything to not be required on the device, so `optional\u003d` doesn\u0027t need to exist. Basically like setting everything to `optional\u003d\"true\"` and not allowing it to be changed.\n\nThere can be VTS/CTS tests to handle the requirements for interfaces in the FCM like the other ones we added in DeviceManifestTest.cpp",
+      "parentUuid": "ffa8462e_64cf49af",
+      "revId": "3b815d5eb75829e876b1e353ffaebef65a324c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "769d35d7_ef627199",
