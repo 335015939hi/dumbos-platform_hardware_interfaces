@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34cee963_1e8deb12",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-01-31T23:13:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "296672c5_2c46f1a0",
+      "revId": "f5d4f7dcceff431dfc974f9316a722f8ebec8b0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f9fb266_e793228f",
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "909525d0_67689f61",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-01-31T23:13:13Z",
+      "side": 1,
+      "message": "They could be called simultaneously, but they shouldn\u0027t execute simultaneously.  I added a state variable instead of mClosed.",
+      "parentUuid": "3f9fb266_e793228f",
+      "revId": "f5d4f7dcceff431dfc974f9316a722f8ebec8b0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4998a2ff_c8b49bc8",
         "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
         "patchSetId": 2
@@ -65,6 +101,24 @@
       "writtenOn": "2023-01-30T23:11:29Z",
       "side": 1,
       "message": "does this also need to be scoped to a smaller block, or are we OK holding it for the whole function?",
+      "revId": "f5d4f7dcceff431dfc974f9316a722f8ebec8b0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d5907e2_06528fbe",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-01-31T23:13:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4998a2ff_c8b49bc8",
       "revId": "f5d4f7dcceff431dfc974f9316a722f8ebec8b0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
