@@ -39,6 +39,30 @@
       },
       "revId": "44ca6473103d318a7e5c2faf5ed9ce6726f40948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c93095f8_2ba11e31",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-01-31T00:17:06Z",
+      "side": 1,
+      "message": "check_feature CL also has to be CP\u0027d.  aosp/2409412",
+      "parentUuid": "4f662f83_888025f5",
+      "range": {
+        "startLine": 78,
+        "startChar": 13,
+        "endLine": 78,
+        "endChar": 26
+      },
+      "revId": "44ca6473103d318a7e5c2faf5ed9ce6726f40948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
