@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39d8bfb4_f29e419c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-01-31T19:21:38Z",
+      "side": 1,
+      "message": "I think we still want to have HALs in the FCM if they are defined.\nSo if you add a HAL android.hardware.foo, then you must do the following:\n* Add android.hardware.foo to the FCM\n(outside of these exceptions)\n\n\nThe thing we don\u0027t care about is checking \"optional\" in the FCM and expecting the entry to be in the device manifest.",
+      "parentUuid": "7632de5f_dbceba66",
+      "revId": "3b815d5eb75829e876b1e353ffaebef65a324c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "769d35d7_ef627199",
