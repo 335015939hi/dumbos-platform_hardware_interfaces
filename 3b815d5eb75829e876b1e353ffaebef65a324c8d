@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7632de5f_dbceba66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-01-31T19:18:40Z",
+      "side": 1,
+      "message": "Put it in another way, optional HALs are the HALs \"with a HAL definition, but not required to be on the device\".",
+      "parentUuid": "e2218256_b28f2c05",
+      "revId": "3b815d5eb75829e876b1e353ffaebef65a324c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "769d35d7_ef627199",
