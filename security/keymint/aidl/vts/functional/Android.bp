@@ -34,7 +34,10 @@ cc_defaults {
         "libbinder",
         "libbinder_ndk",
         "libcrypto",
+<<<<<<< HEAD   (cd46e0 Merge "Keystore: Attestation fix in AOSP builds")
         "libbase",
+=======
+>>>>>>> BRANCH (b7d44a Add check_feature helper)
         "packagemanager_aidl-cpp",
     ],
     static_libs: [

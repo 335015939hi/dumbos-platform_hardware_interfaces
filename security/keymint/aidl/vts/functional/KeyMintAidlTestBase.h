@@ -401,7 +401,10 @@ vector<uint8_t> make_name_from_str(const string& name);
 void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,
                         vector<uint8_t>* payload_value);
 void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey);
+<<<<<<< HEAD   (cd46e0 Merge "Keystore: Attestation fix in AOSP builds")
 void device_id_attestation_vsr_check(const ErrorCode& result);
+=======
+>>>>>>> BRANCH (b7d44a Add check_feature helper)
 bool check_feature(const std::string& name);
 
 AuthorizationSet HwEnforcedAuthorizations(const vector<KeyCharacteristics>& key_characteristics);

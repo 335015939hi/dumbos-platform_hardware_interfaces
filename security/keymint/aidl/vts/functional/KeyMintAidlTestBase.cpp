@@ -2039,6 +2039,7 @@ void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey) 
     *signingKey = std::move(pubKey);
 }
 
+<<<<<<< HEAD   (cd46e0 Merge "Keystore: Attestation fix in AOSP builds")
 void device_id_attestation_vsr_check(const ErrorCode& result) {
     if (get_vsr_api_level() >= 34) {
         ASSERT_FALSE(result == ErrorCode::INVALID_TAG)
@@ -2049,6 +2050,8 @@ void device_id_attestation_vsr_check(const ErrorCode& result) {
     }
 }
 
+=======
+>>>>>>> BRANCH (b7d44a Add check_feature helper)
 // Check whether the given named feature is available.
 bool check_feature(const std::string& name) {
     ::android::sp<::android::IServiceManager> sm(::android::defaultServiceManager());
