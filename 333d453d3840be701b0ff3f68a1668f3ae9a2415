@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a34dbefc_b8c95854",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-02-01T18:09:20Z",
+      "side": 1,
+      "message": "Hey - this is right. We only want well-defined structures. For instance, if there is a 3rd party standard defining the byte array, then that\u0027s okay.\n\nIf this is vendor-specific, we should add a ParcelableHolder either here or directly in CodecCapabilities (if it is in CodecCapabilities next to capabilities, then you could add a vendor extension onto any other codec type. right now, the extensions are next to the types, they can also be in addition to the other types)",
+      "parentUuid": "9a9ed45f_d9d63244",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 43
+      },
+      "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e438d14_b7698db6",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
         "patchSetId": 7
