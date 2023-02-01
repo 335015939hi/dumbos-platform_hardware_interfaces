@@ -134,6 +134,30 @@
       },
       "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "636a289f_2918bc21",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-01T09:23:49Z",
+      "side": 1,
+      "message": "Yes, is there any near plan to bring in LE Audio which is not tightly coupled with LC3 codec only for hardware offload and open for scalability to adopt new vendor codecs from Google wrt PAC record parsing, Multiple configuration support for non- LC3 as well, multi-capability exchange, codec priority selection one more than LC3 are there for LE Audio?",
+      "parentUuid": "f788fd1d_15b02165",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
