@@ -1027,6 +1027,15 @@ TEST_P(NewKeyGenerationTest, Rsa) {
  * without providing NOT_BEFORE and NOT_AFTER parameters.
  */
 TEST_P(NewKeyGenerationTest, RsaWithMissingValidity) {
+    if (AidlVersion() < 3) {
+        /*
+         * The KeyMint V1 spec required that CERTIFICATE_NOT_{BEFORE,AFTER} be
+         * specified for asymmetric key generation. However, this was not
+         * checked at the time so we can only be strict about checking this for
+         * implementations of KeyMint version 2 and above.
+         */
+        GTEST_SKIP() << "Validity strict since KeyMint v2";
+    }
     // Per RFC 5280 4.1.2.5, an undefined expiration (not-after) field should be set to
     // GeneralizedTime 999912312359559, which is 253402300799000 ms from Jan 1, 1970.
     constexpr uint64_t kUndefinedExpirationDateTime = 253402300799000;
@@ -1121,16 +1130,16 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
 }
 
 /*
- * NewKeyGenerationTest.RsaWithRpkAttestation
+ * NewKeyGenerationTest.RsaWithRkpAttestation
  *
- * Verifies that keymint can generate all required RSA key sizes, using an attestation key
+ * Verifies that keymint can generate all required RSA key sizes using an attestation key
  * that has been generated using an associate IRemotelyProvisionedComponent.
- *
- * This test is disabled because the KeyMint specification does not require that implementations
- * of the first version of KeyMint have to also implement IRemotelyProvisionedComponent.
- * However, the test is kept in the code because KeyMint v2 will impose this requirement.
  */
-TEST_P(NewKeyGenerationTest, DISABLED_RsaWithRpkAttestation) {
+TEST_P(NewKeyGenerationTest, RsaWithRkpAttestation) {
+    if (get_vsr_api_level() < 32 || AidlVersion() < 2) {
+        GTEST_SKIP() << "Only required for VSR 12+ and KeyMint 2+";
+    }
+
     // There should be an IRemotelyProvisionedComponent instance associated with the KeyMint
     // instance.
     std::shared_ptr<IRemotelyProvisionedComponent> rp;
@@ -1178,6 +1187,81 @@ TEST_P(NewKeyGenerationTest, DISABLED_RsaWithRpkAttestation) {
         EXPECT_TRUE(crypto_params.Contains(TAG_KEY_SIZE, key_size))
                 << "Key size " << key_size << "missing";
         EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
+
+        // Attestation by itself is not valid (last entry is not self-signed).
+        EXPECT_FALSE(ChainSignaturesAreValid(cert_chain_));
+
+        // The signature over the attested key should correspond to the P256 public key.
+        ASSERT_GT(cert_chain_.size(), 0);
+        X509_Ptr key_cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+        ASSERT_TRUE(key_cert.get());
+        EVP_PKEY_Ptr signing_pubkey;
+        p256_pub_key(coseKeyData, &signing_pubkey);
+        ASSERT_TRUE(signing_pubkey.get());
+
+        ASSERT_TRUE(X509_verify(key_cert.get(), signing_pubkey.get()))
+                << "Verification of attested certificate failed "
+                << "OpenSSL error string: " << ERR_error_string(ERR_get_error(), NULL);
+
+        CheckedDeleteKey(&key_blob);
+    }
+}
+
+/*
+ * NewKeyGenerationTest.EcdsaWithRkpAttestation
+ *
+ * Verifies that keymint can generate all required ECDSA key sizes using an attestation key
+ * that has been generated using an associate IRemotelyProvisionedComponent.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaWithRkpAttestation) {
+    if (get_vsr_api_level() < 32 || AidlVersion() < 2) {
+        GTEST_SKIP() << "Only required for VSR 12+ and KeyMint 2+";
+    }
+
+    // There should be an IRemotelyProvisionedComponent instance associated with the KeyMint
+    // instance.
+    std::shared_ptr<IRemotelyProvisionedComponent> rp;
+    ASSERT_TRUE(matching_rp_instance(GetParam(), &rp))
+            << "No IRemotelyProvisionedComponent found that matches KeyMint device " << GetParam();
+
+    // Generate a P-256 keypair to use as an attestation key.
+    MacedPublicKey macedPubKey;
+    std::vector<uint8_t> privateKeyBlob;
+    auto status =
+            rp->generateEcdsaP256KeyPair(/* testMode= */ false, &macedPubKey, &privateKeyBlob);
+    ASSERT_TRUE(status.isOk());
+    vector<uint8_t> coseKeyData;
+    check_maced_pubkey(macedPubKey, /* testMode= */ false, &coseKeyData);
+
+    AttestationKey attestation_key;
+    attestation_key.keyBlob = std::move(privateKeyBlob);
+    attestation_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
+
+    for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
+        auto challenge = "hello";
+        auto app_id = "foo";
+
+        vector<uint8_t> key_blob;
+        vector<KeyCharacteristics> key_characteristics;
+        ASSERT_EQ(ErrorCode::OK,
+                  GenerateKey(AuthorizationSetBuilder()
+                                      .EcdsaSigningKey(curve)
+                                      .Digest(Digest::NONE)
+                                      .AttestationChallenge(challenge)
+                                      .AttestationApplicationId(app_id)
+                                      .Authorization(TAG_NO_AUTH_REQUIRED)
+                                      .SetDefaultValidity(),
+                              attestation_key, &key_blob, &key_characteristics, &cert_chain_));
+
+        ASSERT_GT(key_blob.size(), 0U);
+        CheckBaseParams(key_characteristics);
+        CheckCharacteristics(key_blob, key_characteristics);
+
+        AuthorizationSet crypto_params = SecLevelAuthorizations(key_characteristics);
+
+        EXPECT_TRUE(crypto_params.Contains(TAG_ALGORITHM, Algorithm::EC));
+        EXPECT_TRUE(crypto_params.Contains(TAG_EC_CURVE, curve)) << "Curve " << curve << "missing";
 
         // Attestation by itself is not valid (last entry is not self-signed).
         EXPECT_FALSE(ChainSignaturesAreValid(cert_chain_));
@@ -1680,6 +1764,15 @@ TEST_P(NewKeyGenerationTest, EcdsaCurve25519MultiPurposeFail) {
  * without providing NOT_BEFORE and NOT_AFTER parameters.
  */
 TEST_P(NewKeyGenerationTest, EcdsaWithMissingValidity) {
+    if (AidlVersion() < 2) {
+        /*
+         * The KeyMint V1 spec required that CERTIFICATE_NOT_{BEFORE,AFTER} be
+         * specified for asymmetric key generation. However, this was not
+         * checked at the time so we can only be strict about checking this for
+         * implementations of KeyMint version 2 and above.
+         */
+        GTEST_SKIP() << "Validity strict since KeyMint v2";
+    }
     // Per RFC 5280 4.1.2.5, an undefined expiration (not-after) field should be set to
     // GeneralizedTime 999912312359559, which is 253402300799000 ms from Jan 1, 1970.
     constexpr uint64_t kUndefinedExpirationDateTime = 253402300799000;
@@ -1987,12 +2080,38 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
 
     // Various ATTESTATION_ID_* tags that map to fields in the attestation extension ASN.1 schema.
     auto extra_tags = AuthorizationSetBuilder();
-    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_BRAND, "ro.product.brand");
+    // Use ro.product.brand_for_attestation property for attestation if it is present else fallback
+    // to ro.product.brand
+    std::string prop_value =
+            ::android::base::GetProperty("ro.product.brand_for_attestation", /* default= */ "");
+    if (!prop_value.empty()) {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_BRAND,
+                          "ro.product.brand_for_attestation");
+    } else {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_BRAND, "ro.product.brand");
+    }
     add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_DEVICE, "ro.product.device");
-    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_PRODUCT, "ro.product.name");
-    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_SERIAL, "ro.serial");
+    // Use ro.product.name_for_attestation property for attestation if it is present else fallback
+    // to ro.product.name
+    prop_value = ::android::base::GetProperty("ro.product.name_for_attestation", /* default= */ "");
+    if (!prop_value.empty()) {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_PRODUCT,
+                          "ro.product.name_for_attestation");
+    } else {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_PRODUCT, "ro.product.name");
+    }
+    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_SERIAL, "ro.serialno");
     add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MANUFACTURER, "ro.product.manufacturer");
-    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MODEL, "ro.product.model");
+    // Use ro.product.model_for_attestation property for attestation if it is present else fallback
+    // to ro.product.model
+    prop_value =
+            ::android::base::GetProperty("ro.product.model_for_attestation", /* default= */ "");
+    if (!prop_value.empty()) {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MODEL,
+                          "ro.product.model_for_attestation");
+    } else {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MODEL, "ro.product.model");
+    }
 
     for (const KeyParameter& tag : extra_tags) {
         SCOPED_TRACE(testing::Message() << "tag-" << tag);
@@ -4946,15 +5065,15 @@ TEST_P(ImportWrappedKeyTest, WrongPaddingMode) {
 TEST_P(ImportWrappedKeyTest, WrongDigest) {
     auto wrapping_key_desc = AuthorizationSetBuilder()
                                      .RsaEncryptionKey(2048, 65537)
-                                     .Digest(Digest::SHA_2_512)
                                      .Padding(PaddingMode::RSA_OAEP)
+                                     .Digest(Digest::SHA_2_256)
                                      .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY)
                                      .SetDefaultValidity();
 
     ASSERT_EQ(ErrorCode::INCOMPATIBLE_DIGEST,
               ImportWrappedKey(wrapped_key, wrapping_key, wrapping_key_desc, zero_masking_key,
                                AuthorizationSetBuilder()
-                                       .Digest(Digest::SHA_2_256)
+                                       .Digest(Digest::SHA_2_512)
                                        .Padding(PaddingMode::RSA_OAEP)));
 }
 
@@ -8516,6 +8635,14 @@ TEST_P(VsrRequirementTest, Vsr13Test) {
     EXPECT_GE(AidlVersion(), 2) << "VSR 13+ requires KeyMint version 2";
 }
 
+TEST_P(VsrRequirementTest, Vsr14Test) {
+    int vsr_api_level = get_vsr_api_level();
+    if (vsr_api_level < 34) {
+        GTEST_SKIP() << "Applies only to VSR API level 34, this device is: " << vsr_api_level;
+    }
+    EXPECT_GE(AidlVersion(), 3) << "VSR 14+ requires KeyMint version 3";
+}
+
 INSTANTIATE_KEYMINT_AIDL_TEST(VsrRequirementTest);
 
 }  // namespace aidl::android::hardware::security::keymint::test
@@ -8547,6 +8674,15 @@ int main(int argc, char** argv) {
                 // be run in emulated environments that don't have the normal bootloader
                 // interactions.
                 aidl::android::hardware::security::keymint::test::check_boot_pl = false;
+            }
+            if (std::string(argv[i]) == "--keyblob_dir") {
+                if (i + 1 >= argc) {
+                    std::cerr << "Missing argument for --keyblob_dir\n";
+                    return 1;
+                }
+                aidl::android::hardware::security::keymint::test::KeyMintAidlTestBase::keyblob_dir =
+                        std::string(argv[i + 1]);
+                ++i;
             }
         }
     }
