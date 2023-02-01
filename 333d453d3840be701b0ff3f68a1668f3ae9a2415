@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6243c34e_c8ca34be",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-01T15:09:42Z",
+      "side": 1,
+      "message": "Could this structure be updated to include exactly what it means by the codecSpecificMetadata?\n\n\u003cSagar\u003e This is 16 byte Vendor Metadata received in PACS records. Which is Vendor Metadata for codec as per BT Spec\n\ncodecSpecificMetadata \u003d {\n                        0x0F, //Vendor Metadata Length\n                        0xFF, //Vendor META data type\n                        \n                        0x0A, //QCOM\n                        0x00, //Company ID\t\n                        \n                        0x0B, //Vendor Metadata length\n                        0x11, //AptX Adaptive LE Type\n                        // Next 10 bytes are Metadata Values having codec encoder/decoder version etc.\n                      };",
+      "parentUuid": "9a9ed45f_d9d63244",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 43
+      },
+      "revId": "333d453d3840be701b0ff3f68a1668f3ae9a2415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e438d14_b7698db6",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
         "patchSetId": 7
