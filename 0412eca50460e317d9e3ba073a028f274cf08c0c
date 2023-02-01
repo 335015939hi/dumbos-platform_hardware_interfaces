@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea238f4_69577741",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2023-02-01T01:01:27Z",
+      "side": 1,
+      "message": "do we need to update the aidl to V3 first for this change? otherwise, it might fail the hal test in presubmit.",
+      "revId": "0412eca50460e317d9e3ba073a028f274cf08c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
