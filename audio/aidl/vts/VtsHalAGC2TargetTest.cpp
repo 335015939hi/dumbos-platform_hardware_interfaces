@@ -19,30 +19,30 @@
 #include <android/binder_enums.h>
 #include <unordered_set>
 
-#define LOG_TAG "VtsHalAGCParamTest"
+#define LOG_TAG "VtsHalAGC2ParamTest"
 
 #include "EffectHelper.h"
 
 using namespace android;
 
-using aidl::android::hardware::audio::effect::AutomaticGainControl;
+using aidl::android::hardware::audio::effect::AutomaticGainControlV2;
 using aidl::android::hardware::audio::effect::Capability;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kAutomaticGainControlTypeUUID;
+using aidl::android::hardware::audio::effect::kAutomaticGainControlV2TypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
 
 enum ParamName {
     PARAM_INSTANCE_NAME,
     PARAM_DIGITAL_GAIN,
 };
-using AGCParamTestParam =
+using AGC2ParamTestParam =
         std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>, int /* gain */>;
 
-class AGCParamTest : public ::testing::TestWithParam<AGCParamTestParam>, public EffectHelper {
+class AGC2ParamTest : public ::testing::TestWithParam<AGC2ParamTestParam>, public EffectHelper {
   public:
-    AGCParamTest() : mGain(std::get<PARAM_DIGITAL_GAIN>(GetParam())) {
+    AGC2ParamTest() : mGain(std::get<PARAM_DIGITAL_GAIN>(GetParam())) {
         std::tie(mFactory, mDescriptor) = std::get<PARAM_INSTANCE_NAME>(GetParam());
     }
 
@@ -65,10 +65,10 @@ class AGCParamTest : public ::testing::TestWithParam<AGCParamTestParam>, public 
     }
 
     Parameter::Specific getDefaultParamSpecific() {
-        AutomaticGainControl AGC =
-                AutomaticGainControl::make<AutomaticGainControl::fixedDigitalGainMb>(0);
+        AutomaticGainControlV2 AGC2 =
+                AutomaticGainControlV2::make<AutomaticGainControlV2::fixedDigitalGainMb>(0);
         Parameter::Specific specific =
-                Parameter::Specific::make<Parameter::Specific::automaticGainControl>(AGC);
+                Parameter::Specific::make<Parameter::Specific::automaticGainControlV2>(AGC2);
         return specific;
     }
 
@@ -81,18 +81,18 @@ class AGCParamTest : public ::testing::TestWithParam<AGCParamTestParam>, public 
     void SetAndGetParameters() {
         for (auto& it : mTags) {
             auto& tag = it.first;
-            auto& AGC = it.second;
+            auto& AGC2 = it.second;
 
             // validate parameter
             Descriptor desc;
             ASSERT_STATUS(EX_NONE, mEffect->getDescriptor(&desc));
-            const bool valid = isTagInRange(tag, AGC, desc);
+            const bool valid = isTagInRange(tag, AGC2, desc);
             const binder_exception_t expected = valid ? EX_NONE : EX_ILLEGAL_ARGUMENT;
 
             // set parameter
             Parameter expectParam;
             Parameter::Specific specific;
-            specific.set<Parameter::Specific::automaticGainControl>(AGC);
+            specific.set<Parameter::Specific::automaticGainControlV2>(AGC2);
             expectParam.set<Parameter::specific>(specific);
             EXPECT_STATUS(expected, mEffect->setParameter(expectParam)) << expectParam.toString();
 
@@ -100,9 +100,9 @@ class AGCParamTest : public ::testing::TestWithParam<AGCParamTestParam>, public 
             if (expected == EX_NONE) {
                 Parameter getParam;
                 Parameter::Id id;
-                AutomaticGainControl::Id specificId;
-                specificId.set<AutomaticGainControl::Id::commonTag>(tag);
-                id.set<Parameter::Id::automaticGainControlTag>(specificId);
+                AutomaticGainControlV2::Id specificId;
+                specificId.set<AutomaticGainControlV2::Id::commonTag>(tag);
+                id.set<Parameter::Id::automaticGainControlV2Tag>(specificId);
                 EXPECT_STATUS(EX_NONE, mEffect->getParameter(id, &getParam));
 
                 EXPECT_EQ(expectParam, getParam) << "\nexpect:" << expectParam.toString()
@@ -112,60 +112,60 @@ class AGCParamTest : public ::testing::TestWithParam<AGCParamTestParam>, public 
     }
 
     void addDigitalGainParam(int gain) {
-        AutomaticGainControl AGC;
-        AGC.set<AutomaticGainControl::fixedDigitalGainMb>(gain);
-        mTags.push_back({AutomaticGainControl::fixedDigitalGainMb, AGC});
+        AutomaticGainControlV2 AGC2;
+        AGC2.set<AutomaticGainControlV2::fixedDigitalGainMb>(gain);
+        mTags.push_back({AutomaticGainControlV2::fixedDigitalGainMb, AGC2});
     }
 
-    bool isTagInRange(const AutomaticGainControl::Tag& tag, const AutomaticGainControl& AGC,
+    bool isTagInRange(const AutomaticGainControlV2::Tag& tag, const AutomaticGainControlV2& AGC2,
                       const Descriptor& desc) const {
-        const AutomaticGainControl::Capability& AGCCap =
-                desc.capability.get<Capability::automaticGainControl>();
+        const AutomaticGainControlV2::Capability& AGC2Cap =
+                desc.capability.get<Capability::automaticGainControlV2>();
         switch (tag) {
-            case AutomaticGainControl::fixedDigitalGainMb: {
-                auto gain = AGC.get<AutomaticGainControl::fixedDigitalGainMb>();
-                return gain >= 0 && gain <= AGCCap.maxFixedDigitalGainMb;
+            case AutomaticGainControlV2::fixedDigitalGainMb: {
+                auto gain = AGC2.get<AutomaticGainControlV2::fixedDigitalGainMb>();
+                return gain >= 0 && gain <= AGC2Cap.maxFixedDigitalGainMb;
             }
             default:
                 return false;
         }
     }
     static std::unordered_set<int> getDigitalGainValues() {
-        auto descList = EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor,
-                                                                     kAutomaticGainControlTypeUUID);
+        auto descList = EffectFactoryHelper::getAllEffectDescriptors(
+                IFactory::descriptor, kAutomaticGainControlV2TypeUUID);
         const auto max = std::max_element(
                 descList.begin(), descList.end(),
                 [](const std::pair<std::shared_ptr<IFactory>, Descriptor>& a,
                    const std::pair<std::shared_ptr<IFactory>, Descriptor>& b) {
-                    return a.second.capability.get<Capability::automaticGainControl>()
+                    return a.second.capability.get<Capability::automaticGainControlV2>()
                                    .maxFixedDigitalGainMb <
-                           b.second.capability.get<Capability::automaticGainControl>()
+                           b.second.capability.get<Capability::automaticGainControlV2>()
                                    .maxFixedDigitalGainMb;
                 });
         if (max == descList.end()) {
             return {0};
         }
-        int maxGain = max->second.capability.get<Capability::automaticGainControl>()
+        int maxGain = max->second.capability.get<Capability::automaticGainControlV2>()
                               .maxFixedDigitalGainMb;
         return {-1, 0, maxGain - 1, maxGain, maxGain + 1};
     }
 
   private:
-    std::vector<std::pair<AutomaticGainControl::Tag, AutomaticGainControl>> mTags;
+    std::vector<std::pair<AutomaticGainControlV2::Tag, AutomaticGainControlV2>> mTags;
     void CleanUp() { mTags.clear(); }
 };
 
-TEST_P(AGCParamTest, SetAndGetDigitalGainParam) {
+TEST_P(AGC2ParamTest, SetAndGetDigitalGainParam) {
     EXPECT_NO_FATAL_FAILURE(addDigitalGainParam(mGain));
     SetAndGetParameters();
 }
 
 INSTANTIATE_TEST_SUITE_P(
-        AGCParamTest, AGCParamTest,
+        AGC2ParamTest, AGC2ParamTest,
         ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
-                                   IFactory::descriptor, kAutomaticGainControlTypeUUID)),
-                           testing::ValuesIn(AGCParamTest::getDigitalGainValues())),
-        [](const testing::TestParamInfo<AGCParamTest::ParamType>& info) {
+                                   IFactory::descriptor, kAutomaticGainControlV2TypeUUID)),
+                           testing::ValuesIn(AGC2ParamTest::getDigitalGainValues())),
+        [](const testing::TestParamInfo<AGC2ParamTest::ParamType>& info) {
             auto descriptor = std::get<PARAM_INSTANCE_NAME>(info.param).second;
             std::string gain = std::to_string(std::get<PARAM_DIGITAL_GAIN>(info.param));
 
@@ -177,7 +177,7 @@ INSTANTIATE_TEST_SUITE_P(
             return name;
         });
 
-GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AGCParamTest);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AGC2ParamTest);
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);

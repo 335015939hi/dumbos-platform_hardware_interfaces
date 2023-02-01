@@ -25,34 +25,34 @@ import android.hardware.audio.effect.VendorExtension;
  * input signal dynamic range is not important but where a constant strong capture level is desired.
  * WebRTC only supports RMS level estimator and saturation margin is no longer configurable.
  *
- * All parameters defined in union AutomaticGainControl must be gettable and settable. The
- * capabilities defined in AutomaticGainControl.Capability can only acquired with
+ * All parameters defined in union AutomaticGainControlV2 must be gettable and settable. The
+ * capabilities defined in AutomaticGainControlV2.Capability can only acquired with
  * IEffect.getDescriptor() and not settable.
  */
 @VintfStability
-union AutomaticGainControl {
+union AutomaticGainControlV2 {
     /**
      * Effect parameter tag to identify the parameters for getParameter().
      */
     @VintfStability
     union Id {
         int vendorExtensionTag;
-        AutomaticGainControl.Tag commonTag;
+        AutomaticGainControlV2.Tag commonTag;
     }
 
     /**
-     * Vendor AutomaticGainControl implementation definition for additional parameters.
+     * Vendor AutomaticGainControlV2 implementation definition for additional parameters.
      */
     VendorExtension vendor;
 
     /**
-     * Capability supported by AutomaticGainControl implementation.
+     * Capability supported by AutomaticGainControlV2 implementation.
      */
     @VintfStability
     parcelable Capability {
         /**
-         * AutomaticGainControl capability extension, vendor can use this extension in case existing
-         * capability definition not enough.
+         * AutomaticGainControlV2 capability extension, vendor can use this extension in case
+         * existing capability definition not enough.
          */
         ParcelableHolder extension;
         /**

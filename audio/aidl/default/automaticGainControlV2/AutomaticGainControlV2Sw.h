@@ -26,9 +26,9 @@
 
 namespace aidl::android::hardware::audio::effect {
 
-class AutomaticGainControlSwContext final : public EffectContext {
+class AutomaticGainControlV2SwContext final : public EffectContext {
   public:
-    AutomaticGainControlSwContext(int statusDepth, const Parameter::Common& common)
+    AutomaticGainControlV2SwContext(int statusDepth, const Parameter::Common& common)
         : EffectContext(statusDepth, common) {
         LOG(DEBUG) << __func__;
     }
@@ -40,14 +40,14 @@ class AutomaticGainControlSwContext final : public EffectContext {
     int mDigitalGain = 0;
 };
 
-class AutomaticGainControlSw final : public EffectImpl {
+class AutomaticGainControlV2Sw final : public EffectImpl {
   public:
     static const std::string kEffectName;
     static const bool kStrengthSupported;
-    static const AutomaticGainControl::Capability kCapability;
+    static const AutomaticGainControlV2::Capability kCapability;
     static const Descriptor kDescriptor;
-    AutomaticGainControlSw() { LOG(DEBUG) << __func__; }
-    ~AutomaticGainControlSw() {
+    AutomaticGainControlV2Sw() { LOG(DEBUG) << __func__; }
+    ~AutomaticGainControlV2Sw() {
         cleanUp();
         LOG(DEBUG) << __func__;
     }
@@ -65,8 +65,8 @@ class AutomaticGainControlSw final : public EffectImpl {
     IEffect::Status effectProcessImpl(float* in, float* out, int samples) override;
 
   private:
-    std::shared_ptr<AutomaticGainControlSwContext> mContext;
-    ndk::ScopedAStatus getParameterAutomaticGainControl(const AutomaticGainControl::Tag& tag,
-                                                        Parameter::Specific* specific);
+    std::shared_ptr<AutomaticGainControlV2SwContext> mContext;
+    ndk::ScopedAStatus getParameterAutomaticGainControlV2(const AutomaticGainControlV2::Tag& tag,
+                                                          Parameter::Specific* specific);
 };
 }  // namespace aidl::android::hardware::audio::effect

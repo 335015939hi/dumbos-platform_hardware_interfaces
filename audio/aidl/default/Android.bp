@@ -154,7 +154,7 @@ cc_binary {
     shared_libs: [
         "libpreprocessingaidl",
         "libaecsw",
-        "libagcsw",
+        "libagc2sw",
         "libbassboostsw",
         "libbundleaidl",
         "libdownmixaidl",

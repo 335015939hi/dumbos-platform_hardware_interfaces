@@ -29,7 +29,7 @@
     -->
     <libraries>
         <library name="aecsw" path="libaecsw.so"/>
-        <library name="agcsw" path="libagcsw.so"/>
+        <library name="agc2sw" path="libagc2sw.so"/>
         <library name="bassboostsw" path="libbassboostsw.so"/>
         <library name="bundle" path="libbundleaidl.so"/>
         <library name="downmix" path="libdownmixaidl.so"/>
