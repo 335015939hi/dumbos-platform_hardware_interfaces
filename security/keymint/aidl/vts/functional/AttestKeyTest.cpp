@@ -15,6 +15,8 @@
  */
 
 #define LOG_TAG "keymint_1_attest_key_test"
+#include <android-base/logging.h>
+#include <android-base/strings.h>
 #include <cutils/log.h>
 #include <cutils/properties.h>
 
@@ -26,10 +28,59 @@
 namespace aidl::android::hardware::security::keymint::test {
 
 namespace {
+string TELEPHONY_CMD_GET_IMEI = "cmd phone get-imei ";
 
 bool IsSelfSigned(const vector<Certificate>& chain) {
     if (chain.size() != 1) return false;
     return ChainSignaturesAreValid(chain);
+}
+
+/*
+ * Run a shell command and collect the output of it. If any error, set an empty string as the
+ * output.
+ */
+string exec_command(string command) {
+    char buffer[128];
+    string result = "";
+
+    FILE* pipe = popen(command.c_str(), "r");
+    if (!pipe) {
+        LOG(ERROR) << "popen failed.";
+        return result;
+    }
+
+    // read till end of process:
+    while (!feof(pipe)) {
+        if (fgets(buffer, 128, pipe) != NULL) {
+            result += buffer;
+        }
+    }
+
+    pclose(pipe);
+    return result;
+}
+
+/*
+ * Get IMEI using Telephony service shell command. If any error while executing the command
+ * then empty string will be returned as output.
+ */
+string get_imei(int slot) {
+    string cmd = TELEPHONY_CMD_GET_IMEI + std::to_string(slot);
+    string output = exec_command(cmd);
+
+    if (output.empty()) {
+        LOG(ERROR) << "Command failed. Cmd: " << cmd;
+        return "";
+    }
+
+    vector<string> out = ::android::base::Tokenize(::android::base::Trim(output), "Device IMEI:");
+
+    if (out.size() != 1) {
+        LOG(ERROR) << "Error in parsing the command output. Cmd: " << cmd;
+        return "";
+    }
+
+    return ::android::base::Trim(out[0]);
 }
 
 }  // namespace
@@ -795,13 +846,44 @@ TEST_P(AttestKeyTest, EcdsaAttestationID) {
 
     // Collection of valid attestation ID tags.
     auto attestation_id_tags = AuthorizationSetBuilder();
-    add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_BRAND, "ro.product.brand");
+    // Use ro.product.brand_for_attestation property for attestation if it is present else fallback
+    // to ro.product.brand
+    std::string prop_value =
+            ::android::base::GetProperty("ro.product.brand_for_attestation", /* default= */ "");
+    if (!prop_value.empty()) {
+        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_BRAND,
+                          "ro.product.brand_for_attestation");
+    } else {
+        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_BRAND, "ro.product.brand");
+    }
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_DEVICE, "ro.product.device");
-    add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_PRODUCT, "ro.product.name");
-    add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_SERIAL, "ro.serial");
+    // Use ro.product.name_for_attestation property for attestation if it is present else fallback
+    // to ro.product.name
+    prop_value = ::android::base::GetProperty("ro.product.name_for_attestation", /* default= */ "");
+    if (!prop_value.empty()) {
+        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_PRODUCT,
+                          "ro.product.name_for_attestation");
+    } else {
+        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_PRODUCT, "ro.product.name");
+    }
+    add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_SERIAL, "ro.serialno");
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_MANUFACTURER,
                       "ro.product.manufacturer");
-    add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_MODEL, "ro.product.model");
+    // Use ro.product.model_for_attestation property for attestation if it is present else fallback
+    // to ro.product.model
+    prop_value =
+            ::android::base::GetProperty("ro.product.model_for_attestation", /* default= */ "");
+    if (!prop_value.empty()) {
+        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_MODEL,
+                          "ro.product.model_for_attestation");
+    } else {
+        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_MODEL, "ro.product.model");
+    }
+
+    string imei = get_imei(0);
+    if (!imei.empty()) {
+        attestation_id_tags.Authorization(TAG_ATTESTATION_ID_IMEI, imei.data(), imei.size());
+    }
 
     for (const KeyParameter& tag : attestation_id_tags) {
         SCOPED_TRACE(testing::Message() << "+tag-" << tag);
@@ -892,6 +974,7 @@ TEST_P(AttestKeyTest, EcdsaAttestationMismatchID) {
 
         ASSERT_TRUE(result == ErrorCode::CANNOT_ATTEST_IDS || result == ErrorCode::INVALID_TAG)
                 << "result = " << result;
+        device_id_attestation_vsr_check(result);
     }
     CheckedDeleteKey(&attest_key.keyBlob);
 }
