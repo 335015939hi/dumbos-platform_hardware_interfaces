@@ -199,8 +199,8 @@ void Factory::createIdentityWithConfig(const EffectConfig::LibraryUuid& configLi
         id.type = typeUuid;
         id.uuid = configLib.uuid;
         id.proxy = proxyUuid;
-        LOG(DEBUG) << __func__ << ": typeUuid " << id.type.toString() << "\nimplUuid "
-                   << id.uuid.toString() << " proxyUuid "
+        LOG(DEBUG) << __func__ << " loading lib " << path->second << ": typeUuid "
+                   << id.type.toString() << "\nimplUuid " << id.uuid.toString() << " proxyUuid "
                    << (proxyUuid.has_value() ? proxyUuid->toString() : "null");
         if (openEffectLibrary(id.uuid, path->second)) {
             mIdentitySet.insert(std::move(id));
