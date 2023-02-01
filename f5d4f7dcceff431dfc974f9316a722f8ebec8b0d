@@ -88,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a782f68_ce31ac24",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-02-01T21:58:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "909525d0_67689f61",
+      "revId": "f5d4f7dcceff431dfc974f9316a722f8ebec8b0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4998a2ff_c8b49bc8",
