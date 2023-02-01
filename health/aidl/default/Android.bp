@@ -29,7 +29,7 @@ cc_defaults {
         "libcutils",
         "liblog",
         "libutils",
-        "android.hardware.health-V1-ndk",
+        "android.hardware.health-V2-ndk",
 
         // TODO(b/177269435): remove when BatteryMonitor works with AIDL HealthInfo.
         "libhidlbase",
@@ -48,7 +48,7 @@ cc_defaults {
     name: "libhealth_aidl_charger_defaults",
     shared_libs: [
         // common
-        "android.hardware.health-V1-ndk",
+        "android.hardware.health-V2-ndk",
         "libbase",
         "libcutils",
         "liblog",
@@ -192,33 +192,14 @@ cc_fuzz {
     name: "android.hardware.health-service.aidl_fuzzer",
     defaults: [
         "libhealth_aidl_impl_user",
+        "service_fuzzer_defaults",
     ],
     static_libs: [
-        "android.hardware.health-V1-ndk",
+        "android.hardware.health-V2-ndk",
         "libbase",
-        "libbinder_random_parcel",
-        "libcutils",
         "liblog",
-        "libutils",
         "fuzz_libhealth_aidl_impl",
     ],
-    target: {
-        android: {
-            shared_libs: [
-                "libbinder_ndk",
-                "libbinder",
-            ],
-        },
-        host: {
-            static_libs: [
-                "libbinder_ndk",
-                "libbinder",
-            ],
-        },
-        darwin: {
-            enabled: false,
-        },
-    },
     srcs: ["fuzzer.cpp"],
     fuzz_config: {
         cc: [

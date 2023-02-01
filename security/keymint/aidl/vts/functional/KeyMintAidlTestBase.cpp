@@ -23,6 +23,7 @@
 
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
+#include <android/content/pm/IPackageManagerNative.h>
 #include <cppbor_parse.h>
 #include <cutils/properties.h>
 #include <gmock/gmock.h>
@@ -184,6 +185,7 @@ string x509NameToStr(X509_NAME* name) {
 
 bool KeyMintAidlTestBase::arm_deleteAllKeys = false;
 bool KeyMintAidlTestBase::dump_Attestations = false;
+std::string KeyMintAidlTestBase::keyblob_dir;
 
 uint32_t KeyMintAidlTestBase::boot_patch_level(
         const vector<KeyCharacteristics>& key_characteristics) {
@@ -946,9 +948,15 @@ void KeyMintAidlTestBase::LocalVerifyMessage(const string& message, const string
                                              const AuthorizationSet& params) {
     SCOPED_TRACE("LocalVerifyMessage");
 
-    // Retrieve the public key from the leaf certificate.
     ASSERT_GT(cert_chain_.size(), 0);
-    X509_Ptr key_cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+    LocalVerifyMessage(cert_chain_[0].encodedCertificate, message, signature, params);
+}
+
+void KeyMintAidlTestBase::LocalVerifyMessage(const vector<uint8_t>& der_cert, const string& message,
+                                             const string& signature,
+                                             const AuthorizationSet& params) {
+    // Retrieve the public key from the leaf certificate.
+    X509_Ptr key_cert(parse_cert_blob(der_cert));
     ASSERT_TRUE(key_cert.get());
     EVP_PKEY_Ptr pub_key(X509_get_pubkey(key_cert.get()));
     ASSERT_TRUE(pub_key.get());
@@ -1919,30 +1927,32 @@ void check_cose_key(const vector<uint8_t>& data, bool testMode) {
 
     // The following check assumes that canonical CBOR encoding is used for the COSE_Key.
     if (testMode) {
-        EXPECT_THAT(cppbor::prettyPrint(parsedPayload.get()),
-                    MatchesRegex("{\n"
-                                 "  1 : 2,\n"   // kty: EC2
-                                 "  3 : -7,\n"  // alg: ES256
-                                 "  -1 : 1,\n"  // EC id: P256
-                                 // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a
-                                 // sequence of 32 hexadecimal bytes, enclosed in braces and
-                                 // separated by commas. In this case, some Ed25519 public key.
-                                 "  -2 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_x: data
-                                 "  -3 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_y: data
-                                 "  -70000 : null,\n"                              // test marker
-                                 "}"));
+        EXPECT_THAT(
+                cppbor::prettyPrint(parsedPayload.get()),
+                MatchesRegex("\\{\n"
+                             "  1 : 2,\n"   // kty: EC2
+                             "  3 : -7,\n"  // alg: ES256
+                             "  -1 : 1,\n"  // EC id: P256
+                             // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a
+                             // sequence of 32 hexadecimal bytes, enclosed in braces and
+                             // separated by commas. In this case, some Ed25519 public key.
+                             "  -2 : \\{(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}\\},\n"  // pub_x: data
+                             "  -3 : \\{(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}\\},\n"  // pub_y: data
+                             "  -70000 : null,\n"                                  // test marker
+                             "\\}"));
     } else {
-        EXPECT_THAT(cppbor::prettyPrint(parsedPayload.get()),
-                    MatchesRegex("{\n"
-                                 "  1 : 2,\n"   // kty: EC2
-                                 "  3 : -7,\n"  // alg: ES256
-                                 "  -1 : 1,\n"  // EC id: P256
-                                 // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a
-                                 // sequence of 32 hexadecimal bytes, enclosed in braces and
-                                 // separated by commas. In this case, some Ed25519 public key.
-                                 "  -2 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_x: data
-                                 "  -3 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_y: data
-                                 "}"));
+        EXPECT_THAT(
+                cppbor::prettyPrint(parsedPayload.get()),
+                MatchesRegex("\\{\n"
+                             "  1 : 2,\n"   // kty: EC2
+                             "  3 : -7,\n"  // alg: ES256
+                             "  -1 : 1,\n"  // EC id: P256
+                             // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a
+                             // sequence of 32 hexadecimal bytes, enclosed in braces and
+                             // separated by commas. In this case, some Ed25519 public key.
+                             "  -2 : \\{(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}\\},\n"  // pub_x: data
+                             "  -3 : \\{(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}\\},\n"  // pub_y: data
+                             "\\}"));
     }
 }
 
@@ -2027,6 +2037,39 @@ void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey) 
     ASSERT_NE(pubKey, nullptr);
     EVP_PKEY_assign_EC_KEY(pubKey.get(), ecKey.release());
     *signingKey = std::move(pubKey);
+}
+
+void device_id_attestation_vsr_check(const ErrorCode& result) {
+    if (get_vsr_api_level() >= 34) {
+        ASSERT_FALSE(result == ErrorCode::INVALID_TAG)
+                << "It is a specification violation for INVALID_TAG to be returned due to ID "
+                << "mismatch in a Device ID Attestation call. INVALID_TAG is only intended to "
+                << "be used for a case where updateAad() is called after update(). As of "
+                << "VSR-14, this is now enforced as an error.";
+    }
+}
+
+// Check whether the given named feature is available.
+bool check_feature(const std::string& name) {
+    ::android::sp<::android::IServiceManager> sm(::android::defaultServiceManager());
+    ::android::sp<::android::IBinder> binder(sm->getService(::android::String16("package_native")));
+    if (binder == nullptr) {
+        GTEST_LOG_(ERROR) << "getService package_native failed";
+        return false;
+    }
+    ::android::sp<::android::content::pm::IPackageManagerNative> packageMgr =
+            ::android::interface_cast<::android::content::pm::IPackageManagerNative>(binder);
+    if (packageMgr == nullptr) {
+        GTEST_LOG_(ERROR) << "Cannot find package manager";
+        return false;
+    }
+    bool hasFeature = false;
+    auto status = packageMgr->hasSystemFeature(::android::String16(name.c_str()), 0, &hasFeature);
+    if (!status.isOk()) {
+        GTEST_LOG_(ERROR) << "hasSystemFeature('" << name << "') failed: " << status;
+        return false;
+    }
+    return hasFeature;
 }
 
 }  // namespace test

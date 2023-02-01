@@ -190,12 +190,15 @@ void convertFromSensorEvent(const sensors_event_t &src, Event *dst) {
         }
 
         default: {
-            CHECK_GE((int32_t)dst->sensorType, (int32_t)SensorType::DEVICE_PRIVATE_BASE);
-
             memcpy(dst->u.data.data(), src.data, 16 * sizeof(float));
             break;
         }
     }
+}
+
+void convertFromASensorEvent(const ASensorEvent& src, Event* dst) {
+    convertFromSensorEvent(
+            android::hardware::sensors::implementation::common::convertASensorEvent(src), dst);
 }
 
 void convertToSensorEvent(const Event &src, sensors_event_t *dst) {
@@ -330,9 +333,6 @@ void convertToSensorEvent(const Event &src, sensors_event_t *dst) {
         }
 
         default: {
-            CHECK_GE((int32_t)src.sensorType,
-                     (int32_t)SensorType::DEVICE_PRIVATE_BASE);
-
             memcpy(dst->data, src.u.data.data(), 16 * sizeof(float));
             break;
         }
