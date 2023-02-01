@@ -28,22 +28,22 @@
          name of a library .so file on the target device.
     -->
     <libraries>
-        <library name="aecsw" path="libaecsw.so"/>
-        <library name="agcsw" path="libagcsw.so"/>
-        <library name="bassboostsw" path="libbassboostsw.so"/>
-        <library name="bundle" path="libbundleaidl.so"/>
-        <library name="downmix" path="libdownmixaidl.so"/>
-        <library name="dynamics_processing" path="libdynamicsprocessingaidl.so"/>
-        <library name="equalizersw" path="libequalizersw.so"/>
-        <library name="haptic_generator" path="libhapticgeneratoraidl.so"/>
-        <library name="loudness_enhancer" path="libloudnessenhanceraidl.so"/>
-        <library name="nssw" path="libnssw.so"/>
-        <library name="env_reverbsw" path="libenvreverbsw.so"/>
-        <library name="preset_reverbsw" path="libpresetreverbsw.so"/>
-        <library name="reverb" path="libreverbaidl.so"/>
-        <library name="virtualizersw" path="libvirtualizersw.so"/>
-        <library name="visualizer" path="libvisualizeraidl.so"/>
-        <library name="volumesw" path="libvolumesw.so"/>
+        <library name="aecsw" path="soundfx/libaecsw.so"/>
+        <library name="agcsw" path="soundfx/libagcsw.so"/>
+        <library name="bassboostsw" path="soundfx/libbassboostsw.so"/>
+        <library name="bundle" path="soundfx/libbundleaidl.so"/>
+        <library name="downmix" path="soundfx/libdownmixaidl.so"/>
+        <library name="dynamics_processing" path="soundfx/libdynamicsprocessingaidl.so"/>
+        <library name="equalizersw" path="soundfx/libequalizersw.so"/>
+        <library name="haptic_generator" path="soundfx/libhapticgeneratoraidl.so"/>
+        <library name="loudness_enhancer" path="soundfx/libloudnessenhanceraidl.so"/>
+        <library name="nssw" path="soundfx/libnssw.so"/>
+        <library name="env_reverbsw" path="soundfx/libenvreverbsw.so"/>
+        <library name="preset_reverbsw" path="soundfx/libpresetreverbsw.so"/>
+        <library name="reverb" path="soundfx/libreverbaidl.so"/>
+        <library name="virtualizersw" path="soundfx/libvirtualizersw.so"/>
+        <library name="visualizer" path="soundfx/libvisualizeraidl.so"/>
+        <library name="volumesw" path="soundfx/libvolumesw.so"/>
     </libraries>
 
     <!-- list of effects to load.
