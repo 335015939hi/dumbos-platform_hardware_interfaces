@@ -415,6 +415,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ba2fba2_1fd6fcf0",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-02-01T09:34:28Z",
+      "side": 1,
+      "message": "Is there a need for the server to continue to accept raw IP addresses? The calling code will never pass them, and has never passed them.\n\nAs part of moving to the new HAL you need to update the server anyway (it will be a subclass of a different class than with the previous HAL). That\u0027s a relatively big change. Compared to that change, making this change to disable support for IP addresses is very simple - basically:\n\n    if (strstr(prefix, \u0027/\u0027) \u003d\u003d nullptr) {\n        return ndk::ScopedAStatus::fromExceptionCodeWithMessage(\n            EX_ILLEGAL_ARGUMENT, \"Invalid prefix\");\n    }",
+      "parentUuid": "185ffb9f_f9415d1d",
+      "range": {
+        "startLine": 355,
+        "startChar": 71,
+        "endLine": 355,
+        "endChar": 90
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86def0c3_ec4f837e",
@@ -428,6 +452,30 @@
       "writtenOn": "2023-01-24T17:20:58Z",
       "side": 1,
       "message": "server side accepts raw ipv4 and ipv6 addresses and the test cases should always pass in these cases. Expectation should be isOk(). PTAL",
+      "range": {
+        "startLine": 361,
+        "startChar": 51,
+        "endLine": 361,
+        "endChar": 67
+      },
+      "revId": "d97a30863794172ec5e6fa0bc16d72fb937d66eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43e43ada_df3605df",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2023-02-01T09:34:28Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "86def0c3_ec4f837e",
       "range": {
         "startLine": 361,
         "startChar": 51,
