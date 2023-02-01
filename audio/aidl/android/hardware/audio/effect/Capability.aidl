@@ -17,7 +17,7 @@
 package android.hardware.audio.effect;
 
 import android.hardware.audio.effect.AcousticEchoCanceler;
-import android.hardware.audio.effect.AutomaticGainControl;
+import android.hardware.audio.effect.AutomaticGainControlV2;
 import android.hardware.audio.effect.BassBoost;
 import android.hardware.audio.effect.Downmix;
 import android.hardware.audio.effect.DynamicsProcessing;
@@ -53,7 +53,7 @@ union Capability {
      * Effect capabilities.
      */
     AcousticEchoCanceler.Capability acousticEchoCanceler;
-    AutomaticGainControl.Capability automaticGainControl;
+    AutomaticGainControlV2.Capability automaticGainControlV2;
     BassBoost.Capability bassBoost;
     Downmix.Capability downmix;
     DynamicsProcessing.Capability dynamicsProcessing;

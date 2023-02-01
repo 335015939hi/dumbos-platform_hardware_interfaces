@@ -33,13 +33,13 @@
 
 package android.hardware.audio.effect;
 @VintfStability
-union AutomaticGainControl {
+union AutomaticGainControlV2 {
   android.hardware.audio.effect.VendorExtension vendor;
   int fixedDigitalGainMb;
   @VintfStability
   union Id {
     int vendorExtensionTag;
-    android.hardware.audio.effect.AutomaticGainControl.Tag commonTag;
+    android.hardware.audio.effect.AutomaticGainControlV2.Tag commonTag;
   }
   @VintfStability
   parcelable Capability {

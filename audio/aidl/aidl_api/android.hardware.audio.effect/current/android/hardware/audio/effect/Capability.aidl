@@ -36,7 +36,7 @@ package android.hardware.audio.effect;
 union Capability {
   android.hardware.audio.effect.VendorExtension vendorExtension;
   android.hardware.audio.effect.AcousticEchoCanceler.Capability acousticEchoCanceler;
-  android.hardware.audio.effect.AutomaticGainControl.Capability automaticGainControl;
+  android.hardware.audio.effect.AutomaticGainControlV2.Capability automaticGainControlV2;
   android.hardware.audio.effect.BassBoost.Capability bassBoost;
   android.hardware.audio.effect.Downmix.Capability downmix;
   android.hardware.audio.effect.DynamicsProcessing.Capability dynamicsProcessing;
