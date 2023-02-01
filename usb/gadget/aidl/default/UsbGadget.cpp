@@ -91,13 +91,17 @@ void currentFunctionsAppliedCallback(bool functionsApplied, void* payload) {
 
 ScopedAStatus UsbGadget::getCurrentUsbFunctions(const shared_ptr<IUsbGadgetCallback>& callback,
                                                 int64_t in_transactionId) {
-    ScopedAStatus ret = callback->getCurrentUsbFunctionsCb(
-            mCurrentUsbFunctions,
-            mCurrentUsbFunctionsApplied ? Status::FUNCTIONS_APPLIED : Status::FUNCTIONS_NOT_APPLIED,
-            in_transactionId);
-    if (!ret.isOk())
-        ALOGE("Call to getCurrentUsbFunctionsCb failed %s", ret.getDescription().c_str());
-
+    if (callback != nullptr) {
+        ScopedAStatus ret = callback->getCurrentUsbFunctionsCb(
+                mCurrentUsbFunctions,
+                mCurrentUsbFunctionsApplied ? Status::FUNCTIONS_APPLIED
+                                            : Status::FUNCTIONS_NOT_APPLIED,
+                in_transactionId);
+        if (!ret.isOk())
+            ALOGE("Call to getCurrentUsbFunctionsCb failed %s", ret.getDescription().c_str());
+    } else {
+        ALOGE("Received null callback object!");
+    }
     return ScopedAStatus::ok();
 }
 
