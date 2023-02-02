@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1e2eb56_5ab7f2f9",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-02-02T01:11:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "952b1801_b81ff153",
+      "range": {
+        "startLine": 871,
+        "startChar": 26,
+        "endLine": 871,
+        "endChar": 45
+      },
+      "revId": "a5d033fabd943fb83fbaca7e6389f49294e64035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "072a8900_41bf9622",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "You can specify interface specific error codes for this.\nThe SE AIDL interface does return custom errors for invocations and not every error is reported by callback.",
       "parentUuid": "37360358_228e3447",
+      "range": {
+        "startLine": 876,
+        "startChar": 6,
+        "endLine": 876,
+        "endChar": 53
+      },
+      "revId": "a5d033fabd943fb83fbaca7e6389f49294e64035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a18c9060_53703620",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-02-02T01:11:01Z",
+      "side": 1,
+      "message": "Yes, it could also be done that way. I like the Status consistently returning the error codes.",
+      "parentUuid": "5cc4e8b0_b65f063a",
       "range": {
         "startLine": 876,
         "startChar": 6,
