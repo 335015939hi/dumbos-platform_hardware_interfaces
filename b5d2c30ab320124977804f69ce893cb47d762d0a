@@ -16,6 +16,24 @@
       "message": "please also define a process for removing this or determining when it\u0027s ready, thanks!",
       "revId": "b5d2c30ab320124977804f69ce893cb47d762d0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31b2a7e7_df2b3c31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2023-02-02T02:49:05Z",
+      "side": 1,
+      "message": "Are you suggesting adding a RERADME file or document in the CL description?",
+      "parentUuid": "4db3ea9f_f7f0fc08",
+      "revId": "b5d2c30ab320124977804f69ce893cb47d762d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
