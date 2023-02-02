@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb288bfe_1c9d177d",
+        "filename": "usb/gadget/aidl/default/UsbGadget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-02-02T01:09:52Z",
+      "side": 1,
+      "message": "we probably want to just add this:\n\n    if (callback \u003d\u003d nullptr) {\n        return ScopedAStatus::fromExceptionCode(EX_NULL_POINTER);\n    }",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 30
+      },
+      "revId": "008f8f134bd3502bf44fb34d5d079669c13ad54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
