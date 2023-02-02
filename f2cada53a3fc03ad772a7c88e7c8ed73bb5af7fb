@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "673c43a9_14a30fdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1955505
+      },
+      "writtenOn": "2023-02-02T20:48:59Z",
+      "side": 1,
+      "message": "@topic: Bug_Fixes\n@Buganizer: 247575800\n@Upstreamed: https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2402196",
+      "revId": "f2cada53a3fc03ad772a7c88e7c8ed73bb5af7fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
