@@ -16,6 +16,23 @@
       "message": "Mikhail, this is the same as ag/21147682. Could you help review this CL? Thanks,",
       "revId": "253bd32b0462609316799b18add77d7106fadfbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd0b5f81_fdef38bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-02T21:33:58Z",
+      "side": 1,
+      "message": "Thanks! It looks like tinyALSA API is a bit different vs. internal. Maybe you\u0027ll need to merge the internal one first.",
+      "revId": "253bd32b0462609316799b18add77d7106fadfbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
