@@ -60,6 +60,14 @@ extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descrip
 namespace aidl::android::hardware::audio::effect {
 
 const std::string EqualizerSw::kEffectName = "EqualizerSw";
+
+const Range EqualizerSw::kCutOffFreqRange = {
+        .id = MAKE_SPECIFIC_PARAMETER_ID(BassBoost, bassBoostTag, strengthPm),
+        .types = Range::Types::make<Range::Types::rangeFloat>(
+                Range::Float({.min = 220.f, .max = 20000.f}))};
+
+const Capability EqualizerSw::kCapability = {.ranges = {EqualizerSw::kCutOffFreqRange}};
+
 const std::vector<Equalizer::BandFrequency> EqualizerSw::kBandFrequency = {{0, 30000, 120000},
                                                                            {1, 120001, 460000},
                                                                            {2, 460001, 1800000},

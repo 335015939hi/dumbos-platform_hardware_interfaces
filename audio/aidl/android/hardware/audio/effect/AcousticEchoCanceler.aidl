@@ -16,6 +16,7 @@
 
 package android.hardware.audio.effect;
 
+import android.hardware.audio.effect.Range;
 import android.hardware.audio.effect.VendorExtension;
 
 /**
@@ -43,35 +44,14 @@ union AcousticEchoCanceler {
     VendorExtension vendor;
 
     /**
-     * Capability supported by AEC implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * AEC capability extension, vendor can use this extension in case existing capability
-         * definition not enough.
-         */
-        ParcelableHolder extension;
-
-        /**
-         * Maximum AEC echo delay in microseconds supported.
-         */
-        int maxEchoDelayUs;
-        /**
-         * If AEC mobile mode was supported by the AEC implementation.
-         */
-        boolean supportMobileMode;
-    }
-
-    /**
      * The AEC echo delay in microseconds.
-     * Must never be negative, and not larger than maxEchoDelayUs in capability.
+     * Must be inside the range defined in capability.
      */
     int echoDelayUs;
     /**
      * If AEC mobile mode enabled.
      * Can only be false if AEC implementation indicate not support mobile mode by set
-     * supportMobileMode to false in capability.
+     * range of parameter Id mobileMode to false in capability.
      */
     boolean mobileMode;
 }

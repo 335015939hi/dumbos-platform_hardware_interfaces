@@ -16,50 +16,160 @@
 
 package android.hardware.audio.effect;
 
+import android.hardware.audio.effect.AcousticEchoCanceler;
+import android.hardware.audio.effect.AutomaticGainControl;
+import android.hardware.audio.effect.BassBoost;
+import android.hardware.audio.effect.Downmix;
+import android.hardware.audio.effect.DynamicsProcessing;
+import android.hardware.audio.effect.EnvironmentalReverb;
+import android.hardware.audio.effect.Equalizer;
+import android.hardware.audio.effect.HapticGenerator;
+import android.hardware.audio.effect.LoudnessEnhancer;
+import android.hardware.audio.effect.NoiseSuppression;
+import android.hardware.audio.effect.PresetReverb;
+import android.hardware.audio.effect.VendorExtension;
+import android.hardware.audio.effect.Virtualizer;
+import android.hardware.audio.effect.Visualizer;
+import android.hardware.audio.effect.Volume;
+
 /**
- * Define the range (min and max) of a certain field, identified by tag.
- * Can be used by effect capabilities to define supported value ranges.
+ * Define the range (min and max) of a certain field, identified by Parameter.Id.
+ * Can be used by effect capabilities to define supported value range.
  */
 @VintfStability
-parcelable Range {
+union Range {
+    @VintfStability
+    parcelable AcousticEchoCancelerRange {
+        AcousticEchoCanceler min;
+        AcousticEchoCanceler max;
+    }
+
+    @VintfStability
+    parcelable AutomaticGainControlRange {
+        AutomaticGainControl min;
+        AutomaticGainControl max;
+    }
+
+    @VintfStability
+    parcelable BassBoostRange {
+        BassBoost min;
+        BassBoost max;
+    }
+
+    @VintfStability
+    parcelable DownmixRange {
+        Downmix min;
+        Downmix max;
+    }
+
+    @VintfStability
+    parcelable DynamicsProcessingRange {
+        DynamicsProcessing min;
+        DynamicsProcessing max;
+    }
+
+    @VintfStability
+    parcelable EnvironmentalReverbRange {
+        EnvironmentalReverb min;
+        EnvironmentalReverb max;
+    }
+
+    @VintfStability
+    parcelable EqualizerRange {
+        Equalizer min;
+        Equalizer max;
+    }
+
+    @VintfStability
+    parcelable HapticGeneratorRange {
+        HapticGenerator min;
+        HapticGenerator max;
+    }
+
+    @VintfStability
+    parcelable LoudnessEnhancerRange {
+        LoudnessEnhancer min;
+        LoudnessEnhancer max;
+    }
+
+    @VintfStability
+    parcelable NoiseSuppressionRange {
+        NoiseSuppression min;
+        NoiseSuppression max;
+    }
+
+    @VintfStability
+    parcelable PresetReverbRange {
+        PresetReverb min;
+        PresetReverb max;
+    }
+
+    @VintfStability
+    parcelable VendorExtensionRange {
+        VendorExtension min;
+        VendorExtension max;
+    }
+
+    @VintfStability
+    parcelable VirtualizerRange {
+        Virtualizer min;
+        Virtualizer max;
+    }
+
+    @VintfStability
+    parcelable VisualizerRange {
+        Visualizer min;
+        Visualizer max;
+    }
+
+    @VintfStability
+    parcelable VolumeRange {
+        Volume min;
+        Volume max;
+    }
+
     /**
-     * The union tag name which the range is defined for.
-     * For example: if used in AutomaticGainControlV1.Capability, value of Range.tag could be
-     * targetLevelDbFs or compressionGainDb.
+     * The vector of range defined for parameters of each effect implementation.
+     * If an effect implementation need to define the valid range for a certain paramter, it can
+     * write the minimal/maximum supported value to the corresponding effect range vector.
+     * Say if an AcousticEchoCanceler implementation wants to define the supported range of
+     * echoDelayUs to [0, 500], then the Capability range should include an item in
+     * acousticEchoCanceler list:
+     *
+     * Range::AcousticEchoCanceler kRange = {
+        .min = AcousticEchoCanceler::make<AcousticEchoCanceler::echoDelayUs>({.echoDelayUs = 0}),
+        .max = AcousticEchoCanceler::make<AcousticEchoCanceler::echoDelayUs>({.echoDelayUs = 500})};
+     *
+     * For a more complex example, if an DynamicsProcessing implementation wants to define the
+     * supported range of preEqBand channel to [0, 1], band to [0, 5], and cutoffFrequencyHz to
+     * [220, 20000]:
+     *
+     * Range::DynamicsProcessingRange kRange = {
+     *   .min = DynamicsProcessing::make<DynamicsProcessing::preEqBand>(
+     *           {EqBandConfig({.channel = 0,
+     *                          .band = 0,
+     *                          .enable = false,
+     *                          .cutoffFrequencyHz = 220,
+     *                          .gainDb = std::numeric_limits<float>::min()})}),
+     *   .max = DynamicsProcessing::make<DynamicsProcessing::preEqBand>(
+     *           {EqBandConfig({.channel = 1,
+     *                          .band = 5,
+     *                          .enable = false.cutoffFrequencyHz = 20000,
+     *                          .gainDb = std::numeric_limits<float>::max()})})};
      */
-    int tag;
-
-    @VintfStability
-    parcelable Int {
-        int min;
-        int max;
-    }
-
-    @VintfStability
-    parcelable Float {
-        float min;
-        float max;
-    }
-
-    @VintfStability
-    parcelable Long {
-        long min;
-        long max;
-    }
-
-    @VintfStability
-    parcelable Byte {
-        byte min;
-        byte max;
-    }
-
-    @VintfStability
-    union Types {
-        Int rangeInt;
-        Float rangeFloat;
-        Long rangeLong;
-        Byte rangeByte;
-    }
-
-    Types types;
+    VendorExtension[] vendorExtension = {};
+    AcousticEchoCancelerRange[] acousticEchoCanceler;
+    AutomaticGainControlRange[] automaticGainControl;
+    BassBoostRange[] bassBoost;
+    DownmixRange[] downmix;
+    DynamicsProcessingRange[] dynamicsProcessing;
+    EnvironmentalReverbRange[] environmentalReverb;
+    EqualizerRange[] equalizer;
+    HapticGeneratorRange[] hapticGenerator;
+    LoudnessEnhancerRange[] loudnessEnhancer;
+    NoiseSuppressionRange[] noiseSuppression;
+    PresetReverbRange[] presetReverb;
+    Virtualizer[] virtualizer;
+    VisualizerRange[] visualizer;
+    VolumeRange[] volume;
 }

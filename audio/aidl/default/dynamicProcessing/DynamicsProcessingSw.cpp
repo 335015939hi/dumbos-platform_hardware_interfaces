@@ -23,6 +23,7 @@
 
 #include <android-base/logging.h>
 #include <fmq/AidlMessageQueue.h>
+#include <system/audio_effects/aidl_effects_utils.h>
 
 #include "DynamicsProcessingSw.h"
 
@@ -61,8 +62,26 @@ extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descrip
 namespace aidl::android::hardware::audio::effect {
 
 const std::string DynamicsProcessingSw::kEffectName = "DynamicsProcessingSw";
-const DynamicsProcessing::Capability DynamicsProcessingSw::kCapability = {.minCutOffFreq = 220,
-                                                                          .maxCutOffFreq = 20000};
+
+const Range::DynamicsProcessingRange DynamicsProcessingSw::kPreEqBandRange = {
+        .min = DynamicsProcessing::make<DynamicsProcessing::preEqBand>(
+                {DynamicsProcessing::EqBandConfig({.channel = 0,
+                                                   .band = 0,
+                                                   .enable = false,
+                                                   .cutoffFrequencyHz = 220,
+                                                   .gainDb = std::numeric_limits<float>::min()})}),
+        .max = DynamicsProcessing::make<DynamicsProcessing::preEqBand>(
+                {DynamicsProcessing::EqBandConfig({.channel = 1,
+                                                   .band = 5,
+                                                   .enable = false,
+                                                   .cutoffFrequencyHz = 20000,
+                                                   .gainDb = std::numeric_limits<float>::max()})})};
+
+const Range DynamicsProcessingSw::kRange =
+        Range::make<Range::dynamicsProcessing>({DynamicsProcessingSw::kPreEqBandRange});
+
+const Capability DynamicsProcessingSw::kCapability = {.range = {DynamicsProcessingSw::kRange}};
+
 const Descriptor DynamicsProcessingSw::kDescriptor = {
         .common = {.id = {.type = kDynamicsProcessingTypeUUID,
                           .uuid = kDynamicsProcessingSwImplUUID,
@@ -72,8 +91,7 @@ const Descriptor DynamicsProcessingSw::kDescriptor = {
                              .volume = Flags::Volume::CTRL},
                    .name = DynamicsProcessingSw::kEffectName,
                    .implementor = "The Android Open Source Project"},
-        .capability = Capability::make<Capability::dynamicsProcessing>(
-                DynamicsProcessingSw::kCapability)};
+        .capability = DynamicsProcessingSw::kCapability};
 
 ndk::ScopedAStatus DynamicsProcessingSw::getDescriptor(Descriptor* _aidl_return) {
     LOG(DEBUG) << __func__ << kDescriptor.toString();
@@ -462,11 +480,6 @@ std::vector<DynamicsProcessing::InputGain> DynamicsProcessingSwContext::getInput
     return ret;
 }
 
-bool DynamicsProcessingSwContext::validateCutoffFrequency(float freq) {
-    return freq >= DynamicsProcessingSw::kCapability.minCutOffFreq &&
-           freq <= DynamicsProcessingSw::kCapability.maxCutOffFreq;
-}
-
 bool DynamicsProcessingSwContext::validateStageEnablement(
         const DynamicsProcessing::StageEnablement& enablement) {
     return !enablement.inUse || (enablement.inUse && enablement.bandCount > 0);
@@ -484,7 +497,7 @@ bool DynamicsProcessingSwContext::validateEqBandConfig(
         const std::vector<DynamicsProcessing::ChannelConfig>& channelConfig) {
     return band.channel >= 0 && band.channel < maxChannel &&
            (size_t)band.channel < channelConfig.size() && channelConfig[band.channel].enable &&
-           band.band >= 0 && band.band < maxBand && validateCutoffFrequency(band.cutoffFrequencyHz);
+           band.band >= 0 && band.band < maxBand;
 }
 
 bool DynamicsProcessingSwContext::validateMbcBandConfig(
@@ -492,8 +505,7 @@ bool DynamicsProcessingSwContext::validateMbcBandConfig(
         const std::vector<DynamicsProcessing::ChannelConfig>& channelConfig) {
     return band.channel >= 0 && band.channel < maxChannel &&
            (size_t)band.channel < channelConfig.size() && channelConfig[band.channel].enable &&
-           band.band >= 0 && band.band < maxBand &&
-           validateCutoffFrequency(band.cutoffFrequencyHz) && band.attackTimeMs >= 0 &&
+           band.band >= 0 && band.band < maxBand && band.attackTimeMs >= 0 &&
            band.releaseTimeMs >= 0 && band.ratio >= 0 && band.thresholdDb <= 0 &&
            band.kneeWidthDb <= 0 && band.noiseGateThresholdDb <= 0 && band.expanderRatio >= 0;
 }

@@ -79,7 +79,7 @@ class EnvReverbSwContext final : public EffectContext {
 class EnvReverbSw final : public EffectImpl {
   public:
     static const std::string kEffectName;
-    static const EnvironmentalReverb::Capability kCapability;
+    static const Capability kCapability;
     static const Descriptor kDescriptor;
     EnvReverbSw() { LOG(DEBUG) << __func__; }
     ~EnvReverbSw() {

@@ -23,6 +23,7 @@
 
 #include <android-base/logging.h>
 #include <fmq/AidlMessageQueue.h>
+#include <system/audio_effects/aidl_effects_utils.h>
 
 #include "AcousticEchoCancelerSw.h"
 
@@ -30,6 +31,7 @@ using aidl::android::hardware::audio::effect::AcousticEchoCancelerSw;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::kAcousticEchoCancelerSwImplUUID;
+using aidl::android::hardware::audio::effect::Range;
 using aidl::android::media::audio::common::AudioUuid;
 
 extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
@@ -60,8 +62,19 @@ extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descrip
 namespace aidl::android::hardware::audio::effect {
 
 const std::string AcousticEchoCancelerSw::kEffectName = "AcousticEchoCancelerSw";
-const AcousticEchoCanceler::Capability AcousticEchoCancelerSw::kCapability = {
-        .maxEchoDelayUs = 500, .supportMobileMode = false};
+
+const Range::AcousticEchoCancelerRange AcousticEchoCancelerSw::kEchoDelayRange = {
+        .min = AcousticEchoCanceler::make<AcousticEchoCanceler::echoDelayUs>(0),
+        .max = AcousticEchoCanceler::make<AcousticEchoCanceler::echoDelayUs>(500)};
+const Range::AcousticEchoCancelerRange AcousticEchoCancelerSw::kMobileRange = {
+        .min = AcousticEchoCanceler::make<AcousticEchoCanceler::mobileMode>(false),
+        .max = AcousticEchoCanceler::make<AcousticEchoCanceler::mobileMode>(false)};
+
+const Range AcousticEchoCancelerSw::kRange = Range::make<Range::acousticEchoCanceler>(
+        {AcousticEchoCancelerSw::kEchoDelayRange, AcousticEchoCancelerSw::kMobileRange});
+
+const Capability AcousticEchoCancelerSw::kCapability = {.range = AcousticEchoCancelerSw::kRange};
+
 const Descriptor AcousticEchoCancelerSw::kDescriptor = {
         .common = {.id = {.type = kAcousticEchoCancelerTypeUUID,
                           .uuid = kAcousticEchoCancelerSwImplUUID,
@@ -71,8 +84,7 @@ const Descriptor AcousticEchoCancelerSw::kDescriptor = {
                              .volume = Flags::Volume::CTRL},
                    .name = AcousticEchoCancelerSw::kEffectName,
                    .implementor = "The Android Open Source Project"},
-        .capability = Capability::make<Capability::acousticEchoCanceler>(
-                AcousticEchoCancelerSw::kCapability)};
+        .capability = AcousticEchoCancelerSw::kCapability};
 
 ndk::ScopedAStatus AcousticEchoCancelerSw::getDescriptor(Descriptor* _aidl_return) {
     LOG(DEBUG) << __func__ << kDescriptor.toString();
@@ -87,8 +99,10 @@ ndk::ScopedAStatus AcousticEchoCancelerSw::setParameterSpecific(
     RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     auto& param = specific.get<Parameter::Specific::acousticEchoCanceler>();
-    auto tag = param.getTag();
+    RETURN_IF(!inRange(param, kRange.get<Range::acousticEchoCanceler>()), EX_ILLEGAL_ARGUMENT,
+              "notInRange");
 
+    auto tag = param.getTag();
     switch (tag) {
         case AcousticEchoCanceler::echoDelayUs: {
             RETURN_IF(mContext->setEchoDelay(param.get<AcousticEchoCanceler::echoDelayUs>()) !=
@@ -182,10 +196,6 @@ IEffect::Status AcousticEchoCancelerSw::effectProcessImpl(float* in, float* out,
 }
 
 RetCode AcousticEchoCancelerSwContext::setEchoDelay(int echoDelayUs) {
-    if (echoDelayUs < 0 || echoDelayUs > AcousticEchoCancelerSw::kCapability.maxEchoDelayUs) {
-        LOG(DEBUG) << __func__ << " illegal delay " << echoDelayUs;
-        return RetCode::ERROR_ILLEGAL_PARAMETER;
-    }
     mEchoDelayUs = echoDelayUs;
     return RetCode::SUCCESS;
 }

@@ -19,16 +19,17 @@
 #include <string>
 
 #include <aidl/android/hardware/audio/effect/BnEffect.h>
+#include <aidl/android/hardware/audio/effect/Range.h>
 #include <android-base/logging.h>
 
 typedef binder_exception_t (*EffectCreateFunctor)(
         const ::aidl::android::media::audio::common::AudioUuid*,
-        std::shared_ptr<aidl::android::hardware::audio::effect::IEffect>*);
+        std::shared_ptr<::aidl::android::hardware::audio::effect::IEffect>*);
 typedef binder_exception_t (*EffectDestroyFunctor)(
-        const std::shared_ptr<aidl::android::hardware::audio::effect::IEffect>&);
+        const std::shared_ptr<::aidl::android::hardware::audio::effect::IEffect>&);
 typedef binder_exception_t (*EffectQueryFunctor)(
         const ::aidl::android::media::audio::common::AudioUuid*,
-        aidl::android::hardware::audio::effect::Descriptor*);
+        ::aidl::android::hardware::audio::effect::Descriptor*);
 
 struct effect_dl_interface_s {
     EffectCreateFunctor createEffectFunc;

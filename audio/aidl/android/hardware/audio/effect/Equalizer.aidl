@@ -41,28 +41,6 @@ union Equalizer {
     VendorExtension vendorExtension;
 
     /**
-     * Capability MUST be supported by Equalizer implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * Equalizer capability extension, vendor can use this extension in case existing capability
-         * definition not enough.
-         */
-        ParcelableHolder extension;
-
-        /**
-         * Bands frequency ranges supported.
-         */
-        BandFrequency[] bandFrequencies;
-
-        /**
-         * Presets name and index.
-         */
-        Preset[] presets;
-    }
-
-    /**
      * Level setting for each band in millibels.
      */
     @VintfStability

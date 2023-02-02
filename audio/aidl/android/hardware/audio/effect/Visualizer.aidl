@@ -47,26 +47,6 @@ union Visualizer {
     VendorExtension vendor;
 
     /**
-     * Capability supported by Visualizer implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * Visualizer capability extension, vendor can use this extension in case existing
-         * capability definition not enough.
-         */
-        VendorExtension extension;
-        /**
-         * Max latency supported in millseconds.
-         */
-        int maxLatencyMs;
-        /**
-         *  Capture size range.
-         */
-        CaptureSamplesRange captureSampleRange;
-    }
-
-    /**
      * Supported capture size range in samples.
      */
     @VintfStability
