@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9de698f2_c8bad566",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-02-02T00:14:35Z",
+      "side": 1,
+      "message": "How would you like it to be documented?  It should return a status:\n\n@VintfStability\n@Backing(type\u003d\"int\")\nenum Status {\n    SUCCESS,\n    ALREADY_INITIALIZED,\n    UNABLE_TO_OPEN_INTERFACE,\n    HARDWARE_INITIALIZATION_ERROR,\n    UNKNOWN,\n}\n\nI don\u0027t see a good place to document the fact that there can only be one HAL client at a time.",
+      "parentUuid": "a3aa7952_be7735d5",
+      "range": {
+        "startLine": 871,
+        "startChar": 26,
+        "endLine": 871,
+        "endChar": 45
+      },
+      "revId": "a5d033fabd943fb83fbaca7e6389f49294e64035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "072a8900_41bf9622",
         "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
         "patchSetId": 3
