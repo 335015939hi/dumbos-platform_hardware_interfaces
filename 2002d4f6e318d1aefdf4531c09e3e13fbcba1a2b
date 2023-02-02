@@ -22,6 +22,30 @@
       },
       "revId": "2002d4f6e318d1aefdf4531c09e3e13fbcba1a2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b52346e_6c377e77",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-02T02:08:47Z",
+      "side": 1,
+      "message": "Yes the current path for these libraries are `vendor/lib(64)`, I was planning to do it in next CL after the removal of shared_lib, but since you asked, I just amend them into same topic.",
+      "parentUuid": "25707982_486a744e",
+      "range": {
+        "startLine": 205,
+        "startChar": 12,
+        "endLine": 205,
+        "endChar": 29
+      },
+      "revId": "2002d4f6e318d1aefdf4531c09e3e13fbcba1a2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
