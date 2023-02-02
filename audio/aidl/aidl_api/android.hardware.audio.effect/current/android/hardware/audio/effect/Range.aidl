@@ -57,10 +57,16 @@ parcelable Range {
     byte max;
   }
   @VintfStability
+  parcelable Bool {
+    boolean min;
+    boolean max;
+  }
+  @VintfStability
   union Types {
     android.hardware.audio.effect.Range.Int rangeInt;
     android.hardware.audio.effect.Range.Float rangeFloat;
     android.hardware.audio.effect.Range.Long rangeLong;
     android.hardware.audio.effect.Range.Byte rangeByte;
+    android.hardware.audio.effect.Range.Bool rangeBool;
   }
 }

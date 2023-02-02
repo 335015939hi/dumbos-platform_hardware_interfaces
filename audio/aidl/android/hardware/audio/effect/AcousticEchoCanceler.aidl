@@ -16,6 +16,7 @@
 
 package android.hardware.audio.effect;
 
+import android.hardware.audio.effect.Range;
 import android.hardware.audio.effect.VendorExtension;
 
 /**
@@ -44,6 +45,7 @@ union AcousticEchoCanceler {
 
     /**
      * Capability supported by AEC implementation.
+     * This will be extracted into an individual parcelable and used by all effects if we use Range.
      */
     @VintfStability
     parcelable Capability {
@@ -54,13 +56,10 @@ union AcousticEchoCanceler {
         ParcelableHolder extension;
 
         /**
-         * Maximum AEC echo delay in microseconds supported.
+         * List of range defined for parameters by effect implementation.
+         * The effect implementation must not define more than one range for each parameter.
          */
-        int maxEchoDelayUs;
-        /**
-         * If AEC mobile mode was supported by the AEC implementation.
-         */
-        boolean supportMobileMode;
+        Range[] ranges;
     }
 
     /**

@@ -54,11 +54,18 @@ parcelable Range {
     }
 
     @VintfStability
+    parcelable Bool {
+        boolean min;
+        boolean max;
+    }
+
+    @VintfStability
     union Types {
         Int rangeInt;
         Float rangeFloat;
         Long rangeLong;
         Byte rangeByte;
+        Bool rangeBool;
     }
 
     Types types;

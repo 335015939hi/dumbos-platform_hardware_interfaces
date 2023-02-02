@@ -45,7 +45,6 @@ union AcousticEchoCanceler {
   @VintfStability
   parcelable Capability {
     ParcelableHolder extension;
-    int maxEchoDelayUs;
-    boolean supportMobileMode;
+    android.hardware.audio.effect.Range[] ranges;
   }
 }
