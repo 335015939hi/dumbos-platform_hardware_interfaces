@@ -16,6 +16,98 @@
       "message": "Hi, this CL shows how I wanted to use the Range definition, please help review, thanks",
       "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bca182d4_f5067fe9",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-02T23:43:19Z",
+      "side": 1,
+      "message": "I think it would be more consistent if we had an \"undefined\" variant in the Range, and index the \u0027ranges\u0027 array by the Parameter\u0027s tag. Less chance for errors and easier to verify automatically.",
+      "range": {
+        "startLine": 60,
+        "startChar": 11,
+        "endLine": 60,
+        "endChar": 92
+      },
+      "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4f3ef74_913093ee",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-02T23:43:19Z",
+      "side": 1,
+      "message": "These comments are now outdated.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 80
+      },
+      "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "629cf3cc_9768b67c",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-02T23:43:19Z",
+      "side": 1,
+      "message": "I\u0027ve got a thought today that maybe these two variants would suffice here. Since capability fields carry their own type, the type of the range does not necessarily need to be of the same type. The two things we care about when defining a range are the span and the allowed precision. Thus, a \"long\" range will cover all integer cases, and \"float\" will cover all float cases. For example, we still can use \"long\" range type when defining a range for an integer capability.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 5
+      },
+      "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3e84ebf_02376d31",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-02T23:43:19Z",
+      "side": 1,
+      "message": "This looks over-engineered to me, will be hard to explain to partners. I suppose, the only two combinations we will ever met are \u0027false..false\u0027 and \u0027false..true\u0027, in which case just one boolean value would suffice.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 5
+      },
+      "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
