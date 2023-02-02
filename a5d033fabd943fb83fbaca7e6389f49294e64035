@@ -69,6 +69,30 @@
       },
       "revId": "a5d033fabd943fb83fbaca7e6389f49294e64035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37360358_228e3447",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-02-02T00:15:55Z",
+      "side": 1,
+      "message": "The return value just means whether the call succeeded.  I see your point, though.  I went back and forth.  If we did that, we could just remove the status message of initializationComplete(), and not send it if it failed.",
+      "parentUuid": "072a8900_41bf9622",
+      "range": {
+        "startLine": 876,
+        "startChar": 6,
+        "endLine": 876,
+        "endChar": 53
+      },
+      "revId": "a5d033fabd943fb83fbaca7e6389f49294e64035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
