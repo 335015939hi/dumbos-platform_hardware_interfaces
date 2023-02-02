@@ -49,6 +49,7 @@ class BluetoothAudioProvider : public BnBluetoothAudioProvider {
   ndk::ScopedAStatus updateAudioConfiguration(
       const AudioConfiguration& audio_config);
   ndk::ScopedAStatus setLowLatencyModeAllowed(bool allowed);
+  ndk::ScopedAStatus setBitRate(int bitRate);
 
   virtual bool isValid(const SessionType& sessionType) = 0;
 

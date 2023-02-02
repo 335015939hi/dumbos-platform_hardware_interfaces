@@ -93,4 +93,11 @@ interface IBluetoothAudioProvider {
      * mode, the API will be called with supported is false.
      */
     void setLowLatencyModeAllowed(in boolean allowed);
+
+    /**
+     * Set encode bit rate of current codec in local device.
+     *
+     * @param bitRate expected bit rate value
+     */
+    void setBitRate(in int bitRate);
 }

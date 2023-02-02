@@ -897,6 +897,19 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
 }
 
 /**
+ * Test whether each provider of type
+ * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be set bit rate
+ */
+TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
+       StartAndEndA2dpEncodingHardwareSessionInvalidCodecConfig) {
+  if (!IsOffloadSupported()) {
+    return;
+  }
+  ASSERT_NE(audio_provider_, nullptr);
+  EXPECT_TRUE(audio_provider_->setBitRate(12800).isOk());
+}
+
+/**
  * openProvider HEARING_AID_SOFTWARE_ENCODING_DATAPATH
  */
 class BluetoothAudioProviderHearingAidSoftwareAidl
