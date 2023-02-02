@@ -22,6 +22,30 @@
       },
       "revId": "008f8f134bd3502bf44fb34d5d079669c13ad54e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c2694a3_e7a2060d",
+        "filename": "usb/gadget/aidl/default/UsbGadget.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1956258
+      },
+      "writtenOn": "2023-02-02T17:53:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb288bfe_1c9d177d",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 30
+      },
+      "revId": "008f8f134bd3502bf44fb34d5d079669c13ad54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
