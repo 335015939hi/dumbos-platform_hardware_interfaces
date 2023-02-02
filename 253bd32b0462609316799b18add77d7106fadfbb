@@ -33,6 +33,24 @@
       "message": "Thanks! It looks like tinyALSA API is a bit different vs. internal. Maybe you\u0027ll need to merge the internal one first.",
       "revId": "253bd32b0462609316799b18add77d7106fadfbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ffe3ef6_6a35d7d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-02-02T21:36:41Z",
+      "side": 1,
+      "message": "Yes, I\u0027m cherry-picking the missed CL for alsa proxy to AOSP and then I can merge this CL.",
+      "parentUuid": "dd0b5f81_fdef38bd",
+      "revId": "253bd32b0462609316799b18add77d7106fadfbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
