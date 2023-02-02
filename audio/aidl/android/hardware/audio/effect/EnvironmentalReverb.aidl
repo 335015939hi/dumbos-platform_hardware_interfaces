@@ -43,63 +43,6 @@ union EnvironmentalReverb {
     VendorExtension vendor;
 
     /**
-     * Capability supported by effect implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        VendorExtension extension;
-
-        /**
-         * Minimal possible room level in millibels.
-         */
-        int minRoomLevelMb;
-        /**
-         * Maximum possible room level in millibels.
-         */
-        int maxRoomLevelMb;
-        /**
-         * Minimal possible room hf level in millibels.
-         */
-        int minRoomHfLevelMb;
-        /**
-         * Maximum possible room hf level in millibels.
-         */
-        int maxRoomHfLevelMb;
-        /**
-         * Max decay time supported in millisecond.
-         */
-        int maxDecayTimeMs;
-        /**
-         * Minimal possible per mille decay hf ratio.
-         */
-        int minDecayHfRatioPm;
-        /**
-         * Maximum possible per mille decay hf ratio.
-         */
-        int maxDecayHfRatioPm;
-        /**
-         * Minimal possible room level in millibels.
-         */
-        int minLevelMb;
-        /**
-         * Maximum possible room level in millibels.
-         */
-        int maxLevelMb;
-        /**
-         * Maximum possible delay time in milliseconds.
-         */
-        int maxDelayMs;
-        /**
-         * Maximum possible per mille diffusion.
-         */
-        int maxDiffusionPm;
-        /**
-         * Maximum possible per mille density.
-         */
-        int maxDensityPm;
-    }
-
-    /**
      * Room level apply to the reverb effect in millibels. The value of the roomLevelMb must be in
      * range of the value specified by the 'minRoomLevelMb' capability and the 'maxRoomLevelMb'
      * capability.

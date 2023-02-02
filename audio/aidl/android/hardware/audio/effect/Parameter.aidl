@@ -44,6 +44,8 @@ import android.media.audio.common.AudioSource;
  * 2. Parameters defined for a specific effect type.
  * 3. Extension parameters ParcelableHolder can be used for vendor effect definition.
  *
+ * All parameters are get-able, if any parameter doesn't support set, effect implementation should
+ * report the supported range for this parameter as range.min > range.max.
  */
 @VintfStability
 union Parameter {
