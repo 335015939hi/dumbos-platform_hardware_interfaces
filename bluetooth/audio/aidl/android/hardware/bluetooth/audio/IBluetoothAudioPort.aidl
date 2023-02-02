@@ -90,4 +90,11 @@ interface IBluetoothAudioPort {
      * @param latencyMode latency mode from audio
      */
     void setLatencyMode(in LatencyMode latencyMode);
+
+    /**
+     * Called when state of dynamic latency mode is changed.
+     *
+     * @param allowed if dynamic latency mode if allowed or not
+     */
+    void setDynamicLatencyAllowed(in boolean allowed);
 }
