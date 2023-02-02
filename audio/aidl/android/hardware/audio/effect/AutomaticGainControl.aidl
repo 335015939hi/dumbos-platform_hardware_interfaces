@@ -44,26 +44,6 @@ union AutomaticGainControl {
      */
     VendorExtension vendor;
 
-    /**
-     * Capability supported by AutomaticGainControl implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * AutomaticGainControl capability extension, vendor can use this extension in case existing
-         * capability definition not enough.
-         */
-        ParcelableHolder extension;
-        /**
-         * Max fixed digital gain supported by AGC implementation in millibel.
-         */
-        int maxFixedDigitalGainMb;
-        /**
-         * Max fixed saturation margin supported by AGC implementation in millibel.
-         */
-        int maxSaturationMarginMb;
-    }
-
     @VintfStability
     @Backing(type="int")
     enum LevelEstimator {
