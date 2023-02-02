@@ -16,7 +16,6 @@
 
 package android.hardware.audio.effect;
 
-import android.hardware.audio.effect.Range;
 import android.hardware.audio.effect.VendorExtension;
 
 /**
@@ -44,22 +43,6 @@ union AutomaticGainControlV1 {
      * Vendor AutomaticGainControlV1 implementation definition for additional parameters.
      */
     VendorExtension vendor;
-
-    /**
-     * Capability supported by AutomaticGainControlV1 implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * AutomaticGainControlV1 capability extension, vendor can use this extension in case
-         * existing capability definition not enough.
-         */
-        ParcelableHolder extension;
-        /**
-         * Supported range for parameters.
-         */
-        Range[] ranges;
-    }
 
     /**
      * Target peak level (or envelope) of the AGC implementation in dBFs (dB relative to full

@@ -16,50 +16,183 @@
 
 package android.hardware.audio.effect;
 
+import android.hardware.audio.effect.AcousticEchoCanceler;
+import android.hardware.audio.effect.AutomaticGainControl;
+import android.hardware.audio.effect.BassBoost;
+import android.hardware.audio.effect.Downmix;
+import android.hardware.audio.effect.DynamicsProcessing;
+import android.hardware.audio.effect.EnvironmentalReverb;
+import android.hardware.audio.effect.Equalizer;
+import android.hardware.audio.effect.HapticGenerator;
+import android.hardware.audio.effect.LoudnessEnhancer;
+import android.hardware.audio.effect.NoiseSuppression;
+import android.hardware.audio.effect.PresetReverb;
+import android.hardware.audio.effect.VendorExtension;
+import android.hardware.audio.effect.Virtualizer;
+import android.hardware.audio.effect.Visualizer;
+import android.hardware.audio.effect.Volume;
+
 /**
- * Define the range (min and max) of a certain field, identified by tag.
- * Can be used by effect capabilities to define supported value ranges.
+ * Define the supported range of effect parameters.
+ * Effect implementation must report the supported range of parameter/capability if there is any
+ * limitation.
+ *
+ * If an effect implementation need to define the valid range for a certain parameter, it can
+ * write the minimal/maximum supported value to the corresponding effect range vector.
+ * Say if an AcousticEchoCanceler implementation wants to define the supported range of
+ * echoDelayUs to [0, 500], then the Capability range should include an item in
+ * acousticEchoCanceler list:
+ * Range::AcousticEchoCanceler kRange = MAKE_RANGE(AcousticEchoCanceler, echoDelayUs, 0, 500)};
+ *
+ * For a more complex example, if a DynamicsProcessing implementation wants to define the
+ * supported range of preEqBand channel to [0, 1], band to [0, 5], and cutoffFrequencyHz to
+ * [220, 20000]:
+ * Range::DynamicsProcessingRange kRange = {
+ *   .min = DynamicsProcessing::make<DynamicsProcessing::preEqBand>(
+ *           {EqBandConfig({.channel = 0,
+ *                          .band = 0,
+ *                          .enable = false,
+ *                          .cutoffFrequencyHz = 220,
+ *                          .gainDb = std::numeric_limits<float>::min()})}),
+ *   .max = DynamicsProcessing::make<DynamicsProcessing::preEqBand>(
+ *           {EqBandConfig({.channel = 1,
+ *                          .band = 5,
+ *                          .enable = true,
+ *                          .cutoffFrequencyHz = 20000,
+ *                          .gainDb = std::numeric_limits<float>::max()})})};
+ *
+ * For get only parameters, the effect implementation must define an invalid range (min > max), to
+ * indicate no parameter from effect client can be accepted for setting. The effect implementation
+ * must rerun EX_ILLEGAL_ARGUMENT if receive any setParameter call for get only parameter.
+ * As an example, the get-only parameter Virtualizer.speakerAngles can be defined with:
+ *   Range::VirtualizerRange kRanges = {
+ *       MAKE_RANGE(Virtualizer, speakerAngles,
+ *                  {Virtualizer::ChannelAngle({.channel = 1},
+ *                  {Virtualizer::ChannelAngle({.channel = 1})};
+ *
+ * For a capability definition (which is also get only), the effect implementation must define a
+ * range with min == max, to indicate this is a fixed capability which shouldn't set by client.
+ * As an example, the Equalizer presets capability can be defined with:
+ * std::vector<Equalizer::Preset> kPresets = {
+ *       {0, "Normal"},      {1, "Classical"}, {2, "Dance"}, {3, "Flat"}, {4, "Folk"},
+ *       {5, "Heavy Metal"}, {6, "Hip Hop"},   {7, "Jazz"},  {8, "Pop"},  {9, "Rock"}};
+ * Range::EqualizerRange kRanges =
+ *      MAKE_RANGE(Equalizer, presets, EqualizerSw::kPresets, EqualizerSw::kPresets);
+ *
+ * The effect implementation must rerun EX_ILLEGAL_ARGUMENT if:
+ * 1. receive any setParameter call for get only parameter (min > max).
+ * 2. receive any setParameter call for capability parameter definition (min == max).
+ * 3. receive any setParameter call for parameters not in the range of [min, max].
+ *
  */
 @VintfStability
-parcelable Range {
+union Range {
+    @VintfStability
+    parcelable AcousticEchoCancelerRange {
+        AcousticEchoCanceler min;
+        AcousticEchoCanceler max;
+    }
+
+    @VintfStability
+    parcelable AutomaticGainControlRange {
+        AutomaticGainControl min;
+        AutomaticGainControl max;
+    }
+
+    @VintfStability
+    parcelable BassBoostRange {
+        BassBoost min;
+        BassBoost max;
+    }
+
+    @VintfStability
+    parcelable DownmixRange {
+        Downmix min;
+        Downmix max;
+    }
+
+    @VintfStability
+    parcelable DynamicsProcessingRange {
+        DynamicsProcessing min;
+        DynamicsProcessing max;
+    }
+
+    @VintfStability
+    parcelable EnvironmentalReverbRange {
+        EnvironmentalReverb min;
+        EnvironmentalReverb max;
+    }
+
+    @VintfStability
+    parcelable EqualizerRange {
+        Equalizer min;
+        Equalizer max;
+    }
+
+    @VintfStability
+    parcelable HapticGeneratorRange {
+        HapticGenerator min;
+        HapticGenerator max;
+    }
+
+    @VintfStability
+    parcelable LoudnessEnhancerRange {
+        LoudnessEnhancer min;
+        LoudnessEnhancer max;
+    }
+
+    @VintfStability
+    parcelable NoiseSuppressionRange {
+        NoiseSuppression min;
+        NoiseSuppression max;
+    }
+
+    @VintfStability
+    parcelable PresetReverbRange {
+        PresetReverb min;
+        PresetReverb max;
+    }
+
+    @VintfStability
+    parcelable VendorExtensionRange {
+        VendorExtension min;
+        VendorExtension max;
+    }
+
+    @VintfStability
+    parcelable VirtualizerRange {
+        Virtualizer min;
+        Virtualizer max;
+    }
+
+    @VintfStability
+    parcelable VisualizerRange {
+        Visualizer min;
+        Visualizer max;
+    }
+
+    @VintfStability
+    parcelable VolumeRange {
+        Volume min;
+        Volume max;
+    }
+
     /**
-     * The union tag name which the range is defined for.
-     * For example: if used in AutomaticGainControlV1.Capability, value of Range.tag could be
-     * targetLevelDbFs or compressionGainDb.
+     * The vector of range defined for parameters of each effect implementation.
      */
-    int tag;
-
-    @VintfStability
-    parcelable Int {
-        int min;
-        int max;
-    }
-
-    @VintfStability
-    parcelable Float {
-        float min;
-        float max;
-    }
-
-    @VintfStability
-    parcelable Long {
-        long min;
-        long max;
-    }
-
-    @VintfStability
-    parcelable Byte {
-        byte min;
-        byte max;
-    }
-
-    @VintfStability
-    union Types {
-        Int rangeInt;
-        Float rangeFloat;
-        Long rangeLong;
-        Byte rangeByte;
-    }
-
-    Types types;
+    VendorExtension[] vendorExtension = {};
+    AcousticEchoCancelerRange[] acousticEchoCanceler;
+    AutomaticGainControlRange[] automaticGainControl;
+    BassBoostRange[] bassBoost;
+    DownmixRange[] downmix;
+    DynamicsProcessingRange[] dynamicsProcessing;
+    EnvironmentalReverbRange[] environmentalReverb;
+    EqualizerRange[] equalizer;
+    HapticGeneratorRange[] hapticGenerator;
+    LoudnessEnhancerRange[] loudnessEnhancer;
+    NoiseSuppressionRange[] noiseSuppression;
+    PresetReverbRange[] presetReverb;
+    VirtualizerRange[] virtualizer;
+    VisualizerRange[] visualizer;
+    VolumeRange[] volume;
 }

@@ -45,18 +45,6 @@ union NoiseSuppression {
     VendorExtension vendor;
 
     /**
-     * Capability supported by NoiseSuppression implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * NoiseSuppression capability extension, vendor can use this extension in case existing
-         * capability definition not enough.
-         */
-        ParcelableHolder extension;
-    }
-
-    /**
      * Different level of Noise Suppression to set.
      * As an example, webrtc have NsConfig::SuppressionLevel::k6dB applied for LOW level noise
      * suppression, NsConfig::SuppressionLevel::k12dB for MEDIUM, and

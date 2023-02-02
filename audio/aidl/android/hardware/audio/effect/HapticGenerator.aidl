@@ -42,18 +42,6 @@ union HapticGenerator {
      */
     VendorExtension vendorExtension;
 
-    /**
-     * Capability supported by HapticGenerator implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * HapticGenerator capability extension, vendor can use this extension in case existing
-         * capability definition not enough.
-         */
-        VendorExtension extension;
-    }
-
     @VintfStability
     @Backing(type="int")
     enum VibratorScale {

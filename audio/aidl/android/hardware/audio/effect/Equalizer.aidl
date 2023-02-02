@@ -41,28 +41,6 @@ union Equalizer {
     VendorExtension vendorExtension;
 
     /**
-     * Capability MUST be supported by Equalizer implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * Equalizer capability extension, vendor can use this extension in case existing capability
-         * definition not enough.
-         */
-        ParcelableHolder extension;
-
-        /**
-         * Bands frequency ranges supported.
-         */
-        BandFrequency[] bandFrequencies;
-
-        /**
-         * Presets name and index.
-         */
-        Preset[] presets;
-    }
-
-    /**
      * Level setting for each band in millibels.
      */
     @VintfStability
@@ -107,4 +85,14 @@ union Equalizer {
      * Get only parameter, get the center frequency for all bands in milliHertz.
      */
     int[] centerFreqMh;
+
+    /**
+     * Get only parameter, indicating bands frequency ranges supported by implementation.
+     */
+    BandFrequency[] bandFrequencies;
+
+    /**
+     * Get only parameter, indicating presets name and index supported by implementation.
+     */
+    Preset[] presets;
 }
