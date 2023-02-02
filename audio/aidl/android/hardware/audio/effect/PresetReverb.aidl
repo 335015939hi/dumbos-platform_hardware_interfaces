@@ -21,9 +21,9 @@ import android.hardware.audio.effect.VendorExtension;
 /**
  * PresetReverb specific definitions.
  *
- * All parameters defined in union PresetReverb must be gettable and settable. The capabilities
- * defined in PresetReverb.Capability can only acquired with IEffect.getDescriptor() and not
- * settable.
+ * All parameter settings must be inside the range of Capability.Range.presetReverb definition if
+ * the definition for the corresponding parameter tag exist. See more detals about Range in
+ * Range.aidl.
  */
 @VintfStability
 union PresetReverb {
@@ -78,17 +78,16 @@ union PresetReverb {
     VendorExtension vendor;
 
     /**
-     * Capability supported by effect implementation.
+     * The list of presets supported by implementation, effect implementation must declear the
+     * support of Presets with Capability.Range.presetReverb definition. For example, if an effect
+     * implementation supports all Presets in PresetReverb.Presets, then the capability will be:
+     *  const std::vector<PresetReverb::Presets> kSupportedPresets{
+     *          ndk::enum_range<PresetReverb::Presets>().begin(),
+     *          ndk::enum_range<PresetReverb::Presets>().end()};
+     *  const std::vector<Range::PresetReverbRange> kRanges = {
+     *          MAKE_RANGE(PresetReverb, supportedPresets, kSupportedPresets, kSupportedPresets)};
      */
-    @VintfStability
-    parcelable Capability {
-        VendorExtension extension;
-
-        /**
-         * List of presets supported.
-         */
-        Presets[] supportedPresets;
-    }
+    Presets[] supportedPresets;
 
     /**
      * Get current reverb preset when used in getParameter.
