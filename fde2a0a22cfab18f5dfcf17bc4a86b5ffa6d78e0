@@ -16,6 +16,24 @@
       "message": "Is this implemented? You may copy the code from here:\n\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp;l\u003d262;drc\u003dcca9762edaf0659249f66f42c9505e1c76bc8e50",
       "revId": "fde2a0a22cfab18f5dfcf17bc4a86b5ffa6d78e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7eaea21_9456d2b1",
+        "filename": "health/aidl/vts/functional/VtsHalHealthTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-02-02T10:44:00Z",
+      "side": 1,
+      "message": "thanks for the advice!",
+      "parentUuid": "f02cb0bb_e292cad3",
+      "revId": "fde2a0a22cfab18f5dfcf17bc4a86b5ffa6d78e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
