@@ -42,27 +42,6 @@ union BassBoost {
     VendorExtension vendor;
 
     /**
-     * Capability supported by BassBoost implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * BassBoost capability extension, vendor can use this extension in case existing capability
-         * definition not enough.
-         */
-        ParcelableHolder extension;
-        /**
-         * Maximum possible per mille strength.
-         */
-        int maxStrengthPm;
-        /**
-         * Indicates whether setting strength is supported. False value indicates only one strength
-         * is supported and setParameter() method will return EX_ILLEGAL_ARGUMENT.
-         */
-        boolean strengthSupported;
-    }
-
-    /**
      * The per mille strength of the bass boost effect.
      *
      * If the implementation does not support per mille accuracy for setting the strength, it is

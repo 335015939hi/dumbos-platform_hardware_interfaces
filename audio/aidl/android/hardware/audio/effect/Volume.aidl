@@ -41,28 +41,6 @@ union Volume {
     VendorExtension vendor;
 
     /**
-     * Capability supported by Volume implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * Volume capability extension, vendor can use this extension in case existing capability
-         * definition not enough.
-         */
-        VendorExtension extension;
-
-        /**
-         * Minimum Volume level supported in dB.
-         */
-        int minLevelDb;
-
-        /**
-         * Maximum Volume level supported in dB.
-         */
-        int maxLevelDb;
-    }
-
-    /**
      * Current level in dB with supported minimum and maximum level specified in capability.
      */
     int levelDb;

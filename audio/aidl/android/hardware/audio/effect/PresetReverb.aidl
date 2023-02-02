@@ -78,17 +78,9 @@ union PresetReverb {
     VendorExtension vendor;
 
     /**
-     * Capability supported by effect implementation.
+     * Get only parameter, the list of presets supported by implementation.
      */
-    @VintfStability
-    parcelable Capability {
-        VendorExtension extension;
-
-        /**
-         * List of presets supported.
-         */
-        Presets[] supportedPresets;
-    }
+    Presets[] supportedPresets;
 
     /**
      * Get current reverb preset when used in getParameter.
