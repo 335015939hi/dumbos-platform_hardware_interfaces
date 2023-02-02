@@ -34,7 +34,7 @@
 package android.hardware.audio.effect;
 @VintfStability
 parcelable Range {
-  int tag;
+  android.hardware.audio.effect.Parameter.Id id;
   android.hardware.audio.effect.Range.Types types;
   @VintfStability
   parcelable Int {
@@ -62,5 +62,6 @@ parcelable Range {
     android.hardware.audio.effect.Range.Float rangeFloat;
     android.hardware.audio.effect.Range.Long rangeLong;
     android.hardware.audio.effect.Range.Byte rangeByte;
+    boolean rangeBool;
   }
 }

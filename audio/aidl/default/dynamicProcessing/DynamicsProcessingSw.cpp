@@ -61,8 +61,14 @@ extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descrip
 namespace aidl::android::hardware::audio::effect {
 
 const std::string DynamicsProcessingSw::kEffectName = "DynamicsProcessingSw";
-const DynamicsProcessing::Capability DynamicsProcessingSw::kCapability = {.minCutOffFreq = 220,
-                                                                          .maxCutOffFreq = 20000};
+const Range DynamicsProcessingSw::kCutOffFreqRange = {
+        .id = MAKE_SPECIFIC_PARAMETER_ID(BassBoost, bassBoostTag, strengthPm),
+        .types = Range::Types::make<Range::Types::rangeFloat>(
+                Range::Float({.min = 220.f, .max = 20000.f}))};
+
+const Capability DynamicsProcessingSw::kCapability = {
+        .ranges = {DynamicsProcessingSw::kCutOffFreqRange}};
+
 const Descriptor DynamicsProcessingSw::kDescriptor = {
         .common = {.id = {.type = kDynamicsProcessingTypeUUID,
                           .uuid = kDynamicsProcessingSwImplUUID,
@@ -72,8 +78,7 @@ const Descriptor DynamicsProcessingSw::kDescriptor = {
                              .volume = Flags::Volume::CTRL},
                    .name = DynamicsProcessingSw::kEffectName,
                    .implementor = "The Android Open Source Project"},
-        .capability = Capability::make<Capability::dynamicsProcessing>(
-                DynamicsProcessingSw::kCapability)};
+        .capability = DynamicsProcessingSw::kCapability};
 
 ndk::ScopedAStatus DynamicsProcessingSw::getDescriptor(Descriptor* _aidl_return) {
     LOG(DEBUG) << __func__ << kDescriptor.toString();
@@ -463,8 +468,7 @@ std::vector<DynamicsProcessing::InputGain> DynamicsProcessingSwContext::getInput
 }
 
 bool DynamicsProcessingSwContext::validateCutoffFrequency(float freq) {
-    return freq >= DynamicsProcessingSw::kCapability.minCutOffFreq &&
-           freq <= DynamicsProcessingSw::kCapability.maxCutOffFreq;
+    return checkRange<Range::Types::rangeFloat>(freq, DynamicsProcessingSw::kCapability.ranges);
 }
 
 bool DynamicsProcessingSwContext::validateStageEnablement(

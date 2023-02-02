@@ -104,7 +104,7 @@ class DynamicsProcessingSwContext final : public EffectContext {
 class DynamicsProcessingSw final : public EffectImpl {
   public:
     static const std::string kEffectName;
-    static const DynamicsProcessing::Capability kCapability;
+    static const Capability kCapability;
     static const Descriptor kDescriptor;
     DynamicsProcessingSw() { LOG(DEBUG) << __func__; }
     ~DynamicsProcessingSw() {
@@ -125,6 +125,7 @@ class DynamicsProcessingSw final : public EffectImpl {
     std::string getEffectName() override { return kEffectName; };
 
   private:
+    static const Range kCutOffFreqRange;
     std::shared_ptr<DynamicsProcessingSwContext> mContext;
     ndk::ScopedAStatus getParameterDynamicsProcessing(const DynamicsProcessing::Tag& tag,
                                                       Parameter::Specific* specific);

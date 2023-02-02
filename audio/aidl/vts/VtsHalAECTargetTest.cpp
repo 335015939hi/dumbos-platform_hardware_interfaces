@@ -23,16 +23,19 @@
 #define LOG_TAG "VtsHalAECParamTest"
 
 #include "EffectHelper.h"
+#include "effect-impl/EffectTypes.h"
 
 using namespace android;
 
 using aidl::android::hardware::audio::effect::AcousticEchoCanceler;
 using aidl::android::hardware::audio::effect::Capability;
+using aidl::android::hardware::audio::effect::checkRange;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
 using aidl::android::hardware::audio::effect::kAcousticEchoCancelerTypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
+using aidl::android::hardware::audio::effect::Range;
 
 enum ParamName { PARAM_INSTANCE_NAME, PARAM_ECHO_DELAY, PARAM_MOBILE_MODE };
 using AECParamTestParam = std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>,
@@ -142,36 +145,42 @@ class AECParamTest : public ::testing::TestWithParam<AECParamTestParam>, public 
     }
 
     bool isEchoDelayInRange(const AcousticEchoCanceler::Capability& cap, int delay) const {
-        return (delay >= 0 && delay <= cap.maxEchoDelayUs);
+        return checkRange<Range::Types::rangeInt>(delay, cap.ranges);
     }
 
     bool isMobileModeValid(const AcousticEchoCanceler::Capability& cap, bool mode) const {
-        if (cap.supportMobileMode) {
-            return true;
-        } else {
-            return mode == false;
+        return checkRange<Range::Types::rangeBool>(mode, cap.ranges);
+    }
+
+    // get min and max of all descriptors and use it to construct test parameter set.
+    template <const Range::Types::Tag _rTag, typename T /* value type */>
+    static std::pair<T, T> getCapabilityMinMaxPair(const AudioUuid& uuid) {
+        const auto& descList =
+                EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor, uuid);
+        T max = std::numeric_limits<T>::min();
+        T min = std::numeric_limits<T>::max();
+        for (const auto& [_, desc] : descList) {
+            for (const auto& range :
+                 desc.capability.get<Capability::acousticEchoCanceler>().ranges) {
+                if (range.types.getTag() == _rTag) {
+                    const auto& type = range.types.get<_rTag>();
+                    max = (max < type.max) ? type.max : max;
+                    min = (min > type.min) ? type.min : min;
+                }
+            }
         }
+        // set to min/max of T if capability doesn't provide range
+        min = (min == std::numeric_limits<T>::max()) ? std::numeric_limits<T>::min() : min;
+        max = (max == std::numeric_limits<T>::min()) ? std::numeric_limits<T>::max() : max;
+        return {min, max};
     }
 
     static std::unordered_set<int> getEchoDelayTestValues() {
-        auto descList = EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor,
-                                                                     kAcousticEchoCancelerTypeUUID);
-        const auto max = std::max_element(
-                descList.begin(), descList.end(),
-                [](const std::pair<std::shared_ptr<IFactory>, Descriptor>& a,
-                   const std::pair<std::shared_ptr<IFactory>, Descriptor>& b) {
-                    return a.second.capability.get<Capability::acousticEchoCanceler>()
-                                   .maxEchoDelayUs <
-                           b.second.capability.get<Capability::acousticEchoCanceler>()
-                                   .maxEchoDelayUs;
-                });
-        if (max == descList.end()) {
-            return {0};
-        }
-        int maxDelay =
-                max->second.capability.get<Capability::acousticEchoCanceler>().maxEchoDelayUs;
-        return {-1, 0, maxDelay - 1, maxDelay, maxDelay + 1};
+        const auto [min, max] =
+                getCapabilityMinMaxPair<Range::Types::rangeInt, int>(kAcousticEchoCancelerTypeUUID);
+        return {min - 1, min, (min + max) >> 1, max - 1, max, max + 1};
     }
+
     static std::unordered_set<bool> getMobileModeValues() { return {true, false}; }
 
   private:

@@ -42,26 +42,6 @@ union DynamicsProcessing {
     VendorExtension vendorExtension;
 
     /**
-     * Capability supported by DynamicsProcessing implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * DynamicsProcessing capability extension, vendor can use this extension in case existing
-         * capability definition not enough.
-         */
-        ParcelableHolder extension;
-        /**
-         * Min Cut off frequency (in Hz) for all Bands.
-         */
-        float minCutOffFreq;
-        /**
-         * Max Cut off frequency (in Hz) for all Bands.
-         */
-        float maxCutOffFreq;
-    }
-
-    /**
      * Resolution preference definition.
      */
     enum ResolutionPreference {

@@ -51,7 +51,7 @@ class AutomaticGainControlSw final : public EffectImpl {
   public:
     static const std::string kEffectName;
     static const bool kStrengthSupported;
-    static const AutomaticGainControl::Capability kCapability;
+    static const Capability kCapability;
     static const Descriptor kDescriptor;
     AutomaticGainControlSw() { LOG(DEBUG) << __func__; }
     ~AutomaticGainControlSw() {
@@ -72,6 +72,8 @@ class AutomaticGainControlSw final : public EffectImpl {
     IEffect::Status effectProcessImpl(float* in, float* out, int samples) override;
 
   private:
+    static const Range kFixedDigitalGain;
+    static const Range kSaturationMargin;
     std::shared_ptr<AutomaticGainControlSwContext> mContext;
     ndk::ScopedAStatus getParameterAutomaticGainControl(const AutomaticGainControl::Tag& tag,
                                                         Parameter::Specific* specific);

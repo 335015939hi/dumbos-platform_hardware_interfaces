@@ -60,18 +60,41 @@ extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descrip
 namespace aidl::android::hardware::audio::effect {
 
 const std::string EnvReverbSw::kEffectName = "EnvReverbSw";
-const EnvironmentalReverb::Capability EnvReverbSw::kCapability = {.minRoomLevelMb = -6000,
-                                                                  .maxRoomLevelMb = 0,
-                                                                  .minRoomHfLevelMb = -4000,
-                                                                  .maxRoomHfLevelMb = 0,
-                                                                  .maxDecayTimeMs = 7000,
-                                                                  .minDecayHfRatioPm = 100,
-                                                                  .maxDecayHfRatioPm = 2000,
-                                                                  .minLevelMb = -6000,
-                                                                  .maxLevelMb = 0,
-                                                                  .maxDelayMs = 65,
-                                                                  .maxDiffusionPm = 1000,
-                                                                  .maxDensityPm = 1000};
+
+const Capability EnvReverbSw::kCapability = {
+        .ranges = {{.id = MAKE_SPECIFIC_PARAMETER_ID(EnvironmentalReverb, environmentalReverbTag,
+                                                     roomLevelMb),
+                    .types = Range::Types::make<Range::Types::rangeInt>(
+                            Range::Int({.min = -6000, .max = 0}))},
+                   {.id = MAKE_SPECIFIC_PARAMETER_ID(EnvironmentalReverb, environmentalReverbTag,
+                                                     roomHfLevelMb),
+                    .types = Range::Types::make<Range::Types::rangeInt>(
+                            Range::Int({.min = -4000, .max = 0}))},
+                   {.id = MAKE_SPECIFIC_PARAMETER_ID(EnvironmentalReverb, environmentalReverbTag,
+                                                     decayTimeMs),
+                    .types = Range::Types::make<Range::Types::rangeInt>(
+                            Range::Int({.min = 0, .max = 7000}))},
+                   {.id = MAKE_SPECIFIC_PARAMETER_ID(EnvironmentalReverb, environmentalReverbTag,
+                                                     decayHfRatioPm),
+                    .types = Range::Types::make<Range::Types::rangeInt>(
+                            Range::Int({.min = 100, .max = 2000}))},
+                   {.id = MAKE_SPECIFIC_PARAMETER_ID(EnvironmentalReverb, environmentalReverbTag,
+                                                     levelMb),
+                    .types = Range::Types::make<Range::Types::rangeInt>(
+                            Range::Int({.min = -6000, .max = 0}))},
+                   {.id = MAKE_SPECIFIC_PARAMETER_ID(EnvironmentalReverb, environmentalReverbTag,
+                                                     delayMs),
+                    .types = Range::Types::make<Range::Types::rangeInt>(
+                            Range::Int({.min = 0, .max = 65}))},
+                   {.id = MAKE_SPECIFIC_PARAMETER_ID(EnvironmentalReverb, environmentalReverbTag,
+                                                     diffusionPm),
+                    .types = Range::Types::make<Range::Types::rangeInt>(
+                            Range::Int({.min = 0, .max = 1000}))},
+                   {.id = MAKE_SPECIFIC_PARAMETER_ID(EnvironmentalReverb, environmentalReverbTag,
+                                                     densityPm),
+                    .types = Range::Types::make<Range::Types::rangeInt>(
+                            Range::Int({.min = 0, .max = 1000}))}}};
+
 const Descriptor EnvReverbSw::kDescriptor = {
         .common = {.id = {.type = kEnvReverbTypeUUID,
                           .uuid = kEnvReverbSwImplUUID,
@@ -81,7 +104,7 @@ const Descriptor EnvReverbSw::kDescriptor = {
                              .volume = Flags::Volume::CTRL},
                    .name = EnvReverbSw::kEffectName,
                    .implementor = "The Android Open Source Project"},
-        .capability = Capability::make<Capability::environmentalReverb>(EnvReverbSw::kCapability)};
+        .capability = EnvReverbSw::kCapability};
 
 ndk::ScopedAStatus EnvReverbSw::getDescriptor(Descriptor* _aidl_return) {
     LOG(DEBUG) << __func__ << kDescriptor.toString();
@@ -262,8 +285,7 @@ IEffect::Status EnvReverbSw::effectProcessImpl(float* in, float* out, int sample
 }
 
 RetCode EnvReverbSwContext::setErRoomLevel(int roomLevel) {
-    if (roomLevel < EnvReverbSw::kCapability.minRoomLevelMb ||
-        roomLevel > EnvReverbSw::kCapability.maxRoomLevelMb) {
+    if (!checkRange<Range::Types::rangeInt>(roomLevel, EnvReverbSw::kCapability.ranges)) {
         LOG(ERROR) << __func__ << " invalid roomLevel: " << roomLevel;
         return RetCode::ERROR_ILLEGAL_PARAMETER;
     }
@@ -273,8 +295,7 @@ RetCode EnvReverbSwContext::setErRoomLevel(int roomLevel) {
 }
 
 RetCode EnvReverbSwContext::setErRoomHfLevel(int roomHfLevel) {
-    if (roomHfLevel < EnvReverbSw::kCapability.minRoomHfLevelMb ||
-        roomHfLevel > EnvReverbSw::kCapability.maxRoomHfLevelMb) {
+    if (!checkRange<Range::Types::rangeInt>(roomHfLevel, EnvReverbSw::kCapability.ranges)) {
         LOG(ERROR) << __func__ << " invalid roomHfLevel: " << roomHfLevel;
         return RetCode::ERROR_ILLEGAL_PARAMETER;
     }
@@ -284,7 +305,7 @@ RetCode EnvReverbSwContext::setErRoomHfLevel(int roomHfLevel) {
 }
 
 RetCode EnvReverbSwContext::setErDecayTime(int decayTime) {
-    if (decayTime < 0 || decayTime > EnvReverbSw::kCapability.maxDecayTimeMs) {
+    if (!checkRange<Range::Types::rangeInt>(decayTime, EnvReverbSw::kCapability.ranges)) {
         LOG(ERROR) << __func__ << " invalid decayTime: " << decayTime;
         return RetCode::ERROR_ILLEGAL_PARAMETER;
     }
@@ -294,8 +315,7 @@ RetCode EnvReverbSwContext::setErDecayTime(int decayTime) {
 }
 
 RetCode EnvReverbSwContext::setErDecayHfRatio(int decayHfRatio) {
-    if (decayHfRatio < EnvReverbSw::kCapability.minDecayHfRatioPm ||
-        decayHfRatio > EnvReverbSw::kCapability.maxDecayHfRatioPm) {
+    if (!checkRange<Range::Types::rangeInt>(decayHfRatio, EnvReverbSw::kCapability.ranges)) {
         LOG(ERROR) << __func__ << " invalid decayHfRatio: " << decayHfRatio;
         return RetCode::ERROR_ILLEGAL_PARAMETER;
     }
@@ -305,8 +325,7 @@ RetCode EnvReverbSwContext::setErDecayHfRatio(int decayHfRatio) {
 }
 
 RetCode EnvReverbSwContext::setErLevel(int level) {
-    if (level < EnvReverbSw::kCapability.minLevelMb ||
-        level > EnvReverbSw::kCapability.maxLevelMb) {
+    if (!checkRange<Range::Types::rangeInt>(level, EnvReverbSw::kCapability.ranges)) {
         LOG(ERROR) << __func__ << " invalid level: " << level;
         return RetCode::ERROR_ILLEGAL_PARAMETER;
     }
@@ -316,7 +335,7 @@ RetCode EnvReverbSwContext::setErLevel(int level) {
 }
 
 RetCode EnvReverbSwContext::setErDelay(int delay) {
-    if (delay < 0 || delay > EnvReverbSw::kCapability.maxDelayMs) {
+    if (!checkRange<Range::Types::rangeInt>(delay, EnvReverbSw::kCapability.ranges)) {
         LOG(ERROR) << __func__ << " invalid delay: " << delay;
         return RetCode::ERROR_ILLEGAL_PARAMETER;
     }
@@ -326,7 +345,7 @@ RetCode EnvReverbSwContext::setErDelay(int delay) {
 }
 
 RetCode EnvReverbSwContext::setErDiffusion(int diffusion) {
-    if (diffusion < 0 || diffusion > EnvReverbSw::kCapability.maxDiffusionPm) {
+    if (!checkRange<Range::Types::rangeInt>(diffusion, EnvReverbSw::kCapability.ranges)) {
         LOG(ERROR) << __func__ << " invalid diffusion: " << diffusion;
         return RetCode::ERROR_ILLEGAL_PARAMETER;
     }
@@ -336,7 +355,7 @@ RetCode EnvReverbSwContext::setErDiffusion(int diffusion) {
 }
 
 RetCode EnvReverbSwContext::setErDensity(int density) {
-    if (density < 0 || density > EnvReverbSw::kCapability.maxDensityPm) {
+    if (!checkRange<Range::Types::rangeInt>(density, EnvReverbSw::kCapability.ranges)) {
         LOG(ERROR) << __func__ << " invalid density: " << density;
         return RetCode::ERROR_ILLEGAL_PARAMETER;
     }

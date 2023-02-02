@@ -16,18 +16,20 @@
 
 package android.hardware.audio.effect;
 
+import android.hardware.audio.effect.Parameter;
+
 /**
- * Define the range (min and max) of a certain field, identified by tag.
- * Can be used by effect capabilities to define supported value ranges.
+ * Define the range (min and max) of a certain field, identified by Parameter.Id.
+ * Can be used by effect capabilities to define supported value range.
  */
 @VintfStability
 parcelable Range {
     /**
-     * The union tag name which the range is defined for.
+     * The parameter ID which the range is defined for.
      * For example: if used in AutomaticGainControlV1.Capability, value of Range.tag could be
      * targetLevelDbFs or compressionGainDb.
      */
-    int tag;
+    Parameter.Id id;
 
     @VintfStability
     parcelable Int {
@@ -59,6 +61,11 @@ parcelable Range {
         Float rangeFloat;
         Long rangeLong;
         Byte rangeByte;
+        /**
+         * Set to true if a boolean parameter can only be true (client can not set it to false).
+         * Set to false if a boolean parameter can only be false (client can not set it to true).
+         */
+        boolean rangeBool;
     }
 
     Types types;

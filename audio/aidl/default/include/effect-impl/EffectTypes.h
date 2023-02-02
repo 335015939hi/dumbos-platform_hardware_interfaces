@@ -19,16 +19,17 @@
 #include <string>
 
 #include <aidl/android/hardware/audio/effect/BnEffect.h>
+#include <aidl/android/hardware/audio/effect/Range.h>
 #include <android-base/logging.h>
 
 typedef binder_exception_t (*EffectCreateFunctor)(
         const ::aidl::android::media::audio::common::AudioUuid*,
-        std::shared_ptr<aidl::android::hardware::audio::effect::IEffect>*);
+        std::shared_ptr<::aidl::android::hardware::audio::effect::IEffect>*);
 typedef binder_exception_t (*EffectDestroyFunctor)(
-        const std::shared_ptr<aidl::android::hardware::audio::effect::IEffect>&);
+        const std::shared_ptr<::aidl::android::hardware::audio::effect::IEffect>&);
 typedef binder_exception_t (*EffectQueryFunctor)(
         const ::aidl::android::media::audio::common::AudioUuid*,
-        aidl::android::hardware::audio::effect::Descriptor*);
+        ::aidl::android::hardware::audio::effect::Descriptor*);
 
 struct effect_dl_interface_s {
     EffectCreateFunctor createEffectFunc;
@@ -134,5 +135,24 @@ static inline bool stringToUuid(const char* str,
                                          (uint8_t)tmp[7], (uint8_t)tmp[8], (uint8_t)tmp[9]});
     return true;
 }
+
+template <const ::aidl::android::hardware::audio::effect::Range::Types::Tag _tag, typename T>
+bool checkRange(const T& value,
+                const std::vector<::aidl::android::hardware::audio::effect::Range>& ranges) {
+    for (const auto& range : ranges) {
+        if (_tag == range.types.getTag()) {
+            const auto r = range.types.get<_tag>();
+            return value >= r.min && value <= r.max;
+        }
+    }
+
+    return true;
+}
+
+#define UNION_MAKE(u, field, value) u::make<u::Tag::field>(value)
+
+#define MAKE_SPECIFIC_PARAMETER_ID(spec, tag, field)                         \
+    UNION_MAKE(::aidl::android::hardware::audio::effect::Parameter::Id, tag, \
+               UNION_MAKE(spec::Id, commonTag, spec::field))
 
 }  // namespace aidl::android::hardware::audio::effect

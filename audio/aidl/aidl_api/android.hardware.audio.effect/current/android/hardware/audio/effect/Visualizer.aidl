@@ -49,12 +49,6 @@ union Visualizer {
     android.hardware.audio.effect.Visualizer.Tag commonTag;
   }
   @VintfStability
-  parcelable Capability {
-    android.hardware.audio.effect.VendorExtension extension;
-    int maxLatencyMs;
-    android.hardware.audio.effect.Visualizer.CaptureSamplesRange captureSampleRange;
-  }
-  @VintfStability
   parcelable CaptureSamplesRange {
     int min;
     int max;

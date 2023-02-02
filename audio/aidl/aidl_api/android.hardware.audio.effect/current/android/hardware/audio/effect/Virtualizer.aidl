@@ -41,10 +41,4 @@ union Virtualizer {
     int vendorExtensionTag;
     android.hardware.audio.effect.Virtualizer.Tag commonTag;
   }
-  @VintfStability
-  parcelable Capability {
-    android.hardware.audio.effect.VendorExtension extension;
-    int maxStrengthPm;
-    boolean strengthSupported;
-  }
 }

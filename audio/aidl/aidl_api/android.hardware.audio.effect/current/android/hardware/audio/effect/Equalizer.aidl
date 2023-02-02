@@ -43,12 +43,6 @@ union Equalizer {
     android.hardware.audio.effect.Equalizer.Tag commonTag;
   }
   @VintfStability
-  parcelable Capability {
-    ParcelableHolder extension;
-    android.hardware.audio.effect.Equalizer.BandFrequency[] bandFrequencies;
-    android.hardware.audio.effect.Equalizer.Preset[] presets;
-  }
-  @VintfStability
   parcelable BandLevel {
     int index;
     int levelMb;

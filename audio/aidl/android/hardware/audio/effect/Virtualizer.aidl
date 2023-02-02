@@ -43,27 +43,6 @@ union Virtualizer {
     VendorExtension vendor;
 
     /**
-     * Capability supported by Virtualizer implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * Virtualizer capability extension, vendor can use this extension in case existing
-         * capability definition not enough.
-         */
-        VendorExtension extension;
-        /**
-         * Maximum possible per mille strength.
-         */
-        int maxStrengthPm;
-        /**
-         * Indicates whether setting strength is supported. False value indicates only one strength
-         * is supported and setParameter() method will always return EX_ILLEGAL_ARGUMENT.
-         */
-        boolean strengthSupported;
-    }
-
-    /**
      * The per mille strength of the virtualizer effect.
      *
      * If the implementation does not support per mille accuracy for setting the strength, it is

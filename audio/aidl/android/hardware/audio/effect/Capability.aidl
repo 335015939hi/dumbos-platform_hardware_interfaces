@@ -16,21 +16,8 @@
 
 package android.hardware.audio.effect;
 
-import android.hardware.audio.effect.AcousticEchoCanceler;
-import android.hardware.audio.effect.AutomaticGainControl;
-import android.hardware.audio.effect.BassBoost;
-import android.hardware.audio.effect.Downmix;
-import android.hardware.audio.effect.DynamicsProcessing;
-import android.hardware.audio.effect.EnvironmentalReverb;
-import android.hardware.audio.effect.Equalizer;
-import android.hardware.audio.effect.HapticGenerator;
-import android.hardware.audio.effect.LoudnessEnhancer;
-import android.hardware.audio.effect.NoiseSuppression;
-import android.hardware.audio.effect.PresetReverb;
+import android.hardware.audio.effect.Range;
 import android.hardware.audio.effect.VendorExtension;
-import android.hardware.audio.effect.Virtualizer;
-import android.hardware.audio.effect.Visualizer;
-import android.hardware.audio.effect.Volume;
 
 /**
  * Effect capability definitions.
@@ -38,7 +25,7 @@ import android.hardware.audio.effect.Volume;
  * not meant to change at runtime.
  */
 @VintfStability
-union Capability {
+parcelable Capability {
     /**
      * Vendor defined effect capability.
      * This extension can be used when vendor have a new effect implementated and need
@@ -50,20 +37,7 @@ union Capability {
     VendorExtension vendorExtension;
 
     /**
-     * Effect capabilities.
+     * Supported range for parameters.
      */
-    AcousticEchoCanceler.Capability acousticEchoCanceler;
-    AutomaticGainControl.Capability automaticGainControl;
-    BassBoost.Capability bassBoost;
-    Downmix.Capability downmix;
-    DynamicsProcessing.Capability dynamicsProcessing;
-    EnvironmentalReverb.Capability environmentalReverb;
-    Equalizer.Capability equalizer;
-    HapticGenerator.Capability hapticGenerator;
-    LoudnessEnhancer.Capability loudnessEnhancer;
-    NoiseSuppression.Capability noiseSuppression;
-    PresetReverb.Capability presetReverb;
-    Virtualizer.Capability virtualizer;
-    Visualizer.Capability visualizer;
-    Volume.Capability volume;
+    Range[] ranges;
 }

@@ -42,18 +42,6 @@ union LoudnessEnhancer {
     VendorExtension vendor;
 
     /**
-     * Capability supported by LoudnessEnhancer implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * LoudnessEnhancer capability extension, vendor can use this extension in case existing
-         * capability definition not enough.
-         */
-        VendorExtension extension;
-    }
-
-    /**
      * The maximum gain in millibels (mB) applied to the signal to process, default value is 0 which
      * corresponds to no amplification.
      */

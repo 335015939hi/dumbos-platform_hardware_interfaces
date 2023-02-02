@@ -40,18 +40,6 @@ union Downmix {
      */
     VendorExtension vendor;
 
-    /**
-     * Capability supported by Downmix implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * Downmix capability extension, vendor can use this extension in case existing capability
-         * definition not enough.
-         */
-        ParcelableHolder extension;
-    }
-
     @VintfStability
     enum Type {
         /**
