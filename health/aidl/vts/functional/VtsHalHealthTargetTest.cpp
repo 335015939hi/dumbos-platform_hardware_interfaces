@@ -229,6 +229,9 @@ TEST_P(HealthAidl, getChargeStatus) {
  * Tests the values returned by getChargingPolicy() from interface IHealth.
  */
 TEST_P(HealthAidl, getChargingPolicy) {
+    if (AidlVersion() < 2) {
+        GTEST_SKIP() << "Support in health hal v2 for EU Ecodesign";
+    }
     BatteryChargingPolicy value;
     auto status = health->getChargingPolicy(&value);
     ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
@@ -241,6 +244,10 @@ TEST_P(HealthAidl, getChargingPolicy) {
  * value by getChargingPolicy() from interface IHealth.
  */
 TEST_P(HealthAidl, setChargingPolicy) {
+    if (AidlVersion() < 2) {
+        GTEST_SKIP() << "Support in health hal v2 for EU Ecodesign";
+    }
+
     BatteryChargingPolicy value;
 
     /* set ChargingPolicy*/
@@ -273,6 +280,9 @@ MATCHER(IsValidHealthData, "") {
  * Tests the values returned by getBatteryHealthData() from interface IHealth.
  */
 TEST_P(HealthAidl, getBatteryHealthData) {
+    if (AidlVersion() < 2) {
+        GTEST_SKIP() << "Support in health hal v2 for EU Ecodesign";
+    }
     BatteryHealthData value;
     auto status = health->getBatteryHealthData(&value);
     ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
