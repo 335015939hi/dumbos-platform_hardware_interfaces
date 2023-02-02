@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25707982_486a744e",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-02T00:16:34Z",
+      "side": 1,
+      "message": "It seems that this function does not attempt to find the library under the usual locations that vendors use: https://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/libeffects/config/include/media/EffectsConfig.h;l\u003d39;drc\u003dcca9762edaf0659249f66f42c9505e1c76bc8e50. Since the effects XML only lists library file names (hardware/interfaces/audio/aidl/default/audio_effects_config.xml), how do we end up loading effect libraries from `soundfx` directory?",
+      "range": {
+        "startLine": 205,
+        "startChar": 12,
+        "endLine": 205,
+        "endChar": 29
+      },
+      "revId": "2002d4f6e318d1aefdf4531c09e3e13fbcba1a2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
