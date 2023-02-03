@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c4eb07c4_2782da8c",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-02-03T02:08:52Z",
+      "side": 1,
+      "message": "Done. Also modified some other places.",
+      "parentUuid": "79d64b94_672535ae",
+      "range": {
+        "startLine": 413,
+        "startChar": 14,
+        "endLine": 413,
+        "endChar": 33
+      },
+      "revId": "e6c5eb5de7616dd5c52921c366d43bc10d20e131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2b3c7116_f3f3b9ca",
         "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
         "patchSetId": 1
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "2b3c7116_f3f3b9ca",
+      "range": {
+        "startLine": 431,
+        "startChar": 4,
+        "endLine": 431,
+        "endChar": 15
+      },
+      "revId": "e6c5eb5de7616dd5c52921c366d43bc10d20e131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a1bb20c_a50803d3",
+        "filename": "tetheroffload/aidl/vts/functional/VtsHalTetheroffloadTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1961665
+      },
+      "writtenOn": "2023-02-03T02:08:52Z",
+      "side": 1,
+      "message": "Done. Also modified some other places.",
+      "parentUuid": "d43d165a_3a765edd",
       "range": {
         "startLine": 431,
         "startChar": 4,
