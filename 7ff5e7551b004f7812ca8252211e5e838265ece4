@@ -22,6 +22,30 @@
       },
       "revId": "7ff5e7551b004f7812ca8252211e5e838265ece4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cadaf8c_381feec1",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-02-03T12:14:13Z",
+      "side": 1,
+      "message": "Sorry, mis-send the comment.",
+      "parentUuid": "0ac83e97_faf05a68",
+      "range": {
+        "startLine": 975,
+        "startChar": 58,
+        "endLine": 975,
+        "endChar": 67
+      },
+      "revId": "7ff5e7551b004f7812ca8252211e5e838265ece4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
