@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed0a0203_dabcab54",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1953015
+      },
+      "writtenOn": "2023-02-03T06:53:48Z",
+      "side": 1,
+      "message": "Missing in 12L - https://cs.android.com/android/platform/superproject/+/android12L-gsi:hardware/interfaces/wifi/supplicant/1.4/vts/functional/supplicant_p2p_iface_hidl_test.cpp;l\u003d50",
+      "revId": "9bb54e6c3917af2dc7849a2fa08bb790296d39b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
