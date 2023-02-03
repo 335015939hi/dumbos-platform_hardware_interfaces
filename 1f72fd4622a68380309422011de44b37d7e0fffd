@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5ebb751_d8c011d7",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-03T22:46:08Z",
+      "side": 1,
+      "message": "nit: can we exact this into a method so it will be easier to adjust in future?",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 41
+      },
+      "revId": "1f72fd4622a68380309422011de44b37d7e0fffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
