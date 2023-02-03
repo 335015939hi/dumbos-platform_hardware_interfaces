@@ -22,6 +22,30 @@
       },
       "revId": "1f72fd4622a68380309422011de44b37d7e0fffd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d178e30_aff33274",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-03T23:28:39Z",
+      "side": 1,
+      "message": "We might need to adjust it differently for input and output streams. As we progress further, we may encounter other commands that get spammy, which are specific to the input or to the output. I think, I would rather replace it with a map from command to log severity, and then have a shared or direction-specific map. I\u0027ll revisit this later.",
+      "parentUuid": "d5ebb751_d8c011d7",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 41
+      },
+      "revId": "1f72fd4622a68380309422011de44b37d7e0fffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
