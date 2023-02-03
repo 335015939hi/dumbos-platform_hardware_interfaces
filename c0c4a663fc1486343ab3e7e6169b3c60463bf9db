@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41da977d_914da791",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2023-02-03T03:02:07Z",
+      "side": 1,
+      "message": "what is the difference between sessionId and streamSessionId?",
+      "range": {
+        "startLine": 529,
+        "startChar": 4,
+        "endLine": 533,
+        "endChar": 64
+      },
+      "revId": "c0c4a663fc1486343ab3e7e6169b3c60463bf9db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
