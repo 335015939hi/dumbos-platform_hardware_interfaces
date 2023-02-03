@@ -22,6 +22,30 @@
       },
       "revId": "c0c4a663fc1486343ab3e7e6169b3c60463bf9db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55bc077b_1f5c0fe8",
+        "filename": "cas/aidl/vts/functional/VtsHalCasAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-02-03T03:21:08Z",
+      "side": 1,
+      "message": "I think they are just two different sessions that are valid simultaneously.",
+      "parentUuid": "41da977d_914da791",
+      "range": {
+        "startLine": 529,
+        "startChar": 4,
+        "endLine": 533,
+        "endChar": 64
+      },
+      "revId": "c0c4a663fc1486343ab3e7e6169b3c60463bf9db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
