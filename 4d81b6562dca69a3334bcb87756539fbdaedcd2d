@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83f064f8_541d1fcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1953015
+      },
+      "writtenOn": "2023-02-03T06:57:10Z",
+      "side": 1,
+      "message": "Patch missing in 12L-dev \n\n- Issue observed by automotive partner - b/259298404\n- Partner code base 12L (sc-v2)",
+      "revId": "4d81b6562dca69a3334bcb87756539fbdaedcd2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
