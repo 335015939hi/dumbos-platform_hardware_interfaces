@@ -76,17 +76,13 @@ std::vector<std::string> keyblob_names_tee = {
         "rsa-key",        "p256-key",        "ed25519-key",       "x25519-key",
         "rsa-attest-key", "p256-attest-key", "ed25519-attest-key"};
 
+std::vector<std::string> keyblob_names_tee_no_25519 = {
+        "aes-key", "aes-key-rr", "des-key",        "hmac-key",
+        "rsa-key", "p256-key",   "rsa-attest-key", "p256-attest-key"};
+
 std::vector<std::string> keyblob_names_sb = {"aes-key",        "aes-key-rr",     "des-key",
                                              "hmac-key",       "rsa-key",        "p256-key",
                                              "rsa-attest-key", "p256-attest-key"};
-
-const std::vector<std::string>& keyblob_names(SecurityLevel sec_level) {
-    if (sec_level == SecurityLevel::STRONGBOX) {
-        return keyblob_names_sb;
-    } else {
-        return keyblob_names_tee;
-    }
-}
 
 bool requires_rr(const std::string& name) {
     return name.find("-rr") != std::string::npos;
@@ -194,13 +190,23 @@ std::vector<uint8_t> load_cert(const std::string& subdir, const std::string& nam
 
 class KeyBlobUpgradeTest : public KeyMintAidlTestBase {
   protected:
+    const std::vector<std::string>& keyblob_names() {
+        if (SecLevel() == SecurityLevel::STRONGBOX) {
+            return keyblob_names_sb;
+        } else if (!Curve25519Supported()) {
+            return keyblob_names_tee_no_25519;
+        } else {
+            return keyblob_names_tee;
+        }
+    }
+
     void UpgradeKeyBlobs(bool expectUpgrade) {
         std::string subdir = keyblob_subdir(keyblob_dir, GetParam(), /* create? */ false);
         if (subdir.empty()) {
             GTEST_SKIP() << "No keyblob directory provided";
         }
 
-        for (std::string name : keyblob_names(SecLevel())) {
+        for (std::string name : keyblob_names()) {
             for (bool with_hidden : {false, true}) {
                 std::string app_id;
                 std::string app_data;
@@ -291,14 +297,14 @@ TEST_P(KeyBlobUpgradeTest, CreateKeyBlobsBefore) {
                                 .Authorization(TAG_NO_AUTH_REQUIRED)},
             {"hmac-key", AuthorizationSetBuilder()
                                  .HmacKey(128)
-                                 .Digest(Digest::SHA1)
+                                 .Digest(Digest::SHA_2_256)
                                  .Authorization(TAG_MIN_MAC_LENGTH, 128)
                                  .Authorization(TAG_NO_AUTH_REQUIRED)},
             {"rsa-key", AuthorizationSetBuilder()
                                 .RsaEncryptionKey(2048, 65537)
                                 .Authorization(TAG_PURPOSE, KeyPurpose::SIGN)
                                 .Digest(Digest::NONE)
-                                .Digest(Digest::SHA1)
+                                .Digest(Digest::SHA_2_256)
                                 .Padding(PaddingMode::NONE)
                                 .Authorization(TAG_NO_AUTH_REQUIRED)
                                 .SetDefaultValidity()},
@@ -308,7 +314,7 @@ TEST_P(KeyBlobUpgradeTest, CreateKeyBlobsBefore) {
                             .EcdsaSigningKey(EcCurve::P_256)
                             .Authorization(TAG_PURPOSE, KeyPurpose::AGREE_KEY)
                             .Digest(Digest::NONE)
-                            .Digest(Digest::SHA1)
+                            .Digest(Digest::SHA_2_256)
                             .Authorization(TAG_NO_AUTH_REQUIRED)
                             .SetDefaultValidity(),
             },
@@ -348,7 +354,7 @@ TEST_P(KeyBlobUpgradeTest, CreateKeyBlobsBefore) {
                             .SetDefaultValidity(),
             }};
 
-    for (std::string name : keyblob_names(SecLevel())) {
+    for (std::string name : keyblob_names()) {
         auto entry = keys_info.find(name);
         ASSERT_NE(entry, keys_info.end()) << "no builder for " << name;
         auto builder = entry->second;
@@ -425,7 +431,7 @@ TEST_P(KeyBlobUpgradeTest, UseKeyBlobsBeforeOrAfter) {
                         "/data/local/tmp/keymint-blobs";
     }
 
-    for (std::string name : keyblob_names(SecLevel())) {
+    for (std::string name : keyblob_names()) {
         for (bool with_hidden : {false, true}) {
             auto builder = AuthorizationSetBuilder();
             if (with_hidden) {
@@ -465,7 +471,7 @@ TEST_P(KeyBlobUpgradeTest, UseKeyBlobsBeforeOrAfter) {
                 string plaintext = DecryptMessage(keyblob, ciphertext, builder);
                 EXPECT_EQ(message, plaintext);
             } else if (name.find("hmac-key") != std::string::npos) {
-                builder.Digest(Digest::SHA1);
+                builder.Digest(Digest::SHA_2_256);
                 auto sign_builder = builder;
                 sign_builder.Authorization(TAG_MAC_LENGTH, 128);
                 string tag = SignMessage(keyblob, message, sign_builder);
@@ -475,7 +481,7 @@ TEST_P(KeyBlobUpgradeTest, UseKeyBlobsBeforeOrAfter) {
                 string signature = SignMessage(keyblob, message, builder);
                 LocalVerifyMessage(cert, message, signature, builder);
             } else if (name.find("p256-key") != std::string::npos) {
-                builder.Digest(Digest::SHA1);
+                builder.Digest(Digest::SHA_2_256);
                 string signature = SignMessage(keyblob, message, builder);
                 LocalVerifyMessage(cert, message, signature, builder);
             } else if (name.find("ed25519-key") != std::string::npos) {
@@ -562,7 +568,7 @@ TEST_P(KeyBlobUpgradeTest, DeleteRRKeyBlobsAfter) {
                         "/data/local/tmp/keymint-blobs";
     }
 
-    for (std::string name : keyblob_names(SecLevel())) {
+    for (std::string name : keyblob_names()) {
         for (bool with_hidden : {false, true}) {
             auto builder = AuthorizationSetBuilder();
             if (with_hidden) {
