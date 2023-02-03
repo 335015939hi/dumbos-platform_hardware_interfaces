@@ -71,7 +71,7 @@ class EffectThread {
      * implemented by effects, process() must not hold lock before call into effectProcessImpl to
      * avoid deadlock.
      */
-    virtual void process();
+    virtual void process_l() REQUIRES(mThreadMutex);
 
   private:
     const int kMaxTaskNameLen = 15;
@@ -83,5 +83,7 @@ class EffectThread {
     std::thread mThread;
     int mPriority;
     std::string mName;
+
+    RetCode handleStartStop(bool stop);
 };
 }  // namespace aidl::android::hardware::audio::effect
