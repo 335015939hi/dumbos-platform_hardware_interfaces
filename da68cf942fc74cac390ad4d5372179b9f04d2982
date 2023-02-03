@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7887d3f0_c9d963b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2023-02-03T19:47:47Z",
+      "side": 1,
+      "message": "V3 interface freeze will be done by build system later. No need to update according to the new process in 2023.",
+      "revId": "da68cf942fc74cac390ad4d5372179b9f04d2982",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
