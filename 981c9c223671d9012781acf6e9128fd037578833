@@ -16,6 +16,23 @@
       "message": "CL needs Qualcomm-Review vote",
       "revId": "981c9c223671d9012781acf6e9128fd037578833",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1464d315_cc33f5c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1222074
+      },
+      "writtenOn": "2023-02-04T00:13:48Z",
+      "side": 1,
+      "message": "CL need Qualcomm review vote",
+      "revId": "981c9c223671d9012781acf6e9128fd037578833",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
