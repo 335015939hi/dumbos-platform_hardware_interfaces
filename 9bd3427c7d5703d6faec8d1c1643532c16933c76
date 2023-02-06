@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b4c3c68_9eaec1ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-02-06T16:26:26Z",
+      "side": 1,
+      "message": "Should add an OWNERS file for the *.aidl files here (in a separate CL)",
+      "revId": "9bd3427c7d5703d6faec8d1c1643532c16933c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
