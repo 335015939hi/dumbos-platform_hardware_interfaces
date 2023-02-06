@@ -16,6 +16,24 @@
       "message": "Hi Andrew, do you mean we can remove things like this, for example?",
       "revId": "62e4358988140bfa2f2b55be59f8ddf6593d73a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fac66d71_87f630a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-02-06T15:50:17Z",
+      "side": 1,
+      "message": "Why do you just want to remove the VTS tests?",
+      "parentUuid": "d361e1f7_4ce6dbf3",
+      "revId": "62e4358988140bfa2f2b55be59f8ddf6593d73a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
