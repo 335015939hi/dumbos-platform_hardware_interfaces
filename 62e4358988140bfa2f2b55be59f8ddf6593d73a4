@@ -52,6 +52,24 @@
       "parentUuid": "fac66d71_87f630a8",
       "revId": "62e4358988140bfa2f2b55be59f8ddf6593d73a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0ff8563_88b08783",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-02-06T16:46:41Z",
+      "side": 1,
+      "message": "But that would leave a HAL without any tests. This will have to be an all-or-nothing removal.",
+      "parentUuid": "9ccb83bd_f6e52564",
+      "revId": "62e4358988140bfa2f2b55be59f8ddf6593d73a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
