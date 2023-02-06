@@ -17,6 +17,8 @@
 package android.hardware.audio.effect;
 
 import android.hardware.audio.effect.VendorExtension;
+import android.media.audio.common.AudioChannelLayout;
+import android.media.audio.common.AudioDeviceDescription;
 
 /**
  * Virtualizer specific definitions. An audio virtualizer is a general name for an effect to
@@ -35,12 +37,22 @@ union Virtualizer {
     union Id {
         int vendorExtensionTag;
         Virtualizer.Tag commonTag;
+        SpeakerAnglesPayload speakerAnglesPayload;
     }
 
     /**
      * Vendor Virtualizer implementation definition for additional parameters.
      */
     VendorExtension vendor;
+
+    /**
+     * Payload to get speaker angles.
+     */
+    @VintfStability
+    parcelable SpeakerAnglesPayload {
+        AudioChannelLayout layout;
+        AudioDeviceDescription device;
+    }
 
     /**
      * Capability supported by Virtualizer implementation.
@@ -74,4 +86,40 @@ union Virtualizer {
      * the 'maxStrengthPm' capability.
      */
     int strengthPm;
+
+    /**
+     * All angles are expressed in degrees and are relative to the listener.
+     */
+    @VintfStability
+    parcelable ChannelAngle {
+        /**
+         * Audio channel layout, CHANNEL_* constants defined in
+         * android.media.audio.common.AudioChannelLayout.
+         */
+        int channel;
+
+        /**
+         * 0 is the direction the listener faces, 180 is behind the listener, and -90 is left of
+         * the listener.
+         */
+        int azimuthDegree;
+
+        /**
+         * 0 is the horizontal plane, +90 is above the listener, -90 is below.
+         */
+        int elevationDegree;
+    }
+
+    /**
+     * Get only parameter.
+     * An array of length 3 * the number of channels in the mask where entries are the succession of
+     * the channel mask of each speaker (i.e. a single bit is selected in the channel mask) followed
+     * by the azimuth and the elevation angles.
+     */
+    ChannelAngle[] speakerAngles;
+
+    /**
+     * The audio device on which virtualzation mode is forced.
+     */
+    AudioDeviceDescription device;
 }

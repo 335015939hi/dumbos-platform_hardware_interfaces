@@ -97,8 +97,14 @@ union Equalizer {
      * Level for each band.
      */
     BandLevel[] bandLevels;
+
     /**
      * Index of current preset.
      */
     int preset;
+
+    /**
+     * Get only parameter, get the center frequency for all bands in millihertz.
+     */
+    int[] centerFreqMh;
 }
