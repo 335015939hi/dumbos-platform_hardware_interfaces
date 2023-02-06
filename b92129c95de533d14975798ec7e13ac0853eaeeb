@@ -16,6 +16,23 @@
       "message": "Phani PV, Can you please get Qualcomm Review +1 for this CL?",
       "revId": "b92129c95de533d14975798ec7e13ac0853eaeeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b945848_83cd69db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1282799
+      },
+      "writtenOn": "2023-02-06T13:20:33Z",
+      "side": 1,
+      "message": "Dear P.V. Phani Kumar,\nCan you do the same Qualcomm approval for the cherry-pick https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2406652?",
+      "revId": "b92129c95de533d14975798ec7e13ac0853eaeeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
