@@ -22,6 +22,30 @@
       },
       "revId": "5362405459a38bc7c9ce0eb998c52ed1974fec95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9427937a_122f814c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-02-06T07:51:11Z",
+      "side": 1,
+      "message": "This is for LE audio only and will negotiate with remote device.\nThe below one is for A2DP and set bit rate in local side only, will not negotiate with remote device.\nThanks!",
+      "parentUuid": "7fc5aebc_c7a61975",
+      "range": {
+        "startLine": 87,
+        "startChar": 37,
+        "endLine": 87,
+        "endChar": 55
+      },
+      "revId": "5362405459a38bc7c9ce0eb998c52ed1974fec95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
