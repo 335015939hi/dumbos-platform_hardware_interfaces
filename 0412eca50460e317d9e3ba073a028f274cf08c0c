@@ -16,6 +16,24 @@
       "message": "do we need to update the aidl to V3 first for this change? otherwise, it might fail the hal test in presubmit.",
       "revId": "0412eca50460e317d9e3ba073a028f274cf08c0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "584afc92_a1b01ed9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-02-06T16:38:00Z",
+      "side": 1,
+      "message": "Yes!",
+      "parentUuid": "dea238f4_69577741",
+      "revId": "0412eca50460e317d9e3ba073a028f274cf08c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
