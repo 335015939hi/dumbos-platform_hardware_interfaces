@@ -22,6 +22,30 @@
       },
       "revId": "11bc5dceb865d2750ac0cb35e9224ef09604e19d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bad3cb27_b9cbe360",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-07T22:07:40Z",
+      "side": 1,
+      "message": "Mhz (or more, correctly MHz) are MegaHertz. Here it\u0027s milliHertz, which is usually written as mHz. Unfortunately, required name casing erases the difference between `M` and `m`, I think it\u0027s a good idea to use a bit non-standard abbreviation here because it forces the reader to read the comment carefully 😊\n\nI would just fix `millihertz` to `milliHertz` in the comment.",
+      "parentUuid": "d695f74d_746a835e",
+      "range": {
+        "startLine": 109,
+        "startChar": 10,
+        "endLine": 109,
+        "endChar": 22
+      },
+      "revId": "11bc5dceb865d2750ac0cb35e9224ef09604e19d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
