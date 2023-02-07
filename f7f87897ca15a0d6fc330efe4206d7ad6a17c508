@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "327ce780_9dacc03a",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-07T18:47:22Z",
+      "side": 1,
+      "message": "The resulting code looks somewhat odd to me. The first naive question is why not to merge the two blocks (lines 105–115 and this one) together—do we intentionally leave the window specifically for the other thread to have a chance to modify variables? Is it not enough that the lock gets released between iterations and during the CV wait? The second naive question is why we do use a CV in the first case but not in the second, for same shared variables. The other side obviously can\u0027t know at which block we are.\n\nDo we actually understand the sequences of events that can happen here?",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 24
+      },
+      "revId": "f7f87897ca15a0d6fc330efe4206d7ad6a17c508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3a41c76_83d35a85",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-07T18:47:22Z",
+      "side": 1,
+      "message": "Is this still true? Which lock are we talking about here?",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 46
+      },
+      "revId": "f7f87897ca15a0d6fc330efe4206d7ad6a17c508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35d20b5_bdc4531c",
+        "filename": "audio/aidl/default/include/effect-impl/EffectThread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-07T18:47:22Z",
+      "side": 1,
+      "message": "Does this need to be updated?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 86
+      },
+      "revId": "f7f87897ca15a0d6fc330efe4206d7ad6a17c508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
