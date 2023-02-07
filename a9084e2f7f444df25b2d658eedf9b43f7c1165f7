@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5a6370a_05407779",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-07T19:57:52Z",
+      "side": 1,
+      "message": "Done. I think it make sense to only support channelMask representative for now with the Virtualizer.java interface definition:\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/base/media/java/android/media/audiofx/Virtualizer.java;drc\u003de61df5aed0cdcae998e6103e2ae7159397a527da;l\u003d183",
+      "parentUuid": "625df15d_854c080c",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 11
+      },
+      "revId": "a9084e2f7f444df25b2d658eedf9b43f7c1165f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac717214_011fd9be",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-07T18:30:44Z",
       "side": 1,
       "message": "We now use a parcelable to pack these 3 ints, right?",
+      "range": {
+        "startLine": 115,
+        "startChar": 7,
+        "endLine": 115,
+        "endChar": 52
+      },
+      "revId": "a9084e2f7f444df25b2d658eedf9b43f7c1165f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74a107da_77f81aa1",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-07T19:57:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac717214_011fd9be",
       "range": {
         "startLine": 115,
         "startChar": 7,
