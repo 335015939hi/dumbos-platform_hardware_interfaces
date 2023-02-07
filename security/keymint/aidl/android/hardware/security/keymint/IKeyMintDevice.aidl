@@ -543,9 +543,8 @@ interface IKeyMintDevice {
 
     /**
      * Deletes all keys in the hardware keystore.  Used when keystore is reset completely.  After
-     * this function is called all keys with Tag::ROLLBACK_RESISTANCE in their hardware-enforced
-     * authorization lists must be rendered permanently unusable.  Keys without
-     * Tag::ROLLBACK_RESISTANCE may or may not be rendered unusable.
+     * this is called, all use of any previously-existing KeyMint keys must return
+     * ErrorCode::INVALID_KEY_BLOB.
      */
     void deleteAllKeys();
 
