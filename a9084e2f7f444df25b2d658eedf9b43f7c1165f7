@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "625df15d_854c080c",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-07T18:30:44Z",
+      "side": 1,
+      "message": "Actually, since we use `AudioChannelLayout` in the payload, we need to consider the case of `indexMask`, too. If we allow it, then in that case values here will be channel positions in the mask. If we don\u0027t allow use of index masks, we need to clarify that in the description of `SpeakerAnglesPayload`.\n\nAnd it would be more correct to say \u0027audio channel position\u0027, because \u0027layout\u0027 is usually an arrangement of multiple channels.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 11
+      },
+      "revId": "a9084e2f7f444df25b2d658eedf9b43f7c1165f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac717214_011fd9be",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-07T18:30:44Z",
+      "side": 1,
+      "message": "We now use a parcelable to pack these 3 ints, right?",
+      "range": {
+        "startLine": 115,
+        "startChar": 7,
+        "endLine": 115,
+        "endChar": 52
+      },
+      "revId": "a9084e2f7f444df25b2d658eedf9b43f7c1165f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
