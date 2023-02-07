@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d23db54_cd4a15db",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-07T19:38:50Z",
+      "side": 1,
+      "message": "One option I can think of is making `Parameter.Id id` an array so that you can specify a \"path\" to the property. But if the case of nested data structures is relatively rare, then using an array looks more like a complication.",
+      "parentUuid": "88f0f42c_4091d386",
+      "range": {
+        "startLine": 60,
+        "startChar": 11,
+        "endLine": 60,
+        "endChar": 92
+      },
+      "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d4f3ef74_913093ee",
         "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
         "patchSetId": 1
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "That\u0027s a smart idea, I think this for sure will work. I was thinking more about how server side use it, because this is a union data structure, remove some of the base types doesn\u0027t provide saving for space. But with field defined for each base type will make server side definition easier: they just need to set the range with same data type as parameter field itself.\nFor example of defining the range is in same CL, the range type is same as parameter field `echoDelayUs`:\n```\nconst Range kEchoDelayRange \u003d {\n        .tag \u003d static_cast\u003cint\u003e(AcousticEchoCanceler::echoDelayUs),\n        .types \u003d Range::Types::make\u003cRange::Types::rangeInt\u003e(Range::Int({.min \u003d 0, .max \u003d 500}))};\n```\n\nThis is more consistent and easy to use to me, what do you think?",
       "parentUuid": "629cf3cc_9768b67c",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 5
+      },
+      "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c241e303_cd227f38",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-07T19:38:50Z",
+      "side": 1,
+      "message": "Certainly, the idea wasn\u0027t about saving space, but rather the mental effort to parse the definition of `Ranges`. Would AIDL support generic types, the `Range` could be a templated pair. However, since AIDL does not support them, it seems that we just roll out these definitions by hand, and unlike a generic definition, it looks a bit heavy. That\u0027s why I was proposing to cut off cases that do not seem to provide much value on their own. I would even leave just one type—`float`, but it\u0027s an issue that `float` loses precision for very large values that `long` can fit, so we also need to have `long`.\n\nThe mentioned absence of templatization in fact can be seen in your example. Ideally, I would like to avoid specifying types by hand at all:\n\n```\nconst Range kEchoDelayRange \u003d {\n        .tag \u003d AcousticEchoCanceler::echoDelayUs,\n        .types \u003d Range::Types::make\u003cdecltype(...put the field here...)\u003e({.min \u003d 0, .max \u003d 500})};\n```\n\nThis makes it easier to clone this code and change to other fields. Thus, the idea to only have `float` and `long` goes along that direction because if you see that your range uses float numbers, you use Float range, otherwise Long. This makes type selection easy.\n\nIf we have a variant per type, then I would suppose having some generic code which looks up the type of the field, and chooses the corresponding variant automatically. This is another way of making type selection easy. Can this be done?",
+      "parentUuid": "df85e817_bc4a97fa",
       "range": {
         "startLine": 38,
         "startChar": 0,
