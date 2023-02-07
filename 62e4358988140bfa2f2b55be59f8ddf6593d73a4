@@ -88,6 +88,24 @@
       "parentUuid": "b0ff8563_88b08783",
       "revId": "62e4358988140bfa2f2b55be59f8ddf6593d73a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e6a9eea_4318371a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-02-07T14:27:20Z",
+      "side": 1,
+      "message": "Deleting the whole HAL, yes. You\u0027ll need to get code review and owners which acts as approval. paulcrowley@ jbires@ smoreland@ are relevant people to take a look. I expect you\u0027ll do better to explain the rationale in the commit message and check what else depends on this and so will need to be fixed but that\u0027s all you\u0027d need to get the conversation started.",
+      "parentUuid": "c0385bbc_0c7c08c8",
+      "revId": "62e4358988140bfa2f2b55be59f8ddf6593d73a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
