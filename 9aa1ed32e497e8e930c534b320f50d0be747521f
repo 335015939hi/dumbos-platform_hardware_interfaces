@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88f0f42c_4091d386",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-07T17:57:14Z",
+      "side": 1,
+      "message": "This is a good idea. I didn\u0027t use the parameter tag as index mainly because not all parameter need to define range (for example most enum and boolean parameters), in this case client will need to differentiate default values in ranges vector.\nAlso I\u0027m thinking about how to support nested parameter data structure range, for example, current implementation can not support define range of: HapticGenerator.VibratorInformation.resonantFrequencyHz\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/android/hardware/audio/effect/HapticGenerator.aidl;l\u003d88\n\nOne way to make it generic enough to handle all parameters range is define Range as:\n```\n@VintfStability\nparcelable Range {\n    Parameter.Id id; // replace int tag;\n}\n\n```\n\nAnd in Capability we still have `Range[] ranges`.\nWhat do you think?",
+      "parentUuid": "bca182d4_f5067fe9",
+      "range": {
+        "startLine": 60,
+        "startChar": 11,
+        "endLine": 60,
+        "endChar": 92
+      },
+      "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d4f3ef74_913093ee",
         "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-02T23:43:19Z",
       "side": 1,
       "message": "These comments are now outdated.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 80
+      },
+      "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b90c99f4_19ba948e",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-07T17:57:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4f3ef74_913093ee",
       "range": {
         "startLine": 67,
         "startChar": 0,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df85e817_bc4a97fa",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-07T17:57:14Z",
+      "side": 1,
+      "message": "That\u0027s a smart idea, I think this for sure will work. I was thinking more about how server side use it, because this is a union data structure, remove some of the base types doesn\u0027t provide saving for space. But with field defined for each base type will make server side definition easier: they just need to set the range with same data type as parameter field itself.\nFor example of defining the range is in same CL, the range type is same as parameter field `echoDelayUs`:\n```\nconst Range kEchoDelayRange \u003d {\n        .tag \u003d static_cast\u003cint\u003e(AcousticEchoCanceler::echoDelayUs),\n        .types \u003d Range::Types::make\u003cRange::Types::rangeInt\u003e(Range::Int({.min \u003d 0, .max \u003d 500}))};\n```\n\nThis is more consistent and easy to use to me, what do you think?",
+      "parentUuid": "629cf3cc_9768b67c",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 5
+      },
+      "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3e84ebf_02376d31",
         "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
         "patchSetId": 1
@@ -100,6 +172,30 @@
       "writtenOn": "2023-02-02T23:43:19Z",
       "side": 1,
       "message": "This looks over-engineered to me, will be hard to explain to partners. I suppose, the only two combinations we will ever met are \u0027false..false\u0027 and \u0027false..true\u0027, in which case just one boolean value would suffice.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 5
+      },
+      "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e36d31f_d4e2534f",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-07T17:57:14Z",
+      "side": 1,
+      "message": "Agree, this does cause confusing, removing this and using `boolean` in union Types.",
+      "parentUuid": "b3e84ebf_02376d31",
       "range": {
         "startLine": 57,
         "startChar": 0,

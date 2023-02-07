@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a29fea_76f2e510",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-07T17:57:14Z",
+      "side": 1,
+      "message": "This is WIP CL to demonstrate the idea of Range definition, not ready for a full review and won\u0027t pass build yet",
+      "revId": "13365b94bec8c3f79d55bbae6e3e3b1c1772a254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
