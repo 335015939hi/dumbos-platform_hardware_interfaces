@@ -70,6 +70,24 @@
       "parentUuid": "9ccb83bd_f6e52564",
       "revId": "62e4358988140bfa2f2b55be59f8ddf6593d73a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0385bbc_0c7c08c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-02-07T12:45:51Z",
+      "side": 1,
+      "message": "You mean we can do something like the latest PS? Do we need some kind of approval for such change?",
+      "parentUuid": "b0ff8563_88b08783",
+      "revId": "62e4358988140bfa2f2b55be59f8ddf6593d73a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
