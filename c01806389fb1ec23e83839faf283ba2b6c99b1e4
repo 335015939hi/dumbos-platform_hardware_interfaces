@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a399ec5_1f067a09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1222074
+      },
+      "writtenOn": "2023-02-08T00:51:24Z",
+      "side": 1,
+      "message": "Please resolve CL comments",
+      "revId": "c01806389fb1ec23e83839faf283ba2b6c99b1e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae933308_0bef430b",
