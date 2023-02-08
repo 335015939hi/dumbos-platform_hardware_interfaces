@@ -46,6 +46,30 @@
       },
       "revId": "94e2f9ebc466fb4a74ea950da382ce3a51a45748",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c7dd336_2842cdb2",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2023-02-08T21:57:44Z",
+      "side": 1,
+      "message": "Copy-and-pasted to HIDL. The 2 are similar enough.",
+      "parentUuid": "31d8bfe8_89df7211",
+      "range": {
+        "startLine": 779,
+        "startChar": 6,
+        "endLine": 783,
+        "endChar": 69
+      },
+      "revId": "94e2f9ebc466fb4a74ea950da382ce3a51a45748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
