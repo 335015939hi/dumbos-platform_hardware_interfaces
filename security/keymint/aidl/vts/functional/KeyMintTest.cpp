@@ -2854,10 +2854,6 @@ TEST_P(NewKeyGenerationTest, HmacCheckMinMacLengths) {
  * Verifies that keymint rejects HMAC key generation with multiple specified digest algorithms.
  */
 TEST_P(NewKeyGenerationTest, HmacMultipleDigests) {
-    if (SecLevel() == SecurityLevel::STRONGBOX) {
-        GTEST_SKIP() << "Test not applicable to StrongBox device";
-    }
-
     ASSERT_EQ(ErrorCode::UNSUPPORTED_DIGEST,
               GenerateKey(AuthorizationSetBuilder()
                                   .HmacKey(128)
@@ -3081,9 +3077,6 @@ TEST_P(SigningOperationsTest, RsaPaddingNoneDoesNotAllowOther) {
  * presented.
  */
 TEST_P(SigningOperationsTest, NoUserConfirmation) {
-    if (SecLevel() == SecurityLevel::STRONGBOX) {
-        GTEST_SKIP() << "Test not applicable to StrongBox device";
-    }
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                  .RsaSigningKey(1024, 65537)
                                                  .Digest(Digest::NONE)
@@ -5239,10 +5232,6 @@ TEST_P(EncryptionOperationsTest, RsaOaepInvalidPadding) {
  * with a different digest than was used to encrypt.
  */
 TEST_P(EncryptionOperationsTest, RsaOaepDecryptWithWrongDigest) {
-    if (SecLevel() == SecurityLevel::STRONGBOX) {
-        GTEST_SKIP() << "Test not applicable to StrongBox device";
-    }
-
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                  .Authorization(TAG_NO_AUTH_REQUIRED)
                                                  .RsaEncryptionKey(1024, 65537)
@@ -7788,10 +7777,6 @@ TEST_P(UsageCountLimitTest, TestLimitUseRsa) {
  * in hardware.
  */
 TEST_P(UsageCountLimitTest, TestSingleUseKeyAndRollbackResistance) {
-    if (SecLevel() == SecurityLevel::STRONGBOX) {
-        GTEST_SKIP() << "Test not applicable to StrongBox device";
-    }
-
     auto error = GenerateKey(AuthorizationSetBuilder()
                                      .RsaSigningKey(2048, 65537)
                                      .Digest(Digest::NONE)
