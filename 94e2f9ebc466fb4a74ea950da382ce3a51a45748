@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2224523d_10eba835",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1141048
+      },
+      "writtenOn": "2023-02-08T19:34:12Z",
+      "side": 1,
+      "message": "Is this AIDL specific? Should we add similar changes to HIDL if the logic is present there?",
+      "range": {
+        "startLine": 779,
+        "startChar": 6,
+        "endLine": 783,
+        "endChar": 69
+      },
+      "revId": "94e2f9ebc466fb4a74ea950da382ce3a51a45748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
