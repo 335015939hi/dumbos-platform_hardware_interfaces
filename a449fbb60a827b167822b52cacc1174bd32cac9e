@@ -33,6 +33,24 @@
       "message": "Looks like we will need to change this for compatibility_matrix.5.xml as well according to presubmit build failure. \nMight as well change compatibility_matrix.4.xml while we are at it just in case there is some device that wants to make the conversion.",
       "revId": "a449fbb60a827b167822b52cacc1174bd32cac9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d778c30c_709d843a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-02-08T00:11:06Z",
+      "side": 1,
+      "message": "Updated compatibility_matrix.5.xml and compatibility_matrix.4.xml files.",
+      "parentUuid": "b63a8aa1_0bb9f214",
+      "revId": "a449fbb60a827b167822b52cacc1174bd32cac9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
