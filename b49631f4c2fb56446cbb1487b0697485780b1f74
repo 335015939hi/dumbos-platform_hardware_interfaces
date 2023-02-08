@@ -22,6 +22,30 @@
       },
       "revId": "b49631f4c2fb56446cbb1487b0697485780b1f74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a1501ed_7152d666",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-08T17:59:26Z",
+      "side": 1,
+      "message": "I think in the cv wait `{ return mExit || !mStop; }`, if `mStop` is true, the lambda return will be false, so no chance to run `process_l()`",
+      "parentUuid": "2cc32d18_4fda9848",
+      "range": {
+        "startLine": 110,
+        "startChar": 8,
+        "endLine": 110,
+        "endChar": 9
+      },
+      "revId": "b49631f4c2fb56446cbb1487b0697485780b1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
