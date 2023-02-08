@@ -302,6 +302,30 @@
       },
       "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4176637b_e10a657d",
+        "filename": "security/dice/aidl/default/service.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-02-08T16:35:32Z",
+      "side": 1,
+      "message": "Done. I see. Thanks for the suggestion!",
+      "parentUuid": "ed289c9d_2adc643b",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
