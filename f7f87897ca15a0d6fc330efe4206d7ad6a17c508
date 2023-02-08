@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9e61f4b5_935010ee",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-08T17:33:43Z",
+      "side": 1,
+      "message": "There is a workaround for the `unique_lock` annotation, please see here: https://cs.android.com/android/platform/superproject/+/master:system/libbase/include/android-base/thread_annotations.h;l\u003d113;drc\u003da8dc1b2fb091f77410122f3b4f31dbf4e57379fe\n\nIf you use it and combine the blocks, then you will not need to re-read `mExit` and `mStop`, because the other thread will not have a chance to modify them in between.",
+      "parentUuid": "54d74004_45aeea04",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 24
+      },
+      "revId": "f7f87897ca15a0d6fc330efe4206d7ad6a17c508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3a41c76_83d35a85",
         "filename": "audio/aidl/default/EffectThread.cpp",
         "patchSetId": 4
