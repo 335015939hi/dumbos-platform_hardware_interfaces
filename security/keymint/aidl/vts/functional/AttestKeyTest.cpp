@@ -1061,11 +1061,6 @@ TEST_P(AttestKeyTest, SecondIMEIAttestationIDSuccess) {
         GTEST_SKIP() << "Test not applicable under GSI";
     }
 
-    // TODO(b/262255219): Remove this condition when StrongBox supports 2nd IMEI attestation.
-    if (SecLevel() == SecurityLevel::STRONGBOX) {
-        GTEST_SKIP() << "Test not applicable for SecurityLevel::STRONGBOX";
-    }
-
     // Skip the test if there is no second IMEI exists.
     string second_imei = get_imei(1);
     if (second_imei.empty() || second_imei.compare("null") == 0) {
