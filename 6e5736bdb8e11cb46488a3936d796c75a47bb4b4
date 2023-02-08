@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "212a2af3_9a600e09",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2055,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-08T06:42:20Z",
+      "side": 1,
+      "message": "safe to add a check with `isDeclared`?",
+      "revId": "6e5736bdb8e11cb46488a3936d796c75a47bb4b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
