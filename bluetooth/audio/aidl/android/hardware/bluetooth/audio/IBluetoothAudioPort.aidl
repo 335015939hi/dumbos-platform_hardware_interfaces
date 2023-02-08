@@ -19,8 +19,10 @@ package android.hardware.bluetooth.audio;
 import android.hardware.audio.common.SinkMetadata;
 import android.hardware.audio.common.SourceMetadata;
 import android.hardware.bluetooth.audio.CodecType;
+import android.hardware.bluetooth.audio.DynamicLowLatencyScenario;
 import android.hardware.bluetooth.audio.LatencyMode;
 import android.hardware.bluetooth.audio.PresentationPosition;
+import android.hardware.bluetooth.audio.StreamingParameters;
 
 /**
  * HAL interface from the Audio HAL to the Bluetooth stack
@@ -90,4 +92,11 @@ interface IBluetoothAudioPort {
      * @param latencyMode latency mode from audio
      */
     void setLatencyMode(in LatencyMode latencyMode);
+
+    /**
+     * Called when streaming parameters is changed.
+     *
+     * @param streamingParameters streaming parameter from audio
+     */
+    void setStreamingParameters(in StreamingParameters streamingParameters);
 }

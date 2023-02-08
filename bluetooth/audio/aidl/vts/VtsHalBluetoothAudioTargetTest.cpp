@@ -67,6 +67,7 @@ using aidl::android::hardware::bluetooth::audio::SbcCapabilities;
 using aidl::android::hardware::bluetooth::audio::SbcChannelMode;
 using aidl::android::hardware::bluetooth::audio::SbcConfiguration;
 using aidl::android::hardware::bluetooth::audio::SessionType;
+using aidl::android::hardware::bluetooth::audio::StreamingParameters;
 using aidl::android::hardware::bluetooth::audio::UnicastCapability;
 using aidl::android::hardware::common::fmq::MQDescriptor;
 using aidl::android::hardware::common::fmq::SynchronizedReadWrite;
@@ -164,6 +165,10 @@ class BluetoothAudioPort : public BnBluetoothAudioPort {
   }
 
   ndk::ScopedAStatus setCodecType(const CodecType) {
+    return ScopedAStatus::ok();
+  }
+
+  ndk::ScopedAStatus setStreamingParameters(const StreamingParameters&) {
     return ScopedAStatus::ok();
   }
 
