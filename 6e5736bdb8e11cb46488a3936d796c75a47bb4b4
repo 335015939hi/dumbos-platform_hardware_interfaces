@@ -16,6 +16,24 @@
       "message": "safe to add a check with `isDeclared`?",
       "revId": "6e5736bdb8e11cb46488a3936d796c75a47bb4b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "706ba12c_a15b58cb",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2055,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-02-08T09:10:51Z",
+      "side": 1,
+      "message": "It should be safe since there\u0027s a `binder \u003d\u003d nullptr` check right after the declaration.",
+      "parentUuid": "212a2af3_9a600e09",
+      "revId": "6e5736bdb8e11cb46488a3936d796c75a47bb4b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
