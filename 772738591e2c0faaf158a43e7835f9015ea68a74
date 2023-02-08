@@ -206,6 +206,30 @@
       },
       "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbdc10a1_4cc00ba1",
+        "filename": "security/dice/aidl/default/service.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-02-08T15:25:15Z",
+      "side": 1,
+      "message": "Leaking the DICE secrets would be very bad.\nDoes ZVec make a significant difference to preventing that?",
+      "parentUuid": "fb1c7be4_f15c6f7d",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
