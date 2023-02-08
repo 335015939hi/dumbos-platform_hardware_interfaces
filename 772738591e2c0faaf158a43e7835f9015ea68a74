@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "07ef89ba_4adc12af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-02-08T14:47:43Z",
+      "side": 1,
+      "message": "No. The upstream library is a new Rust wrapper of open-dice that can be used in both std and nostd environment. It\u0027s supposed to replace the two existing ones `libdiced_nostd` and `libdiced_open_dice_cbor`.",
+      "parentUuid": "e744af0f_32c27589",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cd23b49d_b9072f07",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-08T14:31:51Z",
       "side": 1,
       "message": "Has the removal of zvec been given consideration?",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fbfc94b_de0782df",
+        "filename": "security/dice/aidl/default/service.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-02-08T14:47:43Z",
+      "side": 1,
+      "message": "I don\u0027t see any particular reason of using it for our usages tbh. It can be helpful to have it in the diced HAL service, but that service is going away. We can start from cleaning up the usage of the service and then the HAL aidl itself.\n\nOtherwise the new open-dice Rust wrapper is going to be used in pvmfw and microdroid, the former mostly uses static array and the latter uses normal vector everywhere. I checked the usages of ZVec in microdroid related to DICE, I think most of them can be replaced by array as well like the kdf part. Do you think we should keep ZVec in microdroid?",
+      "parentUuid": "5d3fc0e3_c7061fcc",
       "range": {
         "startLine": 78,
         "startChar": 8,
