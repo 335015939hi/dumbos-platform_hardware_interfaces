@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cc32d18_4fda9848",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-08T17:54:39Z",
+      "side": 1,
+      "message": "Should we skip calling `process_l` if `mStop` is true? Just checking.",
+      "range": {
+        "startLine": 110,
+        "startChar": 8,
+        "endLine": 110,
+        "endChar": 9
+      },
+      "revId": "b49631f4c2fb56446cbb1487b0697485780b1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
