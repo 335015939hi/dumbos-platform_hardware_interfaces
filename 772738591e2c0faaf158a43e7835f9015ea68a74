@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "09876696_8ab036b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-02-08T15:07:37Z",
+      "side": 1,
+      "message": "I see. I updated the description.",
+      "parentUuid": "588c72a6_55f28715",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cd23b49d_b9072f07",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "I\u0027m not clear that you\u0027ve noticed the interesting part of ZVec which is to make an effort to clear the memory when it\u0027s dropped. That still might not be useful but last reply doesn\u0027t mention that part.",
       "parentUuid": "3fbfc94b_de0782df",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb1c7be4_f15c6f7d",
+        "filename": "security/dice/aidl/default/service.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-02-08T15:07:37Z",
+      "side": 1,
+      "message": "Yeah, I noticed that. Is it a concern that the deallocated memory should be zeroed everywhere to avoid the information leak?",
+      "parentUuid": "58218d73_13434f27",
       "range": {
         "startLine": 78,
         "startChar": 8,
