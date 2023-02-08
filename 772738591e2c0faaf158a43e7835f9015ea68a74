@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "588c72a6_55f28715",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-02-08T14:55:41Z",
+      "side": 1,
+      "message": "The term upstream is misleading then as it usually refers to the original project that AOSP forked from (and usually syncs against)",
+      "parentUuid": "07ef89ba_4adc12af",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cd23b49d_b9072f07",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "I don\u0027t see any particular reason of using it for our usages tbh. It can be helpful to have it in the diced HAL service, but that service is going away. We can start from cleaning up the usage of the service and then the HAL aidl itself.\n\nOtherwise the new open-dice Rust wrapper is going to be used in pvmfw and microdroid, the former mostly uses static array and the latter uses normal vector everywhere. I checked the usages of ZVec in microdroid related to DICE, I think most of them can be replaced by array as well like the kdf part. Do you think we should keep ZVec in microdroid?",
       "parentUuid": "5d3fc0e3_c7061fcc",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58218d73_13434f27",
+        "filename": "security/dice/aidl/default/service.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-02-08T14:55:41Z",
+      "side": 1,
+      "message": "I\u0027m not clear that you\u0027ve noticed the interesting part of ZVec which is to make an effort to clear the memory when it\u0027s dropped. That still might not be useful but last reply doesn\u0027t mention that part.",
+      "parentUuid": "3fbfc94b_de0782df",
       "range": {
         "startLine": 78,
         "startChar": 8,
