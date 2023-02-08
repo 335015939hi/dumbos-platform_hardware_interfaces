@@ -254,6 +254,30 @@
       },
       "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed289c9d_2adc643b",
+        "filename": "security/dice/aidl/default/service.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-02-08T16:20:53Z",
+      "side": 1,
+      "message": "`#[derive(ZeroizeOnDrop)]` on `Cdi` would be enough as the DICE chain is public information anyway. But note that it isn\u0027t perfect -- cache flushing from userspace seems basically impossible -- but it\u0027s got a chance of saving you from mistakes.",
+      "parentUuid": "e4379438_51a83b48",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
