@@ -18,7 +18,9 @@ package android.hardware.bluetooth.audio;
 
 import android.hardware.audio.common.SinkMetadata;
 import android.hardware.audio.common.SourceMetadata;
+import android.hardware.bluetooth.audio.AudioParameter;
 import android.hardware.bluetooth.audio.CodecType;
+import android.hardware.bluetooth.audio.DynamicLowLatencyScenarios;
 import android.hardware.bluetooth.audio.LatencyMode;
 import android.hardware.bluetooth.audio.PresentationPosition;
 
@@ -90,4 +92,11 @@ interface IBluetoothAudioPort {
      * @param latencyMode latency mode from audio
      */
     void setLatencyMode(in LatencyMode latencyMode);
+
+    /**
+     * Called when audio parameters is changed.
+     *
+     * @param audioParameter audio parameter from audio
+     */
+    void setAudioParameter(in AudioParameter audioParameter);
 }
