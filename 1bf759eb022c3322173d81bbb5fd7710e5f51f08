@@ -16,6 +16,46 @@
       "message": "Updated this CL to include second IMEI test support changes\nAdded new check `AidlVersion() \u003e\u003d 3 \u0026\u0026 property_get_int32(\"ro.vendor.api_level\", 0) \u003e 33` to run second IMEI test.",
       "revId": "1bf759eb022c3322173d81bbb5fd7710e5f51f08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2241bceb_7a12b54a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-02-08T15:11:41Z",
+      "side": 1,
+      "message": "Rajesh, please test on a recent Pixel 6/7 device (running internal master build) prior to submitting, and verify that the  test concludes and isn\u0027t skipped.",
+      "revId": "1bf759eb022c3322173d81bbb5fd7710e5f51f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fa11725_10a0a582",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-02-08T15:11:41Z",
+      "side": 1,
+      "message": "Use GTEST_SKIP here so we know the test did not conclude.",
+      "range": {
+        "startLine": 1021,
+        "startChar": 8,
+        "endLine": 1021,
+        "endChar": 15
+      },
+      "revId": "1bf759eb022c3322173d81bbb5fd7710e5f51f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
