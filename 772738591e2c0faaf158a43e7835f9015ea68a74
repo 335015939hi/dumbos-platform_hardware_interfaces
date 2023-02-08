@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e744af0f_32c27589",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-02-08T14:31:51Z",
+      "side": 1,
+      "message": "Is there another library outside of AOSP that\u0027s been imported?",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cd23b49d_b9072f07",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-02-08T14:22:12Z",
       "side": 1,
       "message": "Hi Andrew, PTAL",
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d3fc0e3_c7061fcc",
+        "filename": "security/dice/aidl/default/service.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-02-08T14:31:51Z",
+      "side": 1,
+      "message": "Has the removal of zvec been given consideration?",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
       "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
