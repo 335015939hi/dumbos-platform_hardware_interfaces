@@ -230,6 +230,30 @@
       },
       "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4379438_51a83b48",
+        "filename": "security/dice/aidl/default/service.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-02-08T16:00:13Z",
+      "side": 1,
+      "message": "ZVec zeros the array in Drop. Otherwise the values are still passed to arrays and vector after calling `bcc_main_flow`, so if there\u0027s a problem of data leaking from deallocated Vec, we should use zerorize everywhere for DICE data. In that sense, can we just use `#[derive(ZeroizeOnDrop)]` for `DiceArtifacts` to address this problem?\n[1] https://r.android.com/c/platform/packages/modules/Virtualization/+/2426112/1/microdroid_manager/src/dice.rs\n[2] https://cs.android.com/android/platform/superproject/+/master:external/rust/crates/zeroize/src/lib.rs;l\u003d133;drc\u003d5142b2ef96c507193f21c67cbcc1ab41dac14914",
+      "parentUuid": "cbdc10a1_4cc00ba1",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "772738591e2c0faaf158a43e7835f9015ea68a74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
