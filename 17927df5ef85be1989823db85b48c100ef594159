@@ -16,6 +16,23 @@
       "message": "Follow-up to https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2419710",
       "revId": "17927df5ef85be1989823db85b48c100ef594159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59475f05_33ddc440",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-09T17:59:14Z",
+      "side": 1,
+      "message": "thanks for the fix",
+      "revId": "17927df5ef85be1989823db85b48c100ef594159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
