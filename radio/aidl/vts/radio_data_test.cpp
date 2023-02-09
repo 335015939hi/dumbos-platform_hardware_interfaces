@@ -143,6 +143,10 @@ TEST_P(RadioDataTest, setupDataCall_osAppId) {
 
     TrafficDescriptor trafficDescriptor;
     OsAppId osAppId;
+<<<<<<< HEAD   (f29985 Merge "[dice] Adjust the output type of make_sample_bcc_and_)
+=======
+    // hardcode osAppId for ENTERPRISE
+>>>>>>> BRANCH (91e2e5 Fix setupDataCall tests for osAppid)
     osAppId.osAppId = {static_cast<unsigned char>(-105), static_cast<unsigned char>(-92),
                        static_cast<unsigned char>(-104), static_cast<unsigned char>(-29),
                        static_cast<unsigned char>(-4),   static_cast<unsigned char>(-110),
