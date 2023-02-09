@@ -1,6 +1,57 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed375567_6ca97141",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-02-09T17:47:35Z",
+      "side": 1,
+      "message": "I\u0027ve put up https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2428415 to address these.",
+      "revId": "b49631f4c2fb56446cbb1487b0697485780b1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5062aa71_0c153abc",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-02-09T17:47:35Z",
+      "side": 1,
+      "message": "The `\u003c\u003c` operator has a higher precedence than the ternary conditional `?:`, so this is not outputting `\"stop\"` or `\"start\"` into the log.\n\nThis line needs to be:\n\n```\n  LOG(WARNING) \u003c\u003c __func__ \u003c\u003c \" already \" \u003c\u003c (stop ? \"stop\" : \"start\");\n```\n\nso we do the ternary conditional first.",
+      "revId": "b49631f4c2fb56446cbb1487b0697485780b1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5c54962_9b4c4d89",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-02-09T17:47:35Z",
+      "side": 1,
+      "message": "Same need for parentheses here.",
+      "revId": "b49631f4c2fb56446cbb1487b0697485780b1f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cc32d18_4fda9848",
