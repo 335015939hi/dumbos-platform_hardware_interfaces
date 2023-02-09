@@ -1,0 +1,8 @@
+package android.hardware.security.see.hwcrypto.base_types;
+
+enum TDesMode {
+    ECB_NO_PADDING,
+    ECB_PKCS7_PADDING,
+    CBC_NO_PADDING,
+    CBC_PKCS7_PADDING,
+}

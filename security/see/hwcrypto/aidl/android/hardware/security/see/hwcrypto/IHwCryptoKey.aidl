@@ -1,0 +1,58 @@
+package android.hardware.security.see.hwcrypto;
+
+import android.hardware.security.see.hwcrypto.IHwCryptoKeyEcOperations;
+import android.hardware.security.see.hwcrypto.IHwCryptoKeyGeneration;
+import android.hardware.security.see.hwcrypto.IHwCryptoKeyHashOperations;
+import android.hardware.security.see.hwcrypto.IHwCryptoKeyManipulation;
+import android.hardware.security.see.hwcrypto.IHwCryptoKeyRsaOperations;
+import android.hardware.security.see.hwcrypto.IHwCryptoKeySymmetricOperations;
+
+interface IHwCryptoKey {
+    /*
+     * get_key_generation() - Returns an interface with key generation functions
+     *
+     * Return:
+     *      IHwCryptoKeyGeneration on success
+     */
+    IHwCryptoKeyGeneration get_key_generation();
+
+    /*
+     * get_key_manipulation() - Returns an interface with operations to change key attributes
+     *
+     * Return:
+     *      IHwCryptoKeyAsymmetricOperations on success
+     */
+    IHwCryptoKeyManipulation get_key_manipulation();
+
+    /*
+     * get_key_operations() - Returns an interface with symmetric key operations functions
+     *
+     * Return:
+     *      IHwCryptoKeySymmetricOperations on success
+     */
+    IHwCryptoKeySymmetricOperations get_symmetric_key_operations();
+
+    /*
+     * get_ec_key_operations() - Returns an interface with EC operations
+     *
+     * Return:
+     *      IHwCryptoKeyEcOperations on success
+     */
+    IHwCryptoKeyEcOperations get_ec_key_operations();
+
+    /*
+     * get_rsa_key_operations() - Returns an interface with RSA operations
+     *
+     * Return:
+     *      IHwCryptoKeyRsaOperations on success
+     */
+    IHwCryptoKeyRsaOperations get_rsa_key_operations();
+
+    /*
+     * get_hash_operations() - Returns an interface with hash operations
+     *
+     * Return:
+     *      IHwCryptoKeyHashOperations on success
+     */
+    IHwCryptoKeyHashOperations get_hash_operations();
+}
