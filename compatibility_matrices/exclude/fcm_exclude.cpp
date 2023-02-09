@@ -32,13 +32,15 @@ bool ShouldCheckMissingHidlHalsInFcm(const std::string& packageAndVersion) {
     };
 
     static std::vector<std::string> excluded_prefixes{
-            // Packages without top level interfaces (including types-only packages) are exempted.
-            "android.hardware.camera.device@",
-            "android.hardware.gnss.measurement_corrections@1.",
-            "android.hardware.graphics.bufferqueue@",
+        // Packages without top level interfaces (including types-only packages)
+        // are exempted.
+        "android.hardware.camera.device@",
+        "android.hardware.gnss.measurement_corrections@1.",
+        "android.hardware.graphics.bufferqueue@",
 
-            // Test packages are exempted.
-            "android.hardware.tests.",
+        // Test packages are exempted.
+        "android.hardware.tests.",
+        "android.hardware.security.see.",
     };
 
     static std::vector<std::string> excluded_exact{
