@@ -40,6 +40,7 @@ bool ShouldCheckMissingHalsInFcm(const std::string& package) {
 
             // Test packages are exempted.
             "android.hardware.tests.",
+            "android.hardware.security.see.",
     };
 
     static std::vector<std::string> excluded_exact{
