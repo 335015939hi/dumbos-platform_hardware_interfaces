@@ -22,4 +22,6 @@ enum LatencyMode {
     UNKNOWN,
     LOW_LATENCY,
     FREE,
+    DSA_SW,
+    DSA_HW
 }

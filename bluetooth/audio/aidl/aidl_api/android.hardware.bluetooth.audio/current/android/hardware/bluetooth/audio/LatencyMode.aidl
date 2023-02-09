@@ -37,4 +37,6 @@ enum LatencyMode {
   UNKNOWN = 0,
   LOW_LATENCY = 1,
   FREE = 2,
+  DSA_SW,
+  DSA_HW
 }
