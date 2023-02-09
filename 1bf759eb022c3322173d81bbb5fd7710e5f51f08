@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f6b30ad_b82c566e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-09T01:34:43Z",
+      "side": 1,
+      "message": "I tried to run this test on Pixel-7a device with internal master build running (flashed it with a build created using latest repo sync). \n\n1. This test is skipped as it failed to meet prior condition `property_get_int32(\"ro.vendor.api_level\", 0) \u003e 33`, I observed that on this device vendor-api-level and first-api-level are set to 33. \n\n2. Tried to run `DeviceOwnerKeyManagementTest` CTS test on the same device, but it also ignored with assumption failure. I observed `ro.board.first_api_level` property doesn\u0027t exist on this device, instead I found `ro.product.first_api_level` property with value `33`.\n\n3. I am not sure CL: https://r.android.com/2327964 changes are included in internal master. I tried running by modifying the check to `property_get_int32(\"ro.vendor.api_level\", 0) \u003e\u003d 33` but VTS test `EcdsaAttestationMismatchID` failed to validate SECOND-IMEI-TAG with invalid value, since the changes are not present it is ignoring this TAG instead of throwing `CANNOT_ATTEST_ID` error.",
+      "parentUuid": "2241bceb_7a12b54a",
+      "revId": "1bf759eb022c3322173d81bbb5fd7710e5f51f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fa11725_10a0a582",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-02-08T15:11:41Z",
       "side": 1,
       "message": "Use GTEST_SKIP here so we know the test did not conclude.",
+      "range": {
+        "startLine": 1021,
+        "startChar": 8,
+        "endLine": 1021,
+        "endChar": 15
+      },
+      "revId": "1bf759eb022c3322173d81bbb5fd7710e5f51f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e323a845_82413746",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-09T01:34:43Z",
+      "side": 1,
+      "message": "Used `GTEST_SKIP()` instead of `return`.",
+      "parentUuid": "5fa11725_10a0a582",
       "range": {
         "startLine": 1021,
         "startChar": 8,
