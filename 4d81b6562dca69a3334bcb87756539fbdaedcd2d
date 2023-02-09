@@ -16,6 +16,23 @@
       "message": "Patch missing in 12L-dev \n\n- Issue observed by automotive partner - b/259298404\n- Partner code base 12L (sc-v2)",
       "revId": "4d81b6562dca69a3334bcb87756539fbdaedcd2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87736bab_ef05e053",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1953015
+      },
+      "writtenOn": "2023-02-09T19:48:55Z",
+      "side": 1,
+      "message": "@arabawy@google.com could you approve aosp/2421060",
+      "revId": "4d81b6562dca69a3334bcb87756539fbdaedcd2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
