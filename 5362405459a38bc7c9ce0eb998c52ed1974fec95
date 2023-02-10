@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01ae53b8_e5f5f4a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-02-10T14:06:02Z",
+      "side": 1,
+      "message": "Added a vts test \u0027SetBitRateForA2dpEncodingHardwareSession\u0027\nThanks!",
+      "parentUuid": "a5844e2b_287d9b7b",
+      "revId": "5362405459a38bc7c9ce0eb998c52ed1974fec95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fc5aebc_c7a61975",
@@ -79,6 +97,30 @@
       "side": 1,
       "message": "Should we explain the difference between a local/remote device in the comments? I am not sure it\u0027s clear from the interface comments itself, unless I\u0027m missing something",
       "parentUuid": "9427937a_122f814c",
+      "range": {
+        "startLine": 87,
+        "startChar": 37,
+        "endLine": 87,
+        "endChar": 55
+      },
+      "revId": "5362405459a38bc7c9ce0eb998c52ed1974fec95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e027c586_591c53c4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-02-10T14:06:02Z",
+      "side": 1,
+      "message": "Added more description for setBitRate.",
+      "parentUuid": "6d365d86_c47f5764",
       "range": {
         "startLine": 87,
         "startChar": 37,
