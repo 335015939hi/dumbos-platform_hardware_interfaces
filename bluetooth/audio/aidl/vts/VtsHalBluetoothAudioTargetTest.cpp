@@ -1924,6 +1924,27 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
   }
 }
 
+TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl, CYtest1) {
+  if (!IsOffloadSupported()) {
+    return;
+  }
+  ASSERT_NE(audio_provider_, nullptr);
+  EXPECT_TRUE(audio_provider_->setBitRate(600).isOk());
+}
+
+TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl, CYtest2) {
+  if (!IsOffloadSupported()) {
+    return;
+  }
+  ASSERT_NE(audio_provider_, nullptr);
+  EXPECT_FALSE(audio_provider_->setBitRate(600).isOk());
+}
+
+// CYDBG test
+TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl, CYtest3) {
+  EXPECT_TRUE(1 == 0);
+}
+
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(
     BluetoothAudioProviderFactoryAidl);
 INSTANTIATE_TEST_SUITE_P(PerInstance, BluetoothAudioProviderFactoryAidl,
