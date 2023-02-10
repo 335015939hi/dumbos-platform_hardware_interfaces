@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "254f0584_e435d193",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-10T23:24:57Z",
+      "side": 1,
+      "message": "just use this one",
+      "range": {
+        "startLine": 87,
+        "startChar": 9,
+        "endLine": 87,
+        "endChar": 33
+      },
+      "revId": "0bbd2c36c5bdd7ede50cb5c69fe68f2cd726e199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4794f443_b322678a",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 4
@@ -14,6 +37,30 @@
       "writtenOn": "2023-02-10T23:17:40Z",
       "side": 1,
       "message": "this should go through the reconfiguration procedure instead of individual APIs",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 36
+      },
+      "revId": "0bbd2c36c5bdd7ede50cb5c69fe68f2cd726e199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37b70ca2_af7786ab",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-10T23:24:57Z",
+      "side": 1,
+      "message": "Reconfiguration approach:\n\n* BT -\u003e Audio: IBluetoothAudioProvidersFactory.openProvider(A2DP_OFFLOAD_ENCODING)\n* BT -\u003e Audio: IBluetoothAudioProvider.startSession(audioConfig \u003d {bitRate\u003dXXXX})\n* Audio -\u003e BT: IBluetoothAudioPort.UpdateSourceMetadata(USAGE_MEDIA)\n* BT -\u003e Audio: IBluetoothAudioPort.startStream()\n* BT -\u003e Audio: IBluetoothAudioProvider.updateAudioConfiguration(audioConfig \u003d {bitRate\u003dXXXX}) // actual one used\n* BT -\u003e Audio: IBluetoothAudioProvider.streamStarted()\n* BT -\u003e Audio: IBluetoothAudioProvider.updateAudioConfiguration(audioConfig \u003d {bitRate\u003dXXXX}) // new bit rate",
+      "parentUuid": "4794f443_b322678a",
       "range": {
         "startLine": 97,
         "startChar": 0,
