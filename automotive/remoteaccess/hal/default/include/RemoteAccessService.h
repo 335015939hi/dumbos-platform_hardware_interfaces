@@ -58,7 +58,7 @@ class DebugRemoteTaskCallback final
 class RemoteAccessService
     : public aidl::android::hardware::automotive::remoteaccess::BnRemoteAccess {
   public:
-    explicit RemoteAccessService(WakeupClient::StubInterface* grpcStub);
+    RemoteAccessService(const char* grpcServiceAddress, const char* mGrpcServiceIfname);
 
     ~RemoteAccessService();
 
@@ -78,13 +78,20 @@ class RemoteAccessService
 
     binder_status_t dump(int fd, const char** args, uint32_t numArgs) override;
 
+    // For test only.
+    void setTestGrpcStub(WakeupClient::StubInterface* testGrpcStub);
+
   private:
     // For testing.
     friend class RemoteAccessServiceUnitTest;
 
     static bool checkDumpPermission();
 
-    WakeupClient::StubInterface* mGrpcStub;
+    static std::unique_ptr<WakeupClient::StubInterface> createClientStub(const char* serviceAddress,
+                                                                         const char* serviceIfname);
+
+    std::unique_ptr<WakeupClient::StubInterface> mGrpcStub GUARDED_BY(mLock);
+    WakeupClient::StubInterface* mTestGrpcStub;
     std::thread mThread;
     std::mutex mLock;
     std::condition_variable mCv;
@@ -99,6 +106,8 @@ class RemoteAccessService
     // Default wait time before retry connecting to remote access client is 10s.
     size_t mRetryWaitInMs = 10'000;
     std::shared_ptr<DebugRemoteTaskCallback> mDebugCallback;
+    const char* mGrpcServiceAddress;
+    const char* mGrpcServiceIfname;
 
     void runTaskLoop();
     void maybeStartTaskLoop();
@@ -108,6 +117,7 @@ class RemoteAccessService
 
     void setRetryWaitInMs(size_t retryWaitInMs) { mRetryWaitInMs = retryWaitInMs; }
     void dumpHelp(int fd);
+    WakeupClient::StubInterface* getGrpcStubLocked() REQUIRES(mLock);
 };
 
 }  // namespace remoteaccess

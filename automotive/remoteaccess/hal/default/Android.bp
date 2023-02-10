@@ -24,14 +24,9 @@ cc_defaults {
     relative_install_path: "hw",
     srcs: [
         "src/RemoteAccessImpl.cpp",
-        "src/gRPCBindToDeviceSocketMutation.cpp",
     ],
     whole_static_libs: [
         "RemoteAccessService",
-    ],
-    static_libs: [
-        "android.hardware.automotive.can@libnetdevice",
-        "libnl++",
     ],
     shared_libs: [
         "libbase",
@@ -77,11 +72,14 @@ cc_library {
     export_include_dirs: ["include"],
     srcs: [
         "src/RemoteAccessService.cpp",
+        "src/gRPCBindToDeviceSocketMutation.cpp",
     ],
     whole_static_libs: [
+        "android.hardware.automotive.can@libnetdevice",
         "android.hardware.automotive.remoteaccess-V1-ndk",
         "wakeup_client_protos",
         "libvhalclient",
+        "libnl++",
     ],
     defaults: [
         "vhalclient_defaults",

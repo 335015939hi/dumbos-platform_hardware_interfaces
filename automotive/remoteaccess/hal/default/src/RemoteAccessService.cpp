@@ -16,11 +16,15 @@
 
 #include "RemoteAccessService.h"
 
+#include "gRPCBindToDeviceSocketMutation.h"
+
 #include <VehicleUtils.h>
 #include <aidl/android/hardware/automotive/vehicle/VehicleProperty.h>
 #include <android-base/stringprintf.h>
 #include <android/binder_status.h>
 #include <grpc++/grpc++.h>
+#include <grpcpp/create_channel.h>
+#include <libnetdevice/libnetdevice.h>
 #include <private/android_filesystem_config.h>
 #include <utils/Log.h>
 #include <chrono>
@@ -82,11 +86,32 @@ void dprintErrorStatus(int fd, const char* detail, const ScopedAStatus& status) 
 
 }  // namespace
 
-RemoteAccessService::RemoteAccessService(WakeupClient::StubInterface* grpcStub)
-    : mGrpcStub(grpcStub){};
+RemoteAccessService::RemoteAccessService(const char* grpcServiceAddress,
+                                         const char* grpcServiceIfname)
+    : mGrpcServiceAddress(grpcServiceAddress), mGrpcServiceIfname(grpcServiceIfname) {}
 
 RemoteAccessService::~RemoteAccessService() {
     maybeStopTaskLoop();
+}
+
+std::unique_ptr<WakeupClient::StubInterface> RemoteAccessService::createClientStub(
+        const char* serviceAddress, const char* serviceIfname) {
+    ::grpc::ChannelArguments grpcargs;
+
+    if (strlen(serviceIfname) != 0) {
+        grpcargs.SetSocketMutator(
+                new android::hardware::automotive::remoteaccess::BindToDeviceSocketMutator(
+                        serviceIfname));
+        ALOGD("serviceIfname specified as: %s", serviceIfname);
+        ALOGI("Waiting for interface: %s", serviceIfname);
+        android::netdevice::waitFor({serviceIfname},
+                                    android::netdevice::WaitCondition::PRESENT_AND_UP);
+        ALOGI("Waiting for interface: %s done", serviceIfname);
+    }
+
+    auto channel =
+            grpc::CreateCustomChannel(serviceAddress, grpc::InsecureChannelCredentials(), grpcargs);
+    return android::hardware::automotive::remoteaccess::WakeupClient::NewStub(channel);
 }
 
 void RemoteAccessService::maybeStartTaskLoop() {
@@ -132,7 +157,7 @@ void RemoteAccessService::runTaskLoop() {
         {
             std::lock_guard<std::mutex> lockGuard(mLock);
             mGetRemoteTasksContext.reset(new ClientContext());
-            reader = mGrpcStub->GetRemoteTasks(mGetRemoteTasksContext.get(), request);
+            reader = getGrpcStubLocked()->GetRemoteTasks(mGetRemoteTasksContext.get(), request);
         }
         GetRemoteTasksResponse response;
         while (reader->Read(&response)) {
@@ -222,20 +247,34 @@ ScopedAStatus RemoteAccessService::clearRemoteTaskCallback() {
     return ScopedAStatus::ok();
 }
 
+WakeupClient::StubInterface* RemoteAccessService::getGrpcStubLocked() {
+    if (mTestGrpcStub != nullptr) {
+        return mTestGrpcStub;
+    }
+    return mGrpcStub.get();
+}
+
 ScopedAStatus RemoteAccessService::notifyApStateChange(const ApState& newState) {
-    ClientContext context;
-    NotifyWakeupRequiredRequest request = {};
-    request.set_iswakeuprequired(newState.isWakeupRequired);
-    NotifyWakeupRequiredResponse response = {};
-    Status status = mGrpcStub->NotifyWakeupRequired(&context, request, &response);
-    if (!status.ok()) {
-        return rpcStatusToScopedAStatus(status, "Failed to notify isWakeupRequired");
+    maybeStopTaskLoop();
+
+    {
+        std::lock_guard<std::mutex> lockGuard(mLock);
+        if (mTestGrpcStub == nullptr) {
+            mGrpcStub = createClientStub(mGrpcServiceAddress, mGrpcServiceIfname);
+        }
+
+        ClientContext context;
+        NotifyWakeupRequiredRequest request = {};
+        request.set_iswakeuprequired(newState.isWakeupRequired);
+        NotifyWakeupRequiredResponse response = {};
+        Status status = getGrpcStubLocked()->NotifyWakeupRequired(&context, request, &response);
+        if (!status.ok()) {
+            return rpcStatusToScopedAStatus(status, "Failed to notify isWakeupRequired");
+        }
     }
 
     if (newState.isReadyForRemoteTask) {
         maybeStartTaskLoop();
-    } else {
-        maybeStopTaskLoop();
     }
     return ScopedAStatus::ok();
 }
@@ -350,6 +389,10 @@ std::string DebugRemoteTaskCallback::printTasks() {
                       printBytes(mTasks[i].data).c_str());
     }
     return s;
+}
+
+void RemoteAccessService::setTestGrpcStub(WakeupClient::StubInterface* testGrpcStub) {
+    mTestGrpcStub = testGrpcStub;
 }
 
 }  // namespace remoteaccess
