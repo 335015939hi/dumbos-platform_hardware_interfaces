@@ -106,6 +106,24 @@
       "parentUuid": "c0385bbc_0c7c08c8",
       "revId": "62e4358988140bfa2f2b55be59f8ddf6593d73a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98075466_f5980f6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-02-10T11:44:51Z",
+      "side": 1,
+      "message": "I\u0027ll start from removing some trivial/unused code of this HAL and then submit everything together afterwards.",
+      "parentUuid": "1e6a9eea_4318371a",
+      "revId": "62e4358988140bfa2f2b55be59f8ddf6593d73a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
