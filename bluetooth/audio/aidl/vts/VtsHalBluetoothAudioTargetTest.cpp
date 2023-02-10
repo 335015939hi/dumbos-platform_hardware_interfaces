@@ -572,6 +572,11 @@ class BluetoothAudioProviderFactoryAidl
  */
 TEST_P(BluetoothAudioProviderFactoryAidl, GetProviderFactoryService) {}
 
+// CYDBG test
+TEST_P(BluetoothAudioProviderFactoryAidl, CYtest) {
+  EXPECT_TRUE(1 == 0);
+}
+
 /**
  * Test whether we can open a provider for each provider returned by
  * getProviderCapabilities() with non-empty capabalities
