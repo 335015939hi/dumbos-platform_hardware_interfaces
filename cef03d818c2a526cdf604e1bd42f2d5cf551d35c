@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15f6325c_be0e9a05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-10T00:07:13Z",
+      "side": 1,
+      "message": "I think it\u0027s a cool idea to reuse capabilities structure definition for ranges. It certainly makes the types of range values straightforward. Some things to think about:\n - when defining parameters of an effect we need to consider how setting \u0027min\u0027 and \u0027max\u0027 will look for it, and whether defining the parameter this way makes sense,\n   for example, do ranges for enums make sense?\n - some capabilities, like equalizer presets, can\u0027t be expressed as ranges.\n \nConsidering that, maybe we need to split capabilities into two categories: those that do have ranges and those that do not have them?",
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a6074b_a978d564",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-10T00:07:13Z",
+      "side": 1,
+      "message": "Unused import.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 43
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61643c2c_69a6b072",
+        "filename": "audio/aidl/android/hardware/audio/effect/Capability.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-10T00:07:13Z",
+      "side": 1,
+      "message": "imlpemented",
+      "range": {
+        "startLine": 31,
+        "startChar": 64,
+        "endLine": 31,
+        "endChar": 77
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9475003e_d57ebd6e",
+        "filename": "audio/aidl/android/hardware/audio/effect/Capability.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-10T00:07:13Z",
+      "side": 1,
+      "message": "Needs to be updated as we are removing `Equalizer.Capability` in this CL.",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 37
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f99b403_64f69be6",
+        "filename": "audio/aidl/android/hardware/audio/effect/Capability.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-10T00:07:13Z",
+      "side": 1,
+      "message": "We should explain more here about the expected use of `Range`—which variant to use, for example.",
+      "range": {
+        "startLine": 40,
+        "startChar": 37,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "400bacca_d5a8c9a2",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-10T00:07:13Z",
+      "side": 1,
+      "message": "Looks like a line wrap is missing here",
+      "range": {
+        "startLine": 157,
+        "startChar": 47,
+        "endLine": 157,
+        "endChar": 74
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9aee856_d1b041d9",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-10T00:07:13Z",
+      "side": 1,
+      "message": "This comment lacks a clear explanation why the range is a vector and how it is indexed.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 7
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efbd8304_be619053",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-10T00:07:13Z",
+      "side": 1,
+      "message": "I suppose this and other effect code wasn\u0027t updated in this CL because `Range.Types` has been removed.",
+      "range": {
+        "startLine": 67,
+        "startChar": 36,
+        "endLine": 67,
+        "endChar": 58
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

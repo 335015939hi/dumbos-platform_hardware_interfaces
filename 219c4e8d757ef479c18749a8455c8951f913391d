@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ca44ff8_f61565b2",
+        "filename": "audio/aidl/android/hardware/audio/effect/BassBoost.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-10T00:07:13Z",
+      "side": 0,
+      "message": "We need to come up with a way for defining that a parameter may not be supported, like in this case.\n\nFor example, we ask to set the range to be empty, say by putting min \u003e max, e.g. .min.strengthPm \u003d 1, .max.strengthPm \u003d -1, and use this convention when checking the parameter value validity.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 34
+      },
+      "revId": "219c4e8d757ef479c18749a8455c8951f913391d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39cd1737_c8602fa2",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-10T00:07:13Z",
+      "side": 0,
+      "message": "How is this expressed with the new model?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "219c4e8d757ef479c18749a8455c8951f913391d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
