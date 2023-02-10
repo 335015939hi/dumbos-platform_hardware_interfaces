@@ -143,6 +143,21 @@ ndk::ScopedAStatus BluetoothAudioProvider::setLowLatencyModeAllowed(
   return ndk::ScopedAStatus::ok();
 }
 
+ndk::ScopedAStatus BluetoothAudioProvider::setBitRate(int bitRate) {
+  LOG(INFO) << __func__ << "CYDBG - SessionType=" << toString(session_type_);
+
+  if (stack_iface_ == nullptr) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << " has NO session";
+    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+  }
+  LOG(INFO) << __func__ << " - bitRate " << bitRate;
+  // TODO
+  // BluetoothAudioSessionReport::ReportBitRateChanged(
+  //   session_type_, bitRate);
+  return ndk::ScopedAStatus::ok();
+}
+
 void BluetoothAudioProvider::binderDiedCallbackAidl(void* ptr) {
   LOG(ERROR) << __func__ << " - BluetoothAudio Service died";
   auto provider = static_cast<BluetoothAudioProvider*>(ptr);
