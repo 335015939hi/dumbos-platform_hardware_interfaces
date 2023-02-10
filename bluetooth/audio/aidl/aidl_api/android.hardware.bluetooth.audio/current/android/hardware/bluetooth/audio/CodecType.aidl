@@ -34,14 +34,14 @@
 package android.hardware.bluetooth.audio;
 @Backing(type="int") @VintfStability
 enum CodecType {
-  UNKNOWN = 0,
-  SBC = 1,
-  AAC = 2,
-  APTX = 3,
-  APTX_HD = 4,
-  LDAC = 5,
-  LC3 = 6,
-  VENDOR = 7,
-  APTX_ADAPTIVE = 8,
-  OPUS = 9,
+  UNKNOWN,
+  SBC,
+  AAC,
+  APTX,
+  APTX_HD,
+  LDAC,
+  LC3,
+  VENDOR,
+  APTX_ADAPTIVE,
+  OPUS,
 }
