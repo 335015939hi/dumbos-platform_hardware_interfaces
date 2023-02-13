@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f257dc9f_66c2eeb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-13T23:40:50Z",
+      "side": 1,
+      "message": "I think, I\u0027m OK with the proposal. Some comments still left, but good for further AIDL reviews.",
+      "revId": "9ca70b978830a7a10730789c41bac481649e7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35eeff08_037585d4",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-13T23:40:50Z",
+      "side": 1,
+      "message": "can only use?",
+      "range": {
+        "startLine": 57,
+        "startChar": 14,
+        "endLine": 57,
+        "endChar": 18
+      },
+      "revId": "9ca70b978830a7a10730789c41bac481649e7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "598fced0_cb495aac",
+        "filename": "audio/aidl/android/hardware/audio/effect/PresetReverb.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-13T23:40:50Z",
+      "side": 1,
+      "message": "declare",
+      "range": {
+        "startLine": 81,
+        "startChar": 83,
+        "endLine": 81,
+        "endChar": 90
+      },
+      "revId": "9ca70b978830a7a10730789c41bac481649e7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1274df7a_a6816a97",
+        "filename": "audio/aidl/android/hardware/audio/effect/PresetReverb.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-13T23:40:50Z",
+      "side": 1,
+      "message": "Hmm, what if just one preset in the middle of the list is not supported? That does not seem to be possible to express in the Ranges array considering that each variant tag may only appear once. Perhaps, the situation when the effect supports all presets is a must, not \"an example.\"",
+      "range": {
+        "startLine": 83,
+        "startChar": 22,
+        "endLine": 83,
+        "endChar": 68
+      },
+      "revId": "9ca70b978830a7a10730789c41bac481649e7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0c833c6_4b039963",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-13T23:40:50Z",
+      "side": 1,
+      "message": "It\u0027s only now after going through effect AIDLs I have realized that effect parameters are unions, not structs, and thus each Range effectively defines a range just for one parameter. Now the purpose of having vectors of ranges has become fully clear to me 😊\n\nPerhaps it\u0027s worth stating this fact here to help other readers to get into the context quicker.",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 14
+      },
+      "revId": "9ca70b978830a7a10730789c41bac481649e7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bff3bac_43c8734e",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-13T23:40:50Z",
+      "side": 1,
+      "message": "It\u0027s likely not possible for the effect implementation to state a range on this parameter. Is this OK? Is this worth mentioning here to avoid confusion?",
+      "range": {
+        "startLine": 107,
+        "startChar": 7,
+        "endLine": 107,
+        "endChar": 62
+      },
+      "revId": "9ca70b978830a7a10730789c41bac481649e7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
