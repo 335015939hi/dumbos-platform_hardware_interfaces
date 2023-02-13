@@ -52,6 +52,24 @@
       "parentUuid": "584afc92_a1b01ed9",
       "revId": "0412eca50460e317d9e3ba073a028f274cf08c0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a688313_db665ae8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1875587
+      },
+      "writtenOn": "2023-02-13T02:45:50Z",
+      "side": 1,
+      "message": "This already done in other patches.",
+      "parentUuid": "4081c767_001922fb",
+      "revId": "0412eca50460e317d9e3ba073a028f274cf08c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
