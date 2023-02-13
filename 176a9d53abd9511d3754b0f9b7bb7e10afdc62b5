@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "671307a0_85801b92",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57e1a50e_08a1eea6",
+      "range": {
+        "startLine": 52,
+        "startChar": 47,
+        "endLine": 52,
+        "endChar": 55
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70750f7b_059dde7f",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43e173c4_5dc181d6",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70750f7b_059dde7f",
+      "range": {
+        "startLine": 53,
+        "startChar": 43,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7480f84a_56888660",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-02-13T20:27:30Z",
       "side": 1,
       "message": "These comments in all effects need to be updated.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 87
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7559800e_7e920b5d",
+        "filename": "audio/aidl/android/hardware/audio/effect/AutomaticGainControl.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7480f84a_56888660",
       "range": {
         "startLine": 58,
         "startChar": 0,
@@ -116,6 +188,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "468e6bd9_41fdf0cb",
+        "filename": "audio/aidl/android/hardware/audio/effect/Capability.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef443ff4_35ee1192",
+      "range": {
+        "startLine": 31,
+        "startChar": 46,
+        "endLine": 31,
+        "endChar": 50
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1a14544_bd6d091a",
+        "filename": "audio/aidl/android/hardware/audio/effect/Capability.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca48c48b_8e2933d0",
+      "range": {
+        "startLine": 31,
+        "startChar": 83,
+        "endLine": 31,
+        "endChar": 87
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1492ca25_f7178cee",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-02-13T20:27:30Z",
       "side": 1,
       "message": "through",
+      "range": {
+        "startLine": 33,
+        "startChar": 90,
+        "endLine": 33,
+        "endChar": 96
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f32ab753_b7e1cf76",
+        "filename": "audio/aidl/android/hardware/audio/effect/Capability.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1492ca25_f7178cee",
       "range": {
         "startLine": 33,
         "startChar": 90,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d83740ee_731bb85e",
+        "filename": "audio/aidl/android/hardware/audio/effect/PresetReverb.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ca0f74a_5b171a18",
+      "range": {
+        "startLine": 81,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 27
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb491456_6d039de4",
@@ -175,6 +343,30 @@
       "writtenOn": "2023-02-13T20:27:30Z",
       "side": 1,
       "message": "needs",
+      "range": {
+        "startLine": 40,
+        "startChar": 31,
+        "endLine": 40,
+        "endChar": 35
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9599eb17_fe3af72d",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb491456_6d039de4",
       "range": {
         "startLine": 40,
         "startChar": 31,
@@ -208,6 +400,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "120e40c1_6762a183",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bb97a74_10bb09ac",
+      "range": {
+        "startLine": 41,
+        "startChar": 13,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e378f70a_f31e850f",
@@ -221,6 +437,30 @@
       "writtenOn": "2023-02-13T20:27:30Z",
       "side": 1,
       "message": "Unmatched `}`",
+      "range": {
+        "startLine": 45,
+        "startChar": 93,
+        "endLine": 45,
+        "endChar": 94
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fea398f8_365a2fce",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e378f70a_f31e850f",
       "range": {
         "startLine": 45,
         "startChar": 93,
@@ -254,6 +494,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1ea15ef_9dca1c8a",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49fc55b5_391d6142",
+      "range": {
+        "startLine": 48,
+        "startChar": 51,
+        "endLine": 48,
+        "endChar": 55
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bdabab2_455891af",
@@ -267,6 +531,30 @@
       "writtenOn": "2023-02-13T20:27:30Z",
       "side": 1,
       "message": "Should it be 0 so that min \u003e max actually?",
+      "range": {
+        "startLine": 71,
+        "startChar": 59,
+        "endLine": 71,
+        "endChar": 60
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96fafb41_95680b03",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bdabab2_455891af",
       "range": {
         "startLine": 71,
         "startChar": 59,
@@ -300,6 +588,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80ef90f0_1f87353c",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0931a9ae_fb892a29",
+      "range": {
+        "startLine": 82,
+        "startChar": 34,
+        "endLine": 82,
+        "endChar": 39
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "262ee55c_1204097e",
@@ -313,6 +625,30 @@
       "writtenOn": "2023-02-13T20:27:30Z",
       "side": 1,
       "message": "I think, we also need to clarify about enums. I guess, they need to be set using begin and end-1 of `enum_range`?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 2
+      },
+      "revId": "176a9d53abd9511d3754b0f9b7bb7e10afdc62b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c357be3_62afb23c",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T22:17:40Z",
+      "side": 1,
+      "message": "Yes, added an example PresetReverb::Presets here for enum capabilities.",
+      "parentUuid": "262ee55c_1204097e",
       "range": {
         "startLine": 86,
         "startChar": 0,
