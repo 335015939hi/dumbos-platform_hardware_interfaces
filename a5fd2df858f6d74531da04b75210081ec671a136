@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa5361d3_27719540",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/DynamicLowLatencyScenarios.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-13T17:09:09Z",
+      "side": 1,
+      "message": "Why do we need this new latency mode APIs? Could we re-use existing latency mode APIs?",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 31
+      },
+      "revId": "a5fd2df858f6d74531da04b75210081ec671a136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
