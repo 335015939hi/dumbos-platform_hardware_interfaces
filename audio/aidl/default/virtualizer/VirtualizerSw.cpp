@@ -62,9 +62,13 @@ extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descrip
 namespace aidl::android::hardware::audio::effect {
 
 const std::string VirtualizerSw::kEffectName = "VirtualizerSw";
-const bool VirtualizerSw::kStrengthSupported = true;
-const Virtualizer::Capability VirtualizerSw::kCapability = {
-        .maxStrengthPm = 1000, .strengthSupported = kStrengthSupported};
+
+const std::vector<Range::VirtualizerRange> VirtualizerSw::kRanges = {
+        MAKE_RANGE(Virtualizer, strengthPm, 0, 1000)};
+
+const Capability VirtualizerSw::kCapability = {
+        .range = Range::make<Range::virtualizer>(VirtualizerSw::kRanges)};
+
 const Descriptor VirtualizerSw::kDescriptor = {
         .common = {.id = {.type = kVirtualizerTypeUUID,
                           .uuid = kVirtualizerSwImplUUID,
@@ -74,7 +78,7 @@ const Descriptor VirtualizerSw::kDescriptor = {
                              .volume = Flags::Volume::CTRL},
                    .name = VirtualizerSw::kEffectName,
                    .implementor = "The Android Open Source Project"},
-        .capability = Capability::make<Capability::virtualizer>(VirtualizerSw::kCapability)};
+        .capability = VirtualizerSw::kCapability};
 
 ndk::ScopedAStatus VirtualizerSw::getDescriptor(Descriptor* _aidl_return) {
     LOG(DEBUG) << __func__ << kDescriptor.toString();
@@ -87,12 +91,11 @@ ndk::ScopedAStatus VirtualizerSw::setParameterSpecific(const Parameter::Specific
               "EffectNotSupported");
 
     auto& vrParam = specific.get<Parameter::Specific::virtualizer>();
+    RETURN_IF(!inRange(vrParam, kRanges), EX_ILLEGAL_ARGUMENT, "outOfRange");
     auto tag = vrParam.getTag();
 
     switch (tag) {
         case Virtualizer::strengthPm: {
-            RETURN_IF(!kStrengthSupported, EX_ILLEGAL_ARGUMENT, "SettingStrengthNotSupported");
-
             RETURN_IF(mContext->setVrStrength(vrParam.get<Virtualizer::strengthPm>()) !=
                               RetCode::SUCCESS,
                       EX_ILLEGAL_ARGUMENT, "setStrengthPmFailed");
@@ -213,11 +216,6 @@ IEffect::Status VirtualizerSw::effectProcessImpl(float* in, float* out, int samp
 }
 
 RetCode VirtualizerSwContext::setVrStrength(int strength) {
-    if (strength < 0 || strength > VirtualizerSw::kCapability.maxStrengthPm) {
-        LOG(ERROR) << __func__ << " invalid strength: " << strength;
-        return RetCode::ERROR_ILLEGAL_PARAMETER;
-    }
-    // TODO : Add implementation to apply new strength
     mStrength = strength;
     return RetCode::SUCCESS;
 }
