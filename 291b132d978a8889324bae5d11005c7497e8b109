@@ -22,6 +22,30 @@
       },
       "revId": "291b132d978a8889324bae5d11005c7497e8b109",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c6354df_c0b445e3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LatencyMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1882530
+      },
+      "writtenOn": "2023-02-13T21:07:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d248d48_9c01b866",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 10
+      },
+      "revId": "291b132d978a8889324bae5d11005c7497e8b109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
