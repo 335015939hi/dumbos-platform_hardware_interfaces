@@ -46,6 +46,30 @@
       },
       "revId": "514cf915bf10307029db33d66760921ae7b77ea1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28bb43a0_fd2f8138",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-13T17:10:24Z",
+      "side": 1,
+      "message": "If we need more data, we need a unified API to update multiple parameters instead of one for setLatencyMode and one for setDynamicLatencyMode,\n\nCould you update LatencyMode to include the dynamic latency mode?",
+      "parentUuid": "faddf5f3_9eb3af6a",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 74
+      },
+      "revId": "514cf915bf10307029db33d66760921ae7b77ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
