@@ -61,8 +61,35 @@ extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descrip
 namespace aidl::android::hardware::audio::effect {
 
 const std::string DynamicsProcessingSw::kEffectName = "DynamicsProcessingSw";
-const DynamicsProcessing::Capability DynamicsProcessingSw::kCapability = {.minCutOffFreq = 220,
-                                                                          .maxCutOffFreq = 20000};
+
+const DynamicsProcessing::EqBandConfig DynamicsProcessingSw::kEqBandConfigMin =
+        DynamicsProcessing::EqBandConfig({.channel = 0,
+                                          .band = 0,
+                                          .enable = false,
+                                          .cutoffFrequencyHz = 220,
+                                          .gainDb = std::numeric_limits<float>::min()});
+const DynamicsProcessing::EqBandConfig DynamicsProcessingSw::kEqBandConfigMax =
+        DynamicsProcessing::EqBandConfig({.channel = std::numeric_limits<int>::max(),
+                                          .band = std::numeric_limits<int>::max(),
+                                          .enable = true,
+                                          .cutoffFrequencyHz = 20000,
+                                          .gainDb = std::numeric_limits<float>::max()});
+const Range::DynamicsProcessingRange DynamicsProcessingSw::kPreEqBandRange = {
+        .min = DynamicsProcessing::make<DynamicsProcessing::preEqBand>(
+                {DynamicsProcessingSw::kEqBandConfigMin}),
+        .max = DynamicsProcessing::make<DynamicsProcessing::preEqBand>(
+                {DynamicsProcessingSw::kEqBandConfigMax})};
+const Range::DynamicsProcessingRange DynamicsProcessingSw::kPostEqBandRange = {
+        .min = DynamicsProcessing::make<DynamicsProcessing::postEqBand>(
+                {DynamicsProcessingSw::kEqBandConfigMin}),
+        .max = DynamicsProcessing::make<DynamicsProcessing::postEqBand>(
+                {DynamicsProcessingSw::kEqBandConfigMax})};
+
+const std::vector<Range::DynamicsProcessingRange> DynamicsProcessingSw::kRanges = {
+        DynamicsProcessingSw::kPreEqBandRange, DynamicsProcessingSw::kPostEqBandRange};
+const Capability DynamicsProcessingSw::kCapability = {
+        .range = Range::make<Range::dynamicsProcessing>(DynamicsProcessingSw::kRanges)};
+
 const Descriptor DynamicsProcessingSw::kDescriptor = {
         .common = {.id = {.type = kDynamicsProcessingTypeUUID,
                           .uuid = kDynamicsProcessingSwImplUUID,
@@ -72,8 +99,7 @@ const Descriptor DynamicsProcessingSw::kDescriptor = {
                              .volume = Flags::Volume::CTRL},
                    .name = DynamicsProcessingSw::kEffectName,
                    .implementor = "The Android Open Source Project"},
-        .capability = Capability::make<Capability::dynamicsProcessing>(
-                DynamicsProcessingSw::kCapability)};
+        .capability = DynamicsProcessingSw::kCapability};
 
 ndk::ScopedAStatus DynamicsProcessingSw::getDescriptor(Descriptor* _aidl_return) {
     LOG(DEBUG) << __func__ << kDescriptor.toString();
@@ -89,6 +115,7 @@ ndk::ScopedAStatus DynamicsProcessingSw::setParameterSpecific(const Parameter::S
 
     LOG(INFO) << __func__ << specific.toString();
     auto& dpParam = specific.get<Parameter::Specific::dynamicsProcessing>();
+    RETURN_IF(!inRange(dpParam, kRanges), EX_ILLEGAL_ARGUMENT, "outOfRange");
     auto tag = dpParam.getTag();
     switch (tag) {
         case DynamicsProcessing::engineArchitecture: {
@@ -268,9 +295,6 @@ RetCode DynamicsProcessingSwContext::setCommon(const Parameter::Common& common) 
 
 RetCode DynamicsProcessingSwContext::setEngineArchitecture(
         const DynamicsProcessing::EngineArchitecture& cfg) {
-    RETURN_VALUE_IF(!validateEngineConfig(cfg), RetCode::ERROR_ILLEGAL_PARAMETER,
-                    "illegalEngineConfig");
-
     if (mEngineSettings == cfg) {
         LOG(INFO) << __func__ << " not change in engine, do nothing";
         return RetCode::SUCCESS;
@@ -337,12 +361,6 @@ RetCode DynamicsProcessingSwContext::setEqBandCfgs(
         } else {
             bandSet.insert({cfg.channel, cfg.band});
         }
-        if (!validateEqBandConfig(cfg, mChannelCount, stage.bandCount, channelConfig)) {
-            LOG(WARNING) << __func__ << " skip invalid band " << cfg.toString();
-            ret = RetCode::ERROR_ILLEGAL_PARAMETER;
-            continue;
-            ;
-        }
         targetCfgs[cfg.channel * stage.bandCount + cfg.band] = cfg;
     }
     return ret;
@@ -375,13 +393,6 @@ RetCode DynamicsProcessingSwContext::setMbcBandCfgs(
         } else {
             bandSet.insert({it.channel, it.band});
         }
-        if (!validateMbcBandConfig(it, mChannelCount, mEngineSettings.mbcStage.bandCount,
-                                   mMbcChCfgs)) {
-            LOG(WARNING) << __func__ << " skip invalid band " << it.toString();
-            ret = RetCode::ERROR_ILLEGAL_PARAMETER;
-            continue;
-            ;
-        }
         mMbcChBands[it.channel * bandCount + it.band] = it;
     }
     return ret;
@@ -401,11 +412,6 @@ RetCode DynamicsProcessingSwContext::setLimiterCfgs(
             ret = RetCode::ERROR_ILLEGAL_PARAMETER;
         } else {
             channelSet.insert(it.channel);
-        }
-        if (!validateLimiterConfig(it, mChannelCount)) {
-            LOG(WARNING) << __func__ << " skip invalid limiter " << it.toString();
-            ret = RetCode::ERROR_ILLEGAL_PARAMETER;
-            continue;
         }
         mLimiterCfgs[it.channel] = it;
     }
@@ -460,48 +466,6 @@ std::vector<DynamicsProcessing::InputGain> DynamicsProcessingSwContext::getInput
     std::copy_if(mInputGainCfgs.begin(), mInputGainCfgs.end(), std::back_inserter(ret),
                  [&](const auto& gain) { return gain.channel != kInvalidChannelId; });
     return ret;
-}
-
-bool DynamicsProcessingSwContext::validateCutoffFrequency(float freq) {
-    return freq >= DynamicsProcessingSw::kCapability.minCutOffFreq &&
-           freq <= DynamicsProcessingSw::kCapability.maxCutOffFreq;
-}
-
-bool DynamicsProcessingSwContext::validateStageEnablement(
-        const DynamicsProcessing::StageEnablement& enablement) {
-    return !enablement.inUse || (enablement.inUse && enablement.bandCount > 0);
-}
-
-bool DynamicsProcessingSwContext::validateEngineConfig(
-        const DynamicsProcessing::EngineArchitecture& engine) {
-    return engine.preferredProcessingDurationMs >= 0 &&
-           validateStageEnablement(engine.preEqStage) &&
-           validateStageEnablement(engine.postEqStage) && validateStageEnablement(engine.mbcStage);
-}
-
-bool DynamicsProcessingSwContext::validateEqBandConfig(
-        const DynamicsProcessing::EqBandConfig& band, int maxChannel, int maxBand,
-        const std::vector<DynamicsProcessing::ChannelConfig>& channelConfig) {
-    return band.channel >= 0 && band.channel < maxChannel &&
-           (size_t)band.channel < channelConfig.size() && channelConfig[band.channel].enable &&
-           band.band >= 0 && band.band < maxBand && validateCutoffFrequency(band.cutoffFrequencyHz);
-}
-
-bool DynamicsProcessingSwContext::validateMbcBandConfig(
-        const DynamicsProcessing::MbcBandConfig& band, int maxChannel, int maxBand,
-        const std::vector<DynamicsProcessing::ChannelConfig>& channelConfig) {
-    return band.channel >= 0 && band.channel < maxChannel &&
-           (size_t)band.channel < channelConfig.size() && channelConfig[band.channel].enable &&
-           band.band >= 0 && band.band < maxBand &&
-           validateCutoffFrequency(band.cutoffFrequencyHz) && band.attackTimeMs >= 0 &&
-           band.releaseTimeMs >= 0 && band.ratio >= 0 && band.thresholdDb <= 0 &&
-           band.kneeWidthDb <= 0 && band.noiseGateThresholdDb <= 0 && band.expanderRatio >= 0;
-}
-
-bool DynamicsProcessingSwContext::validateLimiterConfig(
-        const DynamicsProcessing::LimiterConfig& limiter, int maxChannel) {
-    return limiter.channel >= 0 && limiter.channel < maxChannel && limiter.attackTimeMs >= 0 &&
-           limiter.releaseTimeMs >= 0 && limiter.ratio >= 0 && limiter.thresholdDb <= 0;
 }
 
 }  // namespace aidl::android::hardware::audio::effect
