@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d248d48_9c01b866",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LatencyMode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-13T17:20:07Z",
+      "side": 1,
+      "message": "Per smoreland@\u0027s earlier comment, could you spell out DSA instead of leaving short form? \n\ne.g. \n\nDYNAMIC_SPATIAL_AUDIO_SOFTWARE\n\nWe should always prefer more elaborate variable names over variable length",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 10
+      },
+      "revId": "291b132d978a8889324bae5d11005c7497e8b109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
