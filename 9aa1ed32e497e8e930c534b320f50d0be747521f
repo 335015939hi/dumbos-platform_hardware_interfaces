@@ -113,6 +113,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "588a376d_05c66750",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T19:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa576b2a_0c0be605",
+      "range": {
+        "startLine": 60,
+        "startChar": 11,
+        "endLine": 60,
+        "endChar": 92
+      },
+      "revId": "9aa1ed32e497e8e930c534b320f50d0be747521f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4f3ef74_913093ee",

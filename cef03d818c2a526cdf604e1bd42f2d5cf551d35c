@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a5b9ab4_c5a68446",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T19:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0a6074b_a978d564",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 43
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61643c2c_69a6b072",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-10T00:07:13Z",
       "side": 1,
       "message": "imlpemented",
+      "range": {
+        "startLine": 31,
+        "startChar": 64,
+        "endLine": 31,
+        "endChar": 77
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "724f0ee7_0ff34346",
+        "filename": "audio/aidl/android/hardware/audio/effect/Capability.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T19:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61643c2c_69a6b072",
       "range": {
         "startLine": 31,
         "startChar": 64,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aadb47a_4f56aec8",
+        "filename": "audio/aidl/android/hardware/audio/effect/Capability.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T19:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9475003e_d57ebd6e",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 37
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f99b403_64f69be6",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-02-10T00:07:13Z",
       "side": 1,
       "message": "We should explain more here about the expected use of `Range`—which variant to use, for example.",
+      "range": {
+        "startLine": 40,
+        "startChar": 37,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f204174a_21e4fa50",
+        "filename": "audio/aidl/android/hardware/audio/effect/Capability.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T19:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f99b403_64f69be6",
       "range": {
         "startLine": 40,
         "startChar": 37,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf4f7820_c41c209b",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T19:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "400bacca_d5a8c9a2",
+      "range": {
+        "startLine": 157,
+        "startChar": 47,
+        "endLine": 157,
+        "endChar": 74
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9aee856_d1b041d9",
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f999cbd_642ed31a",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T19:44:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9aee856_d1b041d9",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 7
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efbd8304_be619053",
@@ -169,6 +313,30 @@
       "writtenOn": "2023-02-10T00:07:13Z",
       "side": 1,
       "message": "I suppose this and other effect code wasn\u0027t updated in this CL because `Range.Types` has been removed.",
+      "range": {
+        "startLine": 67,
+        "startChar": 36,
+        "endLine": 67,
+        "endChar": 58
+      },
+      "revId": "cef03d818c2a526cdf604e1bd42f2d5cf551d35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2b494e5_7b01d94b",
+        "filename": "audio/aidl/default/bassboost/BassBoostSw.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T19:44:41Z",
+      "side": 1,
+      "message": "Yes, previous patchset was only to demo the AIDL interface definition with Range (and 1-2 examples of using them).\nThe latest patchset should include all changes with the Range definition.",
+      "parentUuid": "efbd8304_be619053",
       "range": {
         "startLine": 67,
         "startChar": 36,

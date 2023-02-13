@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f9ff25b_435ddadd",
+        "filename": "audio/aidl/android/hardware/audio/effect/BassBoost.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T19:44:41Z",
+      "side": 0,
+      "message": "Yes the effect implementation return a Range of `min \u003e max`, then any `strengthPm` value become not in supported range.",
+      "parentUuid": "1ca44ff8_f61565b2",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 34
+      },
+      "revId": "219c4e8d757ef479c18749a8455c8951f913391d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39cd1737_c8602fa2",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-10T00:07:13Z",
       "side": 0,
       "message": "How is this expressed with the new model?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "219c4e8d757ef479c18749a8455c8951f913391d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dba2ccc_56259109",
+        "filename": "audio/aidl/android/hardware/audio/effect/Equalizer.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-13T19:44:41Z",
+      "side": 0,
+      "message": "They can be defined as a get-only parameter with the `range.min \u003d\u003d range.max`.\nSee: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2433252/2/audio/aidl/default/equalizer/EqualizerSw.cpp#85",
+      "parentUuid": "39cd1737_c8602fa2",
       "range": {
         "startLine": 53,
         "startChar": 0,
