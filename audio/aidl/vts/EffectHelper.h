@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <memory>
 #include <string>
+#include <type_traits>
 #include <unordered_map>
 #include <vector>
 
@@ -27,6 +28,7 @@
 #include <aidl/android/media/audio/common/AudioChannelLayout.h>
 #include <android/binder_auto_utils.h>
 #include <fmq/AidlMessageQueue.h>
+#include <system/audio_effects/aidl_effects_utils.h>
 
 #include "AudioHalBinderServiceUtil.h"
 #include "EffectFactoryHelper.h"
@@ -37,6 +39,7 @@ using aidl::android::hardware::audio::effect::CommandId;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::Parameter;
+using aidl::android::hardware::audio::effect::Range;
 using aidl::android::hardware::audio::effect::State;
 using aidl::android::hardware::common::fmq::SynchronizedReadWrite;
 using aidl::android::media::audio::common::AudioChannelLayout;
@@ -205,4 +208,52 @@ class EffectHelper {
         std::unique_ptr<DataMQ> inputMQ;
         std::unique_ptr<DataMQ> outputMQ;
     };
+
+    template <typename T, Range::Tag tag>
+    static bool isParameterValid(const T& target, const Descriptor& desc) {
+        if (desc.capability.range.getTag() != tag) {
+            return true;
+        }
+        const auto& ranges = desc.capability.range.get<tag>();
+        return inRange(target, ranges);
+    }
+
+    /**
+     * Add to test value set: min-1, max+1, (min + max) / 2, and numberic limits.
+     * Only use this when the type of test value is basic type (std::is_arithmetic return true).
+     */
+    template <typename S>
+    static std::set<S> expandTestValueBasic(std::set<S>& s) {
+        if (std::is_arithmetic_v<S>) {
+            if (s.size()) {
+                s.insert((*s.begin() + *s.rbegin()) >> 1);
+                s.insert(*s.begin() - 1);
+                s.insert(*s.rbegin() + 1);
+            }
+            s.insert(std::numeric_limits<S>::min());
+            s.insert(std::numeric_limits<S>::max());
+        }
+        return s;
+    }
+
+    template <typename T, typename S, Range::Tag R, typename T::Tag tag, typename Functor>
+    static std::set<S> getTestValueSet(
+            std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor>> kFactoryDescList,
+            Functor functor = nullptr) {
+        std::set<S> result;
+        for (const auto& [_, desc] : kFactoryDescList) {
+            if (desc.capability.range.getTag() == R) {
+                const auto& ranges = desc.capability.range.get<R>();
+                for (const auto& range : ranges) {
+                    if (range.min.getTag() == tag) {
+                        result.insert(range.min.template get<tag>());
+                    }
+                    if (range.max.getTag() == tag) {
+                        result.insert(range.max.template get<tag>());
+                    }
+                }
+            }
+        }
+        return functor(result);
+    }
 };
