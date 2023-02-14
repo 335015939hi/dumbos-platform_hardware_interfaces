@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b32652b_ac2ebbbf",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveLeConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-14T23:50:33Z",
+      "side": 1,
+      "message": "If you can, could you add an enum on what modes are there?",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 7
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "729f9a0f_9c4d7bf8",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecType.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-14T23:50:33Z",
+      "side": 1,
+      "message": "Since we are only adding configuration and capabilities for LE, could we save the LEX codec for a future update instead when the codec is fully ready?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79db1a2b_e0169994",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioCodecConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-14T23:50:33Z",
+      "side": 1,
+      "message": "since it is a union, it should never be null, right?\n\nIf not, then it should not be nullable",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 13
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a0f4d38_4e86b526",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-14T23:50:33Z",
+      "side": 1,
+      "message": "Would there be room just for one LTV value, or do we want to allow multiple LTV values?\n\nIn the BT spec, multiple LTVs are allowed and hence I think we should just say this is a standard Bluetooth LTV format\n\nWe already have a similar byte array in \n\nhttps://cs.android.com/android/platform/superproject/+/master:packages/modules/Bluetooth/framework/java/android/bluetooth/BluetoothLeAudioCodecConfigMetadata.java;l\u003d181\n\nIf you are using the same LTV from the Generic Audio assigned numbers, should you just copy the documentation from the above java API?\n\nOr if the metadata is defined else where, could you provide link to the public documentation of this metadata from the Bluetooth SIG website? and cite which version, section, and/or page number is the definition located \n\nOtherwise, LGTM on this byte array",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 7
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee6da7ea_5f2e223c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-14T23:50:33Z",
+      "side": 1,
+      "message": "similar to my previous comment, since this is an union, would this ever be null?\n\nIf not, we should remove the nullable comment.",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
