@@ -140,6 +140,30 @@
       },
       "revId": "aa426cb82f793a1066febe1e0195799d05021d98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a12e563_17bab918",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2023-02-14T08:16:53Z",
+      "side": 1,
+      "message": "StreamingParameters contains just LatencyMode (like method above) and additionally DynamicLowLatencyScenarios.\n\nIs this method just extending behavior of setLatencyMode above ? If yes, shall this method be called \"setLatencyModeWithDynamicScenarios\" ? Or somehow refer to \"Latency\" in it\u0027s name, since there are no other parameters changed ?\n\nCan we please have in the comment above this method explanation what\u0027s the difference from setLatencyMode, since it\u0027s just taking one extra parameter ?\n\nAlso, why are you creating new type, StreamingParameters, as container for just two fields. Can we just accept two parameters to this method ? This way we don\u0027t have to define StreamingParameters type.",
+      "parentUuid": "359d3fc6_67464274",
+      "range": {
+        "startLine": 101,
+        "startChar": 9,
+        "endLine": 101,
+        "endChar": 26
+      },
+      "revId": "aa426cb82f793a1066febe1e0195799d05021d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
