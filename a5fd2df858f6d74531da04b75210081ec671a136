@@ -22,6 +22,30 @@
       },
       "revId": "a5fd2df858f6d74531da04b75210081ec671a136",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00f2ad7a_53b53428",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/DynamicLowLatencyScenarios.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-02-14T02:43:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "aa5361d3_27719540",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 31
+      },
+      "revId": "a5fd2df858f6d74531da04b75210081ec671a136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

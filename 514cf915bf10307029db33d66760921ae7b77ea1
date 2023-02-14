@@ -70,6 +70,30 @@
       },
       "revId": "514cf915bf10307029db33d66760921ae7b77ea1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4baf7dac_8d8dcd3a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-02-14T02:43:01Z",
+      "side": 1,
+      "message": "Per talked, let add a API for Audio Parameter",
+      "parentUuid": "28bb43a0_fd2f8138",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 74
+      },
+      "revId": "514cf915bf10307029db33d66760921ae7b77ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
