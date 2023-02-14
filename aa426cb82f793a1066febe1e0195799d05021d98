@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0528184_8c1737df",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/DynamicLowLatencyScenarios.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-02-14T03:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26121d05_6bd944f6",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "aa426cb82f793a1066febe1e0195799d05021d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ef12df5_1a8e1b7c",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aabf3769_288e529b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioParameter.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-02-14T03:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ef12df5_1a8e1b7c",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "aa426cb82f793a1066febe1e0195799d05021d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44ab034d_99836123",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-02-14T03:20:57Z",
       "side": 1,
       "message": "nit: setStreamingParameters() ?\n\nTo avoid being confused with AudioManager#setParameters()",
+      "range": {
+        "startLine": 101,
+        "startChar": 9,
+        "endLine": 101,
+        "endChar": 26
+      },
+      "revId": "aa426cb82f793a1066febe1e0195799d05021d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "359d3fc6_67464274",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-02-14T03:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44ab034d_99836123",
       "range": {
         "startLine": 101,
         "startChar": 9,
