@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22c83a47_7dacffcf",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-14T00:04:51Z",
+      "side": 1,
+      "message": "What if the range defines \u0027min\u0027 as the field type mininimum value, or \u0027max\u0027 as the type\u0027s maximum value?",
+      "range": {
+        "startLine": 222,
+        "startChar": 30,
+        "endLine": 222,
+        "endChar": 43
+      },
+      "revId": "b67bfb48d1c2cf95ac9db08ed350427361efd30c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb40344d_85ff36ab",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-14T00:04:51Z",
+      "side": 1,
+      "message": "If you want to enforce compile-time restriction, you can use std::enable_if, see examples here: https://en.cppreference.com/w/cpp/types/enable_if.",
+      "range": {
+        "startLine": 223,
+        "startChar": 7,
+        "endLine": 223,
+        "endChar": 95
+      },
+      "revId": "b67bfb48d1c2cf95ac9db08ed350427361efd30c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32b7b183_fde3cc1b",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-14T00:04:51Z",
+      "side": 1,
+      "message": "Why is this needed? Is this to produce a compile time error in some case?",
+      "range": {
+        "startLine": 242,
+        "startChar": 27,
+        "endLine": 242,
+        "endChar": 37
+      },
+      "revId": "b67bfb48d1c2cf95ac9db08ed350427361efd30c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
