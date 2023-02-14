@@ -164,6 +164,30 @@
       },
       "revId": "aa426cb82f793a1066febe1e0195799d05021d98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f32b563_0c2da817",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-02-14T08:40:00Z",
+      "side": 1,
+      "message": "For the original patch, we would like to add an API to set DynamicLowLatencyScenarios. However, after discussion, we prefer not to add API for just this purpose. So I update it as setStreamingParameters which is more extendable. In this way, we just need to modify StreamingParameters when we want to add other parameters.\nTo prevent adding new API, we can also modified the exist one as well.\nI will upload another patch for it, either is fine to me.",
+      "parentUuid": "1a12e563_17bab918",
+      "range": {
+        "startLine": 101,
+        "startChar": 9,
+        "endLine": 101,
+        "endChar": 26
+      },
+      "revId": "aa426cb82f793a1066febe1e0195799d05021d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
