@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0bd6e18_c59349ea",
+        "filename": "audio/aidl/default/acousticEchoCanceler/AcousticEchoCancelerSw.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T03:42:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "797f53c3_a4677cd0",
+      "range": {
+        "startLine": 66,
+        "startChar": 61,
+        "endLine": 66,
+        "endChar": 62
+      },
+      "revId": "a7b5308617e5141f025277c078a739abbbfcfa25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7234fb0e_09e256d0",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-13T23:58:25Z",
       "side": 1,
       "message": "This vector has size 0, does not match the \u0027min\u0027 vector. Did you mean `std::vector\u003cint\u003e({0})`?",
+      "range": {
+        "startLine": 89,
+        "startChar": 67,
+        "endLine": 89,
+        "endChar": 87
+      },
+      "revId": "a7b5308617e5141f025277c078a739abbbfcfa25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73b4dbea_ff695b2c",
+        "filename": "audio/aidl/default/equalizer/EqualizerSw.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T03:42:12Z",
+      "side": 1,
+      "message": "I think `{1} \u003e {}` is still true, but to avoid confusion maybe better just change to `std::vector\u003cint\u003e({0})`",
+      "parentUuid": "7234fb0e_09e256d0",
       "range": {
         "startLine": 89,
         "startChar": 67,
