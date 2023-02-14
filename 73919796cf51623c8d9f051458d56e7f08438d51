@@ -22,6 +22,30 @@
       },
       "revId": "73919796cf51623c8d9f051458d56e7f08438d51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24f83a08_faede98b",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-14T18:52:32Z",
+      "side": 1,
+      "message": "Added a new  test which uses first and second IMEIs as the attestation ids.",
+      "parentUuid": "cc5c3249_c0d0c0c6",
+      "range": {
+        "startLine": 1053,
+        "startChar": 22,
+        "endLine": 1053,
+        "endChar": 52
+      },
+      "revId": "73919796cf51623c8d9f051458d56e7f08438d51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
