@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc5c3249_c0d0c0c6",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-02-14T10:46:17Z",
+      "side": 1,
+      "message": "I\u0027m thinking if we need a test for \"All\" IMEIs - including both IMEI1 and IMEI2 into attestation record?",
+      "range": {
+        "startLine": 1053,
+        "startChar": 22,
+        "endLine": 1053,
+        "endChar": 52
+      },
+      "revId": "73919796cf51623c8d9f051458d56e7f08438d51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
