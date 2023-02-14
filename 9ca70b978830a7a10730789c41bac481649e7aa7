@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d13182a1_3d670c6e",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T03:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35eeff08_037585d4",
+      "range": {
+        "startLine": 57,
+        "startChar": 14,
+        "endLine": 57,
+        "endChar": 18
+      },
+      "revId": "9ca70b978830a7a10730789c41bac481649e7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "598fced0_cb495aac",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-13T23:40:50Z",
       "side": 1,
       "message": "declare",
+      "range": {
+        "startLine": 81,
+        "startChar": 83,
+        "endLine": 81,
+        "endChar": 90
+      },
+      "revId": "9ca70b978830a7a10730789c41bac481649e7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85f22986_3898195d",
+        "filename": "audio/aidl/android/hardware/audio/effect/PresetReverb.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T03:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "598fced0_cb495aac",
       "range": {
         "startLine": 81,
         "startChar": 83,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51a324a0_9511bc0b",
+        "filename": "audio/aidl/android/hardware/audio/effect/PresetReverb.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T03:41:48Z",
+      "side": 1,
+      "message": "Actually the parameter `PresetReverb.supportedPresets` itself is a vector, so in the case of something in the middle of `Presets` enum doesn\u0027t supported, the effect implementation just need to list out all supported Presets in the vector.\n\nCurrently there is no good way to define enum capability by the parameter itself, so I add a vector of enum as the way to define the capability.",
+      "parentUuid": "1274df7a_a6816a97",
+      "range": {
+        "startLine": 83,
+        "startChar": 22,
+        "endLine": 83,
+        "endChar": 68
+      },
+      "revId": "9ca70b978830a7a10730789c41bac481649e7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0c833c6_4b039963",
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a58a2e66_82f05c89",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T03:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0c833c6_4b039963",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 14
+      },
+      "revId": "9ca70b978830a7a10730789c41bac481649e7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1bff3bac_43c8734e",
@@ -123,6 +219,30 @@
       "writtenOn": "2023-02-13T23:40:50Z",
       "side": 1,
       "message": "It\u0027s likely not possible for the effect implementation to state a range on this parameter. Is this OK? Is this worth mentioning here to avoid confusion?",
+      "range": {
+        "startLine": 107,
+        "startChar": 7,
+        "endLine": 107,
+        "endChar": 62
+      },
+      "revId": "9ca70b978830a7a10730789c41bac481649e7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36c1901b_c6acb443",
+        "filename": "audio/aidl/android/hardware/audio/effect/Virtualizer.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T03:41:48Z",
+      "side": 1,
+      "message": "Yes, actually this is get-only parameter, updated comment and code.",
+      "parentUuid": "1bff3bac_43c8734e",
       "range": {
         "startLine": 107,
         "startChar": 7,
