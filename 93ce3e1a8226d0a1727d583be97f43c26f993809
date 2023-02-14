@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bea0f2e_f624f125",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-14T17:45:12Z",
+      "side": 1,
+      "message": "Note that this will not compile for float (bit shifts do not make sense for them), although `is_arithmetic` includes floats. If you want to use this code with floats, then something like `min + (max - min) / 2` is more appropriate.",
+      "range": {
+        "startLine": 232,
+        "startChar": 21,
+        "endLine": 232,
+        "endChar": 44
+      },
+      "revId": "93ce3e1a8226d0a1727d583be97f43c26f993809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
