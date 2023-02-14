@@ -22,6 +22,30 @@
       },
       "revId": "93ce3e1a8226d0a1727d583be97f43c26f993809",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12b39270_653bbbd5",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T17:55:11Z",
+      "side": 1,
+      "message": "Yes, you are right, didn\u0027t consider the floating point case.",
+      "parentUuid": "5bea0f2e_f624f125",
+      "range": {
+        "startLine": 232,
+        "startChar": 21,
+        "endLine": 232,
+        "endChar": 44
+      },
+      "revId": "93ce3e1a8226d0a1727d583be97f43c26f993809",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
