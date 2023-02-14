@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0bab971_9a445664",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1973670
+      },
+      "writtenOn": "2023-02-14T22:25:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0cc97e34_e84d496a",
+      "revId": "fc5fc078a63574c2133e18c85d4c4d00d41f5518",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24bc5bf4_4867b170",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-02-08T00:06:16Z",
       "side": 1,
       "message": "are we able to test more than this?",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 0
+      },
+      "revId": "fc5fc078a63574c2133e18c85d4c4d00d41f5518",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d0f84b3_aa1f1b7c",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1973670
+      },
+      "writtenOn": "2023-02-14T22:25:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "24bc5bf4_4867b170",
       "range": {
         "startLine": 169,
         "startChar": 0,
