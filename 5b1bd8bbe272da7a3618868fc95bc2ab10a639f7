@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96280b72_8f285ef4",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T18:43:27Z",
+      "side": 1,
+      "message": "Done, was able to get some suggestions from Bard for the comment rewording :)",
+      "parentUuid": "8686285e_83d50076",
+      "range": {
+        "startLine": 51,
+        "startChar": 78,
+        "endLine": 52,
+        "endChar": 23
+      },
+      "revId": "5b1bd8bbe272da7a3618868fc95bc2ab10a639f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef079fda_c8e08173",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1156e21a_fdf3906b",
+        "filename": "audio/aidl/android/hardware/audio/effect/AcousticEchoCanceler.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T18:43:27Z",
+      "side": 1,
+      "message": "Good catch, thanks",
+      "parentUuid": "ef079fda_c8e08173",
+      "range": {
+        "startLine": 56,
+        "startChar": 53,
+        "endLine": 56,
+        "endChar": 64
+      },
+      "revId": "5b1bd8bbe272da7a3618868fc95bc2ab10a639f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "420bbef4_444b7d6b",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-02-14T18:16:19Z",
       "side": 1,
       "message": "`return` or `throw`",
+      "range": {
+        "startLine": 71,
+        "startChar": 8,
+        "endLine": 71,
+        "endChar": 13
+      },
+      "revId": "5b1bd8bbe272da7a3618868fc95bc2ab10a639f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8982638_8b772c41",
+        "filename": "audio/aidl/android/hardware/audio/effect/Range.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T18:43:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "420bbef4_444b7d6b",
       "range": {
         "startLine": 71,
         "startChar": 8,
