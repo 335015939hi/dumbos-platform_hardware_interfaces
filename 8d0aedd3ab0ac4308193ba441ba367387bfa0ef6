@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "241e754c_af397b65",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioParameter.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-14T03:01:45Z",
+      "side": 1,
+      "message": "bit mask won\u0027t work as DynamicLowLatencyScenarios is an enum with continous values",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 15
+      },
+      "revId": "8d0aedd3ab0ac4308193ba441ba367387bfa0ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82a1ae11_53931194",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioParameter.aidl",
         "patchSetId": 8
