@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15822604_bb5839d1",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T04:05:37Z",
+      "side": 1,
+      "message": "Good point, added check in the implementation.",
+      "parentUuid": "22c83a47_7dacffcf",
+      "range": {
+        "startLine": 222,
+        "startChar": 30,
+        "endLine": 222,
+        "endChar": 43
+      },
+      "revId": "b67bfb48d1c2cf95ac9db08ed350427361efd30c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb40344d_85ff36ab",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16e04d1f_14a69177",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T04:05:37Z",
+      "side": 1,
+      "message": "Yes, thanks for the suggestion",
+      "parentUuid": "eb40344d_85ff36ab",
+      "range": {
+        "startLine": 223,
+        "startChar": 7,
+        "endLine": 223,
+        "endChar": 95
+      },
+      "revId": "b67bfb48d1c2cf95ac9db08ed350427361efd30c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32b7b183_fde3cc1b",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-02-14T00:04:51Z",
       "side": 1,
       "message": "Why is this needed? Is this to produce a compile time error in some case?",
+      "range": {
+        "startLine": 242,
+        "startChar": 27,
+        "endLine": 242,
+        "endChar": 37
+      },
+      "revId": "b67bfb48d1c2cf95ac9db08ed350427361efd30c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9970c48_e055939c",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-14T04:05:37Z",
+      "side": 1,
+      "message": "This is actually not needed",
+      "parentUuid": "32b7b183_fde3cc1b",
       "range": {
         "startLine": 242,
         "startChar": 27,
