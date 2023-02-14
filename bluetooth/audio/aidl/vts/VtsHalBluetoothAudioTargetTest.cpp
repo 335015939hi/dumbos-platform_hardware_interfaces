@@ -45,6 +45,7 @@ using aidl::android::hardware::bluetooth::audio::ChannelMode;
 using aidl::android::hardware::bluetooth::audio::CodecCapabilities;
 using aidl::android::hardware::bluetooth::audio::CodecConfiguration;
 using aidl::android::hardware::bluetooth::audio::CodecType;
+using aidl::android::hardware::bluetooth::audio::DynamicLowLatencyScenario;
 using aidl::android::hardware::bluetooth::audio::IBluetoothAudioPort;
 using aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider;
 using aidl::android::hardware::bluetooth::audio::IBluetoothAudioProviderFactory;
@@ -159,7 +160,9 @@ class BluetoothAudioPort : public BnBluetoothAudioPort {
     return ScopedAStatus::ok();
   }
 
-  ndk::ScopedAStatus setLatencyMode(const LatencyMode) {
+  ndk::ScopedAStatus setLatencyMode(
+      const LatencyMode,
+      const std::vector<DynamicLowLatencyScenario> allowedScenarios) {
     return ScopedAStatus::ok();
   }
 

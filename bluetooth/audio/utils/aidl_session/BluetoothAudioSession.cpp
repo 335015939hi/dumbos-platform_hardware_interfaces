@@ -638,7 +638,9 @@ std::vector<LatencyMode> BluetoothAudioSession::GetSupportedLatencyModes() {
   return modes;
 }
 
-void BluetoothAudioSession::SetLatencyMode(const LatencyMode& latency_mode) {
+void BluetoothAudioSession::SetLatencyMode(
+    const LatencyMode& latency_mode,
+    const std::vector<DynamicLowLatencyScenario> allowedScenarios) {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
@@ -646,7 +648,8 @@ void BluetoothAudioSession::SetLatencyMode(const LatencyMode& latency_mode) {
     return;
   }
 
-  auto hal_retval = stack_iface_->setLatencyMode(latency_mode);
+  auto hal_retval =
+      stack_iface_->setLatencyMode(latency_mode, allowedScenarios);
   if (!hal_retval.isOk()) {
     LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
                  << toString(session_type_) << " failed";

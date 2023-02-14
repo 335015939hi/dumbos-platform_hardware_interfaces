@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,13 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@VintfStability
-interface IBluetoothAudioPort {
-  android.hardware.bluetooth.audio.PresentationPosition getPresentationPosition();
-  void startStream(boolean isLowLatency);
-  void stopStream();
-  void suspendStream();
-  void updateSourceMetadata(in android.hardware.audio.common.SourceMetadata sourceMetadata);
-  void updateSinkMetadata(in android.hardware.audio.common.SinkMetadata sinkMetadata);
-  void setLatencyMode(in android.hardware.bluetooth.audio.LatencyMode latencyMode, in android.hardware.bluetooth.audio.DynamicLowLatencyScenario[] allowedScenarios);
+@Backing(type="int") @VintfStability
+enum DynamicLowLatencyScenario {
+  DYNAMIC_LOW_LATENCY_SCENARIO_NONE,
+  DYNAMIC_LOW_LATENCY_SCENARIO_GAMING,
+  DYNAMIC_LOW_LATENCY_SCENARIO_TALKBACK,
 }

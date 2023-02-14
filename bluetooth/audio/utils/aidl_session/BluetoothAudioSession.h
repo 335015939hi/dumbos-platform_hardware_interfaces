@@ -18,6 +18,7 @@
 
 #include <aidl/android/hardware/audio/common/SinkMetadata.h>
 #include <aidl/android/hardware/audio/common/SourceMetadata.h>
+#include <aidl/android/hardware/bluetooth/audio/DynamicLowLatencyScenario.h>
 #include <aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.h>
 #include <aidl/android/hardware/bluetooth/audio/IBluetoothAudioProviderFactory.h>
 #include <aidl/android/hardware/bluetooth/audio/LatencyMode.h>
@@ -41,6 +42,8 @@ using ::android::AidlMessageQueue;
 
 using ::aidl::android::hardware::audio::common::SinkMetadata;
 using ::aidl::android::hardware::audio::common::SourceMetadata;
+
+using ::aidl::android::hardware::bluetooth::audio::DynamicLowLatencyScenario;
 
 using MQDataType = int8_t;
 using MQDataMode = SynchronizedReadWrite;
@@ -198,7 +201,9 @@ class BluetoothAudioSession {
   void UpdateSinkMetadata(const struct sink_metadata& sink_metadata);
 
   std::vector<LatencyMode> GetSupportedLatencyModes();
-  void SetLatencyMode(const LatencyMode& latency_mode);
+  void SetLatencyMode(
+      const LatencyMode& latency_mode,
+      const std::vector<DynamicLowLatencyScenario> allowedScenarios);
 
   // The control function writes stream to FMQ
   size_t OutWritePcmData(const void* buffer, size_t bytes);

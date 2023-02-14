@@ -189,8 +189,9 @@ class BluetoothAudioSessionControl {
                              const LatencyMode& latency_mode) {
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
+    std::vector<DynamicLowLatencyScenario> allowedScenarios;
     if (session_ptr != nullptr) {
-      session_ptr->SetLatencyMode(latency_mode);
+      session_ptr->SetLatencyMode(latency_mode, allowedScenarios);
     }
   }
 
