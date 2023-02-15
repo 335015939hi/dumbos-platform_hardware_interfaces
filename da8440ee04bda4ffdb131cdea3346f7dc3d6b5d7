@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f029d32_d91f33d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-15T00:00:52Z",
+      "side": 1,
+      "message": "This should already been implemented on AOSP, please have a look at this CL:\n\nhttps://r.android.com/2046263\n\nThanks!",
+      "revId": "da8440ee04bda4ffdb131cdea3346f7dc3d6b5d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
