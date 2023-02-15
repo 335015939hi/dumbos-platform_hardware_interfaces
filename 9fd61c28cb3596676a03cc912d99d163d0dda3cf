@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cefc9f0b_22a341f1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveLeConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-15T08:40:00Z",
+      "side": 1,
+      "message": "These are BT Controller specific operational mode supplied to codec at the time of codec initialization which we get to know via Vendor specific HCI events.",
+      "parentUuid": "4b32652b_ac2ebbbf",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 7
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "729f9a0f_9c4d7bf8",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecType.aidl",
         "patchSetId": 18
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-14T23:50:33Z",
       "side": 1,
       "message": "Since we are only adding configuration and capabilities for LE, could we save the LEX codec for a future update instead when the codec is fully ready?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d24dc2c_45f9ed71",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecType.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-15T08:40:00Z",
+      "side": 1,
+      "message": "AptX Adaptive LEX will use similar configuration as AptX Adaptive LE (like there are 2 entries for Aptx and Aptx-HD both being different codecs having similar structure), so don\u0027t have to add that additionally in AIDL. We are planning to upstream LEX server/client-side implementation later this year itself to AOSP and continue to use same AIDL in our internal QC stack for ongoing development. So it needs to be here for this version of AIDL.",
+      "parentUuid": "729f9a0f_9c4d7bf8",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4cd60d3c_8e8fe03c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioCodecConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-15T08:40:00Z",
+      "side": 1,
+      "message": "since it is a union, it should never be null, right?\n\n\u003cSagar\u003e Initially it was my understanding as well but it fails compilation while removing nullable may be for ensuring backward compatibility.\n\nPasting error below,\n\n_________________________________________________________________________________\n\n[  0% 2/1474] AIDL CHECK API: hardware/interfaces/bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current against hardware/interfaces/bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.\nFAILED: out/soong/.intermediates/hardware/interfaces/bluetooth/audio/aidl/android.hardware.bluetooth.audio-api/checkapi_current.timestamp\n(out/host/linux-x86/bin/aidl --stability vintf -pout/soong/.intermediates/hardware/interfaces/common/aidl/android.hardware.common_interface/2/preprocessed.aidl -pout/soong/.intermediates/hardware/interfaces/common/fmq/aidl/android.hardware.common.fmq_interface/1/preprocessed.aidl -pout/soong/.intermediates/hardware/interfaces/audio/aidl/android.hardware.audio.common_interface/1/preprocessed.aidl --checkapi\u003dcompatible  hardware/interfaces/bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/2 hardware/interfaces/bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current \u0026\u0026 touch out/soong/.intermediates/hardware/interfaces/bluetooth/audio/aidl/android.hardware.bluetooth.audio-api/checkapi_current.timestamp) || (cat system/tools/aidl/build/message_check_compatibility.txt \u0026\u0026 exit 1)\nERROR: hardware/interfaces/bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/UnicastCapability.aidl:50.64-91: Field \u0027aptxadaptiveleCapabilities\u0027 does not have a useful default in some backends. Please either provide a default value for this field or mark the field as @nullable. This value or a null value will be used automatically when an old version of this parcelable is sent to a process which understands a new version of this parcelable. In order to make sure your code continues to be backwards compatible, make sure the default or null value does not cause a semantic change to this parcelable.\nERROR: hardware/interfaces/bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/LeAudioCodecConfiguration.aidl:39.63-84: Field \u0027aptxadaptiveleConfig\u0027 does not have a useful default in some backends. Please either provide a default value for this field or mark the field as @nullable. This value or a null value will be used automatically when an old version of this parcelable is sent to a process which understands a new version of this parcelable. In order to make sure your code continues to be backwards compatible, make sure the default or null value does not cause a semantic change to this parcelable.\n###############################################################################\n# ERROR: Backward incompatible change detected on AIDL API                    #\n###############################################################################\nAbove AIDL file(s) has changed in a backward-incompatible way, e.g. removing\na method from an interface or a field from a parcelable. If a device is shipped\nwith this change by ignoring this message, it has a high risk of breaking later\nwhen a module using the interface is updated, e.g., Maineline modules.\n07:57:47 ninja failed with: exit status 1\n\n_________________________________________________________________________________\n\n\n\n\n\n\n\n\nMoreover, it seems when AIDL was Rev-up for V2 with OPUS codec addition. \nOPUS structure was also made nullable for that reason only.\nMay be Steven can confirm more on this from an interface version compatibility viewpoint.\n \nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecConfiguration.aidl;bpv\u003d0\n\n    union CodecSpecific {\n        SbcConfiguration sbcConfig;\n        AacConfiguration aacConfig;\n        LdacConfiguration ldacConfig;\n        AptxConfiguration aptxConfig;\n        AptxAdaptiveConfiguration aptxAdaptiveConfig;\n        Lc3Configuration lc3Config;\n        VendorConfiguration vendorConfig;\n        @nullable OpusConfiguration opusConfig;\n    }\n    \n    \nSimilarly, here as well,\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecCapabilities.aidl;bpv\u003d0\n\n    union Capabilities {\n        SbcCapabilities sbcCapabilities;\n        AacCapabilities aacCapabilities;\n        LdacCapabilities ldacCapabilities;\n        AptxCapabilities aptxCapabilities;\n        AptxAdaptiveCapabilities aptxAdaptiveCapabilities;\n        Lc3Capabilities lc3Capabilities;\n        VendorCapabilities vendorCapabilities;\n        @nullable OpusCapabilities opusCapabilities;\n    }",
+      "parentUuid": "79db1a2b_e0169994",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 13
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a0f4d38_4e86b526",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
         "patchSetId": 18
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe813393_2804bfe1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-15T08:40:00Z",
+      "side": 1,
+      "message": "Q1. Would there be room just for one LTV value, or do we want to allow multiple LTV values?\n\n\u003cSagar\u003e Theoretically using byte array multiple LTV is possible. \nBut as the name and description suggests it\u0027s meant for vendor specific metadata (type - 0xFF).\nBT Spec is having provision of sending vendor metadata as shared over mail in LE Generic Audio section.\nhttps://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Generic%20Audio.pdf\n\nRegarding multi-LTV query, currently we are planning for one single LTV only for given LeAudioConfiguration. But in future, if any particular vendor wants to send more LTV it can send it in single LTV itself in a nested format as below,\n\n---------------------------------------------------------------------------------\nOctet      |     Name               |             Value            \n0          |     Length             |      Variable (Overall length)\n1          |     Type               |      0xFF - Vendor Specific Metadata\n2-3        |     Company ID         |       0x000A - Qualcomm (example)\n4          |     VS Metadata length |      LTV length octet (L say length)\n5          |     VS Metadata type   |      LTV type octet\n6 to L+4   |     VS Metadata value  |      LTV value octet(s)\nL+5        |     Next LTV           |      Additional LTV (if needed)\n_________________________________________________________________________________\n*VS - vendor specific\n________________________________________________________________________________\n\nRemote can send PACS vendor Metadata in above format (more LTV) which will be passed on to codec via AIDL.\n\nI don\u0027t see any scenario where for same LE session config anyone will update multi LTV of two different vendors while single vendor multi LTV scenario can be covered using above nested LTV structures.\n\n\nQ2. We already have a similar byte array in\n\nhttps://cs.android.com/android/platform/superproject/+/master:packages/modules/Bluetooth/framework/java/android/bluetooth/BluetoothLeAudioCodecConfigMetadata.java;l\u003d181\n\nIf you are using the same LTV from the Generic Audio assigned numbers, should you just copy the documentation from the above java API?\n\n\u003cSagar\u003e I am not very sure about its current usage in AOSP it can be open for all types of LTVs (standard and vendor both). However, in our byte array we are only targeting for vendor specific metadata only while Java one seems more generic.",
+      "parentUuid": "9a0f4d38_4e86b526",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 7
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee6da7ea_5f2e223c",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
         "patchSetId": 18
@@ -106,6 +202,30 @@
       "writtenOn": "2023-02-14T23:50:33Z",
       "side": 1,
       "message": "similar to my previous comment, since this is an union, would this ever be null?\n\nIf not, we should remove the nullable comment.",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51f2dc81_cba79403",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-15T08:40:00Z",
+      "side": 1,
+      "message": "same as above response for Configuration structure",
+      "parentUuid": "ee6da7ea_5f2e223c",
       "range": {
         "startLine": 37,
         "startChar": 9,
