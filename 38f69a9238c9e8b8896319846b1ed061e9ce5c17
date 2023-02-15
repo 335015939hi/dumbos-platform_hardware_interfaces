@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee2e3af5_9b3b147a",
+        "filename": "audio/aidl/default/automaticGainControlV1/AutomaticGainControlV1Sw.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-02-15T18:08:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "461cb908_e306a8d9",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "38f69a9238c9e8b8896319846b1ed061e9ce5c17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d0057ff_03a43db5",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-15T17:28:59Z",
       "side": 1,
       "message": "Please move this include into its own section above the platform headers section.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "38f69a9238c9e8b8896319846b1ed061e9ce5c17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a7ebb98_51c80740",
+        "filename": "audio/aidl/vts/VtsHalAGC1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-02-15T18:08:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d0057ff_03a43db5",
       "range": {
         "startLine": 20,
         "startChar": 0,
