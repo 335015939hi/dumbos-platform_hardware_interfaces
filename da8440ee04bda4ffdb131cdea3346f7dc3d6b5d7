@@ -16,6 +16,24 @@
       "message": "This should already been implemented on AOSP, please have a look at this CL:\n\nhttps://r.android.com/2046263\n\nThanks!",
       "revId": "da8440ee04bda4ffdb131cdea3346f7dc3d6b5d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac12e13e_ba647e74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1136338
+      },
+      "writtenOn": "2023-02-15T04:59:02Z",
+      "side": 1,
+      "message": "Yes, last year Alice added only the A2dp decoding session entry which is required for a2dp sink offload. But that is not sufficient for complete a2dp sink offload functionality. \nhttps://android-review.googlesource.com/q/topic:%22a2dp-sink-offload%22 are needed for complete interfacing between audio HAL and BT stack.",
+      "parentUuid": "3f029d32_d91f33d5",
+      "revId": "da8440ee04bda4ffdb131cdea3346f7dc3d6b5d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
