@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03e31e3a_1c96ae0d",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-16T18:00:35Z",
+      "side": 1,
+      "message": "I have found recently a more generic approach which allows the checking macros to print AIDL values naturally, please see here: https://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/libaudioclient/tests/audio_aidl_legacy_conversion_tests.cpp;l\u003d54;drc\u003d2a6a301315592f93d0e38ddc4454074f24e982ff. Note that that code will work for the CPP backend only, because it relies on detecting inheritance from `android::Parcelable`. For the NDK backend we will need a bit different approach. I haven\u0027t yet ported it to core VTS tests yet, but if we do, this will remove the need for most of such hand-written conversions.",
+      "range": {
+        "startLine": 85,
+        "startChar": 31,
+        "endLine": 85,
+        "endChar": 78
+      },
+      "revId": "eea1994dad73ff4cc5d5a24ce302e089cc4c6c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
