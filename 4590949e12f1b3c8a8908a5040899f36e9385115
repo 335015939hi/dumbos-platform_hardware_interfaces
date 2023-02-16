@@ -22,6 +22,30 @@
       },
       "revId": "4590949e12f1b3c8a8908a5040899f36e9385115",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3c5d40e_e921a8df",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-16T22:29:30Z",
+      "side": 1,
+      "message": "For the IPv6 case, we would need to have CONNECTION_IP_V6 in https://cs.android.com/android/platform/superproject/+/master:system/hardware/interfaces/media/aidl/android/media/audio/common/AudioDeviceDescription.aidl, but currently we don\u0027t have it. I know it\u0027s an inconsistency between these two data structures, so far didn\u0027t have time to address it, and frankly it\u0027s not a priority for Android use cases. Distribution of audio over IP is handled by Cast which is outside of the audio framework.\n\nI\u0027ve put all the tag variants into GenerateUniqueDeviceAddress just to make a default-less switch.",
+      "parentUuid": "482bfb8e_bd1ee3f1",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 18
+      },
+      "revId": "4590949e12f1b3c8a8908a5040899f36e9385115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
