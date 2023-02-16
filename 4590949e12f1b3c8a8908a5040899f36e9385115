@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "482bfb8e_bd1ee3f1",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-16T02:35:45Z",
+      "side": 1,
+      "message": "Do we need to consider `Tag::ipv6` here, looks like not matching with `GenerateUniqueDeviceAddress`?",
+      "range": {
+        "startLine": 137,
+        "startChar": 4,
+        "endLine": 137,
+        "endChar": 18
+      },
+      "revId": "4590949e12f1b3c8a8908a5040899f36e9385115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
