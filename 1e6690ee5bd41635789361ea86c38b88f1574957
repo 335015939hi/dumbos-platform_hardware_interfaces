@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42473a14_0f3c30c5",
+        "filename": "audio/aidl/android/hardware/audio/effect/DefaultExtension.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-16T00:28:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93ffeba5_8296e584",
+      "range": {
+        "startLine": 27,
+        "startChar": 33,
+        "endLine": 27,
+        "endChar": 35
+      },
+      "revId": "1e6690ee5bd41635789361ea86c38b88f1574957",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "836792bf_84141df2",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52bad271_ff9ef53d",
+        "filename": "audio/aidl/android/hardware/audio/effect/DefaultExtension.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-16T00:28:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "836792bf_84141df2",
+      "range": {
+        "startLine": 30,
+        "startChar": 15,
+        "endLine": 30,
+        "endChar": 18
+      },
+      "revId": "1e6690ee5bd41635789361ea86c38b88f1574957",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "452069cd_acda1f15",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-02-16T00:20:33Z",
       "side": 1,
       "message": "These lines need to be moved down to the platform includes section",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "1e6690ee5bd41635789361ea86c38b88f1574957",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef05fd8a_d0a785b7",
+        "filename": "audio/aidl/default/extension/ExtensionEffect.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-02-16T00:28:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "452069cd_acda1f15",
       "range": {
         "startLine": 20,
         "startChar": 0,
