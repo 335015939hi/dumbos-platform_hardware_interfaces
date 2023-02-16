@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d98af2b_20c03fa2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioCodecConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-16T21:58:40Z",
+      "side": 1,
+      "message": "This is a bug in the AIDL complier and has been fixed by the following change yesterday. \n\nhttps://r.android.com/2439832\n\nCould you sync your local tree or CP the above change to include this change? \n\nWith this change applied, nullable is no longer required for adding new fields to union.",
+      "parentUuid": "4cd60d3c_8e8fe03c",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 13
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a0f4d38_4e86b526",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
         "patchSetId": 18
@@ -191,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df9cb4e5_eecbebc2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-16T21:58:40Z",
+      "side": 1,
+      "message": "Thanks for the answer!\n\nIn this case, I think one LTV input makes sense. \n\nIt looks like you are using, the `Vendor_Specific` metadata definition Page 7 of the current Generic Audio assigned number document. \n\nCould you update the comment of this API to reference the above document so that there is no ambiguity on which `Vendor_Specific` metadata we are talking about?",
+      "parentUuid": "fe813393_2804bfe1",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 7
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee6da7ea_5f2e223c",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
         "patchSetId": 18
@@ -226,6 +274,30 @@
       "side": 1,
       "message": "same as above response for Configuration structure",
       "parentUuid": "ee6da7ea_5f2e223c",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5c19a1b_86293426",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-02-16T21:58:40Z",
+      "side": 1,
+      "message": "Same as above, please sync the tree and CP the CL and try compilation again.",
+      "parentUuid": "51f2dc81_cba79403",
       "range": {
         "startLine": 37,
         "startChar": 9,
