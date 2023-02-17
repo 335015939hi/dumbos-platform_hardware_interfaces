@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10b68e97_dfc3c19a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1061057
+      },
+      "writtenOn": "2023-02-17T02:41:17Z",
+      "side": 1,
+      "message": "I believe aosp/2441523 will be automerged to master so this one won\u0027t be needed",
+      "revId": "1c63958e90d93ad89142baee5c84428e0b22890b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
