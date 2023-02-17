@@ -166,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce822d7f_caf83b89",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioCodecConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-17T08:15:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d98af2b_20c03fa2",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 13
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a0f4d38_4e86b526",
@@ -239,6 +263,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5a75806_cc3ddf86",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-17T08:15:41Z",
+      "side": 1,
+      "message": "I found section details for this in below Assigned number Bluetooth document.\n\nhttps://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned%20Numbers.pdf\n\nUpdated more comments now as below\n\n    /*\n     * Bluetooth LTV format for vendor metadata is defined in the\n     * Section 6.12.6.9 Vendor_Specific of Bluetooth Assigned Numbers\n     *\n     * Octet 0 \u003d Length\n     * Octet 1 \u003d Type (Vendor specific - 0xFF)\n     * Octet 2-3 \u003d Company_ID\n     * Company ID values are defined in Bluetooth Assigned Numbers.\n     * Octet 4 onwards \u003d Vendor specific Metadata\n     */",
+      "parentUuid": "df9cb4e5_eecbebc2",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 7
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee6da7ea_5f2e223c",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
         "patchSetId": 18
@@ -298,6 +346,30 @@
       "side": 1,
       "message": "Same as above, please sync the tree and CP the CL and try compilation again.",
       "parentUuid": "51f2dc81_cba79403",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77e6ee70_5d2fec4e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-17T08:15:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c19a1b_86293426",
       "range": {
         "startLine": 37,
         "startChar": 9,
