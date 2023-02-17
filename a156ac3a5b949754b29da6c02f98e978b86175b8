@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd5cdddd_79fcc3c8",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-02-17T00:55:15Z",
+      "side": 0,
+      "message": "You can\u0027t delete fields from a stable parcelable; it is not backwards compatible (unless the field is not frozen yet)",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 7
+      },
+      "revId": "a156ac3a5b949754b29da6c02f98e978b86175b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
