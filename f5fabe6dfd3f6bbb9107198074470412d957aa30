@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "559f176c_f9a98f86",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-02-18T22:37:36Z",
+      "side": 1,
+      "message": "Why the double negation here? Seems redundant given the next line.",
+      "range": {
+        "startLine": 113,
+        "startChar": 16,
+        "endLine": 113,
+        "endChar": 18
+      },
+      "revId": "f5fabe6dfd3f6bbb9107198074470412d957aa30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2714353_010beb55",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-02-18T22:37:36Z",
+      "side": 1,
+      "message": "The test should fail, rather than return false, if we cannot get the OID for CRLDP. Otherwise it might incorrectly pass if the OID is in the certificate.",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 40
+      },
+      "revId": "f5fabe6dfd3f6bbb9107198074470412d957aa30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4d26c6d_9d1411cd",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-02-18T22:37:36Z",
+      "side": 1,
+      "message": "Return location !\u003d -1",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 16
+      },
+      "revId": "f5fabe6dfd3f6bbb9107198074470412d957aa30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
