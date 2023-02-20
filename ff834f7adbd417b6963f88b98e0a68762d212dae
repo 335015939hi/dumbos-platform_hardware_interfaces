@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6141cb09_fcaf1eca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-20T20:42:11Z",
+      "side": 1,
+      "message": "This is failing because the provisioning tool (vendor/google_nos/provision/citadel/validate_provisioning.cpp) uses the keymint support library, which now relies on a constant that\u0027s only in v3 of the AIDL auto-generated code, to fix this I made a change in internal repo.\nSince this change is not propagated to AOSP, it is failing. I am trying to know how to propagate this to AOSP (this change will be part of prebuilt) from @tommychiu",
+      "parentUuid": "7b10a0a0_c134851d",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e9bdc18_92acb6f7",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-02-20T13:12:27Z",
       "side": 1,
       "message": "nit: s/and/or/",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f64cda27_77c3edb0",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-20T20:42:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e9bdc18_92acb6f7",
       "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -86,6 +122,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57b7dda4_37c7da7b",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-20T20:42:11Z",
+      "side": 1,
+      "message": "updated, kept only `EXPECT_EQ(attest_key_cert_chain.size(), 1);`",
+      "parentUuid": "052e85cd_bf4fb7b5",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3c6772a_d4c2f7da",
@@ -99,6 +153,24 @@
       "writtenOn": "2023-02-20T13:12:27Z",
       "side": 1,
       "message": "nit: skip message doesn\u0027t quite match skip reason",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "927cd6c9_c61801a7",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-20T20:42:11Z",
+      "side": 1,
+      "message": "Updated - `Test not applicable as device does not support SECOND-IMEI ID attestation.`",
+      "parentUuid": "c3c6772a_d4c2f7da",
       "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -120,6 +192,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc8c0582_463bbfff",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-20T20:42:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33ebf148_031d6128",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbc44ab2_f61fb66a",
@@ -133,6 +223,24 @@
       "writtenOn": "2023-02-20T13:12:27Z",
       "side": 1,
       "message": "nit: every other test starts with a capital letter",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6554a13a_2ce81f3e",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-20T20:42:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbc44ab2_f61fb66a",
       "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -160,6 +268,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44132871_47891c0f",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-20T20:42:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b06b8313_9076326f",
+      "range": {
+        "startLine": 1161,
+        "startChar": 69,
+        "endLine": 1161,
+        "endChar": 72
+      },
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06d126d2_270b233f",
@@ -173,6 +305,24 @@
       "writtenOn": "2023-02-20T13:12:27Z",
       "side": 1,
       "message": "nit: \"but include an attestation ID field\" is a bit vague; maybe \"but include both IMEI attestation ID fields\"",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8eae05a_fad3119d",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-20T20:42:11Z",
+      "side": 1,
+      "message": "updated.",
+      "parentUuid": "06d126d2_270b233f",
       "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -194,6 +344,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f1cec80_b17b2cb7",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-20T20:42:11Z",
+      "side": 1,
+      "message": "Updated - `Test not applicable as device does not support IMEI ID attestation.`",
+      "parentUuid": "270051f3_f0b43889",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8740cef5_8ff9f04c",
@@ -207,6 +375,24 @@
       "writtenOn": "2023-02-20T13:12:27Z",
       "side": 1,
       "message": "nit: move up next to other check on `result`",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65dc5e10_bd11e94d",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-20T20:42:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8740cef5_8ff9f04c",
       "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
