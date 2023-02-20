@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff19b1d8_79b3d3cf",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AptxAdaptiveLeConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-20T07:34:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cefc9f0b_22a341f1",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 7
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "729f9a0f_9c4d7bf8",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "AptX Adaptive LEX will use similar configuration as AptX Adaptive LE (like there are 2 entries for Aptx and Aptx-HD both being different codecs having similar structure), so don\u0027t have to add that additionally in AIDL. We are planning to upstream LEX server/client-side implementation later this year itself to AOSP and continue to use same AIDL in our internal QC stack for ongoing development. So it needs to be here for this version of AIDL.",
       "parentUuid": "729f9a0f_9c4d7bf8",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "9fd61c28cb3596676a03cc912d99d163d0dda3cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebce8eb5_e7237f66",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecType.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-20T07:34:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d24dc2c_45f9ed71",
       "range": {
         "startLine": 33,
         "startChar": 0,
