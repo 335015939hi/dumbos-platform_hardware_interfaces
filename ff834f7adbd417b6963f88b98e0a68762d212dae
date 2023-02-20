@@ -33,6 +33,182 @@
       "message": "Code looks good, let\u0027s see we can get the test to pass though.",
       "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b10a0a0_c134851d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-20T13:12:27Z",
+      "side": 1,
+      "message": "The failed presubmit looks like somewhere is still depending on `android.hardware.security.keymint-V2-ndk` and so not seeing the new SECOND_IMEI tag value.",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e9bdc18_92acb6f7",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-20T13:12:27Z",
+      "side": 1,
+      "message": "nit: s/and/or/",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "052e85cd_bf4fb7b5",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-20T13:12:27Z",
+      "side": 1,
+      "message": "nit: this check subsumes the line before",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3c6772a_d4c2f7da",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-20T13:12:27Z",
+      "side": 1,
+      "message": "nit: skip message doesn\u0027t quite match skip reason",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33ebf148_031d6128",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-20T13:12:27Z",
+      "side": 1,
+      "message": "nit: move this up to ~1114, close to the last place where `result` is used.",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbc44ab2_f61fb66a",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-20T13:12:27Z",
+      "side": 1,
+      "message": "nit: every other test starts with a capital letter",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b06b8313_9076326f",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-20T13:12:27Z",
+      "side": 1,
+      "message": "nit: s/and/or/",
+      "range": {
+        "startLine": 1161,
+        "startChar": 69,
+        "endLine": 1161,
+        "endChar": 72
+      },
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06d126d2_270b233f",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-20T13:12:27Z",
+      "side": 1,
+      "message": "nit: \"but include an attestation ID field\" is a bit vague; maybe \"but include both IMEI attestation ID fields\"",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "270051f3_f0b43889",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-20T13:12:27Z",
+      "side": 1,
+      "message": "nit: skip message doesn\u0027t quite match reason for skip",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8740cef5_8ff9f04c",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-20T13:12:27Z",
+      "side": 1,
+      "message": "nit: move up next to other check on `result`",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
