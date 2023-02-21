@@ -34,6 +34,23 @@
       "parentUuid": "3f029d32_d91f33d5",
       "revId": "da8440ee04bda4ffdb131cdea3346f7dc3d6b5d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0a550dc_e43bf4c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-02-21T23:10:14Z",
+      "side": 1,
+      "message": "I would expect this also needs a change in an aidl_api directory. Does this need to run -update-api?",
+      "revId": "da8440ee04bda4ffdb131cdea3346f7dc3d6b5d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
