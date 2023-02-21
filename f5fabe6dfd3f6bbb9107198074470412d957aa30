@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f941c22_e1a50f19",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-21T02:22:37Z",
+      "side": 1,
+      "message": "Removed double negation. (I am not sure why in below code line no: 126 also they have used double negation.)",
+      "parentUuid": "559f176c_f9a98f86",
+      "range": {
+        "startLine": 113,
+        "startChar": 16,
+        "endLine": 113,
+        "endChar": 18
+      },
+      "revId": "f5fabe6dfd3f6bbb9107198074470412d957aa30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2714353_010beb55",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "604522a1_678a3dce",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-21T02:22:37Z",
+      "side": 1,
+      "message": "calling method handles the return values of this method.\n(Can\u0027t call ASSERT in `crl_distribution_points_extension_exists` method as it is returning bool.)",
+      "parentUuid": "f2714353_010beb55",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 40
+      },
+      "revId": "f5fabe6dfd3f6bbb9107198074470412d957aa30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4d26c6d_9d1411cd",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-02-18T22:37:36Z",
       "side": 1,
       "message": "Return location !\u003d -1",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 16
+      },
+      "revId": "f5fabe6dfd3f6bbb9107198074470412d957aa30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90d5b0ee_33767af4",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-21T02:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4d26c6d_9d1411cd",
       "range": {
         "startLine": 117,
         "startChar": 0,
