@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afda22b8_08062dc2",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-02-21T18:14:38Z",
+      "side": 1,
+      "message": "if I replace it with ASSERT_TRUE, it gives build error - \n`error: cannot initialize return object of type \u0027bool\u0027 with an rvalue of type \u0027void\u0027`\n\nSo, updated the logic of `crl_distribution_points_extension_exists` to call assert methods instead of returning status of existence.",
+      "parentUuid": "11f3857a_7f845010",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 40
+      },
+      "revId": "f5fabe6dfd3f6bbb9107198074470412d957aa30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4d26c6d_9d1411cd",
