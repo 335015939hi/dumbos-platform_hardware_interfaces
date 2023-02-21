@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11f3857a_7f845010",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-02-21T09:35:18Z",
+      "side": 1,
+      "message": "You should be able to call ASSERT_TRUE here and fail any test that\u0027s using the function if the OID is null.\n\nWe should not silently assume that the extension isn\u0027t there if we can\u0027t get the OID object.",
+      "parentUuid": "604522a1_678a3dce",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 40
+      },
+      "revId": "f5fabe6dfd3f6bbb9107198074470412d957aa30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f4d26c6d_9d1411cd",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 1
