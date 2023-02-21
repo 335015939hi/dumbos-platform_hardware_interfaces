@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa4266d_f0b1257f",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-02-21T21:13:44Z",
+      "side": 1,
+      "message": "You should use a secure password.  Like correcthorsebatterystaple.",
+      "range": {
+        "startLine": 86,
+        "startChar": 21,
+        "endLine": 86,
+        "endChar": 28
+      },
+      "revId": "0ff806890756118bddc8d1af4fd9bd26095b1a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fba30cb_57db16fd",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-02-21T21:13:44Z",
+      "side": 1,
+      "message": "Uber-nit: constify all the things that can be const, including this.",
+      "range": {
+        "startLine": 291,
+        "startChar": 4,
+        "endLine": 291,
+        "endChar": 12
+      },
+      "revId": "0ff806890756118bddc8d1af4fd9bd26095b1a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
