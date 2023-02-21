@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac84d3e5_2156ff6c",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-02-21T20:28:45Z",
+      "side": 1,
+      "message": "Do other tests already verify this?",
+      "range": {
+        "startLine": 854,
+        "startChar": 4,
+        "endLine": 854,
+        "endChar": 45
+      },
+      "revId": "1b840ad5870d9fc2cc80da01147f942ff0b0e8cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f9dcdb4_2ecb1e9a",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-02-21T20:28:45Z",
+      "side": 1,
+      "message": "nit: We should also add `GetParam() \u003d\u003d \"default\"` here and strongbox check below to ensure the levels match the instance.",
+      "range": {
+        "startLine": 912,
+        "startChar": 17,
+        "endLine": 912,
+        "endChar": 30
+      },
+      "revId": "1b840ad5870d9fc2cc80da01147f942ff0b0e8cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
