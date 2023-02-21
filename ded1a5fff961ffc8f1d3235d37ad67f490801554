@@ -33,6 +33,23 @@
       "message": "The HAL was previously used by microdroid (not on physical devices) when it was build as a minimal vendor release of Android. Microdroid is not its own thing as moved away from this overly complicated HAL with no intent of returning. The code is now unused and have been obstructing further progress in microdroid due to mixed dependencies into other helper libraries that used the types from the HAL. Alice has ported those libraries away so this is just dead code now.",
       "revId": "ded1a5fff961ffc8f1d3235d37ad67f490801554",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1ad8af5_9f390439",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-02-21T16:40:19Z",
+      "side": 1,
+      "message": "Add aidl-api-review@ for AIDL-API-Review",
+      "revId": "ded1a5fff961ffc8f1d3235d37ad67f490801554",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
