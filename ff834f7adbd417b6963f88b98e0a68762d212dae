@@ -175,6 +175,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ca8c4c4_c5419175",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-21T09:19:00Z",
+      "side": 1,
+      "message": "The check is for whether (general) device ID attestation is required, which still doesn\u0027t really match the message.\n\nHowever, if I\u0027m reading the checks correctly I don\u0027t think this arm can get hit anyway -- we can only get here if `isSecondImeiIdAttestationRequired()` is true, which will automatically mean that `isDeviceIdAttestationRequired()` is true too.  So just remove the check?\n\n(Similarly below)",
+      "parentUuid": "927cd6c9_c61801a7",
+      "revId": "ff834f7adbd417b6963f88b98e0a68762d212dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33ebf148_031d6128",
