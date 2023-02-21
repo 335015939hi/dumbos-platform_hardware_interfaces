@@ -104,6 +104,24 @@
       "parentUuid": "97bc004f_280aa3e3",
       "revId": "81262c1e9dae74ef156c3850247a710b33187d13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "175d0bb2_7975a607",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1926980
+      },
+      "writtenOn": "2023-02-21T05:38:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "247c5257_3f914d00",
+      "revId": "81262c1e9dae74ef156c3850247a710b33187d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
