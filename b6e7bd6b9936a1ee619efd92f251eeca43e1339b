@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cfca517_546b9a71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-02-22T01:54:03Z",
+      "side": 1,
+      "message": "presubmit error is unrelated, it is the known issue for car test\n\njava.lang.IllegalArgumentException: Unknown display\u003d5 or feature\u003d1\nat android.os.Parcel.createExceptionOrNull(Parcel.java:3061)\nat android.os.Parcel.createException(Parcel.java:3041)\nat android.os.Parcel.readException(Parcel.java:3024)\nat android.os.Parcel.readException(Parcel.java:2966)\nat android.car.app.ICarActivityService$Stub$Proxy.setPersistentActivity(ICarActivityService.java:407)\nat android.car.app.CarActivityManager.setPersistentActivity(CarActivityManager.java:139)\nat android.car.app.cts.CarActivityManagerTest.testSetPersistentActivity(CarActivityManagerTest.java:110)",
+      "revId": "b6e7bd6b9936a1ee619efd92f251eeca43e1339b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
