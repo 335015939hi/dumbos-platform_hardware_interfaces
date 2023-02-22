@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20ba513f_3875367f",
+        "filename": "scripts/anapic_release_diff.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-02-22T23:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "346ee0eb_9a058714",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 12
+      },
+      "revId": "7feb4bf9c6780d2e4ddd496c7d6e291dd10bb8f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "226ccb7b_4afeb5e1",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-22T22:45:04Z",
       "side": 1,
       "message": "nit: \"$1 to $2\"",
+      "range": {
+        "startLine": 27,
+        "startChar": 16,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "7feb4bf9c6780d2e4ddd496c7d6e291dd10bb8f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bc6705e_7a8e3cf0",
+        "filename": "scripts/anapic_release_diff.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-02-22T23:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "226ccb7b_4afeb5e1",
       "range": {
         "startLine": 27,
         "startChar": 16,
