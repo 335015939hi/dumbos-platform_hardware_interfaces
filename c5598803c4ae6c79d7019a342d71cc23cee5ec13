@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a81b4ec_bde894cd",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioCodecConfiguration.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-22T04:29:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "026a69de_5c782a0d",
+      "range": {
+        "startLine": 30,
+        "startChar": 32,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "c5598803c4ae6c79d7019a342d71cc23cee5ec13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "461abbdd_28a050d9",
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "Updated in latest patch",
       "parentUuid": "a312cb68_37e9c02b",
+      "range": {
+        "startLine": 37,
+        "startChar": 35,
+        "endLine": 37,
+        "endChar": 61
+      },
+      "revId": "c5598803c4ae6c79d7019a342d71cc23cee5ec13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1f65611_10d82916",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/UnicastCapability.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-02-22T04:29:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd599c44_2b8e0c2e",
       "range": {
         "startLine": 37,
         "startChar": 35,
