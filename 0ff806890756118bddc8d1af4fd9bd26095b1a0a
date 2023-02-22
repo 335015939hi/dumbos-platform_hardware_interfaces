@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da288e95_d4aab3d8",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-22T14:18:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fa4266d_f0b1257f",
+      "range": {
+        "startLine": 86,
+        "startChar": 21,
+        "endLine": 86,
+        "endChar": 28
+      },
+      "revId": "0ff806890756118bddc8d1af4fd9bd26095b1a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fba30cb_57db16fd",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-21T21:13:44Z",
       "side": 1,
       "message": "Uber-nit: constify all the things that can be const, including this.",
+      "range": {
+        "startLine": 291,
+        "startChar": 4,
+        "endLine": 291,
+        "endChar": 12
+      },
+      "revId": "0ff806890756118bddc8d1af4fd9bd26095b1a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "017af2c6_a9e77caa",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-02-22T14:18:34Z",
+      "side": 1,
+      "message": "Done (although the [C++ Style Guide](https://google.github.io/styleguide/cppguide.html#Use_of_const) has \"Using const on local variables is neither encouraged nor discouraged.\")",
+      "parentUuid": "2fba30cb_57db16fd",
       "range": {
         "startLine": 291,
         "startChar": 4,
