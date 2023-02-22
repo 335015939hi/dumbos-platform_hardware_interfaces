@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9207a87_cc49c131",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1891340
+      },
+      "writtenOn": "2023-02-22T10:21:05Z",
+      "side": 1,
+      "message": "Hi @shuzhenwang@google.com,\n\nI think VTS fix should be merged into android13-test-dev. Please let me know if we need to merge into another branches, thanks a lot!",
+      "revId": "388d4ffb3b493cf9250ec9cc3fc9488eb3be61cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
