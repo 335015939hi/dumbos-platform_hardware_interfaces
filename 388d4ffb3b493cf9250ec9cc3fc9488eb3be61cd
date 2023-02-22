@@ -33,6 +33,23 @@
       "message": "Thanks for the fix!",
       "revId": "388d4ffb3b493cf9250ec9cc3fc9488eb3be61cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6796551c_70eff372",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2023-02-22T17:42:12Z",
+      "side": 1,
+      "message": "svpawar@google",
+      "revId": "388d4ffb3b493cf9250ec9cc3fc9488eb3be61cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
