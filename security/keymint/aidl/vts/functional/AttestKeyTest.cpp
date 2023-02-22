@@ -106,7 +106,7 @@ class AttestKeyTest : public KeyMintAidlTestBase {
         // with any other key purpose, but the original VTS tests incorrectly did exactly that.
         // This means that a device that launched prior to Android T (API level 33) may
         // accept or even require KeyPurpose::SIGN too.
-        if (property_get_int32("ro.board.first_api_level", 0) < 33) {
+        if (property_get_int32("ro.board.first_api_level", 0) < __ANDROID_API_T__) {
             AuthorizationSet key_desc_plus_sign = key_desc;
             key_desc_plus_sign.push_back(TAG_PURPOSE, KeyPurpose::SIGN);
 
@@ -142,10 +142,13 @@ class AttestKeyTest : public KeyMintAidlTestBase {
         return false;
     }
 
-    // Check if chipset has received a waiver allowing it to be launched with
-    // Android S (or later) with Keymaster 4.0 in StrongBox
+    // Check if chipset has received a waiver allowing it to be launched with Android S or T with
+    // Keymaster 4.0 in StrongBox.
     bool is_chipset_allowed_km4_strongbox(void) const {
         std::array<char, PROPERTY_VALUE_MAX> buffer;
+
+        const int32_t first_api_level = property_get_int32("ro.board.first_api_level", 0);
+        if (first_api_level <= 0 || first_api_level > __ANDROID_API_T) return false;
 
         auto res = property_get("ro.vendor.qti.soc_model", buffer.data(), nullptr);
         if (res <= 0) return false;
