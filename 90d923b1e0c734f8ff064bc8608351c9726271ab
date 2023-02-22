@@ -39,6 +39,30 @@
       },
       "revId": "90d923b1e0c734f8ff064bc8608351c9726271ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12128fad_7f7dd34c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-02-22T23:09:50Z",
+      "side": 1,
+      "message": "ANDROID_API_S is level 31.  What I changed it to preserves the logic for SCv2.",
+      "parentUuid": "db84dbe6_c2242a1b",
+      "range": {
+        "startLine": 1139,
+        "startChar": 30,
+        "endLine": 1139,
+        "endChar": 47
+      },
+      "revId": "90d923b1e0c734f8ff064bc8608351c9726271ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
