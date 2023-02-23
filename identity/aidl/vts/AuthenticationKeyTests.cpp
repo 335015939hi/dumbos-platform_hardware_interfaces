@@ -18,13 +18,10 @@
 
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
-#include <aidl/android/hardware/keymaster/HardwareAuthToken.h>
-#include <aidl/android/hardware/keymaster/VerificationToken.h>
+#include <aidl/android/hardware/identity/IIdentityCredentialStore.h>
 #include <android-base/logging.h>
-#include <android/hardware/identity/IIdentityCredentialStore.h>
+#include <android/binder_manager.h>
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
-#include <binder/IServiceManager.h>
-#include <binder/ProcessState.h>
 #include <cppbor.h>
 #include <cppbor_parse.h>
 #include <gtest/gtest.h>
@@ -41,28 +38,33 @@ using std::make_pair;
 using std::map;
 using std::optional;
 using std::pair;
+using std::shared_ptr;
 using std::string;
 using std::tie;
 using std::vector;
 
-using ::android::sp;
-using ::android::String16;
-using ::android::binder::Status;
-
-using ::android::hardware::keymaster::HardwareAuthToken;
-using ::android::hardware::keymaster::VerificationToken;
+using ::aidl::android::hardware::identity::Certificate;
+using ::aidl::android::hardware::identity::CipherSuite;
+using ::aidl::android::hardware::identity::IIdentityCredential;
+using ::aidl::android::hardware::identity::IIdentityCredentialStore;
+using ::aidl::android::hardware::identity::IWritableIdentityCredential;
+using ::aidl::android::hardware::identity::SecureAccessControlProfile;
 
 class AuthenticationKeyTests : public testing::TestWithParam<string> {
   public:
     virtual void SetUp() override {
-        string halInstanceName = GetParam();
-        credentialStore_ = android::waitForDeclaredService<IIdentityCredentialStore>(
-                String16(halInstanceName.c_str()));
+        if (AServiceManager_isDeclared(GetParam().c_str())) {
+            ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
+            credentialStore_ = IIdentityCredentialStore::fromBinder(binder);
+        }
         ASSERT_NE(credentialStore_, nullptr);
-        halApiVersion_ = credentialStore_->getInterfaceVersion();
+        int32_t version;
+        ::ndk::ScopedAStatus status = credentialStore_->getInterfaceVersion(&version);
+        EXPECT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
+        halApiVersion_ = version;
     }
 
-    sp<IIdentityCredentialStore> credentialStore_;
+    shared_ptr<IIdentityCredentialStore> credentialStore_;
     int halApiVersion_;
 };
 
@@ -72,7 +74,7 @@ TEST_P(AuthenticationKeyTests, proofOfProvisionInAuthKeyCert) {
     }
 
     string docType = "org.iso.18013-5.2019.mdl";
-    sp<IWritableIdentityCredential> wc;
+    shared_ptr<IWritableIdentityCredential> wc;
     ASSERT_TRUE(credentialStore_
                         ->createCredential(docType,
                                            true,  // testCredential
@@ -112,8 +114,9 @@ TEST_P(AuthenticationKeyTests, proofOfProvisionInAuthKeyCert) {
 
     vector<uint8_t> proofOfProvisioningSignature;
     vector<uint8_t> credentialData;
-    Status status = wc->finishAddingEntries(&credentialData, &proofOfProvisioningSignature);
-    EXPECT_TRUE(status.isOk()) << status.exceptionCode() << ": " << status.exceptionMessage();
+    ::ndk::ScopedAStatus status =
+            wc->finishAddingEntries(&credentialData, &proofOfProvisioningSignature);
+    EXPECT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
 
     optional<vector<uint8_t>> proofOfProvisioning =
             support::coseSignGetPayload(proofOfProvisioningSignature);
@@ -147,7 +150,7 @@ TEST_P(AuthenticationKeyTests, proofOfProvisionInAuthKeyCert) {
 
     // Now get a credential and have it create AuthenticationKey so we can check
     // the certificate.
-    sp<IIdentityCredential> credential;
+    shared_ptr<IIdentityCredential> credential;
     ASSERT_TRUE(credentialStore_
                         ->getCredential(
                                 CipherSuite::CIPHERSUITE_ECDHE_HKDF_ECDSA_WITH_AES_256_GCM_SHA256,

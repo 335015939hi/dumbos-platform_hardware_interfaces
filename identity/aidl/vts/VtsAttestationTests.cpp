@@ -18,11 +18,10 @@
 
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
+#include <aidl/android/hardware/identity/IIdentityCredentialStore.h>
 #include <android-base/logging.h>
-#include <android/hardware/identity/IIdentityCredentialStore.h>
+#include <android/binder_manager.h>
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
-#include <binder/IServiceManager.h>
-#include <binder/ProcessState.h>
 #include <cppbor.h>
 #include <cppbor_parse.h>
 #include <gtest/gtest.h>
@@ -36,12 +35,13 @@ namespace android::hardware::identity {
 using std::endl;
 using std::map;
 using std::optional;
+using std::shared_ptr;
 using std::string;
 using std::vector;
 
-using ::android::sp;
-using ::android::String16;
-using ::android::binder::Status;
+using ::aidl::android::hardware::identity::Certificate;
+using ::aidl::android::hardware::identity::IIdentityCredentialStore;
+using ::aidl::android::hardware::identity::IWritableIdentityCredential;
 
 using test_utils::setupWritableCredential;
 using test_utils::validateAttestationCertificate;
@@ -51,18 +51,20 @@ using test_utils::validateAttestationCertificate;
 class VtsAttestationTests : public testing::TestWithParam<std::string> {
   public:
     virtual void SetUp() override {
-        credentialStore_ = android::waitForDeclaredService<IIdentityCredentialStore>(
-                String16(GetParam().c_str()));
+        if (AServiceManager_isDeclared(GetParam().c_str())) {
+            ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
+            credentialStore_ = IIdentityCredentialStore::fromBinder(binder);
+        }
         ASSERT_NE(credentialStore_, nullptr);
     }
 
-    sp<IIdentityCredentialStore> credentialStore_;
+    shared_ptr<IIdentityCredentialStore> credentialStore_;
 };
 
 TEST_P(VtsAttestationTests, verifyAttestationWithNonemptyChallengeNonemptyId) {
-    Status result;
+    ::ndk::ScopedAStatus result;
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(setupWritableCredential(writableCredential, credentialStore_,
                                         false /* testCredential */));
 
@@ -76,17 +78,16 @@ TEST_P(VtsAttestationTests, verifyAttestationWithNonemptyChallengeNonemptyId) {
     result = writableCredential->getAttestationCertificate(
             attestationApplicationId, attestationChallenge, &attestationCertificate);
 
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     validateAttestationCertificate(attestationCertificate, attestationChallenge,
                                    attestationApplicationId, false);
 }
 
 TEST_P(VtsAttestationTests, verifyAttestationWithVeryShortChallengeAndId) {
-    Status result;
+    ::ndk::ScopedAStatus result;
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(setupWritableCredential(writableCredential, credentialStore_,
                                         false /* testCredential */));
 
@@ -99,8 +100,7 @@ TEST_P(VtsAttestationTests, verifyAttestationWithVeryShortChallengeAndId) {
     result = writableCredential->getAttestationCertificate(
             attestationApplicationId, attestationChallenge, &attestationCertificate);
 
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     validateAttestationCertificate(attestationCertificate, attestationChallenge,
                                    attestationApplicationId, false);

@@ -18,13 +18,12 @@
 
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
+#include <aidl/android/hardware/identity/IIdentityCredentialStore.h>
 #include <aidl/android/hardware/keymaster/HardwareAuthToken.h>
 #include <aidl/android/hardware/keymaster/VerificationToken.h>
 #include <android-base/logging.h>
-#include <android/hardware/identity/IIdentityCredentialStore.h>
+#include <android/binder_manager.h>
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
-#include <binder/IServiceManager.h>
-#include <binder/ProcessState.h>
 #include <cppbor.h>
 #include <cppbor_parse.h>
 #include <gtest/gtest.h>
@@ -41,22 +40,30 @@ using std::make_pair;
 using std::map;
 using std::optional;
 using std::pair;
+using std::shared_ptr;
 using std::string;
 using std::tie;
 using std::vector;
 
-using ::android::sp;
-using ::android::String16;
-using ::android::binder::Status;
+using ::aidl::android::hardware::keymaster::HardwareAuthToken;
+using ::aidl::android::hardware::keymaster::VerificationToken;
 
-using ::android::hardware::keymaster::HardwareAuthToken;
-using ::android::hardware::keymaster::VerificationToken;
+using ::aidl::android::hardware::identity::Certificate;
+using ::aidl::android::hardware::identity::CipherSuite;
+using ::aidl::android::hardware::identity::IIdentityCredential;
+using ::aidl::android::hardware::identity::IIdentityCredentialStore;
+using ::aidl::android::hardware::identity::IWritableIdentityCredential;
+using ::aidl::android::hardware::identity::RequestDataItem;
+using ::aidl::android::hardware::identity::RequestNamespace;
+using ::aidl::android::hardware::identity::SecureAccessControlProfile;
 
 class UserAuthTests : public testing::TestWithParam<string> {
   public:
     virtual void SetUp() override {
-        credentialStore_ = android::waitForDeclaredService<IIdentityCredentialStore>(
-                String16(GetParam().c_str()));
+        if (AServiceManager_isDeclared(GetParam().c_str())) {
+            ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
+            credentialStore_ = IIdentityCredentialStore::fromBinder(binder);
+        }
         ASSERT_NE(credentialStore_, nullptr);
     }
 
@@ -82,7 +89,7 @@ class UserAuthTests : public testing::TestWithParam<string> {
     // Set by setupRetrieveData().
     int64_t authChallenge_;
     cppbor::Map sessionTranscript_;
-    sp<IIdentityCredential> credential_;
+    shared_ptr<IIdentityCredential> credential_;
 
     // Set by retrieveData()
     bool canGetUserAuthPerSession_;
@@ -90,13 +97,13 @@ class UserAuthTests : public testing::TestWithParam<string> {
     bool canGetAccessibleByAll_;
     bool canGetAccessibleByNone_;
 
-    sp<IIdentityCredentialStore> credentialStore_;
+    shared_ptr<IIdentityCredentialStore> credentialStore_;
 };
 
 void UserAuthTests::provisionData() {
     string docType = "org.iso.18013-5.2019.mdl";
     bool testCredential = true;
-    sp<IWritableIdentityCredential> wc;
+    shared_ptr<IWritableIdentityCredential> wc;
     ASSERT_TRUE(credentialStore_->createCredential(docType, testCredential, &wc).isOk());
 
     vector<uint8_t> attestationApplicationId = {};
@@ -141,8 +148,9 @@ void UserAuthTests::provisionData() {
     ASSERT_TRUE(wc->addEntryValue({9}, &encContentAccessibleByNone_).isOk());
 
     vector<uint8_t> proofOfProvisioningSignature;
-    Status status = wc->finishAddingEntries(&credentialData_, &proofOfProvisioningSignature);
-    EXPECT_TRUE(status.isOk()) << status.exceptionCode() << ": " << status.exceptionMessage();
+    ::ndk::ScopedAStatus status =
+            wc->finishAddingEntries(&credentialData_, &proofOfProvisioningSignature);
+    EXPECT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
 }
 
 // From ReaderAuthTest.cpp - TODO: consolidate with Util.h
@@ -182,8 +190,8 @@ void UserAuthTests::setupRetrieveData() {
     optional<vector<uint8_t>> ePublicKey = support::ecKeyPairGetPublicKey(eKeyPair);
     sessionTranscript_ = calcSessionTranscript(ePublicKey.value());
 
-    Status status = credential_->createAuthChallenge(&authChallenge_);
-    EXPECT_TRUE(status.isOk()) << status.exceptionCode() << ": " << status.exceptionMessage();
+    ::ndk::ScopedAStatus status = credential_->createAuthChallenge(&authChallenge_);
+    EXPECT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
 }
 
 void UserAuthTests::retrieveData(HardwareAuthToken authToken, VerificationToken verificationToken,
@@ -231,10 +239,10 @@ void UserAuthTests::retrieveData(HardwareAuthToken authToken, VerificationToken 
     // OK to fail, not available in v1 HAL
     credential_->setVerificationToken(verificationToken);
 
-    Status status = credential_->startRetrieval({sacp0_, sacp1_, sacp2_}, authToken,
-                                                itemsRequestBytes, signingKeyBlob,
-                                                sessionTranscriptBytes, {} /* readerSignature */,
-                                                {4 /* numDataElementsPerNamespace */});
+    ::ndk::ScopedAStatus status = credential_->startRetrieval(
+            {sacp0_, sacp1_, sacp2_}, authToken, itemsRequestBytes, signingKeyBlob,
+            sessionTranscriptBytes, {} /* readerSignature */,
+            {4 /* numDataElementsPerNamespace */});
     if (expectSuccess) {
         ASSERT_TRUE(status.isOk());
     } else {
@@ -285,13 +293,14 @@ pair<HardwareAuthToken, VerificationToken> UserAuthTests::mintTokens(
     authToken.challenge = challengeForAuthToken;
     authToken.userId = 65;
     authToken.authenticatorId = 0;
-    authToken.authenticatorType = ::android::hardware::keymaster::HardwareAuthenticatorType::NONE;
+    authToken.authenticatorType =
+            ::aidl::android::hardware::keymaster::HardwareAuthenticatorType::NONE;
     authToken.timestamp.milliSeconds = epochMilliseconds - ageOfAuthTokenMilliSeconds;
     authToken.mac.clear();
     verificationToken.challenge = authChallenge_;
     verificationToken.timestamp.milliSeconds = epochMilliseconds;
     verificationToken.securityLevel =
-            ::android::hardware::keymaster::SecurityLevel::TRUSTED_ENVIRONMENT;
+            ::aidl::android::hardware::keymaster::SecurityLevel::TRUSTED_ENVIRONMENT;
     verificationToken.mac.clear();
     return make_pair(authToken, verificationToken);
 }

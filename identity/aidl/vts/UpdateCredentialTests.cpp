@@ -18,13 +18,10 @@
 
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
-#include <aidl/android/hardware/keymaster/HardwareAuthToken.h>
-#include <aidl/android/hardware/keymaster/VerificationToken.h>
+#include <aidl/android/hardware/identity/IIdentityCredentialStore.h>
 #include <android-base/logging.h>
-#include <android/hardware/identity/IIdentityCredentialStore.h>
+#include <android/binder_manager.h>
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
-#include <binder/IServiceManager.h>
-#include <binder/ProcessState.h>
 #include <cppbor.h>
 #include <cppbor_parse.h>
 #include <gtest/gtest.h>
@@ -41,24 +38,30 @@ using std::make_pair;
 using std::map;
 using std::optional;
 using std::pair;
+using std::shared_ptr;
 using std::string;
 using std::tie;
 using std::vector;
 
-using ::android::sp;
-using ::android::String16;
-using ::android::binder::Status;
-
-using ::android::hardware::keymaster::HardwareAuthToken;
-using ::android::hardware::keymaster::VerificationToken;
+using ::aidl::android::hardware::identity::Certificate;
+using ::aidl::android::hardware::identity::CipherSuite;
+using ::aidl::android::hardware::identity::IIdentityCredential;
+using ::aidl::android::hardware::identity::IIdentityCredentialStore;
+using ::aidl::android::hardware::identity::IWritableIdentityCredential;
+using ::aidl::android::hardware::identity::SecureAccessControlProfile;
 
 class UpdateCredentialTests : public testing::TestWithParam<string> {
   public:
     virtual void SetUp() override {
-        credentialStore_ = android::waitForDeclaredService<IIdentityCredentialStore>(
-                String16(GetParam().c_str()));
+        if (AServiceManager_isDeclared(GetParam().c_str())) {
+            ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
+            credentialStore_ = IIdentityCredentialStore::fromBinder(binder);
+        }
         ASSERT_NE(credentialStore_, nullptr);
-        halApiVersion_ = credentialStore_->getInterfaceVersion();
+        int32_t version;
+        ::ndk::ScopedAStatus status = credentialStore_->getInterfaceVersion(&version);
+        EXPECT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
+        halApiVersion_ = version;
     }
 
     void provisionData();
@@ -67,14 +70,14 @@ class UpdateCredentialTests : public testing::TestWithParam<string> {
     vector<uint8_t> credentialData_;
     vector<uint8_t> credentialPubKey_;
 
-    sp<IIdentityCredentialStore> credentialStore_;
+    shared_ptr<IIdentityCredentialStore> credentialStore_;
     int halApiVersion_;
 };
 
 void UpdateCredentialTests::provisionData() {
     string docType = "org.iso.18013-5.2019.mdl";
     bool testCredential = true;
-    sp<IWritableIdentityCredential> wc;
+    shared_ptr<IWritableIdentityCredential> wc;
     ASSERT_TRUE(credentialStore_->createCredential(docType, testCredential, &wc).isOk());
 
     vector<uint8_t> attestationApplicationId = {};
@@ -108,8 +111,9 @@ void UpdateCredentialTests::provisionData() {
     ASSERT_TRUE(wc->addEntryValue(tstrLastName, &encryptedData).isOk());
 
     vector<uint8_t> proofOfProvisioningSignature;
-    Status status = wc->finishAddingEntries(&credentialData_, &proofOfProvisioningSignature);
-    EXPECT_TRUE(status.isOk()) << status.exceptionCode() << ": " << status.exceptionMessage();
+    ::ndk::ScopedAStatus status =
+            wc->finishAddingEntries(&credentialData_, &proofOfProvisioningSignature);
+    EXPECT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
 
     optional<vector<uint8_t>> proofOfProvisioning =
             support::coseSignGetPayload(proofOfProvisioningSignature);
@@ -149,25 +153,25 @@ TEST_P(UpdateCredentialTests, updateCredential) {
 
     provisionData();
 
-    sp<IIdentityCredential> credential;
+    shared_ptr<IIdentityCredential> credential;
     ASSERT_TRUE(credentialStore_
                         ->getCredential(
                                 CipherSuite::CIPHERSUITE_ECDHE_HKDF_ECDSA_WITH_AES_256_GCM_SHA256,
                                 credentialData_, &credential)
                         .isOk());
 
-    sp<IWritableIdentityCredential> wc;
+    shared_ptr<IWritableIdentityCredential> wc;
     ASSERT_TRUE(credential->updateCredential(&wc).isOk());
 
     // Getting an attestation cert should fail (because it's an update).
     vector<uint8_t> attestationApplicationId = {};
     vector<uint8_t> attestationChallenge = {1};
     vector<Certificate> certChain;
-    Status result = wc->getAttestationCertificate(attestationApplicationId, attestationChallenge,
-                                                  &certChain);
+    ::ndk::ScopedAStatus result = wc->getAttestationCertificate(attestationApplicationId,
+                                                                attestationChallenge, &certChain);
     ASSERT_FALSE(result.isOk());
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.serviceSpecificErrorCode());
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.getServiceSpecificError());
 
     // Now provision some new data...
     //
@@ -190,8 +194,9 @@ TEST_P(UpdateCredentialTests, updateCredential) {
     ASSERT_TRUE(wc->addEntryValue(tstrLastName, &encryptedData).isOk());
 
     vector<uint8_t> proofOfProvisioningSignature;
-    Status status = wc->finishAddingEntries(&credentialData_, &proofOfProvisioningSignature);
-    EXPECT_TRUE(status.isOk()) << status.exceptionCode() << ": " << status.exceptionMessage();
+    ::ndk::ScopedAStatus status =
+            wc->finishAddingEntries(&credentialData_, &proofOfProvisioningSignature);
+    EXPECT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
     optional<vector<uint8_t>> proofOfProvisioning =
             support::coseSignGetPayload(proofOfProvisioningSignature);
     ASSERT_TRUE(proofOfProvisioning);

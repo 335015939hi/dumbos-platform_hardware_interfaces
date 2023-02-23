@@ -17,25 +17,29 @@
 #ifndef VTS_IDENTITY_TEST_UTILS_H
 #define VTS_IDENTITY_TEST_UTILS_H
 
-#include <android/hardware/identity/IIdentityCredentialStore.h>
+#include <aidl/android/hardware/identity/IIdentityCredentialStore.h>
+#include <aidl/android/hardware/security/keymint/MacedPublicKey.h>
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
-#include <android/hardware/security/keymint/MacedPublicKey.h>
 #include <cppbor.h>
 #include <cppbor_parse.h>
 #include <gtest/gtest.h>
 
 namespace android::hardware::identity::test_utils {
 
+using ::aidl::android::hardware::identity::Certificate;
+using ::aidl::android::hardware::identity::IIdentityCredentialStore;
+using ::aidl::android::hardware::identity::IWritableIdentityCredential;
+using ::aidl::android::hardware::identity::RequestNamespace;
+using ::aidl::android::hardware::identity::SecureAccessControlProfile;
+
 using ::std::map;
 using ::std::optional;
+using ::std::shared_ptr;
 using ::std::string;
 using ::std::vector;
 
-using ::android::sp;
-using ::android::binder::Status;
-
 struct AttestationData {
-    AttestationData(sp<IWritableIdentityCredential>& writableCredential, string challenge,
+    AttestationData(shared_ptr<IWritableIdentityCredential>& writableCredential, string challenge,
                     vector<uint8_t> attestationAppId)
         : attestationApplicationId(attestationAppId) {
         // ASSERT_NE(writableCredential, nullptr);
@@ -53,7 +57,7 @@ struct AttestationData {
     vector<uint8_t> attestationChallenge;
     vector<uint8_t> attestationApplicationId;
     vector<Certificate> attestationCertificate;
-    Status result;
+    ::ndk::ScopedAStatus result;
 };
 
 struct TestEntryData {
@@ -95,11 +99,12 @@ struct TestProfile {
     uint64_t timeoutMillis;
 };
 
-bool setupWritableCredential(sp<IWritableIdentityCredential>& writableCredential,
-                             sp<IIdentityCredentialStore>& credentialStore, bool testCredential);
+bool setupWritableCredential(shared_ptr<IWritableIdentityCredential>& writableCredential,
+                             shared_ptr<IIdentityCredentialStore>& credentialStore,
+                             bool testCredential);
 
 optional<vector<vector<uint8_t>>> createFakeRemotelyProvisionedCertificateChain(
-        const ::android::hardware::security::keymint::MacedPublicKey& macedPublicKey);
+        const ::aidl::android::hardware::security::keymint::MacedPublicKey& macedPublicKey);
 
 optional<vector<uint8_t>> generateReaderCertificate(string serialDecimal);
 
@@ -107,11 +112,12 @@ optional<vector<uint8_t>> generateReaderCertificate(string serialDecimal,
                                                     vector<uint8_t>* outReaderPrivateKey);
 
 optional<vector<SecureAccessControlProfile>> addAccessControlProfiles(
-        sp<IWritableIdentityCredential>& writableCredential,
+        shared_ptr<IWritableIdentityCredential>& writableCredential,
         const vector<TestProfile>& testProfiles);
 
-bool addEntry(sp<IWritableIdentityCredential>& writableCredential, const TestEntryData& entry,
-              int dataChunkSize, map<const TestEntryData*, vector<vector<uint8_t>>>& encryptedBlobs,
+bool addEntry(shared_ptr<IWritableIdentityCredential>& writableCredential,
+              const TestEntryData& entry, int dataChunkSize,
+              map<const TestEntryData*, vector<vector<uint8_t>>>& encryptedBlobs,
               bool expectSuccess);
 
 void setImageData(vector<uint8_t>& image);

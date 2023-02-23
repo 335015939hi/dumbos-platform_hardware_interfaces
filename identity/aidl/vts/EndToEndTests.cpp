@@ -17,11 +17,10 @@
 
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
+#include <aidl/android/hardware/identity/IIdentityCredentialStore.h>
 #include <android-base/logging.h>
-#include <android/hardware/identity/IIdentityCredentialStore.h>
+#include <android/binder_manager.h>
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
-#include <binder/IServiceManager.h>
-#include <binder/ProcessState.h>
 #include <cppbor.h>
 #include <cppbor_parse.h>
 #include <gtest/gtest.h>
@@ -37,29 +36,40 @@ using std::endl;
 using std::make_tuple;
 using std::map;
 using std::optional;
+using std::shared_ptr;
 using std::string;
 using std::tuple;
 using std::vector;
 
-using ::android::sp;
-using ::android::String16;
-using ::android::binder::Status;
+using ::aidl::android::hardware::keymaster::HardwareAuthToken;
+using ::aidl::android::hardware::keymaster::VerificationToken;
 
-using ::android::hardware::keymaster::HardwareAuthToken;
-using ::android::hardware::keymaster::VerificationToken;
+using ::aidl::android::hardware::identity::Certificate;
+using ::aidl::android::hardware::identity::CipherSuite;
+using ::aidl::android::hardware::identity::HardwareInformation;
+using ::aidl::android::hardware::identity::IIdentityCredential;
+using ::aidl::android::hardware::identity::IIdentityCredentialStore;
+using ::aidl::android::hardware::identity::IWritableIdentityCredential;
+using ::aidl::android::hardware::identity::RequestNamespace;
+using ::aidl::android::hardware::identity::SecureAccessControlProfile;
 
 using test_utils::validateAttestationCertificate;
 
 class EndToEndTests : public testing::TestWithParam<std::string> {
   public:
     virtual void SetUp() override {
-        credentialStore_ = android::waitForDeclaredService<IIdentityCredentialStore>(
-                String16(GetParam().c_str()));
+        if (AServiceManager_isDeclared(GetParam().c_str())) {
+            ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
+            credentialStore_ = IIdentityCredentialStore::fromBinder(binder);
+        }
         ASSERT_NE(credentialStore_, nullptr);
-        halApiVersion_ = credentialStore_->getInterfaceVersion();
+        int32_t version;
+        ::ndk::ScopedAStatus status = credentialStore_->getInterfaceVersion(&version);
+        EXPECT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
+        halApiVersion_ = version;
     }
 
-    sp<IIdentityCredentialStore> credentialStore_;
+    shared_ptr<IIdentityCredentialStore> credentialStore_;
     int halApiVersion_;
 };
 
@@ -163,12 +173,13 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
     authToken.challenge = 0;
     authToken.userId = 0;
     authToken.authenticatorId = 0;
-    authToken.authenticatorType = ::android::hardware::keymaster::HardwareAuthenticatorType::NONE;
+    authToken.authenticatorType =
+            ::aidl::android::hardware::keymaster::HardwareAuthenticatorType::NONE;
     authToken.timestamp.milliSeconds = 0;
     authToken.mac.clear();
     verificationToken.challenge = 0;
     verificationToken.timestamp.milliSeconds = 0;
-    verificationToken.securityLevel = ::android::hardware::keymaster::SecurityLevel::SOFTWARE;
+    verificationToken.securityLevel = ::aidl::android::hardware::keymaster::SecurityLevel::SOFTWARE;
     verificationToken.mac.clear();
 
     // Here's the actual test data:
@@ -186,7 +197,7 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
     ASSERT_TRUE(credentialStore_->getHardwareInformation(&hwInfo).isOk());
 
     string cborPretty;
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     true /* testCredential */));
 
@@ -194,7 +205,7 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
     test_utils::AttestationData attData(writableCredential, challenge,
                                         {1} /* atteestationApplicationId */);
     ASSERT_TRUE(attData.result.isOk())
-            << attData.result.exceptionCode() << "; " << attData.result.exceptionMessage() << endl;
+            << attData.result.getExceptionCode() << "; " << attData.result.getMessage() << endl;
 
     validateAttestationCertificate(attData.attestationCertificate, attData.attestationChallenge,
                                    attData.attestationApplicationId, true);
@@ -314,7 +325,7 @@ TEST_P(EndToEndTests, createAndRetrieveCredential) {
 
     // Now that the credential has been provisioned, read it back and check the
     // correct data is returned.
-    sp<IIdentityCredential> credential;
+    shared_ptr<IIdentityCredential> credential;
     ASSERT_TRUE(credentialStore_
                         ->getCredential(
                                 CipherSuite::CIPHERSUITE_ECDHE_HKDF_ECDSA_WITH_AES_256_GCM_SHA256,
@@ -606,12 +617,13 @@ TEST_P(EndToEndTests, noSessionEncryption) {
     authToken.challenge = 0;
     authToken.userId = 0;
     authToken.authenticatorId = 0;
-    authToken.authenticatorType = ::android::hardware::keymaster::HardwareAuthenticatorType::NONE;
+    authToken.authenticatorType =
+            aidl::android::hardware::keymaster::HardwareAuthenticatorType::NONE;
     authToken.timestamp.milliSeconds = 0;
     authToken.mac.clear();
     verificationToken.challenge = 0;
     verificationToken.timestamp.milliSeconds = 0;
-    verificationToken.securityLevel = ::android::hardware::keymaster::SecurityLevel::SOFTWARE;
+    verificationToken.securityLevel = aidl::android::hardware::keymaster::SecurityLevel::SOFTWARE;
     verificationToken.mac.clear();
 
     // Here's the actual test data:
@@ -625,7 +637,7 @@ TEST_P(EndToEndTests, noSessionEncryption) {
     ASSERT_TRUE(credentialStore_->getHardwareInformation(&hwInfo).isOk());
 
     string cborPretty;
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     true /* testCredential */));
 
@@ -633,7 +645,7 @@ TEST_P(EndToEndTests, noSessionEncryption) {
     test_utils::AttestationData attData(writableCredential, challenge,
                                         {1} /* atteestationApplicationId */);
     ASSERT_TRUE(attData.result.isOk())
-            << attData.result.exceptionCode() << "; " << attData.result.exceptionMessage() << endl;
+            << attData.result.getExceptionCode() << "; " << attData.result.getMessage() << endl;
 
     // This is kinda of a hack but we need to give the size of
     // ProofOfProvisioning that we'll expect to receive.
@@ -725,7 +737,7 @@ TEST_P(EndToEndTests, noSessionEncryption) {
     ASSERT_TRUE(exCredentialPubKey);
     ASSERT_EQ(exCredentialPubKey.value(), credentialPubKey.value());
 
-    sp<IIdentityCredential> credential;
+    shared_ptr<IIdentityCredential> credential;
     ASSERT_TRUE(credentialStore_
                         ->getCredential(
                                 CipherSuite::CIPHERSUITE_ECDHE_HKDF_ECDSA_WITH_AES_256_GCM_SHA256,
@@ -757,10 +769,10 @@ TEST_P(EndToEndTests, noSessionEncryption) {
     vector<RequestNamespace> requestedNamespaces = test_utils::buildRequestNamespaces(testEntries);
     ASSERT_TRUE(credential->setRequestedNamespaces(requestedNamespaces).isOk());
     ASSERT_TRUE(credential->setVerificationToken(verificationToken).isOk());
-    Status status = credential->startRetrieval(
+    ::ndk::ScopedAStatus status = credential->startRetrieval(
             secureProfiles.value(), authToken, {} /* itemsRequestBytes*/, signingKeyBlob,
             sessionTranscriptEncoded, {} /* readerSignature */, testEntriesEntryCounts);
-    ASSERT_TRUE(status.isOk()) << status.exceptionCode() << ": " << status.exceptionMessage();
+    ASSERT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
 
     for (const auto& entry : testEntries) {
         ASSERT_TRUE(credential
@@ -786,7 +798,7 @@ TEST_P(EndToEndTests, noSessionEncryption) {
     vector<uint8_t> deviceNameSpacesEncoded;
     status = credential->finishRetrievalWithSignature(&mac, &deviceNameSpacesEncoded,
                                                       &ecdsaSignature);
-    ASSERT_TRUE(status.isOk()) << status.exceptionCode() << ": " << status.exceptionMessage();
+    ASSERT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
     // MACing should NOT work since we're not using session encryption
     ASSERT_EQ(0, mac.size());
 
@@ -830,7 +842,7 @@ INSTANTIATE_TEST_SUITE_P(
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
-    ::android::ProcessState::self()->setThreadPoolMaxThreadCount(1);
-    ::android::ProcessState::self()->startThreadPool();
+    //::android::ProcessState::self()->setThreadPoolMaxThreadCount(1);
+    //::android::ProcessState::self()->startThreadPool();
     return RUN_ALL_TESTS();
 }

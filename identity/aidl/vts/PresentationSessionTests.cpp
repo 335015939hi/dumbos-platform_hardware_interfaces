@@ -18,13 +18,10 @@
 
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
-#include <aidl/android/hardware/keymaster/HardwareAuthToken.h>
-#include <aidl/android/hardware/keymaster/VerificationToken.h>
+#include <aidl/android/hardware/identity/IIdentityCredentialStore.h>
 #include <android-base/logging.h>
-#include <android/hardware/identity/IIdentityCredentialStore.h>
+#include <android/binder_manager.h>
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
-#include <binder/IServiceManager.h>
-#include <binder/ProcessState.h>
 #include <cppbor.h>
 #include <cppbor_parse.h>
 #include <gtest/gtest.h>
@@ -41,24 +38,31 @@ using std::make_pair;
 using std::map;
 using std::optional;
 using std::pair;
+using std::shared_ptr;
 using std::string;
 using std::tie;
 using std::vector;
 
-using ::android::sp;
-using ::android::String16;
-using ::android::binder::Status;
-
-using ::android::hardware::keymaster::HardwareAuthToken;
-using ::android::hardware::keymaster::VerificationToken;
+using ::aidl::android::hardware::identity::Certificate;
+using ::aidl::android::hardware::identity::CipherSuite;
+using ::aidl::android::hardware::identity::IIdentityCredential;
+using ::aidl::android::hardware::identity::IIdentityCredentialStore;
+using ::aidl::android::hardware::identity::IPresentationSession;
+using ::aidl::android::hardware::identity::IWritableIdentityCredential;
+using ::aidl::android::hardware::identity::SecureAccessControlProfile;
 
 class PresentationSessionTests : public testing::TestWithParam<string> {
   public:
     virtual void SetUp() override {
-        credentialStore_ = android::waitForDeclaredService<IIdentityCredentialStore>(
-                String16(GetParam().c_str()));
+        if (AServiceManager_isDeclared(GetParam().c_str())) {
+            ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
+            credentialStore_ = IIdentityCredentialStore::fromBinder(binder);
+        }
         ASSERT_NE(credentialStore_, nullptr);
-        halApiVersion_ = credentialStore_->getInterfaceVersion();
+        int32_t version;
+        ::ndk::ScopedAStatus status = credentialStore_->getInterfaceVersion(&version);
+        EXPECT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
+        halApiVersion_ = version;
     }
 
     void provisionData();
@@ -72,7 +76,7 @@ class PresentationSessionTests : public testing::TestWithParam<string> {
     vector<uint8_t> credential2Data_;
     vector<uint8_t> credential2PubKey_;
 
-    sp<IIdentityCredentialStore> credentialStore_;
+    shared_ptr<IIdentityCredentialStore> credentialStore_;
     int halApiVersion_;
 };
 
@@ -85,7 +89,7 @@ void PresentationSessionTests::provisionSingleDocument(const string& docType,
                                                        vector<uint8_t>* outCredentialData,
                                                        vector<uint8_t>* outCredentialPubKey) {
     bool testCredential = true;
-    sp<IWritableIdentityCredential> wc;
+    shared_ptr<IWritableIdentityCredential> wc;
     ASSERT_TRUE(credentialStore_->createCredential(docType, testCredential, &wc).isOk());
 
     vector<uint8_t> attestationApplicationId;
@@ -118,8 +122,9 @@ void PresentationSessionTests::provisionSingleDocument(const string& docType,
     ASSERT_TRUE(wc->addEntryValue({9}, &encryptedData).isOk());
 
     vector<uint8_t> proofOfProvisioningSignature;
-    Status status = wc->finishAddingEntries(outCredentialData, &proofOfProvisioningSignature);
-    EXPECT_TRUE(status.isOk()) << status.exceptionCode() << ": " << status.exceptionMessage();
+    ::ndk::ScopedAStatus status =
+            wc->finishAddingEntries(outCredentialData, &proofOfProvisioningSignature);
+    EXPECT_TRUE(status.isOk()) << status.getExceptionCode() << ": " << status.getMessage();
 }
 
 // This checks that any methods called on an IIdentityCredential obtained via a session
@@ -133,56 +138,56 @@ TEST_P(PresentationSessionTests, returnsFailureOnUnsupportedMethods) {
 
     provisionData();
 
-    sp<IPresentationSession> session;
+    shared_ptr<IPresentationSession> session;
     ASSERT_TRUE(credentialStore_
                         ->createPresentationSession(
                                 CipherSuite::CIPHERSUITE_ECDHE_HKDF_ECDSA_WITH_AES_256_GCM_SHA256,
                                 &session)
                         .isOk());
 
-    sp<IIdentityCredential> credential;
+    shared_ptr<IIdentityCredential> credential;
     ASSERT_TRUE(session->getCredential(credential1Data_, &credential).isOk());
 
-    Status result;
+    ::ndk::ScopedAStatus result;
 
     vector<uint8_t> signatureProofOfDeletion;
     result = credential->deleteCredential(&signatureProofOfDeletion);
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.serviceSpecificErrorCode());
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.getServiceSpecificError());
 
     vector<uint8_t> ephemeralKeyPair;
     result = credential->createEphemeralKeyPair(&ephemeralKeyPair);
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.serviceSpecificErrorCode());
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.getServiceSpecificError());
 
     result = credential->setReaderEphemeralPublicKey({});
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.serviceSpecificErrorCode());
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.getServiceSpecificError());
 
     int64_t authChallenge;
     result = credential->createAuthChallenge(&authChallenge);
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.serviceSpecificErrorCode());
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.getServiceSpecificError());
 
     Certificate certificate;
     vector<uint8_t> signingKeyBlob;
     result = credential->generateSigningKeyPair(&signingKeyBlob, &certificate);
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.serviceSpecificErrorCode());
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.getServiceSpecificError());
 
     result = credential->deleteCredentialWithChallenge({}, &signatureProofOfDeletion);
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.serviceSpecificErrorCode());
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.getServiceSpecificError());
 
     vector<uint8_t> signatureProofOfOwnership;
     result = credential->proveOwnership({}, &signatureProofOfOwnership);
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.serviceSpecificErrorCode());
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.getServiceSpecificError());
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     result = credential->updateCredential(&writableCredential);
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.serviceSpecificErrorCode());
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.getServiceSpecificError());
 }
 
 // TODO: need to add tests to check that the returned IIdentityCredential works

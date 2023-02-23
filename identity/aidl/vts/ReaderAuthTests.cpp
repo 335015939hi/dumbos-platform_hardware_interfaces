@@ -18,13 +18,12 @@
 
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
+#include <aidl/android/hardware/identity/IIdentityCredentialStore.h>
 #include <aidl/android/hardware/keymaster/HardwareAuthToken.h>
 #include <aidl/android/hardware/keymaster/VerificationToken.h>
 #include <android-base/logging.h>
-#include <android/hardware/identity/IIdentityCredentialStore.h>
+#include <android/binder_manager.h>
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
-#include <binder/IServiceManager.h>
-#include <binder/ProcessState.h>
 #include <cppbor.h>
 #include <cppbor_parse.h>
 #include <gtest/gtest.h>
@@ -41,22 +40,30 @@ using std::make_pair;
 using std::map;
 using std::optional;
 using std::pair;
+using std::shared_ptr;
 using std::string;
 using std::tie;
 using std::vector;
 
-using ::android::sp;
-using ::android::String16;
-using ::android::binder::Status;
+using ::aidl::android::hardware::keymaster::HardwareAuthToken;
+using ::aidl::android::hardware::keymaster::VerificationToken;
 
-using ::android::hardware::keymaster::HardwareAuthToken;
-using ::android::hardware::keymaster::VerificationToken;
+using ::aidl::android::hardware::identity::Certificate;
+using ::aidl::android::hardware::identity::CipherSuite;
+using ::aidl::android::hardware::identity::IIdentityCredential;
+using ::aidl::android::hardware::identity::IIdentityCredentialStore;
+using ::aidl::android::hardware::identity::IWritableIdentityCredential;
+using ::aidl::android::hardware::identity::RequestDataItem;
+using ::aidl::android::hardware::identity::RequestNamespace;
+using ::aidl::android::hardware::identity::SecureAccessControlProfile;
 
 class ReaderAuthTests : public testing::TestWithParam<string> {
   public:
     virtual void SetUp() override {
-        credentialStore_ = android::waitForDeclaredService<IIdentityCredentialStore>(
-                String16(GetParam().c_str()));
+        if (AServiceManager_isDeclared(GetParam().c_str())) {
+            ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
+            credentialStore_ = IIdentityCredentialStore::fromBinder(binder);
+        }
         ASSERT_NE(credentialStore_, nullptr);
     }
 
@@ -109,7 +116,7 @@ class ReaderAuthTests : public testing::TestWithParam<string> {
     bool canGetAccessibleByAll_;
     bool canGetAccessibleByNone_;
 
-    sp<IIdentityCredentialStore> credentialStore_;
+    shared_ptr<IIdentityCredentialStore> credentialStore_;
 };
 
 pair<vector<uint8_t>, vector<uint8_t>> generateReaderKey() {
@@ -153,7 +160,7 @@ void ReaderAuthTests::provisionData() {
 
     string docType = "org.iso.18013-5.2019.mdl";
     bool testCredential = true;
-    sp<IWritableIdentityCredential> wc;
+    shared_ptr<IWritableIdentityCredential> wc;
     ASSERT_TRUE(credentialStore_->createCredential(docType, testCredential, &wc).isOk());
 
     vector<uint8_t> attestationApplicationId = {};
@@ -239,7 +246,7 @@ void ReaderAuthTests::retrieveData(const vector<uint8_t>& readerPrivateKey,
     canGetAccessibleByAll_ = false;
     canGetAccessibleByNone_ = false;
 
-    sp<IIdentityCredential> c;
+    shared_ptr<IIdentityCredential> c;
     ASSERT_TRUE(credentialStore_
                         ->getCredential(
                                 CipherSuite::CIPHERSUITE_ECDHE_HKDF_ECDSA_WITH_AES_256_GCM_SHA256,
@@ -328,17 +335,18 @@ void ReaderAuthTests::retrieveData(const vector<uint8_t>& readerPrivateKey,
     authToken.challenge = 0;
     authToken.userId = 0;
     authToken.authenticatorId = 0;
-    authToken.authenticatorType = ::android::hardware::keymaster::HardwareAuthenticatorType::NONE;
+    authToken.authenticatorType =
+            ::aidl::android::hardware::keymaster::HardwareAuthenticatorType::NONE;
     authToken.timestamp.milliSeconds = 0;
     authToken.mac.clear();
     verificationToken.challenge = 0;
     verificationToken.timestamp.milliSeconds = 0;
-    verificationToken.securityLevel = ::android::hardware::keymaster::SecurityLevel::SOFTWARE;
+    verificationToken.securityLevel = ::aidl::android::hardware::keymaster::SecurityLevel::SOFTWARE;
     verificationToken.mac.clear();
     // OK to fail, not available in v1 HAL
     c->setVerificationToken(verificationToken);
 
-    Status status = c->startRetrieval(
+    ::ndk::ScopedAStatus status = c->startRetrieval(
             {sacp0_, sacp1_, sacp2_, sacp3_}, authToken, itemsRequestBytes, signingKeyBlob,
             sessionTranscriptBytes, readerSignature.value(), {6 /* numDataElementsPerNamespace */});
     if (expectSuccess) {
@@ -492,7 +500,7 @@ TEST_P(ReaderAuthTests, limitedMessage) {
 TEST_P(ReaderAuthTests, ephemeralKeyNotInSessionTranscript) {
     provisionData();
 
-    sp<IIdentityCredential> c;
+    shared_ptr<IIdentityCredential> c;
     ASSERT_TRUE(credentialStore_
                         ->getCredential(
                                 CipherSuite::CIPHERSUITE_ECDHE_HKDF_ECDSA_WITH_AES_256_GCM_SHA256,
@@ -571,13 +579,14 @@ TEST_P(ReaderAuthTests, ephemeralKeyNotInSessionTranscript) {
     authToken.challenge = 0;
     authToken.userId = 0;
     authToken.authenticatorId = 0;
-    authToken.authenticatorType = ::android::hardware::keymaster::HardwareAuthenticatorType::NONE;
+    authToken.authenticatorType =
+            ::aidl::android::hardware::keymaster::HardwareAuthenticatorType::NONE;
     authToken.timestamp.milliSeconds = 0;
     authToken.mac.clear();
     verificationToken.challenge = 0;
     verificationToken.timestamp.milliSeconds = 0;
     verificationToken.securityLevel =
-            ::android::hardware::keymaster::SecurityLevel::TRUSTED_ENVIRONMENT;
+            ::aidl::android::hardware::keymaster::SecurityLevel::TRUSTED_ENVIRONMENT;
     verificationToken.mac.clear();
     // OK to fail, not available in v1 HAL
     c->setVerificationToken(verificationToken);
@@ -585,13 +594,13 @@ TEST_P(ReaderAuthTests, ephemeralKeyNotInSessionTranscript) {
     // Finally check that STATUS_EPHEMERAL_PUBLIC_KEY_NOT_FOUND is returned.
     // This proves that the TA checked for X and Y coordinatets and didn't find
     // them.
-    Status status = c->startRetrieval(
+    ::ndk::ScopedAStatus status = c->startRetrieval(
             {sacp0_, sacp1_, sacp2_, sacp3_}, authToken, itemsRequestBytes, signingKeyBlob,
             sessionTranscriptBytes, readerSignature.value(), {6 /* numDataElementsPerNamespace */});
     ASSERT_FALSE(status.isOk());
-    ASSERT_EQ(binder::Status::EX_SERVICE_SPECIFIC, status.exceptionCode());
+    ASSERT_EQ(EX_SERVICE_SPECIFIC, status.getExceptionCode());
     ASSERT_EQ(IIdentityCredentialStore::STATUS_EPHEMERAL_PUBLIC_KEY_NOT_FOUND,
-              status.serviceSpecificErrorCode());
+              status.getServiceSpecificError());
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(ReaderAuthTests);

@@ -18,13 +18,12 @@
 
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
+#include <aidl/android/hardware/identity/IIdentityCredentialStore.h>
 #include <aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.h>
 #include <aidl/android/hardware/security/keymint/MacedPublicKey.h>
 #include <android-base/logging.h>
-#include <android/hardware/identity/IIdentityCredentialStore.h>
+#include <android/binder_manager.h>
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
-#include <binder/IServiceManager.h>
-#include <binder/ProcessState.h>
 #include <cppbor.h>
 #include <cppbor_parse.h>
 #include <gtest/gtest.h>
@@ -38,33 +37,39 @@ namespace android::hardware::identity {
 using std::endl;
 using std::map;
 using std::optional;
+using std::shared_ptr;
 using std::string;
 using std::vector;
 
-using ::android::sp;
-using ::android::String16;
-using ::android::binder::Status;
-using ::android::hardware::security::keymint::IRemotelyProvisionedComponent;
-using ::android::hardware::security::keymint::MacedPublicKey;
+using ::aidl::android::hardware::security::keymint::IRemotelyProvisionedComponent;
+using ::aidl::android::hardware::security::keymint::MacedPublicKey;
+
+using ::aidl::android::hardware::identity::Certificate;
+using ::aidl::android::hardware::identity::HardwareInformation;
+using ::aidl::android::hardware::identity::IIdentityCredentialStore;
+using ::aidl::android::hardware::identity::IWritableIdentityCredential;
+using ::aidl::android::hardware::identity::SecureAccessControlProfile;
 
 class IdentityCredentialTests : public testing::TestWithParam<string> {
   public:
     virtual void SetUp() override {
-        credentialStore_ = android::waitForDeclaredService<IIdentityCredentialStore>(
-                String16(GetParam().c_str()));
+        if (AServiceManager_isDeclared(GetParam().c_str())) {
+            ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
+            credentialStore_ = IIdentityCredentialStore::fromBinder(binder);
+        }
         ASSERT_NE(credentialStore_, nullptr);
     }
 
-    sp<IIdentityCredentialStore> credentialStore_;
+    shared_ptr<IIdentityCredentialStore> credentialStore_;
 };
 
 TEST_P(IdentityCredentialTests, verifyAttestationWithEmptyChallenge) {
-    Status result;
+    ::ndk::ScopedAStatus result;
 
     HardwareInformation hwInfo;
     ASSERT_TRUE(credentialStore_->getHardwareInformation(&hwInfo).isOk());
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -74,19 +79,18 @@ TEST_P(IdentityCredentialTests, verifyAttestationWithEmptyChallenge) {
     result = writableCredential->getAttestationCertificate(
             attestationApplicationId, attestationChallenge, &attestationCertificate);
 
-    EXPECT_FALSE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                                << endl;
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA, result.serviceSpecificErrorCode());
+    EXPECT_FALSE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA, result.getServiceSpecificError());
 }
 
 TEST_P(IdentityCredentialTests, verifyAttestationSuccessWithChallenge) {
-    Status result;
+    ::ndk::ScopedAStatus result;
 
     HardwareInformation hwInfo;
     ASSERT_TRUE(credentialStore_->getHardwareInformation(&hwInfo).isOk());
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -98,8 +102,7 @@ TEST_P(IdentityCredentialTests, verifyAttestationSuccessWithChallenge) {
     result = writableCredential->getAttestationCertificate(
             attestationApplicationId, attestationChallenge, &attestationCertificate);
 
-    EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    EXPECT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     test_utils::validateAttestationCertificate(attestationCertificate, attestationChallenge,
                                                attestationApplicationId, false);
@@ -113,20 +116,20 @@ TEST_P(IdentityCredentialTests, verifyAttestationSuccessWithRemoteProvisioning) 
         GTEST_SKIP() << "Remote provisioning is not supported";
     }
 
-    Status result;
+    ::ndk::ScopedAStatus result;
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
-    sp<IRemotelyProvisionedComponent> rpc;
+    shared_ptr<IRemotelyProvisionedComponent> rpc;
     result = credentialStore_->getRemotelyProvisionedComponent(&rpc);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage();
 
     MacedPublicKey macedPublicKey;
     std::vector<uint8_t> attestationKey;
     result = rpc->generateEcdsaP256KeyPair(/*testMode=*/true, &macedPublicKey, &attestationKey);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage();
 
     optional<vector<vector<uint8_t>>> remotelyProvisionedCertChain =
             test_utils::createFakeRemotelyProvisionedCertificateChain(macedPublicKey);
@@ -138,7 +141,7 @@ TEST_P(IdentityCredentialTests, verifyAttestationSuccessWithRemoteProvisioning) 
     }
     result = writableCredential->setRemotelyProvisionedAttestationKey(attestationKey,
                                                                       concatenatedCerts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage();
 
     string challenge = "NotSoRandomChallenge1NotSoRandomChallenge1NotSoRandomChallenge1";
     vector<uint8_t> attestationChallenge(challenge.begin(), challenge.end());
@@ -148,7 +151,7 @@ TEST_P(IdentityCredentialTests, verifyAttestationSuccessWithRemoteProvisioning) 
     result = writableCredential->getAttestationCertificate(
             attestationApplicationId, attestationChallenge, &attestationCertificate);
 
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage();
 
     test_utils::validateAttestationCertificate(attestationCertificate, attestationChallenge,
                                                attestationApplicationId, false);
@@ -170,14 +173,14 @@ TEST_P(IdentityCredentialTests, verifyRemotelyProvisionedKeyMayOnlyBeSetOnce) {
         GTEST_SKIP() << "Remote provisioning is not supported";
     }
 
-    sp<IRemotelyProvisionedComponent> rpc;
-    Status result = credentialStore_->getRemotelyProvisionedComponent(&rpc);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    shared_ptr<IRemotelyProvisionedComponent> rpc;
+    ::ndk::ScopedAStatus result = credentialStore_->getRemotelyProvisionedComponent(&rpc);
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage();
 
     MacedPublicKey macedPublicKey;
     std::vector<uint8_t> attestationKey;
     result = rpc->generateEcdsaP256KeyPair(/*testMode=*/true, &macedPublicKey, &attestationKey);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage();
 
     optional<vector<vector<uint8_t>>> remotelyProvisionedCertChain =
             test_utils::createFakeRemotelyProvisionedCertificateChain(macedPublicKey);
@@ -188,13 +191,13 @@ TEST_P(IdentityCredentialTests, verifyRemotelyProvisionedKeyMayOnlyBeSetOnce) {
         concatenatedCerts.insert(concatenatedCerts.end(), cert.begin(), cert.end());
     }
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     /*testCredential=*/false));
 
     result = writableCredential->setRemotelyProvisionedAttestationKey(attestationKey,
                                                                       concatenatedCerts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage();
 
     // Now try again, and verify that the implementation rejects it.
     result = writableCredential->setRemotelyProvisionedAttestationKey(attestationKey,
@@ -203,9 +206,9 @@ TEST_P(IdentityCredentialTests, verifyRemotelyProvisionedKeyMayOnlyBeSetOnce) {
 }
 
 TEST_P(IdentityCredentialTests, verifyAttestationDoubleCallFails) {
-    Status result;
+    ::ndk::ScopedAStatus result;
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -219,15 +222,15 @@ TEST_P(IdentityCredentialTests, verifyAttestationDoubleCallFails) {
     string challenge2 = "NotSoRandomChallenge2";
     test_utils::AttestationData attData2(writableCredential, challenge2,
                                          {} /* atteestationApplicationId */);
-    EXPECT_FALSE(attData2.result.isOk()) << attData2.result.exceptionCode() << "; "
-                                         << attData2.result.exceptionMessage() << endl;
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, attData2.result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, attData2.result.serviceSpecificErrorCode());
+    EXPECT_FALSE(attData2.result.isOk())
+            << attData2.result.getExceptionCode() << "; " << attData2.result.getMessage() << endl;
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, attData2.result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, attData2.result.getServiceSpecificError());
 }
 
 TEST_P(IdentityCredentialTests, verifyStartPersonalization) {
-    Status result;
-    sp<IWritableIdentityCredential> writableCredential;
+    ::ndk::ScopedAStatus result;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -235,22 +238,20 @@ TEST_P(IdentityCredentialTests, verifyStartPersonalization) {
     const vector<int32_t> entryCounts = {2, 4};
     writableCredential->setExpectedProofOfProvisioningSize(123456);
     result = writableCredential->startPersonalization(5, entryCounts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     // Call personalization again to check if repeat call is allowed.
     result = writableCredential->startPersonalization(7, entryCounts);
 
     // Second call to startPersonalization should have failed.
-    EXPECT_FALSE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                                << endl;
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.serviceSpecificErrorCode());
+    EXPECT_FALSE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_FAILED, result.getServiceSpecificError());
 }
 
 TEST_P(IdentityCredentialTests, verifyStartPersonalizationMin) {
-    Status result;
-    sp<IWritableIdentityCredential> writableCredential;
+    ::ndk::ScopedAStatus result;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -258,13 +259,12 @@ TEST_P(IdentityCredentialTests, verifyStartPersonalizationMin) {
     const vector<int32_t> entryCounts = {1, 1};
     writableCredential->setExpectedProofOfProvisioningSize(123456);
     result = writableCredential->startPersonalization(1, entryCounts);
-    EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    EXPECT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 }
 
 TEST_P(IdentityCredentialTests, verifyStartPersonalizationOne) {
-    Status result;
-    sp<IWritableIdentityCredential> writableCredential;
+    ::ndk::ScopedAStatus result;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -272,13 +272,12 @@ TEST_P(IdentityCredentialTests, verifyStartPersonalizationOne) {
     const vector<int32_t> entryCounts = {1};
     writableCredential->setExpectedProofOfProvisioningSize(123456);
     result = writableCredential->startPersonalization(1, entryCounts);
-    EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    EXPECT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 }
 
 TEST_P(IdentityCredentialTests, verifyStartPersonalizationLarge) {
-    Status result;
-    sp<IWritableIdentityCredential> writableCredential;
+    ::ndk::ScopedAStatus result;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -286,13 +285,12 @@ TEST_P(IdentityCredentialTests, verifyStartPersonalizationLarge) {
     const vector<int32_t> entryCounts = {255};
     writableCredential->setExpectedProofOfProvisioningSize(123456);
     result = writableCredential->startPersonalization(25, entryCounts);
-    EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    EXPECT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 }
 
 TEST_P(IdentityCredentialTests, verifyProfileNumberMismatchShouldFail) {
-    Status result;
-    sp<IWritableIdentityCredential> writableCredential;
+    ::ndk::ScopedAStatus result;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -300,8 +298,7 @@ TEST_P(IdentityCredentialTests, verifyProfileNumberMismatchShouldFail) {
     const vector<int32_t> entryCounts = {5, 6};
     writableCredential->setExpectedProofOfProvisioningSize(123456);
     result = writableCredential->startPersonalization(5, entryCounts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     optional<vector<uint8_t>> readerCertificate = test_utils::generateReaderCertificate("12345");
     ASSERT_TRUE(readerCertificate);
@@ -323,23 +320,21 @@ TEST_P(IdentityCredentialTests, verifyProfileNumberMismatchShouldFail) {
 
     // finishAddingEntries should fail because the number of addAccessControlProfile mismatched with
     // startPersonalization, and begintest_utils::addEntry was not called.
-    EXPECT_FALSE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                                << endl;
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA, result.serviceSpecificErrorCode());
+    EXPECT_FALSE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA, result.getServiceSpecificError());
 }
 
 TEST_P(IdentityCredentialTests, verifyDuplicateProfileId) {
-    Status result;
-    sp<IWritableIdentityCredential> writableCredential;
+    ::ndk::ScopedAStatus result;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
     const vector<int32_t> entryCounts = {3, 6};
     writableCredential->setExpectedProofOfProvisioningSize(123456);
     result = writableCredential->startPersonalization(3, entryCounts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     const vector<test_utils::TestProfile> testProfiles = {// first profile should go though
                                                           {1, {}, true, 2},
@@ -363,9 +358,8 @@ TEST_P(IdentityCredentialTests, verifyDuplicateProfileId) {
             expectOk = false;
             // for profile should be allowed though as there are no duplications
             // yet.
-            ASSERT_TRUE(result.isOk())
-                    << result.exceptionCode() << "; " << result.exceptionMessage()
-                    << "test profile id = " << testProfile.id << endl;
+            ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage()
+                                       << "test profile id = " << testProfile.id << endl;
 
             ASSERT_EQ(testProfile.id, profile.id);
             ASSERT_EQ(testProfile.readerCertificate, profile.readerCertificate.encodedCertificate);
@@ -374,24 +368,23 @@ TEST_P(IdentityCredentialTests, verifyDuplicateProfileId) {
             ASSERT_EQ(support::kAesGcmTagSize + support::kAesGcmIvSize, profile.mac.size());
         } else {
             // should not allow duplicate id profiles.
-            ASSERT_FALSE(result.isOk())
-                    << result.exceptionCode() << "; " << result.exceptionMessage()
-                    << ". Test profile id = " << testProfile.id
-                    << ", timeout=" << testProfile.timeoutMillis << endl;
-            ASSERT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
+            ASSERT_FALSE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage()
+                                        << ". Test profile id = " << testProfile.id
+                                        << ", timeout=" << testProfile.timeoutMillis << endl;
+            ASSERT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
             ASSERT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA,
-                      result.serviceSpecificErrorCode());
+                      result.getServiceSpecificError());
         }
     }
 }
 
 TEST_P(IdentityCredentialTests, verifyOneProfileAndEntryPass) {
-    Status result;
+    ::ndk::ScopedAStatus result;
 
     HardwareInformation hwInfo;
     ASSERT_TRUE(credentialStore_->getHardwareInformation(&hwInfo).isOk());
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -399,7 +392,7 @@ TEST_P(IdentityCredentialTests, verifyOneProfileAndEntryPass) {
     test_utils::AttestationData attData(writableCredential, challenge,
                                         {} /* atteestationApplicationId */);
     EXPECT_TRUE(attData.result.isOk())
-            << attData.result.exceptionCode() << "; " << attData.result.exceptionMessage() << endl;
+            << attData.result.getExceptionCode() << "; " << attData.result.getMessage() << endl;
 
     optional<vector<uint8_t>> readerCertificate1 = test_utils::generateReaderCertificate("123456");
     ASSERT_TRUE(readerCertificate1);
@@ -409,8 +402,7 @@ TEST_P(IdentityCredentialTests, verifyOneProfileAndEntryPass) {
     // OK to fail, not available in v1 HAL
     writableCredential->setExpectedProofOfProvisioningSize(expectedPoPSize);
     result = writableCredential->startPersonalization(1, entryCounts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     const vector<test_utils::TestProfile> testProfiles = {{1, readerCertificate1.value(), true, 1}};
 
@@ -433,8 +425,7 @@ TEST_P(IdentityCredentialTests, verifyOneProfileAndEntryPass) {
     result =
             writableCredential->finishAddingEntries(&credentialData, &proofOfProvisioningSignature);
 
-    EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    EXPECT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     optional<vector<uint8_t>> proofOfProvisioning =
             support::coseSignGetPayload(proofOfProvisioningSignature);
@@ -474,12 +465,12 @@ TEST_P(IdentityCredentialTests, verifyOneProfileAndEntryPass) {
 }
 
 TEST_P(IdentityCredentialTests, verifyManyProfilesAndEntriesPass) {
-    Status result;
+    ::ndk::ScopedAStatus result;
 
     HardwareInformation hwInfo;
     ASSERT_TRUE(credentialStore_->getHardwareInformation(&hwInfo).isOk());
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -487,7 +478,7 @@ TEST_P(IdentityCredentialTests, verifyManyProfilesAndEntriesPass) {
     test_utils::AttestationData attData(writableCredential, challenge,
                                         {} /* atteestationApplicationId */);
     EXPECT_TRUE(attData.result.isOk())
-            << attData.result.exceptionCode() << "; " << attData.result.exceptionMessage() << endl;
+            << attData.result.getExceptionCode() << "; " << attData.result.getMessage() << endl;
 
     optional<vector<uint8_t>> readerCertificate1 = test_utils::generateReaderCertificate("123456");
     ASSERT_TRUE(readerCertificate1);
@@ -505,8 +496,7 @@ TEST_P(IdentityCredentialTests, verifyManyProfilesAndEntriesPass) {
     // OK to fail, not available in v1 HAL
     writableCredential->setExpectedProofOfProvisioningSize(expectedPoPSize);
     result = writableCredential->startPersonalization(testProfiles.size(), entryCounts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     optional<vector<SecureAccessControlProfile>> secureProfiles =
             test_utils::addAccessControlProfiles(writableCredential, testProfiles);
@@ -543,8 +533,7 @@ TEST_P(IdentityCredentialTests, verifyManyProfilesAndEntriesPass) {
     result =
             writableCredential->finishAddingEntries(&credentialData, &proofOfProvisioningSignature);
 
-    EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    EXPECT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     optional<vector<uint8_t>> proofOfProvisioning =
             support::coseSignGetPayload(proofOfProvisioningSignature);
@@ -635,12 +624,12 @@ TEST_P(IdentityCredentialTests, verifyManyProfilesAndEntriesPass) {
 }
 
 TEST_P(IdentityCredentialTests, verifyEmptyNameSpaceMixedWithNonEmptyWorks) {
-    Status result;
+    ::ndk::ScopedAStatus result;
 
     HardwareInformation hwInfo;
     ASSERT_TRUE(credentialStore_->getHardwareInformation(&hwInfo).isOk());
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -648,7 +637,7 @@ TEST_P(IdentityCredentialTests, verifyEmptyNameSpaceMixedWithNonEmptyWorks) {
     test_utils::AttestationData attData(writableCredential, challenge,
                                         {} /* atteestationApplicationId */);
     ASSERT_TRUE(attData.result.isOk())
-            << attData.result.exceptionCode() << "; " << attData.result.exceptionMessage() << endl;
+            << attData.result.getExceptionCode() << "; " << attData.result.getMessage() << endl;
 
     optional<vector<uint8_t>> readerCertificate1 = test_utils::generateReaderCertificate("123456");
     ASSERT_TRUE(readerCertificate1);
@@ -664,8 +653,7 @@ TEST_P(IdentityCredentialTests, verifyEmptyNameSpaceMixedWithNonEmptyWorks) {
     // OK to fail, not available in v1 HAL
     writableCredential->setExpectedProofOfProvisioningSize(expectedPoPSize);
     result = writableCredential->startPersonalization(3, entryCounts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     const vector<test_utils::TestProfile> testProfiles = {{0, readerCertificate1.value(), false, 0},
                                                           {1, readerCertificate2.value(), true, 1},
@@ -694,17 +682,16 @@ TEST_P(IdentityCredentialTests, verifyEmptyNameSpaceMixedWithNonEmptyWorks) {
     result =
             writableCredential->finishAddingEntries(&credentialData, &proofOfProvisioningSignature);
 
-    EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    EXPECT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 }
 
 TEST_P(IdentityCredentialTests, verifyInterleavingEntryNameSpaceOrderingFails) {
-    Status result;
+    ::ndk::ScopedAStatus result;
 
     HardwareInformation hwInfo;
     ASSERT_TRUE(credentialStore_->getHardwareInformation(&hwInfo).isOk());
 
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
@@ -712,7 +699,7 @@ TEST_P(IdentityCredentialTests, verifyInterleavingEntryNameSpaceOrderingFails) {
     test_utils::AttestationData attData(writableCredential, challenge,
                                         {} /* atteestationApplicationId */);
     ASSERT_TRUE(attData.result.isOk())
-            << attData.result.exceptionCode() << "; " << attData.result.exceptionMessage() << endl;
+            << attData.result.getExceptionCode() << "; " << attData.result.getMessage() << endl;
 
     // Enter mismatched entry and profile numbers.
     // Technically the 2nd name space of "Name Space" occurs intermittently, 2
@@ -721,8 +708,7 @@ TEST_P(IdentityCredentialTests, verifyInterleavingEntryNameSpaceOrderingFails) {
     const vector<int32_t> entryCounts = {2u, 1u, 2u};
     writableCredential->setExpectedProofOfProvisioningSize(123456);
     result = writableCredential->startPersonalization(3, entryCounts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     optional<vector<uint8_t>> readerCertificate1 = test_utils::generateReaderCertificate("123456");
     ASSERT_TRUE(readerCertificate1);
@@ -775,22 +761,20 @@ TEST_P(IdentityCredentialTests, verifyInterleavingEntryNameSpaceOrderingFails) {
             writableCredential->finishAddingEntries(&credentialData, &proofOfProvisioningSignature);
 
     // should fail because test_utils::addEntry should have failed earlier.
-    EXPECT_FALSE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                                << endl;
-    EXPECT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    EXPECT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA, result.serviceSpecificErrorCode());
+    EXPECT_FALSE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
+    EXPECT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    EXPECT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA, result.getServiceSpecificError());
 }
 
 TEST_P(IdentityCredentialTests, verifyAccessControlProfileIdOutOfRange) {
-    sp<IWritableIdentityCredential> writableCredential;
+    shared_ptr<IWritableIdentityCredential> writableCredential;
     ASSERT_TRUE(test_utils::setupWritableCredential(writableCredential, credentialStore_,
                                                     false /* testCredential */));
 
     const vector<int32_t> entryCounts = {1};
     writableCredential->setExpectedProofOfProvisioningSize(123456);
-    Status result = writableCredential->startPersonalization(1, entryCounts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
+    ::ndk::ScopedAStatus result = writableCredential->startPersonalization(1, entryCounts);
+    ASSERT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage() << endl;
 
     SecureAccessControlProfile profile;
 
@@ -801,9 +785,9 @@ TEST_P(IdentityCredentialTests, verifyAccessControlProfileIdOutOfRange) {
                                                          0,      // timeoutMillis
                                                          42,     // secureUserId
                                                          &profile);
-    ASSERT_FALSE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
-    ASSERT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    ASSERT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA, result.serviceSpecificErrorCode());
+    ASSERT_FALSE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage();
+    ASSERT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    ASSERT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA, result.getServiceSpecificError());
 
     // This should fail because the id is < 0
     result = writableCredential->addAccessControlProfile(-1,     // id
@@ -812,9 +796,9 @@ TEST_P(IdentityCredentialTests, verifyAccessControlProfileIdOutOfRange) {
                                                          0,      // timeoutMillis
                                                          42,     // secureUserId
                                                          &profile);
-    ASSERT_FALSE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
-    ASSERT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());
-    ASSERT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA, result.serviceSpecificErrorCode());
+    ASSERT_FALSE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage();
+    ASSERT_EQ(EX_SERVICE_SPECIFIC, result.getExceptionCode());
+    ASSERT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA, result.getServiceSpecificError());
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(IdentityCredentialTests);

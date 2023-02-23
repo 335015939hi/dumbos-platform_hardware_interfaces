@@ -37,26 +37,27 @@ namespace android::hardware::identity::test_utils {
 using std::endl;
 using std::map;
 using std::optional;
+using std::shared_ptr;
 using std::string;
 using std::vector;
 
+using ::aidl::android::hardware::identity::RequestDataItem;
+using ::aidl::android::hardware::security::keymint::MacedPublicKey;
 using ::aidl::android::hardware::security::keymint::test::check_maced_pubkey;
 using ::aidl::android::hardware::security::keymint::test::p256_pub_key;
-using ::android::sp;
-using ::android::String16;
 using ::android::base::StringPrintf;
-using ::android::binder::Status;
-using ::android::hardware::security::keymint::MacedPublicKey;
 using ::keymaster::X509_Ptr;
 
-bool setupWritableCredential(sp<IWritableIdentityCredential>& writableCredential,
-                             sp<IIdentityCredentialStore>& credentialStore, bool testCredential) {
+bool setupWritableCredential(shared_ptr<IWritableIdentityCredential>& writableCredential,
+                             shared_ptr<IIdentityCredentialStore>& credentialStore,
+                             bool testCredential) {
     if (credentialStore == nullptr) {
         return false;
     }
 
     string docType = "org.iso.18013-5.2019.mdl";
-    Status result = credentialStore->createCredential(docType, testCredential, &writableCredential);
+    ::ndk::ScopedAStatus result =
+            credentialStore->createCredential(docType, testCredential, &writableCredential);
 
     if (result.isOk() && writableCredential != nullptr) {
         return true;
@@ -172,9 +173,9 @@ optional<vector<uint8_t>> generateReaderCertificate(string serialDecimal,
 }
 
 optional<vector<SecureAccessControlProfile>> addAccessControlProfiles(
-        sp<IWritableIdentityCredential>& writableCredential,
+        shared_ptr<IWritableIdentityCredential>& writableCredential,
         const vector<TestProfile>& testProfiles) {
-    Status result;
+    ::ndk::ScopedAStatus result;
 
     vector<SecureAccessControlProfile> secureProfiles;
 
@@ -189,7 +190,7 @@ optional<vector<SecureAccessControlProfile>> addAccessControlProfiles(
 
         // Don't use assert so all errors can be outputed.  Then return
         // instead of exit even on errors so caller can decide.
-        EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
+        EXPECT_TRUE(result.isOk()) << result.getExceptionCode() << "; " << result.getMessage()
                                    << "test profile id = " << testProfile.id << endl;
         EXPECT_EQ(testProfile.id, profile.id);
         EXPECT_EQ(testProfile.readerCertificate, profile.readerCertificate.encodedCertificate);
@@ -213,10 +214,11 @@ optional<vector<SecureAccessControlProfile>> addAccessControlProfiles(
 
 // Most test expects this function to pass. So we will print out additional
 // value if failed so more debug data can be provided.
-bool addEntry(sp<IWritableIdentityCredential>& writableCredential, const TestEntryData& entry,
-              int dataChunkSize, map<const TestEntryData*, vector<vector<uint8_t>>>& encryptedBlobs,
+bool addEntry(shared_ptr<IWritableIdentityCredential>& writableCredential,
+              const TestEntryData& entry, int dataChunkSize,
+              map<const TestEntryData*, vector<vector<uint8_t>>>& encryptedBlobs,
               bool expectSuccess) {
-    Status result;
+    ::ndk::ScopedAStatus result;
     vector<vector<uint8_t>> chunks = support::chunkVector(entry.valueCbor, dataChunkSize);
 
     result = writableCredential->beginAddEntry(entry.profileIds, entry.nameSpace, entry.name,
@@ -224,7 +226,7 @@ bool addEntry(sp<IWritableIdentityCredential>& writableCredential, const TestEnt
 
     if (expectSuccess) {
         EXPECT_TRUE(result.isOk())
-                << result.exceptionCode() << "; " << result.exceptionMessage() << endl
+                << result.getExceptionCode() << "; " << result.getMessage() << endl
                 << "entry name = " << entry.name << ", name space=" << entry.nameSpace << endl;
     }
 
@@ -238,7 +240,7 @@ bool addEntry(sp<IWritableIdentityCredential>& writableCredential, const TestEnt
         result = writableCredential->addEntryValue(chunk, &encryptedContent);
         if (expectSuccess) {
             EXPECT_TRUE(result.isOk())
-                    << result.exceptionCode() << "; " << result.exceptionMessage() << endl
+                    << result.getExceptionCode() << "; " << result.getMessage() << endl
                     << "entry name = " << entry.name << ", name space = " << entry.nameSpace
                     << endl;
 

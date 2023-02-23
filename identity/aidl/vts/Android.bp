@@ -34,7 +34,6 @@ cc_test {
         "PresentationSessionTests.cpp",
     ],
     shared_libs: [
-        "libbinder",
         "libbinder_ndk",
         "libcrypto",
     ],
@@ -42,6 +41,7 @@ cc_test {
         "android.hardware.security.rkp-V3-cpp",
         "android.hardware.security.rkp-V3-ndk",
         "android.hardware.security.secureclock-V1-ndk",
+        "android.hardware.identity-V5-ndk",
         "libcppbor_external",
         "libcppcose_rkp",
         "libkeymaster_portable",
