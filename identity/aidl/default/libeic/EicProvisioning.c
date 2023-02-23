@@ -165,9 +165,6 @@ bool eicProvisioningStartPersonalization(EicProvisioning* ctx, int accessControl
     }
 
     ctx->numEntryCounts = numEntryCounts;
-    if (numEntryCounts > EIC_MAX_NUM_NAMESPACES) {
-        return false;
-    }
     for (size_t n = 0; n < numEntryCounts; n++) {
         if (entryCounts[n] >= 256) {
             return false;
