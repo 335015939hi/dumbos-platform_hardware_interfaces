@@ -754,6 +754,8 @@ bool eicPresentationStartRetrieveEntries(EicPresentation* ctx) {
     ctx->accessControlProfileMaskFailedReaderAuth = 0;
     ctx->accessControlProfileMaskFailedUserAuth = 0;
     ctx->readerPublicKeySize = 0;
+    eicCborInit(&ctx->cbor, NULL, 0);
+    eicCborInit(&ctx->cborEcdsa, NULL, 0);
     return true;
 }
 
