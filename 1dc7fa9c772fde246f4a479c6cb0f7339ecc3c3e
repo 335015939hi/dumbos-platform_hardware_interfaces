@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "650de6ef_7040a652",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1101486
+      },
+      "writtenOn": "2023-02-23T14:28:33Z",
+      "side": 1,
+      "message": "Hi David,\nCould you please have a look at the changes I made?\nIn my test environment, we usually push the VTS binaries to the vendor partition and I did not work for the IC tests.\nI think that it was something related to binder.\nIt is working fine now with these changes.",
+      "revId": "1dc7fa9c772fde246f4a479c6cb0f7339ecc3c3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
