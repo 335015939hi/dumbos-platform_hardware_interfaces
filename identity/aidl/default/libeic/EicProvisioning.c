@@ -388,7 +388,8 @@ bool eicProvisioningFinishGetCredentialData(EicProvisioning* ctx, const char* do
     uint8_t cborBuf[86];
 
     if (*encryptedCredentialKeysSize < 86 + 28) {
-        eicDebug("encryptedCredentialKeysSize is %zd which is insufficient");
+        eicDebug("encryptedCredentialKeysSize is %zd which is insufficient",
+                 *encryptedCredentialKeysSize);
         return false;
     }
 
