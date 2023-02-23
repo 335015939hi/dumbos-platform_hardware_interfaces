@@ -171,9 +171,6 @@ bool eicProvisioningStartPersonalization(EicProvisioning* ctx, int accessControl
         }
         ctx->entryCounts[n] = entryCounts[n];
     }
-    if (numEntryCounts > EIC_MAX_NUM_NAMESPACES) {
-        return false;
-    }
     ctx->curNamespace = -1;
     ctx->curNamespaceNumProcessed = 0;
 
