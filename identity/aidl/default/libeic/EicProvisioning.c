@@ -118,10 +118,10 @@ bool eicProvisioningInitForUpdate(EicProvisioning* ctx, bool testCredential, con
 
 bool eicProvisioningShutdown(EicProvisioning* ctx) {
     if (ctx->id == 0) {
-        eicDebug("Trying to shut down provsioning with id 0");
+        eicDebug("Trying to shut down provisioning with id 0");
         return false;
     }
-    eicDebug("Shut down provsioning with id %" PRIu32, ctx->id);
+    eicDebug("Shut down provisioning with id %" PRIu32, ctx->id);
     eicMemSet(ctx, '\0', sizeof(EicProvisioning));
     return true;
 }
