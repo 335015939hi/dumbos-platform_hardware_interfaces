@@ -118,10 +118,10 @@ bool eicProvisioningInitForUpdate(EicProvisioning* ctx, bool testCredential, con
 
 bool eicProvisioningShutdown(EicProvisioning* ctx) {
     if (ctx->id == 0) {
-        eicDebug("Trying to shut down provsioning with id 0");
+        eicDebug("Trying to shut down provisioning with id 0");
         return false;
     }
-    eicDebug("Shut down provsioning with id %" PRIu32, ctx->id);
+    eicDebug("Shut down provisioning with id %" PRIu32, ctx->id);
     eicMemSet(ctx, '\0', sizeof(EicProvisioning));
     return true;
 }
@@ -165,14 +165,14 @@ bool eicProvisioningStartPersonalization(EicProvisioning* ctx, int accessControl
     }
 
     ctx->numEntryCounts = numEntryCounts;
-    if (numEntryCounts > EIC_MAX_NUM_NAMESPACES) {
-        return false;
-    }
     for (size_t n = 0; n < numEntryCounts; n++) {
         if (entryCounts[n] >= 256) {
             return false;
         }
         ctx->entryCounts[n] = entryCounts[n];
+    }
+    if (numEntryCounts > EIC_MAX_NUM_NAMESPACES) {
+        return false;
     }
     ctx->curNamespace = -1;
     ctx->curNamespaceNumProcessed = 0;
