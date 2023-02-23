@@ -16,6 +16,24 @@
       "message": "Let\u0027s wait to merge this until we\u0027ve confirmed that I0083953e8eaadea0ac66a9103358c0d4e1427086 and I1b3ad574cf886d023aa54de91b1062dd4f3fa671 should be merged to aosp as well.",
       "revId": "ae73d12adb45f5b65d257b21df519a6e9fadd3af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca942d6c_472c319a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2023-02-23T13:48:13Z",
+      "side": 1,
+      "message": "We can merge this without those 2 changes.",
+      "parentUuid": "5f286b41_0d9d7ec7",
+      "revId": "ae73d12adb45f5b65d257b21df519a6e9fadd3af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
