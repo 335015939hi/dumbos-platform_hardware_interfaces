@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac8832e_6b3cb10f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-02-23T17:56:45Z",
+      "side": 1,
+      "message": "I think this is actually wrong. See: https://docs.partner.android.com/gms/policies/vsr/vsr-12#keymaster-implementation-requirements",
+      "revId": "9c75bd4d21fbc7216cd0e21810e4df71da7b5163",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
