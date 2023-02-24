@@ -23,12 +23,25 @@
 namespace aidl::android::hardware::audio::core {
 
 class Telephony : public BnTelephony {
-  private:
-    ndk::ScopedAStatus getSupportedAudioModes(std::vector<AudioMode>* _aidl_return) override;
-    ndk::ScopedAStatus switchAudioMode(AudioMode in_mode) override;
+  public:
+    Telephony();
 
-    const std::vector<AudioMode> mSupportedAudioModes = {::ndk::enum_range<AudioMode>().begin(),
-                                                         ::ndk::enum_range<AudioMode>().end()};
+  private:
+    ndk::ScopedAStatus getSupportedAudioModes(
+            std::vector<::aidl::android::media::audio::common::AudioMode>* _aidl_return) override;
+    ndk::ScopedAStatus switchAudioMode(
+            ::aidl::android::media::audio::common::AudioMode in_mode) override;
+    ndk::ScopedAStatus setTelecomConfig(const TelecomConfig& in_config,
+                                        TelecomConfig* _aidl_return) override;
+
+    const std::vector<::aidl::android::media::audio::common::AudioMode> mSupportedAudioModes = {
+            ::aidl::android::media::audio::common::AudioMode::NORMAL,
+            ::aidl::android::media::audio::common::AudioMode::RINGTONE,
+            ::aidl::android::media::audio::common::AudioMode::IN_CALL,
+            ::aidl::android::media::audio::common::AudioMode::IN_COMMUNICATION,
+            // Omit CALL_SCREEN for a better VTS coverage.
+    };
+    TelecomConfig mTelecomConfig;
 };
 
 }  // namespace aidl::android::hardware::audio::core

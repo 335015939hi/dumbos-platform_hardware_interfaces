@@ -32,7 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.thermal;
-@VintfStability
+/* @hide */
+@JavaDerive(toString=true) @VintfStability
 parcelable CoolingDevice {
   android.hardware.thermal.CoolingType type;
   String name;

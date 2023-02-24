@@ -22,9 +22,8 @@ import android.hardware.audio.effect.VendorExtension;
  * Visualizer specific definitions. Visualizer enables application to retrieve part of the currently
  * playing audio for visualization purpose
  *
- * All parameters defined in union Visualizer other than these in GetOnlyParameters and
- * SetOnlyParameters must be gettable and settable. The capabilities defined in
- * Visualizer.Capability can only acquired with IEffect.getDescriptor() and not settable.
+ * All parameter settings must be inside the range of Capability.Range.visualizer definition if the
+ * definition for the corresponding parameter tag exist. See more detals about Range in Range.aidl.
  *
  */
 @VintfStability
@@ -35,8 +34,6 @@ union Visualizer {
     @VintfStability
     union Id {
         int vendorExtensionTag;
-        GetOnlyParameters.Tag getOnlyParamTag;
-        SetOnlyParameters.Tag setOnlyParamTag;
         Visualizer.Tag commonTag;
     }
     Id id;
@@ -45,35 +42,6 @@ union Visualizer {
      * Vendor Visualizer implementation definition for additional parameters.
      */
     VendorExtension vendor;
-
-    /**
-     * Capability supported by Visualizer implementation.
-     */
-    @VintfStability
-    parcelable Capability {
-        /**
-         * Visualizer capability extension, vendor can use this extension in case existing
-         * capability definition not enough.
-         */
-        VendorExtension extension;
-        /**
-         * Max latency supported in millseconds.
-         */
-        int maxLatencyMs;
-        /**
-         *  Capture size range.
-         */
-        CaptureSizeRange captureSizeRange;
-    }
-
-    /**
-     * Supported capture size range in bytes.
-     */
-    @VintfStability
-    parcelable CaptureSizeRange {
-        int minBytes;
-        int maxBytes;
-    }
 
     /**
      * Type of scaling applied on the captured visualization data.
@@ -115,51 +83,42 @@ union Visualizer {
     }
 
     /**
-     * Any parameter defined in this union must be gettable via getParameter(), but must not
-     * settable.
+     * Get only parameter to get the current measurements.
      */
     @VintfStability
-    union GetOnlyParameters {
-        /**
-         * Get the current measurements.
-         */
-        @VintfStability
-        parcelable Measurement {
-            int rms;
-            int peak;
-        }
-        Measurement measurement;
-
-        /**
-         * Gets the latest PCM capture, size of returned vector equals to @c captureSize.
-         */
-        byte[] captureBytes;
+    parcelable Measurement {
+        int rms;
+        int peak;
     }
-    GetOnlyParameters getOnlyParameters;
+    Measurement measurement;
 
     /**
-     * Any parameter defined in this union must be settable via setParameter(), but must not
-     * gettable.
+     * Get only parameter to get the latest captured samples of PCM samples (8 bits per sample).
      */
-    @VintfStability
-    union SetOnlyParameters {
-        /**
-         * Used by framework to inform the visualizer about the downstream latency (audio hardware
-         * driver estimated latency in milliseconds).
-         */
-        int latencyMs;
-    }
-    SetOnlyParameters setOnlyParameters;
+    byte[] captureSampleBuffer;
 
     /**
-     * Current capture size in bytes. The capture size must be a power of 2 in the range
-     * Capability.captureSizeRange.
+     * Used by framework to inform the visualizer about the downstream latency (audio hardware
+     * driver estimated latency in milliseconds).
+     *
+     * Visualizer implementation must use Range.VisualizerRange to define the range of supported
+     * latency.
      */
-    int captureSizeBytes;
+    int latencyMs;
+
+    /**
+     * Current capture size in number of samples.
+     *
+     * Visualizer implementation must use Range.VisualizerRange to define the range of supported
+     * capture size.
+     */
+    int captureSamples;
+
     /**
      * Visualizer capture mode
      */
     ScalingMode scalingMode;
+
     /**
      * Visualizer measurement mode.
      */

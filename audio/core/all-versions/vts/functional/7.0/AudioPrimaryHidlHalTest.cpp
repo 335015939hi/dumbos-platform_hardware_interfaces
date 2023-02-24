@@ -687,7 +687,12 @@ class PcmOnlyConfigInputStreamTest : public InputStreamTest {
         InputStreamTest::TearDown();
     }
 
-    bool canQueryCapturePosition() const { return !xsd::isTelephonyDevice(address.deviceType); }
+    bool canQueryCapturePosition() const {
+        // See b/263305254 and b/259636577. Must use the device initially passed in
+        // as a parameter, not 'address' which gets adjusted during test setup for
+        // the telephony case.
+        return !xsd::isTelephonyDevice(getAttachedDeviceAddress().deviceType);
+    }
 
     void createPatchIfNeeded() {
         if (areAudioPatchesSupported()) {
@@ -957,10 +962,16 @@ TEST_P(CompressedOffloadOutputStreamTest, Mp3FormatGaplessOffload) {
     ASSERT_NO_FATAL_FAILURE(createPatchIfNeeded());
     const int presentationeEndPrecisionMs = 1000;
     const int sampleRate = 44100;
+    // The duration of sine882hz3s.mp3 is: 3 seconds + (576 + 756) samples.
+    // This is a mono file, thus 1 frame = 1 sample for it.
+    const int fullTrackDurationMs = 3000 + (576 + 756) * 1000 / sampleRate;
     const int significantSampleNumber = (presentationeEndPrecisionMs * sampleRate) / 1000;
+    // 'delay' is the amount of frames ignored at the beginning, 'padding' is the amount of frames
+    // ignored at the end of the track. Extra 1000 samples are requested for trimming to reduce the
+    // test running time.
     const int delay = 576 + 1000;
     const int padding = 756 + 1000;
-    const int durationMs = 3000 - 44;
+    const int durationMs = fullTrackDurationMs - (delay + padding) * 1000 / sampleRate;
     auto start = std::chrono::steady_clock::now();
     auto callbacks = sp<OffloadCallbacks>::make();
     std::mutex presentationEndLock;

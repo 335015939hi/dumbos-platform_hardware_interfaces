@@ -14,14 +14,13 @@
 
 //! Main entry point for the android.hardware.security.dice service.
 
-use anyhow::Result;
+use anyhow::{anyhow, Result};
 use diced::{
     dice,
     hal_node::{DiceArtifacts, DiceDevice, ResidentHal, UpdatableDiceArtifacts},
 };
 use diced_sample_inputs::make_sample_bcc_and_cdis;
 use serde::{Deserialize, Serialize};
-use std::convert::TryInto;
 use std::panic;
 use std::sync::Arc;
 
@@ -41,8 +40,8 @@ impl DiceArtifacts for InsecureSerializableArtifacts {
     fn cdi_seal(&self) -> &[u8; dice::CDI_SIZE] {
         &self.cdi_seal
     }
-    fn bcc(&self) -> Vec<u8> {
-        self.bcc.clone()
+    fn bcc(&self) -> Option<&[u8]> {
+        Some(&self.bcc)
     }
 }
 
@@ -57,7 +56,10 @@ impl UpdatableDiceArtifacts for InsecureSerializableArtifacts {
         Ok(Self {
             cdi_attest: *new_artifacts.cdi_attest(),
             cdi_seal: *new_artifacts.cdi_seal(),
-            bcc: new_artifacts.bcc(),
+            bcc: new_artifacts
+                .bcc()
+                .ok_or_else(|| anyhow!("bcc is none"))?
+                .to_vec(),
         })
     }
 }
@@ -76,22 +78,21 @@ fn main() {
     // Saying hi.
     log::info!("android.hardware.security.dice is starting.");
 
-    let (cdi_attest, cdi_seal, bcc) =
+    let dice_artifacts =
         make_sample_bcc_and_cdis().expect("Failed to construct sample dice chain.");
-
+    let mut cdi_attest = [0u8; dice::CDI_SIZE];
+    cdi_attest.copy_from_slice(dice_artifacts.cdi_attest());
+    let mut cdi_seal = [0u8; dice::CDI_SIZE];
+    cdi_seal.copy_from_slice(dice_artifacts.cdi_seal());
     let hal_impl = Arc::new(
         unsafe {
             // Safety: ResidentHal cannot be used in multi threaded processes.
             // This service does not start a thread pool. The main thread is the only thread
             // joining the thread pool, thereby keeping the process single threaded.
             ResidentHal::new(InsecureSerializableArtifacts {
-                cdi_attest: cdi_attest[..]
-                    .try_into()
-                    .expect("Failed to convert cdi_attest to array reference."),
-                cdi_seal: cdi_seal[..]
-                    .try_into()
-                    .expect("Failed to convert cdi_seal to array reference."),
-                bcc,
+                cdi_attest,
+                cdi_seal,
+                bcc: dice_artifacts.bcc().expect("bcc is none").to_vec(),
             })
         }
         .expect("Failed to create ResidentHal implementation."),

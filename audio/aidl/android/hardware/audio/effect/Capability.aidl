@@ -16,17 +16,8 @@
 
 package android.hardware.audio.effect;
 
-import android.hardware.audio.effect.BassBoost;
-import android.hardware.audio.effect.Downmix;
-import android.hardware.audio.effect.DynamicsProcessing;
-import android.hardware.audio.effect.Equalizer;
-import android.hardware.audio.effect.HapticGenerator;
-import android.hardware.audio.effect.LoudnessEnhancer;
-import android.hardware.audio.effect.Reverb;
+import android.hardware.audio.effect.Range;
 import android.hardware.audio.effect.VendorExtension;
-import android.hardware.audio.effect.Virtualizer;
-import android.hardware.audio.effect.Visualizer;
-import android.hardware.audio.effect.Volume;
 
 /**
  * Effect capability definitions.
@@ -34,28 +25,19 @@ import android.hardware.audio.effect.Volume;
  * not meant to change at runtime.
  */
 @VintfStability
-union Capability {
+parcelable Capability {
     /**
      * Vendor defined effect capability.
-     * This extension can be used when vendor have a new effect implementated and need
+     * This extension can be used when vendor has a new effect implementation and needs
      * capability definition for this new type of effect.
-     * If vendor want to extend existing effect capabilities, it is recommended to expose though
-     * the ParcelableHolder in each effect capability definition. For example:
-     * Equalizer.Capability.extension.
+     * If vendor want to extend existing effect capabilities, it is recommended to expose through
+     * the ParcelableHolder in each effect definition. For example: Equalizer.vendorExtension. And
+     * define an appropriate Range for the extension.
      */
     VendorExtension vendorExtension;
 
     /**
-     * Effect capabilities.
+     * Supported range for parameters. See Range.aidl.
      */
-    BassBoost.Capability bassBoost;
-    Downmix.Capability downmix;
-    DynamicsProcessing.Capability dynamicsProcessing;
-    Equalizer.Capability equalizer;
-    HapticGenerator.Capability hapticGenerator;
-    LoudnessEnhancer.Capability loudnessEnhancer;
-    Reverb.Capability reverb;
-    Virtualizer.Capability virtualizer;
-    Visualizer.Capability visualizer;
-    Volume.Capability volume;
+    Range range;
 }

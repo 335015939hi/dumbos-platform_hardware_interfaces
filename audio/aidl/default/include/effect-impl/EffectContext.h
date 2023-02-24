@@ -16,16 +16,13 @@
 
 #pragma once
 #include <Utils.h>
-#include <android-base/logging.h>
-#include <utils/Log.h>
-#include <cstddef>
-#include <cstdint>
 #include <memory>
-#include <utility>
 #include <vector>
 
-#include <aidl/android/hardware/audio/effect/BnEffect.h>
+#include <android-base/logging.h>
 #include <fmq/AidlMessageQueue.h>
+
+#include <aidl/android/hardware/audio/effect/BnEffect.h>
 #include "EffectTypes.h"
 
 namespace aidl::android::hardware::audio::effect {
@@ -40,7 +37,6 @@ class EffectContext {
             DataMQ;
 
     EffectContext(size_t statusDepth, const Parameter::Common& common) {
-        mSessionId = common.session;
         auto& input = common.input;
         auto& output = common.output;
 
@@ -66,6 +62,7 @@ class EffectContext {
             LOG(ERROR) << __func__ << " created invalid FMQ";
         }
         mWorkBuffer.reserve(std::max(inBufferSizeInFloat, outBufferSizeInFloat));
+        mCommon = common;
     }
     virtual ~EffectContext() {}
 
@@ -74,36 +71,35 @@ class EffectContext {
     std::shared_ptr<DataMQ> getOutputDataFmq() { return mOutputMQ; }
 
     float* getWorkBuffer() { return static_cast<float*>(mWorkBuffer.data()); }
-    // TODO: update with actual available size
-    size_t availableToRead() { return mWorkBuffer.capacity(); }
-    size_t availableToWrite() { return mWorkBuffer.capacity(); }
 
-    // reset buffer status by abandon all data and status in FMQ
+    // reset buffer status by abandon input data in FMQ
     void resetBuffer() {
-        auto buffer = getWorkBuffer();
+        auto buffer = static_cast<float*>(mWorkBuffer.data());
         std::vector<IEffect::Status> status(mStatusMQ->availableToRead());
         mInputMQ->read(buffer, mInputMQ->availableToRead());
-        mOutputMQ->read(buffer, mOutputMQ->availableToRead());
-        mStatusMQ->read(status.data(), mStatusMQ->availableToRead());
     }
 
     void dupeFmq(IEffect::OpenEffectReturn* effectRet) {
         if (effectRet) {
-            effectRet->statusMQ = getStatusFmq()->dupeDesc();
-            effectRet->inputDataMQ = getInputDataFmq()->dupeDesc();
-            effectRet->outputDataMQ = getOutputDataFmq()->dupeDesc();
+            effectRet->statusMQ = mStatusMQ->dupeDesc();
+            effectRet->inputDataMQ = mInputMQ->dupeDesc();
+            effectRet->outputDataMQ = mOutputMQ->dupeDesc();
         }
     }
     size_t getInputFrameSize() { return mInputFrameSize; }
     size_t getOutputFrameSize() { return mOutputFrameSize; }
-    int getSessionId() { return mSessionId; }
+    int getSessionId() { return mCommon.session; }
+    int getIoHandle() { return mCommon.ioHandle; }
 
     virtual RetCode setOutputDevice(
-            const aidl::android::media::audio::common::AudioDeviceDescription& device) {
+            const std::vector<aidl::android::media::audio::common::AudioDeviceDescription>&
+                    device) {
         mOutputDevice = device;
         return RetCode::SUCCESS;
     }
-    virtual aidl::android::media::audio::common::AudioDeviceDescription getOutputDevice() {
+
+    virtual std::vector<aidl::android::media::audio::common::AudioDeviceDescription>
+    getOutputDevice() {
         return mOutputDevice;
     }
 
@@ -127,20 +123,20 @@ class EffectContext {
 
     virtual RetCode setCommon(const Parameter::Common& common) {
         mCommon = common;
-        LOG(ERROR) << __func__ << mCommon.toString();
+        LOG(INFO) << __func__ << mCommon.toString();
         return RetCode::SUCCESS;
     }
     virtual Parameter::Common getCommon() {
-        LOG(ERROR) << __func__ << mCommon.toString();
+        LOG(INFO) << __func__ << mCommon.toString();
         return mCommon;
     }
 
   protected:
     // common parameters
-    int mSessionId = INVALID_AUDIO_SESSION_ID;
-    size_t mInputFrameSize, mOutputFrameSize;
+    size_t mInputFrameSize;
+    size_t mOutputFrameSize;
     Parameter::Common mCommon;
-    aidl::android::media::audio::common::AudioDeviceDescription mOutputDevice;
+    std::vector<aidl::android::media::audio::common::AudioDeviceDescription> mOutputDevice;
     aidl::android::media::audio::common::AudioMode mMode;
     aidl::android::media::audio::common::AudioSource mSource;
     Parameter::VolumeStereo mVolumeStereo;

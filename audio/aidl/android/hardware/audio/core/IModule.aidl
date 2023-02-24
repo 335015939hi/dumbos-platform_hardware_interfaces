@@ -18,17 +18,27 @@ package android.hardware.audio.core;
 
 import android.hardware.audio.common.SinkMetadata;
 import android.hardware.audio.common.SourceMetadata;
-import android.hardware.audio.core.AudioMode;
 import android.hardware.audio.core.AudioPatch;
 import android.hardware.audio.core.AudioRoute;
+import android.hardware.audio.core.IBluetooth;
+import android.hardware.audio.core.IStreamCallback;
 import android.hardware.audio.core.IStreamIn;
 import android.hardware.audio.core.IStreamOut;
+import android.hardware.audio.core.IStreamOutEventCallback;
 import android.hardware.audio.core.ITelephony;
 import android.hardware.audio.core.ModuleDebug;
 import android.hardware.audio.core.StreamDescriptor;
+import android.hardware.audio.core.VendorParameter;
+import android.hardware.audio.core.sounddose.ISoundDose;
+import android.hardware.audio.effect.IEffect;
+import android.media.audio.common.AudioMMapPolicyInfo;
+import android.media.audio.common.AudioMMapPolicyType;
+import android.media.audio.common.AudioMode;
 import android.media.audio.common.AudioOffloadInfo;
 import android.media.audio.common.AudioPort;
 import android.media.audio.common.AudioPortConfig;
+import android.media.audio.common.Float;
+import android.media.audio.common.MicrophoneInfo;
 
 /**
  * Each instance of IModule corresponds to a separate audio module. The system
@@ -53,9 +63,13 @@ interface IModule {
      * the HAL module behavior that would otherwise require human intervention.
      *
      * The HAL module must throw an error if there is an attempt to change
-     * the debug behavior for the aspect which is currently in use.
+     * the debug behavior for the aspect which is currently in use, or when
+     * the value of any of the debug flags is invalid. See 'ModuleDebug' for
+     * the full list of constraints.
      *
      * @param debug The debug options.
+     * @throws EX_ILLEGAL_ARGUMENT If some of the configuration parameters are
+     *                             invalid.
      * @throws EX_ILLEGAL_STATE If the flag(s) being changed affect functionality
      *                          which is currently in use.
      */
@@ -73,6 +87,20 @@ interface IModule {
      * @throws EX_ILLEGAL_STATE If there was an error creating an instance.
      */
     @nullable ITelephony getTelephony();
+
+    /**
+     * Retrieve the interface to control Bluetooth SCO and HFP.
+     *
+     * If the HAL module supports either the SCO Link or Hands-Free Profile
+     * functionality (or both) for Bluetooth, it must return an instance of the
+     * IBluetooth interface. The same instance must be returned during the
+     * lifetime of the HAL module. If the HAL module does not support BT SCO and
+     * HFP, a null must be returned, without throwing any errors.
+     *
+     * @return An instance of the IBluetooth interface implementation.
+     * @throws EX_ILLEGAL_STATE If there was an error creating an instance.
+     */
+    @nullable IBluetooth getBluetooth();
 
     /**
      * Set a device port of an external device into connected state.
@@ -316,9 +344,13 @@ interface IModule {
      * 'setAudioPortConfig' method. Existence of an audio patch involving this
      * port configuration is not required for successful opening of a stream.
      *
-     * If the port configuration has 'COMPRESS_OFFLOAD' output flag set,
-     * the framework must provide additional information about the encoded
-     * audio stream in 'offloadInfo' argument.
+     * If the port configuration has the 'COMPRESS_OFFLOAD' output flag set,
+     * the client must provide additional information about the encoded
+     * audio stream in the 'offloadInfo' argument.
+     *
+     * If the port configuration has the 'NON_BLOCKING' output flag set,
+     * the client must provide a callback for asynchronous notifications
+     * in the 'callback' argument.
      *
      * The requested buffer size is expressed in frames, thus the actual size
      * in bytes depends on the audio port configuration. Also, the HAL module
@@ -354,6 +386,8 @@ interface IModule {
      *                             - If the offload info is not provided for an offload
      *                               port configuration.
      *                             - If a buffer of the requested size can not be provided.
+     *                             - If the callback is not provided for a non-blocking
+     *                               port configuration.
      * @throws EX_ILLEGAL_STATE In the following cases:
      *                          - If the port config already has a stream opened on it.
      *                          - If the limit on the open stream count for the port has
@@ -372,6 +406,10 @@ interface IModule {
         @nullable AudioOffloadInfo offloadInfo;
         /** Requested audio I/O buffer minimum size, in frames. */
         long bufferSizeFrames;
+        /** Client callback interface for the non-blocking output mode. */
+        @nullable IStreamCallback callback;
+        /** Optional callback to notify client about stream events. */
+        @nullable IStreamOutEventCallback eventCallback;
     }
     @VintfStability
     parcelable OpenOutputStreamReturn {
@@ -379,6 +417,33 @@ interface IModule {
         StreamDescriptor desc;
     }
     OpenOutputStreamReturn openOutputStream(in OpenOutputStreamArguments args);
+
+    /**
+     * Get supported ranges of playback rate factors.
+     *
+     * See 'PlaybackRate' for the information on the playback rate parameters.
+     * This method provides supported ranges (inclusive) for the speed factor
+     * and the pitch factor.
+     *
+     * If the HAL module supports setting the playback rate, it is recommended
+     * to support speed and pitch factor values at least in the range from 0.5f
+     * to 2.0f.
+     *
+     * @throws EX_UNSUPPORTED_OPERATION If setting of playback rate parameters
+     *                                  is not supported by the module.
+     */
+    @VintfStability
+    parcelable SupportedPlaybackRateFactors {
+        /** The minimum allowed speed factor. */
+        float minSpeed;
+        /** The maximum allowed speed factor. */
+        float maxSpeed;
+        /** The minimum allowed pitch factor. */
+        float minPitch;
+        /** The maximum allowed pitch factor. */
+        float maxPitch;
+    }
+    SupportedPlaybackRateFactors getSupportedPlaybackRateFactors();
 
     /**
      * Set an audio patch.
@@ -499,7 +564,8 @@ interface IModule {
      * @throws EX_ILLEGAL_ARGUMENT If the port config can not be found by the ID.
      * @throws EX_ILLEGAL_STATE In the following cases:
      *                          - If the port config has a stream opened on it;
-     *                          - If the port config is used by a patch.
+     *                          - If the port config is used by a patch;
+     *                          - If the port config has an audio effect on it.
      */
     void resetAudioPortConfig(int portConfigId);
 
@@ -592,6 +658,22 @@ interface IModule {
     void setMicMute(boolean mute);
 
     /**
+     * Provide information describing built-in microphones of the HAL module.
+     *
+     * If there are no built-in microphones in the HAL module, it must return an
+     * empty vector. If there are microphones, but the HAL module does not
+     * possess the required information about them, EX_UNSUPPORTED_OPERATION
+     * must be thrown.
+     *
+     * If this method is supported by the HAL module, it must also support
+     * 'IStreamIn.getActiveMicrophones' method.
+     *
+     * @return The vector with information about each microphone.
+     * @throws EX_UNSUPPORTED_OPERATION If the information is unavailable.
+     */
+    MicrophoneInfo[] getMicrophones();
+
+    /**
      * Notify the HAL module on the change of the current audio mode.
      *
      * The current audio mode is always controlled by the client. This is an
@@ -604,6 +686,7 @@ interface IModule {
      * method.
      *
      * @param mode The current mode.
+     * @throws EX_ILLEGAL_ARGUMENT If the mode is out of range of valid values.
      */
     void updateAudioMode(AudioMode mode);
 
@@ -638,4 +721,143 @@ interface IModule {
      * @param isTurnedOn True if the screen is turned on.
      */
     void updateScreenState(boolean isTurnedOn);
+
+    /**
+     * Retrieve the sound dose interface.
+     *
+     * If a device must comply to IEC62368-1 3rd edition audio safety requirements and is
+     * implementing audio offload decoding or other direct playback paths where volume control
+     * happens below the audio HAL, it must return an instance of the ISoundDose interface.
+     * The same instance must be returned during the lifetime of the HAL module.
+     * If the HAL module does not support sound dose, null must be returned, without throwing
+     * any errors.
+     *
+     * @return An instance of the ISoundDose interface implementation.
+     * @throws EX_ILLEGAL_STATE If there was an error creating an instance.
+     */
+    @nullable ISoundDose getSoundDose();
+
+    /**
+     * Generate a HW AV Sync identifier for a new audio session.
+     *
+     * Creates a new unique identifier which can be further used by the client
+     * for tagging input / output streams that belong to the same audio
+     * session and thus must use the same HW AV Sync timestamps sequence.
+     *
+     * HW AV Sync timestamps are used for "tunneled" I/O modes and thus
+     * are not mandatory.
+     *
+     * @throws EX_ILLEGAL_STATE If the identifier can not be provided at the moment.
+     * @throws EX_UNSUPPORTED_OPERATION If synchronization with HW AV Sync markers
+     *                                  is not supported.
+     */
+    int generateHwAvSyncId();
+
+    /**
+     * Get current values of vendor parameters.
+     *
+     * Return current values for the parameters corresponding to the provided ids.
+     *
+     * @param ids Ids of the parameters to retrieve values of.
+     * @return Current values of parameters, one per each id.
+     * @throws EX_ILLEGAL_ARGUMENT If the module does not recognize provided ids.
+     * @throws EX_ILLEGAL_STATE If parameter values can not be retrieved at the moment.
+     * @throws EX_UNSUPPORTED_OPERATION If the module does not support vendor parameters.
+     */
+    VendorParameter[] getVendorParameters(in @utf8InCpp String[] ids);
+    /**
+     * Set vendor parameters.
+     *
+     * Update values for provided vendor parameters. If the 'async' parameter
+     * is set to 'true', the implementation must return the control back without
+     * waiting for the application of parameters to complete.
+     *
+     * @param parameters Ids and values of parameters to set.
+     * @param async Whether to return from the method as early as possible.
+     * @throws EX_ILLEGAL_ARGUMENT If the module does not recognize provided parameters.
+     * @throws EX_ILLEGAL_STATE If parameters can not be set at the moment.
+     * @throws EX_UNSUPPORTED_OPERATION If the module does not support vendor parameters.
+     */
+    void setVendorParameters(in VendorParameter[] parameters, boolean async);
+
+    /**
+     * Apply an audio effect to a device port.
+     *
+     * The audio effect applies to all audio input or output on the specific
+     * configuration of the device audio port. The effect is inserted according
+     * to its insertion preference specified by the 'flags.insert' field of the
+     * EffectDescriptor.
+     *
+     * @param portConfigId The ID of the audio port config.
+     * @param effect The effect instance.
+     * @throws EX_ILLEGAL_ARGUMENT If the device port config can not be found by the ID,
+     *                             or the effect reference is invalid.
+     * @throws EX_UNSUPPORTED_OPERATION If the module does not support device port effects.
+     */
+    void addDeviceEffect(int portConfigId, in IEffect effect);
+
+    /**
+     * Stop applying an audio effect to a device port.
+     *
+     * Undo the action of the 'addDeviceEffect' method.
+     *
+     * @param portConfigId The ID of the audio port config.
+     * @param effect The effect instance.
+     * @throws EX_ILLEGAL_ARGUMENT If the device port config can not be found by the ID,
+     *                             or the effect reference is invalid, or the effect is
+     *                             not currently applied to the port config.
+     * @throws EX_UNSUPPORTED_OPERATION If the module does not support device port effects.
+     */
+    void removeDeviceEffect(int portConfigId, in IEffect effect);
+
+    /**
+     * Provide information describing how aaudio MMAP is supported per queried aaudio
+     * MMAP policy type.
+     *
+     * If there are no devices that support aaudio MMAP for the queried aaudio MMAP policy
+     * type in the HAL module, it must return an empty vector. Otherwise, return a vector
+     * describing how the devices support aaudio MMAP.
+     *
+     * @param mmapPolicyType the aaudio mmap policy type to query.
+     * @return The vector with mmap policy information.
+     */
+    AudioMMapPolicyInfo[] getMmapPolicyInfos(AudioMMapPolicyType mmapPolicyType);
+
+    /**
+     * Indicates if this module supports variable latency control for instance
+     * over Bluetooth A2DP or LE Audio links.
+     *
+     * If supported, all instances of IStreamOut interface returned by this module must
+     * implement getRecommendedLatencyModes() and setLatencyMode() APIs.
+     *
+     * @return Whether the module supports variable latency control.
+     */
+    boolean supportsVariableLatency();
+
+    /**
+     * Default value for number of bursts per aaudio mixer cycle. This is a suggested value
+     * to return for the HAL module, unless it is known that a better option exists.
+     */
+    const int DEFAULT_AAUDIO_MIXER_BURST_COUNT = 2;
+    /**
+     * Get the number of bursts per aaudio mixer cycle.
+     *
+     * @return The number of burst per aaudio mixer cycle.
+     * @throw EX_UNSUPPORTED_OPERATION If the module does not support aaudio MMAP.
+     */
+    int getAAudioMixerBurstCount();
+
+    /**
+     * Default value for minimum duration in microseconds for a MMAP hardware burst. This
+     * is a suggested value to return for the HAL module, unless it is known that a better
+     * option exists.
+     */
+    const int DEFAULT_AAUDIO_HARDWARE_BURST_MIN_DURATION_US = 1000;
+    /**
+     * Get the minimum duration in microseconds for a MMAP hardware burst.
+     *
+     * @return The minimum number of microseconds for a MMAP hardware burst.
+     * @throw EX_UNSUPPORTED_OPERATION If the module does not support aaudio MMAP.
+     */
+    int getAAudioHardwareBurstMinUsec();
 }

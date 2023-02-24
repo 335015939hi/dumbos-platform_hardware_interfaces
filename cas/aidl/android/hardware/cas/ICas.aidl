@@ -23,6 +23,7 @@ import android.hardware.cas.SessionIntent;
  * ICas is the API to control the CAS. It is used to manage sessions, provision/refresh the cas
  * system, and process the EMM/ECM messages. It also allows bi-directional, scheme-specific
  * communications between the client and the cas system.
+ * @hide
  */
 @VintfStability
 interface ICas {
@@ -32,6 +33,14 @@ interface ICas {
      * @param sessionId The id of the session to be closed.
      */
     void closeSession(in byte[] sessionId);
+
+    /**
+     * Open a session to descramble one or more streams without specifying intention
+     * and scrambling mode.
+     *
+     * @return sessionId The id of the newly opened session.
+     */
+    byte[] openSessionDefault();
 
     /**
      * Open a session to descramble one or more streams by specifying intention

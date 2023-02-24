@@ -32,13 +32,14 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.thermal;
+/* @hide */
 @Backing(type="int") @VintfStability
 enum ThrottlingSeverity {
   NONE = 0,
-  LIGHT = 1,
-  MODERATE = 2,
-  SEVERE = 3,
-  CRITICAL = 4,
-  EMERGENCY = 5,
-  SHUTDOWN = 6,
+  LIGHT,
+  MODERATE,
+  SEVERE,
+  CRITICAL,
+  EMERGENCY,
+  SHUTDOWN,
 }

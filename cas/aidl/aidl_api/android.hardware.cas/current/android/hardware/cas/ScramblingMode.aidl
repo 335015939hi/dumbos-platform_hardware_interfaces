@@ -32,21 +32,22 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.cas;
+/* @hide */
 @Backing(type="int") @VintfStability
 enum ScramblingMode {
   RESERVED = 0,
-  DVB_CSA1 = 1,
-  DVB_CSA2 = 2,
-  DVB_CSA3_STANDARD = 3,
-  DVB_CSA3_MINIMAL = 4,
-  DVB_CSA3_ENHANCE = 5,
-  DVB_CISSA_V1 = 6,
-  DVB_IDSA = 7,
-  MULTI2 = 8,
-  AES128 = 9,
-  AES_CBC = 10,
-  AES_ECB = 11,
-  AES_SCTE52 = 12,
-  TDES_ECB = 13,
-  TDES_SCTE52 = 14,
+  DVB_CSA1,
+  DVB_CSA2,
+  DVB_CSA3_STANDARD,
+  DVB_CSA3_MINIMAL,
+  DVB_CSA3_ENHANCE,
+  DVB_CISSA_V1,
+  DVB_IDSA,
+  MULTI2,
+  AES128,
+  AES_ECB,
+  AES_SCTE52,
+  TDES_ECB,
+  TDES_SCTE52,
+  AES_CBC,
 }

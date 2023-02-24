@@ -15,6 +15,7 @@
  */
 
 #include <aidl/Vintf.h>
+#include <string>
 
 #define LOG_TAG "VtsHalLoudnessEnhancerTest"
 
@@ -23,7 +24,6 @@
 
 using namespace android;
 
-using aidl::android::hardware::audio::effect::Capability;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
@@ -37,7 +37,7 @@ using aidl::android::hardware::audio::effect::Parameter;
  */
 enum ParamName { PARAM_INSTANCE_NAME, PARAM_GAIN_MB };
 using LoudnessEnhancerParamTestParam =
-        std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor::Identity>, int>;
+        std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>, int>;
 
 // Every int 32 bit value is a valid gain, so testing the corner cases and one regular value.
 // TODO : Update the test values once range/capability is updated by implementation.
@@ -48,12 +48,12 @@ class LoudnessEnhancerParamTest : public ::testing::TestWithParam<LoudnessEnhanc
                                   public EffectHelper {
   public:
     LoudnessEnhancerParamTest() : mParamGainMb(std::get<PARAM_GAIN_MB>(GetParam())) {
-        std::tie(mFactory, mIdentity) = std::get<PARAM_INSTANCE_NAME>(GetParam());
+        std::tie(mFactory, mDescriptor) = std::get<PARAM_INSTANCE_NAME>(GetParam());
     }
 
     void SetUp() override {
         ASSERT_NE(nullptr, mFactory);
-        ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mIdentity));
+        ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
 
         Parameter::Specific specific = getDefaultParamSpecific();
         Parameter::Common common = EffectHelper::createParamCommon(
@@ -78,7 +78,7 @@ class LoudnessEnhancerParamTest : public ::testing::TestWithParam<LoudnessEnhanc
     static const long kInputFrameCount = 0x100, kOutputFrameCount = 0x100;
     std::shared_ptr<IFactory> mFactory;
     std::shared_ptr<IEffect> mEffect;
-    Descriptor::Identity mIdentity;
+    Descriptor mDescriptor;
     int mParamGainMb = 0;
 
     void SetAndGetParameters() {
@@ -129,19 +129,11 @@ INSTANTIATE_TEST_SUITE_P(
                                    IFactory::descriptor, kLoudnessEnhancerTypeUUID)),
                            testing::ValuesIn(kGainMbValues)),
         [](const testing::TestParamInfo<LoudnessEnhancerParamTest::ParamType>& info) {
-            auto msSinceEpoch = std::chrono::duration_cast<std::chrono::nanoseconds>(
-                                        std::chrono::system_clock::now().time_since_epoch())
-                                        .count();
-            auto instance = std::get<PARAM_INSTANCE_NAME>(info.param);
+            auto descriptor = std::get<PARAM_INSTANCE_NAME>(info.param).second;
             std::string gainMb = std::to_string(std::get<PARAM_GAIN_MB>(info.param));
-
-            std::ostringstream address;
-            address << msSinceEpoch << "_factory_" << instance.first.get();
-            std::string name = address.str() + "_UUID_timeLow_" +
-                               ::android::internal::ToString(instance.second.uuid.timeLow) +
-                               "_timeMid_" +
-                               ::android::internal::ToString(instance.second.uuid.timeMid) +
-                               "_gainMb" + gainMb;
+            std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
+                               descriptor.common.name + "_UUID_" +
+                               descriptor.common.id.uuid.toString() + "_gainMb_" + gainMb;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;

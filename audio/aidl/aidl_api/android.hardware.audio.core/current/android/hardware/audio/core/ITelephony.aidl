@@ -34,6 +34,23 @@
 package android.hardware.audio.core;
 @VintfStability
 interface ITelephony {
-  android.hardware.audio.core.AudioMode[] getSupportedAudioModes();
-  void switchAudioMode(android.hardware.audio.core.AudioMode mode);
+  android.media.audio.common.AudioMode[] getSupportedAudioModes();
+  void switchAudioMode(android.media.audio.common.AudioMode mode);
+  android.hardware.audio.core.ITelephony.TelecomConfig setTelecomConfig(in android.hardware.audio.core.ITelephony.TelecomConfig config);
+  @JavaDerive(equals=true, toString=true) @VintfStability
+  parcelable TelecomConfig {
+    @nullable android.media.audio.common.Float voiceVolume;
+    android.hardware.audio.core.ITelephony.TelecomConfig.TtyMode ttyMode = android.hardware.audio.core.ITelephony.TelecomConfig.TtyMode.UNSPECIFIED;
+    @nullable android.media.audio.common.Boolean isHacEnabled;
+    const int VOICE_VOLUME_MIN = 0;
+    const int VOICE_VOLUME_MAX = 1;
+    @Backing(type="int") @VintfStability
+    enum TtyMode {
+      UNSPECIFIED = (-1) /* -1 */,
+      OFF = 0,
+      FULL = 1,
+      HCO = 2,
+      VCO = 3,
+    }
+  }
 }

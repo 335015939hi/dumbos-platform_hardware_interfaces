@@ -46,6 +46,8 @@ class LoudnessEnhancerSwContext final : public EffectContext {
 
 class LoudnessEnhancerSw final : public EffectImpl {
   public:
+    static const std::string kEffectName;
+    static const Descriptor kDescriptor;
     LoudnessEnhancerSw() { LOG(DEBUG) << __func__; }
     ~LoudnessEnhancerSw() {
         cleanUp();
@@ -56,26 +58,16 @@ class LoudnessEnhancerSw final : public EffectImpl {
     ndk::ScopedAStatus setParameterSpecific(const Parameter::Specific& specific) override;
     ndk::ScopedAStatus getParameterSpecific(const Parameter::Id& id,
                                             Parameter::Specific* specific) override;
-    IEffect::Status effectProcessImpl(float* in, float* out, int process) override;
+
     std::shared_ptr<EffectContext> createContext(const Parameter::Common& common) override;
+    std::shared_ptr<EffectContext> getContext() override;
     RetCode releaseContext() override;
+
+    IEffect::Status effectProcessImpl(float* in, float* out, int samples) override;
+    std::string getEffectName() override { return kEffectName; }
 
   private:
     std::shared_ptr<LoudnessEnhancerSwContext> mContext;
-    /* capabilities */
-    const LoudnessEnhancer::Capability kCapability;
-    /* Effect descriptor */
-    const Descriptor kDescriptor = {
-            .common = {.id = {.type = kLoudnessEnhancerTypeUUID,
-                              .uuid = kLoudnessEnhancerSwImplUUID,
-                              .proxy = std::nullopt},
-                       .flags = {.type = Flags::Type::INSERT,
-                                 .insert = Flags::Insert::FIRST,
-                                 .volume = Flags::Volume::CTRL},
-                       .name = "LoudnessEnhancerSw",
-                       .implementor = "The Android Open Source Project"},
-            .capability = Capability::make<Capability::loudnessEnhancer>(kCapability)};
-
     ndk::ScopedAStatus getParameterLoudnessEnhancer(const LoudnessEnhancer::Tag& tag,
                                                     Parameter::Specific* specific);
 };

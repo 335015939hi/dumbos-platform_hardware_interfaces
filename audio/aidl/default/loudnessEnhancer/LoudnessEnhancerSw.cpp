@@ -25,6 +25,7 @@
 
 #include "LoudnessEnhancerSw.h"
 
+using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::kLoudnessEnhancerSwImplUUID;
 using aidl::android::hardware::audio::effect::LoudnessEnhancerSw;
@@ -47,22 +48,27 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
     }
 }
 
-extern "C" binder_exception_t destroyEffect(const std::shared_ptr<IEffect>& instanceSp) {
-    if (!instanceSp) {
-        return EX_NONE;
+extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
+    if (!in_impl_uuid || *in_impl_uuid != kLoudnessEnhancerSwImplUUID) {
+        LOG(ERROR) << __func__ << "uuid not supported";
+        return EX_ILLEGAL_ARGUMENT;
     }
-    State state;
-    ndk::ScopedAStatus status = instanceSp->getState(&state);
-    if (!status.isOk() || State::INIT != state) {
-        LOG(ERROR) << __func__ << " instance " << instanceSp.get()
-                   << " in state: " << toString(state) << ", status: " << status.getDescription();
-        return EX_ILLEGAL_STATE;
-    }
-    LOG(DEBUG) << __func__ << " instance " << instanceSp.get() << " destroyed";
+    *_aidl_return = LoudnessEnhancerSw::kDescriptor;
     return EX_NONE;
 }
 
 namespace aidl::android::hardware::audio::effect {
+
+const std::string LoudnessEnhancerSw::kEffectName = "LoudnessEnhancerSw";
+const Descriptor LoudnessEnhancerSw::kDescriptor = {
+        .common = {.id = {.type = kLoudnessEnhancerTypeUUID,
+                          .uuid = kLoudnessEnhancerSwImplUUID,
+                          .proxy = std::nullopt},
+                   .flags = {.type = Flags::Type::INSERT,
+                             .insert = Flags::Insert::FIRST,
+                             .volume = Flags::Volume::CTRL},
+                   .name = LoudnessEnhancerSw::kEffectName,
+                   .implementor = "The Android Open Source Project"}};
 
 ndk::ScopedAStatus LoudnessEnhancerSw::getDescriptor(Descriptor* _aidl_return) {
     LOG(DEBUG) << __func__ << kDescriptor.toString();
@@ -73,7 +79,6 @@ ndk::ScopedAStatus LoudnessEnhancerSw::getDescriptor(Descriptor* _aidl_return) {
 ndk::ScopedAStatus LoudnessEnhancerSw::setParameterSpecific(const Parameter::Specific& specific) {
     RETURN_IF(Parameter::Specific::loudnessEnhancer != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
-    std::lock_guard lg(mMutex);
     RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     auto& leParam = specific.get<Parameter::Specific::loudnessEnhancer>();
@@ -113,7 +118,6 @@ ndk::ScopedAStatus LoudnessEnhancerSw::getParameterSpecific(const Parameter::Id&
 
 ndk::ScopedAStatus LoudnessEnhancerSw::getParameterLoudnessEnhancer(
         const LoudnessEnhancer::Tag& tag, Parameter::Specific* specific) {
-    std::lock_guard lg(mMutex);
     RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
     LoudnessEnhancer leParam;
@@ -136,9 +140,14 @@ ndk::ScopedAStatus LoudnessEnhancerSw::getParameterLoudnessEnhancer(
 std::shared_ptr<EffectContext> LoudnessEnhancerSw::createContext(const Parameter::Common& common) {
     if (mContext) {
         LOG(DEBUG) << __func__ << " context already exist";
-        return mContext;
+    } else {
+        mContext = std::make_shared<LoudnessEnhancerSwContext>(1 /* statusFmqDepth */, common);
     }
-    mContext = std::make_shared<LoudnessEnhancerSwContext>(1 /* statusFmqDepth */, common);
+
+    return mContext;
+}
+
+std::shared_ptr<EffectContext> LoudnessEnhancerSw::getContext() {
     return mContext;
 }
 
@@ -150,13 +159,13 @@ RetCode LoudnessEnhancerSw::releaseContext() {
 }
 
 // Processing method running in EffectWorker thread.
-IEffect::Status LoudnessEnhancerSw::effectProcessImpl(float* in, float* out, int process) {
+IEffect::Status LoudnessEnhancerSw::effectProcessImpl(float* in, float* out, int samples) {
     // TODO: get data buffer and process.
-    LOG(DEBUG) << __func__ << " in " << in << " out " << out << " process " << process;
-    for (int i = 0; i < process; i++) {
+    LOG(DEBUG) << __func__ << " in " << in << " out " << out << " samples " << samples;
+    for (int i = 0; i < samples; i++) {
         *out++ = *in++;
     }
-    return {STATUS_OK, process, process};
+    return {STATUS_OK, samples, samples};
 }
 
 }  // namespace aidl::android::hardware::audio::effect

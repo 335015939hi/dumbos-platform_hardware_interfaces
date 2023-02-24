@@ -39,11 +39,12 @@ parcelable StreamDescriptor {
   int frameSizeBytes;
   long bufferSizeFrames;
   android.hardware.audio.core.StreamDescriptor.AudioBuffer audio;
-  const int LATENCY_UNKNOWN = -1;
+  const int LATENCY_UNKNOWN = (-1) /* -1 */;
   @FixedSize @VintfStability
   parcelable Position {
-    long frames;
-    long timeNs;
+    long frames = UNKNOWN /* -1 */;
+    long timeNs = UNKNOWN /* -1 */;
+    const long UNKNOWN = (-1) /* -1 */;
   }
   @Backing(type="int") @VintfStability
   enum State {
@@ -53,14 +54,23 @@ parcelable StreamDescriptor {
     PAUSED = 4,
     DRAINING = 5,
     DRAIN_PAUSED = 6,
+    TRANSFERRING = 7,
+    TRANSFER_PAUSED = 8,
     ERROR = 100,
+  }
+  @Backing(type="byte") @VintfStability
+  enum DrainMode {
+    DRAIN_UNSPECIFIED = 0,
+    DRAIN_ALL = 1,
+    DRAIN_EARLY_NOTIFY = 2,
   }
   @FixedSize @VintfStability
   union Command {
-    int hal_reserved_exit;
+    int halReservedExit;
+    android.media.audio.common.Void getStatus;
     android.media.audio.common.Void start;
     int burst;
-    android.media.audio.common.Void drain;
+    android.hardware.audio.core.StreamDescriptor.DrainMode drain;
     android.media.audio.common.Void standby;
     android.media.audio.common.Void pause;
     android.media.audio.common.Void flush;

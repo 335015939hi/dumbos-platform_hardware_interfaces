@@ -16,13 +16,18 @@
 
 package android.hardware.audio.effect;
 
+import android.hardware.audio.effect.AcousticEchoCanceler;
+import android.hardware.audio.effect.AutomaticGainControlV1;
+import android.hardware.audio.effect.AutomaticGainControlV2;
 import android.hardware.audio.effect.BassBoost;
 import android.hardware.audio.effect.Downmix;
 import android.hardware.audio.effect.DynamicsProcessing;
+import android.hardware.audio.effect.EnvironmentalReverb;
 import android.hardware.audio.effect.Equalizer;
 import android.hardware.audio.effect.HapticGenerator;
 import android.hardware.audio.effect.LoudnessEnhancer;
-import android.hardware.audio.effect.Reverb;
+import android.hardware.audio.effect.NoiseSuppression;
+import android.hardware.audio.effect.PresetReverb;
 import android.hardware.audio.effect.VendorExtension;
 import android.hardware.audio.effect.Virtualizer;
 import android.hardware.audio.effect.Visualizer;
@@ -39,6 +44,14 @@ import android.media.audio.common.AudioSource;
  * 1. Common parameters are essential parameters, MUST pass to effects at open() interface.
  * 2. Parameters defined for a specific effect type.
  * 3. Extension parameters ParcelableHolder can be used for vendor effect definition.
+ *
+ * All parameter settings must be inside the range of Capability.Range.$EffectType$ definition. If
+ * an effect implementation doesn't have limitation for a parameter, then don't define any effect
+ * range.
+ *
+ * All parameters are get-able, if any parameter doesn't support set, effect implementation should
+ * report the supported range for this parameter as range.min > range.max. If no support range is
+ * defined for a parameter, it means this parameter doesn't have any limitation.
  *
  */
 @VintfStability
@@ -70,13 +83,18 @@ union Parameter {
          *  effectInstance.getParameter(id, &param);
          *
          */
+        AcousticEchoCanceler.Id acousticEchoCancelerTag;
+        AutomaticGainControlV1.Id automaticGainControlV1Tag;
+        AutomaticGainControlV2.Id automaticGainControlV2Tag;
         BassBoost.Id bassBoostTag;
         Downmix.Id downmixTag;
         DynamicsProcessing.Id dynamicsProcessingTag;
+        EnvironmentalReverb.Id environmentalReverbTag;
         Equalizer.Id equalizerTag;
         HapticGenerator.Id hapticGeneratorTag;
         LoudnessEnhancer.Id loudnessEnhancerTag;
-        Reverb.Id reverbTag;
+        NoiseSuppression.Id noiseSuppressionTag;
+        PresetReverb.Id presetReverbTag;
         Virtualizer.Id virtualizerTag;
         Visualizer.Id visualizerTag;
         Volume.Id volumeTag;
@@ -112,10 +130,11 @@ union Parameter {
     Common common;
 
     /**
-     * Used by audio framework to set the device type to effect engine.
-     * Effect must implement setParameter(device) if Flags.deviceIndication set to true.
+     * Used by audio framework to set the device type(s) to effect engine.
+     * Effect engine must apply all AudioDeviceDescription in the list.
+     * Effect must implement setParameter(deviceDescription) if Flags.deviceIndication set to true.
      */
-    AudioDeviceDescription deviceDescription;
+    AudioDeviceDescription[] deviceDescription;
     /**
      * Used by audio framework to set the audio mode to effect engine.
      * Effect must implement setParameter(mode) if Flags.audioModeIndication set to true.
@@ -147,13 +166,18 @@ union Parameter {
     @VintfStability
     union Specific {
         VendorExtension vendorEffect;
+        AcousticEchoCanceler acousticEchoCanceler;
+        AutomaticGainControlV1 automaticGainControlV1;
+        AutomaticGainControlV2 automaticGainControlV2;
         BassBoost bassBoost;
         Downmix downmix;
         DynamicsProcessing dynamicsProcessing;
+        EnvironmentalReverb environmentalReverb;
         Equalizer equalizer;
-        LoudnessEnhancer loudnessEnhancer;
         HapticGenerator hapticGenerator;
-        Reverb reverb;
+        LoudnessEnhancer loudnessEnhancer;
+        NoiseSuppression noiseSuppression;
+        PresetReverb presetReverb;
         Virtualizer virtualizer;
         Visualizer visualizer;
         Volume volume;

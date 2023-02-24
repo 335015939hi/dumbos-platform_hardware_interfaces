@@ -17,16 +17,19 @@
 #pragma once
 
 #include <map>
+#include <memory>
 #include <vector>
 
 #include <aidl/android/hardware/audio/core/AudioPatch.h>
 #include <aidl/android/hardware/audio/core/AudioRoute.h>
 #include <aidl/android/media/audio/common/AudioPort.h>
 #include <aidl/android/media/audio/common/AudioPortConfig.h>
+#include <aidl/android/media/audio/common/MicrophoneInfo.h>
 
 namespace aidl::android::hardware::audio::core::internal {
 
 struct Configuration {
+    std::vector<::aidl::android::media::audio::common::MicrophoneInfo> microphones;
     std::vector<::aidl::android::media::audio::common::AudioPort> ports;
     std::vector<::aidl::android::media::audio::common::AudioPortConfig> portConfigs;
     std::vector<::aidl::android::media::audio::common::AudioPortConfig> initialConfigs;
@@ -39,6 +42,8 @@ struct Configuration {
     int32_t nextPatchId = 1;
 };
 
-Configuration& getNullPrimaryConfiguration();
+std::unique_ptr<Configuration> getPrimaryConfiguration();
+std::unique_ptr<Configuration> getRSubmixConfiguration();
+std::unique_ptr<Configuration> getUsbConfiguration();
 
 }  // namespace aidl::android::hardware::audio::core::internal

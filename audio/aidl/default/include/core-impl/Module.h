@@ -31,11 +31,26 @@ class Module : public BnModule {
   public:
     // This value is used for all AudioPatches and reported by all streams.
     static constexpr int32_t kLatencyMs = 10;
+    enum Type : int { DEFAULT, R_SUBMIX, USB };
+
+    explicit Module(Type type) : mType(type) {}
+
+    static std::shared_ptr<Module> createInstance(Type type);
+    static StreamIn::CreateInstance getStreamInCreator(Type type);
+    static StreamOut::CreateInstance getStreamOutCreator(Type type);
 
   private:
+    struct VendorDebug {
+        static const std::string kForceTransientBurstName;
+        static const std::string kForceSynchronousDrainName;
+        bool forceTransientBurst = false;
+        bool forceSynchronousDrain = false;
+    };
+
     ndk::ScopedAStatus setModuleDebug(
             const ::aidl::android::hardware::audio::core::ModuleDebug& in_debug) override;
     ndk::ScopedAStatus getTelephony(std::shared_ptr<ITelephony>* _aidl_return) override;
+    ndk::ScopedAStatus getBluetooth(std::shared_ptr<IBluetooth>* _aidl_return) override;
     ndk::ScopedAStatus connectExternalDevice(
             const ::aidl::android::media::audio::common::AudioPort& in_templateIdAndAdditionalData,
             ::aidl::android::media::audio::common::AudioPort* _aidl_return) override;
@@ -63,6 +78,8 @@ class Module : public BnModule {
                     in_args,
             ::aidl::android::hardware::audio::core::IModule::OpenOutputStreamReturn* _aidl_return)
             override;
+    ndk::ScopedAStatus getSupportedPlaybackRateFactors(
+            SupportedPlaybackRateFactors* _aidl_return) override;
     ndk::ScopedAStatus setAudioPatch(const AudioPatch& in_requested,
                                      AudioPatch* _aidl_return) override;
     ndk::ScopedAStatus setAudioPortConfig(
@@ -77,32 +94,69 @@ class Module : public BnModule {
     ndk::ScopedAStatus setMasterVolume(float in_volume) override;
     ndk::ScopedAStatus getMicMute(bool* _aidl_return) override;
     ndk::ScopedAStatus setMicMute(bool in_mute) override;
+    ndk::ScopedAStatus getMicrophones(
+            std::vector<::aidl::android::media::audio::common::MicrophoneInfo>* _aidl_return)
+            override;
     ndk::ScopedAStatus updateAudioMode(
-            ::aidl::android::hardware::audio::core::AudioMode in_mode) override;
+            ::aidl::android::media::audio::common::AudioMode in_mode) override;
     ndk::ScopedAStatus updateScreenRotation(
             ::aidl::android::hardware::audio::core::IModule::ScreenRotation in_rotation) override;
     ndk::ScopedAStatus updateScreenState(bool in_isTurnedOn) override;
+    ndk::ScopedAStatus getSoundDose(std::shared_ptr<sounddose::ISoundDose>* _aidl_return) override;
+    ndk::ScopedAStatus generateHwAvSyncId(int32_t* _aidl_return) override;
+    ndk::ScopedAStatus getVendorParameters(const std::vector<std::string>& in_ids,
+                                           std::vector<VendorParameter>* _aidl_return) override;
+    ndk::ScopedAStatus setVendorParameters(const std::vector<VendorParameter>& in_parameters,
+                                           bool in_async) override;
+    ndk::ScopedAStatus addDeviceEffect(
+            int32_t in_portConfigId,
+            const std::shared_ptr<::aidl::android::hardware::audio::effect::IEffect>& in_effect)
+            override;
+    ndk::ScopedAStatus removeDeviceEffect(
+            int32_t in_portConfigId,
+            const std::shared_ptr<::aidl::android::hardware::audio::effect::IEffect>& in_effect)
+            override;
+    ndk::ScopedAStatus getMmapPolicyInfos(
+            ::aidl::android::media::audio::common::AudioMMapPolicyType mmapPolicyType,
+            std::vector<::aidl::android::media::audio::common::AudioMMapPolicyInfo>* _aidl_return)
+            override;
+    ndk::ScopedAStatus supportsVariableLatency(bool* _aidl_return) override;
+    ndk::ScopedAStatus getAAudioMixerBurstCount(int32_t* _aidl_return) override;
+    ndk::ScopedAStatus getAAudioHardwareBurstMinUsec(int32_t* _aidl_return) override;
 
     void cleanUpPatch(int32_t patchId);
     ndk::ScopedAStatus createStreamContext(
             int32_t in_portConfigId, int64_t in_bufferSizeFrames,
+            std::shared_ptr<IStreamCallback> asyncCallback,
+            std::shared_ptr<IStreamOutEventCallback> outEventCallback,
             ::aidl::android::hardware::audio::core::StreamContext* out_context);
+    std::vector<::aidl::android::media::audio::common::AudioDevice> findConnectedDevices(
+            int32_t portConfigId);
+    std::set<int32_t> findConnectedPortConfigIds(int32_t portConfigId);
     ndk::ScopedAStatus findPortIdForNewStream(
             int32_t in_portConfigId, ::aidl::android::media::audio::common::AudioPort** port);
     internal::Configuration& getConfig();
+    template <typename C>
+    std::set<int32_t> portIdsFromPortConfigIds(C portConfigIds);
     void registerPatch(const AudioPatch& patch);
     void updateStreamsConnectedState(const AudioPatch& oldPatch, const AudioPatch& newPatch);
+    bool isMmapSupported();
 
     // This value is used for all AudioPatches.
     static constexpr int32_t kMinimumStreamBufferSizeFrames = 16;
     // The maximum stream buffer size is 1 GiB = 2 ** 30 bytes;
     static constexpr int32_t kMaximumStreamBufferSizeBytes = 1 << 30;
 
+    const Type mType;
     std::unique_ptr<internal::Configuration> mConfig;
     ModuleDebug mDebug;
-    // Since it is required to return the same instance of the ITelephony, even
-    // if the client has released it on its side, we need to hold it via a strong pointer.
+    VendorDebug mVendorDebug;
+    // For the interfaces requiring to return the same instance, we need to hold them
+    // via a strong pointer. The binder token is retained for a call to 'setMinSchedulerPolicy'.
     std::shared_ptr<ITelephony> mTelephony;
+    ndk::SpAIBinder mTelephonyBinder;
+    std::shared_ptr<IBluetooth> mBluetooth;
+    ndk::SpAIBinder mBluetoothBinder;
     // ids of ports created at runtime via 'connectExternalDevice'.
     std::set<int32_t> mConnectedDevicePorts;
     Streams mStreams;
@@ -112,6 +166,20 @@ class Module : public BnModule {
     bool mMasterMute = false;
     float mMasterVolume = 1.0f;
     bool mMicMute = false;
+    std::shared_ptr<sounddose::ISoundDose> mSoundDose;
+    ndk::SpAIBinder mSoundDoseBinder;
+    std::optional<bool> mIsMmapSupported;
+
+  protected:
+    // If the module is unable to populate the connected device port correctly, the returned error
+    // code must correspond to the errors of `IModule.connectedExternalDevice` method.
+    virtual ndk::ScopedAStatus populateConnectedDevicePort(
+            ::aidl::android::media::audio::common::AudioPort* audioPort);
+    // If the module finds that the patch endpoints configurations are not matched, the returned
+    // error code must correspond to the errors of `IModule.setAudioPatch` method.
+    virtual ndk::ScopedAStatus checkAudioPatchEndpointsMatch(
+            const std::vector<::aidl::android::media::audio::common::AudioPortConfig*>& sources,
+            const std::vector<::aidl::android::media::audio::common::AudioPortConfig*>& sinks);
 };
 
 }  // namespace aidl::android::hardware::audio::core

@@ -29,6 +29,11 @@
 
 #include "log/log.h"
 
+// TODO: Remove custom logging defines from PDL packets.
+#undef LOG_INFO
+#undef LOG_DEBUG
+#include "hci/hci_packets.h"
+
 namespace {
 int SetTerminalRaw(int fd) {
   termios terminal_settings;
@@ -44,6 +49,7 @@ int SetTerminalRaw(int fd) {
 
 using namespace ::android::hardware::bluetooth::hci;
 using namespace ::android::hardware::bluetooth::async;
+using aidl::android::hardware::bluetooth::Status;
 
 namespace aidl::android::hardware::bluetooth::impl {
 
@@ -73,15 +79,22 @@ class BluetoothDeathRecipient {
       ALOGE("BluetoothDeathRecipient::serviceDied called but service not dead");
       return;
     }
-    has_died_ = true;
+    {
+      std::lock_guard<std::mutex> guard(mHasDiedMutex);
+      has_died_ = true;
+    }
     mHci->close();
   }
   BluetoothHci* mHci;
   std::shared_ptr<IBluetoothHciCallbacks> mCb;
   AIBinder_DeathRecipient* clientDeathRecipient_;
-  bool getHasDied() const { return has_died_; }
+  bool getHasDied() {
+    std::lock_guard<std::mutex> guard(mHasDiedMutex);
+    return has_died_;
+  }
 
  private:
+  std::mutex mHasDiedMutex;
   bool has_died_{false};
 };
 
@@ -97,54 +110,145 @@ BluetoothHci::BluetoothHci(const std::string& dev_path) {
   mDeathRecipient = std::make_shared<BluetoothDeathRecipient>(this);
 }
 
-ndk::ScopedAStatus BluetoothHci::initialize(
-    const std::shared_ptr<IBluetoothHciCallbacks>& cb) {
-  ALOGI(__func__);
-
-  mFd = open(mDevPath.c_str(), O_RDWR);
-  if (mFd < 0) {
+int BluetoothHci::getFdFromDevPath() {
+  int fd = open(mDevPath.c_str(), O_RDWR);
+  if (fd < 0) {
     ALOGE("Could not connect to bt: %s (%s)", mDevPath.c_str(),
           strerror(errno));
-    return ndk::ScopedAStatus::fromServiceSpecificError(STATUS_BAD_VALUE);
+    return fd;
   }
   if (int ret = SetTerminalRaw(mFd) < 0) {
     ALOGE("Could not make %s a raw terminal %d(%s)", mDevPath.c_str(), ret,
           strerror(errno));
-    return ndk::ScopedAStatus::fromServiceSpecificError(STATUS_BAD_VALUE);
+    ::close(fd);
+    return -1;
+  }
+  return fd;
+}
+
+void BluetoothHci::reset() {
+  // Send a reset command and wait until the command complete comes back.
+
+  std::vector<uint8_t> reset;
+  ::bluetooth::packet::BitInserter bi{reset};
+  ::bluetooth::hci::ResetBuilder::Create()->Serialize(bi);
+
+  auto resetPromise = std::make_shared<std::promise<void>>();
+  auto resetFuture = resetPromise->get_future();
+
+  mH4 = std::make_shared<H4Protocol>(
+      mFd,
+      [](const std::vector<uint8_t>& raw_command) {
+        ALOGI("Discarding %d bytes with command type",
+              static_cast<int>(raw_command.size()));
+      },
+      [](const std::vector<uint8_t>& raw_acl) {
+        ALOGI("Discarding %d bytes with acl type",
+              static_cast<int>(raw_acl.size()));
+      },
+      [](const std::vector<uint8_t>& raw_sco) {
+        ALOGI("Discarding %d bytes with sco type",
+              static_cast<int>(raw_sco.size()));
+      },
+      [resetPromise](const std::vector<uint8_t>& raw_event) {
+        bool valid = ::bluetooth::hci::ResetCompleteView::Create(
+                         ::bluetooth::hci::CommandCompleteView::Create(
+                             ::bluetooth::hci::EventView::Create(
+                                 ::bluetooth::hci::PacketView<true>(
+                                     std::make_shared<std::vector<uint8_t>>(
+                                         raw_event)))))
+                         .IsValid();
+        if (valid) {
+          resetPromise->set_value();
+        } else {
+          ALOGI("Discarding %d bytes with event type",
+                static_cast<int>(raw_event.size()));
+        }
+      },
+      [](const std::vector<uint8_t>& raw_iso) {
+        ALOGI("Discarding %d bytes with iso type",
+              static_cast<int>(raw_iso.size()));
+      },
+      [this]() {
+        ALOGI("HCI socket device disconnected while waiting for reset");
+        mFdWatcher.StopWatchingFileDescriptors();
+      });
+  mFdWatcher.WatchFdForNonBlockingReads(mFd,
+                                        [this](int) { mH4->OnDataReady(); });
+
+  send(PacketType::COMMAND, reset);
+  auto status = resetFuture.wait_for(std::chrono::seconds(1));
+  mFdWatcher.StopWatchingFileDescriptors();
+  if (status == std::future_status::ready) {
+    ALOGI("HCI Reset successful");
+  } else {
+    ALOGE("HCI Reset Response not received in one second");
   }
 
-  mCb = cb;
-  if (mCb == nullptr) {
+  resetPromise.reset();
+}
+
+ndk::ScopedAStatus BluetoothHci::initialize(
+    const std::shared_ptr<IBluetoothHciCallbacks>& cb) {
+  ALOGI(__func__);
+
+  if (cb == nullptr) {
     ALOGE("cb == nullptr! -> Unable to call initializationComplete(ERR)");
     return ndk::ScopedAStatus::fromServiceSpecificError(STATUS_BAD_VALUE);
   }
 
+  HalState old_state = HalState::READY;
+  {
+    std::lock_guard<std::mutex> guard(mStateMutex);
+    if (mState != HalState::READY) {
+      old_state = mState;
+    } else {
+      mState = HalState::INITIALIZING;
+    }
+  }
+
+  if (old_state != HalState::READY) {
+    ALOGE("initialize: Unexpected State %d", static_cast<int>(old_state));
+    close();
+    cb->initializationComplete(Status::ALREADY_INITIALIZED);
+    return ndk::ScopedAStatus::ok();
+  }
+
+  mCb = cb;
+  management_.reset(new NetBluetoothMgmt);
+  mFd = management_->openHci();
+  if (mFd < 0) {
+    management_.reset();
+
+    ALOGI("Unable to open Linux interface, trying default path.");
+    mFd = getFdFromDevPath();
+    if (mFd < 0) {
+      cb->initializationComplete(Status::UNABLE_TO_OPEN_INTERFACE);
+      return ndk::ScopedAStatus::ok();
+    }
+  }
+
   mDeathRecipient->LinkToDeath(mCb);
 
-  auto init_ret = cb->initializationComplete(Status::SUCCESS);
-  if (!init_ret.isOk()) {
-    if (!mDeathRecipient->getHasDied()) {
-      ALOGE("Error sending init callback, but no death notification.");
-    }
-    return ndk::ScopedAStatus::fromServiceSpecificError(
-        STATUS_FAILED_TRANSACTION);
-  }
+  // TODO: This should not be necessary when the device implements rfkill.
+  reset();
+
   mH4 = std::make_shared<H4Protocol>(
       mFd,
       [](const std::vector<uint8_t>& /* raw_command */) {
         LOG_ALWAYS_FATAL("Unexpected command!");
       },
+      [this](const std::vector<uint8_t>& raw_acl) {
+        mCb->aclDataReceived(raw_acl);
+      },
+      [this](const std::vector<uint8_t>& raw_sco) {
+        mCb->scoDataReceived(raw_sco);
+      },
       [this](const std::vector<uint8_t>& raw_event) {
         mCb->hciEventReceived(raw_event);
       },
-      [this](const std::vector<uint8_t>& raw_acl) {
-        mCb->hciEventReceived(raw_acl);
-      },
-      [this](const std::vector<uint8_t>& raw_sco) {
-        mCb->hciEventReceived(raw_sco);
-      },
       [this](const std::vector<uint8_t>& raw_iso) {
-        mCb->hciEventReceived(raw_iso);
+        mCb->isoDataReceived(raw_iso);
       },
       [this]() {
         ALOGI("HCI socket device disconnected");
@@ -152,14 +256,48 @@ ndk::ScopedAStatus BluetoothHci::initialize(
       });
   mFdWatcher.WatchFdForNonBlockingReads(mFd,
                                         [this](int) { mH4->OnDataReady(); });
+
+  {
+    std::lock_guard<std::mutex> guard(mStateMutex);
+    mState = HalState::ONE_CLIENT;
+  }
+  ALOGI("initialization complete");
+  auto status = mCb->initializationComplete(Status::SUCCESS);
+  if (!status.isOk()) {
+    if (!mDeathRecipient->getHasDied()) {
+      ALOGE("Error sending init callback, but no death notification");
+    }
+    close();
+    return ndk::ScopedAStatus::fromServiceSpecificError(
+        STATUS_FAILED_TRANSACTION);
+  }
+
   return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus BluetoothHci::close() {
   ALOGI(__func__);
-  mFdWatcher.StopWatchingFileDescriptors();
-  ::close(mFd);
+  {
+    std::lock_guard<std::mutex> guard(mStateMutex);
+    if (mState != HalState::ONE_CLIENT) {
+      ALOGI("Already closed");
+      return ndk::ScopedAStatus::ok();
+    }
+    mState = HalState::CLOSING;
+  }
 
+  mFdWatcher.StopWatchingFileDescriptors();
+
+  if (management_) {
+    management_->closeHci();
+  } else {
+    ::close(mFd);
+  }
+
+  {
+    std::lock_guard<std::mutex> guard(mStateMutex);
+    mState = HalState::READY;
+  }
   return ndk::ScopedAStatus::ok();
 }
 

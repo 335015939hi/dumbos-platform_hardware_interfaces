@@ -11,18 +11,46 @@ cc_defaults {
     name: "aidlaudioservice_defaults",
     vendor: true,
     shared_libs: [
+        "libalsautilsv2",
         "libaudioaidlcommon",
         "libbase",
         "libbinder_ndk",
         "libcutils",
         "libfmq",
         "libstagefright_foundation",
+        "libtinyalsav2",
         "libutils",
+        "libxml2",
         "android.hardware.common-V2-ndk",
         "android.hardware.common.fmq-V1-ndk",
     ],
     header_libs: [
+        "libaudio_system_headers",
         "libaudioaidl_headers",
+        "libxsdc-utils",
+    ],
+}
+
+cc_library {
+    name: "libaudioservicesounddoseimpl",
+    vendor: true,
+    defaults: [
+        "latest_android_media_audio_common_types_ndk_shared",
+        "latest_android_hardware_audio_core_sounddose_ndk_shared",
+        "latest_android_hardware_audio_sounddose_ndk_shared",
+    ],
+    export_include_dirs: ["include"],
+    srcs: [
+        "SoundDose.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "libcutils",
+        "libutils",
+    ],
+    visibility: [
+        "//hardware/interfaces/audio/aidl/sounddose/default",
     ],
 }
 
@@ -35,11 +63,31 @@ cc_library_static {
     ],
     export_include_dirs: ["include"],
     srcs: [
+        "AudioPolicyConfigXmlConverter.cpp",
+        "Bluetooth.cpp",
         "Config.cpp",
         "Configuration.cpp",
+        "EngineConfigXmlConverter.cpp",
         "Module.cpp",
+        "SoundDose.cpp",
         "Stream.cpp",
+        "StreamStub.cpp",
         "Telephony.cpp",
+        "usb/ModuleUsb.cpp",
+        "usb/StreamUsb.cpp",
+        "usb/UsbAlsaUtils.cpp",
+    ],
+    generated_sources: [
+        "audio_policy_configuration_aidl_default",
+        "audio_policy_engine_configuration_aidl_default",
+    ],
+    generated_headers: [
+        "audio_policy_configuration_aidl_default",
+        "audio_policy_engine_configuration_aidl_default",
+    ],
+    export_generated_headers: [
+        "audio_policy_configuration_aidl_default",
+        "audio_policy_engine_configuration_aidl_default",
     ],
     visibility: [
         ":__subpackages__",
@@ -54,6 +102,7 @@ cc_binary {
     defaults: [
         "aidlaudioservice_defaults",
         "latest_android_media_audio_common_types_ndk_shared",
+        "latest_android_hardware_audio_core_sounddose_ndk_shared",
         "latest_android_hardware_audio_core_ndk_shared",
     ],
     static_libs: [
@@ -108,18 +157,7 @@ cc_binary {
     vintf_fragments: ["android.hardware.audio.effect.service-aidl.xml"],
     defaults: ["aidlaudioeffectservice_defaults"],
     shared_libs: [
-        "libbassboostsw",
-        "libbundleaidl",
-        "libdynamicsprocessingsw",
-        "libenvreverbsw",
-        "libequalizersw",
-        "libhapticgeneratorsw",
-        "libloudnessenhancersw",
-        "libpresetreverbsw",
         "libtinyxml2",
-        "libvirtualizersw",
-        "libvisualizersw",
-        "libvolumesw",
     ],
     srcs: [
         "EffectConfig.cpp",

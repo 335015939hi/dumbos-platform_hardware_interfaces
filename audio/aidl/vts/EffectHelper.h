@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <memory>
 #include <string>
+#include <type_traits>
 #include <unordered_map>
 #include <vector>
 
@@ -27,6 +28,7 @@
 #include <aidl/android/media/audio/common/AudioChannelLayout.h>
 #include <android/binder_auto_utils.h>
 #include <fmq/AidlMessageQueue.h>
+#include <system/audio_effects/aidl_effects_utils.h>
 
 #include "AudioHalBinderServiceUtil.h"
 #include "EffectFactoryHelper.h"
@@ -37,6 +39,7 @@ using aidl::android::hardware::audio::effect::CommandId;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::Parameter;
+using aidl::android::hardware::audio::effect::Range;
 using aidl::android::hardware::audio::effect::State;
 using aidl::android::hardware::common::fmq::SynchronizedReadWrite;
 using aidl::android::media::audio::common::AudioChannelLayout;
@@ -58,11 +61,19 @@ typedef ::android::AidlMessageQueue<float,
 class EffectHelper {
   public:
     static void create(std::shared_ptr<IFactory> factory, std::shared_ptr<IEffect>& effect,
-                       Descriptor::Identity id, binder_status_t status = EX_NONE) {
+                       Descriptor& desc, binder_status_t status = EX_NONE) {
         ASSERT_NE(factory, nullptr);
-        EXPECT_STATUS(status, factory->createEffect(id.uuid, &effect));
+        auto& id = desc.common.id;
+        ASSERT_STATUS(status, factory->createEffect(id.uuid, &effect));
         if (status == EX_NONE) {
             ASSERT_NE(effect, nullptr) << id.uuid.toString();
+        }
+    }
+
+    static void destroyIgnoreRet(std::shared_ptr<IFactory> factory,
+                                 std::shared_ptr<IEffect> effect) {
+        if (factory && effect) {
+            factory->destroyEffect(effect);
         }
     }
 
@@ -70,14 +81,14 @@ class EffectHelper {
                         binder_status_t status = EX_NONE) {
         ASSERT_NE(factory, nullptr);
         ASSERT_NE(effect, nullptr);
-        EXPECT_STATUS(status, factory->destroyEffect(effect));
+        ASSERT_STATUS(status, factory->destroyEffect(effect));
     }
 
     static void open(std::shared_ptr<IEffect> effect, const Parameter::Common& common,
                      const std::optional<Parameter::Specific>& specific,
                      IEffect::OpenEffectReturn* ret, binder_status_t status = EX_NONE) {
         ASSERT_NE(effect, nullptr);
-        EXPECT_STATUS(status, effect->open(common, specific, ret));
+        ASSERT_STATUS(status, effect->open(common, specific, ret));
     }
 
     static void open(std::shared_ptr<IEffect> effect, int session = 0,
@@ -85,30 +96,40 @@ class EffectHelper {
         ASSERT_NE(effect, nullptr);
         Parameter::Common common = EffectHelper::createParamCommon(session);
         IEffect::OpenEffectReturn ret;
-        open(effect, common, std::nullopt /* specific */, &ret, status);
+        ASSERT_NO_FATAL_FAILURE(open(effect, common, std::nullopt /* specific */, &ret, status));
     }
 
+    static void closeIgnoreRet(std::shared_ptr<IEffect> effect) {
+        if (effect) {
+            effect->close();
+        }
+    }
     static void close(std::shared_ptr<IEffect> effect, binder_status_t status = EX_NONE) {
         if (effect) {
-            EXPECT_STATUS(status, effect->close());
+            ASSERT_STATUS(status, effect->close());
         }
     }
     static void getDescriptor(std::shared_ptr<IEffect> effect, Descriptor& desc,
                               binder_status_t status = EX_NONE) {
         ASSERT_NE(effect, nullptr);
-        EXPECT_STATUS(status, effect->getDescriptor(&desc));
+        ASSERT_STATUS(status, effect->getDescriptor(&desc));
     }
     static void expectState(std::shared_ptr<IEffect> effect, State expectState,
                             binder_status_t status = EX_NONE) {
         ASSERT_NE(effect, nullptr);
         State state;
-        EXPECT_STATUS(status, effect->getState(&state));
-        EXPECT_EQ(expectState, state);
+        ASSERT_STATUS(status, effect->getState(&state));
+        ASSERT_EQ(expectState, state);
+    }
+    static void commandIgnoreRet(std::shared_ptr<IEffect> effect, CommandId command) {
+        if (effect) {
+            effect->command(command);
+        }
     }
     static void command(std::shared_ptr<IEffect> effect, CommandId command,
                         binder_status_t status = EX_NONE) {
         ASSERT_NE(effect, nullptr);
-        EXPECT_STATUS(status, effect->command(command));
+        ASSERT_STATUS(status, effect->command(command));
     }
     static void allocateInputData(const Parameter::Common common, std::unique_ptr<DataMQ>& mq,
                                   std::vector<float>& buffer) {
@@ -116,30 +137,36 @@ class EffectHelper {
         auto frameSize = android::hardware::audio::common::getFrameSizeInBytes(
                 common.input.base.format, common.input.base.channelMask);
         const size_t floatsToWrite = mq->availableToWrite();
-        EXPECT_NE(0UL, floatsToWrite);
-        EXPECT_EQ(frameSize * common.input.frameCount, floatsToWrite * sizeof(float));
+        ASSERT_NE(0UL, floatsToWrite);
+        ASSERT_EQ(frameSize * common.input.frameCount, floatsToWrite * sizeof(float));
         buffer.resize(floatsToWrite);
         std::fill(buffer.begin(), buffer.end(), 0x5a);
     }
     static void writeToFmq(std::unique_ptr<DataMQ>& mq, const std::vector<float>& buffer) {
         const size_t available = mq->availableToWrite();
-        EXPECT_NE(0Ul, available);
+        ASSERT_NE(0Ul, available);
         auto bufferFloats = buffer.size();
         auto floatsToWrite = std::min(available, bufferFloats);
-        EXPECT_TRUE(mq->write(buffer.data(), floatsToWrite));
+        ASSERT_TRUE(mq->write(buffer.data(), floatsToWrite));
     }
     static void readFromFmq(std::unique_ptr<StatusMQ>& statusMq, size_t statusNum,
                             std::unique_ptr<DataMQ>& dataMq, size_t expectFloats,
-                            std::vector<float>& buffer) {
+                            std::vector<float>& buffer,
+                            std::optional<int> expectStatus = STATUS_OK) {
+        if (0 == statusNum) {
+            ASSERT_EQ(0ul, statusMq->availableToRead());
+            return;
+        }
         IEffect::Status status{};
-        EXPECT_TRUE(statusMq->readBlocking(&status, statusNum));
-        EXPECT_EQ(STATUS_OK, status.status);
-        if (statusNum != 0) {
-            EXPECT_EQ(expectFloats, (unsigned)status.fmqProduced);
-            EXPECT_EQ(expectFloats, dataMq->availableToRead());
-            if (expectFloats != 0) {
-                EXPECT_TRUE(dataMq->read(buffer.data(), expectFloats));
-            }
+        ASSERT_TRUE(statusMq->readBlocking(&status, statusNum));
+        if (expectStatus.has_value()) {
+            ASSERT_EQ(expectStatus.value(), status.status);
+        }
+
+        ASSERT_EQ(expectFloats, (unsigned)status.fmqProduced);
+        ASSERT_EQ(expectFloats, dataMq->availableToRead());
+        if (expectFloats != 0) {
+            ASSERT_TRUE(dataMq->read(buffer.data(), expectFloats));
         }
     }
     static Parameter::Common createParamCommon(
@@ -181,4 +208,58 @@ class EffectHelper {
         std::unique_ptr<DataMQ> inputMQ;
         std::unique_ptr<DataMQ> outputMQ;
     };
+
+    template <typename T, Range::Tag tag>
+    static bool isParameterValid(const T& target, const Descriptor& desc) {
+        if (desc.capability.range.getTag() != tag) {
+            return true;
+        }
+        const auto& ranges = desc.capability.range.get<tag>();
+        return inRange(target, ranges);
+    }
+
+    /**
+     * Add to test value set: (min+max)/2, minimum/maximum numeric limits, and min-1/max+1 if
+     * result still in numeric limits after -1/+1.
+     * Only use this when the type of test value is basic type (std::is_arithmetic return true).
+     */
+    template <typename S, typename = std::enable_if_t<std::is_arithmetic_v<S>>>
+    static std::set<S> expandTestValueBasic(std::set<S>& s) {
+        const auto min = *s.begin(), max = *s.rbegin();
+        const auto minLimit = std::numeric_limits<S>::min(),
+                   maxLimit = std::numeric_limits<S>::max();
+        if (s.size()) {
+            s.insert(min + (max - min) / 2);
+            if (min != minLimit) {
+                s.insert(min - 1);
+            }
+            if (max != maxLimit) {
+                s.insert(max + 1);
+            }
+        }
+        s.insert(minLimit);
+        s.insert(maxLimit);
+        return s;
+    }
+
+    template <typename T, typename S, Range::Tag R, typename T::Tag tag, typename Functor>
+    static std::set<S> getTestValueSet(
+            std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor>> kFactoryDescList,
+            Functor functor) {
+        std::set<S> result;
+        for (const auto& [_, desc] : kFactoryDescList) {
+            if (desc.capability.range.getTag() == R) {
+                const auto& ranges = desc.capability.range.get<R>();
+                for (const auto& range : ranges) {
+                    if (range.min.getTag() == tag) {
+                        result.insert(range.min.template get<tag>());
+                    }
+                    if (range.max.getTag() == tag) {
+                        result.insert(range.max.template get<tag>());
+                    }
+                }
+            }
+        }
+        return functor(result);
+    }
 };

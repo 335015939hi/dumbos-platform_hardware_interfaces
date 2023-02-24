@@ -35,7 +35,7 @@ package android.hardware.audio.effect;
 @VintfStability
 union Parameter {
   android.hardware.audio.effect.Parameter.Common common;
-  android.media.audio.common.AudioDeviceDescription deviceDescription;
+  android.media.audio.common.AudioDeviceDescription[] deviceDescription;
   android.media.audio.common.AudioMode mode;
   android.media.audio.common.AudioSource source;
   android.hardware.audio.effect.Parameter.VolumeStereo volumeStereo;
@@ -43,13 +43,18 @@ union Parameter {
   @VintfStability
   union Id {
     int vendorEffectTag;
+    android.hardware.audio.effect.AcousticEchoCanceler.Id acousticEchoCancelerTag;
+    android.hardware.audio.effect.AutomaticGainControlV1.Id automaticGainControlV1Tag;
+    android.hardware.audio.effect.AutomaticGainControlV2.Id automaticGainControlV2Tag;
     android.hardware.audio.effect.BassBoost.Id bassBoostTag;
     android.hardware.audio.effect.Downmix.Id downmixTag;
     android.hardware.audio.effect.DynamicsProcessing.Id dynamicsProcessingTag;
+    android.hardware.audio.effect.EnvironmentalReverb.Id environmentalReverbTag;
     android.hardware.audio.effect.Equalizer.Id equalizerTag;
     android.hardware.audio.effect.HapticGenerator.Id hapticGeneratorTag;
     android.hardware.audio.effect.LoudnessEnhancer.Id loudnessEnhancerTag;
-    android.hardware.audio.effect.Reverb.Id reverbTag;
+    android.hardware.audio.effect.NoiseSuppression.Id noiseSuppressionTag;
+    android.hardware.audio.effect.PresetReverb.Id presetReverbTag;
     android.hardware.audio.effect.Virtualizer.Id virtualizerTag;
     android.hardware.audio.effect.Visualizer.Id visualizerTag;
     android.hardware.audio.effect.Volume.Id volumeTag;
@@ -70,13 +75,18 @@ union Parameter {
   @VintfStability
   union Specific {
     android.hardware.audio.effect.VendorExtension vendorEffect;
+    android.hardware.audio.effect.AcousticEchoCanceler acousticEchoCanceler;
+    android.hardware.audio.effect.AutomaticGainControlV1 automaticGainControlV1;
+    android.hardware.audio.effect.AutomaticGainControlV2 automaticGainControlV2;
     android.hardware.audio.effect.BassBoost bassBoost;
     android.hardware.audio.effect.Downmix downmix;
     android.hardware.audio.effect.DynamicsProcessing dynamicsProcessing;
+    android.hardware.audio.effect.EnvironmentalReverb environmentalReverb;
     android.hardware.audio.effect.Equalizer equalizer;
-    android.hardware.audio.effect.LoudnessEnhancer loudnessEnhancer;
     android.hardware.audio.effect.HapticGenerator hapticGenerator;
-    android.hardware.audio.effect.Reverb reverb;
+    android.hardware.audio.effect.LoudnessEnhancer loudnessEnhancer;
+    android.hardware.audio.effect.NoiseSuppression noiseSuppression;
+    android.hardware.audio.effect.PresetReverb presetReverb;
     android.hardware.audio.effect.Virtualizer virtualizer;
     android.hardware.audio.effect.Visualizer visualizer;
     android.hardware.audio.effect.Volume volume;

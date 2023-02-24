@@ -32,9 +32,10 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.thermal;
+/* @hide */
 @Backing(type="int") @VintfStability
 enum TemperatureType {
-  UNKNOWN = -1,
+  UNKNOWN = (-1),
   CPU = 0,
   GPU = 1,
   BATTERY = 2,

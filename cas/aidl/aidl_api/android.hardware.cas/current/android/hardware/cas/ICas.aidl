@@ -32,9 +32,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.cas;
+/* @hide */
 @VintfStability
 interface ICas {
   void closeSession(in byte[] sessionId);
+  byte[] openSessionDefault();
   byte[] openSession(in android.hardware.cas.SessionIntent intent, in android.hardware.cas.ScramblingMode mode);
   void processEcm(in byte[] sessionId, in byte[] ecm);
   void processEmm(in byte[] emm);

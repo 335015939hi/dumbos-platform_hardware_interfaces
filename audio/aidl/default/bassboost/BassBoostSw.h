@@ -32,11 +32,19 @@ class BassBoostSwContext final : public EffectContext {
         : EffectContext(statusDepth, common) {
         LOG(DEBUG) << __func__;
     }
-    // TODO: add specific context here
+
+    RetCode setBbStrengthPm(int strength);
+    int getBbStrengthPm() const { return mStrength; }
+
+  private:
+    int mStrength = 0;
 };
 
 class BassBoostSw final : public EffectImpl {
   public:
+    static const std::string kEffectName;
+    static const Capability kCapability;
+    static const Descriptor kDescriptor;
     BassBoostSw() { LOG(DEBUG) << __func__; }
     ~BassBoostSw() {
         cleanUp();
@@ -47,27 +55,18 @@ class BassBoostSw final : public EffectImpl {
     ndk::ScopedAStatus setParameterSpecific(const Parameter::Specific& specific) override;
     ndk::ScopedAStatus getParameterSpecific(const Parameter::Id& id,
                                             Parameter::Specific* specific) override;
-    IEffect::Status effectProcessImpl(float* in, float* out, int process) override;
+
     std::shared_ptr<EffectContext> createContext(const Parameter::Common& common) override;
+    std::shared_ptr<EffectContext> getContext() override;
     RetCode releaseContext() override;
 
-  private:
-    std::shared_ptr<BassBoostSwContext> mContext;
-    /* capabilities */
-    const BassBoost::Capability kCapability;
-    /* Effect descriptor */
-    const Descriptor kDescriptor = {
-            .common = {.id = {.type = kBassBoostTypeUUID,
-                              .uuid = kBassBoostSwImplUUID,
-                              .proxy = std::nullopt},
-                       .flags = {.type = Flags::Type::INSERT,
-                                 .insert = Flags::Insert::FIRST,
-                                 .volume = Flags::Volume::CTRL},
-                       .name = "BassBoostSw",
-                       .implementor = "The Android Open Source Project"},
-            .capability = Capability::make<Capability::bassBoost>(kCapability)};
+    std::string getEffectName() override { return kEffectName; };
+    IEffect::Status effectProcessImpl(float* in, float* out, int samples) override;
 
-    /* parameters */
-    BassBoost mSpecificParam;
+  private:
+    static const std::vector<Range::BassBoostRange> kRanges;
+    std::shared_ptr<BassBoostSwContext> mContext;
+    ndk::ScopedAStatus getParameterBassBoost(const BassBoost::Tag& tag,
+                                             Parameter::Specific* specific);
 };
 }  // namespace aidl::android::hardware::audio::effect

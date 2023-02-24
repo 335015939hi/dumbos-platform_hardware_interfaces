@@ -12,6 +12,7 @@ aidl_interface {
     vendor_available: true,
     host_supported: true,
     srcs: ["android/hardware/radio/*.aidl"],
+    frozen: true,
     stability: "vintf",
     backend: {
         cpp: {
@@ -35,8 +36,9 @@ aidl_interface {
     vendor_available: true,
     host_supported: true,
     srcs: ["android/hardware/radio/config/*.aidl"],
+    frozen: true,
     stability: "vintf",
-    imports: ["android.hardware.radio"],
+    imports: ["android.hardware.radio-V1"],
     backend: {
         cpp: {
             enabled: false,
@@ -60,7 +62,7 @@ aidl_interface {
     host_supported: true,
     srcs: ["android/hardware/radio/data/*.aidl"],
     stability: "vintf",
-    imports: ["android.hardware.radio"],
+    imports: ["android.hardware.radio-V1"],
     backend: {
         cpp: {
             enabled: false,
@@ -84,7 +86,7 @@ aidl_interface {
     host_supported: true,
     srcs: ["android/hardware/radio/messaging/*.aidl"],
     stability: "vintf",
-    imports: ["android.hardware.radio"],
+    imports: ["android.hardware.radio-V1"],
     backend: {
         cpp: {
             enabled: false,
@@ -108,7 +110,7 @@ aidl_interface {
     host_supported: true,
     srcs: ["android/hardware/radio/modem/*.aidl"],
     stability: "vintf",
-    imports: ["android.hardware.radio"],
+    imports: ["android.hardware.radio-V1"],
     backend: {
         cpp: {
             enabled: false,
@@ -132,7 +134,7 @@ aidl_interface {
     host_supported: true,
     srcs: ["android/hardware/radio/network/*.aidl"],
     stability: "vintf",
-    imports: ["android.hardware.radio"],
+    imports: ["android.hardware.radio-V1"],
     backend: {
         cpp: {
             enabled: false,
@@ -151,14 +153,36 @@ aidl_interface {
 }
 
 aidl_interface {
+    name: "android.hardware.radio.sap",
+    vendor_available: true,
+    host_supported: true,
+    srcs: ["android/hardware/radio/sap/*.aidl"],
+    stability: "vintf",
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            apex_available: [
+                "//apex_available:platform",
+                "com.android.btservices",
+            ],
+            sdk_version: "module_current",
+            min_sdk_version: "Tiramisu",
+        },
+    },
+
+}
+
+aidl_interface {
     name: "android.hardware.radio.sim",
     vendor_available: true,
     host_supported: true,
     srcs: ["android/hardware/radio/sim/*.aidl"],
     stability: "vintf",
     imports: [
-        "android.hardware.radio",
-        "android.hardware.radio.config",
+        "android.hardware.radio-V1",
+        "android.hardware.radio.config-V1",
     ],
     backend: {
         cpp: {
@@ -186,7 +210,7 @@ aidl_interface {
     host_supported: true,
     srcs: ["android/hardware/radio/voice/*.aidl"],
     stability: "vintf",
-    imports: ["android.hardware.radio"],
+    imports: ["android.hardware.radio-V1"],
     backend: {
         cpp: {
             enabled: false,

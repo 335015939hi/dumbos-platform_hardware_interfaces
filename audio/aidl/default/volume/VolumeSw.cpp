@@ -25,6 +25,7 @@
 
 #include "VolumeSw.h"
 
+using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::kVolumeSwImplUUID;
 using aidl::android::hardware::audio::effect::State;
@@ -47,22 +48,33 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
     }
 }
 
-extern "C" binder_exception_t destroyEffect(const std::shared_ptr<IEffect>& instanceSp) {
-    if (!instanceSp) {
-        return EX_NONE;
+extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
+    if (!in_impl_uuid || *in_impl_uuid != kVolumeSwImplUUID) {
+        LOG(ERROR) << __func__ << "uuid not supported";
+        return EX_ILLEGAL_ARGUMENT;
     }
-    State state;
-    ndk::ScopedAStatus status = instanceSp->getState(&state);
-    if (!status.isOk() || State::INIT != state) {
-        LOG(ERROR) << __func__ << " instance " << instanceSp.get()
-                   << " in state: " << toString(state) << ", status: " << status.getDescription();
-        return EX_ILLEGAL_STATE;
-    }
-    LOG(DEBUG) << __func__ << " instance " << instanceSp.get() << " destroyed";
+    *_aidl_return = VolumeSw::kDescriptor;
     return EX_NONE;
 }
 
 namespace aidl::android::hardware::audio::effect {
+
+const std::string VolumeSw::kEffectName = "VolumeSw";
+
+const std::vector<Range::VolumeRange> VolumeSw::kRanges = {MAKE_RANGE(Volume, levelDb, -9600, 0)};
+
+const Capability VolumeSw::kCapability = {.range = Range::make<Range::volume>(VolumeSw::kRanges)};
+
+const Descriptor VolumeSw::kDescriptor = {
+        .common = {.id = {.type = kVolumeTypeUUID,
+                          .uuid = kVolumeSwImplUUID,
+                          .proxy = std::nullopt},
+                   .flags = {.type = Flags::Type::INSERT,
+                             .insert = Flags::Insert::FIRST,
+                             .volume = Flags::Volume::CTRL},
+                   .name = VolumeSw::kEffectName,
+                   .implementor = "The Android Open Source Project"},
+        .capability = VolumeSw::kCapability};
 
 ndk::ScopedAStatus VolumeSw::getDescriptor(Descriptor* _aidl_return) {
     LOG(DEBUG) << __func__ << kDescriptor.toString();
@@ -73,28 +85,82 @@ ndk::ScopedAStatus VolumeSw::getDescriptor(Descriptor* _aidl_return) {
 ndk::ScopedAStatus VolumeSw::setParameterSpecific(const Parameter::Specific& specific) {
     RETURN_IF(Parameter::Specific::volume != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
-    std::lock_guard lg(mMutex);
-    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
-    mSpecificParam = specific.get<Parameter::Specific::volume>();
-    LOG(DEBUG) << __func__ << " success with: " << specific.toString();
-    return ndk::ScopedAStatus::ok();
+    auto& volParam = specific.get<Parameter::Specific::volume>();
+    RETURN_IF(!inRange(volParam, kRanges), EX_ILLEGAL_ARGUMENT, "outOfRange");
+    auto tag = volParam.getTag();
+
+    switch (tag) {
+        case Volume::levelDb: {
+            RETURN_IF(mContext->setVolLevel(volParam.get<Volume::levelDb>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "LevelNotSupported");
+            return ndk::ScopedAStatus::ok();
+        }
+        case Volume::mute: {
+            RETURN_IF(mContext->setVolMute(volParam.get<Volume::mute>()) != RetCode::SUCCESS,
+                      EX_ILLEGAL_ARGUMENT, "MuteNotSupported");
+            return ndk::ScopedAStatus::ok();
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "VolumeTagNotSupported");
+        }
+    }
 }
 
 ndk::ScopedAStatus VolumeSw::getParameterSpecific(const Parameter::Id& id,
                                                   Parameter::Specific* specific) {
     auto tag = id.getTag();
     RETURN_IF(Parameter::Id::volumeTag != tag, EX_ILLEGAL_ARGUMENT, "wrongIdTag");
-    specific->set<Parameter::Specific::volume>(mSpecificParam);
+    auto volId = id.get<Parameter::Id::volumeTag>();
+    auto volIdTag = volId.getTag();
+    switch (volIdTag) {
+        case Volume::Id::commonTag:
+            return getParameterVolume(volId.get<Volume::Id::commonTag>(), specific);
+        default:
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "VolumeTagNotSupported");
+    }
+}
+
+ndk::ScopedAStatus VolumeSw::getParameterVolume(const Volume::Tag& tag,
+                                                Parameter::Specific* specific) {
+    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+
+    Volume volParam;
+    switch (tag) {
+        case Volume::levelDb: {
+            volParam.set<Volume::levelDb>(mContext->getVolLevel());
+            break;
+        }
+        case Volume::mute: {
+            volParam.set<Volume::mute>(mContext->getVolMute());
+            break;
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "VolumeTagNotSupported");
+        }
+    }
+
+    specific->set<Parameter::Specific::volume>(volParam);
     return ndk::ScopedAStatus::ok();
 }
 
 std::shared_ptr<EffectContext> VolumeSw::createContext(const Parameter::Common& common) {
     if (mContext) {
         LOG(DEBUG) << __func__ << " context already exist";
-        return mContext;
+    } else {
+        mContext = std::make_shared<VolumeSwContext>(1 /* statusFmqDepth */, common);
     }
-    mContext = std::make_shared<VolumeSwContext>(1 /* statusFmqDepth */, common);
+
+    return mContext;
+}
+
+std::shared_ptr<EffectContext> VolumeSw::getContext() {
     return mContext;
 }
 
@@ -106,13 +172,24 @@ RetCode VolumeSw::releaseContext() {
 }
 
 // Processing method running in EffectWorker thread.
-IEffect::Status VolumeSw::effectProcessImpl(float* in, float* out, int process) {
+IEffect::Status VolumeSw::effectProcessImpl(float* in, float* out, int samples) {
     // TODO: get data buffer and process.
-    LOG(DEBUG) << __func__ << " in " << in << " out " << out << " process " << process;
-    for (int i = 0; i < process; i++) {
+    LOG(DEBUG) << __func__ << " in " << in << " out " << out << " samples " << samples;
+    for (int i = 0; i < samples; i++) {
         *out++ = *in++;
     }
-    return {STATUS_OK, process, process};
+    return {STATUS_OK, samples, samples};
+}
+
+RetCode VolumeSwContext::setVolLevel(int level) {
+    mLevel = level;
+    return RetCode::SUCCESS;
+}
+
+RetCode VolumeSwContext::setVolMute(bool mute) {
+    // TODO : Add implementation to modify mute
+    mMute = mute;
+    return RetCode::SUCCESS;
 }
 
 }  // namespace aidl::android::hardware::audio::effect

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use diced_open_dice_cbor as dice;
+use diced_open_dice::DiceArtifacts;
 use diced_sample_inputs;
 use diced_utils;
 use std::convert::TryInto;
@@ -44,19 +44,11 @@ fn demote_test() {
         )
         .unwrap();
 
-        let input_values: Vec<diced_utils::InputValues> = input_values
-            .iter()
-            .map(|v| v.into())
-            .collect();
-
-        let artifacts = artifacts
-            .execute_steps(input_values.iter().map(|v| v as &dyn dice::InputValues))
-            .unwrap();
-        let (cdi_attest, cdi_seal, bcc) = artifacts.into_tuple();
+        let artifacts = artifacts.execute_steps(input_values.iter()).unwrap();
         let from_former = diced_utils::make_bcc_handover(
-            cdi_attest[..].try_into().unwrap(),
-            cdi_seal[..].try_into().unwrap(),
-            &bcc,
+            artifacts.cdi_attest(),
+            artifacts.cdi_seal(),
+            artifacts.bcc().expect("bcc is none"),
         )
         .unwrap();
         // TODO b/204938506 when we have a parser/verifier, check equivalence rather

@@ -139,6 +139,11 @@ enum UwbVendorCapabilityTlvTypes {
     /** Int value for indicating supported ran multiplier */
     CCC_SUPPORTED_RAN_MULTIPLIER = 0xA7,
 
+    /**
+     * Int value to indicate supported max number of ccc ranging sessions
+     */
+    CCC_SUPPORTED_MAX_RANGING_SESSION_NUMBER = 0xA8,
+
     /*********************************************
      * FIRA specific
      ********************************************/
@@ -183,5 +188,24 @@ enum UwbVendorCapabilityTlvTypes {
     /**
      * 4 byte value to indicate supported min slot duration in ms.
      */
-    SUPPORTED_MIN_SLOT_DURATION = 0xE8,
+    SUPPORTED_MIN_SLOT_DURATION_MS = 0xE8,
+
+    /**
+     * Int value to indicate supported max number of fira ranging sessions
+     */
+    SUPPORTED_MAX_RANGING_SESSION_NUMBER = 0xE9,
+
+    /**
+     * 2 byte bitmask to indicate the channels that support AoA.
+     * Each "1" in this bitmap corresponds to a specific UWB channel where:
+     *  0x01 = "Channel 5",
+     *  0x02 = "Channel 6",
+     *  0x04 = "Channel 8",
+     *  0x08 = "Channel 9",
+     *  0x10 = "Channel 10",
+     *  0x20 = "Channel 12",
+     *  0x40 = "Channel 13",
+     *  0x80 = "Channel 14"
+     */
+    SUPPORTED_CHANNELS_AOA = 0xEA,
 }

@@ -50,6 +50,8 @@ parcelable ProtectedData {
      *                                     ; salt = null
      *                                     ; info = .cbor Context (see below)
      *                                     ; K = HKDF-SHA-256(ikm, salt, info)
+     *                                     ; AAD for the encryption is a CBOR-serialized
+     *                                     ; Enc_structure (RFC 8152 s5.3) with empty external_aad.
      *         recipients : [
      *             [                       ; COSE_Recipient
      *                 protected : bstr .cbor {
@@ -65,7 +67,10 @@ parcelable ProtectedData {
      *     ]
      *
      *     ; The COSE_KDF_Context that is used to derive the ProtectedData encryption key with
-     *     ; HKDF. See details on use in ProtectedData comments above.
+     *     ; HKDF. See details on use in ProtectedData comments above. The public key data
+     *     ; included in the other field of PartyUInfo / PartyVInfo is encoded as:
+     *     ;  - a raw 32-byte public key for X25519
+     *     ;  - raw coordinate data (x || y) for P-256
      *     Context = [
      *         AlgorithmID : 3             ; AES-GCM 256
      *         PartyUInfo : [
@@ -134,11 +139,11 @@ parcelable ProtectedData {
      *     ]
      *
      *     SignedMacAad = [
-     *         challenge : bstr .size (32..64),   ; Size between 32 - 64
+     *         challenge : bstr .size (16..64),   ; Size between 16 - 64
      *                                            ; bytes inclusive
      *         VerifiedDeviceInfo,
      *         tag: bstr                 ; This is the tag from COSE_Mac0 of
-     *                                   ; KeysToCertify, to tie the key set to
+     *                                   ; KeysToSign, to tie the key set to
      *                                   ; the signature.
      *     ]
      *
@@ -209,7 +214,7 @@ parcelable ProtectedData {
      *     PubKeyX25519 = {                 ; COSE_Key
      *          1 : 1,                      ; Key type : Octet Key Pair
      *         -1 : 4,                      ; Curve : X25519
-     *         -2 : bstr                    ; Sender X25519 public key
+     *         -2 : bstr                    ; Sender X25519 public key, little-endian
      *     }
      *
      *     PubKeyEd25519 = {                ; COSE_Key
@@ -222,16 +227,16 @@ parcelable ProtectedData {
      *     PubKeyEcdhP256 = {               ; COSE_Key
      *          1 : 2,                      ; Key type : EC2
      *          -1 : 1,                     ; Curve : P256
-     *          -2 : bstr                   ; Sender X coordinate
-     *          -3 : bstr                   ; Sender Y coordinate
+     *          -2 : bstr                   ; Sender X coordinate, big-endian
+     *          -3 : bstr                   ; Sender Y coordinate, big-endian
      *     }
      *
      *     PubKeyECDSA256 = {               ; COSE_Key
      *         1 : 2,                       ; Key type : EC2
      *         3 : AlgorithmES256,          ; Algorithm : ECDSA w/ SHA-256
      *         -1 : 1,                      ; Curve: P256
-     *         -2 : bstr,                   ; X coordinate
-     *         -3 : bstr                    ; Y coordinate
+     *         -2 : bstr,                   ; X coordinate, big-endian
+     *         -3 : bstr                    ; Y coordinate, big-endian
      *     }
      *
      *     AlgorithmES256 = -7

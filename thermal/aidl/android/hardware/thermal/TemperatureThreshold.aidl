@@ -18,7 +18,9 @@ package android.hardware.thermal;
 
 import android.hardware.thermal.TemperatureType;
 
+/* @hide */
 @VintfStability
+@JavaDerive(toString=true)
 parcelable TemperatureThreshold {
     /**
      * This temperature's type.
@@ -35,7 +37,7 @@ parcelable TemperatureThreshold {
      * level defined in ThrottlingSeverity including shutdown. Throttling
      * happens when temperature >= threshold. If not available, set to NAN.
      * Unit is same as Temperature's value.
-     * The number of thresholds must be the same as ThrottlingSeverity#len.
+     * The array size must be the same as ThrottlingSeverity's enum cardinality.
      */
     float[] hotThrottlingThresholds;
     /**
@@ -43,7 +45,7 @@ parcelable TemperatureThreshold {
      * level defined in ThrottlingSeverity including shutdown. Throttling
      * happens when temperature <= threshold. If not available, set to NAN.
      * Unit is same as Temperature's value.
-     * The number of theresholds must be the same as ThrottlingSeverity#len.
+     * The array size must be the same as ThrottlingSeverity's enum cardinality.
      */
     float[] coldThrottlingThresholds;
 }

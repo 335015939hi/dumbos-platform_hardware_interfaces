@@ -115,11 +115,9 @@ import android.hardware.security.keymint.RpcHardwareInfo;
 interface IRemotelyProvisionedComponent {
     const int STATUS_FAILED = 1;
     const int STATUS_INVALID_MAC = 2;
-    // --------- START: Versions 1 and 2 Only ----------
-    const int STATUS_PRODUCTION_KEY_IN_TEST_REQUEST = 3;
+    const int STATUS_PRODUCTION_KEY_IN_TEST_REQUEST = 3; // Versions 1 and 2 Only
     const int STATUS_TEST_KEY_IN_PRODUCTION_REQUEST = 4;
-    const int STATUS_INVALID_EEK = 5;
-    // --------- END: Versions 1 and 2 Only ------------
+    const int STATUS_INVALID_EEK = 5; // Versions 1 and 2 Only
     const int STATUS_REMOVED = 6;
 
     /**
@@ -161,18 +159,27 @@ interface IRemotelyProvisionedComponent {
      *        IRemotelyProvisionedComponent must validate the MACs on each key.  If any entry in the
      *        array lacks a valid MAC, the method must return STATUS_INVALID_MAC.
      *
-     *        If testMode is true, the keysToCertify array must contain only keys flagged as test
+     *        If testMode is true, the keysToSign array must contain only keys flagged as test
      *        keys. Otherwise, the method must return STATUS_PRODUCTION_KEY_IN_TEST_REQUEST.
      *
-     *        If testMode is false, the keysToCertify array must not contain any keys flagged as
+     *        If testMode is false, the keysToSign array must not contain any keys flagged as
      *        test keys. Otherwise, the method must return STATUS_TEST_KEY_IN_PRODUCTION_REQUEST.
      *
-     * @param in endpointEncryptionKey contains an X25519 public key which will be used to encrypt
-     *        the BCC. For flexibility, this is represented as a certificate chain, represented as a
-     *        CBOR array of COSE_Sign1 objects, ordered from root to leaf. The leaf contains the
-     *        X25519 encryption key, each other element is an Ed25519 key signing the next in the
-     *        chain. The root is self-signed. An implementor may also choose to use P256 as an
-     *        alternative curve for signing and encryption instead of Curve 25519.
+     * @param in endpointEncryptionKey contains an X25519 or P-256 public key which will be used to
+     *        encrypt the BCC. For flexibility, this is represented as a certificate chain
+     *        in the form of a CBOR array of COSE_Sign1 objects, ordered from root to leaf.  An
+     *        implementor may also choose to use P256 as an alternative curve for signing and
+     *        encryption instead of Curve 25519, as indicated by the supportedEekCurve field in
+     *        RpcHardwareInfo; the contents of the EEK chain will match the specified
+     *        supportedEekCurve.
+     *
+     *        - For CURVE_25519 the leaf contains the X25519 agreement key, each other element is an
+     *          Ed25519 key signing the next in the chain.
+     *
+     *        - For CURVE_P256 the leaf contains the P-256 agreement key, each other element is a
+     *          P-256 key signing the next in the chain.
+     *
+     *        In either case, the root is self-signed.
      *
      *            EekChain = [ + SignedSignatureKey, SignedEek ]
      *
@@ -224,7 +231,7 @@ interface IRemotelyProvisionedComponent {
      *                2 : bstr             ; KID : EEK ID
      *                3 : -25,             ; Algorithm : ECDH-ES + HKDF-256
      *                -1 : 4,              ; Curve : X25519
-     *                -2 : bstr            ; X25519 public key
+     *                -2 : bstr            ; X25519 public key, little-endian
      *            }
      *
      *            EekP256 = {              ; COSE_Key
@@ -337,24 +344,24 @@ interface IRemotelyProvisionedComponent {
      *     UdsCerts,
      *     DiceCertChain,
      *     SignedData<[
-     *         challenge: bstr .size (32..64), ; Provided by the method parameters
+     *         challenge: bstr .size (16..64), ; Provided by the method parameters
      *         bstr .cbor T,
      *     ]>,
      * ]
      *
      * ; COSE_Sign1 (untagged)
      * SignedData<Data> = [
-     *     protected: bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 },
+     *     protected: bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 / AlgorithmES384 },
      *     unprotected: {},
      *     payload: bstr .cbor Data / nil,
-     *     signature: bstr      ; PureEd25519(CDI_Leaf_Priv, bstr .cbor SignedDataSigStruct<Data>) /
-     *                          ; ECDSA(CDI_Leaf_Priv, bstr .cbor SignedDataSigStruct<Data>)
+     *     signature: bstr      ; PureEd25519(CDI_Leaf_Priv, SignedDataSigStruct<Data>) /
+     *                          ; ECDSA(CDI_Leaf_Priv, SignedDataSigStruct<Data>)
      * ]
      *
      * ; Sig_structure for SignedData
      * SignedDataSigStruct<Data> = [
      *     context: "Signature1",
-     *     protected: bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 },
+     *     protected: bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 / AlgorithmES384 },
      *     external_aad: bstr .size 0,
      *     payload: bstr .cbor Data / nil,
      * ]
@@ -386,7 +393,7 @@ interface IRemotelyProvisionedComponent {
      * ; after the first describe a link in the boot chain (e.g. bootloaders: BL1, BL2, ... BLN)
      * ; Note that there is no DiceChainEntry for UDS_pub, only a "bare" COSE_key.
      * DiceCertChain = [
-     *     PubKeyEd25519 / PubKeyECDSA256,  ; UDS_Pub
+     *     PubKeyEd25519 / PubKeyECDSA256 / PubKeyECDSA384,  ; UDS_Pub
      *     + DiceChainEntry,                ; First CDI_Certificate -> Last CDI_Certificate
      *                                      ; Last certificate corresponds to KeyMint's DICE key.
      * ]
@@ -394,16 +401,17 @@ interface IRemotelyProvisionedComponent {
      * ; This is the signed payload for each entry in the DICE chain. Note that the "Configuration
      * ; Input Values" described by the Open Profile are not used here. Instead, the DICE chain
      * ; defines its own configuration values for the Configuration Descriptor field. See
-     * ; the Open Profile for DICE for more details on the fields. SHA256 and SHA512 are acceptable
-     * ; hash algorithms. The digest bstr values in the payload are the digest values without any
-     * ; padding. Note that for SHA256, this implies the digest bstr is 32 bytes. This is an
-     * ; intentional, minor deviation from Open Profile for DICE, which specifies all digests are
-     * ; 64 bytes.
+     * ; the Open Profile for DICE for more details on the fields. SHA256, SHA384 and SHA512 are
+     * ; acceptable hash algorithms. The digest bstr values in the payload are the digest values
+     * ; without any padding. Note that this implies that the digest is a 32-byte bstr for SHA256
+     * ; and a 48-byte bstr for SHA384. This is an intentional, minor deviation from Open Profile
+     * ; for DICE, which specifies all digests are 64 bytes.
      * DiceChainEntryPayload = {                    ; CWT [RFC8392]
      *     1 : tstr,                                ; Issuer
      *     2 : tstr,                                ; Subject
      *     -4670552 : bstr .cbor PubKeyEd25519 /
-     *                bstr .cbor PubKeyECDSA256,    ; Subject Public Key
+     *                bstr .cbor PubKeyECDSA256,
+     *                bstr .cbor PubKeyECDSA384,    ; Subject Public Key
      *     -4670553 : bstr                          ; Key Usage
      *
      *     ; NOTE: All of the following fields may be omitted for a "Degenerate DICE Chain", as
@@ -424,30 +432,27 @@ interface IRemotelyProvisionedComponent {
      * ; Each entry in the DICE chain is a DiceChainEntryPayload signed by the key from the previous
      * ; entry in the DICE chain array.
      * DiceChainEntry = [                            ; COSE_Sign1 (untagged)
-     *     protected : bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 },
+     *     protected : bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 / AlgorithmES384 },
      *     unprotected: {},
      *     payload: bstr .cbor DiceChainEntryPayload,
-     *     signature: bstr ; PureEd25519(SigningKey, bstr .cbor DiceChainEntryInput) /
-     *                     ; ECDSA(SigningKey, bstr .cbor DiceChainEntryInput)
+     *     signature: bstr ; PureEd25519(SigningKey, DiceChainEntryInput) /
+     *                     ; ECDSA(SigningKey, DiceChainEntryInput)
      *                     ; See RFC 8032 for details of how to encode the signature value
      *                     ; for Ed25519.
      * ]
      *
      * DiceChainEntryInput = [
      *     context: "Signature1",
-     *     protected: bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 },
+     *     protected: bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 / AlgorithmES384 },
      *     external_aad: bstr .size 0,
      *     payload: bstr .cbor DiceChainEntryPayload
      * ]
      *
      * ; The following section defines some types that are reused throughout the above
      * ; data structures.
-     * PubKeyX25519 = {                 ; COSE_Key
-     *      1 : 1,                      ; Key type : Octet Key Pair
-     *     -1 : 4,                      ; Curve : X25519
-     *     -2 : bstr                    ; Sender X25519 public key
-     * }
-     *
+     * ; NOTE: Integer encoding is different for Ed25519 and P256 keys:
+     * ;       - Ed25519 is LE: https://www.rfc-editor.org/rfc/rfc8032#section-3.1
+     * ;       - P256 is BE: https://www.secg.org/sec1-v2.pdf#page=19 (section 2.3.7)
      * PubKeyEd25519 = {                ; COSE_Key
      *     1 : 1,                       ; Key type : octet key pair
      *     3 : AlgorithmEdDSA,          ; Algorithm : EdDSA
@@ -455,22 +460,24 @@ interface IRemotelyProvisionedComponent {
      *     -2 : bstr                    ; X coordinate, little-endian
      * }
      *
-     * PubKeyEcdhP256 = {               ; COSE_Key
-     *      1 : 2,                      ; Key type : EC2
-     *      -1 : 1,                     ; Curve : P256
-     *      -2 : bstr                   ; Sender X coordinate
-     *      -3 : bstr                   ; Sender Y coordinate
-     * }
-     *
      * PubKeyECDSA256 = {               ; COSE_Key
      *     1 : 2,                       ; Key type : EC2
      *     3 : AlgorithmES256,          ; Algorithm : ECDSA w/ SHA-256
      *     -1 : 1,                      ; Curve: P256
+     *     -2 : bstr,                   ; X coordinate, big-endian
+     *     -3 : bstr                    ; Y coordinate, big-endian
+     * }
+     *
+     * PubKeyECDSA384 = {               ; COSE_Key
+     *     1 : 2,                       ; Key type : EC2
+     *     3 : AlgorithmES384,          ; Algorithm : ECDSA w/ SHA-384
+     *     -1 : 2,                      ; Curve: P384
      *     -2 : bstr,                   ; X coordinate
      *     -3 : bstr                    ; Y coordinate
      * }
      *
      * AlgorithmES256 = -7
+     * AlgorithmES384 = -35
      * AlgorithmEdDSA = -8
      */
     byte[] generateCertificateRequestV2(in MacedPublicKey[] keysToSign, in byte[] challenge);

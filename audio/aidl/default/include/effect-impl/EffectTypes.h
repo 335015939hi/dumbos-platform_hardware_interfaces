@@ -19,17 +19,23 @@
 #include <string>
 
 #include <aidl/android/hardware/audio/effect/BnEffect.h>
+#include <aidl/android/hardware/audio/effect/Range.h>
 #include <android-base/logging.h>
+#include <system/audio_effects/aidl_effects_utils.h>
 
 typedef binder_exception_t (*EffectCreateFunctor)(
         const ::aidl::android::media::audio::common::AudioUuid*,
-        std::shared_ptr<aidl::android::hardware::audio::effect::IEffect>*);
+        std::shared_ptr<::aidl::android::hardware::audio::effect::IEffect>*);
 typedef binder_exception_t (*EffectDestroyFunctor)(
-        const std::shared_ptr<aidl::android::hardware::audio::effect::IEffect>&);
+        const std::shared_ptr<::aidl::android::hardware::audio::effect::IEffect>&);
+typedef binder_exception_t (*EffectQueryFunctor)(
+        const ::aidl::android::media::audio::common::AudioUuid*,
+        ::aidl::android::hardware::audio::effect::Descriptor*);
 
 struct effect_dl_interface_s {
     EffectCreateFunctor createEffectFunc;
     EffectDestroyFunctor destroyEffectFunc;
+    EffectQueryFunctor queryEffectFunc;
 };
 
 namespace aidl::android::hardware::audio::effect {
@@ -94,13 +100,33 @@ inline std::ostream& operator<<(std::ostream& out, const RetCode& code) {
         }                                                                              \
     } while (0)
 
-#define RETURN_VALUE_IF(expr, ret, log)                                                          \
-    do {                                                                                         \
-        if (expr) {                                                                              \
-            LOG(ERROR) << __func__ << ":" << __LINE__ << " return with expr " << #expr << (log); \
-            return ret;                                                                          \
-        }                                                                                        \
+#define RETURN_VALUE_IF(expr, ret, log)                                                  \
+    do {                                                                                 \
+        if (expr) {                                                                      \
+            LOG(ERROR) << __func__ << ":" << __LINE__ << " return with expr \"" << #expr \
+                       << "\":" << (log);                                                \
+            return ret;                                                                  \
+        }                                                                                \
     } while (0)
+
+#define RETURN_IF_BINDER_EXCEPTION(functor)                                 \
+    {                                                                       \
+        binder_exception_t exception = functor;                             \
+        if (EX_NONE != exception) {                                         \
+            LOG(ERROR) << #functor << ":  failed with error " << exception; \
+            return ndk::ScopedAStatus::fromExceptionCode(exception);        \
+        }                                                                   \
+    }
+
+/**
+ * Make a Range::$EffectType$Range.
+ * T: The $EffectType$, Visualizer for example.
+ * Tag: The union tag name in $EffectType$ definition, latencyMs for example.
+ * l: The value of Range::$EffectType$Range.min.
+ * r: The value of Range::$EffectType$Range.max.
+ */
+#define MAKE_RANGE(T, Tag, l, r) \
+    { .min = T::make<T::Tag>(l), .max = T::make<T::Tag>(r) }
 
 static inline bool stringToUuid(const char* str,
                                 ::aidl::android::media::audio::common::AudioUuid* uuid) {

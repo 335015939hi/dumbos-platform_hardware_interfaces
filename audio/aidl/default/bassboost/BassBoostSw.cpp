@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
+#include <algorithm>
 #include <cstddef>
+#include <memory>
 #define LOG_TAG "AHAL_BassBoostSw"
 #include <Utils.h>
-#include <algorithm>
 #include <unordered_set>
 
 #include <android-base/logging.h>
@@ -26,6 +27,7 @@
 #include "BassBoostSw.h"
 
 using aidl::android::hardware::audio::effect::BassBoostSw;
+using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::kBassBoostSwImplUUID;
 using aidl::android::hardware::audio::effect::State;
@@ -47,22 +49,32 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
     }
 }
 
-extern "C" binder_exception_t destroyEffect(const std::shared_ptr<IEffect>& instanceSp) {
-    if (!instanceSp) {
-        return EX_NONE;
+extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
+    if (!in_impl_uuid || *in_impl_uuid != kBassBoostSwImplUUID) {
+        LOG(ERROR) << __func__ << "uuid not supported";
+        return EX_ILLEGAL_ARGUMENT;
     }
-    State state;
-    ndk::ScopedAStatus status = instanceSp->getState(&state);
-    if (!status.isOk() || State::INIT != state) {
-        LOG(ERROR) << __func__ << " instance " << instanceSp.get()
-                   << " in state: " << toString(state) << ", status: " << status.getDescription();
-        return EX_ILLEGAL_STATE;
-    }
-    LOG(DEBUG) << __func__ << " instance " << instanceSp.get() << " destroyed";
+    *_aidl_return = BassBoostSw::kDescriptor;
     return EX_NONE;
 }
 
 namespace aidl::android::hardware::audio::effect {
+
+const std::string BassBoostSw::kEffectName = "BassBoostSw";
+
+const std::vector<Range::BassBoostRange> BassBoostSw::kRanges = {
+        MAKE_RANGE(BassBoost, strengthPm, 0, 1000)};
+const Capability BassBoostSw::kCapability = {.range = {BassBoostSw::kRanges}};
+const Descriptor BassBoostSw::kDescriptor = {
+        .common = {.id = {.type = kBassBoostTypeUUID,
+                          .uuid = kBassBoostSwImplUUID,
+                          .proxy = kBassBoostProxyUUID},
+                   .flags = {.type = Flags::Type::INSERT,
+                             .insert = Flags::Insert::FIRST,
+                             .volume = Flags::Volume::CTRL},
+                   .name = BassBoostSw::kEffectName,
+                   .implementor = "The Android Open Source Project"},
+        .capability = BassBoostSw::kCapability};
 
 ndk::ScopedAStatus BassBoostSw::getDescriptor(Descriptor* _aidl_return) {
     LOG(DEBUG) << __func__ << kDescriptor.toString();
@@ -73,28 +85,73 @@ ndk::ScopedAStatus BassBoostSw::getDescriptor(Descriptor* _aidl_return) {
 ndk::ScopedAStatus BassBoostSw::setParameterSpecific(const Parameter::Specific& specific) {
     RETURN_IF(Parameter::Specific::bassBoost != specific.getTag(), EX_ILLEGAL_ARGUMENT,
               "EffectNotSupported");
-    std::lock_guard lg(mMutex);
     RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
 
-    mSpecificParam = specific.get<Parameter::Specific::bassBoost>();
-    LOG(DEBUG) << __func__ << " success with: " << specific.toString();
-    return ndk::ScopedAStatus::ok();
+    auto& bbParam = specific.get<Parameter::Specific::bassBoost>();
+    RETURN_IF(!inRange(bbParam, kRanges), EX_ILLEGAL_ARGUMENT, "outOfRange");
+    auto tag = bbParam.getTag();
+
+    switch (tag) {
+        case BassBoost::strengthPm: {
+            const auto strength = bbParam.get<BassBoost::strengthPm>();
+            RETURN_IF(mContext->setBbStrengthPm(strength) != RetCode::SUCCESS, EX_ILLEGAL_ARGUMENT,
+                      "strengthPmNotSupported");
+            return ndk::ScopedAStatus::ok();
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "BassBoostTagNotSupported");
+        }
+    }
 }
 
 ndk::ScopedAStatus BassBoostSw::getParameterSpecific(const Parameter::Id& id,
                                                      Parameter::Specific* specific) {
     auto tag = id.getTag();
     RETURN_IF(Parameter::Id::bassBoostTag != tag, EX_ILLEGAL_ARGUMENT, "wrongIdTag");
-    specific->set<Parameter::Specific::bassBoost>(mSpecificParam);
+    auto bbId = id.get<Parameter::Id::bassBoostTag>();
+    auto bbIdTag = bbId.getTag();
+    switch (bbIdTag) {
+        case BassBoost::Id::commonTag:
+            return getParameterBassBoost(bbId.get<BassBoost::Id::commonTag>(), specific);
+        default:
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "BassBoostTagNotSupported");
+    }
+}
+
+ndk::ScopedAStatus BassBoostSw::getParameterBassBoost(const BassBoost::Tag& tag,
+                                                      Parameter::Specific* specific) {
+    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+    BassBoost bbParam;
+    switch (tag) {
+        case BassBoost::strengthPm: {
+            bbParam.set<BassBoost::strengthPm>(mContext->getBbStrengthPm());
+            break;
+        }
+        default: {
+            LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
+                                                                    "BassBoostTagNotSupported");
+        }
+    }
+
+    specific->set<Parameter::Specific::bassBoost>(bbParam);
     return ndk::ScopedAStatus::ok();
 }
 
 std::shared_ptr<EffectContext> BassBoostSw::createContext(const Parameter::Common& common) {
     if (mContext) {
         LOG(DEBUG) << __func__ << " context already exist";
-        return mContext;
+    } else {
+        mContext = std::make_shared<BassBoostSwContext>(1 /* statusFmqDepth */, common);
     }
-    mContext = std::make_shared<BassBoostSwContext>(1 /* statusFmqDepth */, common);
+    return mContext;
+}
+
+std::shared_ptr<EffectContext> BassBoostSw::getContext() {
     return mContext;
 }
 
@@ -106,13 +163,18 @@ RetCode BassBoostSw::releaseContext() {
 }
 
 // Processing method running in EffectWorker thread.
-IEffect::Status BassBoostSw::effectProcessImpl(float* in, float* out, int process) {
+IEffect::Status BassBoostSw::effectProcessImpl(float* in, float* out, int samples) {
     // TODO: get data buffer and process.
-    LOG(DEBUG) << __func__ << " in " << in << " out " << out << " process " << process;
-    for (int i = 0; i < process; i++) {
+    LOG(DEBUG) << __func__ << " in " << in << " out " << out << " samples " << samples;
+    for (int i = 0; i < samples; i++) {
         *out++ = *in++;
     }
-    return {STATUS_OK, process, process};
+    return {STATUS_OK, samples, samples};
+}
+
+RetCode BassBoostSwContext::setBbStrengthPm(int strength) {
+    mStrength = strength;
+    return RetCode::SUCCESS;
 }
 
 }  // namespace aidl::android::hardware::audio::effect

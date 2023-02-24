@@ -18,6 +18,7 @@ package android.hardware.cas;
 
 /**
  * The Scrambling Mode.
+ * @hide
  */
 @VintfStability
 @Backing(type="int")
@@ -70,11 +71,6 @@ enum ScramblingMode {
     AES128,
 
     /**
-     * Advanced Encryption System (AES) Cipher Block Chaining (CBC) mode.
-     */
-    AES_CBC,
-
-    /**
      * Advanced Encryption System (AES) Electronic Code Book (ECB) mode.
      */
     AES_ECB,
@@ -95,4 +91,9 @@ enum ScramblingMode {
      * Engineers (SCTE) 52 mode.
      */
     TDES_SCTE52,
+
+    /**
+     * Advanced Encryption System (AES) Cipher Block Chaining (CBC) mode.
+     */
+    AES_CBC,
 }
