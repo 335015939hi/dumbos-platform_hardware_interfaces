@@ -49,6 +49,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04314969_f21a7aff",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoKey.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-02-24T23:45:52Z",
+      "side": 1,
+      "message": "Yes, these are the functions used when you want to get kek and kak. Other TAs that currently use HwKey are gatekeeper, storage, widevine.",
+      "parentUuid": "d32e3ba3_d396bf7a",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58232b3f_0d234883",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoKey.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-02-24T23:45:52Z",
+      "side": 1,
+      "message": "Sure, will work on it and add it to the CL.",
+      "parentUuid": "06985153_774d55aa",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b12a25e_aba36a15",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
         "patchSetId": 3
@@ -60,6 +108,30 @@
       "writtenOn": "2023-02-24T02:41:24Z",
       "side": 1,
       "message": "Just for my information, is there an equivalent interface existing in Trusty for this or is the only equivalent of this the implementation of the `Rng` trait in the set of keymint crypto traits?",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "045f1b54_a3e6693b",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-02-24T23:45:52Z",
+      "side": 1,
+      "message": "Yes, for RNG trusty currently has this interface: trusty/user/base/lib/rng/include/lib/rng/trusty_rng.h.",
+      "parentUuid": "0b12a25e_aba36a15",
       "range": {
         "startLine": 9,
         "startChar": 10,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50087a3c_93bac6eb",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-02-24T23:45:52Z",
+      "side": 1,
+      "message": "Seeing that the example you mention here is AIDL, we should be able to do something similar on secure HAL. After looking at that definition I am not 100% sure how the error is returned, will ping you to understand it more; thanks!",
+      "parentUuid": "b9efaebe_595d31e5",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 16
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fdbbd19b_54814793",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
         "patchSetId": 3
@@ -106,6 +202,30 @@
       "writtenOn": "2023-02-24T02:41:24Z",
       "side": 1,
       "message": "Does this mean that the implementation of this method will internally call `get_hw_rand_bytes`?",
+      "range": {
+        "startLine": 21,
+        "startChar": 33,
+        "endLine": 21,
+        "endChar": 56
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d8e6efc_9ba565da",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-02-24T23:45:52Z",
+      "side": 1,
+      "message": "For seeding it; yes.",
+      "parentUuid": "fdbbd19b_54814793",
       "range": {
         "startLine": 21,
         "startChar": 33,
@@ -141,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65360655_167db32a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-02-24T23:45:52Z",
+      "side": 1,
+      "message": "Good question. Seems that theoretically it is 1MB(https://developer.android.com/reference/android/os/TransactionTooLargeException) but I am not sure if our trusty implementation can even handle that amount of data on a single call.",
+      "parentUuid": "5320e736_2d960ff2",
+      "range": {
+        "startLine": 23,
+        "startChar": 59,
+        "endLine": 23,
+        "endChar": 79
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56c104ab_2d803559",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
         "patchSetId": 3
@@ -152,6 +296,30 @@
       "writtenOn": "2023-02-24T02:41:24Z",
       "side": 1,
       "message": "Does this have any relation/dependency to `get_secure_rand_bytes` or `get_hw_rand_bytes` methods?",
+      "range": {
+        "startLine": 32,
+        "startChar": 34,
+        "endLine": 32,
+        "endChar": 42
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7a2607b_dbfcf21b",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-02-24T23:45:52Z",
+      "side": 1,
+      "message": "it is related to `get_secure_rand_bytes`; it should be equivalent to call it with a buffer of size 8.",
+      "parentUuid": "56c104ab_2d803559",
       "range": {
         "startLine": 32,
         "startChar": 34,
