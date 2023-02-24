@@ -16,6 +16,23 @@
       "message": "This is a CP to the VTS QPR branch.",
       "revId": "f38d908d4325bbbdd35e7c07535e01ae214d4e2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f514e2dd_0a486761",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-24T21:46:58Z",
+      "side": 1,
+      "message": "Ross, could you please give a DrNo\u0027s approval.",
+      "revId": "f38d908d4325bbbdd35e7c07535e01ae214d4e2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
