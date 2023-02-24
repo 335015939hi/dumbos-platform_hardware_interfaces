@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06985153_774d55aa",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoKey.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-02-24T02:41:24Z",
+      "side": 1,
+      "message": "Nit: an intro at the top would be helpful.",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d32e3ba3_d396bf7a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoKey.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-02-24T02:41:24Z",
+      "side": 1,
+      "message": "Is this related to the `RetrieveKeyMaterial` trait in keymint device traits? `https://cs.android.com/android/platform/superproject/+/master:system/keymint/ta/src/device.rs;l\u003d56`\n\nAre there any other TAs or components that could use this API other than Keymint?",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b12a25e_aba36a15",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-02-24T02:41:24Z",
+      "side": 1,
+      "message": "Just for my information, is there an equivalent interface existing in Trusty for this or is the only equivalent of this the implementation of the `Rng` trait in the set of keymint crypto traits?",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9efaebe_595d31e5",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-02-24T02:41:24Z",
+      "side": 1,
+      "message": "I am not sure if secure HAL is different from the vendor HAL. Do we need to define a return type for the error code? E.g. in the function here, the return type is defined as void, but it is still possible to return the error back to the caller.\nhttps://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl;l\u003d283",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 16
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdbbd19b_54814793",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-02-24T02:41:24Z",
+      "side": 1,
+      "message": "Does this mean that the implementation of this method will internally call `get_hw_rand_bytes`?",
+      "range": {
+        "startLine": 21,
+        "startChar": 33,
+        "endLine": 21,
+        "endChar": 56
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5320e736_2d960ff2",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-02-24T02:41:24Z",
+      "side": 1,
+      "message": "Isn\u0027t there any upper limit restricted by the binder framework?",
+      "range": {
+        "startLine": 23,
+        "startChar": 59,
+        "endLine": 23,
+        "endChar": 79
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c104ab_2d803559",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-02-24T02:41:24Z",
+      "side": 1,
+      "message": "Does this have any relation/dependency to `get_secure_rand_bytes` or `get_hw_rand_bytes` methods?",
+      "range": {
+        "startLine": 32,
+        "startChar": 34,
+        "endLine": 32,
+        "endChar": 42
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
