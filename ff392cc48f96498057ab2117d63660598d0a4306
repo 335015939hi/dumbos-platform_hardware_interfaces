@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a588457_f080aa99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1101486
+      },
+      "writtenOn": "2023-02-27T12:51:37Z",
+      "side": 1,
+      "message": "Hi Rajesh,\nI just updated my BSP and I found the following issue while I was executing the keymint VTS.\nPlease, could you review my patch?\nThank you,\nAlexandre.",
+      "revId": "ff392cc48f96498057ab2117d63660598d0a4306",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
