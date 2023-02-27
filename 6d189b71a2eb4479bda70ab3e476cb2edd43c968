@@ -16,6 +16,23 @@
       "message": "CrOS ARC++ still uses the passthrough hal on a few devices.  This makes `GraphicBufferMapper::preloadHal` meaningful on those devices.",
       "revId": "6d189b71a2eb4479bda70ab3e476cb2edd43c968",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72e01d4f_298ccc04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339259
+      },
+      "writtenOn": "2023-02-27T22:30:35Z",
+      "side": 1,
+      "message": "Thanks for the prompt review, John!",
+      "revId": "6d189b71a2eb4479bda70ab3e476cb2edd43c968",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
