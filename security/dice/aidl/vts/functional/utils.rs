@@ -15,7 +15,7 @@
 use android_hardware_security_dice::aidl::android::hardware::security::dice::IDiceDevice::IDiceDevice;
 use anyhow::Result;
 use binder::Strong;
-use keystore2_vintf::get_aidl_instances;
+use binder::get_declared_instances;
 use std::sync::Arc;
 
 static DICE_DEVICE_SERVICE_NAME: &str = &"android.hardware.security.dice";
@@ -28,7 +28,7 @@ pub fn with_connection<R, F>(test: F)
 where
     F: Fn(&Strong<dyn IDiceDevice>) -> Result<R>,
 {
-    let instances = get_aidl_instances(DICE_DEVICE_SERVICE_NAME, 1, DICE_DEVICE_INTERFACE_NAME);
+    let instances = get_declared_instances(format!("{}.{}", DICE_DEVICE_SERVICE_NAME, DICE_DEVICE_INTERFACE_NAME).as_str());
     let panic_hook = Arc::new(std::panic::take_hook());
     for i in instances.into_iter() {
         let panic_hook_clone = panic_hook.clone();
