@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce648c04_76bb5fdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-02-27T19:11:10Z",
+      "side": 1,
+      "message": "This HAL was never used/working, and there is no record of it on any devices, so it is being removed. b/270511529",
+      "revId": "acc1a5bd383e3374397e0af8f20cf8da3109cc24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
