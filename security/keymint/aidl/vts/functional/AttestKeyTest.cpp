@@ -79,6 +79,10 @@ string get_imei(int slot) {
         LOG(ERROR) << "Error in parsing the command output. Cmd: " << cmd;
         return "";
     }
+    if (out[0] == "null") {
+        LOG(ERROR) << "Imei is null: " << cmd;
+        return "";
+    }
 
     return ::android::base::Trim(out[0]);
 }
