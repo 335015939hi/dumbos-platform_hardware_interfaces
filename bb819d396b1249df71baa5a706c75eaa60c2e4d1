@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42afa2db_8e702176",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2023-02-28T10:57:42Z",
+      "side": 1,
+      "message": "@Yan for code review of this cherry-pick\n@Steven for OWNERS of the readme (we  don\u0027t have owners for this directory, as it contains other TV-related HALs as well, not just CEC/eARC).",
+      "revId": "bb819d396b1249df71baa5a706c75eaa60c2e4d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
