@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39430eec_c7673b0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T19:38:00Z",
+      "side": 1,
+      "message": "From the merge conflicts errors, it seems that I need to do a bit more internal CPs first.",
+      "revId": "d150942aa7731fab439cf10adf85884dee1b89b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
