@@ -39,6 +39,30 @@
       },
       "revId": "6a7043f7f3b3e5021020a8ce4df37bdc466dbdf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cbe5915_f0c7ce8e",
+        "filename": "audio/aidl/android/hardware/audio/core/IBluetoothA2dp.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T21:22:34Z",
+      "side": 1,
+      "message": "Removed \"and provide\", the sentence looks better without it.",
+      "parentUuid": "7b449616_afd7327a",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "6a7043f7f3b3e5021020a8ce4df37bdc466dbdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
