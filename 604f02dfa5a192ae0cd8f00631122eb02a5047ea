@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bf34cdc_4234f67c",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "Perhaps, name it `onMasterMuteChanged` for consistency.",
+      "range": {
+        "startLine": 183,
+        "startChar": 17,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be4ebb4d_b990ed4f",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "Since these can actually fail (as we can see in the USB module implementation), I think it makes sense to return ScopedAStatus from them.",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 53
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faf4c3ab_8b41f962",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "I think we need to allow a possibility to throw `EX_ILLEGAL_STATE` for `IModule.setMasterVolume` if the underlying hardware operation fails. I did not consider this possibility initially. Please update the comment here: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/android/hardware/audio/core/IModule.aidl;l\u003d626;drc\u003d6725ef536ba98491e0dc21ada96bc695a6ee1cef\n\nSame for `setMasterMute`: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/android/hardware/audio/core/IModule.aidl;l\u003d600;drc\u003d6725ef536ba98491e0dc21ada96bc695a6ee1cef",
+      "range": {
+        "startLine": 184,
+        "startChar": 17,
+        "endLine": 184,
+        "endChar": 38
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70866f6f_337d7d24",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "nit: It\u0027s more idiomatic to initialize fields in the fields initialization section: `: mMixer(mixer) {`",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 19
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10bf2611_db140081",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "Perhaps add a DEBUG log on the set of controls that we have ended up with.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 5
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d6353c1_906c16ea",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "I would suggest using C++ functions (`std::ceil`) instead, as they are often implemented as constexprs.",
+      "range": {
+        "startLine": 98,
+        "startChar": 22,
+        "endLine": 98,
+        "endChar": 26
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddb3b3a3_052b2c12",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "nit: prefer `static_cast\u003cfloat\u003e`",
+      "range": {
+        "startLine": 108,
+        "startChar": 12,
+        "endLine": 108,
+        "endChar": 19
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1949cb5_95f42f95",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "For consistency with `setVolumes` I would suggest to use a similar signature: `status_t getVolumes(std::vector\u003cfloat\u003e* result)`",
+      "range": {
+        "startLine": 153,
+        "startChar": 56,
+        "endLine": 153,
+        "endChar": 57
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe171ad_a5189118",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "Please note that there is `PLOG` which prints errno automatically: https://cs.android.com/android/platform/superproject/+/master:system/libbase/include/android-base/logging.h;l\u003d233;drc\u003d236f5fae2bc498c4884cef3a91fa71dfb218d5e5",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 45
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78cf7898_c6f4e7bc",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "Missing `if (alsaMixer \u003d\u003d nullptr) ...` check",
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a388f6f3_ec432dc5",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "Please prefer STL shared pointers to Android-specific. The latter only have to be used for objects that are managed by the Binder framework or for consistency with already existing legacy code.",
+      "range": {
+        "startLine": 85,
+        "startChar": 43,
+        "endLine": 85,
+        "endChar": 61
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "780c38f9_6230d945",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "What\u0027s the point of making the singleton refcounted? Is this to be able to release the hardware resource when there are no more clients for it? Please add a comment.",
+      "range": {
+        "startLine": 85,
+        "startChar": 28,
+        "endLine": 86,
+        "endChar": 78
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18d18070_834f3de2",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "This seems to be an obsolete class—the comment on it says \"DO NOT USE\", and an idiomatic alternative is suggested: http://cs/android-internal/system/core/libutils/include/utils/Singleton.h;l\u003d42;rcl\u003d370afc93ffb5d4642e37728acc4af42b13a00144",
+      "range": {
+        "startLine": 86,
+        "startChar": 36,
+        "endLine": 86,
+        "endChar": 56
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc155877_37b6cbc2",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "Does it make sense to propagate errors further instead of silencing them? That is, should these methods return `status_t`?",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 39
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3a6be88_9b436508",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T22:38:32Z",
+      "side": 1,
+      "message": "Please add a comment for maps stating what is used for the key—is that the card id?",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 46
+      },
+      "revId": "604f02dfa5a192ae0cd8f00631122eb02a5047ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
