@@ -16,6 +16,29 @@
       "message": "Eric, please review the proposed interface definition. I will add the implementation once we agree on its usefulness.",
       "revId": "6a7043f7f3b3e5021020a8ce4df37bdc466dbdf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b449616_afd7327a",
+        "filename": "audio/aidl/android/hardware/audio/core/IBluetoothA2dp.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-02-28T10:17:54Z",
+      "side": 1,
+      "message": "provided",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "6a7043f7f3b3e5021020a8ce4df37bdc466dbdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
