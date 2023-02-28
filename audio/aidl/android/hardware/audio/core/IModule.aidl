@@ -596,6 +596,7 @@ interface IModule {
      * @param mute Whether the output from the module is muted.
      * @throws EX_UNSUPPORTED_OPERATION If muting of combined output
      *                                  is not supported by the module.
+     * @throws EX_ILLEGAL_STATE If any error happens while muting of combined output.
      */
     void setMasterMute(boolean mute);
 
@@ -627,6 +628,7 @@ interface IModule {
      *                             accepted range.
      * @throws EX_UNSUPPORTED_OPERATION If attenuation of combined output
      *                                  is not supported by the module.
+     * @throws EX_ILLEGAL_STATE If any error happens while attenuating of combined output.
      */
     void setMasterVolume(float volume);
 
