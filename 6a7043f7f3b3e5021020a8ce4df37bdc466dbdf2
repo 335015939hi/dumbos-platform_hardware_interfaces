@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3377f6df_99aa494b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-02-28T02:56:17Z",
+      "side": 1,
+      "message": "Eric, please review the proposed interface definition. I will add the implementation once we agree on its usefulness.",
+      "revId": "6a7043f7f3b3e5021020a8ce4df37bdc466dbdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
