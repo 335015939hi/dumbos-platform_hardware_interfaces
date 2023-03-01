@@ -34,5 +34,5 @@
 package android.hardware.uwb.fira_android;
 @Backing(type="int") @VintfStability
 enum UwbVendorSessionInitSessionType {
-  CCC = 160,
+  CCC = 0xA0,
 }
