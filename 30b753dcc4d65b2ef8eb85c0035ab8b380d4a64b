@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aae87337_67e6de79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "I think it\u0027s good to go, just some technical comments to address. Thanks, Jiabin!",
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27d8ce11_6c134558",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "updating attenuation",
+      "range": {
+        "startLine": 631,
+        "startChar": 59,
+        "endLine": 631,
+        "endChar": 70
+      },
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1152ca21_7b1f146a",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "Please add an error log message",
+      "range": {
+        "startLine": 989,
+        "startChar": 11,
+        "endLine": 989,
+        "endChar": 12
+      },
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05cd257b_f894ebc9",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "Please add an error log message",
+      "range": {
+        "startLine": 1009,
+        "startChar": 15,
+        "endLine": 1009,
+        "endChar": 16
+      },
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a08e47_9b793094",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "Please lower these to \u0027verbose\u0027 level as they don\u0027t add much value for debugging IMO. I think it also makes sense to update the two existing logs above as well.",
+      "range": {
+        "startLine": 1284,
+        "startChar": 0,
+        "endLine": 1284,
+        "endChar": 56
+      },
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44800af4_9e2af7d0",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "return ok",
+      "range": {
+        "startLine": 1288,
+        "startChar": 54,
+        "endLine": 1288,
+        "endChar": 56
+      },
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc7351c6_bda16c55",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "Where are these methods declared and used?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 68
+      },
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04487ef3_f2c6740a",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "Please add a comment here and into AlsaMixer that instances of these structures are owned by ALSA.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 27
+      },
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c6eda61_583052b2",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "Should it be annotated with GUARDED_BY?",
+      "range": {
+        "startLine": 48,
+        "startChar": 22,
+        "endLine": 48,
+        "endChar": 27
+      },
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac38f66c_fa8677d3",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "Looks like these can be made const if you move their initialization to the fields initialization section in the constructor.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 18
+      },
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5890bcc3_7c61ba5f",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "Why does it have to be virtual?",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 11
+      },
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "131d48b5_b595f32c",
+        "filename": "audio/aidl/default/usb/UsbAlsaMixerControl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-01T21:26:00Z",
+      "side": 1,
+      "message": "I would suggest making the field const, and use a static method or an in place lambda for initializing it in the fields initialization section.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 32
+      },
+      "revId": "30b753dcc4d65b2ef8eb85c0035ab8b380d4a64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
