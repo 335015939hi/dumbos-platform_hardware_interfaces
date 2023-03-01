@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "992c7687_5e67d657",
+        "filename": "uwb/aidl/aidl_api/android.hardware.uwb.fira_android/2/.hash",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-03-01T00:52:31Z",
+      "side": 1,
+      "message": "note - hash changed due to accidental early freezing of interface before release, see internal change.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 40
+      },
+      "revId": "3b1252c88c00c660da4c7bd92544418bed562bd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
