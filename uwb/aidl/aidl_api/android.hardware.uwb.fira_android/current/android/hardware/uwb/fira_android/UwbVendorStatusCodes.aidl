@@ -34,6 +34,6 @@
 package android.hardware.uwb.fira_android;
 @Backing(type="byte") @VintfStability
 enum UwbVendorStatusCodes {
-  STATUS_ERROR_CCC_SE_BUSY = 80,
-  STATUS_ERROR_CCC_LIFECYCLE = 81,
+  STATUS_ERROR_CCC_SE_BUSY = 0x50,
+  STATUS_ERROR_CCC_LIFECYCLE = 0x51,
 }
