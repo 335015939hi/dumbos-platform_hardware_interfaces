@@ -22,6 +22,30 @@
       },
       "revId": "a794f831624de03bd95a65ca78376e0289de9891",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5ac6354_dd944e8d",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-03-02T23:36:40Z",
+      "side": 1,
+      "message": "Yes.  The difference is that now you wait every time.  The case that was missed before was:\n\n- Send Data packets\n- Number of Completed Packets Event\n- Time passes\n- Number of Completed Packets Event\n\nThe original code assumed that once you got an event, all of the events would arrive.",
+      "parentUuid": "1f79ef76_60e607e2",
+      "range": {
+        "startLine": 519,
+        "startChar": 2,
+        "endLine": 527,
+        "endChar": 5
+      },
+      "revId": "a794f831624de03bd95a65ca78376e0289de9891",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
