@@ -17,7 +17,8 @@
 package android.hardware.audio.effect;
 
 import android.hardware.audio.effect.AcousticEchoCanceler;
-import android.hardware.audio.effect.AutomaticGainControl;
+import android.hardware.audio.effect.AutomaticGainControlV1;
+import android.hardware.audio.effect.AutomaticGainControlV2;
 import android.hardware.audio.effect.BassBoost;
 import android.hardware.audio.effect.Downmix;
 import android.hardware.audio.effect.DynamicsProcessing;
@@ -43,6 +44,14 @@ import android.media.audio.common.AudioSource;
  * 1. Common parameters are essential parameters, MUST pass to effects at open() interface.
  * 2. Parameters defined for a specific effect type.
  * 3. Extension parameters ParcelableHolder can be used for vendor effect definition.
+ *
+ * All parameter settings must be inside the range of Capability.Range.$EffectType$ definition. If
+ * an effect implementation doesn't have limitation for a parameter, then don't define any effect
+ * range.
+ *
+ * All parameters are get-able, if any parameter doesn't support set, effect implementation should
+ * report the supported range for this parameter as range.min > range.max. If no support range is
+ * defined for a parameter, it means this parameter doesn't have any limitation.
  *
  */
 @VintfStability
@@ -75,7 +84,8 @@ union Parameter {
          *
          */
         AcousticEchoCanceler.Id acousticEchoCancelerTag;
-        AutomaticGainControl.Id automaticGainControlTag;
+        AutomaticGainControlV1.Id automaticGainControlV1Tag;
+        AutomaticGainControlV2.Id automaticGainControlV2Tag;
         BassBoost.Id bassBoostTag;
         Downmix.Id downmixTag;
         DynamicsProcessing.Id dynamicsProcessingTag;
@@ -157,7 +167,8 @@ union Parameter {
     union Specific {
         VendorExtension vendorEffect;
         AcousticEchoCanceler acousticEchoCanceler;
-        AutomaticGainControl automaticGainControl;
+        AutomaticGainControlV1 automaticGainControlV1;
+        AutomaticGainControlV2 automaticGainControlV2;
         BassBoost bassBoost;
         Downmix downmix;
         DynamicsProcessing dynamicsProcessing;

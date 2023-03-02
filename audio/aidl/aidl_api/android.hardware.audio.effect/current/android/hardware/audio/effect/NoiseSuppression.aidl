@@ -36,14 +36,11 @@ package android.hardware.audio.effect;
 union NoiseSuppression {
   android.hardware.audio.effect.VendorExtension vendor;
   android.hardware.audio.effect.NoiseSuppression.Level level;
+  android.hardware.audio.effect.NoiseSuppression.Type type;
   @VintfStability
   union Id {
     int vendorExtensionTag;
     android.hardware.audio.effect.NoiseSuppression.Tag commonTag;
-  }
-  @VintfStability
-  parcelable Capability {
-    ParcelableHolder extension;
   }
   @Backing(type="int") @VintfStability
   enum Level {
@@ -51,5 +48,10 @@ union NoiseSuppression {
     MEDIUM,
     HIGH,
     VERY_HIGH,
+  }
+  @Backing(type="int") @VintfStability
+  enum Type {
+    SINGLE_CHANNEL,
+    MULTI_CHANNEL,
   }
 }

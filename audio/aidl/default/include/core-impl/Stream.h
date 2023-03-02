@@ -32,10 +32,10 @@
 #include <aidl/android/hardware/audio/core/BnStreamOut.h>
 #include <aidl/android/hardware/audio/core/IStreamCallback.h>
 #include <aidl/android/hardware/audio/core/IStreamOutEventCallback.h>
-#include <aidl/android/hardware/audio/core/MicrophoneInfo.h>
 #include <aidl/android/hardware/audio/core/StreamDescriptor.h>
 #include <aidl/android/media/audio/common/AudioDevice.h>
 #include <aidl/android/media/audio/common/AudioOffloadInfo.h>
+#include <aidl/android/media/audio/common/MicrophoneInfo.h>
 #include <fmq/AidlMessageQueue.h>
 #include <system/thread_defs.h>
 #include <utils/Errors.h>
@@ -413,7 +413,8 @@ class StreamIn : public StreamCommonImpl<::aidl::android::hardware::audio::commo
                 getStreamCommon(_aidl_return);
     }
     ndk::ScopedAStatus getActiveMicrophones(
-            std::vector<MicrophoneDynamicInfo>* _aidl_return) override;
+            std::vector<::aidl::android::media::audio::common::MicrophoneDynamicInfo>* _aidl_return)
+            override;
     ndk::ScopedAStatus getMicrophoneDirection(MicrophoneDirection* _aidl_return) override;
     ndk::ScopedAStatus setMicrophoneDirection(MicrophoneDirection in_direction) override;
     ndk::ScopedAStatus getMicrophoneFieldDimension(float* _aidl_return) override;
@@ -434,7 +435,7 @@ class StreamIn : public StreamCommonImpl<::aidl::android::hardware::audio::commo
     StreamIn(const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
              StreamContext&& context, const DriverInterface::CreateInstance& createDriver,
              const StreamWorkerInterface::CreateInstance& createWorker,
-             const std::vector<MicrophoneInfo>& microphones);
+             const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones);
     void createStreamCommon(const std::shared_ptr<StreamIn>& myPtr) {
         StreamCommonImpl<
                 ::aidl::android::hardware::audio::common::SinkMetadata>::createStreamCommon(myPtr);
@@ -445,7 +446,8 @@ class StreamIn : public StreamCommonImpl<::aidl::android::hardware::audio::commo
   public:
     using CreateInstance = std::function<ndk::ScopedAStatus(
             const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
-            StreamContext&& context, const std::vector<MicrophoneInfo>& microphones,
+            StreamContext&& context,
+            const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones,
             std::shared_ptr<StreamIn>* result)>;
 };
 
@@ -461,6 +463,9 @@ class StreamOut : public StreamCommonImpl<::aidl::android::hardware::audio::comm
         return StreamCommonImpl<::aidl::android::hardware::audio::common::SourceMetadata>::
                 updateMetadata(in_sourceMetadata);
     }
+    ndk::ScopedAStatus updateOffloadMetadata(
+            const ::aidl::android::hardware::audio::common::AudioOffloadMetadata&
+                    in_offloadMetadata) override;
     ndk::ScopedAStatus getHwVolume(std::vector<float>* _aidl_return) override;
     ndk::ScopedAStatus setHwVolume(const std::vector<float>& in_channelVolumes) override;
     ndk::ScopedAStatus getAudioDescriptionMixLevel(float* _aidl_return) override;
@@ -498,6 +503,7 @@ class StreamOut : public StreamCommonImpl<::aidl::android::hardware::audio::comm
                       offloadInfo);
 
     std::optional<::aidl::android::media::audio::common::AudioOffloadInfo> mOffloadInfo;
+    std::optional<::aidl::android::hardware::audio::common::AudioOffloadMetadata> mOffloadMetadata;
 
   public:
     using CreateInstance = std::function<ndk::ScopedAStatus(

@@ -751,8 +751,6 @@ Status CameraAidlTest::getAvailableOutputStreams(const camera_metadata_t* static
                                                  std::vector<AvailableStream>& outputStreams,
                                                  const AvailableStream* threshold,
                                                  bool maxResolution) {
-    AvailableStream depthPreviewThreshold = {kMaxPreviewWidth, kMaxPreviewHeight,
-                                             static_cast<int32_t>(PixelFormat::Y16)};
     if (nullptr == staticMeta) {
         return Status::ILLEGAL_ARGUMENT;
     }
@@ -778,7 +776,11 @@ Status CameraAidlTest::getAvailableOutputStreams(const camera_metadata_t* static
     }
 
     if (foundDepth == 0 && (0 == (depthEntry.count % 4))) {
-        fillOutputStreams(&depthEntry, outputStreams, &depthPreviewThreshold,
+        AvailableStream depthPreviewThreshold = {kMaxPreviewWidth, kMaxPreviewHeight,
+                                                 static_cast<int32_t>(PixelFormat::Y16)};
+        const AvailableStream* depthThreshold =
+                (threshold != nullptr) ? threshold : &depthPreviewThreshold;
+        fillOutputStreams(&depthEntry, outputStreams, depthThreshold,
                           ANDROID_DEPTH_AVAILABLE_DEPTH_STREAM_CONFIGURATIONS_OUTPUT);
     }
 
@@ -2332,6 +2334,7 @@ void CameraAidlTest::processPreviewStabilizationCaptureRequestInternal(
         request.fmqSettingsSize = 0;
         request.settings.metadata =
                 std::vector(rawMetadata, rawMetadata + get_camera_metadata_size(releasedMetadata));
+        overrideRotateAndCrop(&request.settings);
         request.outputBuffers = std::vector<StreamBuffer>(1);
         StreamBuffer& outputBuffer = request.outputBuffers[0];
         if (useHalBufManager) {

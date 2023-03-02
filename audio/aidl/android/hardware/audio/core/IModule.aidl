@@ -21,12 +21,12 @@ import android.hardware.audio.common.SourceMetadata;
 import android.hardware.audio.core.AudioPatch;
 import android.hardware.audio.core.AudioRoute;
 import android.hardware.audio.core.IBluetooth;
+import android.hardware.audio.core.IBluetoothA2dp;
 import android.hardware.audio.core.IStreamCallback;
 import android.hardware.audio.core.IStreamIn;
 import android.hardware.audio.core.IStreamOut;
 import android.hardware.audio.core.IStreamOutEventCallback;
 import android.hardware.audio.core.ITelephony;
-import android.hardware.audio.core.MicrophoneInfo;
 import android.hardware.audio.core.ModuleDebug;
 import android.hardware.audio.core.StreamDescriptor;
 import android.hardware.audio.core.VendorParameter;
@@ -39,6 +39,7 @@ import android.media.audio.common.AudioOffloadInfo;
 import android.media.audio.common.AudioPort;
 import android.media.audio.common.AudioPortConfig;
 import android.media.audio.common.Float;
+import android.media.audio.common.MicrophoneInfo;
 
 /**
  * Each instance of IModule corresponds to a separate audio module. The system
@@ -101,6 +102,20 @@ interface IModule {
      * @throws EX_ILLEGAL_STATE If there was an error creating an instance.
      */
     @nullable IBluetooth getBluetooth();
+
+    /**
+     * Retrieve the interface to control Bluetooth A2DP.
+     *
+     * If the HAL module supports A2DP Profile functionality for Bluetooth, it
+     * must return an instance of the IBluetoothA2dp interface. The same
+     * instance must be returned during the lifetime of the HAL module. If the
+     * HAL module does not support BT A2DP, a null must be returned, without
+     * throwing any errors.
+     *
+     * @return An instance of the IBluetoothA2dp interface implementation.
+     * @throws EX_ILLEGAL_STATE If there was an error creating an instance.
+     */
+    @nullable IBluetoothA2dp getBluetoothA2dp();
 
     /**
      * Set a device port of an external device into connected state.

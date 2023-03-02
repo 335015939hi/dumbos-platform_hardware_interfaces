@@ -35,16 +35,18 @@ class NoiseSuppressionSwContext final : public EffectContext {
 
     RetCode setLevel(NoiseSuppression::Level level);
     NoiseSuppression::Level getLevel();
+    RetCode setType(NoiseSuppression::Type type);
+    NoiseSuppression::Type getType() { return mType; }
 
   private:
     NoiseSuppression::Level mLevel = NoiseSuppression::Level::LOW;
+    NoiseSuppression::Type mType = NoiseSuppression::Type::SINGLE_CHANNEL;
 };
 
 class NoiseSuppressionSw final : public EffectImpl {
   public:
     static const std::string kEffectName;
     static const bool kStrengthSupported;
-    static const NoiseSuppression::Capability kCapability;
     static const Descriptor kDescriptor;
     NoiseSuppressionSw() { LOG(DEBUG) << __func__; }
     ~NoiseSuppressionSw() {

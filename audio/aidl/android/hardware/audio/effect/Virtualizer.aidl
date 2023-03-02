@@ -17,14 +17,15 @@
 package android.hardware.audio.effect;
 
 import android.hardware.audio.effect.VendorExtension;
+import android.media.audio.common.AudioChannelLayout;
+import android.media.audio.common.AudioDeviceDescription;
 
 /**
  * Virtualizer specific definitions. An audio virtualizer is a general name for an effect to
  * spatialize audio channels.
  *
- * All parameters defined in union Virtualizer must be gettable and settable. The capabilities
- * defined in Virtualizer.Capability can only acquired with IEffect.getDescriptor() and not
- * settable.
+ * All parameter settings must be inside the range of Capability.Range.virtualizer definition if the
+ * definition for the corresponding parameter tag exist. See more detals about Range in Range.aidl.
  */
 @VintfStability
 union Virtualizer {
@@ -35,6 +36,7 @@ union Virtualizer {
     union Id {
         int vendorExtensionTag;
         Virtualizer.Tag commonTag;
+        SpeakerAnglesPayload speakerAnglesPayload;
     }
 
     /**
@@ -43,24 +45,22 @@ union Virtualizer {
     VendorExtension vendor;
 
     /**
-     * Capability supported by Virtualizer implementation.
+     * Payload to query speaker angles for the given channel position mask and device.
+     * The Virtualizer implementation must return EX_ILLEGAL_ARGUMENT if the given payload not
+     * supported.
      */
     @VintfStability
-    parcelable Capability {
+    parcelable SpeakerAnglesPayload {
         /**
-         * Virtualizer capability extension, vendor can use this extension in case existing
-         * capability definition not enough.
+         * Audio channel position definition. See
+         * android.media.audio.common.AudioChannelLayout.aidl. Only the channel position "CHANNEL_*"
+         * in AudioChannelLayout be used.
          */
-        VendorExtension extension;
+        AudioChannelLayout layout;
         /**
-         * Maximum possible per mille strength.
+         * Audio device type. See android.media.audio.common.AudioDeviceDescription.aidl.
          */
-        int maxStrengthPm;
-        /**
-         * Indicates whether setting strength is supported. False value indicates only one strength
-         * is supported and setParameter() method will always return EX_ILLEGAL_ARGUMENT.
-         */
-        boolean strengthSupported;
+        AudioDeviceDescription device;
     }
 
     /**
@@ -70,8 +70,42 @@ union Virtualizer {
      * allowed to round the given strength to the nearest supported value. In this case {@link
      * #IEffect.getParameter()} method should return the rounded value that was actually set.
      *
-     * The value of the strength must be non-negative and not exceed the value specified by
-     * the 'maxStrengthPm' capability.
      */
     int strengthPm;
+
+    /**
+     * All angles are expressed in degrees and are relative to the listener.
+     */
+    @VintfStability
+    parcelable ChannelAngle {
+        /**
+         * Audio channel layout, CHANNEL_* constants defined in
+         * android.media.audio.common.AudioChannelLayout.
+         */
+        int channel;
+
+        /**
+         * 0 is the direction the listener faces, 180 is behind the listener, and -90 is left of
+         * the listener.
+         */
+        int azimuthDegree;
+
+        /**
+         * 0 is the horizontal plane, +90 is above the listener, -90 is below.
+         */
+        int elevationDegree;
+    }
+
+    /**
+     * Get only parameter.
+     * A vector of angles per channel represented by azimuth and elevation (in degrees), client must
+     * set Parameter.Id to SpeakerAnglesPayload to get speakerAngles.
+     */
+    ChannelAngle[] speakerAngles;
+
+    /**
+     * Get only parameter.
+     * The audio device on which virtualzation mode is forced.
+     */
+    AudioDeviceDescription device;
 }
