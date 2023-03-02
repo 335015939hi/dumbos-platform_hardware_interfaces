@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f79ef76_60e607e2",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-03-02T23:28:55Z",
+      "side": 1,
+      "message": "Is there a different between this fix and \n```\nwait_for_event(true); // true instead of false here\nif (event_queue.empty()) {\n  ..\n}\nwhile (event_queue.size() \u003e 0) {\n  ..\n}\n```\nI haven\u0027t checked all functions to know what they are doing but\nyour change seems to be equivalent.",
+      "range": {
+        "startLine": 519,
+        "startChar": 2,
+        "endLine": 527,
+        "endChar": 5
+      },
+      "revId": "a794f831624de03bd95a65ca78376e0289de9891",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
