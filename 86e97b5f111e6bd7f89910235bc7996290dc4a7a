@@ -33,6 +33,23 @@
       "message": "Requesting DrNo review",
       "revId": "86e97b5f111e6bd7f89910235bc7996290dc4a7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c7eb13e_f30108c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-03-02T02:28:07Z",
+      "side": 1,
+      "message": "CP\u0027ed from master",
+      "revId": "86e97b5f111e6bd7f89910235bc7996290dc4a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
