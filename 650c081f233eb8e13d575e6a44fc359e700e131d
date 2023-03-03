@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a9903a4_4b46715e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-03T21:44:07Z",
+      "side": 0,
+      "message": "I cannot find any reason we were previously doing this.\n\nIf anyone has a pointer to the requirement, LMK and I\u0027ll make a second pass at this.",
+      "range": {
+        "startLine": 1139,
+        "startChar": 51,
+        "endLine": 1139,
+        "endChar": 70
+      },
+      "revId": "650c081f233eb8e13d575e6a44fc359e700e131d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
