@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1c73a7c_b4ad24a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-03T19:41:52Z",
+      "side": 1,
+      "message": "Hi Mikhail, `hardware/interfaces/audio/aidl/default/extension/ExtensionEffect.cpp` is an example of how to implement an vendor extension effect.",
+      "revId": "291ba70901307aa1da7b25e36ccf51ba35ecd40a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
