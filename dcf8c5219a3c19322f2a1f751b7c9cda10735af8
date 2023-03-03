@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36860789_84df61c3",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-03-03T12:46:26Z",
+      "side": 1,
+      "message": "This should be name check_crl_..._not_present because  it asserts that the extension isn\u0027t in the certificate.",
+      "range": {
+        "startLine": 111,
+        "startChar": 5,
+        "endLine": 111,
+        "endChar": 51
+      },
+      "revId": "dcf8c5219a3c19322f2a1f751b7c9cda10735af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
