@@ -16,6 +16,24 @@
       "message": "Should we replace this with a few \u0027\u003d delete\u0027 entries?",
       "revId": "c30ca3077d8fbd28671875eb33be1b266941f426",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d970b6ff_32829ff0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2023-03-04T00:56:10Z",
+      "side": 1,
+      "message": "All of these classes derive from SensorsVtsEnvironmentBase, so it should be enough to delete the copy constructor and copy assignment in the base class.",
+      "parentUuid": "7113a6fc_4d46d85f",
+      "revId": "c30ca3077d8fbd28671875eb33be1b266941f426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
