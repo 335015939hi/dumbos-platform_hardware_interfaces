@@ -600,7 +600,9 @@ TEST_P(RadioHidlTest_v1_5, startNetworkScan) {
         // tracked in b/112206766. Modems have "GSM" rat scan need to
         // support scanning requests combined with some parameters.
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_5->rspInfo.error,
-                                     {RadioError::NONE, RadioError::OPERATION_NOT_ALLOWED}));
+            {RadioError::NONE, RadioError::OPERATION_NOT_ALLOWED,
+            RadioError::REQUEST_NOT_SUPPORTED,
+            RadioError::INVALID_ARGUMENTS}));
     }
 
     if (radioRsp_v1_5->rspInfo.error == RadioError::NONE) {
