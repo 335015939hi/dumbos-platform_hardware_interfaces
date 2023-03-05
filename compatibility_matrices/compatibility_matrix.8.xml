@@ -167,7 +167,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.bluetooth.audio</name>
-        <version>2</version>
+        <version>3</version>
         <interface>
             <name>IBluetoothAudioProviderFactory</name>
             <instance>default</instance>
@@ -399,14 +399,6 @@
         <version>1</version>
         <interface>
             <name>IInputProcessor</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-        <name>android.hardware.security.dice</name>
-        <version>1</version>
-        <interface>
-            <name>IDiceDevice</name>
             <instance>default</instance>
         </interface>
     </hal>

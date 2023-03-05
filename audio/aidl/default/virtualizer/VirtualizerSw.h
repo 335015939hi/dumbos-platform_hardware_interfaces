@@ -34,16 +34,24 @@ class VirtualizerSwContext final : public EffectContext {
     }
     RetCode setVrStrength(int strength);
     int getVrStrength() const { return mStrength; }
+    RetCode setForcedDevice(
+            const ::aidl::android::media::audio::common::AudioDeviceDescription& device) {
+        mForceDevice = device;
+        return RetCode::SUCCESS;
+    }
+    aidl::android::media::audio::common::AudioDeviceDescription getForcedDevice() const {
+        return mForceDevice;
+    }
 
   private:
     int mStrength = 0;
+    ::aidl::android::media::audio::common::AudioDeviceDescription mForceDevice;
 };
 
 class VirtualizerSw final : public EffectImpl {
   public:
     static const std::string kEffectName;
-    static const bool kStrengthSupported;
-    static const Virtualizer::Capability kCapability;
+    static const Capability kCapability;
     static const Descriptor kDescriptor;
     VirtualizerSw() { LOG(DEBUG) << __func__; }
     ~VirtualizerSw() {
@@ -64,9 +72,12 @@ class VirtualizerSw final : public EffectImpl {
     std::string getEffectName() override { return kEffectName; }
 
   private:
+    static const std::vector<Range::VirtualizerRange> kRanges;
     std::shared_ptr<VirtualizerSwContext> mContext;
 
     ndk::ScopedAStatus getParameterVirtualizer(const Virtualizer::Tag& tag,
                                                Parameter::Specific* specific);
+    ndk::ScopedAStatus getSpeakerAngles(const Virtualizer::SpeakerAnglesPayload payload,
+                                        Parameter::Specific* specific);
 };
 }  // namespace aidl::android::hardware::audio::effect

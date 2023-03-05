@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <memory>
 #include <string>
+#include <type_traits>
 #include <unordered_map>
 #include <vector>
 
@@ -27,6 +28,7 @@
 #include <aidl/android/media/audio/common/AudioChannelLayout.h>
 #include <android/binder_auto_utils.h>
 #include <fmq/AidlMessageQueue.h>
+#include <system/audio_effects/aidl_effects_utils.h>
 
 #include "AudioHalBinderServiceUtil.h"
 #include "EffectFactoryHelper.h"
@@ -37,6 +39,7 @@ using aidl::android::hardware::audio::effect::CommandId;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::Parameter;
+using aidl::android::hardware::audio::effect::Range;
 using aidl::android::hardware::audio::effect::State;
 using aidl::android::hardware::common::fmq::SynchronizedReadWrite;
 using aidl::android::media::audio::common::AudioChannelLayout;
@@ -148,16 +151,22 @@ class EffectHelper {
     }
     static void readFromFmq(std::unique_ptr<StatusMQ>& statusMq, size_t statusNum,
                             std::unique_ptr<DataMQ>& dataMq, size_t expectFloats,
-                            std::vector<float>& buffer) {
+                            std::vector<float>& buffer,
+                            std::optional<int> expectStatus = STATUS_OK) {
+        if (0 == statusNum) {
+            ASSERT_EQ(0ul, statusMq->availableToRead());
+            return;
+        }
         IEffect::Status status{};
         ASSERT_TRUE(statusMq->readBlocking(&status, statusNum));
-        ASSERT_EQ(STATUS_OK, status.status);
-        if (statusNum != 0) {
-            ASSERT_EQ(expectFloats, (unsigned)status.fmqProduced);
-            ASSERT_EQ(expectFloats, dataMq->availableToRead());
-            if (expectFloats != 0) {
-                ASSERT_TRUE(dataMq->read(buffer.data(), expectFloats));
-            }
+        if (expectStatus.has_value()) {
+            ASSERT_EQ(expectStatus.value(), status.status);
+        }
+
+        ASSERT_EQ(expectFloats, (unsigned)status.fmqProduced);
+        ASSERT_EQ(expectFloats, dataMq->availableToRead());
+        if (expectFloats != 0) {
+            ASSERT_TRUE(dataMq->read(buffer.data(), expectFloats));
         }
     }
     static Parameter::Common createParamCommon(
@@ -199,4 +208,58 @@ class EffectHelper {
         std::unique_ptr<DataMQ> inputMQ;
         std::unique_ptr<DataMQ> outputMQ;
     };
+
+    template <typename T, Range::Tag tag>
+    static bool isParameterValid(const T& target, const Descriptor& desc) {
+        if (desc.capability.range.getTag() != tag) {
+            return true;
+        }
+        const auto& ranges = desc.capability.range.get<tag>();
+        return inRange(target, ranges);
+    }
+
+    /**
+     * Add to test value set: (min+max)/2, minimum/maximum numeric limits, and min-1/max+1 if
+     * result still in numeric limits after -1/+1.
+     * Only use this when the type of test value is basic type (std::is_arithmetic return true).
+     */
+    template <typename S, typename = std::enable_if_t<std::is_arithmetic_v<S>>>
+    static std::set<S> expandTestValueBasic(std::set<S>& s) {
+        const auto min = *s.begin(), max = *s.rbegin();
+        const auto minLimit = std::numeric_limits<S>::min(),
+                   maxLimit = std::numeric_limits<S>::max();
+        if (s.size()) {
+            s.insert(min + (max - min) / 2);
+            if (min != minLimit) {
+                s.insert(min - 1);
+            }
+            if (max != maxLimit) {
+                s.insert(max + 1);
+            }
+        }
+        s.insert(minLimit);
+        s.insert(maxLimit);
+        return s;
+    }
+
+    template <typename T, typename S, Range::Tag R, typename T::Tag tag, typename Functor>
+    static std::set<S> getTestValueSet(
+            std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor>> kFactoryDescList,
+            Functor functor) {
+        std::set<S> result;
+        for (const auto& [_, desc] : kFactoryDescList) {
+            if (desc.capability.range.getTag() == R) {
+                const auto& ranges = desc.capability.range.get<R>();
+                for (const auto& range : ranges) {
+                    if (range.min.getTag() == tag) {
+                        result.insert(range.min.template get<tag>());
+                    }
+                    if (range.max.getTag() == tag) {
+                        result.insert(range.max.template get<tag>());
+                    }
+                }
+            }
+        }
+        return functor(result);
+    }
 };

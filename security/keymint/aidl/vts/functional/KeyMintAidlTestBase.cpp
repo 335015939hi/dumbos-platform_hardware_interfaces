@@ -108,27 +108,6 @@ bool KeyCharacteristicsBasicallyValid(SecurityLevel secLevel,
     return true;
 }
 
-// Extract attestation record from cert. Returned object is still part of cert; don't free it
-// separately.
-ASN1_OCTET_STRING* get_attestation_record(X509* certificate) {
-    ASN1_OBJECT_Ptr oid(OBJ_txt2obj(kAttestionRecordOid, 1 /* dotted string format */));
-    EXPECT_TRUE(!!oid.get());
-    if (!oid.get()) return nullptr;
-
-    int location = X509_get_ext_by_OBJ(certificate, oid.get(), -1 /* search from beginning */);
-    EXPECT_NE(-1, location) << "Attestation extension not found in certificate";
-    if (location == -1) return nullptr;
-
-    X509_EXTENSION* attest_rec_ext = X509_get_ext(certificate, location);
-    EXPECT_TRUE(!!attest_rec_ext)
-            << "Found attestation extension but couldn't retrieve it?  Probably a BoringSSL bug.";
-    if (!attest_rec_ext) return nullptr;
-
-    ASN1_OCTET_STRING* attest_rec = X509_EXTENSION_get_data(attest_rec_ext);
-    EXPECT_TRUE(!!attest_rec) << "Attestation extension contained no data";
-    return attest_rec;
-}
-
 void check_attestation_version(uint32_t attestation_version, int32_t aidl_version) {
     // Version numbers in attestation extensions should be a multiple of 100.
     EXPECT_EQ(attestation_version % 100, 0);
@@ -214,7 +193,15 @@ uint32_t KeyMintAidlTestBase::boot_patch_level() {
  * which is mandatory for KeyMint version 2 or first_api_level 33 or greater.
  */
 bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
-    return AidlVersion() >= 2 || property_get_int32("ro.vendor.api_level", 0) >= 33;
+    return AidlVersion() >= 2 || property_get_int32("ro.vendor.api_level", 0) >= __ANDROID_API_T__;
+}
+
+/**
+ * An API to determine second IMEI ID attestation is required or not,
+ * which is supported for KeyMint version 3 or first_api_level greater than 33.
+ */
+bool KeyMintAidlTestBase::isSecondImeiIdAttestationRequired() {
+    return AidlVersion() >= 3 && property_get_int32("ro.vendor.api_level", 0) > __ANDROID_API_T__;
 }
 
 bool KeyMintAidlTestBase::Curve25519Supported() {
@@ -544,12 +531,13 @@ ErrorCode KeyMintAidlTestBase::Begin(KeyPurpose purpose, const vector<uint8_t>& 
 
 ErrorCode KeyMintAidlTestBase::Begin(KeyPurpose purpose, const vector<uint8_t>& key_blob,
                                      const AuthorizationSet& in_params,
-                                     AuthorizationSet* out_params) {
+                                     AuthorizationSet* out_params,
+                                     std::optional<HardwareAuthToken> hat) {
     SCOPED_TRACE("Begin");
     Status result;
     BeginResult out;
 
-    result = keymint_->begin(purpose, key_blob, in_params.vector_data(), std::nullopt, &out);
+    result = keymint_->begin(purpose, key_blob, in_params.vector_data(), hat, &out);
 
     if (result.isOk()) {
         *out_params = out.params;
@@ -603,8 +591,9 @@ ErrorCode KeyMintAidlTestBase::Update(const string& input, string* output) {
     return GetReturnErrorCode(result);
 }
 
-ErrorCode KeyMintAidlTestBase::Finish(const string& input, const string& signature,
-                                      string* output) {
+ErrorCode KeyMintAidlTestBase::Finish(const string& input, const string& signature, string* output,
+                                      std::optional<HardwareAuthToken> hat,
+                                      std::optional<secureclock::TimeStampToken> time_token) {
     SCOPED_TRACE("Finish");
     Status result;
 
@@ -613,8 +602,8 @@ ErrorCode KeyMintAidlTestBase::Finish(const string& input, const string& signatu
 
     vector<uint8_t> oPut;
     result = op_->finish(vector<uint8_t>(input.begin(), input.end()),
-                         vector<uint8_t>(signature.begin(), signature.end()), {} /* authToken */,
-                         {} /* timestampToken */, {} /* confirmationToken */, &oPut);
+                         vector<uint8_t>(signature.begin(), signature.end()), hat, time_token,
+                         {} /* confirmationToken */, &oPut);
 
     if (result.isOk()) output->append(oPut.begin(), oPut.end());
 
@@ -837,7 +826,7 @@ void KeyMintAidlTestBase::CheckEncryptOneByteAtATime(BlockMode block_mode, const
         int vendor_api_level = property_get_int32("ro.vendor.api_level", 0);
         if (SecLevel() == SecurityLevel::STRONGBOX) {
             // This is known to be broken on older vendor implementations.
-            if (vendor_api_level < 33) {
+            if (vendor_api_level < __ANDROID_API_T__) {
                 compare_output = false;
             } else {
                 additional_information = " (b/194134359) ";
@@ -1743,38 +1732,33 @@ bool verify_attestation_record(int32_t aidl_version,                   //
     EXPECT_EQ(security_level, att_keymint_security_level);
     EXPECT_EQ(security_level, att_attestation_security_level);
 
-    // TODO(b/136282179): When running under VTS-on-GSI the TEE-backed
-    // keymint implementation will report YYYYMM dates instead of YYYYMMDD
-    // for the BOOT_PATCH_LEVEL.
-    if (avb_verification_enabled()) {
-        for (int i = 0; i < att_hw_enforced.size(); i++) {
-            if (att_hw_enforced[i].tag == TAG_BOOT_PATCHLEVEL ||
-                att_hw_enforced[i].tag == TAG_VENDOR_PATCHLEVEL) {
-                std::string date =
-                        std::to_string(att_hw_enforced[i].value.get<KeyParameterValue::integer>());
+    for (int i = 0; i < att_hw_enforced.size(); i++) {
+        if (att_hw_enforced[i].tag == TAG_BOOT_PATCHLEVEL ||
+            att_hw_enforced[i].tag == TAG_VENDOR_PATCHLEVEL) {
+            std::string date =
+                    std::to_string(att_hw_enforced[i].value.get<KeyParameterValue::integer>());
 
-                // strptime seems to require delimiters, but the tag value will
-                // be YYYYMMDD
-                if (date.size() != 8) {
-                    ADD_FAILURE() << "Tag " << att_hw_enforced[i].tag
-                                  << " with invalid format (not YYYYMMDD): " << date;
-                    return false;
-                }
-                date.insert(6, "-");
-                date.insert(4, "-");
-                struct tm time;
-                strptime(date.c_str(), "%Y-%m-%d", &time);
-
-                // Day of the month (0-31)
-                EXPECT_GE(time.tm_mday, 0);
-                EXPECT_LT(time.tm_mday, 32);
-                // Months since Jan (0-11)
-                EXPECT_GE(time.tm_mon, 0);
-                EXPECT_LT(time.tm_mon, 12);
-                // Years since 1900
-                EXPECT_GT(time.tm_year, 110);
-                EXPECT_LT(time.tm_year, 200);
+            // strptime seems to require delimiters, but the tag value will
+            // be YYYYMMDD
+            if (date.size() != 8) {
+                ADD_FAILURE() << "Tag " << att_hw_enforced[i].tag
+                              << " with invalid format (not YYYYMMDD): " << date;
+                return false;
             }
+            date.insert(6, "-");
+            date.insert(4, "-");
+            struct tm time;
+            strptime(date.c_str(), "%Y-%m-%d", &time);
+
+            // Day of the month (0-31)
+            EXPECT_GE(time.tm_mday, 0);
+            EXPECT_LT(time.tm_mday, 32);
+            // Months since Jan (0-11)
+            EXPECT_GE(time.tm_mon, 0);
+            EXPECT_LT(time.tm_mon, 12);
+            // Years since 1900
+            EXPECT_GT(time.tm_year, 110);
+            EXPECT_LT(time.tm_year, 200);
         }
     }
 
@@ -1894,6 +1878,27 @@ AssertionResult ChainSignaturesAreValid(const vector<Certificate>& chain,
 X509_Ptr parse_cert_blob(const vector<uint8_t>& blob) {
     const uint8_t* p = blob.data();
     return X509_Ptr(d2i_X509(nullptr /* allocate new */, &p, blob.size()));
+}
+
+// Extract attestation record from cert. Returned object is still part of cert; don't free it
+// separately.
+ASN1_OCTET_STRING* get_attestation_record(X509* certificate) {
+    ASN1_OBJECT_Ptr oid(OBJ_txt2obj(kAttestionRecordOid, 1 /* dotted string format */));
+    EXPECT_TRUE(!!oid.get());
+    if (!oid.get()) return nullptr;
+
+    int location = X509_get_ext_by_OBJ(certificate, oid.get(), -1 /* search from beginning */);
+    EXPECT_NE(-1, location) << "Attestation extension not found in certificate";
+    if (location == -1) return nullptr;
+
+    X509_EXTENSION* attest_rec_ext = X509_get_ext(certificate, location);
+    EXPECT_TRUE(!!attest_rec_ext)
+            << "Found attestation extension but couldn't retrieve it?  Probably a BoringSSL bug.";
+    if (!attest_rec_ext) return nullptr;
+
+    ASN1_OCTET_STRING* attest_rec = X509_EXTENSION_get_data(attest_rec_ext);
+    EXPECT_TRUE(!!attest_rec) << "Attestation extension contained no data";
+    return attest_rec;
 }
 
 vector<uint8_t> make_name_from_str(const string& name) {
@@ -2040,7 +2045,7 @@ void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey) 
 }
 
 void device_id_attestation_vsr_check(const ErrorCode& result) {
-    if (get_vsr_api_level() >= 34) {
+    if (get_vsr_api_level() > __ANDROID_API_T__) {
         ASSERT_FALSE(result == ErrorCode::INVALID_TAG)
                 << "It is a specification violation for INVALID_TAG to be returned due to ID "
                 << "mismatch in a Device ID Attestation call. INVALID_TAG is only intended to "
@@ -2052,9 +2057,10 @@ void device_id_attestation_vsr_check(const ErrorCode& result) {
 // Check whether the given named feature is available.
 bool check_feature(const std::string& name) {
     ::android::sp<::android::IServiceManager> sm(::android::defaultServiceManager());
-    ::android::sp<::android::IBinder> binder(sm->getService(::android::String16("package_native")));
+    ::android::sp<::android::IBinder> binder(
+        sm->waitForService(::android::String16("package_native")));
     if (binder == nullptr) {
-        GTEST_LOG_(ERROR) << "getService package_native failed";
+        GTEST_LOG_(ERROR) << "waitForService package_native failed";
         return false;
     }
     ::android::sp<::android::content::pm::IPackageManagerNative> packageMgr =
