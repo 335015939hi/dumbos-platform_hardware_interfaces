@@ -62,6 +62,9 @@ class EffectConfig {
         return mProcessingMap;
     }
 
+    static bool findUuid(const std::string& xmlEffectName,
+                         ::aidl::android::media::audio::common::AudioUuid* uuid);
+
   private:
     static constexpr const char* kEffectLibPath[] =
 #ifdef __LP64__
