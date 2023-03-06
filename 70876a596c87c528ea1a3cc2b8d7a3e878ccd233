@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d4f6af1_84e34457",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-03-06T16:02:29Z",
+      "side": 1,
+      "message": "Thanks for the queries -- I\u0027m not entirely sure myself, so I\u0027m cc\u0027ing Shawn to see if we can figure out what\u0027s expected.",
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f10f228e_181cc535",
@@ -26,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a2727a2_67dcc911",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-03-06T16:02:29Z",
+      "side": 1,
+      "message": "My rough understanding of the `AUTH_TIMEOUT(3)` tag was that it allowed use of the key as long as the relevant user had authenticated within the last 3 seconds -- and because that\u0027s prior to the `begin()`, there isn\u0027t a need to check the challenge.\n\nBut then a StrongBox device without a clock makes that more complicated, because the device can\u0027t tell if the auth token is in the last 3 seconds or not.  For that case, the subsequent `update`/`finish` gets a `TimestampToken` that does have the challenge from `begin`, so now StrongBox knows the time and can check it.\n\nDo you think that the HAT should have the challenge value from the `begin()` call (which would mean the authentication has to happen after the `begin`) ?",
+      "parentUuid": "f10f228e_181cc535",
+      "range": {
+        "startLine": 391,
+        "startChar": 19,
+        "endLine": 391,
+        "endChar": 28
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1549230f_c541e2ce",
         "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
         "patchSetId": 1
@@ -37,6 +78,30 @@
       "writtenOn": "2023-03-06T14:42:20Z",
       "side": 1,
       "message": "Double check the strongbox implementation, since \n`TAG_USER_AUTH_TYPE \u003d HardwareAuthenticatorType::NONE` when generateKey(), it won\u0027t take effect on the further HAT validation (`HAT \u003e authenticatorType`).\nAnd because the time_token has valid timestamp \u0026 sid, strongbox will just return OK here.\n\nIt seems that the meaning of `HardwareAuthenticatorType::NONE` is similar to `NO_AUTH_REQUIRED`.\nIs my understanding correct?",
+      "range": {
+        "startLine": 411,
+        "startChar": 29,
+        "endLine": 411,
+        "endChar": 55
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dad2eec0_eeef256a",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-03-06T16:02:29Z",
+      "side": 1,
+      "message": "I *think* that setting `AUTH_TYPE\u003dHardwareAuthenticatorType::NONE` basically produces an unusable key -- it requires authentication for use, but it allows for no valid authenticators.  (`HardwareAuthenticatorType::ANY` would instead allow use of any authenticator type.)\n\nBut I had previously guessed otherwise, so I\u0027m not completely sure.",
+      "parentUuid": "1549230f_c541e2ce",
       "range": {
         "startLine": 411,
         "startChar": 29,
