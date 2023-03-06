@@ -28,13 +28,13 @@
 
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
-using aidl::android::hardware::audio::effect::kNoiseSuppressionSwImplUUID;
 using aidl::android::hardware::audio::effect::NoiseSuppressionSw;
+using aidl::android::hardware::audio::effect::NoiseSuppressionSwImplUUID;
 using aidl::android::media::audio::common::AudioUuid;
 
 extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
                                            std::shared_ptr<IEffect>* instanceSpp) {
-    if (!in_impl_uuid || *in_impl_uuid != kNoiseSuppressionSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != NoiseSuppressionSwImplUUID()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -49,7 +49,7 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
 }
 
 extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
-    if (!in_impl_uuid || *in_impl_uuid != kNoiseSuppressionSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != NoiseSuppressionSwImplUUID()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -61,8 +61,8 @@ namespace aidl::android::hardware::audio::effect {
 
 const std::string NoiseSuppressionSw::kEffectName = "NoiseSuppressionSw";
 const Descriptor NoiseSuppressionSw::kDescriptor = {
-        .common = {.id = {.type = kNoiseSuppressionTypeUUID,
-                          .uuid = kNoiseSuppressionSwImplUUID,
+        .common = {.id = {.type = NoiseSuppressionTypeUUID(),
+                          .uuid = NoiseSuppressionSwImplUUID(),
                           .proxy = std::nullopt},
                    .flags = {.type = Flags::Type::INSERT,
                              .insert = Flags::Insert::FIRST,

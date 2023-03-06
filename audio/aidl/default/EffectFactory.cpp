@@ -190,13 +190,13 @@ bool Factory::openEffectLibrary(const AudioUuid& impl, const std::string& path) 
 }
 
 void Factory::createIdentityWithConfig(const EffectConfig::LibraryUuid& configLib,
-                                       const AudioUuid& typeUuid,
+                                       const std::string& typeUuidStr,
                                        const std::optional<AudioUuid> proxyUuid) {
     static const auto& libMap = mConfig.getLibraryMap();
     const std::string& libName = configLib.name;
     if (auto path = libMap.find(libName); path != libMap.end()) {
         Descriptor::Identity id;
-        id.type = typeUuid;
+        id.type = stringToUuid(typeUuidStr.c_str());
         id.uuid = configLib.uuid;
         id.proxy = proxyUuid;
         LOG(DEBUG) << __func__ << " loading lib " << path->second << ": typeUuid "
@@ -214,8 +214,8 @@ void Factory::createIdentityWithConfig(const EffectConfig::LibraryUuid& configLi
 void Factory::loadEffectLibs() {
     const auto& configEffectsMap = mConfig.getEffectsMap();
     for (const auto& configEffects : configEffectsMap) {
-        if (auto typeUuid = kUuidNameTypeMap.find(configEffects.first /* effect name */);
-            typeUuid != kUuidNameTypeMap.end()) {
+        if (const auto& typeUuidIt = UuidNameTypeMap().find(configEffects.first /* effect name */);
+            typeUuidIt != UuidNameTypeMap().end()) {
             const auto& configLibs = configEffects.second;
             std::optional<AudioUuid> proxyUuid;
             if (configLibs.proxyLibrary.has_value()) {
@@ -223,7 +223,7 @@ void Factory::loadEffectLibs() {
                 proxyUuid = proxyLib.uuid;
             }
             for (const auto& configLib : configLibs.libraries) {
-                createIdentityWithConfig(configLib, typeUuid->second, proxyUuid);
+                createIdentityWithConfig(configLib, typeUuidIt->second, proxyUuid);
             }
         } else {
             LOG(ERROR) << __func__ << ": can not find type UUID for effect " << configEffects.first

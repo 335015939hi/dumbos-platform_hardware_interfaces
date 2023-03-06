@@ -27,15 +27,15 @@
 #include "BassBoostSw.h"
 
 using aidl::android::hardware::audio::effect::BassBoostSw;
+using aidl::android::hardware::audio::effect::BassBoostSwImplUUID;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
-using aidl::android::hardware::audio::effect::kBassBoostSwImplUUID;
 using aidl::android::hardware::audio::effect::State;
 using aidl::android::media::audio::common::AudioUuid;
 
 extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
                                            std::shared_ptr<IEffect>* instanceSpp) {
-    if (!in_impl_uuid || *in_impl_uuid != kBassBoostSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != BassBoostSwImplUUID()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -50,7 +50,7 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
 }
 
 extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
-    if (!in_impl_uuid || *in_impl_uuid != kBassBoostSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != BassBoostSwImplUUID()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -66,9 +66,9 @@ const std::vector<Range::BassBoostRange> BassBoostSw::kRanges = {
         MAKE_RANGE(BassBoost, strengthPm, 0, 1000)};
 const Capability BassBoostSw::kCapability = {.range = {BassBoostSw::kRanges}};
 const Descriptor BassBoostSw::kDescriptor = {
-        .common = {.id = {.type = kBassBoostTypeUUID,
-                          .uuid = kBassBoostSwImplUUID,
-                          .proxy = kBassBoostProxyUUID},
+        .common = {.id = {.type = BassBoostTypeUUID(),
+                          .uuid = BassBoostSwImplUUID(),
+                          .proxy = BassBoostProxyUUID()},
                    .flags = {.type = Flags::Type::INSERT,
                              .insert = Flags::Insert::FIRST,
                              .volume = Flags::Volume::CTRL},

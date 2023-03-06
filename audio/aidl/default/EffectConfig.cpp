@@ -17,6 +17,7 @@
 #define LOG_TAG "AHAL_EffectConfig"
 #include <android-base/logging.h>
 
+#include "effect-impl/EffectUUID.h"
 #include "effectFactory-impl/EffectConfig.h"
 
 using aidl::android::media::audio::common::AudioUuid;
@@ -165,7 +166,7 @@ bool EffectConfig::parseLibraryUuid(const tinyxml2::XMLElement& xml,
 
     const char* uuid = xml.Attribute("uuid");
     RETURN_VALUE_IF(!uuid, false, "noUuidAttribute");
-    RETURN_VALUE_IF(!stringToUuid(uuid, &libraryUuid.uuid), false, "invalidUuidAttribute");
+    libraryUuid.uuid = stringToUuid(uuid);
 
     LOG(DEBUG) << __func__ << (isProxy ? " proxy " : libraryUuid.name) << " : "
                << libraryUuid.uuid.toString();

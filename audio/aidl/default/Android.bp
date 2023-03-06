@@ -149,6 +149,7 @@ filegroup {
     srcs: [
         "EffectThread.cpp",
         "EffectImpl.cpp",
+        "EffectUUID.cpp",
     ],
 }
 
@@ -165,6 +166,7 @@ cc_binary {
         "EffectConfig.cpp",
         "EffectFactory.cpp",
         "EffectMain.cpp",
+        "EffectUUID.cpp",
     ],
 }
 

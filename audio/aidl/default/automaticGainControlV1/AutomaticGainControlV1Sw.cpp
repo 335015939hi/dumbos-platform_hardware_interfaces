@@ -21,14 +21,14 @@
 #include "AutomaticGainControlV1Sw.h"
 
 using aidl::android::hardware::audio::effect::AutomaticGainControlV1Sw;
+using aidl::android::hardware::audio::effect::AutomaticGainControlV1SwImplUUID;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
-using aidl::android::hardware::audio::effect::kAutomaticGainControlV1SwImplUUID;
 using aidl::android::media::audio::common::AudioUuid;
 
 extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
                                            std::shared_ptr<IEffect>* instanceSpp) {
-    if (!in_impl_uuid || *in_impl_uuid != kAutomaticGainControlV1SwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != AutomaticGainControlV1SwImplUUID()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -43,7 +43,7 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
 }
 
 extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
-    if (!in_impl_uuid || *in_impl_uuid != kAutomaticGainControlV1SwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != AutomaticGainControlV1SwImplUUID()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -63,8 +63,8 @@ const Capability AutomaticGainControlV1Sw::kCapability = {
         .range = AutomaticGainControlV1Sw::kRanges};
 
 const Descriptor AutomaticGainControlV1Sw::kDescriptor = {
-        .common = {.id = {.type = kAutomaticGainControlV1TypeUUID,
-                          .uuid = kAutomaticGainControlV1SwImplUUID,
+        .common = {.id = {.type = AutomaticGainControlV1TypeUUID(),
+                          .uuid = AutomaticGainControlV1SwImplUUID(),
                           .proxy = std::nullopt},
                    .flags = {.type = Flags::Type::INSERT,
                              .insert = Flags::Insert::FIRST,

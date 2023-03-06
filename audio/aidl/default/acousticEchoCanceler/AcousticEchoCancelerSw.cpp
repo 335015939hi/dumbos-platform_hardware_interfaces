@@ -25,17 +25,18 @@
 #include <fmq/AidlMessageQueue.h>
 
 #include "AcousticEchoCancelerSw.h"
+#include "effect-impl/EffectUUID.h"
 
 using aidl::android::hardware::audio::effect::AcousticEchoCancelerSw;
+using aidl::android::hardware::audio::effect::AcousticEchoCancelerSwImplUUID;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
-using aidl::android::hardware::audio::effect::kAcousticEchoCancelerSwImplUUID;
 using aidl::android::hardware::audio::effect::Range;
 using aidl::android::media::audio::common::AudioUuid;
 
 extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
                                            std::shared_ptr<IEffect>* instanceSpp) {
-    if (!in_impl_uuid || *in_impl_uuid != kAcousticEchoCancelerSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != AcousticEchoCancelerSwImplUUID()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -50,7 +51,7 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
 }
 
 extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
-    if (!in_impl_uuid || *in_impl_uuid != kAcousticEchoCancelerSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != AcousticEchoCancelerSwImplUUID()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -70,8 +71,8 @@ const std::vector<Range::AcousticEchoCancelerRange> AcousticEchoCancelerSw::kRan
 const Capability AcousticEchoCancelerSw::kCapability = {.range = AcousticEchoCancelerSw::kRanges};
 
 const Descriptor AcousticEchoCancelerSw::kDescriptor = {
-        .common = {.id = {.type = kAcousticEchoCancelerTypeUUID,
-                          .uuid = kAcousticEchoCancelerSwImplUUID,
+        .common = {.id = {.type = AcousticEchoCancelerTypeUUID(),
+                          .uuid = AcousticEchoCancelerSwImplUUID(),
                           .proxy = std::nullopt},
                    .flags = {.type = Flags::Type::INSERT,
                              .insert = Flags::Insert::FIRST,

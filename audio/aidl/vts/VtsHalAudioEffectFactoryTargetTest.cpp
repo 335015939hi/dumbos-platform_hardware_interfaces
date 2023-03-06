@@ -38,10 +38,10 @@
 using namespace android;
 
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::EffectNullUUID;
+using aidl::android::hardware::audio::effect::EffectZeroUUID;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kEffectNullUuid;
-using aidl::android::hardware::audio::effect::kEffectZeroUuid;
 using aidl::android::hardware::audio::effect::Processing;
 using aidl::android::media::audio::common::AudioSource;
 using aidl::android::media::audio::common::AudioStreamType;
@@ -65,8 +65,8 @@ class EffectFactoryTest : public testing::TestWithParam<std::string> {
     std::unique_ptr<EffectFactoryHelper> mFactoryHelper;
     std::shared_ptr<IFactory> mEffectFactory;
     std::vector<std::shared_ptr<IEffect>> mEffects;
-    const Descriptor::Identity kNullId = {.uuid = kEffectNullUuid};
-    const Descriptor::Identity kZeroId = {.uuid = kEffectZeroUuid};
+    const Descriptor::Identity kNullId = {.uuid = EffectNullUUID()};
+    const Descriptor::Identity kZeroId = {.uuid = EffectZeroUUID()};
     const Descriptor kNullDesc = {.common.id = kNullId};
     const Descriptor kZeroDesc = {.common.id = kZeroId};
 
@@ -132,13 +132,13 @@ TEST_P(EffectFactoryTest, CanBeRestarted) {
 TEST_P(EffectFactoryTest, ExpectAllAospEffectTypes) {
     std::vector<Descriptor> descs;
     std::set<AudioUuid> typeUuidSet(
-            {aidl::android::hardware::audio::effect::kBassBoostTypeUUID,
-             aidl::android::hardware::audio::effect::kEqualizerTypeUUID,
-             aidl::android::hardware::audio::effect::kEnvReverbTypeUUID,
-             aidl::android::hardware::audio::effect::kPresetReverbTypeUUID,
-             aidl::android::hardware::audio::effect::kDynamicsProcessingTypeUUID,
-             aidl::android::hardware::audio::effect::kHapticGeneratorTypeUUID,
-             aidl::android::hardware::audio::effect::kVirtualizerTypeUUID});
+            {aidl::android::hardware::audio::effect::BassBoostTypeUUID(),
+             aidl::android::hardware::audio::effect::EqualizerTypeUUID(),
+             aidl::android::hardware::audio::effect::EnvReverbTypeUUID(),
+             aidl::android::hardware::audio::effect::PresetReverbTypeUUID(),
+             aidl::android::hardware::audio::effect::DynamicsProcessingTypeUUID(),
+             aidl::android::hardware::audio::effect::HapticGeneratorTypeUUID(),
+             aidl::android::hardware::audio::effect::VirtualizerTypeUUID()});
 
     EXPECT_IS_OK(mEffectFactory->queryEffects(std::nullopt, std::nullopt, std::nullopt, &descs));
     EXPECT_TRUE(descs.size() >= typeUuidSet.size());
@@ -155,19 +155,22 @@ TEST_P(EffectFactoryTest, ExpectAllAospEffectTypes) {
 
 TEST_P(EffectFactoryTest, QueryNullTypeUuid) {
     std::vector<Descriptor> descs;
-    EXPECT_IS_OK(mEffectFactory->queryEffects(kEffectNullUuid, std::nullopt, std::nullopt, &descs));
+    EXPECT_IS_OK(
+            mEffectFactory->queryEffects(EffectNullUUID(), std::nullopt, std::nullopt, &descs));
     EXPECT_EQ(descs.size(), 0UL);
 }
 
 TEST_P(EffectFactoryTest, QueriedNullImplUuid) {
     std::vector<Descriptor> descs;
-    EXPECT_IS_OK(mEffectFactory->queryEffects(std::nullopt, kEffectNullUuid, std::nullopt, &descs));
+    EXPECT_IS_OK(
+            mEffectFactory->queryEffects(std::nullopt, EffectNullUUID(), std::nullopt, &descs));
     EXPECT_EQ(descs.size(), 0UL);
 }
 
 TEST_P(EffectFactoryTest, QueriedNullProxyUuid) {
     std::vector<Descriptor> descs;
-    EXPECT_IS_OK(mEffectFactory->queryEffects(std::nullopt, std::nullopt, kEffectNullUuid, &descs));
+    EXPECT_IS_OK(
+            mEffectFactory->queryEffects(std::nullopt, std::nullopt, EffectNullUUID(), &descs));
     EXPECT_EQ(descs.size(), 0UL);
 }
 

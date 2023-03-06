@@ -25,9 +25,9 @@ using namespace android;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kVolumeTypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::Volume;
+using aidl::android::hardware::audio::effect::VolumeTypeUUID;
 
 /**
  * Here we focus on specific parameter checking, general IEffect interfaces testing performed in
@@ -140,7 +140,7 @@ INSTANTIATE_TEST_SUITE_P(
         VolumeTest, VolumeParamTest,
         ::testing::Combine(
                 testing::ValuesIn(kDescPair = EffectFactoryHelper::getAllEffectDescriptors(
-                                          IFactory::descriptor, kVolumeTypeUUID)),
+                                          IFactory::descriptor, VolumeTypeUUID())),
                 testing::ValuesIn(
                         EffectHelper::getTestValueSet<Volume, int, Range::volume, Volume::levelDb>(
                                 kDescPair, EffectHelper::expandTestValueBasic<int>)),

@@ -104,8 +104,7 @@ class Factory : public BnFactory {
     bool openEffectLibrary(const ::aidl::android::media::audio::common::AudioUuid& impl,
                            const std::string& path);
     void createIdentityWithConfig(
-            const EffectConfig::LibraryUuid& configLib,
-            const ::aidl::android::media::audio::common::AudioUuid& typeUuid,
+            const EffectConfig::LibraryUuid& configLib, const std::string& typeUuidStr,
             const std::optional<::aidl::android::media::audio::common::AudioUuid> proxyUuid);
     void loadEffectLibs();
     /* Get effect_dl_interface_s from library handle */
