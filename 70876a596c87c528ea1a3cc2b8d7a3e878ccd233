@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f10f228e_181cc535",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-03-06T14:42:20Z",
+      "side": 1,
+      "message": "Refer to the original `AuthPerOperation` test, it seems that KM expects `HAT \u003e challenge` identify to the `handle_`.\nSo that assign an arbitrary challenge causes the HAT validation fail in strongbox.\nIs it expected?",
+      "range": {
+        "startLine": 391,
+        "startChar": 19,
+        "endLine": 391,
+        "endChar": 28
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1549230f_c541e2ce",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-03-06T14:42:20Z",
+      "side": 1,
+      "message": "Double check the strongbox implementation, since \n`TAG_USER_AUTH_TYPE \u003d HardwareAuthenticatorType::NONE` when generateKey(), it won\u0027t take effect on the further HAT validation (`HAT \u003e authenticatorType`).\nAnd because the time_token has valid timestamp \u0026 sid, strongbox will just return OK here.\n\nIt seems that the meaning of `HardwareAuthenticatorType::NONE` is similar to `NO_AUTH_REQUIRED`.\nIs my understanding correct?",
+      "range": {
+        "startLine": 411,
+        "startChar": 29,
+        "endLine": 411,
+        "endChar": 55
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e049fd36_206d61eb",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-03-06T14:42:20Z",
+      "side": 1,
+      "message": "Same to #411.",
+      "range": {
+        "startLine": 670,
+        "startChar": 25,
+        "endLine": 670,
+        "endChar": 51
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
