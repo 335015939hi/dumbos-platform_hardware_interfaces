@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9a2f0534_9b275dc3",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-03-06T19:02:49Z",
+      "side": 1,
+      "message": "David is correct. For timeout-bound keys KeyMint should not pay any attention the challenge in the HAT.  If the KeyMint needs a `TimestampToken` that token must have the challenge from `begin()` in it.",
+      "parentUuid": "3a2727a2_67dcc911",
+      "range": {
+        "startLine": 391,
+        "startChar": 19,
+        "endLine": 391,
+        "endChar": 28
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1549230f_c541e2ce",
         "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
         "patchSetId": 1
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "I *think* that setting `AUTH_TYPE\u003dHardwareAuthenticatorType::NONE` basically produces an unusable key -- it requires authentication for use, but it allows for no valid authenticators.  (`HardwareAuthenticatorType::ANY` would instead allow use of any authenticator type.)\n\nBut I had previously guessed otherwise, so I\u0027m not completely sure.",
       "parentUuid": "1549230f_c541e2ce",
+      "range": {
+        "startLine": 411,
+        "startChar": 29,
+        "endLine": 411,
+        "endChar": 55
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "791ca4db_11e39e78",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-03-06T19:02:49Z",
+      "side": 1,
+      "message": "Yes, `HardwareAuthenticatorType::NONE` should produce an unusable key.",
+      "parentUuid": "dad2eec0_eeef256a",
       "range": {
         "startLine": 411,
         "startChar": 29,
