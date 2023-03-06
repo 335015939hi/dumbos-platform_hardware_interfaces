@@ -37,6 +37,14 @@ int main() {
 
     // This is a debug implementation, always enable debug logging.
     android::base::SetMinimumLogSeverity(::android::base::DEBUG);
+
+    std::thread([]() {
+        for (size_t i = 0;; i++) {
+            LOG(ERROR) << "i <" << i << " audio";
+            sleep(1);
+        }
+    }).detach();
+
     // For more logs, use VERBOSE, however this may hinder performance.
     // android::base::SetMinimumLogSeverity(::android::base::VERBOSE);
     ABinderProcess_setThreadPoolMaxThreadCount(16);
@@ -62,6 +70,7 @@ int main() {
                     createModule(Module::Type::R_SUBMIX, "r_submix"),
                     createModule(Module::Type::USB, "usb")};
 
+    // for(size_t i = 0; ;i++) { LOG(ERROR) << "i <" << i << " audio"; sleep(1); }
     ABinderProcess_joinThreadPool();
     return EXIT_FAILURE;  // should not reach
 }
