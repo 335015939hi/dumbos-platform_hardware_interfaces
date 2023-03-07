@@ -82,7 +82,7 @@ class AuthTest : public KeyMintAidlTestBase {
         }
 
         // Enroll a password for a user.
-        uid_ = 10001;
+        uid_ = 11001;
         password_ = "correcthorsebatterystaple";
         std::optional<GatekeeperEnrollResponse> rsp = doEnroll(password_);
         ASSERT_TRUE(rsp.has_value());
