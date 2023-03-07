@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2a1f8546_e2974060",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-03-07T09:30:14Z",
+      "side": 1,
+      "message": "It means that the `TimestampToken` has to be created after `begin()`, not the HAT.  \n\nSo for `AUTH_TIMEOUT(3)` I think a device without a clock (i.e. StrongBox) needs to:\n - Check the HAT on `begin()`, to confirm that an authentication has occurred for the right authenticator type.  `begin()` returns a challenge as usual. However:\n    - The timestamp in the HAT can\u0027t be confirmed to be within the last 3 seconds (yet).\n    - The challenge value in the HAT isn\u0027t related to the challenge returned from `begin()`, because it pre-dates the call to `begin()`.    \n - On `update()`/`finish()`, the device expects a `TimestampToken` that includes the challenge from `begin()`, implying that the timestamp must have been generated after `begin()` occurred.\n    - This gives the device a better idea of \"now\", and the timestamp in the HAT can now be checked to confirm is was in the last 3 seconds.\n    \n(Shawn, please correct if I\u0027ve misunderstood anything.)",
+      "parentUuid": "38ec3fe8_df2ec3b9",
+      "range": {
+        "startLine": 391,
+        "startChar": 19,
+        "endLine": 391,
+        "endChar": 28
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1549230f_c541e2ce",
         "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
         "patchSetId": 1
