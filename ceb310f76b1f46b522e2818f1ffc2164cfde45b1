@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45725618_95b28246",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-07T18:06:05Z",
+      "side": 1,
+      "message": "nit: I think, you could use `std::count_if` here: http://go/cppref/cpp/algorithm/count\n\n```\nuuidCount \u003d std::count_if(idSet.begin(), idSet.end(), [\u0026](const auto\u0026 id) {\n    return id.uuid \u003d\u003d desc.common.id.uuid \u0026\u0026 id.type \u003d\u003d desc.common.id.type; });\n```",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 5
+      },
+      "revId": "ceb310f76b1f46b522e2818f1ffc2164cfde45b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
