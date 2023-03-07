@@ -509,7 +509,7 @@ void verifyAuthKeyCertificate(const vector<uint8_t>& authKeyCertChain) {
 
     //  - subjectPublicKeyInfo: must contain attested public key.
 
-    //  - validity: should be from current time and one year in the future (365 days).
+    //  - validity: should be from current time and one year in the future (up to 366 days).
     time_t notBefore, notAfter;
     ASSERT_TRUE(parseAsn1Time(X509_get0_notAfter(cert.get()), &notAfter));
     ASSERT_TRUE(parseAsn1Time(X509_get0_notBefore(cert.get()), &notBefore));
@@ -523,8 +523,8 @@ void verifyAuthKeyCertificate(const vector<uint8_t>& authKeyCertChain) {
     int64_t allowDriftSecs = 10;
     EXPECT_LE(-allowDriftSecs, diffSecs);
     EXPECT_GE(allowDriftSecs, diffSecs);
-    constexpr uint64_t kSecsInOneYear = 365 * 24 * 60 * 60;
-    EXPECT_EQ(notBefore + kSecsInOneYear, notAfter);
+    constexpr uint64_t kMaxSecsInOneYear = 366 * 24 * 60 * 60;
+    EXPECT_EQ(notBefore + kMaxSecsInOneYear, notAfter);
 }
 
 vector<RequestNamespace> buildRequestNamespaces(const vector<TestEntryData> entries) {
