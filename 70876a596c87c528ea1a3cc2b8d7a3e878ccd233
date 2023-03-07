@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38ec3fe8_df2ec3b9",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-03-07T04:33:02Z",
+      "side": 1,
+      "message": "Sorry, was a typo, `s/identify/identical/`.\n\nSo\n- for a timeout-bound key, KM is supposed to check the timestamp in `TimestampToken` only. No need to care about HAT.\n- for a user-bound key (USER_ID/USER_SECURE_ID) and a authenticatorType-bound key, HAT is the only requirement.\n\nBut I still have a question WRT to this requirement.\n\u003e If the KeyMint needs a TimestampToken that token must have the challenge from begin() in it.\n\nWhich means the HAT must be created after begin() right? \nAnd the only \"challenge-like\" value returns from begin() is the op_handle. Strongbox expects that `op_handle \u003d\u003d TimestampToken.challenge` seems make sense.",
+      "parentUuid": "9a2f0534_9b275dc3",
+      "range": {
+        "startLine": 391,
+        "startChar": 19,
+        "endLine": 391,
+        "endChar": 28
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1549230f_c541e2ce",
         "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
         "patchSetId": 1
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "Yes, `HardwareAuthenticatorType::NONE` should produce an unusable key.",
       "parentUuid": "dad2eec0_eeef256a",
+      "range": {
+        "startLine": 411,
+        "startChar": 29,
+        "endLine": 411,
+        "endChar": 55
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f04ea490_c09f986a",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-03-07T04:33:02Z",
+      "side": 1,
+      "message": "OK. Sounds like some operations in SB need to update.\nb/271944945 for tracking.",
+      "parentUuid": "791ca4db_11e39e78",
       "range": {
         "startLine": 411,
         "startChar": 29,
