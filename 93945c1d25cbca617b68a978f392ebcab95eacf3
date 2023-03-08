@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d07fcfc_86b49cff",
+        "filename": "wifi/1.6/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-03-08T01:44:44Z",
+      "side": 1,
+      "message": "can this be defined as a uint64_t instead, to accommodate more call back types in future?",
+      "range": {
+        "startLine": 431,
+        "startChar": 4,
+        "endLine": 431,
+        "endChar": 33
+      },
+      "revId": "93945c1d25cbca617b68a978f392ebcab95eacf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
