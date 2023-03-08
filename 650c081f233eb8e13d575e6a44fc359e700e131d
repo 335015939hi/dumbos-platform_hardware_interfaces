@@ -22,6 +22,30 @@
       },
       "revId": "650c081f233eb8e13d575e6a44fc359e700e131d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a818c0de_c63bdc7f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-03-08T16:45:42Z",
+      "side": 0,
+      "message": "https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2450565 seems like this line had a long, transformative journey... It\u0027s interesting to me that the git blame for this line does not match what was checked in.\n\nI\u0027d say this is just in error, yeah.",
+      "parentUuid": "6a9903a4_4b46715e",
+      "range": {
+        "startLine": 1139,
+        "startChar": 51,
+        "endLine": 1139,
+        "endChar": 70
+      },
+      "revId": "650c081f233eb8e13d575e6a44fc359e700e131d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
