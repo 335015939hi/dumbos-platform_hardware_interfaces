@@ -524,7 +524,12 @@ void verifyAuthKeyCertificate(const vector<uint8_t>& authKeyCertChain) {
     EXPECT_LE(-allowDriftSecs, diffSecs);
     EXPECT_GE(allowDriftSecs, diffSecs);
     constexpr uint64_t kSecsInOneYear = 365 * 24 * 60 * 60;
-    EXPECT_EQ(notBefore + kSecsInOneYear, notAfter);
+    constexpr uint64_t kSecsInLeapYear = 366 * 24 * 60 * 60;
+    if(notAfter - notBefore > kSecsInOneYear) {
+        EXPECT_EQ(notBefore + kSecsInLeapYear, notAfter);
+    } else {
+        EXPECT_EQ(notBefore + kSecsInOneYear, notAfter);
+    }
 }
 
 vector<RequestNamespace> buildRequestNamespaces(const vector<TestEntryData> entries) {
