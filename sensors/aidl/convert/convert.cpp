@@ -146,8 +146,6 @@ void convertToSensorEvent(const Event& src, sensors_event_t* dst) {
 
         case SensorType::HINGE_ANGLE:
         case SensorType::DEVICE_ORIENTATION:
-        case SensorType::LIGHT:
-        case SensorType::PRESSURE:
         case SensorType::PROXIMITY:
         case SensorType::RELATIVE_HUMIDITY:
         case SensorType::AMBIENT_TEMPERATURE:
@@ -178,6 +176,8 @@ void convertToSensorEvent(const Event& src, sensors_event_t* dst) {
             break;
         }
 
+        case SensorType::LIGHT:
+        case SensorType::PRESSURE:
         case SensorType::POSE_6DOF: {  // 15 floats
             for (size_t i = 0; i < 15; ++i) {
                 dst->data[i] = src.payload.get<Event::EventPayload::pose6DOF>().values[i];
@@ -359,8 +359,6 @@ void convertFromSensorEvent(const sensors_event_t& src, Event* dst) {
         }
 
         case SensorType::DEVICE_ORIENTATION:
-        case SensorType::LIGHT:
-        case SensorType::PRESSURE:
         case SensorType::PROXIMITY:
         case SensorType::RELATIVE_HUMIDITY:
         case SensorType::AMBIENT_TEMPERATURE:
@@ -393,6 +391,8 @@ void convertFromSensorEvent(const sensors_event_t& src, Event* dst) {
             break;
         }
 
+        case SensorType::LIGHT:
+        case SensorType::PRESSURE:
         case SensorType::POSE_6DOF: {  // 15 floats
             Event::EventPayload::Pose6Dof pose6DOF;
             for (size_t i = 0; i < 15; ++i) {
@@ -461,7 +461,6 @@ void convertFromSensorEvent(const sensors_event_t& src, Event* dst) {
             limitedAxesImuUncal.y = src.limited_axes_imu_uncalibrated.y_uncalib;
             limitedAxesImuUncal.z = src.limited_axes_imu_uncalibrated.z_uncalib;
             limitedAxesImuUncal.xBias = src.limited_axes_imu_uncalibrated.x_bias;
-            limitedAxesImuUncal.yBias = src.limited_axes_imu_uncalibrated.y_bias;
             limitedAxesImuUncal.yBias = src.limited_axes_imu_uncalibrated.y_bias;
             limitedAxesImuUncal.zBias = src.limited_axes_imu_uncalibrated.z_bias;
             limitedAxesImuUncal.xSupported = src.limited_axes_imu_uncalibrated.x_supported;
