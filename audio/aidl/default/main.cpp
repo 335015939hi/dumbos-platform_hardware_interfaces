@@ -36,6 +36,7 @@ int main() {
     std::srand(std::time(nullptr));
 
     // This is a debug implementation, always enable debug logging.
+    android::base::InitLogging(nullptr, android::base::LogdLogger(android::base::SYSTEM));
     android::base::SetMinimumLogSeverity(::android::base::DEBUG);
     // For more logs, use VERBOSE, however this may hinder performance.
     // android::base::SetMinimumLogSeverity(::android::base::VERBOSE);
