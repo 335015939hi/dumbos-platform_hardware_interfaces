@@ -172,8 +172,8 @@ class AttestKeyTest : public KeyMintAidlTestBase {
     //     allowing it to be launched with Android S (or later) with Keymaster 4.0
     //     in StrongBox
     void check_skip_test(void) const {
-        if (is_attest_key_feature_disabled() && is_strongbox_enabled() &&
-            is_chipset_allowed_km4_strongbox()) {
+        if (is_strongbox_enabled() && is_chipset_allowed_km4_strongbox() &&
+            is_attest_key_feature_disabled()) {
             GTEST_SKIP() << "Test is not applicable";
         }
     }

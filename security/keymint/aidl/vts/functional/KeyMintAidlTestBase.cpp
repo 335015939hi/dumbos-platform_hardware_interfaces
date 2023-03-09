@@ -2058,7 +2058,7 @@ void device_id_attestation_vsr_check(const ErrorCode& result) {
 bool check_feature(const std::string& name) {
     ::android::sp<::android::IServiceManager> sm(::android::defaultServiceManager());
     ::android::sp<::android::IBinder> binder(
-        sm->waitForService(::android::String16("package_native")));
+            sm->checkService(::android::String16("package_native")));
     if (binder == nullptr) {
         GTEST_LOG_(ERROR) << "waitForService package_native failed";
         return false;
