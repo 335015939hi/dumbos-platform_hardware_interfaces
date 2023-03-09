@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6e1f9b5_6f1f3a4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1955705
+      },
+      "writtenOn": "2023-03-09T17:49:15Z",
+      "side": 1,
+      "message": "I\u0027ll merge with aosp/2473364 once it\u0027s submitted, only one of the CLs will have the changes to the other generated AIDL files.",
+      "revId": "b699706251501e35af37e2e04e04cd42fdbf6094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
