@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad9024d1_5772cd0f",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-09T17:59:31Z",
+      "side": 1,
+      "message": "So... Busy wait is certainly bad, however sleeping is not a cardinally better solution—it still wastes CPU, and can cause extra delays when the other side wants to start now, but our side is still asleep.\n\nThinking of a better solution—since inputMQ is a synchronous queue (https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/default/include/effect-impl/EffectContext.h;l\u003d35;drc\u003d1d2d51a55daf01c6a2c2b53b4d1966a09fa4fddd) we can do a blocking read, until data is available (see https://cs.android.com/android/platform/superproject/+/master:system/libfmq/include/fmq/MessageQueueBase.h;l\u003d185;drc\u003d5d5f156e4668bb60360cc834a39854d99e5f22c3). One caveat of this approach is that in order to be able to shut the processing thread down, we will need either use a timeout with the blocking read, or we need to put some fake data into the queue from our control thread when we want the processing thread to exit, in order to unblock the latter.\n\nThe drawback of a read with timeout is that with the FMQ API, it\u0027s impossible to distinguish a timeout from a read failure. That\u0027s why in the streams implementation I prefer the second approach.\n\nWe can submit this CL now and implement a better approach in the subsequent CL as it will likely require some extra testing. Please LMK WDYT.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 29
+      },
+      "revId": "eae5c56fb402c112e643a3c5590a6ce3a4c41fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
