@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-#include <cstddef>
-#define LOG_TAG "AHAL_DynamicsProcessingSw"
-#include <Utils.h>
 #include <algorithm>
+#include <cstddef>
 #include <set>
 #include <unordered_set>
 
+#define LOG_TAG "AHAL_DynamicsProcessingSw"
 #include <android-base/logging.h>
 #include <fmq/AidlMessageQueue.h>
 
