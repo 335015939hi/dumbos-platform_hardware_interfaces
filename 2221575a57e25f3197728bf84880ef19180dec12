@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75d809c2_a39c90d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-10T18:15:20Z",
+      "side": 1,
+      "message": "Sorry for a last-minute AIDL change. This was requested by a partner to match the get/setParameter KV pair which is used for A2DP and LE offloaded codecs.",
+      "revId": "2221575a57e25f3197728bf84880ef19180dec12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
