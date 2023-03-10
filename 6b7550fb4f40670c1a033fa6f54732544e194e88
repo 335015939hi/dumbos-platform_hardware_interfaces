@@ -16,6 +16,23 @@
       "message": "Thanks for fixing this!",
       "revId": "6b7550fb4f40670c1a033fa6f54732544e194e88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99412f21_c0df6ab0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-10T19:30:36Z",
+      "side": 1,
+      "message": "Looks like also need change `hardware/interfaces/audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.cpp`:\n```\nIn file included from hardware/interfaces/audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.cpp:26:\nhardware/interfaces/audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.h:33:25: error: no member named \u0027audio\u0027 in namespace \u0027android::hardware\u0027; did you mean simply \u0027audio\u0027?\n          mChannelCount(::android::hardware::audio::common::getChannelCount(\n                        ^~~~~~~~~~~~~~~~~~~~~~~~~~\n                        audio\nhardware/interfaces/audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.h:27:36: note: \u0027audio\u0027 declared here\nnamespace aidl::android::hardware::audio::effect {\n                                   ^\nhardware/interfaces/audio/aidl/default/dynamicProcessing/DynamicsProcessingSw.cpp:285:13: error: no member named \u0027audio\u0027 in namespace \u0027android::hardware\u0027; did you mean simply \u0027audio\u0027?\n            ::android::hardware::audio::common::getChannelCount(common.input.base.channelMask);\n            ^~~~~~~~~~~~~~~~~~~~~~~~~~\n            audio\n```",
+      "revId": "6b7550fb4f40670c1a033fa6f54732544e194e88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
