@@ -39,6 +39,30 @@
       },
       "revId": "2221575a57e25f3197728bf84880ef19180dec12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "907ecc63_a96963b7",
+        "filename": "audio/aidl/android/hardware/audio/core/IBluetoothLe.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-10T20:45:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60daa169_c24ff88d",
+      "range": {
+        "startLine": 73,
+        "startChar": 44,
+        "endLine": 73,
+        "endChar": 67
+      },
+      "revId": "2221575a57e25f3197728bf84880ef19180dec12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
