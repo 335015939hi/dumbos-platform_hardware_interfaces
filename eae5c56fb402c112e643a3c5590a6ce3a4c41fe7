@@ -46,6 +46,30 @@
       },
       "revId": "eae5c56fb402c112e643a3c5590a6ce3a4c41fe7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2d1f15b_63d0ef0a",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-10T01:53:28Z",
+      "side": 1,
+      "message": "\u003e I\u0027m thinking maybe instead of IEffect.command() interface, maybe it\u0027s better to use a command FMQ to pass down commands, this way the data and commands can be access in same thread because they both handled in same thread.\n\nI think we are a bit late in the development cycle to change that, since this will require changes to the AIDL interface—adding another FMQ for commands, as I understand it.\n\nWhat I would explore is a simultaneous waiting on event queue\u0027s event flags and some event flag from the command thread. Then the code can check what kind of the event it was and handle it accordingly. We need to consider fixing this issue as a high priority, but I agree that we can submit the current workaround to unblock partners.",
+      "parentUuid": "12d52408_4ec09563",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 29
+      },
+      "revId": "eae5c56fb402c112e643a3c5590a6ce3a4c41fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
