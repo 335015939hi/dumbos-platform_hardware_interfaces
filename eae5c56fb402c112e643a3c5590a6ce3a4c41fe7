@@ -22,6 +22,30 @@
       },
       "revId": "eae5c56fb402c112e643a3c5590a6ce3a4c41fe7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d52408_4ec09563",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-10T01:44:55Z",
+      "side": 1,
+      "message": "The reason I didn\u0027t use `readBlocking` was to handle the START/STOP command in time (unless we feed fake data to queue as you suggested, but then we need to be able to tell if its the actual data by checking the `stop` flag), yes you are right with `sleep` the client side will also be blocked.\nI\u0027m thinking maybe instead of `IEffect.command()` interface, maybe it\u0027s better to use a command FMQ to pass down commands, this way the data and commands can be access in same thread because they both handled in same thread.\n\nYes, I think we can submit this first to unblock pixel team, I can visit back to this later. What do you think?",
+      "parentUuid": "ad9024d1_5772cd0f",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 29
+      },
+      "revId": "eae5c56fb402c112e643a3c5590a6ce3a4c41fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
