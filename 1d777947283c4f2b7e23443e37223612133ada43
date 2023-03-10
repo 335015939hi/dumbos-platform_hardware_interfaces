@@ -16,6 +16,41 @@
       "message": "I think I found the cause. With this, your test doesn\u0027t fail with the audio HAL, but statsd which is using the MAIN buffer.",
       "revId": "1d777947283c4f2b7e23443e37223612133ada43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9be217e_84a39115",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-03-10T20:35:30Z",
+      "side": 1,
+      "message": "Right - I mentioned this in b/210919187#comment30. My plan is to clean up the MAIN log and write a test to make sure that we never drop the MAIN log during boot time (landing logd_integration_test will get us close to that)",
+      "parentUuid": "c1299a5d_e01142e5",
+      "revId": "1d777947283c4f2b7e23443e37223612133ada43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eac3b178_775b68cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-03-10T20:35:30Z",
+      "side": 1,
+      "message": "Right - I mentioned this in b",
+      "revId": "1d777947283c4f2b7e23443e37223612133ada43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
