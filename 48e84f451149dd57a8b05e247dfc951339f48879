@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "067bc09a_5c9235ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1175853
+      },
+      "writtenOn": "2023-03-13T15:44:17Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "94eba805_4f443e1d",
+      "revId": "48e84f451149dd57a8b05e247dfc951339f48879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4203f823_4486da9d",
         "filename": "sensors/aidl/convert/convert.cpp",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2023-03-13T15:37:33Z",
       "side": 1,
       "message": "@arthuri@google.com I see the HIDL conversion and the HIDL/AIDL documentation all say LIGHT and PRESSURE are single floats. Is this change really needed? Should it be applied to the HIDL convert functions and should we change the documentation to reflect this?\n\nhttps://source.corp.google.com/aosp-master/hardware/interfaces/sensors/1.0/default/convert.cpp;rcl\u003d160d7a4504d07cf141d979e525c883395369325e;l\u003d130",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 34
+      },
+      "revId": "48e84f451149dd57a8b05e247dfc951339f48879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a11dc3c1_346132f7",
+        "filename": "sensors/aidl/convert/convert.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1175853
+      },
+      "writtenOn": "2023-03-13T15:44:17Z",
+      "side": 1,
+      "message": "Devin, you\u0027re correct - the LIGHT/PRESSURE sensors are both single float values. This is also documented in the official Android documentation:\nhttps://developer.android.com/reference/android/hardware/SensorEvent#values\n\nSo I\u0027d like to understand more about the crash that the reporter is seeing.",
+      "parentUuid": "4203f823_4486da9d",
       "range": {
         "startLine": 394,
         "startChar": 0,
