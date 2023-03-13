@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abffac2f_b2bfb0b5",
+        "filename": "vibrator/aidl/default/example_java_client/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-03-13T02:26:51Z",
+      "side": 1,
+      "message": "Added this to fix the build error for the targets without product interfaced enforcement.",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 33
+      },
+      "revId": "7cd9d9e4385f85940d7594318325bdf33936cb3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
