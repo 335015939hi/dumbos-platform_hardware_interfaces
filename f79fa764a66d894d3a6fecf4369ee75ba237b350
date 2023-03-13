@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fbedc1f_56883cb9",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-13T23:40:18Z",
+      "side": 1,
+      "message": "sets",
+      "range": {
+        "startLine": 115,
+        "startChar": 23,
+        "endLine": 115,
+        "endChar": 26
+      },
+      "revId": "f79fa764a66d894d3a6fecf4369ee75ba237b350",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca0051e_b3abfbfc",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-13T23:40:18Z",
+      "side": 1,
+      "message": "whether",
+      "range": {
+        "startLine": 115,
+        "startChar": 70,
+        "endLine": 115,
+        "endChar": 72
+      },
+      "revId": "f79fa764a66d894d3a6fecf4369ee75ba237b350",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89aa0fb2_d9f98be0",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-13T23:40:18Z",
+      "side": 1,
+      "message": "updates",
+      "range": {
+        "startLine": 115,
+        "startChar": 60,
+        "endLine": 115,
+        "endChar": 66
+      },
+      "revId": "f79fa764a66d894d3a6fecf4369ee75ba237b350",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8df0c52_d7573d5a",
+        "filename": "audio/aidl/android/hardware/audio/effect/Flags.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-13T23:40:18Z",
+      "side": 1,
+      "message": "is attached",
+      "range": {
+        "startLine": 116,
+        "startChar": 14,
+        "endLine": 116,
+        "endChar": 22
+      },
+      "revId": "f79fa764a66d894d3a6fecf4369ee75ba237b350",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
