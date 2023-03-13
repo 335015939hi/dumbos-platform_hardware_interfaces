@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "190cd6a3_400dff32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-03-13T23:17:02Z",
+      "side": 1,
+      "message": "This was done to make sure the package would be pulled in IFF there was a corresponding HAL for it, since it wasn\u0027t a blanket requirement. But now that we\u0027re tossing it, this makes sense.",
+      "revId": "d5d9b02219c29a930b37622d830e1b51189b1323",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
