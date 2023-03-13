@@ -113,9 +113,7 @@ parcelable Flags {
 
     /**
      * Effect instance set this flag to true if it requires update on if the playback thread the
-     * effect attached to is offloaded or not. In this case the framework must call
-     * IEffect.setParameter(Parameter.offload) to notify effect instance when playback thread
-     * offload changes.
+     * effect attached to is offloaded or not.
      */
     boolean offloadIndication;
 
