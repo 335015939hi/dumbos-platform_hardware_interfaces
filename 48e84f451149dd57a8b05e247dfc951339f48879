@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b3f2d0_9ae7b216",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1995895
+      },
+      "writtenOn": "2023-03-14T02:30:27Z",
+      "side": 1,
+      "message": "I created a problem and uploaded the corresponding problem log, please help me to confirm, the link is as follows\nhttps://partnerissuetracker.corp.google.com/u/1/issues/273015294",
+      "parentUuid": "94eba805_4f443e1d",
+      "revId": "48e84f451149dd57a8b05e247dfc951339f48879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4203f823_4486da9d",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "Devin, you\u0027re correct - the LIGHT/PRESSURE sensors are both single float values. This is also documented in the official Android documentation:\nhttps://developer.android.com/reference/android/hardware/SensorEvent#values\n\nSo I\u0027d like to understand more about the crash that the reporter is seeing.",
       "parentUuid": "4203f823_4486da9d",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 34
+      },
+      "revId": "48e84f451149dd57a8b05e247dfc951339f48879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b19ce93e_72b89157",
+        "filename": "sensors/aidl/convert/convert.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1995895
+      },
+      "writtenOn": "2023-03-14T02:30:27Z",
+      "side": 1,
+      "message": "This problem is caused by our customization, not AOSP source code problem, thanks for your support.",
+      "parentUuid": "a11dc3c1_346132f7",
       "range": {
         "startLine": 394,
         "startChar": 0,
