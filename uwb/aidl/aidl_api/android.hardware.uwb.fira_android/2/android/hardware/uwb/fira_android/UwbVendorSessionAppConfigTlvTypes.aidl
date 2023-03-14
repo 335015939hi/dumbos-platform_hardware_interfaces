@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2021 The Android Open Source Project
  *
+ * Copyright 2023 NXP
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * You may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -40,6 +42,7 @@ enum UwbVendorSessionAppConfigTlvTypes {
   CCC_UWB_CONFIG_ID = 164,
   CCC_PULSESHAPE_COMBO = 165,
   CCC_URSK_TTL = 166,
+  CCC_LAST_INDEX_USED = 168,
   NB_OF_RANGE_MEASUREMENTS = 227,
   NB_OF_AZIMUTH_MEASUREMENTS = 228,
   NB_OF_ELEVATION_MEASUREMENTS = 229,
