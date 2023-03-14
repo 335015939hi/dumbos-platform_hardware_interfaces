@@ -54,6 +54,7 @@ union Parameter {
     android.hardware.audio.effect.HapticGenerator.Id hapticGeneratorTag;
     android.hardware.audio.effect.LoudnessEnhancer.Id loudnessEnhancerTag;
     android.hardware.audio.effect.NoiseSuppression.Id noiseSuppressionTag;
+    android.hardware.audio.effect.Spatializer.Id spatializerTag;
     android.hardware.audio.effect.PresetReverb.Id presetReverbTag;
     android.hardware.audio.effect.Virtualizer.Id virtualizerTag;
     android.hardware.audio.effect.Visualizer.Id visualizerTag;
@@ -87,6 +88,7 @@ union Parameter {
     android.hardware.audio.effect.LoudnessEnhancer loudnessEnhancer;
     android.hardware.audio.effect.NoiseSuppression noiseSuppression;
     android.hardware.audio.effect.PresetReverb presetReverb;
+    android.hardware.audio.effect.Spatializer spatializer;
     android.hardware.audio.effect.Virtualizer virtualizer;
     android.hardware.audio.effect.Visualizer visualizer;
     android.hardware.audio.effect.Volume volume;

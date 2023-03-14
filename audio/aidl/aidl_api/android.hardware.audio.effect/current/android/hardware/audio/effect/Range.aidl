@@ -46,6 +46,7 @@ union Range {
   android.hardware.audio.effect.Range.HapticGeneratorRange[] hapticGenerator;
   android.hardware.audio.effect.Range.LoudnessEnhancerRange[] loudnessEnhancer;
   android.hardware.audio.effect.Range.NoiseSuppressionRange[] noiseSuppression;
+  android.hardware.audio.effect.Range.SpatializerRange[] spatializer;
   android.hardware.audio.effect.Range.PresetReverbRange[] presetReverb;
   android.hardware.audio.effect.Range.VirtualizerRange[] virtualizer;
   android.hardware.audio.effect.Range.VisualizerRange[] visualizer;
@@ -109,6 +110,11 @@ union Range {
   parcelable PresetReverbRange {
     android.hardware.audio.effect.PresetReverb min;
     android.hardware.audio.effect.PresetReverb max;
+  }
+  @VintfStability
+  parcelable SpatializerRange {
+    android.hardware.audio.effect.Spatializer min;
+    android.hardware.audio.effect.Spatializer max;
   }
   @VintfStability
   parcelable VendorExtensionRange {
