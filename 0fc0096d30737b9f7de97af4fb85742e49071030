@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa76223e_caef03ae",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-15T19:41:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a286c8d9_2e5a09b2",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 56
+      },
+      "revId": "0fc0096d30737b9f7de97af4fb85742e49071030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b361a740_9a93480d",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fda6d32_08e1237b",
+        "filename": "audio/aidl/default/EffectImpl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-15T19:41:55Z",
+      "side": 1,
+      "message": "This will be a big change and better separate from this CL.",
+      "parentUuid": "b361a740_9a93480d",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 46
+      },
+      "revId": "0fc0096d30737b9f7de97af4fb85742e49071030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5eb23160_c803fd1d",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-03-15T18:36:09Z",
       "side": 1,
       "message": "Should we place a separator here?",
+      "range": {
+        "startLine": 39,
+        "startChar": 29,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "0fc0096d30737b9f7de97af4fb85742e49071030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e3d7914_efaa316f",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-15T19:41:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5eb23160_c803fd1d",
       "range": {
         "startLine": 39,
         "startChar": 29,
