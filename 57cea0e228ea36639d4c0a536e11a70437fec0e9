@@ -22,6 +22,30 @@
       },
       "revId": "57cea0e228ea36639d4c0a536e11a70437fec0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "645ea603_7a5ebaef",
+        "filename": "audio/aidl/android/hardware/audio/effect/VendorExtension.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-15T19:52:31Z",
+      "side": 1,
+      "message": "Interesting, actually this is a little known fact 😊 It is possible to find from the source that there is a \u0027parcelableName` which contains the descriptor of the stored parcelable: https://cs.android.com/android/platform/superproject/+/master:frameworks/native/libs/binder/include/binder/ParcelableHolder.h;l\u003d69;drc\u003df1389059d7c163e0096312dbdb9bdb49d8ecf746. However, it\u0027s not really explained on the docs page (https://source.android.com/docs/core/architecture/aidl/aidl-hals#extension-parcelables).\n\nNow I actually got your point why we can\u0027t use types defined in AOSP inside parcelable holders.",
+      "parentUuid": "ca4524eb_53a65550",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "57cea0e228ea36639d4c0a536e11a70437fec0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
