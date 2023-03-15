@@ -22,6 +22,30 @@
       },
       "revId": "208321bc40fb46fbce9ac35c93138d0c9c47022f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "663651b8_8cb28087",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2023-03-15T17:39:43Z",
+      "side": 1,
+      "message": "No, this only applies if the patch is for a specific version of Android, but this test exists in the later versions of Android, too, so we should propagate the test improvement. I went ahead and removed it.",
+      "parentUuid": "c07b5b63_bfbbd389",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "208321bc40fb46fbce9ac35c93138d0c9c47022f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
