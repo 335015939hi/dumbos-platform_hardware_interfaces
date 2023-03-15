@@ -21,5 +21,19 @@ package android.hardware.audio.effect;
  */
 @VintfStability
 parcelable VendorExtension {
+    /**
+     * Name of the stable aidl interface whose value is stored in this extension.
+     *
+     * This field will be set to the name of the custom vendor AIDL interface such as
+     * "vendor.mycompanyname.hardware.audio.effect.$Effect$". It must contain the name of the owner
+     * of the extension, including the company name in the "name" to prevent type collisions
+     * between different vendors.
+     */
+    @utf8InCpp String name;
+
+    /**
+     * Parcelable holder for extension.
+     * see: https://source.android.com/docs/core/architecture/aidl/aidl-hals#extension-parcelables
+     */
     ParcelableHolder extension;
 }
