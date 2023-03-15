@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "690018eb_f87c74da",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-15T18:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fe0702c_8c895084",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 17
+      },
+      "revId": "a9fc970eaefac697dcbed03dec17016598e2ce8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f2b8860_21b96b88",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-06T22:26:02Z",
       "side": 1,
       "message": "Inconsistent capitalization of \"UUID\". If we look at all other constants / classes etc, it needs to be \"Uuid\".",
+      "range": {
+        "startLine": 53,
+        "startChar": 17,
+        "endLine": 53,
+        "endChar": 31
+      },
+      "revId": "a9fc970eaefac697dcbed03dec17016598e2ce8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0acffcf0_69b3dcda",
+        "filename": "audio/aidl/default/EffectUUID.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-15T18:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f2b8860_21b96b88",
       "range": {
         "startLine": 53,
         "startChar": 17,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5555684a_8ccae436",
+        "filename": "audio/aidl/default/EffectUUID.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-15T18:16:59Z",
+      "side": 1,
+      "message": "yes, this is an example implementation, so no definition in aidl",
+      "parentUuid": "e19a4b51_5615bb38",
+      "range": {
+        "startLine": 322,
+        "startChar": 59,
+        "endLine": 322,
+        "endChar": 97
+      },
+      "revId": "a9fc970eaefac697dcbed03dec17016598e2ce8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df67ce05_5ac43767",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-03-06T22:26:02Z",
       "side": 1,
       "message": "I think we can simplify both definition and usage of UUIDs. As I understand, these are the type of \"entities\" that we have:\n\n - the name of the type from the XML file (compile time constant);\n - type UUID as const char*, from the aidl-gen generated header/cpp (compile time constant);\n - type UUID as std::string - this should be only used for logs, it should be created dynamically either from const char* or from AudioUuid instance;\n - type UUID as AudioUuid instance - these should be passed around, we should never pass strings as these need to be parsed, and this can fail, handling this complicates code.\n \nFor instances, we don\u0027t have the XML entry, and the const char* UUID is defined in hand-written code.\n \nAs I understand, we need constant-time access to AudioUuid instances. That\u0027s why there are these static functions.\n\nIf we name all the constants consistently, including AIDL names for type constants, then we end up with just one \"symbol\" for instances, and two \"symbols\" for types—everything else can be generated using simple preprocessor macros.\n\nLet\u0027s consider effect types. Say, we define a macro list:\n\n```\n#define EFFECT_TYPE_LIST_DEF(V) \\\n  V(\"automatic_gain_control_v1\", AutomaticGainControlV1Uuid) \\\n  ...\n```\n\nWe can use it to define the function for generating AudioUuid, note that this requires that constants in AIDL are named like `kAutomaticGainControlV1Uuid`):\n\n```\n#define GENERATE_UUID_GETTER_V(_, symbol) \\\n  const AudioUuid\u0026 symbol() { \\\n    static const NoDestructor\u003cAudioUuid\u003e uuid(stringToUuid(Descriptor::k##symbol)); \\\n  return *uuid; }\n\n// This will generate all the UUID getter functions:\nEFFECT_TYPE_LIST_DEF(GENERATE_UUID_GETTER_V)  \n```\n\nThen we use the same list definition for generating a function which maps from XML strings to AudioUuids (not to strings!) via these generators:\n\n```\n#define GENERATE_MAP_ENTRY_V(s, symbol) \\\n  {s, \u0026symbol},\n\nbool findUuid(const std::string\u0026 xmlName, AudioUuid* uuid) {\n  static const NoDestructor\u003cstd::map\u003cstd::string, void (*getter)()\u003e\u003e uuidMap({\n    EFFECT_TYPE_LIST_DEF(GENERATE_MAP_ENTRY_V)\n  });\n  if (auto it \u003d uuidMap.find(xmlName); it !\u003d uuidMap.end()) {\n    *uuid \u003d *(it-\u003esecond)();\n    return true;\n  }\n  return false;\n}\n```\n\nFor constant-time transition from compile time const char* constants to AudioUuids, we can similarly generate a switch which goes from a constant pointer to the Uuid generator—no need to do string comparison, just use the constant as a number. This removes the need to publish AudioUuid generators in the header file, although we can do that as well, just need to be more careful about naming the macros to avoid clashes.\n\nThe syntax might be not fully correct but you get the idea. The benefit is that for each effect type and instance we only have one line of \"definition\"—in the macro list, and all other entities get hooked up and connected together automatically. I used a similar approach for legacy HAL enums (https://cs.android.com/android/platform/superproject/+/master:system/media/audio/include/system/audio-hal-enums.h), it seems to be convenient.",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 74
+      },
+      "revId": "a9fc970eaefac697dcbed03dec17016598e2ce8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b03fb188_664189d2",
+        "filename": "audio/aidl/default/EffectUUID.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-15T18:16:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df67ce05_5ac43767",
       "range": {
         "startLine": 327,
         "startChar": 0,
