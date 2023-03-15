@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00df3b2e_32662b6a",
+        "filename": "audio/aidl/android/hardware/audio/effect/VendorExtension.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-15T17:01:28Z",
+      "side": 1,
+      "message": "I suppose, only the first two components matter: `vendor` as an indicator for the framework to allow passing the extension instance to the HAL, and `mycompanyname` for namespacing between vendors. Everything after that is up to the vendor.",
+      "range": {
+        "startLine": 28,
+        "startChar": 29,
+        "endLine": 28,
+        "endChar": 59
+      },
+      "revId": "19bd59ec1f1f94989847184dc28e184daadd9fef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
