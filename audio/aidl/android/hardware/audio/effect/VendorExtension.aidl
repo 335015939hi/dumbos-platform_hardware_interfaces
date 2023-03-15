@@ -17,9 +17,22 @@
 package android.hardware.audio.effect;
 
 /**
- * Vendor exntension implementation definition, can be used for additional parameters.
+ * Vendor extension implementation definition, can be used for additional parameters.
  */
 @VintfStability
 parcelable VendorExtension {
+    /**
+     * Name of the stable aidl interface whose value is stored in this extension.
+     *
+     * This field will be set to the name of the custom vendor AIDL interface, it must contain the
+     * the owner name of the extension, start with "vendor.mycompanyname.". Including the company
+     * name can prevent type collisions between different vendors.
+     */
+    @utf8InCpp String name;
+
+    /**
+     * Parcelable holder for extension.
+     * see: https://source.android.com/docs/core/architecture/aidl/aidl-hals#extension-parcelables
+     */
     ParcelableHolder extension;
 }

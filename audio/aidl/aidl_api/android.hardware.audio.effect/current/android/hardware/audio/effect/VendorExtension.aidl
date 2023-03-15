@@ -34,5 +34,6 @@
 package android.hardware.audio.effect;
 @VintfStability
 parcelable VendorExtension {
+  @utf8InCpp String name;
   ParcelableHolder extension;
 }
