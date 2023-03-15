@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <array>
 #include <initializer_list>
+#include <regex>
 #include <type_traits>
 
 #include <aidl/android/media/audio/common/AudioChannelLayout.h>
@@ -29,7 +30,7 @@
 #include <aidl/android/media/audio/common/AudioOutputFlags.h>
 #include <aidl/android/media/audio/common/PcmType.h>
 
-namespace android::hardware::audio::common {
+namespace aidl::android::hardware::audio::common {
 
 // Some values are reserved for use by the system code only.
 // HALs must not accept or emit values outside from the provided list.
@@ -133,6 +134,18 @@ constexpr bool isValidAudioMode(::aidl::android::media::audio::common::AudioMode
            kValidAudioModes.end();
 }
 
+static inline bool maybeVendorExtension(const std::string& s) {
+    // Only checks whether the string starts with the "vendor prefix".
+    static const std::string vendorPrefix = "VX_";
+    return s.size() > vendorPrefix.size() && s.substr(0, vendorPrefix.size()) == vendorPrefix;
+}
+
+static inline bool isVendorExtension(const std::string& s) {
+    // Must be the same as defined in {Playback|Record}TrackMetadata.aidl
+    static const std::regex vendorExtension("VX_[A-Z0-9]{3,}_[_A-Z0-9]+");
+    return std::regex_match(s.begin(), s.end(), vendorExtension);
+}
+
 // The helper functions defined below are only applicable to the case when an enum type
 // specifies zero-based bit positions, not bit masks themselves. This is why instantiation
 // is restricted to certain enum types.
@@ -163,4 +176,4 @@ constexpr U makeBitPositionFlagMask(std::initializer_list<E> flags) {
     return result;
 }
 
-}  // namespace android::hardware::audio::common
+}  // namespace aidl::android::hardware::audio::common

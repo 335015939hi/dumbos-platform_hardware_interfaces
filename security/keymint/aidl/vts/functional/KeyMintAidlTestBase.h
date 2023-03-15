@@ -309,6 +309,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     }
     bool IsSecure() const { return securityLevel_ != SecurityLevel::SOFTWARE; }
     SecurityLevel SecLevel() const { return securityLevel_; }
+    bool IsRkpSupportRequired() const;
 
     vector<uint32_t> ValidKeySizes(Algorithm algorithm);
     vector<uint32_t> InvalidKeySizes(Algorithm algorithm);
@@ -356,7 +357,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     SecurityLevel securityLevel_;
     string name_;
     string author_;
-    long challenge_;
+    int64_t challenge_;
 
   private:
     void CheckEncryptOneByteAtATime(BlockMode block_mode, const int block_size,

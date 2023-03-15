@@ -54,6 +54,10 @@
 
 using namespace android;
 using aidl::android::hardware::audio::common::AudioOffloadMetadata;
+using aidl::android::hardware::audio::common::getChannelCount;
+using aidl::android::hardware::audio::common::isBitPositionFlagSet;
+using aidl::android::hardware::audio::common::isTelephonyDeviceType;
+using aidl::android::hardware::audio::common::isValidAudioMode;
 using aidl::android::hardware::audio::common::PlaybackTrackMetadata;
 using aidl::android::hardware::audio::common::RecordTrackMetadata;
 using aidl::android::hardware::audio::common::SinkMetadata;
@@ -100,10 +104,6 @@ using aidl::android::media::audio::common::Int;
 using aidl::android::media::audio::common::MicrophoneDynamicInfo;
 using aidl::android::media::audio::common::MicrophoneInfo;
 using aidl::android::media::audio::common::Void;
-using android::hardware::audio::common::getChannelCount;
-using android::hardware::audio::common::isBitPositionFlagSet;
-using android::hardware::audio::common::isTelephonyDeviceType;
-using android::hardware::audio::common::isValidAudioMode;
 using android::hardware::audio::common::StreamLogic;
 using android::hardware::audio::common::StreamWorker;
 using ndk::enum_range;
@@ -2146,6 +2146,23 @@ TEST_P(AudioCoreBluetoothLe, Enabled) {
     ASSERT_IS_OK(bluetooth->isEnabled(&enabled));
     EXPECT_IS_OK(bluetooth->setEnabled(enabled))
             << "setEnabled without actual state change must not fail";
+}
+
+TEST_P(AudioCoreBluetoothLe, OffloadReconfiguration) {
+    if (bluetooth == nullptr) {
+        GTEST_SKIP() << "BluetoothLe is not supported";
+    }
+    bool isSupported;
+    ASSERT_IS_OK(bluetooth->supportsOffloadReconfiguration(&isSupported));
+    bool isSupported2;
+    ASSERT_IS_OK(bluetooth->supportsOffloadReconfiguration(&isSupported2));
+    EXPECT_EQ(isSupported, isSupported2);
+    if (isSupported) {
+        static const auto kStatuses = {EX_NONE, EX_ILLEGAL_STATE};
+        EXPECT_STATUS(kStatuses, bluetooth->reconfigureOffload({}));
+    } else {
+        EXPECT_STATUS(EX_UNSUPPORTED_OPERATION, bluetooth->reconfigureOffload({}));
+    }
 }
 
 class AudioCoreTelephony : public AudioCoreModuleBase, public testing::TestWithParam<std::string> {
