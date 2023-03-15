@@ -46,6 +46,30 @@
       },
       "revId": "57cea0e228ea36639d4c0a536e11a70437fec0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a3e0306_d25f80cf",
+        "filename": "audio/aidl/android/hardware/audio/effect/VendorExtension.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-03-15T20:18:10Z",
+      "side": 1,
+      "message": "We could expose it as an API if it\u0027s not now, but yeah I don\u0027t think we need the name here. Let me know if you need the APIs (they may be a bit tricky because of the way parcelables are read ...)",
+      "parentUuid": "645ea603_7a5ebaef",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "57cea0e228ea36639d4c0a536e11a70437fec0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
