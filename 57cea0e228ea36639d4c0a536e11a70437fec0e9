@@ -70,6 +70,30 @@
       },
       "revId": "57cea0e228ea36639d4c0a536e11a70437fec0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e02f732_49da6617",
+        "filename": "audio/aidl/android/hardware/audio/effect/VendorExtension.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-16T00:41:30Z",
+      "side": 1,
+      "message": "Thanks, I will abandon this cl then",
+      "parentUuid": "3a3e0306_d25f80cf",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "57cea0e228ea36639d4c0a536e11a70437fec0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
