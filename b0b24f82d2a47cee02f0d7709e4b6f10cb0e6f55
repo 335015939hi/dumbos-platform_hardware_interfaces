@@ -96,6 +96,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee2a85f4_1f915deb",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2023-03-16T17:19:15Z",
+      "side": 1,
+      "message": "We never enforced any validation for this on the server, and looks like some vendors supply patch levels in the YYYYMM format, based on the recent errors my change caused (skipping the DD). Should we take this opportunity to also allow YYYYMM in that case?",
+      "range": {
+        "startLine": 98,
+        "startChar": 64,
+        "endLine": 98,
+        "endChar": 72
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee8be555_7a035106",
         "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
         "patchSetId": 4
