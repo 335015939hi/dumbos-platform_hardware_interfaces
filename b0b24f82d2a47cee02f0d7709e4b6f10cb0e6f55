@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1946048d_4fb19e22",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-16T16:43:53Z",
+      "side": 1,
+      "message": "Maybe we want to say \"current version\" or something instead?\n\nNo matter what, this is going to be a maintenance point we need to touch when the inevitable V4 emerges.",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 16
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
