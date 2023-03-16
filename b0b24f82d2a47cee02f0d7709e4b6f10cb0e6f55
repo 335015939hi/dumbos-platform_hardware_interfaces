@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5c56035_351b0f6c",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2023-03-16T17:16:07Z",
+      "side": 1,
+      "message": "Nit: This comment also needs updating.",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 73
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1946048d_4fb19e22",
         "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
         "patchSetId": 4
@@ -19,6 +42,76 @@
         "startChar": 6,
         "endLine": 38,
         "endChar": 16
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24e302c7_0a260567",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2023-03-16T17:16:07Z",
+      "side": 1,
+      "message": "I think this is fine for now the way you\u0027ve written. If we diverge too much for v4, we write the new version at the top of the file; this stays intact. If we diverge very little (say making a required field optional), we make the changes inline and say \"Version 3 onwards, introduced in Android 14\".",
+      "parentUuid": "1946048d_4fb19e22",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 16
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcb6d3b1_ca73bc2e",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2023-03-16T17:16:07Z",
+      "side": 1,
+      "message": "something doesn\u0027t add up. Architecture, oemcryptobuildinfo, type are missing - \nhttps://source.corp.google.com/piper///depot/google3/third_party/java_src/remote_provisioning_cbor/v0_9_0/java/remoteprovisioning/DeviceInfo.java;l\u003d198?q\u003ddeviceinfo.java%20f:third_party%2F\u0026sq\u003dpackage:piper%20file:%2F%2Fdepot%2Fgoogle3%20-file:google3%2Fexperimental",
+      "range": {
+        "startLine": 61,
+        "startChar": 7,
+        "endLine": 61,
+        "endChar": 43
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee8be555_7a035106",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2023-03-16T17:16:07Z",
+      "side": 1,
+      "message": "I\u0027ve never come across this on the server while parsing - \nhttps://source.corp.google.com/piper///depot/google3/third_party/java_src/remote_provisioning_cbor/v0_9_0/java/remoteprovisioning/DeviceInfo.java;l\u003d176?q\u003ddeviceinfo.java%20f:third_party%2F\u0026sq\u003dpackage:piper%20file:%2F%2Fdepot%2Fgoogle3%20-file:google3%2Fexperimental",
+      "range": {
+        "startLine": 101,
+        "startChar": 16,
+        "endLine": 101,
+        "endChar": 28
       },
       "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
