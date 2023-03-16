@@ -258,6 +258,30 @@
       },
       "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92ed2d1a_b78236a0",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-03-16T23:46:40Z",
+      "side": 1,
+      "message": "If it\u0027s documented and VTS tested, let\u0027s just leave it in.",
+      "parentUuid": "7a210837_c8bb1482",
+      "range": {
+        "startLine": 101,
+        "startChar": 16,
+        "endLine": 101,
+        "endChar": 28
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

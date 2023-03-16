@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "927838ef_7aa234bb",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-03-16T23:46:40Z",
+      "side": 1,
+      "message": "Do the VTS tests reflect this (correct) alteration?",
+      "range": {
+        "startLine": 51,
+        "startChar": 64,
+        "endLine": 51,
+        "endChar": 70
+      },
+      "revId": "47194fa0894e7758cf4f73e5e6ee950ac7eac11a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
