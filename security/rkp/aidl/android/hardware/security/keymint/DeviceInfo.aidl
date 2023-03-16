@@ -49,6 +49,10 @@ parcelable DeviceInfo {
      *         "security_level" : "tee" / "strongbox",
      *         "fused": 1 / 0,  ; 1 if secure boot is enforced for the processor that the IRPC
      *                          ; implementation is contained in. 0 otherwise.
+     *
+     *         ; The version field was removed in v3 of the HAL, however it is still
+     *         ; required in v1 and v2 HAL implementations.
+     *         "version" : 1 / 2,
      *     }
      */
     byte[] deviceInfo;
