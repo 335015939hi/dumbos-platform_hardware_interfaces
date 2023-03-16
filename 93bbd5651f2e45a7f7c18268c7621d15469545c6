@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69a9ff88_9c8a3ba1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-03-16T23:27:48Z",
+      "side": 1,
+      "message": "The VtsHalAudioCoreTargetTest failure is known issue we are working on: b/273800157",
+      "revId": "93bbd5651f2e45a7f7c18268c7621d15469545c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
