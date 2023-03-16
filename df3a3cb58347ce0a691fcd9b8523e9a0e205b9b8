@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff4309db_2ebd723c",
+        "filename": "uwb/aidl/aidl_api/android.hardware.uwb.fira_android/current/android/hardware/uwb/fira_android/UwbVendorSessionAppConfigTlvTypes.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2023-03-16T05:16:07Z",
+      "side": 1,
+      "message": "Do we need this new TLV type? Can\u0027t we reuse the existing [STS_INDEX](https://cs.android.com/android/platform/superproject/+/master:packages/modules/Uwb/service/java/com/android/server/uwb/config/ConfigParam.java;drc\u003d7884e551eb6f054c86bf7dbf138a2351104e2414;l\u003d50) TLV type? \n\n\nWhen the framework retrieves the `GET_APP_CONFIG_CMD` after session is stopped, maybe the UWBS firmware can return the last used sts index in `STS_INDEX` TLV type?",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 21
+      },
+      "revId": "df3a3cb58347ce0a691fcd9b8523e9a0e205b9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
