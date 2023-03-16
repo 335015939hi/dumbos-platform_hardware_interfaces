@@ -166,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87b3bee1_03cf5045",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-03-16T23:57:41Z",
+      "side": 1,
+      "message": "Correct",
+      "parentUuid": "e7f7bcfb_78a40867",
+      "range": {
+        "startLine": 61,
+        "startChar": 7,
+        "endLine": 61,
+        "endChar": 43
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee2a85f4_1f915deb",
@@ -203,6 +227,30 @@
       "side": 1,
       "message": "good call\n\nI think this will almost always match OS patchlevel from keymint: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/Tag.aidl;drc\u003d36594490fd0d3ce1af796dfaaade2d5c086d1238;l\u003d605",
       "parentUuid": "ee2a85f4_1f915deb",
+      "range": {
+        "startLine": 98,
+        "startChar": 64,
+        "endLine": 98,
+        "endChar": 72
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68dc2fdb_f663ca79",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-03-16T23:57:41Z",
+      "side": 1,
+      "message": "We may want to rename this to os_patch_level... I probably errantly labeled this as system_patch_level\n\nThese should map 1:1 with KM patchlevel values.",
+      "parentUuid": "3e04d397_72033803",
       "range": {
         "startLine": 98,
         "startChar": 64,
