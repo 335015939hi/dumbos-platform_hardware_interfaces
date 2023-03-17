@@ -285,6 +285,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0511f8af_e7990688",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-17T21:23:38Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d42ce585_8b968bcd",
+      "range": {
+        "startLine": 98,
+        "startChar": 64,
+        "endLine": 98,
+        "endChar": 72
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee8be555_7a035106",
