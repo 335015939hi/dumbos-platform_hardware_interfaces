@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "701bb986_8e4aec61",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-17T22:37:21Z",
+      "side": 1,
+      "message": "I _think_ this is true for all `IRemotelyProvisionedComponents`\n\ne.g. widevine better agree with keymint.\n\nIs it ever valid that two `IRemotelyProvsionedComponent`s could disagree?",
+      "range": {
+        "startLine": 74,
+        "startChar": 58,
+        "endLine": 74,
+        "endChar": 90
+      },
+      "revId": "192c575ffb193e1bcc7debf59b0a72a9dcc73ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
