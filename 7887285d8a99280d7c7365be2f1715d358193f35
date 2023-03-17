@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5af4df5_6ddd0a45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-17T16:15:53Z",
+      "side": 1,
+      "message": "Thanks for fixing up the test, Tommy!",
+      "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54b552fd_ec67c37a",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-17T16:15:53Z",
+      "side": 1,
+      "message": "Let\u0027s use the constants here, too.\n\n`{MIN_CHALLENGE_SIZE-1, MAX_CHALLENGE_SIZE+1}`",
+      "range": {
+        "startLine": 751,
+        "startChar": 22,
+        "endLine": 751,
+        "endChar": 29
+      },
+      "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e39bc3d1_af9a9678",
@@ -14,6 +54,30 @@
       "writtenOn": "2023-03-17T07:31:08Z",
       "side": 1,
       "message": "@sethmo@google.com TEE seems accept those values. Any idea?",
+      "range": {
+        "startLine": 756,
+        "startChar": 8,
+        "endLine": 756,
+        "endChar": 20
+      },
+      "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "315f4aea_13abf263",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-17T16:15:53Z",
+      "side": 1,
+      "message": "@trong@google.com, this sounds like a KeyMint trusty bug. Can you PTAL?",
+      "parentUuid": "e39bc3d1_af9a9678",
       "range": {
         "startLine": 756,
         "startChar": 8,
