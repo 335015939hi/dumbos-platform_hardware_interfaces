@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5e4e724_4d5c90a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1881539
+      },
+      "writtenOn": "2023-03-17T17:30:20Z",
+      "side": 1,
+      "message": "Also could we use binder rpc and do the tcp proxy on the host ?",
+      "parentUuid": "95c863ad_a0d954f5",
+      "revId": "0f09e777244f06b5abea6825c3afd5ac7bd725a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8aee953_0bc67857",
         "filename": "bluetooth/hci/hci_proxy/Main.java",
         "patchSetId": 10
