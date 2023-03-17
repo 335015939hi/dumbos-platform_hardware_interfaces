@@ -22,6 +22,30 @@
       },
       "revId": "47194fa0894e7758cf4f73e5e6ee950ac7eac11a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29d0d0a8_4796cae1",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-17T20:48:18Z",
+      "side": 1,
+      "message": "Yup. Turns out VTS was right all along:\n\n```\nauto attestedSystemPatchLevel \u003d auths.GetTagValue(TAG_OS_PATCHLEVEL);\nauto systemPatchLevel \u003d deviceInfo-\u003eget(\"system_patch_level\")-\u003easUint();\nASSERT_EQ(systemPatchLevel-\u003evalue(), attestedSystemPatchLevel.value());\n```",
+      "parentUuid": "927838ef_7aa234bb",
+      "range": {
+        "startLine": 51,
+        "startChar": 64,
+        "endLine": 51,
+        "endChar": 70
+      },
+      "revId": "47194fa0894e7758cf4f73e5e6ee950ac7eac11a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
