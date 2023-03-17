@@ -110,6 +110,30 @@
       },
       "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e6b4e6b_e3a7f71a",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-17T17:48:37Z",
+      "side": 1,
+      "message": "Fair points! I agree, there\u0027s nothing wrong with a HAL being \"too accepting\".\n\nThough, realistically, I would expect an SE to have strict limits due to memory concerns. So we should probably remove this test.",
+      "parentUuid": "7810fa0f_2a9001ab",
+      "range": {
+        "startLine": 756,
+        "startChar": 8,
+        "endLine": 756,
+        "endChar": 20
+      },
+      "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
