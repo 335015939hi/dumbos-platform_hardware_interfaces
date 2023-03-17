@@ -86,6 +86,30 @@
       },
       "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7810fa0f_2a9001ab",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-03-17T17:47:19Z",
+      "side": 1,
+      "message": "It\u0027s failing on cuttlefish. But it would fail with Trusty too.\n\nThe HAL spec doesn\u0027t require that challenges outside the range must fail. The challenge comes from the server, and it\u0027s basically treated as opaque by device code. It makes sense that we check that the HAL supports the entire size range. But I think the onus of ensuring that challenge is within specified range should be on the server. \n\nAdding the size check in the HAL will also make it difficult to expand the range, like we did earlier.",
+      "parentUuid": "315f4aea_13abf263",
+      "range": {
+        "startLine": 756,
+        "startChar": 8,
+        "endLine": 756,
+        "endChar": 20
+      },
+      "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
