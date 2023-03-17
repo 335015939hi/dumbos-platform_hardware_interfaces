@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6876b2cd_b3f4c8c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-03-17T17:58:33Z",
+      "side": 1,
+      "message": "VTS tests live here.  I\u0027m interested in discussing more why this shouldn\u0027t if it\u0027s a testing interface.",
+      "parentUuid": "4073f1b9_eb880531",
+      "revId": "0f09e777244f06b5abea6825c3afd5ac7bd725a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8aee953_0bc67857",
         "filename": "bluetooth/hci/hci_proxy/Main.java",
         "patchSetId": 10
