@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68591ae9_d7d5e232",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-17T16:34:59Z",
+      "side": 1,
+      "message": "The failure of VtsHalAudioCoreTargetTest is tracked by b/273800157, the fix has landed internally into tm-qpr-dev, thus failures on \"...-plus-aosp\" branches should clear out.",
+      "revId": "4d7aa9279b147f9a7a45e2599d8080e9dac02fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
