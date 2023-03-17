@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0373a0a5_29b271ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-03-17T17:15:50Z",
+      "side": 1,
+      "message": "Why Java?  Would the code be significantly smaller/better in Kotlin?",
+      "revId": "0f09e777244f06b5abea6825c3afd5ac7bd725a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0200cb54_b3af0ae8",
+        "filename": "bluetooth/hci/hci_proxy/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-03-17T17:15:50Z",
+      "side": 1,
+      "message": "Another use case is factory testing.  Using a direct HCI interface, we can put the chip into LE test mode.",
+      "revId": "0f09e777244f06b5abea6825c3afd5ac7bd725a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
