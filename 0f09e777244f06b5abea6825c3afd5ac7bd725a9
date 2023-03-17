@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95c863ad_a0d954f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1881539
+      },
+      "writtenOn": "2023-03-17T17:29:03Z",
+      "side": 1,
+      "message": "I don\u0027t think this should live in `hardware/interfaces`, could we put that in another repo or in Google3 somewhere ?",
+      "revId": "0f09e777244f06b5abea6825c3afd5ac7bd725a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8aee953_0bc67857",
         "filename": "bluetooth/hci/hci_proxy/Main.java",
         "patchSetId": 10
