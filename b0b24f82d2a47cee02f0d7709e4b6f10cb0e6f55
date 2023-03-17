@@ -357,6 +357,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "571e3814_5e71e30d",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-17T22:47:48Z",
+      "side": 1,
+      "message": "sheesh... bad muscle memory\n\naosp/2496162 is the follow-up CL",
+      "parentUuid": "57e2a551_dd169d7e",
+      "range": {
+        "startLine": 98,
+        "startChar": 64,
+        "endLine": 98,
+        "endChar": 72
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee8be555_7a035106",
