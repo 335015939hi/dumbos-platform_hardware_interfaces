@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "776f436d_bf77fb33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1794306
+      },
+      "writtenOn": "2023-03-17T17:31:51Z",
+      "side": 1,
+      "message": "Because I am not expertise in Kotlin :P\nBut yes some frameworks like socket.io look more efficient than thread-based implementation.",
+      "parentUuid": "0373a0a5_29b271ee",
+      "revId": "0f09e777244f06b5abea6825c3afd5ac7bd725a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8aee953_0bc67857",
         "filename": "bluetooth/hci/hci_proxy/Main.java",
         "patchSetId": 10
