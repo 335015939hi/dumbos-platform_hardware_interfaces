@@ -263,6 +263,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d42ce585_8b968bcd",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-17T02:08:19Z",
+      "side": 1,
+      "message": "Seems a bit late in the game to do that, don\u0027t you think?\n\nBut yeah, given a time machine I\u0027d make that change 😊",
+      "parentUuid": "68dc2fdb_f663ca79",
+      "range": {
+        "startLine": 98,
+        "startChar": 64,
+        "endLine": 98,
+        "endChar": 72
+      },
+      "revId": "b0b24f82d2a47cee02f0d7709e4b6f10cb0e6f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee8be555_7a035106",
         "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
         "patchSetId": 4
