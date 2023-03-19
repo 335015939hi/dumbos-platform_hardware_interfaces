@@ -79,6 +79,7 @@ void Sensor::batch(int64_t samplingPeriodNs) {
     if (mSamplingPeriodNs != samplingPeriodNs) {
         mSamplingPeriodNs = samplingPeriodNs;
         // Wake up the 'run' thread to check if a new event should be generated now
+        std::unique_lock<std::mutex> lock(mRunMutex);
         mWaitCV.notify_all();
     }
 }
