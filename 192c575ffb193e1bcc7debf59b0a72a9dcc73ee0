@@ -22,6 +22,30 @@
       },
       "revId": "192c575ffb193e1bcc7debf59b0a72a9dcc73ee0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b93b9f03_bf310df8",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-03-20T01:54:56Z",
+      "side": 1,
+      "message": "I don\u0027t think so.",
+      "parentUuid": "701bb986_8e4aec61",
+      "range": {
+        "startLine": 74,
+        "startChar": 58,
+        "endLine": 74,
+        "endChar": 90
+      },
+      "revId": "192c575ffb193e1bcc7debf59b0a72a9dcc73ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
