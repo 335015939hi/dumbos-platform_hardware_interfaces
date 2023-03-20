@@ -16,6 +16,23 @@
       "message": "There seems to be gralloc drivers which cannot be preloaded.  Perhaps reverting is the best.",
       "revId": "7ca92515becaeab5e33981d6cc6d0f779233891b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5148a46_93086188",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339259
+      },
+      "writtenOn": "2023-03-20T16:55:08Z",
+      "side": 1,
+      "message": "Might want to wait for aosp/2493875 first? If they are happy, then no need to revert? (unless other things popped up with some frozen state gralloc hal doing preload-incompatible things...)",
+      "revId": "7ca92515becaeab5e33981d6cc6d0f779233891b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
