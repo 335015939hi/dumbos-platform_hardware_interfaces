@@ -158,6 +158,30 @@
       },
       "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed0ea00a_f79b83ea",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-20T17:40:43Z",
+      "side": 1,
+      "message": "I don\u0027t think the bounds enforcement in VTS provides any value.\n\nIf an implementation wants to accept arbitrarily-sized challenges, so be it. Our infrastructure requires 16..64 support, and that\u0027s it. It seems inconsequential if an implementation supports other sizes for challenge.\n\nWhat bugs/interop problems does this test prevent? I cannot think of any. At best it\u0027s a nanny for implementations that can be attacked with very large buffers.",
+      "parentUuid": "0fd9da4b_f8aacb65",
+      "range": {
+        "startLine": 756,
+        "startChar": 8,
+        "endLine": 756,
+        "endChar": 20
+      },
+      "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
