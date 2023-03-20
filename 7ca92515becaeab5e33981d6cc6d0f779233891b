@@ -33,6 +33,24 @@
       "message": "Might want to wait for aosp/2493875 first? If they are happy, then no need to revert? (unless other things popped up with some frozen state gralloc hal doing preload-incompatible things...)",
       "revId": "7ca92515becaeab5e33981d6cc6d0f779233891b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e942538_8841e169",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096171
+      },
+      "writtenOn": "2023-03-20T17:17:16Z",
+      "side": 1,
+      "message": "The gralloc driver on `beagle_x11` is a prebuilt binary and opens 3 other devices.  Even if the devices are all allowlisted, processes forked from zygote get `EGL_NOT_INITIALIZED` when using EGL...",
+      "parentUuid": "a5148a46_93086188",
+      "revId": "7ca92515becaeab5e33981d6cc6d0f779233891b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
