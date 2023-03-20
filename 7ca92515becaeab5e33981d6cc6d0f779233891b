@@ -51,6 +51,24 @@
       "parentUuid": "a5148a46_93086188",
       "revId": "7ca92515becaeab5e33981d6cc6d0f779233891b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "925b9f23_ec1ea8c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1339259
+      },
+      "writtenOn": "2023-03-20T17:31:58Z",
+      "side": 1,
+      "message": "Thanks for the additional details! makes sense to revert.",
+      "parentUuid": "8e942538_8841e169",
+      "revId": "7ca92515becaeab5e33981d6cc6d0f779233891b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
