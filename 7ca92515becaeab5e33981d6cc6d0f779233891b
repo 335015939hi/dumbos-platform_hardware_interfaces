@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ba56a09_064a18c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096171
+      },
+      "writtenOn": "2023-03-20T16:41:34Z",
+      "side": 1,
+      "message": "There seems to be gralloc drivers which cannot be preloaded.  Perhaps reverting is the best.",
+      "revId": "7ca92515becaeab5e33981d6cc6d0f779233891b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
