@@ -134,6 +134,30 @@
       },
       "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fd9da4b_f8aacb65",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-03-20T03:00:29Z",
+      "side": 1,
+      "message": "In that case, I\u0027m more in favor of just going to a challenge size of `0..64`, enforce that `challenge \u003e 64` fails, and leave it there. I don\u0027t think we\u0027d have a need for a challenge greater than 64 bytes, and even if we did we wouldn\u0027t have a guarantee we could migrate to it due to all of the implementations in the ecosystem that may actually expect an upperbounded challenge size due to the spec here.\n\nLowerbounding at 16 bytes seems like an arbitrary stopping point if we\u0027re cool with HALs accepting basically empty challenges and leaving it up to the server to configure the challenge.",
+      "parentUuid": "4e6b4e6b_e3a7f71a",
+      "range": {
+        "startLine": 756,
+        "startChar": 8,
+        "endLine": 756,
+        "endChar": 20
+      },
+      "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
