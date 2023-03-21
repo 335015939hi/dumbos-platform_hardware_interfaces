@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e67d9ac7_137477f3",
+        "filename": "health/aidl/vts/functional/VtsHalHealthTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-03-21T19:42:33Z",
+      "side": 1,
+      "message": "nit: Could you please use the names of these values? e.g. BatteryChargingPolicy::LONG_LIFE etc.\n\nSame at L260",
+      "range": {
+        "startLine": 268,
+        "startChar": 16,
+        "endLine": 268,
+        "endChar": 60
+      },
+      "revId": "3383b98cd90e0707d58fa0d4bbb3241259e43bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
