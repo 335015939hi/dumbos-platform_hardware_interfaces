@@ -22,6 +22,29 @@
       },
       "revId": "df3a3cb58347ce0a691fcd9b8523e9a0e205b9b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "770fe171_346e728a",
+        "filename": "uwb/aidl/android/hardware/uwb/fira_android/UwbVendorSessionAppConfigTlvTypes.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2023-03-21T16:48:38Z",
+      "side": 1,
+      "message": "Sorry, we cannot add NXP copyrights to existing AOSP codebase.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 2
+      },
+      "revId": "df3a3cb58347ce0a691fcd9b8523e9a0e205b9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
