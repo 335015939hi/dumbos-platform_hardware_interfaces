@@ -182,6 +182,30 @@
       },
       "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5632a2d_757c3e2e",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-03-21T00:13:17Z",
+      "side": 1,
+      "message": "A worst case scenario (judge for yourself how likely it is) - We could always accidentally check in a server change in such a way that we start sending some order of magnitude larger challenge, which if the HAL does not explicitly reject may cause the TEE to blow up and reboot the device.\n\nAnother scenario - the HAL author doesn\u0027t think to sanitize the challenge length, leading to some buffer overflow vulnerability when users maliciously pass in challenges greater than size 64.\n\nI think it\u0027s better to exactly validate specs where possible to turn low-hanging unknowns into tested knowns, especially when they\u0027ll be implemented by a very broad ecosystem. We can\u0027t proactively think ahead and fix every problem, but this seems like a reasonable check.",
+      "parentUuid": "ed0ea00a_f79b83ea",
+      "range": {
+        "startLine": 756,
+        "startChar": 8,
+        "endLine": 756,
+        "endChar": 20
+      },
+      "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
