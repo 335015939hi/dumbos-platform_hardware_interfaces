@@ -206,6 +206,30 @@
       },
       "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1acef33b_f07ed06c",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-03-21T09:29:43Z",
+      "side": 1,
+      "message": "I\u0027m OK to validate the challenge.size in (0 ~ 64).\nI add this check because the HAL says it needs a (16 .. 64) challenge input for the `AuthenticatedRequest`.\n\n```\n     *         challenge: bstr .size (16..64), ; Provided by the method parameters\n```\nNot only HAL but also the TA will try to validate each input, to avoid  potential overflow.",
+      "parentUuid": "d5632a2d_757c3e2e",
+      "range": {
+        "startLine": 756,
+        "startChar": 8,
+        "endLine": 756,
+        "endChar": 20
+      },
+      "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
