@@ -265,7 +265,7 @@ TEST_P(HealthAidl, setChargingPolicy) {
     status = health->getChargingPolicy(&value);
     ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
     if (!status.isOk()) return;
-    ASSERT_THAT(static_cast<int>(value), Eq(2));
+    ASSERT_THAT(static_cast<int>(value), AnyOf(Eq(1), Eq(4)));
 }
 
 MATCHER(IsValidHealthData, "") {
