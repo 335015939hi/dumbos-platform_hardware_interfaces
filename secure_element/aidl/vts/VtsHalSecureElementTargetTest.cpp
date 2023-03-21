@@ -285,13 +285,11 @@ TEST_P(SecureElementAidl, closeChannel) {
 TEST_P(SecureElementAidl, transmit) {
     std::vector<uint8_t> response;
 
-    // transmit called after init shall succeed.
-    // Note: no channel is opened for this test and the transmit
-    // response will have the status SW_LOGICAL_CHANNEL_NOT_SUPPORTED.
-    // The transmit response shall be larger than 2 bytes as it includes the
-    // status code.
-    EXPECT_OK(secure_element_->transmit(kDataApdu, &response));
-    EXPECT_GE(response.size(), 2u);
+    // Note: no channel is opened for this test
+    // transmit() will return an empty response with the error
+    // code CHANNEL_NOT_AVAILABLE when the SE cannot be
+    // communicated with.
+    EXPECT_ERR(secure_element_->transmit(kDataApdu, &response));
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(SecureElementAidl);
