@@ -441,6 +441,10 @@ ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateDeviceInfo(
     std::string error;
     switch (info.versionNumber) {
         case 3:
+            if (parsed->get("version")) {
+                error += "DeviceInfo must not contain a version field in IRPC v3+ HALs.\n";
+            }
+            FMT_FALLTHROUGH;
         case 2:
             for (const auto& entry : kAttestationIdEntrySet) {
                 error += checkMapEntry(isFactory && !entry.alwaysValidate, *parsed, cppbor::TSTR,
