@@ -230,6 +230,30 @@
       },
       "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89e02d0b_f8d091ef",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-22T16:14:38Z",
+      "side": 1,
+      "message": "As long as we\u0027re ok with doing the updates to CF and Trusty, then validating 0..64 in VTS SGTM.\n\nWe also need to update the comments in the HAL.",
+      "parentUuid": "1acef33b_f07ed06c",
+      "range": {
+        "startLine": 756,
+        "startChar": 8,
+        "endLine": 756,
+        "endChar": 20
+      },
+      "revId": "7887285d8a99280d7c7365be2f1715d358193f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
