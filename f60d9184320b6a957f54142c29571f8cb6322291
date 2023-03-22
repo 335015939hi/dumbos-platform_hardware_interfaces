@@ -16,6 +16,24 @@
       "message": "Can you also add a test with a valid channel (e.g. basic channel) to validate that the HAL can transmit data to the SE under normal circumstances ?",
       "revId": "f60d9184320b6a957f54142c29571f8cb6322291",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c3daae0_b4d95911",
+        "filename": "secure_element/aidl/vts/VtsHalSecureElementTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2023-03-22T07:46:47Z",
+      "side": 1,
+      "message": "The test cases openBasicChannel in line#230 and openLogicalChannel in line#256 already cover these scenarios?",
+      "parentUuid": "b8269505_824aafb1",
+      "revId": "f60d9184320b6a957f54142c29571f8cb6322291",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
