@@ -46,6 +46,30 @@
       },
       "revId": "3383b98cd90e0707d58fa0d4bbb3241259e43bc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7a0bad5_9ca2eff3",
+        "filename": "health/aidl/vts/functional/VtsHalHealthTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-03-22T03:15:16Z",
+      "side": 1,
+      "message": "Thanks for the advice. add a comment on this.",
+      "parentUuid": "dc2bcbec_608b97c3",
+      "range": {
+        "startLine": 268,
+        "startChar": 16,
+        "endLine": 268,
+        "endChar": 60
+      },
+      "revId": "3383b98cd90e0707d58fa0d4bbb3241259e43bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
