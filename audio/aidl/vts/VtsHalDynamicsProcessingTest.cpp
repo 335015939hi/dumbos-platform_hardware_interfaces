@@ -95,6 +95,58 @@ class DynamicsProcessingTestHelper : public EffectHelper {
     template <typename T>
     bool isAidlVectorEqual(const std::vector<T>& source, const std::vector<T>& target);
 
+    template <typename T>
+    bool isInRange(const T& value, const T& low, const T& high) {
+        return (value >= low) && (value <= high);
+    }
+    template <typename T, std::size_t... Is>
+    bool isTupleInRange(const T& test, const T& min, const T& max, std::index_sequence<Is...>) {
+        return (isInRange(std::get<Is>(test), std::get<Is>(min), std::get<Is>(max)) && ...);
+    }
+    template <typename T, std::size_t TupSize = std::tuple_size_v<T>>
+    bool isTupleInRange(const T& test, const T& min, const T& max) {
+        return isTupleInRange(test, min, max, std::make_index_sequence<TupSize>{});
+    }
+    template <typename T, typename F>
+    bool isTupleInRange(const std::vector<T>& cfgs, const T& min, const T& max, F func) {
+        auto minT = func(min), maxT = func(max);
+        for (auto cfg : cfgs) {
+            if (!isTupleInRange(func(cfg), minT, maxT)) return false;
+        }
+        return true;
+    }
+    int locateMinMaxForTag(DynamicsProcessing::Tag tag,
+                           const std::vector<Range::DynamicsProcessingRange>& kRanges);
+    bool isParamInRange(const DynamicsProcessing& dp,
+                        const std::vector<Range::DynamicsProcessingRange>& kRanges);
+    bool isEngineConfigInRange(const DynamicsProcessing::EngineArchitecture& cfg,
+                               const DynamicsProcessing::EngineArchitecture& min,
+                               const DynamicsProcessing::EngineArchitecture& max);
+    bool isChannelConfigInRange(const std::vector<DynamicsProcessing::ChannelConfig>& cfgs,
+                                const DynamicsProcessing::ChannelConfig& min,
+                                const DynamicsProcessing::ChannelConfig& max);
+    bool isEqBandConfigInRange(const std::vector<DynamicsProcessing::EqBandConfig>& cfgs,
+                               const DynamicsProcessing::EqBandConfig& min,
+                               const DynamicsProcessing::EqBandConfig& max);
+    bool isMbcBandConfigInRange(const std::vector<DynamicsProcessing::MbcBandConfig>& cfgs,
+                                const DynamicsProcessing::MbcBandConfig& min,
+                                const DynamicsProcessing::MbcBandConfig& max);
+    bool isLimiterConfigInRange(const std::vector<DynamicsProcessing::LimiterConfig>& cfgs,
+                                const DynamicsProcessing::LimiterConfig& min,
+                                const DynamicsProcessing::LimiterConfig& max);
+    bool isInputGainConfigInRange(const std::vector<DynamicsProcessing::InputGain>& cfgs,
+                                  const DynamicsProcessing::InputGain& min,
+                                  const DynamicsProcessing::InputGain& max);
+    bool isParamValid(const DynamicsProcessing::Tag& tag, const DynamicsProcessing& dp);
+    bool isChannelIndexValid(int channelCount);
+    bool isChannelConfigValid(const std::vector<DynamicsProcessing::ChannelConfig>& cfgs);
+    bool isEqBandConfigValid(const std::vector<DynamicsProcessing::EqBandConfig>& cfgs,
+                             int bandCount);
+    bool isMbcBandConfigValid(const std::vector<DynamicsProcessing::MbcBandConfig>& cfgs,
+                              int bandCount);
+    bool isLimiterConfigValid(const std::vector<DynamicsProcessing::LimiterConfig>& cfgs);
+    bool isInputGainConfigValid(const std::vector<DynamicsProcessing::InputGain>& cfgs);
+
     // get set params and validate
     void SetAndGetDynamicsProcessingParameters();
 
@@ -133,9 +185,11 @@ class DynamicsProcessingTestHelper : public EffectHelper {
     static const std::set<DynamicsProcessing::StageEnablement> kStageEnablementTestSet;
     static const std::set<std::vector<DynamicsProcessing::InputGain>> kInputGainTestSet;
 
+  protected:
+    int mChannelCount;
+
   private:
     int32_t mChannelLayout;
-    int mChannelCount;
     std::vector<std::pair<DynamicsProcessing::Tag, DynamicsProcessing>> mTags;
     void CleanUp() {
         mTags.clear();
@@ -152,6 +206,8 @@ const std::set<DynamicsProcessing::StageEnablement>
                 {.inUse = true, .bandCount = DynamicsProcessingTestHelper::kBandCount},
                 {.inUse = true, .bandCount = 0},
                 {.inUse = true, .bandCount = -1},
+                {.inUse = false, .bandCount = 0},
+                {.inUse = false, .bandCount = -1},
                 {.inUse = false, .bandCount = DynamicsProcessingTestHelper::kBandCount}};
 
 // test value set for DynamicsProcessing::ChannelConfig
@@ -161,9 +217,7 @@ const std::set<std::vector<DynamicsProcessing::ChannelConfig>>
                  {.channel = 0, .enable = true},
                  {.channel = 1, .enable = false},
                  {.channel = 2, .enable = true}},
-
                 {{.channel = -1, .enable = false}, {.channel = 2, .enable = true}},
-
                 {{.channel = 0, .enable = true}, {.channel = 1, .enable = true}}};
 
 // test value set for DynamicsProcessing::InputGain
@@ -172,10 +226,243 @@ const std::set<std::vector<DynamicsProcessing::InputGain>>
                 {{.channel = 0, .gainDb = 10.f},
                  {.channel = 1, .gainDb = 0.f},
                  {.channel = 2, .gainDb = -10.f}},
-
                 {{.channel = -1, .gainDb = -10.f}, {.channel = -2, .gainDb = 10.f}},
+                {{.channel = -1, .gainDb = 10.f}, {.channel = 0, .gainDb = -10.f}},
+                {{.channel = 0, .gainDb = 10.f}, {.channel = 1, .gainDb = -10.f}}};
 
-                {{.channel = -1, .gainDb = 10.f}, {.channel = 0, .gainDb = -10.f}}};
+bool DynamicsProcessingTestHelper::isInputGainConfigInRange(
+        const std::vector<DynamicsProcessing::InputGain>& cfgs,
+        const DynamicsProcessing::InputGain& min, const DynamicsProcessing::InputGain& max) {
+    auto func = [](const DynamicsProcessing::InputGain& arg) {
+        return std::make_tuple(arg.channel, arg.gainDb);
+    };
+    return isTupleInRange(cfgs, min, max, func);
+}
+
+bool DynamicsProcessingTestHelper::isLimiterConfigInRange(
+        const std::vector<DynamicsProcessing::LimiterConfig>& cfgs,
+        const DynamicsProcessing::LimiterConfig& min,
+        const DynamicsProcessing::LimiterConfig& max) {
+    auto func = [](const DynamicsProcessing::LimiterConfig& arg) {
+        return std::make_tuple(arg.channel, arg.enable, arg.linkGroup, arg.attackTimeMs,
+                               arg.releaseTimeMs, arg.ratio, arg.thresholdDb, arg.postGainDb);
+    };
+    return isTupleInRange(cfgs, min, max, func);
+}
+
+bool DynamicsProcessingTestHelper::isMbcBandConfigInRange(
+        const std::vector<DynamicsProcessing::MbcBandConfig>& cfgs,
+        const DynamicsProcessing::MbcBandConfig& min,
+        const DynamicsProcessing::MbcBandConfig& max) {
+    auto func = [](const DynamicsProcessing::MbcBandConfig& arg) {
+        return std::make_tuple(arg.channel, arg.band, arg.enable, arg.cutoffFrequencyHz,
+                               arg.attackTimeMs, arg.releaseTimeMs, arg.ratio, arg.thresholdDb,
+                               arg.kneeWidthDb, arg.noiseGateThresholdDb, arg.expanderRatio,
+                               arg.preGainDb, arg.postGainDb);
+    };
+    return isTupleInRange(cfgs, min, max, func);
+}
+
+bool DynamicsProcessingTestHelper::isEqBandConfigInRange(
+        const std::vector<DynamicsProcessing::EqBandConfig>& cfgs,
+        const DynamicsProcessing::EqBandConfig& min, const DynamicsProcessing::EqBandConfig& max) {
+    auto func = [](const DynamicsProcessing::EqBandConfig& arg) {
+        return std::make_tuple(arg.channel, arg.band, arg.enable, arg.cutoffFrequencyHz,
+                               arg.gainDb);
+    };
+    return isTupleInRange(cfgs, min, max, func);
+}
+
+bool DynamicsProcessingTestHelper::isChannelConfigInRange(
+        const std::vector<DynamicsProcessing::ChannelConfig>& cfgs,
+        const DynamicsProcessing::ChannelConfig& min,
+        const DynamicsProcessing::ChannelConfig& max) {
+    auto func = [](const DynamicsProcessing::ChannelConfig& arg) {
+        return std::make_tuple(arg.channel, arg.enable);
+    };
+    return isTupleInRange(cfgs, min, max, func);
+}
+
+bool DynamicsProcessingTestHelper::isEngineConfigInRange(
+        const DynamicsProcessing::EngineArchitecture& cfg,
+        const DynamicsProcessing::EngineArchitecture& min,
+        const DynamicsProcessing::EngineArchitecture& max) {
+    auto func = [](const DynamicsProcessing::EngineArchitecture& arg) {
+        return std::make_tuple(arg.resolutionPreference, arg.preferredProcessingDurationMs,
+                               arg.preEqStage.inUse, arg.preEqStage.bandCount,
+                               arg.postEqStage.inUse, arg.postEqStage.bandCount, arg.mbcStage.inUse,
+                               arg.mbcStage.bandCount, arg.limiterInUse);
+    };
+    return isTupleInRange(func(cfg), func(min), func(max));
+}
+
+int DynamicsProcessingTestHelper::locateMinMaxForTag(
+        DynamicsProcessing::Tag tag, const std::vector<Range::DynamicsProcessingRange>& kRanges) {
+    for (int i = 0; i < (int)kRanges.size(); i++) {
+        if (tag == kRanges[i].min.getTag() && tag == kRanges[i].max.getTag()) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+bool DynamicsProcessingTestHelper::isParamInRange(
+        const DynamicsProcessing& dp, const std::vector<Range::DynamicsProcessingRange>& kRanges) {
+    auto tag = dp.getTag();
+    int i = locateMinMaxForTag(tag, kRanges);
+    if (i == -1) return true;
+
+    switch (tag) {
+        case DynamicsProcessing::engineArchitecture: {
+            return isEngineConfigInRange(
+                    dp.get<DynamicsProcessing::engineArchitecture>(),
+                    kRanges[i].min.get<DynamicsProcessing::engineArchitecture>(),
+                    kRanges[i].max.get<DynamicsProcessing::engineArchitecture>());
+        }
+        case DynamicsProcessing::preEq: {
+            return isChannelConfigInRange(dp.get<DynamicsProcessing::preEq>(),
+                                          kRanges[i].min.get<DynamicsProcessing::preEq>()[0],
+                                          kRanges[i].max.get<DynamicsProcessing::preEq>()[0]);
+        }
+        case DynamicsProcessing::postEq: {
+            return isChannelConfigInRange(dp.get<DynamicsProcessing::postEq>(),
+                                          kRanges[i].min.get<DynamicsProcessing::postEq>()[0],
+                                          kRanges[i].max.get<DynamicsProcessing::postEq>()[0]);
+        }
+        case DynamicsProcessing::mbc: {
+            return isChannelConfigInRange(dp.get<DynamicsProcessing::mbc>(),
+                                          kRanges[i].min.get<DynamicsProcessing::mbc>()[0],
+                                          kRanges[i].max.get<DynamicsProcessing::mbc>()[0]);
+        }
+        case DynamicsProcessing::preEqBand: {
+            return isEqBandConfigInRange(dp.get<DynamicsProcessing::preEqBand>(),
+                                         kRanges[i].min.get<DynamicsProcessing::preEqBand>()[0],
+                                         kRanges[i].max.get<DynamicsProcessing::preEqBand>()[0]);
+        }
+        case DynamicsProcessing::postEqBand: {
+            return isEqBandConfigInRange(dp.get<DynamicsProcessing::postEqBand>(),
+                                         kRanges[i].min.get<DynamicsProcessing::postEqBand>()[0],
+                                         kRanges[i].max.get<DynamicsProcessing::postEqBand>()[0]);
+        }
+        case DynamicsProcessing::mbcBand: {
+            return isMbcBandConfigInRange(dp.get<DynamicsProcessing::mbcBand>(),
+                                          kRanges[i].min.get<DynamicsProcessing::mbcBand>()[0],
+                                          kRanges[i].max.get<DynamicsProcessing::mbcBand>()[0]);
+        }
+        case DynamicsProcessing::limiter: {
+            return isLimiterConfigInRange(dp.get<DynamicsProcessing::limiter>(),
+                                          kRanges[i].min.get<DynamicsProcessing::limiter>()[0],
+                                          kRanges[i].max.get<DynamicsProcessing::limiter>()[0]);
+        }
+        case DynamicsProcessing::inputGain: {
+            return isInputGainConfigInRange(dp.get<DynamicsProcessing::inputGain>(),
+                                            kRanges[i].min.get<DynamicsProcessing::inputGain>()[0],
+                                            kRanges[i].max.get<DynamicsProcessing::inputGain>()[0]);
+        }
+        default: {
+            return true;
+        }
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isChannelIndexValid(int channelCount) {
+    if (channelCount < 0 || channelCount >= mChannelCount) return false;
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isChannelConfigValid(
+        const std::vector<DynamicsProcessing::ChannelConfig>& cfgs) {
+    for (auto cfg : cfgs) {
+        if (!isChannelIndexValid(cfg.channel)) return false;
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isLimiterConfigValid(
+        const std::vector<DynamicsProcessing::LimiterConfig>& cfgs) {
+    for (auto cfg : cfgs) {
+        if (!isChannelIndexValid(cfg.channel)) return false;
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isInputGainConfigValid(
+        const std::vector<DynamicsProcessing::InputGain>& cfgs) {
+    for (auto cfg : cfgs) {
+        if (!isChannelIndexValid(cfg.channel)) return false;
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isEqBandConfigValid(
+        const std::vector<DynamicsProcessing::EqBandConfig>& cfgs, int bandCount) {
+    std::vector<float> freqs(cfgs.size(), -1);
+    for (auto cfg : cfgs) {
+        if (!isChannelIndexValid(cfg.channel)) return false;
+        if (cfg.band < 0 || cfg.band >= bandCount) return false;
+        freqs[cfg.band] = cfg.cutoffFrequencyHz;
+    }
+    if (std::count(freqs.begin(), freqs.end(), -1)) return false;
+    return std::is_sorted(freqs.begin(), freqs.end());
+}
+
+bool DynamicsProcessingTestHelper::isMbcBandConfigValid(
+        const std::vector<DynamicsProcessing::MbcBandConfig>& cfgs, int bandCount) {
+    std::vector<float> freqs(cfgs.size(), -1);
+    for (auto cfg : cfgs) {
+        if (!isChannelIndexValid(cfg.channel)) return false;
+        if (cfg.band < 0 || cfg.band >= bandCount) return false;
+
+        freqs[cfg.band] = cfg.cutoffFrequencyHz;
+    }
+    if (std::count(freqs.begin(), freqs.end(), -1)) return false;
+    return std::is_sorted(freqs.begin(), freqs.end());
+}
+
+bool DynamicsProcessingTestHelper::isParamValid(const DynamicsProcessing::Tag& tag,
+                                                const DynamicsProcessing& dp) {
+    switch (tag) {
+        case DynamicsProcessing::preEq: {
+            if (!mEngineConfigApplied.preEqStage.inUse) return false;
+            return isChannelConfigValid(dp.get<DynamicsProcessing::preEq>());
+        }
+        case DynamicsProcessing::postEq: {
+            if (!mEngineConfigApplied.postEqStage.inUse) return false;
+            return isChannelConfigValid(dp.get<DynamicsProcessing::postEq>());
+        }
+        case DynamicsProcessing::mbc: {
+            if (!mEngineConfigApplied.mbcStage.inUse) return false;
+            return isChannelConfigValid(dp.get<DynamicsProcessing::mbc>());
+        }
+        case DynamicsProcessing::preEqBand: {
+            if (!mEngineConfigApplied.preEqStage.inUse) return false;
+            return isEqBandConfigValid(dp.get<DynamicsProcessing::preEqBand>(),
+                                       mEngineConfigApplied.preEqStage.bandCount);
+        }
+        case DynamicsProcessing::postEqBand: {
+            if (!mEngineConfigApplied.postEqStage.inUse) return false;
+            return isEqBandConfigValid(dp.get<DynamicsProcessing::postEqBand>(),
+                                       mEngineConfigApplied.postEqStage.bandCount);
+        }
+        case DynamicsProcessing::mbcBand: {
+            if (!mEngineConfigApplied.mbcStage.inUse) return false;
+            return isMbcBandConfigValid(dp.get<DynamicsProcessing::mbcBand>(),
+                                        mEngineConfigApplied.mbcStage.bandCount);
+        }
+        case DynamicsProcessing::limiter: {
+            if (!mEngineConfigApplied.limiterInUse) return false;
+            return isLimiterConfigValid(dp.get<DynamicsProcessing::limiter>());
+        }
+        case DynamicsProcessing::inputGain: {
+            return isInputGainConfigValid(dp.get<DynamicsProcessing::inputGain>());
+        }
+        default: {
+            return true;
+        }
+    }
+    return true;
+}
 
 bool DynamicsProcessingTestHelper::isParamEqual(const DynamicsProcessing::Tag& tag,
                                                 const DynamicsProcessing& dpRef,
@@ -270,8 +557,8 @@ void DynamicsProcessingTestHelper::SetAndGetDynamicsProcessingParameters() {
         // validate parameter
         Descriptor desc;
         ASSERT_STATUS(EX_NONE, mEffect->getDescriptor(&desc));
-        const bool valid =
-                isParameterValid<DynamicsProcessing, Range::dynamicsProcessing>(dp, desc);
+        bool valid = isParamInRange(dp, desc.capability.range.get<Range::dynamicsProcessing>());
+        if (valid) valid = isParamValid(tag, dp);
         const binder_exception_t expected = valid ? EX_NONE : EX_ILLEGAL_ARGUMENT;
 
         // set parameter
@@ -429,10 +716,11 @@ INSTANTIATE_TEST_SUITE_P(
         ::testing::Combine(
                 testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
                         IFactory::descriptor, getEffectTypeUuidDynamicsProcessing())),
-                testing::Values(DynamicsProcessing::ResolutionPreference::FAVOR_TIME_RESOLUTION,
-                                DynamicsProcessing::ResolutionPreference::
-                                        FAVOR_FREQUENCY_RESOLUTION),  // variant
-                testing::Values(-10.f, 0.f, 10.f),                    // processing duration
+                testing::Values(
+                        DynamicsProcessing::ResolutionPreference::FAVOR_TIME_RESOLUTION,
+                        DynamicsProcessing::ResolutionPreference::FAVOR_FREQUENCY_RESOLUTION,
+                        static_cast<DynamicsProcessing::ResolutionPreference>(-1)),  // variant
+                testing::Values(-10.f, 0.f, 10.f),  // processing duration
                 testing::ValuesIn(
                         DynamicsProcessingTestHelper::kStageEnablementTestSet),  // preEQ/postEQ/mbc
                 testing::Bool()),                                                // limiter enable
@@ -515,12 +803,12 @@ enum LimiterConfigTestAdditionalParam {
     LIMITER_MAX_NUM,
 };
 using LimiterConfigTestAdditional = std::array<float, LIMITER_MAX_NUM>;
-// attachTime, releaseTime, ratio, thresh, postGain
+// attackTime, releaseTime, ratio, thresh, postGain
 static constexpr std::array<LimiterConfigTestAdditional, 4> kLimiterConfigTestAdditionalParam = {
         {{-1, -60, -2.5, -2, -3.14},
          {-1, 60, -2.5, 2, -3.14},
          {1, -60, 2.5, -2, 3.14},
-         {1, 60, 2.5, 2, 3.14}}};
+         {1, 60, 2.5, -2, 3.14}}};
 
 using LimiterConfigTestParams =
         std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>, int32_t, bool, int32_t, bool,
@@ -669,15 +957,13 @@ GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(DynamicsProcessingTestChannelConfi
 enum EqBandConfigTestParamName {
     EQ_BAND_INSTANCE_NAME,
     EQ_BAND_CHANNEL,
-    EQ_BAND_CHANNEL_ENABLE,
     EQ_BAND_ENABLE,
     EQ_BAND_CUT_OFF_FREQ,
     EQ_BAND_GAIN,
     EQ_BAND_STAGE_IN_USE
 };
 using EqBandConfigTestParams = std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>, int32_t,
-                                          std::vector<DynamicsProcessing::ChannelConfig>, bool,
-                                          std::vector<std::pair<int, float>>, float, bool>;
+                                          bool, std::vector<std::pair<int, float>>, float, bool>;
 
 void fillEqBandConfig(std::vector<DynamicsProcessing::EqBandConfig>& cfgs,
                       const EqBandConfigTestParams& params) {
@@ -698,8 +984,7 @@ class DynamicsProcessingTestEqBandConfig : public ::testing::TestWithParam<EqBan
   public:
     DynamicsProcessingTestEqBandConfig()
         : DynamicsProcessingTestHelper(std::get<EQ_BAND_INSTANCE_NAME>(GetParam())),
-          mStageInUse(std::get<EQ_BAND_STAGE_IN_USE>(GetParam())),
-          mChannelConfig(std::get<EQ_BAND_CHANNEL_ENABLE>(GetParam())) {
+          mStageInUse(std::get<EQ_BAND_STAGE_IN_USE>(GetParam())) {
         fillEqBandConfig(mCfgs, GetParam());
     }
 
@@ -709,14 +994,18 @@ class DynamicsProcessingTestEqBandConfig : public ::testing::TestWithParam<EqBan
 
     std::vector<DynamicsProcessing::EqBandConfig> mCfgs;
     const bool mStageInUse;
-    const std::vector<DynamicsProcessing::ChannelConfig> mChannelConfig;
 };
 
 TEST_P(DynamicsProcessingTestEqBandConfig, SetAndGetPreEqBandConfig) {
     mEngineConfigPreset.preEqStage.inUse = mStageInUse;
     mEngineConfigPreset.preEqStage.bandCount = mCfgs.size();
     EXPECT_NO_FATAL_FAILURE(addEngineConfig(mEngineConfigPreset));
-    EXPECT_NO_FATAL_FAILURE(addPreEqChannelConfig(mChannelConfig));
+    std::vector<DynamicsProcessing::ChannelConfig> cfgs(mChannelCount);
+    for (int i = 0; i < mChannelCount; i++) {
+        cfgs[i].channel = i;
+        cfgs[i].enable = true;
+    }
+    EXPECT_NO_FATAL_FAILURE(addPreEqChannelConfig(cfgs));
     EXPECT_NO_FATAL_FAILURE(addPreEqBandConfigs(mCfgs));
     SetAndGetDynamicsProcessingParameters();
 }
@@ -725,7 +1014,12 @@ TEST_P(DynamicsProcessingTestEqBandConfig, SetAndGetPostEqBandConfig) {
     mEngineConfigPreset.postEqStage.inUse = mStageInUse;
     mEngineConfigPreset.postEqStage.bandCount = mCfgs.size();
     EXPECT_NO_FATAL_FAILURE(addEngineConfig(mEngineConfigPreset));
-    EXPECT_NO_FATAL_FAILURE(addPostEqChannelConfig(mChannelConfig));
+    std::vector<DynamicsProcessing::ChannelConfig> cfgs(mChannelCount);
+    for (int i = 0; i < mChannelCount; i++) {
+        cfgs[i].channel = i;
+        cfgs[i].enable = true;
+    }
+    EXPECT_NO_FATAL_FAILURE(addPostEqChannelConfig(cfgs));
     EXPECT_NO_FATAL_FAILURE(addPostEqBandConfigs(mCfgs));
     SetAndGetDynamicsProcessingParameters();
 }
@@ -776,28 +1070,23 @@ std::vector<std::vector<std::pair<int, float>>> kBands{
 
 INSTANTIATE_TEST_SUITE_P(
         DynamicsProcessingTest, DynamicsProcessingTestEqBandConfig,
-        ::testing::Combine(
-                testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
-                        IFactory::descriptor, getEffectTypeUuidDynamicsProcessing())),
-                testing::Values(-1, 0, 10),  // channel ID
-                testing::ValuesIn(
-                        DynamicsProcessingTestHelper::kChannelConfigTestSet),  // channel enable
-                testing::Bool(),                                               // band enable
-                testing::ValuesIn(kBands),       // cut off frequencies
-                testing::Values(-3.14f, 3.14f),  // gain
-                testing::Bool()),                // stage in use
+        ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                   IFactory::descriptor, getEffectTypeUuidDynamicsProcessing())),
+                           testing::Values(-1, 0, 10),      // channel ID
+                           testing::Bool(),                 // band enable
+                           testing::ValuesIn(kBands),       // cut off frequencies
+                           testing::Values(-3.14f, 3.14f),  // gain
+                           testing::Values(true)),          // stage in use
         [](const auto& info) {
             auto descriptor = std::get<EQ_BAND_INSTANCE_NAME>(info.param).second;
             std::vector<DynamicsProcessing::EqBandConfig> cfgs;
             fillEqBandConfig(cfgs, info.param);
-            std::string enable =
-                    ::android::internal::ToString(std::get<EQ_BAND_CHANNEL_ENABLE>(info.param));
             std::string bands = ::android::internal::ToString(cfgs);
             std::string stageInUse = std::to_string(std::get<EQ_BAND_STAGE_IN_USE>(info.param));
             std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
                                descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_" + enable + "_bands_" +
-                               bands + "_stageInUse_" + stageInUse;
+                               descriptor.common.id.uuid.toString() + "_bands_" + bands +
+                               "_stageInUse_" + stageInUse;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -811,7 +1100,6 @@ GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(DynamicsProcessingTestEqBandConfig
 enum MbcBandConfigParamName {
     MBC_BAND_INSTANCE_NAME,
     MBC_BAND_CHANNEL,
-    MBC_BAND_CHANNEL_CONFIG,
     MBC_BAND_ENABLE,
     MBC_BAND_CUTOFF_FREQ,
     MBC_BAND_STAGE_IN_USE,
@@ -831,16 +1119,15 @@ enum MbcBandConfigAdditional {
 };
 using TestParamsMbcBandConfigAdditional = std::array<float, MBC_ADD_MAX_NUM>;
 
-// attachTime, releaseTime, ratio, thresh, kneeWidth, noise, expander, preGain, postGain
+// attackTime, releaseTime, ratio, thresh, kneeWidth, noise, expander, preGain, postGain
 static constexpr std::array<TestParamsMbcBandConfigAdditional, 4> kMbcBandConfigAdditionalParam = {
         {{-3, -10, -2, -2, -5, -90, -2.5, -2, -2},
          {0, 0, 0, 0, 0, 0, 0, 0, 0},
          {-3, 10, -2, 2, -5, 90, -2.5, 2, -2},
-         {3, 10, 2, 2, 5, 90, 2.5, 2, 2}}};
+         {3, 10, 2, -2, -5, 90, 2.5, 2, 2}}};
 
 using TestParamsMbcBandConfig =
-        std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>, int32_t,
-                   std::vector<DynamicsProcessing::ChannelConfig>, bool,
+        std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>, int32_t, bool,
                    std::vector<std::pair<int, float>>, bool, TestParamsMbcBandConfigAdditional>;
 
 void fillMbcBandConfig(std::vector<DynamicsProcessing::MbcBandConfig>& cfgs,
@@ -873,8 +1160,7 @@ class DynamicsProcessingTestMbcBandConfig
   public:
     DynamicsProcessingTestMbcBandConfig()
         : DynamicsProcessingTestHelper(std::get<MBC_BAND_INSTANCE_NAME>(GetParam())),
-          mStageInUse(std::get<MBC_BAND_STAGE_IN_USE>(GetParam())),
-          mChannelConfig(std::get<MBC_BAND_CHANNEL_CONFIG>(GetParam())) {
+          mStageInUse(std::get<MBC_BAND_STAGE_IN_USE>(GetParam())) {
         fillMbcBandConfig(mCfgs, GetParam());
     }
 
@@ -884,42 +1170,41 @@ class DynamicsProcessingTestMbcBandConfig
 
     std::vector<DynamicsProcessing::MbcBandConfig> mCfgs;
     const bool mStageInUse;
-    const std::vector<DynamicsProcessing::ChannelConfig> mChannelConfig;
 };
 
 TEST_P(DynamicsProcessingTestMbcBandConfig, SetAndGetMbcBandConfig) {
     mEngineConfigPreset.mbcStage.inUse = mStageInUse;
     mEngineConfigPreset.mbcStage.bandCount = mCfgs.size();
     EXPECT_NO_FATAL_FAILURE(addEngineConfig(mEngineConfigPreset));
-    EXPECT_NO_FATAL_FAILURE(addMbcChannelConfig(mChannelConfig));
+    std::vector<DynamicsProcessing::ChannelConfig> cfgs(mChannelCount);
+    for (int i = 0; i < mChannelCount; i++) {
+        cfgs[i].channel = i;
+        cfgs[i].enable = true;
+    }
+    EXPECT_NO_FATAL_FAILURE(addMbcChannelConfig(cfgs));
     EXPECT_NO_FATAL_FAILURE(addMbcBandConfigs(mCfgs));
     SetAndGetDynamicsProcessingParameters();
 }
 
 INSTANTIATE_TEST_SUITE_P(
         DynamicsProcessingTest, DynamicsProcessingTestMbcBandConfig,
-        ::testing::Combine(
-                testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
-                        IFactory::descriptor, getEffectTypeUuidDynamicsProcessing())),
-                testing::Values(-1, 0, 10),  // channel count
-                testing::ValuesIn(
-                        DynamicsProcessingTestHelper::kChannelConfigTestSet),  // channel config
-                testing::Bool(),                                               // enable
-                testing::ValuesIn(kBands),                          // cut off frequencies
-                testing::Bool(),                                    // stage in use
-                testing::ValuesIn(kMbcBandConfigAdditionalParam)),  // Additional
+        ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                   IFactory::descriptor, getEffectTypeUuidDynamicsProcessing())),
+                           testing::Values(-1, 0, 10),  // channel count
+                           testing::Bool(),             // enable
+                           testing::ValuesIn(kBands),   // cut off frequencies
+                           testing::Bool(),             // stage in use
+                           testing::ValuesIn(kMbcBandConfigAdditionalParam)),  // Additional
         [](const auto& info) {
             auto descriptor = std::get<MBC_BAND_INSTANCE_NAME>(info.param).second;
             std::vector<DynamicsProcessing::MbcBandConfig> cfgs;
             fillMbcBandConfig(cfgs, info.param);
-            std::string enable =
-                    ::android::internal::ToString(std::get<MBC_BAND_CHANNEL_CONFIG>(info.param));
             std::string mbcBands = ::android::internal::ToString(cfgs);
             std::string stageInUse = std::to_string(std::get<MBC_BAND_STAGE_IN_USE>(info.param));
             std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
                                descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_enable_" + enable +
-                               "_bands_" + mbcBands + "_stageInUse_" + stageInUse;
+                               descriptor.common.id.uuid.toString() + "_bands_" + mbcBands +
+                               "_stageInUse_" + stageInUse;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
