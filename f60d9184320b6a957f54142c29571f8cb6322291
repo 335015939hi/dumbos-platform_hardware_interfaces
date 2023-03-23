@@ -52,6 +52,24 @@
       "parentUuid": "6c3daae0_b4d95911",
       "revId": "f60d9184320b6a957f54142c29571f8cb6322291",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8015f8b0_eb79971e",
+        "filename": "secure_element/aidl/vts/VtsHalSecureElementTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2023-03-23T07:22:15Z",
+      "side": 1,
+      "message": "add a transmit case with logical channel which is expected to succeed.",
+      "parentUuid": "13d3093b_0a6bc421",
+      "revId": "f60d9184320b6a957f54142c29571f8cb6322291",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
