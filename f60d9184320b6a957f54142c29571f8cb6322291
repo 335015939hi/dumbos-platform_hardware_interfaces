@@ -70,6 +70,24 @@
       "parentUuid": "13d3093b_0a6bc421",
       "revId": "f60d9184320b6a957f54142c29571f8cb6322291",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ce157d1_25944fa0",
+        "filename": "secure_element/aidl/vts/VtsHalSecureElementTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-03-23T15:38:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8015f8b0_eb79971e",
+      "revId": "f60d9184320b6a957f54142c29571f8cb6322291",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
