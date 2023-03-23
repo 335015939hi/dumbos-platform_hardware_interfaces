@@ -95,6 +95,43 @@ class DynamicsProcessingTestHelper : public EffectHelper {
     template <typename T>
     bool isAidlVectorEqual(const std::vector<T>& source, const std::vector<T>& target);
 
+    template <typename T>
+    bool isInLimits(const T& value, const T& low, const T& high) {
+        return (value >= low) && (value <= high);
+    }
+
+    int locateMinMaxForTag(DynamicsProcessing::Tag tag,
+                           const std::vector<Range::DynamicsProcessingRange>& kRanges);
+    bool isParamInRange(const DynamicsProcessing& dp,
+                        const std::vector<Range::DynamicsProcessingRange>& kRanges);
+    bool isEngineConfigInRange(const DynamicsProcessing::EngineArchitecture& cfg,
+                               const DynamicsProcessing::EngineArchitecture& min,
+                               const DynamicsProcessing::EngineArchitecture& max);
+    bool isChannelConfigInRange(const std::vector<DynamicsProcessing::ChannelConfig>& cfgs,
+                                const DynamicsProcessing::ChannelConfig& min,
+                                const DynamicsProcessing::ChannelConfig& max);
+    bool isEqBandConfigInRange(const std::vector<DynamicsProcessing::EqBandConfig>& cfgs,
+                               const DynamicsProcessing::EqBandConfig& min,
+                               const DynamicsProcessing::EqBandConfig& max);
+    bool isMbcBandConfigInRange(const std::vector<DynamicsProcessing::MbcBandConfig>& cfgs,
+                                const DynamicsProcessing::MbcBandConfig& min,
+                                const DynamicsProcessing::MbcBandConfig& max);
+    bool isLimiterConfigInRange(const std::vector<DynamicsProcessing::LimiterConfig>& cfgs,
+                                const DynamicsProcessing::LimiterConfig& min,
+                                const DynamicsProcessing::LimiterConfig& max);
+    bool isInputGainConfigInRange(const std::vector<DynamicsProcessing::InputGain>& cfgs,
+                                  const DynamicsProcessing::InputGain& min,
+                                  const DynamicsProcessing::InputGain& max);
+    bool isParamValid(const DynamicsProcessing::Tag& tag, const DynamicsProcessing& dp);
+    bool isChannelIndexValid(int channelCount);
+    bool isChannelConfigValid(const std::vector<DynamicsProcessing::ChannelConfig>& cfgs);
+    bool isEqBandConfigValid(const std::vector<DynamicsProcessing::EqBandConfig>& cfgs,
+                             int bandCount);
+    bool isMbcBandConfigValid(const std::vector<DynamicsProcessing::MbcBandConfig>& cfgs,
+                              int bandCount);
+    bool isLimiterConfigValid(const std::vector<DynamicsProcessing::LimiterConfig>& cfgs);
+    bool isInputGainConfigValid(const std::vector<DynamicsProcessing::InputGain>& cfgs);
+
     // get set params and validate
     void SetAndGetDynamicsProcessingParameters();
 
@@ -176,6 +213,273 @@ const std::set<std::vector<DynamicsProcessing::InputGain>>
                 {{.channel = -1, .gainDb = -10.f}, {.channel = -2, .gainDb = 10.f}},
 
                 {{.channel = -1, .gainDb = 10.f}, {.channel = 0, .gainDb = -10.f}}};
+
+bool DynamicsProcessingTestHelper::isInputGainConfigInRange(
+        const std::vector<DynamicsProcessing::InputGain>& cfgs,
+        const DynamicsProcessing::InputGain& min, const DynamicsProcessing::InputGain& max) {
+    for (auto cfg : cfgs) {
+        if (!isInLimits(cfg.channel, min.channel, max.channel)) return false;
+        if (!isInLimits(cfg.gainDb, min.gainDb, max.gainDb)) return false;
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isLimiterConfigInRange(
+        const std::vector<DynamicsProcessing::LimiterConfig>& cfgs,
+        const DynamicsProcessing::LimiterConfig& min,
+        const DynamicsProcessing::LimiterConfig& max) {
+    for (auto cfg : cfgs) {
+        if (!isInLimits(cfg.channel, min.channel, max.channel)) return false;
+        if (!isInLimits(cfg.linkGroup, min.linkGroup, max.linkGroup)) return false;
+        if (!isInLimits(cfg.attackTimeMs, min.attackTimeMs, max.attackTimeMs)) return false;
+        if (!isInLimits(cfg.releaseTimeMs, min.releaseTimeMs, max.releaseTimeMs)) return false;
+        if (!isInLimits(cfg.ratio, min.ratio, max.ratio)) return false;
+        if (!isInLimits(cfg.thresholdDb, min.thresholdDb, max.thresholdDb)) return false;
+        if (!isInLimits(cfg.postGainDb, min.postGainDb, max.postGainDb)) return false;
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isMbcBandConfigInRange(
+        const std::vector<DynamicsProcessing::MbcBandConfig>& cfgs,
+        const DynamicsProcessing::MbcBandConfig& min,
+        const DynamicsProcessing::MbcBandConfig& max) {
+    for (auto cfg : cfgs) {
+        if (!isInLimits(cfg.channel, min.channel, max.channel)) return false;
+        if (!isInLimits(cfg.band, min.band, max.band)) return false;
+        if (!isInLimits(cfg.cutoffFrequencyHz, min.cutoffFrequencyHz, max.cutoffFrequencyHz)) {
+            return false;
+        }
+        if (!isInLimits(cfg.attackTimeMs, min.attackTimeMs, max.attackTimeMs)) return false;
+        if (!isInLimits(cfg.releaseTimeMs, min.releaseTimeMs, max.releaseTimeMs)) return false;
+        if (!isInLimits(cfg.ratio, min.ratio, max.ratio)) return false;
+        if (!isInLimits(cfg.thresholdDb, min.thresholdDb, max.thresholdDb)) return false;
+        if (!isInLimits(cfg.kneeWidthDb, min.kneeWidthDb, max.kneeWidthDb)) return false;
+        if (!isInLimits(cfg.noiseGateThresholdDb, min.noiseGateThresholdDb,
+                        max.noiseGateThresholdDb)) {
+            return false;
+        }
+        if (!isInLimits(cfg.expanderRatio, min.expanderRatio, max.expanderRatio)) return false;
+        if (!isInLimits(cfg.preGainDb, min.preGainDb, max.preGainDb)) return false;
+        if (!isInLimits(cfg.postGainDb, min.postGainDb, max.postGainDb)) return false;
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isEqBandConfigInRange(
+        const std::vector<DynamicsProcessing::EqBandConfig>& cfgs,
+        const DynamicsProcessing::EqBandConfig& min, const DynamicsProcessing::EqBandConfig& max) {
+    for (auto cfg : cfgs) {
+        if (!isInLimits(cfg.channel, min.channel, max.channel)) return false;
+        if (!isInLimits(cfg.band, min.band, max.band)) return false;
+        if (!isInLimits(cfg.cutoffFrequencyHz, min.cutoffFrequencyHz, max.cutoffFrequencyHz))
+            return false;
+        if (!isInLimits(cfg.gainDb, min.gainDb, max.gainDb)) return false;
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isChannelConfigInRange(
+        const std::vector<DynamicsProcessing::ChannelConfig>& cfgs,
+        const DynamicsProcessing::ChannelConfig& min,
+        const DynamicsProcessing::ChannelConfig& max) {
+    for (auto cfg : cfgs) {
+        if (!isInLimits(cfg.channel, min.channel, max.channel)) return false;
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isEngineConfigInRange(
+        const DynamicsProcessing::EngineArchitecture& cfg,
+        const DynamicsProcessing::EngineArchitecture& min,
+        const DynamicsProcessing::EngineArchitecture& max) {
+    if (!isInLimits(cfg.resolutionPreference, min.resolutionPreference, max.resolutionPreference)) {
+        return false;
+    }
+    if (!isInLimits(cfg.preferredProcessingDurationMs, min.preferredProcessingDurationMs,
+                    max.preferredProcessingDurationMs)) {
+        return false;
+    }
+    if (!isInLimits(cfg.preEqStage.bandCount, min.preEqStage.bandCount, max.preEqStage.bandCount)) {
+        return false;
+    }
+    if (!isInLimits(cfg.postEqStage.bandCount, min.postEqStage.bandCount,
+                    max.postEqStage.bandCount)) {
+        return false;
+    }
+    if (!isInLimits(cfg.mbcStage.bandCount, min.mbcStage.bandCount, max.mbcStage.bandCount)) {
+        return false;
+    }
+    return true;
+}
+
+int DynamicsProcessingTestHelper::locateMinMaxForTag(
+        DynamicsProcessing::Tag tag, const std::vector<Range::DynamicsProcessingRange>& kRanges) {
+    for (int i = 0; i < (int)kRanges.size(); i++) {
+        if (tag == kRanges[i].min.getTag() && tag == kRanges[i].max.getTag()) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+bool DynamicsProcessingTestHelper::isParamInRange(
+        const DynamicsProcessing& dp, const std::vector<Range::DynamicsProcessingRange>& kRanges) {
+    auto tag = dp.getTag();
+    int i = locateMinMaxForTag(tag, kRanges);
+    if (i == -1) return true;
+
+    switch (tag) {
+        case DynamicsProcessing::engineArchitecture: {
+            return isEngineConfigInRange(
+                    dp.get<DynamicsProcessing::engineArchitecture>(),
+                    kRanges[i].min.get<DynamicsProcessing::engineArchitecture>(),
+                    kRanges[i].max.get<DynamicsProcessing::engineArchitecture>());
+        }
+        case DynamicsProcessing::preEq: {
+            return isChannelConfigInRange(dp.get<DynamicsProcessing::preEq>(),
+                                          kRanges[i].min.get<DynamicsProcessing::preEq>()[0],
+                                          kRanges[i].max.get<DynamicsProcessing::preEq>()[0]);
+        }
+        case DynamicsProcessing::postEq: {
+            return isChannelConfigInRange(dp.get<DynamicsProcessing::postEq>(),
+                                          kRanges[i].min.get<DynamicsProcessing::postEq>()[0],
+                                          kRanges[i].max.get<DynamicsProcessing::postEq>()[0]);
+        }
+        case DynamicsProcessing::mbc: {
+            return isChannelConfigInRange(dp.get<DynamicsProcessing::mbc>(),
+                                          kRanges[i].min.get<DynamicsProcessing::mbc>()[0],
+                                          kRanges[i].max.get<DynamicsProcessing::mbc>()[0]);
+        }
+        case DynamicsProcessing::preEqBand: {
+            return isEqBandConfigInRange(dp.get<DynamicsProcessing::preEqBand>(),
+                                         kRanges[i].min.get<DynamicsProcessing::preEqBand>()[0],
+                                         kRanges[i].max.get<DynamicsProcessing::preEqBand>()[0]);
+        }
+        case DynamicsProcessing::postEqBand: {
+            return isEqBandConfigInRange(dp.get<DynamicsProcessing::postEqBand>(),
+                                         kRanges[i].min.get<DynamicsProcessing::postEqBand>()[0],
+                                         kRanges[i].max.get<DynamicsProcessing::postEqBand>()[0]);
+        }
+        case DynamicsProcessing::mbcBand: {
+            return isMbcBandConfigInRange(dp.get<DynamicsProcessing::mbcBand>(),
+                                          kRanges[i].min.get<DynamicsProcessing::mbcBand>()[0],
+                                          kRanges[i].max.get<DynamicsProcessing::mbcBand>()[0]);
+        }
+        case DynamicsProcessing::limiter: {
+            return isLimiterConfigInRange(dp.get<DynamicsProcessing::limiter>(),
+                                          kRanges[i].min.get<DynamicsProcessing::limiter>()[0],
+                                          kRanges[i].max.get<DynamicsProcessing::limiter>()[0]);
+        }
+        case DynamicsProcessing::inputGain: {
+            return isInputGainConfigInRange(dp.get<DynamicsProcessing::inputGain>(),
+                                            kRanges[i].min.get<DynamicsProcessing::inputGain>()[0],
+                                            kRanges[i].max.get<DynamicsProcessing::inputGain>()[0]);
+        }
+        default: {
+            return true;
+        }
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isChannelIndexValid(int channelCount) {
+    if (channelCount < 0 || channelCount >= mChannelCount) return false;
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isChannelConfigValid(
+        const std::vector<DynamicsProcessing::ChannelConfig>& cfgs) {
+    for (auto cfg : cfgs) {
+        if (!isChannelIndexValid(cfg.channel)) return false;
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isLimiterConfigValid(
+        const std::vector<DynamicsProcessing::LimiterConfig>& cfgs) {
+    for (auto cfg : cfgs) {
+        if (!isChannelIndexValid(cfg.channel)) return false;
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isInputGainConfigValid(
+        const std::vector<DynamicsProcessing::InputGain>& cfgs) {
+    for (auto cfg : cfgs) {
+        if (!isChannelIndexValid(cfg.channel)) return false;
+    }
+    return true;
+}
+
+bool DynamicsProcessingTestHelper::isEqBandConfigValid(
+        const std::vector<DynamicsProcessing::EqBandConfig>& cfgs, int bandCount) {
+    std::vector<float> freqs(cfgs.size(), -1);
+    for (auto cfg : cfgs) {
+        if (!isChannelIndexValid(cfg.channel)) return false;
+        if (cfg.band < 0 || cfg.band >= bandCount) return false;
+        freqs[cfg.band] = cfg.cutoffFrequencyHz;
+    }
+    if (std::count(freqs.begin(), freqs.end(), -1)) return false;
+    return std::is_sorted(freqs.begin(), freqs.end());
+}
+
+bool DynamicsProcessingTestHelper::isMbcBandConfigValid(
+        const std::vector<DynamicsProcessing::MbcBandConfig>& cfgs, int bandCount) {
+    std::vector<float> freqs(cfgs.size(), -1);
+    for (auto cfg : cfgs) {
+        if (!isChannelIndexValid(cfg.channel)) return false;
+        if (cfg.band < 0 || cfg.band >= bandCount) return false;
+
+        freqs[cfg.band] = cfg.cutoffFrequencyHz;
+    }
+    if (std::count(freqs.begin(), freqs.end(), -1)) return false;
+    return std::is_sorted(freqs.begin(), freqs.end());
+}
+
+bool DynamicsProcessingTestHelper::isParamValid(const DynamicsProcessing::Tag& tag,
+                                                const DynamicsProcessing& dp) {
+    switch (tag) {
+        case DynamicsProcessing::preEq: {
+            if (!mEngineConfigApplied.preEqStage.inUse) return false;
+            return isChannelConfigValid(dp.get<DynamicsProcessing::preEq>());
+        }
+        case DynamicsProcessing::postEq: {
+            if (!mEngineConfigApplied.postEqStage.inUse) return false;
+            return isChannelConfigValid(dp.get<DynamicsProcessing::postEq>());
+        }
+        case DynamicsProcessing::mbc: {
+            if (!mEngineConfigApplied.mbcStage.inUse) return false;
+            return isChannelConfigValid(dp.get<DynamicsProcessing::mbc>());
+        }
+        case DynamicsProcessing::preEqBand: {
+            if (!mEngineConfigApplied.preEqStage.inUse) return false;
+            return isEqBandConfigValid(dp.get<DynamicsProcessing::preEqBand>(),
+                                       mEngineConfigApplied.preEqStage.bandCount);
+        }
+        case DynamicsProcessing::postEqBand: {
+            if (!mEngineConfigApplied.postEqStage.inUse) return false;
+            return isEqBandConfigValid(dp.get<DynamicsProcessing::postEqBand>(),
+                                       mEngineConfigApplied.postEqStage.bandCount);
+        }
+        case DynamicsProcessing::mbcBand: {
+            if (!mEngineConfigApplied.mbcStage.inUse) return false;
+            return isMbcBandConfigValid(dp.get<DynamicsProcessing::mbcBand>(),
+                                        mEngineConfigApplied.mbcStage.bandCount);
+        }
+        case DynamicsProcessing::limiter: {
+            if (!mEngineConfigApplied.limiterInUse) return false;
+            return isLimiterConfigValid(dp.get<DynamicsProcessing::limiter>());
+        }
+        case DynamicsProcessing::inputGain: {
+            return isInputGainConfigValid(dp.get<DynamicsProcessing::inputGain>());
+        }
+        default: {
+            return true;
+        }
+    }
+    return true;
+}
 
 bool DynamicsProcessingTestHelper::isParamEqual(const DynamicsProcessing::Tag& tag,
                                                 const DynamicsProcessing& dpRef,
@@ -270,8 +574,8 @@ void DynamicsProcessingTestHelper::SetAndGetDynamicsProcessingParameters() {
         // validate parameter
         Descriptor desc;
         ASSERT_STATUS(EX_NONE, mEffect->getDescriptor(&desc));
-        const bool valid =
-                isParameterValid<DynamicsProcessing, Range::dynamicsProcessing>(dp, desc);
+        bool valid = isParamInRange(dp, desc.capability.range.get<Range::dynamicsProcessing>());
+        if (valid) valid = isParamValid(tag, dp);
         const binder_exception_t expected = valid ? EX_NONE : EX_ILLEGAL_ARGUMENT;
 
         // set parameter
