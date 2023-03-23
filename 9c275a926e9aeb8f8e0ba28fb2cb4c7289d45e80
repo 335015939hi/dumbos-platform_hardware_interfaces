@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa01e240_67acfd5b",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-03-23T00:45:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc22d513_89a15f12",
+      "range": {
+        "startLine": 444,
+        "startChar": 17,
+        "endLine": 444,
+        "endChar": 39
+      },
+      "revId": "9c275a926e9aeb8f8e0ba28fb2cb4c7289d45e80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0ad2ed1_f2ab8b04",
@@ -181,6 +205,30 @@
       "side": 1,
       "message": "Whoops, I read this too quickly. Will fix. Lying compiler.",
       "parentUuid": "3e2010e4_aa97d725",
+      "range": {
+        "startLine": 447,
+        "startChar": 12,
+        "endLine": 447,
+        "endChar": 27
+      },
+      "revId": "9c275a926e9aeb8f8e0ba28fb2cb4c7289d45e80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd2b2499_50d52bf0",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-03-23T00:45:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "531b7a99_90393490",
       "range": {
         "startLine": 447,
         "startChar": 12,
