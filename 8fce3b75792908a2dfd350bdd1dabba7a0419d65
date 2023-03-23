@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdd6846f_b90cb1e9",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-23T18:22:45Z",
+      "side": 1,
+      "message": "Is this the same as in aosp/2487815? In this case we should have this defined in some common place. For example, create \u0027effects\u0027 directory for the include here: hardware/interfaces/audio/aidl/common/include/, and create a static library module for the comparisons.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 88
+      },
+      "revId": "8fce3b75792908a2dfd350bdd1dabba7a0419d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
