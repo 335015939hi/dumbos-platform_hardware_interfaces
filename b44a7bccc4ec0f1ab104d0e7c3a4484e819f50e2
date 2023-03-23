@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c00ce7a_9ab4a91e",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-23T16:45:03Z",
+      "side": 1,
+      "message": "nit: I think a compile-time constant is generally better, so how about:\n\n`constexpr std::array\u003cstd::string_view, kNumTeeDeviceInfoEntries\u003e ...`",
+      "range": {
+        "startLine": 407,
+        "startChar": 26,
+        "endLine": 407,
+        "endChar": 32
+      },
+      "revId": "b44a7bccc4ec0f1ab104d0e7c3a4484e819f50e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3af13655_f67320ab",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 2
@@ -20,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8450d7ad_8f4bf24e",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-23T16:45:03Z",
+      "side": 1,
+      "message": "We should say something like \"Expected 13 or 14\" here, not just \"Expected 13\".",
+      "range": {
+        "startLine": 477,
+        "startChar": 71,
+        "endLine": 477,
+        "endChar": 82
+      },
+      "revId": "b44a7bccc4ec0f1ab104d0e7c3a4484e819f50e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a59b99ab_41599a7e",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 2
@@ -31,6 +77,24 @@
       "writtenOn": "2023-03-23T16:14:31Z",
       "side": 1,
       "message": "IIUC, if a non-TEE DeviceInfo has 14 entries, one of them could be a duplicate. Do we want to check that can\u0027t happen e.g. with a std::unique on the set of keys before counting?",
+      "revId": "b44a7bccc4ec0f1ab104d0e7c3a4484e819f50e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65641cfa_4335bef7",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-23T16:45:03Z",
+      "side": 1,
+      "message": "Nice catch! I always forget that CBOR map is actually a multimap.\n\nThe simplest way I could think of to fix this is:\n```\nstd::set\u003cstd::string_view\u003e previousKeys;\nfor (auto\u0026 [key, _] : *parsed) {\n    const std::string\u0026 keyValue \u003d key-\u003easTstr()-\u003evalue();\n    if (!previousKeys.insert(keyValue).second) {\n        error +\u003d \"Err: Duplicate device info entry: \u003c\" + keyValue + \"\u003e,\\n\";\n    }\n    ... existing code ... \n```",
+      "parentUuid": "a59b99ab_41599a7e",
       "revId": "b44a7bccc4ec0f1ab104d0e7c3a4484e819f50e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
