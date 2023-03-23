@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3af13655_f67320ab",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-03-23T16:14:31Z",
+      "side": 1,
+      "message": "nit: it\u0027s not wrong but my brain feels the need to follow the way it\u0027s expressed in the CDDL comment where the TEE requires all the entries but anything else (which happens to only be strongbox) can optionally omit the field.",
+      "revId": "b44a7bccc4ec0f1ab104d0e7c3a4484e819f50e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a59b99ab_41599a7e",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-03-23T16:14:31Z",
+      "side": 1,
+      "message": "IIUC, if a non-TEE DeviceInfo has 14 entries, one of them could be a duplicate. Do we want to check that can\u0027t happen e.g. with a std::unique on the set of keys before counting?",
+      "revId": "b44a7bccc4ec0f1ab104d0e7c3a4484e819f50e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
