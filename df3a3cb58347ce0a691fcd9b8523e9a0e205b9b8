@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3902c27_426acbb3",
+        "filename": "uwb/aidl/aidl_api/android.hardware.uwb.fira_android/current/android/hardware/uwb/fira_android/UwbVendorSessionAppConfigTlvTypes.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1974370
+      },
+      "writtenOn": "2023-03-24T04:50:46Z",
+      "side": 1,
+      "message": "discussed at below bug tracker and concluded\nhttps://partnerissuetracker.corp.google.com/issues/268762844",
+      "parentUuid": "ff4309db_2ebd723c",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 21
+      },
+      "revId": "df3a3cb58347ce0a691fcd9b8523e9a0e205b9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "770fe171_346e728a",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-21T16:48:38Z",
       "side": 1,
       "message": "Sorry, we cannot add NXP copyrights to existing AOSP codebase.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 2
+      },
+      "revId": "df3a3cb58347ce0a691fcd9b8523e9a0e205b9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96a6df3d_83026cf0",
+        "filename": "uwb/aidl/android/hardware/uwb/fira_android/UwbVendorSessionAppConfigTlvTypes.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1974370
+      },
+      "writtenOn": "2023-03-24T04:50:46Z",
+      "side": 1,
+      "message": "removed copyrights",
+      "parentUuid": "770fe171_346e728a",
       "range": {
         "startLine": 4,
         "startChar": 0,
