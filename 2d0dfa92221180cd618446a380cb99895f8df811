@@ -22,6 +22,30 @@
       },
       "revId": "2d0dfa92221180cd618446a380cb99895f8df811",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd4be37b_a3814930",
+        "filename": "health/aidl/vts/functional/VtsHalHealthTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-03-24T02:49:31Z",
+      "side": 1,
+      "message": "The result is reported from kernel and the value is not BatteryChargingPolicy.\nMight have another CL to make it clear.",
+      "parentUuid": "bb0ea486_b5b9bfb8",
+      "range": {
+        "startLine": 270,
+        "startChar": 4,
+        "endLine": 270,
+        "endChar": 62
+      },
+      "revId": "2d0dfa92221180cd618446a380cb99895f8df811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
