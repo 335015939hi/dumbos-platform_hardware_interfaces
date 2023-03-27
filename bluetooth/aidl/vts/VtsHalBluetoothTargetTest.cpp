@@ -48,6 +48,25 @@ using aidl::android::hardware::bluetooth::Status;
 using ndk::ScopedAStatus;
 using ndk::SpAIBinder;
 
+using ::bluetooth::hci::CommandBuilder;
+using ::bluetooth::hci::CommandCompleteView;
+using ::bluetooth::hci::CommandView;
+using ::bluetooth::hci::ErrorCode;
+using ::bluetooth::hci::EventView;
+using ::bluetooth::hci::LeReadLocalSupportedFeaturesBuilder;
+using ::bluetooth::hci::LeReadLocalSupportedFeaturesCompleteView;
+using ::bluetooth::hci::LeReadNumberOfSupportedAdvertisingSetsBuilder;
+using ::bluetooth::hci::LeReadNumberOfSupportedAdvertisingSetsCompleteView;
+using ::bluetooth::hci::LeReadResolvingListSizeBuilder;
+using ::bluetooth::hci::LeReadResolvingListSizeCompleteView;
+using ::bluetooth::hci::LLFeaturesBits;
+using ::bluetooth::hci::PacketView;
+using ::bluetooth::hci::ReadLocalVersionInformationBuilder;
+using ::bluetooth::hci::ReadLocalVersionInformationCompleteView;
+
+static constexpr uint8_t kMinLeAdvSetForBt5 = 16;
+static constexpr uint8_t kMinLeResolvingListForBt5 = 8;
+
 static constexpr size_t kNumHciCommandsBandwidth = 100;
 static constexpr size_t kNumScoPacketsBandwidth = 100;
 static constexpr size_t kNumAclPacketsBandwidth = 100;
@@ -158,6 +177,8 @@ class BluetoothAidlTest : public ::testing::TestWithParam<std::string> {
   void wait_for_event(bool timeout_is_error);
   void wait_for_command_complete_event(::bluetooth::hci::OpCode opCode);
   int wait_for_completed_packets_event(uint16_t handle);
+  void send_and_wait_for_cmd_complete(std::unique_ptr<CommandBuilder> cmd,
+                                      std::vector<uint8_t>& cmd_complete);
 
   // A simple test implementation of BluetoothHciCallbacks.
   class BluetoothHciCallbacks
@@ -620,6 +641,23 @@ void BluetoothAidlTest::enterLoopbackMode() {
   }
 }
 
+void BluetoothAidlTest::send_and_wait_for_cmd_complete(
+    std::unique_ptr<CommandBuilder> cmd, std::vector<uint8_t>& cmd_complete) {
+  std::vector<uint8_t> cmd_bytes = cmd->SerializeToBytes();
+  hci->sendHciCommand(cmd_bytes);
+
+  auto view = CommandView::Create(
+      PacketView<true>(std::make_shared<std::vector<uint8_t>>(cmd_bytes)));
+  ASSERT_NO_FATAL_FAILURE(wait_for_command_complete_event(view.GetOpCode()));
+
+  ASSERT_TRUE(event_queue.pop(cmd_complete));
+  auto complete_view = CommandCompleteView::Create(EventView::Create(
+      PacketView<true>(std::make_shared<std::vector<uint8_t>>(cmd_complete))));
+  ASSERT_TRUE(complete_view.IsValid());
+
+  ASSERT_EQ(view.GetOpCode(), complete_view.GetCommandOpCode());
+}
+
 // Empty test: Initialize()/Close() are called in SetUp()/TearDown().
 TEST_P(BluetoothAidlTest, InitializeAndClose) {}
 
@@ -864,6 +902,66 @@ TEST_P(BluetoothAidlTest, CallInitializeTwice) {
   ASSERT_TRUE(hci->initialize(second_cb).isOk());
   auto status = future.wait_for(std::chrono::seconds(1));
   ASSERT_EQ(status, std::future_status::ready);
+}
+
+TEST_P(BluetoothAidlTest, Cdd_C_12_1_Bluetooth5Requirements) {
+  std::vector<uint8_t> version_event;
+  send_and_wait_for_cmd_complete(ReadLocalVersionInformationBuilder::Create(),
+                                 version_event);
+  auto version_view = ReadLocalVersionInformationCompleteView::Create(
+      CommandCompleteView::Create(EventView::Create(PacketView<true>(
+          std::make_shared<std::vector<uint8_t>>(version_event)))));
+  ASSERT_TRUE(version_view.IsValid());
+  ASSERT_EQ(::bluetooth::hci::ErrorCode::SUCCESS, version_view.GetStatus());
+  auto version = version_view.GetLocalVersionInformation();
+  if (version.hci_version_ < ::bluetooth::hci::HciVersion::V_5_0) {
+    // This test does not apply to controllers below 5.0
+    return;
+  };
+  // When HCI version is 5.0, LMP version must also be at least 5.0
+  ASSERT_GE(static_cast<int>(version.lmp_version_),
+            static_cast<int>(version.hci_version_));
+
+  std::vector<uint8_t> le_features_event;
+  send_and_wait_for_cmd_complete(LeReadLocalSupportedFeaturesBuilder::Create(),
+                                 le_features_event);
+  auto le_features_view = LeReadLocalSupportedFeaturesCompleteView::Create(
+      CommandCompleteView::Create(EventView::Create(PacketView<true>(
+          std::make_shared<std::vector<uint8_t>>(le_features_event)))));
+  ASSERT_TRUE(le_features_view.IsValid());
+  ASSERT_EQ(::bluetooth::hci::ErrorCode::SUCCESS, le_features_view.GetStatus());
+  auto le_features = le_features_view.GetLeFeatures();
+  ASSERT_TRUE(le_features & static_cast<uint64_t>(LLFeaturesBits::LL_PRIVACY));
+  ASSERT_TRUE(le_features & static_cast<uint64_t>(LLFeaturesBits::LE_2M_PHY));
+  ASSERT_TRUE(le_features &
+              static_cast<uint64_t>(LLFeaturesBits::LE_CODED_PHY));
+  ASSERT_TRUE(le_features &
+              static_cast<uint64_t>(LLFeaturesBits::LE_EXTENDED_ADVERTISING));
+
+  std::vector<uint8_t> num_adv_set_event;
+  send_and_wait_for_cmd_complete(
+      LeReadNumberOfSupportedAdvertisingSetsBuilder::Create(),
+      num_adv_set_event);
+  auto num_adv_set_view =
+      LeReadNumberOfSupportedAdvertisingSetsCompleteView::Create(
+          CommandCompleteView::Create(EventView::Create(PacketView<true>(
+              std::make_shared<std::vector<uint8_t>>(num_adv_set_event)))));
+  ASSERT_TRUE(num_adv_set_view.IsValid());
+  ASSERT_EQ(::bluetooth::hci::ErrorCode::SUCCESS, num_adv_set_view.GetStatus());
+  auto num_adv_set = num_adv_set_view.GetNumberSupportedAdvertisingSets();
+  ASSERT_GE(num_adv_set, kMinLeAdvSetForBt5);
+
+  std::vector<uint8_t> num_resolving_list_event;
+  send_and_wait_for_cmd_complete(LeReadResolvingListSizeBuilder::Create(),
+                                 num_resolving_list_event);
+  auto num_resolving_list_view = LeReadResolvingListSizeCompleteView::Create(
+      CommandCompleteView::Create(EventView::Create(PacketView<true>(
+          std::make_shared<std::vector<uint8_t>>(num_resolving_list_event)))));
+  ASSERT_TRUE(num_resolving_list_view.IsValid());
+  ASSERT_EQ(::bluetooth::hci::ErrorCode::SUCCESS,
+            num_resolving_list_view.GetStatus());
+  auto num_resolving_list = num_resolving_list_view.GetResolvingListSize();
+  ASSERT_GE(num_resolving_list, kMinLeResolvingListForBt5);
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(BluetoothAidlTest);
