@@ -45,6 +45,9 @@ using ndk::SpAIBinder;
 static constexpr uint8_t kHciMinimumHciVersion = 5;
 // Bluetooth Core Specification 3.0 + HS
 static constexpr uint8_t kHciMinimumLmpVersion = 5;
+// Bluetooth Core Specification 5.0
+static constexpr uint8_t kHciBluetooth5Version = 0x9;
+static constexpr uint8_t kMinLeAdvSetForBt5 = 16;
 
 static constexpr size_t kNumHciCommandsBandwidth = 100;
 static constexpr size_t kNumScoPacketsBandwidth = 100;
@@ -59,6 +62,8 @@ static constexpr uint8_t kCommandHciShouldBeUnknown[] = {
     0xff, 0x3B, 0x08, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07};
 static constexpr uint8_t kCommandHciReadLocalVersionInformation[] = {0x01, 0x10,
                                                                      0x00};
+static constexpr uint8_t kCommandHciLeReadNumberOfSupportedAdvSets[] = {
+    0x3b, 0x20, 0x00};
 static constexpr uint8_t kCommandHciReadBufferSize[] = {0x05, 0x10, 0x00};
 static constexpr uint8_t kCommandHciWriteLoopbackModeLocal[] = {0x02, 0x18,
                                                                 0x01, 0x01};
@@ -207,6 +212,9 @@ class BluetoothAidlTest : public ::testing::TestWithParam<std::string> {
   void wait_for_event(bool timeout_is_error);
   void wait_for_command_complete_event(std::vector<uint8_t> cmd);
   int wait_for_completed_packets_event(uint16_t handle);
+
+  void sendCmdAndGetResponse(const std::vector<uint8_t>& cmd,
+                             std::vector<uint8_t>& event);
 
   // A simple test implementation of BluetoothHciCallbacks.
   class BluetoothHciCallbacks
@@ -685,6 +693,23 @@ void BluetoothAidlTest::enterLoopbackMode() {
   }
 }
 
+void BluetoothAidlTest::sendCmdAndGetResponse(const std::vector<uint8_t>& cmd,
+                                              std::vector<uint8_t>& event) {
+  hci->sendHciCommand(cmd);
+
+  ASSERT_NO_FATAL_FAILURE(wait_for_event());
+
+  ASSERT_TRUE(event_queue.pop(event));
+  // Minimum 6 bytes in result
+  ASSERT_GE(event.size(),
+            static_cast<size_t>(kEventCommandCompleteFirstParamByte));
+
+  ASSERT_EQ(kEventCommandComplete, event[kEventCodeByte]);
+  ASSERT_EQ(cmd[0], event[kEventCommandCompleteOpcodeLsByte]);
+  ASSERT_EQ(cmd[1], event[kEventCommandCompleteOpcodeLsByte + 1]);
+  ASSERT_EQ(kHciStatusSuccess, event[kEventCommandCompleteStatusByte]);
+}
+
 // Empty test: Initialize()/Close() are called in SetUp()/TearDown().
 TEST_P(BluetoothAidlTest, InitializeAndClose) {}
 
@@ -907,6 +932,35 @@ TEST_P(BluetoothAidlTest, CallInitializeTwice) {
   ASSERT_TRUE(hci->initialize(second_cb).isOk());
   auto status = future.wait_for(std::chrono::seconds(1));
   ASSERT_EQ(status, std::future_status::ready);
+}
+
+// Read and check the HCI version of the controller.
+TEST_P(BluetoothAidlTest, CddTestForBluetooth5) {
+  std::vector<uint8_t> read_local_version_cmd{
+      kCommandHciReadLocalVersionInformation,
+      kCommandHciReadLocalVersionInformation +
+          sizeof(kCommandHciReadLocalVersionInformation)};
+  std::vector<uint8_t> version_event;
+  sendCmdAndGetResponse(read_local_version_cmd, version_event);
+  ASSERT_GT(version_event.size(), kEventLocalLmpVersionByte);
+
+  if (kHciBluetooth5Version > version_event[kEventLocalHciVersionByte]) {
+    // This test does not apply to controllers below 5.0
+    return;
+  };
+  // When HCI version is 5.0, LMP version must also be 5.0
+  ASSERT_EQ(kHciBluetooth5Version, version_event[kEventLocalLmpVersionByte]);
+
+  std::vector<uint8_t> le_read_max_adv_sets{
+      kCommandHciLeReadNumberOfSupportedAdvSets,
+      kCommandHciLeReadNumberOfSupportedAdvSets +
+          sizeof(kCommandHciLeReadNumberOfSupportedAdvSets)};
+  std::vector<uint8_t> le_max_adv_set_event;
+  sendCmdAndGetResponse(le_read_max_adv_sets, le_max_adv_set_event);
+  ASSERT_GT(le_max_adv_set_event.size(), kEventCommandCompleteFirstParamByte);
+  // Must be at least 16 advertising sets
+  ASSERT_GE(le_max_adv_set_event[kEventCommandCompleteFirstParamByte],
+            kMinLeAdvSetForBt5);
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(BluetoothAidlTest);
