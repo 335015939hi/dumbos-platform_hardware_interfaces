@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cb447b8_e2f72318",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-03-28T21:07:09Z",
+      "side": 1,
+      "message": "Robolectic test are failing, that\u0027s not this CL\u0027s fault so trying again.",
+      "revId": "95b313137073dfb2332875349cf6d6d8d5fd70ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b36cd50a_7539d7d0",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-03-28T20:13:09Z",
       "side": 1,
       "message": "It seems reasonable to me that someone would link against HAL v3 HAL, but still report HW info version \u003c 3.\n\nSo I think we should reference the HW info version here, not HAL version.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 44
+      },
+      "revId": "95b313137073dfb2332875349cf6d6d8d5fd70ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fc72b89_1ccee023",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-03-28T21:07:09Z",
+      "side": 1,
+      "message": "It looks like we use this wording other places too, like device info. I\u0027m going to defer any nomenclature changes from this CL but it\u0027s true that there might be more consistent and precise wording to use throughout.",
+      "parentUuid": "b36cd50a_7539d7d0",
       "range": {
         "startLine": 147,
         "startChar": 0,
