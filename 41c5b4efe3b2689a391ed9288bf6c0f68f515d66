@@ -33,6 +33,23 @@
       "message": "Test failure due to unrelated (bluetooth) crash",
       "revId": "41c5b4efe3b2689a391ed9288bf6c0f68f515d66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c911867b_ef63d7d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1222074
+      },
+      "writtenOn": "2023-03-28T23:36:47Z",
+      "side": 1,
+      "message": "Hi Yu-Han, could you please add CR +2 vote for this CL, thanks",
+      "revId": "41c5b4efe3b2689a391ed9288bf6c0f68f515d66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
