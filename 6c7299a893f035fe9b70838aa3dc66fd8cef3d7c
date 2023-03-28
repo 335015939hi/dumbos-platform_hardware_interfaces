@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b31b2b68_af18c4bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-03-28T06:03:06Z",
+      "side": 1,
+      "message": "renamed the file to EffectRange.h",
+      "parentUuid": "88c0e23e_5b817eed",
+      "revId": "6c7299a893f035fe9b70838aa3dc66fd8cef3d7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7918b840_8e402f76",
