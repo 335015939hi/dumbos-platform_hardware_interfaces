@@ -50,6 +50,24 @@
       "message": "Apparently you need +1 from me for owners.\n\nTommy, you may need to -2 this to keep it from going in too soon.",
       "revId": "fde3ad1db59d76e27da0367139cdd367549f2ee8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee05456c_19c0aa15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-03-28T15:28:18Z",
+      "side": 1,
+      "message": "Move to unresolved for a batter visibility",
+      "parentUuid": "f0452f20_4ab91e9e",
+      "revId": "fde3ad1db59d76e27da0367139cdd367549f2ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
