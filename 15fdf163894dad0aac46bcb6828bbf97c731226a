@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26362e75_6d96cb93",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-03-28T22:39:07Z",
+      "side": 1,
+      "message": "Add ASSERT_TRUE(view.IsValid()); ?",
+      "revId": "15fdf163894dad0aac46bcb6828bbf97c731226a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d800f30_dc20f155",
         "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
         "patchSetId": 3
