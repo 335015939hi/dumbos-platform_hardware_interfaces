@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7918b840_8e402f76",
+        "filename": "audio/aidl/default/include/effect-impl/EffectLimits.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-03-28T01:12:20Z",
+      "side": 1,
+      "message": "Please add `#include \u003ctuple\u003e` for `std::get` (https://en.cppreference.com/w/cpp/utility/tuple/get) and other tuple-related stuff, and `\u003cutility\u003e` for `std::index_sequence` (http://go/cppref/cpp/utility/integer_sequence)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "6c7299a893f035fe9b70838aa3dc66fd8cef3d7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
