@@ -3,6 +3,29 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ac34d7e2_0ac88bdf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-03-28T23:50:30Z",
+      "side": 1,
+      "message": "Just to make sure we are on the same page, it is possible for us to make changes to pixel device so that they don\u0027t use CSR v1/v2. However, it isn\u0027t possible to remove CSR v1/v2 out of existence in the ecosystem. New Android platform releases are required to be backawards compatible with old vendor images. And we do test that by running new VTS tests against old HALs.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 67
+      },
+      "revId": "95b313137073dfb2332875349cf6d6d8d5fd70ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2cb447b8_e2f72318",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
