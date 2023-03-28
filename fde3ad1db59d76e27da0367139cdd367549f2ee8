@@ -68,6 +68,24 @@
       "parentUuid": "f0452f20_4ab91e9e",
       "revId": "fde3ad1db59d76e27da0367139cdd367549f2ee8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42bb3414_847ca511",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-03-28T16:44:40Z",
+      "side": 1,
+      "message": "There are too many devices and too many branches/releases. It would be ideal to wait for TEE changes to propagate everywhere. However, I don\u0027t think we can do that for every change. I say just merge it in, then we forward fix things.",
+      "parentUuid": "ee05456c_19c0aa15",
+      "revId": "fde3ad1db59d76e27da0367139cdd367549f2ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
