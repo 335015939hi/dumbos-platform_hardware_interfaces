@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b36cd50a_7539d7d0",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-28T20:13:09Z",
+      "side": 1,
+      "message": "It seems reasonable to me that someone would link against HAL v3 HAL, but still report HW info version \u003c 3.\n\nSo I think we should reference the HW info version here, not HAL version.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 44
+      },
+      "revId": "95b313137073dfb2332875349cf6d6d8d5fd70ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
