@@ -402,6 +402,9 @@ bool verify_attestation_record(int aidl_version,                       //
 
 string bin2hex(const vector<uint8_t>& data);
 X509_Ptr parse_cert_blob(const vector<uint8_t>& blob);
+void parse_root_of_trust(const vector<uint8_t>& attestation_cert,
+                         vector<uint8_t>* verified_boot_key, VerifiedBoot* verified_boot_state,
+                         bool* device_locked, vector<uint8_t>* verified_boot_hash);
 ASN1_OCTET_STRING* get_attestation_record(X509* certificate);
 vector<uint8_t> make_name_from_str(const string& name);
 void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,

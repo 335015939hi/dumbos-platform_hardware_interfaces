@@ -1906,6 +1906,20 @@ X509_Ptr parse_cert_blob(const vector<uint8_t>& blob) {
     return X509_Ptr(d2i_X509(nullptr /* allocate new */, &p, blob.size()));
 }
 
+void parse_root_of_trust(const vector<uint8_t>& attestation_cert,
+                         vector<uint8_t>* verified_boot_key, VerifiedBoot* verified_boot_state,
+                         bool* device_locked, vector<uint8_t>* verified_boot_hash) {
+    X509_Ptr cert(parse_cert_blob(attestation_cert));
+    ASSERT_TRUE(cert.get());
+
+    ASN1_OCTET_STRING* attest_rec = get_attestation_record(cert.get());
+    ASSERT_TRUE(attest_rec);
+
+    auto error = parse_root_of_trust(attest_rec->data, attest_rec->length, verified_boot_key,
+                                     verified_boot_state, device_locked, verified_boot_hash);
+    ASSERT_EQ(error, ErrorCode::OK);
+}
+
 // Extract attestation record from cert. Returned object is still part of cert; don't free it
 // separately.
 ASN1_OCTET_STRING* get_attestation_record(X509* certificate) {
