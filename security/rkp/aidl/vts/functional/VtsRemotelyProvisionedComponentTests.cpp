@@ -798,20 +798,6 @@ TEST_P(CertificateRequestV2Test, NonEmptyRequest_testKeyInProdCert) {
               BnRemotelyProvisionedComponent::STATUS_TEST_KEY_IN_PRODUCTION_REQUEST);
 }
 
-void parse_root_of_trust(const vector<uint8_t>& attestation_cert,
-                         vector<uint8_t>* verified_boot_key, VerifiedBoot* verified_boot_state,
-                         bool* device_locked, vector<uint8_t>* verified_boot_hash) {
-    X509_Ptr cert(parse_cert_blob(attestation_cert));
-    ASSERT_TRUE(cert.get());
-
-    ASN1_OCTET_STRING* attest_rec = get_attestation_record(cert.get());
-    ASSERT_TRUE(attest_rec);
-
-    auto error = parse_root_of_trust(attest_rec->data, attest_rec->length, verified_boot_key,
-                                     verified_boot_state, device_locked, verified_boot_hash);
-    ASSERT_EQ(error, ErrorCode::OK);
-}
-
 /**
  * Generate a CSR and verify DeviceInfo against IDs attested by KeyMint.
  */
