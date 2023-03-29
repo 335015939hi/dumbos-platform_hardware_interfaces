@@ -22,6 +22,30 @@
       },
       "revId": "8196bee933291201c782a268b74af9076036f243",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5852078_2e39ad4c",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-03-29T22:04:48Z",
+      "side": 1,
+      "message": "Disable the test in presubmit for now",
+      "parentUuid": "f8d93b17_a5970c19",
+      "range": {
+        "startLine": 944,
+        "startChar": 0,
+        "endLine": 947,
+        "endChar": 67
+      },
+      "revId": "8196bee933291201c782a268b74af9076036f243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
