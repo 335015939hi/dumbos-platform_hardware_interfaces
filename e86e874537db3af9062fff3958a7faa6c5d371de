@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4017170_11056d3d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-03-29T13:14:44Z",
+      "side": 1,
+      "message": "Per OOB discussion, IMHO it would be less fragile to use a function that converts ASN1_TIME to something else (e.g. time_t) and compare that something to the predefined value.",
+      "range": {
+        "startLine": 1088,
+        "startChar": 4,
+        "endLine": 1088,
+        "endChar": 75
+      },
+      "revId": "e86e874537db3af9062fff3958a7faa6c5d371de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
