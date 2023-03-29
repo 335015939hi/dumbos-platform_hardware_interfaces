@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8d93b17_a5970c19",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-03-29T07:53:26Z",
+      "side": 1,
+      "message": "AVD does not support these three features per snoop log\n\nhardware/interfaces/bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp:944: Failure\nValue of: le_features \u0026 static_cast\u003cuint64_t\u003e(LLFeaturesBits::LL_PRIVACY)\n  Actual: false\nExpected: true",
+      "range": {
+        "startLine": 944,
+        "startChar": 0,
+        "endLine": 947,
+        "endChar": 67
+      },
+      "revId": "8196bee933291201c782a268b74af9076036f243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
