@@ -48,6 +48,7 @@ class HealthShim : public BnHealth {
     ndk::ScopedAStatus setChargingPolicy(BatteryChargingPolicy in_value) override;
     ndk::ScopedAStatus getChargingPolicy(BatteryChargingPolicy* _aidl_return) override;
     ndk::ScopedAStatus getBatteryHealthData(BatteryHealthData* _aidl_return) override;
+    ndk::ScopedAStatus setFirstUsageDate(int in_value) override;
 
   private:
     ::android::sp<HidlHealth> service_;

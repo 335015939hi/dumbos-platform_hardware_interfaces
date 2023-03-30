@@ -156,6 +156,22 @@ ndk::ScopedAStatus Health::getBatteryHealthData(BatteryHealthData* out) {
     return ndk::ScopedAStatus::ok();
 }
 
+ndk::ScopedAStatus Health::setFirstUsageDate(int in_value) {
+    ::android::status_t err = battery_monitor_.setFirstUsageDate(in_value);
+
+    switch (err) {
+        case ::android::OK:
+            return ndk::ScopedAStatus::ok();
+        case ::android::NAME_NOT_FOUND:
+            return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+        case ::android::BAD_VALUE:
+            return ndk::ScopedAStatus::fromStatus(::android::INVALID_OPERATION);
+        default:
+            return ndk::ScopedAStatus::fromServiceSpecificErrorWithMessage(
+                    IHealth::STATUS_UNKNOWN, ::android::statusToString(err).c_str());
+    }
+}
+
 ndk::ScopedAStatus Health::getDiskStats(std::vector<DiskStats>*) {
     // This implementation does not support DiskStats. An implementation may extend this
     // class and override this function to support disk stats.

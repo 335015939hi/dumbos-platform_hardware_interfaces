@@ -242,4 +242,18 @@ interface IHealth {
      *           for other errors.
      */
     BatteryHealthData getBatteryHealthData();
+
+    /**
+     * Set date of first usage
+     *
+     * @return If error, return service specific error with code:
+     *         - Return exception with code EX_UNSUPPORTED_OPERATION
+     *           if this property is not supported
+     *                 (e.g. the file that stores this property does not exist),
+     *         - Return status with code INVALID_OPERATION
+     *           if the operation failed.
+     *         - Return service specific error with code STATUS_UNKNOWN
+     *           for other errors.
+     */
+    void setFirstUsageDate(int in_value);
 }

@@ -233,4 +233,9 @@ ScopedAStatus HealthShim::getBatteryHealthData(BatteryHealthData* out) {
     return ResultToStatus(Result::NOT_SUPPORTED);
 }
 
+ScopedAStatus HealthShim::setFirstUsageDate(int in_value) {
+    in_value = 0;
+    return ResultToStatus(Result::NOT_SUPPORTED);
+}
+
 }  // namespace aidl::android::hardware::health
