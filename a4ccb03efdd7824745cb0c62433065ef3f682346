@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46da677c_1d21d220",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-31T16:01:49Z",
+      "side": 0,
+      "message": "That failure behavior depends on the StrongBox definition, right? I wouldn\u0027t be surprised if `GenerateKey` passes on one implementation and fails on another.",
+      "parentUuid": "89e633ee_582ef930",
+      "revId": "a4ccb03efdd7824745cb0c62433065ef3f682346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13ea7c3b_d27921dc",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 4

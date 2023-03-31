@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c3cdfa6_5d296708",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-31T16:01:49Z",
+      "side": 1,
+      "message": "nit: `strongbox implementation`",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "98be95c58023c8f77d0614ccb5733d323545b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2b282ad2_23fcff12",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-03-31T13:42:51Z",
       "side": 1,
       "message": "subrahmanyaman@: FYI in case this affects JavaCard StrongBox.",
+      "revId": "98be95c58023c8f77d0614ccb5733d323545b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "673d57e4_29740607",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-03-31T16:01:49Z",
+      "side": 1,
+      "message": "Remove this, too?",
+      "range": {
+        "startLine": 1022,
+        "startChar": 0,
+        "endLine": 1028,
+        "endChar": 5
+      },
       "revId": "98be95c58023c8f77d0614ccb5733d323545b606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
