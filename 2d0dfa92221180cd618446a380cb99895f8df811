@@ -46,6 +46,30 @@
       },
       "revId": "2d0dfa92221180cd618446a380cb99895f8df811",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59f4fd92_88613748",
+        "filename": "health/aidl/vts/functional/VtsHalHealthTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-03-31T00:03:55Z",
+      "side": 1,
+      "message": "Hold on, the value of BatteryCharingPolicy contains:\n\n```\nenum BatteryChargingPolicy {\n    INVALID \u003d 0,\n    /**\n     * default policy\n     */\n    DEFAULT \u003d 1,\n    /**\n     * @see BatteryChargingState.LONG_LIFE\n     */\n    LONG_LIFE \u003d 2,\n    /**\n     * @see BatteryChargingState.ADAPTIVE\n     */\n    ADAPTIVE \u003d 3,\n}\n```\n\nThis seems to mismatch with \n\n```\ndefault(1), ADAPTIVE_AON(2)\nADAPTIVE_AC(3) or LONG_LIFE(4)\n```\n\nShould there be another enum for the returned value?",
+      "parentUuid": "bd4be37b_a3814930",
+      "range": {
+        "startLine": 270,
+        "startChar": 4,
+        "endLine": 270,
+        "endChar": 62
+      },
+      "revId": "2d0dfa92221180cd618446a380cb99895f8df811",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
