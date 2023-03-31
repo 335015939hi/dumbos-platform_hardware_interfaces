@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1cbc49d_c598c1a4",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-03-31T13:18:05Z",
+      "side": 0,
+      "message": "StrongBox devices don\u0027t have to support SHA1, so might some implementations legitimately reject the GenerateKey request?",
+      "revId": "a4ccb03efdd7824745cb0c62433065ef3f682346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13ea7c3b_d27921dc",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 5245,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-03-31T13:18:05Z",
+      "side": 0,
+      "message": "SHA224 need not be supported by StrongBox, so might a device legitimately reject the GenerateKey?",
+      "revId": "a4ccb03efdd7824745cb0c62433065ef3f682346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
