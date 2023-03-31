@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89e633ee_582ef930",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-03-31T15:44:25Z",
+      "side": 0,
+      "message": "Actually the KM logic is quite interesting. \nThough some blockMode/Digest/Padding are not supported by strongbox, a keyBlob with those Tags can still be generated successfully, but will be failed on begin().\nI\u0027ve ever tried to validate `Digest` on generateKey(), but failed on  `CtsKeystoreTestCases:android.keystore.cts.KeyGeneratorTest#testGenerateHonorsRequestedAuthorizations` since it expects `SHA_2_384` with AES key generation. (http://ab/I83100010142432727)\n\nMaybe we\u0027ll need to update the HAL description to align the behavior.",
+      "parentUuid": "e1cbc49d_c598c1a4",
+      "revId": "a4ccb03efdd7824745cb0c62433065ef3f682346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13ea7c3b_d27921dc",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 4
