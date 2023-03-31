@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "343962c6_b27bc1e8",
+        "filename": "uwb/aidl/default/src/serial.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1881539
+      },
+      "writtenOn": "2023-03-31T20:09:53Z",
+      "side": 1,
+      "message": "This was because I was afraid of changing with the flags of a file descriptor and give that back to tokio and one days this starting to break because now tokio requires the file descriptor to be configured differently.\n\nBut thinking about it the serial is a character device like \"/dev/null\" so it\u0027s unlikely that this will break so we will make the change.",
+      "parentUuid": "58328701_30fb88e0",
+      "revId": "eb0828af0c923a1895116b2d6312d3a1af75289a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "21c3bbe8_3329b052",
         "filename": "uwb/aidl/default/src/serial.rs",
         "patchSetId": 3
