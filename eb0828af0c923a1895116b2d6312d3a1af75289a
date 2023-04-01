@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03cc796c_16e8318b",
+        "filename": "uwb/aidl/default/src/serial.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1885151
+      },
+      "writtenOn": "2023-04-01T01:29:22Z",
+      "side": 1,
+      "message": "Udpdate on this, with the last patchset it seems the File Descriptor isn\u0027t well formated:\n```\n04-01 01:05:50.251   473   473 E android.hardware.uwb: uwb_default_hal::uwb_chip:error: Bad file descriptor (os error 9)\n```\n\nWill need more work to make it work, switching the HAL back to WIP",
+      "parentUuid": "343962c6_b27bc1e8",
+      "revId": "eb0828af0c923a1895116b2d6312d3a1af75289a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "21c3bbe8_3329b052",
         "filename": "uwb/aidl/default/src/serial.rs",
         "patchSetId": 3
