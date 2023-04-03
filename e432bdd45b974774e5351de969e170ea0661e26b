@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffca05ad_a7efee68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1416371
+      },
+      "writtenOn": "2023-04-03T23:05:22Z",
+      "side": 1,
+      "message": "I think you could clean up a bit by using `::spawn` directly rather than off a joinset, and not bothering to store the handle, but overall this is much much cleaner imo.",
+      "revId": "e432bdd45b974774e5351de969e170ea0661e26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70b8ec0e_03429696",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1416371
+      },
+      "writtenOn": "2023-04-03T23:05:22Z",
+      "side": 1,
+      "message": "If you never wait on tasks, why are you storing the joinset here?",
+      "revId": "e432bdd45b974774e5351de969e170ea0661e26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "362b4553_658a4dbf",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1416371
+      },
+      "writtenOn": "2023-04-03T23:05:22Z",
+      "side": 1,
+      "message": "Is there a reason you\u0027re not using \n\nhttps://docs.rs/tokio/latest/tokio/task/fn.spawn.html#\n\nrather than producing a JoinSet? I only see you spawning one task in the JoinSet, and never waiting on it, so the extra complexity isn\u0027t buying us anything.",
+      "revId": "e432bdd45b974774e5351de969e170ea0661e26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
