@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87e1e999_0c151c33",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-04-03T09:07:50Z",
+      "side": 0,
+      "message": "The `testGenerateHonorsRequestedAuthorizations` seems to indicate that StrongBox implementations *can* police supported HMAC digests on `generateKey`, but is that the same as saying they *have* to police supported HMAC digests on `generateKey`?\n\nI always get confused about whether KeyMint implementations are required-to or allowed-to police invalid key authorizations on `generateKey` or on use (`begin()`) -- there are other tests that allow for policing in either place (e.g. the `NoAttestKeyTest` CTS test).\n\nI agree that it would be nice if the HAL spec said what was allowed / required, but on a pragmatic level we can\u0027t require a change in behaviour for anything that\u0027s already passing xTS.\n\nSo I guess that comes back to the original question: could enabling this test for StrongBox potentially result in a VTS failure for a device that used to pass VTS?",
+      "parentUuid": "46da677c_1d21d220",
+      "revId": "a4ccb03efdd7824745cb0c62433065ef3f682346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13ea7c3b_d27921dc",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 4
