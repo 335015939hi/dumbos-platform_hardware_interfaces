@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6dc10fc5_22363b6a",
+        "filename": "uwb/aidl/default/src/serial.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1885151
+      },
+      "writtenOn": "2023-04-03T17:38:13Z",
+      "side": 1,
+      "message": "Ready for review !",
+      "parentUuid": "03cc796c_16e8318b",
+      "revId": "eb0828af0c923a1895116b2d6312d3a1af75289a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "21c3bbe8_3329b052",
         "filename": "uwb/aidl/default/src/serial.rs",
         "patchSetId": 3
