@@ -3739,6 +3739,34 @@ TEST_P(SigningOperationsTest, HmacAllDigests) {
     }
 }
 
+// Test HMAC with a large message processed in chunks.
+TEST_P(SigningOperationsTest, HmacLotsOfData) {
+    auto digest = Digest::SHA_2_256;
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .HmacKey(256)
+                                                 .Digest(digest)
+                                                 .Authorization(TAG_MIN_MAC_LENGTH, 160)))
+            << "Failed to create HMAC key with digest " << digest;
+    auto params = AuthorizationSetBuilder().Digest(digest).Authorization(TAG_MAC_LENGTH, 160);
+
+    AuthorizationSet out_params;
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, key_blob_, params, &out_params));
+
+    uint64_t max_chunk_size = 1 << 16;  // 65536
+    std::unique_ptr<std::vector<uint8_t>> big_message_data(
+            new vector(max_chunk_size, (uint8_t)0xDD));
+    std::string big_message(big_message_data->begin(), big_message_data->end());
+    int iterations = 1000;
+    for (int ii = 0; ii < iterations; ii++) {
+        string output;
+        ASSERT_EQ(ErrorCode::OK, Update(big_message, &output));
+    }
+
+    string output;
+    EXPECT_EQ(ErrorCode::OK, Finish("", &output));
+}
+
 /*
  * SigningOperationsTest.HmacSha256TooLargeMacLength
  *
