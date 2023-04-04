@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd33899b_64b3eeb0",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1881539
+      },
+      "writtenOn": "2023-04-04T01:04:44Z",
+      "side": 1,
+      "message": "To abort the task when the UwbChip is dropped, I know that right now we always store a strong reference so it should never be dropped. But for the future I don\u0027t want to have the read task to outlive the UwbChip.",
+      "parentUuid": "70b8ec0e_03429696",
+      "revId": "e432bdd45b974774e5351de969e170ea0661e26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "362b4553_658a4dbf",
         "filename": "uwb/aidl/default/src/uwb_chip.rs",
         "patchSetId": 7
