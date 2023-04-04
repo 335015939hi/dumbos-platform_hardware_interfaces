@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5adcddc1_14f69fbd",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-04-04T05:13:21Z",
+      "side": 0,
+      "message": "FYI. After enabling this test for Strongbox, it is failing for the reference Javacard KeyMint implementation.\nTo compare the min_mac_length against the digest length, the implementation checks if the digest is specified and it is equal to SHA256.\nhttps://cs.android.com/android/platform/superproject/+/master:external/libese/ready_se/google/keymint/KM200/Applet/src/com/android/javacard/keymaster/KMKeymasterApplet.java;l\u003d606",
+      "parentUuid": "87e1e999_0c151c33",
+      "revId": "a4ccb03efdd7824745cb0c62433065ef3f682346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13ea7c3b_d27921dc",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 4
@@ -85,6 +103,24 @@
       "writtenOn": "2023-03-31T13:18:05Z",
       "side": 0,
       "message": "SHA224 need not be supported by StrongBox, so might a device legitimately reject the GenerateKey?",
+      "revId": "a4ccb03efdd7824745cb0c62433065ef3f682346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2cb6db0_d687998d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 5245,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-04-04T05:13:21Z",
+      "side": 0,
+      "message": "Also it is mentioned in the specification that Strongbox must support the 2048 bit key and so it is not mandatory to support other key sizes.",
+      "parentUuid": "13ea7c3b_d27921dc",
       "revId": "a4ccb03efdd7824745cb0c62433065ef3f682346",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
