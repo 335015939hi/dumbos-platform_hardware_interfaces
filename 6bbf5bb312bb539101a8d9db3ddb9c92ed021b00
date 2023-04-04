@@ -22,6 +22,30 @@
       },
       "revId": "6bbf5bb312bb539101a8d9db3ddb9c92ed021b00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2397e541_a0f2a435",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-04-04T21:56:28Z",
+      "side": 1,
+      "message": "I don\u0027t think every change in hardware/interfaces needs to run every test that we want to add to cuttlefish. That seems like unnecessary extra tests today, and likely even more in the future.\n\n\u003e Also, see b/276962884\n\nThat would be great!",
+      "parentUuid": "103efdd9_e34f2cfa",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 3
+      },
+      "revId": "6bbf5bb312bb539101a8d9db3ddb9c92ed021b00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
