@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "103efdd9_e34f2cfa",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-04-04T21:36:25Z",
+      "side": 1,
+      "message": "can we switch this to an import of the cuttlefish TEST_MAPPING, rather than copy/paste both? Also, see b/276962884",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 3
+      },
+      "revId": "6bbf5bb312bb539101a8d9db3ddb9c92ed021b00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
