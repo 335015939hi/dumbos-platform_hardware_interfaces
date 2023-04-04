@@ -22,6 +22,30 @@
       },
       "revId": "c9fa6a8ef30704714ef1affda40e43187f7acda2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60c8b796_2751a58a",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2023-04-04T17:57:46Z",
+      "side": 0,
+      "message": "Correct. The removal of the HIDL preview stabilization wasn\u0027t complete. So I did the remaining dead code.\n\nWith that code removed, I don\u0027t need to worry about doing similar changes in the HIDL tests.",
+      "parentUuid": "efc9e1f9_522058c6",
+      "range": {
+        "startLine": 979,
+        "startChar": 9,
+        "endLine": 979,
+        "endChar": 58
+      },
+      "revId": "c9fa6a8ef30704714ef1affda40e43187f7acda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
