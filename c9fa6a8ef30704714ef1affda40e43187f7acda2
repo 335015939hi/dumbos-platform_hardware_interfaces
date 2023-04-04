@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efc9e1f9_522058c6",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1141048
+      },
+      "writtenOn": "2023-04-04T17:55:13Z",
+      "side": 0,
+      "message": "I am guessing the changes here just remove leftover/unused code?",
+      "range": {
+        "startLine": 979,
+        "startChar": 9,
+        "endLine": 979,
+        "endChar": 58
+      },
+      "revId": "c9fa6a8ef30704714ef1affda40e43187f7acda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
