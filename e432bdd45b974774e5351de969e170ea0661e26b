@@ -68,6 +68,24 @@
       "message": "Is there a reason you\u0027re not using \n\nhttps://docs.rs/tokio/latest/tokio/task/fn.spawn.html#\n\nrather than producing a JoinSet? I only see you spawning one task in the JoinSet, and never waiting on it, so the extra complexity isn\u0027t buying us anything.",
       "revId": "e432bdd45b974774e5351de969e170ea0661e26b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a93bf211_8630a5fb",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1881539
+      },
+      "writtenOn": "2023-04-04T01:05:01Z",
+      "side": 1,
+      "message": "See answer to other comment on JoinSet",
+      "parentUuid": "362b4553_658a4dbf",
+      "revId": "e432bdd45b974774e5351de969e170ea0661e26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
