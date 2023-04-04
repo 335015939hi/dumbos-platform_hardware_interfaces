@@ -22,6 +22,30 @@
       },
       "revId": "eac8bdd35ea0608de593f1c0c7bd15e9d3b0dcba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49b00df7_5c58c282",
+        "filename": "radio/aidl/vts/radio_data_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1607903
+      },
+      "writtenOn": "2023-04-04T07:09:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "714d6ec9_d49e2545",
+      "range": {
+        "startLine": 239,
+        "startChar": 67,
+        "endLine": 239,
+        "endChar": 94
+      },
+      "revId": "eac8bdd35ea0608de593f1c0c7bd15e9d3b0dcba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
