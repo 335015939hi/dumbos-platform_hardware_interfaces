@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0516c739_9b70ec93",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1885151
+      },
+      "writtenOn": "2023-04-06T16:26:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd33899b_64b3eeb0",
+      "revId": "e432bdd45b974774e5351de969e170ea0661e26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "362b4553_658a4dbf",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "See answer to other comment on JoinSet",
       "parentUuid": "362b4553_658a4dbf",
+      "revId": "e432bdd45b974774e5351de969e170ea0661e26b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b7b7c4a_7c88cab8",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1885151
+      },
+      "writtenOn": "2023-04-06T16:26:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a93bf211_8630a5fb",
       "revId": "e432bdd45b974774e5351de969e170ea0661e26b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
