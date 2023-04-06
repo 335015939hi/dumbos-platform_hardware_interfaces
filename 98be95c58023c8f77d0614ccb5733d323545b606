@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9a15fd52_d2b73c36",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-04-06T02:11:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c3cdfa6_5d296708",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "98be95c58023c8f77d0614ccb5733d323545b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2b282ad2_23fcff12",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2023-03-31T16:01:49Z",
       "side": 1,
       "message": "Remove this, too?",
+      "range": {
+        "startLine": 1022,
+        "startChar": 0,
+        "endLine": 1028,
+        "endChar": 5
+      },
+      "revId": "98be95c58023c8f77d0614ccb5733d323545b606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87ef3954_c8a7c98d",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-04-06T02:11:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "673d57e4_29740607",
       "range": {
         "startLine": 1022,
         "startChar": 0,
