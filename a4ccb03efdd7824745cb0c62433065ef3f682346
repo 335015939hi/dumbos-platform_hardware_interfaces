@@ -108,6 +108,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a62883fd_bbb779cc",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-04-06T05:58:01Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "6573ad9b_5390acfa",
+      "revId": "a4ccb03efdd7824745cb0c62433065ef3f682346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13ea7c3b_d27921dc",
@@ -139,6 +157,24 @@
       "side": 0,
       "message": "Also it is mentioned in the specification that Strongbox must support the 2048 bit key and so it is not mandatory to support other key sizes.",
       "parentUuid": "13ea7c3b_d27921dc",
+      "revId": "a4ccb03efdd7824745cb0c62433065ef3f682346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "360d89d7_2e2dafa8",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 5245,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-04-06T05:58:01Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "b2cb6db0_d687998d",
       "revId": "a4ccb03efdd7824745cb0c62433065ef3f682346",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
