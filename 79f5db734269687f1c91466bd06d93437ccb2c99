@@ -16,6 +16,121 @@
       "message": "Looking into the presubmit test case failure...",
       "revId": "79f5db734269687f1c91466bd06d93437ccb2c99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff4fd553_a78881ee",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-04-10T21:41:23Z",
+      "side": 1,
+      "message": "This `include` seems to be superfluous, both files are at the same location:\n\nhardware/interfaces/audio/aidl/default/include/effect-impl/EffectThread.h\nhardware/interfaces/audio/aidl/default/include/effect-impl/EffectTypes.h",
+      "range": {
+        "startLine": 26,
+        "startChar": 10,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "79f5db734269687f1c91466bd06d93437ccb2c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b557dc0_6227143b",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-04-10T21:41:23Z",
+      "side": 1,
+      "message": "I don\u0027t see a write to `statusMQ` queue anywhere near, and the comment says \"wait for commands\", implying that the FMQ is empty. Why do we set `NotEmpty`?",
+      "range": {
+        "startLine": 63,
+        "startChar": 23,
+        "endLine": 63,
+        "endChar": 41
+      },
+      "revId": "79f5db734269687f1c91466bd06d93437ccb2c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bd39629_d1941793",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-04-10T21:41:23Z",
+      "side": 1,
+      "message": "Is the comment accurate? If it\u0027s true then why do we need to wait on each loop iteration? Should the wait be moved before the loop?",
+      "range": {
+        "startLine": 119,
+        "startChar": 56,
+        "endLine": 120,
+        "endChar": 51
+      },
+      "revId": "79f5db734269687f1c91466bd06d93437ccb2c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de6ee2c6_d16d1b5e",
+        "filename": "audio/aidl/default/include/effect-impl/EffectThread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-04-10T21:41:23Z",
+      "side": 1,
+      "message": "Alignment with a private constant in another module is extremely fragile. Ideally, this flag should be defined in AIDL. However, since it\u0027s frozen, we need to put this flag into some shared header file.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 53
+      },
+      "revId": "79f5db734269687f1c91466bd06d93437ccb2c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96f90e3e_0ca398c1",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-04-10T21:41:23Z",
+      "side": 1,
+      "message": "This is also fragile.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 27
+      },
+      "revId": "79f5db734269687f1c91466bd06d93437ccb2c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
