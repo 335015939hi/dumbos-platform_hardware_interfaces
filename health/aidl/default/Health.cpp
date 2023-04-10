@@ -131,9 +131,9 @@ ndk::ScopedAStatus Health::setChargingPolicy(BatteryChargingPolicy in_value) {
     }
 }
 
-ndk::ScopedAStatus Health::getChargingPolicy(BatteryChargingPolicy* out) {
+ndk::ScopedAStatus Health::getChargingPolicy(BatteryChargingPolicyEnum* out) {
     return GetProperty(&battery_monitor_, ::android::BATTERY_PROP_CHARGING_POLICY,
-                       BatteryChargingPolicy::DEFAULT, out);
+                       BatteryChargingPolicyEnum::DEFAULT, out);
 }
 
 ndk::ScopedAStatus Health::getBatteryHealthData(BatteryHealthData* out) {

@@ -17,7 +17,7 @@
 package android.hardware.health;
 
 import android.hardware.health.BatteryCapacityLevel;
-import android.hardware.health.BatteryChargingPolicy;
+import android.hardware.health.BatteryChargingPolicyEnum;
 import android.hardware.health.BatteryChargingState;
 import android.hardware.health.BatteryHealth;
 import android.hardware.health.BatteryHealthData;
@@ -143,7 +143,7 @@ parcelable HealthInfo {
     /**
      * Battery charging policy. See {@link BatteryChargingPolicy} for more details.
      */
-    BatteryChargingPolicy chargingPolicy;
+    BatteryChargingPolicyEnum chargingPolicy;
     /**
      * Battery health data
      */

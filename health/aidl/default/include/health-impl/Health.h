@@ -73,7 +73,7 @@ class Health : public BnHealth, public HalHealthLoopCallback {
     ndk::ScopedAStatus getStorageInfo(std::vector<StorageInfo>* out) override;
 
     ndk::ScopedAStatus setChargingPolicy(BatteryChargingPolicy in_value) override;
-    ndk::ScopedAStatus getChargingPolicy(BatteryChargingPolicy* out) override;
+    ndk::ScopedAStatus getChargingPolicy(BatteryChargingPolicyEnum* out) override;
     ndk::ScopedAStatus getBatteryHealthData(BatteryHealthData* out) override;
 
     // A subclass may override these to provide a different implementation.
