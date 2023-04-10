@@ -50,6 +50,7 @@ using aidl::android::media::audio::common::AudioFormatDescription;
 using aidl::android::media::audio::common::AudioFormatType;
 using aidl::android::media::audio::common::AudioUuid;
 using aidl::android::media::audio::common::PcmType;
+using ::android::hardware::EventFlag;
 
 const AudioFormatDescription kDefaultFormatDescription = {
         .type = AudioFormatType::PCM, .pcm = PcmType::FLOAT_32_BIT, .encoding = ""};
@@ -151,6 +152,12 @@ class EffectHelper {
         auto bufferFloats = buffer.size();
         auto floatsToWrite = std::min(available, bufferFloats);
         ASSERT_TRUE(mq->write(buffer.data(), floatsToWrite));
+
+        EventFlag* efGroup;
+        ASSERT_EQ(::android::OK, EventFlag::createEventFlag(mq->getEventFlagWord(), &efGroup));
+        ASSERT_NE(nullptr, efGroup);
+        efGroup->wake(0x1);
+        ASSERT_EQ(::android::OK, EventFlag::deleteEventFlag(&efGroup));
     }
     static void readFromFmq(std::unique_ptr<StatusMQ>& statusMq, size_t statusNum,
                             std::unique_ptr<DataMQ>& dataMq, size_t expectFloats,
