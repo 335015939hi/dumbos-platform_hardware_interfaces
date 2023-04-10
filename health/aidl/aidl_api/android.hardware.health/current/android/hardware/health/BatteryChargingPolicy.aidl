@@ -34,8 +34,9 @@
 package android.hardware.health;
 @Backing(type="int") @VintfStability
 enum BatteryChargingPolicy {
-  INVALID = 0,
-  DEFAULT = 1,
-  LONG_LIFE = 2,
-  ADAPTIVE = 3,
+  CHARGING_POLICY_INVALID = 0,
+  CHARGING_POLICY_DEFAULT = 1,
+  CHARGING_POLICY_ADAPTIVE_AON = 2,
+  CHARGING_POLICY_ADAPTIVE_AC = 3,
+  CHARGING_POLICY_ADAPTIVE_LONGLIFE = 4,
 }

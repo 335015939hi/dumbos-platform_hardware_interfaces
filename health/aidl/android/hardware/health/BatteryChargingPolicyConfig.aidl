@@ -17,26 +17,22 @@
 package android.hardware.health;
 
 /**
- * Return value of battery charging policy.
+ * Battery charging policy.
  */
 @VintfStability
 @Backing(type="int")
-enum BatteryChargingPolicy {
-    CHARGING_POLICY_INVALID = 0,
+enum BatteryChargingPolicyConfig {
+    INVALID = 0,
     /**
      * default policy
      */
-    CHARGING_POLICY_DEFAULT = 1,
-    /**
-     * @see BatteryChargingState.ADAPTIVE
-     */
-    CHARGING_POLICY_ADAPTIVE_AON = 2,
-    /**
-     * ADAPTIVE charging which is triggered by alarm
-     */
-    CHARGING_POLICY_ADAPTIVE_AC = 3,
+    DEFAULT = 1,
     /**
      * @see BatteryChargingState.LONG_LIFE
      */
-    CHARGING_POLICY_ADAPTIVE_LONGLIFE = 4,
+    LONG_LIFE = 2,
+    /**
+     * @see BatteryChargingState.ADAPTIVE
+     */
+    ADAPTIVE = 3,
 }

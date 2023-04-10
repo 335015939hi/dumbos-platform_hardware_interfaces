@@ -217,8 +217,8 @@ ScopedAStatus HealthShim::getHealthInfo(HealthInfo* out) {
     return ReturnAndResultToStatus(ret, out_result);
 }
 
-ScopedAStatus HealthShim::setChargingPolicy(BatteryChargingPolicy in_value) {
-    in_value = static_cast<BatteryChargingPolicy>(0);
+ScopedAStatus HealthShim::setChargingPolicy(BatteryChargingPolicyConfig in_value) {
+    in_value = static_cast<BatteryChargingPolicyConfig>(0);
     return ResultToStatus(Result::NOT_SUPPORTED);
 }
 
@@ -230,6 +230,7 @@ ScopedAStatus HealthShim::getChargingPolicy(BatteryChargingPolicy* out) {
 ScopedAStatus HealthShim::getBatteryHealthData(BatteryHealthData* out) {
     out->batteryManufacturingDateSeconds = 0;
     out->batteryFirstUsageSeconds = 0;
+    out->batteryStateOfHealth = 0;
     return ResultToStatus(Result::NOT_SUPPORTED);
 }
 

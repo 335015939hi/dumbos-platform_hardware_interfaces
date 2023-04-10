@@ -17,6 +17,7 @@
 package android.hardware.health;
 
 import android.hardware.health.BatteryChargingPolicy;
+import android.hardware.health.BatteryChargingPolicyConfig;
 import android.hardware.health.BatteryHealthData;
 import android.hardware.health.BatteryStatus;
 import android.hardware.health.DiskStats;
@@ -215,7 +216,7 @@ interface IHealth {
      *         - Return service specific error with code STATUS_UNKNOWN
      *           for other errors.
      */
-    void setChargingPolicy(BatteryChargingPolicy in_value);
+    void setChargingPolicy(BatteryChargingPolicyConfig in_value);
 
     /**
      * Get current battery charging policy

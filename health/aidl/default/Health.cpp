@@ -115,7 +115,7 @@ ndk::ScopedAStatus Health::getChargeStatus(BatteryStatus* out) {
                        BatteryStatus::UNKNOWN, out);
 }
 
-ndk::ScopedAStatus Health::setChargingPolicy(BatteryChargingPolicy in_value) {
+ndk::ScopedAStatus Health::setChargingPolicy(BatteryChargingPolicyConfig in_value) {
     ::android::status_t err = battery_monitor_.setChargingPolicy(static_cast<int>(in_value));
 
     switch (err) {
@@ -133,7 +133,7 @@ ndk::ScopedAStatus Health::setChargingPolicy(BatteryChargingPolicy in_value) {
 
 ndk::ScopedAStatus Health::getChargingPolicy(BatteryChargingPolicy* out) {
     return GetProperty(&battery_monitor_, ::android::BATTERY_PROP_CHARGING_POLICY,
-                       BatteryChargingPolicy::DEFAULT, out);
+                       BatteryChargingPolicy::CHARGING_POLICY_DEFAULT, out);
 }
 
 ndk::ScopedAStatus Health::getBatteryHealthData(BatteryHealthData* out) {

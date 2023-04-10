@@ -45,7 +45,7 @@ class HealthShim : public BnHealth {
     ndk::ScopedAStatus getStorageInfo(std::vector<StorageInfo>* _aidl_return) override;
     ndk::ScopedAStatus getDiskStats(std::vector<DiskStats>* _aidl_return) override;
     ndk::ScopedAStatus getHealthInfo(HealthInfo* _aidl_return) override;
-    ndk::ScopedAStatus setChargingPolicy(BatteryChargingPolicy in_value) override;
+    ndk::ScopedAStatus setChargingPolicy(BatteryChargingPolicyConfig in_value) override;
     ndk::ScopedAStatus getChargingPolicy(BatteryChargingPolicy* _aidl_return) override;
     ndk::ScopedAStatus getBatteryHealthData(BatteryHealthData* _aidl_return) override;
 
