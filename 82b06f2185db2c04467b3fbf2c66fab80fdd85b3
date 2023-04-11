@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "649689c3_43ab7ba6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-04-11T05:59:08Z",
+      "side": 1,
+      "message": "I only have concern about the naming -- @smoreland@google.com any suggestions?",
+      "revId": "82b06f2185db2c04467b3fbf2c66fab80fdd85b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c56771e7_cff999f7",
+        "filename": "health/aidl/android/hardware/health/BatteryChargingPolicyEnum.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-04-11T05:59:08Z",
+      "side": 1,
+      "message": "@smoreland@google.com do you have a better suggestion of the name here? There\u0027s an enum for input values (setBatteryChargingPolicy) and there\u0027s an enum for output values, but the meanings of each value is different, so two enums are needed.",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "82b06f2185db2c04467b3fbf2c66fab80fdd85b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
