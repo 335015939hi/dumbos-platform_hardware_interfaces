@@ -63,6 +63,30 @@
       },
       "revId": "82b06f2185db2c04467b3fbf2c66fab80fdd85b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ac9a24b_9dc8fef4",
+        "filename": "health/aidl/android/hardware/health/BatteryChargingPolicyEnum.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1653796
+      },
+      "writtenOn": "2023-04-11T11:33:28Z",
+      "side": 1,
+      "message": "Thanks for the advice! Using BatteryChargingPolicyConfig (renamed from BatteryChargingPolicy) for setBatteryChargingPolicy and BatteryChargingPolicy (new enum) for getBatteryChargingPolicy sounds better. update the CL.",
+      "parentUuid": "e6daead7_6031da0f",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "82b06f2185db2c04467b3fbf2c66fab80fdd85b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
