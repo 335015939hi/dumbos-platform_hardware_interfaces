@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "249154f9_679065ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1358281
+      },
+      "writtenOn": "2023-04-11T21:21:05Z",
+      "side": 1,
+      "message": "This was merged into Android T+. This CL cherry-picks it to android12-gsi",
+      "revId": "46241a628da3f4ebfa9a7c351b91fe2b171027df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
