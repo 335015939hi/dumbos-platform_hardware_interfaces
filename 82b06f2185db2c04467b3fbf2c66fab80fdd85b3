@@ -39,6 +39,30 @@
       },
       "revId": "82b06f2185db2c04467b3fbf2c66fab80fdd85b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6daead7_6031da0f",
+        "filename": "health/aidl/android/hardware/health/BatteryChargingPolicyEnum.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-04-11T06:05:37Z",
+      "side": 1,
+      "message": "Some suggestions:\n\n- `getBatteryChargingPolicy(ReturnedBatteryChargingPolicy)` and `setBatteryChargingPolicy(BatteryChargingPolicy)`\n- `getBatteryChargingPolicy(BatteryChargingPolicy)` and `setBatteryChargingPolicy(BatteryChargingPolicyConfig)`\n- Both uses BatteryChargingPolicy, but change the enum names to `INVALID`, `DEFAULT`, `LONG_LIFE`, `ADAPTIVE`, `ADAPTIVE_AON` and `ADAPTIVE_AC`; the first four can be used for setting, and the first 3 + the last 2 can be used for getting.",
+      "parentUuid": "c56771e7_cff999f7",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "82b06f2185db2c04467b3fbf2c66fab80fdd85b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
